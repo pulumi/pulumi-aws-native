@@ -1028,6 +1028,162 @@ func (o BucketTagArrayOutput) Index(i pulumi.IntInput) BucketTagOutput {
 	}).(BucketTagOutput)
 }
 
+type EndpointFailedReason struct {
+	// The failure code, if any, for a create or delete endpoint operation.
+	ErrorCode *string `pulumi:"errorCode"`
+	// Additional error details describing the endpoint failure and recommended action.
+	Message *string `pulumi:"message"`
+}
+
+// EndpointFailedReasonInput is an input type that accepts EndpointFailedReasonArgs and EndpointFailedReasonOutput values.
+// You can construct a concrete instance of `EndpointFailedReasonInput` via:
+//
+//	EndpointFailedReasonArgs{...}
+type EndpointFailedReasonInput interface {
+	pulumi.Input
+
+	ToEndpointFailedReasonOutput() EndpointFailedReasonOutput
+	ToEndpointFailedReasonOutputWithContext(context.Context) EndpointFailedReasonOutput
+}
+
+type EndpointFailedReasonArgs struct {
+	// The failure code, if any, for a create or delete endpoint operation.
+	ErrorCode pulumi.StringPtrInput `pulumi:"errorCode"`
+	// Additional error details describing the endpoint failure and recommended action.
+	Message pulumi.StringPtrInput `pulumi:"message"`
+}
+
+func (EndpointFailedReasonArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointFailedReason)(nil)).Elem()
+}
+
+func (i EndpointFailedReasonArgs) ToEndpointFailedReasonOutput() EndpointFailedReasonOutput {
+	return i.ToEndpointFailedReasonOutputWithContext(context.Background())
+}
+
+func (i EndpointFailedReasonArgs) ToEndpointFailedReasonOutputWithContext(ctx context.Context) EndpointFailedReasonOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointFailedReasonOutput)
+}
+
+func (i EndpointFailedReasonArgs) ToEndpointFailedReasonPtrOutput() EndpointFailedReasonPtrOutput {
+	return i.ToEndpointFailedReasonPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointFailedReasonArgs) ToEndpointFailedReasonPtrOutputWithContext(ctx context.Context) EndpointFailedReasonPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointFailedReasonOutput).ToEndpointFailedReasonPtrOutputWithContext(ctx)
+}
+
+// EndpointFailedReasonPtrInput is an input type that accepts EndpointFailedReasonArgs, EndpointFailedReasonPtr and EndpointFailedReasonPtrOutput values.
+// You can construct a concrete instance of `EndpointFailedReasonPtrInput` via:
+//
+//	        EndpointFailedReasonArgs{...}
+//
+//	or:
+//
+//	        nil
+type EndpointFailedReasonPtrInput interface {
+	pulumi.Input
+
+	ToEndpointFailedReasonPtrOutput() EndpointFailedReasonPtrOutput
+	ToEndpointFailedReasonPtrOutputWithContext(context.Context) EndpointFailedReasonPtrOutput
+}
+
+type endpointFailedReasonPtrType EndpointFailedReasonArgs
+
+func EndpointFailedReasonPtr(v *EndpointFailedReasonArgs) EndpointFailedReasonPtrInput {
+	return (*endpointFailedReasonPtrType)(v)
+}
+
+func (*endpointFailedReasonPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointFailedReason)(nil)).Elem()
+}
+
+func (i *endpointFailedReasonPtrType) ToEndpointFailedReasonPtrOutput() EndpointFailedReasonPtrOutput {
+	return i.ToEndpointFailedReasonPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointFailedReasonPtrType) ToEndpointFailedReasonPtrOutputWithContext(ctx context.Context) EndpointFailedReasonPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointFailedReasonPtrOutput)
+}
+
+type EndpointFailedReasonOutput struct{ *pulumi.OutputState }
+
+func (EndpointFailedReasonOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointFailedReason)(nil)).Elem()
+}
+
+func (o EndpointFailedReasonOutput) ToEndpointFailedReasonOutput() EndpointFailedReasonOutput {
+	return o
+}
+
+func (o EndpointFailedReasonOutput) ToEndpointFailedReasonOutputWithContext(ctx context.Context) EndpointFailedReasonOutput {
+	return o
+}
+
+func (o EndpointFailedReasonOutput) ToEndpointFailedReasonPtrOutput() EndpointFailedReasonPtrOutput {
+	return o.ToEndpointFailedReasonPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointFailedReasonOutput) ToEndpointFailedReasonPtrOutputWithContext(ctx context.Context) EndpointFailedReasonPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointFailedReason) *EndpointFailedReason {
+		return &v
+	}).(EndpointFailedReasonPtrOutput)
+}
+
+// The failure code, if any, for a create or delete endpoint operation.
+func (o EndpointFailedReasonOutput) ErrorCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointFailedReason) *string { return v.ErrorCode }).(pulumi.StringPtrOutput)
+}
+
+// Additional error details describing the endpoint failure and recommended action.
+func (o EndpointFailedReasonOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointFailedReason) *string { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+type EndpointFailedReasonPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointFailedReasonPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointFailedReason)(nil)).Elem()
+}
+
+func (o EndpointFailedReasonPtrOutput) ToEndpointFailedReasonPtrOutput() EndpointFailedReasonPtrOutput {
+	return o
+}
+
+func (o EndpointFailedReasonPtrOutput) ToEndpointFailedReasonPtrOutputWithContext(ctx context.Context) EndpointFailedReasonPtrOutput {
+	return o
+}
+
+func (o EndpointFailedReasonPtrOutput) Elem() EndpointFailedReasonOutput {
+	return o.ApplyT(func(v *EndpointFailedReason) EndpointFailedReason {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointFailedReason
+		return ret
+	}).(EndpointFailedReasonOutput)
+}
+
+// The failure code, if any, for a create or delete endpoint operation.
+func (o EndpointFailedReasonPtrOutput) ErrorCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointFailedReason) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ErrorCode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Additional error details describing the endpoint failure and recommended action.
+func (o EndpointFailedReasonPtrOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointFailedReason) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Message
+	}).(pulumi.StringPtrOutput)
+}
+
 // The container for the network interface.
 type EndpointNetworkInterface struct {
 	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
@@ -1088,6 +1244,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketRuleFilterPropertiesPtrInput)(nil)).Elem(), BucketRuleFilterPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketTagInput)(nil)).Elem(), BucketTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketTagArrayInput)(nil)).Elem(), BucketTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointFailedReasonInput)(nil)).Elem(), EndpointFailedReasonArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointFailedReasonPtrInput)(nil)).Elem(), EndpointFailedReasonArgs{})
 	pulumi.RegisterOutputType(AccessPointVpcConfigurationOutput{})
 	pulumi.RegisterOutputType(BucketAbortIncompleteMultipartUploadOutput{})
 	pulumi.RegisterOutputType(BucketAbortIncompleteMultipartUploadPtrOutput{})
@@ -1103,6 +1261,8 @@ func init() {
 	pulumi.RegisterOutputType(BucketRuleFilterPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(BucketTagOutput{})
 	pulumi.RegisterOutputType(BucketTagArrayOutput{})
+	pulumi.RegisterOutputType(EndpointFailedReasonOutput{})
+	pulumi.RegisterOutputType(EndpointFailedReasonPtrOutput{})
 	pulumi.RegisterOutputType(EndpointNetworkInterfaceOutput{})
 	pulumi.RegisterOutputType(EndpointNetworkInterfaceArrayOutput{})
 }

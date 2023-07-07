@@ -8,7 +8,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
 
 __all__ = [
     'GetPermissionsResult',
@@ -19,10 +18,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetPermissionsResult:
-    def __init__(__self__, data_lake_principal=None, id=None, permissions=None, permissions_with_grant_option=None, resource=None):
-        if data_lake_principal and not isinstance(data_lake_principal, dict):
-            raise TypeError("Expected argument 'data_lake_principal' to be a dict")
-        pulumi.set(__self__, "data_lake_principal", data_lake_principal)
+    def __init__(__self__, id=None, permissions=None, permissions_with_grant_option=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -32,14 +28,6 @@ class GetPermissionsResult:
         if permissions_with_grant_option and not isinstance(permissions_with_grant_option, list):
             raise TypeError("Expected argument 'permissions_with_grant_option' to be a list")
         pulumi.set(__self__, "permissions_with_grant_option", permissions_with_grant_option)
-        if resource and not isinstance(resource, dict):
-            raise TypeError("Expected argument 'resource' to be a dict")
-        pulumi.set(__self__, "resource", resource)
-
-    @property
-    @pulumi.getter(name="dataLakePrincipal")
-    def data_lake_principal(self) -> Optional['outputs.PermissionsDataLakePrincipal']:
-        return pulumi.get(self, "data_lake_principal")
 
     @property
     @pulumi.getter
@@ -56,11 +44,6 @@ class GetPermissionsResult:
     def permissions_with_grant_option(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "permissions_with_grant_option")
 
-    @property
-    @pulumi.getter
-    def resource(self) -> Optional['outputs.PermissionsResource']:
-        return pulumi.get(self, "resource")
-
 
 class AwaitableGetPermissionsResult(GetPermissionsResult):
     # pylint: disable=using-constant-test
@@ -68,11 +51,9 @@ class AwaitableGetPermissionsResult(GetPermissionsResult):
         if False:
             yield self
         return GetPermissionsResult(
-            data_lake_principal=self.data_lake_principal,
             id=self.id,
             permissions=self.permissions,
-            permissions_with_grant_option=self.permissions_with_grant_option,
-            resource=self.resource)
+            permissions_with_grant_option=self.permissions_with_grant_option)
 
 
 def get_permissions(id: Optional[str] = None,
@@ -86,11 +67,9 @@ def get_permissions(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:lakeformation:getPermissions', __args__, opts=opts, typ=GetPermissionsResult).value
 
     return AwaitableGetPermissionsResult(
-        data_lake_principal=__ret__.data_lake_principal,
         id=__ret__.id,
         permissions=__ret__.permissions,
-        permissions_with_grant_option=__ret__.permissions_with_grant_option,
-        resource=__ret__.resource)
+        permissions_with_grant_option=__ret__.permissions_with_grant_option)
 
 
 @_utilities.lift_output_func(get_permissions)

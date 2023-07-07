@@ -5,10 +5,20 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { DocumentClassifierArgs } from "./documentClassifier";
+export type DocumentClassifier = import("./documentClassifier").DocumentClassifier;
+export const DocumentClassifier: typeof import("./documentClassifier").DocumentClassifier = null as any;
+utilities.lazyLoad(exports, ["DocumentClassifier"], () => require("./documentClassifier"));
+
 export { FlywheelArgs } from "./flywheel";
 export type Flywheel = import("./flywheel").Flywheel;
 export const Flywheel: typeof import("./flywheel").Flywheel = null as any;
 utilities.lazyLoad(exports, ["Flywheel"], () => require("./flywheel"));
+
+export { GetDocumentClassifierArgs, GetDocumentClassifierResult, GetDocumentClassifierOutputArgs } from "./getDocumentClassifier";
+export const getDocumentClassifier: typeof import("./getDocumentClassifier").getDocumentClassifier = null as any;
+export const getDocumentClassifierOutput: typeof import("./getDocumentClassifier").getDocumentClassifierOutput = null as any;
+utilities.lazyLoad(exports, ["getDocumentClassifier","getDocumentClassifierOutput"], () => require("./getDocumentClassifier"));
 
 export { GetFlywheelArgs, GetFlywheelResult, GetFlywheelOutputArgs } from "./getFlywheel";
 export const getFlywheel: typeof import("./getFlywheel").getFlywheel = null as any;
@@ -23,6 +33,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:comprehend:DocumentClassifier":
+                return new DocumentClassifier(name, <any>undefined, { urn })
             case "aws-native:comprehend:Flywheel":
                 return new Flywheel(name, <any>undefined, { urn })
             default:

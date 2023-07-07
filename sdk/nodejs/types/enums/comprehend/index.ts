@@ -2,6 +2,66 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const DocumentClassifierAugmentedManifestsListItemSplit = {
+    Train: "TRAIN",
+    Test: "TEST",
+} as const;
+
+export type DocumentClassifierAugmentedManifestsListItemSplit = (typeof DocumentClassifierAugmentedManifestsListItemSplit)[keyof typeof DocumentClassifierAugmentedManifestsListItemSplit];
+
+export const DocumentClassifierDocumentReaderConfigDocumentReadAction = {
+    TextractDetectDocumentText: "TEXTRACT_DETECT_DOCUMENT_TEXT",
+    TextractAnalyzeDocument: "TEXTRACT_ANALYZE_DOCUMENT",
+} as const;
+
+export type DocumentClassifierDocumentReaderConfigDocumentReadAction = (typeof DocumentClassifierDocumentReaderConfigDocumentReadAction)[keyof typeof DocumentClassifierDocumentReaderConfigDocumentReadAction];
+
+export const DocumentClassifierDocumentReaderConfigDocumentReadMode = {
+    ServiceDefault: "SERVICE_DEFAULT",
+    ForceDocumentReadAction: "FORCE_DOCUMENT_READ_ACTION",
+} as const;
+
+export type DocumentClassifierDocumentReaderConfigDocumentReadMode = (typeof DocumentClassifierDocumentReaderConfigDocumentReadMode)[keyof typeof DocumentClassifierDocumentReaderConfigDocumentReadMode];
+
+export const DocumentClassifierDocumentReaderConfigFeatureTypesItem = {
+    Tables: "TABLES",
+    Forms: "FORMS",
+} as const;
+
+export type DocumentClassifierDocumentReaderConfigFeatureTypesItem = (typeof DocumentClassifierDocumentReaderConfigFeatureTypesItem)[keyof typeof DocumentClassifierDocumentReaderConfigFeatureTypesItem];
+
+export const DocumentClassifierInputDataConfigDataFormat = {
+    ComprehendCsv: "COMPREHEND_CSV",
+    AugmentedManifest: "AUGMENTED_MANIFEST",
+} as const;
+
+export type DocumentClassifierInputDataConfigDataFormat = (typeof DocumentClassifierInputDataConfigDataFormat)[keyof typeof DocumentClassifierInputDataConfigDataFormat];
+
+export const DocumentClassifierInputDataConfigDocumentType = {
+    PlainTextDocument: "PLAIN_TEXT_DOCUMENT",
+    SemiStructuredDocument: "SEMI_STRUCTURED_DOCUMENT",
+} as const;
+
+export type DocumentClassifierInputDataConfigDocumentType = (typeof DocumentClassifierInputDataConfigDocumentType)[keyof typeof DocumentClassifierInputDataConfigDocumentType];
+
+export const DocumentClassifierLanguageCode = {
+    En: "en",
+    Es: "es",
+    Fr: "fr",
+    It: "it",
+    De: "de",
+    Pt: "pt",
+} as const;
+
+export type DocumentClassifierLanguageCode = (typeof DocumentClassifierLanguageCode)[keyof typeof DocumentClassifierLanguageCode];
+
+export const DocumentClassifierMode = {
+    MultiClass: "MULTI_CLASS",
+    MultiLabel: "MULTI_LABEL",
+} as const;
+
+export type DocumentClassifierMode = (typeof DocumentClassifierMode)[keyof typeof DocumentClassifierMode];
+
 export const FlywheelDocumentClassificationConfigMode = {
     MultiClass: "MULTI_CLASS",
     MultiLabel: "MULTI_LABEL",

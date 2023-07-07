@@ -30,10 +30,6 @@ type LookupKeyPairResult struct {
 	KeyFingerprint *string `pulumi:"keyFingerprint"`
 	// An AWS generated ID for the key pair
 	KeyPairId *string `pulumi:"keyPairId"`
-	// Plain text public key to import
-	PublicKeyMaterial *string `pulumi:"publicKeyMaterial"`
-	// An array of key-value pairs to apply to this resource.
-	Tags []KeyPairTag `pulumi:"tags"`
 }
 
 func LookupKeyPairOutput(ctx *pulumi.Context, args LookupKeyPairOutputArgs, opts ...pulumi.InvokeOption) LookupKeyPairResultOutput {
@@ -80,16 +76,6 @@ func (o LookupKeyPairResultOutput) KeyFingerprint() pulumi.StringPtrOutput {
 // An AWS generated ID for the key pair
 func (o LookupKeyPairResultOutput) KeyPairId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupKeyPairResult) *string { return v.KeyPairId }).(pulumi.StringPtrOutput)
-}
-
-// Plain text public key to import
-func (o LookupKeyPairResultOutput) PublicKeyMaterial() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupKeyPairResult) *string { return v.PublicKeyMaterial }).(pulumi.StringPtrOutput)
-}
-
-// An array of key-value pairs to apply to this resource.
-func (o LookupKeyPairResultOutput) Tags() KeyPairTagArrayOutput {
-	return o.ApplyT(func(v LookupKeyPairResult) []KeyPairTag { return v.Tags }).(KeyPairTagArrayOutput)
 }
 
 func init() {

@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         [Input("customProperties")]
         public Input<Inputs.FlowCustomPropertiesArgs>? CustomProperties { get; set; }
 
+        [Input("dataTransferApi")]
+        public Input<Inputs.FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesArgs>? DataTransferApi { get; set; }
+
         [Input("entityName", required: true)]
         public Input<string> EntityName { get; set; } = null!;
 

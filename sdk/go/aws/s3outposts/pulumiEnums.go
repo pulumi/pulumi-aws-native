@@ -342,9 +342,11 @@ func (in *endpointAccessTypePtr) ToEndpointAccessTypePtrOutputWithContext(ctx co
 type EndpointStatus string
 
 const (
-	EndpointStatusAvailable = EndpointStatus("Available")
-	EndpointStatusPending   = EndpointStatus("Pending")
-	EndpointStatusDeleting  = EndpointStatus("Deleting")
+	EndpointStatusAvailable    = EndpointStatus("Available")
+	EndpointStatusPending      = EndpointStatus("Pending")
+	EndpointStatusDeleting     = EndpointStatus("Deleting")
+	EndpointStatusCreateFailed = EndpointStatus("Create_Failed")
+	EndpointStatusDeleteFailed = EndpointStatus("Delete_Failed")
 )
 
 type EndpointStatusOutput struct{ *pulumi.OutputState }

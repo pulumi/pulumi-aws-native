@@ -132,13 +132,13 @@
   "createOnlyProperties" : [ "/properties/ReportPlanName" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "backup:CreateReportPlan", "backup:DescribeReportPlan", "backup:TagResource", "iam:CreateServiceLinkedRole" ]
+      "permissions" : [ "backup:CreateReportPlan", "backup:DescribeReportPlan", "backup:ListTags", "backup:TagResource", "iam:CreateServiceLinkedRole" ]
     },
     "read" : {
       "permissions" : [ "backup:DescribeReportPlan", "backup:ListTags" ]
     },
     "update" : {
-      "permissions" : [ "backup:UpdateReportPlan", "backup:ListTags", "backup:UntagResource", "backup:TagResource" ]
+      "permissions" : [ "backup:DescribeReportPlan", "backup:UpdateReportPlan", "backup:ListTags", "backup:UntagResource", "backup:TagResource" ]
     },
     "delete" : {
       "permissions" : [ "backup:DeleteReportPlan", "backup:DescribeReportPlan" ]

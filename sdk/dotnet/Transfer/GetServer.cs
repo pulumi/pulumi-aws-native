@@ -63,6 +63,7 @@ namespace Pulumi.AwsNative.Transfer
         public readonly ImmutableArray<Outputs.ServerProtocol> Protocols;
         public readonly string? SecurityPolicyName;
         public readonly string? ServerId;
+        public readonly ImmutableArray<Outputs.ServerStructuredLogDestination> StructuredLogDestinations;
         public readonly ImmutableArray<Outputs.ServerTag> Tags;
         public readonly Outputs.ServerWorkflowDetails? WorkflowDetails;
 
@@ -92,6 +93,8 @@ namespace Pulumi.AwsNative.Transfer
 
             string? serverId,
 
+            ImmutableArray<Outputs.ServerStructuredLogDestination> structuredLogDestinations,
+
             ImmutableArray<Outputs.ServerTag> tags,
 
             Outputs.ServerWorkflowDetails? workflowDetails)
@@ -108,6 +111,7 @@ namespace Pulumi.AwsNative.Transfer
             Protocols = protocols;
             SecurityPolicyName = securityPolicyName;
             ServerId = serverId;
+            StructuredLogDestinations = structuredLogDestinations;
             Tags = tags;
             WorkflowDetails = workflowDetails;
         }

@@ -21,6 +21,7 @@ __all__ = [
     'ServerIdentityProviderDetailsArgs',
     'ServerProtocolDetailsArgs',
     'ServerProtocolArgs',
+    'ServerStructuredLogDestinationArgs',
     'ServerTagArgs',
     'ServerWorkflowDetailsArgs',
     'ServerWorkflowDetailArgs',
@@ -521,6 +522,12 @@ class ServerProtocolDetailsArgs:
 
 @pulumi.input_type
 class ServerProtocolArgs:
+    def __init__(__self__):
+        pass
+
+
+@pulumi.input_type
+class ServerStructuredLogDestinationArgs:
     def __init__(__self__):
         pass
 

@@ -21,7 +21,6 @@ export interface GetResourceArgs {
 
 export interface GetResourceResult {
     readonly id?: string;
-    readonly resourceArn?: string;
     readonly roleArn?: string;
     readonly useServiceLinkedRole?: boolean;
     readonly withFederation?: boolean;

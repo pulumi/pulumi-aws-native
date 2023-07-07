@@ -92,6 +92,14 @@ export const FlowConnectorType = {
 
 export type FlowConnectorType = (typeof FlowConnectorType)[keyof typeof FlowConnectorType];
 
+export const FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesType = {
+    Sync: "SYNC",
+    Async: "ASYNC",
+    Automatic: "AUTOMATIC",
+} as const;
+
+export type FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesType = (typeof FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesType)[keyof typeof FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesType];
+
 export const FlowDataTransferApi = {
     Automatic: "AUTOMATIC",
     Bulkv2: "BULKV2",

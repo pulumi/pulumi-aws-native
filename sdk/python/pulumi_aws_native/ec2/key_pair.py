@@ -18,17 +18,21 @@ __all__ = ['KeyPairArgs', 'KeyPair']
 class KeyPairArgs:
     def __init__(__self__, *,
                  key_name: pulumi.Input[str],
+                 key_format: Optional[pulumi.Input['KeyPairKeyFormat']] = None,
                  key_type: Optional[pulumi.Input['KeyPairKeyType']] = None,
                  public_key_material: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['KeyPairTagArgs']]]] = None):
         """
         The set of arguments for constructing a KeyPair resource.
         :param pulumi.Input[str] key_name: The name of the SSH key pair
-        :param pulumi.Input['KeyPairKeyType'] key_type: The title of the TPS report is a mandatory element.
+        :param pulumi.Input['KeyPairKeyFormat'] key_format: The format of the private key
+        :param pulumi.Input['KeyPairKeyType'] key_type: The crypto-system used to generate a key pair.
         :param pulumi.Input[str] public_key_material: Plain text public key to import
         :param pulumi.Input[Sequence[pulumi.Input['KeyPairTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "key_name", key_name)
+        if key_format is not None:
+            pulumi.set(__self__, "key_format", key_format)
         if key_type is not None:
             pulumi.set(__self__, "key_type", key_type)
         if public_key_material is not None:
@@ -49,10 +53,22 @@ class KeyPairArgs:
         pulumi.set(self, "key_name", value)
 
     @property
+    @pulumi.getter(name="keyFormat")
+    def key_format(self) -> Optional[pulumi.Input['KeyPairKeyFormat']]:
+        """
+        The format of the private key
+        """
+        return pulumi.get(self, "key_format")
+
+    @key_format.setter
+    def key_format(self, value: Optional[pulumi.Input['KeyPairKeyFormat']]):
+        pulumi.set(self, "key_format", value)
+
+    @property
     @pulumi.getter(name="keyType")
     def key_type(self) -> Optional[pulumi.Input['KeyPairKeyType']]:
         """
-        The title of the TPS report is a mandatory element.
+        The crypto-system used to generate a key pair.
         """
         return pulumi.get(self, "key_type")
 
@@ -90,6 +106,7 @@ class KeyPair(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 key_format: Optional[pulumi.Input['KeyPairKeyFormat']] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
                  key_type: Optional[pulumi.Input['KeyPairKeyType']] = None,
                  public_key_material: Optional[pulumi.Input[str]] = None,
@@ -100,8 +117,9 @@ class KeyPair(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input['KeyPairKeyFormat'] key_format: The format of the private key
         :param pulumi.Input[str] key_name: The name of the SSH key pair
-        :param pulumi.Input['KeyPairKeyType'] key_type: The title of the TPS report is a mandatory element.
+        :param pulumi.Input['KeyPairKeyType'] key_type: The crypto-system used to generate a key pair.
         :param pulumi.Input[str] public_key_material: Plain text public key to import
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeyPairTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -129,6 +147,7 @@ class KeyPair(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 key_format: Optional[pulumi.Input['KeyPairKeyFormat']] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
                  key_type: Optional[pulumi.Input['KeyPairKeyType']] = None,
                  public_key_material: Optional[pulumi.Input[str]] = None,
@@ -142,6 +161,7 @@ class KeyPair(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = KeyPairArgs.__new__(KeyPairArgs)
 
+            __props__.__dict__["key_format"] = key_format
             if key_name is None and not opts.urn:
                 raise TypeError("Missing required property 'key_name'")
             __props__.__dict__["key_name"] = key_name
@@ -173,6 +193,7 @@ class KeyPair(pulumi.CustomResource):
         __props__ = KeyPairArgs.__new__(KeyPairArgs)
 
         __props__.__dict__["key_fingerprint"] = None
+        __props__.__dict__["key_format"] = None
         __props__.__dict__["key_name"] = None
         __props__.__dict__["key_pair_id"] = None
         __props__.__dict__["key_type"] = None
@@ -187,6 +208,14 @@ class KeyPair(pulumi.CustomResource):
         A short sequence of bytes used for public key verification
         """
         return pulumi.get(self, "key_fingerprint")
+
+    @property
+    @pulumi.getter(name="keyFormat")
+    def key_format(self) -> pulumi.Output[Optional['KeyPairKeyFormat']]:
+        """
+        The format of the private key
+        """
+        return pulumi.get(self, "key_format")
 
     @property
     @pulumi.getter(name="keyName")
@@ -208,7 +237,7 @@ class KeyPair(pulumi.CustomResource):
     @pulumi.getter(name="keyType")
     def key_type(self) -> pulumi.Output[Optional['KeyPairKeyType']]:
         """
-        The title of the TPS report is a mandatory element.
+        The crypto-system used to generate a key pair.
         """
         return pulumi.get(self, "key_type")
 

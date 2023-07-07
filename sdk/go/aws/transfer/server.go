@@ -16,22 +16,23 @@ import (
 type Server struct {
 	pulumi.CustomResourceState
 
-	Arn                           pulumi.StringOutput                    `pulumi:"arn"`
-	Certificate                   pulumi.StringPtrOutput                 `pulumi:"certificate"`
-	Domain                        pulumi.StringPtrOutput                 `pulumi:"domain"`
-	EndpointDetails               ServerEndpointDetailsPtrOutput         `pulumi:"endpointDetails"`
-	EndpointType                  pulumi.StringPtrOutput                 `pulumi:"endpointType"`
-	IdentityProviderDetails       ServerIdentityProviderDetailsPtrOutput `pulumi:"identityProviderDetails"`
-	IdentityProviderType          pulumi.StringPtrOutput                 `pulumi:"identityProviderType"`
-	LoggingRole                   pulumi.StringPtrOutput                 `pulumi:"loggingRole"`
-	PostAuthenticationLoginBanner pulumi.StringPtrOutput                 `pulumi:"postAuthenticationLoginBanner"`
-	PreAuthenticationLoginBanner  pulumi.StringPtrOutput                 `pulumi:"preAuthenticationLoginBanner"`
-	ProtocolDetails               ServerProtocolDetailsPtrOutput         `pulumi:"protocolDetails"`
-	Protocols                     ServerProtocolArrayOutput              `pulumi:"protocols"`
-	SecurityPolicyName            pulumi.StringPtrOutput                 `pulumi:"securityPolicyName"`
-	ServerId                      pulumi.StringOutput                    `pulumi:"serverId"`
-	Tags                          ServerTagArrayOutput                   `pulumi:"tags"`
-	WorkflowDetails               ServerWorkflowDetailsPtrOutput         `pulumi:"workflowDetails"`
+	Arn                           pulumi.StringOutput                       `pulumi:"arn"`
+	Certificate                   pulumi.StringPtrOutput                    `pulumi:"certificate"`
+	Domain                        pulumi.StringPtrOutput                    `pulumi:"domain"`
+	EndpointDetails               ServerEndpointDetailsPtrOutput            `pulumi:"endpointDetails"`
+	EndpointType                  pulumi.StringPtrOutput                    `pulumi:"endpointType"`
+	IdentityProviderDetails       ServerIdentityProviderDetailsPtrOutput    `pulumi:"identityProviderDetails"`
+	IdentityProviderType          pulumi.StringPtrOutput                    `pulumi:"identityProviderType"`
+	LoggingRole                   pulumi.StringPtrOutput                    `pulumi:"loggingRole"`
+	PostAuthenticationLoginBanner pulumi.StringPtrOutput                    `pulumi:"postAuthenticationLoginBanner"`
+	PreAuthenticationLoginBanner  pulumi.StringPtrOutput                    `pulumi:"preAuthenticationLoginBanner"`
+	ProtocolDetails               ServerProtocolDetailsPtrOutput            `pulumi:"protocolDetails"`
+	Protocols                     ServerProtocolArrayOutput                 `pulumi:"protocols"`
+	SecurityPolicyName            pulumi.StringPtrOutput                    `pulumi:"securityPolicyName"`
+	ServerId                      pulumi.StringOutput                       `pulumi:"serverId"`
+	StructuredLogDestinations     ServerStructuredLogDestinationArrayOutput `pulumi:"structuredLogDestinations"`
+	Tags                          ServerTagArrayOutput                      `pulumi:"tags"`
+	WorkflowDetails               ServerWorkflowDetailsPtrOutput            `pulumi:"workflowDetails"`
 }
 
 // NewServer registers a new resource with the given unique name, arguments, and options.
@@ -73,20 +74,21 @@ func (ServerState) ElementType() reflect.Type {
 }
 
 type serverArgs struct {
-	Certificate                   *string                        `pulumi:"certificate"`
-	Domain                        *string                        `pulumi:"domain"`
-	EndpointDetails               *ServerEndpointDetails         `pulumi:"endpointDetails"`
-	EndpointType                  *string                        `pulumi:"endpointType"`
-	IdentityProviderDetails       *ServerIdentityProviderDetails `pulumi:"identityProviderDetails"`
-	IdentityProviderType          *string                        `pulumi:"identityProviderType"`
-	LoggingRole                   *string                        `pulumi:"loggingRole"`
-	PostAuthenticationLoginBanner *string                        `pulumi:"postAuthenticationLoginBanner"`
-	PreAuthenticationLoginBanner  *string                        `pulumi:"preAuthenticationLoginBanner"`
-	ProtocolDetails               *ServerProtocolDetails         `pulumi:"protocolDetails"`
-	Protocols                     []ServerProtocol               `pulumi:"protocols"`
-	SecurityPolicyName            *string                        `pulumi:"securityPolicyName"`
-	Tags                          []ServerTag                    `pulumi:"tags"`
-	WorkflowDetails               *ServerWorkflowDetails         `pulumi:"workflowDetails"`
+	Certificate                   *string                          `pulumi:"certificate"`
+	Domain                        *string                          `pulumi:"domain"`
+	EndpointDetails               *ServerEndpointDetails           `pulumi:"endpointDetails"`
+	EndpointType                  *string                          `pulumi:"endpointType"`
+	IdentityProviderDetails       *ServerIdentityProviderDetails   `pulumi:"identityProviderDetails"`
+	IdentityProviderType          *string                          `pulumi:"identityProviderType"`
+	LoggingRole                   *string                          `pulumi:"loggingRole"`
+	PostAuthenticationLoginBanner *string                          `pulumi:"postAuthenticationLoginBanner"`
+	PreAuthenticationLoginBanner  *string                          `pulumi:"preAuthenticationLoginBanner"`
+	ProtocolDetails               *ServerProtocolDetails           `pulumi:"protocolDetails"`
+	Protocols                     []ServerProtocol                 `pulumi:"protocols"`
+	SecurityPolicyName            *string                          `pulumi:"securityPolicyName"`
+	StructuredLogDestinations     []ServerStructuredLogDestination `pulumi:"structuredLogDestinations"`
+	Tags                          []ServerTag                      `pulumi:"tags"`
+	WorkflowDetails               *ServerWorkflowDetails           `pulumi:"workflowDetails"`
 }
 
 // The set of arguments for constructing a Server resource.
@@ -103,6 +105,7 @@ type ServerArgs struct {
 	ProtocolDetails               ServerProtocolDetailsPtrInput
 	Protocols                     ServerProtocolArrayInput
 	SecurityPolicyName            pulumi.StringPtrInput
+	StructuredLogDestinations     ServerStructuredLogDestinationArrayInput
 	Tags                          ServerTagArrayInput
 	WorkflowDetails               ServerWorkflowDetailsPtrInput
 }
@@ -198,6 +201,10 @@ func (o ServerOutput) SecurityPolicyName() pulumi.StringPtrOutput {
 
 func (o ServerOutput) ServerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.ServerId }).(pulumi.StringOutput)
+}
+
+func (o ServerOutput) StructuredLogDestinations() ServerStructuredLogDestinationArrayOutput {
+	return o.ApplyT(func(v *Server) ServerStructuredLogDestinationArrayOutput { return v.StructuredLogDestinations }).(ServerStructuredLogDestinationArrayOutput)
 }
 
 func (o ServerOutput) Tags() ServerTagArrayOutput {

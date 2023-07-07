@@ -10,6 +10,7 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['EndpointArgs', 'Endpoint']
 
@@ -20,7 +21,8 @@ class EndpointArgs:
                  security_group_id: pulumi.Input[str],
                  subnet_id: pulumi.Input[str],
                  access_type: Optional[pulumi.Input['EndpointAccessType']] = None,
-                 customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None):
+                 customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
+                 failed_reason: Optional[pulumi.Input['EndpointFailedReasonArgs']] = None):
         """
         The set of arguments for constructing a Endpoint resource.
         :param pulumi.Input[str] outpost_id: The id of the customer outpost on which the bucket resides.
@@ -28,6 +30,7 @@ class EndpointArgs:
         :param pulumi.Input[str] subnet_id: The ID of the subnet in the selected VPC. The subnet must belong to the Outpost.
         :param pulumi.Input['EndpointAccessType'] access_type: The type of access for the on-premise network connectivity for the Outpost endpoint. To access endpoint from an on-premises network, you must specify the access type and provide the customer owned Ipv4 pool.
         :param pulumi.Input[str] customer_owned_ipv4_pool: The ID of the customer-owned IPv4 pool for the Endpoint. IP addresses will be allocated from this pool for the endpoint.
+        :param pulumi.Input['EndpointFailedReasonArgs'] failed_reason: The failure reason, if any, for a create or delete endpoint operation.
         """
         pulumi.set(__self__, "outpost_id", outpost_id)
         pulumi.set(__self__, "security_group_id", security_group_id)
@@ -36,6 +39,8 @@ class EndpointArgs:
             pulumi.set(__self__, "access_type", access_type)
         if customer_owned_ipv4_pool is not None:
             pulumi.set(__self__, "customer_owned_ipv4_pool", customer_owned_ipv4_pool)
+        if failed_reason is not None:
+            pulumi.set(__self__, "failed_reason", failed_reason)
 
     @property
     @pulumi.getter(name="outpostId")
@@ -97,6 +102,18 @@ class EndpointArgs:
     def customer_owned_ipv4_pool(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "customer_owned_ipv4_pool", value)
 
+    @property
+    @pulumi.getter(name="failedReason")
+    def failed_reason(self) -> Optional[pulumi.Input['EndpointFailedReasonArgs']]:
+        """
+        The failure reason, if any, for a create or delete endpoint operation.
+        """
+        return pulumi.get(self, "failed_reason")
+
+    @failed_reason.setter
+    def failed_reason(self, value: Optional[pulumi.Input['EndpointFailedReasonArgs']]):
+        pulumi.set(self, "failed_reason", value)
+
 
 class Endpoint(pulumi.CustomResource):
     @overload
@@ -105,6 +122,7 @@ class Endpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_type: Optional[pulumi.Input['EndpointAccessType']] = None,
                  customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
+                 failed_reason: Optional[pulumi.Input[pulumi.InputType['EndpointFailedReasonArgs']]] = None,
                  outpost_id: Optional[pulumi.Input[str]] = None,
                  security_group_id: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
@@ -116,6 +134,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['EndpointAccessType'] access_type: The type of access for the on-premise network connectivity for the Outpost endpoint. To access endpoint from an on-premises network, you must specify the access type and provide the customer owned Ipv4 pool.
         :param pulumi.Input[str] customer_owned_ipv4_pool: The ID of the customer-owned IPv4 pool for the Endpoint. IP addresses will be allocated from this pool for the endpoint.
+        :param pulumi.Input[pulumi.InputType['EndpointFailedReasonArgs']] failed_reason: The failure reason, if any, for a create or delete endpoint operation.
         :param pulumi.Input[str] outpost_id: The id of the customer outpost on which the bucket resides.
         :param pulumi.Input[str] security_group_id: The ID of the security group to use with the endpoint.
         :param pulumi.Input[str] subnet_id: The ID of the subnet in the selected VPC. The subnet must belong to the Outpost.
@@ -146,6 +165,7 @@ class Endpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_type: Optional[pulumi.Input['EndpointAccessType']] = None,
                  customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
+                 failed_reason: Optional[pulumi.Input[pulumi.InputType['EndpointFailedReasonArgs']]] = None,
                  outpost_id: Optional[pulumi.Input[str]] = None,
                  security_group_id: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
@@ -160,6 +180,7 @@ class Endpoint(pulumi.CustomResource):
 
             __props__.__dict__["access_type"] = access_type
             __props__.__dict__["customer_owned_ipv4_pool"] = customer_owned_ipv4_pool
+            __props__.__dict__["failed_reason"] = failed_reason
             if outpost_id is None and not opts.urn:
                 raise TypeError("Missing required property 'outpost_id'")
             __props__.__dict__["outpost_id"] = outpost_id
@@ -201,6 +222,7 @@ class Endpoint(pulumi.CustomResource):
         __props__.__dict__["cidr_block"] = None
         __props__.__dict__["creation_time"] = None
         __props__.__dict__["customer_owned_ipv4_pool"] = None
+        __props__.__dict__["failed_reason"] = None
         __props__.__dict__["network_interfaces"] = None
         __props__.__dict__["outpost_id"] = None
         __props__.__dict__["security_group_id"] = None
@@ -247,6 +269,14 @@ class Endpoint(pulumi.CustomResource):
         The ID of the customer-owned IPv4 pool for the Endpoint. IP addresses will be allocated from this pool for the endpoint.
         """
         return pulumi.get(self, "customer_owned_ipv4_pool")
+
+    @property
+    @pulumi.getter(name="failedReason")
+    def failed_reason(self) -> pulumi.Output[Optional['outputs.EndpointFailedReason']]:
+        """
+        The failure reason, if any, for a create or delete endpoint operation.
+        """
+        return pulumi.get(self, "failed_reason")
 
     @property
     @pulumi.getter(name="networkInterfaces")

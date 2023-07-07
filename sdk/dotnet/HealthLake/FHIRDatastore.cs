@@ -36,6 +36,9 @@ namespace Pulumi.AwsNative.HealthLake
         [Output("datastoreTypeVersion")]
         public Output<Pulumi.AwsNative.HealthLake.FHIRDatastoreDatastoreTypeVersion> DatastoreTypeVersion { get; private set; } = null!;
 
+        [Output("identityProviderConfiguration")]
+        public Output<Outputs.FHIRDatastoreIdentityProviderConfiguration?> IdentityProviderConfiguration { get; private set; } = null!;
+
         [Output("preloadDataConfig")]
         public Output<Outputs.FHIRDatastorePreloadDataConfig?> PreloadDataConfig { get; private set; } = null!;
 
@@ -95,6 +98,9 @@ namespace Pulumi.AwsNative.HealthLake
 
         [Input("datastoreTypeVersion", required: true)]
         public Input<Pulumi.AwsNative.HealthLake.FHIRDatastoreDatastoreTypeVersion> DatastoreTypeVersion { get; set; } = null!;
+
+        [Input("identityProviderConfiguration")]
+        public Input<Inputs.FHIRDatastoreIdentityProviderConfigurationArgs>? IdentityProviderConfiguration { get; set; }
 
         [Input("preloadDataConfig")]
         public Input<Inputs.FHIRDatastorePreloadDataConfigArgs>? PreloadDataConfig { get; set; }

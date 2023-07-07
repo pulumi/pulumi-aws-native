@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.EC2
         public Output<string> KeyFingerprint { get; private set; } = null!;
 
         /// <summary>
+        /// The format of the private key
+        /// </summary>
+        [Output("keyFormat")]
+        public Output<Pulumi.AwsNative.EC2.KeyPairKeyFormat?> KeyFormat { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the SSH key pair
         /// </summary>
         [Output("keyName")]
@@ -34,7 +40,7 @@ namespace Pulumi.AwsNative.EC2
         public Output<string> KeyPairId { get; private set; } = null!;
 
         /// <summary>
-        /// The title of the TPS report is a mandatory element.
+        /// The crypto-system used to generate a key pair.
         /// </summary>
         [Output("keyType")]
         public Output<Pulumi.AwsNative.EC2.KeyPairKeyType?> KeyType { get; private set; } = null!;
@@ -97,13 +103,19 @@ namespace Pulumi.AwsNative.EC2
     public sealed class KeyPairArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The format of the private key
+        /// </summary>
+        [Input("keyFormat")]
+        public Input<Pulumi.AwsNative.EC2.KeyPairKeyFormat>? KeyFormat { get; set; }
+
+        /// <summary>
         /// The name of the SSH key pair
         /// </summary>
         [Input("keyName", required: true)]
         public Input<string> KeyName { get; set; } = null!;
 
         /// <summary>
-        /// The title of the TPS report is a mandatory element.
+        /// The crypto-system used to generate a key pair.
         /// </summary>
         [Input("keyType")]
         public Input<Pulumi.AwsNative.EC2.KeyPairKeyType>? KeyType { get; set; }

@@ -65,7 +65,7 @@
   "primaryIdentifier" : [ "/properties/Arn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "frauddetector:GetLabels", "frauddetector:PutLabel", "frauddetector:ListTagsForResource" ]
+      "permissions" : [ "frauddetector:GetLabels", "frauddetector:PutLabel", "frauddetector:ListTagsForResource", "frauddetector:TagResource" ]
     },
     "read" : {
       "permissions" : [ "frauddetector:GetLabels", "frauddetector:ListTagsForResource" ]

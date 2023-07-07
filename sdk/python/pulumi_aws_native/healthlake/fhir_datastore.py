@@ -19,6 +19,7 @@ class FHIRDatastoreArgs:
     def __init__(__self__, *,
                  datastore_type_version: pulumi.Input['FHIRDatastoreDatastoreTypeVersion'],
                  datastore_name: Optional[pulumi.Input[str]] = None,
+                 identity_provider_configuration: Optional[pulumi.Input['FHIRDatastoreIdentityProviderConfigurationArgs']] = None,
                  preload_data_config: Optional[pulumi.Input['FHIRDatastorePreloadDataConfigArgs']] = None,
                  sse_configuration: Optional[pulumi.Input['FHIRDatastoreSseConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['FHIRDatastoreTagArgs']]]] = None):
@@ -28,6 +29,8 @@ class FHIRDatastoreArgs:
         pulumi.set(__self__, "datastore_type_version", datastore_type_version)
         if datastore_name is not None:
             pulumi.set(__self__, "datastore_name", datastore_name)
+        if identity_provider_configuration is not None:
+            pulumi.set(__self__, "identity_provider_configuration", identity_provider_configuration)
         if preload_data_config is not None:
             pulumi.set(__self__, "preload_data_config", preload_data_config)
         if sse_configuration is not None:
@@ -52,6 +55,15 @@ class FHIRDatastoreArgs:
     @datastore_name.setter
     def datastore_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "datastore_name", value)
+
+    @property
+    @pulumi.getter(name="identityProviderConfiguration")
+    def identity_provider_configuration(self) -> Optional[pulumi.Input['FHIRDatastoreIdentityProviderConfigurationArgs']]:
+        return pulumi.get(self, "identity_provider_configuration")
+
+    @identity_provider_configuration.setter
+    def identity_provider_configuration(self, value: Optional[pulumi.Input['FHIRDatastoreIdentityProviderConfigurationArgs']]):
+        pulumi.set(self, "identity_provider_configuration", value)
 
     @property
     @pulumi.getter(name="preloadDataConfig")
@@ -88,6 +100,7 @@ class FHIRDatastore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  datastore_name: Optional[pulumi.Input[str]] = None,
                  datastore_type_version: Optional[pulumi.Input['FHIRDatastoreDatastoreTypeVersion']] = None,
+                 identity_provider_configuration: Optional[pulumi.Input[pulumi.InputType['FHIRDatastoreIdentityProviderConfigurationArgs']]] = None,
                  preload_data_config: Optional[pulumi.Input[pulumi.InputType['FHIRDatastorePreloadDataConfigArgs']]] = None,
                  sse_configuration: Optional[pulumi.Input[pulumi.InputType['FHIRDatastoreSseConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FHIRDatastoreTagArgs']]]]] = None,
@@ -124,6 +137,7 @@ class FHIRDatastore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  datastore_name: Optional[pulumi.Input[str]] = None,
                  datastore_type_version: Optional[pulumi.Input['FHIRDatastoreDatastoreTypeVersion']] = None,
+                 identity_provider_configuration: Optional[pulumi.Input[pulumi.InputType['FHIRDatastoreIdentityProviderConfigurationArgs']]] = None,
                  preload_data_config: Optional[pulumi.Input[pulumi.InputType['FHIRDatastorePreloadDataConfigArgs']]] = None,
                  sse_configuration: Optional[pulumi.Input[pulumi.InputType['FHIRDatastoreSseConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FHIRDatastoreTagArgs']]]]] = None,
@@ -140,6 +154,7 @@ class FHIRDatastore(pulumi.CustomResource):
             if datastore_type_version is None and not opts.urn:
                 raise TypeError("Missing required property 'datastore_type_version'")
             __props__.__dict__["datastore_type_version"] = datastore_type_version
+            __props__.__dict__["identity_provider_configuration"] = identity_provider_configuration
             __props__.__dict__["preload_data_config"] = preload_data_config
             __props__.__dict__["sse_configuration"] = sse_configuration
             __props__.__dict__["tags"] = tags
@@ -177,6 +192,7 @@ class FHIRDatastore(pulumi.CustomResource):
         __props__.__dict__["datastore_name"] = None
         __props__.__dict__["datastore_status"] = None
         __props__.__dict__["datastore_type_version"] = None
+        __props__.__dict__["identity_provider_configuration"] = None
         __props__.__dict__["preload_data_config"] = None
         __props__.__dict__["sse_configuration"] = None
         __props__.__dict__["tags"] = None
@@ -216,6 +232,11 @@ class FHIRDatastore(pulumi.CustomResource):
     @pulumi.getter(name="datastoreTypeVersion")
     def datastore_type_version(self) -> pulumi.Output['FHIRDatastoreDatastoreTypeVersion']:
         return pulumi.get(self, "datastore_type_version")
+
+    @property
+    @pulumi.getter(name="identityProviderConfiguration")
+    def identity_provider_configuration(self) -> pulumi.Output[Optional['outputs.FHIRDatastoreIdentityProviderConfiguration']]:
+        return pulumi.get(self, "identity_provider_configuration")
 
     @property
     @pulumi.getter(name="preloadDataConfig")

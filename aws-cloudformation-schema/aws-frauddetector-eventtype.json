@@ -224,7 +224,7 @@
   "primaryIdentifier" : [ "/properties/Arn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "frauddetector:BatchCreateVariable", "frauddetector:BatchGetVariable", "frauddetector:CreateVariable", "frauddetector:GetVariables", "frauddetector:PutLabel", "frauddetector:PutEntityType", "frauddetector:PutEventType", "frauddetector:GetEventTypes", "frauddetector:GetLabels", "frauddetector:GetEntityTypes", "frauddetector:ListTagsForResource" ]
+      "permissions" : [ "frauddetector:BatchCreateVariable", "frauddetector:BatchGetVariable", "frauddetector:CreateVariable", "frauddetector:GetVariables", "frauddetector:PutLabel", "frauddetector:PutEntityType", "frauddetector:PutEventType", "frauddetector:GetEventTypes", "frauddetector:GetLabels", "frauddetector:GetEntityTypes", "frauddetector:ListTagsForResource", "frauddetector:TagResource" ]
     },
     "update" : {
       "permissions" : [ "frauddetector:BatchCreateVariable", "frauddetector:BatchGetVariable", "frauddetector:CreateVariable", "frauddetector:UpdateVariable", "frauddetector:GetVariables", "frauddetector:PutLabel", "frauddetector:PutEntityType", "frauddetector:PutEventType", "frauddetector:GetEventTypes", "frauddetector:GetLabels", "frauddetector:GetEntityTypes", "frauddetector:DeleteEventType", "frauddetector:DeleteVariable", "frauddetector:DeleteLabel", "frauddetector:DeleteEntityType", "frauddetector:ListTagsForResource", "frauddetector:TagResource", "frauddetector:UntagResource" ]

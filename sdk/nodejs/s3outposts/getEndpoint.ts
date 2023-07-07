@@ -39,6 +39,10 @@ export interface GetEndpointResult {
      */
     readonly creationTime?: string;
     /**
+     * The failure reason, if any, for a create or delete endpoint operation.
+     */
+    readonly failedReason?: outputs.s3outposts.EndpointFailedReason;
+    /**
      * The ID of the endpoint.
      */
     readonly id?: string;

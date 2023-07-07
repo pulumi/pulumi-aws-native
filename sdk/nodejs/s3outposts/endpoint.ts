@@ -58,6 +58,10 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly customerOwnedIpv4Pool!: pulumi.Output<string | undefined>;
     /**
+     * The failure reason, if any, for a create or delete endpoint operation.
+     */
+    public readonly failedReason!: pulumi.Output<outputs.s3outposts.EndpointFailedReason | undefined>;
+    /**
      * The network interfaces of the endpoint.
      */
     public /*out*/ readonly networkInterfaces!: pulumi.Output<outputs.s3outposts.EndpointNetworkInterface[]>;
@@ -97,6 +101,7 @@ export class Endpoint extends pulumi.CustomResource {
             }
             resourceInputs["accessType"] = args ? args.accessType : undefined;
             resourceInputs["customerOwnedIpv4Pool"] = args ? args.customerOwnedIpv4Pool : undefined;
+            resourceInputs["failedReason"] = args ? args.failedReason : undefined;
             resourceInputs["outpostId"] = args ? args.outpostId : undefined;
             resourceInputs["securityGroupId"] = args ? args.securityGroupId : undefined;
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
@@ -111,6 +116,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["cidrBlock"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["customerOwnedIpv4Pool"] = undefined /*out*/;
+            resourceInputs["failedReason"] = undefined /*out*/;
             resourceInputs["networkInterfaces"] = undefined /*out*/;
             resourceInputs["outpostId"] = undefined /*out*/;
             resourceInputs["securityGroupId"] = undefined /*out*/;
@@ -134,6 +140,10 @@ export interface EndpointArgs {
      * The ID of the customer-owned IPv4 pool for the Endpoint. IP addresses will be allocated from this pool for the endpoint.
      */
     customerOwnedIpv4Pool?: pulumi.Input<string>;
+    /**
+     * The failure reason, if any, for a create or delete endpoint operation.
+     */
+    failedReason?: pulumi.Input<inputs.s3outposts.EndpointFailedReasonArgs>;
     /**
      * The id of the customer outpost on which the bucket resides.
      */

@@ -13006,6 +13006,171 @@ func (in *analysisSortDirectionPtr) ToAnalysisSortDirectionPtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisSortDirectionPtrOutput)
 }
 
+type AnalysisSpecialValue string
+
+const (
+	AnalysisSpecialValueEmpty = AnalysisSpecialValue("EMPTY")
+	AnalysisSpecialValueNull  = AnalysisSpecialValue("NULL")
+	AnalysisSpecialValueOther = AnalysisSpecialValue("OTHER")
+)
+
+func (AnalysisSpecialValue) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisSpecialValue)(nil)).Elem()
+}
+
+func (e AnalysisSpecialValue) ToAnalysisSpecialValueOutput() AnalysisSpecialValueOutput {
+	return pulumi.ToOutput(e).(AnalysisSpecialValueOutput)
+}
+
+func (e AnalysisSpecialValue) ToAnalysisSpecialValueOutputWithContext(ctx context.Context) AnalysisSpecialValueOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AnalysisSpecialValueOutput)
+}
+
+func (e AnalysisSpecialValue) ToAnalysisSpecialValuePtrOutput() AnalysisSpecialValuePtrOutput {
+	return e.ToAnalysisSpecialValuePtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisSpecialValue) ToAnalysisSpecialValuePtrOutputWithContext(ctx context.Context) AnalysisSpecialValuePtrOutput {
+	return AnalysisSpecialValue(e).ToAnalysisSpecialValueOutputWithContext(ctx).ToAnalysisSpecialValuePtrOutputWithContext(ctx)
+}
+
+func (e AnalysisSpecialValue) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisSpecialValue) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisSpecialValue) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisSpecialValue) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AnalysisSpecialValueOutput struct{ *pulumi.OutputState }
+
+func (AnalysisSpecialValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisSpecialValue)(nil)).Elem()
+}
+
+func (o AnalysisSpecialValueOutput) ToAnalysisSpecialValueOutput() AnalysisSpecialValueOutput {
+	return o
+}
+
+func (o AnalysisSpecialValueOutput) ToAnalysisSpecialValueOutputWithContext(ctx context.Context) AnalysisSpecialValueOutput {
+	return o
+}
+
+func (o AnalysisSpecialValueOutput) ToAnalysisSpecialValuePtrOutput() AnalysisSpecialValuePtrOutput {
+	return o.ToAnalysisSpecialValuePtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisSpecialValueOutput) ToAnalysisSpecialValuePtrOutputWithContext(ctx context.Context) AnalysisSpecialValuePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisSpecialValue) *AnalysisSpecialValue {
+		return &v
+	}).(AnalysisSpecialValuePtrOutput)
+}
+
+func (o AnalysisSpecialValueOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AnalysisSpecialValueOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisSpecialValue) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalysisSpecialValueOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisSpecialValueOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisSpecialValue) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AnalysisSpecialValuePtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisSpecialValuePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisSpecialValue)(nil)).Elem()
+}
+
+func (o AnalysisSpecialValuePtrOutput) ToAnalysisSpecialValuePtrOutput() AnalysisSpecialValuePtrOutput {
+	return o
+}
+
+func (o AnalysisSpecialValuePtrOutput) ToAnalysisSpecialValuePtrOutputWithContext(ctx context.Context) AnalysisSpecialValuePtrOutput {
+	return o
+}
+
+func (o AnalysisSpecialValuePtrOutput) Elem() AnalysisSpecialValueOutput {
+	return o.ApplyT(func(v *AnalysisSpecialValue) AnalysisSpecialValue {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisSpecialValue
+		return ret
+	}).(AnalysisSpecialValueOutput)
+}
+
+func (o AnalysisSpecialValuePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisSpecialValuePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AnalysisSpecialValue) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AnalysisSpecialValueInput is an input type that accepts AnalysisSpecialValueArgs and AnalysisSpecialValueOutput values.
+// You can construct a concrete instance of `AnalysisSpecialValueInput` via:
+//
+//	AnalysisSpecialValueArgs{...}
+type AnalysisSpecialValueInput interface {
+	pulumi.Input
+
+	ToAnalysisSpecialValueOutput() AnalysisSpecialValueOutput
+	ToAnalysisSpecialValueOutputWithContext(context.Context) AnalysisSpecialValueOutput
+}
+
+var analysisSpecialValuePtrType = reflect.TypeOf((**AnalysisSpecialValue)(nil)).Elem()
+
+type AnalysisSpecialValuePtrInput interface {
+	pulumi.Input
+
+	ToAnalysisSpecialValuePtrOutput() AnalysisSpecialValuePtrOutput
+	ToAnalysisSpecialValuePtrOutputWithContext(context.Context) AnalysisSpecialValuePtrOutput
+}
+
+type analysisSpecialValuePtr string
+
+func AnalysisSpecialValuePtr(v string) AnalysisSpecialValuePtrInput {
+	return (*analysisSpecialValuePtr)(&v)
+}
+
+func (*analysisSpecialValuePtr) ElementType() reflect.Type {
+	return analysisSpecialValuePtrType
+}
+
+func (in *analysisSpecialValuePtr) ToAnalysisSpecialValuePtrOutput() AnalysisSpecialValuePtrOutput {
+	return pulumi.ToOutput(in).(AnalysisSpecialValuePtrOutput)
+}
+
+func (in *analysisSpecialValuePtr) ToAnalysisSpecialValuePtrOutputWithContext(ctx context.Context) AnalysisSpecialValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AnalysisSpecialValuePtrOutput)
+}
+
 type AnalysisTableBorderStyle string
 
 const (
@@ -29872,6 +30037,171 @@ func (in *dashboardSortDirectionPtr) ToDashboardSortDirectionPtrOutput() Dashboa
 
 func (in *dashboardSortDirectionPtr) ToDashboardSortDirectionPtrOutputWithContext(ctx context.Context) DashboardSortDirectionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardSortDirectionPtrOutput)
+}
+
+type DashboardSpecialValue string
+
+const (
+	DashboardSpecialValueEmpty = DashboardSpecialValue("EMPTY")
+	DashboardSpecialValueNull  = DashboardSpecialValue("NULL")
+	DashboardSpecialValueOther = DashboardSpecialValue("OTHER")
+)
+
+func (DashboardSpecialValue) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardSpecialValue)(nil)).Elem()
+}
+
+func (e DashboardSpecialValue) ToDashboardSpecialValueOutput() DashboardSpecialValueOutput {
+	return pulumi.ToOutput(e).(DashboardSpecialValueOutput)
+}
+
+func (e DashboardSpecialValue) ToDashboardSpecialValueOutputWithContext(ctx context.Context) DashboardSpecialValueOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DashboardSpecialValueOutput)
+}
+
+func (e DashboardSpecialValue) ToDashboardSpecialValuePtrOutput() DashboardSpecialValuePtrOutput {
+	return e.ToDashboardSpecialValuePtrOutputWithContext(context.Background())
+}
+
+func (e DashboardSpecialValue) ToDashboardSpecialValuePtrOutputWithContext(ctx context.Context) DashboardSpecialValuePtrOutput {
+	return DashboardSpecialValue(e).ToDashboardSpecialValueOutputWithContext(ctx).ToDashboardSpecialValuePtrOutputWithContext(ctx)
+}
+
+func (e DashboardSpecialValue) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DashboardSpecialValue) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DashboardSpecialValue) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DashboardSpecialValue) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DashboardSpecialValueOutput struct{ *pulumi.OutputState }
+
+func (DashboardSpecialValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardSpecialValue)(nil)).Elem()
+}
+
+func (o DashboardSpecialValueOutput) ToDashboardSpecialValueOutput() DashboardSpecialValueOutput {
+	return o
+}
+
+func (o DashboardSpecialValueOutput) ToDashboardSpecialValueOutputWithContext(ctx context.Context) DashboardSpecialValueOutput {
+	return o
+}
+
+func (o DashboardSpecialValueOutput) ToDashboardSpecialValuePtrOutput() DashboardSpecialValuePtrOutput {
+	return o.ToDashboardSpecialValuePtrOutputWithContext(context.Background())
+}
+
+func (o DashboardSpecialValueOutput) ToDashboardSpecialValuePtrOutputWithContext(ctx context.Context) DashboardSpecialValuePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardSpecialValue) *DashboardSpecialValue {
+		return &v
+	}).(DashboardSpecialValuePtrOutput)
+}
+
+func (o DashboardSpecialValueOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DashboardSpecialValueOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardSpecialValue) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DashboardSpecialValueOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardSpecialValueOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardSpecialValue) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardSpecialValuePtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardSpecialValuePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardSpecialValue)(nil)).Elem()
+}
+
+func (o DashboardSpecialValuePtrOutput) ToDashboardSpecialValuePtrOutput() DashboardSpecialValuePtrOutput {
+	return o
+}
+
+func (o DashboardSpecialValuePtrOutput) ToDashboardSpecialValuePtrOutputWithContext(ctx context.Context) DashboardSpecialValuePtrOutput {
+	return o
+}
+
+func (o DashboardSpecialValuePtrOutput) Elem() DashboardSpecialValueOutput {
+	return o.ApplyT(func(v *DashboardSpecialValue) DashboardSpecialValue {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardSpecialValue
+		return ret
+	}).(DashboardSpecialValueOutput)
+}
+
+func (o DashboardSpecialValuePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardSpecialValuePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DashboardSpecialValue) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DashboardSpecialValueInput is an input type that accepts DashboardSpecialValueArgs and DashboardSpecialValueOutput values.
+// You can construct a concrete instance of `DashboardSpecialValueInput` via:
+//
+//	DashboardSpecialValueArgs{...}
+type DashboardSpecialValueInput interface {
+	pulumi.Input
+
+	ToDashboardSpecialValueOutput() DashboardSpecialValueOutput
+	ToDashboardSpecialValueOutputWithContext(context.Context) DashboardSpecialValueOutput
+}
+
+var dashboardSpecialValuePtrType = reflect.TypeOf((**DashboardSpecialValue)(nil)).Elem()
+
+type DashboardSpecialValuePtrInput interface {
+	pulumi.Input
+
+	ToDashboardSpecialValuePtrOutput() DashboardSpecialValuePtrOutput
+	ToDashboardSpecialValuePtrOutputWithContext(context.Context) DashboardSpecialValuePtrOutput
+}
+
+type dashboardSpecialValuePtr string
+
+func DashboardSpecialValuePtr(v string) DashboardSpecialValuePtrInput {
+	return (*dashboardSpecialValuePtr)(&v)
+}
+
+func (*dashboardSpecialValuePtr) ElementType() reflect.Type {
+	return dashboardSpecialValuePtrType
+}
+
+func (in *dashboardSpecialValuePtr) ToDashboardSpecialValuePtrOutput() DashboardSpecialValuePtrOutput {
+	return pulumi.ToOutput(in).(DashboardSpecialValuePtrOutput)
+}
+
+func (in *dashboardSpecialValuePtr) ToDashboardSpecialValuePtrOutputWithContext(ctx context.Context) DashboardSpecialValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DashboardSpecialValuePtrOutput)
 }
 
 type DashboardTableBorderStyle string
@@ -49101,6 +49431,171 @@ func (in *templateSortDirectionPtr) ToTemplateSortDirectionPtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateSortDirectionPtrOutput)
 }
 
+type TemplateSpecialValue string
+
+const (
+	TemplateSpecialValueEmpty = TemplateSpecialValue("EMPTY")
+	TemplateSpecialValueNull  = TemplateSpecialValue("NULL")
+	TemplateSpecialValueOther = TemplateSpecialValue("OTHER")
+)
+
+func (TemplateSpecialValue) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateSpecialValue)(nil)).Elem()
+}
+
+func (e TemplateSpecialValue) ToTemplateSpecialValueOutput() TemplateSpecialValueOutput {
+	return pulumi.ToOutput(e).(TemplateSpecialValueOutput)
+}
+
+func (e TemplateSpecialValue) ToTemplateSpecialValueOutputWithContext(ctx context.Context) TemplateSpecialValueOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TemplateSpecialValueOutput)
+}
+
+func (e TemplateSpecialValue) ToTemplateSpecialValuePtrOutput() TemplateSpecialValuePtrOutput {
+	return e.ToTemplateSpecialValuePtrOutputWithContext(context.Background())
+}
+
+func (e TemplateSpecialValue) ToTemplateSpecialValuePtrOutputWithContext(ctx context.Context) TemplateSpecialValuePtrOutput {
+	return TemplateSpecialValue(e).ToTemplateSpecialValueOutputWithContext(ctx).ToTemplateSpecialValuePtrOutputWithContext(ctx)
+}
+
+func (e TemplateSpecialValue) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TemplateSpecialValue) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TemplateSpecialValue) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TemplateSpecialValue) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TemplateSpecialValueOutput struct{ *pulumi.OutputState }
+
+func (TemplateSpecialValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateSpecialValue)(nil)).Elem()
+}
+
+func (o TemplateSpecialValueOutput) ToTemplateSpecialValueOutput() TemplateSpecialValueOutput {
+	return o
+}
+
+func (o TemplateSpecialValueOutput) ToTemplateSpecialValueOutputWithContext(ctx context.Context) TemplateSpecialValueOutput {
+	return o
+}
+
+func (o TemplateSpecialValueOutput) ToTemplateSpecialValuePtrOutput() TemplateSpecialValuePtrOutput {
+	return o.ToTemplateSpecialValuePtrOutputWithContext(context.Background())
+}
+
+func (o TemplateSpecialValueOutput) ToTemplateSpecialValuePtrOutputWithContext(ctx context.Context) TemplateSpecialValuePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateSpecialValue) *TemplateSpecialValue {
+		return &v
+	}).(TemplateSpecialValuePtrOutput)
+}
+
+func (o TemplateSpecialValueOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TemplateSpecialValueOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplateSpecialValue) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TemplateSpecialValueOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateSpecialValueOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplateSpecialValue) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TemplateSpecialValuePtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateSpecialValuePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateSpecialValue)(nil)).Elem()
+}
+
+func (o TemplateSpecialValuePtrOutput) ToTemplateSpecialValuePtrOutput() TemplateSpecialValuePtrOutput {
+	return o
+}
+
+func (o TemplateSpecialValuePtrOutput) ToTemplateSpecialValuePtrOutputWithContext(ctx context.Context) TemplateSpecialValuePtrOutput {
+	return o
+}
+
+func (o TemplateSpecialValuePtrOutput) Elem() TemplateSpecialValueOutput {
+	return o.ApplyT(func(v *TemplateSpecialValue) TemplateSpecialValue {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateSpecialValue
+		return ret
+	}).(TemplateSpecialValueOutput)
+}
+
+func (o TemplateSpecialValuePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateSpecialValuePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TemplateSpecialValue) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TemplateSpecialValueInput is an input type that accepts TemplateSpecialValueArgs and TemplateSpecialValueOutput values.
+// You can construct a concrete instance of `TemplateSpecialValueInput` via:
+//
+//	TemplateSpecialValueArgs{...}
+type TemplateSpecialValueInput interface {
+	pulumi.Input
+
+	ToTemplateSpecialValueOutput() TemplateSpecialValueOutput
+	ToTemplateSpecialValueOutputWithContext(context.Context) TemplateSpecialValueOutput
+}
+
+var templateSpecialValuePtrType = reflect.TypeOf((**TemplateSpecialValue)(nil)).Elem()
+
+type TemplateSpecialValuePtrInput interface {
+	pulumi.Input
+
+	ToTemplateSpecialValuePtrOutput() TemplateSpecialValuePtrOutput
+	ToTemplateSpecialValuePtrOutputWithContext(context.Context) TemplateSpecialValuePtrOutput
+}
+
+type templateSpecialValuePtr string
+
+func TemplateSpecialValuePtr(v string) TemplateSpecialValuePtrInput {
+	return (*templateSpecialValuePtr)(&v)
+}
+
+func (*templateSpecialValuePtr) ElementType() reflect.Type {
+	return templateSpecialValuePtrType
+}
+
+func (in *templateSpecialValuePtr) ToTemplateSpecialValuePtrOutput() TemplateSpecialValuePtrOutput {
+	return pulumi.ToOutput(in).(TemplateSpecialValuePtrOutput)
+}
+
+func (in *templateSpecialValuePtr) ToTemplateSpecialValuePtrOutputWithContext(ctx context.Context) TemplateSpecialValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TemplateSpecialValuePtrOutput)
+}
+
 type TemplateTableBorderStyle string
 
 const (
@@ -56896,6 +57391,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSimpleNumericalAggregationFunctionPtrInput)(nil)).Elem(), AnalysisSimpleNumericalAggregationFunction("SUM"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSortDirectionInput)(nil)).Elem(), AnalysisSortDirection("ASC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSortDirectionPtrInput)(nil)).Elem(), AnalysisSortDirection("ASC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSpecialValueInput)(nil)).Elem(), AnalysisSpecialValue("EMPTY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSpecialValuePtrInput)(nil)).Elem(), AnalysisSpecialValue("EMPTY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTableBorderStyleInput)(nil)).Elem(), AnalysisTableBorderStyle("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTableBorderStylePtrInput)(nil)).Elem(), AnalysisTableBorderStyle("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTableCellImageScalingConfigurationInput)(nil)).Elem(), AnalysisTableCellImageScalingConfiguration("FIT_TO_CELL_HEIGHT"))
@@ -57098,6 +57595,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSimpleNumericalAggregationFunctionPtrInput)(nil)).Elem(), DashboardSimpleNumericalAggregationFunction("SUM"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSortDirectionInput)(nil)).Elem(), DashboardSortDirection("ASC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSortDirectionPtrInput)(nil)).Elem(), DashboardSortDirection("ASC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSpecialValueInput)(nil)).Elem(), DashboardSpecialValue("EMPTY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSpecialValuePtrInput)(nil)).Elem(), DashboardSpecialValue("EMPTY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardTableBorderStyleInput)(nil)).Elem(), DashboardTableBorderStyle("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardTableBorderStylePtrInput)(nil)).Elem(), DashboardTableBorderStyle("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardTableCellImageScalingConfigurationInput)(nil)).Elem(), DashboardTableCellImageScalingConfiguration("FIT_TO_CELL_HEIGHT"))
@@ -57326,6 +57825,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSimpleNumericalAggregationFunctionPtrInput)(nil)).Elem(), TemplateSimpleNumericalAggregationFunction("SUM"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSortDirectionInput)(nil)).Elem(), TemplateSortDirection("ASC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSortDirectionPtrInput)(nil)).Elem(), TemplateSortDirection("ASC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSpecialValueInput)(nil)).Elem(), TemplateSpecialValue("EMPTY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSpecialValuePtrInput)(nil)).Elem(), TemplateSpecialValue("EMPTY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableBorderStyleInput)(nil)).Elem(), TemplateTableBorderStyle("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableBorderStylePtrInput)(nil)).Elem(), TemplateTableBorderStyle("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableCellImageScalingConfigurationInput)(nil)).Elem(), TemplateTableCellImageScalingConfiguration("FIT_TO_CELL_HEIGHT"))
@@ -57571,6 +58072,8 @@ func init() {
 	pulumi.RegisterOutputType(AnalysisSimpleNumericalAggregationFunctionPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisSortDirectionOutput{})
 	pulumi.RegisterOutputType(AnalysisSortDirectionPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisSpecialValueOutput{})
+	pulumi.RegisterOutputType(AnalysisSpecialValuePtrOutput{})
 	pulumi.RegisterOutputType(AnalysisTableBorderStyleOutput{})
 	pulumi.RegisterOutputType(AnalysisTableBorderStylePtrOutput{})
 	pulumi.RegisterOutputType(AnalysisTableCellImageScalingConfigurationOutput{})
@@ -57777,6 +58280,8 @@ func init() {
 	pulumi.RegisterOutputType(DashboardSimpleNumericalAggregationFunctionPtrOutput{})
 	pulumi.RegisterOutputType(DashboardSortDirectionOutput{})
 	pulumi.RegisterOutputType(DashboardSortDirectionPtrOutput{})
+	pulumi.RegisterOutputType(DashboardSpecialValueOutput{})
+	pulumi.RegisterOutputType(DashboardSpecialValuePtrOutput{})
 	pulumi.RegisterOutputType(DashboardTableBorderStyleOutput{})
 	pulumi.RegisterOutputType(DashboardTableBorderStylePtrOutput{})
 	pulumi.RegisterOutputType(DashboardTableCellImageScalingConfigurationOutput{})
@@ -58013,6 +58518,8 @@ func init() {
 	pulumi.RegisterOutputType(TemplateSimpleNumericalAggregationFunctionPtrOutput{})
 	pulumi.RegisterOutputType(TemplateSortDirectionOutput{})
 	pulumi.RegisterOutputType(TemplateSortDirectionPtrOutput{})
+	pulumi.RegisterOutputType(TemplateSpecialValueOutput{})
+	pulumi.RegisterOutputType(TemplateSpecialValuePtrOutput{})
 	pulumi.RegisterOutputType(TemplateTableBorderStyleOutput{})
 	pulumi.RegisterOutputType(TemplateTableBorderStylePtrOutput{})
 	pulumi.RegisterOutputType(TemplateTableCellImageScalingConfigurationOutput{})

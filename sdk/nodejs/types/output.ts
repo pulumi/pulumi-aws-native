@@ -1799,7 +1799,13 @@ export namespace appflow {
 
     export interface FlowCustomConnectorSourceProperties {
         customProperties?: outputs.appflow.FlowCustomProperties;
+        dataTransferApi?: outputs.appflow.FlowCustomConnectorSourcePropertiesDataTransferApiProperties;
         entityName: string;
+    }
+
+    export interface FlowCustomConnectorSourcePropertiesDataTransferApiProperties {
+        name: string;
+        type: enums.appflow.FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesType;
     }
 
     /**
@@ -7158,6 +7164,49 @@ export namespace cognito {
 }
 
 export namespace comprehend {
+    export interface DocumentClassifierAugmentedManifestsListItem {
+        attributeNames: string[];
+        s3Uri: string;
+        split?: enums.comprehend.DocumentClassifierAugmentedManifestsListItemSplit;
+    }
+
+    export interface DocumentClassifierDocumentReaderConfig {
+        documentReadAction: enums.comprehend.DocumentClassifierDocumentReaderConfigDocumentReadAction;
+        documentReadMode?: enums.comprehend.DocumentClassifierDocumentReaderConfigDocumentReadMode;
+        featureTypes?: enums.comprehend.DocumentClassifierDocumentReaderConfigFeatureTypesItem[];
+    }
+
+    export interface DocumentClassifierDocuments {
+        s3Uri: string;
+        testS3Uri?: string;
+    }
+
+    export interface DocumentClassifierInputDataConfig {
+        augmentedManifests?: outputs.comprehend.DocumentClassifierAugmentedManifestsListItem[];
+        dataFormat?: enums.comprehend.DocumentClassifierInputDataConfigDataFormat;
+        documentReaderConfig?: outputs.comprehend.DocumentClassifierDocumentReaderConfig;
+        documentType?: enums.comprehend.DocumentClassifierInputDataConfigDocumentType;
+        documents?: outputs.comprehend.DocumentClassifierDocuments;
+        labelDelimiter?: string;
+        s3Uri?: string;
+        testS3Uri?: string;
+    }
+
+    export interface DocumentClassifierOutputDataConfig {
+        kmsKeyId?: string;
+        s3Uri?: string;
+    }
+
+    export interface DocumentClassifierTag {
+        key: string;
+        value: string;
+    }
+
+    export interface DocumentClassifierVpcConfig {
+        securityGroupIds: string[];
+        subnets: string[];
+    }
+
     export interface FlywheelDataSecurityConfig {
         dataLakeKmsKeyId?: string;
         modelKmsKeyId?: string;
@@ -18219,6 +18268,28 @@ export namespace healthlake {
          * Seconds since epoch.
          */
         seconds: string;
+    }
+
+    /**
+     * The identity provider configuration for the datastore
+     */
+    export interface FHIRDatastoreIdentityProviderConfiguration {
+        /**
+         * Type of Authorization Strategy. The two types of supported Authorization strategies are SMART_ON_FHIR_V1 and AWS_AUTH.
+         */
+        authorizationStrategy: enums.healthlake.FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy;
+        /**
+         * Flag to indicate if fine-grained authorization will be enabled for the datastore
+         */
+        fineGrainedAuthorizationEnabled?: boolean;
+        /**
+         * The Amazon Resource Name (ARN) of the Lambda function that will be used to decode the access token created by the authorization server.
+         */
+        idpLambdaArn?: string;
+        /**
+         * The JSON metadata elements for identity provider configuration.
+         */
+        metadata?: string;
     }
 
     /**
@@ -32145,7 +32216,12 @@ export namespace quicksight {
         nullValueColor?: outputs.quicksight.AnalysisDataColor;
     }
 
+    export interface AnalysisColorsConfiguration {
+        customColors?: outputs.quicksight.AnalysisCustomColor[];
+    }
+
     export interface AnalysisColumnConfiguration {
+        colorsConfiguration?: outputs.quicksight.AnalysisColorsConfiguration;
         column: outputs.quicksight.AnalysisColumnIdentifier;
         formatConfiguration?: outputs.quicksight.AnalysisFormatConfiguration;
         role?: enums.quicksight.AnalysisColumnRole;
@@ -32317,6 +32393,12 @@ export namespace quicksight {
     export interface AnalysisCustomActionURLOperation {
         uRLTarget: enums.quicksight.AnalysisURLTargetConfiguration;
         uRLTemplate: string;
+    }
+
+    export interface AnalysisCustomColor {
+        color: string;
+        fieldValue?: string;
+        specialValue?: enums.quicksight.AnalysisSpecialValue;
     }
 
     export interface AnalysisCustomContentConfiguration {
@@ -35072,7 +35154,12 @@ export namespace quicksight {
         nullValueColor?: outputs.quicksight.DashboardDataColor;
     }
 
+    export interface DashboardColorsConfiguration {
+        customColors?: outputs.quicksight.DashboardCustomColor[];
+    }
+
     export interface DashboardColumnConfiguration {
+        colorsConfiguration?: outputs.quicksight.DashboardColorsConfiguration;
         column: outputs.quicksight.DashboardColumnIdentifier;
         formatConfiguration?: outputs.quicksight.DashboardFormatConfiguration;
         role?: enums.quicksight.DashboardColumnRole;
@@ -35244,6 +35331,12 @@ export namespace quicksight {
     export interface DashboardCustomActionURLOperation {
         uRLTarget: enums.quicksight.DashboardURLTargetConfiguration;
         uRLTemplate: string;
+    }
+
+    export interface DashboardCustomColor {
+        color: string;
+        fieldValue?: string;
+        specialValue?: enums.quicksight.DashboardSpecialValue;
     }
 
     export interface DashboardCustomContentConfiguration {
@@ -38850,7 +38943,12 @@ export namespace quicksight {
         nullValueColor?: outputs.quicksight.TemplateDataColor;
     }
 
+    export interface TemplateColorsConfiguration {
+        customColors?: outputs.quicksight.TemplateCustomColor[];
+    }
+
     export interface TemplateColumnConfiguration {
+        colorsConfiguration?: outputs.quicksight.TemplateColorsConfiguration;
         column: outputs.quicksight.TemplateColumnIdentifier;
         formatConfiguration?: outputs.quicksight.TemplateFormatConfiguration;
         role?: enums.quicksight.TemplateColumnRole;
@@ -39037,6 +39135,12 @@ export namespace quicksight {
     export interface TemplateCustomActionURLOperation {
         uRLTarget: enums.quicksight.TemplateURLTargetConfiguration;
         uRLTemplate: string;
+    }
+
+    export interface TemplateCustomColor {
+        color: string;
+        fieldValue?: string;
+        specialValue?: enums.quicksight.TemplateSpecialValue;
     }
 
     export interface TemplateCustomContentConfiguration {
@@ -44586,6 +44690,17 @@ export namespace s3outposts {
         value: string;
     }
 
+    export interface EndpointFailedReason {
+        /**
+         * The failure code, if any, for a create or delete endpoint operation.
+         */
+        errorCode?: string;
+        /**
+         * Additional error details describing the endpoint failure and recommended action.
+         */
+        message?: string;
+    }
+
     /**
      * The container for the network interface.
      */
@@ -50110,6 +50225,9 @@ export namespace transfer {
         passiveIp?: string;
         setStatOption?: string;
         tlsSessionResumptionMode?: string;
+    }
+
+    export interface ServerStructuredLogDestination {
     }
 
     export interface ServerTag {

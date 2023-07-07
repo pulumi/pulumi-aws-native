@@ -44,7 +44,7 @@
   "additionalIdentifiers" : [ [ "/properties/Arn" ] ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "networkmanager:CreateGlobalNetwork", "networkmanager:DescribeGlobalNetworks", "iam:CreateServiceLinkedRole" ]
+      "permissions" : [ "networkmanager:CreateGlobalNetwork", "networkmanager:DescribeGlobalNetworks", "networkmanager:TagResource", "iam:CreateServiceLinkedRole" ]
     },
     "read" : {
       "permissions" : [ "networkmanager:DescribeGlobalNetworks" ]

@@ -51,29 +51,21 @@ namespace Pulumi.AwsNative.LakeFormation
     [OutputType]
     public sealed class GetPermissionsResult
     {
-        public readonly Outputs.PermissionsDataLakePrincipal? DataLakePrincipal;
         public readonly string? Id;
         public readonly ImmutableArray<string> PermissionsValue;
         public readonly ImmutableArray<string> PermissionsWithGrantOption;
-        public readonly Outputs.PermissionsResource? Resource;
 
         [OutputConstructor]
         private GetPermissionsResult(
-            Outputs.PermissionsDataLakePrincipal? dataLakePrincipal,
-
             string? id,
 
             ImmutableArray<string> permissions,
 
-            ImmutableArray<string> permissionsWithGrantOption,
-
-            Outputs.PermissionsResource? resource)
+            ImmutableArray<string> permissionsWithGrantOption)
         {
-            DataLakePrincipal = dataLakePrincipal;
             Id = id;
             PermissionsValue = permissions;
             PermissionsWithGrantOption = permissionsWithGrantOption;
-            Resource = resource;
         }
     }
 }

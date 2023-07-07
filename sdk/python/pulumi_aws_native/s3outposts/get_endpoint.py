@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetEndpointResult:
-    def __init__(__self__, arn=None, cidr_block=None, creation_time=None, id=None, network_interfaces=None, status=None):
+    def __init__(__self__, arn=None, cidr_block=None, creation_time=None, failed_reason=None, id=None, network_interfaces=None, status=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -30,6 +30,9 @@ class GetEndpointResult:
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
+        if failed_reason and not isinstance(failed_reason, dict):
+            raise TypeError("Expected argument 'failed_reason' to be a dict")
+        pulumi.set(__self__, "failed_reason", failed_reason)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -65,6 +68,14 @@ class GetEndpointResult:
         return pulumi.get(self, "creation_time")
 
     @property
+    @pulumi.getter(name="failedReason")
+    def failed_reason(self) -> Optional['outputs.EndpointFailedReason']:
+        """
+        The failure reason, if any, for a create or delete endpoint operation.
+        """
+        return pulumi.get(self, "failed_reason")
+
+    @property
     @pulumi.getter
     def id(self) -> Optional[str]:
         """
@@ -95,6 +106,7 @@ class AwaitableGetEndpointResult(GetEndpointResult):
             arn=self.arn,
             cidr_block=self.cidr_block,
             creation_time=self.creation_time,
+            failed_reason=self.failed_reason,
             id=self.id,
             network_interfaces=self.network_interfaces,
             status=self.status)
@@ -117,6 +129,7 @@ def get_endpoint(arn: Optional[str] = None,
         arn=__ret__.arn,
         cidr_block=__ret__.cidr_block,
         creation_time=__ret__.creation_time,
+        failed_reason=__ret__.failed_reason,
         id=__ret__.id,
         network_interfaces=__ret__.network_interfaces,
         status=__ret__.status)

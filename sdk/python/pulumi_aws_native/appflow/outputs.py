@@ -65,6 +65,7 @@ __all__ = [
     'FlowConnectorOperator',
     'FlowCustomConnectorDestinationProperties',
     'FlowCustomConnectorSourceProperties',
+    'FlowCustomConnectorSourcePropertiesDataTransferApiProperties',
     'FlowCustomProperties',
     'FlowDatadogSourceProperties',
     'FlowDestinationConnectorProperties',
@@ -3083,6 +3084,8 @@ class FlowCustomConnectorSourceProperties(dict):
             suggest = "entity_name"
         elif key == "customProperties":
             suggest = "custom_properties"
+        elif key == "dataTransferApi":
+            suggest = "data_transfer_api"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in FlowCustomConnectorSourceProperties. Access the value via the '{suggest}' property getter instead.")
@@ -3097,10 +3100,13 @@ class FlowCustomConnectorSourceProperties(dict):
 
     def __init__(__self__, *,
                  entity_name: str,
-                 custom_properties: Optional['outputs.FlowCustomProperties'] = None):
+                 custom_properties: Optional['outputs.FlowCustomProperties'] = None,
+                 data_transfer_api: Optional['outputs.FlowCustomConnectorSourcePropertiesDataTransferApiProperties'] = None):
         pulumi.set(__self__, "entity_name", entity_name)
         if custom_properties is not None:
             pulumi.set(__self__, "custom_properties", custom_properties)
+        if data_transfer_api is not None:
+            pulumi.set(__self__, "data_transfer_api", data_transfer_api)
 
     @property
     @pulumi.getter(name="entityName")
@@ -3111,6 +3117,30 @@ class FlowCustomConnectorSourceProperties(dict):
     @pulumi.getter(name="customProperties")
     def custom_properties(self) -> Optional['outputs.FlowCustomProperties']:
         return pulumi.get(self, "custom_properties")
+
+    @property
+    @pulumi.getter(name="dataTransferApi")
+    def data_transfer_api(self) -> Optional['outputs.FlowCustomConnectorSourcePropertiesDataTransferApiProperties']:
+        return pulumi.get(self, "data_transfer_api")
+
+
+@pulumi.output_type
+class FlowCustomConnectorSourcePropertiesDataTransferApiProperties(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 type: 'FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesType'):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesType':
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

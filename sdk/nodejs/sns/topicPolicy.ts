@@ -5,9 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::SNS::TopicPolicy
- *
- * @deprecated TopicPolicy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+ * Schema for AWS::SNS::TopicPolicy
  */
 export class TopicPolicy extends pulumi.CustomResource {
     /**
@@ -19,7 +17,6 @@ export class TopicPolicy extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): TopicPolicy {
-        pulumi.log.warn("TopicPolicy is deprecated: TopicPolicy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new TopicPolicy(name, undefined as any, { ...opts, id: id });
     }
 
@@ -37,7 +34,13 @@ export class TopicPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === TopicPolicy.__pulumiType;
     }
 
+    /**
+     * A policy document that contains permissions to add to the specified SNS topics.
+     */
     public readonly policyDocument!: pulumi.Output<any>;
+    /**
+     * The Amazon Resource Names (ARN) of the topics to which you want to add the policy. You can use the [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)` function to specify an [AWS::SNS::Topic](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html) resource.
+     */
     public readonly topics!: pulumi.Output<string[]>;
 
     /**
@@ -47,9 +50,7 @@ export class TopicPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated TopicPolicy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: TopicPolicyArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("TopicPolicy is deprecated: TopicPolicy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -74,6 +75,12 @@ export class TopicPolicy extends pulumi.CustomResource {
  * The set of arguments for constructing a TopicPolicy resource.
  */
 export interface TopicPolicyArgs {
+    /**
+     * A policy document that contains permissions to add to the specified SNS topics.
+     */
     policyDocument: any;
+    /**
+     * The Amazon Resource Names (ARN) of the topics to which you want to add the policy. You can use the [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)` function to specify an [AWS::SNS::Topic](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html) resource.
+     */
     topics: pulumi.Input<pulumi.Input<string>[]>;
 }

@@ -2,9 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -34,14 +31,6 @@ export interface GetKeyPairResult {
      * An AWS generated ID for the key pair
      */
     readonly keyPairId?: string;
-    /**
-     * Plain text public key to import
-     */
-    readonly publicKeyMaterial?: string;
-    /**
-     * An array of key-value pairs to apply to this resource.
-     */
-    readonly tags?: outputs.ec2.KeyPairTag[];
 }
 /**
  * The AWS::EC2::KeyPair creates an SSH key pair

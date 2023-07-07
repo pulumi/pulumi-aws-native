@@ -141,6 +141,7 @@
     }
   },
   "required" : [ "DataLakePrincipal", "Resource" ],
+  "createOnlyProperties" : [ "/properties/DataLakePrincipal", "/properties/Resource" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/Id" ]
 }

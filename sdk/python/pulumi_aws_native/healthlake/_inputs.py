@@ -11,11 +11,83 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'FHIRDatastoreIdentityProviderConfigurationArgs',
     'FHIRDatastoreKmsEncryptionConfigArgs',
     'FHIRDatastorePreloadDataConfigArgs',
     'FHIRDatastoreSseConfigurationArgs',
     'FHIRDatastoreTagArgs',
 ]
+
+@pulumi.input_type
+class FHIRDatastoreIdentityProviderConfigurationArgs:
+    def __init__(__self__, *,
+                 authorization_strategy: pulumi.Input['FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy'],
+                 fine_grained_authorization_enabled: Optional[pulumi.Input[bool]] = None,
+                 idp_lambda_arn: Optional[pulumi.Input[str]] = None,
+                 metadata: Optional[pulumi.Input[str]] = None):
+        """
+        The identity provider configuration for the datastore
+        :param pulumi.Input['FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy'] authorization_strategy: Type of Authorization Strategy. The two types of supported Authorization strategies are SMART_ON_FHIR_V1 and AWS_AUTH.
+        :param pulumi.Input[bool] fine_grained_authorization_enabled: Flag to indicate if fine-grained authorization will be enabled for the datastore
+        :param pulumi.Input[str] idp_lambda_arn: The Amazon Resource Name (ARN) of the Lambda function that will be used to decode the access token created by the authorization server.
+        :param pulumi.Input[str] metadata: The JSON metadata elements for identity provider configuration.
+        """
+        pulumi.set(__self__, "authorization_strategy", authorization_strategy)
+        if fine_grained_authorization_enabled is not None:
+            pulumi.set(__self__, "fine_grained_authorization_enabled", fine_grained_authorization_enabled)
+        if idp_lambda_arn is not None:
+            pulumi.set(__self__, "idp_lambda_arn", idp_lambda_arn)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+
+    @property
+    @pulumi.getter(name="authorizationStrategy")
+    def authorization_strategy(self) -> pulumi.Input['FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy']:
+        """
+        Type of Authorization Strategy. The two types of supported Authorization strategies are SMART_ON_FHIR_V1 and AWS_AUTH.
+        """
+        return pulumi.get(self, "authorization_strategy")
+
+    @authorization_strategy.setter
+    def authorization_strategy(self, value: pulumi.Input['FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy']):
+        pulumi.set(self, "authorization_strategy", value)
+
+    @property
+    @pulumi.getter(name="fineGrainedAuthorizationEnabled")
+    def fine_grained_authorization_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag to indicate if fine-grained authorization will be enabled for the datastore
+        """
+        return pulumi.get(self, "fine_grained_authorization_enabled")
+
+    @fine_grained_authorization_enabled.setter
+    def fine_grained_authorization_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "fine_grained_authorization_enabled", value)
+
+    @property
+    @pulumi.getter(name="idpLambdaArn")
+    def idp_lambda_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the Lambda function that will be used to decode the access token created by the authorization server.
+        """
+        return pulumi.get(self, "idp_lambda_arn")
+
+    @idp_lambda_arn.setter
+    def idp_lambda_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "idp_lambda_arn", value)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[pulumi.Input[str]]:
+        """
+        The JSON metadata elements for identity provider configuration.
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "metadata", value)
+
 
 @pulumi.input_type
 class FHIRDatastoreKmsEncryptionConfigArgs:

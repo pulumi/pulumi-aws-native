@@ -72,7 +72,7 @@ export class ConnectPeer extends pulumi.CustomResource {
     /**
      * The inside IP addresses used for a Connect peer configuration.
      */
-    public readonly insideCidrBlocks!: pulumi.Output<string[]>;
+    public readonly insideCidrBlocks!: pulumi.Output<string[] | undefined>;
     /**
      * The IP address of the Connect peer.
      */
@@ -99,9 +99,6 @@ export class ConnectPeer extends pulumi.CustomResource {
         if (!opts.id) {
             if ((!args || args.connectAttachmentId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'connectAttachmentId'");
-            }
-            if ((!args || args.insideCidrBlocks === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'insideCidrBlocks'");
             }
             if ((!args || args.peerAddress === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'peerAddress'");
@@ -156,7 +153,7 @@ export interface ConnectPeerArgs {
     /**
      * The inside IP addresses used for a Connect peer configuration.
      */
-    insideCidrBlocks: pulumi.Input<pulumi.Input<string>[]>;
+    insideCidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The IP address of the Connect peer.
      */

@@ -17,11 +17,13 @@ type KeyPair struct {
 
 	// A short sequence of bytes used for public key verification
 	KeyFingerprint pulumi.StringOutput `pulumi:"keyFingerprint"`
+	// The format of the private key
+	KeyFormat KeyPairKeyFormatPtrOutput `pulumi:"keyFormat"`
 	// The name of the SSH key pair
 	KeyName pulumi.StringOutput `pulumi:"keyName"`
 	// An AWS generated ID for the key pair
 	KeyPairId pulumi.StringOutput `pulumi:"keyPairId"`
-	// The title of the TPS report is a mandatory element.
+	// The crypto-system used to generate a key pair.
 	KeyType KeyPairKeyTypePtrOutput `pulumi:"keyType"`
 	// Plain text public key to import
 	PublicKeyMaterial pulumi.StringPtrOutput `pulumi:"publicKeyMaterial"`
@@ -71,9 +73,11 @@ func (KeyPairState) ElementType() reflect.Type {
 }
 
 type keyPairArgs struct {
+	// The format of the private key
+	KeyFormat *KeyPairKeyFormat `pulumi:"keyFormat"`
 	// The name of the SSH key pair
 	KeyName string `pulumi:"keyName"`
-	// The title of the TPS report is a mandatory element.
+	// The crypto-system used to generate a key pair.
 	KeyType *KeyPairKeyType `pulumi:"keyType"`
 	// Plain text public key to import
 	PublicKeyMaterial *string `pulumi:"publicKeyMaterial"`
@@ -83,9 +87,11 @@ type keyPairArgs struct {
 
 // The set of arguments for constructing a KeyPair resource.
 type KeyPairArgs struct {
+	// The format of the private key
+	KeyFormat KeyPairKeyFormatPtrInput
 	// The name of the SSH key pair
 	KeyName pulumi.StringInput
-	// The title of the TPS report is a mandatory element.
+	// The crypto-system used to generate a key pair.
 	KeyType KeyPairKeyTypePtrInput
 	// Plain text public key to import
 	PublicKeyMaterial pulumi.StringPtrInput
@@ -135,6 +141,11 @@ func (o KeyPairOutput) KeyFingerprint() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyPair) pulumi.StringOutput { return v.KeyFingerprint }).(pulumi.StringOutput)
 }
 
+// The format of the private key
+func (o KeyPairOutput) KeyFormat() KeyPairKeyFormatPtrOutput {
+	return o.ApplyT(func(v *KeyPair) KeyPairKeyFormatPtrOutput { return v.KeyFormat }).(KeyPairKeyFormatPtrOutput)
+}
+
 // The name of the SSH key pair
 func (o KeyPairOutput) KeyName() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyPair) pulumi.StringOutput { return v.KeyName }).(pulumi.StringOutput)
@@ -145,7 +156,7 @@ func (o KeyPairOutput) KeyPairId() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyPair) pulumi.StringOutput { return v.KeyPairId }).(pulumi.StringOutput)
 }
 
-// The title of the TPS report is a mandatory element.
+// The crypto-system used to generate a key pair.
 func (o KeyPairOutput) KeyType() KeyPairKeyTypePtrOutput {
 	return o.ApplyT(func(v *KeyPair) KeyPairKeyTypePtrOutput { return v.KeyType }).(KeyPairKeyTypePtrOutput)
 }

@@ -1,5 +1,18 @@
 ## HEAD (Unreleased)
 
+2 Breaking Changes:
+- Function "aws-native:ec2:getKeyPair" missing output "tags"
+- Function "aws-native:ec2:getKeyPair" missing output "publicKeyMaterial"
+
+New resources:
+- apigatewayv2.ApiMapping
+- comprehend.DocumentClassifier
+- sns.TopicPolicy
+New functions:
+- apigatewayv2.getApiMapping
+- comprehend.getDocumentClassifier
+- sns.getTopicPolicy
+
 - Upgrade AWS SDK dependencies to fix SSO issues (#954)
 - PR #952 fixes an issue in schema generation where separate types would occasionally have the same
   name and would overwrite each other's metadata. This caused the following renames:

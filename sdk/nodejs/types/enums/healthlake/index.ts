@@ -23,6 +23,16 @@ export const FHIRDatastoreDatastoreTypeVersion = {
  */
 export type FHIRDatastoreDatastoreTypeVersion = (typeof FHIRDatastoreDatastoreTypeVersion)[keyof typeof FHIRDatastoreDatastoreTypeVersion];
 
+export const FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy = {
+    SmartOnFhirV1: "SMART_ON_FHIR_V1",
+    AwsAuth: "AWS_AUTH",
+} as const;
+
+/**
+ * Type of Authorization Strategy. The two types of supported Authorization strategies are SMART_ON_FHIR_V1 and AWS_AUTH.
+ */
+export type FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy = (typeof FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy)[keyof typeof FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy];
+
 export const FHIRDatastoreKmsEncryptionConfigCmkType = {
     CustomerManagedKmsKey: "CUSTOMER_MANAGED_KMS_KEY",
     AwsOwnedKmsKey: "AWS_OWNED_KMS_KEY",

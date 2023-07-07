@@ -106,13 +106,13 @@
   "primaryIdentifier" : [ "/properties/Id", "/properties/Arn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "groundstation:CreateMissionProfile", "groundstation:GetMissionProfile", "groundstation:TagResource", "kms:DescribeKey", "kms:CreateGrant" ]
+      "permissions" : [ "groundstation:CreateMissionProfile", "groundstation:GetMissionProfile", "groundstation:TagResource", "iam:PassRole", "kms:DescribeKey", "kms:CreateGrant" ]
     },
     "read" : {
       "permissions" : [ "groundstation:GetMissionProfile", "groundstation:ListTagsForResource", "kms:DescribeKey", "kms:CreateGrant" ]
     },
     "update" : {
-      "permissions" : [ "groundstation:UpdateMissionProfile", "groundstation:GetMissionProfile", "groundstation:ListTagsForResource", "groundstation:TagResource", "groundstation:UntagResource", "kms:DescribeKey", "kms:CreateGrant" ]
+      "permissions" : [ "groundstation:UpdateMissionProfile", "groundstation:GetMissionProfile", "groundstation:ListTagsForResource", "groundstation:TagResource", "groundstation:UntagResource", "iam:PassRole", "kms:DescribeKey", "kms:CreateGrant" ]
     },
     "delete" : {
       "permissions" : [ "groundstation:DeleteMissionProfile", "groundstation:GetMissionProfile" ]

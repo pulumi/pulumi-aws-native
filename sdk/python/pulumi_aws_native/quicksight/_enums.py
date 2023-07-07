@@ -84,6 +84,7 @@ __all__ = [
     'AnalysisSheetControlSliderType',
     'AnalysisSimpleNumericalAggregationFunction',
     'AnalysisSortDirection',
+    'AnalysisSpecialValue',
     'AnalysisTableBorderStyle',
     'AnalysisTableCellImageScalingConfiguration',
     'AnalysisTableFieldIconSetType',
@@ -187,6 +188,7 @@ __all__ = [
     'DashboardSheetControlSliderType',
     'DashboardSimpleNumericalAggregationFunction',
     'DashboardSortDirection',
+    'DashboardSpecialValue',
     'DashboardTableBorderStyle',
     'DashboardTableCellImageScalingConfiguration',
     'DashboardTableFieldIconSetType',
@@ -305,6 +307,7 @@ __all__ = [
     'TemplateSheetControlSliderType',
     'TemplateSimpleNumericalAggregationFunction',
     'TemplateSortDirection',
+    'TemplateSpecialValue',
     'TemplateTableBorderStyle',
     'TemplateTableCellImageScalingConfiguration',
     'TemplateTableFieldIconSetType',
@@ -863,6 +866,12 @@ class AnalysisSimpleNumericalAggregationFunction(str, Enum):
 class AnalysisSortDirection(str, Enum):
     ASC = "ASC"
     DESC = "DESC"
+
+
+class AnalysisSpecialValue(str, Enum):
+    EMPTY = "EMPTY"
+    NULL = "NULL"
+    OTHER = "OTHER"
 
 
 class AnalysisTableBorderStyle(str, Enum):
@@ -1502,6 +1511,12 @@ class DashboardSimpleNumericalAggregationFunction(str, Enum):
 class DashboardSortDirection(str, Enum):
     ASC = "ASC"
     DESC = "DESC"
+
+
+class DashboardSpecialValue(str, Enum):
+    EMPTY = "EMPTY"
+    NULL = "NULL"
+    OTHER = "OTHER"
 
 
 class DashboardTableBorderStyle(str, Enum):
@@ -2265,6 +2280,12 @@ class TemplateSimpleNumericalAggregationFunction(str, Enum):
 class TemplateSortDirection(str, Enum):
     ASC = "ASC"
     DESC = "DESC"
+
+
+class TemplateSpecialValue(str, Enum):
+    EMPTY = "EMPTY"
+    NULL = "NULL"
+    OTHER = "OTHER"
 
 
 class TemplateTableBorderStyle(str, Enum):

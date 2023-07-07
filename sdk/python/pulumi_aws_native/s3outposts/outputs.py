@@ -20,6 +20,7 @@ __all__ = [
     'BucketRule',
     'BucketRuleFilterProperties',
     'BucketTag',
+    'EndpointFailedReason',
     'EndpointNetworkInterface',
 ]
 
@@ -328,6 +329,54 @@ class BucketTag(dict):
     @pulumi.getter
     def value(self) -> str:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class EndpointFailedReason(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "errorCode":
+            suggest = "error_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointFailedReason. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointFailedReason.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointFailedReason.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 error_code: Optional[str] = None,
+                 message: Optional[str] = None):
+        """
+        :param str error_code: The failure code, if any, for a create or delete endpoint operation.
+        :param str message: Additional error details describing the endpoint failure and recommended action.
+        """
+        if error_code is not None:
+            pulumi.set(__self__, "error_code", error_code)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+
+    @property
+    @pulumi.getter(name="errorCode")
+    def error_code(self) -> Optional[str]:
+        """
+        The failure code, if any, for a create or delete endpoint operation.
+        """
+        return pulumi.get(self, "error_code")
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[str]:
+        """
+        Additional error details describing the endpoint failure and recommended action.
+        """
+        return pulumi.get(self, "message")
 
 
 @pulumi.output_type

@@ -299,13 +299,23 @@ export const IPAMScopeIpamScopeType = {
  */
 export type IPAMScopeIpamScopeType = (typeof IPAMScopeIpamScopeType)[keyof typeof IPAMScopeIpamScopeType];
 
+export const KeyPairKeyFormat = {
+    Pem: "pem",
+    Ppk: "ppk",
+} as const;
+
+/**
+ * The format of the private key
+ */
+export type KeyPairKeyFormat = (typeof KeyPairKeyFormat)[keyof typeof KeyPairKeyFormat];
+
 export const KeyPairKeyType = {
     Rsa: "rsa",
     Ed25519: "ed25519",
 } as const;
 
 /**
- * The title of the TPS report is a mandatory element.
+ * The crypto-system used to generate a key pair.
  */
 export type KeyPairKeyType = (typeof KeyPairKeyType)[keyof typeof KeyPairKeyType];
 

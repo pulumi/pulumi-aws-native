@@ -914,7 +914,38 @@ namespace Pulumi.AwsNative.EC2
     }
 
     /// <summary>
-    /// The title of the TPS report is a mandatory element.
+    /// The format of the private key
+    /// </summary>
+    [EnumType]
+    public readonly struct KeyPairKeyFormat : IEquatable<KeyPairKeyFormat>
+    {
+        private readonly string _value;
+
+        private KeyPairKeyFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KeyPairKeyFormat Pem { get; } = new KeyPairKeyFormat("pem");
+        public static KeyPairKeyFormat Ppk { get; } = new KeyPairKeyFormat("ppk");
+
+        public static bool operator ==(KeyPairKeyFormat left, KeyPairKeyFormat right) => left.Equals(right);
+        public static bool operator !=(KeyPairKeyFormat left, KeyPairKeyFormat right) => !left.Equals(right);
+
+        public static explicit operator string(KeyPairKeyFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KeyPairKeyFormat other && Equals(other);
+        public bool Equals(KeyPairKeyFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The crypto-system used to generate a key pair.
     /// </summary>
     [EnumType]
     public readonly struct KeyPairKeyType : IEquatable<KeyPairKeyType>

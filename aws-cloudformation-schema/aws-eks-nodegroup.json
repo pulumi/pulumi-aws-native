@@ -222,7 +222,7 @@
   "readOnlyProperties" : [ "/properties/Id", "/properties/Arn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "eks:CreateNodegroup", "eks:DescribeNodegroup", "eks:TagResource", "ec2:DescribeSubnets", "ec2:DescribeVpcs", "ec2:DescribeSecurityGroups", "ec2:DescribeKeyPairs", "ec2:CreateTags", "ec2:DeleteTags", "ec2:DescribeRouteTables", "ec2:DescribeLaunchTemplates", "ec2:DescribeLaunchTemplateVersions", "ec2:RunInstances", "iam:CreateServiceLinkedRole", "iam:GetRole", "iam:ListAttachedRolePolicies" ]
+      "permissions" : [ "eks:CreateNodegroup", "eks:DescribeNodegroup", "eks:TagResource", "ec2:DescribeSubnets", "ec2:DescribeVpcs", "ec2:DescribeSecurityGroups", "ec2:DescribeKeyPairs", "ec2:CreateTags", "ec2:DeleteTags", "ec2:DescribeRouteTables", "ec2:DescribeLaunchTemplates", "ec2:DescribeLaunchTemplateVersions", "ec2:RunInstances", "iam:CreateServiceLinkedRole", "iam:GetRole", "iam:PassRole", "iam:ListAttachedRolePolicies" ]
     },
     "read" : {
       "permissions" : [ "eks:DescribeNodegroup" ]

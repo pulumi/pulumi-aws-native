@@ -70,6 +70,10 @@ namespace Pulumi.AwsNative.S3Outposts
         /// </summary>
         public readonly string? CreationTime;
         /// <summary>
+        /// The failure reason, if any, for a create or delete endpoint operation.
+        /// </summary>
+        public readonly Outputs.EndpointFailedReason? FailedReason;
+        /// <summary>
         /// The ID of the endpoint.
         /// </summary>
         public readonly string? Id;
@@ -87,6 +91,8 @@ namespace Pulumi.AwsNative.S3Outposts
 
             string? creationTime,
 
+            Outputs.EndpointFailedReason? failedReason,
+
             string? id,
 
             ImmutableArray<Outputs.EndpointNetworkInterface> networkInterfaces,
@@ -96,6 +102,7 @@ namespace Pulumi.AwsNative.S3Outposts
             Arn = arn;
             CidrBlock = cidrBlock;
             CreationTime = creationTime;
+            FailedReason = failedReason;
             Id = id;
             NetworkInterfaces = networkInterfaces;
             Status = status;

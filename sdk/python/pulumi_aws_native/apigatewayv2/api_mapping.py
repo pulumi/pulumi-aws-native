@@ -20,6 +20,10 @@ class ApiMappingArgs:
                  api_mapping_key: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ApiMapping resource.
+        :param pulumi.Input[str] api_id: The API identifier
+        :param pulumi.Input[str] domain_name: The domain name
+        :param pulumi.Input[str] stage: The API stage
+        :param pulumi.Input[str] api_mapping_key: The API mapping key
         """
         pulumi.set(__self__, "api_id", api_id)
         pulumi.set(__self__, "domain_name", domain_name)
@@ -30,6 +34,9 @@ class ApiMappingArgs:
     @property
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Input[str]:
+        """
+        The API identifier
+        """
         return pulumi.get(self, "api_id")
 
     @api_id.setter
@@ -39,6 +46,9 @@ class ApiMappingArgs:
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Input[str]:
+        """
+        The domain name
+        """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
@@ -48,6 +58,9 @@ class ApiMappingArgs:
     @property
     @pulumi.getter
     def stage(self) -> pulumi.Input[str]:
+        """
+        The API stage
+        """
         return pulumi.get(self, "stage")
 
     @stage.setter
@@ -57,6 +70,9 @@ class ApiMappingArgs:
     @property
     @pulumi.getter(name="apiMappingKey")
     def api_mapping_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The API mapping key
+        """
         return pulumi.get(self, "api_mapping_key")
 
     @api_mapping_key.setter
@@ -64,12 +80,7 @@ class ApiMappingArgs:
         pulumi.set(self, "api_mapping_key", value)
 
 
-warnings.warn("""ApiMapping is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class ApiMapping(pulumi.CustomResource):
-    warnings.warn("""ApiMapping is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -80,10 +91,14 @@ class ApiMapping(pulumi.CustomResource):
                  stage: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::ApiGatewayV2::ApiMapping
+        Schema for AWS::ApiGatewayV2::ApiMapping
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] api_id: The API identifier
+        :param pulumi.Input[str] api_mapping_key: The API mapping key
+        :param pulumi.Input[str] domain_name: The domain name
+        :param pulumi.Input[str] stage: The API stage
         """
         ...
     @overload
@@ -92,7 +107,7 @@ class ApiMapping(pulumi.CustomResource):
                  args: ApiMappingArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::ApiGatewayV2::ApiMapping
+        Schema for AWS::ApiGatewayV2::ApiMapping
 
         :param str resource_name: The name of the resource.
         :param ApiMappingArgs args: The arguments to use to populate this resource's properties.
@@ -114,7 +129,6 @@ class ApiMapping(pulumi.CustomResource):
                  domain_name: Optional[pulumi.Input[str]] = None,
                  stage: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""ApiMapping is deprecated: ApiMapping is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -133,6 +147,7 @@ class ApiMapping(pulumi.CustomResource):
             if stage is None and not opts.urn:
                 raise TypeError("Missing required property 'stage'")
             __props__.__dict__["stage"] = stage
+            __props__.__dict__["api_mapping_id"] = None
         super(ApiMapping, __self__).__init__(
             'aws-native:apigatewayv2:ApiMapping',
             resource_name,
@@ -156,6 +171,7 @@ class ApiMapping(pulumi.CustomResource):
         __props__ = ApiMappingArgs.__new__(ApiMappingArgs)
 
         __props__.__dict__["api_id"] = None
+        __props__.__dict__["api_mapping_id"] = None
         __props__.__dict__["api_mapping_key"] = None
         __props__.__dict__["domain_name"] = None
         __props__.__dict__["stage"] = None
@@ -164,20 +180,40 @@ class ApiMapping(pulumi.CustomResource):
     @property
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Output[str]:
+        """
+        The API identifier
+        """
         return pulumi.get(self, "api_id")
+
+    @property
+    @pulumi.getter(name="apiMappingId")
+    def api_mapping_id(self) -> pulumi.Output[str]:
+        """
+        Api Mapping Id generated by service
+        """
+        return pulumi.get(self, "api_mapping_id")
 
     @property
     @pulumi.getter(name="apiMappingKey")
     def api_mapping_key(self) -> pulumi.Output[Optional[str]]:
+        """
+        The API mapping key
+        """
         return pulumi.get(self, "api_mapping_key")
 
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[str]:
+        """
+        The domain name
+        """
         return pulumi.get(self, "domain_name")
 
     @property
     @pulumi.getter
     def stage(self) -> pulumi.Output[str]:
+        """
+        The API stage
+        """
         return pulumi.get(self, "stage")
 

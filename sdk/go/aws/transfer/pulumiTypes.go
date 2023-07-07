@@ -1412,6 +1412,94 @@ func (o ServerProtocolDetailsPtrOutput) TlsSessionResumptionMode() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+type ServerStructuredLogDestination struct {
+}
+
+// ServerStructuredLogDestinationInput is an input type that accepts ServerStructuredLogDestinationArgs and ServerStructuredLogDestinationOutput values.
+// You can construct a concrete instance of `ServerStructuredLogDestinationInput` via:
+//
+//	ServerStructuredLogDestinationArgs{...}
+type ServerStructuredLogDestinationInput interface {
+	pulumi.Input
+
+	ToServerStructuredLogDestinationOutput() ServerStructuredLogDestinationOutput
+	ToServerStructuredLogDestinationOutputWithContext(context.Context) ServerStructuredLogDestinationOutput
+}
+
+type ServerStructuredLogDestinationArgs struct {
+}
+
+func (ServerStructuredLogDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerStructuredLogDestination)(nil)).Elem()
+}
+
+func (i ServerStructuredLogDestinationArgs) ToServerStructuredLogDestinationOutput() ServerStructuredLogDestinationOutput {
+	return i.ToServerStructuredLogDestinationOutputWithContext(context.Background())
+}
+
+func (i ServerStructuredLogDestinationArgs) ToServerStructuredLogDestinationOutputWithContext(ctx context.Context) ServerStructuredLogDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerStructuredLogDestinationOutput)
+}
+
+// ServerStructuredLogDestinationArrayInput is an input type that accepts ServerStructuredLogDestinationArray and ServerStructuredLogDestinationArrayOutput values.
+// You can construct a concrete instance of `ServerStructuredLogDestinationArrayInput` via:
+//
+//	ServerStructuredLogDestinationArray{ ServerStructuredLogDestinationArgs{...} }
+type ServerStructuredLogDestinationArrayInput interface {
+	pulumi.Input
+
+	ToServerStructuredLogDestinationArrayOutput() ServerStructuredLogDestinationArrayOutput
+	ToServerStructuredLogDestinationArrayOutputWithContext(context.Context) ServerStructuredLogDestinationArrayOutput
+}
+
+type ServerStructuredLogDestinationArray []ServerStructuredLogDestinationInput
+
+func (ServerStructuredLogDestinationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerStructuredLogDestination)(nil)).Elem()
+}
+
+func (i ServerStructuredLogDestinationArray) ToServerStructuredLogDestinationArrayOutput() ServerStructuredLogDestinationArrayOutput {
+	return i.ToServerStructuredLogDestinationArrayOutputWithContext(context.Background())
+}
+
+func (i ServerStructuredLogDestinationArray) ToServerStructuredLogDestinationArrayOutputWithContext(ctx context.Context) ServerStructuredLogDestinationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerStructuredLogDestinationArrayOutput)
+}
+
+type ServerStructuredLogDestinationOutput struct{ *pulumi.OutputState }
+
+func (ServerStructuredLogDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerStructuredLogDestination)(nil)).Elem()
+}
+
+func (o ServerStructuredLogDestinationOutput) ToServerStructuredLogDestinationOutput() ServerStructuredLogDestinationOutput {
+	return o
+}
+
+func (o ServerStructuredLogDestinationOutput) ToServerStructuredLogDestinationOutputWithContext(ctx context.Context) ServerStructuredLogDestinationOutput {
+	return o
+}
+
+type ServerStructuredLogDestinationArrayOutput struct{ *pulumi.OutputState }
+
+func (ServerStructuredLogDestinationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerStructuredLogDestination)(nil)).Elem()
+}
+
+func (o ServerStructuredLogDestinationArrayOutput) ToServerStructuredLogDestinationArrayOutput() ServerStructuredLogDestinationArrayOutput {
+	return o
+}
+
+func (o ServerStructuredLogDestinationArrayOutput) ToServerStructuredLogDestinationArrayOutputWithContext(ctx context.Context) ServerStructuredLogDestinationArrayOutput {
+	return o
+}
+
+func (o ServerStructuredLogDestinationArrayOutput) Index(i pulumi.IntInput) ServerStructuredLogDestinationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServerStructuredLogDestination {
+		return vs[0].([]ServerStructuredLogDestination)[vs[1].(int)]
+	}).(ServerStructuredLogDestinationOutput)
+}
+
 type ServerTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -4145,6 +4233,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerProtocolArrayInput)(nil)).Elem(), ServerProtocolArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerProtocolDetailsInput)(nil)).Elem(), ServerProtocolDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerProtocolDetailsPtrInput)(nil)).Elem(), ServerProtocolDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerStructuredLogDestinationInput)(nil)).Elem(), ServerStructuredLogDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerStructuredLogDestinationArrayInput)(nil)).Elem(), ServerStructuredLogDestinationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerTagInput)(nil)).Elem(), ServerTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerTagArrayInput)(nil)).Elem(), ServerTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerWorkflowDetailInput)(nil)).Elem(), ServerWorkflowDetailArgs{})
@@ -4203,6 +4293,8 @@ func init() {
 	pulumi.RegisterOutputType(ServerProtocolArrayOutput{})
 	pulumi.RegisterOutputType(ServerProtocolDetailsOutput{})
 	pulumi.RegisterOutputType(ServerProtocolDetailsPtrOutput{})
+	pulumi.RegisterOutputType(ServerStructuredLogDestinationOutput{})
+	pulumi.RegisterOutputType(ServerStructuredLogDestinationArrayOutput{})
 	pulumi.RegisterOutputType(ServerTagOutput{})
 	pulumi.RegisterOutputType(ServerTagArrayOutput{})
 	pulumi.RegisterOutputType(ServerWorkflowDetailOutput{})

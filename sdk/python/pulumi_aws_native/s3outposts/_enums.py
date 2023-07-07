@@ -28,3 +28,5 @@ class EndpointStatus(str, Enum):
     AVAILABLE = "Available"
     PENDING = "Pending"
     DELETING = "Deleting"
+    CREATE_FAILED = "Create_Failed"
+    DELETE_FAILED = "Delete_Failed"

@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardColumnConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("colorsConfiguration")]
+        public Input<Inputs.DashboardColorsConfigurationArgs>? ColorsConfiguration { get; set; }
+
         [Input("column", required: true)]
         public Input<Inputs.DashboardColumnIdentifierArgs> Column { get; set; } = null!;
 

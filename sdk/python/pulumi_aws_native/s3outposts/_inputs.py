@@ -19,6 +19,7 @@ __all__ = [
     'BucketRuleFilterPropertiesArgs',
     'BucketRuleArgs',
     'BucketTagArgs',
+    'EndpointFailedReasonArgs',
 ]
 
 @pulumi.input_type
@@ -306,5 +307,44 @@ class BucketTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class EndpointFailedReasonArgs:
+    def __init__(__self__, *,
+                 error_code: Optional[pulumi.Input[str]] = None,
+                 message: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] error_code: The failure code, if any, for a create or delete endpoint operation.
+        :param pulumi.Input[str] message: Additional error details describing the endpoint failure and recommended action.
+        """
+        if error_code is not None:
+            pulumi.set(__self__, "error_code", error_code)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+
+    @property
+    @pulumi.getter(name="errorCode")
+    def error_code(self) -> Optional[pulumi.Input[str]]:
+        """
+        The failure code, if any, for a create or delete endpoint operation.
+        """
+        return pulumi.get(self, "error_code")
+
+    @error_code.setter
+    def error_code(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "error_code", value)
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[pulumi.Input[str]]:
+        """
+        Additional error details describing the endpoint failure and recommended action.
+        """
+        return pulumi.get(self, "message")
+
+    @message.setter
+    def message(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "message", value)
 
 

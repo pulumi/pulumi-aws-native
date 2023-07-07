@@ -59,6 +59,7 @@ __all__ = [
     'AnalysisClusterMarker',
     'AnalysisClusterMarkerConfiguration',
     'AnalysisColorScale',
+    'AnalysisColorsConfiguration',
     'AnalysisColumnConfiguration',
     'AnalysisColumnHierarchy',
     'AnalysisColumnIdentifier',
@@ -86,6 +87,7 @@ __all__ = [
     'AnalysisCustomActionNavigationOperation',
     'AnalysisCustomActionSetParametersOperation',
     'AnalysisCustomActionURLOperation',
+    'AnalysisCustomColor',
     'AnalysisCustomContentConfiguration',
     'AnalysisCustomContentVisual',
     'AnalysisCustomFilterConfiguration',
@@ -516,6 +518,7 @@ __all__ = [
     'DashboardClusterMarker',
     'DashboardClusterMarkerConfiguration',
     'DashboardColorScale',
+    'DashboardColorsConfiguration',
     'DashboardColumnConfiguration',
     'DashboardColumnHierarchy',
     'DashboardColumnIdentifier',
@@ -543,6 +546,7 @@ __all__ = [
     'DashboardCustomActionNavigationOperation',
     'DashboardCustomActionSetParametersOperation',
     'DashboardCustomActionURLOperation',
+    'DashboardCustomColor',
     'DashboardCustomContentConfiguration',
     'DashboardCustomContentVisual',
     'DashboardCustomFilterConfiguration',
@@ -1041,6 +1045,7 @@ __all__ = [
     'TemplateClusterMarker',
     'TemplateClusterMarkerConfiguration',
     'TemplateColorScale',
+    'TemplateColorsConfiguration',
     'TemplateColumnConfiguration',
     'TemplateColumnGroupColumnSchema',
     'TemplateColumnGroupSchema',
@@ -1071,6 +1076,7 @@ __all__ = [
     'TemplateCustomActionNavigationOperation',
     'TemplateCustomActionSetParametersOperation',
     'TemplateCustomActionURLOperation',
+    'TemplateCustomColor',
     'TemplateCustomContentConfiguration',
     'TemplateCustomContentVisual',
     'TemplateCustomFilterConfiguration',
@@ -3614,11 +3620,43 @@ class AnalysisColorScale(dict):
 
 
 @pulumi.output_type
+class AnalysisColorsConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customColors":
+            suggest = "custom_colors"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalysisColorsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalysisColorsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalysisColorsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_colors: Optional[Sequence['outputs.AnalysisCustomColor']] = None):
+        if custom_colors is not None:
+            pulumi.set(__self__, "custom_colors", custom_colors)
+
+    @property
+    @pulumi.getter(name="customColors")
+    def custom_colors(self) -> Optional[Sequence['outputs.AnalysisCustomColor']]:
+        return pulumi.get(self, "custom_colors")
+
+
+@pulumi.output_type
 class AnalysisColumnConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "formatConfiguration":
+        if key == "colorsConfiguration":
+            suggest = "colors_configuration"
+        elif key == "formatConfiguration":
             suggest = "format_configuration"
 
         if suggest:
@@ -3634,9 +3672,12 @@ class AnalysisColumnConfiguration(dict):
 
     def __init__(__self__, *,
                  column: 'outputs.AnalysisColumnIdentifier',
+                 colors_configuration: Optional['outputs.AnalysisColorsConfiguration'] = None,
                  format_configuration: Optional['outputs.AnalysisFormatConfiguration'] = None,
                  role: Optional['AnalysisColumnRole'] = None):
         pulumi.set(__self__, "column", column)
+        if colors_configuration is not None:
+            pulumi.set(__self__, "colors_configuration", colors_configuration)
         if format_configuration is not None:
             pulumi.set(__self__, "format_configuration", format_configuration)
         if role is not None:
@@ -3646,6 +3687,11 @@ class AnalysisColumnConfiguration(dict):
     @pulumi.getter
     def column(self) -> 'outputs.AnalysisColumnIdentifier':
         return pulumi.get(self, "column")
+
+    @property
+    @pulumi.getter(name="colorsConfiguration")
+    def colors_configuration(self) -> Optional['outputs.AnalysisColorsConfiguration']:
+        return pulumi.get(self, "colors_configuration")
 
     @property
     @pulumi.getter(name="formatConfiguration")
@@ -4945,6 +4991,53 @@ class AnalysisCustomActionURLOperation(dict):
     @pulumi.getter(name="uRLTemplate")
     def u_rl_template(self) -> str:
         return pulumi.get(self, "u_rl_template")
+
+
+@pulumi.output_type
+class AnalysisCustomColor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldValue":
+            suggest = "field_value"
+        elif key == "specialValue":
+            suggest = "special_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalysisCustomColor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalysisCustomColor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalysisCustomColor.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 color: str,
+                 field_value: Optional[str] = None,
+                 special_value: Optional['AnalysisSpecialValue'] = None):
+        pulumi.set(__self__, "color", color)
+        if field_value is not None:
+            pulumi.set(__self__, "field_value", field_value)
+        if special_value is not None:
+            pulumi.set(__self__, "special_value", special_value)
+
+    @property
+    @pulumi.getter
+    def color(self) -> str:
+        return pulumi.get(self, "color")
+
+    @property
+    @pulumi.getter(name="fieldValue")
+    def field_value(self) -> Optional[str]:
+        return pulumi.get(self, "field_value")
+
+    @property
+    @pulumi.getter(name="specialValue")
+    def special_value(self) -> Optional['AnalysisSpecialValue']:
+        return pulumi.get(self, "special_value")
 
 
 @pulumi.output_type
@@ -25477,11 +25570,43 @@ class DashboardColorScale(dict):
 
 
 @pulumi.output_type
+class DashboardColorsConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customColors":
+            suggest = "custom_colors"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardColorsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardColorsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardColorsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_colors: Optional[Sequence['outputs.DashboardCustomColor']] = None):
+        if custom_colors is not None:
+            pulumi.set(__self__, "custom_colors", custom_colors)
+
+    @property
+    @pulumi.getter(name="customColors")
+    def custom_colors(self) -> Optional[Sequence['outputs.DashboardCustomColor']]:
+        return pulumi.get(self, "custom_colors")
+
+
+@pulumi.output_type
 class DashboardColumnConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "formatConfiguration":
+        if key == "colorsConfiguration":
+            suggest = "colors_configuration"
+        elif key == "formatConfiguration":
             suggest = "format_configuration"
 
         if suggest:
@@ -25497,9 +25622,12 @@ class DashboardColumnConfiguration(dict):
 
     def __init__(__self__, *,
                  column: 'outputs.DashboardColumnIdentifier',
+                 colors_configuration: Optional['outputs.DashboardColorsConfiguration'] = None,
                  format_configuration: Optional['outputs.DashboardFormatConfiguration'] = None,
                  role: Optional['DashboardColumnRole'] = None):
         pulumi.set(__self__, "column", column)
+        if colors_configuration is not None:
+            pulumi.set(__self__, "colors_configuration", colors_configuration)
         if format_configuration is not None:
             pulumi.set(__self__, "format_configuration", format_configuration)
         if role is not None:
@@ -25509,6 +25637,11 @@ class DashboardColumnConfiguration(dict):
     @pulumi.getter
     def column(self) -> 'outputs.DashboardColumnIdentifier':
         return pulumi.get(self, "column")
+
+    @property
+    @pulumi.getter(name="colorsConfiguration")
+    def colors_configuration(self) -> Optional['outputs.DashboardColorsConfiguration']:
+        return pulumi.get(self, "colors_configuration")
 
     @property
     @pulumi.getter(name="formatConfiguration")
@@ -26808,6 +26941,53 @@ class DashboardCustomActionURLOperation(dict):
     @pulumi.getter(name="uRLTemplate")
     def u_rl_template(self) -> str:
         return pulumi.get(self, "u_rl_template")
+
+
+@pulumi.output_type
+class DashboardCustomColor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldValue":
+            suggest = "field_value"
+        elif key == "specialValue":
+            suggest = "special_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardCustomColor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardCustomColor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardCustomColor.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 color: str,
+                 field_value: Optional[str] = None,
+                 special_value: Optional['DashboardSpecialValue'] = None):
+        pulumi.set(__self__, "color", color)
+        if field_value is not None:
+            pulumi.set(__self__, "field_value", field_value)
+        if special_value is not None:
+            pulumi.set(__self__, "special_value", special_value)
+
+    @property
+    @pulumi.getter
+    def color(self) -> str:
+        return pulumi.get(self, "color")
+
+    @property
+    @pulumi.getter(name="fieldValue")
+    def field_value(self) -> Optional[str]:
+        return pulumi.get(self, "field_value")
+
+    @property
+    @pulumi.getter(name="specialValue")
+    def special_value(self) -> Optional['DashboardSpecialValue']:
+        return pulumi.get(self, "special_value")
 
 
 @pulumi.output_type
@@ -50698,11 +50878,43 @@ class TemplateColorScale(dict):
 
 
 @pulumi.output_type
+class TemplateColorsConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customColors":
+            suggest = "custom_colors"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateColorsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateColorsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateColorsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_colors: Optional[Sequence['outputs.TemplateCustomColor']] = None):
+        if custom_colors is not None:
+            pulumi.set(__self__, "custom_colors", custom_colors)
+
+    @property
+    @pulumi.getter(name="customColors")
+    def custom_colors(self) -> Optional[Sequence['outputs.TemplateCustomColor']]:
+        return pulumi.get(self, "custom_colors")
+
+
+@pulumi.output_type
 class TemplateColumnConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "formatConfiguration":
+        if key == "colorsConfiguration":
+            suggest = "colors_configuration"
+        elif key == "formatConfiguration":
             suggest = "format_configuration"
 
         if suggest:
@@ -50718,9 +50930,12 @@ class TemplateColumnConfiguration(dict):
 
     def __init__(__self__, *,
                  column: 'outputs.TemplateColumnIdentifier',
+                 colors_configuration: Optional['outputs.TemplateColorsConfiguration'] = None,
                  format_configuration: Optional['outputs.TemplateFormatConfiguration'] = None,
                  role: Optional['TemplateColumnRole'] = None):
         pulumi.set(__self__, "column", column)
+        if colors_configuration is not None:
+            pulumi.set(__self__, "colors_configuration", colors_configuration)
         if format_configuration is not None:
             pulumi.set(__self__, "format_configuration", format_configuration)
         if role is not None:
@@ -50730,6 +50945,11 @@ class TemplateColumnConfiguration(dict):
     @pulumi.getter
     def column(self) -> 'outputs.TemplateColumnIdentifier':
         return pulumi.get(self, "column")
+
+    @property
+    @pulumi.getter(name="colorsConfiguration")
+    def colors_configuration(self) -> Optional['outputs.TemplateColorsConfiguration']:
+        return pulumi.get(self, "colors_configuration")
 
     @property
     @pulumi.getter(name="formatConfiguration")
@@ -52128,6 +52348,53 @@ class TemplateCustomActionURLOperation(dict):
     @pulumi.getter(name="uRLTemplate")
     def u_rl_template(self) -> str:
         return pulumi.get(self, "u_rl_template")
+
+
+@pulumi.output_type
+class TemplateCustomColor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldValue":
+            suggest = "field_value"
+        elif key == "specialValue":
+            suggest = "special_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateCustomColor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateCustomColor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateCustomColor.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 color: str,
+                 field_value: Optional[str] = None,
+                 special_value: Optional['TemplateSpecialValue'] = None):
+        pulumi.set(__self__, "color", color)
+        if field_value is not None:
+            pulumi.set(__self__, "field_value", field_value)
+        if special_value is not None:
+            pulumi.set(__self__, "special_value", special_value)
+
+    @property
+    @pulumi.getter
+    def color(self) -> str:
+        return pulumi.get(self, "color")
+
+    @property
+    @pulumi.getter(name="fieldValue")
+    def field_value(self) -> Optional[str]:
+        return pulumi.get(self, "field_value")
+
+    @property
+    @pulumi.getter(name="specialValue")
+    def special_value(self) -> Optional['TemplateSpecialValue']:
+        return pulumi.get(self, "special_value")
 
 
 @pulumi.output_type

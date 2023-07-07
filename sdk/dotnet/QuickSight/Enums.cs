@@ -2334,6 +2334,35 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
+    public readonly struct AnalysisSpecialValue : IEquatable<AnalysisSpecialValue>
+    {
+        private readonly string _value;
+
+        private AnalysisSpecialValue(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AnalysisSpecialValue Empty { get; } = new AnalysisSpecialValue("EMPTY");
+        public static AnalysisSpecialValue Null { get; } = new AnalysisSpecialValue("NULL");
+        public static AnalysisSpecialValue Other { get; } = new AnalysisSpecialValue("OTHER");
+
+        public static bool operator ==(AnalysisSpecialValue left, AnalysisSpecialValue right) => left.Equals(right);
+        public static bool operator !=(AnalysisSpecialValue left, AnalysisSpecialValue right) => !left.Equals(right);
+
+        public static explicit operator string(AnalysisSpecialValue value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AnalysisSpecialValue other && Equals(other);
+        public bool Equals(AnalysisSpecialValue other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct AnalysisTableBorderStyle : IEquatable<AnalysisTableBorderStyle>
     {
         private readonly string _value;
@@ -5334,6 +5363,35 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DashboardSortDirection other && Equals(other);
         public bool Equals(DashboardSortDirection other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DashboardSpecialValue : IEquatable<DashboardSpecialValue>
+    {
+        private readonly string _value;
+
+        private DashboardSpecialValue(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DashboardSpecialValue Empty { get; } = new DashboardSpecialValue("EMPTY");
+        public static DashboardSpecialValue Null { get; } = new DashboardSpecialValue("NULL");
+        public static DashboardSpecialValue Other { get; } = new DashboardSpecialValue("OTHER");
+
+        public static bool operator ==(DashboardSpecialValue left, DashboardSpecialValue right) => left.Equals(right);
+        public static bool operator !=(DashboardSpecialValue left, DashboardSpecialValue right) => !left.Equals(right);
+
+        public static explicit operator string(DashboardSpecialValue value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DashboardSpecialValue other && Equals(other);
+        public bool Equals(DashboardSpecialValue other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -8811,6 +8869,35 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is TemplateSortDirection other && Equals(other);
         public bool Equals(TemplateSortDirection other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TemplateSpecialValue : IEquatable<TemplateSpecialValue>
+    {
+        private readonly string _value;
+
+        private TemplateSpecialValue(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TemplateSpecialValue Empty { get; } = new TemplateSpecialValue("EMPTY");
+        public static TemplateSpecialValue Null { get; } = new TemplateSpecialValue("NULL");
+        public static TemplateSpecialValue Other { get; } = new TemplateSpecialValue("OTHER");
+
+        public static bool operator ==(TemplateSpecialValue left, TemplateSpecialValue right) => left.Equals(right);
+        public static bool operator !=(TemplateSpecialValue left, TemplateSpecialValue right) => !left.Equals(right);
+
+        public static explicit operator string(TemplateSpecialValue value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TemplateSpecialValue other && Equals(other);
+        public bool Equals(TemplateSpecialValue other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

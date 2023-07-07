@@ -2494,7 +2494,13 @@ export namespace appflow {
 
     export interface FlowCustomConnectorSourcePropertiesArgs {
         customProperties?: pulumi.Input<inputs.appflow.FlowCustomPropertiesArgs>;
+        dataTransferApi?: pulumi.Input<inputs.appflow.FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesArgs>;
         entityName: pulumi.Input<string>;
+    }
+
+    export interface FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesArgs {
+        name: pulumi.Input<string>;
+        type: pulumi.Input<enums.appflow.FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesType>;
     }
 
     /**
@@ -7814,6 +7820,49 @@ export namespace cognito {
 }
 
 export namespace comprehend {
+    export interface DocumentClassifierAugmentedManifestsListItemArgs {
+        attributeNames: pulumi.Input<pulumi.Input<string>[]>;
+        s3Uri: pulumi.Input<string>;
+        split?: pulumi.Input<enums.comprehend.DocumentClassifierAugmentedManifestsListItemSplit>;
+    }
+
+    export interface DocumentClassifierDocumentReaderConfigArgs {
+        documentReadAction: pulumi.Input<enums.comprehend.DocumentClassifierDocumentReaderConfigDocumentReadAction>;
+        documentReadMode?: pulumi.Input<enums.comprehend.DocumentClassifierDocumentReaderConfigDocumentReadMode>;
+        featureTypes?: pulumi.Input<pulumi.Input<enums.comprehend.DocumentClassifierDocumentReaderConfigFeatureTypesItem>[]>;
+    }
+
+    export interface DocumentClassifierDocumentsArgs {
+        s3Uri: pulumi.Input<string>;
+        testS3Uri?: pulumi.Input<string>;
+    }
+
+    export interface DocumentClassifierInputDataConfigArgs {
+        augmentedManifests?: pulumi.Input<pulumi.Input<inputs.comprehend.DocumentClassifierAugmentedManifestsListItemArgs>[]>;
+        dataFormat?: pulumi.Input<enums.comprehend.DocumentClassifierInputDataConfigDataFormat>;
+        documentReaderConfig?: pulumi.Input<inputs.comprehend.DocumentClassifierDocumentReaderConfigArgs>;
+        documentType?: pulumi.Input<enums.comprehend.DocumentClassifierInputDataConfigDocumentType>;
+        documents?: pulumi.Input<inputs.comprehend.DocumentClassifierDocumentsArgs>;
+        labelDelimiter?: pulumi.Input<string>;
+        s3Uri?: pulumi.Input<string>;
+        testS3Uri?: pulumi.Input<string>;
+    }
+
+    export interface DocumentClassifierOutputDataConfigArgs {
+        kmsKeyId?: pulumi.Input<string>;
+        s3Uri?: pulumi.Input<string>;
+    }
+
+    export interface DocumentClassifierTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface DocumentClassifierVpcConfigArgs {
+        securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
+        subnets: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface FlywheelDataSecurityConfigArgs {
         dataLakeKmsKeyId?: pulumi.Input<string>;
         modelKmsKeyId?: pulumi.Input<string>;
@@ -17933,6 +17982,28 @@ export namespace guardduty {
 }
 
 export namespace healthlake {
+    /**
+     * The identity provider configuration for the datastore
+     */
+    export interface FHIRDatastoreIdentityProviderConfigurationArgs {
+        /**
+         * Type of Authorization Strategy. The two types of supported Authorization strategies are SMART_ON_FHIR_V1 and AWS_AUTH.
+         */
+        authorizationStrategy: pulumi.Input<enums.healthlake.FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy>;
+        /**
+         * Flag to indicate if fine-grained authorization will be enabled for the datastore
+         */
+        fineGrainedAuthorizationEnabled?: pulumi.Input<boolean>;
+        /**
+         * The Amazon Resource Name (ARN) of the Lambda function that will be used to decode the access token created by the authorization server.
+         */
+        idpLambdaArn?: pulumi.Input<string>;
+        /**
+         * The JSON metadata elements for identity provider configuration.
+         */
+        metadata?: pulumi.Input<string>;
+    }
+
     /**
      * The customer-managed-key (CMK) used when creating a Data Store. If a customer owned key is not specified, an AWS owned key will be used for encryption.
      */
@@ -31647,7 +31718,12 @@ export namespace quicksight {
         nullValueColor?: pulumi.Input<inputs.quicksight.AnalysisDataColorArgs>;
     }
 
+    export interface AnalysisColorsConfigurationArgs {
+        customColors?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisCustomColorArgs>[]>;
+    }
+
     export interface AnalysisColumnConfigurationArgs {
+        colorsConfiguration?: pulumi.Input<inputs.quicksight.AnalysisColorsConfigurationArgs>;
         column: pulumi.Input<inputs.quicksight.AnalysisColumnIdentifierArgs>;
         formatConfiguration?: pulumi.Input<inputs.quicksight.AnalysisFormatConfigurationArgs>;
         role?: pulumi.Input<enums.quicksight.AnalysisColumnRole>;
@@ -31819,6 +31895,12 @@ export namespace quicksight {
     export interface AnalysisCustomActionURLOperationArgs {
         uRLTarget: pulumi.Input<enums.quicksight.AnalysisURLTargetConfiguration>;
         uRLTemplate: pulumi.Input<string>;
+    }
+
+    export interface AnalysisCustomColorArgs {
+        color: pulumi.Input<string>;
+        fieldValue?: pulumi.Input<string>;
+        specialValue?: pulumi.Input<enums.quicksight.AnalysisSpecialValue>;
     }
 
     export interface AnalysisCustomContentConfigurationArgs {
@@ -34559,7 +34641,12 @@ export namespace quicksight {
         nullValueColor?: pulumi.Input<inputs.quicksight.DashboardDataColorArgs>;
     }
 
+    export interface DashboardColorsConfigurationArgs {
+        customColors?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardCustomColorArgs>[]>;
+    }
+
     export interface DashboardColumnConfigurationArgs {
+        colorsConfiguration?: pulumi.Input<inputs.quicksight.DashboardColorsConfigurationArgs>;
         column: pulumi.Input<inputs.quicksight.DashboardColumnIdentifierArgs>;
         formatConfiguration?: pulumi.Input<inputs.quicksight.DashboardFormatConfigurationArgs>;
         role?: pulumi.Input<enums.quicksight.DashboardColumnRole>;
@@ -34731,6 +34818,12 @@ export namespace quicksight {
     export interface DashboardCustomActionURLOperationArgs {
         uRLTarget: pulumi.Input<enums.quicksight.DashboardURLTargetConfiguration>;
         uRLTemplate: pulumi.Input<string>;
+    }
+
+    export interface DashboardCustomColorArgs {
+        color: pulumi.Input<string>;
+        fieldValue?: pulumi.Input<string>;
+        specialValue?: pulumi.Input<enums.quicksight.DashboardSpecialValue>;
     }
 
     export interface DashboardCustomContentConfigurationArgs {
@@ -38294,7 +38387,12 @@ export namespace quicksight {
         nullValueColor?: pulumi.Input<inputs.quicksight.TemplateDataColorArgs>;
     }
 
+    export interface TemplateColorsConfigurationArgs {
+        customColors?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateCustomColorArgs>[]>;
+    }
+
     export interface TemplateColumnConfigurationArgs {
+        colorsConfiguration?: pulumi.Input<inputs.quicksight.TemplateColorsConfigurationArgs>;
         column: pulumi.Input<inputs.quicksight.TemplateColumnIdentifierArgs>;
         formatConfiguration?: pulumi.Input<inputs.quicksight.TemplateFormatConfigurationArgs>;
         role?: pulumi.Input<enums.quicksight.TemplateColumnRole>;
@@ -38481,6 +38579,12 @@ export namespace quicksight {
     export interface TemplateCustomActionURLOperationArgs {
         uRLTarget: pulumi.Input<enums.quicksight.TemplateURLTargetConfiguration>;
         uRLTemplate: pulumi.Input<string>;
+    }
+
+    export interface TemplateCustomColorArgs {
+        color: pulumi.Input<string>;
+        fieldValue?: pulumi.Input<string>;
+        specialValue?: pulumi.Input<enums.quicksight.TemplateSpecialValue>;
     }
 
     export interface TemplateCustomContentConfigurationArgs {
@@ -43786,6 +43890,17 @@ export namespace s3outposts {
     export interface BucketTagArgs {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
+    }
+
+    export interface EndpointFailedReasonArgs {
+        /**
+         * The failure code, if any, for a create or delete endpoint operation.
+         */
+        errorCode?: pulumi.Input<string>;
+        /**
+         * Additional error details describing the endpoint failure and recommended action.
+         */
+        message?: pulumi.Input<string>;
     }
 
 }
@@ -49269,6 +49384,9 @@ export namespace transfer {
         passiveIp?: pulumi.Input<string>;
         setStatOption?: pulumi.Input<string>;
         tlsSessionResumptionMode?: pulumi.Input<string>;
+    }
+
+    export interface ServerStructuredLogDestinationArgs {
     }
 
     export interface ServerTagArgs {

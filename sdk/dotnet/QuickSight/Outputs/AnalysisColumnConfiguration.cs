@@ -13,18 +13,22 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisColumnConfiguration
     {
+        public readonly Outputs.AnalysisColorsConfiguration? ColorsConfiguration;
         public readonly Outputs.AnalysisColumnIdentifier Column;
         public readonly Outputs.AnalysisFormatConfiguration? FormatConfiguration;
         public readonly Pulumi.AwsNative.QuickSight.AnalysisColumnRole? Role;
 
         [OutputConstructor]
         private AnalysisColumnConfiguration(
+            Outputs.AnalysisColorsConfiguration? colorsConfiguration,
+
             Outputs.AnalysisColumnIdentifier column,
 
             Outputs.AnalysisFormatConfiguration? formatConfiguration,
 
             Pulumi.AwsNative.QuickSight.AnalysisColumnRole? role)
         {
+            ColorsConfiguration = colorsConfiguration;
             Column = column;
             FormatConfiguration = formatConfiguration;
             Role = role;

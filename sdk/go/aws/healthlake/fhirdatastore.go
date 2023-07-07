@@ -15,16 +15,17 @@ import (
 type FHIRDatastore struct {
 	pulumi.CustomResourceState
 
-	CreatedAt            FHIRDatastoreCreatedAtOutput            `pulumi:"createdAt"`
-	DatastoreArn         pulumi.StringOutput                     `pulumi:"datastoreArn"`
-	DatastoreEndpoint    pulumi.StringOutput                     `pulumi:"datastoreEndpoint"`
-	DatastoreId          pulumi.StringOutput                     `pulumi:"datastoreId"`
-	DatastoreName        pulumi.StringPtrOutput                  `pulumi:"datastoreName"`
-	DatastoreStatus      FHIRDatastoreDatastoreStatusOutput      `pulumi:"datastoreStatus"`
-	DatastoreTypeVersion FHIRDatastoreDatastoreTypeVersionOutput `pulumi:"datastoreTypeVersion"`
-	PreloadDataConfig    FHIRDatastorePreloadDataConfigPtrOutput `pulumi:"preloadDataConfig"`
-	SseConfiguration     FHIRDatastoreSseConfigurationPtrOutput  `pulumi:"sseConfiguration"`
-	Tags                 FHIRDatastoreTagArrayOutput             `pulumi:"tags"`
+	CreatedAt                     FHIRDatastoreCreatedAtOutput                        `pulumi:"createdAt"`
+	DatastoreArn                  pulumi.StringOutput                                 `pulumi:"datastoreArn"`
+	DatastoreEndpoint             pulumi.StringOutput                                 `pulumi:"datastoreEndpoint"`
+	DatastoreId                   pulumi.StringOutput                                 `pulumi:"datastoreId"`
+	DatastoreName                 pulumi.StringPtrOutput                              `pulumi:"datastoreName"`
+	DatastoreStatus               FHIRDatastoreDatastoreStatusOutput                  `pulumi:"datastoreStatus"`
+	DatastoreTypeVersion          FHIRDatastoreDatastoreTypeVersionOutput             `pulumi:"datastoreTypeVersion"`
+	IdentityProviderConfiguration FHIRDatastoreIdentityProviderConfigurationPtrOutput `pulumi:"identityProviderConfiguration"`
+	PreloadDataConfig             FHIRDatastorePreloadDataConfigPtrOutput             `pulumi:"preloadDataConfig"`
+	SseConfiguration              FHIRDatastoreSseConfigurationPtrOutput              `pulumi:"sseConfiguration"`
+	Tags                          FHIRDatastoreTagArrayOutput                         `pulumi:"tags"`
 }
 
 // NewFHIRDatastore registers a new resource with the given unique name, arguments, and options.
@@ -69,20 +70,22 @@ func (FHIRDatastoreState) ElementType() reflect.Type {
 }
 
 type fhirdatastoreArgs struct {
-	DatastoreName        *string                           `pulumi:"datastoreName"`
-	DatastoreTypeVersion FHIRDatastoreDatastoreTypeVersion `pulumi:"datastoreTypeVersion"`
-	PreloadDataConfig    *FHIRDatastorePreloadDataConfig   `pulumi:"preloadDataConfig"`
-	SseConfiguration     *FHIRDatastoreSseConfiguration    `pulumi:"sseConfiguration"`
-	Tags                 []FHIRDatastoreTag                `pulumi:"tags"`
+	DatastoreName                 *string                                     `pulumi:"datastoreName"`
+	DatastoreTypeVersion          FHIRDatastoreDatastoreTypeVersion           `pulumi:"datastoreTypeVersion"`
+	IdentityProviderConfiguration *FHIRDatastoreIdentityProviderConfiguration `pulumi:"identityProviderConfiguration"`
+	PreloadDataConfig             *FHIRDatastorePreloadDataConfig             `pulumi:"preloadDataConfig"`
+	SseConfiguration              *FHIRDatastoreSseConfiguration              `pulumi:"sseConfiguration"`
+	Tags                          []FHIRDatastoreTag                          `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a FHIRDatastore resource.
 type FHIRDatastoreArgs struct {
-	DatastoreName        pulumi.StringPtrInput
-	DatastoreTypeVersion FHIRDatastoreDatastoreTypeVersionInput
-	PreloadDataConfig    FHIRDatastorePreloadDataConfigPtrInput
-	SseConfiguration     FHIRDatastoreSseConfigurationPtrInput
-	Tags                 FHIRDatastoreTagArrayInput
+	DatastoreName                 pulumi.StringPtrInput
+	DatastoreTypeVersion          FHIRDatastoreDatastoreTypeVersionInput
+	IdentityProviderConfiguration FHIRDatastoreIdentityProviderConfigurationPtrInput
+	PreloadDataConfig             FHIRDatastorePreloadDataConfigPtrInput
+	SseConfiguration              FHIRDatastoreSseConfigurationPtrInput
+	Tags                          FHIRDatastoreTagArrayInput
 }
 
 func (FHIRDatastoreArgs) ElementType() reflect.Type {
@@ -148,6 +151,12 @@ func (o FHIRDatastoreOutput) DatastoreStatus() FHIRDatastoreDatastoreStatusOutpu
 
 func (o FHIRDatastoreOutput) DatastoreTypeVersion() FHIRDatastoreDatastoreTypeVersionOutput {
 	return o.ApplyT(func(v *FHIRDatastore) FHIRDatastoreDatastoreTypeVersionOutput { return v.DatastoreTypeVersion }).(FHIRDatastoreDatastoreTypeVersionOutput)
+}
+
+func (o FHIRDatastoreOutput) IdentityProviderConfiguration() FHIRDatastoreIdentityProviderConfigurationPtrOutput {
+	return o.ApplyT(func(v *FHIRDatastore) FHIRDatastoreIdentityProviderConfigurationPtrOutput {
+		return v.IdentityProviderConfiguration
+	}).(FHIRDatastoreIdentityProviderConfigurationPtrOutput)
 }
 
 func (o FHIRDatastoreOutput) PreloadDataConfig() FHIRDatastorePreloadDataConfigPtrOutput {

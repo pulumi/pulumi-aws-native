@@ -34,6 +34,7 @@ __all__ = [
     'IPAMPoolPublicIpSource',
     'IPAMPoolState',
     'IPAMScopeIpamScopeType',
+    'KeyPairKeyFormat',
     'KeyPairKeyType',
     'LaunchTemplateCpuOptionsAmdSevSnp',
     'NetworkInsightsAccessScopeAnalysisFindingsFound',
@@ -303,9 +304,17 @@ class IPAMScopeIpamScopeType(str, Enum):
     PRIVATE = "private"
 
 
+class KeyPairKeyFormat(str, Enum):
+    """
+    The format of the private key
+    """
+    PEM = "pem"
+    PPK = "ppk"
+
+
 class KeyPairKeyType(str, Enum):
     """
-    The title of the TPS report is a mandatory element.
+    The crypto-system used to generate a key pair.
     """
     RSA = "rsa"
     ED25519 = "ed25519"

@@ -71,6 +71,37 @@ namespace Pulumi.AwsNative.HealthLake
     }
 
     /// <summary>
+    /// Type of Authorization Strategy. The two types of supported Authorization strategies are SMART_ON_FHIR_V1 and AWS_AUTH.
+    /// </summary>
+    [EnumType]
+    public readonly struct FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy : IEquatable<FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy>
+    {
+        private readonly string _value;
+
+        private FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy SmartOnFhirV1 { get; } = new FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy("SMART_ON_FHIR_V1");
+        public static FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy AwsAuth { get; } = new FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy("AWS_AUTH");
+
+        public static bool operator ==(FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy left, FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy right) => left.Equals(right);
+        public static bool operator !=(FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy left, FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy right) => !left.Equals(right);
+
+        public static explicit operator string(FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy other && Equals(other);
+        public bool Equals(FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of customer-managed-key (CMK) used for encryption. The two types of supported CMKs are customer owned CMKs and AWS owned CMKs.
     /// </summary>
     [EnumType]

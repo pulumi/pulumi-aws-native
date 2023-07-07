@@ -58,6 +58,9 @@ namespace Pulumi.AwsNative.Transfer
         [Output("serverId")]
         public Output<string> ServerId { get; private set; } = null!;
 
+        [Output("structuredLogDestinations")]
+        public Output<ImmutableArray<Outputs.ServerStructuredLogDestination>> StructuredLogDestinations { get; private set; } = null!;
+
         [Output("tags")]
         public Output<ImmutableArray<Outputs.ServerTag>> Tags { get; private set; } = null!;
 
@@ -149,6 +152,14 @@ namespace Pulumi.AwsNative.Transfer
 
         [Input("securityPolicyName")]
         public Input<string>? SecurityPolicyName { get; set; }
+
+        [Input("structuredLogDestinations")]
+        private InputList<Inputs.ServerStructuredLogDestinationArgs>? _structuredLogDestinations;
+        public InputList<Inputs.ServerStructuredLogDestinationArgs> StructuredLogDestinations
+        {
+            get => _structuredLogDestinations ?? (_structuredLogDestinations = new InputList<Inputs.ServerStructuredLogDestinationArgs>());
+            set => _structuredLogDestinations = value;
+        }
 
         [Input("tags")]
         private InputList<Inputs.ServerTagArgs>? _tags;

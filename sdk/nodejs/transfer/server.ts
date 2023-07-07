@@ -54,6 +54,7 @@ export class Server extends pulumi.CustomResource {
     public readonly protocols!: pulumi.Output<outputs.transfer.ServerProtocol[] | undefined>;
     public readonly securityPolicyName!: pulumi.Output<string | undefined>;
     public /*out*/ readonly serverId!: pulumi.Output<string>;
+    public readonly structuredLogDestinations!: pulumi.Output<outputs.transfer.ServerStructuredLogDestination[] | undefined>;
     public readonly tags!: pulumi.Output<outputs.transfer.ServerTag[] | undefined>;
     public readonly workflowDetails!: pulumi.Output<outputs.transfer.ServerWorkflowDetails | undefined>;
 
@@ -82,6 +83,7 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["protocolDetails"] = args ? args.protocolDetails : undefined;
             resourceInputs["protocols"] = args ? args.protocols : undefined;
             resourceInputs["securityPolicyName"] = args ? args.securityPolicyName : undefined;
+            resourceInputs["structuredLogDestinations"] = args ? args.structuredLogDestinations : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["workflowDetails"] = args ? args.workflowDetails : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -101,6 +103,7 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["protocols"] = undefined /*out*/;
             resourceInputs["securityPolicyName"] = undefined /*out*/;
             resourceInputs["serverId"] = undefined /*out*/;
+            resourceInputs["structuredLogDestinations"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["workflowDetails"] = undefined /*out*/;
         }
@@ -125,6 +128,7 @@ export interface ServerArgs {
     protocolDetails?: pulumi.Input<inputs.transfer.ServerProtocolDetailsArgs>;
     protocols?: pulumi.Input<pulumi.Input<inputs.transfer.ServerProtocolArgs>[]>;
     securityPolicyName?: pulumi.Input<string>;
+    structuredLogDestinations?: pulumi.Input<pulumi.Input<inputs.transfer.ServerStructuredLogDestinationArgs>[]>;
     tags?: pulumi.Input<pulumi.Input<inputs.transfer.ServerTagArgs>[]>;
     workflowDetails?: pulumi.Input<inputs.transfer.ServerWorkflowDetailsArgs>;
 }

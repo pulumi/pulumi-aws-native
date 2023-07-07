@@ -79,6 +79,8 @@ namespace Pulumi.AwsNative.S3Outposts
         public static EndpointStatus Available { get; } = new EndpointStatus("Available");
         public static EndpointStatus Pending { get; } = new EndpointStatus("Pending");
         public static EndpointStatus Deleting { get; } = new EndpointStatus("Deleting");
+        public static EndpointStatus CreateFailed { get; } = new EndpointStatus("Create_Failed");
+        public static EndpointStatus DeleteFailed { get; } = new EndpointStatus("Delete_Failed");
 
         public static bool operator ==(EndpointStatus left, EndpointStatus right) => left.Equals(right);
         public static bool operator !=(EndpointStatus left, EndpointStatus right) => !left.Equals(right);

@@ -18,13 +18,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetResourceResult:
-    def __init__(__self__, id=None, resource_arn=None, role_arn=None, use_service_linked_role=None, with_federation=None):
+    def __init__(__self__, id=None, role_arn=None, use_service_linked_role=None, with_federation=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if resource_arn and not isinstance(resource_arn, str):
-            raise TypeError("Expected argument 'resource_arn' to be a str")
-        pulumi.set(__self__, "resource_arn", resource_arn)
         if role_arn and not isinstance(role_arn, str):
             raise TypeError("Expected argument 'role_arn' to be a str")
         pulumi.set(__self__, "role_arn", role_arn)
@@ -39,11 +36,6 @@ class GetResourceResult:
     @pulumi.getter
     def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="resourceArn")
-    def resource_arn(self) -> Optional[str]:
-        return pulumi.get(self, "resource_arn")
 
     @property
     @pulumi.getter(name="roleArn")
@@ -68,7 +60,6 @@ class AwaitableGetResourceResult(GetResourceResult):
             yield self
         return GetResourceResult(
             id=self.id,
-            resource_arn=self.resource_arn,
             role_arn=self.role_arn,
             use_service_linked_role=self.use_service_linked_role,
             with_federation=self.with_federation)
@@ -86,7 +77,6 @@ def get_resource(id: Optional[str] = None,
 
     return AwaitableGetResourceResult(
         id=__ret__.id,
-        resource_arn=__ret__.resource_arn,
         role_arn=__ret__.role_arn,
         use_service_linked_role=__ret__.use_service_linked_role,
         with_federation=__ret__.with_federation)

@@ -35,6 +35,7 @@ export interface GetServerResult {
     readonly protocols?: outputs.transfer.ServerProtocol[];
     readonly securityPolicyName?: string;
     readonly serverId?: string;
+    readonly structuredLogDestinations?: outputs.transfer.ServerStructuredLogDestination[];
     readonly tags?: outputs.transfer.ServerTag[];
     readonly workflowDetails?: outputs.transfer.ServerWorkflowDetails;
 }

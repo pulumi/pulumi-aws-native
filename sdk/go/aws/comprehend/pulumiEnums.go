@@ -10,6 +10,1367 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type DocumentClassifierAugmentedManifestsListItemSplit string
+
+const (
+	DocumentClassifierAugmentedManifestsListItemSplitTrain = DocumentClassifierAugmentedManifestsListItemSplit("TRAIN")
+	DocumentClassifierAugmentedManifestsListItemSplitTest  = DocumentClassifierAugmentedManifestsListItemSplit("TEST")
+)
+
+func (DocumentClassifierAugmentedManifestsListItemSplit) ElementType() reflect.Type {
+	return reflect.TypeOf((*DocumentClassifierAugmentedManifestsListItemSplit)(nil)).Elem()
+}
+
+func (e DocumentClassifierAugmentedManifestsListItemSplit) ToDocumentClassifierAugmentedManifestsListItemSplitOutput() DocumentClassifierAugmentedManifestsListItemSplitOutput {
+	return pulumi.ToOutput(e).(DocumentClassifierAugmentedManifestsListItemSplitOutput)
+}
+
+func (e DocumentClassifierAugmentedManifestsListItemSplit) ToDocumentClassifierAugmentedManifestsListItemSplitOutputWithContext(ctx context.Context) DocumentClassifierAugmentedManifestsListItemSplitOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DocumentClassifierAugmentedManifestsListItemSplitOutput)
+}
+
+func (e DocumentClassifierAugmentedManifestsListItemSplit) ToDocumentClassifierAugmentedManifestsListItemSplitPtrOutput() DocumentClassifierAugmentedManifestsListItemSplitPtrOutput {
+	return e.ToDocumentClassifierAugmentedManifestsListItemSplitPtrOutputWithContext(context.Background())
+}
+
+func (e DocumentClassifierAugmentedManifestsListItemSplit) ToDocumentClassifierAugmentedManifestsListItemSplitPtrOutputWithContext(ctx context.Context) DocumentClassifierAugmentedManifestsListItemSplitPtrOutput {
+	return DocumentClassifierAugmentedManifestsListItemSplit(e).ToDocumentClassifierAugmentedManifestsListItemSplitOutputWithContext(ctx).ToDocumentClassifierAugmentedManifestsListItemSplitPtrOutputWithContext(ctx)
+}
+
+func (e DocumentClassifierAugmentedManifestsListItemSplit) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DocumentClassifierAugmentedManifestsListItemSplit) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DocumentClassifierAugmentedManifestsListItemSplit) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DocumentClassifierAugmentedManifestsListItemSplit) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DocumentClassifierAugmentedManifestsListItemSplitOutput struct{ *pulumi.OutputState }
+
+func (DocumentClassifierAugmentedManifestsListItemSplitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DocumentClassifierAugmentedManifestsListItemSplit)(nil)).Elem()
+}
+
+func (o DocumentClassifierAugmentedManifestsListItemSplitOutput) ToDocumentClassifierAugmentedManifestsListItemSplitOutput() DocumentClassifierAugmentedManifestsListItemSplitOutput {
+	return o
+}
+
+func (o DocumentClassifierAugmentedManifestsListItemSplitOutput) ToDocumentClassifierAugmentedManifestsListItemSplitOutputWithContext(ctx context.Context) DocumentClassifierAugmentedManifestsListItemSplitOutput {
+	return o
+}
+
+func (o DocumentClassifierAugmentedManifestsListItemSplitOutput) ToDocumentClassifierAugmentedManifestsListItemSplitPtrOutput() DocumentClassifierAugmentedManifestsListItemSplitPtrOutput {
+	return o.ToDocumentClassifierAugmentedManifestsListItemSplitPtrOutputWithContext(context.Background())
+}
+
+func (o DocumentClassifierAugmentedManifestsListItemSplitOutput) ToDocumentClassifierAugmentedManifestsListItemSplitPtrOutputWithContext(ctx context.Context) DocumentClassifierAugmentedManifestsListItemSplitPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DocumentClassifierAugmentedManifestsListItemSplit) *DocumentClassifierAugmentedManifestsListItemSplit {
+		return &v
+	}).(DocumentClassifierAugmentedManifestsListItemSplitPtrOutput)
+}
+
+func (o DocumentClassifierAugmentedManifestsListItemSplitOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DocumentClassifierAugmentedManifestsListItemSplitOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DocumentClassifierAugmentedManifestsListItemSplit) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DocumentClassifierAugmentedManifestsListItemSplitOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DocumentClassifierAugmentedManifestsListItemSplitOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DocumentClassifierAugmentedManifestsListItemSplit) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DocumentClassifierAugmentedManifestsListItemSplitPtrOutput struct{ *pulumi.OutputState }
+
+func (DocumentClassifierAugmentedManifestsListItemSplitPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DocumentClassifierAugmentedManifestsListItemSplit)(nil)).Elem()
+}
+
+func (o DocumentClassifierAugmentedManifestsListItemSplitPtrOutput) ToDocumentClassifierAugmentedManifestsListItemSplitPtrOutput() DocumentClassifierAugmentedManifestsListItemSplitPtrOutput {
+	return o
+}
+
+func (o DocumentClassifierAugmentedManifestsListItemSplitPtrOutput) ToDocumentClassifierAugmentedManifestsListItemSplitPtrOutputWithContext(ctx context.Context) DocumentClassifierAugmentedManifestsListItemSplitPtrOutput {
+	return o
+}
+
+func (o DocumentClassifierAugmentedManifestsListItemSplitPtrOutput) Elem() DocumentClassifierAugmentedManifestsListItemSplitOutput {
+	return o.ApplyT(func(v *DocumentClassifierAugmentedManifestsListItemSplit) DocumentClassifierAugmentedManifestsListItemSplit {
+		if v != nil {
+			return *v
+		}
+		var ret DocumentClassifierAugmentedManifestsListItemSplit
+		return ret
+	}).(DocumentClassifierAugmentedManifestsListItemSplitOutput)
+}
+
+func (o DocumentClassifierAugmentedManifestsListItemSplitPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DocumentClassifierAugmentedManifestsListItemSplitPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DocumentClassifierAugmentedManifestsListItemSplit) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DocumentClassifierAugmentedManifestsListItemSplitInput is an input type that accepts DocumentClassifierAugmentedManifestsListItemSplitArgs and DocumentClassifierAugmentedManifestsListItemSplitOutput values.
+// You can construct a concrete instance of `DocumentClassifierAugmentedManifestsListItemSplitInput` via:
+//
+//	DocumentClassifierAugmentedManifestsListItemSplitArgs{...}
+type DocumentClassifierAugmentedManifestsListItemSplitInput interface {
+	pulumi.Input
+
+	ToDocumentClassifierAugmentedManifestsListItemSplitOutput() DocumentClassifierAugmentedManifestsListItemSplitOutput
+	ToDocumentClassifierAugmentedManifestsListItemSplitOutputWithContext(context.Context) DocumentClassifierAugmentedManifestsListItemSplitOutput
+}
+
+var documentClassifierAugmentedManifestsListItemSplitPtrType = reflect.TypeOf((**DocumentClassifierAugmentedManifestsListItemSplit)(nil)).Elem()
+
+type DocumentClassifierAugmentedManifestsListItemSplitPtrInput interface {
+	pulumi.Input
+
+	ToDocumentClassifierAugmentedManifestsListItemSplitPtrOutput() DocumentClassifierAugmentedManifestsListItemSplitPtrOutput
+	ToDocumentClassifierAugmentedManifestsListItemSplitPtrOutputWithContext(context.Context) DocumentClassifierAugmentedManifestsListItemSplitPtrOutput
+}
+
+type documentClassifierAugmentedManifestsListItemSplitPtr string
+
+func DocumentClassifierAugmentedManifestsListItemSplitPtr(v string) DocumentClassifierAugmentedManifestsListItemSplitPtrInput {
+	return (*documentClassifierAugmentedManifestsListItemSplitPtr)(&v)
+}
+
+func (*documentClassifierAugmentedManifestsListItemSplitPtr) ElementType() reflect.Type {
+	return documentClassifierAugmentedManifestsListItemSplitPtrType
+}
+
+func (in *documentClassifierAugmentedManifestsListItemSplitPtr) ToDocumentClassifierAugmentedManifestsListItemSplitPtrOutput() DocumentClassifierAugmentedManifestsListItemSplitPtrOutput {
+	return pulumi.ToOutput(in).(DocumentClassifierAugmentedManifestsListItemSplitPtrOutput)
+}
+
+func (in *documentClassifierAugmentedManifestsListItemSplitPtr) ToDocumentClassifierAugmentedManifestsListItemSplitPtrOutputWithContext(ctx context.Context) DocumentClassifierAugmentedManifestsListItemSplitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DocumentClassifierAugmentedManifestsListItemSplitPtrOutput)
+}
+
+type DocumentClassifierDocumentReaderConfigDocumentReadAction string
+
+const (
+	DocumentClassifierDocumentReaderConfigDocumentReadActionTextractDetectDocumentText = DocumentClassifierDocumentReaderConfigDocumentReadAction("TEXTRACT_DETECT_DOCUMENT_TEXT")
+	DocumentClassifierDocumentReaderConfigDocumentReadActionTextractAnalyzeDocument    = DocumentClassifierDocumentReaderConfigDocumentReadAction("TEXTRACT_ANALYZE_DOCUMENT")
+)
+
+func (DocumentClassifierDocumentReaderConfigDocumentReadAction) ElementType() reflect.Type {
+	return reflect.TypeOf((*DocumentClassifierDocumentReaderConfigDocumentReadAction)(nil)).Elem()
+}
+
+func (e DocumentClassifierDocumentReaderConfigDocumentReadAction) ToDocumentClassifierDocumentReaderConfigDocumentReadActionOutput() DocumentClassifierDocumentReaderConfigDocumentReadActionOutput {
+	return pulumi.ToOutput(e).(DocumentClassifierDocumentReaderConfigDocumentReadActionOutput)
+}
+
+func (e DocumentClassifierDocumentReaderConfigDocumentReadAction) ToDocumentClassifierDocumentReaderConfigDocumentReadActionOutputWithContext(ctx context.Context) DocumentClassifierDocumentReaderConfigDocumentReadActionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DocumentClassifierDocumentReaderConfigDocumentReadActionOutput)
+}
+
+func (e DocumentClassifierDocumentReaderConfigDocumentReadAction) ToDocumentClassifierDocumentReaderConfigDocumentReadActionPtrOutput() DocumentClassifierDocumentReaderConfigDocumentReadActionPtrOutput {
+	return e.ToDocumentClassifierDocumentReaderConfigDocumentReadActionPtrOutputWithContext(context.Background())
+}
+
+func (e DocumentClassifierDocumentReaderConfigDocumentReadAction) ToDocumentClassifierDocumentReaderConfigDocumentReadActionPtrOutputWithContext(ctx context.Context) DocumentClassifierDocumentReaderConfigDocumentReadActionPtrOutput {
+	return DocumentClassifierDocumentReaderConfigDocumentReadAction(e).ToDocumentClassifierDocumentReaderConfigDocumentReadActionOutputWithContext(ctx).ToDocumentClassifierDocumentReaderConfigDocumentReadActionPtrOutputWithContext(ctx)
+}
+
+func (e DocumentClassifierDocumentReaderConfigDocumentReadAction) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DocumentClassifierDocumentReaderConfigDocumentReadAction) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DocumentClassifierDocumentReaderConfigDocumentReadAction) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DocumentClassifierDocumentReaderConfigDocumentReadAction) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DocumentClassifierDocumentReaderConfigDocumentReadActionOutput struct{ *pulumi.OutputState }
+
+func (DocumentClassifierDocumentReaderConfigDocumentReadActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DocumentClassifierDocumentReaderConfigDocumentReadAction)(nil)).Elem()
+}
+
+func (o DocumentClassifierDocumentReaderConfigDocumentReadActionOutput) ToDocumentClassifierDocumentReaderConfigDocumentReadActionOutput() DocumentClassifierDocumentReaderConfigDocumentReadActionOutput {
+	return o
+}
+
+func (o DocumentClassifierDocumentReaderConfigDocumentReadActionOutput) ToDocumentClassifierDocumentReaderConfigDocumentReadActionOutputWithContext(ctx context.Context) DocumentClassifierDocumentReaderConfigDocumentReadActionOutput {
+	return o
+}
+
+func (o DocumentClassifierDocumentReaderConfigDocumentReadActionOutput) ToDocumentClassifierDocumentReaderConfigDocumentReadActionPtrOutput() DocumentClassifierDocumentReaderConfigDocumentReadActionPtrOutput {
+	return o.ToDocumentClassifierDocumentReaderConfigDocumentReadActionPtrOutputWithContext(context.Background())
+}
+
+func (o DocumentClassifierDocumentReaderConfigDocumentReadActionOutput) ToDocumentClassifierDocumentReaderConfigDocumentReadActionPtrOutputWithContext(ctx context.Context) DocumentClassifierDocumentReaderConfigDocumentReadActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DocumentClassifierDocumentReaderConfigDocumentReadAction) *DocumentClassifierDocumentReaderConfigDocumentReadAction {
+		return &v
+	}).(DocumentClassifierDocumentReaderConfigDocumentReadActionPtrOutput)
+}
+
+func (o DocumentClassifierDocumentReaderConfigDocumentReadActionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DocumentClassifierDocumentReaderConfigDocumentReadActionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DocumentClassifierDocumentReaderConfigDocumentReadAction) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DocumentClassifierDocumentReaderConfigDocumentReadActionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DocumentClassifierDocumentReaderConfigDocumentReadActionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DocumentClassifierDocumentReaderConfigDocumentReadAction) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DocumentClassifierDocumentReaderConfigDocumentReadActionPtrOutput struct{ *pulumi.OutputState }
+
+func (DocumentClassifierDocumentReaderConfigDocumentReadActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DocumentClassifierDocumentReaderConfigDocumentReadAction)(nil)).Elem()
+}
+
+func (o DocumentClassifierDocumentReaderConfigDocumentReadActionPtrOutput) ToDocumentClassifierDocumentReaderConfigDocumentReadActionPtrOutput() DocumentClassifierDocumentReaderConfigDocumentReadActionPtrOutput {
+	return o
+}
+
+func (o DocumentClassifierDocumentReaderConfigDocumentReadActionPtrOutput) ToDocumentClassifierDocumentReaderConfigDocumentReadActionPtrOutputWithContext(ctx context.Context) DocumentClassifierDocumentReaderConfigDocumentReadActionPtrOutput {
+	return o
+}
+
+func (o DocumentClassifierDocumentReaderConfigDocumentReadActionPtrOutput) Elem() DocumentClassifierDocumentReaderConfigDocumentReadActionOutput {
+	return o.ApplyT(func(v *DocumentClassifierDocumentReaderConfigDocumentReadAction) DocumentClassifierDocumentReaderConfigDocumentReadAction {
+		if v != nil {
+			return *v
+		}
+		var ret DocumentClassifierDocumentReaderConfigDocumentReadAction
+		return ret
+	}).(DocumentClassifierDocumentReaderConfigDocumentReadActionOutput)
+}
+
+func (o DocumentClassifierDocumentReaderConfigDocumentReadActionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DocumentClassifierDocumentReaderConfigDocumentReadActionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DocumentClassifierDocumentReaderConfigDocumentReadAction) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DocumentClassifierDocumentReaderConfigDocumentReadActionInput is an input type that accepts DocumentClassifierDocumentReaderConfigDocumentReadActionArgs and DocumentClassifierDocumentReaderConfigDocumentReadActionOutput values.
+// You can construct a concrete instance of `DocumentClassifierDocumentReaderConfigDocumentReadActionInput` via:
+//
+//	DocumentClassifierDocumentReaderConfigDocumentReadActionArgs{...}
+type DocumentClassifierDocumentReaderConfigDocumentReadActionInput interface {
+	pulumi.Input
+
+	ToDocumentClassifierDocumentReaderConfigDocumentReadActionOutput() DocumentClassifierDocumentReaderConfigDocumentReadActionOutput
+	ToDocumentClassifierDocumentReaderConfigDocumentReadActionOutputWithContext(context.Context) DocumentClassifierDocumentReaderConfigDocumentReadActionOutput
+}
+
+var documentClassifierDocumentReaderConfigDocumentReadActionPtrType = reflect.TypeOf((**DocumentClassifierDocumentReaderConfigDocumentReadAction)(nil)).Elem()
+
+type DocumentClassifierDocumentReaderConfigDocumentReadActionPtrInput interface {
+	pulumi.Input
+
+	ToDocumentClassifierDocumentReaderConfigDocumentReadActionPtrOutput() DocumentClassifierDocumentReaderConfigDocumentReadActionPtrOutput
+	ToDocumentClassifierDocumentReaderConfigDocumentReadActionPtrOutputWithContext(context.Context) DocumentClassifierDocumentReaderConfigDocumentReadActionPtrOutput
+}
+
+type documentClassifierDocumentReaderConfigDocumentReadActionPtr string
+
+func DocumentClassifierDocumentReaderConfigDocumentReadActionPtr(v string) DocumentClassifierDocumentReaderConfigDocumentReadActionPtrInput {
+	return (*documentClassifierDocumentReaderConfigDocumentReadActionPtr)(&v)
+}
+
+func (*documentClassifierDocumentReaderConfigDocumentReadActionPtr) ElementType() reflect.Type {
+	return documentClassifierDocumentReaderConfigDocumentReadActionPtrType
+}
+
+func (in *documentClassifierDocumentReaderConfigDocumentReadActionPtr) ToDocumentClassifierDocumentReaderConfigDocumentReadActionPtrOutput() DocumentClassifierDocumentReaderConfigDocumentReadActionPtrOutput {
+	return pulumi.ToOutput(in).(DocumentClassifierDocumentReaderConfigDocumentReadActionPtrOutput)
+}
+
+func (in *documentClassifierDocumentReaderConfigDocumentReadActionPtr) ToDocumentClassifierDocumentReaderConfigDocumentReadActionPtrOutputWithContext(ctx context.Context) DocumentClassifierDocumentReaderConfigDocumentReadActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DocumentClassifierDocumentReaderConfigDocumentReadActionPtrOutput)
+}
+
+type DocumentClassifierDocumentReaderConfigDocumentReadMode string
+
+const (
+	DocumentClassifierDocumentReaderConfigDocumentReadModeServiceDefault          = DocumentClassifierDocumentReaderConfigDocumentReadMode("SERVICE_DEFAULT")
+	DocumentClassifierDocumentReaderConfigDocumentReadModeForceDocumentReadAction = DocumentClassifierDocumentReaderConfigDocumentReadMode("FORCE_DOCUMENT_READ_ACTION")
+)
+
+func (DocumentClassifierDocumentReaderConfigDocumentReadMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*DocumentClassifierDocumentReaderConfigDocumentReadMode)(nil)).Elem()
+}
+
+func (e DocumentClassifierDocumentReaderConfigDocumentReadMode) ToDocumentClassifierDocumentReaderConfigDocumentReadModeOutput() DocumentClassifierDocumentReaderConfigDocumentReadModeOutput {
+	return pulumi.ToOutput(e).(DocumentClassifierDocumentReaderConfigDocumentReadModeOutput)
+}
+
+func (e DocumentClassifierDocumentReaderConfigDocumentReadMode) ToDocumentClassifierDocumentReaderConfigDocumentReadModeOutputWithContext(ctx context.Context) DocumentClassifierDocumentReaderConfigDocumentReadModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DocumentClassifierDocumentReaderConfigDocumentReadModeOutput)
+}
+
+func (e DocumentClassifierDocumentReaderConfigDocumentReadMode) ToDocumentClassifierDocumentReaderConfigDocumentReadModePtrOutput() DocumentClassifierDocumentReaderConfigDocumentReadModePtrOutput {
+	return e.ToDocumentClassifierDocumentReaderConfigDocumentReadModePtrOutputWithContext(context.Background())
+}
+
+func (e DocumentClassifierDocumentReaderConfigDocumentReadMode) ToDocumentClassifierDocumentReaderConfigDocumentReadModePtrOutputWithContext(ctx context.Context) DocumentClassifierDocumentReaderConfigDocumentReadModePtrOutput {
+	return DocumentClassifierDocumentReaderConfigDocumentReadMode(e).ToDocumentClassifierDocumentReaderConfigDocumentReadModeOutputWithContext(ctx).ToDocumentClassifierDocumentReaderConfigDocumentReadModePtrOutputWithContext(ctx)
+}
+
+func (e DocumentClassifierDocumentReaderConfigDocumentReadMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DocumentClassifierDocumentReaderConfigDocumentReadMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DocumentClassifierDocumentReaderConfigDocumentReadMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DocumentClassifierDocumentReaderConfigDocumentReadMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DocumentClassifierDocumentReaderConfigDocumentReadModeOutput struct{ *pulumi.OutputState }
+
+func (DocumentClassifierDocumentReaderConfigDocumentReadModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DocumentClassifierDocumentReaderConfigDocumentReadMode)(nil)).Elem()
+}
+
+func (o DocumentClassifierDocumentReaderConfigDocumentReadModeOutput) ToDocumentClassifierDocumentReaderConfigDocumentReadModeOutput() DocumentClassifierDocumentReaderConfigDocumentReadModeOutput {
+	return o
+}
+
+func (o DocumentClassifierDocumentReaderConfigDocumentReadModeOutput) ToDocumentClassifierDocumentReaderConfigDocumentReadModeOutputWithContext(ctx context.Context) DocumentClassifierDocumentReaderConfigDocumentReadModeOutput {
+	return o
+}
+
+func (o DocumentClassifierDocumentReaderConfigDocumentReadModeOutput) ToDocumentClassifierDocumentReaderConfigDocumentReadModePtrOutput() DocumentClassifierDocumentReaderConfigDocumentReadModePtrOutput {
+	return o.ToDocumentClassifierDocumentReaderConfigDocumentReadModePtrOutputWithContext(context.Background())
+}
+
+func (o DocumentClassifierDocumentReaderConfigDocumentReadModeOutput) ToDocumentClassifierDocumentReaderConfigDocumentReadModePtrOutputWithContext(ctx context.Context) DocumentClassifierDocumentReaderConfigDocumentReadModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DocumentClassifierDocumentReaderConfigDocumentReadMode) *DocumentClassifierDocumentReaderConfigDocumentReadMode {
+		return &v
+	}).(DocumentClassifierDocumentReaderConfigDocumentReadModePtrOutput)
+}
+
+func (o DocumentClassifierDocumentReaderConfigDocumentReadModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DocumentClassifierDocumentReaderConfigDocumentReadModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DocumentClassifierDocumentReaderConfigDocumentReadMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DocumentClassifierDocumentReaderConfigDocumentReadModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DocumentClassifierDocumentReaderConfigDocumentReadModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DocumentClassifierDocumentReaderConfigDocumentReadMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DocumentClassifierDocumentReaderConfigDocumentReadModePtrOutput struct{ *pulumi.OutputState }
+
+func (DocumentClassifierDocumentReaderConfigDocumentReadModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DocumentClassifierDocumentReaderConfigDocumentReadMode)(nil)).Elem()
+}
+
+func (o DocumentClassifierDocumentReaderConfigDocumentReadModePtrOutput) ToDocumentClassifierDocumentReaderConfigDocumentReadModePtrOutput() DocumentClassifierDocumentReaderConfigDocumentReadModePtrOutput {
+	return o
+}
+
+func (o DocumentClassifierDocumentReaderConfigDocumentReadModePtrOutput) ToDocumentClassifierDocumentReaderConfigDocumentReadModePtrOutputWithContext(ctx context.Context) DocumentClassifierDocumentReaderConfigDocumentReadModePtrOutput {
+	return o
+}
+
+func (o DocumentClassifierDocumentReaderConfigDocumentReadModePtrOutput) Elem() DocumentClassifierDocumentReaderConfigDocumentReadModeOutput {
+	return o.ApplyT(func(v *DocumentClassifierDocumentReaderConfigDocumentReadMode) DocumentClassifierDocumentReaderConfigDocumentReadMode {
+		if v != nil {
+			return *v
+		}
+		var ret DocumentClassifierDocumentReaderConfigDocumentReadMode
+		return ret
+	}).(DocumentClassifierDocumentReaderConfigDocumentReadModeOutput)
+}
+
+func (o DocumentClassifierDocumentReaderConfigDocumentReadModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DocumentClassifierDocumentReaderConfigDocumentReadModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DocumentClassifierDocumentReaderConfigDocumentReadMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DocumentClassifierDocumentReaderConfigDocumentReadModeInput is an input type that accepts DocumentClassifierDocumentReaderConfigDocumentReadModeArgs and DocumentClassifierDocumentReaderConfigDocumentReadModeOutput values.
+// You can construct a concrete instance of `DocumentClassifierDocumentReaderConfigDocumentReadModeInput` via:
+//
+//	DocumentClassifierDocumentReaderConfigDocumentReadModeArgs{...}
+type DocumentClassifierDocumentReaderConfigDocumentReadModeInput interface {
+	pulumi.Input
+
+	ToDocumentClassifierDocumentReaderConfigDocumentReadModeOutput() DocumentClassifierDocumentReaderConfigDocumentReadModeOutput
+	ToDocumentClassifierDocumentReaderConfigDocumentReadModeOutputWithContext(context.Context) DocumentClassifierDocumentReaderConfigDocumentReadModeOutput
+}
+
+var documentClassifierDocumentReaderConfigDocumentReadModePtrType = reflect.TypeOf((**DocumentClassifierDocumentReaderConfigDocumentReadMode)(nil)).Elem()
+
+type DocumentClassifierDocumentReaderConfigDocumentReadModePtrInput interface {
+	pulumi.Input
+
+	ToDocumentClassifierDocumentReaderConfigDocumentReadModePtrOutput() DocumentClassifierDocumentReaderConfigDocumentReadModePtrOutput
+	ToDocumentClassifierDocumentReaderConfigDocumentReadModePtrOutputWithContext(context.Context) DocumentClassifierDocumentReaderConfigDocumentReadModePtrOutput
+}
+
+type documentClassifierDocumentReaderConfigDocumentReadModePtr string
+
+func DocumentClassifierDocumentReaderConfigDocumentReadModePtr(v string) DocumentClassifierDocumentReaderConfigDocumentReadModePtrInput {
+	return (*documentClassifierDocumentReaderConfigDocumentReadModePtr)(&v)
+}
+
+func (*documentClassifierDocumentReaderConfigDocumentReadModePtr) ElementType() reflect.Type {
+	return documentClassifierDocumentReaderConfigDocumentReadModePtrType
+}
+
+func (in *documentClassifierDocumentReaderConfigDocumentReadModePtr) ToDocumentClassifierDocumentReaderConfigDocumentReadModePtrOutput() DocumentClassifierDocumentReaderConfigDocumentReadModePtrOutput {
+	return pulumi.ToOutput(in).(DocumentClassifierDocumentReaderConfigDocumentReadModePtrOutput)
+}
+
+func (in *documentClassifierDocumentReaderConfigDocumentReadModePtr) ToDocumentClassifierDocumentReaderConfigDocumentReadModePtrOutputWithContext(ctx context.Context) DocumentClassifierDocumentReaderConfigDocumentReadModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DocumentClassifierDocumentReaderConfigDocumentReadModePtrOutput)
+}
+
+type DocumentClassifierDocumentReaderConfigFeatureTypesItem string
+
+const (
+	DocumentClassifierDocumentReaderConfigFeatureTypesItemTables = DocumentClassifierDocumentReaderConfigFeatureTypesItem("TABLES")
+	DocumentClassifierDocumentReaderConfigFeatureTypesItemForms  = DocumentClassifierDocumentReaderConfigFeatureTypesItem("FORMS")
+)
+
+func (DocumentClassifierDocumentReaderConfigFeatureTypesItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*DocumentClassifierDocumentReaderConfigFeatureTypesItem)(nil)).Elem()
+}
+
+func (e DocumentClassifierDocumentReaderConfigFeatureTypesItem) ToDocumentClassifierDocumentReaderConfigFeatureTypesItemOutput() DocumentClassifierDocumentReaderConfigFeatureTypesItemOutput {
+	return pulumi.ToOutput(e).(DocumentClassifierDocumentReaderConfigFeatureTypesItemOutput)
+}
+
+func (e DocumentClassifierDocumentReaderConfigFeatureTypesItem) ToDocumentClassifierDocumentReaderConfigFeatureTypesItemOutputWithContext(ctx context.Context) DocumentClassifierDocumentReaderConfigFeatureTypesItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DocumentClassifierDocumentReaderConfigFeatureTypesItemOutput)
+}
+
+func (e DocumentClassifierDocumentReaderConfigFeatureTypesItem) ToDocumentClassifierDocumentReaderConfigFeatureTypesItemPtrOutput() DocumentClassifierDocumentReaderConfigFeatureTypesItemPtrOutput {
+	return e.ToDocumentClassifierDocumentReaderConfigFeatureTypesItemPtrOutputWithContext(context.Background())
+}
+
+func (e DocumentClassifierDocumentReaderConfigFeatureTypesItem) ToDocumentClassifierDocumentReaderConfigFeatureTypesItemPtrOutputWithContext(ctx context.Context) DocumentClassifierDocumentReaderConfigFeatureTypesItemPtrOutput {
+	return DocumentClassifierDocumentReaderConfigFeatureTypesItem(e).ToDocumentClassifierDocumentReaderConfigFeatureTypesItemOutputWithContext(ctx).ToDocumentClassifierDocumentReaderConfigFeatureTypesItemPtrOutputWithContext(ctx)
+}
+
+func (e DocumentClassifierDocumentReaderConfigFeatureTypesItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DocumentClassifierDocumentReaderConfigFeatureTypesItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DocumentClassifierDocumentReaderConfigFeatureTypesItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DocumentClassifierDocumentReaderConfigFeatureTypesItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DocumentClassifierDocumentReaderConfigFeatureTypesItemOutput struct{ *pulumi.OutputState }
+
+func (DocumentClassifierDocumentReaderConfigFeatureTypesItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DocumentClassifierDocumentReaderConfigFeatureTypesItem)(nil)).Elem()
+}
+
+func (o DocumentClassifierDocumentReaderConfigFeatureTypesItemOutput) ToDocumentClassifierDocumentReaderConfigFeatureTypesItemOutput() DocumentClassifierDocumentReaderConfigFeatureTypesItemOutput {
+	return o
+}
+
+func (o DocumentClassifierDocumentReaderConfigFeatureTypesItemOutput) ToDocumentClassifierDocumentReaderConfigFeatureTypesItemOutputWithContext(ctx context.Context) DocumentClassifierDocumentReaderConfigFeatureTypesItemOutput {
+	return o
+}
+
+func (o DocumentClassifierDocumentReaderConfigFeatureTypesItemOutput) ToDocumentClassifierDocumentReaderConfigFeatureTypesItemPtrOutput() DocumentClassifierDocumentReaderConfigFeatureTypesItemPtrOutput {
+	return o.ToDocumentClassifierDocumentReaderConfigFeatureTypesItemPtrOutputWithContext(context.Background())
+}
+
+func (o DocumentClassifierDocumentReaderConfigFeatureTypesItemOutput) ToDocumentClassifierDocumentReaderConfigFeatureTypesItemPtrOutputWithContext(ctx context.Context) DocumentClassifierDocumentReaderConfigFeatureTypesItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DocumentClassifierDocumentReaderConfigFeatureTypesItem) *DocumentClassifierDocumentReaderConfigFeatureTypesItem {
+		return &v
+	}).(DocumentClassifierDocumentReaderConfigFeatureTypesItemPtrOutput)
+}
+
+func (o DocumentClassifierDocumentReaderConfigFeatureTypesItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DocumentClassifierDocumentReaderConfigFeatureTypesItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DocumentClassifierDocumentReaderConfigFeatureTypesItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DocumentClassifierDocumentReaderConfigFeatureTypesItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DocumentClassifierDocumentReaderConfigFeatureTypesItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DocumentClassifierDocumentReaderConfigFeatureTypesItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DocumentClassifierDocumentReaderConfigFeatureTypesItemPtrOutput struct{ *pulumi.OutputState }
+
+func (DocumentClassifierDocumentReaderConfigFeatureTypesItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DocumentClassifierDocumentReaderConfigFeatureTypesItem)(nil)).Elem()
+}
+
+func (o DocumentClassifierDocumentReaderConfigFeatureTypesItemPtrOutput) ToDocumentClassifierDocumentReaderConfigFeatureTypesItemPtrOutput() DocumentClassifierDocumentReaderConfigFeatureTypesItemPtrOutput {
+	return o
+}
+
+func (o DocumentClassifierDocumentReaderConfigFeatureTypesItemPtrOutput) ToDocumentClassifierDocumentReaderConfigFeatureTypesItemPtrOutputWithContext(ctx context.Context) DocumentClassifierDocumentReaderConfigFeatureTypesItemPtrOutput {
+	return o
+}
+
+func (o DocumentClassifierDocumentReaderConfigFeatureTypesItemPtrOutput) Elem() DocumentClassifierDocumentReaderConfigFeatureTypesItemOutput {
+	return o.ApplyT(func(v *DocumentClassifierDocumentReaderConfigFeatureTypesItem) DocumentClassifierDocumentReaderConfigFeatureTypesItem {
+		if v != nil {
+			return *v
+		}
+		var ret DocumentClassifierDocumentReaderConfigFeatureTypesItem
+		return ret
+	}).(DocumentClassifierDocumentReaderConfigFeatureTypesItemOutput)
+}
+
+func (o DocumentClassifierDocumentReaderConfigFeatureTypesItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DocumentClassifierDocumentReaderConfigFeatureTypesItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DocumentClassifierDocumentReaderConfigFeatureTypesItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DocumentClassifierDocumentReaderConfigFeatureTypesItemInput is an input type that accepts DocumentClassifierDocumentReaderConfigFeatureTypesItemArgs and DocumentClassifierDocumentReaderConfigFeatureTypesItemOutput values.
+// You can construct a concrete instance of `DocumentClassifierDocumentReaderConfigFeatureTypesItemInput` via:
+//
+//	DocumentClassifierDocumentReaderConfigFeatureTypesItemArgs{...}
+type DocumentClassifierDocumentReaderConfigFeatureTypesItemInput interface {
+	pulumi.Input
+
+	ToDocumentClassifierDocumentReaderConfigFeatureTypesItemOutput() DocumentClassifierDocumentReaderConfigFeatureTypesItemOutput
+	ToDocumentClassifierDocumentReaderConfigFeatureTypesItemOutputWithContext(context.Context) DocumentClassifierDocumentReaderConfigFeatureTypesItemOutput
+}
+
+var documentClassifierDocumentReaderConfigFeatureTypesItemPtrType = reflect.TypeOf((**DocumentClassifierDocumentReaderConfigFeatureTypesItem)(nil)).Elem()
+
+type DocumentClassifierDocumentReaderConfigFeatureTypesItemPtrInput interface {
+	pulumi.Input
+
+	ToDocumentClassifierDocumentReaderConfigFeatureTypesItemPtrOutput() DocumentClassifierDocumentReaderConfigFeatureTypesItemPtrOutput
+	ToDocumentClassifierDocumentReaderConfigFeatureTypesItemPtrOutputWithContext(context.Context) DocumentClassifierDocumentReaderConfigFeatureTypesItemPtrOutput
+}
+
+type documentClassifierDocumentReaderConfigFeatureTypesItemPtr string
+
+func DocumentClassifierDocumentReaderConfigFeatureTypesItemPtr(v string) DocumentClassifierDocumentReaderConfigFeatureTypesItemPtrInput {
+	return (*documentClassifierDocumentReaderConfigFeatureTypesItemPtr)(&v)
+}
+
+func (*documentClassifierDocumentReaderConfigFeatureTypesItemPtr) ElementType() reflect.Type {
+	return documentClassifierDocumentReaderConfigFeatureTypesItemPtrType
+}
+
+func (in *documentClassifierDocumentReaderConfigFeatureTypesItemPtr) ToDocumentClassifierDocumentReaderConfigFeatureTypesItemPtrOutput() DocumentClassifierDocumentReaderConfigFeatureTypesItemPtrOutput {
+	return pulumi.ToOutput(in).(DocumentClassifierDocumentReaderConfigFeatureTypesItemPtrOutput)
+}
+
+func (in *documentClassifierDocumentReaderConfigFeatureTypesItemPtr) ToDocumentClassifierDocumentReaderConfigFeatureTypesItemPtrOutputWithContext(ctx context.Context) DocumentClassifierDocumentReaderConfigFeatureTypesItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DocumentClassifierDocumentReaderConfigFeatureTypesItemPtrOutput)
+}
+
+// DocumentClassifierDocumentReaderConfigFeatureTypesItemArrayInput is an input type that accepts DocumentClassifierDocumentReaderConfigFeatureTypesItemArray and DocumentClassifierDocumentReaderConfigFeatureTypesItemArrayOutput values.
+// You can construct a concrete instance of `DocumentClassifierDocumentReaderConfigFeatureTypesItemArrayInput` via:
+//
+//	DocumentClassifierDocumentReaderConfigFeatureTypesItemArray{ DocumentClassifierDocumentReaderConfigFeatureTypesItemArgs{...} }
+type DocumentClassifierDocumentReaderConfigFeatureTypesItemArrayInput interface {
+	pulumi.Input
+
+	ToDocumentClassifierDocumentReaderConfigFeatureTypesItemArrayOutput() DocumentClassifierDocumentReaderConfigFeatureTypesItemArrayOutput
+	ToDocumentClassifierDocumentReaderConfigFeatureTypesItemArrayOutputWithContext(context.Context) DocumentClassifierDocumentReaderConfigFeatureTypesItemArrayOutput
+}
+
+type DocumentClassifierDocumentReaderConfigFeatureTypesItemArray []DocumentClassifierDocumentReaderConfigFeatureTypesItem
+
+func (DocumentClassifierDocumentReaderConfigFeatureTypesItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DocumentClassifierDocumentReaderConfigFeatureTypesItem)(nil)).Elem()
+}
+
+func (i DocumentClassifierDocumentReaderConfigFeatureTypesItemArray) ToDocumentClassifierDocumentReaderConfigFeatureTypesItemArrayOutput() DocumentClassifierDocumentReaderConfigFeatureTypesItemArrayOutput {
+	return i.ToDocumentClassifierDocumentReaderConfigFeatureTypesItemArrayOutputWithContext(context.Background())
+}
+
+func (i DocumentClassifierDocumentReaderConfigFeatureTypesItemArray) ToDocumentClassifierDocumentReaderConfigFeatureTypesItemArrayOutputWithContext(ctx context.Context) DocumentClassifierDocumentReaderConfigFeatureTypesItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DocumentClassifierDocumentReaderConfigFeatureTypesItemArrayOutput)
+}
+
+type DocumentClassifierDocumentReaderConfigFeatureTypesItemArrayOutput struct{ *pulumi.OutputState }
+
+func (DocumentClassifierDocumentReaderConfigFeatureTypesItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DocumentClassifierDocumentReaderConfigFeatureTypesItem)(nil)).Elem()
+}
+
+func (o DocumentClassifierDocumentReaderConfigFeatureTypesItemArrayOutput) ToDocumentClassifierDocumentReaderConfigFeatureTypesItemArrayOutput() DocumentClassifierDocumentReaderConfigFeatureTypesItemArrayOutput {
+	return o
+}
+
+func (o DocumentClassifierDocumentReaderConfigFeatureTypesItemArrayOutput) ToDocumentClassifierDocumentReaderConfigFeatureTypesItemArrayOutputWithContext(ctx context.Context) DocumentClassifierDocumentReaderConfigFeatureTypesItemArrayOutput {
+	return o
+}
+
+func (o DocumentClassifierDocumentReaderConfigFeatureTypesItemArrayOutput) Index(i pulumi.IntInput) DocumentClassifierDocumentReaderConfigFeatureTypesItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DocumentClassifierDocumentReaderConfigFeatureTypesItem {
+		return vs[0].([]DocumentClassifierDocumentReaderConfigFeatureTypesItem)[vs[1].(int)]
+	}).(DocumentClassifierDocumentReaderConfigFeatureTypesItemOutput)
+}
+
+type DocumentClassifierInputDataConfigDataFormat string
+
+const (
+	DocumentClassifierInputDataConfigDataFormatComprehendCsv     = DocumentClassifierInputDataConfigDataFormat("COMPREHEND_CSV")
+	DocumentClassifierInputDataConfigDataFormatAugmentedManifest = DocumentClassifierInputDataConfigDataFormat("AUGMENTED_MANIFEST")
+)
+
+func (DocumentClassifierInputDataConfigDataFormat) ElementType() reflect.Type {
+	return reflect.TypeOf((*DocumentClassifierInputDataConfigDataFormat)(nil)).Elem()
+}
+
+func (e DocumentClassifierInputDataConfigDataFormat) ToDocumentClassifierInputDataConfigDataFormatOutput() DocumentClassifierInputDataConfigDataFormatOutput {
+	return pulumi.ToOutput(e).(DocumentClassifierInputDataConfigDataFormatOutput)
+}
+
+func (e DocumentClassifierInputDataConfigDataFormat) ToDocumentClassifierInputDataConfigDataFormatOutputWithContext(ctx context.Context) DocumentClassifierInputDataConfigDataFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DocumentClassifierInputDataConfigDataFormatOutput)
+}
+
+func (e DocumentClassifierInputDataConfigDataFormat) ToDocumentClassifierInputDataConfigDataFormatPtrOutput() DocumentClassifierInputDataConfigDataFormatPtrOutput {
+	return e.ToDocumentClassifierInputDataConfigDataFormatPtrOutputWithContext(context.Background())
+}
+
+func (e DocumentClassifierInputDataConfigDataFormat) ToDocumentClassifierInputDataConfigDataFormatPtrOutputWithContext(ctx context.Context) DocumentClassifierInputDataConfigDataFormatPtrOutput {
+	return DocumentClassifierInputDataConfigDataFormat(e).ToDocumentClassifierInputDataConfigDataFormatOutputWithContext(ctx).ToDocumentClassifierInputDataConfigDataFormatPtrOutputWithContext(ctx)
+}
+
+func (e DocumentClassifierInputDataConfigDataFormat) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DocumentClassifierInputDataConfigDataFormat) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DocumentClassifierInputDataConfigDataFormat) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DocumentClassifierInputDataConfigDataFormat) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DocumentClassifierInputDataConfigDataFormatOutput struct{ *pulumi.OutputState }
+
+func (DocumentClassifierInputDataConfigDataFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DocumentClassifierInputDataConfigDataFormat)(nil)).Elem()
+}
+
+func (o DocumentClassifierInputDataConfigDataFormatOutput) ToDocumentClassifierInputDataConfigDataFormatOutput() DocumentClassifierInputDataConfigDataFormatOutput {
+	return o
+}
+
+func (o DocumentClassifierInputDataConfigDataFormatOutput) ToDocumentClassifierInputDataConfigDataFormatOutputWithContext(ctx context.Context) DocumentClassifierInputDataConfigDataFormatOutput {
+	return o
+}
+
+func (o DocumentClassifierInputDataConfigDataFormatOutput) ToDocumentClassifierInputDataConfigDataFormatPtrOutput() DocumentClassifierInputDataConfigDataFormatPtrOutput {
+	return o.ToDocumentClassifierInputDataConfigDataFormatPtrOutputWithContext(context.Background())
+}
+
+func (o DocumentClassifierInputDataConfigDataFormatOutput) ToDocumentClassifierInputDataConfigDataFormatPtrOutputWithContext(ctx context.Context) DocumentClassifierInputDataConfigDataFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DocumentClassifierInputDataConfigDataFormat) *DocumentClassifierInputDataConfigDataFormat {
+		return &v
+	}).(DocumentClassifierInputDataConfigDataFormatPtrOutput)
+}
+
+func (o DocumentClassifierInputDataConfigDataFormatOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DocumentClassifierInputDataConfigDataFormatOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DocumentClassifierInputDataConfigDataFormat) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DocumentClassifierInputDataConfigDataFormatOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DocumentClassifierInputDataConfigDataFormatOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DocumentClassifierInputDataConfigDataFormat) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DocumentClassifierInputDataConfigDataFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (DocumentClassifierInputDataConfigDataFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DocumentClassifierInputDataConfigDataFormat)(nil)).Elem()
+}
+
+func (o DocumentClassifierInputDataConfigDataFormatPtrOutput) ToDocumentClassifierInputDataConfigDataFormatPtrOutput() DocumentClassifierInputDataConfigDataFormatPtrOutput {
+	return o
+}
+
+func (o DocumentClassifierInputDataConfigDataFormatPtrOutput) ToDocumentClassifierInputDataConfigDataFormatPtrOutputWithContext(ctx context.Context) DocumentClassifierInputDataConfigDataFormatPtrOutput {
+	return o
+}
+
+func (o DocumentClassifierInputDataConfigDataFormatPtrOutput) Elem() DocumentClassifierInputDataConfigDataFormatOutput {
+	return o.ApplyT(func(v *DocumentClassifierInputDataConfigDataFormat) DocumentClassifierInputDataConfigDataFormat {
+		if v != nil {
+			return *v
+		}
+		var ret DocumentClassifierInputDataConfigDataFormat
+		return ret
+	}).(DocumentClassifierInputDataConfigDataFormatOutput)
+}
+
+func (o DocumentClassifierInputDataConfigDataFormatPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DocumentClassifierInputDataConfigDataFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DocumentClassifierInputDataConfigDataFormat) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DocumentClassifierInputDataConfigDataFormatInput is an input type that accepts DocumentClassifierInputDataConfigDataFormatArgs and DocumentClassifierInputDataConfigDataFormatOutput values.
+// You can construct a concrete instance of `DocumentClassifierInputDataConfigDataFormatInput` via:
+//
+//	DocumentClassifierInputDataConfigDataFormatArgs{...}
+type DocumentClassifierInputDataConfigDataFormatInput interface {
+	pulumi.Input
+
+	ToDocumentClassifierInputDataConfigDataFormatOutput() DocumentClassifierInputDataConfigDataFormatOutput
+	ToDocumentClassifierInputDataConfigDataFormatOutputWithContext(context.Context) DocumentClassifierInputDataConfigDataFormatOutput
+}
+
+var documentClassifierInputDataConfigDataFormatPtrType = reflect.TypeOf((**DocumentClassifierInputDataConfigDataFormat)(nil)).Elem()
+
+type DocumentClassifierInputDataConfigDataFormatPtrInput interface {
+	pulumi.Input
+
+	ToDocumentClassifierInputDataConfigDataFormatPtrOutput() DocumentClassifierInputDataConfigDataFormatPtrOutput
+	ToDocumentClassifierInputDataConfigDataFormatPtrOutputWithContext(context.Context) DocumentClassifierInputDataConfigDataFormatPtrOutput
+}
+
+type documentClassifierInputDataConfigDataFormatPtr string
+
+func DocumentClassifierInputDataConfigDataFormatPtr(v string) DocumentClassifierInputDataConfigDataFormatPtrInput {
+	return (*documentClassifierInputDataConfigDataFormatPtr)(&v)
+}
+
+func (*documentClassifierInputDataConfigDataFormatPtr) ElementType() reflect.Type {
+	return documentClassifierInputDataConfigDataFormatPtrType
+}
+
+func (in *documentClassifierInputDataConfigDataFormatPtr) ToDocumentClassifierInputDataConfigDataFormatPtrOutput() DocumentClassifierInputDataConfigDataFormatPtrOutput {
+	return pulumi.ToOutput(in).(DocumentClassifierInputDataConfigDataFormatPtrOutput)
+}
+
+func (in *documentClassifierInputDataConfigDataFormatPtr) ToDocumentClassifierInputDataConfigDataFormatPtrOutputWithContext(ctx context.Context) DocumentClassifierInputDataConfigDataFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DocumentClassifierInputDataConfigDataFormatPtrOutput)
+}
+
+type DocumentClassifierInputDataConfigDocumentType string
+
+const (
+	DocumentClassifierInputDataConfigDocumentTypePlainTextDocument      = DocumentClassifierInputDataConfigDocumentType("PLAIN_TEXT_DOCUMENT")
+	DocumentClassifierInputDataConfigDocumentTypeSemiStructuredDocument = DocumentClassifierInputDataConfigDocumentType("SEMI_STRUCTURED_DOCUMENT")
+)
+
+func (DocumentClassifierInputDataConfigDocumentType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DocumentClassifierInputDataConfigDocumentType)(nil)).Elem()
+}
+
+func (e DocumentClassifierInputDataConfigDocumentType) ToDocumentClassifierInputDataConfigDocumentTypeOutput() DocumentClassifierInputDataConfigDocumentTypeOutput {
+	return pulumi.ToOutput(e).(DocumentClassifierInputDataConfigDocumentTypeOutput)
+}
+
+func (e DocumentClassifierInputDataConfigDocumentType) ToDocumentClassifierInputDataConfigDocumentTypeOutputWithContext(ctx context.Context) DocumentClassifierInputDataConfigDocumentTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DocumentClassifierInputDataConfigDocumentTypeOutput)
+}
+
+func (e DocumentClassifierInputDataConfigDocumentType) ToDocumentClassifierInputDataConfigDocumentTypePtrOutput() DocumentClassifierInputDataConfigDocumentTypePtrOutput {
+	return e.ToDocumentClassifierInputDataConfigDocumentTypePtrOutputWithContext(context.Background())
+}
+
+func (e DocumentClassifierInputDataConfigDocumentType) ToDocumentClassifierInputDataConfigDocumentTypePtrOutputWithContext(ctx context.Context) DocumentClassifierInputDataConfigDocumentTypePtrOutput {
+	return DocumentClassifierInputDataConfigDocumentType(e).ToDocumentClassifierInputDataConfigDocumentTypeOutputWithContext(ctx).ToDocumentClassifierInputDataConfigDocumentTypePtrOutputWithContext(ctx)
+}
+
+func (e DocumentClassifierInputDataConfigDocumentType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DocumentClassifierInputDataConfigDocumentType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DocumentClassifierInputDataConfigDocumentType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DocumentClassifierInputDataConfigDocumentType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DocumentClassifierInputDataConfigDocumentTypeOutput struct{ *pulumi.OutputState }
+
+func (DocumentClassifierInputDataConfigDocumentTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DocumentClassifierInputDataConfigDocumentType)(nil)).Elem()
+}
+
+func (o DocumentClassifierInputDataConfigDocumentTypeOutput) ToDocumentClassifierInputDataConfigDocumentTypeOutput() DocumentClassifierInputDataConfigDocumentTypeOutput {
+	return o
+}
+
+func (o DocumentClassifierInputDataConfigDocumentTypeOutput) ToDocumentClassifierInputDataConfigDocumentTypeOutputWithContext(ctx context.Context) DocumentClassifierInputDataConfigDocumentTypeOutput {
+	return o
+}
+
+func (o DocumentClassifierInputDataConfigDocumentTypeOutput) ToDocumentClassifierInputDataConfigDocumentTypePtrOutput() DocumentClassifierInputDataConfigDocumentTypePtrOutput {
+	return o.ToDocumentClassifierInputDataConfigDocumentTypePtrOutputWithContext(context.Background())
+}
+
+func (o DocumentClassifierInputDataConfigDocumentTypeOutput) ToDocumentClassifierInputDataConfigDocumentTypePtrOutputWithContext(ctx context.Context) DocumentClassifierInputDataConfigDocumentTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DocumentClassifierInputDataConfigDocumentType) *DocumentClassifierInputDataConfigDocumentType {
+		return &v
+	}).(DocumentClassifierInputDataConfigDocumentTypePtrOutput)
+}
+
+func (o DocumentClassifierInputDataConfigDocumentTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DocumentClassifierInputDataConfigDocumentTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DocumentClassifierInputDataConfigDocumentType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DocumentClassifierInputDataConfigDocumentTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DocumentClassifierInputDataConfigDocumentTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DocumentClassifierInputDataConfigDocumentType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DocumentClassifierInputDataConfigDocumentTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DocumentClassifierInputDataConfigDocumentTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DocumentClassifierInputDataConfigDocumentType)(nil)).Elem()
+}
+
+func (o DocumentClassifierInputDataConfigDocumentTypePtrOutput) ToDocumentClassifierInputDataConfigDocumentTypePtrOutput() DocumentClassifierInputDataConfigDocumentTypePtrOutput {
+	return o
+}
+
+func (o DocumentClassifierInputDataConfigDocumentTypePtrOutput) ToDocumentClassifierInputDataConfigDocumentTypePtrOutputWithContext(ctx context.Context) DocumentClassifierInputDataConfigDocumentTypePtrOutput {
+	return o
+}
+
+func (o DocumentClassifierInputDataConfigDocumentTypePtrOutput) Elem() DocumentClassifierInputDataConfigDocumentTypeOutput {
+	return o.ApplyT(func(v *DocumentClassifierInputDataConfigDocumentType) DocumentClassifierInputDataConfigDocumentType {
+		if v != nil {
+			return *v
+		}
+		var ret DocumentClassifierInputDataConfigDocumentType
+		return ret
+	}).(DocumentClassifierInputDataConfigDocumentTypeOutput)
+}
+
+func (o DocumentClassifierInputDataConfigDocumentTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DocumentClassifierInputDataConfigDocumentTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DocumentClassifierInputDataConfigDocumentType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DocumentClassifierInputDataConfigDocumentTypeInput is an input type that accepts DocumentClassifierInputDataConfigDocumentTypeArgs and DocumentClassifierInputDataConfigDocumentTypeOutput values.
+// You can construct a concrete instance of `DocumentClassifierInputDataConfigDocumentTypeInput` via:
+//
+//	DocumentClassifierInputDataConfigDocumentTypeArgs{...}
+type DocumentClassifierInputDataConfigDocumentTypeInput interface {
+	pulumi.Input
+
+	ToDocumentClassifierInputDataConfigDocumentTypeOutput() DocumentClassifierInputDataConfigDocumentTypeOutput
+	ToDocumentClassifierInputDataConfigDocumentTypeOutputWithContext(context.Context) DocumentClassifierInputDataConfigDocumentTypeOutput
+}
+
+var documentClassifierInputDataConfigDocumentTypePtrType = reflect.TypeOf((**DocumentClassifierInputDataConfigDocumentType)(nil)).Elem()
+
+type DocumentClassifierInputDataConfigDocumentTypePtrInput interface {
+	pulumi.Input
+
+	ToDocumentClassifierInputDataConfigDocumentTypePtrOutput() DocumentClassifierInputDataConfigDocumentTypePtrOutput
+	ToDocumentClassifierInputDataConfigDocumentTypePtrOutputWithContext(context.Context) DocumentClassifierInputDataConfigDocumentTypePtrOutput
+}
+
+type documentClassifierInputDataConfigDocumentTypePtr string
+
+func DocumentClassifierInputDataConfigDocumentTypePtr(v string) DocumentClassifierInputDataConfigDocumentTypePtrInput {
+	return (*documentClassifierInputDataConfigDocumentTypePtr)(&v)
+}
+
+func (*documentClassifierInputDataConfigDocumentTypePtr) ElementType() reflect.Type {
+	return documentClassifierInputDataConfigDocumentTypePtrType
+}
+
+func (in *documentClassifierInputDataConfigDocumentTypePtr) ToDocumentClassifierInputDataConfigDocumentTypePtrOutput() DocumentClassifierInputDataConfigDocumentTypePtrOutput {
+	return pulumi.ToOutput(in).(DocumentClassifierInputDataConfigDocumentTypePtrOutput)
+}
+
+func (in *documentClassifierInputDataConfigDocumentTypePtr) ToDocumentClassifierInputDataConfigDocumentTypePtrOutputWithContext(ctx context.Context) DocumentClassifierInputDataConfigDocumentTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DocumentClassifierInputDataConfigDocumentTypePtrOutput)
+}
+
+type DocumentClassifierLanguageCode string
+
+const (
+	DocumentClassifierLanguageCodeEn = DocumentClassifierLanguageCode("en")
+	DocumentClassifierLanguageCodeEs = DocumentClassifierLanguageCode("es")
+	DocumentClassifierLanguageCodeFr = DocumentClassifierLanguageCode("fr")
+	DocumentClassifierLanguageCodeIt = DocumentClassifierLanguageCode("it")
+	DocumentClassifierLanguageCodeDe = DocumentClassifierLanguageCode("de")
+	DocumentClassifierLanguageCodePt = DocumentClassifierLanguageCode("pt")
+)
+
+func (DocumentClassifierLanguageCode) ElementType() reflect.Type {
+	return reflect.TypeOf((*DocumentClassifierLanguageCode)(nil)).Elem()
+}
+
+func (e DocumentClassifierLanguageCode) ToDocumentClassifierLanguageCodeOutput() DocumentClassifierLanguageCodeOutput {
+	return pulumi.ToOutput(e).(DocumentClassifierLanguageCodeOutput)
+}
+
+func (e DocumentClassifierLanguageCode) ToDocumentClassifierLanguageCodeOutputWithContext(ctx context.Context) DocumentClassifierLanguageCodeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DocumentClassifierLanguageCodeOutput)
+}
+
+func (e DocumentClassifierLanguageCode) ToDocumentClassifierLanguageCodePtrOutput() DocumentClassifierLanguageCodePtrOutput {
+	return e.ToDocumentClassifierLanguageCodePtrOutputWithContext(context.Background())
+}
+
+func (e DocumentClassifierLanguageCode) ToDocumentClassifierLanguageCodePtrOutputWithContext(ctx context.Context) DocumentClassifierLanguageCodePtrOutput {
+	return DocumentClassifierLanguageCode(e).ToDocumentClassifierLanguageCodeOutputWithContext(ctx).ToDocumentClassifierLanguageCodePtrOutputWithContext(ctx)
+}
+
+func (e DocumentClassifierLanguageCode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DocumentClassifierLanguageCode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DocumentClassifierLanguageCode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DocumentClassifierLanguageCode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DocumentClassifierLanguageCodeOutput struct{ *pulumi.OutputState }
+
+func (DocumentClassifierLanguageCodeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DocumentClassifierLanguageCode)(nil)).Elem()
+}
+
+func (o DocumentClassifierLanguageCodeOutput) ToDocumentClassifierLanguageCodeOutput() DocumentClassifierLanguageCodeOutput {
+	return o
+}
+
+func (o DocumentClassifierLanguageCodeOutput) ToDocumentClassifierLanguageCodeOutputWithContext(ctx context.Context) DocumentClassifierLanguageCodeOutput {
+	return o
+}
+
+func (o DocumentClassifierLanguageCodeOutput) ToDocumentClassifierLanguageCodePtrOutput() DocumentClassifierLanguageCodePtrOutput {
+	return o.ToDocumentClassifierLanguageCodePtrOutputWithContext(context.Background())
+}
+
+func (o DocumentClassifierLanguageCodeOutput) ToDocumentClassifierLanguageCodePtrOutputWithContext(ctx context.Context) DocumentClassifierLanguageCodePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DocumentClassifierLanguageCode) *DocumentClassifierLanguageCode {
+		return &v
+	}).(DocumentClassifierLanguageCodePtrOutput)
+}
+
+func (o DocumentClassifierLanguageCodeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DocumentClassifierLanguageCodeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DocumentClassifierLanguageCode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DocumentClassifierLanguageCodeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DocumentClassifierLanguageCodeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DocumentClassifierLanguageCode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DocumentClassifierLanguageCodePtrOutput struct{ *pulumi.OutputState }
+
+func (DocumentClassifierLanguageCodePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DocumentClassifierLanguageCode)(nil)).Elem()
+}
+
+func (o DocumentClassifierLanguageCodePtrOutput) ToDocumentClassifierLanguageCodePtrOutput() DocumentClassifierLanguageCodePtrOutput {
+	return o
+}
+
+func (o DocumentClassifierLanguageCodePtrOutput) ToDocumentClassifierLanguageCodePtrOutputWithContext(ctx context.Context) DocumentClassifierLanguageCodePtrOutput {
+	return o
+}
+
+func (o DocumentClassifierLanguageCodePtrOutput) Elem() DocumentClassifierLanguageCodeOutput {
+	return o.ApplyT(func(v *DocumentClassifierLanguageCode) DocumentClassifierLanguageCode {
+		if v != nil {
+			return *v
+		}
+		var ret DocumentClassifierLanguageCode
+		return ret
+	}).(DocumentClassifierLanguageCodeOutput)
+}
+
+func (o DocumentClassifierLanguageCodePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DocumentClassifierLanguageCodePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DocumentClassifierLanguageCode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DocumentClassifierLanguageCodeInput is an input type that accepts DocumentClassifierLanguageCodeArgs and DocumentClassifierLanguageCodeOutput values.
+// You can construct a concrete instance of `DocumentClassifierLanguageCodeInput` via:
+//
+//	DocumentClassifierLanguageCodeArgs{...}
+type DocumentClassifierLanguageCodeInput interface {
+	pulumi.Input
+
+	ToDocumentClassifierLanguageCodeOutput() DocumentClassifierLanguageCodeOutput
+	ToDocumentClassifierLanguageCodeOutputWithContext(context.Context) DocumentClassifierLanguageCodeOutput
+}
+
+var documentClassifierLanguageCodePtrType = reflect.TypeOf((**DocumentClassifierLanguageCode)(nil)).Elem()
+
+type DocumentClassifierLanguageCodePtrInput interface {
+	pulumi.Input
+
+	ToDocumentClassifierLanguageCodePtrOutput() DocumentClassifierLanguageCodePtrOutput
+	ToDocumentClassifierLanguageCodePtrOutputWithContext(context.Context) DocumentClassifierLanguageCodePtrOutput
+}
+
+type documentClassifierLanguageCodePtr string
+
+func DocumentClassifierLanguageCodePtr(v string) DocumentClassifierLanguageCodePtrInput {
+	return (*documentClassifierLanguageCodePtr)(&v)
+}
+
+func (*documentClassifierLanguageCodePtr) ElementType() reflect.Type {
+	return documentClassifierLanguageCodePtrType
+}
+
+func (in *documentClassifierLanguageCodePtr) ToDocumentClassifierLanguageCodePtrOutput() DocumentClassifierLanguageCodePtrOutput {
+	return pulumi.ToOutput(in).(DocumentClassifierLanguageCodePtrOutput)
+}
+
+func (in *documentClassifierLanguageCodePtr) ToDocumentClassifierLanguageCodePtrOutputWithContext(ctx context.Context) DocumentClassifierLanguageCodePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DocumentClassifierLanguageCodePtrOutput)
+}
+
+type DocumentClassifierMode string
+
+const (
+	DocumentClassifierModeMultiClass = DocumentClassifierMode("MULTI_CLASS")
+	DocumentClassifierModeMultiLabel = DocumentClassifierMode("MULTI_LABEL")
+)
+
+func (DocumentClassifierMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*DocumentClassifierMode)(nil)).Elem()
+}
+
+func (e DocumentClassifierMode) ToDocumentClassifierModeOutput() DocumentClassifierModeOutput {
+	return pulumi.ToOutput(e).(DocumentClassifierModeOutput)
+}
+
+func (e DocumentClassifierMode) ToDocumentClassifierModeOutputWithContext(ctx context.Context) DocumentClassifierModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DocumentClassifierModeOutput)
+}
+
+func (e DocumentClassifierMode) ToDocumentClassifierModePtrOutput() DocumentClassifierModePtrOutput {
+	return e.ToDocumentClassifierModePtrOutputWithContext(context.Background())
+}
+
+func (e DocumentClassifierMode) ToDocumentClassifierModePtrOutputWithContext(ctx context.Context) DocumentClassifierModePtrOutput {
+	return DocumentClassifierMode(e).ToDocumentClassifierModeOutputWithContext(ctx).ToDocumentClassifierModePtrOutputWithContext(ctx)
+}
+
+func (e DocumentClassifierMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DocumentClassifierMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DocumentClassifierMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DocumentClassifierMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DocumentClassifierModeOutput struct{ *pulumi.OutputState }
+
+func (DocumentClassifierModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DocumentClassifierMode)(nil)).Elem()
+}
+
+func (o DocumentClassifierModeOutput) ToDocumentClassifierModeOutput() DocumentClassifierModeOutput {
+	return o
+}
+
+func (o DocumentClassifierModeOutput) ToDocumentClassifierModeOutputWithContext(ctx context.Context) DocumentClassifierModeOutput {
+	return o
+}
+
+func (o DocumentClassifierModeOutput) ToDocumentClassifierModePtrOutput() DocumentClassifierModePtrOutput {
+	return o.ToDocumentClassifierModePtrOutputWithContext(context.Background())
+}
+
+func (o DocumentClassifierModeOutput) ToDocumentClassifierModePtrOutputWithContext(ctx context.Context) DocumentClassifierModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DocumentClassifierMode) *DocumentClassifierMode {
+		return &v
+	}).(DocumentClassifierModePtrOutput)
+}
+
+func (o DocumentClassifierModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DocumentClassifierModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DocumentClassifierMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DocumentClassifierModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DocumentClassifierModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DocumentClassifierMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DocumentClassifierModePtrOutput struct{ *pulumi.OutputState }
+
+func (DocumentClassifierModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DocumentClassifierMode)(nil)).Elem()
+}
+
+func (o DocumentClassifierModePtrOutput) ToDocumentClassifierModePtrOutput() DocumentClassifierModePtrOutput {
+	return o
+}
+
+func (o DocumentClassifierModePtrOutput) ToDocumentClassifierModePtrOutputWithContext(ctx context.Context) DocumentClassifierModePtrOutput {
+	return o
+}
+
+func (o DocumentClassifierModePtrOutput) Elem() DocumentClassifierModeOutput {
+	return o.ApplyT(func(v *DocumentClassifierMode) DocumentClassifierMode {
+		if v != nil {
+			return *v
+		}
+		var ret DocumentClassifierMode
+		return ret
+	}).(DocumentClassifierModeOutput)
+}
+
+func (o DocumentClassifierModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DocumentClassifierModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DocumentClassifierMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DocumentClassifierModeInput is an input type that accepts DocumentClassifierModeArgs and DocumentClassifierModeOutput values.
+// You can construct a concrete instance of `DocumentClassifierModeInput` via:
+//
+//	DocumentClassifierModeArgs{...}
+type DocumentClassifierModeInput interface {
+	pulumi.Input
+
+	ToDocumentClassifierModeOutput() DocumentClassifierModeOutput
+	ToDocumentClassifierModeOutputWithContext(context.Context) DocumentClassifierModeOutput
+}
+
+var documentClassifierModePtrType = reflect.TypeOf((**DocumentClassifierMode)(nil)).Elem()
+
+type DocumentClassifierModePtrInput interface {
+	pulumi.Input
+
+	ToDocumentClassifierModePtrOutput() DocumentClassifierModePtrOutput
+	ToDocumentClassifierModePtrOutputWithContext(context.Context) DocumentClassifierModePtrOutput
+}
+
+type documentClassifierModePtr string
+
+func DocumentClassifierModePtr(v string) DocumentClassifierModePtrInput {
+	return (*documentClassifierModePtr)(&v)
+}
+
+func (*documentClassifierModePtr) ElementType() reflect.Type {
+	return documentClassifierModePtrType
+}
+
+func (in *documentClassifierModePtr) ToDocumentClassifierModePtrOutput() DocumentClassifierModePtrOutput {
+	return pulumi.ToOutput(in).(DocumentClassifierModePtrOutput)
+}
+
+func (in *documentClassifierModePtr) ToDocumentClassifierModePtrOutputWithContext(ctx context.Context) DocumentClassifierModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DocumentClassifierModePtrOutput)
+}
+
 type FlywheelDocumentClassificationConfigMode string
 
 const (
@@ -507,12 +1868,46 @@ func (in *flywheelTaskConfigLanguageCodePtr) ToFlywheelTaskConfigLanguageCodePtr
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DocumentClassifierAugmentedManifestsListItemSplitInput)(nil)).Elem(), DocumentClassifierAugmentedManifestsListItemSplit("TRAIN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DocumentClassifierAugmentedManifestsListItemSplitPtrInput)(nil)).Elem(), DocumentClassifierAugmentedManifestsListItemSplit("TRAIN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DocumentClassifierDocumentReaderConfigDocumentReadActionInput)(nil)).Elem(), DocumentClassifierDocumentReaderConfigDocumentReadAction("TEXTRACT_DETECT_DOCUMENT_TEXT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DocumentClassifierDocumentReaderConfigDocumentReadActionPtrInput)(nil)).Elem(), DocumentClassifierDocumentReaderConfigDocumentReadAction("TEXTRACT_DETECT_DOCUMENT_TEXT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DocumentClassifierDocumentReaderConfigDocumentReadModeInput)(nil)).Elem(), DocumentClassifierDocumentReaderConfigDocumentReadMode("SERVICE_DEFAULT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DocumentClassifierDocumentReaderConfigDocumentReadModePtrInput)(nil)).Elem(), DocumentClassifierDocumentReaderConfigDocumentReadMode("SERVICE_DEFAULT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DocumentClassifierDocumentReaderConfigFeatureTypesItemInput)(nil)).Elem(), DocumentClassifierDocumentReaderConfigFeatureTypesItem("TABLES"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DocumentClassifierDocumentReaderConfigFeatureTypesItemPtrInput)(nil)).Elem(), DocumentClassifierDocumentReaderConfigFeatureTypesItem("TABLES"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DocumentClassifierDocumentReaderConfigFeatureTypesItemArrayInput)(nil)).Elem(), DocumentClassifierDocumentReaderConfigFeatureTypesItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DocumentClassifierInputDataConfigDataFormatInput)(nil)).Elem(), DocumentClassifierInputDataConfigDataFormat("COMPREHEND_CSV"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DocumentClassifierInputDataConfigDataFormatPtrInput)(nil)).Elem(), DocumentClassifierInputDataConfigDataFormat("COMPREHEND_CSV"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DocumentClassifierInputDataConfigDocumentTypeInput)(nil)).Elem(), DocumentClassifierInputDataConfigDocumentType("PLAIN_TEXT_DOCUMENT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DocumentClassifierInputDataConfigDocumentTypePtrInput)(nil)).Elem(), DocumentClassifierInputDataConfigDocumentType("PLAIN_TEXT_DOCUMENT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DocumentClassifierLanguageCodeInput)(nil)).Elem(), DocumentClassifierLanguageCode("en"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DocumentClassifierLanguageCodePtrInput)(nil)).Elem(), DocumentClassifierLanguageCode("en"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DocumentClassifierModeInput)(nil)).Elem(), DocumentClassifierMode("MULTI_CLASS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DocumentClassifierModePtrInput)(nil)).Elem(), DocumentClassifierMode("MULTI_CLASS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlywheelDocumentClassificationConfigModeInput)(nil)).Elem(), FlywheelDocumentClassificationConfigMode("MULTI_CLASS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlywheelDocumentClassificationConfigModePtrInput)(nil)).Elem(), FlywheelDocumentClassificationConfigMode("MULTI_CLASS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlywheelModelTypeInput)(nil)).Elem(), FlywheelModelType("DOCUMENT_CLASSIFIER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlywheelModelTypePtrInput)(nil)).Elem(), FlywheelModelType("DOCUMENT_CLASSIFIER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlywheelTaskConfigLanguageCodeInput)(nil)).Elem(), FlywheelTaskConfigLanguageCode("en"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlywheelTaskConfigLanguageCodePtrInput)(nil)).Elem(), FlywheelTaskConfigLanguageCode("en"))
+	pulumi.RegisterOutputType(DocumentClassifierAugmentedManifestsListItemSplitOutput{})
+	pulumi.RegisterOutputType(DocumentClassifierAugmentedManifestsListItemSplitPtrOutput{})
+	pulumi.RegisterOutputType(DocumentClassifierDocumentReaderConfigDocumentReadActionOutput{})
+	pulumi.RegisterOutputType(DocumentClassifierDocumentReaderConfigDocumentReadActionPtrOutput{})
+	pulumi.RegisterOutputType(DocumentClassifierDocumentReaderConfigDocumentReadModeOutput{})
+	pulumi.RegisterOutputType(DocumentClassifierDocumentReaderConfigDocumentReadModePtrOutput{})
+	pulumi.RegisterOutputType(DocumentClassifierDocumentReaderConfigFeatureTypesItemOutput{})
+	pulumi.RegisterOutputType(DocumentClassifierDocumentReaderConfigFeatureTypesItemPtrOutput{})
+	pulumi.RegisterOutputType(DocumentClassifierDocumentReaderConfigFeatureTypesItemArrayOutput{})
+	pulumi.RegisterOutputType(DocumentClassifierInputDataConfigDataFormatOutput{})
+	pulumi.RegisterOutputType(DocumentClassifierInputDataConfigDataFormatPtrOutput{})
+	pulumi.RegisterOutputType(DocumentClassifierInputDataConfigDocumentTypeOutput{})
+	pulumi.RegisterOutputType(DocumentClassifierInputDataConfigDocumentTypePtrOutput{})
+	pulumi.RegisterOutputType(DocumentClassifierLanguageCodeOutput{})
+	pulumi.RegisterOutputType(DocumentClassifierLanguageCodePtrOutput{})
+	pulumi.RegisterOutputType(DocumentClassifierModeOutput{})
+	pulumi.RegisterOutputType(DocumentClassifierModePtrOutput{})
 	pulumi.RegisterOutputType(FlywheelDocumentClassificationConfigModeOutput{})
 	pulumi.RegisterOutputType(FlywheelDocumentClassificationConfigModePtrOutput{})
 	pulumi.RegisterOutputType(FlywheelModelTypeOutput{})

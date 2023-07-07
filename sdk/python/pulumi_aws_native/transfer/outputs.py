@@ -22,6 +22,7 @@ __all__ = [
     'ServerIdentityProviderDetails',
     'ServerProtocol',
     'ServerProtocolDetails',
+    'ServerStructuredLogDestination',
     'ServerTag',
     'ServerWorkflowDetail',
     'ServerWorkflowDetails',
@@ -517,6 +518,12 @@ class ServerProtocolDetails(dict):
     @pulumi.getter(name="tlsSessionResumptionMode")
     def tls_session_resumption_mode(self) -> Optional[str]:
         return pulumi.get(self, "tls_session_resumption_mode")
+
+
+@pulumi.output_type
+class ServerStructuredLogDestination(dict):
+    def __init__(__self__):
+        pass
 
 
 @pulumi.output_type

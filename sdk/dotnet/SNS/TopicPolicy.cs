@@ -10,15 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SNS
 {
     /// <summary>
-    /// Resource Type definition for AWS::SNS::TopicPolicy
+    /// Schema for AWS::SNS::TopicPolicy
     /// </summary>
-    [Obsolete(@"TopicPolicy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:sns:TopicPolicy")]
     public partial class TopicPolicy : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A policy document that contains permissions to add to the specified SNS topics.
+        /// </summary>
         [Output("policyDocument")]
         public Output<object> PolicyDocument { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Names (ARN) of the topics to which you want to add the policy. You can use the [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)` function to specify an [AWS::SNS::Topic](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html) resource.
+        /// </summary>
         [Output("topics")]
         public Output<ImmutableArray<string>> Topics { get; private set; } = null!;
 
@@ -67,11 +72,18 @@ namespace Pulumi.AwsNative.SNS
 
     public sealed class TopicPolicyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A policy document that contains permissions to add to the specified SNS topics.
+        /// </summary>
         [Input("policyDocument", required: true)]
         public Input<object> PolicyDocument { get; set; } = null!;
 
         [Input("topics", required: true)]
         private InputList<string>? _topics;
+
+        /// <summary>
+        /// The Amazon Resource Names (ARN) of the topics to which you want to add the policy. You can use the [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)` function to specify an [AWS::SNS::Topic](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html) resource.
+        /// </summary>
         public InputList<string> Topics
         {
             get => _topics ?? (_topics = new InputList<string>());

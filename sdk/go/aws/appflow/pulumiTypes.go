@@ -9212,8 +9212,9 @@ func (o FlowCustomConnectorDestinationPropertiesPtrOutput) WriteOperationType() 
 }
 
 type FlowCustomConnectorSourceProperties struct {
-	CustomProperties *FlowCustomProperties `pulumi:"customProperties"`
-	EntityName       string                `pulumi:"entityName"`
+	CustomProperties *FlowCustomProperties                                         `pulumi:"customProperties"`
+	DataTransferApi  *FlowCustomConnectorSourcePropertiesDataTransferApiProperties `pulumi:"dataTransferApi"`
+	EntityName       string                                                        `pulumi:"entityName"`
 }
 
 // FlowCustomConnectorSourcePropertiesInput is an input type that accepts FlowCustomConnectorSourcePropertiesArgs and FlowCustomConnectorSourcePropertiesOutput values.
@@ -9228,8 +9229,9 @@ type FlowCustomConnectorSourcePropertiesInput interface {
 }
 
 type FlowCustomConnectorSourcePropertiesArgs struct {
-	CustomProperties FlowCustomPropertiesPtrInput `pulumi:"customProperties"`
-	EntityName       pulumi.StringInput           `pulumi:"entityName"`
+	CustomProperties FlowCustomPropertiesPtrInput                                         `pulumi:"customProperties"`
+	DataTransferApi  FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesPtrInput `pulumi:"dataTransferApi"`
+	EntityName       pulumi.StringInput                                                   `pulumi:"entityName"`
 }
 
 func (FlowCustomConnectorSourcePropertiesArgs) ElementType() reflect.Type {
@@ -9313,6 +9315,12 @@ func (o FlowCustomConnectorSourcePropertiesOutput) CustomProperties() FlowCustom
 	return o.ApplyT(func(v FlowCustomConnectorSourceProperties) *FlowCustomProperties { return v.CustomProperties }).(FlowCustomPropertiesPtrOutput)
 }
 
+func (o FlowCustomConnectorSourcePropertiesOutput) DataTransferApi() FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesPtrOutput {
+	return o.ApplyT(func(v FlowCustomConnectorSourceProperties) *FlowCustomConnectorSourcePropertiesDataTransferApiProperties {
+		return v.DataTransferApi
+	}).(FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesPtrOutput)
+}
+
 func (o FlowCustomConnectorSourcePropertiesOutput) EntityName() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowCustomConnectorSourceProperties) string { return v.EntityName }).(pulumi.StringOutput)
 }
@@ -9350,6 +9358,15 @@ func (o FlowCustomConnectorSourcePropertiesPtrOutput) CustomProperties() FlowCus
 	}).(FlowCustomPropertiesPtrOutput)
 }
 
+func (o FlowCustomConnectorSourcePropertiesPtrOutput) DataTransferApi() FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesPtrOutput {
+	return o.ApplyT(func(v *FlowCustomConnectorSourceProperties) *FlowCustomConnectorSourcePropertiesDataTransferApiProperties {
+		if v == nil {
+			return nil
+		}
+		return v.DataTransferApi
+	}).(FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesPtrOutput)
+}
+
 func (o FlowCustomConnectorSourcePropertiesPtrOutput) EntityName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowCustomConnectorSourceProperties) *string {
 		if v == nil {
@@ -9357,6 +9374,156 @@ func (o FlowCustomConnectorSourcePropertiesPtrOutput) EntityName() pulumi.String
 		}
 		return &v.EntityName
 	}).(pulumi.StringPtrOutput)
+}
+
+type FlowCustomConnectorSourcePropertiesDataTransferApiProperties struct {
+	Name string                                                           `pulumi:"name"`
+	Type FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesType `pulumi:"type"`
+}
+
+// FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesInput is an input type that accepts FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesArgs and FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesOutput values.
+// You can construct a concrete instance of `FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesInput` via:
+//
+//	FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesArgs{...}
+type FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesInput interface {
+	pulumi.Input
+
+	ToFlowCustomConnectorSourcePropertiesDataTransferApiPropertiesOutput() FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesOutput
+	ToFlowCustomConnectorSourcePropertiesDataTransferApiPropertiesOutputWithContext(context.Context) FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesOutput
+}
+
+type FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesArgs struct {
+	Name pulumi.StringInput                                                    `pulumi:"name"`
+	Type FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesTypeInput `pulumi:"type"`
+}
+
+func (FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowCustomConnectorSourcePropertiesDataTransferApiProperties)(nil)).Elem()
+}
+
+func (i FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesArgs) ToFlowCustomConnectorSourcePropertiesDataTransferApiPropertiesOutput() FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesOutput {
+	return i.ToFlowCustomConnectorSourcePropertiesDataTransferApiPropertiesOutputWithContext(context.Background())
+}
+
+func (i FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesArgs) ToFlowCustomConnectorSourcePropertiesDataTransferApiPropertiesOutputWithContext(ctx context.Context) FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesOutput)
+}
+
+func (i FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesArgs) ToFlowCustomConnectorSourcePropertiesDataTransferApiPropertiesPtrOutput() FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesPtrOutput {
+	return i.ToFlowCustomConnectorSourcePropertiesDataTransferApiPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesArgs) ToFlowCustomConnectorSourcePropertiesDataTransferApiPropertiesPtrOutputWithContext(ctx context.Context) FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesOutput).ToFlowCustomConnectorSourcePropertiesDataTransferApiPropertiesPtrOutputWithContext(ctx)
+}
+
+// FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesPtrInput is an input type that accepts FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesArgs, FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesPtr and FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesPtrOutput values.
+// You can construct a concrete instance of `FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesPtrInput` via:
+//
+//	        FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToFlowCustomConnectorSourcePropertiesDataTransferApiPropertiesPtrOutput() FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesPtrOutput
+	ToFlowCustomConnectorSourcePropertiesDataTransferApiPropertiesPtrOutputWithContext(context.Context) FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesPtrOutput
+}
+
+type flowCustomConnectorSourcePropertiesDataTransferApiPropertiesPtrType FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesArgs
+
+func FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesPtr(v *FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesArgs) FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesPtrInput {
+	return (*flowCustomConnectorSourcePropertiesDataTransferApiPropertiesPtrType)(v)
+}
+
+func (*flowCustomConnectorSourcePropertiesDataTransferApiPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowCustomConnectorSourcePropertiesDataTransferApiProperties)(nil)).Elem()
+}
+
+func (i *flowCustomConnectorSourcePropertiesDataTransferApiPropertiesPtrType) ToFlowCustomConnectorSourcePropertiesDataTransferApiPropertiesPtrOutput() FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesPtrOutput {
+	return i.ToFlowCustomConnectorSourcePropertiesDataTransferApiPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *flowCustomConnectorSourcePropertiesDataTransferApiPropertiesPtrType) ToFlowCustomConnectorSourcePropertiesDataTransferApiPropertiesPtrOutputWithContext(ctx context.Context) FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesPtrOutput)
+}
+
+type FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesOutput struct{ *pulumi.OutputState }
+
+func (FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowCustomConnectorSourcePropertiesDataTransferApiProperties)(nil)).Elem()
+}
+
+func (o FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesOutput) ToFlowCustomConnectorSourcePropertiesDataTransferApiPropertiesOutput() FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesOutput {
+	return o
+}
+
+func (o FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesOutput) ToFlowCustomConnectorSourcePropertiesDataTransferApiPropertiesOutputWithContext(ctx context.Context) FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesOutput {
+	return o
+}
+
+func (o FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesOutput) ToFlowCustomConnectorSourcePropertiesDataTransferApiPropertiesPtrOutput() FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesPtrOutput {
+	return o.ToFlowCustomConnectorSourcePropertiesDataTransferApiPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesOutput) ToFlowCustomConnectorSourcePropertiesDataTransferApiPropertiesPtrOutputWithContext(ctx context.Context) FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowCustomConnectorSourcePropertiesDataTransferApiProperties) *FlowCustomConnectorSourcePropertiesDataTransferApiProperties {
+		return &v
+	}).(FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesPtrOutput)
+}
+
+func (o FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowCustomConnectorSourcePropertiesDataTransferApiProperties) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesOutput) Type() FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesTypeOutput {
+	return o.ApplyT(func(v FlowCustomConnectorSourcePropertiesDataTransferApiProperties) FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesType {
+		return v.Type
+	}).(FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesTypeOutput)
+}
+
+type FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowCustomConnectorSourcePropertiesDataTransferApiProperties)(nil)).Elem()
+}
+
+func (o FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesPtrOutput) ToFlowCustomConnectorSourcePropertiesDataTransferApiPropertiesPtrOutput() FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesPtrOutput {
+	return o
+}
+
+func (o FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesPtrOutput) ToFlowCustomConnectorSourcePropertiesDataTransferApiPropertiesPtrOutputWithContext(ctx context.Context) FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesPtrOutput {
+	return o
+}
+
+func (o FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesPtrOutput) Elem() FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesOutput {
+	return o.ApplyT(func(v *FlowCustomConnectorSourcePropertiesDataTransferApiProperties) FlowCustomConnectorSourcePropertiesDataTransferApiProperties {
+		if v != nil {
+			return *v
+		}
+		var ret FlowCustomConnectorSourcePropertiesDataTransferApiProperties
+		return ret
+	}).(FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesOutput)
+}
+
+func (o FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowCustomConnectorSourcePropertiesDataTransferApiProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesPtrOutput) Type() FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesTypePtrOutput {
+	return o.ApplyT(func(v *FlowCustomConnectorSourcePropertiesDataTransferApiProperties) *FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesType {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesTypePtrOutput)
 }
 
 // A map for properties for custom connector.
@@ -16240,6 +16407,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowCustomConnectorDestinationPropertiesPtrInput)(nil)).Elem(), FlowCustomConnectorDestinationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowCustomConnectorSourcePropertiesInput)(nil)).Elem(), FlowCustomConnectorSourcePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowCustomConnectorSourcePropertiesPtrInput)(nil)).Elem(), FlowCustomConnectorSourcePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesInput)(nil)).Elem(), FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesPtrInput)(nil)).Elem(), FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowCustomPropertiesInput)(nil)).Elem(), FlowCustomPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowCustomPropertiesPtrInput)(nil)).Elem(), FlowCustomPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowDatadogSourcePropertiesInput)(nil)).Elem(), FlowDatadogSourcePropertiesArgs{})
@@ -16430,6 +16599,8 @@ func init() {
 	pulumi.RegisterOutputType(FlowCustomConnectorDestinationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowCustomConnectorSourcePropertiesOutput{})
 	pulumi.RegisterOutputType(FlowCustomConnectorSourcePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesOutput{})
+	pulumi.RegisterOutputType(FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowCustomPropertiesOutput{})
 	pulumi.RegisterOutputType(FlowCustomPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowDatadogSourcePropertiesOutput{})

@@ -63,6 +63,7 @@ __all__ = [
     'FlowAmplitudeSourcePropertiesArgs',
     'FlowConnectorOperatorArgs',
     'FlowCustomConnectorDestinationPropertiesArgs',
+    'FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesArgs',
     'FlowCustomConnectorSourcePropertiesArgs',
     'FlowCustomPropertiesArgs',
     'FlowDatadogSourcePropertiesArgs',
@@ -2862,13 +2863,43 @@ class FlowCustomConnectorDestinationPropertiesArgs:
 
 
 @pulumi.input_type
+class FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 type: pulumi.Input['FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesType']):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesType']:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesType']):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
 class FlowCustomConnectorSourcePropertiesArgs:
     def __init__(__self__, *,
                  entity_name: pulumi.Input[str],
-                 custom_properties: Optional[pulumi.Input['FlowCustomPropertiesArgs']] = None):
+                 custom_properties: Optional[pulumi.Input['FlowCustomPropertiesArgs']] = None,
+                 data_transfer_api: Optional[pulumi.Input['FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesArgs']] = None):
         pulumi.set(__self__, "entity_name", entity_name)
         if custom_properties is not None:
             pulumi.set(__self__, "custom_properties", custom_properties)
+        if data_transfer_api is not None:
+            pulumi.set(__self__, "data_transfer_api", data_transfer_api)
 
     @property
     @pulumi.getter(name="entityName")
@@ -2887,6 +2918,15 @@ class FlowCustomConnectorSourcePropertiesArgs:
     @custom_properties.setter
     def custom_properties(self, value: Optional[pulumi.Input['FlowCustomPropertiesArgs']]):
         pulumi.set(self, "custom_properties", value)
+
+    @property
+    @pulumi.getter(name="dataTransferApi")
+    def data_transfer_api(self) -> Optional[pulumi.Input['FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesArgs']]:
+        return pulumi.get(self, "data_transfer_api")
+
+    @data_transfer_api.setter
+    def data_transfer_api(self, value: Optional[pulumi.Input['FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesArgs']]):
+        pulumi.set(self, "data_transfer_api", value)
 
 
 @pulumi.input_type

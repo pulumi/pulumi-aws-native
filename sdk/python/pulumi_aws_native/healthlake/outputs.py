@@ -13,6 +13,7 @@ from ._enums import *
 
 __all__ = [
     'FHIRDatastoreCreatedAt',
+    'FHIRDatastoreIdentityProviderConfiguration',
     'FHIRDatastoreKmsEncryptionConfig',
     'FHIRDatastorePreloadDataConfig',
     'FHIRDatastoreSseConfiguration',
@@ -50,6 +51,85 @@ class FHIRDatastoreCreatedAt(dict):
         Seconds since epoch.
         """
         return pulumi.get(self, "seconds")
+
+
+@pulumi.output_type
+class FHIRDatastoreIdentityProviderConfiguration(dict):
+    """
+    The identity provider configuration for the datastore
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizationStrategy":
+            suggest = "authorization_strategy"
+        elif key == "fineGrainedAuthorizationEnabled":
+            suggest = "fine_grained_authorization_enabled"
+        elif key == "idpLambdaArn":
+            suggest = "idp_lambda_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FHIRDatastoreIdentityProviderConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FHIRDatastoreIdentityProviderConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FHIRDatastoreIdentityProviderConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authorization_strategy: 'FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy',
+                 fine_grained_authorization_enabled: Optional[bool] = None,
+                 idp_lambda_arn: Optional[str] = None,
+                 metadata: Optional[str] = None):
+        """
+        The identity provider configuration for the datastore
+        :param 'FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy' authorization_strategy: Type of Authorization Strategy. The two types of supported Authorization strategies are SMART_ON_FHIR_V1 and AWS_AUTH.
+        :param bool fine_grained_authorization_enabled: Flag to indicate if fine-grained authorization will be enabled for the datastore
+        :param str idp_lambda_arn: The Amazon Resource Name (ARN) of the Lambda function that will be used to decode the access token created by the authorization server.
+        :param str metadata: The JSON metadata elements for identity provider configuration.
+        """
+        pulumi.set(__self__, "authorization_strategy", authorization_strategy)
+        if fine_grained_authorization_enabled is not None:
+            pulumi.set(__self__, "fine_grained_authorization_enabled", fine_grained_authorization_enabled)
+        if idp_lambda_arn is not None:
+            pulumi.set(__self__, "idp_lambda_arn", idp_lambda_arn)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+
+    @property
+    @pulumi.getter(name="authorizationStrategy")
+    def authorization_strategy(self) -> 'FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy':
+        """
+        Type of Authorization Strategy. The two types of supported Authorization strategies are SMART_ON_FHIR_V1 and AWS_AUTH.
+        """
+        return pulumi.get(self, "authorization_strategy")
+
+    @property
+    @pulumi.getter(name="fineGrainedAuthorizationEnabled")
+    def fine_grained_authorization_enabled(self) -> Optional[bool]:
+        """
+        Flag to indicate if fine-grained authorization will be enabled for the datastore
+        """
+        return pulumi.get(self, "fine_grained_authorization_enabled")
+
+    @property
+    @pulumi.getter(name="idpLambdaArn")
+    def idp_lambda_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the Lambda function that will be used to decode the access token created by the authorization server.
+        """
+        return pulumi.get(self, "idp_lambda_arn")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[str]:
+        """
+        The JSON metadata elements for identity provider configuration.
+        """
+        return pulumi.get(self, "metadata")
 
 
 @pulumi.output_type

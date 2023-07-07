@@ -25,6 +25,8 @@ type Endpoint struct {
 	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
 	// The ID of the customer-owned IPv4 pool for the Endpoint. IP addresses will be allocated from this pool for the endpoint.
 	CustomerOwnedIpv4Pool pulumi.StringPtrOutput `pulumi:"customerOwnedIpv4Pool"`
+	// The failure reason, if any, for a create or delete endpoint operation.
+	FailedReason EndpointFailedReasonPtrOutput `pulumi:"failedReason"`
 	// The network interfaces of the endpoint.
 	NetworkInterfaces EndpointNetworkInterfaceArrayOutput `pulumi:"networkInterfaces"`
 	// The id of the customer outpost on which the bucket resides.
@@ -88,6 +90,8 @@ type endpointArgs struct {
 	AccessType *EndpointAccessType `pulumi:"accessType"`
 	// The ID of the customer-owned IPv4 pool for the Endpoint. IP addresses will be allocated from this pool for the endpoint.
 	CustomerOwnedIpv4Pool *string `pulumi:"customerOwnedIpv4Pool"`
+	// The failure reason, if any, for a create or delete endpoint operation.
+	FailedReason *EndpointFailedReason `pulumi:"failedReason"`
 	// The id of the customer outpost on which the bucket resides.
 	OutpostId string `pulumi:"outpostId"`
 	// The ID of the security group to use with the endpoint.
@@ -102,6 +106,8 @@ type EndpointArgs struct {
 	AccessType EndpointAccessTypePtrInput
 	// The ID of the customer-owned IPv4 pool for the Endpoint. IP addresses will be allocated from this pool for the endpoint.
 	CustomerOwnedIpv4Pool pulumi.StringPtrInput
+	// The failure reason, if any, for a create or delete endpoint operation.
+	FailedReason EndpointFailedReasonPtrInput
 	// The id of the customer outpost on which the bucket resides.
 	OutpostId pulumi.StringInput
 	// The ID of the security group to use with the endpoint.
@@ -170,6 +176,11 @@ func (o EndpointOutput) CreationTime() pulumi.StringOutput {
 // The ID of the customer-owned IPv4 pool for the Endpoint. IP addresses will be allocated from this pool for the endpoint.
 func (o EndpointOutput) CustomerOwnedIpv4Pool() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.CustomerOwnedIpv4Pool }).(pulumi.StringPtrOutput)
+}
+
+// The failure reason, if any, for a create or delete endpoint operation.
+func (o EndpointOutput) FailedReason() EndpointFailedReasonPtrOutput {
+	return o.ApplyT(func(v *Endpoint) EndpointFailedReasonPtrOutput { return v.FailedReason }).(EndpointFailedReasonPtrOutput)
 }
 
 // The network interfaces of the endpoint.

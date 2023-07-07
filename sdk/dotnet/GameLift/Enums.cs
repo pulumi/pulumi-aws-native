@@ -53,6 +53,7 @@ namespace Pulumi.AwsNative.GameLift
 
         public static BuildOperatingSystem AmazonLinux { get; } = new BuildOperatingSystem("AMAZON_LINUX");
         public static BuildOperatingSystem AmazonLinux2 { get; } = new BuildOperatingSystem("AMAZON_LINUX_2");
+        public static BuildOperatingSystem AmazonLinux2023 { get; } = new BuildOperatingSystem("AMAZON_LINUX_2023");
         public static BuildOperatingSystem Windows2012 { get; } = new BuildOperatingSystem("WINDOWS_2012");
         public static BuildOperatingSystem Windows2016 { get; } = new BuildOperatingSystem("WINDOWS_2016");
 

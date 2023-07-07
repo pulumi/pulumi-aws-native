@@ -25,20 +25,21 @@ type LookupServerArgs struct {
 }
 
 type LookupServerResult struct {
-	Arn                           *string                        `pulumi:"arn"`
-	Certificate                   *string                        `pulumi:"certificate"`
-	EndpointDetails               *ServerEndpointDetails         `pulumi:"endpointDetails"`
-	EndpointType                  *string                        `pulumi:"endpointType"`
-	IdentityProviderDetails       *ServerIdentityProviderDetails `pulumi:"identityProviderDetails"`
-	LoggingRole                   *string                        `pulumi:"loggingRole"`
-	PostAuthenticationLoginBanner *string                        `pulumi:"postAuthenticationLoginBanner"`
-	PreAuthenticationLoginBanner  *string                        `pulumi:"preAuthenticationLoginBanner"`
-	ProtocolDetails               *ServerProtocolDetails         `pulumi:"protocolDetails"`
-	Protocols                     []ServerProtocol               `pulumi:"protocols"`
-	SecurityPolicyName            *string                        `pulumi:"securityPolicyName"`
-	ServerId                      *string                        `pulumi:"serverId"`
-	Tags                          []ServerTag                    `pulumi:"tags"`
-	WorkflowDetails               *ServerWorkflowDetails         `pulumi:"workflowDetails"`
+	Arn                           *string                          `pulumi:"arn"`
+	Certificate                   *string                          `pulumi:"certificate"`
+	EndpointDetails               *ServerEndpointDetails           `pulumi:"endpointDetails"`
+	EndpointType                  *string                          `pulumi:"endpointType"`
+	IdentityProviderDetails       *ServerIdentityProviderDetails   `pulumi:"identityProviderDetails"`
+	LoggingRole                   *string                          `pulumi:"loggingRole"`
+	PostAuthenticationLoginBanner *string                          `pulumi:"postAuthenticationLoginBanner"`
+	PreAuthenticationLoginBanner  *string                          `pulumi:"preAuthenticationLoginBanner"`
+	ProtocolDetails               *ServerProtocolDetails           `pulumi:"protocolDetails"`
+	Protocols                     []ServerProtocol                 `pulumi:"protocols"`
+	SecurityPolicyName            *string                          `pulumi:"securityPolicyName"`
+	ServerId                      *string                          `pulumi:"serverId"`
+	StructuredLogDestinations     []ServerStructuredLogDestination `pulumi:"structuredLogDestinations"`
+	Tags                          []ServerTag                      `pulumi:"tags"`
+	WorkflowDetails               *ServerWorkflowDetails           `pulumi:"workflowDetails"`
 }
 
 func LookupServerOutput(ctx *pulumi.Context, args LookupServerOutputArgs, opts ...pulumi.InvokeOption) LookupServerResultOutput {
@@ -122,6 +123,10 @@ func (o LookupServerResultOutput) SecurityPolicyName() pulumi.StringPtrOutput {
 
 func (o LookupServerResultOutput) ServerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServerResult) *string { return v.ServerId }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupServerResultOutput) StructuredLogDestinations() ServerStructuredLogDestinationArrayOutput {
+	return o.ApplyT(func(v LookupServerResult) []ServerStructuredLogDestination { return v.StructuredLogDestinations }).(ServerStructuredLogDestinationArrayOutput)
 }
 
 func (o LookupServerResultOutput) Tags() ServerTagArrayOutput {

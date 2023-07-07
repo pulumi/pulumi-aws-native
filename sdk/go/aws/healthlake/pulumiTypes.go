@@ -87,6 +87,205 @@ func (o FHIRDatastoreCreatedAtPtrOutput) Seconds() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The identity provider configuration for the datastore
+type FHIRDatastoreIdentityProviderConfiguration struct {
+	// Type of Authorization Strategy. The two types of supported Authorization strategies are SMART_ON_FHIR_V1 and AWS_AUTH.
+	AuthorizationStrategy FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy `pulumi:"authorizationStrategy"`
+	// Flag to indicate if fine-grained authorization will be enabled for the datastore
+	FineGrainedAuthorizationEnabled *bool `pulumi:"fineGrainedAuthorizationEnabled"`
+	// The Amazon Resource Name (ARN) of the Lambda function that will be used to decode the access token created by the authorization server.
+	IdpLambdaArn *string `pulumi:"idpLambdaArn"`
+	// The JSON metadata elements for identity provider configuration.
+	Metadata *string `pulumi:"metadata"`
+}
+
+// FHIRDatastoreIdentityProviderConfigurationInput is an input type that accepts FHIRDatastoreIdentityProviderConfigurationArgs and FHIRDatastoreIdentityProviderConfigurationOutput values.
+// You can construct a concrete instance of `FHIRDatastoreIdentityProviderConfigurationInput` via:
+//
+//	FHIRDatastoreIdentityProviderConfigurationArgs{...}
+type FHIRDatastoreIdentityProviderConfigurationInput interface {
+	pulumi.Input
+
+	ToFHIRDatastoreIdentityProviderConfigurationOutput() FHIRDatastoreIdentityProviderConfigurationOutput
+	ToFHIRDatastoreIdentityProviderConfigurationOutputWithContext(context.Context) FHIRDatastoreIdentityProviderConfigurationOutput
+}
+
+// The identity provider configuration for the datastore
+type FHIRDatastoreIdentityProviderConfigurationArgs struct {
+	// Type of Authorization Strategy. The two types of supported Authorization strategies are SMART_ON_FHIR_V1 and AWS_AUTH.
+	AuthorizationStrategy FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyInput `pulumi:"authorizationStrategy"`
+	// Flag to indicate if fine-grained authorization will be enabled for the datastore
+	FineGrainedAuthorizationEnabled pulumi.BoolPtrInput `pulumi:"fineGrainedAuthorizationEnabled"`
+	// The Amazon Resource Name (ARN) of the Lambda function that will be used to decode the access token created by the authorization server.
+	IdpLambdaArn pulumi.StringPtrInput `pulumi:"idpLambdaArn"`
+	// The JSON metadata elements for identity provider configuration.
+	Metadata pulumi.StringPtrInput `pulumi:"metadata"`
+}
+
+func (FHIRDatastoreIdentityProviderConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FHIRDatastoreIdentityProviderConfiguration)(nil)).Elem()
+}
+
+func (i FHIRDatastoreIdentityProviderConfigurationArgs) ToFHIRDatastoreIdentityProviderConfigurationOutput() FHIRDatastoreIdentityProviderConfigurationOutput {
+	return i.ToFHIRDatastoreIdentityProviderConfigurationOutputWithContext(context.Background())
+}
+
+func (i FHIRDatastoreIdentityProviderConfigurationArgs) ToFHIRDatastoreIdentityProviderConfigurationOutputWithContext(ctx context.Context) FHIRDatastoreIdentityProviderConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FHIRDatastoreIdentityProviderConfigurationOutput)
+}
+
+func (i FHIRDatastoreIdentityProviderConfigurationArgs) ToFHIRDatastoreIdentityProviderConfigurationPtrOutput() FHIRDatastoreIdentityProviderConfigurationPtrOutput {
+	return i.ToFHIRDatastoreIdentityProviderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FHIRDatastoreIdentityProviderConfigurationArgs) ToFHIRDatastoreIdentityProviderConfigurationPtrOutputWithContext(ctx context.Context) FHIRDatastoreIdentityProviderConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FHIRDatastoreIdentityProviderConfigurationOutput).ToFHIRDatastoreIdentityProviderConfigurationPtrOutputWithContext(ctx)
+}
+
+// FHIRDatastoreIdentityProviderConfigurationPtrInput is an input type that accepts FHIRDatastoreIdentityProviderConfigurationArgs, FHIRDatastoreIdentityProviderConfigurationPtr and FHIRDatastoreIdentityProviderConfigurationPtrOutput values.
+// You can construct a concrete instance of `FHIRDatastoreIdentityProviderConfigurationPtrInput` via:
+//
+//	        FHIRDatastoreIdentityProviderConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FHIRDatastoreIdentityProviderConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFHIRDatastoreIdentityProviderConfigurationPtrOutput() FHIRDatastoreIdentityProviderConfigurationPtrOutput
+	ToFHIRDatastoreIdentityProviderConfigurationPtrOutputWithContext(context.Context) FHIRDatastoreIdentityProviderConfigurationPtrOutput
+}
+
+type fhirdatastoreIdentityProviderConfigurationPtrType FHIRDatastoreIdentityProviderConfigurationArgs
+
+func FHIRDatastoreIdentityProviderConfigurationPtr(v *FHIRDatastoreIdentityProviderConfigurationArgs) FHIRDatastoreIdentityProviderConfigurationPtrInput {
+	return (*fhirdatastoreIdentityProviderConfigurationPtrType)(v)
+}
+
+func (*fhirdatastoreIdentityProviderConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FHIRDatastoreIdentityProviderConfiguration)(nil)).Elem()
+}
+
+func (i *fhirdatastoreIdentityProviderConfigurationPtrType) ToFHIRDatastoreIdentityProviderConfigurationPtrOutput() FHIRDatastoreIdentityProviderConfigurationPtrOutput {
+	return i.ToFHIRDatastoreIdentityProviderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *fhirdatastoreIdentityProviderConfigurationPtrType) ToFHIRDatastoreIdentityProviderConfigurationPtrOutputWithContext(ctx context.Context) FHIRDatastoreIdentityProviderConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FHIRDatastoreIdentityProviderConfigurationPtrOutput)
+}
+
+// The identity provider configuration for the datastore
+type FHIRDatastoreIdentityProviderConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FHIRDatastoreIdentityProviderConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FHIRDatastoreIdentityProviderConfiguration)(nil)).Elem()
+}
+
+func (o FHIRDatastoreIdentityProviderConfigurationOutput) ToFHIRDatastoreIdentityProviderConfigurationOutput() FHIRDatastoreIdentityProviderConfigurationOutput {
+	return o
+}
+
+func (o FHIRDatastoreIdentityProviderConfigurationOutput) ToFHIRDatastoreIdentityProviderConfigurationOutputWithContext(ctx context.Context) FHIRDatastoreIdentityProviderConfigurationOutput {
+	return o
+}
+
+func (o FHIRDatastoreIdentityProviderConfigurationOutput) ToFHIRDatastoreIdentityProviderConfigurationPtrOutput() FHIRDatastoreIdentityProviderConfigurationPtrOutput {
+	return o.ToFHIRDatastoreIdentityProviderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FHIRDatastoreIdentityProviderConfigurationOutput) ToFHIRDatastoreIdentityProviderConfigurationPtrOutputWithContext(ctx context.Context) FHIRDatastoreIdentityProviderConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FHIRDatastoreIdentityProviderConfiguration) *FHIRDatastoreIdentityProviderConfiguration {
+		return &v
+	}).(FHIRDatastoreIdentityProviderConfigurationPtrOutput)
+}
+
+// Type of Authorization Strategy. The two types of supported Authorization strategies are SMART_ON_FHIR_V1 and AWS_AUTH.
+func (o FHIRDatastoreIdentityProviderConfigurationOutput) AuthorizationStrategy() FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyOutput {
+	return o.ApplyT(func(v FHIRDatastoreIdentityProviderConfiguration) FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy {
+		return v.AuthorizationStrategy
+	}).(FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyOutput)
+}
+
+// Flag to indicate if fine-grained authorization will be enabled for the datastore
+func (o FHIRDatastoreIdentityProviderConfigurationOutput) FineGrainedAuthorizationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FHIRDatastoreIdentityProviderConfiguration) *bool { return v.FineGrainedAuthorizationEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Lambda function that will be used to decode the access token created by the authorization server.
+func (o FHIRDatastoreIdentityProviderConfigurationOutput) IdpLambdaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FHIRDatastoreIdentityProviderConfiguration) *string { return v.IdpLambdaArn }).(pulumi.StringPtrOutput)
+}
+
+// The JSON metadata elements for identity provider configuration.
+func (o FHIRDatastoreIdentityProviderConfigurationOutput) Metadata() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FHIRDatastoreIdentityProviderConfiguration) *string { return v.Metadata }).(pulumi.StringPtrOutput)
+}
+
+type FHIRDatastoreIdentityProviderConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FHIRDatastoreIdentityProviderConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FHIRDatastoreIdentityProviderConfiguration)(nil)).Elem()
+}
+
+func (o FHIRDatastoreIdentityProviderConfigurationPtrOutput) ToFHIRDatastoreIdentityProviderConfigurationPtrOutput() FHIRDatastoreIdentityProviderConfigurationPtrOutput {
+	return o
+}
+
+func (o FHIRDatastoreIdentityProviderConfigurationPtrOutput) ToFHIRDatastoreIdentityProviderConfigurationPtrOutputWithContext(ctx context.Context) FHIRDatastoreIdentityProviderConfigurationPtrOutput {
+	return o
+}
+
+func (o FHIRDatastoreIdentityProviderConfigurationPtrOutput) Elem() FHIRDatastoreIdentityProviderConfigurationOutput {
+	return o.ApplyT(func(v *FHIRDatastoreIdentityProviderConfiguration) FHIRDatastoreIdentityProviderConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FHIRDatastoreIdentityProviderConfiguration
+		return ret
+	}).(FHIRDatastoreIdentityProviderConfigurationOutput)
+}
+
+// Type of Authorization Strategy. The two types of supported Authorization strategies are SMART_ON_FHIR_V1 and AWS_AUTH.
+func (o FHIRDatastoreIdentityProviderConfigurationPtrOutput) AuthorizationStrategy() FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutput {
+	return o.ApplyT(func(v *FHIRDatastoreIdentityProviderConfiguration) *FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy {
+		if v == nil {
+			return nil
+		}
+		return &v.AuthorizationStrategy
+	}).(FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutput)
+}
+
+// Flag to indicate if fine-grained authorization will be enabled for the datastore
+func (o FHIRDatastoreIdentityProviderConfigurationPtrOutput) FineGrainedAuthorizationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FHIRDatastoreIdentityProviderConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.FineGrainedAuthorizationEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Lambda function that will be used to decode the access token created by the authorization server.
+func (o FHIRDatastoreIdentityProviderConfigurationPtrOutput) IdpLambdaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FHIRDatastoreIdentityProviderConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IdpLambdaArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The JSON metadata elements for identity provider configuration.
+func (o FHIRDatastoreIdentityProviderConfigurationPtrOutput) Metadata() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FHIRDatastoreIdentityProviderConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Metadata
+	}).(pulumi.StringPtrOutput)
+}
+
 // The customer-managed-key (CMK) used when creating a Data Store. If a customer owned key is not specified, an AWS owned key will be used for encryption.
 type FHIRDatastoreKmsEncryptionConfig struct {
 	// The type of customer-managed-key (CMK) used for encryption. The two types of supported CMKs are customer owned CMKs and AWS owned CMKs.
@@ -634,6 +833,8 @@ func (o FHIRDatastoreTagArrayOutput) Index(i pulumi.IntInput) FHIRDatastoreTagOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FHIRDatastoreIdentityProviderConfigurationInput)(nil)).Elem(), FHIRDatastoreIdentityProviderConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FHIRDatastoreIdentityProviderConfigurationPtrInput)(nil)).Elem(), FHIRDatastoreIdentityProviderConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FHIRDatastoreKmsEncryptionConfigInput)(nil)).Elem(), FHIRDatastoreKmsEncryptionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FHIRDatastoreKmsEncryptionConfigPtrInput)(nil)).Elem(), FHIRDatastoreKmsEncryptionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FHIRDatastorePreloadDataConfigInput)(nil)).Elem(), FHIRDatastorePreloadDataConfigArgs{})
@@ -644,6 +845,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FHIRDatastoreTagArrayInput)(nil)).Elem(), FHIRDatastoreTagArray{})
 	pulumi.RegisterOutputType(FHIRDatastoreCreatedAtOutput{})
 	pulumi.RegisterOutputType(FHIRDatastoreCreatedAtPtrOutput{})
+	pulumi.RegisterOutputType(FHIRDatastoreIdentityProviderConfigurationOutput{})
+	pulumi.RegisterOutputType(FHIRDatastoreIdentityProviderConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FHIRDatastoreKmsEncryptionConfigOutput{})
 	pulumi.RegisterOutputType(FHIRDatastoreKmsEncryptionConfigPtrOutput{})
 	pulumi.RegisterOutputType(FHIRDatastorePreloadDataConfigOutput{})

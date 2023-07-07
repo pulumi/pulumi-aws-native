@@ -7303,7 +7303,141 @@ func (o AnalysisColorScalePtrOutput) NullValueColor() AnalysisDataColorPtrOutput
 	}).(AnalysisDataColorPtrOutput)
 }
 
+type AnalysisColorsConfiguration struct {
+	CustomColors []AnalysisCustomColor `pulumi:"customColors"`
+}
+
+// AnalysisColorsConfigurationInput is an input type that accepts AnalysisColorsConfigurationArgs and AnalysisColorsConfigurationOutput values.
+// You can construct a concrete instance of `AnalysisColorsConfigurationInput` via:
+//
+//	AnalysisColorsConfigurationArgs{...}
+type AnalysisColorsConfigurationInput interface {
+	pulumi.Input
+
+	ToAnalysisColorsConfigurationOutput() AnalysisColorsConfigurationOutput
+	ToAnalysisColorsConfigurationOutputWithContext(context.Context) AnalysisColorsConfigurationOutput
+}
+
+type AnalysisColorsConfigurationArgs struct {
+	CustomColors AnalysisCustomColorArrayInput `pulumi:"customColors"`
+}
+
+func (AnalysisColorsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisColorsConfiguration)(nil)).Elem()
+}
+
+func (i AnalysisColorsConfigurationArgs) ToAnalysisColorsConfigurationOutput() AnalysisColorsConfigurationOutput {
+	return i.ToAnalysisColorsConfigurationOutputWithContext(context.Background())
+}
+
+func (i AnalysisColorsConfigurationArgs) ToAnalysisColorsConfigurationOutputWithContext(ctx context.Context) AnalysisColorsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisColorsConfigurationOutput)
+}
+
+func (i AnalysisColorsConfigurationArgs) ToAnalysisColorsConfigurationPtrOutput() AnalysisColorsConfigurationPtrOutput {
+	return i.ToAnalysisColorsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AnalysisColorsConfigurationArgs) ToAnalysisColorsConfigurationPtrOutputWithContext(ctx context.Context) AnalysisColorsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisColorsConfigurationOutput).ToAnalysisColorsConfigurationPtrOutputWithContext(ctx)
+}
+
+// AnalysisColorsConfigurationPtrInput is an input type that accepts AnalysisColorsConfigurationArgs, AnalysisColorsConfigurationPtr and AnalysisColorsConfigurationPtrOutput values.
+// You can construct a concrete instance of `AnalysisColorsConfigurationPtrInput` via:
+//
+//	        AnalysisColorsConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnalysisColorsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAnalysisColorsConfigurationPtrOutput() AnalysisColorsConfigurationPtrOutput
+	ToAnalysisColorsConfigurationPtrOutputWithContext(context.Context) AnalysisColorsConfigurationPtrOutput
+}
+
+type analysisColorsConfigurationPtrType AnalysisColorsConfigurationArgs
+
+func AnalysisColorsConfigurationPtr(v *AnalysisColorsConfigurationArgs) AnalysisColorsConfigurationPtrInput {
+	return (*analysisColorsConfigurationPtrType)(v)
+}
+
+func (*analysisColorsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisColorsConfiguration)(nil)).Elem()
+}
+
+func (i *analysisColorsConfigurationPtrType) ToAnalysisColorsConfigurationPtrOutput() AnalysisColorsConfigurationPtrOutput {
+	return i.ToAnalysisColorsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *analysisColorsConfigurationPtrType) ToAnalysisColorsConfigurationPtrOutputWithContext(ctx context.Context) AnalysisColorsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisColorsConfigurationPtrOutput)
+}
+
+type AnalysisColorsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AnalysisColorsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisColorsConfiguration)(nil)).Elem()
+}
+
+func (o AnalysisColorsConfigurationOutput) ToAnalysisColorsConfigurationOutput() AnalysisColorsConfigurationOutput {
+	return o
+}
+
+func (o AnalysisColorsConfigurationOutput) ToAnalysisColorsConfigurationOutputWithContext(ctx context.Context) AnalysisColorsConfigurationOutput {
+	return o
+}
+
+func (o AnalysisColorsConfigurationOutput) ToAnalysisColorsConfigurationPtrOutput() AnalysisColorsConfigurationPtrOutput {
+	return o.ToAnalysisColorsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisColorsConfigurationOutput) ToAnalysisColorsConfigurationPtrOutputWithContext(ctx context.Context) AnalysisColorsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisColorsConfiguration) *AnalysisColorsConfiguration {
+		return &v
+	}).(AnalysisColorsConfigurationPtrOutput)
+}
+
+func (o AnalysisColorsConfigurationOutput) CustomColors() AnalysisCustomColorArrayOutput {
+	return o.ApplyT(func(v AnalysisColorsConfiguration) []AnalysisCustomColor { return v.CustomColors }).(AnalysisCustomColorArrayOutput)
+}
+
+type AnalysisColorsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisColorsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisColorsConfiguration)(nil)).Elem()
+}
+
+func (o AnalysisColorsConfigurationPtrOutput) ToAnalysisColorsConfigurationPtrOutput() AnalysisColorsConfigurationPtrOutput {
+	return o
+}
+
+func (o AnalysisColorsConfigurationPtrOutput) ToAnalysisColorsConfigurationPtrOutputWithContext(ctx context.Context) AnalysisColorsConfigurationPtrOutput {
+	return o
+}
+
+func (o AnalysisColorsConfigurationPtrOutput) Elem() AnalysisColorsConfigurationOutput {
+	return o.ApplyT(func(v *AnalysisColorsConfiguration) AnalysisColorsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisColorsConfiguration
+		return ret
+	}).(AnalysisColorsConfigurationOutput)
+}
+
+func (o AnalysisColorsConfigurationPtrOutput) CustomColors() AnalysisCustomColorArrayOutput {
+	return o.ApplyT(func(v *AnalysisColorsConfiguration) []AnalysisCustomColor {
+		if v == nil {
+			return nil
+		}
+		return v.CustomColors
+	}).(AnalysisCustomColorArrayOutput)
+}
+
 type AnalysisColumnConfiguration struct {
+	ColorsConfiguration *AnalysisColorsConfiguration `pulumi:"colorsConfiguration"`
 	Column              AnalysisColumnIdentifier     `pulumi:"column"`
 	FormatConfiguration *AnalysisFormatConfiguration `pulumi:"formatConfiguration"`
 	Role                *AnalysisColumnRole          `pulumi:"role"`
@@ -7321,6 +7455,7 @@ type AnalysisColumnConfigurationInput interface {
 }
 
 type AnalysisColumnConfigurationArgs struct {
+	ColorsConfiguration AnalysisColorsConfigurationPtrInput `pulumi:"colorsConfiguration"`
 	Column              AnalysisColumnIdentifierInput       `pulumi:"column"`
 	FormatConfiguration AnalysisFormatConfigurationPtrInput `pulumi:"formatConfiguration"`
 	Role                AnalysisColumnRolePtrInput          `pulumi:"role"`
@@ -7375,6 +7510,10 @@ func (o AnalysisColumnConfigurationOutput) ToAnalysisColumnConfigurationOutput()
 
 func (o AnalysisColumnConfigurationOutput) ToAnalysisColumnConfigurationOutputWithContext(ctx context.Context) AnalysisColumnConfigurationOutput {
 	return o
+}
+
+func (o AnalysisColumnConfigurationOutput) ColorsConfiguration() AnalysisColorsConfigurationPtrOutput {
+	return o.ApplyT(func(v AnalysisColumnConfiguration) *AnalysisColorsConfiguration { return v.ColorsConfiguration }).(AnalysisColorsConfigurationPtrOutput)
 }
 
 func (o AnalysisColumnConfigurationOutput) Column() AnalysisColumnIdentifierOutput {
@@ -11693,6 +11832,112 @@ func (o AnalysisCustomActionURLOperationPtrOutput) URLTemplate() pulumi.StringPt
 		}
 		return &v.URLTemplate
 	}).(pulumi.StringPtrOutput)
+}
+
+type AnalysisCustomColor struct {
+	Color        string                `pulumi:"color"`
+	FieldValue   *string               `pulumi:"fieldValue"`
+	SpecialValue *AnalysisSpecialValue `pulumi:"specialValue"`
+}
+
+// AnalysisCustomColorInput is an input type that accepts AnalysisCustomColorArgs and AnalysisCustomColorOutput values.
+// You can construct a concrete instance of `AnalysisCustomColorInput` via:
+//
+//	AnalysisCustomColorArgs{...}
+type AnalysisCustomColorInput interface {
+	pulumi.Input
+
+	ToAnalysisCustomColorOutput() AnalysisCustomColorOutput
+	ToAnalysisCustomColorOutputWithContext(context.Context) AnalysisCustomColorOutput
+}
+
+type AnalysisCustomColorArgs struct {
+	Color        pulumi.StringInput           `pulumi:"color"`
+	FieldValue   pulumi.StringPtrInput        `pulumi:"fieldValue"`
+	SpecialValue AnalysisSpecialValuePtrInput `pulumi:"specialValue"`
+}
+
+func (AnalysisCustomColorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisCustomColor)(nil)).Elem()
+}
+
+func (i AnalysisCustomColorArgs) ToAnalysisCustomColorOutput() AnalysisCustomColorOutput {
+	return i.ToAnalysisCustomColorOutputWithContext(context.Background())
+}
+
+func (i AnalysisCustomColorArgs) ToAnalysisCustomColorOutputWithContext(ctx context.Context) AnalysisCustomColorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisCustomColorOutput)
+}
+
+// AnalysisCustomColorArrayInput is an input type that accepts AnalysisCustomColorArray and AnalysisCustomColorArrayOutput values.
+// You can construct a concrete instance of `AnalysisCustomColorArrayInput` via:
+//
+//	AnalysisCustomColorArray{ AnalysisCustomColorArgs{...} }
+type AnalysisCustomColorArrayInput interface {
+	pulumi.Input
+
+	ToAnalysisCustomColorArrayOutput() AnalysisCustomColorArrayOutput
+	ToAnalysisCustomColorArrayOutputWithContext(context.Context) AnalysisCustomColorArrayOutput
+}
+
+type AnalysisCustomColorArray []AnalysisCustomColorInput
+
+func (AnalysisCustomColorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnalysisCustomColor)(nil)).Elem()
+}
+
+func (i AnalysisCustomColorArray) ToAnalysisCustomColorArrayOutput() AnalysisCustomColorArrayOutput {
+	return i.ToAnalysisCustomColorArrayOutputWithContext(context.Background())
+}
+
+func (i AnalysisCustomColorArray) ToAnalysisCustomColorArrayOutputWithContext(ctx context.Context) AnalysisCustomColorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisCustomColorArrayOutput)
+}
+
+type AnalysisCustomColorOutput struct{ *pulumi.OutputState }
+
+func (AnalysisCustomColorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisCustomColor)(nil)).Elem()
+}
+
+func (o AnalysisCustomColorOutput) ToAnalysisCustomColorOutput() AnalysisCustomColorOutput {
+	return o
+}
+
+func (o AnalysisCustomColorOutput) ToAnalysisCustomColorOutputWithContext(ctx context.Context) AnalysisCustomColorOutput {
+	return o
+}
+
+func (o AnalysisCustomColorOutput) Color() pulumi.StringOutput {
+	return o.ApplyT(func(v AnalysisCustomColor) string { return v.Color }).(pulumi.StringOutput)
+}
+
+func (o AnalysisCustomColorOutput) FieldValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AnalysisCustomColor) *string { return v.FieldValue }).(pulumi.StringPtrOutput)
+}
+
+func (o AnalysisCustomColorOutput) SpecialValue() AnalysisSpecialValuePtrOutput {
+	return o.ApplyT(func(v AnalysisCustomColor) *AnalysisSpecialValue { return v.SpecialValue }).(AnalysisSpecialValuePtrOutput)
+}
+
+type AnalysisCustomColorArrayOutput struct{ *pulumi.OutputState }
+
+func (AnalysisCustomColorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnalysisCustomColor)(nil)).Elem()
+}
+
+func (o AnalysisCustomColorArrayOutput) ToAnalysisCustomColorArrayOutput() AnalysisCustomColorArrayOutput {
+	return o
+}
+
+func (o AnalysisCustomColorArrayOutput) ToAnalysisCustomColorArrayOutputWithContext(ctx context.Context) AnalysisCustomColorArrayOutput {
+	return o
+}
+
+func (o AnalysisCustomColorArrayOutput) Index(i pulumi.IntInput) AnalysisCustomColorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AnalysisCustomColor {
+		return vs[0].([]AnalysisCustomColor)[vs[1].(int)]
+	}).(AnalysisCustomColorOutput)
 }
 
 type AnalysisCustomContentConfiguration struct {
@@ -78588,338 +78833,6 @@ func (o DashboardCategoryDrillDownFilterPtrOutput) Column() DashboardColumnIdent
 	}).(DashboardColumnIdentifierPtrOutput)
 }
 
-type DashboardCategoryFilter struct {
-	Column        DashboardColumnIdentifier            `pulumi:"column"`
-	Configuration DashboardCategoryFilterConfiguration `pulumi:"configuration"`
-	FilterId      string                               `pulumi:"filterId"`
-}
-
-// DashboardCategoryFilterInput is an input type that accepts DashboardCategoryFilterArgs and DashboardCategoryFilterOutput values.
-// You can construct a concrete instance of `DashboardCategoryFilterInput` via:
-//
-//	DashboardCategoryFilterArgs{...}
-type DashboardCategoryFilterInput interface {
-	pulumi.Input
-
-	ToDashboardCategoryFilterOutput() DashboardCategoryFilterOutput
-	ToDashboardCategoryFilterOutputWithContext(context.Context) DashboardCategoryFilterOutput
-}
-
-type DashboardCategoryFilterArgs struct {
-	Column        DashboardColumnIdentifierInput            `pulumi:"column"`
-	Configuration DashboardCategoryFilterConfigurationInput `pulumi:"configuration"`
-	FilterId      pulumi.StringInput                        `pulumi:"filterId"`
-}
-
-func (DashboardCategoryFilterArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardCategoryFilter)(nil)).Elem()
-}
-
-func (i DashboardCategoryFilterArgs) ToDashboardCategoryFilterOutput() DashboardCategoryFilterOutput {
-	return i.ToDashboardCategoryFilterOutputWithContext(context.Background())
-}
-
-func (i DashboardCategoryFilterArgs) ToDashboardCategoryFilterOutputWithContext(ctx context.Context) DashboardCategoryFilterOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardCategoryFilterOutput)
-}
-
-func (i DashboardCategoryFilterArgs) ToDashboardCategoryFilterPtrOutput() DashboardCategoryFilterPtrOutput {
-	return i.ToDashboardCategoryFilterPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardCategoryFilterArgs) ToDashboardCategoryFilterPtrOutputWithContext(ctx context.Context) DashboardCategoryFilterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardCategoryFilterOutput).ToDashboardCategoryFilterPtrOutputWithContext(ctx)
-}
-
-// DashboardCategoryFilterPtrInput is an input type that accepts DashboardCategoryFilterArgs, DashboardCategoryFilterPtr and DashboardCategoryFilterPtrOutput values.
-// You can construct a concrete instance of `DashboardCategoryFilterPtrInput` via:
-//
-//	        DashboardCategoryFilterArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardCategoryFilterPtrInput interface {
-	pulumi.Input
-
-	ToDashboardCategoryFilterPtrOutput() DashboardCategoryFilterPtrOutput
-	ToDashboardCategoryFilterPtrOutputWithContext(context.Context) DashboardCategoryFilterPtrOutput
-}
-
-type dashboardCategoryFilterPtrType DashboardCategoryFilterArgs
-
-func DashboardCategoryFilterPtr(v *DashboardCategoryFilterArgs) DashboardCategoryFilterPtrInput {
-	return (*dashboardCategoryFilterPtrType)(v)
-}
-
-func (*dashboardCategoryFilterPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardCategoryFilter)(nil)).Elem()
-}
-
-func (i *dashboardCategoryFilterPtrType) ToDashboardCategoryFilterPtrOutput() DashboardCategoryFilterPtrOutput {
-	return i.ToDashboardCategoryFilterPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardCategoryFilterPtrType) ToDashboardCategoryFilterPtrOutputWithContext(ctx context.Context) DashboardCategoryFilterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardCategoryFilterPtrOutput)
-}
-
-type DashboardCategoryFilterOutput struct{ *pulumi.OutputState }
-
-func (DashboardCategoryFilterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardCategoryFilter)(nil)).Elem()
-}
-
-func (o DashboardCategoryFilterOutput) ToDashboardCategoryFilterOutput() DashboardCategoryFilterOutput {
-	return o
-}
-
-func (o DashboardCategoryFilterOutput) ToDashboardCategoryFilterOutputWithContext(ctx context.Context) DashboardCategoryFilterOutput {
-	return o
-}
-
-func (o DashboardCategoryFilterOutput) ToDashboardCategoryFilterPtrOutput() DashboardCategoryFilterPtrOutput {
-	return o.ToDashboardCategoryFilterPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardCategoryFilterOutput) ToDashboardCategoryFilterPtrOutputWithContext(ctx context.Context) DashboardCategoryFilterPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardCategoryFilter) *DashboardCategoryFilter {
-		return &v
-	}).(DashboardCategoryFilterPtrOutput)
-}
-
-func (o DashboardCategoryFilterOutput) Column() DashboardColumnIdentifierOutput {
-	return o.ApplyT(func(v DashboardCategoryFilter) DashboardColumnIdentifier { return v.Column }).(DashboardColumnIdentifierOutput)
-}
-
-func (o DashboardCategoryFilterOutput) Configuration() DashboardCategoryFilterConfigurationOutput {
-	return o.ApplyT(func(v DashboardCategoryFilter) DashboardCategoryFilterConfiguration { return v.Configuration }).(DashboardCategoryFilterConfigurationOutput)
-}
-
-func (o DashboardCategoryFilterOutput) FilterId() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardCategoryFilter) string { return v.FilterId }).(pulumi.StringOutput)
-}
-
-type DashboardCategoryFilterPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardCategoryFilterPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardCategoryFilter)(nil)).Elem()
-}
-
-func (o DashboardCategoryFilterPtrOutput) ToDashboardCategoryFilterPtrOutput() DashboardCategoryFilterPtrOutput {
-	return o
-}
-
-func (o DashboardCategoryFilterPtrOutput) ToDashboardCategoryFilterPtrOutputWithContext(ctx context.Context) DashboardCategoryFilterPtrOutput {
-	return o
-}
-
-func (o DashboardCategoryFilterPtrOutput) Elem() DashboardCategoryFilterOutput {
-	return o.ApplyT(func(v *DashboardCategoryFilter) DashboardCategoryFilter {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardCategoryFilter
-		return ret
-	}).(DashboardCategoryFilterOutput)
-}
-
-func (o DashboardCategoryFilterPtrOutput) Column() DashboardColumnIdentifierPtrOutput {
-	return o.ApplyT(func(v *DashboardCategoryFilter) *DashboardColumnIdentifier {
-		if v == nil {
-			return nil
-		}
-		return &v.Column
-	}).(DashboardColumnIdentifierPtrOutput)
-}
-
-func (o DashboardCategoryFilterPtrOutput) Configuration() DashboardCategoryFilterConfigurationPtrOutput {
-	return o.ApplyT(func(v *DashboardCategoryFilter) *DashboardCategoryFilterConfiguration {
-		if v == nil {
-			return nil
-		}
-		return &v.Configuration
-	}).(DashboardCategoryFilterConfigurationPtrOutput)
-}
-
-func (o DashboardCategoryFilterPtrOutput) FilterId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardCategoryFilter) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.FilterId
-	}).(pulumi.StringPtrOutput)
-}
-
-type DashboardCategoryFilterConfiguration struct {
-	CustomFilterConfiguration     *DashboardCustomFilterConfiguration     `pulumi:"customFilterConfiguration"`
-	CustomFilterListConfiguration *DashboardCustomFilterListConfiguration `pulumi:"customFilterListConfiguration"`
-	FilterListConfiguration       *DashboardFilterListConfiguration       `pulumi:"filterListConfiguration"`
-}
-
-// DashboardCategoryFilterConfigurationInput is an input type that accepts DashboardCategoryFilterConfigurationArgs and DashboardCategoryFilterConfigurationOutput values.
-// You can construct a concrete instance of `DashboardCategoryFilterConfigurationInput` via:
-//
-//	DashboardCategoryFilterConfigurationArgs{...}
-type DashboardCategoryFilterConfigurationInput interface {
-	pulumi.Input
-
-	ToDashboardCategoryFilterConfigurationOutput() DashboardCategoryFilterConfigurationOutput
-	ToDashboardCategoryFilterConfigurationOutputWithContext(context.Context) DashboardCategoryFilterConfigurationOutput
-}
-
-type DashboardCategoryFilterConfigurationArgs struct {
-	CustomFilterConfiguration     DashboardCustomFilterConfigurationPtrInput     `pulumi:"customFilterConfiguration"`
-	CustomFilterListConfiguration DashboardCustomFilterListConfigurationPtrInput `pulumi:"customFilterListConfiguration"`
-	FilterListConfiguration       DashboardFilterListConfigurationPtrInput       `pulumi:"filterListConfiguration"`
-}
-
-func (DashboardCategoryFilterConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardCategoryFilterConfiguration)(nil)).Elem()
-}
-
-func (i DashboardCategoryFilterConfigurationArgs) ToDashboardCategoryFilterConfigurationOutput() DashboardCategoryFilterConfigurationOutput {
-	return i.ToDashboardCategoryFilterConfigurationOutputWithContext(context.Background())
-}
-
-func (i DashboardCategoryFilterConfigurationArgs) ToDashboardCategoryFilterConfigurationOutputWithContext(ctx context.Context) DashboardCategoryFilterConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardCategoryFilterConfigurationOutput)
-}
-
-func (i DashboardCategoryFilterConfigurationArgs) ToDashboardCategoryFilterConfigurationPtrOutput() DashboardCategoryFilterConfigurationPtrOutput {
-	return i.ToDashboardCategoryFilterConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardCategoryFilterConfigurationArgs) ToDashboardCategoryFilterConfigurationPtrOutputWithContext(ctx context.Context) DashboardCategoryFilterConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardCategoryFilterConfigurationOutput).ToDashboardCategoryFilterConfigurationPtrOutputWithContext(ctx)
-}
-
-// DashboardCategoryFilterConfigurationPtrInput is an input type that accepts DashboardCategoryFilterConfigurationArgs, DashboardCategoryFilterConfigurationPtr and DashboardCategoryFilterConfigurationPtrOutput values.
-// You can construct a concrete instance of `DashboardCategoryFilterConfigurationPtrInput` via:
-//
-//	        DashboardCategoryFilterConfigurationArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardCategoryFilterConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToDashboardCategoryFilterConfigurationPtrOutput() DashboardCategoryFilterConfigurationPtrOutput
-	ToDashboardCategoryFilterConfigurationPtrOutputWithContext(context.Context) DashboardCategoryFilterConfigurationPtrOutput
-}
-
-type dashboardCategoryFilterConfigurationPtrType DashboardCategoryFilterConfigurationArgs
-
-func DashboardCategoryFilterConfigurationPtr(v *DashboardCategoryFilterConfigurationArgs) DashboardCategoryFilterConfigurationPtrInput {
-	return (*dashboardCategoryFilterConfigurationPtrType)(v)
-}
-
-func (*dashboardCategoryFilterConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardCategoryFilterConfiguration)(nil)).Elem()
-}
-
-func (i *dashboardCategoryFilterConfigurationPtrType) ToDashboardCategoryFilterConfigurationPtrOutput() DashboardCategoryFilterConfigurationPtrOutput {
-	return i.ToDashboardCategoryFilterConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardCategoryFilterConfigurationPtrType) ToDashboardCategoryFilterConfigurationPtrOutputWithContext(ctx context.Context) DashboardCategoryFilterConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardCategoryFilterConfigurationPtrOutput)
-}
-
-type DashboardCategoryFilterConfigurationOutput struct{ *pulumi.OutputState }
-
-func (DashboardCategoryFilterConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardCategoryFilterConfiguration)(nil)).Elem()
-}
-
-func (o DashboardCategoryFilterConfigurationOutput) ToDashboardCategoryFilterConfigurationOutput() DashboardCategoryFilterConfigurationOutput {
-	return o
-}
-
-func (o DashboardCategoryFilterConfigurationOutput) ToDashboardCategoryFilterConfigurationOutputWithContext(ctx context.Context) DashboardCategoryFilterConfigurationOutput {
-	return o
-}
-
-func (o DashboardCategoryFilterConfigurationOutput) ToDashboardCategoryFilterConfigurationPtrOutput() DashboardCategoryFilterConfigurationPtrOutput {
-	return o.ToDashboardCategoryFilterConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardCategoryFilterConfigurationOutput) ToDashboardCategoryFilterConfigurationPtrOutputWithContext(ctx context.Context) DashboardCategoryFilterConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardCategoryFilterConfiguration) *DashboardCategoryFilterConfiguration {
-		return &v
-	}).(DashboardCategoryFilterConfigurationPtrOutput)
-}
-
-func (o DashboardCategoryFilterConfigurationOutput) CustomFilterConfiguration() DashboardCustomFilterConfigurationPtrOutput {
-	return o.ApplyT(func(v DashboardCategoryFilterConfiguration) *DashboardCustomFilterConfiguration {
-		return v.CustomFilterConfiguration
-	}).(DashboardCustomFilterConfigurationPtrOutput)
-}
-
-func (o DashboardCategoryFilterConfigurationOutput) CustomFilterListConfiguration() DashboardCustomFilterListConfigurationPtrOutput {
-	return o.ApplyT(func(v DashboardCategoryFilterConfiguration) *DashboardCustomFilterListConfiguration {
-		return v.CustomFilterListConfiguration
-	}).(DashboardCustomFilterListConfigurationPtrOutput)
-}
-
-func (o DashboardCategoryFilterConfigurationOutput) FilterListConfiguration() DashboardFilterListConfigurationPtrOutput {
-	return o.ApplyT(func(v DashboardCategoryFilterConfiguration) *DashboardFilterListConfiguration {
-		return v.FilterListConfiguration
-	}).(DashboardFilterListConfigurationPtrOutput)
-}
-
-type DashboardCategoryFilterConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardCategoryFilterConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardCategoryFilterConfiguration)(nil)).Elem()
-}
-
-func (o DashboardCategoryFilterConfigurationPtrOutput) ToDashboardCategoryFilterConfigurationPtrOutput() DashboardCategoryFilterConfigurationPtrOutput {
-	return o
-}
-
-func (o DashboardCategoryFilterConfigurationPtrOutput) ToDashboardCategoryFilterConfigurationPtrOutputWithContext(ctx context.Context) DashboardCategoryFilterConfigurationPtrOutput {
-	return o
-}
-
-func (o DashboardCategoryFilterConfigurationPtrOutput) Elem() DashboardCategoryFilterConfigurationOutput {
-	return o.ApplyT(func(v *DashboardCategoryFilterConfiguration) DashboardCategoryFilterConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardCategoryFilterConfiguration
-		return ret
-	}).(DashboardCategoryFilterConfigurationOutput)
-}
-
-func (o DashboardCategoryFilterConfigurationPtrOutput) CustomFilterConfiguration() DashboardCustomFilterConfigurationPtrOutput {
-	return o.ApplyT(func(v *DashboardCategoryFilterConfiguration) *DashboardCustomFilterConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.CustomFilterConfiguration
-	}).(DashboardCustomFilterConfigurationPtrOutput)
-}
-
-func (o DashboardCategoryFilterConfigurationPtrOutput) CustomFilterListConfiguration() DashboardCustomFilterListConfigurationPtrOutput {
-	return o.ApplyT(func(v *DashboardCategoryFilterConfiguration) *DashboardCustomFilterListConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.CustomFilterListConfiguration
-	}).(DashboardCustomFilterListConfigurationPtrOutput)
-}
-
-func (o DashboardCategoryFilterConfigurationPtrOutput) FilterListConfiguration() DashboardFilterListConfigurationPtrOutput {
-	return o.ApplyT(func(v *DashboardCategoryFilterConfiguration) *DashboardFilterListConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.FilterListConfiguration
-	}).(DashboardFilterListConfigurationPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisAggregationFunctionInput)(nil)).Elem(), AnalysisAggregationFunctionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisAggregationFunctionPtrInput)(nil)).Elem(), AnalysisAggregationFunctionArgs{})
@@ -79014,6 +78927,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisClusterMarkerConfigurationPtrInput)(nil)).Elem(), AnalysisClusterMarkerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisColorScaleInput)(nil)).Elem(), AnalysisColorScaleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisColorScalePtrInput)(nil)).Elem(), AnalysisColorScaleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisColorsConfigurationInput)(nil)).Elem(), AnalysisColorsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisColorsConfigurationPtrInput)(nil)).Elem(), AnalysisColorsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisColumnConfigurationInput)(nil)).Elem(), AnalysisColumnConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisColumnConfigurationArrayInput)(nil)).Elem(), AnalysisColumnConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisColumnHierarchyInput)(nil)).Elem(), AnalysisColumnHierarchyArgs{})
@@ -79069,6 +78984,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisCustomActionSetParametersOperationPtrInput)(nil)).Elem(), AnalysisCustomActionSetParametersOperationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisCustomActionURLOperationInput)(nil)).Elem(), AnalysisCustomActionURLOperationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisCustomActionURLOperationPtrInput)(nil)).Elem(), AnalysisCustomActionURLOperationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisCustomColorInput)(nil)).Elem(), AnalysisCustomColorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisCustomColorArrayInput)(nil)).Elem(), AnalysisCustomColorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisCustomContentConfigurationInput)(nil)).Elem(), AnalysisCustomContentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisCustomContentConfigurationPtrInput)(nil)).Elem(), AnalysisCustomContentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisCustomContentVisualInput)(nil)).Elem(), AnalysisCustomContentVisualArgs{})
@@ -79905,10 +79822,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardCategoricalMeasureFieldPtrInput)(nil)).Elem(), DashboardCategoricalMeasureFieldArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardCategoryDrillDownFilterInput)(nil)).Elem(), DashboardCategoryDrillDownFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardCategoryDrillDownFilterPtrInput)(nil)).Elem(), DashboardCategoryDrillDownFilterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardCategoryFilterInput)(nil)).Elem(), DashboardCategoryFilterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardCategoryFilterPtrInput)(nil)).Elem(), DashboardCategoryFilterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardCategoryFilterConfigurationInput)(nil)).Elem(), DashboardCategoryFilterConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardCategoryFilterConfigurationPtrInput)(nil)).Elem(), DashboardCategoryFilterConfigurationArgs{})
 	pulumi.RegisterOutputType(AnalysisAggregationFunctionOutput{})
 	pulumi.RegisterOutputType(AnalysisAggregationFunctionPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisAggregationSortConfigurationOutput{})
@@ -80002,6 +79915,8 @@ func init() {
 	pulumi.RegisterOutputType(AnalysisClusterMarkerConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisColorScaleOutput{})
 	pulumi.RegisterOutputType(AnalysisColorScalePtrOutput{})
+	pulumi.RegisterOutputType(AnalysisColorsConfigurationOutput{})
+	pulumi.RegisterOutputType(AnalysisColorsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisColumnConfigurationOutput{})
 	pulumi.RegisterOutputType(AnalysisColumnConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(AnalysisColumnHierarchyOutput{})
@@ -80057,6 +79972,8 @@ func init() {
 	pulumi.RegisterOutputType(AnalysisCustomActionSetParametersOperationPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisCustomActionURLOperationOutput{})
 	pulumi.RegisterOutputType(AnalysisCustomActionURLOperationPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisCustomColorOutput{})
+	pulumi.RegisterOutputType(AnalysisCustomColorArrayOutput{})
 	pulumi.RegisterOutputType(AnalysisCustomContentConfigurationOutput{})
 	pulumi.RegisterOutputType(AnalysisCustomContentConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisCustomContentVisualOutput{})
@@ -80899,8 +80816,4 @@ func init() {
 	pulumi.RegisterOutputType(DashboardCategoricalMeasureFieldPtrOutput{})
 	pulumi.RegisterOutputType(DashboardCategoryDrillDownFilterOutput{})
 	pulumi.RegisterOutputType(DashboardCategoryDrillDownFilterPtrOutput{})
-	pulumi.RegisterOutputType(DashboardCategoryFilterOutput{})
-	pulumi.RegisterOutputType(DashboardCategoryFilterPtrOutput{})
-	pulumi.RegisterOutputType(DashboardCategoryFilterConfigurationOutput{})
-	pulumi.RegisterOutputType(DashboardCategoryFilterConfigurationPtrOutput{})
 }

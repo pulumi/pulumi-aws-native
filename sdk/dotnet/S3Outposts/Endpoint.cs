@@ -46,6 +46,12 @@ namespace Pulumi.AwsNative.S3Outposts
         public Output<string?> CustomerOwnedIpv4Pool { get; private set; } = null!;
 
         /// <summary>
+        /// The failure reason, if any, for a create or delete endpoint operation.
+        /// </summary>
+        [Output("failedReason")]
+        public Output<Outputs.EndpointFailedReason?> FailedReason { get; private set; } = null!;
+
+        /// <summary>
         /// The network interfaces of the endpoint.
         /// </summary>
         [Output("networkInterfaces")]
@@ -128,6 +134,12 @@ namespace Pulumi.AwsNative.S3Outposts
         /// </summary>
         [Input("customerOwnedIpv4Pool")]
         public Input<string>? CustomerOwnedIpv4Pool { get; set; }
+
+        /// <summary>
+        /// The failure reason, if any, for a create or delete endpoint operation.
+        /// </summary>
+        [Input("failedReason")]
+        public Input<Inputs.EndpointFailedReasonArgs>? FailedReason { get; set; }
 
         /// <summary>
         /// The id of the customer outpost on which the bucket resides.

@@ -51,9 +51,6 @@ func NewConnectPeer(ctx *pulumi.Context,
 	if args.ConnectAttachmentId == nil {
 		return nil, errors.New("invalid value for required argument 'ConnectAttachmentId'")
 	}
-	if args.InsideCidrBlocks == nil {
-		return nil, errors.New("invalid value for required argument 'InsideCidrBlocks'")
-	}
 	if args.PeerAddress == nil {
 		return nil, errors.New("invalid value for required argument 'PeerAddress'")
 	}

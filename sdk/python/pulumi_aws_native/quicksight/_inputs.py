@@ -58,6 +58,7 @@ __all__ = [
     'AnalysisClusterMarkerConfigurationArgs',
     'AnalysisClusterMarkerArgs',
     'AnalysisColorScaleArgs',
+    'AnalysisColorsConfigurationArgs',
     'AnalysisColumnConfigurationArgs',
     'AnalysisColumnHierarchyArgs',
     'AnalysisColumnIdentifierArgs',
@@ -85,6 +86,7 @@ __all__ = [
     'AnalysisCustomActionNavigationOperationArgs',
     'AnalysisCustomActionSetParametersOperationArgs',
     'AnalysisCustomActionURLOperationArgs',
+    'AnalysisCustomColorArgs',
     'AnalysisCustomContentConfigurationArgs',
     'AnalysisCustomContentVisualArgs',
     'AnalysisCustomFilterConfigurationArgs',
@@ -512,6 +514,7 @@ __all__ = [
     'DashboardClusterMarkerConfigurationArgs',
     'DashboardClusterMarkerArgs',
     'DashboardColorScaleArgs',
+    'DashboardColorsConfigurationArgs',
     'DashboardColumnConfigurationArgs',
     'DashboardColumnHierarchyArgs',
     'DashboardColumnIdentifierArgs',
@@ -539,6 +542,7 @@ __all__ = [
     'DashboardCustomActionNavigationOperationArgs',
     'DashboardCustomActionSetParametersOperationArgs',
     'DashboardCustomActionURLOperationArgs',
+    'DashboardCustomColorArgs',
     'DashboardCustomContentConfigurationArgs',
     'DashboardCustomContentVisualArgs',
     'DashboardCustomFilterConfigurationArgs',
@@ -1032,6 +1036,7 @@ __all__ = [
     'TemplateClusterMarkerConfigurationArgs',
     'TemplateClusterMarkerArgs',
     'TemplateColorScaleArgs',
+    'TemplateColorsConfigurationArgs',
     'TemplateColumnConfigurationArgs',
     'TemplateColumnGroupColumnSchemaArgs',
     'TemplateColumnGroupSchemaArgs',
@@ -1062,6 +1067,7 @@ __all__ = [
     'TemplateCustomActionNavigationOperationArgs',
     'TemplateCustomActionSetParametersOperationArgs',
     'TemplateCustomActionURLOperationArgs',
+    'TemplateCustomColorArgs',
     'TemplateCustomContentConfigurationArgs',
     'TemplateCustomContentVisualArgs',
     'TemplateCustomFilterConfigurationArgs',
@@ -3354,12 +3360,32 @@ class AnalysisColorScaleArgs:
 
 
 @pulumi.input_type
+class AnalysisColorsConfigurationArgs:
+    def __init__(__self__, *,
+                 custom_colors: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisCustomColorArgs']]]] = None):
+        if custom_colors is not None:
+            pulumi.set(__self__, "custom_colors", custom_colors)
+
+    @property
+    @pulumi.getter(name="customColors")
+    def custom_colors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisCustomColorArgs']]]]:
+        return pulumi.get(self, "custom_colors")
+
+    @custom_colors.setter
+    def custom_colors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisCustomColorArgs']]]]):
+        pulumi.set(self, "custom_colors", value)
+
+
+@pulumi.input_type
 class AnalysisColumnConfigurationArgs:
     def __init__(__self__, *,
                  column: pulumi.Input['AnalysisColumnIdentifierArgs'],
+                 colors_configuration: Optional[pulumi.Input['AnalysisColorsConfigurationArgs']] = None,
                  format_configuration: Optional[pulumi.Input['AnalysisFormatConfigurationArgs']] = None,
                  role: Optional[pulumi.Input['AnalysisColumnRole']] = None):
         pulumi.set(__self__, "column", column)
+        if colors_configuration is not None:
+            pulumi.set(__self__, "colors_configuration", colors_configuration)
         if format_configuration is not None:
             pulumi.set(__self__, "format_configuration", format_configuration)
         if role is not None:
@@ -3373,6 +3399,15 @@ class AnalysisColumnConfigurationArgs:
     @column.setter
     def column(self, value: pulumi.Input['AnalysisColumnIdentifierArgs']):
         pulumi.set(self, "column", value)
+
+    @property
+    @pulumi.getter(name="colorsConfiguration")
+    def colors_configuration(self) -> Optional[pulumi.Input['AnalysisColorsConfigurationArgs']]:
+        return pulumi.get(self, "colors_configuration")
+
+    @colors_configuration.setter
+    def colors_configuration(self, value: Optional[pulumi.Input['AnalysisColorsConfigurationArgs']]):
+        pulumi.set(self, "colors_configuration", value)
 
     @property
     @pulumi.getter(name="formatConfiguration")
@@ -4582,6 +4617,46 @@ class AnalysisCustomActionURLOperationArgs:
     @u_rl_template.setter
     def u_rl_template(self, value: pulumi.Input[str]):
         pulumi.set(self, "u_rl_template", value)
+
+
+@pulumi.input_type
+class AnalysisCustomColorArgs:
+    def __init__(__self__, *,
+                 color: pulumi.Input[str],
+                 field_value: Optional[pulumi.Input[str]] = None,
+                 special_value: Optional[pulumi.Input['AnalysisSpecialValue']] = None):
+        pulumi.set(__self__, "color", color)
+        if field_value is not None:
+            pulumi.set(__self__, "field_value", field_value)
+        if special_value is not None:
+            pulumi.set(__self__, "special_value", special_value)
+
+    @property
+    @pulumi.getter
+    def color(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "color")
+
+    @color.setter
+    def color(self, value: pulumi.Input[str]):
+        pulumi.set(self, "color", value)
+
+    @property
+    @pulumi.getter(name="fieldValue")
+    def field_value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "field_value")
+
+    @field_value.setter
+    def field_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "field_value", value)
+
+    @property
+    @pulumi.getter(name="specialValue")
+    def special_value(self) -> Optional[pulumi.Input['AnalysisSpecialValue']]:
+        return pulumi.get(self, "special_value")
+
+    @special_value.setter
+    def special_value(self, value: Optional[pulumi.Input['AnalysisSpecialValue']]):
+        pulumi.set(self, "special_value", value)
 
 
 @pulumi.input_type
@@ -23294,12 +23369,32 @@ class DashboardColorScaleArgs:
 
 
 @pulumi.input_type
+class DashboardColorsConfigurationArgs:
+    def __init__(__self__, *,
+                 custom_colors: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardCustomColorArgs']]]] = None):
+        if custom_colors is not None:
+            pulumi.set(__self__, "custom_colors", custom_colors)
+
+    @property
+    @pulumi.getter(name="customColors")
+    def custom_colors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardCustomColorArgs']]]]:
+        return pulumi.get(self, "custom_colors")
+
+    @custom_colors.setter
+    def custom_colors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardCustomColorArgs']]]]):
+        pulumi.set(self, "custom_colors", value)
+
+
+@pulumi.input_type
 class DashboardColumnConfigurationArgs:
     def __init__(__self__, *,
                  column: pulumi.Input['DashboardColumnIdentifierArgs'],
+                 colors_configuration: Optional[pulumi.Input['DashboardColorsConfigurationArgs']] = None,
                  format_configuration: Optional[pulumi.Input['DashboardFormatConfigurationArgs']] = None,
                  role: Optional[pulumi.Input['DashboardColumnRole']] = None):
         pulumi.set(__self__, "column", column)
+        if colors_configuration is not None:
+            pulumi.set(__self__, "colors_configuration", colors_configuration)
         if format_configuration is not None:
             pulumi.set(__self__, "format_configuration", format_configuration)
         if role is not None:
@@ -23313,6 +23408,15 @@ class DashboardColumnConfigurationArgs:
     @column.setter
     def column(self, value: pulumi.Input['DashboardColumnIdentifierArgs']):
         pulumi.set(self, "column", value)
+
+    @property
+    @pulumi.getter(name="colorsConfiguration")
+    def colors_configuration(self) -> Optional[pulumi.Input['DashboardColorsConfigurationArgs']]:
+        return pulumi.get(self, "colors_configuration")
+
+    @colors_configuration.setter
+    def colors_configuration(self, value: Optional[pulumi.Input['DashboardColorsConfigurationArgs']]):
+        pulumi.set(self, "colors_configuration", value)
 
     @property
     @pulumi.getter(name="formatConfiguration")
@@ -24522,6 +24626,46 @@ class DashboardCustomActionURLOperationArgs:
     @u_rl_template.setter
     def u_rl_template(self, value: pulumi.Input[str]):
         pulumi.set(self, "u_rl_template", value)
+
+
+@pulumi.input_type
+class DashboardCustomColorArgs:
+    def __init__(__self__, *,
+                 color: pulumi.Input[str],
+                 field_value: Optional[pulumi.Input[str]] = None,
+                 special_value: Optional[pulumi.Input['DashboardSpecialValue']] = None):
+        pulumi.set(__self__, "color", color)
+        if field_value is not None:
+            pulumi.set(__self__, "field_value", field_value)
+        if special_value is not None:
+            pulumi.set(__self__, "special_value", special_value)
+
+    @property
+    @pulumi.getter
+    def color(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "color")
+
+    @color.setter
+    def color(self, value: pulumi.Input[str]):
+        pulumi.set(self, "color", value)
+
+    @property
+    @pulumi.getter(name="fieldValue")
+    def field_value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "field_value")
+
+    @field_value.setter
+    def field_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "field_value", value)
+
+    @property
+    @pulumi.getter(name="specialValue")
+    def special_value(self) -> Optional[pulumi.Input['DashboardSpecialValue']]:
+        return pulumi.get(self, "special_value")
+
+    @special_value.setter
+    def special_value(self, value: Optional[pulumi.Input['DashboardSpecialValue']]):
+        pulumi.set(self, "special_value", value)
 
 
 @pulumi.input_type
@@ -46100,12 +46244,32 @@ class TemplateColorScaleArgs:
 
 
 @pulumi.input_type
+class TemplateColorsConfigurationArgs:
+    def __init__(__self__, *,
+                 custom_colors: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateCustomColorArgs']]]] = None):
+        if custom_colors is not None:
+            pulumi.set(__self__, "custom_colors", custom_colors)
+
+    @property
+    @pulumi.getter(name="customColors")
+    def custom_colors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TemplateCustomColorArgs']]]]:
+        return pulumi.get(self, "custom_colors")
+
+    @custom_colors.setter
+    def custom_colors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateCustomColorArgs']]]]):
+        pulumi.set(self, "custom_colors", value)
+
+
+@pulumi.input_type
 class TemplateColumnConfigurationArgs:
     def __init__(__self__, *,
                  column: pulumi.Input['TemplateColumnIdentifierArgs'],
+                 colors_configuration: Optional[pulumi.Input['TemplateColorsConfigurationArgs']] = None,
                  format_configuration: Optional[pulumi.Input['TemplateFormatConfigurationArgs']] = None,
                  role: Optional[pulumi.Input['TemplateColumnRole']] = None):
         pulumi.set(__self__, "column", column)
+        if colors_configuration is not None:
+            pulumi.set(__self__, "colors_configuration", colors_configuration)
         if format_configuration is not None:
             pulumi.set(__self__, "format_configuration", format_configuration)
         if role is not None:
@@ -46119,6 +46283,15 @@ class TemplateColumnConfigurationArgs:
     @column.setter
     def column(self, value: pulumi.Input['TemplateColumnIdentifierArgs']):
         pulumi.set(self, "column", value)
+
+    @property
+    @pulumi.getter(name="colorsConfiguration")
+    def colors_configuration(self) -> Optional[pulumi.Input['TemplateColorsConfigurationArgs']]:
+        return pulumi.get(self, "colors_configuration")
+
+    @colors_configuration.setter
+    def colors_configuration(self, value: Optional[pulumi.Input['TemplateColorsConfigurationArgs']]):
+        pulumi.set(self, "colors_configuration", value)
 
     @property
     @pulumi.getter(name="formatConfiguration")
@@ -47415,6 +47588,46 @@ class TemplateCustomActionURLOperationArgs:
     @u_rl_template.setter
     def u_rl_template(self, value: pulumi.Input[str]):
         pulumi.set(self, "u_rl_template", value)
+
+
+@pulumi.input_type
+class TemplateCustomColorArgs:
+    def __init__(__self__, *,
+                 color: pulumi.Input[str],
+                 field_value: Optional[pulumi.Input[str]] = None,
+                 special_value: Optional[pulumi.Input['TemplateSpecialValue']] = None):
+        pulumi.set(__self__, "color", color)
+        if field_value is not None:
+            pulumi.set(__self__, "field_value", field_value)
+        if special_value is not None:
+            pulumi.set(__self__, "special_value", special_value)
+
+    @property
+    @pulumi.getter
+    def color(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "color")
+
+    @color.setter
+    def color(self, value: pulumi.Input[str]):
+        pulumi.set(self, "color", value)
+
+    @property
+    @pulumi.getter(name="fieldValue")
+    def field_value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "field_value")
+
+    @field_value.setter
+    def field_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "field_value", value)
+
+    @property
+    @pulumi.getter(name="specialValue")
+    def special_value(self) -> Optional[pulumi.Input['TemplateSpecialValue']]:
+        return pulumi.get(self, "special_value")
+
+    @special_value.setter
+    def special_value(self, value: Optional[pulumi.Input['TemplateSpecialValue']]):
+        pulumi.set(self, "special_value", value)
 
 
 @pulumi.input_type

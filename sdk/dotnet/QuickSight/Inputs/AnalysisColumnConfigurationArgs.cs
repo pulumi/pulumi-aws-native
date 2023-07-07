@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisColumnConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("colorsConfiguration")]
+        public Input<Inputs.AnalysisColorsConfigurationArgs>? ColorsConfiguration { get; set; }
+
         [Input("column", required: true)]
         public Input<Inputs.AnalysisColumnIdentifierArgs> Column { get; set; } = null!;
 

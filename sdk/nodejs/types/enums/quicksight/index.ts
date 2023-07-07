@@ -669,6 +669,14 @@ export const AnalysisSortDirection = {
 
 export type AnalysisSortDirection = (typeof AnalysisSortDirection)[keyof typeof AnalysisSortDirection];
 
+export const AnalysisSpecialValue = {
+    Empty: "EMPTY",
+    Null: "NULL",
+    Other: "OTHER",
+} as const;
+
+export type AnalysisSpecialValue = (typeof AnalysisSpecialValue)[keyof typeof AnalysisSpecialValue];
+
 export const AnalysisTableBorderStyle = {
     None: "NONE",
     Solid: "SOLID",
@@ -1513,6 +1521,14 @@ export const DashboardSortDirection = {
 } as const;
 
 export type DashboardSortDirection = (typeof DashboardSortDirection)[keyof typeof DashboardSortDirection];
+
+export const DashboardSpecialValue = {
+    Empty: "EMPTY",
+    Null: "NULL",
+    Other: "OTHER",
+} as const;
+
+export type DashboardSpecialValue = (typeof DashboardSpecialValue)[keyof typeof DashboardSpecialValue];
 
 export const DashboardTableBorderStyle = {
     None: "NONE",
@@ -2512,6 +2528,14 @@ export const TemplateSortDirection = {
 } as const;
 
 export type TemplateSortDirection = (typeof TemplateSortDirection)[keyof typeof TemplateSortDirection];
+
+export const TemplateSpecialValue = {
+    Empty: "EMPTY",
+    Null: "NULL",
+    Other: "OTHER",
+} as const;
+
+export type TemplateSpecialValue = (typeof TemplateSpecialValue)[keyof typeof TemplateSpecialValue];
 
 export const TemplateTableBorderStyle = {
     None: "NONE",

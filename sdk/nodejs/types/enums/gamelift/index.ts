@@ -15,6 +15,7 @@ export type AliasRoutingStrategyType = (typeof AliasRoutingStrategyType)[keyof t
 export const BuildOperatingSystem = {
     AmazonLinux: "AMAZON_LINUX",
     AmazonLinux2: "AMAZON_LINUX_2",
+    AmazonLinux2023: "AMAZON_LINUX_2023",
     Windows2012: "WINDOWS_2012",
     Windows2016: "WINDOWS_2016",
 } as const;

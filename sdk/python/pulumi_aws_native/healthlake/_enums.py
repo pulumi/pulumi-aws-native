@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'FHIRDatastoreDatastoreStatus',
     'FHIRDatastoreDatastoreTypeVersion',
+    'FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy',
     'FHIRDatastoreKmsEncryptionConfigCmkType',
     'FHIRDatastorePreloadDataConfigPreloadDataType',
 ]
@@ -27,6 +28,14 @@ class FHIRDatastoreDatastoreTypeVersion(str, Enum):
     The FHIR version. Only R4 version data is supported.
     """
     R4 = "R4"
+
+
+class FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy(str, Enum):
+    """
+    Type of Authorization Strategy. The two types of supported Authorization strategies are SMART_ON_FHIR_V1 and AWS_AUTH.
+    """
+    SMART_ON_FHIR_V1 = "SMART_ON_FHIR_V1"
+    AWS_AUTH = "AWS_AUTH"
 
 
 class FHIRDatastoreKmsEncryptionConfigCmkType(str, Enum):

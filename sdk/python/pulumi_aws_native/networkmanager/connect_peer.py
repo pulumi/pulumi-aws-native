@@ -17,27 +17,28 @@ __all__ = ['ConnectPeerArgs', 'ConnectPeer']
 class ConnectPeerArgs:
     def __init__(__self__, *,
                  connect_attachment_id: pulumi.Input[str],
-                 inside_cidr_blocks: pulumi.Input[Sequence[pulumi.Input[str]]],
                  peer_address: pulumi.Input[str],
                  bgp_options: Optional[pulumi.Input['ConnectPeerBgpOptionsArgs']] = None,
                  core_network_address: Optional[pulumi.Input[str]] = None,
+                 inside_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectPeerTagArgs']]]] = None):
         """
         The set of arguments for constructing a ConnectPeer resource.
         :param pulumi.Input[str] connect_attachment_id: The ID of the attachment to connect.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] inside_cidr_blocks: The inside IP addresses used for a Connect peer configuration.
         :param pulumi.Input[str] peer_address: The IP address of the Connect peer.
         :param pulumi.Input['ConnectPeerBgpOptionsArgs'] bgp_options: Bgp options for connect peer.
         :param pulumi.Input[str] core_network_address: The IP address of a core network.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] inside_cidr_blocks: The inside IP addresses used for a Connect peer configuration.
         :param pulumi.Input[Sequence[pulumi.Input['ConnectPeerTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "connect_attachment_id", connect_attachment_id)
-        pulumi.set(__self__, "inside_cidr_blocks", inside_cidr_blocks)
         pulumi.set(__self__, "peer_address", peer_address)
         if bgp_options is not None:
             pulumi.set(__self__, "bgp_options", bgp_options)
         if core_network_address is not None:
             pulumi.set(__self__, "core_network_address", core_network_address)
+        if inside_cidr_blocks is not None:
+            pulumi.set(__self__, "inside_cidr_blocks", inside_cidr_blocks)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -52,18 +53,6 @@ class ConnectPeerArgs:
     @connect_attachment_id.setter
     def connect_attachment_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "connect_attachment_id", value)
-
-    @property
-    @pulumi.getter(name="insideCidrBlocks")
-    def inside_cidr_blocks(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        The inside IP addresses used for a Connect peer configuration.
-        """
-        return pulumi.get(self, "inside_cidr_blocks")
-
-    @inside_cidr_blocks.setter
-    def inside_cidr_blocks(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "inside_cidr_blocks", value)
 
     @property
     @pulumi.getter(name="peerAddress")
@@ -100,6 +89,18 @@ class ConnectPeerArgs:
     @core_network_address.setter
     def core_network_address(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "core_network_address", value)
+
+    @property
+    @pulumi.getter(name="insideCidrBlocks")
+    def inside_cidr_blocks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The inside IP addresses used for a Connect peer configuration.
+        """
+        return pulumi.get(self, "inside_cidr_blocks")
+
+    @inside_cidr_blocks.setter
+    def inside_cidr_blocks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "inside_cidr_blocks", value)
 
     @property
     @pulumi.getter
@@ -182,8 +183,6 @@ class ConnectPeer(pulumi.CustomResource):
                 raise TypeError("Missing required property 'connect_attachment_id'")
             __props__.__dict__["connect_attachment_id"] = connect_attachment_id
             __props__.__dict__["core_network_address"] = core_network_address
-            if inside_cidr_blocks is None and not opts.urn:
-                raise TypeError("Missing required property 'inside_cidr_blocks'")
             __props__.__dict__["inside_cidr_blocks"] = inside_cidr_blocks
             if peer_address is None and not opts.urn:
                 raise TypeError("Missing required property 'peer_address'")
@@ -297,7 +296,7 @@ class ConnectPeer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="insideCidrBlocks")
-    def inside_cidr_blocks(self) -> pulumi.Output[Sequence[str]]:
+    def inside_cidr_blocks(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The inside IP addresses used for a Connect peer configuration.
         """

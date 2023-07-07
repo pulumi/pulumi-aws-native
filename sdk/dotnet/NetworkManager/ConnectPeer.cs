@@ -150,7 +150,7 @@ namespace Pulumi.AwsNative.NetworkManager
         [Input("coreNetworkAddress")]
         public Input<string>? CoreNetworkAddress { get; set; }
 
-        [Input("insideCidrBlocks", required: true)]
+        [Input("insideCidrBlocks")]
         private InputList<string>? _insideCidrBlocks;
 
         /// <summary>

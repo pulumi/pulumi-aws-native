@@ -245,6 +245,35 @@ namespace Pulumi.AwsNative.AppFlow
     }
 
     [EnumType]
+    public readonly struct FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesType : IEquatable<FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesType>
+    {
+        private readonly string _value;
+
+        private FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesType Sync { get; } = new FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesType("SYNC");
+        public static FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesType Async { get; } = new FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesType("ASYNC");
+        public static FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesType Automatic { get; } = new FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesType("AUTOMATIC");
+
+        public static bool operator ==(FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesType left, FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesType right) => left.Equals(right);
+        public static bool operator !=(FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesType left, FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesType right) => !left.Equals(right);
+
+        public static explicit operator string(FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesType other && Equals(other);
+        public bool Equals(FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct FlowDataTransferApi : IEquatable<FlowDataTransferApi>
     {
         private readonly string _value;

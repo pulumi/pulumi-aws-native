@@ -42,6 +42,10 @@ export class KeyPair extends pulumi.CustomResource {
      */
     public /*out*/ readonly keyFingerprint!: pulumi.Output<string>;
     /**
+     * The format of the private key
+     */
+    public readonly keyFormat!: pulumi.Output<enums.ec2.KeyPairKeyFormat | undefined>;
+    /**
      * The name of the SSH key pair
      */
     public readonly keyName!: pulumi.Output<string>;
@@ -50,7 +54,7 @@ export class KeyPair extends pulumi.CustomResource {
      */
     public /*out*/ readonly keyPairId!: pulumi.Output<string>;
     /**
-     * The title of the TPS report is a mandatory element.
+     * The crypto-system used to generate a key pair.
      */
     public readonly keyType!: pulumi.Output<enums.ec2.KeyPairKeyType | undefined>;
     /**
@@ -76,6 +80,7 @@ export class KeyPair extends pulumi.CustomResource {
             if ((!args || args.keyName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'keyName'");
             }
+            resourceInputs["keyFormat"] = args ? args.keyFormat : undefined;
             resourceInputs["keyName"] = args ? args.keyName : undefined;
             resourceInputs["keyType"] = args ? args.keyType : undefined;
             resourceInputs["publicKeyMaterial"] = args ? args.publicKeyMaterial : undefined;
@@ -84,6 +89,7 @@ export class KeyPair extends pulumi.CustomResource {
             resourceInputs["keyPairId"] = undefined /*out*/;
         } else {
             resourceInputs["keyFingerprint"] = undefined /*out*/;
+            resourceInputs["keyFormat"] = undefined /*out*/;
             resourceInputs["keyName"] = undefined /*out*/;
             resourceInputs["keyPairId"] = undefined /*out*/;
             resourceInputs["keyType"] = undefined /*out*/;
@@ -100,11 +106,15 @@ export class KeyPair extends pulumi.CustomResource {
  */
 export interface KeyPairArgs {
     /**
+     * The format of the private key
+     */
+    keyFormat?: pulumi.Input<enums.ec2.KeyPairKeyFormat>;
+    /**
      * The name of the SSH key pair
      */
     keyName: pulumi.Input<string>;
     /**
-     * The title of the TPS report is a mandatory element.
+     * The crypto-system used to generate a key pair.
      */
     keyType?: pulumi.Input<enums.ec2.KeyPairKeyType>;
     /**

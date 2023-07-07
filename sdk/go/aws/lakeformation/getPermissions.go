@@ -25,11 +25,9 @@ type LookupPermissionsArgs struct {
 }
 
 type LookupPermissionsResult struct {
-	DataLakePrincipal          *PermissionsDataLakePrincipal `pulumi:"dataLakePrincipal"`
-	Id                         *string                       `pulumi:"id"`
-	Permissions                []string                      `pulumi:"permissions"`
-	PermissionsWithGrantOption []string                      `pulumi:"permissionsWithGrantOption"`
-	Resource                   *PermissionsResource          `pulumi:"resource"`
+	Id                         *string  `pulumi:"id"`
+	Permissions                []string `pulumi:"permissions"`
+	PermissionsWithGrantOption []string `pulumi:"permissionsWithGrantOption"`
 }
 
 func LookupPermissionsOutput(ctx *pulumi.Context, args LookupPermissionsOutputArgs, opts ...pulumi.InvokeOption) LookupPermissionsResultOutput {
@@ -67,10 +65,6 @@ func (o LookupPermissionsResultOutput) ToLookupPermissionsResultOutputWithContex
 	return o
 }
 
-func (o LookupPermissionsResultOutput) DataLakePrincipal() PermissionsDataLakePrincipalPtrOutput {
-	return o.ApplyT(func(v LookupPermissionsResult) *PermissionsDataLakePrincipal { return v.DataLakePrincipal }).(PermissionsDataLakePrincipalPtrOutput)
-}
-
 func (o LookupPermissionsResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPermissionsResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -81,10 +75,6 @@ func (o LookupPermissionsResultOutput) Permissions() pulumi.StringArrayOutput {
 
 func (o LookupPermissionsResultOutput) PermissionsWithGrantOption() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupPermissionsResult) []string { return v.PermissionsWithGrantOption }).(pulumi.StringArrayOutput)
-}
-
-func (o LookupPermissionsResultOutput) Resource() PermissionsResourcePtrOutput {
-	return o.ApplyT(func(v LookupPermissionsResult) *PermissionsResource { return v.Resource }).(PermissionsResourcePtrOutput)
 }
 
 func init() {

@@ -32,16 +32,25 @@ class GetTopicPolicyResult:
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The provider-assigned unique ID for this managed resource.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="policyDocument")
     def policy_document(self) -> Optional[Any]:
+        """
+        A policy document that contains permissions to add to the specified SNS topics.
+        """
         return pulumi.get(self, "policy_document")
 
     @property
     @pulumi.getter
     def topics(self) -> Optional[Sequence[str]]:
+        """
+        The Amazon Resource Names (ARN) of the topics to which you want to add the policy. You can use the [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)` function to specify an [AWS::SNS::Topic](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html) resource.
+        """
         return pulumi.get(self, "topics")
 
 
@@ -59,7 +68,10 @@ class AwaitableGetTopicPolicyResult(GetTopicPolicyResult):
 def get_topic_policy(id: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTopicPolicyResult:
     """
-    Resource Type definition for AWS::SNS::TopicPolicy
+    Schema for AWS::SNS::TopicPolicy
+
+
+    :param str id: The provider-assigned unique ID for this managed resource.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -76,6 +88,9 @@ def get_topic_policy(id: Optional[str] = None,
 def get_topic_policy_output(id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTopicPolicyResult]:
     """
-    Resource Type definition for AWS::SNS::TopicPolicy
+    Schema for AWS::SNS::TopicPolicy
+
+
+    :param str id: The provider-assigned unique ID for this managed resource.
     """
     ...

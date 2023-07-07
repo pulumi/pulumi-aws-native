@@ -32,6 +32,8 @@ type LookupEndpointResult struct {
 	CidrBlock *string `pulumi:"cidrBlock"`
 	// The time the endpoint was created.
 	CreationTime *string `pulumi:"creationTime"`
+	// The failure reason, if any, for a create or delete endpoint operation.
+	FailedReason *EndpointFailedReason `pulumi:"failedReason"`
 	// The ID of the endpoint.
 	Id *string `pulumi:"id"`
 	// The network interfaces of the endpoint.
@@ -88,6 +90,11 @@ func (o LookupEndpointResultOutput) CidrBlock() pulumi.StringPtrOutput {
 // The time the endpoint was created.
 func (o LookupEndpointResultOutput) CreationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEndpointResult) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
+}
+
+// The failure reason, if any, for a create or delete endpoint operation.
+func (o LookupEndpointResultOutput) FailedReason() EndpointFailedReasonPtrOutput {
+	return o.ApplyT(func(v LookupEndpointResult) *EndpointFailedReason { return v.FailedReason }).(EndpointFailedReasonPtrOutput)
 }
 
 // The ID of the endpoint.

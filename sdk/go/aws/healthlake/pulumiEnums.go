@@ -267,6 +267,171 @@ func (in *fhirdatastoreDatastoreTypeVersionPtr) ToFHIRDatastoreDatastoreTypeVers
 	return pulumi.ToOutputWithContext(ctx, in).(FHIRDatastoreDatastoreTypeVersionPtrOutput)
 }
 
+// Type of Authorization Strategy. The two types of supported Authorization strategies are SMART_ON_FHIR_V1 and AWS_AUTH.
+type FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy string
+
+const (
+	FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategySmartOnFhirV1 = FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy("SMART_ON_FHIR_V1")
+	FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyAwsAuth       = FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy("AWS_AUTH")
+)
+
+func (FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy) ElementType() reflect.Type {
+	return reflect.TypeOf((*FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy)(nil)).Elem()
+}
+
+func (e FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy) ToFHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyOutput() FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyOutput {
+	return pulumi.ToOutput(e).(FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyOutput)
+}
+
+func (e FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy) ToFHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyOutputWithContext(ctx context.Context) FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyOutput)
+}
+
+func (e FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy) ToFHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutput() FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutput {
+	return e.ToFHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutputWithContext(context.Background())
+}
+
+func (e FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy) ToFHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutputWithContext(ctx context.Context) FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutput {
+	return FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy(e).ToFHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyOutputWithContext(ctx).ToFHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutputWithContext(ctx)
+}
+
+func (e FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyOutput struct{ *pulumi.OutputState }
+
+func (FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy)(nil)).Elem()
+}
+
+func (o FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyOutput) ToFHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyOutput() FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyOutput {
+	return o
+}
+
+func (o FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyOutput) ToFHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyOutputWithContext(ctx context.Context) FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyOutput {
+	return o
+}
+
+func (o FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyOutput) ToFHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutput() FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutput {
+	return o.ToFHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutputWithContext(context.Background())
+}
+
+func (o FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyOutput) ToFHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutputWithContext(ctx context.Context) FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy) *FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy {
+		return &v
+	}).(FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutput)
+}
+
+func (o FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutput struct{ *pulumi.OutputState }
+
+func (FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy)(nil)).Elem()
+}
+
+func (o FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutput) ToFHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutput() FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutput {
+	return o
+}
+
+func (o FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutput) ToFHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutputWithContext(ctx context.Context) FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutput {
+	return o
+}
+
+func (o FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutput) Elem() FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyOutput {
+	return o.ApplyT(func(v *FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy) FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy {
+		if v != nil {
+			return *v
+		}
+		var ret FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy
+		return ret
+	}).(FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyOutput)
+}
+
+func (o FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyInput is an input type that accepts FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyArgs and FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyOutput values.
+// You can construct a concrete instance of `FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyInput` via:
+//
+//	FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyArgs{...}
+type FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyInput interface {
+	pulumi.Input
+
+	ToFHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyOutput() FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyOutput
+	ToFHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyOutputWithContext(context.Context) FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyOutput
+}
+
+var fhirdatastoreIdentityProviderConfigurationAuthorizationStrategyPtrType = reflect.TypeOf((**FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy)(nil)).Elem()
+
+type FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrInput interface {
+	pulumi.Input
+
+	ToFHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutput() FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutput
+	ToFHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutputWithContext(context.Context) FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutput
+}
+
+type fhirdatastoreIdentityProviderConfigurationAuthorizationStrategyPtr string
+
+func FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyPtr(v string) FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrInput {
+	return (*fhirdatastoreIdentityProviderConfigurationAuthorizationStrategyPtr)(&v)
+}
+
+func (*fhirdatastoreIdentityProviderConfigurationAuthorizationStrategyPtr) ElementType() reflect.Type {
+	return fhirdatastoreIdentityProviderConfigurationAuthorizationStrategyPtrType
+}
+
+func (in *fhirdatastoreIdentityProviderConfigurationAuthorizationStrategyPtr) ToFHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutput() FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutput {
+	return pulumi.ToOutput(in).(FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutput)
+}
+
+func (in *fhirdatastoreIdentityProviderConfigurationAuthorizationStrategyPtr) ToFHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutputWithContext(ctx context.Context) FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutput)
+}
+
 // The type of customer-managed-key (CMK) used for encryption. The two types of supported CMKs are customer owned CMKs and AWS owned CMKs.
 type FHIRDatastoreKmsEncryptionConfigCmkType string
 
@@ -599,6 +764,8 @@ func (in *fhirdatastorePreloadDataConfigPreloadDataTypePtr) ToFHIRDatastorePrelo
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FHIRDatastoreDatastoreTypeVersionInput)(nil)).Elem(), FHIRDatastoreDatastoreTypeVersion("R4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FHIRDatastoreDatastoreTypeVersionPtrInput)(nil)).Elem(), FHIRDatastoreDatastoreTypeVersion("R4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyInput)(nil)).Elem(), FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy("SMART_ON_FHIR_V1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrInput)(nil)).Elem(), FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy("SMART_ON_FHIR_V1"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FHIRDatastoreKmsEncryptionConfigCmkTypeInput)(nil)).Elem(), FHIRDatastoreKmsEncryptionConfigCmkType("CUSTOMER_MANAGED_KMS_KEY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FHIRDatastoreKmsEncryptionConfigCmkTypePtrInput)(nil)).Elem(), FHIRDatastoreKmsEncryptionConfigCmkType("CUSTOMER_MANAGED_KMS_KEY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FHIRDatastorePreloadDataConfigPreloadDataTypeInput)(nil)).Elem(), FHIRDatastorePreloadDataConfigPreloadDataType("SYNTHEA"))
@@ -607,6 +774,8 @@ func init() {
 	pulumi.RegisterOutputType(FHIRDatastoreDatastoreStatusPtrOutput{})
 	pulumi.RegisterOutputType(FHIRDatastoreDatastoreTypeVersionOutput{})
 	pulumi.RegisterOutputType(FHIRDatastoreDatastoreTypeVersionPtrOutput{})
+	pulumi.RegisterOutputType(FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyOutput{})
+	pulumi.RegisterOutputType(FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutput{})
 	pulumi.RegisterOutputType(FHIRDatastoreKmsEncryptionConfigCmkTypeOutput{})
 	pulumi.RegisterOutputType(FHIRDatastoreKmsEncryptionConfigCmkTypePtrOutput{})
 	pulumi.RegisterOutputType(FHIRDatastorePreloadDataConfigPreloadDataTypeOutput{})

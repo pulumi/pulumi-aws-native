@@ -10,6 +10,583 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type TemplateAxisLinearScale struct {
+	StepCount *float64 `pulumi:"stepCount"`
+	StepSize  *float64 `pulumi:"stepSize"`
+}
+
+// TemplateAxisLinearScaleInput is an input type that accepts TemplateAxisLinearScaleArgs and TemplateAxisLinearScaleOutput values.
+// You can construct a concrete instance of `TemplateAxisLinearScaleInput` via:
+//
+//	TemplateAxisLinearScaleArgs{...}
+type TemplateAxisLinearScaleInput interface {
+	pulumi.Input
+
+	ToTemplateAxisLinearScaleOutput() TemplateAxisLinearScaleOutput
+	ToTemplateAxisLinearScaleOutputWithContext(context.Context) TemplateAxisLinearScaleOutput
+}
+
+type TemplateAxisLinearScaleArgs struct {
+	StepCount pulumi.Float64PtrInput `pulumi:"stepCount"`
+	StepSize  pulumi.Float64PtrInput `pulumi:"stepSize"`
+}
+
+func (TemplateAxisLinearScaleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateAxisLinearScale)(nil)).Elem()
+}
+
+func (i TemplateAxisLinearScaleArgs) ToTemplateAxisLinearScaleOutput() TemplateAxisLinearScaleOutput {
+	return i.ToTemplateAxisLinearScaleOutputWithContext(context.Background())
+}
+
+func (i TemplateAxisLinearScaleArgs) ToTemplateAxisLinearScaleOutputWithContext(ctx context.Context) TemplateAxisLinearScaleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateAxisLinearScaleOutput)
+}
+
+func (i TemplateAxisLinearScaleArgs) ToTemplateAxisLinearScalePtrOutput() TemplateAxisLinearScalePtrOutput {
+	return i.ToTemplateAxisLinearScalePtrOutputWithContext(context.Background())
+}
+
+func (i TemplateAxisLinearScaleArgs) ToTemplateAxisLinearScalePtrOutputWithContext(ctx context.Context) TemplateAxisLinearScalePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateAxisLinearScaleOutput).ToTemplateAxisLinearScalePtrOutputWithContext(ctx)
+}
+
+// TemplateAxisLinearScalePtrInput is an input type that accepts TemplateAxisLinearScaleArgs, TemplateAxisLinearScalePtr and TemplateAxisLinearScalePtrOutput values.
+// You can construct a concrete instance of `TemplateAxisLinearScalePtrInput` via:
+//
+//	        TemplateAxisLinearScaleArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateAxisLinearScalePtrInput interface {
+	pulumi.Input
+
+	ToTemplateAxisLinearScalePtrOutput() TemplateAxisLinearScalePtrOutput
+	ToTemplateAxisLinearScalePtrOutputWithContext(context.Context) TemplateAxisLinearScalePtrOutput
+}
+
+type templateAxisLinearScalePtrType TemplateAxisLinearScaleArgs
+
+func TemplateAxisLinearScalePtr(v *TemplateAxisLinearScaleArgs) TemplateAxisLinearScalePtrInput {
+	return (*templateAxisLinearScalePtrType)(v)
+}
+
+func (*templateAxisLinearScalePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateAxisLinearScale)(nil)).Elem()
+}
+
+func (i *templateAxisLinearScalePtrType) ToTemplateAxisLinearScalePtrOutput() TemplateAxisLinearScalePtrOutput {
+	return i.ToTemplateAxisLinearScalePtrOutputWithContext(context.Background())
+}
+
+func (i *templateAxisLinearScalePtrType) ToTemplateAxisLinearScalePtrOutputWithContext(ctx context.Context) TemplateAxisLinearScalePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateAxisLinearScalePtrOutput)
+}
+
+type TemplateAxisLinearScaleOutput struct{ *pulumi.OutputState }
+
+func (TemplateAxisLinearScaleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateAxisLinearScale)(nil)).Elem()
+}
+
+func (o TemplateAxisLinearScaleOutput) ToTemplateAxisLinearScaleOutput() TemplateAxisLinearScaleOutput {
+	return o
+}
+
+func (o TemplateAxisLinearScaleOutput) ToTemplateAxisLinearScaleOutputWithContext(ctx context.Context) TemplateAxisLinearScaleOutput {
+	return o
+}
+
+func (o TemplateAxisLinearScaleOutput) ToTemplateAxisLinearScalePtrOutput() TemplateAxisLinearScalePtrOutput {
+	return o.ToTemplateAxisLinearScalePtrOutputWithContext(context.Background())
+}
+
+func (o TemplateAxisLinearScaleOutput) ToTemplateAxisLinearScalePtrOutputWithContext(ctx context.Context) TemplateAxisLinearScalePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateAxisLinearScale) *TemplateAxisLinearScale {
+		return &v
+	}).(TemplateAxisLinearScalePtrOutput)
+}
+
+func (o TemplateAxisLinearScaleOutput) StepCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v TemplateAxisLinearScale) *float64 { return v.StepCount }).(pulumi.Float64PtrOutput)
+}
+
+func (o TemplateAxisLinearScaleOutput) StepSize() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v TemplateAxisLinearScale) *float64 { return v.StepSize }).(pulumi.Float64PtrOutput)
+}
+
+type TemplateAxisLinearScalePtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateAxisLinearScalePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateAxisLinearScale)(nil)).Elem()
+}
+
+func (o TemplateAxisLinearScalePtrOutput) ToTemplateAxisLinearScalePtrOutput() TemplateAxisLinearScalePtrOutput {
+	return o
+}
+
+func (o TemplateAxisLinearScalePtrOutput) ToTemplateAxisLinearScalePtrOutputWithContext(ctx context.Context) TemplateAxisLinearScalePtrOutput {
+	return o
+}
+
+func (o TemplateAxisLinearScalePtrOutput) Elem() TemplateAxisLinearScaleOutput {
+	return o.ApplyT(func(v *TemplateAxisLinearScale) TemplateAxisLinearScale {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateAxisLinearScale
+		return ret
+	}).(TemplateAxisLinearScaleOutput)
+}
+
+func (o TemplateAxisLinearScalePtrOutput) StepCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *TemplateAxisLinearScale) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.StepCount
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o TemplateAxisLinearScalePtrOutput) StepSize() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *TemplateAxisLinearScale) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.StepSize
+	}).(pulumi.Float64PtrOutput)
+}
+
+type TemplateAxisLogarithmicScale struct {
+	Base *float64 `pulumi:"base"`
+}
+
+// TemplateAxisLogarithmicScaleInput is an input type that accepts TemplateAxisLogarithmicScaleArgs and TemplateAxisLogarithmicScaleOutput values.
+// You can construct a concrete instance of `TemplateAxisLogarithmicScaleInput` via:
+//
+//	TemplateAxisLogarithmicScaleArgs{...}
+type TemplateAxisLogarithmicScaleInput interface {
+	pulumi.Input
+
+	ToTemplateAxisLogarithmicScaleOutput() TemplateAxisLogarithmicScaleOutput
+	ToTemplateAxisLogarithmicScaleOutputWithContext(context.Context) TemplateAxisLogarithmicScaleOutput
+}
+
+type TemplateAxisLogarithmicScaleArgs struct {
+	Base pulumi.Float64PtrInput `pulumi:"base"`
+}
+
+func (TemplateAxisLogarithmicScaleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateAxisLogarithmicScale)(nil)).Elem()
+}
+
+func (i TemplateAxisLogarithmicScaleArgs) ToTemplateAxisLogarithmicScaleOutput() TemplateAxisLogarithmicScaleOutput {
+	return i.ToTemplateAxisLogarithmicScaleOutputWithContext(context.Background())
+}
+
+func (i TemplateAxisLogarithmicScaleArgs) ToTemplateAxisLogarithmicScaleOutputWithContext(ctx context.Context) TemplateAxisLogarithmicScaleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateAxisLogarithmicScaleOutput)
+}
+
+func (i TemplateAxisLogarithmicScaleArgs) ToTemplateAxisLogarithmicScalePtrOutput() TemplateAxisLogarithmicScalePtrOutput {
+	return i.ToTemplateAxisLogarithmicScalePtrOutputWithContext(context.Background())
+}
+
+func (i TemplateAxisLogarithmicScaleArgs) ToTemplateAxisLogarithmicScalePtrOutputWithContext(ctx context.Context) TemplateAxisLogarithmicScalePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateAxisLogarithmicScaleOutput).ToTemplateAxisLogarithmicScalePtrOutputWithContext(ctx)
+}
+
+// TemplateAxisLogarithmicScalePtrInput is an input type that accepts TemplateAxisLogarithmicScaleArgs, TemplateAxisLogarithmicScalePtr and TemplateAxisLogarithmicScalePtrOutput values.
+// You can construct a concrete instance of `TemplateAxisLogarithmicScalePtrInput` via:
+//
+//	        TemplateAxisLogarithmicScaleArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateAxisLogarithmicScalePtrInput interface {
+	pulumi.Input
+
+	ToTemplateAxisLogarithmicScalePtrOutput() TemplateAxisLogarithmicScalePtrOutput
+	ToTemplateAxisLogarithmicScalePtrOutputWithContext(context.Context) TemplateAxisLogarithmicScalePtrOutput
+}
+
+type templateAxisLogarithmicScalePtrType TemplateAxisLogarithmicScaleArgs
+
+func TemplateAxisLogarithmicScalePtr(v *TemplateAxisLogarithmicScaleArgs) TemplateAxisLogarithmicScalePtrInput {
+	return (*templateAxisLogarithmicScalePtrType)(v)
+}
+
+func (*templateAxisLogarithmicScalePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateAxisLogarithmicScale)(nil)).Elem()
+}
+
+func (i *templateAxisLogarithmicScalePtrType) ToTemplateAxisLogarithmicScalePtrOutput() TemplateAxisLogarithmicScalePtrOutput {
+	return i.ToTemplateAxisLogarithmicScalePtrOutputWithContext(context.Background())
+}
+
+func (i *templateAxisLogarithmicScalePtrType) ToTemplateAxisLogarithmicScalePtrOutputWithContext(ctx context.Context) TemplateAxisLogarithmicScalePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateAxisLogarithmicScalePtrOutput)
+}
+
+type TemplateAxisLogarithmicScaleOutput struct{ *pulumi.OutputState }
+
+func (TemplateAxisLogarithmicScaleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateAxisLogarithmicScale)(nil)).Elem()
+}
+
+func (o TemplateAxisLogarithmicScaleOutput) ToTemplateAxisLogarithmicScaleOutput() TemplateAxisLogarithmicScaleOutput {
+	return o
+}
+
+func (o TemplateAxisLogarithmicScaleOutput) ToTemplateAxisLogarithmicScaleOutputWithContext(ctx context.Context) TemplateAxisLogarithmicScaleOutput {
+	return o
+}
+
+func (o TemplateAxisLogarithmicScaleOutput) ToTemplateAxisLogarithmicScalePtrOutput() TemplateAxisLogarithmicScalePtrOutput {
+	return o.ToTemplateAxisLogarithmicScalePtrOutputWithContext(context.Background())
+}
+
+func (o TemplateAxisLogarithmicScaleOutput) ToTemplateAxisLogarithmicScalePtrOutputWithContext(ctx context.Context) TemplateAxisLogarithmicScalePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateAxisLogarithmicScale) *TemplateAxisLogarithmicScale {
+		return &v
+	}).(TemplateAxisLogarithmicScalePtrOutput)
+}
+
+func (o TemplateAxisLogarithmicScaleOutput) Base() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v TemplateAxisLogarithmicScale) *float64 { return v.Base }).(pulumi.Float64PtrOutput)
+}
+
+type TemplateAxisLogarithmicScalePtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateAxisLogarithmicScalePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateAxisLogarithmicScale)(nil)).Elem()
+}
+
+func (o TemplateAxisLogarithmicScalePtrOutput) ToTemplateAxisLogarithmicScalePtrOutput() TemplateAxisLogarithmicScalePtrOutput {
+	return o
+}
+
+func (o TemplateAxisLogarithmicScalePtrOutput) ToTemplateAxisLogarithmicScalePtrOutputWithContext(ctx context.Context) TemplateAxisLogarithmicScalePtrOutput {
+	return o
+}
+
+func (o TemplateAxisLogarithmicScalePtrOutput) Elem() TemplateAxisLogarithmicScaleOutput {
+	return o.ApplyT(func(v *TemplateAxisLogarithmicScale) TemplateAxisLogarithmicScale {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateAxisLogarithmicScale
+		return ret
+	}).(TemplateAxisLogarithmicScaleOutput)
+}
+
+func (o TemplateAxisLogarithmicScalePtrOutput) Base() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *TemplateAxisLogarithmicScale) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Base
+	}).(pulumi.Float64PtrOutput)
+}
+
+type TemplateAxisScale struct {
+	Linear      *TemplateAxisLinearScale      `pulumi:"linear"`
+	Logarithmic *TemplateAxisLogarithmicScale `pulumi:"logarithmic"`
+}
+
+// TemplateAxisScaleInput is an input type that accepts TemplateAxisScaleArgs and TemplateAxisScaleOutput values.
+// You can construct a concrete instance of `TemplateAxisScaleInput` via:
+//
+//	TemplateAxisScaleArgs{...}
+type TemplateAxisScaleInput interface {
+	pulumi.Input
+
+	ToTemplateAxisScaleOutput() TemplateAxisScaleOutput
+	ToTemplateAxisScaleOutputWithContext(context.Context) TemplateAxisScaleOutput
+}
+
+type TemplateAxisScaleArgs struct {
+	Linear      TemplateAxisLinearScalePtrInput      `pulumi:"linear"`
+	Logarithmic TemplateAxisLogarithmicScalePtrInput `pulumi:"logarithmic"`
+}
+
+func (TemplateAxisScaleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateAxisScale)(nil)).Elem()
+}
+
+func (i TemplateAxisScaleArgs) ToTemplateAxisScaleOutput() TemplateAxisScaleOutput {
+	return i.ToTemplateAxisScaleOutputWithContext(context.Background())
+}
+
+func (i TemplateAxisScaleArgs) ToTemplateAxisScaleOutputWithContext(ctx context.Context) TemplateAxisScaleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateAxisScaleOutput)
+}
+
+func (i TemplateAxisScaleArgs) ToTemplateAxisScalePtrOutput() TemplateAxisScalePtrOutput {
+	return i.ToTemplateAxisScalePtrOutputWithContext(context.Background())
+}
+
+func (i TemplateAxisScaleArgs) ToTemplateAxisScalePtrOutputWithContext(ctx context.Context) TemplateAxisScalePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateAxisScaleOutput).ToTemplateAxisScalePtrOutputWithContext(ctx)
+}
+
+// TemplateAxisScalePtrInput is an input type that accepts TemplateAxisScaleArgs, TemplateAxisScalePtr and TemplateAxisScalePtrOutput values.
+// You can construct a concrete instance of `TemplateAxisScalePtrInput` via:
+//
+//	        TemplateAxisScaleArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateAxisScalePtrInput interface {
+	pulumi.Input
+
+	ToTemplateAxisScalePtrOutput() TemplateAxisScalePtrOutput
+	ToTemplateAxisScalePtrOutputWithContext(context.Context) TemplateAxisScalePtrOutput
+}
+
+type templateAxisScalePtrType TemplateAxisScaleArgs
+
+func TemplateAxisScalePtr(v *TemplateAxisScaleArgs) TemplateAxisScalePtrInput {
+	return (*templateAxisScalePtrType)(v)
+}
+
+func (*templateAxisScalePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateAxisScale)(nil)).Elem()
+}
+
+func (i *templateAxisScalePtrType) ToTemplateAxisScalePtrOutput() TemplateAxisScalePtrOutput {
+	return i.ToTemplateAxisScalePtrOutputWithContext(context.Background())
+}
+
+func (i *templateAxisScalePtrType) ToTemplateAxisScalePtrOutputWithContext(ctx context.Context) TemplateAxisScalePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateAxisScalePtrOutput)
+}
+
+type TemplateAxisScaleOutput struct{ *pulumi.OutputState }
+
+func (TemplateAxisScaleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateAxisScale)(nil)).Elem()
+}
+
+func (o TemplateAxisScaleOutput) ToTemplateAxisScaleOutput() TemplateAxisScaleOutput {
+	return o
+}
+
+func (o TemplateAxisScaleOutput) ToTemplateAxisScaleOutputWithContext(ctx context.Context) TemplateAxisScaleOutput {
+	return o
+}
+
+func (o TemplateAxisScaleOutput) ToTemplateAxisScalePtrOutput() TemplateAxisScalePtrOutput {
+	return o.ToTemplateAxisScalePtrOutputWithContext(context.Background())
+}
+
+func (o TemplateAxisScaleOutput) ToTemplateAxisScalePtrOutputWithContext(ctx context.Context) TemplateAxisScalePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateAxisScale) *TemplateAxisScale {
+		return &v
+	}).(TemplateAxisScalePtrOutput)
+}
+
+func (o TemplateAxisScaleOutput) Linear() TemplateAxisLinearScalePtrOutput {
+	return o.ApplyT(func(v TemplateAxisScale) *TemplateAxisLinearScale { return v.Linear }).(TemplateAxisLinearScalePtrOutput)
+}
+
+func (o TemplateAxisScaleOutput) Logarithmic() TemplateAxisLogarithmicScalePtrOutput {
+	return o.ApplyT(func(v TemplateAxisScale) *TemplateAxisLogarithmicScale { return v.Logarithmic }).(TemplateAxisLogarithmicScalePtrOutput)
+}
+
+type TemplateAxisScalePtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateAxisScalePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateAxisScale)(nil)).Elem()
+}
+
+func (o TemplateAxisScalePtrOutput) ToTemplateAxisScalePtrOutput() TemplateAxisScalePtrOutput {
+	return o
+}
+
+func (o TemplateAxisScalePtrOutput) ToTemplateAxisScalePtrOutputWithContext(ctx context.Context) TemplateAxisScalePtrOutput {
+	return o
+}
+
+func (o TemplateAxisScalePtrOutput) Elem() TemplateAxisScaleOutput {
+	return o.ApplyT(func(v *TemplateAxisScale) TemplateAxisScale {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateAxisScale
+		return ret
+	}).(TemplateAxisScaleOutput)
+}
+
+func (o TemplateAxisScalePtrOutput) Linear() TemplateAxisLinearScalePtrOutput {
+	return o.ApplyT(func(v *TemplateAxisScale) *TemplateAxisLinearScale {
+		if v == nil {
+			return nil
+		}
+		return v.Linear
+	}).(TemplateAxisLinearScalePtrOutput)
+}
+
+func (o TemplateAxisScalePtrOutput) Logarithmic() TemplateAxisLogarithmicScalePtrOutput {
+	return o.ApplyT(func(v *TemplateAxisScale) *TemplateAxisLogarithmicScale {
+		if v == nil {
+			return nil
+		}
+		return v.Logarithmic
+	}).(TemplateAxisLogarithmicScalePtrOutput)
+}
+
+type TemplateAxisTickLabelOptions struct {
+	LabelOptions  *TemplateLabelOptions `pulumi:"labelOptions"`
+	RotationAngle *float64              `pulumi:"rotationAngle"`
+}
+
+// TemplateAxisTickLabelOptionsInput is an input type that accepts TemplateAxisTickLabelOptionsArgs and TemplateAxisTickLabelOptionsOutput values.
+// You can construct a concrete instance of `TemplateAxisTickLabelOptionsInput` via:
+//
+//	TemplateAxisTickLabelOptionsArgs{...}
+type TemplateAxisTickLabelOptionsInput interface {
+	pulumi.Input
+
+	ToTemplateAxisTickLabelOptionsOutput() TemplateAxisTickLabelOptionsOutput
+	ToTemplateAxisTickLabelOptionsOutputWithContext(context.Context) TemplateAxisTickLabelOptionsOutput
+}
+
+type TemplateAxisTickLabelOptionsArgs struct {
+	LabelOptions  TemplateLabelOptionsPtrInput `pulumi:"labelOptions"`
+	RotationAngle pulumi.Float64PtrInput       `pulumi:"rotationAngle"`
+}
+
+func (TemplateAxisTickLabelOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateAxisTickLabelOptions)(nil)).Elem()
+}
+
+func (i TemplateAxisTickLabelOptionsArgs) ToTemplateAxisTickLabelOptionsOutput() TemplateAxisTickLabelOptionsOutput {
+	return i.ToTemplateAxisTickLabelOptionsOutputWithContext(context.Background())
+}
+
+func (i TemplateAxisTickLabelOptionsArgs) ToTemplateAxisTickLabelOptionsOutputWithContext(ctx context.Context) TemplateAxisTickLabelOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateAxisTickLabelOptionsOutput)
+}
+
+func (i TemplateAxisTickLabelOptionsArgs) ToTemplateAxisTickLabelOptionsPtrOutput() TemplateAxisTickLabelOptionsPtrOutput {
+	return i.ToTemplateAxisTickLabelOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateAxisTickLabelOptionsArgs) ToTemplateAxisTickLabelOptionsPtrOutputWithContext(ctx context.Context) TemplateAxisTickLabelOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateAxisTickLabelOptionsOutput).ToTemplateAxisTickLabelOptionsPtrOutputWithContext(ctx)
+}
+
+// TemplateAxisTickLabelOptionsPtrInput is an input type that accepts TemplateAxisTickLabelOptionsArgs, TemplateAxisTickLabelOptionsPtr and TemplateAxisTickLabelOptionsPtrOutput values.
+// You can construct a concrete instance of `TemplateAxisTickLabelOptionsPtrInput` via:
+//
+//	        TemplateAxisTickLabelOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateAxisTickLabelOptionsPtrInput interface {
+	pulumi.Input
+
+	ToTemplateAxisTickLabelOptionsPtrOutput() TemplateAxisTickLabelOptionsPtrOutput
+	ToTemplateAxisTickLabelOptionsPtrOutputWithContext(context.Context) TemplateAxisTickLabelOptionsPtrOutput
+}
+
+type templateAxisTickLabelOptionsPtrType TemplateAxisTickLabelOptionsArgs
+
+func TemplateAxisTickLabelOptionsPtr(v *TemplateAxisTickLabelOptionsArgs) TemplateAxisTickLabelOptionsPtrInput {
+	return (*templateAxisTickLabelOptionsPtrType)(v)
+}
+
+func (*templateAxisTickLabelOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateAxisTickLabelOptions)(nil)).Elem()
+}
+
+func (i *templateAxisTickLabelOptionsPtrType) ToTemplateAxisTickLabelOptionsPtrOutput() TemplateAxisTickLabelOptionsPtrOutput {
+	return i.ToTemplateAxisTickLabelOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *templateAxisTickLabelOptionsPtrType) ToTemplateAxisTickLabelOptionsPtrOutputWithContext(ctx context.Context) TemplateAxisTickLabelOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateAxisTickLabelOptionsPtrOutput)
+}
+
+type TemplateAxisTickLabelOptionsOutput struct{ *pulumi.OutputState }
+
+func (TemplateAxisTickLabelOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateAxisTickLabelOptions)(nil)).Elem()
+}
+
+func (o TemplateAxisTickLabelOptionsOutput) ToTemplateAxisTickLabelOptionsOutput() TemplateAxisTickLabelOptionsOutput {
+	return o
+}
+
+func (o TemplateAxisTickLabelOptionsOutput) ToTemplateAxisTickLabelOptionsOutputWithContext(ctx context.Context) TemplateAxisTickLabelOptionsOutput {
+	return o
+}
+
+func (o TemplateAxisTickLabelOptionsOutput) ToTemplateAxisTickLabelOptionsPtrOutput() TemplateAxisTickLabelOptionsPtrOutput {
+	return o.ToTemplateAxisTickLabelOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateAxisTickLabelOptionsOutput) ToTemplateAxisTickLabelOptionsPtrOutputWithContext(ctx context.Context) TemplateAxisTickLabelOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateAxisTickLabelOptions) *TemplateAxisTickLabelOptions {
+		return &v
+	}).(TemplateAxisTickLabelOptionsPtrOutput)
+}
+
+func (o TemplateAxisTickLabelOptionsOutput) LabelOptions() TemplateLabelOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateAxisTickLabelOptions) *TemplateLabelOptions { return v.LabelOptions }).(TemplateLabelOptionsPtrOutput)
+}
+
+func (o TemplateAxisTickLabelOptionsOutput) RotationAngle() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v TemplateAxisTickLabelOptions) *float64 { return v.RotationAngle }).(pulumi.Float64PtrOutput)
+}
+
+type TemplateAxisTickLabelOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateAxisTickLabelOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateAxisTickLabelOptions)(nil)).Elem()
+}
+
+func (o TemplateAxisTickLabelOptionsPtrOutput) ToTemplateAxisTickLabelOptionsPtrOutput() TemplateAxisTickLabelOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateAxisTickLabelOptionsPtrOutput) ToTemplateAxisTickLabelOptionsPtrOutputWithContext(ctx context.Context) TemplateAxisTickLabelOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateAxisTickLabelOptionsPtrOutput) Elem() TemplateAxisTickLabelOptionsOutput {
+	return o.ApplyT(func(v *TemplateAxisTickLabelOptions) TemplateAxisTickLabelOptions {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateAxisTickLabelOptions
+		return ret
+	}).(TemplateAxisTickLabelOptionsOutput)
+}
+
+func (o TemplateAxisTickLabelOptionsPtrOutput) LabelOptions() TemplateLabelOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateAxisTickLabelOptions) *TemplateLabelOptions {
+		if v == nil {
+			return nil
+		}
+		return v.LabelOptions
+	}).(TemplateLabelOptionsPtrOutput)
+}
+
+func (o TemplateAxisTickLabelOptionsPtrOutput) RotationAngle() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *TemplateAxisTickLabelOptions) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.RotationAngle
+	}).(pulumi.Float64PtrOutput)
+}
+
 type TemplateBarChartAggregatedFieldWells struct {
 	Category       []TemplateDimensionField `pulumi:"category"`
 	Colors         []TemplateDimensionField `pulumi:"colors"`
@@ -4698,7 +5275,141 @@ func (o TemplateColorScalePtrOutput) NullValueColor() TemplateDataColorPtrOutput
 	}).(TemplateDataColorPtrOutput)
 }
 
+type TemplateColorsConfiguration struct {
+	CustomColors []TemplateCustomColor `pulumi:"customColors"`
+}
+
+// TemplateColorsConfigurationInput is an input type that accepts TemplateColorsConfigurationArgs and TemplateColorsConfigurationOutput values.
+// You can construct a concrete instance of `TemplateColorsConfigurationInput` via:
+//
+//	TemplateColorsConfigurationArgs{...}
+type TemplateColorsConfigurationInput interface {
+	pulumi.Input
+
+	ToTemplateColorsConfigurationOutput() TemplateColorsConfigurationOutput
+	ToTemplateColorsConfigurationOutputWithContext(context.Context) TemplateColorsConfigurationOutput
+}
+
+type TemplateColorsConfigurationArgs struct {
+	CustomColors TemplateCustomColorArrayInput `pulumi:"customColors"`
+}
+
+func (TemplateColorsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateColorsConfiguration)(nil)).Elem()
+}
+
+func (i TemplateColorsConfigurationArgs) ToTemplateColorsConfigurationOutput() TemplateColorsConfigurationOutput {
+	return i.ToTemplateColorsConfigurationOutputWithContext(context.Background())
+}
+
+func (i TemplateColorsConfigurationArgs) ToTemplateColorsConfigurationOutputWithContext(ctx context.Context) TemplateColorsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateColorsConfigurationOutput)
+}
+
+func (i TemplateColorsConfigurationArgs) ToTemplateColorsConfigurationPtrOutput() TemplateColorsConfigurationPtrOutput {
+	return i.ToTemplateColorsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateColorsConfigurationArgs) ToTemplateColorsConfigurationPtrOutputWithContext(ctx context.Context) TemplateColorsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateColorsConfigurationOutput).ToTemplateColorsConfigurationPtrOutputWithContext(ctx)
+}
+
+// TemplateColorsConfigurationPtrInput is an input type that accepts TemplateColorsConfigurationArgs, TemplateColorsConfigurationPtr and TemplateColorsConfigurationPtrOutput values.
+// You can construct a concrete instance of `TemplateColorsConfigurationPtrInput` via:
+//
+//	        TemplateColorsConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateColorsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTemplateColorsConfigurationPtrOutput() TemplateColorsConfigurationPtrOutput
+	ToTemplateColorsConfigurationPtrOutputWithContext(context.Context) TemplateColorsConfigurationPtrOutput
+}
+
+type templateColorsConfigurationPtrType TemplateColorsConfigurationArgs
+
+func TemplateColorsConfigurationPtr(v *TemplateColorsConfigurationArgs) TemplateColorsConfigurationPtrInput {
+	return (*templateColorsConfigurationPtrType)(v)
+}
+
+func (*templateColorsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateColorsConfiguration)(nil)).Elem()
+}
+
+func (i *templateColorsConfigurationPtrType) ToTemplateColorsConfigurationPtrOutput() TemplateColorsConfigurationPtrOutput {
+	return i.ToTemplateColorsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *templateColorsConfigurationPtrType) ToTemplateColorsConfigurationPtrOutputWithContext(ctx context.Context) TemplateColorsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateColorsConfigurationPtrOutput)
+}
+
+type TemplateColorsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TemplateColorsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateColorsConfiguration)(nil)).Elem()
+}
+
+func (o TemplateColorsConfigurationOutput) ToTemplateColorsConfigurationOutput() TemplateColorsConfigurationOutput {
+	return o
+}
+
+func (o TemplateColorsConfigurationOutput) ToTemplateColorsConfigurationOutputWithContext(ctx context.Context) TemplateColorsConfigurationOutput {
+	return o
+}
+
+func (o TemplateColorsConfigurationOutput) ToTemplateColorsConfigurationPtrOutput() TemplateColorsConfigurationPtrOutput {
+	return o.ToTemplateColorsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateColorsConfigurationOutput) ToTemplateColorsConfigurationPtrOutputWithContext(ctx context.Context) TemplateColorsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateColorsConfiguration) *TemplateColorsConfiguration {
+		return &v
+	}).(TemplateColorsConfigurationPtrOutput)
+}
+
+func (o TemplateColorsConfigurationOutput) CustomColors() TemplateCustomColorArrayOutput {
+	return o.ApplyT(func(v TemplateColorsConfiguration) []TemplateCustomColor { return v.CustomColors }).(TemplateCustomColorArrayOutput)
+}
+
+type TemplateColorsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateColorsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateColorsConfiguration)(nil)).Elem()
+}
+
+func (o TemplateColorsConfigurationPtrOutput) ToTemplateColorsConfigurationPtrOutput() TemplateColorsConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateColorsConfigurationPtrOutput) ToTemplateColorsConfigurationPtrOutputWithContext(ctx context.Context) TemplateColorsConfigurationPtrOutput {
+	return o
+}
+
+func (o TemplateColorsConfigurationPtrOutput) Elem() TemplateColorsConfigurationOutput {
+	return o.ApplyT(func(v *TemplateColorsConfiguration) TemplateColorsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateColorsConfiguration
+		return ret
+	}).(TemplateColorsConfigurationOutput)
+}
+
+func (o TemplateColorsConfigurationPtrOutput) CustomColors() TemplateCustomColorArrayOutput {
+	return o.ApplyT(func(v *TemplateColorsConfiguration) []TemplateCustomColor {
+		if v == nil {
+			return nil
+		}
+		return v.CustomColors
+	}).(TemplateCustomColorArrayOutput)
+}
+
 type TemplateColumnConfiguration struct {
+	ColorsConfiguration *TemplateColorsConfiguration `pulumi:"colorsConfiguration"`
 	Column              TemplateColumnIdentifier     `pulumi:"column"`
 	FormatConfiguration *TemplateFormatConfiguration `pulumi:"formatConfiguration"`
 	Role                *TemplateColumnRole          `pulumi:"role"`
@@ -4716,6 +5427,7 @@ type TemplateColumnConfigurationInput interface {
 }
 
 type TemplateColumnConfigurationArgs struct {
+	ColorsConfiguration TemplateColorsConfigurationPtrInput `pulumi:"colorsConfiguration"`
 	Column              TemplateColumnIdentifierInput       `pulumi:"column"`
 	FormatConfiguration TemplateFormatConfigurationPtrInput `pulumi:"formatConfiguration"`
 	Role                TemplateColumnRolePtrInput          `pulumi:"role"`
@@ -4770,6 +5482,10 @@ func (o TemplateColumnConfigurationOutput) ToTemplateColumnConfigurationOutput()
 
 func (o TemplateColumnConfigurationOutput) ToTemplateColumnConfigurationOutputWithContext(ctx context.Context) TemplateColumnConfigurationOutput {
 	return o
+}
+
+func (o TemplateColumnConfigurationOutput) ColorsConfiguration() TemplateColorsConfigurationPtrOutput {
+	return o.ApplyT(func(v TemplateColumnConfiguration) *TemplateColorsConfiguration { return v.ColorsConfiguration }).(TemplateColorsConfigurationPtrOutput)
 }
 
 func (o TemplateColumnConfigurationOutput) Column() TemplateColumnIdentifierOutput {
@@ -9390,6 +10106,112 @@ func (o TemplateCustomActionURLOperationPtrOutput) URLTemplate() pulumi.StringPt
 		}
 		return &v.URLTemplate
 	}).(pulumi.StringPtrOutput)
+}
+
+type TemplateCustomColor struct {
+	Color        string                `pulumi:"color"`
+	FieldValue   *string               `pulumi:"fieldValue"`
+	SpecialValue *TemplateSpecialValue `pulumi:"specialValue"`
+}
+
+// TemplateCustomColorInput is an input type that accepts TemplateCustomColorArgs and TemplateCustomColorOutput values.
+// You can construct a concrete instance of `TemplateCustomColorInput` via:
+//
+//	TemplateCustomColorArgs{...}
+type TemplateCustomColorInput interface {
+	pulumi.Input
+
+	ToTemplateCustomColorOutput() TemplateCustomColorOutput
+	ToTemplateCustomColorOutputWithContext(context.Context) TemplateCustomColorOutput
+}
+
+type TemplateCustomColorArgs struct {
+	Color        pulumi.StringInput           `pulumi:"color"`
+	FieldValue   pulumi.StringPtrInput        `pulumi:"fieldValue"`
+	SpecialValue TemplateSpecialValuePtrInput `pulumi:"specialValue"`
+}
+
+func (TemplateCustomColorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateCustomColor)(nil)).Elem()
+}
+
+func (i TemplateCustomColorArgs) ToTemplateCustomColorOutput() TemplateCustomColorOutput {
+	return i.ToTemplateCustomColorOutputWithContext(context.Background())
+}
+
+func (i TemplateCustomColorArgs) ToTemplateCustomColorOutputWithContext(ctx context.Context) TemplateCustomColorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateCustomColorOutput)
+}
+
+// TemplateCustomColorArrayInput is an input type that accepts TemplateCustomColorArray and TemplateCustomColorArrayOutput values.
+// You can construct a concrete instance of `TemplateCustomColorArrayInput` via:
+//
+//	TemplateCustomColorArray{ TemplateCustomColorArgs{...} }
+type TemplateCustomColorArrayInput interface {
+	pulumi.Input
+
+	ToTemplateCustomColorArrayOutput() TemplateCustomColorArrayOutput
+	ToTemplateCustomColorArrayOutputWithContext(context.Context) TemplateCustomColorArrayOutput
+}
+
+type TemplateCustomColorArray []TemplateCustomColorInput
+
+func (TemplateCustomColorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateCustomColor)(nil)).Elem()
+}
+
+func (i TemplateCustomColorArray) ToTemplateCustomColorArrayOutput() TemplateCustomColorArrayOutput {
+	return i.ToTemplateCustomColorArrayOutputWithContext(context.Background())
+}
+
+func (i TemplateCustomColorArray) ToTemplateCustomColorArrayOutputWithContext(ctx context.Context) TemplateCustomColorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateCustomColorArrayOutput)
+}
+
+type TemplateCustomColorOutput struct{ *pulumi.OutputState }
+
+func (TemplateCustomColorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateCustomColor)(nil)).Elem()
+}
+
+func (o TemplateCustomColorOutput) ToTemplateCustomColorOutput() TemplateCustomColorOutput {
+	return o
+}
+
+func (o TemplateCustomColorOutput) ToTemplateCustomColorOutputWithContext(ctx context.Context) TemplateCustomColorOutput {
+	return o
+}
+
+func (o TemplateCustomColorOutput) Color() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateCustomColor) string { return v.Color }).(pulumi.StringOutput)
+}
+
+func (o TemplateCustomColorOutput) FieldValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateCustomColor) *string { return v.FieldValue }).(pulumi.StringPtrOutput)
+}
+
+func (o TemplateCustomColorOutput) SpecialValue() TemplateSpecialValuePtrOutput {
+	return o.ApplyT(func(v TemplateCustomColor) *TemplateSpecialValue { return v.SpecialValue }).(TemplateSpecialValuePtrOutput)
+}
+
+type TemplateCustomColorArrayOutput struct{ *pulumi.OutputState }
+
+func (TemplateCustomColorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateCustomColor)(nil)).Elem()
+}
+
+func (o TemplateCustomColorArrayOutput) ToTemplateCustomColorArrayOutput() TemplateCustomColorArrayOutput {
+	return o
+}
+
+func (o TemplateCustomColorArrayOutput) ToTemplateCustomColorArrayOutputWithContext(ctx context.Context) TemplateCustomColorArrayOutput {
+	return o
+}
+
+func (o TemplateCustomColorArrayOutput) Index(i pulumi.IntInput) TemplateCustomColorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TemplateCustomColor {
+		return vs[0].([]TemplateCustomColor)[vs[1].(int)]
+	}).(TemplateCustomColorOutput)
 }
 
 type TemplateCustomContentConfiguration struct {
@@ -75755,6 +76577,14 @@ func (o VPCConnectionTagArrayOutput) Index(i pulumi.IntInput) VPCConnectionTagOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateAxisLinearScaleInput)(nil)).Elem(), TemplateAxisLinearScaleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateAxisLinearScalePtrInput)(nil)).Elem(), TemplateAxisLinearScaleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateAxisLogarithmicScaleInput)(nil)).Elem(), TemplateAxisLogarithmicScaleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateAxisLogarithmicScalePtrInput)(nil)).Elem(), TemplateAxisLogarithmicScaleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateAxisScaleInput)(nil)).Elem(), TemplateAxisScaleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateAxisScalePtrInput)(nil)).Elem(), TemplateAxisScaleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateAxisTickLabelOptionsInput)(nil)).Elem(), TemplateAxisTickLabelOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateAxisTickLabelOptionsPtrInput)(nil)).Elem(), TemplateAxisTickLabelOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateBarChartAggregatedFieldWellsInput)(nil)).Elem(), TemplateBarChartAggregatedFieldWellsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateBarChartAggregatedFieldWellsPtrInput)(nil)).Elem(), TemplateBarChartAggregatedFieldWellsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateBarChartConfigurationInput)(nil)).Elem(), TemplateBarChartConfigurationArgs{})
@@ -75812,6 +76642,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateClusterMarkerConfigurationPtrInput)(nil)).Elem(), TemplateClusterMarkerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateColorScaleInput)(nil)).Elem(), TemplateColorScaleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateColorScalePtrInput)(nil)).Elem(), TemplateColorScaleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateColorsConfigurationInput)(nil)).Elem(), TemplateColorsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateColorsConfigurationPtrInput)(nil)).Elem(), TemplateColorsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateColumnConfigurationInput)(nil)).Elem(), TemplateColumnConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateColumnConfigurationArrayInput)(nil)).Elem(), TemplateColumnConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateColumnGroupColumnSchemaInput)(nil)).Elem(), TemplateColumnGroupColumnSchemaArgs{})
@@ -75873,6 +76705,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateCustomActionSetParametersOperationPtrInput)(nil)).Elem(), TemplateCustomActionSetParametersOperationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateCustomActionURLOperationInput)(nil)).Elem(), TemplateCustomActionURLOperationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateCustomActionURLOperationPtrInput)(nil)).Elem(), TemplateCustomActionURLOperationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateCustomColorInput)(nil)).Elem(), TemplateCustomColorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateCustomColorArrayInput)(nil)).Elem(), TemplateCustomColorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateCustomContentConfigurationInput)(nil)).Elem(), TemplateCustomContentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateCustomContentConfigurationPtrInput)(nil)).Elem(), TemplateCustomContentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateCustomContentVisualInput)(nil)).Elem(), TemplateCustomContentVisualArgs{})
@@ -76697,6 +77531,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicTypeParametersPtrInput)(nil)).Elem(), TopicTypeParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VPCConnectionTagInput)(nil)).Elem(), VPCConnectionTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VPCConnectionTagArrayInput)(nil)).Elem(), VPCConnectionTagArray{})
+	pulumi.RegisterOutputType(TemplateAxisLinearScaleOutput{})
+	pulumi.RegisterOutputType(TemplateAxisLinearScalePtrOutput{})
+	pulumi.RegisterOutputType(TemplateAxisLogarithmicScaleOutput{})
+	pulumi.RegisterOutputType(TemplateAxisLogarithmicScalePtrOutput{})
+	pulumi.RegisterOutputType(TemplateAxisScaleOutput{})
+	pulumi.RegisterOutputType(TemplateAxisScalePtrOutput{})
+	pulumi.RegisterOutputType(TemplateAxisTickLabelOptionsOutput{})
+	pulumi.RegisterOutputType(TemplateAxisTickLabelOptionsPtrOutput{})
 	pulumi.RegisterOutputType(TemplateBarChartAggregatedFieldWellsOutput{})
 	pulumi.RegisterOutputType(TemplateBarChartAggregatedFieldWellsPtrOutput{})
 	pulumi.RegisterOutputType(TemplateBarChartConfigurationOutput{})
@@ -76754,6 +77596,8 @@ func init() {
 	pulumi.RegisterOutputType(TemplateClusterMarkerConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TemplateColorScaleOutput{})
 	pulumi.RegisterOutputType(TemplateColorScalePtrOutput{})
+	pulumi.RegisterOutputType(TemplateColorsConfigurationOutput{})
+	pulumi.RegisterOutputType(TemplateColorsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TemplateColumnConfigurationOutput{})
 	pulumi.RegisterOutputType(TemplateColumnConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(TemplateColumnGroupColumnSchemaOutput{})
@@ -76815,6 +77659,8 @@ func init() {
 	pulumi.RegisterOutputType(TemplateCustomActionSetParametersOperationPtrOutput{})
 	pulumi.RegisterOutputType(TemplateCustomActionURLOperationOutput{})
 	pulumi.RegisterOutputType(TemplateCustomActionURLOperationPtrOutput{})
+	pulumi.RegisterOutputType(TemplateCustomColorOutput{})
+	pulumi.RegisterOutputType(TemplateCustomColorArrayOutput{})
 	pulumi.RegisterOutputType(TemplateCustomContentConfigurationOutput{})
 	pulumi.RegisterOutputType(TemplateCustomContentConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TemplateCustomContentVisualOutput{})

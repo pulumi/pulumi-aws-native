@@ -8,7 +8,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
 
 __all__ = [
     'GetKeyPairResult',
@@ -19,19 +18,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetKeyPairResult:
-    def __init__(__self__, key_fingerprint=None, key_pair_id=None, public_key_material=None, tags=None):
+    def __init__(__self__, key_fingerprint=None, key_pair_id=None):
         if key_fingerprint and not isinstance(key_fingerprint, str):
             raise TypeError("Expected argument 'key_fingerprint' to be a str")
         pulumi.set(__self__, "key_fingerprint", key_fingerprint)
         if key_pair_id and not isinstance(key_pair_id, str):
             raise TypeError("Expected argument 'key_pair_id' to be a str")
         pulumi.set(__self__, "key_pair_id", key_pair_id)
-        if public_key_material and not isinstance(public_key_material, str):
-            raise TypeError("Expected argument 'public_key_material' to be a str")
-        pulumi.set(__self__, "public_key_material", public_key_material)
-        if tags and not isinstance(tags, list):
-            raise TypeError("Expected argument 'tags' to be a list")
-        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="keyFingerprint")
@@ -49,22 +42,6 @@ class GetKeyPairResult:
         """
         return pulumi.get(self, "key_pair_id")
 
-    @property
-    @pulumi.getter(name="publicKeyMaterial")
-    def public_key_material(self) -> Optional[str]:
-        """
-        Plain text public key to import
-        """
-        return pulumi.get(self, "public_key_material")
-
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.KeyPairTag']]:
-        """
-        An array of key-value pairs to apply to this resource.
-        """
-        return pulumi.get(self, "tags")
-
 
 class AwaitableGetKeyPairResult(GetKeyPairResult):
     # pylint: disable=using-constant-test
@@ -73,9 +50,7 @@ class AwaitableGetKeyPairResult(GetKeyPairResult):
             yield self
         return GetKeyPairResult(
             key_fingerprint=self.key_fingerprint,
-            key_pair_id=self.key_pair_id,
-            public_key_material=self.public_key_material,
-            tags=self.tags)
+            key_pair_id=self.key_pair_id)
 
 
 def get_key_pair(key_name: Optional[str] = None,
@@ -93,9 +68,7 @@ def get_key_pair(key_name: Optional[str] = None,
 
     return AwaitableGetKeyPairResult(
         key_fingerprint=__ret__.key_fingerprint,
-        key_pair_id=__ret__.key_pair_id,
-        public_key_material=__ret__.public_key_material,
-        tags=__ret__.tags)
+        key_pair_id=__ret__.key_pair_id)
 
 
 @_utilities.lift_output_func(get_key_pair)

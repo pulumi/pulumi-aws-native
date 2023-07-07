@@ -28,6 +28,7 @@ class ServerArgs:
                  protocol_details: Optional[pulumi.Input['ServerProtocolDetailsArgs']] = None,
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input['ServerProtocolArgs']]]] = None,
                  security_policy_name: Optional[pulumi.Input[str]] = None,
+                 structured_log_destinations: Optional[pulumi.Input[Sequence[pulumi.Input['ServerStructuredLogDestinationArgs']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ServerTagArgs']]]] = None,
                  workflow_details: Optional[pulumi.Input['ServerWorkflowDetailsArgs']] = None):
         """
@@ -57,6 +58,8 @@ class ServerArgs:
             pulumi.set(__self__, "protocols", protocols)
         if security_policy_name is not None:
             pulumi.set(__self__, "security_policy_name", security_policy_name)
+        if structured_log_destinations is not None:
+            pulumi.set(__self__, "structured_log_destinations", structured_log_destinations)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if workflow_details is not None:
@@ -171,6 +174,15 @@ class ServerArgs:
         pulumi.set(self, "security_policy_name", value)
 
     @property
+    @pulumi.getter(name="structuredLogDestinations")
+    def structured_log_destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServerStructuredLogDestinationArgs']]]]:
+        return pulumi.get(self, "structured_log_destinations")
+
+    @structured_log_destinations.setter
+    def structured_log_destinations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServerStructuredLogDestinationArgs']]]]):
+        pulumi.set(self, "structured_log_destinations", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServerTagArgs']]]]:
         return pulumi.get(self, "tags")
@@ -211,6 +223,7 @@ class Server(pulumi.CustomResource):
                  protocol_details: Optional[pulumi.Input[pulumi.InputType['ServerProtocolDetailsArgs']]] = None,
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerProtocolArgs']]]]] = None,
                  security_policy_name: Optional[pulumi.Input[str]] = None,
+                 structured_log_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerStructuredLogDestinationArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerTagArgs']]]]] = None,
                  workflow_details: Optional[pulumi.Input[pulumi.InputType['ServerWorkflowDetailsArgs']]] = None,
                  __props__=None):
@@ -256,6 +269,7 @@ class Server(pulumi.CustomResource):
                  protocol_details: Optional[pulumi.Input[pulumi.InputType['ServerProtocolDetailsArgs']]] = None,
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerProtocolArgs']]]]] = None,
                  security_policy_name: Optional[pulumi.Input[str]] = None,
+                 structured_log_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerStructuredLogDestinationArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerTagArgs']]]]] = None,
                  workflow_details: Optional[pulumi.Input[pulumi.InputType['ServerWorkflowDetailsArgs']]] = None,
                  __props__=None):
@@ -280,6 +294,7 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["protocol_details"] = protocol_details
             __props__.__dict__["protocols"] = protocols
             __props__.__dict__["security_policy_name"] = security_policy_name
+            __props__.__dict__["structured_log_destinations"] = structured_log_destinations
             __props__.__dict__["tags"] = tags
             __props__.__dict__["workflow_details"] = workflow_details
             __props__.__dict__["arn"] = None
@@ -320,6 +335,7 @@ class Server(pulumi.CustomResource):
         __props__.__dict__["protocols"] = None
         __props__.__dict__["security_policy_name"] = None
         __props__.__dict__["server_id"] = None
+        __props__.__dict__["structured_log_destinations"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["workflow_details"] = None
         return Server(resource_name, opts=opts, __props__=__props__)
@@ -393,6 +409,11 @@ class Server(pulumi.CustomResource):
     @pulumi.getter(name="serverId")
     def server_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "server_id")
+
+    @property
+    @pulumi.getter(name="structuredLogDestinations")
+    def structured_log_destinations(self) -> pulumi.Output[Optional[Sequence['outputs.ServerStructuredLogDestination']]]:
+        return pulumi.get(self, "structured_log_destinations")
 
     @property
     @pulumi.getter

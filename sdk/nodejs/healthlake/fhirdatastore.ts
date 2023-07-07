@@ -44,6 +44,7 @@ export class FHIRDatastore extends pulumi.CustomResource {
     public readonly datastoreName!: pulumi.Output<string | undefined>;
     public /*out*/ readonly datastoreStatus!: pulumi.Output<enums.healthlake.FHIRDatastoreDatastoreStatus>;
     public readonly datastoreTypeVersion!: pulumi.Output<enums.healthlake.FHIRDatastoreDatastoreTypeVersion>;
+    public readonly identityProviderConfiguration!: pulumi.Output<outputs.healthlake.FHIRDatastoreIdentityProviderConfiguration | undefined>;
     public readonly preloadDataConfig!: pulumi.Output<outputs.healthlake.FHIRDatastorePreloadDataConfig | undefined>;
     public readonly sseConfiguration!: pulumi.Output<outputs.healthlake.FHIRDatastoreSseConfiguration | undefined>;
     public readonly tags!: pulumi.Output<outputs.healthlake.FHIRDatastoreTag[] | undefined>;
@@ -64,6 +65,7 @@ export class FHIRDatastore extends pulumi.CustomResource {
             }
             resourceInputs["datastoreName"] = args ? args.datastoreName : undefined;
             resourceInputs["datastoreTypeVersion"] = args ? args.datastoreTypeVersion : undefined;
+            resourceInputs["identityProviderConfiguration"] = args ? args.identityProviderConfiguration : undefined;
             resourceInputs["preloadDataConfig"] = args ? args.preloadDataConfig : undefined;
             resourceInputs["sseConfiguration"] = args ? args.sseConfiguration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -80,6 +82,7 @@ export class FHIRDatastore extends pulumi.CustomResource {
             resourceInputs["datastoreName"] = undefined /*out*/;
             resourceInputs["datastoreStatus"] = undefined /*out*/;
             resourceInputs["datastoreTypeVersion"] = undefined /*out*/;
+            resourceInputs["identityProviderConfiguration"] = undefined /*out*/;
             resourceInputs["preloadDataConfig"] = undefined /*out*/;
             resourceInputs["sseConfiguration"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -95,6 +98,7 @@ export class FHIRDatastore extends pulumi.CustomResource {
 export interface FHIRDatastoreArgs {
     datastoreName?: pulumi.Input<string>;
     datastoreTypeVersion: pulumi.Input<enums.healthlake.FHIRDatastoreDatastoreTypeVersion>;
+    identityProviderConfiguration?: pulumi.Input<inputs.healthlake.FHIRDatastoreIdentityProviderConfigurationArgs>;
     preloadDataConfig?: pulumi.Input<inputs.healthlake.FHIRDatastorePreloadDataConfigArgs>;
     sseConfiguration?: pulumi.Input<inputs.healthlake.FHIRDatastoreSseConfigurationArgs>;
     tags?: pulumi.Input<pulumi.Input<inputs.healthlake.FHIRDatastoreTagArgs>[]>;

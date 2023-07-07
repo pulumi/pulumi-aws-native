@@ -1248,6 +1248,7 @@ _utilities.register(
   "mod": "comprehend",
   "fqn": "pulumi_aws_native.comprehend",
   "classes": {
+   "aws-native:comprehend:DocumentClassifier": "DocumentClassifier",
    "aws-native:comprehend:Flywheel": "Flywheel"
   }
  },

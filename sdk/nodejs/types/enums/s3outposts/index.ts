@@ -23,6 +23,8 @@ export const EndpointStatus = {
     Available: "Available",
     Pending: "Pending",
     Deleting: "Deleting",
+    CreateFailed: "Create_Failed",
+    DeleteFailed: "Delete_Failed",
 } as const;
 
 export type EndpointStatus = (typeof EndpointStatus)[keyof typeof EndpointStatus];

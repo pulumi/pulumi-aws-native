@@ -963,39 +963,6 @@ func (o PermissionsDataLakePrincipalOutput) DataLakePrincipalIdentifier() pulumi
 	return o.ApplyT(func(v PermissionsDataLakePrincipal) *string { return v.DataLakePrincipalIdentifier }).(pulumi.StringPtrOutput)
 }
 
-type PermissionsDataLakePrincipalPtrOutput struct{ *pulumi.OutputState }
-
-func (PermissionsDataLakePrincipalPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PermissionsDataLakePrincipal)(nil)).Elem()
-}
-
-func (o PermissionsDataLakePrincipalPtrOutput) ToPermissionsDataLakePrincipalPtrOutput() PermissionsDataLakePrincipalPtrOutput {
-	return o
-}
-
-func (o PermissionsDataLakePrincipalPtrOutput) ToPermissionsDataLakePrincipalPtrOutputWithContext(ctx context.Context) PermissionsDataLakePrincipalPtrOutput {
-	return o
-}
-
-func (o PermissionsDataLakePrincipalPtrOutput) Elem() PermissionsDataLakePrincipalOutput {
-	return o.ApplyT(func(v *PermissionsDataLakePrincipal) PermissionsDataLakePrincipal {
-		if v != nil {
-			return *v
-		}
-		var ret PermissionsDataLakePrincipal
-		return ret
-	}).(PermissionsDataLakePrincipalOutput)
-}
-
-func (o PermissionsDataLakePrincipalPtrOutput) DataLakePrincipalIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PermissionsDataLakePrincipal) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DataLakePrincipalIdentifier
-	}).(pulumi.StringPtrOutput)
-}
-
 type PermissionsDataLocationResource struct {
 	CatalogId  *string `pulumi:"catalogId"`
 	S3Resource *string `pulumi:"s3Resource"`
@@ -1357,66 +1324,6 @@ func (o PermissionsResourceOutput) TableResource() PermissionsTableResourcePtrOu
 
 func (o PermissionsResourceOutput) TableWithColumnsResource() PermissionsTableWithColumnsResourcePtrOutput {
 	return o.ApplyT(func(v PermissionsResource) *PermissionsTableWithColumnsResource { return v.TableWithColumnsResource }).(PermissionsTableWithColumnsResourcePtrOutput)
-}
-
-type PermissionsResourcePtrOutput struct{ *pulumi.OutputState }
-
-func (PermissionsResourcePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PermissionsResource)(nil)).Elem()
-}
-
-func (o PermissionsResourcePtrOutput) ToPermissionsResourcePtrOutput() PermissionsResourcePtrOutput {
-	return o
-}
-
-func (o PermissionsResourcePtrOutput) ToPermissionsResourcePtrOutputWithContext(ctx context.Context) PermissionsResourcePtrOutput {
-	return o
-}
-
-func (o PermissionsResourcePtrOutput) Elem() PermissionsResourceOutput {
-	return o.ApplyT(func(v *PermissionsResource) PermissionsResource {
-		if v != nil {
-			return *v
-		}
-		var ret PermissionsResource
-		return ret
-	}).(PermissionsResourceOutput)
-}
-
-func (o PermissionsResourcePtrOutput) DataLocationResource() PermissionsDataLocationResourcePtrOutput {
-	return o.ApplyT(func(v *PermissionsResource) *PermissionsDataLocationResource {
-		if v == nil {
-			return nil
-		}
-		return v.DataLocationResource
-	}).(PermissionsDataLocationResourcePtrOutput)
-}
-
-func (o PermissionsResourcePtrOutput) DatabaseResource() PermissionsDatabaseResourcePtrOutput {
-	return o.ApplyT(func(v *PermissionsResource) *PermissionsDatabaseResource {
-		if v == nil {
-			return nil
-		}
-		return v.DatabaseResource
-	}).(PermissionsDatabaseResourcePtrOutput)
-}
-
-func (o PermissionsResourcePtrOutput) TableResource() PermissionsTableResourcePtrOutput {
-	return o.ApplyT(func(v *PermissionsResource) *PermissionsTableResource {
-		if v == nil {
-			return nil
-		}
-		return v.TableResource
-	}).(PermissionsTableResourcePtrOutput)
-}
-
-func (o PermissionsResourcePtrOutput) TableWithColumnsResource() PermissionsTableWithColumnsResourcePtrOutput {
-	return o.ApplyT(func(v *PermissionsResource) *PermissionsTableWithColumnsResource {
-		if v == nil {
-			return nil
-		}
-		return v.TableWithColumnsResource
-	}).(PermissionsTableWithColumnsResourcePtrOutput)
 }
 
 type PermissionsTableResource struct {
@@ -4688,13 +4595,11 @@ func init() {
 	pulumi.RegisterOutputType(PermissionsColumnWildcardOutput{})
 	pulumi.RegisterOutputType(PermissionsColumnWildcardPtrOutput{})
 	pulumi.RegisterOutputType(PermissionsDataLakePrincipalOutput{})
-	pulumi.RegisterOutputType(PermissionsDataLakePrincipalPtrOutput{})
 	pulumi.RegisterOutputType(PermissionsDataLocationResourceOutput{})
 	pulumi.RegisterOutputType(PermissionsDataLocationResourcePtrOutput{})
 	pulumi.RegisterOutputType(PermissionsDatabaseResourceOutput{})
 	pulumi.RegisterOutputType(PermissionsDatabaseResourcePtrOutput{})
 	pulumi.RegisterOutputType(PermissionsResourceOutput{})
-	pulumi.RegisterOutputType(PermissionsResourcePtrOutput{})
 	pulumi.RegisterOutputType(PermissionsTableResourceOutput{})
 	pulumi.RegisterOutputType(PermissionsTableResourcePtrOutput{})
 	pulumi.RegisterOutputType(PermissionsTableWildcardOutput{})

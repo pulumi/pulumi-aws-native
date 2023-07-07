@@ -12,6 +12,7 @@ __all__ = [
     'FlowAggregationType',
     'FlowAmplitudeConnectorOperator',
     'FlowConnectorType',
+    'FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesType',
     'FlowDataTransferApi',
     'FlowDatadogConnectorOperator',
     'FlowDynatraceConnectorOperator',
@@ -117,6 +118,12 @@ class FlowConnectorType(str, Enum):
     EVENT_BRIDGE = "EventBridge"
     UPSOLVER = "Upsolver"
     LOOKOUT_METRICS = "LookoutMetrics"
+
+
+class FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesType(str, Enum):
+    SYNC = "SYNC"
+    ASYNC_ = "ASYNC"
+    AUTOMATIC = "AUTOMATIC"
 
 
 class FlowDataTransferApi(str, Enum):

@@ -65,29 +65,15 @@ namespace Pulumi.AwsNative.EC2
         /// An AWS generated ID for the key pair
         /// </summary>
         public readonly string? KeyPairId;
-        /// <summary>
-        /// Plain text public key to import
-        /// </summary>
-        public readonly string? PublicKeyMaterial;
-        /// <summary>
-        /// An array of key-value pairs to apply to this resource.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.KeyPairTag> Tags;
 
         [OutputConstructor]
         private GetKeyPairResult(
             string? keyFingerprint,
 
-            string? keyPairId,
-
-            string? publicKeyMaterial,
-
-            ImmutableArray<Outputs.KeyPairTag> tags)
+            string? keyPairId)
         {
             KeyFingerprint = keyFingerprint;
             KeyPairId = keyPairId;
-            PublicKeyMaterial = publicKeyMaterial;
-            Tags = tags;
         }
     }
 }
