@@ -59,7 +59,7 @@
   "primaryIdentifier" : [ "/properties/LocationName" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "gamelift:CreateLocation", "gamelift:ListLocations" ]
+      "permissions" : [ "gamelift:CreateLocation", "gamelift:ListLocations", "gamelift:TagResource" ]
     },
     "read" : {
       "permissions" : [ "gamelift:ListLocations", "gamelift:ListTagsForResource" ]

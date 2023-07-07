@@ -30,6 +30,7 @@ AWS::ApiGateway::UsagePlan
 AWS::ApiGateway::UsagePlanKey
 AWS::ApiGateway::VpcLink
 AWS::ApiGatewayV2::Api
+AWS::ApiGatewayV2::ApiMapping
 AWS::ApiGatewayV2::Authorizer
 AWS::ApiGatewayV2::Deployment
 AWS::ApiGatewayV2::IntegrationResponse
@@ -132,6 +133,7 @@ AWS::CodePipeline::CustomActionType
 AWS::CodeStarConnections::Connection
 AWS::CodeStarNotifications::NotificationRule
 AWS::Cognito::IdentityPoolPrincipalTag
+AWS::Comprehend::DocumentClassifier
 AWS::Comprehend::Flywheel
 AWS::Config::AggregationAuthorization
 AWS::Config::ConfigurationAggregator
@@ -665,6 +667,7 @@ AWS::SES::EmailIdentity
 AWS::SES::Template
 AWS::SES::VdmAttributes
 AWS::SNS::Topic
+AWS::SNS::TopicPolicy
 AWS::SQS::Queue
 AWS::SSM::Association
 AWS::SSM::Document

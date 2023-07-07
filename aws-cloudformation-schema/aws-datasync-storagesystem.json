@@ -143,16 +143,16 @@
   "readOnlyProperties" : [ "/properties/StorageSystemArn", "/properties/ConnectivityStatus", "/properties/SecretsManagerArn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "datasync:AddStorageSystem", "datasync:TagResource", "secretsmanager:CreateSecret", "iam:CreateServiceLinkedRole" ]
+      "permissions" : [ "datasync:AddStorageSystem", "datasync:DescribeStorageSystem", "datasync:ListTagsForResource", "datasync:TagResource", "secretsmanager:CreateSecret", "secretsmanager:DescribeSecret", "iam:CreateServiceLinkedRole" ]
     },
     "read" : {
       "permissions" : [ "datasync:DescribeStorageSystem", "datasync:ListTagsForResource", "secretsmanager:DescribeSecret" ]
     },
     "update" : {
-      "permissions" : [ "datasync:UpdateStorageSystem", "datasync:DescribeStorageSystem", "datasync:ListTagsForResource", "datasync:TagResource", "datasync:UntagResource", "secretsmanager:PutSecretValue" ]
+      "permissions" : [ "datasync:UpdateStorageSystem", "datasync:DescribeStorageSystem", "datasync:ListTagsForResource", "datasync:TagResource", "datasync:UntagResource", "secretsmanager:DescribeSecret", "secretsmanager:PutSecretValue" ]
     },
     "delete" : {
-      "permissions" : [ "datasync:DescribeStorageSystem", "datasync:RemoveStorageSystem", "secretsmanager:DeleteSecret" ]
+      "permissions" : [ "datasync:DescribeStorageSystem", "datasync:RemoveStorageSystem", "secretsmanager:DescribeSecret", "secretsmanager:DeleteSecret" ]
     },
     "list" : {
       "permissions" : [ "datasync:ListStorageSystems" ]

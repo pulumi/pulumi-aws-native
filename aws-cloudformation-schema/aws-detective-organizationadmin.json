@@ -35,7 +35,7 @@
       "permissions" : [ ]
     },
     "delete" : {
-      "permissions" : [ "detective:DisableOrganizationAdminAccount", "organizations:DescribeOrganization" ]
+      "permissions" : [ "detective:DisableOrganizationAdminAccount", "detective:ListOrganizationAdminAccount", "organizations:DescribeOrganization" ]
     },
     "list" : {
       "permissions" : [ "detective:ListOrganizationAdminAccount", "organizations:DescribeOrganization" ]

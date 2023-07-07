@@ -19,6 +19,13 @@
     "EndpointDetails" : {
       "$ref" : "#/definitions/EndpointDetails"
     },
+    "StructuredLogDestinations" : {
+      "type" : "array",
+      "uniqueItems" : false,
+      "items" : {
+        "$ref" : "#/definitions/StructuredLogDestination"
+      }
+    },
     "PreAuthenticationLoginBanner" : {
       "type" : "string"
     },
@@ -61,6 +68,10 @@
     }
   },
   "definitions" : {
+    "StructuredLogDestination" : {
+      "type" : "object",
+      "additionalProperties" : false
+    },
     "IdentityProviderDetails" : {
       "type" : "object",
       "additionalProperties" : false,

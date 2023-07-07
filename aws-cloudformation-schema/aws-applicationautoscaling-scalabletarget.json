@@ -116,7 +116,7 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "application-autoscaling:DescribeScalableTargets", "application-autoscaling:RegisterScalableTarget", "application-autoscaling:DescribeScheduledActions", "application-autoscaling:PutScheduledAction" ]
+      "permissions" : [ "application-autoscaling:DescribeScalableTargets", "application-autoscaling:RegisterScalableTarget", "application-autoscaling:DescribeScheduledActions", "application-autoscaling:PutScheduledAction", "iam:PassRole", "iam:CreateServiceLinkedRole", "cloudwatch:PutMetricAlarm", "cloudwatch:DeleteAlarms", "cloudwatch:DescribeAlarms", "lambda:GetProvisionedConcurrencyConfig", "lambda:PutProvisionedConcurrencyConfig", "lambda:DeleteProvisionedConcurrencyConfig" ]
     },
     "read" : {
       "permissions" : [ "application-autoscaling:DescribeScalableTargets", "application-autoscaling:DescribeScheduledActions" ]
@@ -125,7 +125,7 @@
       "permissions" : [ "application-autoscaling:DescribeScalableTargets" ]
     },
     "update" : {
-      "permissions" : [ "application-autoscaling:RegisterScalableTarget", "application-autoscaling:DescribeScalableTargets", "application-autoscaling:DescribeScheduledActions", "application-autoscaling:DeleteScheduledAction", "application-autoscaling:PutScheduledAction" ]
+      "permissions" : [ "application-autoscaling:RegisterScalableTarget", "application-autoscaling:DescribeScalableTargets", "application-autoscaling:DescribeScheduledActions", "application-autoscaling:DeleteScheduledAction", "application-autoscaling:PutScheduledAction", "cloudwatch:PutMetricAlarm", "cloudwatch:DeleteAlarms", "cloudwatch:DescribeAlarms", "lambda:GetProvisionedConcurrencyConfig", "lambda:PutProvisionedConcurrencyConfig", "lambda:DeleteProvisionedConcurrencyConfig" ]
     },
     "delete" : {
       "permissions" : [ "application-autoscaling:DeregisterScalableTarget" ]
