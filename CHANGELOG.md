@@ -1,5 +1,7 @@
 ## HEAD (Unreleased)
 
+## 0.68.0 (July 7, 2023)
+
 2 Breaking Changes:
 - Function "aws-native:ec2:getKeyPair" missing output "tags"
 - Function "aws-native:ec2:getKeyPair" missing output "publicKeyMaterial"
