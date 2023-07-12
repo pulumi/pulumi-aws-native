@@ -120,10 +120,10 @@
   "additionalIdentifiers" : [ [ "/properties/NetworkInsightsPathArn" ] ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "ec2:CreateNetworkInsightsPath" ]
+      "permissions" : [ "ec2:CreateNetworkInsightsPath", "ec2:CreateTags" ]
     },
     "delete" : {
-      "permissions" : [ "ec2:DeleteNetworkInsightsPath" ]
+      "permissions" : [ "ec2:DeleteNetworkInsightsPath", "ec2:DeleteTags" ]
     },
     "read" : {
       "permissions" : [ "ec2:DescribeNetworkInsightsPaths" ]
