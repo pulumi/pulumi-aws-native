@@ -219,18 +219,14 @@ func cleanDir(dir string, perm os.FileMode) error {
 		return err
 	}
 
-	err = os.MkdirAll(dir, perm)
-	if err != nil {
-		return err
-	}
-	return nil
+	return os.MkdirAll(dir, perm)
 }
 
 func downloadCloudFormationSchemas(urls []string, outDir string) error {
 	// start with an empty directory
 	err := cleanDir(outDir, 0755)
 	if err != nil {
-		panic(err)
+		return err
 	}
 
 	for _, url := range urls {

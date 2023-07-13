@@ -27,7 +27,7 @@ func TestCleanDir(t *testing.T) {
 	assert := assert.New(t)
 	require := require.New(t)
 
-	//create tempdir 
+	//create tempdir
 	temp, err := os.MkdirTemp("", "test_CleanDir")
 	require.Nil(err)
 	t.Cleanup(func() { os.RemoveAll(temp) })
@@ -54,16 +54,18 @@ func TestCleanDir(t *testing.T) {
 }
 
 func assertExistsAndEmpty(t *testing.T, path string) bool {
-  assert := assert.New(t)
+	assert := assert.New(t)
 
-	if assert.DirExists(path) {
-		dir, err := os.Open(path)
-		if assert.Nil(err) {
-			defer dir.Close()
-
-			_, err = dir.Readdirnames(1)
-			return assert.Equalf(io.EOF, err, "Non-empty dir")
-		}
+	if !assert.DirExists(path) {
+		return false
 	}
-	return false
+
+	dir, err := os.Open(path)
+	if !assert.Nil(err) {
+		return false
+	}
+	defer dir.Close()
+
+	_, err = dir.Readdirnames(1)
+	return assert.Equalf(io.EOF, err, "Non-empty dir")
 }
