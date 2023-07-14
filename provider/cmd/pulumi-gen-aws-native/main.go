@@ -213,7 +213,22 @@ func writeSupportedResourceTypes(outDir string) error {
 	return emitFile(outDir, supportedResourcesFile, []byte(supportedContent))
 }
 
+func cleanDir(dir string, perm os.FileMode) error {
+	err := os.RemoveAll(dir)
+	if err != nil {
+		return err
+	}
+
+	return os.MkdirAll(dir, perm)
+}
+
 func downloadCloudFormationSchemas(urls []string, outDir string) error {
+	// start with an empty directory
+	err := cleanDir(outDir, 0755)
+	if err != nil {
+		return err
+	}
+
 	for _, url := range urls {
 		resp, err := http.Get(url)
 		if err != nil {
