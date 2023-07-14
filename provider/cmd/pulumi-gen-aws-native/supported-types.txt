@@ -150,7 +150,9 @@ AWS::Connect::InstanceStorageConfig
 AWS::Connect::IntegrationAssociation
 AWS::Connect::PhoneNumber
 AWS::Connect::Prompt
+AWS::Connect::Queue
 AWS::Connect::QuickConnect
+AWS::Connect::RoutingProfile
 AWS::Connect::Rule
 AWS::Connect::SecurityKey
 AWS::Connect::TaskTemplate
@@ -346,12 +348,14 @@ AWS::GroundStation::Config
 AWS::GroundStation::DataflowEndpointGroup
 AWS::GroundStation::MissionProfile
 AWS::HealthLake::FHIRDatastore
+AWS::IAM::GroupPolicy
 AWS::IAM::InstanceProfile
 AWS::IAM::OIDCProvider
 AWS::IAM::Role
 AWS::IAM::SAMLProvider
 AWS::IAM::ServerCertificate
 AWS::IAM::ServiceLinkedRole
+AWS::IAM::UserPolicy
 AWS::IAM::VirtualMFADevice
 AWS::IVS::Channel
 AWS::IVS::PlaybackKeyPair

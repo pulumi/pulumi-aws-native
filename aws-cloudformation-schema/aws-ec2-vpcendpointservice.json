@@ -41,10 +41,10 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "ec2:CreateVpcEndpointServiceConfiguration", "ec2:ModifyVpcEndpointServiceConfiguration", "ec2:ModifyVpcEndpointServicePayerResponsibility", "cloudwatch:ListManagedInsightRules", "cloudwatch:DeleteInsightRules", "cloudwatch:PutManagedInsightsRules" ]
+      "permissions" : [ "ec2:CreateVpcEndpointServiceConfiguration", "ec2:ModifyVpcEndpointServiceConfiguration", "ec2:ModifyVpcEndpointServicePayerResponsibility", "cloudwatch:ListManagedInsightRules", "cloudwatch:DeleteInsightRules", "cloudwatch:PutManagedInsightRules", "ec2:DescribeVpcEndpointServiceConfigurations" ]
     },
     "update" : {
-      "permissions" : [ "ec2:ModifyVpcEndpointServiceConfiguration", "ec2:DeleteVpcEndpointServiceConfigurations", "ec2:DescribeVpcEndpointServiceConfigurations", "ec2:ModifyVpcEndpointServicePayerResponsibility", "cloudwatch:ListManagedInsightRules", "cloudwatch:DeleteInsightRules", "cloudwatch:PutManagedInsightsRules" ]
+      "permissions" : [ "ec2:ModifyVpcEndpointServiceConfiguration", "ec2:DeleteVpcEndpointServiceConfigurations", "ec2:DescribeVpcEndpointServiceConfigurations", "ec2:ModifyVpcEndpointServicePayerResponsibility", "cloudwatch:ListManagedInsightRules", "cloudwatch:DeleteInsightRules", "cloudwatch:PutManagedInsightRules" ]
     },
     "read" : {
       "permissions" : [ "ec2:DescribeVpcEndpointServiceConfigurations", "cloudwatch:ListManagedInsightRules" ]
