@@ -37,12 +37,12 @@ func (c *sdkToCfnConverter) sdkToCfn(properties map[string]interface{}) map[stri
 	result := map[string]interface{}{}
 	for k, prop := range c.spec.Inputs {
 		if v, ok := properties[k]; ok {
-			result[ToCfnName(k)] = c.sdkTypedValueToCfn(&prop.TypeSpec, v)
+			result[ToCfnName(k, c.spec.IrreversibleNames)] = c.sdkTypedValueToCfn(&prop.TypeSpec, v)
 		}
 	}
 	for k, attr := range c.spec.Outputs {
 		if v, ok := properties[k]; ok {
-			result[ToCfnName(k)] = c.sdkTypedValueToCfn(&attr.TypeSpec, v)
+			result[ToCfnName(k, c.spec.IrreversibleNames)] = c.sdkTypedValueToCfn(&attr.TypeSpec, v)
 		}
 	}
 	return result
@@ -100,7 +100,7 @@ func (c *sdkToCfnConverter) sdkObjectValueToCfn(typeName string, value interface
 	result := map[string]interface{}{}
 	for k, prop := range spec.Properties {
 		if v, ok := properties[k]; ok {
-			result[ToCfnName(k)] = c.sdkTypedValueToCfn(&prop.TypeSpec, v)
+			result[ToCfnName(k, spec.IrreversibleNames)] = c.sdkTypedValueToCfn(&prop.TypeSpec, v)
 		}
 	}
 	return result
@@ -109,7 +109,7 @@ func (c *sdkToCfnConverter) sdkObjectValueToCfn(typeName string, value interface
 func (c *sdkToCfnConverter) diffToPatch(diff *resource.ObjectDiff) []jsonpatch.JsonPatchOperation {
 	var ops []jsonpatch.JsonPatchOperation
 	for sdkName, prop := range c.spec.Inputs {
-		cfnName := ToCfnName(sdkName)
+		cfnName := ToCfnName(sdkName, c.spec.IrreversibleNames)
 		key := resource.PropertyKey(sdkName)
 		if v, ok := diff.Updates[key]; ok {
 			// Check if properties are write-only, and use an "add" if so. This is because the old values of write only

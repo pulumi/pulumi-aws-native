@@ -717,6 +717,7 @@ func (ctx *context) gatherResourceType() error {
 	createOnlyProperties := readPropSdkNames(ctx.resourceSpec, "createOnlyProperties")
 	readOnlyProperties := codegen.NewStringSet(readPropNames(ctx.resourceSpec, "readOnlyProperties")...)
 
+	irreversibleNames := map[string]string{}
 	inputProperties, requiredInputs := map[string]pschema.PropertySpec{}, codegen.NewStringSet()
 	properties, required := map[string]pschema.PropertySpec{}, codegen.NewStringSet()
 	for prop, spec := range ctx.resourceSpec.Properties {
@@ -731,6 +732,9 @@ func (ctx *context) gatherResourceType() error {
 		properties[sdkName] = *propertySpec
 		if createOnlyProperties.Has(sdkName) || !readOnlyProperties.Has(prop) {
 			inputProperties[sdkName] = *propertySpec
+		}
+		if HasUppercaseAcronym(prop) {
+			irreversibleNames[sdkName] = prop
 		}
 	}
 
@@ -774,13 +778,14 @@ func (ctx *context) gatherResourceType() error {
 	}
 
 	ctx.metadata.Resources[ctx.resourceToken] = CloudAPIResource{
-		CfType:         ctx.cfTypeName,
-		Inputs:         inputProperties,
-		Outputs:        properties,
-		CreateOnly:     createOnlyProperties.SortedValues(),
-		Required:       requiredInputs.SortedValues(),
-		AutoNamingSpec: autoNamingSpec,
-		WriteOnly:      writeOnlyProperties.SortedValues(),
+		CfType:            ctx.cfTypeName,
+		Inputs:            inputProperties,
+		Outputs:           properties,
+		CreateOnly:        createOnlyProperties.SortedValues(),
+		Required:          requiredInputs.SortedValues(),
+		AutoNamingSpec:    autoNamingSpec,
+		WriteOnly:         writeOnlyProperties.SortedValues(),
+		IrreversibleNames: irreversibleNames,
 	}
 	return nil
 }
@@ -884,7 +889,7 @@ func (ctx *context) propertyTypeSpec(parentName string, propSchema *jsschema.Sch
 		if baseType == "object" {
 			if !ctx.visitedTypes.Has(tok) {
 				ctx.visitedTypes.Add(tok)
-				specs, requiredSpecs, err := ctx.genProperties(typName, typeSchema)
+				specs, requiredSpecs, irreversibleNames, err := ctx.genProperties(typName, typeSchema)
 				if err != nil {
 					return nil, err
 				}
@@ -898,8 +903,9 @@ func (ctx *context) propertyTypeSpec(parentName string, propSchema *jsschema.Sch
 					},
 				}
 				ctx.metadata.Types[tok] = CloudAPIType{
-					Type:       "object",
-					Properties: specs,
+					Type:              "object",
+					Properties:        specs,
+					IrreversibleNames: irreversibleNames,
 				}
 			}
 
@@ -914,7 +920,7 @@ func (ctx *context) propertyTypeSpec(parentName string, propSchema *jsschema.Sch
 	if len(propSchema.Properties) > 0 {
 		typName := parentName + "Properties"
 		tok := fmt.Sprintf("%s:%s:%s", packageName, ctx.mod, typName)
-		specs, requiredSpecs, err := ctx.genProperties(typName, propSchema)
+		specs, requiredSpecs, irreversibleNames, err := ctx.genProperties(typName, propSchema)
 		if err != nil {
 			return nil, err
 		}
@@ -928,8 +934,9 @@ func (ctx *context) propertyTypeSpec(parentName string, propSchema *jsschema.Sch
 			},
 		}
 		ctx.metadata.Types[tok] = CloudAPIType{
-			Type:       "object",
-			Properties: specs,
+			Type:              "object",
+			Properties:        specs,
+			IrreversibleNames: irreversibleNames,
 		}
 		referencedTypeName := fmt.Sprintf("#/types/%s", tok)
 		return &pschema.TypeSpec{Ref: referencedTypeName}, nil
@@ -1025,16 +1032,17 @@ func (ctx *context) propertyTypeSpec(parentName string, propSchema *jsschema.Sch
 	return &pschema.TypeSpec{Ref: "pulumi.json#/Any"}, nil
 }
 
-func (ctx *context) genProperties(parentName string, typeSchema *jsschema.Schema) (map[string]pschema.PropertySpec, codegen.StringSet, error) {
+func (ctx *context) genProperties(parentName string, typeSchema *jsschema.Schema) (map[string]pschema.PropertySpec, codegen.StringSet, map[string]string, error) {
 	specs := map[string]pschema.PropertySpec{}
 	requiredSpecs := codegen.NewStringSet()
+	irreversibleNames := map[string]string{}
 	for _, name := range codegen.SortedKeys(typeSchema.Properties) {
 		value := typeSchema.Properties[name]
 		sdkName := ToSdkName(name)
 
 		typeSpec, err := ctx.propertyTypeSpec(parentName+name, value)
 		if err != nil {
-			return nil, nil, errors.Wrapf(err, "property %s", name)
+			return nil, nil, nil, errors.Wrapf(err, "property %s", name)
 		}
 		propertySpec := pschema.PropertySpec{
 			Description: value.Description,
@@ -1049,6 +1057,10 @@ func (ctx *context) genProperties(parentName string, typeSchema *jsschema.Schema
 			}
 		}
 		specs[sdkName] = propertySpec
+
+		if HasUppercaseAcronym(name) {
+			irreversibleNames[sdkName] = name
+		}
 	}
 	for _, name := range typeSchema.Required {
 		sdkName := ToSdkName(name)
@@ -1056,7 +1068,7 @@ func (ctx *context) genProperties(parentName string, typeSchema *jsschema.Schema
 			requiredSpecs.Add(sdkName)
 		}
 	}
-	return specs, requiredSpecs, nil
+	return specs, requiredSpecs, irreversibleNames, nil
 }
 
 // genEnumType generates the enum type for a given schema.

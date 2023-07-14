@@ -13,13 +13,14 @@ type CloudAPIMetadata struct {
 
 // CloudAPIResource contains metadata for a single AWS Resource.
 type CloudAPIResource struct {
-	CfType         string                          `json:"cf"`
-	Inputs         map[string]pschema.PropertySpec `json:"inputs"`
-	Outputs        map[string]pschema.PropertySpec `json:"outputs"`
-	AutoNamingSpec *AutoNamingSpec                 `json:"autoNamingSpec,omitempty"`
-	Required       []string                        `json:"required,omitempty"`
-	CreateOnly     []string                        `json:"createOnly,omitempty"`
-	WriteOnly      []string                        `json:"writeOnly,omitempty"`
+	CfType            string                          `json:"cf"`
+	Inputs            map[string]pschema.PropertySpec `json:"inputs"`
+	Outputs           map[string]pschema.PropertySpec `json:"outputs"`
+	AutoNamingSpec    *AutoNamingSpec                 `json:"autoNamingSpec,omitempty"`
+	Required          []string                        `json:"required,omitempty"`
+	CreateOnly        []string                        `json:"createOnly,omitempty"`
+	WriteOnly         []string                        `json:"writeOnly,omitempty"`
+	IrreversibleNames map[string]string               `json:"irreversibleNames,omitempty"`
 }
 
 type AutoNamingSpec struct {
@@ -31,8 +32,9 @@ type AutoNamingSpec struct {
 
 // CloudAPIType contains metadata for an auxiliary type.
 type CloudAPIType struct {
-	Type       string                          `json:"type"`
-	Properties map[string]pschema.PropertySpec `json:"properties,omitempty"`
+	Type              string                          `json:"type"`
+	Properties        map[string]pschema.PropertySpec `json:"properties,omitempty"`
+	IrreversibleNames map[string]string               `json:"irreversibleNames,omitempty"`
 }
 
 type CloudAPIFunction struct {
