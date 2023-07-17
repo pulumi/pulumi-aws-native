@@ -140,7 +140,7 @@
   "primaryIdentifier" : [ "/properties/DomainConfigurationName" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "iot:CreateDomainConfiguration", "iot:UpdateDomainConfiguration", "iot:DescribeDomainConfiguration", "iot:ListTagsForResource" ]
+      "permissions" : [ "iot:CreateDomainConfiguration", "iot:UpdateDomainConfiguration", "iot:DescribeDomainConfiguration", "iot:TagResource", "iot:ListTagsForResource", "acm:GetCertificate" ]
     },
     "read" : {
       "permissions" : [ "iot:DescribeDomainConfiguration", "iot:ListTagsForResource" ]
@@ -149,7 +149,7 @@
       "permissions" : [ "iot:UpdateDomainConfiguration", "iot:DescribeDomainConfiguration", "iot:ListTagsForResource", "iot:TagResource", "iot:UntagResource" ]
     },
     "delete" : {
-      "permissions" : [ "iot:DeleteDomainConfiguration", "iot:UpdateDomainConfiguration" ]
+      "permissions" : [ "iot:DescribeDomainConfiguration", "iot:DeleteDomainConfiguration", "iot:UpdateDomainConfiguration" ]
     },
     "list" : {
       "permissions" : [ "iot:ListDomainConfigurations" ]
