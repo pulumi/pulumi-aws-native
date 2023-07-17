@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,6 +28,7 @@ func NewDedicatedIpPool(ctx *pulumi.Context,
 		args = &DedicatedIpPoolArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DedicatedIpPool
 	err := ctx.RegisterResource("aws-native:pinpointemail:DedicatedIpPool", name, args, &resource, opts...)
 	if err != nil {

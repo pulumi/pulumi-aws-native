@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // The AWS::AppRunner::ObservabilityConfiguration resource  is an AWS App Runner resource type that specifies an App Runner observability configuration
 func LookupObservabilityConfiguration(ctx *pulumi.Context, args *LookupObservabilityConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupObservabilityConfigurationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupObservabilityConfigurationResult
 	err := ctx.Invoke("aws-native:apprunner:getObservabilityConfiguration", args, &rv, opts...)
 	if err != nil {

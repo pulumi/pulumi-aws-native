@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -29,6 +30,7 @@ func NewCidrCollection(ctx *pulumi.Context,
 		args = &CidrCollectionArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CidrCollection
 	err := ctx.RegisterResource("aws-native:route53:CidrCollection", name, args, &resource, opts...)
 	if err != nil {

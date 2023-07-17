@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -33,6 +34,7 @@ func NewDatasetGroup(ctx *pulumi.Context,
 		args = &DatasetGroupArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DatasetGroup
 	err := ctx.RegisterResource("aws-native:personalize:DatasetGroup", name, args, &resource, opts...)
 	if err != nil {

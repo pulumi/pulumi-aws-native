@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::EC2::VPCPeeringConnection
 func LookupVPCPeeringConnection(ctx *pulumi.Context, args *LookupVPCPeeringConnectionArgs, opts ...pulumi.InvokeOption) (*LookupVPCPeeringConnectionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVPCPeeringConnectionResult
 	err := ctx.Invoke("aws-native:ec2:getVPCPeeringConnection", args, &rv, opts...)
 	if err != nil {

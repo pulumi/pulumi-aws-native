@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::MediaConvert::Preset
 func LookupPreset(ctx *pulumi.Context, args *LookupPresetArgs, opts ...pulumi.InvokeOption) (*LookupPresetResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPresetResult
 	err := ctx.Invoke("aws-native:mediaconvert:getPreset", args, &rv, opts...)
 	if err != nil {

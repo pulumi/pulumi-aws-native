@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // A signing profile is a signing template that can be used to carry out a pre-defined signing job.
 func LookupSigningProfile(ctx *pulumi.Context, args *LookupSigningProfileArgs, opts ...pulumi.InvokeOption) (*LookupSigningProfileResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSigningProfileResult
 	err := ctx.Invoke("aws-native:signer:getSigningProfile", args, &rv, opts...)
 	if err != nil {

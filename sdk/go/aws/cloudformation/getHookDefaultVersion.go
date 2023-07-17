@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Set a version as default version for a hook in CloudFormation Registry.
 func LookupHookDefaultVersion(ctx *pulumi.Context, args *LookupHookDefaultVersionArgs, opts ...pulumi.InvokeOption) (*LookupHookDefaultVersionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupHookDefaultVersionResult
 	err := ctx.Invoke("aws-native:cloudformation:getHookDefaultVersion", args, &rv, opts...)
 	if err != nil {

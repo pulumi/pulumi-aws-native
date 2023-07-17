@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Definition of AWS::Omics::AnnotationStore Resource Type
 func LookupAnnotationStore(ctx *pulumi.Context, args *LookupAnnotationStoreArgs, opts ...pulumi.InvokeOption) (*LookupAnnotationStoreResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAnnotationStoreResult
 	err := ctx.Invoke("aws-native:omics:getAnnotationStore", args, &rv, opts...)
 	if err != nil {

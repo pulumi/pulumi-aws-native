@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // The AWS::Amplify::App resource creates Apps in the Amplify Console. An App is a collection of branches.
 func LookupApp(ctx *pulumi.Context, args *LookupAppArgs, opts ...pulumi.InvokeOption) (*LookupAppResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAppResult
 	err := ctx.Invoke("aws-native:amplify:getApp", args, &rv, opts...)
 	if err != nil {

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::Greengrass::FunctionDefinition
 func LookupFunctionDefinition(ctx *pulumi.Context, args *LookupFunctionDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupFunctionDefinitionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFunctionDefinitionResult
 	err := ctx.Invoke("aws-native:greengrass:getFunctionDefinition", args, &rv, opts...)
 	if err != nil {

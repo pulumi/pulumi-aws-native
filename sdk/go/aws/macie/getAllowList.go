@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Macie AllowList resource schema
 func LookupAllowList(ctx *pulumi.Context, args *LookupAllowListArgs, opts ...pulumi.InvokeOption) (*LookupAllowListResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAllowListResult
 	err := ctx.Invoke("aws-native:macie:getAllowList", args, &rv, opts...)
 	if err != nil {

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Definition of AWS::AmplifyUIBuilder::Theme Resource Type
 func LookupTheme(ctx *pulumi.Context, args *LookupThemeArgs, opts ...pulumi.InvokeOption) (*LookupThemeResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupThemeResult
 	err := ctx.Invoke("aws-native:amplifyuibuilder:getTheme", args, &rv, opts...)
 	if err != nil {

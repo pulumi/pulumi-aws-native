@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource type definition for AWS::SSMIncidents::ResponsePlan
 func LookupResponsePlan(ctx *pulumi.Context, args *LookupResponsePlanArgs, opts ...pulumi.InvokeOption) (*LookupResponsePlanResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResponsePlanResult
 	err := ctx.Invoke("aws-native:ssmincidents:getResponsePlan", args, &rv, opts...)
 	if err != nil {

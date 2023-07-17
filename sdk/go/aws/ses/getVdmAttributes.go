@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::SES::VdmAttributes
 func LookupVdmAttributes(ctx *pulumi.Context, args *LookupVdmAttributesArgs, opts ...pulumi.InvokeOption) (*LookupVdmAttributesResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVdmAttributesResult
 	err := ctx.Invoke("aws-native:ses:getVdmAttributes", args, &rv, opts...)
 	if err != nil {

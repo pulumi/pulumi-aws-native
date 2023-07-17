@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for AWS::CertificateManager::Account.
 func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.InvokeOption) (*LookupAccountResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAccountResult
 	err := ctx.Invoke("aws-native:certificatemanager:getAccount", args, &rv, opts...)
 	if err != nil {

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // AWS::S3ObjectLambda::AccessPointPolicy resource is an Amazon S3ObjectLambda policy type that you can use to control permissions for your S3ObjectLambda
 func LookupAccessPointPolicy(ctx *pulumi.Context, args *LookupAccessPointPolicyArgs, opts ...pulumi.InvokeOption) (*LookupAccessPointPolicyResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAccessPointPolicyResult
 	err := ctx.Invoke("aws-native:s3objectlambda:getAccessPointPolicy", args, &rv, opts...)
 	if err != nil {

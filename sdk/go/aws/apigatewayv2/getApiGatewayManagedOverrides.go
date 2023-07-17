@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::ApiGatewayV2::ApiGatewayManagedOverrides
 func LookupApiGatewayManagedOverrides(ctx *pulumi.Context, args *LookupApiGatewayManagedOverridesArgs, opts ...pulumi.InvokeOption) (*LookupApiGatewayManagedOverridesResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupApiGatewayManagedOverridesResult
 	err := ctx.Invoke("aws-native:apigatewayv2:getApiGatewayManagedOverrides", args, &rv, opts...)
 	if err != nil {

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // The resource schema for AWSLogs QueryDefinition
 func LookupQueryDefinition(ctx *pulumi.Context, args *LookupQueryDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupQueryDefinitionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupQueryDefinitionResult
 	err := ctx.Invoke("aws-native:logs:getQueryDefinition", args, &rv, opts...)
 	if err != nil {

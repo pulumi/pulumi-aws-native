@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // A target group is a collection of targets, or compute resources, that run your application or service. A target group can only be used by a single service.
 func LookupTargetGroup(ctx *pulumi.Context, args *LookupTargetGroupArgs, opts ...pulumi.InvokeOption) (*LookupTargetGroupResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTargetGroupResult
 	err := ctx.Invoke("aws-native:vpclattice:getTargetGroup", args, &rv, opts...)
 	if err != nil {

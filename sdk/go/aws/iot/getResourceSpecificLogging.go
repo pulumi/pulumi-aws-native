@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource-specific logging allows you to specify a logging level for a specific thing group.
 func LookupResourceSpecificLogging(ctx *pulumi.Context, args *LookupResourceSpecificLoggingArgs, opts ...pulumi.InvokeOption) (*LookupResourceSpecificLoggingResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResourceSpecificLoggingResult
 	err := ctx.Invoke("aws-native:iot:getResourceSpecificLogging", args, &rv, opts...)
 	if err != nil {

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::Evidently::Launch.
 func LookupLaunch(ctx *pulumi.Context, args *LookupLaunchArgs, opts ...pulumi.InvokeOption) (*LookupLaunchResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLaunchResult
 	err := ctx.Invoke("aws-native:evidently:getLaunch", args, &rv, opts...)
 	if err != nil {

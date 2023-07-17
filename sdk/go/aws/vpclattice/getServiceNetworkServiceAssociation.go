@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Associates a service with a service network.
 func LookupServiceNetworkServiceAssociation(ctx *pulumi.Context, args *LookupServiceNetworkServiceAssociationArgs, opts ...pulumi.InvokeOption) (*LookupServiceNetworkServiceAssociationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupServiceNetworkServiceAssociationResult
 	err := ctx.Invoke("aws-native:vpclattice:getServiceNetworkServiceAssociation", args, &rv, opts...)
 	if err != nil {

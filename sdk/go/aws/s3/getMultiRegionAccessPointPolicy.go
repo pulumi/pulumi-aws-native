@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // The policy to be attached to a Multi Region Access Point
 func LookupMultiRegionAccessPointPolicy(ctx *pulumi.Context, args *LookupMultiRegionAccessPointPolicyArgs, opts ...pulumi.InvokeOption) (*LookupMultiRegionAccessPointPolicyResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupMultiRegionAccessPointPolicyResult
 	err := ctx.Invoke("aws-native:s3:getMultiRegionAccessPointPolicy", args, &rv, opts...)
 	if err != nil {

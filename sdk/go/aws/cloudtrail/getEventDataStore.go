@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // A storage lake of event data against which you can run complex SQL-based queries. An event data store can include events that you have logged on your account from the last 90 to 2555 days (about three months to up to seven years).
 func LookupEventDataStore(ctx *pulumi.Context, args *LookupEventDataStoreArgs, opts ...pulumi.InvokeOption) (*LookupEventDataStoreResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEventDataStoreResult
 	err := ctx.Invoke("aws-native:cloudtrail:getEventDataStore", args, &rv, opts...)
 	if err != nil {

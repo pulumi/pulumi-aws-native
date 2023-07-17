@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // The AWS::Logs::Destination resource specifies a CloudWatch Logs destination. A destination encapsulates a physical resource (such as an Amazon Kinesis data stream) and enables you to subscribe that resource to a stream of log events.
 func LookupDestination(ctx *pulumi.Context, args *LookupDestinationArgs, opts ...pulumi.InvokeOption) (*LookupDestinationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDestinationResult
 	err := ctx.Invoke("aws-native:logs:getDestination", args, &rv, opts...)
 	if err != nil {

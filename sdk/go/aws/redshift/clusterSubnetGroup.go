@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ func NewClusterSubnetGroup(ctx *pulumi.Context,
 	if args.SubnetIds == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetIds'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ClusterSubnetGroup
 	err := ctx.RegisterResource("aws-native:redshift:ClusterSubnetGroup", name, args, &resource, opts...)
 	if err != nil {

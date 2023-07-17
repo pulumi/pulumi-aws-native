@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::CloudFront::RealtimeLogConfig
 func LookupRealtimeLogConfig(ctx *pulumi.Context, args *LookupRealtimeLogConfigArgs, opts ...pulumi.InvokeOption) (*LookupRealtimeLogConfigResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRealtimeLogConfigResult
 	err := ctx.Invoke("aws-native:cloudfront:getRealtimeLogConfig", args, &rv, opts...)
 	if err != nil {

@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -52,6 +53,7 @@ func NewSlackChannelConfiguration(ctx *pulumi.Context,
 	if args.TeamId == nil {
 		return nil, errors.New("invalid value for required argument 'TeamId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SlackChannelConfiguration
 	err := ctx.RegisterResource("aws-native:supportapp:SlackChannelConfiguration", name, args, &resource, opts...)
 	if err != nil {

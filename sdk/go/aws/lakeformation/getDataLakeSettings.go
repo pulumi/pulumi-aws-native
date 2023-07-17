@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::LakeFormation::DataLakeSettings
 func LookupDataLakeSettings(ctx *pulumi.Context, args *LookupDataLakeSettingsArgs, opts ...pulumi.InvokeOption) (*LookupDataLakeSettingsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDataLakeSettingsResult
 	err := ctx.Invoke("aws-native:lakeformation:getDataLakeSettings", args, &rv, opts...)
 	if err != nil {

@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -43,6 +44,7 @@ func NewLocalGatewayRouteTable(ctx *pulumi.Context,
 	if args.LocalGatewayId == nil {
 		return nil, errors.New("invalid value for required argument 'LocalGatewayId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LocalGatewayRouteTable
 	err := ctx.RegisterResource("aws-native:ec2:LocalGatewayRouteTable", name, args, &resource, opts...)
 	if err != nil {

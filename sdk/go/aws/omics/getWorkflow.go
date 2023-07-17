@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Definition of AWS::Omics::Workflow Resource Type
 func LookupWorkflow(ctx *pulumi.Context, args *LookupWorkflowArgs, opts ...pulumi.InvokeOption) (*LookupWorkflowResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupWorkflowResult
 	err := ctx.Invoke("aws-native:omics:getWorkflow", args, &rv, opts...)
 	if err != nil {

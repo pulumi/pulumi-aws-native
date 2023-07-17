@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ func NewDBClusterParameterGroup(ctx *pulumi.Context,
 	if args.Parameters == nil {
 		return nil, errors.New("invalid value for required argument 'Parameters'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DBClusterParameterGroup
 	err := ctx.RegisterResource("aws-native:neptune:DBClusterParameterGroup", name, args, &resource, opts...)
 	if err != nil {

@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -43,6 +44,7 @@ func NewEC2Fleet(ctx *pulumi.Context,
 	if args.TargetCapacitySpecification == nil {
 		return nil, errors.New("invalid value for required argument 'TargetCapacitySpecification'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EC2Fleet
 	err := ctx.RegisterResource("aws-native:ec2:EC2Fleet", name, args, &resource, opts...)
 	if err != nil {

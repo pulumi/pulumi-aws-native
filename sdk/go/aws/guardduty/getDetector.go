@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::GuardDuty::Detector
 func LookupDetector(ctx *pulumi.Context, args *LookupDetectorArgs, opts ...pulumi.InvokeOption) (*LookupDetectorResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDetectorResult
 	err := ctx.Invoke("aws-native:guardduty:getDetector", args, &rv, opts...)
 	if err != nil {

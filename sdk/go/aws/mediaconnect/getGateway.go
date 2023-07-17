@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for AWS::MediaConnect::Gateway
 func LookupGateway(ctx *pulumi.Context, args *LookupGatewayArgs, opts ...pulumi.InvokeOption) (*LookupGatewayResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupGatewayResult
 	err := ctx.Invoke("aws-native:mediaconnect:getGateway", args, &rv, opts...)
 	if err != nil {

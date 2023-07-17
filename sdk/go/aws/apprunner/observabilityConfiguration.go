@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -35,6 +36,7 @@ func NewObservabilityConfiguration(ctx *pulumi.Context,
 		args = &ObservabilityConfigurationArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ObservabilityConfiguration
 	err := ctx.RegisterResource("aws-native:apprunner:ObservabilityConfiguration", name, args, &resource, opts...)
 	if err != nil {

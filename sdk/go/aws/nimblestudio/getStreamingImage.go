@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Represents a streaming session machine image that can be used to launch a streaming session
 func LookupStreamingImage(ctx *pulumi.Context, args *LookupStreamingImageArgs, opts ...pulumi.InvokeOption) (*LookupStreamingImageResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupStreamingImageResult
 	err := ctx.Invoke("aws-native:nimblestudio:getStreamingImage", args, &rv, opts...)
 	if err != nil {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -33,6 +34,7 @@ func NewDataLakeSettings(ctx *pulumi.Context,
 		args = &DataLakeSettingsArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DataLakeSettings
 	err := ctx.RegisterResource("aws-native:lakeformation:DataLakeSettings", name, args, &resource, opts...)
 	if err != nil {

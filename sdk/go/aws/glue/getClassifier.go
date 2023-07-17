@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::Glue::Classifier
 func LookupClassifier(ctx *pulumi.Context, args *LookupClassifierArgs, opts ...pulumi.InvokeOption) (*LookupClassifierResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupClassifierResult
 	err := ctx.Invoke("aws-native:glue:getClassifier", args, &rv, opts...)
 	if err != nil {

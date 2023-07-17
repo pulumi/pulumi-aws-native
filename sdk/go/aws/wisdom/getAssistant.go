@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Definition of AWS::Wisdom::Assistant Resource Type
 func LookupAssistant(ctx *pulumi.Context, args *LookupAssistantArgs, opts ...pulumi.InvokeOption) (*LookupAssistantResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAssistantResult
 	err := ctx.Invoke("aws-native:wisdom:getAssistant", args, &rv, opts...)
 	if err != nil {

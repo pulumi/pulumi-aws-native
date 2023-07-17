@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::ApiGateway::RestApi.
 func LookupRestApi(ctx *pulumi.Context, args *LookupRestApiArgs, opts ...pulumi.InvokeOption) (*LookupRestApiResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRestApiResult
 	err := ctx.Invoke("aws-native:apigateway:getRestApi", args, &rv, opts...)
 	if err != nil {

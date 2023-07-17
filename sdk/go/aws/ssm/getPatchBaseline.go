@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::SSM::PatchBaseline
 func LookupPatchBaseline(ctx *pulumi.Context, args *LookupPatchBaselineArgs, opts ...pulumi.InvokeOption) (*LookupPatchBaselineResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPatchBaselineResult
 	err := ctx.Invoke("aws-native:ssm:getPatchBaseline", args, &rv, opts...)
 	if err != nil {

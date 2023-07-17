@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -32,6 +33,7 @@ func NewApplicationFleetAssociation(ctx *pulumi.Context,
 	if args.FleetName == nil {
 		return nil, errors.New("invalid value for required argument 'FleetName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ApplicationFleetAssociation
 	err := ctx.RegisterResource("aws-native:appstream:ApplicationFleetAssociation", name, args, &resource, opts...)
 	if err != nil {

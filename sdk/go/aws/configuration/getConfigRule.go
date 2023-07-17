@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::Config::ConfigRule
 func LookupConfigRule(ctx *pulumi.Context, args *LookupConfigRuleArgs, opts ...pulumi.InvokeOption) (*LookupConfigRuleResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupConfigRuleResult
 	err := ctx.Invoke("aws-native:configuration:getConfigRule", args, &rv, opts...)
 	if err != nil {

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Schema describing various properties for AWS Proton Environment Account Connections resources.
 func LookupEnvironmentAccountConnection(ctx *pulumi.Context, args *LookupEnvironmentAccountConnectionArgs, opts ...pulumi.InvokeOption) (*LookupEnvironmentAccountConnectionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEnvironmentAccountConnectionResult
 	err := ctx.Invoke("aws-native:proton:getEnvironmentAccountConnection", args, &rv, opts...)
 	if err != nil {

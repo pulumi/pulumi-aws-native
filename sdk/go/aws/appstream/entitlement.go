@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ func NewEntitlement(ctx *pulumi.Context,
 	if args.StackName == nil {
 		return nil, errors.New("invalid value for required argument 'StackName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Entitlement
 	err := ctx.RegisterResource("aws-native:appstream:Entitlement", name, args, &resource, opts...)
 	if err != nil {

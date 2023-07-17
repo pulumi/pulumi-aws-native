@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for AWS::DataSync::LocationFSxWindows.
 func LookupLocationFSxWindows(ctx *pulumi.Context, args *LookupLocationFSxWindowsArgs, opts ...pulumi.InvokeOption) (*LookupLocationFSxWindowsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLocationFSxWindowsResult
 	err := ctx.Invoke("aws-native:datasync:getLocationFSxWindows", args, &rv, opts...)
 	if err != nil {

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::MediaConvert::JobTemplate
 func LookupJobTemplate(ctx *pulumi.Context, args *LookupJobTemplateArgs, opts ...pulumi.InvokeOption) (*LookupJobTemplateResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupJobTemplateResult
 	err := ctx.Invoke("aws-native:mediaconvert:getJobTemplate", args, &rv, opts...)
 	if err != nil {

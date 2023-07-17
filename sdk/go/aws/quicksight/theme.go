@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -49,6 +50,7 @@ func NewTheme(ctx *pulumi.Context,
 	if args.ThemeId == nil {
 		return nil, errors.New("invalid value for required argument 'ThemeId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Theme
 	err := ctx.RegisterResource("aws-native:quicksight:Theme", name, args, &resource, opts...)
 	if err != nil {

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Macie FindingsFilter resource schema.
 func LookupFindingsFilter(ctx *pulumi.Context, args *LookupFindingsFilterArgs, opts ...pulumi.InvokeOption) (*LookupFindingsFilterResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFindingsFilterResult
 	err := ctx.Invoke("aws-native:macie:getFindingsFilter", args, &rv, opts...)
 	if err != nil {

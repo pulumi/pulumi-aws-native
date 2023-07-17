@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::IoT::ThingType
 func LookupThingType(ctx *pulumi.Context, args *LookupThingTypeArgs, opts ...pulumi.InvokeOption) (*LookupThingTypeResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupThingTypeResult
 	err := ctx.Invoke("aws-native:iot:getThingType", args, &rv, opts...)
 	if err != nil {

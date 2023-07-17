@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::AppStream::AppBlock
 func LookupAppBlock(ctx *pulumi.Context, args *LookupAppBlockArgs, opts ...pulumi.InvokeOption) (*LookupAppBlockResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAppBlockResult
 	err := ctx.Invoke("aws-native:appstream:getAppBlock", args, &rv, opts...)
 	if err != nil {

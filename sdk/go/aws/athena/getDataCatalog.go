@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for AWS::Athena::DataCatalog
 func LookupDataCatalog(ctx *pulumi.Context, args *LookupDataCatalogArgs, opts ...pulumi.InvokeOption) (*LookupDataCatalogResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDataCatalogResult
 	err := ctx.Invoke("aws-native:athena:getDataCatalog", args, &rv, opts...)
 	if err != nil {

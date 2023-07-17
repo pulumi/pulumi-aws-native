@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // A service network is a logical boundary for a collection of services. You can associate services and VPCs with a service network.
 func LookupServiceNetwork(ctx *pulumi.Context, args *LookupServiceNetworkArgs, opts ...pulumi.InvokeOption) (*LookupServiceNetworkResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupServiceNetworkResult
 	err := ctx.Invoke("aws-native:vpclattice:getServiceNetwork", args, &rv, opts...)
 	if err != nil {

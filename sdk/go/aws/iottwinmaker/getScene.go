@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for AWS::IoTTwinMaker::Scene
 func LookupScene(ctx *pulumi.Context, args *LookupSceneArgs, opts ...pulumi.InvokeOption) (*LookupSceneResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSceneResult
 	err := ctx.Invoke("aws-native:iottwinmaker:getScene", args, &rv, opts...)
 	if err != nil {

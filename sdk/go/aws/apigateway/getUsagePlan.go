@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::ApiGateway::UsagePlan
 func LookupUsagePlan(ctx *pulumi.Context, args *LookupUsagePlanArgs, opts ...pulumi.InvokeOption) (*LookupUsagePlanResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupUsagePlanResult
 	err := ctx.Invoke("aws-native:apigateway:getUsagePlan", args, &rv, opts...)
 	if err != nil {

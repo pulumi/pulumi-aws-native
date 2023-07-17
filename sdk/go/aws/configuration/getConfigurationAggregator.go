@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::Config::ConfigurationAggregator
 func LookupConfigurationAggregator(ctx *pulumi.Context, args *LookupConfigurationAggregatorArgs, opts ...pulumi.InvokeOption) (*LookupConfigurationAggregatorResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupConfigurationAggregatorResult
 	err := ctx.Invoke("aws-native:configuration:getConfigurationAggregator", args, &rv, opts...)
 	if err != nil {

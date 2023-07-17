@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // A billing group is a set of linked account which belong to the same end customer. It can be seen as a virtual consolidated billing family.
 func LookupBillingGroup(ctx *pulumi.Context, args *LookupBillingGroupArgs, opts ...pulumi.InvokeOption) (*LookupBillingGroupResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBillingGroupResult
 	err := ctx.Invoke("aws-native:billingconductor:getBillingGroup", args, &rv, opts...)
 	if err != nil {

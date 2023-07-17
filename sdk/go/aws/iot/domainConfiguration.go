@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -35,6 +36,7 @@ func NewDomainConfiguration(ctx *pulumi.Context,
 		args = &DomainConfigurationArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DomainConfiguration
 	err := ctx.RegisterResource("aws-native:iot:DomainConfiguration", name, args, &resource, opts...)
 	if err != nil {

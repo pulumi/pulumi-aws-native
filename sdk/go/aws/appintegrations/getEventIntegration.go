@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::AppIntegrations::EventIntegration
 func LookupEventIntegration(ctx *pulumi.Context, args *LookupEventIntegrationArgs, opts ...pulumi.InvokeOption) (*LookupEventIntegrationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEventIntegrationResult
 	err := ctx.Invoke("aws-native:appintegrations:getEventIntegration", args, &rv, opts...)
 	if err != nil {

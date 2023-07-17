@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::EC2::TransitGatewayRouteTable
 func LookupTransitGatewayRouteTable(ctx *pulumi.Context, args *LookupTransitGatewayRouteTableArgs, opts ...pulumi.InvokeOption) (*LookupTransitGatewayRouteTableResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTransitGatewayRouteTableResult
 	err := ctx.Invoke("aws-native:ec2:getTransitGatewayRouteTable", args, &rv, opts...)
 	if err != nil {

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Schema of AWS::EC2::IPAMScope Type
 func LookupIPAMScope(ctx *pulumi.Context, args *LookupIPAMScopeArgs, opts ...pulumi.InvokeOption) (*LookupIPAMScopeResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupIPAMScopeResult
 	err := ctx.Invoke("aws-native:ec2:getIPAMScope", args, &rv, opts...)
 	if err != nil {

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::IVS::StreamKey
 func LookupStreamKey(ctx *pulumi.Context, args *LookupStreamKeyArgs, opts ...pulumi.InvokeOption) (*LookupStreamKeyResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupStreamKeyResult
 	err := ctx.Invoke("aws-native:ivs:getStreamKey", args, &rv, opts...)
 	if err != nil {

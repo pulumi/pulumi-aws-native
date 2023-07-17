@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -33,6 +34,7 @@ func NewSignalCatalog(ctx *pulumi.Context,
 		args = &SignalCatalogArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SignalCatalog
 	err := ctx.RegisterResource("aws-native:iotfleetwise:SignalCatalog", name, args, &resource, opts...)
 	if err != nil {

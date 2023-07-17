@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::CloudWatch::Alarm
 func LookupAlarm(ctx *pulumi.Context, args *LookupAlarmArgs, opts ...pulumi.InvokeOption) (*LookupAlarmResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAlarmResult
 	err := ctx.Invoke("aws-native:cloudwatch:getAlarm", args, &rv, opts...)
 	if err != nil {

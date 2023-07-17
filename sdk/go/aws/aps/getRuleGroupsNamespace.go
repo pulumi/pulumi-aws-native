@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // RuleGroupsNamespace schema for cloudformation.
 func LookupRuleGroupsNamespace(ctx *pulumi.Context, args *LookupRuleGroupsNamespaceArgs, opts ...pulumi.InvokeOption) (*LookupRuleGroupsNamespaceResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRuleGroupsNamespaceResult
 	err := ctx.Invoke("aws-native:aps:getRuleGroupsNamespace", args, &rv, opts...)
 	if err != nil {

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Config the role and list of Amazon S3 log buckets used by the Shield Response Team (SRT) to access your AWS account while assisting with attack mitigation.
 func LookupDRTAccess(ctx *pulumi.Context, args *LookupDRTAccessArgs, opts ...pulumi.InvokeOption) (*LookupDRTAccessResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDRTAccessResult
 	err := ctx.Invoke("aws-native:shield:getDRTAccess", args, &rv, opts...)
 	if err != nil {

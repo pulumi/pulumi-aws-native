@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -28,6 +29,7 @@ func NewOriginAccessControl(ctx *pulumi.Context,
 	if args.OriginAccessControlConfig == nil {
 		return nil, errors.New("invalid value for required argument 'OriginAccessControlConfig'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OriginAccessControl
 	err := ctx.RegisterResource("aws-native:cloudfront:OriginAccessControl", name, args, &resource, opts...)
 	if err != nil {

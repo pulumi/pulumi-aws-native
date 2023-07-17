@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for LookoutEquipment InferenceScheduler.
 func LookupInferenceScheduler(ctx *pulumi.Context, args *LookupInferenceSchedulerArgs, opts ...pulumi.InvokeOption) (*LookupInferenceSchedulerResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupInferenceSchedulerResult
 	err := ctx.Invoke("aws-native:lookoutequipment:getInferenceScheduler", args, &rv, opts...)
 	if err != nil {

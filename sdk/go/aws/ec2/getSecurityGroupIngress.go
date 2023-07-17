@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::EC2::SecurityGroupIngress
 func LookupSecurityGroupIngress(ctx *pulumi.Context, args *LookupSecurityGroupIngressArgs, opts ...pulumi.InvokeOption) (*LookupSecurityGroupIngressResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSecurityGroupIngressResult
 	err := ctx.Invoke("aws-native:ec2:getSecurityGroupIngress", args, &rv, opts...)
 	if err != nil {

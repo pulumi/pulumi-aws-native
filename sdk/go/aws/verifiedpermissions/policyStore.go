@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -31,6 +32,7 @@ func NewPolicyStore(ctx *pulumi.Context,
 	if args.ValidationSettings == nil {
 		return nil, errors.New("invalid value for required argument 'ValidationSettings'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PolicyStore
 	err := ctx.RegisterResource("aws-native:verifiedpermissions:PolicyStore", name, args, &resource, opts...)
 	if err != nil {

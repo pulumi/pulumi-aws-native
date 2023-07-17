@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // An example resource schema demonstrating some basic constructs and validation rules.
 func LookupSuiteDefinition(ctx *pulumi.Context, args *LookupSuiteDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupSuiteDefinitionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSuiteDefinitionResult
 	err := ctx.Invoke("aws-native:iotcoredeviceadvisor:getSuiteDefinition", args, &rv, opts...)
 	if err != nil {

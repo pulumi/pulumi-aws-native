@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // The AWS::MemoryDB::SubnetGroup resource creates an Amazon MemoryDB Subnet Group.
 func LookupSubnetGroup(ctx *pulumi.Context, args *LookupSubnetGroupArgs, opts ...pulumi.InvokeOption) (*LookupSubnetGroupResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSubnetGroupResult
 	err := ctx.Invoke("aws-native:memorydb:getSubnetGroup", args, &rv, opts...)
 	if err != nil {

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // This resource schema represents the RepositoryAssociation resource in the Amazon CodeGuru Reviewer service.
 func LookupRepositoryAssociation(ctx *pulumi.Context, args *LookupRepositoryAssociationArgs, opts ...pulumi.InvokeOption) (*LookupRepositoryAssociationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRepositoryAssociationResult
 	err := ctx.Invoke("aws-native:codegurureviewer:getRepositoryAssociation", args, &rv, opts...)
 	if err != nil {

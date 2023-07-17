@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Amazon Lex conversational bot performing automated tasks such as ordering a pizza, booking a hotel, and so on.
 func LookupBot(ctx *pulumi.Context, args *LookupBotArgs, opts ...pulumi.InvokeOption) (*LookupBotResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBotResult
 	err := ctx.Invoke("aws-native:lex:getBot", args, &rv, opts...)
 	if err != nil {

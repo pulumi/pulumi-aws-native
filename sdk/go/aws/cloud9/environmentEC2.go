@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ func NewEnvironmentEC2(ctx *pulumi.Context,
 	if args.InstanceType == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceType'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EnvironmentEC2
 	err := ctx.RegisterResource("aws-native:cloud9:EnvironmentEC2", name, args, &resource, opts...)
 	if err != nil {

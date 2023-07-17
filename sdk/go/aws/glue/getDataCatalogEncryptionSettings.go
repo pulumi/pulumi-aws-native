@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::Glue::DataCatalogEncryptionSettings
 func LookupDataCatalogEncryptionSettings(ctx *pulumi.Context, args *LookupDataCatalogEncryptionSettingsArgs, opts ...pulumi.InvokeOption) (*LookupDataCatalogEncryptionSettingsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDataCatalogEncryptionSettingsResult
 	err := ctx.Invoke("aws-native:glue:getDataCatalogEncryptionSettings", args, &rv, opts...)
 	if err != nil {

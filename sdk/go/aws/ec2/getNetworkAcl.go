@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::EC2::NetworkAcl
 func LookupNetworkAcl(ctx *pulumi.Context, args *LookupNetworkAclArgs, opts ...pulumi.InvokeOption) (*LookupNetworkAclResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupNetworkAclResult
 	err := ctx.Invoke("aws-native:ec2:getNetworkAcl", args, &rv, opts...)
 	if err != nil {

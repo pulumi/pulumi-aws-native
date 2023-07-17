@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,6 +40,7 @@ func NewVpcConnector(ctx *pulumi.Context,
 	if args.Subnets == nil {
 		return nil, errors.New("invalid value for required argument 'Subnets'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcConnector
 	err := ctx.RegisterResource("aws-native:apprunner:VpcConnector", name, args, &resource, opts...)
 	if err != nil {

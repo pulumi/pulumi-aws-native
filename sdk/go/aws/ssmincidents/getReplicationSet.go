@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource type definition for AWS::SSMIncidents::ReplicationSet
 func LookupReplicationSet(ctx *pulumi.Context, args *LookupReplicationSetArgs, opts ...pulumi.InvokeOption) (*LookupReplicationSetResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupReplicationSetResult
 	err := ctx.Invoke("aws-native:ssmincidents:getReplicationSet", args, &rv, opts...)
 	if err != nil {

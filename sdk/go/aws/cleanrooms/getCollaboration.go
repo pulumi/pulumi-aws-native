@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Represents a collaboration between AWS accounts that allows for secure data collaboration
 func LookupCollaboration(ctx *pulumi.Context, args *LookupCollaborationArgs, opts ...pulumi.InvokeOption) (*LookupCollaborationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCollaborationResult
 	err := ctx.Invoke("aws-native:cleanrooms:getCollaboration", args, &rv, opts...)
 	if err != nil {

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // The AWS::Timestream::ScheduledQuery resource creates a Timestream Scheduled Query.
 func LookupScheduledQuery(ctx *pulumi.Context, args *LookupScheduledQueryArgs, opts ...pulumi.InvokeOption) (*LookupScheduledQueryResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupScheduledQueryResult
 	err := ctx.Invoke("aws-native:timestream:getScheduledQuery", args, &rv, opts...)
 	if err != nil {

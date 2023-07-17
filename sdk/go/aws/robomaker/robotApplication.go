@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ func NewRobotApplication(ctx *pulumi.Context,
 	if args.RobotSoftwareSuite == nil {
 		return nil, errors.New("invalid value for required argument 'RobotSoftwareSuite'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RobotApplication
 	err := ctx.RegisterResource("aws-native:robomaker:RobotApplication", name, args, &resource, opts...)
 	if err != nil {

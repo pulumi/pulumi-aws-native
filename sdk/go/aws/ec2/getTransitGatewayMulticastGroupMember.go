@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // The AWS::EC2::TransitGatewayMulticastGroupMember registers and deregisters members and sources (network interfaces) with the transit gateway multicast group
 func LookupTransitGatewayMulticastGroupMember(ctx *pulumi.Context, args *LookupTransitGatewayMulticastGroupMemberArgs, opts ...pulumi.InvokeOption) (*LookupTransitGatewayMulticastGroupMemberResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTransitGatewayMulticastGroupMemberResult
 	err := ctx.Invoke("aws-native:ec2:getTransitGatewayMulticastGroupMember", args, &rv, opts...)
 	if err != nil {

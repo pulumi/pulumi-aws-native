@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Create and manage wireless gateways, including LoRa gateways.
 func LookupWirelessGateway(ctx *pulumi.Context, args *LookupWirelessGatewayArgs, opts ...pulumi.InvokeOption) (*LookupWirelessGatewayResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupWirelessGatewayResult
 	err := ctx.Invoke("aws-native:iotwireless:getWirelessGateway", args, &rv, opts...)
 	if err != nil {

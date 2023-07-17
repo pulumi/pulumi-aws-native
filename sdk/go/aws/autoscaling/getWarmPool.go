@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for AWS::AutoScaling::WarmPool.
 func LookupWarmPool(ctx *pulumi.Context, args *LookupWarmPoolArgs, opts ...pulumi.InvokeOption) (*LookupWarmPoolResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupWarmPoolResult
 	err := ctx.Invoke("aws-native:autoscaling:getWarmPool", args, &rv, opts...)
 	if err != nil {

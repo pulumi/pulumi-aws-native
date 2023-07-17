@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Associates a VPC with a service network.
 func LookupServiceNetworkVpcAssociation(ctx *pulumi.Context, args *LookupServiceNetworkVpcAssociationArgs, opts ...pulumi.InvokeOption) (*LookupServiceNetworkVpcAssociationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupServiceNetworkVpcAssociationResult
 	err := ctx.Invoke("aws-native:vpclattice:getServiceNetworkVpcAssociation", args, &rv, opts...)
 	if err != nil {

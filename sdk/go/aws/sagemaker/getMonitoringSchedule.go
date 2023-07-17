@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::SageMaker::MonitoringSchedule
 func LookupMonitoringSchedule(ctx *pulumi.Context, args *LookupMonitoringScheduleArgs, opts ...pulumi.InvokeOption) (*LookupMonitoringScheduleResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupMonitoringScheduleResult
 	err := ctx.Invoke("aws-native:sagemaker:getMonitoringSchedule", args, &rv, opts...)
 	if err != nil {

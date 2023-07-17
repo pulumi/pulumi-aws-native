@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // A security profile defines a set of expected behaviors for devices in your account.
 func LookupSecurityProfile(ctx *pulumi.Context, args *LookupSecurityProfileArgs, opts ...pulumi.InvokeOption) (*LookupSecurityProfileResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSecurityProfileResult
 	err := ctx.Invoke("aws-native:iot:getSecurityProfile", args, &rv, opts...)
 	if err != nil {

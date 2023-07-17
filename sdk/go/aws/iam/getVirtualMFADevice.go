@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::IAM::VirtualMFADevice
 func LookupVirtualMFADevice(ctx *pulumi.Context, args *LookupVirtualMFADeviceArgs, opts ...pulumi.InvokeOption) (*LookupVirtualMFADeviceResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVirtualMFADeviceResult
 	err := ctx.Invoke("aws-native:iam:getVirtualMFADevice", args, &rv, opts...)
 	if err != nil {

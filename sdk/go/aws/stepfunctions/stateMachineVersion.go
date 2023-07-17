@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -31,6 +32,7 @@ func NewStateMachineVersion(ctx *pulumi.Context,
 	if args.StateMachineArn == nil {
 		return nil, errors.New("invalid value for required argument 'StateMachineArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource StateMachineVersion
 	err := ctx.RegisterResource("aws-native:stepfunctions:StateMachineVersion", name, args, &resource, opts...)
 	if err != nil {

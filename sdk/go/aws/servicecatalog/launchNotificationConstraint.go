@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ func NewLaunchNotificationConstraint(ctx *pulumi.Context,
 	if args.ProductId == nil {
 		return nil, errors.New("invalid value for required argument 'ProductId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LaunchNotificationConstraint
 	err := ctx.RegisterResource("aws-native:servicecatalog:LaunchNotificationConstraint", name, args, &resource, opts...)
 	if err != nil {

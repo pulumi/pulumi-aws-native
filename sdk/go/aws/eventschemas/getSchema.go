@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::EventSchemas::Schema
 func LookupSchema(ctx *pulumi.Context, args *LookupSchemaArgs, opts ...pulumi.InvokeOption) (*LookupSchemaResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSchemaResult
 	err := ctx.Invoke("aws-native:eventschemas:getSchema", args, &rv, opts...)
 	if err != nil {

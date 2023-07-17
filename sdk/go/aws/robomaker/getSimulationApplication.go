@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // This schema is for testing purpose only.
 func LookupSimulationApplication(ctx *pulumi.Context, args *LookupSimulationApplicationArgs, opts ...pulumi.InvokeOption) (*LookupSimulationApplicationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSimulationApplicationResult
 	err := ctx.Invoke("aws-native:robomaker:getSimulationApplication", args, &rv, opts...)
 	if err != nil {

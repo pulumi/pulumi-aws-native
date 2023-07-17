@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -33,6 +34,7 @@ func NewApiGatewayManagedOverrides(ctx *pulumi.Context,
 	if args.ApiId == nil {
 		return nil, errors.New("invalid value for required argument 'ApiId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ApiGatewayManagedOverrides
 	err := ctx.RegisterResource("aws-native:apigatewayv2:ApiGatewayManagedOverrides", name, args, &resource, opts...)
 	if err != nil {

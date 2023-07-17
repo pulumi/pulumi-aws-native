@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::ECS::CapacityProvider.
 func LookupCapacityProvider(ctx *pulumi.Context, args *LookupCapacityProviderArgs, opts ...pulumi.InvokeOption) (*LookupCapacityProviderResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCapacityProviderResult
 	err := ctx.Invoke("aws-native:ecs:getCapacityProvider", args, &rv, opts...)
 	if err != nil {

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource type definition for AWS::RAM::Permission
 func LookupPermission(ctx *pulumi.Context, args *LookupPermissionArgs, opts ...pulumi.InvokeOption) (*LookupPermissionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPermissionResult
 	err := ctx.Invoke("aws-native:ram:getPermission", args, &rv, opts...)
 	if err != nil {

@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -33,6 +34,7 @@ func NewCertificate(ctx *pulumi.Context,
 	if args.Status == nil {
 		return nil, errors.New("invalid value for required argument 'Status'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Certificate
 	err := ctx.RegisterResource("aws-native:iot:Certificate", name, args, &resource, opts...)
 	if err != nil {

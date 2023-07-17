@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -52,6 +53,7 @@ func NewMaintenanceWindowTask(ctx *pulumi.Context,
 	if args.WindowId == nil {
 		return nil, errors.New("invalid value for required argument 'WindowId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MaintenanceWindowTask
 	err := ctx.RegisterResource("aws-native:ssm:MaintenanceWindowTask", name, args, &resource, opts...)
 	if err != nil {

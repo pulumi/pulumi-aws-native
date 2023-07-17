@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -44,6 +45,7 @@ func NewApiDestination(ctx *pulumi.Context,
 	if args.InvocationEndpoint == nil {
 		return nil, errors.New("invalid value for required argument 'InvocationEndpoint'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ApiDestination
 	err := ctx.RegisterResource("aws-native:events:ApiDestination", name, args, &resource, opts...)
 	if err != nil {

@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,6 +40,7 @@ func NewPortfolioPrincipalAssociation(ctx *pulumi.Context,
 	if args.PrincipalType == nil {
 		return nil, errors.New("invalid value for required argument 'PrincipalType'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PortfolioPrincipalAssociation
 	err := ctx.RegisterResource("aws-native:servicecatalog:PortfolioPrincipalAssociation", name, args, &resource, opts...)
 	if err != nil {

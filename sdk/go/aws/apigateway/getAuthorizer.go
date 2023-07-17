@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Represents an authorization layer for methods. If enabled on a method, API Gateway will activate the authorizer when a client calls the method.
 func LookupAuthorizer(ctx *pulumi.Context, args *LookupAuthorizerArgs, opts ...pulumi.InvokeOption) (*LookupAuthorizerResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAuthorizerResult
 	err := ctx.Invoke("aws-native:apigateway:getAuthorizer", args, &rv, opts...)
 	if err != nil {

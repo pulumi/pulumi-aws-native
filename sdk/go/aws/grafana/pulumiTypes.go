@@ -7,8 +7,11 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
+
+var _ = internal.GetEnvOrDefault
 
 // Maps Grafana friendly names to the IdPs SAML attributes.
 type WorkspaceAssertionAttributes struct {

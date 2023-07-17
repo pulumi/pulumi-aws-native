@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Create and manage FUOTA tasks.
 func LookupFuotaTask(ctx *pulumi.Context, args *LookupFuotaTaskArgs, opts ...pulumi.InvokeOption) (*LookupFuotaTaskResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFuotaTaskResult
 	err := ctx.Invoke("aws-native:iotwireless:getFuotaTask", args, &rv, opts...)
 	if err != nil {

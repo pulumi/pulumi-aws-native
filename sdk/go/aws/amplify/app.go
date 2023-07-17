@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,6 +43,7 @@ func NewApp(ctx *pulumi.Context,
 		args = &AppArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource App
 	err := ctx.RegisterResource("aws-native:amplify:App", name, args, &resource, opts...)
 	if err != nil {

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::Connect::QuickConnect
 func LookupQuickConnect(ctx *pulumi.Context, args *LookupQuickConnectArgs, opts ...pulumi.InvokeOption) (*LookupQuickConnectResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupQuickConnectResult
 	err := ctx.Invoke("aws-native:connect:getQuickConnect", args, &rv, opts...)
 	if err != nil {

@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -32,6 +33,7 @@ func NewSAMLProvider(ctx *pulumi.Context,
 	if args.SamlMetadataDocument == nil {
 		return nil, errors.New("invalid value for required argument 'SamlMetadataDocument'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SAMLProvider
 	err := ctx.RegisterResource("aws-native:iam:SAMLProvider", name, args, &resource, opts...)
 	if err != nil {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,6 +42,7 @@ func NewResolverQueryLoggingConfig(ctx *pulumi.Context,
 		args = &ResolverQueryLoggingConfigArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResolverQueryLoggingConfig
 	err := ctx.RegisterResource("aws-native:route53resolver:ResolverQueryLoggingConfig", name, args, &resource, opts...)
 	if err != nil {

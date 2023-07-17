@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::GameLift::Build
 func LookupBuild(ctx *pulumi.Context, args *LookupBuildArgs, opts ...pulumi.InvokeOption) (*LookupBuildResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBuildResult
 	err := ctx.Invoke("aws-native:gamelift:getBuild", args, &rv, opts...)
 	if err != nil {

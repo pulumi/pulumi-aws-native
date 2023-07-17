@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::FSx::StorageVirtualMachine
 func LookupStorageVirtualMachine(ctx *pulumi.Context, args *LookupStorageVirtualMachineArgs, opts ...pulumi.InvokeOption) (*LookupStorageVirtualMachineResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupStorageVirtualMachineResult
 	err := ctx.Invoke("aws-native:fsx:getStorageVirtualMachine", args, &rv, opts...)
 	if err != nil {

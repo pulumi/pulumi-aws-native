@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for AWS::ImageBuilder::DistributionConfiguration
 func LookupDistributionConfiguration(ctx *pulumi.Context, args *LookupDistributionConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupDistributionConfigurationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDistributionConfigurationResult
 	err := ctx.Invoke("aws-native:imagebuilder:getDistributionConfiguration", args, &rv, opts...)
 	if err != nil {

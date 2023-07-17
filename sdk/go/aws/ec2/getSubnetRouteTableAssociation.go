@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::EC2::SubnetRouteTableAssociation
 func LookupSubnetRouteTableAssociation(ctx *pulumi.Context, args *LookupSubnetRouteTableAssociationArgs, opts ...pulumi.InvokeOption) (*LookupSubnetRouteTableAssociationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSubnetRouteTableAssociationResult
 	err := ctx.Invoke("aws-native:ec2:getSubnetRouteTableAssociation", args, &rv, opts...)
 	if err != nil {

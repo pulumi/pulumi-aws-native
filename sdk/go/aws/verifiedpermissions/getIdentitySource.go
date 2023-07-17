@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Definition of AWS::VerifiedPermissions::IdentitySource Resource Type
 func LookupIdentitySource(ctx *pulumi.Context, args *LookupIdentitySourceArgs, opts ...pulumi.InvokeOption) (*LookupIdentitySourceResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupIdentitySourceResult
 	err := ctx.Invoke("aws-native:verifiedpermissions:getIdentitySource", args, &rv, opts...)
 	if err != nil {

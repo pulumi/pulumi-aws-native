@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -55,6 +56,7 @@ func NewContainerRecipe(ctx *pulumi.Context,
 		args = &ContainerRecipeArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ContainerRecipe
 	err := ctx.RegisterResource("aws-native:imagebuilder:ContainerRecipe", name, args, &resource, opts...)
 	if err != nil {

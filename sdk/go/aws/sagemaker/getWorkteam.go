@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::SageMaker::Workteam
 func LookupWorkteam(ctx *pulumi.Context, args *LookupWorkteamArgs, opts ...pulumi.InvokeOption) (*LookupWorkteamResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupWorkteamResult
 	err := ctx.Invoke("aws-native:sagemaker:getWorkteam", args, &rv, opts...)
 	if err != nil {

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for AWS::DataBrew::Job.
 func LookupJob(ctx *pulumi.Context, args *LookupJobArgs, opts ...pulumi.InvokeOption) (*LookupJobResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupJobResult
 	err := ctx.Invoke("aws-native:databrew:getJob", args, &rv, opts...)
 	if err != nil {

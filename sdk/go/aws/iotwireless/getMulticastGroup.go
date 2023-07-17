@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Create and manage Multicast groups.
 func LookupMulticastGroup(ctx *pulumi.Context, args *LookupMulticastGroupArgs, opts ...pulumi.InvokeOption) (*LookupMulticastGroupResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupMulticastGroupResult
 	err := ctx.Invoke("aws-native:iotwireless:getMulticastGroup", args, &rv, opts...)
 	if err != nil {

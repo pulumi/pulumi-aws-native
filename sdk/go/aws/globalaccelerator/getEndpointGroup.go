@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::GlobalAccelerator::EndpointGroup
 func LookupEndpointGroup(ctx *pulumi.Context, args *LookupEndpointGroupArgs, opts ...pulumi.InvokeOption) (*LookupEndpointGroupResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEndpointGroupResult
 	err := ctx.Invoke("aws-native:globalaccelerator:getEndpointGroup", args, &rv, opts...)
 	if err != nil {

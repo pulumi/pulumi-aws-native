@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for AWS::DataSync::LocationS3
 func LookupLocationS3(ctx *pulumi.Context, args *LookupLocationS3Args, opts ...pulumi.InvokeOption) (*LookupLocationS3Result, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLocationS3Result
 	err := ctx.Invoke("aws-native:datasync:getLocationS3", args, &rv, opts...)
 	if err != nil {

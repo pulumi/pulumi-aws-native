@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::LicenseManager::License
 func LookupLicense(ctx *pulumi.Context, args *LookupLicenseArgs, opts ...pulumi.InvokeOption) (*LookupLicenseResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLicenseResult
 	err := ctx.Invoke("aws-native:licensemanager:getLicense", args, &rv, opts...)
 	if err != nil {

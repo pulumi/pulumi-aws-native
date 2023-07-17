@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for AWS::Route53::HostedZone.
 func LookupHostedZone(ctx *pulumi.Context, args *LookupHostedZoneArgs, opts ...pulumi.InvokeOption) (*LookupHostedZoneResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupHostedZoneResult
 	err := ctx.Invoke("aws-native:route53:getHostedZone", args, &rv, opts...)
 	if err != nil {

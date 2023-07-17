@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -47,6 +48,7 @@ func NewNetworkAclEntry(ctx *pulumi.Context,
 	if args.RuleNumber == nil {
 		return nil, errors.New("invalid value for required argument 'RuleNumber'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NetworkAclEntry
 	err := ctx.RegisterResource("aws-native:ec2:NetworkAclEntry", name, args, &resource, opts...)
 	if err != nil {

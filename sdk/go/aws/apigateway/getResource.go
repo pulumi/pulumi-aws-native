@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::ApiGateway::Resource
 func LookupResource(ctx *pulumi.Context, args *LookupResourceArgs, opts ...pulumi.InvokeOption) (*LookupResourceResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResourceResult
 	err := ctx.Invoke("aws-native:apigateway:getResource", args, &rv, opts...)
 	if err != nil {

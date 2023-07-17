@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,6 +43,7 @@ func NewServer(ctx *pulumi.Context,
 		args = &ServerArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Server
 	err := ctx.RegisterResource("aws-native:transfer:Server", name, args, &resource, opts...)
 	if err != nil {

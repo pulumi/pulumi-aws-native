@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Definition of AWS::ResourceExplorer2::Index Resource Type
 func LookupIndex(ctx *pulumi.Context, args *LookupIndexArgs, opts ...pulumi.InvokeOption) (*LookupIndexResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupIndexResult
 	err := ctx.Invoke("aws-native:resourceexplorer2:getIndex", args, &rv, opts...)
 	if err != nil {

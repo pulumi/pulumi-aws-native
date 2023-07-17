@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::GlobalAccelerator::Accelerator
 func LookupAccelerator(ctx *pulumi.Context, args *LookupAcceleratorArgs, opts ...pulumi.InvokeOption) (*LookupAcceleratorResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAcceleratorResult
 	err := ctx.Invoke("aws-native:globalaccelerator:getAccelerator", args, &rv, opts...)
 	if err != nil {

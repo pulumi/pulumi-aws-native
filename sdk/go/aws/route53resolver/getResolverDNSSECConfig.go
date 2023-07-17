@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for AWS::Route53Resolver::ResolverDNSSECConfig.
 func LookupResolverDNSSECConfig(ctx *pulumi.Context, args *LookupResolverDNSSECConfigArgs, opts ...pulumi.InvokeOption) (*LookupResolverDNSSECConfigResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResolverDNSSECConfigResult
 	err := ctx.Invoke("aws-native:route53resolver:getResolverDNSSECConfig", args, &rv, opts...)
 	if err != nil {

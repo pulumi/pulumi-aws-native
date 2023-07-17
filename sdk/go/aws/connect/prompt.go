@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,6 +40,7 @@ func NewPrompt(ctx *pulumi.Context,
 	if args.InstanceArn == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Prompt
 	err := ctx.RegisterResource("aws-native:connect:Prompt", name, args, &resource, opts...)
 	if err != nil {

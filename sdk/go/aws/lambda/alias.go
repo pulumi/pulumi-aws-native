@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ func NewAlias(ctx *pulumi.Context,
 	if args.FunctionVersion == nil {
 		return nil, errors.New("invalid value for required argument 'FunctionVersion'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Alias
 	err := ctx.RegisterResource("aws-native:lambda:Alias", name, args, &resource, opts...)
 	if err != nil {

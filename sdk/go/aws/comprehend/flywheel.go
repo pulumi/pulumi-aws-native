@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,6 +40,7 @@ func NewFlywheel(ctx *pulumi.Context,
 	if args.DataLakeS3Uri == nil {
 		return nil, errors.New("invalid value for required argument 'DataLakeS3Uri'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Flywheel
 	err := ctx.RegisterResource("aws-native:comprehend:Flywheel", name, args, &resource, opts...)
 	if err != nil {

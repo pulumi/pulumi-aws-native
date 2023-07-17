@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,6 +40,7 @@ func NewInstanceFleetConfig(ctx *pulumi.Context,
 	if args.InstanceFleetType == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceFleetType'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource InstanceFleetConfig
 	err := ctx.RegisterResource("aws-native:emr:InstanceFleetConfig", name, args, &resource, opts...)
 	if err != nil {

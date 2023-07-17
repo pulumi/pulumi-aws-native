@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // A custom metric published by your devices to Device Defender.
 func LookupCustomMetric(ctx *pulumi.Context, args *LookupCustomMetricArgs, opts ...pulumi.InvokeOption) (*LookupCustomMetricResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCustomMetricResult
 	err := ctx.Invoke("aws-native:iot:getCustomMetric", args, &rv, opts...)
 	if err != nil {

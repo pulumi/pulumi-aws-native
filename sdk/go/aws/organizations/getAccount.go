@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // You can use AWS::Organizations::Account to manage accounts in organization.
 func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.InvokeOption) (*LookupAccountResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAccountResult
 	err := ctx.Invoke("aws-native:organizations:getAccount", args, &rv, opts...)
 	if err != nil {

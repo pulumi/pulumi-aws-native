@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for AWS::Organizations::Organization
 func LookupOrganization(ctx *pulumi.Context, args *LookupOrganizationArgs, opts ...pulumi.InvokeOption) (*LookupOrganizationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupOrganizationResult
 	err := ctx.Invoke("aws-native:organizations:getOrganization", args, &rv, opts...)
 	if err != nil {

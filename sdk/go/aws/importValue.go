@@ -7,10 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func ImportValue(ctx *pulumi.Context, args *ImportValueArgs, opts ...pulumi.InvokeOption) (*ImportValueResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv ImportValueResult
 	err := ctx.Invoke("aws-native:index:importValue", args, &rv, opts...)
 	if err != nil {

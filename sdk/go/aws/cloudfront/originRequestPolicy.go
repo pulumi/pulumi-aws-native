@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -29,6 +30,7 @@ func NewOriginRequestPolicy(ctx *pulumi.Context,
 	if args.OriginRequestPolicyConfig == nil {
 		return nil, errors.New("invalid value for required argument 'OriginRequestPolicyConfig'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OriginRequestPolicy
 	err := ctx.RegisterResource("aws-native:cloudfront:OriginRequestPolicy", name, args, &resource, opts...)
 	if err != nil {

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Schema for AWS ApiGateway VpcLink
 func LookupVpcLink(ctx *pulumi.Context, args *LookupVpcLinkArgs, opts ...pulumi.InvokeOption) (*LookupVpcLinkResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVpcLinkResult
 	err := ctx.Invoke("aws-native:apigateway:getVpcLink", args, &rv, opts...)
 	if err != nil {

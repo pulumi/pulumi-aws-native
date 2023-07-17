@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Definition of the AWS::QuickSight::Template Resource Type.
 func LookupTemplate(ctx *pulumi.Context, args *LookupTemplateArgs, opts ...pulumi.InvokeOption) (*LookupTemplateResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTemplateResult
 	err := ctx.Invoke("aws-native:quicksight:getTemplate", args, &rv, opts...)
 	if err != nil {

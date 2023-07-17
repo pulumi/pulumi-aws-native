@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::FSx::Snapshot
 func LookupSnapshot(ctx *pulumi.Context, args *LookupSnapshotArgs, opts ...pulumi.InvokeOption) (*LookupSnapshotResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSnapshotResult
 	err := ctx.Invoke("aws-native:fsx:getSnapshot", args, &rv, opts...)
 	if err != nil {

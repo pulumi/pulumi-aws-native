@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -56,6 +57,7 @@ func NewServer(ctx *pulumi.Context,
 	if args.ServiceRoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceRoleArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Server
 	err := ctx.RegisterResource("aws-native:opsworkscm:Server", name, args, &resource, opts...)
 	if err != nil {

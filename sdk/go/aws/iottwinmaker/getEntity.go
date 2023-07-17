@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for AWS::IoTTwinMaker::Entity
 func LookupEntity(ctx *pulumi.Context, args *LookupEntityArgs, opts ...pulumi.InvokeOption) (*LookupEntityResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEntityResult
 	err := ctx.Invoke("aws-native:iottwinmaker:getEntity", args, &rv, opts...)
 	if err != nil {

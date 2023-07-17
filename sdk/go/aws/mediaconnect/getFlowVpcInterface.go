@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for AWS::MediaConnect::FlowVpcInterface
 func LookupFlowVpcInterface(ctx *pulumi.Context, args *LookupFlowVpcInterfaceArgs, opts ...pulumi.InvokeOption) (*LookupFlowVpcInterfaceResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFlowVpcInterfaceResult
 	err := ctx.Invoke("aws-native:mediaconnect:getFlowVpcInterface", args, &rv, opts...)
 	if err != nil {

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::Lightsail::Database
 func LookupDatabase(ctx *pulumi.Context, args *LookupDatabaseArgs, opts ...pulumi.InvokeOption) (*LookupDatabaseResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDatabaseResult
 	err := ctx.Invoke("aws-native:lightsail:getDatabase", args, &rv, opts...)
 	if err != nil {

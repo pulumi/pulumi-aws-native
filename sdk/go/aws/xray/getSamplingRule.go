@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // This schema provides construct and validation rules for AWS-XRay SamplingRule resource parameters.
 func LookupSamplingRule(ctx *pulumi.Context, args *LookupSamplingRuleArgs, opts ...pulumi.InvokeOption) (*LookupSamplingRuleResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSamplingRuleResult
 	err := ctx.Invoke("aws-native:xray:getSamplingRule", args, &rv, opts...)
 	if err != nil {

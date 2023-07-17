@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::EC2::ClientVpnRoute
 func LookupClientVpnRoute(ctx *pulumi.Context, args *LookupClientVpnRouteArgs, opts ...pulumi.InvokeOption) (*LookupClientVpnRouteResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupClientVpnRouteResult
 	err := ctx.Invoke("aws-native:ec2:getClientVpnRoute", args, &rv, opts...)
 	if err != nil {

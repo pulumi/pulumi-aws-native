@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::MSK::Configuration
 func LookupConfiguration(ctx *pulumi.Context, args *LookupConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupConfigurationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupConfigurationResult
 	err := ctx.Invoke("aws-native:msk:getConfiguration", args, &rv, opts...)
 	if err != nil {

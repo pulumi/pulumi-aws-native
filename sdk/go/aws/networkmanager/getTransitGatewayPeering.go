@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // AWS::NetworkManager::TransitGatewayPeering Resoruce Type.
 func LookupTransitGatewayPeering(ctx *pulumi.Context, args *LookupTransitGatewayPeeringArgs, opts ...pulumi.InvokeOption) (*LookupTransitGatewayPeeringResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTransitGatewayPeeringResult
 	err := ctx.Invoke("aws-native:networkmanager:getTransitGatewayPeering", args, &rv, opts...)
 	if err != nil {

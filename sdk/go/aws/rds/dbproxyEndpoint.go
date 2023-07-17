@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -50,6 +51,7 @@ func NewDBProxyEndpoint(ctx *pulumi.Context,
 	if args.VpcSubnetIds == nil {
 		return nil, errors.New("invalid value for required argument 'VpcSubnetIds'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DBProxyEndpoint
 	err := ctx.RegisterResource("aws-native:rds:DBProxyEndpoint", name, args, &resource, opts...)
 	if err != nil {

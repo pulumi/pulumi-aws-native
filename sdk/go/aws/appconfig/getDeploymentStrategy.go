@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::AppConfig::DeploymentStrategy
 func LookupDeploymentStrategy(ctx *pulumi.Context, args *LookupDeploymentStrategyArgs, opts ...pulumi.InvokeOption) (*LookupDeploymentStrategyResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDeploymentStrategyResult
 	err := ctx.Invoke("aws-native:appconfig:getDeploymentStrategy", args, &rv, opts...)
 	if err != nil {

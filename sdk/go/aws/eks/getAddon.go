@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Schema for AWS::EKS::Addon
 func LookupAddon(ctx *pulumi.Context, args *LookupAddonArgs, opts ...pulumi.InvokeOption) (*LookupAddonResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAddonResult
 	err := ctx.Invoke("aws-native:eks:getAddon", args, &rv, opts...)
 	if err != nil {

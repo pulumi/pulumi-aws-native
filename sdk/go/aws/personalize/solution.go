@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,6 +42,7 @@ func NewSolution(ctx *pulumi.Context,
 	if args.DatasetGroupArn == nil {
 		return nil, errors.New("invalid value for required argument 'DatasetGroupArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Solution
 	err := ctx.RegisterResource("aws-native:personalize:Solution", name, args, &resource, opts...)
 	if err != nil {

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::CloudFront::ContinuousDeploymentPolicy
 func LookupContinuousDeploymentPolicy(ctx *pulumi.Context, args *LookupContinuousDeploymentPolicyArgs, opts ...pulumi.InvokeOption) (*LookupContinuousDeploymentPolicyResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupContinuousDeploymentPolicyResult
 	err := ctx.Invoke("aws-native:cloudfront:getContinuousDeploymentPolicy", args, &rv, opts...)
 	if err != nil {

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for StateMachineAlias
 func LookupStateMachineAlias(ctx *pulumi.Context, args *LookupStateMachineAliasArgs, opts ...pulumi.InvokeOption) (*LookupStateMachineAliasResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupStateMachineAliasResult
 	err := ctx.Invoke("aws-native:stepfunctions:getStateMachineAlias", args, &rv, opts...)
 	if err != nil {

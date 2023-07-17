@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -47,6 +48,7 @@ func NewDataCellsFilter(ctx *pulumi.Context,
 	if args.TableName == nil {
 		return nil, errors.New("invalid value for required argument 'TableName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DataCellsFilter
 	err := ctx.RegisterResource("aws-native:lakeformation:DataCellsFilter", name, args, &resource, opts...)
 	if err != nil {

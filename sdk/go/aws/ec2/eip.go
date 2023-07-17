@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,6 +40,7 @@ func NewEIP(ctx *pulumi.Context,
 		args = &EIPArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EIP
 	err := ctx.RegisterResource("aws-native:ec2:EIP", name, args, &resource, opts...)
 	if err != nil {

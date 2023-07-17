@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -49,6 +50,7 @@ func NewGlobalReplicationGroup(ctx *pulumi.Context,
 	if args.Members == nil {
 		return nil, errors.New("invalid value for required argument 'Members'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource GlobalReplicationGroup
 	err := ctx.RegisterResource("aws-native:elasticache:GlobalReplicationGroup", name, args, &resource, opts...)
 	if err != nil {

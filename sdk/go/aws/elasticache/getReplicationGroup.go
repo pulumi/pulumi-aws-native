@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::ElastiCache::ReplicationGroup
 func LookupReplicationGroup(ctx *pulumi.Context, args *LookupReplicationGroupArgs, opts ...pulumi.InvokeOption) (*LookupReplicationGroupResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupReplicationGroupResult
 	err := ctx.Invoke("aws-native:elasticache:getReplicationGroup", args, &rv, opts...)
 	if err != nil {

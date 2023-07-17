@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Logging Options enable you to configure your IoT V2 logging role and default logging level so that you can monitor progress events logs as it passes from your devices through Iot core service.
 func LookupLogging(ctx *pulumi.Context, args *LookupLoggingArgs, opts ...pulumi.InvokeOption) (*LookupLoggingResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLoggingResult
 	err := ctx.Invoke("aws-native:iot:getLogging", args, &rv, opts...)
 	if err != nil {

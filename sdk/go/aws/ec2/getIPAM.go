@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Schema of AWS::EC2::IPAM Type
 func LookupIPAM(ctx *pulumi.Context, args *LookupIPAMArgs, opts ...pulumi.InvokeOption) (*LookupIPAMResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupIPAMResult
 	err := ctx.Invoke("aws-native:ec2:getIPAM", args, &rv, opts...)
 	if err != nil {

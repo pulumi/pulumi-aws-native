@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for AWS::Personalize::Schema.
 func LookupSchema(ctx *pulumi.Context, args *LookupSchemaArgs, opts ...pulumi.InvokeOption) (*LookupSchemaResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSchemaResult
 	err := ctx.Invoke("aws-native:personalize:getSchema", args, &rv, opts...)
 	if err != nil {

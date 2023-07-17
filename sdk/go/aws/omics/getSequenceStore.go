@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Definition of AWS::Omics::SequenceStore Resource Type
 func LookupSequenceStore(ctx *pulumi.Context, args *LookupSequenceStoreArgs, opts ...pulumi.InvokeOption) (*LookupSequenceStoreResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSequenceStoreResult
 	err := ctx.Invoke("aws-native:omics:getSequenceStore", args, &rv, opts...)
 	if err != nil {

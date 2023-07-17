@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -49,6 +50,7 @@ func NewCompositeAlarm(ctx *pulumi.Context,
 	if args.AlarmRule == nil {
 		return nil, errors.New("invalid value for required argument 'AlarmRule'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CompositeAlarm
 	err := ctx.RegisterResource("aws-native:cloudwatch:CompositeAlarm", name, args, &resource, opts...)
 	if err != nil {

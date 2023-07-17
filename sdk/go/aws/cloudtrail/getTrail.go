@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Creates a trail that specifies the settings for delivery of log data to an Amazon S3 bucket. A maximum of five trails can exist in a region, irrespective of the region in which they were created.
 func LookupTrail(ctx *pulumi.Context, args *LookupTrailArgs, opts ...pulumi.InvokeOption) (*LookupTrailResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTrailResult
 	err := ctx.Invoke("aws-native:cloudtrail:getTrail", args, &rv, opts...)
 	if err != nil {

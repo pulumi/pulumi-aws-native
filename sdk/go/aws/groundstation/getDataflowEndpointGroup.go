@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // AWS Ground Station DataflowEndpointGroup schema for CloudFormation
 func LookupDataflowEndpointGroup(ctx *pulumi.Context, args *LookupDataflowEndpointGroupArgs, opts ...pulumi.InvokeOption) (*LookupDataflowEndpointGroupResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDataflowEndpointGroupResult
 	err := ctx.Invoke("aws-native:groundstation:getDataflowEndpointGroup", args, &rv, opts...)
 	if err != nil {

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Schema for AWS::SNS::TopicPolicy
 func LookupTopicPolicy(ctx *pulumi.Context, args *LookupTopicPolicyArgs, opts ...pulumi.InvokeOption) (*LookupTopicPolicyResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTopicPolicyResult
 	err := ctx.Invoke("aws-native:sns:getTopicPolicy", args, &rv, opts...)
 	if err != nil {

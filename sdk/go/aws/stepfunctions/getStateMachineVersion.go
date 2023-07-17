@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for StateMachineVersion
 func LookupStateMachineVersion(ctx *pulumi.Context, args *LookupStateMachineVersionArgs, opts ...pulumi.InvokeOption) (*LookupStateMachineVersionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupStateMachineVersionResult
 	err := ctx.Invoke("aws-native:stepfunctions:getStateMachineVersion", args, &rv, opts...)
 	if err != nil {

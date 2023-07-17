@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // The AWS::MemoryDB::ParameterGroup resource creates an Amazon MemoryDB ParameterGroup.
 func LookupParameterGroup(ctx *pulumi.Context, args *LookupParameterGroupArgs, opts ...pulumi.InvokeOption) (*LookupParameterGroupResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupParameterGroupResult
 	err := ctx.Invoke("aws-native:memorydb:getParameterGroup", args, &rv, opts...)
 	if err != nil {

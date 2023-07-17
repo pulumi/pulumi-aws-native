@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // A dimension can be used to limit the scope of a metric used in a security profile for AWS IoT Device Defender.
 func LookupDimension(ctx *pulumi.Context, args *LookupDimensionArgs, opts ...pulumi.InvokeOption) (*LookupDimensionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDimensionResult
 	err := ctx.Invoke("aws-native:iot:getDimension", args, &rv, opts...)
 	if err != nil {

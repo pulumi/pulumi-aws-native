@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for AWS::Detective::MemberInvitation
 func LookupMemberInvitation(ctx *pulumi.Context, args *LookupMemberInvitationArgs, opts ...pulumi.InvokeOption) (*LookupMemberInvitationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupMemberInvitationResult
 	err := ctx.Invoke("aws-native:detective:getMemberInvitation", args, &rv, opts...)
 	if err != nil {

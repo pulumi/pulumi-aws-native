@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Definition of AWS::VerifiedPermissions::PolicyTemplate Resource Type
 func LookupPolicyTemplate(ctx *pulumi.Context, args *LookupPolicyTemplateArgs, opts ...pulumi.InvokeOption) (*LookupPolicyTemplateResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPolicyTemplateResult
 	err := ctx.Invoke("aws-native:verifiedpermissions:getPolicyTemplate", args, &rv, opts...)
 	if err != nil {

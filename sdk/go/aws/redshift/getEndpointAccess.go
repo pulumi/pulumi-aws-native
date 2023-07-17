@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for a Redshift-managed VPC endpoint.
 func LookupEndpointAccess(ctx *pulumi.Context, args *LookupEndpointAccessArgs, opts ...pulumi.InvokeOption) (*LookupEndpointAccessResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEndpointAccessResult
 	err := ctx.Invoke("aws-native:redshift:getEndpointAccess", args, &rv, opts...)
 	if err != nil {

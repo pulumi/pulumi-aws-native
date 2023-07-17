@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Represents a key signing key (KSK) associated with a hosted zone. You can only have two KSKs per hosted zone.
 func LookupKeySigningKey(ctx *pulumi.Context, args *LookupKeySigningKeyArgs, opts ...pulumi.InvokeOption) (*LookupKeySigningKeyResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupKeySigningKeyResult
 	err := ctx.Invoke("aws-native:route53:getKeySigningKey", args, &rv, opts...)
 	if err != nil {

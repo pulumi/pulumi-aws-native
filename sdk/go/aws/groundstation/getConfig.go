@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // AWS Ground Station config resource type for CloudFormation.
 func LookupConfig(ctx *pulumi.Context, args *LookupConfigArgs, opts ...pulumi.InvokeOption) (*LookupConfigResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupConfigResult
 	err := ctx.Invoke("aws-native:groundstation:getConfig", args, &rv, opts...)
 	if err != nil {

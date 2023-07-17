@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Schema for ApplicationInstance CloudFormation Resource
 func LookupApplicationInstance(ctx *pulumi.Context, args *LookupApplicationInstanceArgs, opts ...pulumi.InvokeOption) (*LookupApplicationInstanceResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupApplicationInstanceResult
 	err := ctx.Invoke("aws-native:panorama:getApplicationInstance", args, &rv, opts...)
 	if err != nil {

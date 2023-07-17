@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::AppIntegrations::DataIntegration
 func LookupDataIntegration(ctx *pulumi.Context, args *LookupDataIntegrationArgs, opts ...pulumi.InvokeOption) (*LookupDataIntegrationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDataIntegrationResult
 	err := ctx.Invoke("aws-native:appintegrations:getDataIntegration", args, &rv, opts...)
 	if err != nil {

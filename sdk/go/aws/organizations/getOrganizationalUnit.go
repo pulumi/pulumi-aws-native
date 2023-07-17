@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // You can use organizational units (OUs) to group accounts together to administer as a single unit. This greatly simplifies the management of your accounts. For example, you can attach a policy-based control to an OU, and all accounts within the OU automatically inherit the policy. You can create multiple OUs within a single organization, and you can create OUs within other OUs. Each OU can contain multiple accounts, and you can move accounts from one OU to another. However, OU names must be unique within a parent OU or root.
 func LookupOrganizationalUnit(ctx *pulumi.Context, args *LookupOrganizationalUnitArgs, opts ...pulumi.InvokeOption) (*LookupOrganizationalUnitResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupOrganizationalUnitResult
 	err := ctx.Invoke("aws-native:organizations:getOrganizationalUnit", args, &rv, opts...)
 	if err != nil {

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::Events::Rule
 func LookupRule(ctx *pulumi.Context, args *LookupRuleArgs, opts ...pulumi.InvokeOption) (*LookupRuleResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRuleResult
 	err := ctx.Invoke("aws-native:events:getRule", args, &rv, opts...)
 	if err != nil {

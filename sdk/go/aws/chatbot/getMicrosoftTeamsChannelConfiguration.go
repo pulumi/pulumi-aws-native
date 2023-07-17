@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for AWS::Chatbot::MicrosoftTeamsChannelConfiguration.
 func LookupMicrosoftTeamsChannelConfiguration(ctx *pulumi.Context, args *LookupMicrosoftTeamsChannelConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupMicrosoftTeamsChannelConfigurationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupMicrosoftTeamsChannelConfigurationResult
 	err := ctx.Invoke("aws-native:chatbot:getMicrosoftTeamsChannelConfiguration", args, &rv, opts...)
 	if err != nil {

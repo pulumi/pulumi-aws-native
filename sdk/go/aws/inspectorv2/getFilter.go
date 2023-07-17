@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Inspector Filter resource schema
 func LookupFilter(ctx *pulumi.Context, args *LookupFilterArgs, opts ...pulumi.InvokeOption) (*LookupFilterResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFilterResult
 	err := ctx.Invoke("aws-native:inspectorv2:getFilter", args, &rv, opts...)
 	if err != nil {

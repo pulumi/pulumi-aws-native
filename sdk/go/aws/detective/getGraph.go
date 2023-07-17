@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for AWS::Detective::Graph
 func LookupGraph(ctx *pulumi.Context, args *LookupGraphArgs, opts ...pulumi.InvokeOption) (*LookupGraphResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupGraphResult
 	err := ctx.Invoke("aws-native:detective:getGraph", args, &rv, opts...)
 	if err != nil {

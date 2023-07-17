@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -64,6 +65,7 @@ func NewAlarm(ctx *pulumi.Context,
 	if args.Threshold == nil {
 		return nil, errors.New("invalid value for required argument 'Threshold'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Alarm
 	err := ctx.RegisterResource("aws-native:lightsail:Alarm", name, args, &resource, opts...)
 	if err != nil {

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Definition of AWS::RolesAnywhere::CRL Resource Type
 func LookupCRL(ctx *pulumi.Context, args *LookupCRLArgs, opts ...pulumi.InvokeOption) (*LookupCRLResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCRLResult
 	err := ctx.Invoke("aws-native:rolesanywhere:getCRL", args, &rv, opts...)
 	if err != nil {

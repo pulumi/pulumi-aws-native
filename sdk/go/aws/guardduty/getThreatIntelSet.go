@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::GuardDuty::ThreatIntelSet
 func LookupThreatIntelSet(ctx *pulumi.Context, args *LookupThreatIntelSetArgs, opts ...pulumi.InvokeOption) (*LookupThreatIntelSetResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupThreatIntelSetResult
 	err := ctx.Invoke("aws-native:guardduty:getThreatIntelSet", args, &rv, opts...)
 	if err != nil {

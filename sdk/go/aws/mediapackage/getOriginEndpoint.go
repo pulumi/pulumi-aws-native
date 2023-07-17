@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for AWS::MediaPackage::OriginEndpoint
 func LookupOriginEndpoint(ctx *pulumi.Context, args *LookupOriginEndpointArgs, opts ...pulumi.InvokeOption) (*LookupOriginEndpointResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupOriginEndpointResult
 	err := ctx.Invoke("aws-native:mediapackage:getOriginEndpoint", args, &rv, opts...)
 	if err != nil {

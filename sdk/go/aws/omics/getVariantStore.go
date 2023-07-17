@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Definition of AWS::Omics::VariantStore Resource Type
 func LookupVariantStore(ctx *pulumi.Context, args *LookupVariantStoreArgs, opts ...pulumi.InvokeOption) (*LookupVariantStoreResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVariantStoreResult
 	err := ctx.Invoke("aws-native:omics:getVariantStore", args, &rv, opts...)
 	if err != nil {

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::OpsWorks::Stack
 func LookupStack(ctx *pulumi.Context, args *LookupStackArgs, opts ...pulumi.InvokeOption) (*LookupStackResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupStackResult
 	err := ctx.Invoke("aws-native:opsworks:getStack", args, &rv, opts...)
 	if err != nil {

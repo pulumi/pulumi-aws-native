@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for AWS::DataSync::LocationNFS
 func LookupLocationNFS(ctx *pulumi.Context, args *LookupLocationNFSArgs, opts ...pulumi.InvokeOption) (*LookupLocationNFSResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLocationNFSResult
 	err := ctx.Invoke("aws-native:datasync:getLocationNFS", args, &rv, opts...)
 	if err != nil {

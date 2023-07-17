@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,6 +25,7 @@ func NewLogAnomalyDetectionIntegration(ctx *pulumi.Context,
 		args = &LogAnomalyDetectionIntegrationArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LogAnomalyDetectionIntegration
 	err := ctx.RegisterResource("aws-native:devopsguru:LogAnomalyDetectionIntegration", name, args, &resource, opts...)
 	if err != nil {

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Engagement Plan for a SSM Incident Manager Contact.
 func LookupPlan(ctx *pulumi.Context, args *LookupPlanArgs, opts ...pulumi.InvokeOption) (*LookupPlanResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPlanResult
 	err := ctx.Invoke("aws-native:ssmcontacts:getPlan", args, &rv, opts...)
 	if err != nil {

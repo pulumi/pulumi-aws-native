@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // AWS::S3::MultiRegionAccessPoint is an Amazon S3 resource type that dynamically routes S3 requests to easily satisfy geographic compliance requirements based on customer-defined routing policies.
 func LookupMultiRegionAccessPoint(ctx *pulumi.Context, args *LookupMultiRegionAccessPointArgs, opts ...pulumi.InvokeOption) (*LookupMultiRegionAccessPointResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupMultiRegionAccessPointResult
 	err := ctx.Invoke("aws-native:s3:getMultiRegionAccessPoint", args, &rv, opts...)
 	if err != nil {

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // The `AWS::Redshift::EventSubscription` resource creates an Amazon Redshift Event Subscription.
 func LookupEventSubscription(ctx *pulumi.Context, args *LookupEventSubscriptionArgs, opts ...pulumi.InvokeOption) (*LookupEventSubscriptionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEventSubscriptionResult
 	err := ctx.Invoke("aws-native:redshift:getEventSubscription", args, &rv, opts...)
 	if err != nil {

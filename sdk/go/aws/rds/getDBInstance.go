@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // The AWS::RDS::DBInstance resource creates an Amazon RDS DB instance.
 func LookupDBInstance(ctx *pulumi.Context, args *LookupDBInstanceArgs, opts ...pulumi.InvokeOption) (*LookupDBInstanceResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDBInstanceResult
 	err := ctx.Invoke("aws-native:rds:getDBInstance", args, &rv, opts...)
 	if err != nil {

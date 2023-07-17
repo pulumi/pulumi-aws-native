@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // The AWS::RDS::OptionGroup resource creates an option group, to enable and configure features that are specific to a particular DB engine.
 func LookupOptionGroup(ctx *pulumi.Context, args *LookupOptionGroupArgs, opts ...pulumi.InvokeOption) (*LookupOptionGroupResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupOptionGroupResult
 	err := ctx.Invoke("aws-native:rds:getOptionGroup", args, &rv, opts...)
 	if err != nil {

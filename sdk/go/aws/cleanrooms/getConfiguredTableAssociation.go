@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Represents a table that can be queried within a collaboration
 func LookupConfiguredTableAssociation(ctx *pulumi.Context, args *LookupConfiguredTableAssociationArgs, opts ...pulumi.InvokeOption) (*LookupConfiguredTableAssociationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupConfiguredTableAssociationResult
 	err := ctx.Invoke("aws-native:cleanrooms:getConfiguredTableAssociation", args, &rv, opts...)
 	if err != nil {

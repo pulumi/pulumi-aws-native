@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for AWS::IoTTwinMaker::Workspace
 func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pulumi.InvokeOption) (*LookupWorkspaceResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupWorkspaceResult
 	err := ctx.Invoke("aws-native:iottwinmaker:getWorkspace", args, &rv, opts...)
 	if err != nil {

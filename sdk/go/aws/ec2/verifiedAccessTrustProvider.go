@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -50,6 +51,7 @@ func NewVerifiedAccessTrustProvider(ctx *pulumi.Context,
 	if args.TrustProviderType == nil {
 		return nil, errors.New("invalid value for required argument 'TrustProviderType'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VerifiedAccessTrustProvider
 	err := ctx.RegisterResource("aws-native:ec2:VerifiedAccessTrustProvider", name, args, &resource, opts...)
 	if err != nil {

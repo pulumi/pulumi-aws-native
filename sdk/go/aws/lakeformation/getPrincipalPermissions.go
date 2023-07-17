@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // A resource schema representing a Lake Formation Permission.
 func LookupPrincipalPermissions(ctx *pulumi.Context, args *LookupPrincipalPermissionsArgs, opts ...pulumi.InvokeOption) (*LookupPrincipalPermissionsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPrincipalPermissionsResult
 	err := ctx.Invoke("aws-native:lakeformation:getPrincipalPermissions", args, &rv, opts...)
 	if err != nil {

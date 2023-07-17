@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Describes an endpoint authorization for authorizing Redshift-managed VPC endpoint access to a cluster across AWS accounts.
 func LookupEndpointAuthorization(ctx *pulumi.Context, args *LookupEndpointAuthorizationArgs, opts ...pulumi.InvokeOption) (*LookupEndpointAuthorizationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEndpointAuthorizationResult
 	err := ctx.Invoke("aws-native:redshift:getEndpointAuthorization", args, &rv, opts...)
 	if err != nil {

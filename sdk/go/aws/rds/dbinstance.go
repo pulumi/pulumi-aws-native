@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -186,6 +187,7 @@ func NewDBInstance(ctx *pulumi.Context,
 		args = &DBInstanceArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DBInstance
 	err := ctx.RegisterResource("aws-native:rds:DBInstance", name, args, &resource, opts...)
 	if err != nil {

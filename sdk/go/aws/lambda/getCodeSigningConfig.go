@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::Lambda::CodeSigningConfig.
 func LookupCodeSigningConfig(ctx *pulumi.Context, args *LookupCodeSigningConfigArgs, opts ...pulumi.InvokeOption) (*LookupCodeSigningConfigResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCodeSigningConfigResult
 	err := ctx.Invoke("aws-native:lambda:getCodeSigningConfig", args, &rv, opts...)
 	if err != nil {

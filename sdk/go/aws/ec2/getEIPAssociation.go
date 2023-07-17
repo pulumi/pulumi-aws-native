@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::EC2::EIPAssociation
 func LookupEIPAssociation(ctx *pulumi.Context, args *LookupEIPAssociationArgs, opts ...pulumi.InvokeOption) (*LookupEIPAssociationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEIPAssociationResult
 	err := ctx.Invoke("aws-native:ec2:getEIPAssociation", args, &rv, opts...)
 	if err != nil {

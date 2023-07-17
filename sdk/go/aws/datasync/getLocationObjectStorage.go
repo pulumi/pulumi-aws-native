@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for AWS::DataSync::LocationObjectStorage.
 func LookupLocationObjectStorage(ctx *pulumi.Context, args *LookupLocationObjectStorageArgs, opts ...pulumi.InvokeOption) (*LookupLocationObjectStorageResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLocationObjectStorageResult
 	err := ctx.Invoke("aws-native:datasync:getLocationObjectStorage", args, &rv, opts...)
 	if err != nil {

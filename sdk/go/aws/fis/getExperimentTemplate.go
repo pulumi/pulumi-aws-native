@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for AWS::FIS::ExperimentTemplate
 func LookupExperimentTemplate(ctx *pulumi.Context, args *LookupExperimentTemplateArgs, opts ...pulumi.InvokeOption) (*LookupExperimentTemplateResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupExperimentTemplateResult
 	err := ctx.Invoke("aws-native:fis:getExperimentTemplate", args, &rv, opts...)
 	if err != nil {

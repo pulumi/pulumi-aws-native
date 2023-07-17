@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // AWS::NetworkManager::ConnectAttachment Resource Type Definition
 func LookupConnectAttachment(ctx *pulumi.Context, args *LookupConnectAttachmentArgs, opts ...pulumi.InvokeOption) (*LookupConnectAttachmentResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupConnectAttachmentResult
 	err := ctx.Invoke("aws-native:networkmanager:getConnectAttachment", args, &rv, opts...)
 	if err != nil {

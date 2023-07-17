@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::EC2::EC2Fleet
 func LookupEC2Fleet(ctx *pulumi.Context, args *LookupEC2FleetArgs, opts ...pulumi.InvokeOption) (*LookupEC2FleetResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEC2FleetResult
 	err := ctx.Invoke("aws-native:ec2:getEC2Fleet", args, &rv, opts...)
 	if err != nil {

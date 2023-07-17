@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // An AWS Support App resource that creates, updates, lists and deletes Slack channel configurations.
 func LookupSlackChannelConfiguration(ctx *pulumi.Context, args *LookupSlackChannelConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupSlackChannelConfigurationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSlackChannelConfigurationResult
 	err := ctx.Invoke("aws-native:supportapp:getSlackChannelConfiguration", args, &rv, opts...)
 	if err != nil {

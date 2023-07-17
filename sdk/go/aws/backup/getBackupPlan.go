@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::Backup::BackupPlan
 func LookupBackupPlan(ctx *pulumi.Context, args *LookupBackupPlanArgs, opts ...pulumi.InvokeOption) (*LookupBackupPlanResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBackupPlanResult
 	err := ctx.Invoke("aws-native:backup:getBackupPlan", args, &rv, opts...)
 	if err != nil {

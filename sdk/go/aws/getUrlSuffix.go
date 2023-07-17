@@ -4,10 +4,12 @@
 package aws
 
 import (
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func GetUrlSuffix(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetUrlSuffixResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetUrlSuffixResult
 	err := ctx.Invoke("aws-native:index:getUrlSuffix", nil, &rv, opts...)
 	if err != nil {

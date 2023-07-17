@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Wireless Device Import Tasks
 func LookupWirelessDeviceImportTask(ctx *pulumi.Context, args *LookupWirelessDeviceImportTaskArgs, opts ...pulumi.InvokeOption) (*LookupWirelessDeviceImportTaskResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupWirelessDeviceImportTaskResult
 	err := ctx.Invoke("aws-native:iotwireless:getWirelessDeviceImportTask", args, &rv, opts...)
 	if err != nil {

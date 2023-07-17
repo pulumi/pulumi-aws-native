@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::CodeStarNotifications::NotificationRule
 func LookupNotificationRule(ctx *pulumi.Context, args *LookupNotificationRuleArgs, opts ...pulumi.InvokeOption) (*LookupNotificationRuleResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupNotificationRuleResult
 	err := ctx.Invoke("aws-native:codestarnotifications:getNotificationRule", args, &rv, opts...)
 	if err != nil {

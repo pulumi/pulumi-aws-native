@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::Transfer::Connector
 func LookupConnector(ctx *pulumi.Context, args *LookupConnectorArgs, opts ...pulumi.InvokeOption) (*LookupConnectorResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupConnectorResult
 	err := ctx.Invoke("aws-native:transfer:getConnector", args, &rv, opts...)
 	if err != nil {

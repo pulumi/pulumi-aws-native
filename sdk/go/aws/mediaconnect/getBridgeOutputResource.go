@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for AWS::MediaConnect::BridgeOutput
 func LookupBridgeOutputResource(ctx *pulumi.Context, args *LookupBridgeOutputResourceArgs, opts ...pulumi.InvokeOption) (*LookupBridgeOutputResourceResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBridgeOutputResourceResult
 	err := ctx.Invoke("aws-native:mediaconnect:getBridgeOutputResource", args, &rv, opts...)
 	if err != nil {

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Version: None. Resource Type definition for AWS::DynamoDB::GlobalTable
 func LookupGlobalTable(ctx *pulumi.Context, args *LookupGlobalTableArgs, opts ...pulumi.InvokeOption) (*LookupGlobalTableResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupGlobalTableResult
 	err := ctx.Invoke("aws-native:dynamodb:getGlobalTable", args, &rv, opts...)
 	if err != nil {

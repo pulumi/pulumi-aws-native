@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::Lambda::Url
 func LookupUrl(ctx *pulumi.Context, args *LookupUrlArgs, opts ...pulumi.InvokeOption) (*LookupUrlResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupUrlResult
 	err := ctx.Invoke("aws-native:lambda:getUrl", args, &rv, opts...)
 	if err != nil {

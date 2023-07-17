@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::IAM::ServerCertificate
 func LookupServerCertificate(ctx *pulumi.Context, args *LookupServerCertificateArgs, opts ...pulumi.InvokeOption) (*LookupServerCertificateResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupServerCertificateResult
 	err := ctx.Invoke("aws-native:iam:getServerCertificate", args, &rv, opts...)
 	if err != nil {

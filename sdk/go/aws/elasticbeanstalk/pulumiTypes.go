@@ -7,8 +7,11 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type ApplicationMaxAgeRule struct {
 	// Set to true to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.

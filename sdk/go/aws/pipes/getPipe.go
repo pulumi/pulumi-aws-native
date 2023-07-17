@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Definition of AWS::Pipes::Pipe Resource Type
 func LookupPipe(ctx *pulumi.Context, args *LookupPipeArgs, opts ...pulumi.InvokeOption) (*LookupPipeResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPipeResult
 	err := ctx.Invoke("aws-native:pipes:getPipe", args, &rv, opts...)
 	if err != nil {

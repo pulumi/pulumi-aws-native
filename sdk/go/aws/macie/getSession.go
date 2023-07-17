@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // The AWS::Macie::Session resource specifies a new Amazon Macie session. A session is an object that represents the Amazon Macie service. A session is required for Amazon Macie to become operational.
 func LookupSession(ctx *pulumi.Context, args *LookupSessionArgs, opts ...pulumi.InvokeOption) (*LookupSessionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSessionResult
 	err := ctx.Invoke("aws-native:macie:getSession", args, &rv, opts...)
 	if err != nil {

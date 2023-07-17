@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Describes an AWS App Runner automatic configuration resource that enables automatic scaling of instances used to process web requests. You can share an auto scaling configuration across multiple services.
 func LookupAutoScalingConfiguration(ctx *pulumi.Context, args *LookupAutoScalingConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupAutoScalingConfigurationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAutoScalingConfigurationResult
 	err := ctx.Invoke("aws-native:apprunner:getAutoScalingConfiguration", args, &rv, opts...)
 	if err != nil {

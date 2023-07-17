@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Aws Route53 Recovery Readiness Check Schema and API specification.
 func LookupReadinessCheck(ctx *pulumi.Context, args *LookupReadinessCheckArgs, opts ...pulumi.InvokeOption) (*LookupReadinessCheckResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupReadinessCheckResult
 	err := ctx.Invoke("aws-native:route53recoveryreadiness:getReadinessCheck", args, &rv, opts...)
 	if err != nil {

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // An ObjectType resource of Amazon Connect Customer Profiles
 func LookupObjectType(ctx *pulumi.Context, args *LookupObjectTypeArgs, opts ...pulumi.InvokeOption) (*LookupObjectTypeResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupObjectTypeResult
 	err := ctx.Invoke("aws-native:customerprofiles:getObjectType", args, &rv, opts...)
 	if err != nil {

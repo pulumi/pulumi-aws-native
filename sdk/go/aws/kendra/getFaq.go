@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // A Kendra FAQ resource
 func LookupFaq(ctx *pulumi.Context, args *LookupFaqArgs, opts ...pulumi.InvokeOption) (*LookupFaqResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFaqResult
 	err := ctx.Invoke("aws-native:kendra:getFaq", args, &rv, opts...)
 	if err != nil {

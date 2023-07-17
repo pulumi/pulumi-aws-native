@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Registers a CA Certificate in IoT.
 func LookupCACertificate(ctx *pulumi.Context, args *LookupCACertificateArgs, opts ...pulumi.InvokeOption) (*LookupCACertificateResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCACertificateResult
 	err := ctx.Invoke("aws-native:iot:getCACertificate", args, &rv, opts...)
 	if err != nil {

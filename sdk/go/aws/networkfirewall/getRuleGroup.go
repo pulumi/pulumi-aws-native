@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource type definition for AWS::NetworkFirewall::RuleGroup
 func LookupRuleGroup(ctx *pulumi.Context, args *LookupRuleGroupArgs, opts ...pulumi.InvokeOption) (*LookupRuleGroupResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRuleGroupResult
 	err := ctx.Invoke("aws-native:networkfirewall:getRuleGroup", args, &rv, opts...)
 	if err != nil {

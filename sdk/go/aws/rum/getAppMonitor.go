@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::RUM::AppMonitor
 func LookupAppMonitor(ctx *pulumi.Context, args *LookupAppMonitorArgs, opts ...pulumi.InvokeOption) (*LookupAppMonitorResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAppMonitorResult
 	err := ctx.Invoke("aws-native:rum:getAppMonitor", args, &rv, opts...)
 	if err != nil {

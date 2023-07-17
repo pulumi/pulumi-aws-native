@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::Oam::Sink
 func LookupSink(ctx *pulumi.Context, args *LookupSinkArgs, opts ...pulumi.InvokeOption) (*LookupSinkResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSinkResult
 	err := ctx.Invoke("aws-native:oam:getSink", args, &rv, opts...)
 	if err != nil {

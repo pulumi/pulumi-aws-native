@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Schema for AWS::ServiceCatalog::ServiceAction
 func LookupServiceAction(ctx *pulumi.Context, args *LookupServiceActionArgs, opts ...pulumi.InvokeOption) (*LookupServiceActionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupServiceActionResult
 	err := ctx.Invoke("aws-native:servicecatalog:getServiceAction", args, &rv, opts...)
 	if err != nil {

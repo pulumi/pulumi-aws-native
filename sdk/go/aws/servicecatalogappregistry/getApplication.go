@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Schema for AWS::ServiceCatalogAppRegistry::Application
 func LookupApplication(ctx *pulumi.Context, args *LookupApplicationArgs, opts ...pulumi.InvokeOption) (*LookupApplicationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupApplicationResult
 	err := ctx.Invoke("aws-native:servicecatalogappregistry:getApplication", args, &rv, opts...)
 	if err != nil {

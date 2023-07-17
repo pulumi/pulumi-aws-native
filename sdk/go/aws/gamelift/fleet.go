@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -76,6 +77,7 @@ func NewFleet(ctx *pulumi.Context,
 		args = &FleetArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Fleet
 	err := ctx.RegisterResource("aws-native:gamelift:Fleet", name, args, &resource, opts...)
 	if err != nil {

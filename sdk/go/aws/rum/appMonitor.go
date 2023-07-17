@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -36,6 +37,7 @@ func NewAppMonitor(ctx *pulumi.Context,
 	if args.Domain == nil {
 		return nil, errors.New("invalid value for required argument 'Domain'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AppMonitor
 	err := ctx.RegisterResource("aws-native:rum:AppMonitor", name, args, &resource, opts...)
 	if err != nil {

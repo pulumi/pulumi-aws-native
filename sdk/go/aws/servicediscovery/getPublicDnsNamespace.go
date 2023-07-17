@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::ServiceDiscovery::PublicDnsNamespace
 func LookupPublicDnsNamespace(ctx *pulumi.Context, args *LookupPublicDnsNamespaceArgs, opts ...pulumi.InvokeOption) (*LookupPublicDnsNamespaceResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPublicDnsNamespaceResult
 	err := ctx.Invoke("aws-native:servicediscovery:getPublicDnsNamespace", args, &rv, opts...)
 	if err != nil {

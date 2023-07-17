@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // A Kendra index
 func LookupIndex(ctx *pulumi.Context, args *LookupIndexArgs, opts ...pulumi.InvokeOption) (*LookupIndexResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupIndexResult
 	err := ctx.Invoke("aws-native:kendra:getIndex", args, &rv, opts...)
 	if err != nil {

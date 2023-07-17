@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -44,6 +45,7 @@ func NewDashboard(ctx *pulumi.Context,
 	if args.DashboardDescription == nil {
 		return nil, errors.New("invalid value for required argument 'DashboardDescription'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Dashboard
 	err := ctx.RegisterResource("aws-native:iotsitewise:Dashboard", name, args, &resource, opts...)
 	if err != nil {

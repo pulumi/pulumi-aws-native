@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Represents a studio component that connects a non-Nimble Studio resource in your account to your studio
 func LookupStudioComponent(ctx *pulumi.Context, args *LookupStudioComponentArgs, opts ...pulumi.InvokeOption) (*LookupStudioComponentResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupStudioComponentResult
 	err := ctx.Invoke("aws-native:nimblestudio:getStudioComponent", args, &rv, opts...)
 	if err != nil {

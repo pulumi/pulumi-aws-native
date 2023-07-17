@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Definition of AWS::RedshiftServerless::Workgroup Resource Type
 func LookupWorkgroup(ctx *pulumi.Context, args *LookupWorkgroupArgs, opts ...pulumi.InvokeOption) (*LookupWorkgroupResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupWorkgroupResult
 	err := ctx.Invoke("aws-native:redshiftserverless:getWorkgroup", args, &rv, opts...)
 	if err != nil {

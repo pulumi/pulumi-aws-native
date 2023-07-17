@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -43,6 +44,7 @@ func NewMulticastGroup(ctx *pulumi.Context,
 	if args.LoRaWAN == nil {
 		return nil, errors.New("invalid value for required argument 'LoRaWAN'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MulticastGroup
 	err := ctx.RegisterResource("aws-native:iotwireless:MulticastGroup", name, args, &resource, opts...)
 	if err != nil {

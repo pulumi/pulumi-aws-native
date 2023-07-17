@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -37,6 +38,7 @@ func NewCarrierGateway(ctx *pulumi.Context,
 	if args.VpcId == nil {
 		return nil, errors.New("invalid value for required argument 'VpcId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CarrierGateway
 	err := ctx.RegisterResource("aws-native:ec2:CarrierGateway", name, args, &resource, opts...)
 	if err != nil {

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Contains a list of Regular expressions based on the provided inputs. RegexPatternSet can be used with other WAF entities with RegexPatternSetReferenceStatement to perform other actions .
 func LookupRegexPatternSet(ctx *pulumi.Context, args *LookupRegexPatternSetArgs, opts ...pulumi.InvokeOption) (*LookupRegexPatternSetResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRegexPatternSetResult
 	err := ctx.Invoke("aws-native:wafv2:getRegexPatternSet", args, &rv, opts...)
 	if err != nil {

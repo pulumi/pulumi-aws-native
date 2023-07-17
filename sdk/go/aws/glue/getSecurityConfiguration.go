@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::Glue::SecurityConfiguration
 func LookupSecurityConfiguration(ctx *pulumi.Context, args *LookupSecurityConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupSecurityConfigurationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSecurityConfigurationResult
 	err := ctx.Invoke("aws-native:glue:getSecurityConfiguration", args, &rv, opts...)
 	if err != nil {

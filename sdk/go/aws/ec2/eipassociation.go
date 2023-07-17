@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -30,6 +31,7 @@ func NewEIPAssociation(ctx *pulumi.Context,
 		args = &EIPAssociationArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EIPAssociation
 	err := ctx.RegisterResource("aws-native:ec2:EIPAssociation", name, args, &resource, opts...)
 	if err != nil {

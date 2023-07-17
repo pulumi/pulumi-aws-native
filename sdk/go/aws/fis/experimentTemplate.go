@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -46,6 +47,7 @@ func NewExperimentTemplate(ctx *pulumi.Context,
 	if args.Targets == nil {
 		return nil, errors.New("invalid value for required argument 'Targets'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ExperimentTemplate
 	err := ctx.RegisterResource("aws-native:fis:ExperimentTemplate", name, args, &resource, opts...)
 	if err != nil {

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::Cognito::UserPoolGroup
 func LookupUserPoolGroup(ctx *pulumi.Context, args *LookupUserPoolGroupArgs, opts ...pulumi.InvokeOption) (*LookupUserPoolGroupResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupUserPoolGroupResult
 	err := ctx.Invoke("aws-native:cognito:getUserPoolGroup", args, &rv, opts...)
 	if err != nil {

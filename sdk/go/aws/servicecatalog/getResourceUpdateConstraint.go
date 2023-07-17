@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::ServiceCatalog::ResourceUpdateConstraint
 func LookupResourceUpdateConstraint(ctx *pulumi.Context, args *LookupResourceUpdateConstraintArgs, opts ...pulumi.InvokeOption) (*LookupResourceUpdateConstraintResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResourceUpdateConstraintResult
 	err := ctx.Invoke("aws-native:servicecatalog:getResourceUpdateConstraint", args, &rv, opts...)
 	if err != nil {

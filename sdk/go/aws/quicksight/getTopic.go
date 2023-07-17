@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Definition of the AWS::QuickSight::Topic Resource Type.
 func LookupTopic(ctx *pulumi.Context, args *LookupTopicArgs, opts ...pulumi.InvokeOption) (*LookupTopicResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTopicResult
 	err := ctx.Invoke("aws-native:quicksight:getTopic", args, &rv, opts...)
 	if err != nil {

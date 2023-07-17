@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::SageMaker::InferenceExperiment
 func LookupInferenceExperiment(ctx *pulumi.Context, args *LookupInferenceExperimentArgs, opts ...pulumi.InvokeOption) (*LookupInferenceExperimentResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupInferenceExperimentResult
 	err := ctx.Invoke("aws-native:sagemaker:getInferenceExperiment", args, &rv, opts...)
 	if err != nil {

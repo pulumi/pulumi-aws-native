@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::ApiGateway::DocumentationPart
 func LookupDocumentationPart(ctx *pulumi.Context, args *LookupDocumentationPartArgs, opts ...pulumi.InvokeOption) (*LookupDocumentationPartResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDocumentationPartResult
 	err := ctx.Invoke("aws-native:apigateway:getDocumentationPart", args, &rv, opts...)
 	if err != nil {

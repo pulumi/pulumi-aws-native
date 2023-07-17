@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ func NewEmailIdentity(ctx *pulumi.Context,
 	if args.EmailIdentity == nil {
 		return nil, errors.New("invalid value for required argument 'EmailIdentity'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EmailIdentity
 	err := ctx.RegisterResource("aws-native:ses:EmailIdentity", name, args, &resource, opts...)
 	if err != nil {

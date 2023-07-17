@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -33,6 +34,7 @@ func NewFirewallPolicy(ctx *pulumi.Context,
 	if args.FirewallPolicy == nil {
 		return nil, errors.New("invalid value for required argument 'FirewallPolicy'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FirewallPolicy
 	err := ctx.RegisterResource("aws-native:networkfirewall:FirewallPolicy", name, args, &resource, opts...)
 	if err != nil {

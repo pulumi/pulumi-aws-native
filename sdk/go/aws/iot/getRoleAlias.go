@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Use the AWS::IoT::RoleAlias resource to declare an AWS IoT RoleAlias.
 func LookupRoleAlias(ctx *pulumi.Context, args *LookupRoleAliasArgs, opts ...pulumi.InvokeOption) (*LookupRoleAliasResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRoleAliasResult
 	err := ctx.Invoke("aws-native:iot:getRoleAlias", args, &rv, opts...)
 	if err != nil {

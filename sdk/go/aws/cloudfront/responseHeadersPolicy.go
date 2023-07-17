@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -29,6 +30,7 @@ func NewResponseHeadersPolicy(ctx *pulumi.Context,
 	if args.ResponseHeadersPolicyConfig == nil {
 		return nil, errors.New("invalid value for required argument 'ResponseHeadersPolicyConfig'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResponseHeadersPolicy
 	err := ctx.RegisterResource("aws-native:cloudfront:ResponseHeadersPolicy", name, args, &resource, opts...)
 	if err != nil {

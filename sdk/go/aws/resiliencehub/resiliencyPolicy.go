@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -45,6 +46,7 @@ func NewResiliencyPolicy(ctx *pulumi.Context,
 	if args.Tier == nil {
 		return nil, errors.New("invalid value for required argument 'Tier'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResiliencyPolicy
 	err := ctx.RegisterResource("aws-native:resiliencehub:ResiliencyPolicy", name, args, &resource, opts...)
 	if err != nil {

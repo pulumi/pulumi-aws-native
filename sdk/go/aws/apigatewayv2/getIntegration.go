@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::ApiGatewayV2::Integration
 func LookupIntegration(ctx *pulumi.Context, args *LookupIntegrationArgs, opts ...pulumi.InvokeOption) (*LookupIntegrationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupIntegrationResult
 	err := ctx.Invoke("aws-native:apigatewayv2:getIntegration", args, &rv, opts...)
 	if err != nil {

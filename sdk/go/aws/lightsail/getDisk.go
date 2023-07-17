@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::Lightsail::Disk
 func LookupDisk(ctx *pulumi.Context, args *LookupDiskArgs, opts ...pulumi.InvokeOption) (*LookupDiskResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDiskResult
 	err := ctx.Invoke("aws-native:lightsail:getDisk", args, &rv, opts...)
 	if err != nil {

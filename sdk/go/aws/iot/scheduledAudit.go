@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -44,6 +45,7 @@ func NewScheduledAudit(ctx *pulumi.Context,
 	if args.TargetCheckNames == nil {
 		return nil, errors.New("invalid value for required argument 'TargetCheckNames'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ScheduledAudit
 	err := ctx.RegisterResource("aws-native:iot:ScheduledAudit", name, args, &resource, opts...)
 	if err != nil {

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Private certificate authority.
 func LookupCertificateAuthority(ctx *pulumi.Context, args *LookupCertificateAuthorityArgs, opts ...pulumi.InvokeOption) (*LookupCertificateAuthorityResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCertificateAuthorityResult
 	err := ctx.Invoke("aws-native:acmpca:getCertificateAuthority", args, &rv, opts...)
 	if err != nil {

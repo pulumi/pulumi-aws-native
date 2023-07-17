@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::AmazonMQ::ConfigurationAssociation
 func LookupConfigurationAssociation(ctx *pulumi.Context, args *LookupConfigurationAssociationArgs, opts ...pulumi.InvokeOption) (*LookupConfigurationAssociationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupConfigurationAssociationResult
 	err := ctx.Invoke("aws-native:amazonmq:getConfigurationAssociation", args, &rv, opts...)
 	if err != nil {

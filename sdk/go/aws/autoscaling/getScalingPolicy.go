@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // The AWS::AutoScaling::ScalingPolicy resource specifies an Amazon EC2 Auto Scaling scaling policy so that the Auto Scaling group can scale the number of instances available for your application.
 func LookupScalingPolicy(ctx *pulumi.Context, args *LookupScalingPolicyArgs, opts ...pulumi.InvokeOption) (*LookupScalingPolicyResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupScalingPolicyResult
 	err := ctx.Invoke("aws-native:autoscaling:getScalingPolicy", args, &rv, opts...)
 	if err != nil {

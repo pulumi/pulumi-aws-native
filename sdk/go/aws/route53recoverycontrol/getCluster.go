@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // AWS Route53 Recovery Control Cluster resource schema
 func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.InvokeOption) (*LookupClusterResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupClusterResult
 	err := ctx.Invoke("aws-native:route53recoverycontrol:getCluster", args, &rv, opts...)
 	if err != nil {

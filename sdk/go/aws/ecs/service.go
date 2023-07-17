@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -47,6 +48,7 @@ func NewService(ctx *pulumi.Context,
 		args = &ServiceArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Service
 	err := ctx.RegisterResource("aws-native:ecs:Service", name, args, &resource, opts...)
 	if err != nil {

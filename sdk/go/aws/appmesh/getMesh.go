@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::AppMesh::Mesh
 func LookupMesh(ctx *pulumi.Context, args *LookupMeshArgs, opts ...pulumi.InvokeOption) (*LookupMeshResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupMeshResult
 	err := ctx.Invoke("aws-native:appmesh:getMesh", args, &rv, opts...)
 	if err != nil {

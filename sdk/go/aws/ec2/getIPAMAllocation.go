@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Schema of AWS::EC2::IPAMAllocation Type
 func LookupIPAMAllocation(ctx *pulumi.Context, args *LookupIPAMAllocationArgs, opts ...pulumi.InvokeOption) (*LookupIPAMAllocationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupIPAMAllocationResult
 	err := ctx.Invoke("aws-native:ec2:getIPAMAllocation", args, &rv, opts...)
 	if err != nil {

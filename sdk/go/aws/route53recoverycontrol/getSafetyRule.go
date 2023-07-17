@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for AWS Route53 Recovery Control basic constructs and validation rules.
 func LookupSafetyRule(ctx *pulumi.Context, args *LookupSafetyRuleArgs, opts ...pulumi.InvokeOption) (*LookupSafetyRuleResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSafetyRuleResult
 	err := ctx.Invoke("aws-native:route53recoverycontrol:getSafetyRule", args, &rv, opts...)
 	if err != nil {

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::Events::ApiDestination.
 func LookupApiDestination(ctx *pulumi.Context, args *LookupApiDestinationArgs, opts ...pulumi.InvokeOption) (*LookupApiDestinationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupApiDestinationResult
 	err := ctx.Invoke("aws-native:events:getApiDestination", args, &rv, opts...)
 	if err != nil {

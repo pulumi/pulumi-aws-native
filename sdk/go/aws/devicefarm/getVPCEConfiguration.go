@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // AWS::DeviceFarm::VPCEConfiguration creates a new Device Farm VPCE Configuration
 func LookupVPCEConfiguration(ctx *pulumi.Context, args *LookupVPCEConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupVPCEConfigurationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVPCEConfigurationResult
 	err := ctx.Invoke("aws-native:devicefarm:getVPCEConfiguration", args, &rv, opts...)
 	if err != nil {

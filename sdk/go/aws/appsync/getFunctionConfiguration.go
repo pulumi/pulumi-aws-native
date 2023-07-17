@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::AppSync::FunctionConfiguration
 func LookupFunctionConfiguration(ctx *pulumi.Context, args *LookupFunctionConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupFunctionConfigurationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFunctionConfigurationResult
 	err := ctx.Invoke("aws-native:appsync:getFunctionConfiguration", args, &rv, opts...)
 	if err != nil {

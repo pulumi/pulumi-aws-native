@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Schema for AWS::ServiceCatalogAppRegistry::ResourceAssociation
 func LookupResourceAssociation(ctx *pulumi.Context, args *LookupResourceAssociationArgs, opts ...pulumi.InvokeOption) (*LookupResourceAssociationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResourceAssociationResult
 	err := ctx.Invoke("aws-native:servicecatalogappregistry:getResourceAssociation", args, &rv, opts...)
 	if err != nil {
