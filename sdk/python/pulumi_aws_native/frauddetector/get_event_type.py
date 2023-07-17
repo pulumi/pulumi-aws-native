@@ -132,14 +132,14 @@ def get_event_type(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:frauddetector:getEventType', __args__, opts=opts, typ=GetEventTypeResult).value
 
     return AwaitableGetEventTypeResult(
-        arn=__ret__.arn,
-        created_time=__ret__.created_time,
-        description=__ret__.description,
-        entity_types=__ret__.entity_types,
-        event_variables=__ret__.event_variables,
-        labels=__ret__.labels,
-        last_updated_time=__ret__.last_updated_time,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        created_time=pulumi.get(__ret__, 'created_time'),
+        description=pulumi.get(__ret__, 'description'),
+        entity_types=pulumi.get(__ret__, 'entity_types'),
+        event_variables=pulumi.get(__ret__, 'event_variables'),
+        labels=pulumi.get(__ret__, 'labels'),
+        last_updated_time=pulumi.get(__ret__, 'last_updated_time'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_event_type)

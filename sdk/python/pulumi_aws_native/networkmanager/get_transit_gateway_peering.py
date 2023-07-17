@@ -164,16 +164,16 @@ def get_transit_gateway_peering(peering_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:networkmanager:getTransitGatewayPeering', __args__, opts=opts, typ=GetTransitGatewayPeeringResult).value
 
     return AwaitableGetTransitGatewayPeeringResult(
-        core_network_arn=__ret__.core_network_arn,
-        created_at=__ret__.created_at,
-        edge_location=__ret__.edge_location,
-        owner_account_id=__ret__.owner_account_id,
-        peering_id=__ret__.peering_id,
-        peering_type=__ret__.peering_type,
-        resource_arn=__ret__.resource_arn,
-        state=__ret__.state,
-        tags=__ret__.tags,
-        transit_gateway_peering_attachment_id=__ret__.transit_gateway_peering_attachment_id)
+        core_network_arn=pulumi.get(__ret__, 'core_network_arn'),
+        created_at=pulumi.get(__ret__, 'created_at'),
+        edge_location=pulumi.get(__ret__, 'edge_location'),
+        owner_account_id=pulumi.get(__ret__, 'owner_account_id'),
+        peering_id=pulumi.get(__ret__, 'peering_id'),
+        peering_type=pulumi.get(__ret__, 'peering_type'),
+        resource_arn=pulumi.get(__ret__, 'resource_arn'),
+        state=pulumi.get(__ret__, 'state'),
+        tags=pulumi.get(__ret__, 'tags'),
+        transit_gateway_peering_attachment_id=pulumi.get(__ret__, 'transit_gateway_peering_attachment_id'))
 
 
 @_utilities.lift_output_func(get_transit_gateway_peering)

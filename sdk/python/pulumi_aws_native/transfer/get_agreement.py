@@ -156,15 +156,15 @@ def get_agreement(agreement_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:transfer:getAgreement', __args__, opts=opts, typ=GetAgreementResult).value
 
     return AwaitableGetAgreementResult(
-        access_role=__ret__.access_role,
-        agreement_id=__ret__.agreement_id,
-        arn=__ret__.arn,
-        base_directory=__ret__.base_directory,
-        description=__ret__.description,
-        local_profile_id=__ret__.local_profile_id,
-        partner_profile_id=__ret__.partner_profile_id,
-        status=__ret__.status,
-        tags=__ret__.tags)
+        access_role=pulumi.get(__ret__, 'access_role'),
+        agreement_id=pulumi.get(__ret__, 'agreement_id'),
+        arn=pulumi.get(__ret__, 'arn'),
+        base_directory=pulumi.get(__ret__, 'base_directory'),
+        description=pulumi.get(__ret__, 'description'),
+        local_profile_id=pulumi.get(__ret__, 'local_profile_id'),
+        partner_profile_id=pulumi.get(__ret__, 'partner_profile_id'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_agreement)

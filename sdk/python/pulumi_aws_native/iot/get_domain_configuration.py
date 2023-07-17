@@ -105,13 +105,13 @@ def get_domain_configuration(domain_configuration_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iot:getDomainConfiguration', __args__, opts=opts, typ=GetDomainConfigurationResult).value
 
     return AwaitableGetDomainConfigurationResult(
-        arn=__ret__.arn,
-        authorizer_config=__ret__.authorizer_config,
-        domain_configuration_status=__ret__.domain_configuration_status,
-        domain_type=__ret__.domain_type,
-        server_certificates=__ret__.server_certificates,
-        tags=__ret__.tags,
-        tls_config=__ret__.tls_config)
+        arn=pulumi.get(__ret__, 'arn'),
+        authorizer_config=pulumi.get(__ret__, 'authorizer_config'),
+        domain_configuration_status=pulumi.get(__ret__, 'domain_configuration_status'),
+        domain_type=pulumi.get(__ret__, 'domain_type'),
+        server_certificates=pulumi.get(__ret__, 'server_certificates'),
+        tags=pulumi.get(__ret__, 'tags'),
+        tls_config=pulumi.get(__ret__, 'tls_config'))
 
 
 @_utilities.lift_output_func(get_domain_configuration)

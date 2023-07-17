@@ -162,16 +162,16 @@ def get_pricing_rule(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:billingconductor:getPricingRule', __args__, opts=opts, typ=GetPricingRuleResult).value
 
     return AwaitableGetPricingRuleResult(
-        arn=__ret__.arn,
-        associated_pricing_plan_count=__ret__.associated_pricing_plan_count,
-        creation_time=__ret__.creation_time,
-        description=__ret__.description,
-        last_modified_time=__ret__.last_modified_time,
-        modifier_percentage=__ret__.modifier_percentage,
-        name=__ret__.name,
-        tags=__ret__.tags,
-        tiering=__ret__.tiering,
-        type=__ret__.type)
+        arn=pulumi.get(__ret__, 'arn'),
+        associated_pricing_plan_count=pulumi.get(__ret__, 'associated_pricing_plan_count'),
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        description=pulumi.get(__ret__, 'description'),
+        last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
+        modifier_percentage=pulumi.get(__ret__, 'modifier_percentage'),
+        name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        tiering=pulumi.get(__ret__, 'tiering'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_pricing_rule)

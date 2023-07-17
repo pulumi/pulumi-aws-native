@@ -135,14 +135,14 @@ def get_response_plan(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ssmincidents:getResponsePlan', __args__, opts=opts, typ=GetResponsePlanResult).value
 
     return AwaitableGetResponsePlanResult(
-        actions=__ret__.actions,
-        arn=__ret__.arn,
-        chat_channel=__ret__.chat_channel,
-        display_name=__ret__.display_name,
-        engagements=__ret__.engagements,
-        incident_template=__ret__.incident_template,
-        integrations=__ret__.integrations,
-        tags=__ret__.tags)
+        actions=pulumi.get(__ret__, 'actions'),
+        arn=pulumi.get(__ret__, 'arn'),
+        chat_channel=pulumi.get(__ret__, 'chat_channel'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        engagements=pulumi.get(__ret__, 'engagements'),
+        incident_template=pulumi.get(__ret__, 'incident_template'),
+        integrations=pulumi.get(__ret__, 'integrations'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_response_plan)

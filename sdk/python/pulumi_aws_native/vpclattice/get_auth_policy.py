@@ -59,8 +59,8 @@ def get_auth_policy(resource_identifier: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:vpclattice:getAuthPolicy', __args__, opts=opts, typ=GetAuthPolicyResult).value
 
     return AwaitableGetAuthPolicyResult(
-        policy=__ret__.policy,
-        state=__ret__.state)
+        policy=pulumi.get(__ret__, 'policy'),
+        state=pulumi.get(__ret__, 'state'))
 
 
 @_utilities.lift_output_func(get_auth_policy)

@@ -69,9 +69,9 @@ def get_assistant_association(assistant_association_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:wisdom:getAssistantAssociation', __args__, opts=opts, typ=GetAssistantAssociationResult).value
 
     return AwaitableGetAssistantAssociationResult(
-        assistant_arn=__ret__.assistant_arn,
-        assistant_association_arn=__ret__.assistant_association_arn,
-        assistant_association_id=__ret__.assistant_association_id)
+        assistant_arn=pulumi.get(__ret__, 'assistant_arn'),
+        assistant_association_arn=pulumi.get(__ret__, 'assistant_association_arn'),
+        assistant_association_id=pulumi.get(__ret__, 'assistant_association_id'))
 
 
 @_utilities.lift_output_func(get_assistant_association)

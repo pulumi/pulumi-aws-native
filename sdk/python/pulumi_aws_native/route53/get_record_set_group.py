@@ -68,9 +68,9 @@ def get_record_set_group(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:route53:getRecordSetGroup', __args__, opts=opts, typ=GetRecordSetGroupResult).value
 
     return AwaitableGetRecordSetGroupResult(
-        comment=__ret__.comment,
-        id=__ret__.id,
-        record_sets=__ret__.record_sets)
+        comment=pulumi.get(__ret__, 'comment'),
+        id=pulumi.get(__ret__, 'id'),
+        record_sets=pulumi.get(__ret__, 'record_sets'))
 
 
 @_utilities.lift_output_func(get_record_set_group)

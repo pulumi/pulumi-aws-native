@@ -77,10 +77,10 @@ def get_event_bus(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:events:getEventBus', __args__, opts=opts, typ=GetEventBusResult).value
 
     return AwaitableGetEventBusResult(
-        arn=__ret__.arn,
-        id=__ret__.id,
-        policy=__ret__.policy,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        id=pulumi.get(__ret__, 'id'),
+        policy=pulumi.get(__ret__, 'policy'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_event_bus)

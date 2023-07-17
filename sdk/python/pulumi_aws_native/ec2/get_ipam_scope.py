@@ -138,14 +138,14 @@ def get_ipam_scope(ipam_scope_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getIPAMScope', __args__, opts=opts, typ=GetIPAMScopeResult).value
 
     return AwaitableGetIPAMScopeResult(
-        arn=__ret__.arn,
-        description=__ret__.description,
-        ipam_arn=__ret__.ipam_arn,
-        ipam_scope_id=__ret__.ipam_scope_id,
-        ipam_scope_type=__ret__.ipam_scope_type,
-        is_default=__ret__.is_default,
-        pool_count=__ret__.pool_count,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        description=pulumi.get(__ret__, 'description'),
+        ipam_arn=pulumi.get(__ret__, 'ipam_arn'),
+        ipam_scope_id=pulumi.get(__ret__, 'ipam_scope_id'),
+        ipam_scope_type=pulumi.get(__ret__, 'ipam_scope_type'),
+        is_default=pulumi.get(__ret__, 'is_default'),
+        pool_count=pulumi.get(__ret__, 'pool_count'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_ipam_scope)

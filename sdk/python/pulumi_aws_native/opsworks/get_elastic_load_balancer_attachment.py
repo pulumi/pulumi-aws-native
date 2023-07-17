@@ -67,9 +67,9 @@ def get_elastic_load_balancer_attachment(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:opsworks:getElasticLoadBalancerAttachment', __args__, opts=opts, typ=GetElasticLoadBalancerAttachmentResult).value
 
     return AwaitableGetElasticLoadBalancerAttachmentResult(
-        elastic_load_balancer_name=__ret__.elastic_load_balancer_name,
-        id=__ret__.id,
-        layer_id=__ret__.layer_id)
+        elastic_load_balancer_name=pulumi.get(__ret__, 'elastic_load_balancer_name'),
+        id=pulumi.get(__ret__, 'id'),
+        layer_id=pulumi.get(__ret__, 'layer_id'))
 
 
 @_utilities.lift_output_func(get_elastic_load_balancer_attachment)

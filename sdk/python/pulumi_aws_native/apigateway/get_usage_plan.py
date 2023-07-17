@@ -128,13 +128,13 @@ def get_usage_plan(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:apigateway:getUsagePlan', __args__, opts=opts, typ=GetUsagePlanResult).value
 
     return AwaitableGetUsagePlanResult(
-        api_stages=__ret__.api_stages,
-        description=__ret__.description,
-        id=__ret__.id,
-        quota=__ret__.quota,
-        tags=__ret__.tags,
-        throttle=__ret__.throttle,
-        usage_plan_name=__ret__.usage_plan_name)
+        api_stages=pulumi.get(__ret__, 'api_stages'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        quota=pulumi.get(__ret__, 'quota'),
+        tags=pulumi.get(__ret__, 'tags'),
+        throttle=pulumi.get(__ret__, 'throttle'),
+        usage_plan_name=pulumi.get(__ret__, 'usage_plan_name'))
 
 
 @_utilities.lift_output_func(get_usage_plan)

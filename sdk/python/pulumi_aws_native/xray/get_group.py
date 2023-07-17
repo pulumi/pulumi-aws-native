@@ -98,11 +98,11 @@ def get_group(group_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:xray:getGroup', __args__, opts=opts, typ=GetGroupResult).value
 
     return AwaitableGetGroupResult(
-        filter_expression=__ret__.filter_expression,
-        group_arn=__ret__.group_arn,
-        group_name=__ret__.group_name,
-        insights_configuration=__ret__.insights_configuration,
-        tags=__ret__.tags)
+        filter_expression=pulumi.get(__ret__, 'filter_expression'),
+        group_arn=pulumi.get(__ret__, 'group_arn'),
+        group_name=pulumi.get(__ret__, 'group_name'),
+        insights_configuration=pulumi.get(__ret__, 'insights_configuration'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_group)

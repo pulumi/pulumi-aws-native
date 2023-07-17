@@ -80,9 +80,9 @@ def get_custom_metric(metric_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iot:getCustomMetric', __args__, opts=opts, typ=GetCustomMetricResult).value
 
     return AwaitableGetCustomMetricResult(
-        display_name=__ret__.display_name,
-        metric_arn=__ret__.metric_arn,
-        tags=__ret__.tags)
+        display_name=pulumi.get(__ret__, 'display_name'),
+        metric_arn=pulumi.get(__ret__, 'metric_arn'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_custom_metric)

@@ -140,17 +140,17 @@ def get_identity(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:pinpointemail:getIdentity', __args__, opts=opts, typ=GetIdentityResult).value
 
     return AwaitableGetIdentityResult(
-        dkim_signing_enabled=__ret__.dkim_signing_enabled,
-        feedback_forwarding_enabled=__ret__.feedback_forwarding_enabled,
-        id=__ret__.id,
-        identity_dns_record_name1=__ret__.identity_dns_record_name1,
-        identity_dns_record_name2=__ret__.identity_dns_record_name2,
-        identity_dns_record_name3=__ret__.identity_dns_record_name3,
-        identity_dns_record_value1=__ret__.identity_dns_record_value1,
-        identity_dns_record_value2=__ret__.identity_dns_record_value2,
-        identity_dns_record_value3=__ret__.identity_dns_record_value3,
-        mail_from_attributes=__ret__.mail_from_attributes,
-        tags=__ret__.tags)
+        dkim_signing_enabled=pulumi.get(__ret__, 'dkim_signing_enabled'),
+        feedback_forwarding_enabled=pulumi.get(__ret__, 'feedback_forwarding_enabled'),
+        id=pulumi.get(__ret__, 'id'),
+        identity_dns_record_name1=pulumi.get(__ret__, 'identity_dns_record_name1'),
+        identity_dns_record_name2=pulumi.get(__ret__, 'identity_dns_record_name2'),
+        identity_dns_record_name3=pulumi.get(__ret__, 'identity_dns_record_name3'),
+        identity_dns_record_value1=pulumi.get(__ret__, 'identity_dns_record_value1'),
+        identity_dns_record_value2=pulumi.get(__ret__, 'identity_dns_record_value2'),
+        identity_dns_record_value3=pulumi.get(__ret__, 'identity_dns_record_value3'),
+        mail_from_attributes=pulumi.get(__ret__, 'mail_from_attributes'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_identity)

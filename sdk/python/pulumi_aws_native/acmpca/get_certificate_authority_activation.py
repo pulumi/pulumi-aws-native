@@ -67,8 +67,8 @@ def get_certificate_authority_activation(certificate_authority_arn: Optional[str
     __ret__ = pulumi.runtime.invoke('aws-native:acmpca:getCertificateAuthorityActivation', __args__, opts=opts, typ=GetCertificateAuthorityActivationResult).value
 
     return AwaitableGetCertificateAuthorityActivationResult(
-        complete_certificate_chain=__ret__.complete_certificate_chain,
-        status=__ret__.status)
+        complete_certificate_chain=pulumi.get(__ret__, 'complete_certificate_chain'),
+        status=pulumi.get(__ret__, 'status'))
 
 
 @_utilities.lift_output_func(get_certificate_authority_activation)

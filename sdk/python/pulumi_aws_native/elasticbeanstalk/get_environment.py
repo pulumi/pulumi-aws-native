@@ -125,13 +125,13 @@ def get_environment(environment_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:elasticbeanstalk:getEnvironment', __args__, opts=opts, typ=GetEnvironmentResult).value
 
     return AwaitableGetEnvironmentResult(
-        description=__ret__.description,
-        endpoint_url=__ret__.endpoint_url,
-        operations_role=__ret__.operations_role,
-        platform_arn=__ret__.platform_arn,
-        tags=__ret__.tags,
-        tier=__ret__.tier,
-        version_label=__ret__.version_label)
+        description=pulumi.get(__ret__, 'description'),
+        endpoint_url=pulumi.get(__ret__, 'endpoint_url'),
+        operations_role=pulumi.get(__ret__, 'operations_role'),
+        platform_arn=pulumi.get(__ret__, 'platform_arn'),
+        tags=pulumi.get(__ret__, 'tags'),
+        tier=pulumi.get(__ret__, 'tier'),
+        version_label=pulumi.get(__ret__, 'version_label'))
 
 
 @_utilities.lift_output_func(get_environment)

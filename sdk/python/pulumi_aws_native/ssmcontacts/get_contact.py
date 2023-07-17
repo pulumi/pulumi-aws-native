@@ -67,8 +67,8 @@ def get_contact(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ssmcontacts:getContact', __args__, opts=opts, typ=GetContactResult).value
 
     return AwaitableGetContactResult(
-        arn=__ret__.arn,
-        display_name=__ret__.display_name)
+        arn=pulumi.get(__ret__, 'arn'),
+        display_name=pulumi.get(__ret__, 'display_name'))
 
 
 @_utilities.lift_output_func(get_contact)

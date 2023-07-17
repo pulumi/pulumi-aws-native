@@ -176,21 +176,21 @@ def get_server(server_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:transfer:getServer', __args__, opts=opts, typ=GetServerResult).value
 
     return AwaitableGetServerResult(
-        arn=__ret__.arn,
-        certificate=__ret__.certificate,
-        endpoint_details=__ret__.endpoint_details,
-        endpoint_type=__ret__.endpoint_type,
-        identity_provider_details=__ret__.identity_provider_details,
-        logging_role=__ret__.logging_role,
-        post_authentication_login_banner=__ret__.post_authentication_login_banner,
-        pre_authentication_login_banner=__ret__.pre_authentication_login_banner,
-        protocol_details=__ret__.protocol_details,
-        protocols=__ret__.protocols,
-        security_policy_name=__ret__.security_policy_name,
-        server_id=__ret__.server_id,
-        structured_log_destinations=__ret__.structured_log_destinations,
-        tags=__ret__.tags,
-        workflow_details=__ret__.workflow_details)
+        arn=pulumi.get(__ret__, 'arn'),
+        certificate=pulumi.get(__ret__, 'certificate'),
+        endpoint_details=pulumi.get(__ret__, 'endpoint_details'),
+        endpoint_type=pulumi.get(__ret__, 'endpoint_type'),
+        identity_provider_details=pulumi.get(__ret__, 'identity_provider_details'),
+        logging_role=pulumi.get(__ret__, 'logging_role'),
+        post_authentication_login_banner=pulumi.get(__ret__, 'post_authentication_login_banner'),
+        pre_authentication_login_banner=pulumi.get(__ret__, 'pre_authentication_login_banner'),
+        protocol_details=pulumi.get(__ret__, 'protocol_details'),
+        protocols=pulumi.get(__ret__, 'protocols'),
+        security_policy_name=pulumi.get(__ret__, 'security_policy_name'),
+        server_id=pulumi.get(__ret__, 'server_id'),
+        structured_log_destinations=pulumi.get(__ret__, 'structured_log_destinations'),
+        tags=pulumi.get(__ret__, 'tags'),
+        workflow_details=pulumi.get(__ret__, 'workflow_details'))
 
 
 @_utilities.lift_output_func(get_server)

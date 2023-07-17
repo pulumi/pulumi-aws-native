@@ -80,9 +80,9 @@ def get_location_f_sx_windows(location_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:datasync:getLocationFSxWindows', __args__, opts=opts, typ=GetLocationFSxWindowsResult).value
 
     return AwaitableGetLocationFSxWindowsResult(
-        location_arn=__ret__.location_arn,
-        location_uri=__ret__.location_uri,
-        tags=__ret__.tags)
+        location_arn=pulumi.get(__ret__, 'location_arn'),
+        location_uri=pulumi.get(__ret__, 'location_uri'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_location_f_sx_windows)

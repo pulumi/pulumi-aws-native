@@ -89,10 +89,10 @@ def get_connection(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:events:getConnection', __args__, opts=opts, typ=GetConnectionResult).value
 
     return AwaitableGetConnectionResult(
-        arn=__ret__.arn,
-        authorization_type=__ret__.authorization_type,
-        description=__ret__.description,
-        secret_arn=__ret__.secret_arn)
+        arn=pulumi.get(__ret__, 'arn'),
+        authorization_type=pulumi.get(__ret__, 'authorization_type'),
+        description=pulumi.get(__ret__, 'description'),
+        secret_arn=pulumi.get(__ret__, 'secret_arn'))
 
 
 @_utilities.lift_output_func(get_connection)

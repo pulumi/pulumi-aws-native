@@ -86,11 +86,11 @@ def get_classifier(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:glue:getClassifier', __args__, opts=opts, typ=GetClassifierResult).value
 
     return AwaitableGetClassifierResult(
-        csv_classifier=__ret__.csv_classifier,
-        grok_classifier=__ret__.grok_classifier,
-        id=__ret__.id,
-        json_classifier=__ret__.json_classifier,
-        x_ml_classifier=__ret__.x_ml_classifier)
+        csv_classifier=pulumi.get(__ret__, 'csv_classifier'),
+        grok_classifier=pulumi.get(__ret__, 'grok_classifier'),
+        id=pulumi.get(__ret__, 'id'),
+        json_classifier=pulumi.get(__ret__, 'json_classifier'),
+        x_ml_classifier=pulumi.get(__ret__, 'x_ml_classifier'))
 
 
 @_utilities.lift_output_func(get_classifier)

@@ -67,9 +67,9 @@ def get_instance_fleet_config(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:emr:getInstanceFleetConfig', __args__, opts=opts, typ=GetInstanceFleetConfigResult).value
 
     return AwaitableGetInstanceFleetConfigResult(
-        id=__ret__.id,
-        target_on_demand_capacity=__ret__.target_on_demand_capacity,
-        target_spot_capacity=__ret__.target_spot_capacity)
+        id=pulumi.get(__ret__, 'id'),
+        target_on_demand_capacity=pulumi.get(__ret__, 'target_on_demand_capacity'),
+        target_spot_capacity=pulumi.get(__ret__, 'target_spot_capacity'))
 
 
 @_utilities.lift_output_func(get_instance_fleet_config)

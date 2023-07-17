@@ -114,12 +114,12 @@ def get_logging_configuration(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ivschat:getLoggingConfiguration', __args__, opts=opts, typ=GetLoggingConfigurationResult).value
 
     return AwaitableGetLoggingConfigurationResult(
-        arn=__ret__.arn,
-        destination_configuration=__ret__.destination_configuration,
-        id=__ret__.id,
-        name=__ret__.name,
-        state=__ret__.state,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        destination_configuration=pulumi.get(__ret__, 'destination_configuration'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        state=pulumi.get(__ret__, 'state'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_logging_configuration)

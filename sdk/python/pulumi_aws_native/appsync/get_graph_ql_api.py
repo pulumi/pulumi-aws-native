@@ -203,24 +203,24 @@ def get_graph_ql_api(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:appsync:getGraphQLApi', __args__, opts=opts, typ=GetGraphQLApiResult).value
 
     return AwaitableGetGraphQLApiResult(
-        additional_authentication_providers=__ret__.additional_authentication_providers,
-        api_id=__ret__.api_id,
-        arn=__ret__.arn,
-        authentication_type=__ret__.authentication_type,
-        graph_ql_dns=__ret__.graph_ql_dns,
-        graph_ql_url=__ret__.graph_ql_url,
-        id=__ret__.id,
-        lambda_authorizer_config=__ret__.lambda_authorizer_config,
-        log_config=__ret__.log_config,
-        merged_api_execution_role_arn=__ret__.merged_api_execution_role_arn,
-        name=__ret__.name,
-        open_id_connect_config=__ret__.open_id_connect_config,
-        owner_contact=__ret__.owner_contact,
-        realtime_dns=__ret__.realtime_dns,
-        realtime_url=__ret__.realtime_url,
-        tags=__ret__.tags,
-        user_pool_config=__ret__.user_pool_config,
-        xray_enabled=__ret__.xray_enabled)
+        additional_authentication_providers=pulumi.get(__ret__, 'additional_authentication_providers'),
+        api_id=pulumi.get(__ret__, 'api_id'),
+        arn=pulumi.get(__ret__, 'arn'),
+        authentication_type=pulumi.get(__ret__, 'authentication_type'),
+        graph_ql_dns=pulumi.get(__ret__, 'graph_ql_dns'),
+        graph_ql_url=pulumi.get(__ret__, 'graph_ql_url'),
+        id=pulumi.get(__ret__, 'id'),
+        lambda_authorizer_config=pulumi.get(__ret__, 'lambda_authorizer_config'),
+        log_config=pulumi.get(__ret__, 'log_config'),
+        merged_api_execution_role_arn=pulumi.get(__ret__, 'merged_api_execution_role_arn'),
+        name=pulumi.get(__ret__, 'name'),
+        open_id_connect_config=pulumi.get(__ret__, 'open_id_connect_config'),
+        owner_contact=pulumi.get(__ret__, 'owner_contact'),
+        realtime_dns=pulumi.get(__ret__, 'realtime_dns'),
+        realtime_url=pulumi.get(__ret__, 'realtime_url'),
+        tags=pulumi.get(__ret__, 'tags'),
+        user_pool_config=pulumi.get(__ret__, 'user_pool_config'),
+        xray_enabled=pulumi.get(__ret__, 'xray_enabled'))
 
 
 @_utilities.lift_output_func(get_graph_ql_api)

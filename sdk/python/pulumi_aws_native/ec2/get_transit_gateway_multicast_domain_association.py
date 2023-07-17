@@ -85,9 +85,9 @@ def get_transit_gateway_multicast_domain_association(subnet_id: Optional[str] = 
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getTransitGatewayMulticastDomainAssociation', __args__, opts=opts, typ=GetTransitGatewayMulticastDomainAssociationResult).value
 
     return AwaitableGetTransitGatewayMulticastDomainAssociationResult(
-        resource_id=__ret__.resource_id,
-        resource_type=__ret__.resource_type,
-        state=__ret__.state)
+        resource_id=pulumi.get(__ret__, 'resource_id'),
+        resource_type=pulumi.get(__ret__, 'resource_type'),
+        state=pulumi.get(__ret__, 'state'))
 
 
 @_utilities.lift_output_func(get_transit_gateway_multicast_domain_association)

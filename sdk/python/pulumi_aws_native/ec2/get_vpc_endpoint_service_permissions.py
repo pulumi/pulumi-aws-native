@@ -49,7 +49,7 @@ def get_vpc_endpoint_service_permissions(service_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getVPCEndpointServicePermissions', __args__, opts=opts, typ=GetVPCEndpointServicePermissionsResult).value
 
     return AwaitableGetVPCEndpointServicePermissionsResult(
-        allowed_principals=__ret__.allowed_principals)
+        allowed_principals=pulumi.get(__ret__, 'allowed_principals'))
 
 
 @_utilities.lift_output_func(get_vpc_endpoint_service_permissions)

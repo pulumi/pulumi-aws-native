@@ -68,9 +68,9 @@ def get_directory_config(directory_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:appstream:getDirectoryConfig', __args__, opts=opts, typ=GetDirectoryConfigResult).value
 
     return AwaitableGetDirectoryConfigResult(
-        certificate_based_auth_properties=__ret__.certificate_based_auth_properties,
-        organizational_unit_distinguished_names=__ret__.organizational_unit_distinguished_names,
-        service_account_credentials=__ret__.service_account_credentials)
+        certificate_based_auth_properties=pulumi.get(__ret__, 'certificate_based_auth_properties'),
+        organizational_unit_distinguished_names=pulumi.get(__ret__, 'organizational_unit_distinguished_names'),
+        service_account_credentials=pulumi.get(__ret__, 'service_account_credentials'))
 
 
 @_utilities.lift_output_func(get_directory_config)

@@ -146,15 +146,15 @@ def get_bucket(bucket_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:lightsail:getBucket', __args__, opts=opts, typ=GetBucketResult).value
 
     return AwaitableGetBucketResult(
-        able_to_update_bundle=__ret__.able_to_update_bundle,
-        access_rules=__ret__.access_rules,
-        bucket_arn=__ret__.bucket_arn,
-        bundle_id=__ret__.bundle_id,
-        object_versioning=__ret__.object_versioning,
-        read_only_access_accounts=__ret__.read_only_access_accounts,
-        resources_receiving_access=__ret__.resources_receiving_access,
-        tags=__ret__.tags,
-        url=__ret__.url)
+        able_to_update_bundle=pulumi.get(__ret__, 'able_to_update_bundle'),
+        access_rules=pulumi.get(__ret__, 'access_rules'),
+        bucket_arn=pulumi.get(__ret__, 'bucket_arn'),
+        bundle_id=pulumi.get(__ret__, 'bundle_id'),
+        object_versioning=pulumi.get(__ret__, 'object_versioning'),
+        read_only_access_accounts=pulumi.get(__ret__, 'read_only_access_accounts'),
+        resources_receiving_access=pulumi.get(__ret__, 'resources_receiving_access'),
+        tags=pulumi.get(__ret__, 'tags'),
+        url=pulumi.get(__ret__, 'url'))
 
 
 @_utilities.lift_output_func(get_bucket)

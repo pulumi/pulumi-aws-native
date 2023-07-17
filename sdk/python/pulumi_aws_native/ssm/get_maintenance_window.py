@@ -149,18 +149,18 @@ def get_maintenance_window(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ssm:getMaintenanceWindow', __args__, opts=opts, typ=GetMaintenanceWindowResult).value
 
     return AwaitableGetMaintenanceWindowResult(
-        allow_unassociated_targets=__ret__.allow_unassociated_targets,
-        cutoff=__ret__.cutoff,
-        description=__ret__.description,
-        duration=__ret__.duration,
-        end_date=__ret__.end_date,
-        id=__ret__.id,
-        name=__ret__.name,
-        schedule=__ret__.schedule,
-        schedule_offset=__ret__.schedule_offset,
-        schedule_timezone=__ret__.schedule_timezone,
-        start_date=__ret__.start_date,
-        tags=__ret__.tags)
+        allow_unassociated_targets=pulumi.get(__ret__, 'allow_unassociated_targets'),
+        cutoff=pulumi.get(__ret__, 'cutoff'),
+        description=pulumi.get(__ret__, 'description'),
+        duration=pulumi.get(__ret__, 'duration'),
+        end_date=pulumi.get(__ret__, 'end_date'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        schedule=pulumi.get(__ret__, 'schedule'),
+        schedule_offset=pulumi.get(__ret__, 'schedule_offset'),
+        schedule_timezone=pulumi.get(__ret__, 'schedule_timezone'),
+        start_date=pulumi.get(__ret__, 'start_date'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_maintenance_window)

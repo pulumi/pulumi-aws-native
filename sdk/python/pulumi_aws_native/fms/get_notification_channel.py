@@ -58,8 +58,8 @@ def get_notification_channel(sns_topic_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:fms:getNotificationChannel', __args__, opts=opts, typ=GetNotificationChannelResult).value
 
     return AwaitableGetNotificationChannelResult(
-        sns_role_name=__ret__.sns_role_name,
-        sns_topic_arn=__ret__.sns_topic_arn)
+        sns_role_name=pulumi.get(__ret__, 'sns_role_name'),
+        sns_topic_arn=pulumi.get(__ret__, 'sns_topic_arn'))
 
 
 @_utilities.lift_output_func(get_notification_channel)

@@ -59,8 +59,8 @@ def get_ip_set(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:wafregional:getIPSet', __args__, opts=opts, typ=GetIPSetResult).value
 
     return AwaitableGetIPSetResult(
-        i_p_set_descriptors=__ret__.i_p_set_descriptors,
-        id=__ret__.id)
+        i_p_set_descriptors=pulumi.get(__ret__, 'i_p_set_descriptors'),
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_ip_set)

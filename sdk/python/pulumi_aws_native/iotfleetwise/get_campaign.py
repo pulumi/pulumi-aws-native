@@ -123,15 +123,15 @@ def get_campaign(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iotfleetwise:getCampaign', __args__, opts=opts, typ=GetCampaignResult).value
 
     return AwaitableGetCampaignResult(
-        arn=__ret__.arn,
-        creation_time=__ret__.creation_time,
-        data_destination_configs=__ret__.data_destination_configs,
-        data_extra_dimensions=__ret__.data_extra_dimensions,
-        description=__ret__.description,
-        last_modification_time=__ret__.last_modification_time,
-        signals_to_collect=__ret__.signals_to_collect,
-        status=__ret__.status,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        data_destination_configs=pulumi.get(__ret__, 'data_destination_configs'),
+        data_extra_dimensions=pulumi.get(__ret__, 'data_extra_dimensions'),
+        description=pulumi.get(__ret__, 'description'),
+        last_modification_time=pulumi.get(__ret__, 'last_modification_time'),
+        signals_to_collect=pulumi.get(__ret__, 'signals_to_collect'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_campaign)

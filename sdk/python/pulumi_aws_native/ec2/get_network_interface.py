@@ -188,18 +188,18 @@ def get_network_interface(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getNetworkInterface', __args__, opts=opts, typ=GetNetworkInterfaceResult).value
 
     return AwaitableGetNetworkInterfaceResult(
-        description=__ret__.description,
-        enable_primary_ipv6=__ret__.enable_primary_ipv6,
-        group_set=__ret__.group_set,
-        id=__ret__.id,
-        ipv6_address_count=__ret__.ipv6_address_count,
-        ipv6_addresses=__ret__.ipv6_addresses,
-        primary_private_ip_address=__ret__.primary_private_ip_address,
-        private_ip_addresses=__ret__.private_ip_addresses,
-        secondary_private_ip_address_count=__ret__.secondary_private_ip_address_count,
-        secondary_private_ip_addresses=__ret__.secondary_private_ip_addresses,
-        source_dest_check=__ret__.source_dest_check,
-        tags=__ret__.tags)
+        description=pulumi.get(__ret__, 'description'),
+        enable_primary_ipv6=pulumi.get(__ret__, 'enable_primary_ipv6'),
+        group_set=pulumi.get(__ret__, 'group_set'),
+        id=pulumi.get(__ret__, 'id'),
+        ipv6_address_count=pulumi.get(__ret__, 'ipv6_address_count'),
+        ipv6_addresses=pulumi.get(__ret__, 'ipv6_addresses'),
+        primary_private_ip_address=pulumi.get(__ret__, 'primary_private_ip_address'),
+        private_ip_addresses=pulumi.get(__ret__, 'private_ip_addresses'),
+        secondary_private_ip_address_count=pulumi.get(__ret__, 'secondary_private_ip_address_count'),
+        secondary_private_ip_addresses=pulumi.get(__ret__, 'secondary_private_ip_addresses'),
+        source_dest_check=pulumi.get(__ret__, 'source_dest_check'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_network_interface)

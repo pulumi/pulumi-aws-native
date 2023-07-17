@@ -150,18 +150,18 @@ def get_service_network_service_association(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:vpclattice:getServiceNetworkServiceAssociation', __args__, opts=opts, typ=GetServiceNetworkServiceAssociationResult).value
 
     return AwaitableGetServiceNetworkServiceAssociationResult(
-        arn=__ret__.arn,
-        created_at=__ret__.created_at,
-        dns_entry=__ret__.dns_entry,
-        id=__ret__.id,
-        service_arn=__ret__.service_arn,
-        service_id=__ret__.service_id,
-        service_name=__ret__.service_name,
-        service_network_arn=__ret__.service_network_arn,
-        service_network_id=__ret__.service_network_id,
-        service_network_name=__ret__.service_network_name,
-        status=__ret__.status,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        created_at=pulumi.get(__ret__, 'created_at'),
+        dns_entry=pulumi.get(__ret__, 'dns_entry'),
+        id=pulumi.get(__ret__, 'id'),
+        service_arn=pulumi.get(__ret__, 'service_arn'),
+        service_id=pulumi.get(__ret__, 'service_id'),
+        service_name=pulumi.get(__ret__, 'service_name'),
+        service_network_arn=pulumi.get(__ret__, 'service_network_arn'),
+        service_network_id=pulumi.get(__ret__, 'service_network_id'),
+        service_network_name=pulumi.get(__ret__, 'service_network_name'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_service_network_service_association)

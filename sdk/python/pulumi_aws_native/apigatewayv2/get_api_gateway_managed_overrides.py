@@ -77,10 +77,10 @@ def get_api_gateway_managed_overrides(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:apigatewayv2:getApiGatewayManagedOverrides', __args__, opts=opts, typ=GetApiGatewayManagedOverridesResult).value
 
     return AwaitableGetApiGatewayManagedOverridesResult(
-        id=__ret__.id,
-        integration=__ret__.integration,
-        route=__ret__.route,
-        stage=__ret__.stage)
+        id=pulumi.get(__ret__, 'id'),
+        integration=pulumi.get(__ret__, 'integration'),
+        route=pulumi.get(__ret__, 'route'),
+        stage=pulumi.get(__ret__, 'stage'))
 
 
 @_utilities.lift_output_func(get_api_gateway_managed_overrides)

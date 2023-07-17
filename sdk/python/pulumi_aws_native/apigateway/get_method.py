@@ -171,16 +171,16 @@ def get_method(http_method: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:apigateway:getMethod', __args__, opts=opts, typ=GetMethodResult).value
 
     return AwaitableGetMethodResult(
-        api_key_required=__ret__.api_key_required,
-        authorization_scopes=__ret__.authorization_scopes,
-        authorization_type=__ret__.authorization_type,
-        authorizer_id=__ret__.authorizer_id,
-        integration=__ret__.integration,
-        method_responses=__ret__.method_responses,
-        operation_name=__ret__.operation_name,
-        request_models=__ret__.request_models,
-        request_parameters=__ret__.request_parameters,
-        request_validator_id=__ret__.request_validator_id)
+        api_key_required=pulumi.get(__ret__, 'api_key_required'),
+        authorization_scopes=pulumi.get(__ret__, 'authorization_scopes'),
+        authorization_type=pulumi.get(__ret__, 'authorization_type'),
+        authorizer_id=pulumi.get(__ret__, 'authorizer_id'),
+        integration=pulumi.get(__ret__, 'integration'),
+        method_responses=pulumi.get(__ret__, 'method_responses'),
+        operation_name=pulumi.get(__ret__, 'operation_name'),
+        request_models=pulumi.get(__ret__, 'request_models'),
+        request_parameters=pulumi.get(__ret__, 'request_parameters'),
+        request_validator_id=pulumi.get(__ret__, 'request_validator_id'))
 
 
 @_utilities.lift_output_func(get_method)

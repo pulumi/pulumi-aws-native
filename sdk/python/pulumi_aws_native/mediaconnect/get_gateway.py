@@ -68,8 +68,8 @@ def get_gateway(gateway_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:mediaconnect:getGateway', __args__, opts=opts, typ=GetGatewayResult).value
 
     return AwaitableGetGatewayResult(
-        gateway_arn=__ret__.gateway_arn,
-        gateway_state=__ret__.gateway_state)
+        gateway_arn=pulumi.get(__ret__, 'gateway_arn'),
+        gateway_state=pulumi.get(__ret__, 'gateway_state'))
 
 
 @_utilities.lift_output_func(get_gateway)

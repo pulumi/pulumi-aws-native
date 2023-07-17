@@ -68,8 +68,8 @@ def get_app_image_config(app_image_config_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:sagemaker:getAppImageConfig', __args__, opts=opts, typ=GetAppImageConfigResult).value
 
     return AwaitableGetAppImageConfigResult(
-        app_image_config_arn=__ret__.app_image_config_arn,
-        kernel_gateway_image_config=__ret__.kernel_gateway_image_config)
+        app_image_config_arn=pulumi.get(__ret__, 'app_image_config_arn'),
+        kernel_gateway_image_config=pulumi.get(__ret__, 'kernel_gateway_image_config'))
 
 
 @_utilities.lift_output_func(get_app_image_config)

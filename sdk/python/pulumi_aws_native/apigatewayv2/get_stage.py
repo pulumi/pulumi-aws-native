@@ -140,17 +140,17 @@ def get_stage(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:apigatewayv2:getStage', __args__, opts=opts, typ=GetStageResult).value
 
     return AwaitableGetStageResult(
-        access_log_settings=__ret__.access_log_settings,
-        access_policy_id=__ret__.access_policy_id,
-        auto_deploy=__ret__.auto_deploy,
-        client_certificate_id=__ret__.client_certificate_id,
-        default_route_settings=__ret__.default_route_settings,
-        deployment_id=__ret__.deployment_id,
-        description=__ret__.description,
-        id=__ret__.id,
-        route_settings=__ret__.route_settings,
-        stage_variables=__ret__.stage_variables,
-        tags=__ret__.tags)
+        access_log_settings=pulumi.get(__ret__, 'access_log_settings'),
+        access_policy_id=pulumi.get(__ret__, 'access_policy_id'),
+        auto_deploy=pulumi.get(__ret__, 'auto_deploy'),
+        client_certificate_id=pulumi.get(__ret__, 'client_certificate_id'),
+        default_route_settings=pulumi.get(__ret__, 'default_route_settings'),
+        deployment_id=pulumi.get(__ret__, 'deployment_id'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        route_settings=pulumi.get(__ret__, 'route_settings'),
+        stage_variables=pulumi.get(__ret__, 'stage_variables'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_stage)

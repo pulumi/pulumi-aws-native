@@ -49,7 +49,7 @@ def get_user_pool_user(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cognito:getUserPoolUser', __args__, opts=opts, typ=GetUserPoolUserResult).value
 
     return AwaitableGetUserPoolUserResult(
-        id=__ret__.id)
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_user_pool_user)

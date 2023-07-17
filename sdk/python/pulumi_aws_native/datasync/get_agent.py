@@ -93,10 +93,10 @@ def get_agent(agent_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:datasync:getAgent', __args__, opts=opts, typ=GetAgentResult).value
 
     return AwaitableGetAgentResult(
-        agent_arn=__ret__.agent_arn,
-        agent_name=__ret__.agent_name,
-        endpoint_type=__ret__.endpoint_type,
-        tags=__ret__.tags)
+        agent_arn=pulumi.get(__ret__, 'agent_arn'),
+        agent_name=pulumi.get(__ret__, 'agent_name'),
+        endpoint_type=pulumi.get(__ret__, 'endpoint_type'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_agent)

@@ -49,7 +49,7 @@ def get_logger_definition_version(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:greengrass:getLoggerDefinitionVersion', __args__, opts=opts, typ=GetLoggerDefinitionVersionResult).value
 
     return AwaitableGetLoggerDefinitionVersionResult(
-        id=__ret__.id)
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_logger_definition_version)

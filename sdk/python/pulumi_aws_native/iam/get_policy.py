@@ -94,12 +94,12 @@ def get_policy(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iam:getPolicy', __args__, opts=opts, typ=GetPolicyResult).value
 
     return AwaitableGetPolicyResult(
-        groups=__ret__.groups,
-        id=__ret__.id,
-        policy_document=__ret__.policy_document,
-        policy_name=__ret__.policy_name,
-        roles=__ret__.roles,
-        users=__ret__.users)
+        groups=pulumi.get(__ret__, 'groups'),
+        id=pulumi.get(__ret__, 'id'),
+        policy_document=pulumi.get(__ret__, 'policy_document'),
+        policy_name=pulumi.get(__ret__, 'policy_name'),
+        roles=pulumi.get(__ret__, 'roles'),
+        users=pulumi.get(__ret__, 'users'))
 
 
 @_utilities.lift_output_func(get_policy)

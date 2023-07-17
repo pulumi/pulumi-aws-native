@@ -68,9 +68,9 @@ def get_db_cluster_parameter_group(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:neptune:getDBClusterParameterGroup', __args__, opts=opts, typ=GetDBClusterParameterGroupResult).value
 
     return AwaitableGetDBClusterParameterGroupResult(
-        id=__ret__.id,
-        parameters=__ret__.parameters,
-        tags=__ret__.tags)
+        id=pulumi.get(__ret__, 'id'),
+        parameters=pulumi.get(__ret__, 'parameters'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_db_cluster_parameter_group)

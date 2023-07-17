@@ -121,12 +121,12 @@ def get_integration_response(api_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:apigatewayv2:getIntegrationResponse', __args__, opts=opts, typ=GetIntegrationResponseResult).value
 
     return AwaitableGetIntegrationResponseResult(
-        content_handling_strategy=__ret__.content_handling_strategy,
-        integration_response_id=__ret__.integration_response_id,
-        integration_response_key=__ret__.integration_response_key,
-        response_parameters=__ret__.response_parameters,
-        response_templates=__ret__.response_templates,
-        template_selection_expression=__ret__.template_selection_expression)
+        content_handling_strategy=pulumi.get(__ret__, 'content_handling_strategy'),
+        integration_response_id=pulumi.get(__ret__, 'integration_response_id'),
+        integration_response_key=pulumi.get(__ret__, 'integration_response_key'),
+        response_parameters=pulumi.get(__ret__, 'response_parameters'),
+        response_templates=pulumi.get(__ret__, 'response_templates'),
+        template_selection_expression=pulumi.get(__ret__, 'template_selection_expression'))
 
 
 @_utilities.lift_output_func(get_integration_response)

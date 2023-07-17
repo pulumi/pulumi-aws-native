@@ -94,12 +94,12 @@ def get_capacity_reservation(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getCapacityReservation', __args__, opts=opts, typ=GetCapacityReservationResult).value
 
     return AwaitableGetCapacityReservationResult(
-        available_instance_count=__ret__.available_instance_count,
-        end_date=__ret__.end_date,
-        end_date_type=__ret__.end_date_type,
-        id=__ret__.id,
-        instance_count=__ret__.instance_count,
-        total_instance_count=__ret__.total_instance_count)
+        available_instance_count=pulumi.get(__ret__, 'available_instance_count'),
+        end_date=pulumi.get(__ret__, 'end_date'),
+        end_date_type=pulumi.get(__ret__, 'end_date_type'),
+        id=pulumi.get(__ret__, 'id'),
+        instance_count=pulumi.get(__ret__, 'instance_count'),
+        total_instance_count=pulumi.get(__ret__, 'total_instance_count'))
 
 
 @_utilities.lift_output_func(get_capacity_reservation)

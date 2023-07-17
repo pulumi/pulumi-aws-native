@@ -159,17 +159,17 @@ def get_task(task_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:datasync:getTask', __args__, opts=opts, typ=GetTaskResult).value
 
     return AwaitableGetTaskResult(
-        cloud_watch_log_group_arn=__ret__.cloud_watch_log_group_arn,
-        destination_network_interface_arns=__ret__.destination_network_interface_arns,
-        excludes=__ret__.excludes,
-        includes=__ret__.includes,
-        name=__ret__.name,
-        options=__ret__.options,
-        schedule=__ret__.schedule,
-        source_network_interface_arns=__ret__.source_network_interface_arns,
-        status=__ret__.status,
-        tags=__ret__.tags,
-        task_arn=__ret__.task_arn)
+        cloud_watch_log_group_arn=pulumi.get(__ret__, 'cloud_watch_log_group_arn'),
+        destination_network_interface_arns=pulumi.get(__ret__, 'destination_network_interface_arns'),
+        excludes=pulumi.get(__ret__, 'excludes'),
+        includes=pulumi.get(__ret__, 'includes'),
+        name=pulumi.get(__ret__, 'name'),
+        options=pulumi.get(__ret__, 'options'),
+        schedule=pulumi.get(__ret__, 'schedule'),
+        source_network_interface_arns=pulumi.get(__ret__, 'source_network_interface_arns'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'),
+        task_arn=pulumi.get(__ret__, 'task_arn'))
 
 
 @_utilities.lift_output_func(get_task)

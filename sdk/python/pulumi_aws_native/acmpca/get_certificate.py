@@ -70,8 +70,8 @@ def get_certificate(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:acmpca:getCertificate', __args__, opts=opts, typ=GetCertificateResult).value
 
     return AwaitableGetCertificateResult(
-        arn=__ret__.arn,
-        certificate=__ret__.certificate)
+        arn=pulumi.get(__ret__, 'arn'),
+        certificate=pulumi.get(__ret__, 'certificate'))
 
 
 @_utilities.lift_output_func(get_certificate)

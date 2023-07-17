@@ -74,9 +74,9 @@ def get_saml_provider(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iam:getSAMLProvider', __args__, opts=opts, typ=GetSAMLProviderResult).value
 
     return AwaitableGetSAMLProviderResult(
-        arn=__ret__.arn,
-        saml_metadata_document=__ret__.saml_metadata_document,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        saml_metadata_document=pulumi.get(__ret__, 'saml_metadata_document'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_saml_provider)

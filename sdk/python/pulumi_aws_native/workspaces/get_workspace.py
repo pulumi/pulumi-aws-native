@@ -113,14 +113,14 @@ def get_workspace(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:workspaces:getWorkspace', __args__, opts=opts, typ=GetWorkspaceResult).value
 
     return AwaitableGetWorkspaceResult(
-        bundle_id=__ret__.bundle_id,
-        directory_id=__ret__.directory_id,
-        id=__ret__.id,
-        root_volume_encryption_enabled=__ret__.root_volume_encryption_enabled,
-        tags=__ret__.tags,
-        user_volume_encryption_enabled=__ret__.user_volume_encryption_enabled,
-        volume_encryption_key=__ret__.volume_encryption_key,
-        workspace_properties=__ret__.workspace_properties)
+        bundle_id=pulumi.get(__ret__, 'bundle_id'),
+        directory_id=pulumi.get(__ret__, 'directory_id'),
+        id=pulumi.get(__ret__, 'id'),
+        root_volume_encryption_enabled=pulumi.get(__ret__, 'root_volume_encryption_enabled'),
+        tags=pulumi.get(__ret__, 'tags'),
+        user_volume_encryption_enabled=pulumi.get(__ret__, 'user_volume_encryption_enabled'),
+        volume_encryption_key=pulumi.get(__ret__, 'volume_encryption_key'),
+        workspace_properties=pulumi.get(__ret__, 'workspace_properties'))
 
 
 @_utilities.lift_output_func(get_workspace)

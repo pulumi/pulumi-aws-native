@@ -95,12 +95,12 @@ def get_public_dns_namespace(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:servicediscovery:getPublicDnsNamespace', __args__, opts=opts, typ=GetPublicDnsNamespaceResult).value
 
     return AwaitableGetPublicDnsNamespaceResult(
-        arn=__ret__.arn,
-        description=__ret__.description,
-        hosted_zone_id=__ret__.hosted_zone_id,
-        id=__ret__.id,
-        properties=__ret__.properties,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        description=pulumi.get(__ret__, 'description'),
+        hosted_zone_id=pulumi.get(__ret__, 'hosted_zone_id'),
+        id=pulumi.get(__ret__, 'id'),
+        properties=pulumi.get(__ret__, 'properties'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_public_dns_namespace)

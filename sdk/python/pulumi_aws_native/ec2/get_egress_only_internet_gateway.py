@@ -55,7 +55,7 @@ def get_egress_only_internet_gateway(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getEgressOnlyInternetGateway', __args__, opts=opts, typ=GetEgressOnlyInternetGatewayResult).value
 
     return AwaitableGetEgressOnlyInternetGatewayResult(
-        id=__ret__.id)
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_egress_only_internet_gateway)

@@ -123,15 +123,15 @@ def get_application_instance(application_instance_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:panorama:getApplicationInstance', __args__, opts=opts, typ=GetApplicationInstanceResult).value
 
     return AwaitableGetApplicationInstanceResult(
-        application_instance_id=__ret__.application_instance_id,
-        arn=__ret__.arn,
-        created_time=__ret__.created_time,
-        default_runtime_context_device_name=__ret__.default_runtime_context_device_name,
-        health_status=__ret__.health_status,
-        last_updated_time=__ret__.last_updated_time,
-        status=__ret__.status,
-        status_description=__ret__.status_description,
-        tags=__ret__.tags)
+        application_instance_id=pulumi.get(__ret__, 'application_instance_id'),
+        arn=pulumi.get(__ret__, 'arn'),
+        created_time=pulumi.get(__ret__, 'created_time'),
+        default_runtime_context_device_name=pulumi.get(__ret__, 'default_runtime_context_device_name'),
+        health_status=pulumi.get(__ret__, 'health_status'),
+        last_updated_time=pulumi.get(__ret__, 'last_updated_time'),
+        status=pulumi.get(__ret__, 'status'),
+        status_description=pulumi.get(__ret__, 'status_description'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_application_instance)

@@ -67,9 +67,9 @@ def get_event_stream(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:pinpoint:getEventStream', __args__, opts=opts, typ=GetEventStreamResult).value
 
     return AwaitableGetEventStreamResult(
-        destination_stream_arn=__ret__.destination_stream_arn,
-        id=__ret__.id,
-        role_arn=__ret__.role_arn)
+        destination_stream_arn=pulumi.get(__ret__, 'destination_stream_arn'),
+        id=pulumi.get(__ret__, 'id'),
+        role_arn=pulumi.get(__ret__, 'role_arn'))
 
 
 @_utilities.lift_output_func(get_event_stream)

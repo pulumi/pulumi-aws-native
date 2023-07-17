@@ -165,16 +165,16 @@ def get_firewall_domain_list(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:route53resolver:getFirewallDomainList', __args__, opts=opts, typ=GetFirewallDomainListResult).value
 
     return AwaitableGetFirewallDomainListResult(
-        arn=__ret__.arn,
-        creation_time=__ret__.creation_time,
-        creator_request_id=__ret__.creator_request_id,
-        domain_count=__ret__.domain_count,
-        id=__ret__.id,
-        managed_owner_name=__ret__.managed_owner_name,
-        modification_time=__ret__.modification_time,
-        status=__ret__.status,
-        status_message=__ret__.status_message,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        creator_request_id=pulumi.get(__ret__, 'creator_request_id'),
+        domain_count=pulumi.get(__ret__, 'domain_count'),
+        id=pulumi.get(__ret__, 'id'),
+        managed_owner_name=pulumi.get(__ret__, 'managed_owner_name'),
+        modification_time=pulumi.get(__ret__, 'modification_time'),
+        status=pulumi.get(__ret__, 'status'),
+        status_message=pulumi.get(__ret__, 'status_message'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_firewall_domain_list)

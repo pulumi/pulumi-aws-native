@@ -55,7 +55,7 @@ def get_organization_admin(account_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:detective:getOrganizationAdmin', __args__, opts=opts, typ=GetOrganizationAdminResult).value
 
     return AwaitableGetOrganizationAdminResult(
-        graph_arn=__ret__.graph_arn)
+        graph_arn=pulumi.get(__ret__, 'graph_arn'))
 
 
 @_utilities.lift_output_func(get_organization_admin)

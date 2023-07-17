@@ -89,11 +89,11 @@ def get_collaboration(collaboration_identifier: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cleanrooms:getCollaboration', __args__, opts=opts, typ=GetCollaborationResult).value
 
     return AwaitableGetCollaborationResult(
-        arn=__ret__.arn,
-        collaboration_identifier=__ret__.collaboration_identifier,
-        description=__ret__.description,
-        name=__ret__.name,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        collaboration_identifier=pulumi.get(__ret__, 'collaboration_identifier'),
+        description=pulumi.get(__ret__, 'description'),
+        name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_collaboration)

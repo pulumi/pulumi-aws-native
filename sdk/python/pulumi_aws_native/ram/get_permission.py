@@ -92,11 +92,11 @@ def get_permission(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ram:getPermission', __args__, opts=opts, typ=GetPermissionResult).value
 
     return AwaitableGetPermissionResult(
-        arn=__ret__.arn,
-        is_resource_type_default=__ret__.is_resource_type_default,
-        permission_type=__ret__.permission_type,
-        tags=__ret__.tags,
-        version=__ret__.version)
+        arn=pulumi.get(__ret__, 'arn'),
+        is_resource_type_default=pulumi.get(__ret__, 'is_resource_type_default'),
+        permission_type=pulumi.get(__ret__, 'permission_type'),
+        tags=pulumi.get(__ret__, 'tags'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_permission)

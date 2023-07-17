@@ -67,9 +67,9 @@ def get_permissions(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:lakeformation:getPermissions', __args__, opts=opts, typ=GetPermissionsResult).value
 
     return AwaitableGetPermissionsResult(
-        id=__ret__.id,
-        permissions=__ret__.permissions,
-        permissions_with_grant_option=__ret__.permissions_with_grant_option)
+        id=pulumi.get(__ret__, 'id'),
+        permissions=pulumi.get(__ret__, 'permissions'),
+        permissions_with_grant_option=pulumi.get(__ret__, 'permissions_with_grant_option'))
 
 
 @_utilities.lift_output_func(get_permissions)

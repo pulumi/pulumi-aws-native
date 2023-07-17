@@ -113,14 +113,14 @@ def get_db_instance(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:docdb:getDBInstance', __args__, opts=opts, typ=GetDBInstanceResult).value
 
     return AwaitableGetDBInstanceResult(
-        auto_minor_version_upgrade=__ret__.auto_minor_version_upgrade,
-        d_b_instance_class=__ret__.d_b_instance_class,
-        enable_performance_insights=__ret__.enable_performance_insights,
-        endpoint=__ret__.endpoint,
-        id=__ret__.id,
-        port=__ret__.port,
-        preferred_maintenance_window=__ret__.preferred_maintenance_window,
-        tags=__ret__.tags)
+        auto_minor_version_upgrade=pulumi.get(__ret__, 'auto_minor_version_upgrade'),
+        d_b_instance_class=pulumi.get(__ret__, 'd_b_instance_class'),
+        enable_performance_insights=pulumi.get(__ret__, 'enable_performance_insights'),
+        endpoint=pulumi.get(__ret__, 'endpoint'),
+        id=pulumi.get(__ret__, 'id'),
+        port=pulumi.get(__ret__, 'port'),
+        preferred_maintenance_window=pulumi.get(__ret__, 'preferred_maintenance_window'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_db_instance)

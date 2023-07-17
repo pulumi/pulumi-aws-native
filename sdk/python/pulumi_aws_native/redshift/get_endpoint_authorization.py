@@ -154,15 +154,15 @@ def get_endpoint_authorization(account: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:redshift:getEndpointAuthorization', __args__, opts=opts, typ=GetEndpointAuthorizationResult).value
 
     return AwaitableGetEndpointAuthorizationResult(
-        allowed_all_vpcs=__ret__.allowed_all_vpcs,
-        allowed_vpcs=__ret__.allowed_vpcs,
-        authorize_time=__ret__.authorize_time,
-        cluster_status=__ret__.cluster_status,
-        endpoint_count=__ret__.endpoint_count,
-        grantee=__ret__.grantee,
-        grantor=__ret__.grantor,
-        status=__ret__.status,
-        vpc_ids=__ret__.vpc_ids)
+        allowed_all_vpcs=pulumi.get(__ret__, 'allowed_all_vpcs'),
+        allowed_vpcs=pulumi.get(__ret__, 'allowed_vpcs'),
+        authorize_time=pulumi.get(__ret__, 'authorize_time'),
+        cluster_status=pulumi.get(__ret__, 'cluster_status'),
+        endpoint_count=pulumi.get(__ret__, 'endpoint_count'),
+        grantee=pulumi.get(__ret__, 'grantee'),
+        grantor=pulumi.get(__ret__, 'grantor'),
+        status=pulumi.get(__ret__, 'status'),
+        vpc_ids=pulumi.get(__ret__, 'vpc_ids'))
 
 
 @_utilities.lift_output_func(get_endpoint_authorization)

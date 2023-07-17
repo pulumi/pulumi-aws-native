@@ -94,12 +94,12 @@ def get_db_security_group_ingress(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:rds:getDBSecurityGroupIngress', __args__, opts=opts, typ=GetDBSecurityGroupIngressResult).value
 
     return AwaitableGetDBSecurityGroupIngressResult(
-        c_idrip=__ret__.c_idrip,
-        d_b_security_group_name=__ret__.d_b_security_group_name,
-        e_c2_security_group_id=__ret__.e_c2_security_group_id,
-        e_c2_security_group_name=__ret__.e_c2_security_group_name,
-        e_c2_security_group_owner_id=__ret__.e_c2_security_group_owner_id,
-        id=__ret__.id)
+        c_idrip=pulumi.get(__ret__, 'c_idrip'),
+        d_b_security_group_name=pulumi.get(__ret__, 'd_b_security_group_name'),
+        e_c2_security_group_id=pulumi.get(__ret__, 'e_c2_security_group_id'),
+        e_c2_security_group_name=pulumi.get(__ret__, 'e_c2_security_group_name'),
+        e_c2_security_group_owner_id=pulumi.get(__ret__, 'e_c2_security_group_owner_id'),
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_db_security_group_ingress)

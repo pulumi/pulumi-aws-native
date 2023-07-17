@@ -119,12 +119,12 @@ def get_slack_channel_configuration(channel_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:supportapp:getSlackChannelConfiguration', __args__, opts=opts, typ=GetSlackChannelConfigurationResult).value
 
     return AwaitableGetSlackChannelConfigurationResult(
-        channel_name=__ret__.channel_name,
-        channel_role_arn=__ret__.channel_role_arn,
-        notify_on_add_correspondence_to_case=__ret__.notify_on_add_correspondence_to_case,
-        notify_on_case_severity=__ret__.notify_on_case_severity,
-        notify_on_create_or_reopen_case=__ret__.notify_on_create_or_reopen_case,
-        notify_on_resolve_case=__ret__.notify_on_resolve_case)
+        channel_name=pulumi.get(__ret__, 'channel_name'),
+        channel_role_arn=pulumi.get(__ret__, 'channel_role_arn'),
+        notify_on_add_correspondence_to_case=pulumi.get(__ret__, 'notify_on_add_correspondence_to_case'),
+        notify_on_case_severity=pulumi.get(__ret__, 'notify_on_case_severity'),
+        notify_on_create_or_reopen_case=pulumi.get(__ret__, 'notify_on_create_or_reopen_case'),
+        notify_on_resolve_case=pulumi.get(__ret__, 'notify_on_resolve_case'))
 
 
 @_utilities.lift_output_func(get_slack_channel_configuration)

@@ -59,8 +59,8 @@ def get_application_cloud_watch_logging_option(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:kinesisanalyticsv2:getApplicationCloudWatchLoggingOption', __args__, opts=opts, typ=GetApplicationCloudWatchLoggingOptionResult).value
 
     return AwaitableGetApplicationCloudWatchLoggingOptionResult(
-        cloud_watch_logging_option=__ret__.cloud_watch_logging_option,
-        id=__ret__.id)
+        cloud_watch_logging_option=pulumi.get(__ret__, 'cloud_watch_logging_option'),
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_application_cloud_watch_logging_option)

@@ -173,18 +173,18 @@ def get_license(license_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:licensemanager:getLicense', __args__, opts=opts, typ=GetLicenseResult).value
 
     return AwaitableGetLicenseResult(
-        beneficiary=__ret__.beneficiary,
-        consumption_configuration=__ret__.consumption_configuration,
-        entitlements=__ret__.entitlements,
-        home_region=__ret__.home_region,
-        issuer=__ret__.issuer,
-        license_arn=__ret__.license_arn,
-        license_metadata=__ret__.license_metadata,
-        license_name=__ret__.license_name,
-        product_name=__ret__.product_name,
-        product_sku=__ret__.product_sku,
-        validity=__ret__.validity,
-        version=__ret__.version)
+        beneficiary=pulumi.get(__ret__, 'beneficiary'),
+        consumption_configuration=pulumi.get(__ret__, 'consumption_configuration'),
+        entitlements=pulumi.get(__ret__, 'entitlements'),
+        home_region=pulumi.get(__ret__, 'home_region'),
+        issuer=pulumi.get(__ret__, 'issuer'),
+        license_arn=pulumi.get(__ret__, 'license_arn'),
+        license_metadata=pulumi.get(__ret__, 'license_metadata'),
+        license_name=pulumi.get(__ret__, 'license_name'),
+        product_name=pulumi.get(__ret__, 'product_name'),
+        product_sku=pulumi.get(__ret__, 'product_sku'),
+        validity=pulumi.get(__ret__, 'validity'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_license)

@@ -91,10 +91,10 @@ def get_load_balancer_tls_certificate(certificate_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:lightsail:getLoadBalancerTlsCertificate', __args__, opts=opts, typ=GetLoadBalancerTlsCertificateResult).value
 
     return AwaitableGetLoadBalancerTlsCertificateResult(
-        https_redirection_enabled=__ret__.https_redirection_enabled,
-        is_attached=__ret__.is_attached,
-        load_balancer_tls_certificate_arn=__ret__.load_balancer_tls_certificate_arn,
-        status=__ret__.status)
+        https_redirection_enabled=pulumi.get(__ret__, 'https_redirection_enabled'),
+        is_attached=pulumi.get(__ret__, 'is_attached'),
+        load_balancer_tls_certificate_arn=pulumi.get(__ret__, 'load_balancer_tls_certificate_arn'),
+        status=pulumi.get(__ret__, 'status'))
 
 
 @_utilities.lift_output_func(get_load_balancer_tls_certificate)

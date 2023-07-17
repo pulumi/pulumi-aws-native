@@ -68,9 +68,9 @@ def get_notebook_instance_lifecycle_config(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:sagemaker:getNotebookInstanceLifecycleConfig', __args__, opts=opts, typ=GetNotebookInstanceLifecycleConfigResult).value
 
     return AwaitableGetNotebookInstanceLifecycleConfigResult(
-        id=__ret__.id,
-        on_create=__ret__.on_create,
-        on_start=__ret__.on_start)
+        id=pulumi.get(__ret__, 'id'),
+        on_create=pulumi.get(__ret__, 'on_create'),
+        on_start=pulumi.get(__ret__, 'on_start'))
 
 
 @_utilities.lift_output_func(get_notebook_instance_lifecycle_config)

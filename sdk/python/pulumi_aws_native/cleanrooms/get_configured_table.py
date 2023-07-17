@@ -99,12 +99,12 @@ def get_configured_table(configured_table_identifier: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cleanrooms:getConfiguredTable', __args__, opts=opts, typ=GetConfiguredTableResult).value
 
     return AwaitableGetConfiguredTableResult(
-        analysis_rules=__ret__.analysis_rules,
-        arn=__ret__.arn,
-        configured_table_identifier=__ret__.configured_table_identifier,
-        description=__ret__.description,
-        name=__ret__.name,
-        tags=__ret__.tags)
+        analysis_rules=pulumi.get(__ret__, 'analysis_rules'),
+        arn=pulumi.get(__ret__, 'arn'),
+        configured_table_identifier=pulumi.get(__ret__, 'configured_table_identifier'),
+        description=pulumi.get(__ret__, 'description'),
+        name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_configured_table)

@@ -80,9 +80,9 @@ def get_event_integration(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:appintegrations:getEventIntegration', __args__, opts=opts, typ=GetEventIntegrationResult).value
 
     return AwaitableGetEventIntegrationResult(
-        description=__ret__.description,
-        event_integration_arn=__ret__.event_integration_arn,
-        tags=__ret__.tags)
+        description=pulumi.get(__ret__, 'description'),
+        event_integration_arn=pulumi.get(__ret__, 'event_integration_arn'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_event_integration)

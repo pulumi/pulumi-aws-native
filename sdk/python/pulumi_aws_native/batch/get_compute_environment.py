@@ -86,11 +86,11 @@ def get_compute_environment(compute_environment_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:batch:getComputeEnvironment', __args__, opts=opts, typ=GetComputeEnvironmentResult).value
 
     return AwaitableGetComputeEnvironmentResult(
-        compute_environment_arn=__ret__.compute_environment_arn,
-        compute_resources=__ret__.compute_resources,
-        service_role=__ret__.service_role,
-        state=__ret__.state,
-        unmanagedv_cpus=__ret__.unmanagedv_cpus)
+        compute_environment_arn=pulumi.get(__ret__, 'compute_environment_arn'),
+        compute_resources=pulumi.get(__ret__, 'compute_resources'),
+        service_role=pulumi.get(__ret__, 'service_role'),
+        state=pulumi.get(__ret__, 'state'),
+        unmanagedv_cpus=pulumi.get(__ret__, 'unmanagedv_cpus'))
 
 
 @_utilities.lift_output_func(get_compute_environment)

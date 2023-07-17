@@ -59,8 +59,8 @@ def get_vpc_connection(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:msk:getVpcConnection', __args__, opts=opts, typ=GetVpcConnectionResult).value
 
     return AwaitableGetVpcConnectionResult(
-        arn=__ret__.arn,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_vpc_connection)

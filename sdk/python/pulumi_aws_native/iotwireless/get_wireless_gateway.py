@@ -152,15 +152,15 @@ def get_wireless_gateway(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iotwireless:getWirelessGateway', __args__, opts=opts, typ=GetWirelessGatewayResult).value
 
     return AwaitableGetWirelessGatewayResult(
-        arn=__ret__.arn,
-        description=__ret__.description,
-        id=__ret__.id,
-        last_uplink_received_at=__ret__.last_uplink_received_at,
-        lo_ra_wan=__ret__.lo_ra_wan,
-        name=__ret__.name,
-        tags=__ret__.tags,
-        thing_arn=__ret__.thing_arn,
-        thing_name=__ret__.thing_name)
+        arn=pulumi.get(__ret__, 'arn'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        last_uplink_received_at=pulumi.get(__ret__, 'last_uplink_received_at'),
+        lo_ra_wan=pulumi.get(__ret__, 'lo_ra_wan'),
+        name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        thing_arn=pulumi.get(__ret__, 'thing_arn'),
+        thing_name=pulumi.get(__ret__, 'thing_name'))
 
 
 @_utilities.lift_output_func(get_wireless_gateway)

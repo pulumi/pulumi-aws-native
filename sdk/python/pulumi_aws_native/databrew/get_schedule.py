@@ -64,8 +64,8 @@ def get_schedule(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:databrew:getSchedule', __args__, opts=opts, typ=GetScheduleResult).value
 
     return AwaitableGetScheduleResult(
-        cron_expression=__ret__.cron_expression,
-        job_names=__ret__.job_names)
+        cron_expression=pulumi.get(__ret__, 'cron_expression'),
+        job_names=pulumi.get(__ret__, 'job_names'))
 
 
 @_utilities.lift_output_func(get_schedule)

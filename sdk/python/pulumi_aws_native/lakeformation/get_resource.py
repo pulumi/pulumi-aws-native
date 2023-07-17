@@ -76,10 +76,10 @@ def get_resource(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:lakeformation:getResource', __args__, opts=opts, typ=GetResourceResult).value
 
     return AwaitableGetResourceResult(
-        id=__ret__.id,
-        role_arn=__ret__.role_arn,
-        use_service_linked_role=__ret__.use_service_linked_role,
-        with_federation=__ret__.with_federation)
+        id=pulumi.get(__ret__, 'id'),
+        role_arn=pulumi.get(__ret__, 'role_arn'),
+        use_service_linked_role=pulumi.get(__ret__, 'use_service_linked_role'),
+        with_federation=pulumi.get(__ret__, 'with_federation'))
 
 
 @_utilities.lift_output_func(get_resource)

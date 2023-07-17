@@ -92,10 +92,10 @@ def get_session(aws_account_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:macie:getSession', __args__, opts=opts, typ=GetSessionResult).value
 
     return AwaitableGetSessionResult(
-        aws_account_id=__ret__.aws_account_id,
-        finding_publishing_frequency=__ret__.finding_publishing_frequency,
-        service_role=__ret__.service_role,
-        status=__ret__.status)
+        aws_account_id=pulumi.get(__ret__, 'aws_account_id'),
+        finding_publishing_frequency=pulumi.get(__ret__, 'finding_publishing_frequency'),
+        service_role=pulumi.get(__ret__, 'service_role'),
+        status=pulumi.get(__ret__, 'status'))
 
 
 @_utilities.lift_output_func(get_session)

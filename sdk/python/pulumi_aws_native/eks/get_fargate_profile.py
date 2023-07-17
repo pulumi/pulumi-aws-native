@@ -68,8 +68,8 @@ def get_fargate_profile(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:eks:getFargateProfile', __args__, opts=opts, typ=GetFargateProfileResult).value
 
     return AwaitableGetFargateProfileResult(
-        arn=__ret__.arn,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_fargate_profile)

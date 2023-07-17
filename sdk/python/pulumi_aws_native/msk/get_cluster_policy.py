@@ -67,8 +67,8 @@ def get_cluster_policy(cluster_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:msk:getClusterPolicy', __args__, opts=opts, typ=GetClusterPolicyResult).value
 
     return AwaitableGetClusterPolicyResult(
-        current_version=__ret__.current_version,
-        policy=__ret__.policy)
+        current_version=pulumi.get(__ret__, 'current_version'),
+        policy=pulumi.get(__ret__, 'policy'))
 
 
 @_utilities.lift_output_func(get_cluster_policy)

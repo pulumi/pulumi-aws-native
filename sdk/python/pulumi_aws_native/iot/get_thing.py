@@ -68,9 +68,9 @@ def get_thing(thing_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iot:getThing', __args__, opts=opts, typ=GetThingResult).value
 
     return AwaitableGetThingResult(
-        arn=__ret__.arn,
-        attribute_payload=__ret__.attribute_payload,
-        id=__ret__.id)
+        arn=pulumi.get(__ret__, 'arn'),
+        attribute_payload=pulumi.get(__ret__, 'attribute_payload'),
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_thing)

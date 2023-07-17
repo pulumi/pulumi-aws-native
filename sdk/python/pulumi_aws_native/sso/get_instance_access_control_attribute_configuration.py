@@ -65,8 +65,8 @@ def get_instance_access_control_attribute_configuration(instance_arn: Optional[s
     __ret__ = pulumi.runtime.invoke('aws-native:sso:getInstanceAccessControlAttributeConfiguration', __args__, opts=opts, typ=GetInstanceAccessControlAttributeConfigurationResult).value
 
     return AwaitableGetInstanceAccessControlAttributeConfigurationResult(
-        access_control_attributes=__ret__.access_control_attributes,
-        instance_access_control_attribute_configuration=__ret__.instance_access_control_attribute_configuration)
+        access_control_attributes=pulumi.get(__ret__, 'access_control_attributes'),
+        instance_access_control_attribute_configuration=pulumi.get(__ret__, 'instance_access_control_attribute_configuration'))
 
 
 @_utilities.lift_output_func(get_instance_access_control_attribute_configuration)

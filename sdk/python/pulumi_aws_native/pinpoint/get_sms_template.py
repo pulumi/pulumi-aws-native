@@ -94,12 +94,12 @@ def get_sms_template(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:pinpoint:getSmsTemplate', __args__, opts=opts, typ=GetSmsTemplateResult).value
 
     return AwaitableGetSmsTemplateResult(
-        arn=__ret__.arn,
-        body=__ret__.body,
-        default_substitutions=__ret__.default_substitutions,
-        id=__ret__.id,
-        tags=__ret__.tags,
-        template_description=__ret__.template_description)
+        arn=pulumi.get(__ret__, 'arn'),
+        body=pulumi.get(__ret__, 'body'),
+        default_substitutions=pulumi.get(__ret__, 'default_substitutions'),
+        id=pulumi.get(__ret__, 'id'),
+        tags=pulumi.get(__ret__, 'tags'),
+        template_description=pulumi.get(__ret__, 'template_description'))
 
 
 @_utilities.lift_output_func(get_sms_template)

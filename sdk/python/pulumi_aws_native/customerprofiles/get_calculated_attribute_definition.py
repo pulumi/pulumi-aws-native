@@ -122,14 +122,14 @@ def get_calculated_attribute_definition(calculated_attribute_name: Optional[str]
     __ret__ = pulumi.runtime.invoke('aws-native:customerprofiles:getCalculatedAttributeDefinition', __args__, opts=opts, typ=GetCalculatedAttributeDefinitionResult).value
 
     return AwaitableGetCalculatedAttributeDefinitionResult(
-        attribute_details=__ret__.attribute_details,
-        conditions=__ret__.conditions,
-        created_at=__ret__.created_at,
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        last_updated_at=__ret__.last_updated_at,
-        statistic=__ret__.statistic,
-        tags=__ret__.tags)
+        attribute_details=pulumi.get(__ret__, 'attribute_details'),
+        conditions=pulumi.get(__ret__, 'conditions'),
+        created_at=pulumi.get(__ret__, 'created_at'),
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        last_updated_at=pulumi.get(__ret__, 'last_updated_at'),
+        statistic=pulumi.get(__ret__, 'statistic'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_calculated_attribute_definition)

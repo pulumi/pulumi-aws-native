@@ -204,19 +204,19 @@ def get_component_type(component_type_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iottwinmaker:getComponentType', __args__, opts=opts, typ=GetComponentTypeResult).value
 
     return AwaitableGetComponentTypeResult(
-        arn=__ret__.arn,
-        creation_date_time=__ret__.creation_date_time,
-        description=__ret__.description,
-        extends_from=__ret__.extends_from,
-        functions=__ret__.functions,
-        is_abstract=__ret__.is_abstract,
-        is_schema_initialized=__ret__.is_schema_initialized,
-        is_singleton=__ret__.is_singleton,
-        property_definitions=__ret__.property_definitions,
-        property_groups=__ret__.property_groups,
-        status=__ret__.status,
-        tags=__ret__.tags,
-        update_date_time=__ret__.update_date_time)
+        arn=pulumi.get(__ret__, 'arn'),
+        creation_date_time=pulumi.get(__ret__, 'creation_date_time'),
+        description=pulumi.get(__ret__, 'description'),
+        extends_from=pulumi.get(__ret__, 'extends_from'),
+        functions=pulumi.get(__ret__, 'functions'),
+        is_abstract=pulumi.get(__ret__, 'is_abstract'),
+        is_schema_initialized=pulumi.get(__ret__, 'is_schema_initialized'),
+        is_singleton=pulumi.get(__ret__, 'is_singleton'),
+        property_definitions=pulumi.get(__ret__, 'property_definitions'),
+        property_groups=pulumi.get(__ret__, 'property_groups'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'),
+        update_date_time=pulumi.get(__ret__, 'update_date_time'))
 
 
 @_utilities.lift_output_func(get_component_type)

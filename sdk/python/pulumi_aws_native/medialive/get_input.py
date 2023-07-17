@@ -131,16 +131,16 @@ def get_input(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:medialive:getInput', __args__, opts=opts, typ=GetInputResult).value
 
     return AwaitableGetInputResult(
-        arn=__ret__.arn,
-        destinations=__ret__.destinations,
-        id=__ret__.id,
-        input_devices=__ret__.input_devices,
-        input_security_groups=__ret__.input_security_groups,
-        media_connect_flows=__ret__.media_connect_flows,
-        name=__ret__.name,
-        role_arn=__ret__.role_arn,
-        sources=__ret__.sources,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        destinations=pulumi.get(__ret__, 'destinations'),
+        id=pulumi.get(__ret__, 'id'),
+        input_devices=pulumi.get(__ret__, 'input_devices'),
+        input_security_groups=pulumi.get(__ret__, 'input_security_groups'),
+        media_connect_flows=pulumi.get(__ret__, 'media_connect_flows'),
+        name=pulumi.get(__ret__, 'name'),
+        role_arn=pulumi.get(__ret__, 'role_arn'),
+        sources=pulumi.get(__ret__, 'sources'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_input)

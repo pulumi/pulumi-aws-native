@@ -77,10 +77,10 @@ def get_realtime_log_config(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cloudfront:getRealtimeLogConfig', __args__, opts=opts, typ=GetRealtimeLogConfigResult).value
 
     return AwaitableGetRealtimeLogConfigResult(
-        arn=__ret__.arn,
-        end_points=__ret__.end_points,
-        fields=__ret__.fields,
-        sampling_rate=__ret__.sampling_rate)
+        arn=pulumi.get(__ret__, 'arn'),
+        end_points=pulumi.get(__ret__, 'end_points'),
+        fields=pulumi.get(__ret__, 'fields'),
+        sampling_rate=pulumi.get(__ret__, 'sampling_rate'))
 
 
 @_utilities.lift_output_func(get_realtime_log_config)

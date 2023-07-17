@@ -104,13 +104,13 @@ def get_endpoint(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:sagemaker:getEndpoint', __args__, opts=opts, typ=GetEndpointResult).value
 
     return AwaitableGetEndpointResult(
-        deployment_config=__ret__.deployment_config,
-        endpoint_config_name=__ret__.endpoint_config_name,
-        exclude_retained_variant_properties=__ret__.exclude_retained_variant_properties,
-        id=__ret__.id,
-        retain_all_variant_properties=__ret__.retain_all_variant_properties,
-        retain_deployment_config=__ret__.retain_deployment_config,
-        tags=__ret__.tags)
+        deployment_config=pulumi.get(__ret__, 'deployment_config'),
+        endpoint_config_name=pulumi.get(__ret__, 'endpoint_config_name'),
+        exclude_retained_variant_properties=pulumi.get(__ret__, 'exclude_retained_variant_properties'),
+        id=pulumi.get(__ret__, 'id'),
+        retain_all_variant_properties=pulumi.get(__ret__, 'retain_all_variant_properties'),
+        retain_deployment_config=pulumi.get(__ret__, 'retain_deployment_config'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_endpoint)

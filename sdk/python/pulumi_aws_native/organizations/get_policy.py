@@ -140,14 +140,14 @@ def get_policy(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:organizations:getPolicy', __args__, opts=opts, typ=GetPolicyResult).value
 
     return AwaitableGetPolicyResult(
-        arn=__ret__.arn,
-        aws_managed=__ret__.aws_managed,
-        content=__ret__.content,
-        description=__ret__.description,
-        id=__ret__.id,
-        name=__ret__.name,
-        tags=__ret__.tags,
-        target_ids=__ret__.target_ids)
+        arn=pulumi.get(__ret__, 'arn'),
+        aws_managed=pulumi.get(__ret__, 'aws_managed'),
+        content=pulumi.get(__ret__, 'content'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        target_ids=pulumi.get(__ret__, 'target_ids'))
 
 
 @_utilities.lift_output_func(get_policy)

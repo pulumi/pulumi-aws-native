@@ -117,13 +117,13 @@ def get_repository(repository_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ecr:getRepository', __args__, opts=opts, typ=GetRepositoryResult).value
 
     return AwaitableGetRepositoryResult(
-        arn=__ret__.arn,
-        image_scanning_configuration=__ret__.image_scanning_configuration,
-        image_tag_mutability=__ret__.image_tag_mutability,
-        lifecycle_policy=__ret__.lifecycle_policy,
-        repository_policy_text=__ret__.repository_policy_text,
-        repository_uri=__ret__.repository_uri,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        image_scanning_configuration=pulumi.get(__ret__, 'image_scanning_configuration'),
+        image_tag_mutability=pulumi.get(__ret__, 'image_tag_mutability'),
+        lifecycle_policy=pulumi.get(__ret__, 'lifecycle_policy'),
+        repository_policy_text=pulumi.get(__ret__, 'repository_policy_text'),
+        repository_uri=pulumi.get(__ret__, 'repository_uri'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_repository)

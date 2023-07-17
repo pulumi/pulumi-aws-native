@@ -69,9 +69,9 @@ def get_job_template(job_template_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iot:getJobTemplate', __args__, opts=opts, typ=GetJobTemplateResult).value
 
     return AwaitableGetJobTemplateResult(
-        arn=__ret__.arn,
-        job_executions_retry_config=__ret__.job_executions_retry_config,
-        maintenance_windows=__ret__.maintenance_windows)
+        arn=pulumi.get(__ret__, 'arn'),
+        job_executions_retry_config=pulumi.get(__ret__, 'job_executions_retry_config'),
+        maintenance_windows=pulumi.get(__ret__, 'maintenance_windows'))
 
 
 @_utilities.lift_output_func(get_job_template)

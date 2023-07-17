@@ -177,17 +177,17 @@ def get_source_api_association(association_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:appsync:getSourceApiAssociation', __args__, opts=opts, typ=GetSourceApiAssociationResult).value
 
     return AwaitableGetSourceApiAssociationResult(
-        association_arn=__ret__.association_arn,
-        association_id=__ret__.association_id,
-        description=__ret__.description,
-        last_successful_merge_date=__ret__.last_successful_merge_date,
-        merged_api_arn=__ret__.merged_api_arn,
-        merged_api_id=__ret__.merged_api_id,
-        source_api_arn=__ret__.source_api_arn,
-        source_api_association_config=__ret__.source_api_association_config,
-        source_api_association_status=__ret__.source_api_association_status,
-        source_api_association_status_detail=__ret__.source_api_association_status_detail,
-        source_api_id=__ret__.source_api_id)
+        association_arn=pulumi.get(__ret__, 'association_arn'),
+        association_id=pulumi.get(__ret__, 'association_id'),
+        description=pulumi.get(__ret__, 'description'),
+        last_successful_merge_date=pulumi.get(__ret__, 'last_successful_merge_date'),
+        merged_api_arn=pulumi.get(__ret__, 'merged_api_arn'),
+        merged_api_id=pulumi.get(__ret__, 'merged_api_id'),
+        source_api_arn=pulumi.get(__ret__, 'source_api_arn'),
+        source_api_association_config=pulumi.get(__ret__, 'source_api_association_config'),
+        source_api_association_status=pulumi.get(__ret__, 'source_api_association_status'),
+        source_api_association_status_detail=pulumi.get(__ret__, 'source_api_association_status_detail'),
+        source_api_id=pulumi.get(__ret__, 'source_api_id'))
 
 
 @_utilities.lift_output_func(get_source_api_association)

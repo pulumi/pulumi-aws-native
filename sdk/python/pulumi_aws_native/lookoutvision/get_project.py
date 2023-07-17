@@ -49,7 +49,7 @@ def get_project(project_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:lookoutvision:getProject', __args__, opts=opts, typ=GetProjectResult).value
 
     return AwaitableGetProjectResult(
-        arn=__ret__.arn)
+        arn=pulumi.get(__ret__, 'arn'))
 
 
 @_utilities.lift_output_func(get_project)

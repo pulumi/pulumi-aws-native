@@ -49,7 +49,7 @@ def get_cluster_security_group_ingress(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:redshift:getClusterSecurityGroupIngress', __args__, opts=opts, typ=GetClusterSecurityGroupIngressResult).value
 
     return AwaitableGetClusterSecurityGroupIngressResult(
-        id=__ret__.id)
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_cluster_security_group_ingress)

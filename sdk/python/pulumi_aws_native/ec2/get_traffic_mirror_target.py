@@ -59,8 +59,8 @@ def get_traffic_mirror_target(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getTrafficMirrorTarget', __args__, opts=opts, typ=GetTrafficMirrorTargetResult).value
 
     return AwaitableGetTrafficMirrorTargetResult(
-        id=__ret__.id,
-        tags=__ret__.tags)
+        id=pulumi.get(__ret__, 'id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_traffic_mirror_target)

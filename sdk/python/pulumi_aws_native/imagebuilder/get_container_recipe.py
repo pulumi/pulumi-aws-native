@@ -55,7 +55,7 @@ def get_container_recipe(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:imagebuilder:getContainerRecipe', __args__, opts=opts, typ=GetContainerRecipeResult).value
 
     return AwaitableGetContainerRecipeResult(
-        arn=__ret__.arn)
+        arn=pulumi.get(__ret__, 'arn'))
 
 
 @_utilities.lift_output_func(get_container_recipe)

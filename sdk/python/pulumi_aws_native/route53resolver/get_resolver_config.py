@@ -80,9 +80,9 @@ def get_resolver_config(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:route53resolver:getResolverConfig', __args__, opts=opts, typ=GetResolverConfigResult).value
 
     return AwaitableGetResolverConfigResult(
-        autodefined_reverse=__ret__.autodefined_reverse,
-        id=__ret__.id,
-        owner_id=__ret__.owner_id)
+        autodefined_reverse=pulumi.get(__ret__, 'autodefined_reverse'),
+        id=pulumi.get(__ret__, 'id'),
+        owner_id=pulumi.get(__ret__, 'owner_id'))
 
 
 @_utilities.lift_output_func(get_resolver_config)

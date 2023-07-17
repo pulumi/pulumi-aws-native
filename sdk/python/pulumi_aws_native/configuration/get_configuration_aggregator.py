@@ -86,10 +86,10 @@ def get_configuration_aggregator(configuration_aggregator_name: Optional[str] = 
     __ret__ = pulumi.runtime.invoke('aws-native:configuration:getConfigurationAggregator', __args__, opts=opts, typ=GetConfigurationAggregatorResult).value
 
     return AwaitableGetConfigurationAggregatorResult(
-        account_aggregation_sources=__ret__.account_aggregation_sources,
-        configuration_aggregator_arn=__ret__.configuration_aggregator_arn,
-        organization_aggregation_source=__ret__.organization_aggregation_source,
-        tags=__ret__.tags)
+        account_aggregation_sources=pulumi.get(__ret__, 'account_aggregation_sources'),
+        configuration_aggregator_arn=pulumi.get(__ret__, 'configuration_aggregator_arn'),
+        organization_aggregation_source=pulumi.get(__ret__, 'organization_aggregation_source'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_configuration_aggregator)

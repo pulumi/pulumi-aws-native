@@ -125,13 +125,13 @@ def get_environment(environment_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:m2:getEnvironment', __args__, opts=opts, typ=GetEnvironmentResult).value
 
     return AwaitableGetEnvironmentResult(
-        engine_version=__ret__.engine_version,
-        environment_arn=__ret__.environment_arn,
-        environment_id=__ret__.environment_id,
-        high_availability_config=__ret__.high_availability_config,
-        instance_type=__ret__.instance_type,
-        preferred_maintenance_window=__ret__.preferred_maintenance_window,
-        tags=__ret__.tags)
+        engine_version=pulumi.get(__ret__, 'engine_version'),
+        environment_arn=pulumi.get(__ret__, 'environment_arn'),
+        environment_id=pulumi.get(__ret__, 'environment_id'),
+        high_availability_config=pulumi.get(__ret__, 'high_availability_config'),
+        instance_type=pulumi.get(__ret__, 'instance_type'),
+        preferred_maintenance_window=pulumi.get(__ret__, 'preferred_maintenance_window'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_environment)

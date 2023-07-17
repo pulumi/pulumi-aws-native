@@ -131,16 +131,16 @@ def get_app_block_builder(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:appstream:getAppBlockBuilder', __args__, opts=opts, typ=GetAppBlockBuilderResult).value
 
     return AwaitableGetAppBlockBuilderResult(
-        access_endpoints=__ret__.access_endpoints,
-        arn=__ret__.arn,
-        created_time=__ret__.created_time,
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        enable_default_internet_access=__ret__.enable_default_internet_access,
-        iam_role_arn=__ret__.iam_role_arn,
-        instance_type=__ret__.instance_type,
-        platform=__ret__.platform,
-        vpc_config=__ret__.vpc_config)
+        access_endpoints=pulumi.get(__ret__, 'access_endpoints'),
+        arn=pulumi.get(__ret__, 'arn'),
+        created_time=pulumi.get(__ret__, 'created_time'),
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        enable_default_internet_access=pulumi.get(__ret__, 'enable_default_internet_access'),
+        iam_role_arn=pulumi.get(__ret__, 'iam_role_arn'),
+        instance_type=pulumi.get(__ret__, 'instance_type'),
+        platform=pulumi.get(__ret__, 'platform'),
+        vpc_config=pulumi.get(__ret__, 'vpc_config'))
 
 
 @_utilities.lift_output_func(get_app_block_builder)

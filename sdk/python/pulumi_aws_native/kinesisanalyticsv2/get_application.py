@@ -105,11 +105,11 @@ def get_application(application_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:kinesisanalyticsv2:getApplication', __args__, opts=opts, typ=GetApplicationResult).value
 
     return AwaitableGetApplicationResult(
-        application_configuration=__ret__.application_configuration,
-        application_description=__ret__.application_description,
-        application_maintenance_configuration=__ret__.application_maintenance_configuration,
-        service_execution_role=__ret__.service_execution_role,
-        tags=__ret__.tags)
+        application_configuration=pulumi.get(__ret__, 'application_configuration'),
+        application_description=pulumi.get(__ret__, 'application_description'),
+        application_maintenance_configuration=pulumi.get(__ret__, 'application_maintenance_configuration'),
+        service_execution_role=pulumi.get(__ret__, 'service_execution_role'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_application)

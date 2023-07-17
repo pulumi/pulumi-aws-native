@@ -164,16 +164,16 @@ def get_studio(studio_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:emr:getStudio', __args__, opts=opts, typ=GetStudioResult).value
 
     return AwaitableGetStudioResult(
-        arn=__ret__.arn,
-        default_s3_location=__ret__.default_s3_location,
-        description=__ret__.description,
-        idp_auth_url=__ret__.idp_auth_url,
-        idp_relay_state_parameter_name=__ret__.idp_relay_state_parameter_name,
-        name=__ret__.name,
-        studio_id=__ret__.studio_id,
-        subnet_ids=__ret__.subnet_ids,
-        tags=__ret__.tags,
-        url=__ret__.url)
+        arn=pulumi.get(__ret__, 'arn'),
+        default_s3_location=pulumi.get(__ret__, 'default_s3_location'),
+        description=pulumi.get(__ret__, 'description'),
+        idp_auth_url=pulumi.get(__ret__, 'idp_auth_url'),
+        idp_relay_state_parameter_name=pulumi.get(__ret__, 'idp_relay_state_parameter_name'),
+        name=pulumi.get(__ret__, 'name'),
+        studio_id=pulumi.get(__ret__, 'studio_id'),
+        subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
+        tags=pulumi.get(__ret__, 'tags'),
+        url=pulumi.get(__ret__, 'url'))
 
 
 @_utilities.lift_output_func(get_studio)

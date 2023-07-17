@@ -113,14 +113,14 @@ def get_run_group(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:omics:getRunGroup', __args__, opts=opts, typ=GetRunGroupResult).value
 
     return AwaitableGetRunGroupResult(
-        arn=__ret__.arn,
-        creation_time=__ret__.creation_time,
-        id=__ret__.id,
-        max_cpus=__ret__.max_cpus,
-        max_duration=__ret__.max_duration,
-        max_runs=__ret__.max_runs,
-        name=__ret__.name,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        id=pulumi.get(__ret__, 'id'),
+        max_cpus=pulumi.get(__ret__, 'max_cpus'),
+        max_duration=pulumi.get(__ret__, 'max_duration'),
+        max_runs=pulumi.get(__ret__, 'max_runs'),
+        name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_run_group)

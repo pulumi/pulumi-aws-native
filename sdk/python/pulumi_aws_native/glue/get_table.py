@@ -59,8 +59,8 @@ def get_table(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:glue:getTable', __args__, opts=opts, typ=GetTableResult).value
 
     return AwaitableGetTableResult(
-        id=__ret__.id,
-        table_input=__ret__.table_input)
+        id=pulumi.get(__ret__, 'id'),
+        table_input=pulumi.get(__ret__, 'table_input'))
 
 
 @_utilities.lift_output_func(get_table)

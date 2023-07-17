@@ -86,11 +86,11 @@ def get_workteam(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:sagemaker:getWorkteam', __args__, opts=opts, typ=GetWorkteamResult).value
 
     return AwaitableGetWorkteamResult(
-        description=__ret__.description,
-        id=__ret__.id,
-        member_definitions=__ret__.member_definitions,
-        notification_configuration=__ret__.notification_configuration,
-        tags=__ret__.tags)
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        member_definitions=pulumi.get(__ret__, 'member_definitions'),
+        notification_configuration=pulumi.get(__ret__, 'notification_configuration'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_workteam)

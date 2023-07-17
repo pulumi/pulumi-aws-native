@@ -158,15 +158,15 @@ def get_vpc(vpc_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getVPC', __args__, opts=opts, typ=GetVPCResult).value
 
     return AwaitableGetVPCResult(
-        cidr_block_associations=__ret__.cidr_block_associations,
-        default_network_acl=__ret__.default_network_acl,
-        default_security_group=__ret__.default_security_group,
-        enable_dns_hostnames=__ret__.enable_dns_hostnames,
-        enable_dns_support=__ret__.enable_dns_support,
-        instance_tenancy=__ret__.instance_tenancy,
-        ipv6_cidr_blocks=__ret__.ipv6_cidr_blocks,
-        tags=__ret__.tags,
-        vpc_id=__ret__.vpc_id)
+        cidr_block_associations=pulumi.get(__ret__, 'cidr_block_associations'),
+        default_network_acl=pulumi.get(__ret__, 'default_network_acl'),
+        default_security_group=pulumi.get(__ret__, 'default_security_group'),
+        enable_dns_hostnames=pulumi.get(__ret__, 'enable_dns_hostnames'),
+        enable_dns_support=pulumi.get(__ret__, 'enable_dns_support'),
+        instance_tenancy=pulumi.get(__ret__, 'instance_tenancy'),
+        ipv6_cidr_blocks=pulumi.get(__ret__, 'ipv6_cidr_blocks'),
+        tags=pulumi.get(__ret__, 'tags'),
+        vpc_id=pulumi.get(__ret__, 'vpc_id'))
 
 
 @_utilities.lift_output_func(get_vpc)

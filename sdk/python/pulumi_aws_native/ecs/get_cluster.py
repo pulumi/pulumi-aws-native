@@ -101,12 +101,12 @@ def get_cluster(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ecs:getCluster', __args__, opts=opts, typ=GetClusterResult).value
 
     return AwaitableGetClusterResult(
-        arn=__ret__.arn,
-        capacity_providers=__ret__.capacity_providers,
-        cluster_settings=__ret__.cluster_settings,
-        configuration=__ret__.configuration,
-        default_capacity_provider_strategy=__ret__.default_capacity_provider_strategy,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        capacity_providers=pulumi.get(__ret__, 'capacity_providers'),
+        cluster_settings=pulumi.get(__ret__, 'cluster_settings'),
+        configuration=pulumi.get(__ret__, 'configuration'),
+        default_capacity_provider_strategy=pulumi.get(__ret__, 'default_capacity_provider_strategy'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_cluster)

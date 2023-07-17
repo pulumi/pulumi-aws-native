@@ -165,16 +165,16 @@ def get_application(application_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:applicationinsights:getApplication', __args__, opts=opts, typ=GetApplicationResult).value
 
     return AwaitableGetApplicationResult(
-        application_arn=__ret__.application_arn,
-        auto_configuration_enabled=__ret__.auto_configuration_enabled,
-        c_we_monitor_enabled=__ret__.c_we_monitor_enabled,
-        component_monitoring_settings=__ret__.component_monitoring_settings,
-        custom_components=__ret__.custom_components,
-        grouping_type=__ret__.grouping_type,
-        log_pattern_sets=__ret__.log_pattern_sets,
-        ops_center_enabled=__ret__.ops_center_enabled,
-        ops_item_sns_topic_arn=__ret__.ops_item_sns_topic_arn,
-        tags=__ret__.tags)
+        application_arn=pulumi.get(__ret__, 'application_arn'),
+        auto_configuration_enabled=pulumi.get(__ret__, 'auto_configuration_enabled'),
+        c_we_monitor_enabled=pulumi.get(__ret__, 'c_we_monitor_enabled'),
+        component_monitoring_settings=pulumi.get(__ret__, 'component_monitoring_settings'),
+        custom_components=pulumi.get(__ret__, 'custom_components'),
+        grouping_type=pulumi.get(__ret__, 'grouping_type'),
+        log_pattern_sets=pulumi.get(__ret__, 'log_pattern_sets'),
+        ops_center_enabled=pulumi.get(__ret__, 'ops_center_enabled'),
+        ops_item_sns_topic_arn=pulumi.get(__ret__, 'ops_item_sns_topic_arn'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_application)

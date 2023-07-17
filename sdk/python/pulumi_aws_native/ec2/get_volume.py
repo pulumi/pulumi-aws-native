@@ -194,19 +194,19 @@ def get_volume(volume_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getVolume', __args__, opts=opts, typ=GetVolumeResult).value
 
     return AwaitableGetVolumeResult(
-        auto_enable_io=__ret__.auto_enable_io,
-        availability_zone=__ret__.availability_zone,
-        encrypted=__ret__.encrypted,
-        iops=__ret__.iops,
-        kms_key_id=__ret__.kms_key_id,
-        multi_attach_enabled=__ret__.multi_attach_enabled,
-        outpost_arn=__ret__.outpost_arn,
-        size=__ret__.size,
-        snapshot_id=__ret__.snapshot_id,
-        tags=__ret__.tags,
-        throughput=__ret__.throughput,
-        volume_id=__ret__.volume_id,
-        volume_type=__ret__.volume_type)
+        auto_enable_io=pulumi.get(__ret__, 'auto_enable_io'),
+        availability_zone=pulumi.get(__ret__, 'availability_zone'),
+        encrypted=pulumi.get(__ret__, 'encrypted'),
+        iops=pulumi.get(__ret__, 'iops'),
+        kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
+        multi_attach_enabled=pulumi.get(__ret__, 'multi_attach_enabled'),
+        outpost_arn=pulumi.get(__ret__, 'outpost_arn'),
+        size=pulumi.get(__ret__, 'size'),
+        snapshot_id=pulumi.get(__ret__, 'snapshot_id'),
+        tags=pulumi.get(__ret__, 'tags'),
+        throughput=pulumi.get(__ret__, 'throughput'),
+        volume_id=pulumi.get(__ret__, 'volume_id'),
+        volume_type=pulumi.get(__ret__, 'volume_type'))
 
 
 @_utilities.lift_output_func(get_volume)

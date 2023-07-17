@@ -76,10 +76,10 @@ def get_place_index(index_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:location:getPlaceIndex', __args__, opts=opts, typ=GetPlaceIndexResult).value
 
     return AwaitableGetPlaceIndexResult(
-        arn=__ret__.arn,
-        create_time=__ret__.create_time,
-        index_arn=__ret__.index_arn,
-        update_time=__ret__.update_time)
+        arn=pulumi.get(__ret__, 'arn'),
+        create_time=pulumi.get(__ret__, 'create_time'),
+        index_arn=pulumi.get(__ret__, 'index_arn'),
+        update_time=pulumi.get(__ret__, 'update_time'))
 
 
 @_utilities.lift_output_func(get_place_index)

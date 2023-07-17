@@ -66,8 +66,8 @@ def get_resource_collection(resource_collection_type: Optional['ResourceCollecti
     __ret__ = pulumi.runtime.invoke('aws-native:devopsguru:getResourceCollection', __args__, opts=opts, typ=GetResourceCollectionResult).value
 
     return AwaitableGetResourceCollectionResult(
-        resource_collection_filter=__ret__.resource_collection_filter,
-        resource_collection_type=__ret__.resource_collection_type)
+        resource_collection_filter=pulumi.get(__ret__, 'resource_collection_filter'),
+        resource_collection_type=pulumi.get(__ret__, 'resource_collection_type'))
 
 
 @_utilities.lift_output_func(get_resource_collection)

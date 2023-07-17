@@ -122,15 +122,15 @@ def get_user(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iam:getUser', __args__, opts=opts, typ=GetUserResult).value
 
     return AwaitableGetUserResult(
-        arn=__ret__.arn,
-        groups=__ret__.groups,
-        id=__ret__.id,
-        login_profile=__ret__.login_profile,
-        managed_policy_arns=__ret__.managed_policy_arns,
-        path=__ret__.path,
-        permissions_boundary=__ret__.permissions_boundary,
-        policies=__ret__.policies,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        groups=pulumi.get(__ret__, 'groups'),
+        id=pulumi.get(__ret__, 'id'),
+        login_profile=pulumi.get(__ret__, 'login_profile'),
+        managed_policy_arns=pulumi.get(__ret__, 'managed_policy_arns'),
+        path=pulumi.get(__ret__, 'path'),
+        permissions_boundary=pulumi.get(__ret__, 'permissions_boundary'),
+        policies=pulumi.get(__ret__, 'policies'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_user)

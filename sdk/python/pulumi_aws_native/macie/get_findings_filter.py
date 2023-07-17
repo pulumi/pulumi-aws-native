@@ -129,13 +129,13 @@ def get_findings_filter(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:macie:getFindingsFilter', __args__, opts=opts, typ=GetFindingsFilterResult).value
 
     return AwaitableGetFindingsFilterResult(
-        action=__ret__.action,
-        arn=__ret__.arn,
-        description=__ret__.description,
-        finding_criteria=__ret__.finding_criteria,
-        id=__ret__.id,
-        name=__ret__.name,
-        position=__ret__.position)
+        action=pulumi.get(__ret__, 'action'),
+        arn=pulumi.get(__ret__, 'arn'),
+        description=pulumi.get(__ret__, 'description'),
+        finding_criteria=pulumi.get(__ret__, 'finding_criteria'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        position=pulumi.get(__ret__, 'position'))
 
 
 @_utilities.lift_output_func(get_findings_filter)

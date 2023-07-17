@@ -116,12 +116,12 @@ def get_dashboard(dashboard_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iotsitewise:getDashboard', __args__, opts=opts, typ=GetDashboardResult).value
 
     return AwaitableGetDashboardResult(
-        dashboard_arn=__ret__.dashboard_arn,
-        dashboard_definition=__ret__.dashboard_definition,
-        dashboard_description=__ret__.dashboard_description,
-        dashboard_id=__ret__.dashboard_id,
-        dashboard_name=__ret__.dashboard_name,
-        tags=__ret__.tags)
+        dashboard_arn=pulumi.get(__ret__, 'dashboard_arn'),
+        dashboard_definition=pulumi.get(__ret__, 'dashboard_definition'),
+        dashboard_description=pulumi.get(__ret__, 'dashboard_description'),
+        dashboard_id=pulumi.get(__ret__, 'dashboard_id'),
+        dashboard_name=pulumi.get(__ret__, 'dashboard_name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_dashboard)

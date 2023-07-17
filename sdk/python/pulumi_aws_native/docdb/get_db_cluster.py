@@ -203,24 +203,24 @@ def get_db_cluster(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:docdb:getDBCluster', __args__, opts=opts, typ=GetDBClusterResult).value
 
     return AwaitableGetDBClusterResult(
-        backup_retention_period=__ret__.backup_retention_period,
-        cluster_resource_id=__ret__.cluster_resource_id,
-        copy_tags_to_snapshot=__ret__.copy_tags_to_snapshot,
-        d_b_cluster_parameter_group_name=__ret__.d_b_cluster_parameter_group_name,
-        deletion_protection=__ret__.deletion_protection,
-        enable_cloudwatch_logs_exports=__ret__.enable_cloudwatch_logs_exports,
-        endpoint=__ret__.endpoint,
-        id=__ret__.id,
-        master_user_password=__ret__.master_user_password,
-        port=__ret__.port,
-        preferred_backup_window=__ret__.preferred_backup_window,
-        preferred_maintenance_window=__ret__.preferred_maintenance_window,
-        read_endpoint=__ret__.read_endpoint,
-        restore_to_time=__ret__.restore_to_time,
-        restore_type=__ret__.restore_type,
-        tags=__ret__.tags,
-        use_latest_restorable_time=__ret__.use_latest_restorable_time,
-        vpc_security_group_ids=__ret__.vpc_security_group_ids)
+        backup_retention_period=pulumi.get(__ret__, 'backup_retention_period'),
+        cluster_resource_id=pulumi.get(__ret__, 'cluster_resource_id'),
+        copy_tags_to_snapshot=pulumi.get(__ret__, 'copy_tags_to_snapshot'),
+        d_b_cluster_parameter_group_name=pulumi.get(__ret__, 'd_b_cluster_parameter_group_name'),
+        deletion_protection=pulumi.get(__ret__, 'deletion_protection'),
+        enable_cloudwatch_logs_exports=pulumi.get(__ret__, 'enable_cloudwatch_logs_exports'),
+        endpoint=pulumi.get(__ret__, 'endpoint'),
+        id=pulumi.get(__ret__, 'id'),
+        master_user_password=pulumi.get(__ret__, 'master_user_password'),
+        port=pulumi.get(__ret__, 'port'),
+        preferred_backup_window=pulumi.get(__ret__, 'preferred_backup_window'),
+        preferred_maintenance_window=pulumi.get(__ret__, 'preferred_maintenance_window'),
+        read_endpoint=pulumi.get(__ret__, 'read_endpoint'),
+        restore_to_time=pulumi.get(__ret__, 'restore_to_time'),
+        restore_type=pulumi.get(__ret__, 'restore_type'),
+        tags=pulumi.get(__ret__, 'tags'),
+        use_latest_restorable_time=pulumi.get(__ret__, 'use_latest_restorable_time'),
+        vpc_security_group_ids=pulumi.get(__ret__, 'vpc_security_group_ids'))
 
 
 @_utilities.lift_output_func(get_db_cluster)

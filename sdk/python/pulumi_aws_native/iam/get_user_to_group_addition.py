@@ -67,9 +67,9 @@ def get_user_to_group_addition(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iam:getUserToGroupAddition', __args__, opts=opts, typ=GetUserToGroupAdditionResult).value
 
     return AwaitableGetUserToGroupAdditionResult(
-        group_name=__ret__.group_name,
-        id=__ret__.id,
-        users=__ret__.users)
+        group_name=pulumi.get(__ret__, 'group_name'),
+        id=pulumi.get(__ret__, 'id'),
+        users=pulumi.get(__ret__, 'users'))
 
 
 @_utilities.lift_output_func(get_user_to_group_addition)

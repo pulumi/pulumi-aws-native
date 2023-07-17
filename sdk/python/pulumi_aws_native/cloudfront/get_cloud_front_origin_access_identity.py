@@ -68,9 +68,9 @@ def get_cloud_front_origin_access_identity(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cloudfront:getCloudFrontOriginAccessIdentity', __args__, opts=opts, typ=GetCloudFrontOriginAccessIdentityResult).value
 
     return AwaitableGetCloudFrontOriginAccessIdentityResult(
-        cloud_front_origin_access_identity_config=__ret__.cloud_front_origin_access_identity_config,
-        id=__ret__.id,
-        s3_canonical_user_id=__ret__.s3_canonical_user_id)
+        cloud_front_origin_access_identity_config=pulumi.get(__ret__, 'cloud_front_origin_access_identity_config'),
+        id=pulumi.get(__ret__, 'id'),
+        s3_canonical_user_id=pulumi.get(__ret__, 's3_canonical_user_id'))
 
 
 @_utilities.lift_output_func(get_cloud_front_origin_access_identity)

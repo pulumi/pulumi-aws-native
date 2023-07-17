@@ -79,9 +79,9 @@ def get_public_type_version(public_type_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cloudformation:getPublicTypeVersion', __args__, opts=opts, typ=GetPublicTypeVersionResult).value
 
     return AwaitableGetPublicTypeVersionResult(
-        public_type_arn=__ret__.public_type_arn,
-        publisher_id=__ret__.publisher_id,
-        type_version_arn=__ret__.type_version_arn)
+        public_type_arn=pulumi.get(__ret__, 'public_type_arn'),
+        publisher_id=pulumi.get(__ret__, 'publisher_id'),
+        type_version_arn=pulumi.get(__ret__, 'type_version_arn'))
 
 
 @_utilities.lift_output_func(get_public_type_version)

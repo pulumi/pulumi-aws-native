@@ -131,16 +131,16 @@ def get_replication_task(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:dms:getReplicationTask', __args__, opts=opts, typ=GetReplicationTaskResult).value
 
     return AwaitableGetReplicationTaskResult(
-        cdc_start_position=__ret__.cdc_start_position,
-        cdc_start_time=__ret__.cdc_start_time,
-        cdc_stop_position=__ret__.cdc_stop_position,
-        id=__ret__.id,
-        migration_type=__ret__.migration_type,
-        replication_task_identifier=__ret__.replication_task_identifier,
-        replication_task_settings=__ret__.replication_task_settings,
-        table_mappings=__ret__.table_mappings,
-        tags=__ret__.tags,
-        task_data=__ret__.task_data)
+        cdc_start_position=pulumi.get(__ret__, 'cdc_start_position'),
+        cdc_start_time=pulumi.get(__ret__, 'cdc_start_time'),
+        cdc_stop_position=pulumi.get(__ret__, 'cdc_stop_position'),
+        id=pulumi.get(__ret__, 'id'),
+        migration_type=pulumi.get(__ret__, 'migration_type'),
+        replication_task_identifier=pulumi.get(__ret__, 'replication_task_identifier'),
+        replication_task_settings=pulumi.get(__ret__, 'replication_task_settings'),
+        table_mappings=pulumi.get(__ret__, 'table_mappings'),
+        tags=pulumi.get(__ret__, 'tags'),
+        task_data=pulumi.get(__ret__, 'task_data'))
 
 
 @_utilities.lift_output_func(get_replication_task)

@@ -68,9 +68,9 @@ def get_pipeline(pipeline_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iotanalytics:getPipeline', __args__, opts=opts, typ=GetPipelineResult).value
 
     return AwaitableGetPipelineResult(
-        id=__ret__.id,
-        pipeline_activities=__ret__.pipeline_activities,
-        tags=__ret__.tags)
+        id=pulumi.get(__ret__, 'id'),
+        pipeline_activities=pulumi.get(__ret__, 'pipeline_activities'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_pipeline)

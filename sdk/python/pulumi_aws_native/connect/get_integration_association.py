@@ -54,7 +54,7 @@ def get_integration_association(instance_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:connect:getIntegrationAssociation', __args__, opts=opts, typ=GetIntegrationAssociationResult).value
 
     return AwaitableGetIntegrationAssociationResult(
-        integration_association_id=__ret__.integration_association_id)
+        integration_association_id=pulumi.get(__ret__, 'integration_association_id'))
 
 
 @_utilities.lift_output_func(get_integration_association)

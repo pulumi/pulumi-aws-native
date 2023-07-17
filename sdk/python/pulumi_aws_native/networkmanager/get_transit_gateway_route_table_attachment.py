@@ -212,20 +212,20 @@ def get_transit_gateway_route_table_attachment(attachment_id: Optional[str] = No
     __ret__ = pulumi.runtime.invoke('aws-native:networkmanager:getTransitGatewayRouteTableAttachment', __args__, opts=opts, typ=GetTransitGatewayRouteTableAttachmentResult).value
 
     return AwaitableGetTransitGatewayRouteTableAttachmentResult(
-        attachment_id=__ret__.attachment_id,
-        attachment_policy_rule_number=__ret__.attachment_policy_rule_number,
-        attachment_type=__ret__.attachment_type,
-        core_network_arn=__ret__.core_network_arn,
-        core_network_id=__ret__.core_network_id,
-        created_at=__ret__.created_at,
-        edge_location=__ret__.edge_location,
-        owner_account_id=__ret__.owner_account_id,
-        proposed_segment_change=__ret__.proposed_segment_change,
-        resource_arn=__ret__.resource_arn,
-        segment_name=__ret__.segment_name,
-        state=__ret__.state,
-        tags=__ret__.tags,
-        updated_at=__ret__.updated_at)
+        attachment_id=pulumi.get(__ret__, 'attachment_id'),
+        attachment_policy_rule_number=pulumi.get(__ret__, 'attachment_policy_rule_number'),
+        attachment_type=pulumi.get(__ret__, 'attachment_type'),
+        core_network_arn=pulumi.get(__ret__, 'core_network_arn'),
+        core_network_id=pulumi.get(__ret__, 'core_network_id'),
+        created_at=pulumi.get(__ret__, 'created_at'),
+        edge_location=pulumi.get(__ret__, 'edge_location'),
+        owner_account_id=pulumi.get(__ret__, 'owner_account_id'),
+        proposed_segment_change=pulumi.get(__ret__, 'proposed_segment_change'),
+        resource_arn=pulumi.get(__ret__, 'resource_arn'),
+        segment_name=pulumi.get(__ret__, 'segment_name'),
+        state=pulumi.get(__ret__, 'state'),
+        tags=pulumi.get(__ret__, 'tags'),
+        updated_at=pulumi.get(__ret__, 'updated_at'))
 
 
 @_utilities.lift_output_func(get_transit_gateway_route_table_attachment)

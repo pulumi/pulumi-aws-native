@@ -197,23 +197,23 @@ def get_service(cluster: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ecs:getService', __args__, opts=opts, typ=GetServiceResult).value
 
     return AwaitableGetServiceResult(
-        capacity_provider_strategy=__ret__.capacity_provider_strategy,
-        deployment_configuration=__ret__.deployment_configuration,
-        desired_count=__ret__.desired_count,
-        enable_ecs_managed_tags=__ret__.enable_ecs_managed_tags,
-        enable_execute_command=__ret__.enable_execute_command,
-        health_check_grace_period_seconds=__ret__.health_check_grace_period_seconds,
-        load_balancers=__ret__.load_balancers,
-        name=__ret__.name,
-        network_configuration=__ret__.network_configuration,
-        placement_constraints=__ret__.placement_constraints,
-        placement_strategies=__ret__.placement_strategies,
-        platform_version=__ret__.platform_version,
-        propagate_tags=__ret__.propagate_tags,
-        service_arn=__ret__.service_arn,
-        service_registries=__ret__.service_registries,
-        tags=__ret__.tags,
-        task_definition=__ret__.task_definition)
+        capacity_provider_strategy=pulumi.get(__ret__, 'capacity_provider_strategy'),
+        deployment_configuration=pulumi.get(__ret__, 'deployment_configuration'),
+        desired_count=pulumi.get(__ret__, 'desired_count'),
+        enable_ecs_managed_tags=pulumi.get(__ret__, 'enable_ecs_managed_tags'),
+        enable_execute_command=pulumi.get(__ret__, 'enable_execute_command'),
+        health_check_grace_period_seconds=pulumi.get(__ret__, 'health_check_grace_period_seconds'),
+        load_balancers=pulumi.get(__ret__, 'load_balancers'),
+        name=pulumi.get(__ret__, 'name'),
+        network_configuration=pulumi.get(__ret__, 'network_configuration'),
+        placement_constraints=pulumi.get(__ret__, 'placement_constraints'),
+        placement_strategies=pulumi.get(__ret__, 'placement_strategies'),
+        platform_version=pulumi.get(__ret__, 'platform_version'),
+        propagate_tags=pulumi.get(__ret__, 'propagate_tags'),
+        service_arn=pulumi.get(__ret__, 'service_arn'),
+        service_registries=pulumi.get(__ret__, 'service_registries'),
+        tags=pulumi.get(__ret__, 'tags'),
+        task_definition=pulumi.get(__ret__, 'task_definition'))
 
 
 @_utilities.lift_output_func(get_service)

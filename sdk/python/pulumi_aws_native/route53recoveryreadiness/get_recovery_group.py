@@ -80,9 +80,9 @@ def get_recovery_group(recovery_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:route53recoveryreadiness:getRecoveryGroup', __args__, opts=opts, typ=GetRecoveryGroupResult).value
 
     return AwaitableGetRecoveryGroupResult(
-        cells=__ret__.cells,
-        recovery_group_arn=__ret__.recovery_group_arn,
-        tags=__ret__.tags)
+        cells=pulumi.get(__ret__, 'cells'),
+        recovery_group_arn=pulumi.get(__ret__, 'recovery_group_arn'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_recovery_group)

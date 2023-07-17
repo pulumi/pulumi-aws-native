@@ -77,10 +77,10 @@ def get_http_namespace(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:servicediscovery:getHttpNamespace', __args__, opts=opts, typ=GetHttpNamespaceResult).value
 
     return AwaitableGetHttpNamespaceResult(
-        arn=__ret__.arn,
-        description=__ret__.description,
-        id=__ret__.id,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_http_namespace)

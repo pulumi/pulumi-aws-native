@@ -55,7 +55,7 @@ def get_notification_channel(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:devopsguru:getNotificationChannel', __args__, opts=opts, typ=GetNotificationChannelResult).value
 
     return AwaitableGetNotificationChannelResult(
-        id=__ret__.id)
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_notification_channel)

@@ -76,10 +76,10 @@ def get_baidu_channel(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:pinpoint:getBaiduChannel', __args__, opts=opts, typ=GetBaiduChannelResult).value
 
     return AwaitableGetBaiduChannelResult(
-        api_key=__ret__.api_key,
-        enabled=__ret__.enabled,
-        id=__ret__.id,
-        secret_key=__ret__.secret_key)
+        api_key=pulumi.get(__ret__, 'api_key'),
+        enabled=pulumi.get(__ret__, 'enabled'),
+        id=pulumi.get(__ret__, 'id'),
+        secret_key=pulumi.get(__ret__, 'secret_key'))
 
 
 @_utilities.lift_output_func(get_baidu_channel)

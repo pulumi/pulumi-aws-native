@@ -78,10 +78,10 @@ def get_ec2_fleet(fleet_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getEC2Fleet', __args__, opts=opts, typ=GetEC2FleetResult).value
 
     return AwaitableGetEC2FleetResult(
-        context=__ret__.context,
-        excess_capacity_termination_policy=__ret__.excess_capacity_termination_policy,
-        fleet_id=__ret__.fleet_id,
-        target_capacity_specification=__ret__.target_capacity_specification)
+        context=pulumi.get(__ret__, 'context'),
+        excess_capacity_termination_policy=pulumi.get(__ret__, 'excess_capacity_termination_policy'),
+        fleet_id=pulumi.get(__ret__, 'fleet_id'),
+        target_capacity_specification=pulumi.get(__ret__, 'target_capacity_specification'))
 
 
 @_utilities.lift_output_func(get_ec2_fleet)

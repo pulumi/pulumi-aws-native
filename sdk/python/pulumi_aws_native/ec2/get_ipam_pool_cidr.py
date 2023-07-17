@@ -70,8 +70,8 @@ def get_ipam_pool_cidr(ipam_pool_cidr_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getIPAMPoolCidr', __args__, opts=opts, typ=GetIPAMPoolCidrResult).value
 
     return AwaitableGetIPAMPoolCidrResult(
-        ipam_pool_cidr_id=__ret__.ipam_pool_cidr_id,
-        state=__ret__.state)
+        ipam_pool_cidr_id=pulumi.get(__ret__, 'ipam_pool_cidr_id'),
+        state=pulumi.get(__ret__, 'state'))
 
 
 @_utilities.lift_output_func(get_ipam_pool_cidr)

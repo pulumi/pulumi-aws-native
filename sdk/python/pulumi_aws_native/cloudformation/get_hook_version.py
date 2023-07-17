@@ -110,11 +110,11 @@ def get_hook_version(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cloudformation:getHookVersion', __args__, opts=opts, typ=GetHookVersionResult).value
 
     return AwaitableGetHookVersionResult(
-        arn=__ret__.arn,
-        is_default_version=__ret__.is_default_version,
-        type_arn=__ret__.type_arn,
-        version_id=__ret__.version_id,
-        visibility=__ret__.visibility)
+        arn=pulumi.get(__ret__, 'arn'),
+        is_default_version=pulumi.get(__ret__, 'is_default_version'),
+        type_arn=pulumi.get(__ret__, 'type_arn'),
+        version_id=pulumi.get(__ret__, 'version_id'),
+        visibility=pulumi.get(__ret__, 'visibility'))
 
 
 @_utilities.lift_output_func(get_hook_version)

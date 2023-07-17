@@ -261,24 +261,24 @@ def get_event_source_mapping(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:lambda:getEventSourceMapping', __args__, opts=opts, typ=GetEventSourceMappingResult).value
 
     return AwaitableGetEventSourceMappingResult(
-        batch_size=__ret__.batch_size,
-        bisect_batch_on_function_error=__ret__.bisect_batch_on_function_error,
-        destination_config=__ret__.destination_config,
-        document_db_event_source_config=__ret__.document_db_event_source_config,
-        enabled=__ret__.enabled,
-        filter_criteria=__ret__.filter_criteria,
-        function_name=__ret__.function_name,
-        function_response_types=__ret__.function_response_types,
-        id=__ret__.id,
-        maximum_batching_window_in_seconds=__ret__.maximum_batching_window_in_seconds,
-        maximum_record_age_in_seconds=__ret__.maximum_record_age_in_seconds,
-        maximum_retry_attempts=__ret__.maximum_retry_attempts,
-        parallelization_factor=__ret__.parallelization_factor,
-        queues=__ret__.queues,
-        scaling_config=__ret__.scaling_config,
-        source_access_configurations=__ret__.source_access_configurations,
-        topics=__ret__.topics,
-        tumbling_window_in_seconds=__ret__.tumbling_window_in_seconds)
+        batch_size=pulumi.get(__ret__, 'batch_size'),
+        bisect_batch_on_function_error=pulumi.get(__ret__, 'bisect_batch_on_function_error'),
+        destination_config=pulumi.get(__ret__, 'destination_config'),
+        document_db_event_source_config=pulumi.get(__ret__, 'document_db_event_source_config'),
+        enabled=pulumi.get(__ret__, 'enabled'),
+        filter_criteria=pulumi.get(__ret__, 'filter_criteria'),
+        function_name=pulumi.get(__ret__, 'function_name'),
+        function_response_types=pulumi.get(__ret__, 'function_response_types'),
+        id=pulumi.get(__ret__, 'id'),
+        maximum_batching_window_in_seconds=pulumi.get(__ret__, 'maximum_batching_window_in_seconds'),
+        maximum_record_age_in_seconds=pulumi.get(__ret__, 'maximum_record_age_in_seconds'),
+        maximum_retry_attempts=pulumi.get(__ret__, 'maximum_retry_attempts'),
+        parallelization_factor=pulumi.get(__ret__, 'parallelization_factor'),
+        queues=pulumi.get(__ret__, 'queues'),
+        scaling_config=pulumi.get(__ret__, 'scaling_config'),
+        source_access_configurations=pulumi.get(__ret__, 'source_access_configurations'),
+        topics=pulumi.get(__ret__, 'topics'),
+        tumbling_window_in_seconds=pulumi.get(__ret__, 'tumbling_window_in_seconds'))
 
 
 @_utilities.lift_output_func(get_event_source_mapping)

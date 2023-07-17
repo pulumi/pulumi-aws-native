@@ -113,12 +113,12 @@ def get_verified_access_trust_provider(verified_access_trust_provider_id: Option
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getVerifiedAccessTrustProvider', __args__, opts=opts, typ=GetVerifiedAccessTrustProviderResult).value
 
     return AwaitableGetVerifiedAccessTrustProviderResult(
-        creation_time=__ret__.creation_time,
-        description=__ret__.description,
-        last_updated_time=__ret__.last_updated_time,
-        oidc_options=__ret__.oidc_options,
-        tags=__ret__.tags,
-        verified_access_trust_provider_id=__ret__.verified_access_trust_provider_id)
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        description=pulumi.get(__ret__, 'description'),
+        last_updated_time=pulumi.get(__ret__, 'last_updated_time'),
+        oidc_options=pulumi.get(__ret__, 'oidc_options'),
+        tags=pulumi.get(__ret__, 'tags'),
+        verified_access_trust_provider_id=pulumi.get(__ret__, 'verified_access_trust_provider_id'))
 
 
 @_utilities.lift_output_func(get_verified_access_trust_provider)

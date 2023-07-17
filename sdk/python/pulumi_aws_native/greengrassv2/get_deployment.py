@@ -58,8 +58,8 @@ def get_deployment(deployment_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:greengrassv2:getDeployment', __args__, opts=opts, typ=GetDeploymentResult).value
 
     return AwaitableGetDeploymentResult(
-        deployment_id=__ret__.deployment_id,
-        tags=__ret__.tags)
+        deployment_id=pulumi.get(__ret__, 'deployment_id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_deployment)

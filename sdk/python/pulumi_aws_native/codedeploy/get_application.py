@@ -56,7 +56,7 @@ def get_application(application_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:codedeploy:getApplication', __args__, opts=opts, typ=GetApplicationResult).value
 
     return AwaitableGetApplicationResult(
-        tags=__ret__.tags)
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_application)

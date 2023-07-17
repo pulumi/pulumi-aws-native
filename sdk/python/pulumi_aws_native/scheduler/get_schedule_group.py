@@ -99,11 +99,11 @@ def get_schedule_group(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:scheduler:getScheduleGroup', __args__, opts=opts, typ=GetScheduleGroupResult).value
 
     return AwaitableGetScheduleGroupResult(
-        arn=__ret__.arn,
-        creation_date=__ret__.creation_date,
-        last_modification_date=__ret__.last_modification_date,
-        state=__ret__.state,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        creation_date=pulumi.get(__ret__, 'creation_date'),
+        last_modification_date=pulumi.get(__ret__, 'last_modification_date'),
+        state=pulumi.get(__ret__, 'state'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_schedule_group)

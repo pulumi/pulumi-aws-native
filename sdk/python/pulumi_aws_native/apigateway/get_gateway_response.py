@@ -76,10 +76,10 @@ def get_gateway_response(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:apigateway:getGatewayResponse', __args__, opts=opts, typ=GetGatewayResponseResult).value
 
     return AwaitableGetGatewayResponseResult(
-        id=__ret__.id,
-        response_parameters=__ret__.response_parameters,
-        response_templates=__ret__.response_templates,
-        status_code=__ret__.status_code)
+        id=pulumi.get(__ret__, 'id'),
+        response_parameters=pulumi.get(__ret__, 'response_parameters'),
+        response_templates=pulumi.get(__ret__, 'response_templates'),
+        status_code=pulumi.get(__ret__, 'status_code'))
 
 
 @_utilities.lift_output_func(get_gateway_response)

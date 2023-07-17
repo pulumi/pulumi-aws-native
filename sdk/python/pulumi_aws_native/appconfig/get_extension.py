@@ -97,12 +97,12 @@ def get_extension(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:appconfig:getExtension', __args__, opts=opts, typ=GetExtensionResult).value
 
     return AwaitableGetExtensionResult(
-        actions=__ret__.actions,
-        arn=__ret__.arn,
-        description=__ret__.description,
-        id=__ret__.id,
-        parameters=__ret__.parameters,
-        version_number=__ret__.version_number)
+        actions=pulumi.get(__ret__, 'actions'),
+        arn=pulumi.get(__ret__, 'arn'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        parameters=pulumi.get(__ret__, 'parameters'),
+        version_number=pulumi.get(__ret__, 'version_number'))
 
 
 @_utilities.lift_output_func(get_extension)

@@ -77,10 +77,10 @@ def get_db_subnet_group(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:neptune:getDBSubnetGroup', __args__, opts=opts, typ=GetDBSubnetGroupResult).value
 
     return AwaitableGetDBSubnetGroupResult(
-        d_b_subnet_group_description=__ret__.d_b_subnet_group_description,
-        id=__ret__.id,
-        subnet_ids=__ret__.subnet_ids,
-        tags=__ret__.tags)
+        d_b_subnet_group_description=pulumi.get(__ret__, 'd_b_subnet_group_description'),
+        id=pulumi.get(__ret__, 'id'),
+        subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_db_subnet_group)

@@ -119,14 +119,14 @@ def get_launch(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:evidently:getLaunch', __args__, opts=opts, typ=GetLaunchResult).value
 
     return AwaitableGetLaunchResult(
-        arn=__ret__.arn,
-        description=__ret__.description,
-        execution_status=__ret__.execution_status,
-        groups=__ret__.groups,
-        metric_monitors=__ret__.metric_monitors,
-        randomization_salt=__ret__.randomization_salt,
-        scheduled_splits_config=__ret__.scheduled_splits_config,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        description=pulumi.get(__ret__, 'description'),
+        execution_status=pulumi.get(__ret__, 'execution_status'),
+        groups=pulumi.get(__ret__, 'groups'),
+        metric_monitors=pulumi.get(__ret__, 'metric_monitors'),
+        randomization_salt=pulumi.get(__ret__, 'randomization_salt'),
+        scheduled_splits_config=pulumi.get(__ret__, 'scheduled_splits_config'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_launch)

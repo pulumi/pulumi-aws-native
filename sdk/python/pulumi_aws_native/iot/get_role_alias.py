@@ -77,10 +77,10 @@ def get_role_alias(role_alias: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iot:getRoleAlias', __args__, opts=opts, typ=GetRoleAliasResult).value
 
     return AwaitableGetRoleAliasResult(
-        credential_duration_seconds=__ret__.credential_duration_seconds,
-        role_alias_arn=__ret__.role_alias_arn,
-        role_arn=__ret__.role_arn,
-        tags=__ret__.tags)
+        credential_duration_seconds=pulumi.get(__ret__, 'credential_duration_seconds'),
+        role_alias_arn=pulumi.get(__ret__, 'role_alias_arn'),
+        role_arn=pulumi.get(__ret__, 'role_arn'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_role_alias)

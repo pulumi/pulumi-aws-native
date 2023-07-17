@@ -77,9 +77,9 @@ def get_database(database_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:timestream:getDatabase', __args__, opts=opts, typ=GetDatabaseResult).value
 
     return AwaitableGetDatabaseResult(
-        arn=__ret__.arn,
-        kms_key_id=__ret__.kms_key_id,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_database)

@@ -68,9 +68,9 @@ def get_certificate(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:certificatemanager:getCertificate', __args__, opts=opts, typ=GetCertificateResult).value
 
     return AwaitableGetCertificateResult(
-        certificate_transparency_logging_preference=__ret__.certificate_transparency_logging_preference,
-        id=__ret__.id,
-        tags=__ret__.tags)
+        certificate_transparency_logging_preference=pulumi.get(__ret__, 'certificate_transparency_logging_preference'),
+        id=pulumi.get(__ret__, 'id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_certificate)

@@ -123,13 +123,13 @@ def get_resiliency_policy(policy_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:resiliencehub:getResiliencyPolicy', __args__, opts=opts, typ=GetResiliencyPolicyResult).value
 
     return AwaitableGetResiliencyPolicyResult(
-        data_location_constraint=__ret__.data_location_constraint,
-        policy=__ret__.policy,
-        policy_arn=__ret__.policy_arn,
-        policy_description=__ret__.policy_description,
-        policy_name=__ret__.policy_name,
-        tags=__ret__.tags,
-        tier=__ret__.tier)
+        data_location_constraint=pulumi.get(__ret__, 'data_location_constraint'),
+        policy=pulumi.get(__ret__, 'policy'),
+        policy_arn=pulumi.get(__ret__, 'policy_arn'),
+        policy_description=pulumi.get(__ret__, 'policy_description'),
+        policy_name=pulumi.get(__ret__, 'policy_name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        tier=pulumi.get(__ret__, 'tier'))
 
 
 @_utilities.lift_output_func(get_resiliency_policy)

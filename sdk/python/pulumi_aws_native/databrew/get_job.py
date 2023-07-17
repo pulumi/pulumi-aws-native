@@ -237,23 +237,23 @@ def get_job(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:databrew:getJob', __args__, opts=opts, typ=GetJobResult).value
 
     return AwaitableGetJobResult(
-        data_catalog_outputs=__ret__.data_catalog_outputs,
-        database_outputs=__ret__.database_outputs,
-        dataset_name=__ret__.dataset_name,
-        encryption_key_arn=__ret__.encryption_key_arn,
-        encryption_mode=__ret__.encryption_mode,
-        job_sample=__ret__.job_sample,
-        log_subscription=__ret__.log_subscription,
-        max_capacity=__ret__.max_capacity,
-        max_retries=__ret__.max_retries,
-        output_location=__ret__.output_location,
-        outputs=__ret__.outputs,
-        profile_configuration=__ret__.profile_configuration,
-        project_name=__ret__.project_name,
-        recipe=__ret__.recipe,
-        role_arn=__ret__.role_arn,
-        timeout=__ret__.timeout,
-        validation_configurations=__ret__.validation_configurations)
+        data_catalog_outputs=pulumi.get(__ret__, 'data_catalog_outputs'),
+        database_outputs=pulumi.get(__ret__, 'database_outputs'),
+        dataset_name=pulumi.get(__ret__, 'dataset_name'),
+        encryption_key_arn=pulumi.get(__ret__, 'encryption_key_arn'),
+        encryption_mode=pulumi.get(__ret__, 'encryption_mode'),
+        job_sample=pulumi.get(__ret__, 'job_sample'),
+        log_subscription=pulumi.get(__ret__, 'log_subscription'),
+        max_capacity=pulumi.get(__ret__, 'max_capacity'),
+        max_retries=pulumi.get(__ret__, 'max_retries'),
+        output_location=pulumi.get(__ret__, 'output_location'),
+        outputs=pulumi.get(__ret__, 'outputs'),
+        profile_configuration=pulumi.get(__ret__, 'profile_configuration'),
+        project_name=pulumi.get(__ret__, 'project_name'),
+        recipe=pulumi.get(__ret__, 'recipe'),
+        role_arn=pulumi.get(__ret__, 'role_arn'),
+        timeout=pulumi.get(__ret__, 'timeout'),
+        validation_configurations=pulumi.get(__ret__, 'validation_configurations'))
 
 
 @_utilities.lift_output_func(get_job)

@@ -93,10 +93,10 @@ def get_signaling_channel(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:kinesisvideo:getSignalingChannel', __args__, opts=opts, typ=GetSignalingChannelResult).value
 
     return AwaitableGetSignalingChannelResult(
-        arn=__ret__.arn,
-        message_ttl_seconds=__ret__.message_ttl_seconds,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        arn=pulumi.get(__ret__, 'arn'),
+        message_ttl_seconds=pulumi.get(__ret__, 'message_ttl_seconds'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_signaling_channel)

@@ -95,12 +95,12 @@ def get_resource_set(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:fms:getResourceSet', __args__, opts=opts, typ=GetResourceSetResult).value
 
     return AwaitableGetResourceSetResult(
-        description=__ret__.description,
-        id=__ret__.id,
-        name=__ret__.name,
-        resource_type_list=__ret__.resource_type_list,
-        resources=__ret__.resources,
-        tags=__ret__.tags)
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_type_list=pulumi.get(__ret__, 'resource_type_list'),
+        resources=pulumi.get(__ret__, 'resources'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_resource_set)

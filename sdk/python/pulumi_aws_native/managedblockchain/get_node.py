@@ -86,11 +86,11 @@ def get_node(node_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:managedblockchain:getNode', __args__, opts=opts, typ=GetNodeResult).value
 
     return AwaitableGetNodeResult(
-        arn=__ret__.arn,
-        member_id=__ret__.member_id,
-        network_id=__ret__.network_id,
-        node_configuration=__ret__.node_configuration,
-        node_id=__ret__.node_id)
+        arn=pulumi.get(__ret__, 'arn'),
+        member_id=pulumi.get(__ret__, 'member_id'),
+        network_id=pulumi.get(__ret__, 'network_id'),
+        node_configuration=pulumi.get(__ret__, 'node_configuration'),
+        node_id=pulumi.get(__ret__, 'node_id'))
 
 
 @_utilities.lift_output_func(get_node)

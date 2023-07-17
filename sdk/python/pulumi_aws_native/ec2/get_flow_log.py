@@ -68,8 +68,8 @@ def get_flow_log(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getFlowLog', __args__, opts=opts, typ=GetFlowLogResult).value
 
     return AwaitableGetFlowLogResult(
-        id=__ret__.id,
-        tags=__ret__.tags)
+        id=pulumi.get(__ret__, 'id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_flow_log)

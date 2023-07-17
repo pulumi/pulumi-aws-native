@@ -68,9 +68,9 @@ def get_knowledge_base(knowledge_base_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:wisdom:getKnowledgeBase', __args__, opts=opts, typ=GetKnowledgeBaseResult).value
 
     return AwaitableGetKnowledgeBaseResult(
-        knowledge_base_arn=__ret__.knowledge_base_arn,
-        knowledge_base_id=__ret__.knowledge_base_id,
-        rendering_configuration=__ret__.rendering_configuration)
+        knowledge_base_arn=pulumi.get(__ret__, 'knowledge_base_arn'),
+        knowledge_base_id=pulumi.get(__ret__, 'knowledge_base_id'),
+        rendering_configuration=pulumi.get(__ret__, 'rendering_configuration'))
 
 
 @_utilities.lift_output_func(get_knowledge_base)

@@ -59,8 +59,8 @@ def get_data_catalog_encryption_settings(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:glue:getDataCatalogEncryptionSettings', __args__, opts=opts, typ=GetDataCatalogEncryptionSettingsResult).value
 
     return AwaitableGetDataCatalogEncryptionSettingsResult(
-        data_catalog_encryption_settings=__ret__.data_catalog_encryption_settings,
-        id=__ret__.id)
+        data_catalog_encryption_settings=pulumi.get(__ret__, 'data_catalog_encryption_settings'),
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_data_catalog_encryption_settings)

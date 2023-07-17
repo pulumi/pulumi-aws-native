@@ -85,11 +85,11 @@ def get_network_interface_attachment(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getNetworkInterfaceAttachment', __args__, opts=opts, typ=GetNetworkInterfaceAttachmentResult).value
 
     return AwaitableGetNetworkInterfaceAttachmentResult(
-        delete_on_termination=__ret__.delete_on_termination,
-        device_index=__ret__.device_index,
-        id=__ret__.id,
-        instance_id=__ret__.instance_id,
-        network_interface_id=__ret__.network_interface_id)
+        delete_on_termination=pulumi.get(__ret__, 'delete_on_termination'),
+        device_index=pulumi.get(__ret__, 'device_index'),
+        id=pulumi.get(__ret__, 'id'),
+        instance_id=pulumi.get(__ret__, 'instance_id'),
+        network_interface_id=pulumi.get(__ret__, 'network_interface_id'))
 
 
 @_utilities.lift_output_func(get_network_interface_attachment)

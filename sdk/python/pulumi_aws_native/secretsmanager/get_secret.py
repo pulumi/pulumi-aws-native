@@ -104,11 +104,11 @@ def get_secret(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:secretsmanager:getSecret', __args__, opts=opts, typ=GetSecretResult).value
 
     return AwaitableGetSecretResult(
-        description=__ret__.description,
-        id=__ret__.id,
-        kms_key_id=__ret__.kms_key_id,
-        replica_regions=__ret__.replica_regions,
-        tags=__ret__.tags)
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
+        replica_regions=pulumi.get(__ret__, 'replica_regions'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_secret)

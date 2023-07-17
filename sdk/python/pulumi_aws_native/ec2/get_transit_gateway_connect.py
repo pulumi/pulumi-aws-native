@@ -104,11 +104,11 @@ def get_transit_gateway_connect(transit_gateway_attachment_id: Optional[str] = N
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getTransitGatewayConnect', __args__, opts=opts, typ=GetTransitGatewayConnectResult).value
 
     return AwaitableGetTransitGatewayConnectResult(
-        creation_time=__ret__.creation_time,
-        state=__ret__.state,
-        tags=__ret__.tags,
-        transit_gateway_attachment_id=__ret__.transit_gateway_attachment_id,
-        transit_gateway_id=__ret__.transit_gateway_id)
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        state=pulumi.get(__ret__, 'state'),
+        tags=pulumi.get(__ret__, 'tags'),
+        transit_gateway_attachment_id=pulumi.get(__ret__, 'transit_gateway_attachment_id'),
+        transit_gateway_id=pulumi.get(__ret__, 'transit_gateway_id'))
 
 
 @_utilities.lift_output_func(get_transit_gateway_connect)

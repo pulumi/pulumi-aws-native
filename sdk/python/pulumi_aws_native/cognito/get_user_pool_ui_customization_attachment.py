@@ -58,8 +58,8 @@ def get_user_pool_ui_customization_attachment(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cognito:getUserPoolUICustomizationAttachment', __args__, opts=opts, typ=GetUserPoolUICustomizationAttachmentResult).value
 
     return AwaitableGetUserPoolUICustomizationAttachmentResult(
-        c_ss=__ret__.c_ss,
-        id=__ret__.id)
+        c_ss=pulumi.get(__ret__, 'c_ss'),
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_user_pool_ui_customization_attachment)

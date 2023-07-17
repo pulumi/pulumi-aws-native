@@ -156,17 +156,17 @@ def get_custom_line_item(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:billingconductor:getCustomLineItem', __args__, opts=opts, typ=GetCustomLineItemResult).value
 
     return AwaitableGetCustomLineItemResult(
-        arn=__ret__.arn,
-        association_size=__ret__.association_size,
-        billing_period_range=__ret__.billing_period_range,
-        creation_time=__ret__.creation_time,
-        currency_code=__ret__.currency_code,
-        custom_line_item_charge_details=__ret__.custom_line_item_charge_details,
-        description=__ret__.description,
-        last_modified_time=__ret__.last_modified_time,
-        name=__ret__.name,
-        product_code=__ret__.product_code,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        association_size=pulumi.get(__ret__, 'association_size'),
+        billing_period_range=pulumi.get(__ret__, 'billing_period_range'),
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        currency_code=pulumi.get(__ret__, 'currency_code'),
+        custom_line_item_charge_details=pulumi.get(__ret__, 'custom_line_item_charge_details'),
+        description=pulumi.get(__ret__, 'description'),
+        last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
+        name=pulumi.get(__ret__, 'name'),
+        product_code=pulumi.get(__ret__, 'product_code'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_custom_line_item)

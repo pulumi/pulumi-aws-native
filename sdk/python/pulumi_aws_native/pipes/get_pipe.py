@@ -150,18 +150,18 @@ def get_pipe(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:pipes:getPipe', __args__, opts=opts, typ=GetPipeResult).value
 
     return AwaitableGetPipeResult(
-        arn=__ret__.arn,
-        creation_time=__ret__.creation_time,
-        current_state=__ret__.current_state,
-        description=__ret__.description,
-        desired_state=__ret__.desired_state,
-        enrichment=__ret__.enrichment,
-        enrichment_parameters=__ret__.enrichment_parameters,
-        last_modified_time=__ret__.last_modified_time,
-        role_arn=__ret__.role_arn,
-        state_reason=__ret__.state_reason,
-        tags=__ret__.tags,
-        target=__ret__.target)
+        arn=pulumi.get(__ret__, 'arn'),
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        current_state=pulumi.get(__ret__, 'current_state'),
+        description=pulumi.get(__ret__, 'description'),
+        desired_state=pulumi.get(__ret__, 'desired_state'),
+        enrichment=pulumi.get(__ret__, 'enrichment'),
+        enrichment_parameters=pulumi.get(__ret__, 'enrichment_parameters'),
+        last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
+        role_arn=pulumi.get(__ret__, 'role_arn'),
+        state_reason=pulumi.get(__ret__, 'state_reason'),
+        tags=pulumi.get(__ret__, 'tags'),
+        target=pulumi.get(__ret__, 'target'))
 
 
 @_utilities.lift_output_func(get_pipe)

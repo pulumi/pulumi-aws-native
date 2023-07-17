@@ -58,8 +58,8 @@ def get_portfolio_share(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:servicecatalog:getPortfolioShare', __args__, opts=opts, typ=GetPortfolioShareResult).value
 
     return AwaitableGetPortfolioShareResult(
-        id=__ret__.id,
-        share_tag_options=__ret__.share_tag_options)
+        id=pulumi.get(__ret__, 'id'),
+        share_tag_options=pulumi.get(__ret__, 'share_tag_options'))
 
 
 @_utilities.lift_output_func(get_portfolio_share)

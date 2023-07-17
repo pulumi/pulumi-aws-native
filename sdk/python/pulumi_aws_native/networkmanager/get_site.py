@@ -107,11 +107,11 @@ def get_site(global_network_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:networkmanager:getSite', __args__, opts=opts, typ=GetSiteResult).value
 
     return AwaitableGetSiteResult(
-        description=__ret__.description,
-        location=__ret__.location,
-        site_arn=__ret__.site_arn,
-        site_id=__ret__.site_id,
-        tags=__ret__.tags)
+        description=pulumi.get(__ret__, 'description'),
+        location=pulumi.get(__ret__, 'location'),
+        site_arn=pulumi.get(__ret__, 'site_arn'),
+        site_id=pulumi.get(__ret__, 'site_id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_site)

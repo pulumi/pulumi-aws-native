@@ -112,14 +112,14 @@ def get_email_template(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:pinpoint:getEmailTemplate', __args__, opts=opts, typ=GetEmailTemplateResult).value
 
     return AwaitableGetEmailTemplateResult(
-        arn=__ret__.arn,
-        default_substitutions=__ret__.default_substitutions,
-        html_part=__ret__.html_part,
-        id=__ret__.id,
-        subject=__ret__.subject,
-        tags=__ret__.tags,
-        template_description=__ret__.template_description,
-        text_part=__ret__.text_part)
+        arn=pulumi.get(__ret__, 'arn'),
+        default_substitutions=pulumi.get(__ret__, 'default_substitutions'),
+        html_part=pulumi.get(__ret__, 'html_part'),
+        id=pulumi.get(__ret__, 'id'),
+        subject=pulumi.get(__ret__, 'subject'),
+        tags=pulumi.get(__ret__, 'tags'),
+        template_description=pulumi.get(__ret__, 'template_description'),
+        text_part=pulumi.get(__ret__, 'text_part'))
 
 
 @_utilities.lift_output_func(get_email_template)

@@ -89,10 +89,10 @@ def get_certificate_authority(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:acmpca:getCertificateAuthority', __args__, opts=opts, typ=GetCertificateAuthorityResult).value
 
     return AwaitableGetCertificateAuthorityResult(
-        arn=__ret__.arn,
-        certificate_signing_request=__ret__.certificate_signing_request,
-        revocation_configuration=__ret__.revocation_configuration,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        certificate_signing_request=pulumi.get(__ret__, 'certificate_signing_request'),
+        revocation_configuration=pulumi.get(__ret__, 'revocation_configuration'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_certificate_authority)

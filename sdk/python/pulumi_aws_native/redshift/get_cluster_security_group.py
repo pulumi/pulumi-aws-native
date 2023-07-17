@@ -59,8 +59,8 @@ def get_cluster_security_group(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:redshift:getClusterSecurityGroup', __args__, opts=opts, typ=GetClusterSecurityGroupResult).value
 
     return AwaitableGetClusterSecurityGroupResult(
-        id=__ret__.id,
-        tags=__ret__.tags)
+        id=pulumi.get(__ret__, 'id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_cluster_security_group)

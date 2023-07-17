@@ -140,17 +140,17 @@ def get_app(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:opsworks:getApp', __args__, opts=opts, typ=GetAppResult).value
 
     return AwaitableGetAppResult(
-        app_source=__ret__.app_source,
-        attributes=__ret__.attributes,
-        data_sources=__ret__.data_sources,
-        description=__ret__.description,
-        domains=__ret__.domains,
-        enable_ssl=__ret__.enable_ssl,
-        environment=__ret__.environment,
-        id=__ret__.id,
-        name=__ret__.name,
-        ssl_configuration=__ret__.ssl_configuration,
-        type=__ret__.type)
+        app_source=pulumi.get(__ret__, 'app_source'),
+        attributes=pulumi.get(__ret__, 'attributes'),
+        data_sources=pulumi.get(__ret__, 'data_sources'),
+        description=pulumi.get(__ret__, 'description'),
+        domains=pulumi.get(__ret__, 'domains'),
+        enable_ssl=pulumi.get(__ret__, 'enable_ssl'),
+        environment=pulumi.get(__ret__, 'environment'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        ssl_configuration=pulumi.get(__ret__, 'ssl_configuration'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_app)

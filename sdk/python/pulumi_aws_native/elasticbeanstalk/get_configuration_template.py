@@ -83,9 +83,9 @@ def get_configuration_template(application_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:elasticbeanstalk:getConfigurationTemplate', __args__, opts=opts, typ=GetConfigurationTemplateResult).value
 
     return AwaitableGetConfigurationTemplateResult(
-        description=__ret__.description,
-        option_settings=__ret__.option_settings,
-        template_name=__ret__.template_name)
+        description=pulumi.get(__ret__, 'description'),
+        option_settings=pulumi.get(__ret__, 'option_settings'),
+        template_name=pulumi.get(__ret__, 'template_name'))
 
 
 @_utilities.lift_output_func(get_configuration_template)

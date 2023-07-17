@@ -153,15 +153,15 @@ def get_scheduled_action(scheduled_action_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:redshift:getScheduledAction', __args__, opts=opts, typ=GetScheduledActionResult).value
 
     return AwaitableGetScheduledActionResult(
-        enable=__ret__.enable,
-        end_time=__ret__.end_time,
-        iam_role=__ret__.iam_role,
-        next_invocations=__ret__.next_invocations,
-        schedule=__ret__.schedule,
-        scheduled_action_description=__ret__.scheduled_action_description,
-        start_time=__ret__.start_time,
-        state=__ret__.state,
-        target_action=__ret__.target_action)
+        enable=pulumi.get(__ret__, 'enable'),
+        end_time=pulumi.get(__ret__, 'end_time'),
+        iam_role=pulumi.get(__ret__, 'iam_role'),
+        next_invocations=pulumi.get(__ret__, 'next_invocations'),
+        schedule=pulumi.get(__ret__, 'schedule'),
+        scheduled_action_description=pulumi.get(__ret__, 'scheduled_action_description'),
+        start_time=pulumi.get(__ret__, 'start_time'),
+        state=pulumi.get(__ret__, 'state'),
+        target_action=pulumi.get(__ret__, 'target_action'))
 
 
 @_utilities.lift_output_func(get_scheduled_action)

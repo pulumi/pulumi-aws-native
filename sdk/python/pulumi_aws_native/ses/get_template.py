@@ -59,8 +59,8 @@ def get_template(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ses:getTemplate', __args__, opts=opts, typ=GetTemplateResult).value
 
     return AwaitableGetTemplateResult(
-        id=__ret__.id,
-        template=__ret__.template)
+        id=pulumi.get(__ret__, 'id'),
+        template=pulumi.get(__ret__, 'template'))
 
 
 @_utilities.lift_output_func(get_template)

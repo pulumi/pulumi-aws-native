@@ -86,11 +86,11 @@ def get_organization_config_rule(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:configuration:getOrganizationConfigRule', __args__, opts=opts, typ=GetOrganizationConfigRuleResult).value
 
     return AwaitableGetOrganizationConfigRuleResult(
-        excluded_accounts=__ret__.excluded_accounts,
-        id=__ret__.id,
-        organization_custom_policy_rule_metadata=__ret__.organization_custom_policy_rule_metadata,
-        organization_custom_rule_metadata=__ret__.organization_custom_rule_metadata,
-        organization_managed_rule_metadata=__ret__.organization_managed_rule_metadata)
+        excluded_accounts=pulumi.get(__ret__, 'excluded_accounts'),
+        id=pulumi.get(__ret__, 'id'),
+        organization_custom_policy_rule_metadata=pulumi.get(__ret__, 'organization_custom_policy_rule_metadata'),
+        organization_custom_rule_metadata=pulumi.get(__ret__, 'organization_custom_rule_metadata'),
+        organization_managed_rule_metadata=pulumi.get(__ret__, 'organization_managed_rule_metadata'))
 
 
 @_utilities.lift_output_func(get_organization_config_rule)

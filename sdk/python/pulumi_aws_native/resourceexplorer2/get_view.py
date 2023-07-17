@@ -77,10 +77,10 @@ def get_view(view_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:resourceexplorer2:getView', __args__, opts=opts, typ=GetViewResult).value
 
     return AwaitableGetViewResult(
-        filters=__ret__.filters,
-        included_properties=__ret__.included_properties,
-        tags=__ret__.tags,
-        view_arn=__ret__.view_arn)
+        filters=pulumi.get(__ret__, 'filters'),
+        included_properties=pulumi.get(__ret__, 'included_properties'),
+        tags=pulumi.get(__ret__, 'tags'),
+        view_arn=pulumi.get(__ret__, 'view_arn'))
 
 
 @_utilities.lift_output_func(get_view)

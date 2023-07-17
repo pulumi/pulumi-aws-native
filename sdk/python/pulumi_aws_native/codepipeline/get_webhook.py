@@ -122,15 +122,15 @@ def get_webhook(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:codepipeline:getWebhook', __args__, opts=opts, typ=GetWebhookResult).value
 
     return AwaitableGetWebhookResult(
-        authentication=__ret__.authentication,
-        authentication_configuration=__ret__.authentication_configuration,
-        filters=__ret__.filters,
-        id=__ret__.id,
-        register_with_third_party=__ret__.register_with_third_party,
-        target_action=__ret__.target_action,
-        target_pipeline=__ret__.target_pipeline,
-        target_pipeline_version=__ret__.target_pipeline_version,
-        url=__ret__.url)
+        authentication=pulumi.get(__ret__, 'authentication'),
+        authentication_configuration=pulumi.get(__ret__, 'authentication_configuration'),
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        register_with_third_party=pulumi.get(__ret__, 'register_with_third_party'),
+        target_action=pulumi.get(__ret__, 'target_action'),
+        target_pipeline=pulumi.get(__ret__, 'target_pipeline'),
+        target_pipeline_version=pulumi.get(__ret__, 'target_pipeline_version'),
+        url=pulumi.get(__ret__, 'url'))
 
 
 @_utilities.lift_output_func(get_webhook)

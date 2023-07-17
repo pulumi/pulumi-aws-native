@@ -108,11 +108,11 @@ def get_event_stream(domain_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:customerprofiles:getEventStream', __args__, opts=opts, typ=GetEventStreamResult).value
 
     return AwaitableGetEventStreamResult(
-        created_at=__ret__.created_at,
-        destination_details=__ret__.destination_details,
-        event_stream_arn=__ret__.event_stream_arn,
-        state=__ret__.state,
-        tags=__ret__.tags)
+        created_at=pulumi.get(__ret__, 'created_at'),
+        destination_details=pulumi.get(__ret__, 'destination_details'),
+        event_stream_arn=pulumi.get(__ret__, 'event_stream_arn'),
+        state=pulumi.get(__ret__, 'state'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_event_stream)

@@ -59,8 +59,8 @@ def get_database(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:glue:getDatabase', __args__, opts=opts, typ=GetDatabaseResult).value
 
     return AwaitableGetDatabaseResult(
-        database_input=__ret__.database_input,
-        id=__ret__.id)
+        database_input=pulumi.get(__ret__, 'database_input'),
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_database)

@@ -92,10 +92,10 @@ def get_cell(cell_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:route53recoveryreadiness:getCell', __args__, opts=opts, typ=GetCellResult).value
 
     return AwaitableGetCellResult(
-        cell_arn=__ret__.cell_arn,
-        cells=__ret__.cells,
-        parent_readiness_scopes=__ret__.parent_readiness_scopes,
-        tags=__ret__.tags)
+        cell_arn=pulumi.get(__ret__, 'cell_arn'),
+        cells=pulumi.get(__ret__, 'cells'),
+        parent_readiness_scopes=pulumi.get(__ret__, 'parent_readiness_scopes'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_cell)

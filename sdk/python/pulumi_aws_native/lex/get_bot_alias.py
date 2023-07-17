@@ -128,15 +128,15 @@ def get_bot_alias(bot_alias_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:lex:getBotAlias', __args__, opts=opts, typ=GetBotAliasResult).value
 
     return AwaitableGetBotAliasResult(
-        arn=__ret__.arn,
-        bot_alias_id=__ret__.bot_alias_id,
-        bot_alias_locale_settings=__ret__.bot_alias_locale_settings,
-        bot_alias_name=__ret__.bot_alias_name,
-        bot_alias_status=__ret__.bot_alias_status,
-        bot_version=__ret__.bot_version,
-        conversation_log_settings=__ret__.conversation_log_settings,
-        description=__ret__.description,
-        sentiment_analysis_settings=__ret__.sentiment_analysis_settings)
+        arn=pulumi.get(__ret__, 'arn'),
+        bot_alias_id=pulumi.get(__ret__, 'bot_alias_id'),
+        bot_alias_locale_settings=pulumi.get(__ret__, 'bot_alias_locale_settings'),
+        bot_alias_name=pulumi.get(__ret__, 'bot_alias_name'),
+        bot_alias_status=pulumi.get(__ret__, 'bot_alias_status'),
+        bot_version=pulumi.get(__ret__, 'bot_version'),
+        conversation_log_settings=pulumi.get(__ret__, 'conversation_log_settings'),
+        description=pulumi.get(__ret__, 'description'),
+        sentiment_analysis_settings=pulumi.get(__ret__, 'sentiment_analysis_settings'))
 
 
 @_utilities.lift_output_func(get_bot_alias)

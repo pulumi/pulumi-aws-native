@@ -120,12 +120,12 @@ def get_protection_group(protection_group_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:shield:getProtectionGroup', __args__, opts=opts, typ=GetProtectionGroupResult).value
 
     return AwaitableGetProtectionGroupResult(
-        aggregation=__ret__.aggregation,
-        members=__ret__.members,
-        pattern=__ret__.pattern,
-        protection_group_arn=__ret__.protection_group_arn,
-        resource_type=__ret__.resource_type,
-        tags=__ret__.tags)
+        aggregation=pulumi.get(__ret__, 'aggregation'),
+        members=pulumi.get(__ret__, 'members'),
+        pattern=pulumi.get(__ret__, 'pattern'),
+        protection_group_arn=pulumi.get(__ret__, 'protection_group_arn'),
+        resource_type=pulumi.get(__ret__, 'resource_type'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_protection_group)

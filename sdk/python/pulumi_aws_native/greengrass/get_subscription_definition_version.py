@@ -49,7 +49,7 @@ def get_subscription_definition_version(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:greengrass:getSubscriptionDefinitionVersion', __args__, opts=opts, typ=GetSubscriptionDefinitionVersionResult).value
 
     return AwaitableGetSubscriptionDefinitionVersionResult(
-        id=__ret__.id)
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_subscription_definition_version)

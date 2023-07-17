@@ -92,10 +92,10 @@ def get_packaging_group(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:mediapackage:getPackagingGroup', __args__, opts=opts, typ=GetPackagingGroupResult).value
 
     return AwaitableGetPackagingGroupResult(
-        arn=__ret__.arn,
-        authorization=__ret__.authorization,
-        domain_name=__ret__.domain_name,
-        egress_access_logs=__ret__.egress_access_logs)
+        arn=pulumi.get(__ret__, 'arn'),
+        authorization=pulumi.get(__ret__, 'authorization'),
+        domain_name=pulumi.get(__ret__, 'domain_name'),
+        egress_access_logs=pulumi.get(__ret__, 'egress_access_logs'))
 
 
 @_utilities.lift_output_func(get_packaging_group)

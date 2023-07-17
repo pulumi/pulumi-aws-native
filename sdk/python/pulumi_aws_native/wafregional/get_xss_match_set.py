@@ -59,8 +59,8 @@ def get_xss_match_set(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:wafregional:getXssMatchSet', __args__, opts=opts, typ=GetXssMatchSetResult).value
 
     return AwaitableGetXssMatchSetResult(
-        id=__ret__.id,
-        xss_match_tuples=__ret__.xss_match_tuples)
+        id=pulumi.get(__ret__, 'id'),
+        xss_match_tuples=pulumi.get(__ret__, 'xss_match_tuples'))
 
 
 @_utilities.lift_output_func(get_xss_match_set)

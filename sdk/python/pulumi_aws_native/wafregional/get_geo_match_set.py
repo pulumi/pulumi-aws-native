@@ -59,8 +59,8 @@ def get_geo_match_set(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:wafregional:getGeoMatchSet', __args__, opts=opts, typ=GetGeoMatchSetResult).value
 
     return AwaitableGetGeoMatchSetResult(
-        geo_match_constraints=__ret__.geo_match_constraints,
-        id=__ret__.id)
+        geo_match_constraints=pulumi.get(__ret__, 'geo_match_constraints'),
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_geo_match_set)

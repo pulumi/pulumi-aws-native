@@ -86,11 +86,11 @@ def get_version(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:lambda:getVersion', __args__, opts=opts, typ=GetVersionResult).value
 
     return AwaitableGetVersionResult(
-        code_sha256=__ret__.code_sha256,
-        description=__ret__.description,
-        id=__ret__.id,
-        provisioned_concurrency_config=__ret__.provisioned_concurrency_config,
-        version=__ret__.version)
+        code_sha256=pulumi.get(__ret__, 'code_sha256'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        provisioned_concurrency_config=pulumi.get(__ret__, 'provisioned_concurrency_config'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_version)

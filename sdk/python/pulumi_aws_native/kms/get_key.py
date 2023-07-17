@@ -156,16 +156,16 @@ def get_key(key_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:kms:getKey', __args__, opts=opts, typ=GetKeyResult).value
 
     return AwaitableGetKeyResult(
-        arn=__ret__.arn,
-        description=__ret__.description,
-        enable_key_rotation=__ret__.enable_key_rotation,
-        enabled=__ret__.enabled,
-        key_id=__ret__.key_id,
-        key_policy=__ret__.key_policy,
-        key_spec=__ret__.key_spec,
-        key_usage=__ret__.key_usage,
-        multi_region=__ret__.multi_region,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        description=pulumi.get(__ret__, 'description'),
+        enable_key_rotation=pulumi.get(__ret__, 'enable_key_rotation'),
+        enabled=pulumi.get(__ret__, 'enabled'),
+        key_id=pulumi.get(__ret__, 'key_id'),
+        key_policy=pulumi.get(__ret__, 'key_policy'),
+        key_spec=pulumi.get(__ret__, 'key_spec'),
+        key_usage=pulumi.get(__ret__, 'key_usage'),
+        multi_region=pulumi.get(__ret__, 'multi_region'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_key)

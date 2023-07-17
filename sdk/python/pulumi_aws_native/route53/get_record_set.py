@@ -167,20 +167,20 @@ def get_record_set(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:route53:getRecordSet', __args__, opts=opts, typ=GetRecordSetResult).value
 
     return AwaitableGetRecordSetResult(
-        alias_target=__ret__.alias_target,
-        cidr_routing_config=__ret__.cidr_routing_config,
-        comment=__ret__.comment,
-        failover=__ret__.failover,
-        geo_location=__ret__.geo_location,
-        health_check_id=__ret__.health_check_id,
-        id=__ret__.id,
-        multi_value_answer=__ret__.multi_value_answer,
-        region=__ret__.region,
-        resource_records=__ret__.resource_records,
-        set_identifier=__ret__.set_identifier,
-        t_tl=__ret__.t_tl,
-        type=__ret__.type,
-        weight=__ret__.weight)
+        alias_target=pulumi.get(__ret__, 'alias_target'),
+        cidr_routing_config=pulumi.get(__ret__, 'cidr_routing_config'),
+        comment=pulumi.get(__ret__, 'comment'),
+        failover=pulumi.get(__ret__, 'failover'),
+        geo_location=pulumi.get(__ret__, 'geo_location'),
+        health_check_id=pulumi.get(__ret__, 'health_check_id'),
+        id=pulumi.get(__ret__, 'id'),
+        multi_value_answer=pulumi.get(__ret__, 'multi_value_answer'),
+        region=pulumi.get(__ret__, 'region'),
+        resource_records=pulumi.get(__ret__, 'resource_records'),
+        set_identifier=pulumi.get(__ret__, 'set_identifier'),
+        t_tl=pulumi.get(__ret__, 't_tl'),
+        type=pulumi.get(__ret__, 'type'),
+        weight=pulumi.get(__ret__, 'weight'))
 
 
 @_utilities.lift_output_func(get_record_set)

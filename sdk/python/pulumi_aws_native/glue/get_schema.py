@@ -114,12 +114,12 @@ def get_schema(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:glue:getSchema', __args__, opts=opts, typ=GetSchemaResult).value
 
     return AwaitableGetSchemaResult(
-        arn=__ret__.arn,
-        checkpoint_version=__ret__.checkpoint_version,
-        compatibility=__ret__.compatibility,
-        description=__ret__.description,
-        initial_schema_version_id=__ret__.initial_schema_version_id,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        checkpoint_version=pulumi.get(__ret__, 'checkpoint_version'),
+        compatibility=pulumi.get(__ret__, 'compatibility'),
+        description=pulumi.get(__ret__, 'description'),
+        initial_schema_version_id=pulumi.get(__ret__, 'initial_schema_version_id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_schema)

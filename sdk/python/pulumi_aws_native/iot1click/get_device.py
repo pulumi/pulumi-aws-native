@@ -58,8 +58,8 @@ def get_device(device_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iot1click:getDevice', __args__, opts=opts, typ=GetDeviceResult).value
 
     return AwaitableGetDeviceResult(
-        arn=__ret__.arn,
-        enabled=__ret__.enabled)
+        arn=pulumi.get(__ret__, 'arn'),
+        enabled=pulumi.get(__ret__, 'enabled'))
 
 
 @_utilities.lift_output_func(get_device)

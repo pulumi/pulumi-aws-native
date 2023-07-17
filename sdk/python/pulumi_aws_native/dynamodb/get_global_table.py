@@ -140,17 +140,17 @@ def get_global_table(table_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:dynamodb:getGlobalTable', __args__, opts=opts, typ=GetGlobalTableResult).value
 
     return AwaitableGetGlobalTableResult(
-        arn=__ret__.arn,
-        attribute_definitions=__ret__.attribute_definitions,
-        billing_mode=__ret__.billing_mode,
-        global_secondary_indexes=__ret__.global_secondary_indexes,
-        replicas=__ret__.replicas,
-        s_se_specification=__ret__.s_se_specification,
-        stream_arn=__ret__.stream_arn,
-        stream_specification=__ret__.stream_specification,
-        table_id=__ret__.table_id,
-        time_to_live_specification=__ret__.time_to_live_specification,
-        write_provisioned_throughput_settings=__ret__.write_provisioned_throughput_settings)
+        arn=pulumi.get(__ret__, 'arn'),
+        attribute_definitions=pulumi.get(__ret__, 'attribute_definitions'),
+        billing_mode=pulumi.get(__ret__, 'billing_mode'),
+        global_secondary_indexes=pulumi.get(__ret__, 'global_secondary_indexes'),
+        replicas=pulumi.get(__ret__, 'replicas'),
+        s_se_specification=pulumi.get(__ret__, 's_se_specification'),
+        stream_arn=pulumi.get(__ret__, 'stream_arn'),
+        stream_specification=pulumi.get(__ret__, 'stream_specification'),
+        table_id=pulumi.get(__ret__, 'table_id'),
+        time_to_live_specification=pulumi.get(__ret__, 'time_to_live_specification'),
+        write_provisioned_throughput_settings=pulumi.get(__ret__, 'write_provisioned_throughput_settings'))
 
 
 @_utilities.lift_output_func(get_global_table)

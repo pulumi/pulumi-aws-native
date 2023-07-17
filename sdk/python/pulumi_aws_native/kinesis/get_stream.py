@@ -117,12 +117,12 @@ def get_stream(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:kinesis:getStream', __args__, opts=opts, typ=GetStreamResult).value
 
     return AwaitableGetStreamResult(
-        arn=__ret__.arn,
-        retention_period_hours=__ret__.retention_period_hours,
-        shard_count=__ret__.shard_count,
-        stream_encryption=__ret__.stream_encryption,
-        stream_mode_details=__ret__.stream_mode_details,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        retention_period_hours=pulumi.get(__ret__, 'retention_period_hours'),
+        shard_count=pulumi.get(__ret__, 'shard_count'),
+        stream_encryption=pulumi.get(__ret__, 'stream_encryption'),
+        stream_mode_details=pulumi.get(__ret__, 'stream_mode_details'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_stream)

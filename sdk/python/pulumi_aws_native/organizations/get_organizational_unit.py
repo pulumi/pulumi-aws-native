@@ -92,10 +92,10 @@ def get_organizational_unit(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:organizations:getOrganizationalUnit', __args__, opts=opts, typ=GetOrganizationalUnitResult).value
 
     return AwaitableGetOrganizationalUnitResult(
-        arn=__ret__.arn,
-        id=__ret__.id,
-        name=__ret__.name,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_organizational_unit)

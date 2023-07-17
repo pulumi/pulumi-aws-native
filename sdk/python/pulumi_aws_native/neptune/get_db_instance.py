@@ -122,15 +122,15 @@ def get_db_instance(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:neptune:getDBInstance', __args__, opts=opts, typ=GetDBInstanceResult).value
 
     return AwaitableGetDBInstanceResult(
-        allow_major_version_upgrade=__ret__.allow_major_version_upgrade,
-        auto_minor_version_upgrade=__ret__.auto_minor_version_upgrade,
-        d_b_instance_class=__ret__.d_b_instance_class,
-        d_b_parameter_group_name=__ret__.d_b_parameter_group_name,
-        endpoint=__ret__.endpoint,
-        id=__ret__.id,
-        port=__ret__.port,
-        preferred_maintenance_window=__ret__.preferred_maintenance_window,
-        tags=__ret__.tags)
+        allow_major_version_upgrade=pulumi.get(__ret__, 'allow_major_version_upgrade'),
+        auto_minor_version_upgrade=pulumi.get(__ret__, 'auto_minor_version_upgrade'),
+        d_b_instance_class=pulumi.get(__ret__, 'd_b_instance_class'),
+        d_b_parameter_group_name=pulumi.get(__ret__, 'd_b_parameter_group_name'),
+        endpoint=pulumi.get(__ret__, 'endpoint'),
+        id=pulumi.get(__ret__, 'id'),
+        port=pulumi.get(__ret__, 'port'),
+        preferred_maintenance_window=pulumi.get(__ret__, 'preferred_maintenance_window'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_db_instance)

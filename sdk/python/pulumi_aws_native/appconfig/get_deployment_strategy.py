@@ -104,13 +104,13 @@ def get_deployment_strategy(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:appconfig:getDeploymentStrategy', __args__, opts=opts, typ=GetDeploymentStrategyResult).value
 
     return AwaitableGetDeploymentStrategyResult(
-        deployment_duration_in_minutes=__ret__.deployment_duration_in_minutes,
-        description=__ret__.description,
-        final_bake_time_in_minutes=__ret__.final_bake_time_in_minutes,
-        growth_factor=__ret__.growth_factor,
-        growth_type=__ret__.growth_type,
-        id=__ret__.id,
-        tags=__ret__.tags)
+        deployment_duration_in_minutes=pulumi.get(__ret__, 'deployment_duration_in_minutes'),
+        description=pulumi.get(__ret__, 'description'),
+        final_bake_time_in_minutes=pulumi.get(__ret__, 'final_bake_time_in_minutes'),
+        growth_factor=pulumi.get(__ret__, 'growth_factor'),
+        growth_type=pulumi.get(__ret__, 'growth_type'),
+        id=pulumi.get(__ret__, 'id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_deployment_strategy)

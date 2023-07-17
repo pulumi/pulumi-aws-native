@@ -59,8 +59,8 @@ def get_listener_certificate(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:elasticloadbalancingv2:getListenerCertificate', __args__, opts=opts, typ=GetListenerCertificateResult).value
 
     return AwaitableGetListenerCertificateResult(
-        certificates=__ret__.certificates,
-        id=__ret__.id)
+        certificates=pulumi.get(__ret__, 'certificates'),
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_listener_certificate)

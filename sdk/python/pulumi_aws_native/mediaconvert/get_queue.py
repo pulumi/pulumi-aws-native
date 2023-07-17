@@ -94,12 +94,12 @@ def get_queue(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:mediaconvert:getQueue', __args__, opts=opts, typ=GetQueueResult).value
 
     return AwaitableGetQueueResult(
-        arn=__ret__.arn,
-        description=__ret__.description,
-        id=__ret__.id,
-        pricing_plan=__ret__.pricing_plan,
-        status=__ret__.status,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        pricing_plan=pulumi.get(__ret__, 'pricing_plan'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_queue)

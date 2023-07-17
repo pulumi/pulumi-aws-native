@@ -55,7 +55,7 @@ def get_dedicated_ip_pool(pool_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ses:getDedicatedIpPool', __args__, opts=opts, typ=GetDedicatedIpPoolResult).value
 
     return AwaitableGetDedicatedIpPoolResult(
-        scaling_mode=__ret__.scaling_mode)
+        scaling_mode=pulumi.get(__ret__, 'scaling_mode'))
 
 
 @_utilities.lift_output_func(get_dedicated_ip_pool)

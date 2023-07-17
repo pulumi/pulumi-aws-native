@@ -99,12 +99,12 @@ def get_membership(membership_identifier: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cleanrooms:getMembership', __args__, opts=opts, typ=GetMembershipResult).value
 
     return AwaitableGetMembershipResult(
-        arn=__ret__.arn,
-        collaboration_arn=__ret__.collaboration_arn,
-        collaboration_creator_account_id=__ret__.collaboration_creator_account_id,
-        membership_identifier=__ret__.membership_identifier,
-        query_log_status=__ret__.query_log_status,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        collaboration_arn=pulumi.get(__ret__, 'collaboration_arn'),
+        collaboration_creator_account_id=pulumi.get(__ret__, 'collaboration_creator_account_id'),
+        membership_identifier=pulumi.get(__ret__, 'membership_identifier'),
+        query_log_status=pulumi.get(__ret__, 'query_log_status'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_membership)

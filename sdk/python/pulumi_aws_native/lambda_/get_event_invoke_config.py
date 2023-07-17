@@ -77,10 +77,10 @@ def get_event_invoke_config(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:lambda:getEventInvokeConfig', __args__, opts=opts, typ=GetEventInvokeConfigResult).value
 
     return AwaitableGetEventInvokeConfigResult(
-        destination_config=__ret__.destination_config,
-        id=__ret__.id,
-        maximum_event_age_in_seconds=__ret__.maximum_event_age_in_seconds,
-        maximum_retry_attempts=__ret__.maximum_retry_attempts)
+        destination_config=pulumi.get(__ret__, 'destination_config'),
+        id=pulumi.get(__ret__, 'id'),
+        maximum_event_age_in_seconds=pulumi.get(__ret__, 'maximum_event_age_in_seconds'),
+        maximum_retry_attempts=pulumi.get(__ret__, 'maximum_retry_attempts'))
 
 
 @_utilities.lift_output_func(get_event_invoke_config)

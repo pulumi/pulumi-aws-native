@@ -234,22 +234,22 @@ def get_ipam_pool(ipam_pool_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getIPAMPool', __args__, opts=opts, typ=GetIPAMPoolResult).value
 
     return AwaitableGetIPAMPoolResult(
-        allocation_default_netmask_length=__ret__.allocation_default_netmask_length,
-        allocation_max_netmask_length=__ret__.allocation_max_netmask_length,
-        allocation_min_netmask_length=__ret__.allocation_min_netmask_length,
-        allocation_resource_tags=__ret__.allocation_resource_tags,
-        arn=__ret__.arn,
-        auto_import=__ret__.auto_import,
-        description=__ret__.description,
-        ipam_arn=__ret__.ipam_arn,
-        ipam_pool_id=__ret__.ipam_pool_id,
-        ipam_scope_arn=__ret__.ipam_scope_arn,
-        ipam_scope_type=__ret__.ipam_scope_type,
-        pool_depth=__ret__.pool_depth,
-        provisioned_cidrs=__ret__.provisioned_cidrs,
-        state=__ret__.state,
-        state_message=__ret__.state_message,
-        tags=__ret__.tags)
+        allocation_default_netmask_length=pulumi.get(__ret__, 'allocation_default_netmask_length'),
+        allocation_max_netmask_length=pulumi.get(__ret__, 'allocation_max_netmask_length'),
+        allocation_min_netmask_length=pulumi.get(__ret__, 'allocation_min_netmask_length'),
+        allocation_resource_tags=pulumi.get(__ret__, 'allocation_resource_tags'),
+        arn=pulumi.get(__ret__, 'arn'),
+        auto_import=pulumi.get(__ret__, 'auto_import'),
+        description=pulumi.get(__ret__, 'description'),
+        ipam_arn=pulumi.get(__ret__, 'ipam_arn'),
+        ipam_pool_id=pulumi.get(__ret__, 'ipam_pool_id'),
+        ipam_scope_arn=pulumi.get(__ret__, 'ipam_scope_arn'),
+        ipam_scope_type=pulumi.get(__ret__, 'ipam_scope_type'),
+        pool_depth=pulumi.get(__ret__, 'pool_depth'),
+        provisioned_cidrs=pulumi.get(__ret__, 'provisioned_cidrs'),
+        state=pulumi.get(__ret__, 'state'),
+        state_message=pulumi.get(__ret__, 'state_message'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_ipam_pool)

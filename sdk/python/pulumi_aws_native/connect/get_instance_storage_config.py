@@ -103,12 +103,12 @@ def get_instance_storage_config(association_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:connect:getInstanceStorageConfig', __args__, opts=opts, typ=GetInstanceStorageConfigResult).value
 
     return AwaitableGetInstanceStorageConfigResult(
-        association_id=__ret__.association_id,
-        kinesis_firehose_config=__ret__.kinesis_firehose_config,
-        kinesis_stream_config=__ret__.kinesis_stream_config,
-        kinesis_video_stream_config=__ret__.kinesis_video_stream_config,
-        s3_config=__ret__.s3_config,
-        storage_type=__ret__.storage_type)
+        association_id=pulumi.get(__ret__, 'association_id'),
+        kinesis_firehose_config=pulumi.get(__ret__, 'kinesis_firehose_config'),
+        kinesis_stream_config=pulumi.get(__ret__, 'kinesis_stream_config'),
+        kinesis_video_stream_config=pulumi.get(__ret__, 'kinesis_video_stream_config'),
+        s3_config=pulumi.get(__ret__, 's3_config'),
+        storage_type=pulumi.get(__ret__, 'storage_type'))
 
 
 @_utilities.lift_output_func(get_instance_storage_config)

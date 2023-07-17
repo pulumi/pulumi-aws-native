@@ -86,11 +86,11 @@ def get_package(package_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:panorama:getPackage', __args__, opts=opts, typ=GetPackageResult).value
 
     return AwaitableGetPackageResult(
-        arn=__ret__.arn,
-        created_time=__ret__.created_time,
-        package_id=__ret__.package_id,
-        storage_location=__ret__.storage_location,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        created_time=pulumi.get(__ret__, 'created_time'),
+        package_id=pulumi.get(__ret__, 'package_id'),
+        storage_location=pulumi.get(__ret__, 'storage_location'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_package)

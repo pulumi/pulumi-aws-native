@@ -67,9 +67,9 @@ def get_parameter_group(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:dax:getParameterGroup', __args__, opts=opts, typ=GetParameterGroupResult).value
 
     return AwaitableGetParameterGroupResult(
-        description=__ret__.description,
-        id=__ret__.id,
-        parameter_name_values=__ret__.parameter_name_values)
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        parameter_name_values=pulumi.get(__ret__, 'parameter_name_values'))
 
 
 @_utilities.lift_output_func(get_parameter_group)

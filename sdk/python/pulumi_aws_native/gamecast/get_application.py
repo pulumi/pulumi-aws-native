@@ -123,13 +123,13 @@ def get_application(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:gamecast:getApplication', __args__, opts=opts, typ=GetApplicationResult).value
 
     return AwaitableGetApplicationResult(
-        arn=__ret__.arn,
-        description=__ret__.description,
-        executable_path=__ret__.executable_path,
-        id=__ret__.id,
-        log_locations=__ret__.log_locations,
-        save_configuration=__ret__.save_configuration,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        description=pulumi.get(__ret__, 'description'),
+        executable_path=pulumi.get(__ret__, 'executable_path'),
+        id=pulumi.get(__ret__, 'id'),
+        log_locations=pulumi.get(__ret__, 'log_locations'),
+        save_configuration=pulumi.get(__ret__, 'save_configuration'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_application)

@@ -168,16 +168,16 @@ def get_entity(entity_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iottwinmaker:getEntity', __args__, opts=opts, typ=GetEntityResult).value
 
     return AwaitableGetEntityResult(
-        arn=__ret__.arn,
-        components=__ret__.components,
-        creation_date_time=__ret__.creation_date_time,
-        description=__ret__.description,
-        entity_name=__ret__.entity_name,
-        has_child_entities=__ret__.has_child_entities,
-        parent_entity_id=__ret__.parent_entity_id,
-        status=__ret__.status,
-        tags=__ret__.tags,
-        update_date_time=__ret__.update_date_time)
+        arn=pulumi.get(__ret__, 'arn'),
+        components=pulumi.get(__ret__, 'components'),
+        creation_date_time=pulumi.get(__ret__, 'creation_date_time'),
+        description=pulumi.get(__ret__, 'description'),
+        entity_name=pulumi.get(__ret__, 'entity_name'),
+        has_child_entities=pulumi.get(__ret__, 'has_child_entities'),
+        parent_entity_id=pulumi.get(__ret__, 'parent_entity_id'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'),
+        update_date_time=pulumi.get(__ret__, 'update_date_time'))
 
 
 @_utilities.lift_output_func(get_entity)

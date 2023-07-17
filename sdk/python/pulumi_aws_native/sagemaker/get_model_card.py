@@ -162,16 +162,16 @@ def get_model_card(model_card_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:sagemaker:getModelCard', __args__, opts=opts, typ=GetModelCardResult).value
 
     return AwaitableGetModelCardResult(
-        content=__ret__.content,
-        created_by=__ret__.created_by,
-        creation_time=__ret__.creation_time,
-        last_modified_by=__ret__.last_modified_by,
-        last_modified_time=__ret__.last_modified_time,
-        model_card_arn=__ret__.model_card_arn,
-        model_card_processing_status=__ret__.model_card_processing_status,
-        model_card_status=__ret__.model_card_status,
-        model_card_version=__ret__.model_card_version,
-        tags=__ret__.tags)
+        content=pulumi.get(__ret__, 'content'),
+        created_by=pulumi.get(__ret__, 'created_by'),
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        last_modified_by=pulumi.get(__ret__, 'last_modified_by'),
+        last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
+        model_card_arn=pulumi.get(__ret__, 'model_card_arn'),
+        model_card_processing_status=pulumi.get(__ret__, 'model_card_processing_status'),
+        model_card_status=pulumi.get(__ret__, 'model_card_status'),
+        model_card_version=pulumi.get(__ret__, 'model_card_version'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_model_card)

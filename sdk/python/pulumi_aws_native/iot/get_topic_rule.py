@@ -69,9 +69,9 @@ def get_topic_rule(rule_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iot:getTopicRule', __args__, opts=opts, typ=GetTopicRuleResult).value
 
     return AwaitableGetTopicRuleResult(
-        arn=__ret__.arn,
-        tags=__ret__.tags,
-        topic_rule_payload=__ret__.topic_rule_payload)
+        arn=pulumi.get(__ret__, 'arn'),
+        tags=pulumi.get(__ret__, 'tags'),
+        topic_rule_payload=pulumi.get(__ret__, 'topic_rule_payload'))
 
 
 @_utilities.lift_output_func(get_topic_rule)

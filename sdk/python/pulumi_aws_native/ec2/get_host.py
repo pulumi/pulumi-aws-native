@@ -91,10 +91,10 @@ def get_host(host_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getHost', __args__, opts=opts, typ=GetHostResult).value
 
     return AwaitableGetHostResult(
-        auto_placement=__ret__.auto_placement,
-        host_id=__ret__.host_id,
-        host_maintenance=__ret__.host_maintenance,
-        host_recovery=__ret__.host_recovery)
+        auto_placement=pulumi.get(__ret__, 'auto_placement'),
+        host_id=pulumi.get(__ret__, 'host_id'),
+        host_maintenance=pulumi.get(__ret__, 'host_maintenance'),
+        host_recovery=pulumi.get(__ret__, 'host_recovery'))
 
 
 @_utilities.lift_output_func(get_host)

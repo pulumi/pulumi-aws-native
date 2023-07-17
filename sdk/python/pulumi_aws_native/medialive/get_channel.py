@@ -167,20 +167,20 @@ def get_channel(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:medialive:getChannel', __args__, opts=opts, typ=GetChannelResult).value
 
     return AwaitableGetChannelResult(
-        arn=__ret__.arn,
-        cdi_input_specification=__ret__.cdi_input_specification,
-        channel_class=__ret__.channel_class,
-        destinations=__ret__.destinations,
-        encoder_settings=__ret__.encoder_settings,
-        id=__ret__.id,
-        input_attachments=__ret__.input_attachments,
-        input_specification=__ret__.input_specification,
-        inputs=__ret__.inputs,
-        log_level=__ret__.log_level,
-        maintenance=__ret__.maintenance,
-        name=__ret__.name,
-        role_arn=__ret__.role_arn,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        cdi_input_specification=pulumi.get(__ret__, 'cdi_input_specification'),
+        channel_class=pulumi.get(__ret__, 'channel_class'),
+        destinations=pulumi.get(__ret__, 'destinations'),
+        encoder_settings=pulumi.get(__ret__, 'encoder_settings'),
+        id=pulumi.get(__ret__, 'id'),
+        input_attachments=pulumi.get(__ret__, 'input_attachments'),
+        input_specification=pulumi.get(__ret__, 'input_specification'),
+        inputs=pulumi.get(__ret__, 'inputs'),
+        log_level=pulumi.get(__ret__, 'log_level'),
+        maintenance=pulumi.get(__ret__, 'maintenance'),
+        name=pulumi.get(__ret__, 'name'),
+        role_arn=pulumi.get(__ret__, 'role_arn'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_channel)

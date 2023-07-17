@@ -69,9 +69,9 @@ def get_connection_alias(alias_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:workspaces:getConnectionAlias', __args__, opts=opts, typ=GetConnectionAliasResult).value
 
     return AwaitableGetConnectionAliasResult(
-        alias_id=__ret__.alias_id,
-        associations=__ret__.associations,
-        connection_alias_state=__ret__.connection_alias_state)
+        alias_id=pulumi.get(__ret__, 'alias_id'),
+        associations=pulumi.get(__ret__, 'associations'),
+        connection_alias_state=pulumi.get(__ret__, 'connection_alias_state'))
 
 
 @_utilities.lift_output_func(get_connection_alias)

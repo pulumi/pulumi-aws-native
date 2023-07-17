@@ -86,11 +86,11 @@ def get_backup_plan(backup_plan_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:backup:getBackupPlan', __args__, opts=opts, typ=GetBackupPlanResult).value
 
     return AwaitableGetBackupPlanResult(
-        backup_plan=__ret__.backup_plan,
-        backup_plan_arn=__ret__.backup_plan_arn,
-        backup_plan_id=__ret__.backup_plan_id,
-        backup_plan_tags=__ret__.backup_plan_tags,
-        version_id=__ret__.version_id)
+        backup_plan=pulumi.get(__ret__, 'backup_plan'),
+        backup_plan_arn=pulumi.get(__ret__, 'backup_plan_arn'),
+        backup_plan_id=pulumi.get(__ret__, 'backup_plan_id'),
+        backup_plan_tags=pulumi.get(__ret__, 'backup_plan_tags'),
+        version_id=pulumi.get(__ret__, 'version_id'))
 
 
 @_utilities.lift_output_func(get_backup_plan)

@@ -103,13 +103,13 @@ def get_group(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:greengrass:getGroup', __args__, opts=opts, typ=GetGroupResult).value
 
     return AwaitableGetGroupResult(
-        arn=__ret__.arn,
-        id=__ret__.id,
-        latest_version_arn=__ret__.latest_version_arn,
-        name=__ret__.name,
-        role_arn=__ret__.role_arn,
-        role_attached_at=__ret__.role_attached_at,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        id=pulumi.get(__ret__, 'id'),
+        latest_version_arn=pulumi.get(__ret__, 'latest_version_arn'),
+        name=pulumi.get(__ret__, 'name'),
+        role_arn=pulumi.get(__ret__, 'role_arn'),
+        role_attached_at=pulumi.get(__ret__, 'role_attached_at'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_group)

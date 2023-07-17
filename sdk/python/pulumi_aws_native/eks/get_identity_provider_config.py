@@ -75,8 +75,8 @@ def get_identity_provider_config(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:eks:getIdentityProviderConfig', __args__, opts=opts, typ=GetIdentityProviderConfigResult).value
 
     return AwaitableGetIdentityProviderConfigResult(
-        identity_provider_config_arn=__ret__.identity_provider_config_arn,
-        tags=__ret__.tags)
+        identity_provider_config_arn=pulumi.get(__ret__, 'identity_provider_config_arn'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_identity_provider_config)

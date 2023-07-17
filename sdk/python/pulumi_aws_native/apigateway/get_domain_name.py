@@ -140,17 +140,17 @@ def get_domain_name(domain_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:apigateway:getDomainName', __args__, opts=opts, typ=GetDomainNameResult).value
 
     return AwaitableGetDomainNameResult(
-        certificate_arn=__ret__.certificate_arn,
-        distribution_domain_name=__ret__.distribution_domain_name,
-        distribution_hosted_zone_id=__ret__.distribution_hosted_zone_id,
-        endpoint_configuration=__ret__.endpoint_configuration,
-        mutual_tls_authentication=__ret__.mutual_tls_authentication,
-        ownership_verification_certificate_arn=__ret__.ownership_verification_certificate_arn,
-        regional_certificate_arn=__ret__.regional_certificate_arn,
-        regional_domain_name=__ret__.regional_domain_name,
-        regional_hosted_zone_id=__ret__.regional_hosted_zone_id,
-        security_policy=__ret__.security_policy,
-        tags=__ret__.tags)
+        certificate_arn=pulumi.get(__ret__, 'certificate_arn'),
+        distribution_domain_name=pulumi.get(__ret__, 'distribution_domain_name'),
+        distribution_hosted_zone_id=pulumi.get(__ret__, 'distribution_hosted_zone_id'),
+        endpoint_configuration=pulumi.get(__ret__, 'endpoint_configuration'),
+        mutual_tls_authentication=pulumi.get(__ret__, 'mutual_tls_authentication'),
+        ownership_verification_certificate_arn=pulumi.get(__ret__, 'ownership_verification_certificate_arn'),
+        regional_certificate_arn=pulumi.get(__ret__, 'regional_certificate_arn'),
+        regional_domain_name=pulumi.get(__ret__, 'regional_domain_name'),
+        regional_hosted_zone_id=pulumi.get(__ret__, 'regional_hosted_zone_id'),
+        security_policy=pulumi.get(__ret__, 'security_policy'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_domain_name)

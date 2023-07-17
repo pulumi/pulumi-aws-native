@@ -94,12 +94,12 @@ def get_server(server_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:opsworkscm:getServer', __args__, opts=opts, typ=GetServerResult).value
 
     return AwaitableGetServerResult(
-        arn=__ret__.arn,
-        backup_retention_count=__ret__.backup_retention_count,
-        disable_automated_backup=__ret__.disable_automated_backup,
-        endpoint=__ret__.endpoint,
-        preferred_backup_window=__ret__.preferred_backup_window,
-        preferred_maintenance_window=__ret__.preferred_maintenance_window)
+        arn=pulumi.get(__ret__, 'arn'),
+        backup_retention_count=pulumi.get(__ret__, 'backup_retention_count'),
+        disable_automated_backup=pulumi.get(__ret__, 'disable_automated_backup'),
+        endpoint=pulumi.get(__ret__, 'endpoint'),
+        preferred_backup_window=pulumi.get(__ret__, 'preferred_backup_window'),
+        preferred_maintenance_window=pulumi.get(__ret__, 'preferred_maintenance_window'))
 
 
 @_utilities.lift_output_func(get_server)

@@ -67,8 +67,8 @@ def get_vpc_connector(vpc_connector_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:apprunner:getVpcConnector', __args__, opts=opts, typ=GetVpcConnectorResult).value
 
     return AwaitableGetVpcConnectorResult(
-        vpc_connector_arn=__ret__.vpc_connector_arn,
-        vpc_connector_revision=__ret__.vpc_connector_revision)
+        vpc_connector_arn=pulumi.get(__ret__, 'vpc_connector_arn'),
+        vpc_connector_revision=pulumi.get(__ret__, 'vpc_connector_revision'))
 
 
 @_utilities.lift_output_func(get_vpc_connector)

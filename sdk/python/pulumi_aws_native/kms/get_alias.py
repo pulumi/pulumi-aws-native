@@ -55,7 +55,7 @@ def get_alias(alias_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:kms:getAlias', __args__, opts=opts, typ=GetAliasResult).value
 
     return AwaitableGetAliasResult(
-        target_key_id=__ret__.target_key_id)
+        target_key_id=pulumi.get(__ret__, 'target_key_id'))
 
 
 @_utilities.lift_output_func(get_alias)

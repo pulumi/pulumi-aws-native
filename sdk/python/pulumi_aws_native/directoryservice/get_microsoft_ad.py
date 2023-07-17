@@ -76,10 +76,10 @@ def get_microsoft_ad(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:directoryservice:getMicrosoftAD', __args__, opts=opts, typ=GetMicrosoftADResult).value
 
     return AwaitableGetMicrosoftADResult(
-        alias=__ret__.alias,
-        dns_ip_addresses=__ret__.dns_ip_addresses,
-        enable_sso=__ret__.enable_sso,
-        id=__ret__.id)
+        alias=pulumi.get(__ret__, 'alias'),
+        dns_ip_addresses=pulumi.get(__ret__, 'dns_ip_addresses'),
+        enable_sso=pulumi.get(__ret__, 'enable_sso'),
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_microsoft_ad)

@@ -92,10 +92,10 @@ def get_acl(a_cl_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:memorydb:getACL', __args__, opts=opts, typ=GetACLResult).value
 
     return AwaitableGetACLResult(
-        arn=__ret__.arn,
-        status=__ret__.status,
-        tags=__ret__.tags,
-        user_names=__ret__.user_names)
+        arn=pulumi.get(__ret__, 'arn'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'),
+        user_names=pulumi.get(__ret__, 'user_names'))
 
 
 @_utilities.lift_output_func(get_acl)

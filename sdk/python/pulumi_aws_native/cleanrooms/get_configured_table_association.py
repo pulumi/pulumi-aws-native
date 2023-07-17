@@ -91,11 +91,11 @@ def get_configured_table_association(configured_table_association_identifier: Op
     __ret__ = pulumi.runtime.invoke('aws-native:cleanrooms:getConfiguredTableAssociation', __args__, opts=opts, typ=GetConfiguredTableAssociationResult).value
 
     return AwaitableGetConfiguredTableAssociationResult(
-        arn=__ret__.arn,
-        configured_table_association_identifier=__ret__.configured_table_association_identifier,
-        description=__ret__.description,
-        role_arn=__ret__.role_arn,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        configured_table_association_identifier=pulumi.get(__ret__, 'configured_table_association_identifier'),
+        description=pulumi.get(__ret__, 'description'),
+        role_arn=pulumi.get(__ret__, 'role_arn'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_configured_table_association)

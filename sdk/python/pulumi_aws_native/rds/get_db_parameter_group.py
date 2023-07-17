@@ -68,8 +68,8 @@ def get_db_parameter_group(d_b_parameter_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:rds:getDBParameterGroup', __args__, opts=opts, typ=GetDBParameterGroupResult).value
 
     return AwaitableGetDBParameterGroupResult(
-        parameters=__ret__.parameters,
-        tags=__ret__.tags)
+        parameters=pulumi.get(__ret__, 'parameters'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_db_parameter_group)

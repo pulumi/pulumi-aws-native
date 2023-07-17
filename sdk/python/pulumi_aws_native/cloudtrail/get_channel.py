@@ -72,9 +72,9 @@ def get_channel(channel_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cloudtrail:getChannel', __args__, opts=opts, typ=GetChannelResult).value
 
     return AwaitableGetChannelResult(
-        channel_arn=__ret__.channel_arn,
-        destinations=__ret__.destinations,
-        name=__ret__.name)
+        channel_arn=pulumi.get(__ret__, 'channel_arn'),
+        destinations=pulumi.get(__ret__, 'destinations'),
+        name=pulumi.get(__ret__, 'name'))
 
 
 @_utilities.lift_output_func(get_channel)

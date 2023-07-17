@@ -109,12 +109,12 @@ def get_anomaly_monitor(monitor_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ce:getAnomalyMonitor', __args__, opts=opts, typ=GetAnomalyMonitorResult).value
 
     return AwaitableGetAnomalyMonitorResult(
-        creation_date=__ret__.creation_date,
-        dimensional_value_count=__ret__.dimensional_value_count,
-        last_evaluated_date=__ret__.last_evaluated_date,
-        last_updated_date=__ret__.last_updated_date,
-        monitor_arn=__ret__.monitor_arn,
-        monitor_name=__ret__.monitor_name)
+        creation_date=pulumi.get(__ret__, 'creation_date'),
+        dimensional_value_count=pulumi.get(__ret__, 'dimensional_value_count'),
+        last_evaluated_date=pulumi.get(__ret__, 'last_evaluated_date'),
+        last_updated_date=pulumi.get(__ret__, 'last_updated_date'),
+        monitor_arn=pulumi.get(__ret__, 'monitor_arn'),
+        monitor_name=pulumi.get(__ret__, 'monitor_name'))
 
 
 @_utilities.lift_output_func(get_anomaly_monitor)

@@ -56,7 +56,7 @@ def get_cluster_parameter_group(parameter_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:redshift:getClusterParameterGroup', __args__, opts=opts, typ=GetClusterParameterGroupResult).value
 
     return AwaitableGetClusterParameterGroupResult(
-        parameters=__ret__.parameters)
+        parameters=pulumi.get(__ret__, 'parameters'))
 
 
 @_utilities.lift_output_func(get_cluster_parameter_group)

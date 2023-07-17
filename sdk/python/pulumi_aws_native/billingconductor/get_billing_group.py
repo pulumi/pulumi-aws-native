@@ -156,17 +156,17 @@ def get_billing_group(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:billingconductor:getBillingGroup', __args__, opts=opts, typ=GetBillingGroupResult).value
 
     return AwaitableGetBillingGroupResult(
-        account_grouping=__ret__.account_grouping,
-        arn=__ret__.arn,
-        computation_preference=__ret__.computation_preference,
-        creation_time=__ret__.creation_time,
-        description=__ret__.description,
-        last_modified_time=__ret__.last_modified_time,
-        name=__ret__.name,
-        size=__ret__.size,
-        status=__ret__.status,
-        status_reason=__ret__.status_reason,
-        tags=__ret__.tags)
+        account_grouping=pulumi.get(__ret__, 'account_grouping'),
+        arn=pulumi.get(__ret__, 'arn'),
+        computation_preference=pulumi.get(__ret__, 'computation_preference'),
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        description=pulumi.get(__ret__, 'description'),
+        last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
+        name=pulumi.get(__ret__, 'name'),
+        size=pulumi.get(__ret__, 'size'),
+        status=pulumi.get(__ret__, 'status'),
+        status_reason=pulumi.get(__ret__, 'status_reason'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_billing_group)

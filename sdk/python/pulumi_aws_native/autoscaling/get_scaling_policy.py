@@ -185,18 +185,18 @@ def get_scaling_policy(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:autoscaling:getScalingPolicy', __args__, opts=opts, typ=GetScalingPolicyResult).value
 
     return AwaitableGetScalingPolicyResult(
-        adjustment_type=__ret__.adjustment_type,
-        arn=__ret__.arn,
-        cooldown=__ret__.cooldown,
-        estimated_instance_warmup=__ret__.estimated_instance_warmup,
-        metric_aggregation_type=__ret__.metric_aggregation_type,
-        min_adjustment_magnitude=__ret__.min_adjustment_magnitude,
-        policy_name=__ret__.policy_name,
-        policy_type=__ret__.policy_type,
-        predictive_scaling_configuration=__ret__.predictive_scaling_configuration,
-        scaling_adjustment=__ret__.scaling_adjustment,
-        step_adjustments=__ret__.step_adjustments,
-        target_tracking_configuration=__ret__.target_tracking_configuration)
+        adjustment_type=pulumi.get(__ret__, 'adjustment_type'),
+        arn=pulumi.get(__ret__, 'arn'),
+        cooldown=pulumi.get(__ret__, 'cooldown'),
+        estimated_instance_warmup=pulumi.get(__ret__, 'estimated_instance_warmup'),
+        metric_aggregation_type=pulumi.get(__ret__, 'metric_aggregation_type'),
+        min_adjustment_magnitude=pulumi.get(__ret__, 'min_adjustment_magnitude'),
+        policy_name=pulumi.get(__ret__, 'policy_name'),
+        policy_type=pulumi.get(__ret__, 'policy_type'),
+        predictive_scaling_configuration=pulumi.get(__ret__, 'predictive_scaling_configuration'),
+        scaling_adjustment=pulumi.get(__ret__, 'scaling_adjustment'),
+        step_adjustments=pulumi.get(__ret__, 'step_adjustments'),
+        target_tracking_configuration=pulumi.get(__ret__, 'target_tracking_configuration'))
 
 
 @_utilities.lift_output_func(get_scaling_policy)

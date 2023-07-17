@@ -77,9 +77,9 @@ def get_subnet_group(cache_subnet_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:elasticache:getSubnetGroup', __args__, opts=opts, typ=GetSubnetGroupResult).value
 
     return AwaitableGetSubnetGroupResult(
-        description=__ret__.description,
-        subnet_ids=__ret__.subnet_ids,
-        tags=__ret__.tags)
+        description=pulumi.get(__ret__, 'description'),
+        subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_subnet_group)

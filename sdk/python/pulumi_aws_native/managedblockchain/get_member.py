@@ -86,11 +86,11 @@ def get_member(member_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:managedblockchain:getMember', __args__, opts=opts, typ=GetMemberResult).value
 
     return AwaitableGetMemberResult(
-        invitation_id=__ret__.invitation_id,
-        member_configuration=__ret__.member_configuration,
-        member_id=__ret__.member_id,
-        network_configuration=__ret__.network_configuration,
-        network_id=__ret__.network_id)
+        invitation_id=pulumi.get(__ret__, 'invitation_id'),
+        member_configuration=pulumi.get(__ret__, 'member_configuration'),
+        member_id=pulumi.get(__ret__, 'member_id'),
+        network_configuration=pulumi.get(__ret__, 'network_configuration'),
+        network_id=pulumi.get(__ret__, 'network_id'))
 
 
 @_utilities.lift_output_func(get_member)

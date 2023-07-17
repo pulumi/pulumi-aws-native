@@ -200,19 +200,19 @@ def get_fuota_task(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iotwireless:getFuotaTask', __args__, opts=opts, typ=GetFuotaTaskResult).value
 
     return AwaitableGetFuotaTaskResult(
-        arn=__ret__.arn,
-        associate_multicast_group=__ret__.associate_multicast_group,
-        associate_wireless_device=__ret__.associate_wireless_device,
-        description=__ret__.description,
-        disassociate_multicast_group=__ret__.disassociate_multicast_group,
-        disassociate_wireless_device=__ret__.disassociate_wireless_device,
-        firmware_update_image=__ret__.firmware_update_image,
-        firmware_update_role=__ret__.firmware_update_role,
-        fuota_task_status=__ret__.fuota_task_status,
-        id=__ret__.id,
-        lo_ra_wan=__ret__.lo_ra_wan,
-        name=__ret__.name,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        associate_multicast_group=pulumi.get(__ret__, 'associate_multicast_group'),
+        associate_wireless_device=pulumi.get(__ret__, 'associate_wireless_device'),
+        description=pulumi.get(__ret__, 'description'),
+        disassociate_multicast_group=pulumi.get(__ret__, 'disassociate_multicast_group'),
+        disassociate_wireless_device=pulumi.get(__ret__, 'disassociate_wireless_device'),
+        firmware_update_image=pulumi.get(__ret__, 'firmware_update_image'),
+        firmware_update_role=pulumi.get(__ret__, 'firmware_update_role'),
+        fuota_task_status=pulumi.get(__ret__, 'fuota_task_status'),
+        id=pulumi.get(__ret__, 'id'),
+        lo_ra_wan=pulumi.get(__ret__, 'lo_ra_wan'),
+        name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_fuota_task)

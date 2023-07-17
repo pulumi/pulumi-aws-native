@@ -162,16 +162,16 @@ def get_authorizer(authorizer_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:apigateway:getAuthorizer', __args__, opts=opts, typ=GetAuthorizerResult).value
 
     return AwaitableGetAuthorizerResult(
-        auth_type=__ret__.auth_type,
-        authorizer_credentials=__ret__.authorizer_credentials,
-        authorizer_id=__ret__.authorizer_id,
-        authorizer_result_ttl_in_seconds=__ret__.authorizer_result_ttl_in_seconds,
-        authorizer_uri=__ret__.authorizer_uri,
-        identity_source=__ret__.identity_source,
-        identity_validation_expression=__ret__.identity_validation_expression,
-        name=__ret__.name,
-        provider_arns=__ret__.provider_arns,
-        type=__ret__.type)
+        auth_type=pulumi.get(__ret__, 'auth_type'),
+        authorizer_credentials=pulumi.get(__ret__, 'authorizer_credentials'),
+        authorizer_id=pulumi.get(__ret__, 'authorizer_id'),
+        authorizer_result_ttl_in_seconds=pulumi.get(__ret__, 'authorizer_result_ttl_in_seconds'),
+        authorizer_uri=pulumi.get(__ret__, 'authorizer_uri'),
+        identity_source=pulumi.get(__ret__, 'identity_source'),
+        identity_validation_expression=pulumi.get(__ret__, 'identity_validation_expression'),
+        name=pulumi.get(__ret__, 'name'),
+        provider_arns=pulumi.get(__ret__, 'provider_arns'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_authorizer)

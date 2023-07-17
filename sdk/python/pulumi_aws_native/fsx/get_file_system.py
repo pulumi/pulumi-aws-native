@@ -140,17 +140,17 @@ def get_file_system(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:fsx:getFileSystem', __args__, opts=opts, typ=GetFileSystemResult).value
 
     return AwaitableGetFileSystemResult(
-        d_ns_name=__ret__.d_ns_name,
-        id=__ret__.id,
-        lustre_configuration=__ret__.lustre_configuration,
-        lustre_mount_name=__ret__.lustre_mount_name,
-        ontap_configuration=__ret__.ontap_configuration,
-        open_zfs_configuration=__ret__.open_zfs_configuration,
-        resource_arn=__ret__.resource_arn,
-        root_volume_id=__ret__.root_volume_id,
-        storage_capacity=__ret__.storage_capacity,
-        tags=__ret__.tags,
-        windows_configuration=__ret__.windows_configuration)
+        d_ns_name=pulumi.get(__ret__, 'd_ns_name'),
+        id=pulumi.get(__ret__, 'id'),
+        lustre_configuration=pulumi.get(__ret__, 'lustre_configuration'),
+        lustre_mount_name=pulumi.get(__ret__, 'lustre_mount_name'),
+        ontap_configuration=pulumi.get(__ret__, 'ontap_configuration'),
+        open_zfs_configuration=pulumi.get(__ret__, 'open_zfs_configuration'),
+        resource_arn=pulumi.get(__ret__, 'resource_arn'),
+        root_volume_id=pulumi.get(__ret__, 'root_volume_id'),
+        storage_capacity=pulumi.get(__ret__, 'storage_capacity'),
+        tags=pulumi.get(__ret__, 'tags'),
+        windows_configuration=pulumi.get(__ret__, 'windows_configuration'))
 
 
 @_utilities.lift_output_func(get_file_system)

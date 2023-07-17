@@ -107,13 +107,13 @@ def get_budgets_action(action_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:budgets:getBudgetsAction', __args__, opts=opts, typ=GetBudgetsActionResult).value
 
     return AwaitableGetBudgetsActionResult(
-        action_id=__ret__.action_id,
-        action_threshold=__ret__.action_threshold,
-        approval_model=__ret__.approval_model,
-        definition=__ret__.definition,
-        execution_role_arn=__ret__.execution_role_arn,
-        notification_type=__ret__.notification_type,
-        subscribers=__ret__.subscribers)
+        action_id=pulumi.get(__ret__, 'action_id'),
+        action_threshold=pulumi.get(__ret__, 'action_threshold'),
+        approval_model=pulumi.get(__ret__, 'approval_model'),
+        definition=pulumi.get(__ret__, 'definition'),
+        execution_role_arn=pulumi.get(__ret__, 'execution_role_arn'),
+        notification_type=pulumi.get(__ret__, 'notification_type'),
+        subscribers=pulumi.get(__ret__, 'subscribers'))
 
 
 @_utilities.lift_output_func(get_budgets_action)

@@ -49,7 +49,7 @@ def get_core_definition_version(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:greengrass:getCoreDefinitionVersion', __args__, opts=opts, typ=GetCoreDefinitionVersionResult).value
 
     return AwaitableGetCoreDefinitionVersionResult(
-        id=__ret__.id)
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_core_definition_version)

@@ -75,9 +75,9 @@ def get_service(application_identifier: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:refactorspaces:getService', __args__, opts=opts, typ=GetServiceResult).value
 
     return AwaitableGetServiceResult(
-        arn=__ret__.arn,
-        service_identifier=__ret__.service_identifier,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        service_identifier=pulumi.get(__ret__, 'service_identifier'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_service)

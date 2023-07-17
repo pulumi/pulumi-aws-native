@@ -122,15 +122,15 @@ def get_application(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:appstream:getApplication', __args__, opts=opts, typ=GetApplicationResult).value
 
     return AwaitableGetApplicationResult(
-        app_block_arn=__ret__.app_block_arn,
-        arn=__ret__.arn,
-        created_time=__ret__.created_time,
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        icon_s3_location=__ret__.icon_s3_location,
-        launch_parameters=__ret__.launch_parameters,
-        launch_path=__ret__.launch_path,
-        working_directory=__ret__.working_directory)
+        app_block_arn=pulumi.get(__ret__, 'app_block_arn'),
+        arn=pulumi.get(__ret__, 'arn'),
+        created_time=pulumi.get(__ret__, 'created_time'),
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        icon_s3_location=pulumi.get(__ret__, 'icon_s3_location'),
+        launch_parameters=pulumi.get(__ret__, 'launch_parameters'),
+        launch_path=pulumi.get(__ret__, 'launch_path'),
+        working_directory=pulumi.get(__ret__, 'working_directory'))
 
 
 @_utilities.lift_output_func(get_application)

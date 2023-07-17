@@ -114,14 +114,14 @@ def get_notification_rule(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:codestarnotifications:getNotificationRule', __args__, opts=opts, typ=GetNotificationRuleResult).value
 
     return AwaitableGetNotificationRuleResult(
-        arn=__ret__.arn,
-        created_by=__ret__.created_by,
-        detail_type=__ret__.detail_type,
-        event_type_ids=__ret__.event_type_ids,
-        name=__ret__.name,
-        status=__ret__.status,
-        tags=__ret__.tags,
-        targets=__ret__.targets)
+        arn=pulumi.get(__ret__, 'arn'),
+        created_by=pulumi.get(__ret__, 'created_by'),
+        detail_type=pulumi.get(__ret__, 'detail_type'),
+        event_type_ids=pulumi.get(__ret__, 'event_type_ids'),
+        name=pulumi.get(__ret__, 'name'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'),
+        targets=pulumi.get(__ret__, 'targets'))
 
 
 @_utilities.lift_output_func(get_notification_rule)

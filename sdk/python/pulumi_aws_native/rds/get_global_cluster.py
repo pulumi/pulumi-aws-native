@@ -67,8 +67,8 @@ def get_global_cluster(global_cluster_identifier: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:rds:getGlobalCluster', __args__, opts=opts, typ=GetGlobalClusterResult).value
 
     return AwaitableGetGlobalClusterResult(
-        deletion_protection=__ret__.deletion_protection,
-        engine_version=__ret__.engine_version)
+        deletion_protection=pulumi.get(__ret__, 'deletion_protection'),
+        engine_version=pulumi.get(__ret__, 'engine_version'))
 
 
 @_utilities.lift_output_func(get_global_cluster)

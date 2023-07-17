@@ -150,15 +150,15 @@ def get_storage_system(storage_system_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:datasync:getStorageSystem', __args__, opts=opts, typ=GetStorageSystemResult).value
 
     return AwaitableGetStorageSystemResult(
-        agent_arns=__ret__.agent_arns,
-        cloud_watch_log_group_arn=__ret__.cloud_watch_log_group_arn,
-        connectivity_status=__ret__.connectivity_status,
-        name=__ret__.name,
-        secrets_manager_arn=__ret__.secrets_manager_arn,
-        server_configuration=__ret__.server_configuration,
-        storage_system_arn=__ret__.storage_system_arn,
-        system_type=__ret__.system_type,
-        tags=__ret__.tags)
+        agent_arns=pulumi.get(__ret__, 'agent_arns'),
+        cloud_watch_log_group_arn=pulumi.get(__ret__, 'cloud_watch_log_group_arn'),
+        connectivity_status=pulumi.get(__ret__, 'connectivity_status'),
+        name=pulumi.get(__ret__, 'name'),
+        secrets_manager_arn=pulumi.get(__ret__, 'secrets_manager_arn'),
+        server_configuration=pulumi.get(__ret__, 'server_configuration'),
+        storage_system_arn=pulumi.get(__ret__, 'storage_system_arn'),
+        system_type=pulumi.get(__ret__, 'system_type'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_storage_system)

@@ -158,19 +158,19 @@ def get_patch_baseline(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ssm:getPatchBaseline', __args__, opts=opts, typ=GetPatchBaselineResult).value
 
     return AwaitableGetPatchBaselineResult(
-        approval_rules=__ret__.approval_rules,
-        approved_patches=__ret__.approved_patches,
-        approved_patches_compliance_level=__ret__.approved_patches_compliance_level,
-        approved_patches_enable_non_security=__ret__.approved_patches_enable_non_security,
-        description=__ret__.description,
-        global_filters=__ret__.global_filters,
-        id=__ret__.id,
-        name=__ret__.name,
-        patch_groups=__ret__.patch_groups,
-        rejected_patches=__ret__.rejected_patches,
-        rejected_patches_action=__ret__.rejected_patches_action,
-        sources=__ret__.sources,
-        tags=__ret__.tags)
+        approval_rules=pulumi.get(__ret__, 'approval_rules'),
+        approved_patches=pulumi.get(__ret__, 'approved_patches'),
+        approved_patches_compliance_level=pulumi.get(__ret__, 'approved_patches_compliance_level'),
+        approved_patches_enable_non_security=pulumi.get(__ret__, 'approved_patches_enable_non_security'),
+        description=pulumi.get(__ret__, 'description'),
+        global_filters=pulumi.get(__ret__, 'global_filters'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        patch_groups=pulumi.get(__ret__, 'patch_groups'),
+        rejected_patches=pulumi.get(__ret__, 'rejected_patches'),
+        rejected_patches_action=pulumi.get(__ret__, 'rejected_patches_action'),
+        sources=pulumi.get(__ret__, 'sources'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_patch_baseline)

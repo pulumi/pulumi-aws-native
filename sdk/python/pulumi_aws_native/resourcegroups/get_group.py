@@ -105,12 +105,12 @@ def get_group(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:resourcegroups:getGroup', __args__, opts=opts, typ=GetGroupResult).value
 
     return AwaitableGetGroupResult(
-        arn=__ret__.arn,
-        configuration=__ret__.configuration,
-        description=__ret__.description,
-        resource_query=__ret__.resource_query,
-        resources=__ret__.resources,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        configuration=pulumi.get(__ret__, 'configuration'),
+        description=pulumi.get(__ret__, 'description'),
+        resource_query=pulumi.get(__ret__, 'resource_query'),
+        resources=pulumi.get(__ret__, 'resources'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_group)

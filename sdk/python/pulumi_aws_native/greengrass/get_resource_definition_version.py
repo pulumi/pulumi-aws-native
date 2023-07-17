@@ -49,7 +49,7 @@ def get_resource_definition_version(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:greengrass:getResourceDefinitionVersion', __args__, opts=opts, typ=GetResourceDefinitionVersionResult).value
 
     return AwaitableGetResourceDefinitionVersionResult(
-        id=__ret__.id)
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_resource_definition_version)

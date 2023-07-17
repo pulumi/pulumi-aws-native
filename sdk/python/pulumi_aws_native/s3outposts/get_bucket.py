@@ -81,9 +81,9 @@ def get_bucket(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:s3outposts:getBucket', __args__, opts=opts, typ=GetBucketResult).value
 
     return AwaitableGetBucketResult(
-        arn=__ret__.arn,
-        lifecycle_configuration=__ret__.lifecycle_configuration,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        lifecycle_configuration=pulumi.get(__ret__, 'lifecycle_configuration'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_bucket)

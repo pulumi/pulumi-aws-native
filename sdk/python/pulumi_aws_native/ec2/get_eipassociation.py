@@ -94,12 +94,12 @@ def get_eipassociation(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getEIPAssociation', __args__, opts=opts, typ=GetEIPAssociationResult).value
 
     return AwaitableGetEIPAssociationResult(
-        allocation_id=__ret__.allocation_id,
-        e_ip=__ret__.e_ip,
-        id=__ret__.id,
-        instance_id=__ret__.instance_id,
-        network_interface_id=__ret__.network_interface_id,
-        private_ip_address=__ret__.private_ip_address)
+        allocation_id=pulumi.get(__ret__, 'allocation_id'),
+        e_ip=pulumi.get(__ret__, 'e_ip'),
+        id=pulumi.get(__ret__, 'id'),
+        instance_id=pulumi.get(__ret__, 'instance_id'),
+        network_interface_id=pulumi.get(__ret__, 'network_interface_id'),
+        private_ip_address=pulumi.get(__ret__, 'private_ip_address'))
 
 
 @_utilities.lift_output_func(get_eipassociation)

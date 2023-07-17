@@ -168,16 +168,16 @@ def get_object_type(domain_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:customerprofiles:getObjectType', __args__, opts=opts, typ=GetObjectTypeResult).value
 
     return AwaitableGetObjectTypeResult(
-        allow_profile_creation=__ret__.allow_profile_creation,
-        created_at=__ret__.created_at,
-        description=__ret__.description,
-        encryption_key=__ret__.encryption_key,
-        expiration_days=__ret__.expiration_days,
-        fields=__ret__.fields,
-        keys=__ret__.keys,
-        last_updated_at=__ret__.last_updated_at,
-        tags=__ret__.tags,
-        template_id=__ret__.template_id)
+        allow_profile_creation=pulumi.get(__ret__, 'allow_profile_creation'),
+        created_at=pulumi.get(__ret__, 'created_at'),
+        description=pulumi.get(__ret__, 'description'),
+        encryption_key=pulumi.get(__ret__, 'encryption_key'),
+        expiration_days=pulumi.get(__ret__, 'expiration_days'),
+        fields=pulumi.get(__ret__, 'fields'),
+        keys=pulumi.get(__ret__, 'keys'),
+        last_updated_at=pulumi.get(__ret__, 'last_updated_at'),
+        tags=pulumi.get(__ret__, 'tags'),
+        template_id=pulumi.get(__ret__, 'template_id'))
 
 
 @_utilities.lift_output_func(get_object_type)

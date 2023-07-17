@@ -69,9 +69,9 @@ def get_policy_template(policy_store_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:verifiedpermissions:getPolicyTemplate', __args__, opts=opts, typ=GetPolicyTemplateResult).value
 
     return AwaitableGetPolicyTemplateResult(
-        description=__ret__.description,
-        policy_template_id=__ret__.policy_template_id,
-        statement=__ret__.statement)
+        description=pulumi.get(__ret__, 'description'),
+        policy_template_id=pulumi.get(__ret__, 'policy_template_id'),
+        statement=pulumi.get(__ret__, 'statement'))
 
 
 @_utilities.lift_output_func(get_policy_template)

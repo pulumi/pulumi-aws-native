@@ -149,15 +149,15 @@ def get_ipam_resource_discovery(ipam_resource_discovery_id: Optional[str] = None
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getIPAMResourceDiscovery', __args__, opts=opts, typ=GetIPAMResourceDiscoveryResult).value
 
     return AwaitableGetIPAMResourceDiscoveryResult(
-        description=__ret__.description,
-        ipam_resource_discovery_arn=__ret__.ipam_resource_discovery_arn,
-        ipam_resource_discovery_id=__ret__.ipam_resource_discovery_id,
-        ipam_resource_discovery_region=__ret__.ipam_resource_discovery_region,
-        is_default=__ret__.is_default,
-        operating_regions=__ret__.operating_regions,
-        owner_id=__ret__.owner_id,
-        state=__ret__.state,
-        tags=__ret__.tags)
+        description=pulumi.get(__ret__, 'description'),
+        ipam_resource_discovery_arn=pulumi.get(__ret__, 'ipam_resource_discovery_arn'),
+        ipam_resource_discovery_id=pulumi.get(__ret__, 'ipam_resource_discovery_id'),
+        ipam_resource_discovery_region=pulumi.get(__ret__, 'ipam_resource_discovery_region'),
+        is_default=pulumi.get(__ret__, 'is_default'),
+        operating_regions=pulumi.get(__ret__, 'operating_regions'),
+        owner_id=pulumi.get(__ret__, 'owner_id'),
+        state=pulumi.get(__ret__, 'state'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_ipam_resource_discovery)

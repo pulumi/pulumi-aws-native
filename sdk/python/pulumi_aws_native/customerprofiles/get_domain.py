@@ -116,12 +116,12 @@ def get_domain(domain_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:customerprofiles:getDomain', __args__, opts=opts, typ=GetDomainResult).value
 
     return AwaitableGetDomainResult(
-        created_at=__ret__.created_at,
-        dead_letter_queue_url=__ret__.dead_letter_queue_url,
-        default_encryption_key=__ret__.default_encryption_key,
-        default_expiration_days=__ret__.default_expiration_days,
-        last_updated_at=__ret__.last_updated_at,
-        tags=__ret__.tags)
+        created_at=pulumi.get(__ret__, 'created_at'),
+        dead_letter_queue_url=pulumi.get(__ret__, 'dead_letter_queue_url'),
+        default_encryption_key=pulumi.get(__ret__, 'default_encryption_key'),
+        default_expiration_days=pulumi.get(__ret__, 'default_expiration_days'),
+        last_updated_at=pulumi.get(__ret__, 'last_updated_at'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_domain)

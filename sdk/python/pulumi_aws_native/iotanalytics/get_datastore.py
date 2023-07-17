@@ -95,12 +95,12 @@ def get_datastore(datastore_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iotanalytics:getDatastore', __args__, opts=opts, typ=GetDatastoreResult).value
 
     return AwaitableGetDatastoreResult(
-        datastore_partitions=__ret__.datastore_partitions,
-        datastore_storage=__ret__.datastore_storage,
-        file_format_configuration=__ret__.file_format_configuration,
-        id=__ret__.id,
-        retention_period=__ret__.retention_period,
-        tags=__ret__.tags)
+        datastore_partitions=pulumi.get(__ret__, 'datastore_partitions'),
+        datastore_storage=pulumi.get(__ret__, 'datastore_storage'),
+        file_format_configuration=pulumi.get(__ret__, 'file_format_configuration'),
+        id=pulumi.get(__ret__, 'id'),
+        retention_period=pulumi.get(__ret__, 'retention_period'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_datastore)

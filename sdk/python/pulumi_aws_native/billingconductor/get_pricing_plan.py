@@ -128,14 +128,14 @@ def get_pricing_plan(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:billingconductor:getPricingPlan', __args__, opts=opts, typ=GetPricingPlanResult).value
 
     return AwaitableGetPricingPlanResult(
-        arn=__ret__.arn,
-        creation_time=__ret__.creation_time,
-        description=__ret__.description,
-        last_modified_time=__ret__.last_modified_time,
-        name=__ret__.name,
-        pricing_rule_arns=__ret__.pricing_rule_arns,
-        size=__ret__.size,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        description=pulumi.get(__ret__, 'description'),
+        last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
+        name=pulumi.get(__ret__, 'name'),
+        pricing_rule_arns=pulumi.get(__ret__, 'pricing_rule_arns'),
+        size=pulumi.get(__ret__, 'size'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_pricing_plan)

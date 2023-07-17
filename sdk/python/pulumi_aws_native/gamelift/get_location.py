@@ -62,8 +62,8 @@ def get_location(location_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:gamelift:getLocation', __args__, opts=opts, typ=GetLocationResult).value
 
     return AwaitableGetLocationResult(
-        location_arn=__ret__.location_arn,
-        tags=__ret__.tags)
+        location_arn=pulumi.get(__ret__, 'location_arn'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_location)

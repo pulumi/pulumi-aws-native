@@ -77,9 +77,9 @@ def get_virtual_cluster(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:emrcontainers:getVirtualCluster', __args__, opts=opts, typ=GetVirtualClusterResult).value
 
     return AwaitableGetVirtualClusterResult(
-        arn=__ret__.arn,
-        id=__ret__.id,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        id=pulumi.get(__ret__, 'id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_virtual_cluster)

@@ -117,12 +117,12 @@ def get_scheduled_audit(scheduled_audit_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iot:getScheduledAudit', __args__, opts=opts, typ=GetScheduledAuditResult).value
 
     return AwaitableGetScheduledAuditResult(
-        day_of_month=__ret__.day_of_month,
-        day_of_week=__ret__.day_of_week,
-        frequency=__ret__.frequency,
-        scheduled_audit_arn=__ret__.scheduled_audit_arn,
-        tags=__ret__.tags,
-        target_check_names=__ret__.target_check_names)
+        day_of_month=pulumi.get(__ret__, 'day_of_month'),
+        day_of_week=pulumi.get(__ret__, 'day_of_week'),
+        frequency=pulumi.get(__ret__, 'frequency'),
+        scheduled_audit_arn=pulumi.get(__ret__, 'scheduled_audit_arn'),
+        tags=pulumi.get(__ret__, 'tags'),
+        target_check_names=pulumi.get(__ret__, 'target_check_names'))
 
 
 @_utilities.lift_output_func(get_scheduled_audit)

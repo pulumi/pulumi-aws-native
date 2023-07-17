@@ -82,9 +82,9 @@ def get_request_validator(request_validator_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:apigateway:getRequestValidator', __args__, opts=opts, typ=GetRequestValidatorResult).value
 
     return AwaitableGetRequestValidatorResult(
-        request_validator_id=__ret__.request_validator_id,
-        validate_request_body=__ret__.validate_request_body,
-        validate_request_parameters=__ret__.validate_request_parameters)
+        request_validator_id=pulumi.get(__ret__, 'request_validator_id'),
+        validate_request_body=pulumi.get(__ret__, 'validate_request_body'),
+        validate_request_parameters=pulumi.get(__ret__, 'validate_request_parameters'))
 
 
 @_utilities.lift_output_func(get_request_validator)

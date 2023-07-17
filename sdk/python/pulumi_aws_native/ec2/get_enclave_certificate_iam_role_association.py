@@ -82,9 +82,9 @@ def get_enclave_certificate_iam_role_association(certificate_arn: Optional[str] 
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getEnclaveCertificateIamRoleAssociation', __args__, opts=opts, typ=GetEnclaveCertificateIamRoleAssociationResult).value
 
     return AwaitableGetEnclaveCertificateIamRoleAssociationResult(
-        certificate_s3_bucket_name=__ret__.certificate_s3_bucket_name,
-        certificate_s3_object_key=__ret__.certificate_s3_object_key,
-        encryption_kms_key_id=__ret__.encryption_kms_key_id)
+        certificate_s3_bucket_name=pulumi.get(__ret__, 'certificate_s3_bucket_name'),
+        certificate_s3_object_key=pulumi.get(__ret__, 'certificate_s3_object_key'),
+        encryption_kms_key_id=pulumi.get(__ret__, 'encryption_kms_key_id'))
 
 
 @_utilities.lift_output_func(get_enclave_certificate_iam_role_association)

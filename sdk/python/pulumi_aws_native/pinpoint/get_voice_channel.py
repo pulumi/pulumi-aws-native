@@ -58,8 +58,8 @@ def get_voice_channel(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:pinpoint:getVoiceChannel', __args__, opts=opts, typ=GetVoiceChannelResult).value
 
     return AwaitableGetVoiceChannelResult(
-        enabled=__ret__.enabled,
-        id=__ret__.id)
+        enabled=pulumi.get(__ret__, 'enabled'),
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_voice_channel)

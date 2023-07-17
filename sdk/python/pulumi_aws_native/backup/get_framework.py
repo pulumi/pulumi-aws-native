@@ -136,13 +136,13 @@ def get_framework(framework_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:backup:getFramework', __args__, opts=opts, typ=GetFrameworkResult).value
 
     return AwaitableGetFrameworkResult(
-        creation_time=__ret__.creation_time,
-        deployment_status=__ret__.deployment_status,
-        framework_arn=__ret__.framework_arn,
-        framework_controls=__ret__.framework_controls,
-        framework_description=__ret__.framework_description,
-        framework_status=__ret__.framework_status,
-        framework_tags=__ret__.framework_tags)
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        deployment_status=pulumi.get(__ret__, 'deployment_status'),
+        framework_arn=pulumi.get(__ret__, 'framework_arn'),
+        framework_controls=pulumi.get(__ret__, 'framework_controls'),
+        framework_description=pulumi.get(__ret__, 'framework_description'),
+        framework_status=pulumi.get(__ret__, 'framework_status'),
+        framework_tags=pulumi.get(__ret__, 'framework_tags'))
 
 
 @_utilities.lift_output_func(get_framework)

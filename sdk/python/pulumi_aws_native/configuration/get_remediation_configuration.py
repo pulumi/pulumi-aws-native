@@ -131,16 +131,16 @@ def get_remediation_configuration(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:configuration:getRemediationConfiguration', __args__, opts=opts, typ=GetRemediationConfigurationResult).value
 
     return AwaitableGetRemediationConfigurationResult(
-        automatic=__ret__.automatic,
-        execution_controls=__ret__.execution_controls,
-        id=__ret__.id,
-        maximum_automatic_attempts=__ret__.maximum_automatic_attempts,
-        parameters=__ret__.parameters,
-        resource_type=__ret__.resource_type,
-        retry_attempt_seconds=__ret__.retry_attempt_seconds,
-        target_id=__ret__.target_id,
-        target_type=__ret__.target_type,
-        target_version=__ret__.target_version)
+        automatic=pulumi.get(__ret__, 'automatic'),
+        execution_controls=pulumi.get(__ret__, 'execution_controls'),
+        id=pulumi.get(__ret__, 'id'),
+        maximum_automatic_attempts=pulumi.get(__ret__, 'maximum_automatic_attempts'),
+        parameters=pulumi.get(__ret__, 'parameters'),
+        resource_type=pulumi.get(__ret__, 'resource_type'),
+        retry_attempt_seconds=pulumi.get(__ret__, 'retry_attempt_seconds'),
+        target_id=pulumi.get(__ret__, 'target_id'),
+        target_type=pulumi.get(__ret__, 'target_type'),
+        target_version=pulumi.get(__ret__, 'target_version'))
 
 
 @_utilities.lift_output_func(get_remediation_configuration)

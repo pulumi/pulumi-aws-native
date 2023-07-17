@@ -86,11 +86,11 @@ def get_group(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iam:getGroup', __args__, opts=opts, typ=GetGroupResult).value
 
     return AwaitableGetGroupResult(
-        arn=__ret__.arn,
-        id=__ret__.id,
-        managed_policy_arns=__ret__.managed_policy_arns,
-        path=__ret__.path,
-        policies=__ret__.policies)
+        arn=pulumi.get(__ret__, 'arn'),
+        id=pulumi.get(__ret__, 'id'),
+        managed_policy_arns=pulumi.get(__ret__, 'managed_policy_arns'),
+        path=pulumi.get(__ret__, 'path'),
+        policies=pulumi.get(__ret__, 'policies'))
 
 
 @_utilities.lift_output_func(get_group)

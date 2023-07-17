@@ -76,9 +76,9 @@ def get_data_quality_job_definition(job_definition_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:sagemaker:getDataQualityJobDefinition', __args__, opts=opts, typ=GetDataQualityJobDefinitionResult).value
 
     return AwaitableGetDataQualityJobDefinitionResult(
-        creation_time=__ret__.creation_time,
-        endpoint_name=__ret__.endpoint_name,
-        job_definition_arn=__ret__.job_definition_arn)
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        endpoint_name=pulumi.get(__ret__, 'endpoint_name'),
+        job_definition_arn=pulumi.get(__ret__, 'job_definition_arn'))
 
 
 @_utilities.lift_output_func(get_data_quality_job_definition)

@@ -140,17 +140,17 @@ def get_job_definition(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:batch:getJobDefinition', __args__, opts=opts, typ=GetJobDefinitionResult).value
 
     return AwaitableGetJobDefinitionResult(
-        container_properties=__ret__.container_properties,
-        eks_properties=__ret__.eks_properties,
-        id=__ret__.id,
-        node_properties=__ret__.node_properties,
-        parameters=__ret__.parameters,
-        platform_capabilities=__ret__.platform_capabilities,
-        propagate_tags=__ret__.propagate_tags,
-        retry_strategy=__ret__.retry_strategy,
-        scheduling_priority=__ret__.scheduling_priority,
-        timeout=__ret__.timeout,
-        type=__ret__.type)
+        container_properties=pulumi.get(__ret__, 'container_properties'),
+        eks_properties=pulumi.get(__ret__, 'eks_properties'),
+        id=pulumi.get(__ret__, 'id'),
+        node_properties=pulumi.get(__ret__, 'node_properties'),
+        parameters=pulumi.get(__ret__, 'parameters'),
+        platform_capabilities=pulumi.get(__ret__, 'platform_capabilities'),
+        propagate_tags=pulumi.get(__ret__, 'propagate_tags'),
+        retry_strategy=pulumi.get(__ret__, 'retry_strategy'),
+        scheduling_priority=pulumi.get(__ret__, 'scheduling_priority'),
+        timeout=pulumi.get(__ret__, 'timeout'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_job_definition)

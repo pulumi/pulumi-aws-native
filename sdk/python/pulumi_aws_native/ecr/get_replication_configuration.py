@@ -66,8 +66,8 @@ def get_replication_configuration(registry_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ecr:getReplicationConfiguration', __args__, opts=opts, typ=GetReplicationConfigurationResult).value
 
     return AwaitableGetReplicationConfigurationResult(
-        registry_id=__ret__.registry_id,
-        replication_configuration=__ret__.replication_configuration)
+        registry_id=pulumi.get(__ret__, 'registry_id'),
+        replication_configuration=pulumi.get(__ret__, 'replication_configuration'))
 
 
 @_utilities.lift_output_func(get_replication_configuration)

@@ -49,7 +49,7 @@ def get_function_definition_version(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:greengrass:getFunctionDefinitionVersion', __args__, opts=opts, typ=GetFunctionDefinitionVersionResult).value
 
     return AwaitableGetFunctionDefinitionVersionResult(
-        id=__ret__.id)
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_function_definition_version)

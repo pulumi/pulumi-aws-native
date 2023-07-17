@@ -102,11 +102,11 @@ def get_protection(protection_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:shield:getProtection', __args__, opts=opts, typ=GetProtectionResult).value
 
     return AwaitableGetProtectionResult(
-        application_layer_automatic_response_configuration=__ret__.application_layer_automatic_response_configuration,
-        health_check_arns=__ret__.health_check_arns,
-        protection_arn=__ret__.protection_arn,
-        protection_id=__ret__.protection_id,
-        tags=__ret__.tags)
+        application_layer_automatic_response_configuration=pulumi.get(__ret__, 'application_layer_automatic_response_configuration'),
+        health_check_arns=pulumi.get(__ret__, 'health_check_arns'),
+        protection_arn=pulumi.get(__ret__, 'protection_arn'),
+        protection_id=pulumi.get(__ret__, 'protection_id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_protection)

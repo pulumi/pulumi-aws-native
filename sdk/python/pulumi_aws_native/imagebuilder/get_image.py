@@ -91,10 +91,10 @@ def get_image(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:imagebuilder:getImage', __args__, opts=opts, typ=GetImageResult).value
 
     return AwaitableGetImageResult(
-        arn=__ret__.arn,
-        image_id=__ret__.image_id,
-        image_uri=__ret__.image_uri,
-        name=__ret__.name)
+        arn=pulumi.get(__ret__, 'arn'),
+        image_id=pulumi.get(__ret__, 'image_id'),
+        image_uri=pulumi.get(__ret__, 'image_uri'),
+        name=pulumi.get(__ret__, 'name'))
 
 
 @_utilities.lift_output_func(get_image)

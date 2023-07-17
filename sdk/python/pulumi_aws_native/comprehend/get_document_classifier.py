@@ -68,9 +68,9 @@ def get_document_classifier(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:comprehend:getDocumentClassifier', __args__, opts=opts, typ=GetDocumentClassifierResult).value
 
     return AwaitableGetDocumentClassifierResult(
-        arn=__ret__.arn,
-        model_policy=__ret__.model_policy,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        model_policy=pulumi.get(__ret__, 'model_policy'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_document_classifier)

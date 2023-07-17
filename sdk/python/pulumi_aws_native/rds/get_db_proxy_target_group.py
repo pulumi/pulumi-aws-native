@@ -83,10 +83,10 @@ def get_db_proxy_target_group(target_group_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:rds:getDBProxyTargetGroup', __args__, opts=opts, typ=GetDBProxyTargetGroupResult).value
 
     return AwaitableGetDBProxyTargetGroupResult(
-        connection_pool_configuration_info=__ret__.connection_pool_configuration_info,
-        d_b_cluster_identifiers=__ret__.d_b_cluster_identifiers,
-        d_b_instance_identifiers=__ret__.d_b_instance_identifiers,
-        target_group_arn=__ret__.target_group_arn)
+        connection_pool_configuration_info=pulumi.get(__ret__, 'connection_pool_configuration_info'),
+        d_b_cluster_identifiers=pulumi.get(__ret__, 'd_b_cluster_identifiers'),
+        d_b_instance_identifiers=pulumi.get(__ret__, 'd_b_instance_identifiers'),
+        target_group_arn=pulumi.get(__ret__, 'target_group_arn'))
 
 
 @_utilities.lift_output_func(get_db_proxy_target_group)

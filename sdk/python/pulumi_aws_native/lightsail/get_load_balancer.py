@@ -125,13 +125,13 @@ def get_load_balancer(load_balancer_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:lightsail:getLoadBalancer', __args__, opts=opts, typ=GetLoadBalancerResult).value
 
     return AwaitableGetLoadBalancerResult(
-        attached_instances=__ret__.attached_instances,
-        health_check_path=__ret__.health_check_path,
-        load_balancer_arn=__ret__.load_balancer_arn,
-        session_stickiness_enabled=__ret__.session_stickiness_enabled,
-        session_stickiness_lb_cookie_duration_seconds=__ret__.session_stickiness_lb_cookie_duration_seconds,
-        tags=__ret__.tags,
-        tls_policy_name=__ret__.tls_policy_name)
+        attached_instances=pulumi.get(__ret__, 'attached_instances'),
+        health_check_path=pulumi.get(__ret__, 'health_check_path'),
+        load_balancer_arn=pulumi.get(__ret__, 'load_balancer_arn'),
+        session_stickiness_enabled=pulumi.get(__ret__, 'session_stickiness_enabled'),
+        session_stickiness_lb_cookie_duration_seconds=pulumi.get(__ret__, 'session_stickiness_lb_cookie_duration_seconds'),
+        tags=pulumi.get(__ret__, 'tags'),
+        tls_policy_name=pulumi.get(__ret__, 'tls_policy_name'))
 
 
 @_utilities.lift_output_func(get_load_balancer)

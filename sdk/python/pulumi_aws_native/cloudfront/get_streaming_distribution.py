@@ -77,10 +77,10 @@ def get_streaming_distribution(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cloudfront:getStreamingDistribution', __args__, opts=opts, typ=GetStreamingDistributionResult).value
 
     return AwaitableGetStreamingDistributionResult(
-        domain_name=__ret__.domain_name,
-        id=__ret__.id,
-        streaming_distribution_config=__ret__.streaming_distribution_config,
-        tags=__ret__.tags)
+        domain_name=pulumi.get(__ret__, 'domain_name'),
+        id=pulumi.get(__ret__, 'id'),
+        streaming_distribution_config=pulumi.get(__ret__, 'streaming_distribution_config'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_streaming_distribution)

@@ -80,9 +80,9 @@ def get_client_certificate(client_certificate_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:apigateway:getClientCertificate', __args__, opts=opts, typ=GetClientCertificateResult).value
 
     return AwaitableGetClientCertificateResult(
-        client_certificate_id=__ret__.client_certificate_id,
-        description=__ret__.description,
-        tags=__ret__.tags)
+        client_certificate_id=pulumi.get(__ret__, 'client_certificate_id'),
+        description=pulumi.get(__ret__, 'description'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_client_certificate)

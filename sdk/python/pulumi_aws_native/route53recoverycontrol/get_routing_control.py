@@ -80,9 +80,9 @@ def get_routing_control(routing_control_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:route53recoverycontrol:getRoutingControl', __args__, opts=opts, typ=GetRoutingControlResult).value
 
     return AwaitableGetRoutingControlResult(
-        name=__ret__.name,
-        routing_control_arn=__ret__.routing_control_arn,
-        status=__ret__.status)
+        name=pulumi.get(__ret__, 'name'),
+        routing_control_arn=pulumi.get(__ret__, 'routing_control_arn'),
+        status=pulumi.get(__ret__, 'status'))
 
 
 @_utilities.lift_output_func(get_routing_control)

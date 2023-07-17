@@ -95,12 +95,12 @@ def get_filter(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:guardduty:getFilter', __args__, opts=opts, typ=GetFilterResult).value
 
     return AwaitableGetFilterResult(
-        action=__ret__.action,
-        description=__ret__.description,
-        finding_criteria=__ret__.finding_criteria,
-        id=__ret__.id,
-        rank=__ret__.rank,
-        tags=__ret__.tags)
+        action=pulumi.get(__ret__, 'action'),
+        description=pulumi.get(__ret__, 'description'),
+        finding_criteria=pulumi.get(__ret__, 'finding_criteria'),
+        id=pulumi.get(__ret__, 'id'),
+        rank=pulumi.get(__ret__, 'rank'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_filter)

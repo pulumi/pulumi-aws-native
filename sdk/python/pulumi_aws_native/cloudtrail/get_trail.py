@@ -237,23 +237,23 @@ def get_trail(trail_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cloudtrail:getTrail', __args__, opts=opts, typ=GetTrailResult).value
 
     return AwaitableGetTrailResult(
-        advanced_event_selectors=__ret__.advanced_event_selectors,
-        arn=__ret__.arn,
-        cloud_watch_logs_log_group_arn=__ret__.cloud_watch_logs_log_group_arn,
-        cloud_watch_logs_role_arn=__ret__.cloud_watch_logs_role_arn,
-        enable_log_file_validation=__ret__.enable_log_file_validation,
-        event_selectors=__ret__.event_selectors,
-        include_global_service_events=__ret__.include_global_service_events,
-        insight_selectors=__ret__.insight_selectors,
-        is_logging=__ret__.is_logging,
-        is_multi_region_trail=__ret__.is_multi_region_trail,
-        is_organization_trail=__ret__.is_organization_trail,
-        k_ms_key_id=__ret__.k_ms_key_id,
-        s3_bucket_name=__ret__.s3_bucket_name,
-        s3_key_prefix=__ret__.s3_key_prefix,
-        sns_topic_arn=__ret__.sns_topic_arn,
-        sns_topic_name=__ret__.sns_topic_name,
-        tags=__ret__.tags)
+        advanced_event_selectors=pulumi.get(__ret__, 'advanced_event_selectors'),
+        arn=pulumi.get(__ret__, 'arn'),
+        cloud_watch_logs_log_group_arn=pulumi.get(__ret__, 'cloud_watch_logs_log_group_arn'),
+        cloud_watch_logs_role_arn=pulumi.get(__ret__, 'cloud_watch_logs_role_arn'),
+        enable_log_file_validation=pulumi.get(__ret__, 'enable_log_file_validation'),
+        event_selectors=pulumi.get(__ret__, 'event_selectors'),
+        include_global_service_events=pulumi.get(__ret__, 'include_global_service_events'),
+        insight_selectors=pulumi.get(__ret__, 'insight_selectors'),
+        is_logging=pulumi.get(__ret__, 'is_logging'),
+        is_multi_region_trail=pulumi.get(__ret__, 'is_multi_region_trail'),
+        is_organization_trail=pulumi.get(__ret__, 'is_organization_trail'),
+        k_ms_key_id=pulumi.get(__ret__, 'k_ms_key_id'),
+        s3_bucket_name=pulumi.get(__ret__, 's3_bucket_name'),
+        s3_key_prefix=pulumi.get(__ret__, 's3_key_prefix'),
+        sns_topic_arn=pulumi.get(__ret__, 'sns_topic_arn'),
+        sns_topic_name=pulumi.get(__ret__, 'sns_topic_name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_trail)

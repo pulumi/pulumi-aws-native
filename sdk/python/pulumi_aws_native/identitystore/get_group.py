@@ -82,9 +82,9 @@ def get_group(group_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:identitystore:getGroup', __args__, opts=opts, typ=GetGroupResult).value
 
     return AwaitableGetGroupResult(
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        group_id=__ret__.group_id)
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        group_id=pulumi.get(__ret__, 'group_id'))
 
 
 @_utilities.lift_output_func(get_group)

@@ -152,15 +152,15 @@ def get_role(role_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iam:getRole', __args__, opts=opts, typ=GetRoleResult).value
 
     return AwaitableGetRoleResult(
-        arn=__ret__.arn,
-        assume_role_policy_document=__ret__.assume_role_policy_document,
-        description=__ret__.description,
-        managed_policy_arns=__ret__.managed_policy_arns,
-        max_session_duration=__ret__.max_session_duration,
-        permissions_boundary=__ret__.permissions_boundary,
-        policies=__ret__.policies,
-        role_id=__ret__.role_id,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        assume_role_policy_document=pulumi.get(__ret__, 'assume_role_policy_document'),
+        description=pulumi.get(__ret__, 'description'),
+        managed_policy_arns=pulumi.get(__ret__, 'managed_policy_arns'),
+        max_session_duration=pulumi.get(__ret__, 'max_session_duration'),
+        permissions_boundary=pulumi.get(__ret__, 'permissions_boundary'),
+        policies=pulumi.get(__ret__, 'policies'),
+        role_id=pulumi.get(__ret__, 'role_id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_role)

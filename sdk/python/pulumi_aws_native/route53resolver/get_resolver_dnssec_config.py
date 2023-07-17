@@ -80,9 +80,9 @@ def get_resolver_dnssec_config(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:route53resolver:getResolverDNSSECConfig', __args__, opts=opts, typ=GetResolverDNSSECConfigResult).value
 
     return AwaitableGetResolverDNSSECConfigResult(
-        id=__ret__.id,
-        owner_id=__ret__.owner_id,
-        validation_status=__ret__.validation_status)
+        id=pulumi.get(__ret__, 'id'),
+        owner_id=pulumi.get(__ret__, 'owner_id'),
+        validation_status=pulumi.get(__ret__, 'validation_status'))
 
 
 @_utilities.lift_output_func(get_resolver_dnssec_config)

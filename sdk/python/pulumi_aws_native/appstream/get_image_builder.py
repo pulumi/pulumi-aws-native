@@ -167,20 +167,20 @@ def get_image_builder(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:appstream:getImageBuilder', __args__, opts=opts, typ=GetImageBuilderResult).value
 
     return AwaitableGetImageBuilderResult(
-        access_endpoints=__ret__.access_endpoints,
-        appstream_agent_version=__ret__.appstream_agent_version,
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        domain_join_info=__ret__.domain_join_info,
-        enable_default_internet_access=__ret__.enable_default_internet_access,
-        iam_role_arn=__ret__.iam_role_arn,
-        image_arn=__ret__.image_arn,
-        image_name=__ret__.image_name,
-        instance_type=__ret__.instance_type,
-        name=__ret__.name,
-        streaming_url=__ret__.streaming_url,
-        tags=__ret__.tags,
-        vpc_config=__ret__.vpc_config)
+        access_endpoints=pulumi.get(__ret__, 'access_endpoints'),
+        appstream_agent_version=pulumi.get(__ret__, 'appstream_agent_version'),
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        domain_join_info=pulumi.get(__ret__, 'domain_join_info'),
+        enable_default_internet_access=pulumi.get(__ret__, 'enable_default_internet_access'),
+        iam_role_arn=pulumi.get(__ret__, 'iam_role_arn'),
+        image_arn=pulumi.get(__ret__, 'image_arn'),
+        image_name=pulumi.get(__ret__, 'image_name'),
+        instance_type=pulumi.get(__ret__, 'instance_type'),
+        name=pulumi.get(__ret__, 'name'),
+        streaming_url=pulumi.get(__ret__, 'streaming_url'),
+        tags=pulumi.get(__ret__, 'tags'),
+        vpc_config=pulumi.get(__ret__, 'vpc_config'))
 
 
 @_utilities.lift_output_func(get_image_builder)

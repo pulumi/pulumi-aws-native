@@ -168,17 +168,17 @@ def get_application(application_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:emrserverless:getApplication', __args__, opts=opts, typ=GetApplicationResult).value
 
     return AwaitableGetApplicationResult(
-        application_id=__ret__.application_id,
-        architecture=__ret__.architecture,
-        arn=__ret__.arn,
-        auto_start_configuration=__ret__.auto_start_configuration,
-        auto_stop_configuration=__ret__.auto_stop_configuration,
-        image_configuration=__ret__.image_configuration,
-        initial_capacity=__ret__.initial_capacity,
-        maximum_capacity=__ret__.maximum_capacity,
-        network_configuration=__ret__.network_configuration,
-        tags=__ret__.tags,
-        worker_type_specifications=__ret__.worker_type_specifications)
+        application_id=pulumi.get(__ret__, 'application_id'),
+        architecture=pulumi.get(__ret__, 'architecture'),
+        arn=pulumi.get(__ret__, 'arn'),
+        auto_start_configuration=pulumi.get(__ret__, 'auto_start_configuration'),
+        auto_stop_configuration=pulumi.get(__ret__, 'auto_stop_configuration'),
+        image_configuration=pulumi.get(__ret__, 'image_configuration'),
+        initial_capacity=pulumi.get(__ret__, 'initial_capacity'),
+        maximum_capacity=pulumi.get(__ret__, 'maximum_capacity'),
+        network_configuration=pulumi.get(__ret__, 'network_configuration'),
+        tags=pulumi.get(__ret__, 'tags'),
+        worker_type_specifications=pulumi.get(__ret__, 'worker_type_specifications'))
 
 
 @_utilities.lift_output_func(get_application)

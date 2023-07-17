@@ -46,4 +46,4 @@ def get_region(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegio
     __ret__ = pulumi.runtime.invoke('aws-native:index:getRegion', __args__, opts=opts, typ=GetRegionResult).value
 
     return AwaitableGetRegionResult(
-        region=__ret__.region)
+        region=pulumi.get(__ret__, 'region'))

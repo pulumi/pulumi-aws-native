@@ -68,8 +68,8 @@ def get_option_group(option_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:rds:getOptionGroup', __args__, opts=opts, typ=GetOptionGroupResult).value
 
     return AwaitableGetOptionGroupResult(
-        option_configurations=__ret__.option_configurations,
-        tags=__ret__.tags)
+        option_configurations=pulumi.get(__ret__, 'option_configurations'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_option_group)

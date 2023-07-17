@@ -85,11 +85,11 @@ def get_workflow(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:glue:getWorkflow', __args__, opts=opts, typ=GetWorkflowResult).value
 
     return AwaitableGetWorkflowResult(
-        default_run_properties=__ret__.default_run_properties,
-        description=__ret__.description,
-        id=__ret__.id,
-        max_concurrent_runs=__ret__.max_concurrent_runs,
-        tags=__ret__.tags)
+        default_run_properties=pulumi.get(__ret__, 'default_run_properties'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        max_concurrent_runs=pulumi.get(__ret__, 'max_concurrent_runs'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_workflow)

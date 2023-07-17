@@ -49,7 +49,7 @@ def get_tag_option_association(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:servicecatalog:getTagOptionAssociation', __args__, opts=opts, typ=GetTagOptionAssociationResult).value
 
     return AwaitableGetTagOptionAssociationResult(
-        id=__ret__.id)
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_tag_option_association)

@@ -68,9 +68,9 @@ def get_virtual_mfa_device(serial_number: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iam:getVirtualMFADevice', __args__, opts=opts, typ=GetVirtualMFADeviceResult).value
 
     return AwaitableGetVirtualMFADeviceResult(
-        serial_number=__ret__.serial_number,
-        tags=__ret__.tags,
-        users=__ret__.users)
+        serial_number=pulumi.get(__ret__, 'serial_number'),
+        tags=pulumi.get(__ret__, 'tags'),
+        users=pulumi.get(__ret__, 'users'))
 
 
 @_utilities.lift_output_func(get_virtual_mfa_device)

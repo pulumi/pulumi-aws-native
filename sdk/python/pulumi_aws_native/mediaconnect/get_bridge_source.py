@@ -66,8 +66,8 @@ def get_bridge_source(bridge_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:mediaconnect:getBridgeSource', __args__, opts=opts, typ=GetBridgeSourceResult).value
 
     return AwaitableGetBridgeSourceResult(
-        flow_source=__ret__.flow_source,
-        network_source=__ret__.network_source)
+        flow_source=pulumi.get(__ret__, 'flow_source'),
+        network_source=pulumi.get(__ret__, 'network_source'))
 
 
 @_utilities.lift_output_func(get_bridge_source)

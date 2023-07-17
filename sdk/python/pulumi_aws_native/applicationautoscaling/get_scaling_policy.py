@@ -77,10 +77,10 @@ def get_scaling_policy(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:applicationautoscaling:getScalingPolicy', __args__, opts=opts, typ=GetScalingPolicyResult).value
 
     return AwaitableGetScalingPolicyResult(
-        id=__ret__.id,
-        policy_type=__ret__.policy_type,
-        step_scaling_policy_configuration=__ret__.step_scaling_policy_configuration,
-        target_tracking_scaling_policy_configuration=__ret__.target_tracking_scaling_policy_configuration)
+        id=pulumi.get(__ret__, 'id'),
+        policy_type=pulumi.get(__ret__, 'policy_type'),
+        step_scaling_policy_configuration=pulumi.get(__ret__, 'step_scaling_policy_configuration'),
+        target_tracking_scaling_policy_configuration=pulumi.get(__ret__, 'target_tracking_scaling_policy_configuration'))
 
 
 @_utilities.lift_output_func(get_scaling_policy)

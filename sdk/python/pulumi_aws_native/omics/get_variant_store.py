@@ -113,14 +113,14 @@ def get_variant_store(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:omics:getVariantStore', __args__, opts=opts, typ=GetVariantStoreResult).value
 
     return AwaitableGetVariantStoreResult(
-        creation_time=__ret__.creation_time,
-        description=__ret__.description,
-        id=__ret__.id,
-        status=__ret__.status,
-        status_message=__ret__.status_message,
-        store_arn=__ret__.store_arn,
-        store_size_bytes=__ret__.store_size_bytes,
-        update_time=__ret__.update_time)
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        status=pulumi.get(__ret__, 'status'),
+        status_message=pulumi.get(__ret__, 'status_message'),
+        store_arn=pulumi.get(__ret__, 'store_arn'),
+        store_size_bytes=pulumi.get(__ret__, 'store_size_bytes'),
+        update_time=pulumi.get(__ret__, 'update_time'))
 
 
 @_utilities.lift_output_func(get_variant_store)

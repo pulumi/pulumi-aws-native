@@ -60,8 +60,8 @@ def get_cluster_capacity_provider_associations(cluster: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ecs:getClusterCapacityProviderAssociations', __args__, opts=opts, typ=GetClusterCapacityProviderAssociationsResult).value
 
     return AwaitableGetClusterCapacityProviderAssociationsResult(
-        capacity_providers=__ret__.capacity_providers,
-        default_capacity_provider_strategy=__ret__.default_capacity_provider_strategy)
+        capacity_providers=pulumi.get(__ret__, 'capacity_providers'),
+        default_capacity_provider_strategy=pulumi.get(__ret__, 'default_capacity_provider_strategy'))
 
 
 @_utilities.lift_output_func(get_cluster_capacity_provider_associations)

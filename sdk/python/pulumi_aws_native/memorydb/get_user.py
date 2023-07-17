@@ -80,9 +80,9 @@ def get_user(user_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:memorydb:getUser', __args__, opts=opts, typ=GetUserResult).value
 
     return AwaitableGetUserResult(
-        arn=__ret__.arn,
-        status=__ret__.status,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_user)

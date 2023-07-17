@@ -142,17 +142,17 @@ def get_authorizer(api_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:apigatewayv2:getAuthorizer', __args__, opts=opts, typ=GetAuthorizerResult).value
 
     return AwaitableGetAuthorizerResult(
-        authorizer_credentials_arn=__ret__.authorizer_credentials_arn,
-        authorizer_id=__ret__.authorizer_id,
-        authorizer_payload_format_version=__ret__.authorizer_payload_format_version,
-        authorizer_result_ttl_in_seconds=__ret__.authorizer_result_ttl_in_seconds,
-        authorizer_type=__ret__.authorizer_type,
-        authorizer_uri=__ret__.authorizer_uri,
-        enable_simple_responses=__ret__.enable_simple_responses,
-        identity_source=__ret__.identity_source,
-        identity_validation_expression=__ret__.identity_validation_expression,
-        jwt_configuration=__ret__.jwt_configuration,
-        name=__ret__.name)
+        authorizer_credentials_arn=pulumi.get(__ret__, 'authorizer_credentials_arn'),
+        authorizer_id=pulumi.get(__ret__, 'authorizer_id'),
+        authorizer_payload_format_version=pulumi.get(__ret__, 'authorizer_payload_format_version'),
+        authorizer_result_ttl_in_seconds=pulumi.get(__ret__, 'authorizer_result_ttl_in_seconds'),
+        authorizer_type=pulumi.get(__ret__, 'authorizer_type'),
+        authorizer_uri=pulumi.get(__ret__, 'authorizer_uri'),
+        enable_simple_responses=pulumi.get(__ret__, 'enable_simple_responses'),
+        identity_source=pulumi.get(__ret__, 'identity_source'),
+        identity_validation_expression=pulumi.get(__ret__, 'identity_validation_expression'),
+        jwt_configuration=pulumi.get(__ret__, 'jwt_configuration'),
+        name=pulumi.get(__ret__, 'name'))
 
 
 @_utilities.lift_output_func(get_authorizer)

@@ -138,14 +138,14 @@ def get_room(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ivschat:getRoom', __args__, opts=opts, typ=GetRoomResult).value
 
     return AwaitableGetRoomResult(
-        arn=__ret__.arn,
-        id=__ret__.id,
-        logging_configuration_identifiers=__ret__.logging_configuration_identifiers,
-        maximum_message_length=__ret__.maximum_message_length,
-        maximum_message_rate_per_second=__ret__.maximum_message_rate_per_second,
-        message_review_handler=__ret__.message_review_handler,
-        name=__ret__.name,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        id=pulumi.get(__ret__, 'id'),
+        logging_configuration_identifiers=pulumi.get(__ret__, 'logging_configuration_identifiers'),
+        maximum_message_length=pulumi.get(__ret__, 'maximum_message_length'),
+        maximum_message_rate_per_second=pulumi.get(__ret__, 'maximum_message_rate_per_second'),
+        message_review_handler=pulumi.get(__ret__, 'message_review_handler'),
+        name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_room)

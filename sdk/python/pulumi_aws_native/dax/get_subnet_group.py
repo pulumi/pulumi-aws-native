@@ -67,9 +67,9 @@ def get_subnet_group(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:dax:getSubnetGroup', __args__, opts=opts, typ=GetSubnetGroupResult).value
 
     return AwaitableGetSubnetGroupResult(
-        description=__ret__.description,
-        id=__ret__.id,
-        subnet_ids=__ret__.subnet_ids)
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        subnet_ids=pulumi.get(__ret__, 'subnet_ids'))
 
 
 @_utilities.lift_output_func(get_subnet_group)

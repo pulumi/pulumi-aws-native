@@ -95,12 +95,12 @@ def get_listener(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:vpclattice:getListener', __args__, opts=opts, typ=GetListenerResult).value
 
     return AwaitableGetListenerResult(
-        arn=__ret__.arn,
-        default_action=__ret__.default_action,
-        id=__ret__.id,
-        service_arn=__ret__.service_arn,
-        service_id=__ret__.service_id,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        default_action=pulumi.get(__ret__, 'default_action'),
+        id=pulumi.get(__ret__, 'id'),
+        service_arn=pulumi.get(__ret__, 'service_arn'),
+        service_id=pulumi.get(__ret__, 'service_id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_listener)

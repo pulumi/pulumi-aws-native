@@ -104,13 +104,13 @@ def get_portfolio(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:servicecatalog:getPortfolio', __args__, opts=opts, typ=GetPortfolioResult).value
 
     return AwaitableGetPortfolioResult(
-        accept_language=__ret__.accept_language,
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        id=__ret__.id,
-        portfolio_name=__ret__.portfolio_name,
-        provider_name=__ret__.provider_name,
-        tags=__ret__.tags)
+        accept_language=pulumi.get(__ret__, 'accept_language'),
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        id=pulumi.get(__ret__, 'id'),
+        portfolio_name=pulumi.get(__ret__, 'portfolio_name'),
+        provider_name=pulumi.get(__ret__, 'provider_name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_portfolio)

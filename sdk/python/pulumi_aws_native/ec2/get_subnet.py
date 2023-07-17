@@ -122,15 +122,15 @@ def get_subnet(subnet_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getSubnet', __args__, opts=opts, typ=GetSubnetResult).value
 
     return AwaitableGetSubnetResult(
-        assign_ipv6_address_on_creation=__ret__.assign_ipv6_address_on_creation,
-        enable_dns64=__ret__.enable_dns64,
-        ipv6_cidr_block=__ret__.ipv6_cidr_block,
-        ipv6_cidr_blocks=__ret__.ipv6_cidr_blocks,
-        map_public_ip_on_launch=__ret__.map_public_ip_on_launch,
-        network_acl_association_id=__ret__.network_acl_association_id,
-        private_dns_name_options_on_launch=__ret__.private_dns_name_options_on_launch,
-        subnet_id=__ret__.subnet_id,
-        tags=__ret__.tags)
+        assign_ipv6_address_on_creation=pulumi.get(__ret__, 'assign_ipv6_address_on_creation'),
+        enable_dns64=pulumi.get(__ret__, 'enable_dns64'),
+        ipv6_cidr_block=pulumi.get(__ret__, 'ipv6_cidr_block'),
+        ipv6_cidr_blocks=pulumi.get(__ret__, 'ipv6_cidr_blocks'),
+        map_public_ip_on_launch=pulumi.get(__ret__, 'map_public_ip_on_launch'),
+        network_acl_association_id=pulumi.get(__ret__, 'network_acl_association_id'),
+        private_dns_name_options_on_launch=pulumi.get(__ret__, 'private_dns_name_options_on_launch'),
+        subnet_id=pulumi.get(__ret__, 'subnet_id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_subnet)

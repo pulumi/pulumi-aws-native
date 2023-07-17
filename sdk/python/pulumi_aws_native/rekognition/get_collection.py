@@ -62,8 +62,8 @@ def get_collection(collection_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:rekognition:getCollection', __args__, opts=opts, typ=GetCollectionResult).value
 
     return AwaitableGetCollectionResult(
-        arn=__ret__.arn,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_collection)

@@ -85,11 +85,11 @@ def get_launch_role_constraint(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:servicecatalog:getLaunchRoleConstraint', __args__, opts=opts, typ=GetLaunchRoleConstraintResult).value
 
     return AwaitableGetLaunchRoleConstraintResult(
-        accept_language=__ret__.accept_language,
-        description=__ret__.description,
-        id=__ret__.id,
-        local_role_name=__ret__.local_role_name,
-        role_arn=__ret__.role_arn)
+        accept_language=pulumi.get(__ret__, 'accept_language'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        local_role_name=pulumi.get(__ret__, 'local_role_name'),
+        role_arn=pulumi.get(__ret__, 'role_arn'))
 
 
 @_utilities.lift_output_func(get_launch_role_constraint)

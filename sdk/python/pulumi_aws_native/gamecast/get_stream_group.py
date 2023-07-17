@@ -98,11 +98,11 @@ def get_stream_group(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:gamecast:getStreamGroup', __args__, opts=opts, typ=GetStreamGroupResult).value
 
     return AwaitableGetStreamGroupResult(
-        arn=__ret__.arn,
-        default_application=__ret__.default_application,
-        description=__ret__.description,
-        desired_capacity=__ret__.desired_capacity,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        default_application=pulumi.get(__ret__, 'default_application'),
+        description=pulumi.get(__ret__, 'description'),
+        desired_capacity=pulumi.get(__ret__, 'desired_capacity'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_stream_group)

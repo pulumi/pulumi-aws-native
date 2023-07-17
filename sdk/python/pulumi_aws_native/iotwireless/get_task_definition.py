@@ -141,14 +141,14 @@ def get_task_definition(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iotwireless:getTaskDefinition', __args__, opts=opts, typ=GetTaskDefinitionResult).value
 
     return AwaitableGetTaskDefinitionResult(
-        arn=__ret__.arn,
-        auto_create_tasks=__ret__.auto_create_tasks,
-        id=__ret__.id,
-        lo_ra_wan_update_gateway_task_entry=__ret__.lo_ra_wan_update_gateway_task_entry,
-        name=__ret__.name,
-        tags=__ret__.tags,
-        task_definition_type=__ret__.task_definition_type,
-        update=__ret__.update)
+        arn=pulumi.get(__ret__, 'arn'),
+        auto_create_tasks=pulumi.get(__ret__, 'auto_create_tasks'),
+        id=pulumi.get(__ret__, 'id'),
+        lo_ra_wan_update_gateway_task_entry=pulumi.get(__ret__, 'lo_ra_wan_update_gateway_task_entry'),
+        name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        task_definition_type=pulumi.get(__ret__, 'task_definition_type'),
+        update=pulumi.get(__ret__, 'update'))
 
 
 @_utilities.lift_output_func(get_task_definition)

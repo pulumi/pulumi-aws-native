@@ -117,12 +117,12 @@ def get_partner_account(partner_account_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iotwireless:getPartnerAccount', __args__, opts=opts, typ=GetPartnerAccountResult).value
 
     return AwaitableGetPartnerAccountResult(
-        account_linked=__ret__.account_linked,
-        arn=__ret__.arn,
-        fingerprint=__ret__.fingerprint,
-        partner_type=__ret__.partner_type,
-        sidewalk_response=__ret__.sidewalk_response,
-        tags=__ret__.tags)
+        account_linked=pulumi.get(__ret__, 'account_linked'),
+        arn=pulumi.get(__ret__, 'arn'),
+        fingerprint=pulumi.get(__ret__, 'fingerprint'),
+        partner_type=pulumi.get(__ret__, 'partner_type'),
+        sidewalk_response=pulumi.get(__ret__, 'sidewalk_response'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_partner_account)

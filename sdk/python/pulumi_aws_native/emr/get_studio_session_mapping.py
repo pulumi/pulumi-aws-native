@@ -62,7 +62,7 @@ def get_studio_session_mapping(identity_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:emr:getStudioSessionMapping', __args__, opts=opts, typ=GetStudioSessionMappingResult).value
 
     return AwaitableGetStudioSessionMappingResult(
-        session_policy_arn=__ret__.session_policy_arn)
+        session_policy_arn=pulumi.get(__ret__, 'session_policy_arn'))
 
 
 @_utilities.lift_output_func(get_studio_session_mapping)

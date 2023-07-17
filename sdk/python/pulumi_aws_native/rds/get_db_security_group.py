@@ -68,9 +68,9 @@ def get_db_security_group(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:rds:getDBSecurityGroup', __args__, opts=opts, typ=GetDBSecurityGroupResult).value
 
     return AwaitableGetDBSecurityGroupResult(
-        d_b_security_group_ingress=__ret__.d_b_security_group_ingress,
-        id=__ret__.id,
-        tags=__ret__.tags)
+        d_b_security_group_ingress=pulumi.get(__ret__, 'd_b_security_group_ingress'),
+        id=pulumi.get(__ret__, 'id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_db_security_group)

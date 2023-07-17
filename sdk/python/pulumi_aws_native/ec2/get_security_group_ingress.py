@@ -58,8 +58,8 @@ def get_security_group_ingress(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getSecurityGroupIngress', __args__, opts=opts, typ=GetSecurityGroupIngressResult).value
 
     return AwaitableGetSecurityGroupIngressResult(
-        description=__ret__.description,
-        id=__ret__.id)
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_security_group_ingress)

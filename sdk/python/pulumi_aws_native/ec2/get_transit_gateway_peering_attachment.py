@@ -104,11 +104,11 @@ def get_transit_gateway_peering_attachment(transit_gateway_attachment_id: Option
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getTransitGatewayPeeringAttachment', __args__, opts=opts, typ=GetTransitGatewayPeeringAttachmentResult).value
 
     return AwaitableGetTransitGatewayPeeringAttachmentResult(
-        creation_time=__ret__.creation_time,
-        state=__ret__.state,
-        status=__ret__.status,
-        tags=__ret__.tags,
-        transit_gateway_attachment_id=__ret__.transit_gateway_attachment_id)
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        state=pulumi.get(__ret__, 'state'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'),
+        transit_gateway_attachment_id=pulumi.get(__ret__, 'transit_gateway_attachment_id'))
 
 
 @_utilities.lift_output_func(get_transit_gateway_peering_attachment)

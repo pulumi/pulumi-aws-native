@@ -173,17 +173,17 @@ def get_ipam(ipam_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getIPAM', __args__, opts=opts, typ=GetIPAMResult).value
 
     return AwaitableGetIPAMResult(
-        arn=__ret__.arn,
-        default_resource_discovery_association_id=__ret__.default_resource_discovery_association_id,
-        default_resource_discovery_id=__ret__.default_resource_discovery_id,
-        description=__ret__.description,
-        ipam_id=__ret__.ipam_id,
-        operating_regions=__ret__.operating_regions,
-        private_default_scope_id=__ret__.private_default_scope_id,
-        public_default_scope_id=__ret__.public_default_scope_id,
-        resource_discovery_association_count=__ret__.resource_discovery_association_count,
-        scope_count=__ret__.scope_count,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        default_resource_discovery_association_id=pulumi.get(__ret__, 'default_resource_discovery_association_id'),
+        default_resource_discovery_id=pulumi.get(__ret__, 'default_resource_discovery_id'),
+        description=pulumi.get(__ret__, 'description'),
+        ipam_id=pulumi.get(__ret__, 'ipam_id'),
+        operating_regions=pulumi.get(__ret__, 'operating_regions'),
+        private_default_scope_id=pulumi.get(__ret__, 'private_default_scope_id'),
+        public_default_scope_id=pulumi.get(__ret__, 'public_default_scope_id'),
+        resource_discovery_association_count=pulumi.get(__ret__, 'resource_discovery_association_count'),
+        scope_count=pulumi.get(__ret__, 'scope_count'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_ipam)

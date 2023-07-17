@@ -149,18 +149,18 @@ def get_network_profile(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:devicefarm:getNetworkProfile', __args__, opts=opts, typ=GetNetworkProfileResult).value
 
     return AwaitableGetNetworkProfileResult(
-        arn=__ret__.arn,
-        description=__ret__.description,
-        downlink_bandwidth_bits=__ret__.downlink_bandwidth_bits,
-        downlink_delay_ms=__ret__.downlink_delay_ms,
-        downlink_jitter_ms=__ret__.downlink_jitter_ms,
-        downlink_loss_percent=__ret__.downlink_loss_percent,
-        name=__ret__.name,
-        tags=__ret__.tags,
-        uplink_bandwidth_bits=__ret__.uplink_bandwidth_bits,
-        uplink_delay_ms=__ret__.uplink_delay_ms,
-        uplink_jitter_ms=__ret__.uplink_jitter_ms,
-        uplink_loss_percent=__ret__.uplink_loss_percent)
+        arn=pulumi.get(__ret__, 'arn'),
+        description=pulumi.get(__ret__, 'description'),
+        downlink_bandwidth_bits=pulumi.get(__ret__, 'downlink_bandwidth_bits'),
+        downlink_delay_ms=pulumi.get(__ret__, 'downlink_delay_ms'),
+        downlink_jitter_ms=pulumi.get(__ret__, 'downlink_jitter_ms'),
+        downlink_loss_percent=pulumi.get(__ret__, 'downlink_loss_percent'),
+        name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        uplink_bandwidth_bits=pulumi.get(__ret__, 'uplink_bandwidth_bits'),
+        uplink_delay_ms=pulumi.get(__ret__, 'uplink_delay_ms'),
+        uplink_jitter_ms=pulumi.get(__ret__, 'uplink_jitter_ms'),
+        uplink_loss_percent=pulumi.get(__ret__, 'uplink_loss_percent'))
 
 
 @_utilities.lift_output_func(get_network_profile)

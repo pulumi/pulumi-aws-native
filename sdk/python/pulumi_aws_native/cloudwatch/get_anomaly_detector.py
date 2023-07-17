@@ -59,8 +59,8 @@ def get_anomaly_detector(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cloudwatch:getAnomalyDetector', __args__, opts=opts, typ=GetAnomalyDetectorResult).value
 
     return AwaitableGetAnomalyDetectorResult(
-        configuration=__ret__.configuration,
-        id=__ret__.id)
+        configuration=pulumi.get(__ret__, 'configuration'),
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_anomaly_detector)

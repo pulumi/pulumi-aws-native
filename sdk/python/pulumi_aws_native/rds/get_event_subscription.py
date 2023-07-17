@@ -104,11 +104,11 @@ def get_event_subscription(subscription_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:rds:getEventSubscription', __args__, opts=opts, typ=GetEventSubscriptionResult).value
 
     return AwaitableGetEventSubscriptionResult(
-        enabled=__ret__.enabled,
-        event_categories=__ret__.event_categories,
-        source_ids=__ret__.source_ids,
-        source_type=__ret__.source_type,
-        tags=__ret__.tags)
+        enabled=pulumi.get(__ret__, 'enabled'),
+        event_categories=pulumi.get(__ret__, 'event_categories'),
+        source_ids=pulumi.get(__ret__, 'source_ids'),
+        source_type=pulumi.get(__ret__, 'source_type'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_event_subscription)

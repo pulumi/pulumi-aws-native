@@ -79,9 +79,9 @@ def get_topic_policy(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:sns:getTopicPolicy', __args__, opts=opts, typ=GetTopicPolicyResult).value
 
     return AwaitableGetTopicPolicyResult(
-        id=__ret__.id,
-        policy_document=__ret__.policy_document,
-        topics=__ret__.topics)
+        id=pulumi.get(__ret__, 'id'),
+        policy_document=pulumi.get(__ret__, 'policy_document'),
+        topics=pulumi.get(__ret__, 'topics'))
 
 
 @_utilities.lift_output_func(get_topic_policy)

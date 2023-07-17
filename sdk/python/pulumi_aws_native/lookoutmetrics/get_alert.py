@@ -55,7 +55,7 @@ def get_alert(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:lookoutmetrics:getAlert', __args__, opts=opts, typ=GetAlertResult).value
 
     return AwaitableGetAlertResult(
-        arn=__ret__.arn)
+        arn=pulumi.get(__ret__, 'arn'))
 
 
 @_utilities.lift_output_func(get_alert)

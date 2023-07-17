@@ -86,11 +86,11 @@ def get_event_bus_policy(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:events:getEventBusPolicy', __args__, opts=opts, typ=GetEventBusPolicyResult).value
 
     return AwaitableGetEventBusPolicyResult(
-        action=__ret__.action,
-        condition=__ret__.condition,
-        id=__ret__.id,
-        principal=__ret__.principal,
-        statement=__ret__.statement)
+        action=pulumi.get(__ret__, 'action'),
+        condition=pulumi.get(__ret__, 'condition'),
+        id=pulumi.get(__ret__, 'id'),
+        principal=pulumi.get(__ret__, 'principal'),
+        statement=pulumi.get(__ret__, 'statement'))
 
 
 @_utilities.lift_output_func(get_event_bus_policy)

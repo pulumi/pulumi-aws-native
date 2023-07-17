@@ -86,11 +86,11 @@ def get_discoverer(discoverer_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:eventschemas:getDiscoverer', __args__, opts=opts, typ=GetDiscovererResult).value
 
     return AwaitableGetDiscovererResult(
-        cross_account=__ret__.cross_account,
-        description=__ret__.description,
-        discoverer_arn=__ret__.discoverer_arn,
-        discoverer_id=__ret__.discoverer_id,
-        tags=__ret__.tags)
+        cross_account=pulumi.get(__ret__, 'cross_account'),
+        description=pulumi.get(__ret__, 'description'),
+        discoverer_arn=pulumi.get(__ret__, 'discoverer_arn'),
+        discoverer_id=pulumi.get(__ret__, 'discoverer_id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_discoverer)

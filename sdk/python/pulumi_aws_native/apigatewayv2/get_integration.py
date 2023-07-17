@@ -203,24 +203,24 @@ def get_integration(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:apigatewayv2:getIntegration', __args__, opts=opts, typ=GetIntegrationResult).value
 
     return AwaitableGetIntegrationResult(
-        connection_id=__ret__.connection_id,
-        connection_type=__ret__.connection_type,
-        content_handling_strategy=__ret__.content_handling_strategy,
-        credentials_arn=__ret__.credentials_arn,
-        description=__ret__.description,
-        id=__ret__.id,
-        integration_method=__ret__.integration_method,
-        integration_subtype=__ret__.integration_subtype,
-        integration_type=__ret__.integration_type,
-        integration_uri=__ret__.integration_uri,
-        passthrough_behavior=__ret__.passthrough_behavior,
-        payload_format_version=__ret__.payload_format_version,
-        request_parameters=__ret__.request_parameters,
-        request_templates=__ret__.request_templates,
-        response_parameters=__ret__.response_parameters,
-        template_selection_expression=__ret__.template_selection_expression,
-        timeout_in_millis=__ret__.timeout_in_millis,
-        tls_config=__ret__.tls_config)
+        connection_id=pulumi.get(__ret__, 'connection_id'),
+        connection_type=pulumi.get(__ret__, 'connection_type'),
+        content_handling_strategy=pulumi.get(__ret__, 'content_handling_strategy'),
+        credentials_arn=pulumi.get(__ret__, 'credentials_arn'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        integration_method=pulumi.get(__ret__, 'integration_method'),
+        integration_subtype=pulumi.get(__ret__, 'integration_subtype'),
+        integration_type=pulumi.get(__ret__, 'integration_type'),
+        integration_uri=pulumi.get(__ret__, 'integration_uri'),
+        passthrough_behavior=pulumi.get(__ret__, 'passthrough_behavior'),
+        payload_format_version=pulumi.get(__ret__, 'payload_format_version'),
+        request_parameters=pulumi.get(__ret__, 'request_parameters'),
+        request_templates=pulumi.get(__ret__, 'request_templates'),
+        response_parameters=pulumi.get(__ret__, 'response_parameters'),
+        template_selection_expression=pulumi.get(__ret__, 'template_selection_expression'),
+        timeout_in_millis=pulumi.get(__ret__, 'timeout_in_millis'),
+        tls_config=pulumi.get(__ret__, 'tls_config'))
 
 
 @_utilities.lift_output_func(get_integration)

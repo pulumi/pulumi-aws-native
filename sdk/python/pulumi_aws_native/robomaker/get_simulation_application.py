@@ -108,12 +108,12 @@ def get_simulation_application(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:robomaker:getSimulationApplication', __args__, opts=opts, typ=GetSimulationApplicationResult).value
 
     return AwaitableGetSimulationApplicationResult(
-        arn=__ret__.arn,
-        current_revision_id=__ret__.current_revision_id,
-        environment=__ret__.environment,
-        robot_software_suite=__ret__.robot_software_suite,
-        simulation_software_suite=__ret__.simulation_software_suite,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        current_revision_id=pulumi.get(__ret__, 'current_revision_id'),
+        environment=pulumi.get(__ret__, 'environment'),
+        robot_software_suite=pulumi.get(__ret__, 'robot_software_suite'),
+        simulation_software_suite=pulumi.get(__ret__, 'simulation_software_suite'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_simulation_application)

@@ -105,11 +105,11 @@ def get_access_point(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:s3:getAccessPoint', __args__, opts=opts, typ=GetAccessPointResult).value
 
     return AwaitableGetAccessPointResult(
-        alias=__ret__.alias,
-        arn=__ret__.arn,
-        network_origin=__ret__.network_origin,
-        policy=__ret__.policy,
-        public_access_block_configuration=__ret__.public_access_block_configuration)
+        alias=pulumi.get(__ret__, 'alias'),
+        arn=pulumi.get(__ret__, 'arn'),
+        network_origin=pulumi.get(__ret__, 'network_origin'),
+        policy=pulumi.get(__ret__, 'policy'),
+        public_access_block_configuration=pulumi.get(__ret__, 'public_access_block_configuration'))
 
 
 @_utilities.lift_output_func(get_access_point)

@@ -153,15 +153,15 @@ def get_variable(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:frauddetector:getVariable', __args__, opts=opts, typ=GetVariableResult).value
 
     return AwaitableGetVariableResult(
-        arn=__ret__.arn,
-        created_time=__ret__.created_time,
-        data_source=__ret__.data_source,
-        data_type=__ret__.data_type,
-        default_value=__ret__.default_value,
-        description=__ret__.description,
-        last_updated_time=__ret__.last_updated_time,
-        tags=__ret__.tags,
-        variable_type=__ret__.variable_type)
+        arn=pulumi.get(__ret__, 'arn'),
+        created_time=pulumi.get(__ret__, 'created_time'),
+        data_source=pulumi.get(__ret__, 'data_source'),
+        data_type=pulumi.get(__ret__, 'data_type'),
+        default_value=pulumi.get(__ret__, 'default_value'),
+        description=pulumi.get(__ret__, 'description'),
+        last_updated_time=pulumi.get(__ret__, 'last_updated_time'),
+        tags=pulumi.get(__ret__, 'tags'),
+        variable_type=pulumi.get(__ret__, 'variable_type'))
 
 
 @_utilities.lift_output_func(get_variable)

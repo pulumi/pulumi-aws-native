@@ -152,15 +152,15 @@ def get_asset(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:mediapackage:getAsset', __args__, opts=opts, typ=GetAssetResult).value
 
     return AwaitableGetAssetResult(
-        arn=__ret__.arn,
-        created_at=__ret__.created_at,
-        egress_endpoints=__ret__.egress_endpoints,
-        id=__ret__.id,
-        packaging_group_id=__ret__.packaging_group_id,
-        resource_id=__ret__.resource_id,
-        source_arn=__ret__.source_arn,
-        source_role_arn=__ret__.source_role_arn,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        created_at=pulumi.get(__ret__, 'created_at'),
+        egress_endpoints=pulumi.get(__ret__, 'egress_endpoints'),
+        id=pulumi.get(__ret__, 'id'),
+        packaging_group_id=pulumi.get(__ret__, 'packaging_group_id'),
+        resource_id=pulumi.get(__ret__, 'resource_id'),
+        source_arn=pulumi.get(__ret__, 'source_arn'),
+        source_role_arn=pulumi.get(__ret__, 'source_role_arn'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_asset)
