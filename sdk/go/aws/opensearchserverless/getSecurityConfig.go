@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Amazon OpenSearchServerless security config resource
 func LookupSecurityConfig(ctx *pulumi.Context, args *LookupSecurityConfigArgs, opts ...pulumi.InvokeOption) (*LookupSecurityConfigResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSecurityConfigResult
 	err := ctx.Invoke("aws-native:opensearchserverless:getSecurityConfig", args, &rv, opts...)
 	if err != nil {

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Schema of AWS::EMRContainers::VirtualCluster Type
 func LookupVirtualCluster(ctx *pulumi.Context, args *LookupVirtualClusterArgs, opts ...pulumi.InvokeOption) (*LookupVirtualClusterResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVirtualClusterResult
 	err := ctx.Invoke("aws-native:emrcontainers:getVirtualCluster", args, &rv, opts...)
 	if err != nil {

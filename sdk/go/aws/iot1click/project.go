@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -33,6 +34,7 @@ func NewProject(ctx *pulumi.Context,
 	if args.PlacementTemplate == nil {
 		return nil, errors.New("invalid value for required argument 'PlacementTemplate'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Project
 	err := ctx.RegisterResource("aws-native:iot1click:Project", name, args, &resource, opts...)
 	if err != nil {

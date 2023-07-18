@@ -108,13 +108,13 @@ def get_feature(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:evidently:getFeature', __args__, opts=opts, typ=GetFeatureResult).value
 
     return AwaitableGetFeatureResult(
-        arn=__ret__.arn,
-        default_variation=__ret__.default_variation,
-        description=__ret__.description,
-        entity_overrides=__ret__.entity_overrides,
-        evaluation_strategy=__ret__.evaluation_strategy,
-        tags=__ret__.tags,
-        variations=__ret__.variations)
+        arn=pulumi.get(__ret__, 'arn'),
+        default_variation=pulumi.get(__ret__, 'default_variation'),
+        description=pulumi.get(__ret__, 'description'),
+        entity_overrides=pulumi.get(__ret__, 'entity_overrides'),
+        evaluation_strategy=pulumi.get(__ret__, 'evaluation_strategy'),
+        tags=pulumi.get(__ret__, 'tags'),
+        variations=pulumi.get(__ret__, 'variations'))
 
 
 @_utilities.lift_output_func(get_feature)

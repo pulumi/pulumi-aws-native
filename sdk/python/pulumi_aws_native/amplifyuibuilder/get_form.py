@@ -154,18 +154,18 @@ def get_form(app_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:amplifyuibuilder:getForm', __args__, opts=opts, typ=GetFormResult).value
 
     return AwaitableGetFormResult(
-        app_id=__ret__.app_id,
-        cta=__ret__.cta,
-        data_type=__ret__.data_type,
-        environment_name=__ret__.environment_name,
-        fields=__ret__.fields,
-        form_action_type=__ret__.form_action_type,
-        id=__ret__.id,
-        label_decorator=__ret__.label_decorator,
-        name=__ret__.name,
-        schema_version=__ret__.schema_version,
-        sectional_elements=__ret__.sectional_elements,
-        style=__ret__.style)
+        app_id=pulumi.get(__ret__, 'app_id'),
+        cta=pulumi.get(__ret__, 'cta'),
+        data_type=pulumi.get(__ret__, 'data_type'),
+        environment_name=pulumi.get(__ret__, 'environment_name'),
+        fields=pulumi.get(__ret__, 'fields'),
+        form_action_type=pulumi.get(__ret__, 'form_action_type'),
+        id=pulumi.get(__ret__, 'id'),
+        label_decorator=pulumi.get(__ret__, 'label_decorator'),
+        name=pulumi.get(__ret__, 'name'),
+        schema_version=pulumi.get(__ret__, 'schema_version'),
+        sectional_elements=pulumi.get(__ret__, 'sectional_elements'),
+        style=pulumi.get(__ret__, 'style'))
 
 
 @_utilities.lift_output_func(get_form)

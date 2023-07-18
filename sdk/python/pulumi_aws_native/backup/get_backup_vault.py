@@ -86,11 +86,11 @@ def get_backup_vault(backup_vault_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:backup:getBackupVault', __args__, opts=opts, typ=GetBackupVaultResult).value
 
     return AwaitableGetBackupVaultResult(
-        access_policy=__ret__.access_policy,
-        backup_vault_arn=__ret__.backup_vault_arn,
-        backup_vault_tags=__ret__.backup_vault_tags,
-        lock_configuration=__ret__.lock_configuration,
-        notifications=__ret__.notifications)
+        access_policy=pulumi.get(__ret__, 'access_policy'),
+        backup_vault_arn=pulumi.get(__ret__, 'backup_vault_arn'),
+        backup_vault_tags=pulumi.get(__ret__, 'backup_vault_tags'),
+        lock_configuration=pulumi.get(__ret__, 'lock_configuration'),
+        notifications=pulumi.get(__ret__, 'notifications'))
 
 
 @_utilities.lift_output_func(get_backup_vault)

@@ -89,11 +89,11 @@ def get_project(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:evidently:getProject', __args__, opts=opts, typ=GetProjectResult).value
 
     return AwaitableGetProjectResult(
-        app_config_resource=__ret__.app_config_resource,
-        arn=__ret__.arn,
-        data_delivery=__ret__.data_delivery,
-        description=__ret__.description,
-        tags=__ret__.tags)
+        app_config_resource=pulumi.get(__ret__, 'app_config_resource'),
+        arn=pulumi.get(__ret__, 'arn'),
+        data_delivery=pulumi.get(__ret__, 'data_delivery'),
+        description=pulumi.get(__ret__, 'description'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_project)

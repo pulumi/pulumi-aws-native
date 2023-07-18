@@ -68,9 +68,9 @@ def get_flow_template(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iotthingsgraph:getFlowTemplate', __args__, opts=opts, typ=GetFlowTemplateResult).value
 
     return AwaitableGetFlowTemplateResult(
-        compatible_namespace_version=__ret__.compatible_namespace_version,
-        definition=__ret__.definition,
-        id=__ret__.id)
+        compatible_namespace_version=pulumi.get(__ret__, 'compatible_namespace_version'),
+        definition=pulumi.get(__ret__, 'definition'),
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_flow_template)

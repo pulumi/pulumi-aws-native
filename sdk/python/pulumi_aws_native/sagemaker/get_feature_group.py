@@ -57,7 +57,7 @@ def get_feature_group(feature_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:sagemaker:getFeatureGroup', __args__, opts=opts, typ=GetFeatureGroupResult).value
 
     return AwaitableGetFeatureGroupResult(
-        feature_definitions=__ret__.feature_definitions)
+        feature_definitions=pulumi.get(__ret__, 'feature_definitions'))
 
 
 @_utilities.lift_output_func(get_feature_group)

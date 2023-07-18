@@ -162,19 +162,19 @@ def get_model_package(model_package_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:sagemaker:getModelPackage', __args__, opts=opts, typ=GetModelPackageResult).value
 
     return AwaitableGetModelPackageResult(
-        additional_inference_specifications=__ret__.additional_inference_specifications,
-        approval_description=__ret__.approval_description,
-        certify_for_marketplace=__ret__.certify_for_marketplace,
-        creation_time=__ret__.creation_time,
-        customer_metadata_properties=__ret__.customer_metadata_properties,
-        last_modified_time=__ret__.last_modified_time,
-        model_approval_status=__ret__.model_approval_status,
-        model_package_arn=__ret__.model_package_arn,
-        model_package_name=__ret__.model_package_name,
-        model_package_status=__ret__.model_package_status,
-        model_package_status_details=__ret__.model_package_status_details,
-        model_package_version=__ret__.model_package_version,
-        tags=__ret__.tags)
+        additional_inference_specifications=pulumi.get(__ret__, 'additional_inference_specifications'),
+        approval_description=pulumi.get(__ret__, 'approval_description'),
+        certify_for_marketplace=pulumi.get(__ret__, 'certify_for_marketplace'),
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        customer_metadata_properties=pulumi.get(__ret__, 'customer_metadata_properties'),
+        last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
+        model_approval_status=pulumi.get(__ret__, 'model_approval_status'),
+        model_package_arn=pulumi.get(__ret__, 'model_package_arn'),
+        model_package_name=pulumi.get(__ret__, 'model_package_name'),
+        model_package_status=pulumi.get(__ret__, 'model_package_status'),
+        model_package_status_details=pulumi.get(__ret__, 'model_package_status_details'),
+        model_package_version=pulumi.get(__ret__, 'model_package_version'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_model_package)

@@ -70,8 +70,8 @@ def get_model(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:apigateway:getModel', __args__, opts=opts, typ=GetModelResult).value
 
     return AwaitableGetModelResult(
-        description=__ret__.description,
-        schema=__ret__.schema)
+        description=pulumi.get(__ret__, 'description'),
+        schema=pulumi.get(__ret__, 'schema'))
 
 
 @_utilities.lift_output_func(get_model)

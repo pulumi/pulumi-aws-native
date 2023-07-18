@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Mitigation actions can be used to take actions to mitigate issues that were found in an Audit finding or Detect violation.
 func LookupMitigationAction(ctx *pulumi.Context, args *LookupMitigationActionArgs, opts ...pulumi.InvokeOption) (*LookupMitigationActionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupMitigationActionResult
 	err := ctx.Invoke("aws-native:iot:getMitigationAction", args, &rv, opts...)
 	if err != nil {

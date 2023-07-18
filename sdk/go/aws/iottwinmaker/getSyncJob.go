@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for AWS::IoTTwinMaker::SyncJob
 func LookupSyncJob(ctx *pulumi.Context, args *LookupSyncJobArgs, opts ...pulumi.InvokeOption) (*LookupSyncJobResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSyncJobResult
 	err := ctx.Invoke("aws-native:iottwinmaker:getSyncJob", args, &rv, opts...)
 	if err != nil {

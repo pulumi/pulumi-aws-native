@@ -143,17 +143,17 @@ def get_email_identity(email_identity: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ses:getEmailIdentity', __args__, opts=opts, typ=GetEmailIdentityResult).value
 
     return AwaitableGetEmailIdentityResult(
-        configuration_set_attributes=__ret__.configuration_set_attributes,
-        dkim_attributes=__ret__.dkim_attributes,
-        dkim_dns_token_name1=__ret__.dkim_dns_token_name1,
-        dkim_dns_token_name2=__ret__.dkim_dns_token_name2,
-        dkim_dns_token_name3=__ret__.dkim_dns_token_name3,
-        dkim_dns_token_value1=__ret__.dkim_dns_token_value1,
-        dkim_dns_token_value2=__ret__.dkim_dns_token_value2,
-        dkim_dns_token_value3=__ret__.dkim_dns_token_value3,
-        dkim_signing_attributes=__ret__.dkim_signing_attributes,
-        feedback_attributes=__ret__.feedback_attributes,
-        mail_from_attributes=__ret__.mail_from_attributes)
+        configuration_set_attributes=pulumi.get(__ret__, 'configuration_set_attributes'),
+        dkim_attributes=pulumi.get(__ret__, 'dkim_attributes'),
+        dkim_dns_token_name1=pulumi.get(__ret__, 'dkim_dns_token_name1'),
+        dkim_dns_token_name2=pulumi.get(__ret__, 'dkim_dns_token_name2'),
+        dkim_dns_token_name3=pulumi.get(__ret__, 'dkim_dns_token_name3'),
+        dkim_dns_token_value1=pulumi.get(__ret__, 'dkim_dns_token_value1'),
+        dkim_dns_token_value2=pulumi.get(__ret__, 'dkim_dns_token_value2'),
+        dkim_dns_token_value3=pulumi.get(__ret__, 'dkim_dns_token_value3'),
+        dkim_signing_attributes=pulumi.get(__ret__, 'dkim_signing_attributes'),
+        feedback_attributes=pulumi.get(__ret__, 'feedback_attributes'),
+        mail_from_attributes=pulumi.get(__ret__, 'mail_from_attributes'))
 
 
 @_utilities.lift_output_func(get_email_identity)

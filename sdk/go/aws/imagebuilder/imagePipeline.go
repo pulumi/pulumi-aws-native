@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -49,6 +50,7 @@ func NewImagePipeline(ctx *pulumi.Context,
 		args = &ImagePipelineArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ImagePipeline
 	err := ctx.RegisterResource("aws-native:imagebuilder:ImagePipeline", name, args, &resource, opts...)
 	if err != nil {

@@ -49,7 +49,7 @@ def get_group_version(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:greengrass:getGroupVersion', __args__, opts=opts, typ=GetGroupVersionResult).value
 
     return AwaitableGetGroupVersionResult(
-        id=__ret__.id)
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_group_version)

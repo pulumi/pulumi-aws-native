@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Schema for ApiGatewayV2 Integration Response
 func LookupIntegrationResponse(ctx *pulumi.Context, args *LookupIntegrationResponseArgs, opts ...pulumi.InvokeOption) (*LookupIntegrationResponseResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupIntegrationResponseResult
 	err := ctx.Invoke("aws-native:apigatewayv2:getIntegrationResponse", args, &rv, opts...)
 	if err != nil {

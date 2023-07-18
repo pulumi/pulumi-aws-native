@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // The AWS::GameLift::GameServerGroup resource creates an Amazon GameLift (GameLift) GameServerGroup.
 func LookupGameServerGroup(ctx *pulumi.Context, args *LookupGameServerGroupArgs, opts ...pulumi.InvokeOption) (*LookupGameServerGroupResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupGameServerGroupResult
 	err := ctx.Invoke("aws-native:gamelift:getGameServerGroup", args, &rv, opts...)
 	if err != nil {

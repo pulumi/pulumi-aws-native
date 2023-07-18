@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for AWS::Route53Resolver::FirewallDomainList.
 func LookupFirewallDomainList(ctx *pulumi.Context, args *LookupFirewallDomainListArgs, opts ...pulumi.InvokeOption) (*LookupFirewallDomainListResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFirewallDomainListResult
 	err := ctx.Invoke("aws-native:route53resolver:getFirewallDomainList", args, &rv, opts...)
 	if err != nil {

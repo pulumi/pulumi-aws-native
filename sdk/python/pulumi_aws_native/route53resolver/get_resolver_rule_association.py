@@ -55,7 +55,7 @@ def get_resolver_rule_association(resolver_rule_association_id: Optional[str] = 
     __ret__ = pulumi.runtime.invoke('aws-native:route53resolver:getResolverRuleAssociation', __args__, opts=opts, typ=GetResolverRuleAssociationResult).value
 
     return AwaitableGetResolverRuleAssociationResult(
-        resolver_rule_association_id=__ret__.resolver_rule_association_id)
+        resolver_rule_association_id=pulumi.get(__ret__, 'resolver_rule_association_id'))
 
 
 @_utilities.lift_output_func(get_resolver_rule_association)

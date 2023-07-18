@@ -80,9 +80,9 @@ def get_resource_set(resource_set_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:route53recoveryreadiness:getResourceSet', __args__, opts=opts, typ=GetResourceSetResult).value
 
     return AwaitableGetResourceSetResult(
-        resource_set_arn=__ret__.resource_set_arn,
-        resources=__ret__.resources,
-        tags=__ret__.tags)
+        resource_set_arn=pulumi.get(__ret__, 'resource_set_arn'),
+        resources=pulumi.get(__ret__, 'resources'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_resource_set)

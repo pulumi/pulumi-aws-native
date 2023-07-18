@@ -58,7 +58,7 @@ def get_documentation_version(documentation_version: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:apigateway:getDocumentationVersion', __args__, opts=opts, typ=GetDocumentationVersionResult).value
 
     return AwaitableGetDocumentationVersionResult(
-        description=__ret__.description)
+        description=pulumi.get(__ret__, 'description'))
 
 
 @_utilities.lift_output_func(get_documentation_version)

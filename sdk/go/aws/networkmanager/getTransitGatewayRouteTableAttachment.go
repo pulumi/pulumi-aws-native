@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // AWS::NetworkManager::TransitGatewayRouteTableAttachment Resource Type definition.
 func LookupTransitGatewayRouteTableAttachment(ctx *pulumi.Context, args *LookupTransitGatewayRouteTableAttachmentArgs, opts ...pulumi.InvokeOption) (*LookupTransitGatewayRouteTableAttachmentResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTransitGatewayRouteTableAttachmentResult
 	err := ctx.Invoke("aws-native:networkmanager:getTransitGatewayRouteTableAttachment", args, &rv, opts...)
 	if err != nil {

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::Connect::ContactFlowModule.
 func LookupContactFlowModule(ctx *pulumi.Context, args *LookupContactFlowModuleArgs, opts ...pulumi.InvokeOption) (*LookupContactFlowModuleResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupContactFlowModuleResult
 	err := ctx.Invoke("aws-native:connect:getContactFlowModule", args, &rv, opts...)
 	if err != nil {

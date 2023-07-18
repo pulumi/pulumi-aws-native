@@ -80,9 +80,9 @@ def get_contact_list(contact_list_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ses:getContactList', __args__, opts=opts, typ=GetContactListResult).value
 
     return AwaitableGetContactListResult(
-        description=__ret__.description,
-        tags=__ret__.tags,
-        topics=__ret__.topics)
+        description=pulumi.get(__ret__, 'description'),
+        tags=pulumi.get(__ret__, 'tags'),
+        topics=pulumi.get(__ret__, 'topics'))
 
 
 @_utilities.lift_output_func(get_contact_list)

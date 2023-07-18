@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::Cloud9::EnvironmentEC2
 func LookupEnvironmentEC2(ctx *pulumi.Context, args *LookupEnvironmentEC2Args, opts ...pulumi.InvokeOption) (*LookupEnvironmentEC2Result, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEnvironmentEC2Result
 	err := ctx.Invoke("aws-native:cloud9:getEnvironmentEC2", args, &rv, opts...)
 	if err != nil {

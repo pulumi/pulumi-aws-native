@@ -65,7 +65,7 @@ def get_app(app_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:sagemaker:getApp', __args__, opts=opts, typ=GetAppResult).value
 
     return AwaitableGetAppResult(
-        app_arn=__ret__.app_arn)
+        app_arn=pulumi.get(__ret__, 'app_arn'))
 
 
 @_utilities.lift_output_func(get_app)

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // The AWS::ElastiCache::GlobalReplicationGroup resource creates an Amazon ElastiCache Global Replication Group.
 func LookupGlobalReplicationGroup(ctx *pulumi.Context, args *LookupGlobalReplicationGroupArgs, opts ...pulumi.InvokeOption) (*LookupGlobalReplicationGroupResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupGlobalReplicationGroupResult
 	err := ctx.Invoke("aws-native:elasticache:getGlobalReplicationGroup", args, &rv, opts...)
 	if err != nil {

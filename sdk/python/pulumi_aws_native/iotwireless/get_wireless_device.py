@@ -177,17 +177,17 @@ def get_wireless_device(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iotwireless:getWirelessDevice', __args__, opts=opts, typ=GetWirelessDeviceResult).value
 
     return AwaitableGetWirelessDeviceResult(
-        arn=__ret__.arn,
-        description=__ret__.description,
-        destination_name=__ret__.destination_name,
-        id=__ret__.id,
-        last_uplink_received_at=__ret__.last_uplink_received_at,
-        lo_ra_wan=__ret__.lo_ra_wan,
-        name=__ret__.name,
-        tags=__ret__.tags,
-        thing_arn=__ret__.thing_arn,
-        thing_name=__ret__.thing_name,
-        type=__ret__.type)
+        arn=pulumi.get(__ret__, 'arn'),
+        description=pulumi.get(__ret__, 'description'),
+        destination_name=pulumi.get(__ret__, 'destination_name'),
+        id=pulumi.get(__ret__, 'id'),
+        last_uplink_received_at=pulumi.get(__ret__, 'last_uplink_received_at'),
+        lo_ra_wan=pulumi.get(__ret__, 'lo_ra_wan'),
+        name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        thing_arn=pulumi.get(__ret__, 'thing_arn'),
+        thing_name=pulumi.get(__ret__, 'thing_name'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_wireless_device)

@@ -68,8 +68,8 @@ def get_parameter_group(parameter_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:memorydb:getParameterGroup', __args__, opts=opts, typ=GetParameterGroupResult).value
 
     return AwaitableGetParameterGroupResult(
-        a_rn=__ret__.a_rn,
-        tags=__ret__.tags)
+        a_rn=pulumi.get(__ret__, 'a_rn'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_parameter_group)

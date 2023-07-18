@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::Cognito::IdentityPoolPrincipalTag
 func LookupIdentityPoolPrincipalTag(ctx *pulumi.Context, args *LookupIdentityPoolPrincipalTagArgs, opts ...pulumi.InvokeOption) (*LookupIdentityPoolPrincipalTagResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupIdentityPoolPrincipalTagResult
 	err := ctx.Invoke("aws-native:cognito:getIdentityPoolPrincipalTag", args, &rv, opts...)
 	if err != nil {

@@ -7,8 +7,11 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type AliasRoutingStrategy struct {
 	// A unique identifier for a fleet that the alias points to. If you specify SIMPLE for the Type property, you must specify this property.

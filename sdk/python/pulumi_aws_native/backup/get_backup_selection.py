@@ -58,8 +58,8 @@ def get_backup_selection(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:backup:getBackupSelection', __args__, opts=opts, typ=GetBackupSelectionResult).value
 
     return AwaitableGetBackupSelectionResult(
-        id=__ret__.id,
-        selection_id=__ret__.selection_id)
+        id=pulumi.get(__ret__, 'id'),
+        selection_id=pulumi.get(__ret__, 'selection_id'))
 
 
 @_utilities.lift_output_func(get_backup_selection)

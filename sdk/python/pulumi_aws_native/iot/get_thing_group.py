@@ -89,11 +89,11 @@ def get_thing_group(thing_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iot:getThingGroup', __args__, opts=opts, typ=GetThingGroupResult).value
 
     return AwaitableGetThingGroupResult(
-        arn=__ret__.arn,
-        id=__ret__.id,
-        query_string=__ret__.query_string,
-        tags=__ret__.tags,
-        thing_group_properties=__ret__.thing_group_properties)
+        arn=pulumi.get(__ret__, 'arn'),
+        id=pulumi.get(__ret__, 'id'),
+        query_string=pulumi.get(__ret__, 'query_string'),
+        tags=pulumi.get(__ret__, 'tags'),
+        thing_group_properties=pulumi.get(__ret__, 'thing_group_properties'))
 
 
 @_utilities.lift_output_func(get_thing_group)

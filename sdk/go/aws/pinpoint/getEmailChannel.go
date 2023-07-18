@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::Pinpoint::EmailChannel
 func LookupEmailChannel(ctx *pulumi.Context, args *LookupEmailChannelArgs, opts ...pulumi.InvokeOption) (*LookupEmailChannelResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEmailChannelResult
 	err := ctx.Invoke("aws-native:pinpoint:getEmailChannel", args, &rv, opts...)
 	if err != nil {

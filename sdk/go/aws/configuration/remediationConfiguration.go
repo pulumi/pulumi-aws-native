@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -45,6 +46,7 @@ func NewRemediationConfiguration(ctx *pulumi.Context,
 	if args.TargetType == nil {
 		return nil, errors.New("invalid value for required argument 'TargetType'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RemediationConfiguration
 	err := ctx.RegisterResource("aws-native:configuration:RemediationConfiguration", name, args, &resource, opts...)
 	if err != nil {

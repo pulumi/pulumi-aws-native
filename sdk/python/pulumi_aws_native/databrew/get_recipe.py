@@ -65,8 +65,8 @@ def get_recipe(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:databrew:getRecipe', __args__, opts=opts, typ=GetRecipeResult).value
 
     return AwaitableGetRecipeResult(
-        description=__ret__.description,
-        steps=__ret__.steps)
+        description=pulumi.get(__ret__, 'description'),
+        steps=pulumi.get(__ret__, 'steps'))
 
 
 @_utilities.lift_output_func(get_recipe)

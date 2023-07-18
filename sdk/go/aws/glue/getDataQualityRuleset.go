@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::Glue::DataQualityRuleset
 func LookupDataQualityRuleset(ctx *pulumi.Context, args *LookupDataQualityRulesetArgs, opts ...pulumi.InvokeOption) (*LookupDataQualityRulesetResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDataQualityRulesetResult
 	err := ctx.Invoke("aws-native:glue:getDataQualityRuleset", args, &rv, opts...)
 	if err != nil {

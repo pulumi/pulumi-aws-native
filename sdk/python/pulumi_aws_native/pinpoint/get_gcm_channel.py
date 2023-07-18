@@ -67,9 +67,9 @@ def get_gcm_channel(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:pinpoint:getGCMChannel', __args__, opts=opts, typ=GetGCMChannelResult).value
 
     return AwaitableGetGCMChannelResult(
-        api_key=__ret__.api_key,
-        enabled=__ret__.enabled,
-        id=__ret__.id)
+        api_key=pulumi.get(__ret__, 'api_key'),
+        enabled=pulumi.get(__ret__, 'enabled'),
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_gcm_channel)

@@ -67,8 +67,8 @@ def get_custom_data_identifier(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:macie:getCustomDataIdentifier', __args__, opts=opts, typ=GetCustomDataIdentifierResult).value
 
     return AwaitableGetCustomDataIdentifierResult(
-        arn=__ret__.arn,
-        id=__ret__.id)
+        arn=pulumi.get(__ret__, 'arn'),
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_custom_data_identifier)

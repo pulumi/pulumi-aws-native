@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Associates an AWS Identity and Access Management (IAM) role with an AWS Certificate Manager (ACM) certificate. This association is based on Amazon Resource Names and it enables the certificate to be used by the ACM for Nitro Enclaves application inside an enclave.
 func LookupEnclaveCertificateIamRoleAssociation(ctx *pulumi.Context, args *LookupEnclaveCertificateIamRoleAssociationArgs, opts ...pulumi.InvokeOption) (*LookupEnclaveCertificateIamRoleAssociationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEnclaveCertificateIamRoleAssociationResult
 	err := ctx.Invoke("aws-native:ec2:getEnclaveCertificateIamRoleAssociation", args, &rv, opts...)
 	if err != nil {

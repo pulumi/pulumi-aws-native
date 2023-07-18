@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Specifies a metric filter that describes how CloudWatch Logs extracts information from logs and transforms it into Amazon CloudWatch metrics.
 func LookupMetricFilter(ctx *pulumi.Context, args *LookupMetricFilterArgs, opts ...pulumi.InvokeOption) (*LookupMetricFilterResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupMetricFilterResult
 	err := ctx.Invoke("aws-native:logs:getMetricFilter", args, &rv, opts...)
 	if err != nil {

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Cost Category enables you to map your cost and usage into meaningful categories. You can use Cost Category to organize your costs using a rule-based engine.
 func LookupCostCategory(ctx *pulumi.Context, args *LookupCostCategoryArgs, opts ...pulumi.InvokeOption) (*LookupCostCategoryResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCostCategoryResult
 	err := ctx.Invoke("aws-native:ce:getCostCategory", args, &rv, opts...)
 	if err != nil {

@@ -95,12 +95,12 @@ def get_network_insights_path(network_insights_path_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getNetworkInsightsPath', __args__, opts=opts, typ=GetNetworkInsightsPathResult).value
 
     return AwaitableGetNetworkInsightsPathResult(
-        created_date=__ret__.created_date,
-        destination_arn=__ret__.destination_arn,
-        network_insights_path_arn=__ret__.network_insights_path_arn,
-        network_insights_path_id=__ret__.network_insights_path_id,
-        source_arn=__ret__.source_arn,
-        tags=__ret__.tags)
+        created_date=pulumi.get(__ret__, 'created_date'),
+        destination_arn=pulumi.get(__ret__, 'destination_arn'),
+        network_insights_path_arn=pulumi.get(__ret__, 'network_insights_path_arn'),
+        network_insights_path_id=pulumi.get(__ret__, 'network_insights_path_id'),
+        source_arn=pulumi.get(__ret__, 'source_arn'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_network_insights_path)

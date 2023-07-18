@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -28,6 +29,7 @@ func NewGraph(ctx *pulumi.Context,
 		args = &GraphArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Graph
 	err := ctx.RegisterResource("aws-native:detective:Graph", name, args, &resource, opts...)
 	if err != nil {

@@ -168,17 +168,17 @@ def get_task_template(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:connect:getTaskTemplate', __args__, opts=opts, typ=GetTaskTemplateResult).value
 
     return AwaitableGetTaskTemplateResult(
-        arn=__ret__.arn,
-        client_token=__ret__.client_token,
-        constraints=__ret__.constraints,
-        contact_flow_arn=__ret__.contact_flow_arn,
-        defaults=__ret__.defaults,
-        description=__ret__.description,
-        fields=__ret__.fields,
-        instance_arn=__ret__.instance_arn,
-        name=__ret__.name,
-        status=__ret__.status,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        client_token=pulumi.get(__ret__, 'client_token'),
+        constraints=pulumi.get(__ret__, 'constraints'),
+        contact_flow_arn=pulumi.get(__ret__, 'contact_flow_arn'),
+        defaults=pulumi.get(__ret__, 'defaults'),
+        description=pulumi.get(__ret__, 'description'),
+        fields=pulumi.get(__ret__, 'fields'),
+        instance_arn=pulumi.get(__ret__, 'instance_arn'),
+        name=pulumi.get(__ret__, 'name'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_task_template)

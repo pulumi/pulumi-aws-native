@@ -148,18 +148,18 @@ def get_route(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getRoute', __args__, opts=opts, typ=GetRouteResult).value
 
     return AwaitableGetRouteResult(
-        carrier_gateway_id=__ret__.carrier_gateway_id,
-        destination_ipv6_cidr_block=__ret__.destination_ipv6_cidr_block,
-        egress_only_internet_gateway_id=__ret__.egress_only_internet_gateway_id,
-        gateway_id=__ret__.gateway_id,
-        id=__ret__.id,
-        instance_id=__ret__.instance_id,
-        local_gateway_id=__ret__.local_gateway_id,
-        nat_gateway_id=__ret__.nat_gateway_id,
-        network_interface_id=__ret__.network_interface_id,
-        transit_gateway_id=__ret__.transit_gateway_id,
-        vpc_endpoint_id=__ret__.vpc_endpoint_id,
-        vpc_peering_connection_id=__ret__.vpc_peering_connection_id)
+        carrier_gateway_id=pulumi.get(__ret__, 'carrier_gateway_id'),
+        destination_ipv6_cidr_block=pulumi.get(__ret__, 'destination_ipv6_cidr_block'),
+        egress_only_internet_gateway_id=pulumi.get(__ret__, 'egress_only_internet_gateway_id'),
+        gateway_id=pulumi.get(__ret__, 'gateway_id'),
+        id=pulumi.get(__ret__, 'id'),
+        instance_id=pulumi.get(__ret__, 'instance_id'),
+        local_gateway_id=pulumi.get(__ret__, 'local_gateway_id'),
+        nat_gateway_id=pulumi.get(__ret__, 'nat_gateway_id'),
+        network_interface_id=pulumi.get(__ret__, 'network_interface_id'),
+        transit_gateway_id=pulumi.get(__ret__, 'transit_gateway_id'),
+        vpc_endpoint_id=pulumi.get(__ret__, 'vpc_endpoint_id'),
+        vpc_peering_connection_id=pulumi.get(__ret__, 'vpc_peering_connection_id'))
 
 
 @_utilities.lift_output_func(get_route)

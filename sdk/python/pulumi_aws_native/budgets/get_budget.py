@@ -59,8 +59,8 @@ def get_budget(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:budgets:getBudget', __args__, opts=opts, typ=GetBudgetResult).value
 
     return AwaitableGetBudgetResult(
-        budget=__ret__.budget,
-        id=__ret__.id)
+        budget=pulumi.get(__ret__, 'budget'),
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_budget)

@@ -113,14 +113,14 @@ def get_container(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:mediastore:getContainer', __args__, opts=opts, typ=GetContainerResult).value
 
     return AwaitableGetContainerResult(
-        access_logging_enabled=__ret__.access_logging_enabled,
-        cors_policy=__ret__.cors_policy,
-        endpoint=__ret__.endpoint,
-        id=__ret__.id,
-        lifecycle_policy=__ret__.lifecycle_policy,
-        metric_policy=__ret__.metric_policy,
-        policy=__ret__.policy,
-        tags=__ret__.tags)
+        access_logging_enabled=pulumi.get(__ret__, 'access_logging_enabled'),
+        cors_policy=pulumi.get(__ret__, 'cors_policy'),
+        endpoint=pulumi.get(__ret__, 'endpoint'),
+        id=pulumi.get(__ret__, 'id'),
+        lifecycle_policy=pulumi.get(__ret__, 'lifecycle_policy'),
+        metric_policy=pulumi.get(__ret__, 'metric_policy'),
+        policy=pulumi.get(__ret__, 'policy'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_container)

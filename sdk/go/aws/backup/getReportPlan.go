@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Contains detailed information about a report plan in AWS Backup Audit Manager.
 func LookupReportPlan(ctx *pulumi.Context, args *LookupReportPlanArgs, opts ...pulumi.InvokeOption) (*LookupReportPlanResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupReportPlanResult
 	err := ctx.Invoke("aws-native:backup:getReportPlan", args, &rv, opts...)
 	if err != nil {

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Creates an AWS Firewall Manager resource set.
 func LookupResourceSet(ctx *pulumi.Context, args *LookupResourceSetArgs, opts ...pulumi.InvokeOption) (*LookupResourceSetResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResourceSetResult
 	err := ctx.Invoke("aws-native:fms:getResourceSet", args, &rv, opts...)
 	if err != nil {

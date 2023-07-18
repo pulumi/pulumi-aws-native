@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::ServiceCatalog::PortfolioPrincipalAssociation
 func LookupPortfolioPrincipalAssociation(ctx *pulumi.Context, args *LookupPortfolioPrincipalAssociationArgs, opts ...pulumi.InvokeOption) (*LookupPortfolioPrincipalAssociationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPortfolioPrincipalAssociationResult
 	err := ctx.Invoke("aws-native:servicecatalog:getPortfolioPrincipalAssociation", args, &rv, opts...)
 	if err != nil {

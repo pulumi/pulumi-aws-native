@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::AppFlow::ConnectorProfile
 func LookupConnectorProfile(ctx *pulumi.Context, args *LookupConnectorProfileArgs, opts ...pulumi.InvokeOption) (*LookupConnectorProfileResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupConnectorProfileResult
 	err := ctx.Invoke("aws-native:appflow:getConnectorProfile", args, &rv, opts...)
 	if err != nil {

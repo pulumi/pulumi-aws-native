@@ -153,15 +153,15 @@ def get_prefix_list(prefix_list_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getPrefixList', __args__, opts=opts, typ=GetPrefixListResult).value
 
     return AwaitableGetPrefixListResult(
-        address_family=__ret__.address_family,
-        arn=__ret__.arn,
-        entries=__ret__.entries,
-        max_entries=__ret__.max_entries,
-        owner_id=__ret__.owner_id,
-        prefix_list_id=__ret__.prefix_list_id,
-        prefix_list_name=__ret__.prefix_list_name,
-        tags=__ret__.tags,
-        version=__ret__.version)
+        address_family=pulumi.get(__ret__, 'address_family'),
+        arn=pulumi.get(__ret__, 'arn'),
+        entries=pulumi.get(__ret__, 'entries'),
+        max_entries=pulumi.get(__ret__, 'max_entries'),
+        owner_id=pulumi.get(__ret__, 'owner_id'),
+        prefix_list_id=pulumi.get(__ret__, 'prefix_list_id'),
+        prefix_list_name=pulumi.get(__ret__, 'prefix_list_name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_prefix_list)

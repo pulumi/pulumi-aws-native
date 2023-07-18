@@ -95,12 +95,12 @@ def get_domain_name(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:apigatewayv2:getDomainName', __args__, opts=opts, typ=GetDomainNameResult).value
 
     return AwaitableGetDomainNameResult(
-        domain_name_configurations=__ret__.domain_name_configurations,
-        id=__ret__.id,
-        mutual_tls_authentication=__ret__.mutual_tls_authentication,
-        regional_domain_name=__ret__.regional_domain_name,
-        regional_hosted_zone_id=__ret__.regional_hosted_zone_id,
-        tags=__ret__.tags)
+        domain_name_configurations=pulumi.get(__ret__, 'domain_name_configurations'),
+        id=pulumi.get(__ret__, 'id'),
+        mutual_tls_authentication=pulumi.get(__ret__, 'mutual_tls_authentication'),
+        regional_domain_name=pulumi.get(__ret__, 'regional_domain_name'),
+        regional_hosted_zone_id=pulumi.get(__ret__, 'regional_hosted_zone_id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_domain_name)

@@ -53,7 +53,7 @@ def cidr(cidr_bits: Optional[int] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:index:cidr', __args__, opts=opts, typ=CidrResult).value
 
     return AwaitableCidrResult(
-        subnets=__ret__.subnets)
+        subnets=pulumi.get(__ret__, 'subnets'))
 
 
 @_utilities.lift_output_func(cidr)

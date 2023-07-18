@@ -125,13 +125,13 @@ def get_database(relational_database_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:lightsail:getDatabase', __args__, opts=opts, typ=GetDatabaseResult).value
 
     return AwaitableGetDatabaseResult(
-        backup_retention=__ret__.backup_retention,
-        ca_certificate_identifier=__ret__.ca_certificate_identifier,
-        database_arn=__ret__.database_arn,
-        preferred_backup_window=__ret__.preferred_backup_window,
-        preferred_maintenance_window=__ret__.preferred_maintenance_window,
-        publicly_accessible=__ret__.publicly_accessible,
-        tags=__ret__.tags)
+        backup_retention=pulumi.get(__ret__, 'backup_retention'),
+        ca_certificate_identifier=pulumi.get(__ret__, 'ca_certificate_identifier'),
+        database_arn=pulumi.get(__ret__, 'database_arn'),
+        preferred_backup_window=pulumi.get(__ret__, 'preferred_backup_window'),
+        preferred_maintenance_window=pulumi.get(__ret__, 'preferred_maintenance_window'),
+        publicly_accessible=pulumi.get(__ret__, 'publicly_accessible'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_database)

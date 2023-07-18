@@ -58,8 +58,8 @@ def get_robot_application_version(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:robomaker:getRobotApplicationVersion', __args__, opts=opts, typ=GetRobotApplicationVersionResult).value
 
     return AwaitableGetRobotApplicationVersionResult(
-        application_version=__ret__.application_version,
-        arn=__ret__.arn)
+        application_version=pulumi.get(__ret__, 'application_version'),
+        arn=pulumi.get(__ret__, 'arn'))
 
 
 @_utilities.lift_output_func(get_robot_application_version)

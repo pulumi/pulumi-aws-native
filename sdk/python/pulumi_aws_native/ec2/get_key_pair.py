@@ -67,8 +67,8 @@ def get_key_pair(key_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getKeyPair', __args__, opts=opts, typ=GetKeyPairResult).value
 
     return AwaitableGetKeyPairResult(
-        key_fingerprint=__ret__.key_fingerprint,
-        key_pair_id=__ret__.key_pair_id)
+        key_fingerprint=pulumi.get(__ret__, 'key_fingerprint'),
+        key_pair_id=pulumi.get(__ret__, 'key_pair_id'))
 
 
 @_utilities.lift_output_func(get_key_pair)

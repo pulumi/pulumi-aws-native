@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Definition of AWS::Omics::ReferenceStore Resource Type
 func LookupReferenceStore(ctx *pulumi.Context, args *LookupReferenceStoreArgs, opts ...pulumi.InvokeOption) (*LookupReferenceStoreResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupReferenceStoreResult
 	err := ctx.Invoke("aws-native:omics:getReferenceStore", args, &rv, opts...)
 	if err != nil {

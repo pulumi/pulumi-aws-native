@@ -92,10 +92,10 @@ def get_connection(connection_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:codestarconnections:getConnection', __args__, opts=opts, typ=GetConnectionResult).value
 
     return AwaitableGetConnectionResult(
-        connection_arn=__ret__.connection_arn,
-        connection_status=__ret__.connection_status,
-        owner_account_id=__ret__.owner_account_id,
-        tags=__ret__.tags)
+        connection_arn=pulumi.get(__ret__, 'connection_arn'),
+        connection_status=pulumi.get(__ret__, 'connection_status'),
+        owner_account_id=pulumi.get(__ret__, 'owner_account_id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_connection)

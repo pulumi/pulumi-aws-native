@@ -129,13 +129,13 @@ def get_connector(connector_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:transfer:getConnector', __args__, opts=opts, typ=GetConnectorResult).value
 
     return AwaitableGetConnectorResult(
-        access_role=__ret__.access_role,
-        arn=__ret__.arn,
-        as2_config=__ret__.as2_config,
-        connector_id=__ret__.connector_id,
-        logging_role=__ret__.logging_role,
-        tags=__ret__.tags,
-        url=__ret__.url)
+        access_role=pulumi.get(__ret__, 'access_role'),
+        arn=pulumi.get(__ret__, 'arn'),
+        as2_config=pulumi.get(__ret__, 'as2_config'),
+        connector_id=pulumi.get(__ret__, 'connector_id'),
+        logging_role=pulumi.get(__ret__, 'logging_role'),
+        tags=pulumi.get(__ret__, 'tags'),
+        url=pulumi.get(__ret__, 'url'))
 
 
 @_utilities.lift_output_func(get_connector)

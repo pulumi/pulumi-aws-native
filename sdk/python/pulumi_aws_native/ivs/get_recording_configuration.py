@@ -81,9 +81,9 @@ def get_recording_configuration(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ivs:getRecordingConfiguration', __args__, opts=opts, typ=GetRecordingConfigurationResult).value
 
     return AwaitableGetRecordingConfigurationResult(
-        arn=__ret__.arn,
-        state=__ret__.state,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        state=pulumi.get(__ret__, 'state'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_recording_configuration)

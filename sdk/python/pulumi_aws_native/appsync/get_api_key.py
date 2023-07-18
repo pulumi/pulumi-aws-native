@@ -85,11 +85,11 @@ def get_api_key(api_key_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:appsync:getApiKey', __args__, opts=opts, typ=GetApiKeyResult).value
 
     return AwaitableGetApiKeyResult(
-        api_key=__ret__.api_key,
-        api_key_id=__ret__.api_key_id,
-        arn=__ret__.arn,
-        description=__ret__.description,
-        expires=__ret__.expires)
+        api_key=pulumi.get(__ret__, 'api_key'),
+        api_key_id=pulumi.get(__ret__, 'api_key_id'),
+        arn=pulumi.get(__ret__, 'arn'),
+        description=pulumi.get(__ret__, 'description'),
+        expires=pulumi.get(__ret__, 'expires'))
 
 
 @_utilities.lift_output_func(get_api_key)

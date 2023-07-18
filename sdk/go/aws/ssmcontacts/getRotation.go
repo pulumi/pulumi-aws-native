@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::SSMContacts::Rotation.
 func LookupRotation(ctx *pulumi.Context, args *LookupRotationArgs, opts ...pulumi.InvokeOption) (*LookupRotationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRotationResult
 	err := ctx.Invoke("aws-native:ssmcontacts:getRotation", args, &rv, opts...)
 	if err != nil {

@@ -58,7 +58,7 @@ def get_resource(resource_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:apigateway:getResource', __args__, opts=opts, typ=GetResourceResult).value
 
     return AwaitableGetResourceResult(
-        resource_id=__ret__.resource_id)
+        resource_id=pulumi.get(__ret__, 'resource_id'))
 
 
 @_utilities.lift_output_func(get_resource)

@@ -95,12 +95,12 @@ def get_function(function_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cloudfront:getFunction', __args__, opts=opts, typ=GetFunctionResult).value
 
     return AwaitableGetFunctionResult(
-        function_arn=__ret__.function_arn,
-        function_code=__ret__.function_code,
-        function_config=__ret__.function_config,
-        function_metadata=__ret__.function_metadata,
-        name=__ret__.name,
-        stage=__ret__.stage)
+        function_arn=pulumi.get(__ret__, 'function_arn'),
+        function_code=pulumi.get(__ret__, 'function_code'),
+        function_config=pulumi.get(__ret__, 'function_config'),
+        function_metadata=pulumi.get(__ret__, 'function_metadata'),
+        name=pulumi.get(__ret__, 'name'),
+        stage=pulumi.get(__ret__, 'stage'))
 
 
 @_utilities.lift_output_func(get_function)

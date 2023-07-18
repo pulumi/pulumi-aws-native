@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -29,6 +30,7 @@ func NewPackage(ctx *pulumi.Context,
 		args = &PackageArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Package
 	err := ctx.RegisterResource("aws-native:panorama:Package", name, args, &resource, opts...)
 	if err != nil {

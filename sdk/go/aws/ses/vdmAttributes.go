@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,6 +28,7 @@ func NewVdmAttributes(ctx *pulumi.Context,
 		args = &VdmAttributesArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VdmAttributes
 	err := ctx.RegisterResource("aws-native:ses:VdmAttributes", name, args, &resource, opts...)
 	if err != nil {

@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -44,6 +45,7 @@ func NewLocationEFS(ctx *pulumi.Context,
 	if args.Ec2Config == nil {
 		return nil, errors.New("invalid value for required argument 'Ec2Config'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LocationEFS
 	err := ctx.RegisterResource("aws-native:datasync:LocationEFS", name, args, &resource, opts...)
 	if err != nil {

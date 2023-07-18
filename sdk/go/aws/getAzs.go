@@ -7,10 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func GetAzs(ctx *pulumi.Context, args *GetAzsArgs, opts ...pulumi.InvokeOption) (*GetAzsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAzsResult
 	err := ctx.Invoke("aws-native:index:getAzs", args, &rv, opts...)
 	if err != nil {

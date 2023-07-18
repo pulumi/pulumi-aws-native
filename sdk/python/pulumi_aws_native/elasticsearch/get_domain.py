@@ -203,24 +203,24 @@ def get_domain(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:elasticsearch:getDomain', __args__, opts=opts, typ=GetDomainResult).value
 
     return AwaitableGetDomainResult(
-        access_policies=__ret__.access_policies,
-        advanced_options=__ret__.advanced_options,
-        advanced_security_options=__ret__.advanced_security_options,
-        arn=__ret__.arn,
-        cognito_options=__ret__.cognito_options,
-        domain_arn=__ret__.domain_arn,
-        domain_endpoint=__ret__.domain_endpoint,
-        domain_endpoint_options=__ret__.domain_endpoint_options,
-        e_bs_options=__ret__.e_bs_options,
-        elasticsearch_cluster_config=__ret__.elasticsearch_cluster_config,
-        elasticsearch_version=__ret__.elasticsearch_version,
-        encryption_at_rest_options=__ret__.encryption_at_rest_options,
-        id=__ret__.id,
-        log_publishing_options=__ret__.log_publishing_options,
-        node_to_node_encryption_options=__ret__.node_to_node_encryption_options,
-        snapshot_options=__ret__.snapshot_options,
-        tags=__ret__.tags,
-        v_pc_options=__ret__.v_pc_options)
+        access_policies=pulumi.get(__ret__, 'access_policies'),
+        advanced_options=pulumi.get(__ret__, 'advanced_options'),
+        advanced_security_options=pulumi.get(__ret__, 'advanced_security_options'),
+        arn=pulumi.get(__ret__, 'arn'),
+        cognito_options=pulumi.get(__ret__, 'cognito_options'),
+        domain_arn=pulumi.get(__ret__, 'domain_arn'),
+        domain_endpoint=pulumi.get(__ret__, 'domain_endpoint'),
+        domain_endpoint_options=pulumi.get(__ret__, 'domain_endpoint_options'),
+        e_bs_options=pulumi.get(__ret__, 'e_bs_options'),
+        elasticsearch_cluster_config=pulumi.get(__ret__, 'elasticsearch_cluster_config'),
+        elasticsearch_version=pulumi.get(__ret__, 'elasticsearch_version'),
+        encryption_at_rest_options=pulumi.get(__ret__, 'encryption_at_rest_options'),
+        id=pulumi.get(__ret__, 'id'),
+        log_publishing_options=pulumi.get(__ret__, 'log_publishing_options'),
+        node_to_node_encryption_options=pulumi.get(__ret__, 'node_to_node_encryption_options'),
+        snapshot_options=pulumi.get(__ret__, 'snapshot_options'),
+        tags=pulumi.get(__ret__, 'tags'),
+        v_pc_options=pulumi.get(__ret__, 'v_pc_options'))
 
 
 @_utilities.lift_output_func(get_domain)

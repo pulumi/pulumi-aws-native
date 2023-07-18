@@ -68,8 +68,8 @@ def get_internet_gateway(internet_gateway_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getInternetGateway', __args__, opts=opts, typ=GetInternetGatewayResult).value
 
     return AwaitableGetInternetGatewayResult(
-        internet_gateway_id=__ret__.internet_gateway_id,
-        tags=__ret__.tags)
+        internet_gateway_id=pulumi.get(__ret__, 'internet_gateway_id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_internet_gateway)

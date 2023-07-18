@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -37,6 +38,7 @@ func NewControlPanel(ctx *pulumi.Context,
 		args = &ControlPanelArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ControlPanel
 	err := ctx.RegisterResource("aws-native:route53recoverycontrol:ControlPanel", name, args, &resource, opts...)
 	if err != nil {

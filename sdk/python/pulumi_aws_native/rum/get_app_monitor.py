@@ -108,12 +108,12 @@ def get_app_monitor(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:rum:getAppMonitor', __args__, opts=opts, typ=GetAppMonitorResult).value
 
     return AwaitableGetAppMonitorResult(
-        app_monitor_configuration=__ret__.app_monitor_configuration,
-        custom_events=__ret__.custom_events,
-        cw_log_enabled=__ret__.cw_log_enabled,
-        domain=__ret__.domain,
-        id=__ret__.id,
-        tags=__ret__.tags)
+        app_monitor_configuration=pulumi.get(__ret__, 'app_monitor_configuration'),
+        custom_events=pulumi.get(__ret__, 'custom_events'),
+        cw_log_enabled=pulumi.get(__ret__, 'cw_log_enabled'),
+        domain=pulumi.get(__ret__, 'domain'),
+        id=pulumi.get(__ret__, 'id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_app_monitor)

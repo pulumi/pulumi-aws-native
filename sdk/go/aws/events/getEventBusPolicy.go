@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::Events::EventBusPolicy
 func LookupEventBusPolicy(ctx *pulumi.Context, args *LookupEventBusPolicyArgs, opts ...pulumi.InvokeOption) (*LookupEventBusPolicyResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEventBusPolicyResult
 	err := ctx.Invoke("aws-native:events:getEventBusPolicy", args, &rv, opts...)
 	if err != nil {

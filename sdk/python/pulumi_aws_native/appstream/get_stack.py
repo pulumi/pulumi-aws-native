@@ -167,20 +167,20 @@ def get_stack(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:appstream:getStack', __args__, opts=opts, typ=GetStackResult).value
 
     return AwaitableGetStackResult(
-        access_endpoints=__ret__.access_endpoints,
-        application_settings=__ret__.application_settings,
-        attributes_to_delete=__ret__.attributes_to_delete,
-        delete_storage_connectors=__ret__.delete_storage_connectors,
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        embed_host_domains=__ret__.embed_host_domains,
-        feedback_url=__ret__.feedback_url,
-        id=__ret__.id,
-        redirect_url=__ret__.redirect_url,
-        storage_connectors=__ret__.storage_connectors,
-        streaming_experience_settings=__ret__.streaming_experience_settings,
-        tags=__ret__.tags,
-        user_settings=__ret__.user_settings)
+        access_endpoints=pulumi.get(__ret__, 'access_endpoints'),
+        application_settings=pulumi.get(__ret__, 'application_settings'),
+        attributes_to_delete=pulumi.get(__ret__, 'attributes_to_delete'),
+        delete_storage_connectors=pulumi.get(__ret__, 'delete_storage_connectors'),
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        embed_host_domains=pulumi.get(__ret__, 'embed_host_domains'),
+        feedback_url=pulumi.get(__ret__, 'feedback_url'),
+        id=pulumi.get(__ret__, 'id'),
+        redirect_url=pulumi.get(__ret__, 'redirect_url'),
+        storage_connectors=pulumi.get(__ret__, 'storage_connectors'),
+        streaming_experience_settings=pulumi.get(__ret__, 'streaming_experience_settings'),
+        tags=pulumi.get(__ret__, 'tags'),
+        user_settings=pulumi.get(__ret__, 'user_settings'))
 
 
 @_utilities.lift_output_func(get_stack)

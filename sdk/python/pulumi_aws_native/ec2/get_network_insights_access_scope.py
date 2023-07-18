@@ -86,11 +86,11 @@ def get_network_insights_access_scope(network_insights_access_scope_id: Optional
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getNetworkInsightsAccessScope', __args__, opts=opts, typ=GetNetworkInsightsAccessScopeResult).value
 
     return AwaitableGetNetworkInsightsAccessScopeResult(
-        created_date=__ret__.created_date,
-        network_insights_access_scope_arn=__ret__.network_insights_access_scope_arn,
-        network_insights_access_scope_id=__ret__.network_insights_access_scope_id,
-        tags=__ret__.tags,
-        updated_date=__ret__.updated_date)
+        created_date=pulumi.get(__ret__, 'created_date'),
+        network_insights_access_scope_arn=pulumi.get(__ret__, 'network_insights_access_scope_arn'),
+        network_insights_access_scope_id=pulumi.get(__ret__, 'network_insights_access_scope_id'),
+        tags=pulumi.get(__ret__, 'tags'),
+        updated_date=pulumi.get(__ret__, 'updated_date'))
 
 
 @_utilities.lift_output_func(get_network_insights_access_scope)

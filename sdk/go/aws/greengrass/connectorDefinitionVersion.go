@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -34,6 +35,7 @@ func NewConnectorDefinitionVersion(ctx *pulumi.Context,
 	if args.Connectors == nil {
 		return nil, errors.New("invalid value for required argument 'Connectors'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ConnectorDefinitionVersion
 	err := ctx.RegisterResource("aws-native:greengrass:ConnectorDefinitionVersion", name, args, &resource, opts...)
 	if err != nil {

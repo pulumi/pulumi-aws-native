@@ -58,7 +58,7 @@ def get_member_invitation(graph_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:detective:getMemberInvitation', __args__, opts=opts, typ=GetMemberInvitationResult).value
 
     return AwaitableGetMemberInvitationResult(
-        member_email_address=__ret__.member_email_address)
+        member_email_address=pulumi.get(__ret__, 'member_email_address'))
 
 
 @_utilities.lift_output_func(get_member_invitation)

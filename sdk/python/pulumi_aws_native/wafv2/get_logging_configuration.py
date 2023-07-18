@@ -93,10 +93,10 @@ def get_logging_configuration(resource_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:wafv2:getLoggingConfiguration', __args__, opts=opts, typ=GetLoggingConfigurationResult).value
 
     return AwaitableGetLoggingConfigurationResult(
-        log_destination_configs=__ret__.log_destination_configs,
-        logging_filter=__ret__.logging_filter,
-        managed_by_firewall_manager=__ret__.managed_by_firewall_manager,
-        redacted_fields=__ret__.redacted_fields)
+        log_destination_configs=pulumi.get(__ret__, 'log_destination_configs'),
+        logging_filter=pulumi.get(__ret__, 'logging_filter'),
+        managed_by_firewall_manager=pulumi.get(__ret__, 'managed_by_firewall_manager'),
+        redacted_fields=pulumi.get(__ret__, 'redacted_fields'))
 
 
 @_utilities.lift_output_func(get_logging_configuration)

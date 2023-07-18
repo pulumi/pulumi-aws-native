@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // The AWS::Timestream::Table resource creates a Timestream Table.
 func LookupTable(ctx *pulumi.Context, args *LookupTableArgs, opts ...pulumi.InvokeOption) (*LookupTableResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTableResult
 	err := ctx.Invoke("aws-native:timestream:getTable", args, &rv, opts...)
 	if err != nil {

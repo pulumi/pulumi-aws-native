@@ -129,13 +129,13 @@ def get_inference_scheduler(inference_scheduler_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:lookoutequipment:getInferenceScheduler', __args__, opts=opts, typ=GetInferenceSchedulerResult).value
 
     return AwaitableGetInferenceSchedulerResult(
-        data_delay_offset_in_minutes=__ret__.data_delay_offset_in_minutes,
-        data_input_configuration=__ret__.data_input_configuration,
-        data_output_configuration=__ret__.data_output_configuration,
-        data_upload_frequency=__ret__.data_upload_frequency,
-        inference_scheduler_arn=__ret__.inference_scheduler_arn,
-        role_arn=__ret__.role_arn,
-        tags=__ret__.tags)
+        data_delay_offset_in_minutes=pulumi.get(__ret__, 'data_delay_offset_in_minutes'),
+        data_input_configuration=pulumi.get(__ret__, 'data_input_configuration'),
+        data_output_configuration=pulumi.get(__ret__, 'data_output_configuration'),
+        data_upload_frequency=pulumi.get(__ret__, 'data_upload_frequency'),
+        inference_scheduler_arn=pulumi.get(__ret__, 'inference_scheduler_arn'),
+        role_arn=pulumi.get(__ret__, 'role_arn'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_inference_scheduler)

@@ -85,11 +85,11 @@ def get_core_definition(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:greengrass:getCoreDefinition', __args__, opts=opts, typ=GetCoreDefinitionResult).value
 
     return AwaitableGetCoreDefinitionResult(
-        arn=__ret__.arn,
-        id=__ret__.id,
-        latest_version_arn=__ret__.latest_version_arn,
-        name=__ret__.name,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        id=pulumi.get(__ret__, 'id'),
+        latest_version_arn=pulumi.get(__ret__, 'latest_version_arn'),
+        name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_core_definition)

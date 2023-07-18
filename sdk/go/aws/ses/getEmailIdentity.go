@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::SES::EmailIdentity
 func LookupEmailIdentity(ctx *pulumi.Context, args *LookupEmailIdentityArgs, opts ...pulumi.InvokeOption) (*LookupEmailIdentityResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEmailIdentityResult
 	err := ctx.Invoke("aws-native:ses:getEmailIdentity", args, &rv, opts...)
 	if err != nil {

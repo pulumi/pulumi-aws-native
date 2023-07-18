@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::IoTThingsGraph::FlowTemplate
 func LookupFlowTemplate(ctx *pulumi.Context, args *LookupFlowTemplateArgs, opts ...pulumi.InvokeOption) (*LookupFlowTemplateResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFlowTemplateResult
 	err := ctx.Invoke("aws-native:iotthingsgraph:getFlowTemplate", args, &rv, opts...)
 	if err != nil {

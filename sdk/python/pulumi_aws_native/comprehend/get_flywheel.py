@@ -86,11 +86,11 @@ def get_flywheel(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:comprehend:getFlywheel', __args__, opts=opts, typ=GetFlywheelResult).value
 
     return AwaitableGetFlywheelResult(
-        active_model_arn=__ret__.active_model_arn,
-        arn=__ret__.arn,
-        data_access_role_arn=__ret__.data_access_role_arn,
-        data_security_config=__ret__.data_security_config,
-        tags=__ret__.tags)
+        active_model_arn=pulumi.get(__ret__, 'active_model_arn'),
+        arn=pulumi.get(__ret__, 'arn'),
+        data_access_role_arn=pulumi.get(__ret__, 'data_access_role_arn'),
+        data_security_config=pulumi.get(__ret__, 'data_security_config'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_flywheel)

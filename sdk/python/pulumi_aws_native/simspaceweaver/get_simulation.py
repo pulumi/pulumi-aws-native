@@ -55,7 +55,7 @@ def get_simulation(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:simspaceweaver:getSimulation', __args__, opts=opts, typ=GetSimulationResult).value
 
     return AwaitableGetSimulationResult(
-        describe_payload=__ret__.describe_payload)
+        describe_payload=pulumi.get(__ret__, 'describe_payload'))
 
 
 @_utilities.lift_output_func(get_simulation)

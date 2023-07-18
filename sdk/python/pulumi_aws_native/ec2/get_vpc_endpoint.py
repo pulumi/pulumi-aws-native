@@ -136,15 +136,15 @@ def get_vpc_endpoint(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getVPCEndpoint', __args__, opts=opts, typ=GetVPCEndpointResult).value
 
     return AwaitableGetVPCEndpointResult(
-        creation_timestamp=__ret__.creation_timestamp,
-        dns_entries=__ret__.dns_entries,
-        id=__ret__.id,
-        network_interface_ids=__ret__.network_interface_ids,
-        policy_document=__ret__.policy_document,
-        private_dns_enabled=__ret__.private_dns_enabled,
-        route_table_ids=__ret__.route_table_ids,
-        security_group_ids=__ret__.security_group_ids,
-        subnet_ids=__ret__.subnet_ids)
+        creation_timestamp=pulumi.get(__ret__, 'creation_timestamp'),
+        dns_entries=pulumi.get(__ret__, 'dns_entries'),
+        id=pulumi.get(__ret__, 'id'),
+        network_interface_ids=pulumi.get(__ret__, 'network_interface_ids'),
+        policy_document=pulumi.get(__ret__, 'policy_document'),
+        private_dns_enabled=pulumi.get(__ret__, 'private_dns_enabled'),
+        route_table_ids=pulumi.get(__ret__, 'route_table_ids'),
+        security_group_ids=pulumi.get(__ret__, 'security_group_ids'),
+        subnet_ids=pulumi.get(__ret__, 'subnet_ids'))
 
 
 @_utilities.lift_output_func(get_vpc_endpoint)

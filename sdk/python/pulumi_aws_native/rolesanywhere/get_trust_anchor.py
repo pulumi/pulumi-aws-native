@@ -96,12 +96,12 @@ def get_trust_anchor(trust_anchor_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:rolesanywhere:getTrustAnchor', __args__, opts=opts, typ=GetTrustAnchorResult).value
 
     return AwaitableGetTrustAnchorResult(
-        enabled=__ret__.enabled,
-        name=__ret__.name,
-        source=__ret__.source,
-        tags=__ret__.tags,
-        trust_anchor_arn=__ret__.trust_anchor_arn,
-        trust_anchor_id=__ret__.trust_anchor_id)
+        enabled=pulumi.get(__ret__, 'enabled'),
+        name=pulumi.get(__ret__, 'name'),
+        source=pulumi.get(__ret__, 'source'),
+        tags=pulumi.get(__ret__, 'tags'),
+        trust_anchor_arn=pulumi.get(__ret__, 'trust_anchor_arn'),
+        trust_anchor_id=pulumi.get(__ret__, 'trust_anchor_id'))
 
 
 @_utilities.lift_output_func(get_trust_anchor)

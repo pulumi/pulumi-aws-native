@@ -176,21 +176,21 @@ def get_resolver(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:appsync:getResolver', __args__, opts=opts, typ=GetResolverResult).value
 
     return AwaitableGetResolverResult(
-        caching_config=__ret__.caching_config,
-        code=__ret__.code,
-        code_s3_location=__ret__.code_s3_location,
-        data_source_name=__ret__.data_source_name,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        max_batch_size=__ret__.max_batch_size,
-        pipeline_config=__ret__.pipeline_config,
-        request_mapping_template=__ret__.request_mapping_template,
-        request_mapping_template_s3_location=__ret__.request_mapping_template_s3_location,
-        resolver_arn=__ret__.resolver_arn,
-        response_mapping_template=__ret__.response_mapping_template,
-        response_mapping_template_s3_location=__ret__.response_mapping_template_s3_location,
-        runtime=__ret__.runtime,
-        sync_config=__ret__.sync_config)
+        caching_config=pulumi.get(__ret__, 'caching_config'),
+        code=pulumi.get(__ret__, 'code'),
+        code_s3_location=pulumi.get(__ret__, 'code_s3_location'),
+        data_source_name=pulumi.get(__ret__, 'data_source_name'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        max_batch_size=pulumi.get(__ret__, 'max_batch_size'),
+        pipeline_config=pulumi.get(__ret__, 'pipeline_config'),
+        request_mapping_template=pulumi.get(__ret__, 'request_mapping_template'),
+        request_mapping_template_s3_location=pulumi.get(__ret__, 'request_mapping_template_s3_location'),
+        resolver_arn=pulumi.get(__ret__, 'resolver_arn'),
+        response_mapping_template=pulumi.get(__ret__, 'response_mapping_template'),
+        response_mapping_template_s3_location=pulumi.get(__ret__, 'response_mapping_template_s3_location'),
+        runtime=pulumi.get(__ret__, 'runtime'),
+        sync_config=pulumi.get(__ret__, 'sync_config'))
 
 
 @_utilities.lift_output_func(get_resolver)

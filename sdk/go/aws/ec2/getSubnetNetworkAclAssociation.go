@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::EC2::SubnetNetworkAclAssociation
 func LookupSubnetNetworkAclAssociation(ctx *pulumi.Context, args *LookupSubnetNetworkAclAssociationArgs, opts ...pulumi.InvokeOption) (*LookupSubnetNetworkAclAssociationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSubnetNetworkAclAssociationResult
 	err := ctx.Invoke("aws-native:ec2:getSubnetNetworkAclAssociation", args, &rv, opts...)
 	if err != nil {

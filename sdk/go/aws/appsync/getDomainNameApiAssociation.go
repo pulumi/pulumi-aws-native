@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::AppSync::DomainNameApiAssociation
 func LookupDomainNameApiAssociation(ctx *pulumi.Context, args *LookupDomainNameApiAssociationArgs, opts ...pulumi.InvokeOption) (*LookupDomainNameApiAssociationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDomainNameApiAssociationResult
 	err := ctx.Invoke("aws-native:appsync:getDomainNameApiAssociation", args, &rv, opts...)
 	if err != nil {

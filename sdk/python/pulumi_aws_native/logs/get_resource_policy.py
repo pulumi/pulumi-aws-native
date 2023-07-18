@@ -55,7 +55,7 @@ def get_resource_policy(policy_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:logs:getResourcePolicy', __args__, opts=opts, typ=GetResourcePolicyResult).value
 
     return AwaitableGetResourcePolicyResult(
-        policy_document=__ret__.policy_document)
+        policy_document=pulumi.get(__ret__, 'policy_document'))
 
 
 @_utilities.lift_output_func(get_resource_policy)

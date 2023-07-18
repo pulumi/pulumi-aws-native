@@ -137,14 +137,14 @@ def get_container(service_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:lightsail:getContainer', __args__, opts=opts, typ=GetContainerResult).value
 
     return AwaitableGetContainerResult(
-        container_arn=__ret__.container_arn,
-        container_service_deployment=__ret__.container_service_deployment,
-        is_disabled=__ret__.is_disabled,
-        power=__ret__.power,
-        public_domain_names=__ret__.public_domain_names,
-        scale=__ret__.scale,
-        tags=__ret__.tags,
-        url=__ret__.url)
+        container_arn=pulumi.get(__ret__, 'container_arn'),
+        container_service_deployment=pulumi.get(__ret__, 'container_service_deployment'),
+        is_disabled=pulumi.get(__ret__, 'is_disabled'),
+        power=pulumi.get(__ret__, 'power'),
+        public_domain_names=pulumi.get(__ret__, 'public_domain_names'),
+        scale=pulumi.get(__ret__, 'scale'),
+        tags=pulumi.get(__ret__, 'tags'),
+        url=pulumi.get(__ret__, 'url'))
 
 
 @_utilities.lift_output_func(get_container)

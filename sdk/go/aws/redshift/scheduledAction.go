@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -43,6 +44,7 @@ func NewScheduledAction(ctx *pulumi.Context,
 		args = &ScheduledActionArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ScheduledAction
 	err := ctx.RegisterResource("aws-native:redshift:ScheduledAction", name, args, &resource, opts...)
 	if err != nil {

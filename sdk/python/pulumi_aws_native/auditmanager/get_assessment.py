@@ -132,15 +132,15 @@ def get_assessment(assessment_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:auditmanager:getAssessment', __args__, opts=opts, typ=GetAssessmentResult).value
 
     return AwaitableGetAssessmentResult(
-        arn=__ret__.arn,
-        assessment_id=__ret__.assessment_id,
-        assessment_reports_destination=__ret__.assessment_reports_destination,
-        creation_time=__ret__.creation_time,
-        delegations=__ret__.delegations,
-        roles=__ret__.roles,
-        scope=__ret__.scope,
-        status=__ret__.status,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        assessment_id=pulumi.get(__ret__, 'assessment_id'),
+        assessment_reports_destination=pulumi.get(__ret__, 'assessment_reports_destination'),
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        delegations=pulumi.get(__ret__, 'delegations'),
+        roles=pulumi.get(__ret__, 'roles'),
+        scope=pulumi.get(__ret__, 'scope'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_assessment)

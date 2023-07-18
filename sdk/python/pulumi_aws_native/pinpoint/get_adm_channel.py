@@ -76,10 +76,10 @@ def get_adm_channel(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:pinpoint:getADMChannel', __args__, opts=opts, typ=GetADMChannelResult).value
 
     return AwaitableGetADMChannelResult(
-        client_id=__ret__.client_id,
-        client_secret=__ret__.client_secret,
-        enabled=__ret__.enabled,
-        id=__ret__.id)
+        client_id=pulumi.get(__ret__, 'client_id'),
+        client_secret=pulumi.get(__ret__, 'client_secret'),
+        enabled=pulumi.get(__ret__, 'enabled'),
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_adm_channel)

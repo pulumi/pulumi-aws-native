@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::SES::ReceiptRule
 func LookupReceiptRule(ctx *pulumi.Context, args *LookupReceiptRuleArgs, opts ...pulumi.InvokeOption) (*LookupReceiptRuleResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupReceiptRuleResult
 	err := ctx.Invoke("aws-native:ses:getReceiptRule", args, &rv, opts...)
 	if err != nil {

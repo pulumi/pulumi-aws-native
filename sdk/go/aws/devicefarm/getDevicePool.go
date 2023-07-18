@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // AWS::DeviceFarm::DevicePool creates a new Device Pool for a given DF Project
 func LookupDevicePool(ctx *pulumi.Context, args *LookupDevicePoolArgs, opts ...pulumi.InvokeOption) (*LookupDevicePoolResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDevicePoolResult
 	err := ctx.Invoke("aws-native:devicefarm:getDevicePool", args, &rv, opts...)
 	if err != nil {

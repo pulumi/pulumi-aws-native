@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::Evidently::Experiment.
 func LookupExperiment(ctx *pulumi.Context, args *LookupExperimentArgs, opts ...pulumi.InvokeOption) (*LookupExperimentResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupExperimentResult
 	err := ctx.Invoke("aws-native:evidently:getExperiment", args, &rv, opts...)
 	if err != nil {

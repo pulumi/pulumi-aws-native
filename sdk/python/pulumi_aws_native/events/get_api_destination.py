@@ -107,12 +107,12 @@ def get_api_destination(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:events:getApiDestination', __args__, opts=opts, typ=GetApiDestinationResult).value
 
     return AwaitableGetApiDestinationResult(
-        arn=__ret__.arn,
-        connection_arn=__ret__.connection_arn,
-        description=__ret__.description,
-        http_method=__ret__.http_method,
-        invocation_endpoint=__ret__.invocation_endpoint,
-        invocation_rate_limit_per_second=__ret__.invocation_rate_limit_per_second)
+        arn=pulumi.get(__ret__, 'arn'),
+        connection_arn=pulumi.get(__ret__, 'connection_arn'),
+        description=pulumi.get(__ret__, 'description'),
+        http_method=pulumi.get(__ret__, 'http_method'),
+        invocation_endpoint=pulumi.get(__ret__, 'invocation_endpoint'),
+        invocation_rate_limit_per_second=pulumi.get(__ret__, 'invocation_rate_limit_per_second'))
 
 
 @_utilities.lift_output_func(get_api_destination)

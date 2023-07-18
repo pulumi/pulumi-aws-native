@@ -7,10 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func Cidr(ctx *pulumi.Context, args *CidrArgs, opts ...pulumi.InvokeOption) (*CidrResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv CidrResult
 	err := ctx.Invoke("aws-native:index:cidr", args, &rv, opts...)
 	if err != nil {

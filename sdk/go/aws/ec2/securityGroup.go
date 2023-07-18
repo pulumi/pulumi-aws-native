@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -36,6 +37,7 @@ func NewSecurityGroup(ctx *pulumi.Context,
 	if args.GroupDescription == nil {
 		return nil, errors.New("invalid value for required argument 'GroupDescription'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SecurityGroup
 	err := ctx.RegisterResource("aws-native:ec2:SecurityGroup", name, args, &resource, opts...)
 	if err != nil {

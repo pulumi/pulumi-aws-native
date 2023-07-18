@@ -58,7 +58,7 @@ def get_space(domain_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:sagemaker:getSpace', __args__, opts=opts, typ=GetSpaceResult).value
 
     return AwaitableGetSpaceResult(
-        space_arn=__ret__.space_arn)
+        space_arn=pulumi.get(__ret__, 'space_arn'))
 
 
 @_utilities.lift_output_func(get_space)

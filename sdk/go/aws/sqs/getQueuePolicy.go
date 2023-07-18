@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::SQS::QueuePolicy
 func LookupQueuePolicy(ctx *pulumi.Context, args *LookupQueuePolicyArgs, opts ...pulumi.InvokeOption) (*LookupQueuePolicyResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupQueuePolicyResult
 	err := ctx.Invoke("aws-native:sqs:getQueuePolicy", args, &rv, opts...)
 	if err != nil {

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::SageMaker::ModelCard.
 func LookupModelCard(ctx *pulumi.Context, args *LookupModelCardArgs, opts ...pulumi.InvokeOption) (*LookupModelCardResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupModelCardResult
 	err := ctx.Invoke("aws-native:sagemaker:getModelCard", args, &rv, opts...)
 	if err != nil {

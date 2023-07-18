@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -30,6 +31,7 @@ func NewStorageLens(ctx *pulumi.Context,
 	if args.StorageLensConfiguration == nil {
 		return nil, errors.New("invalid value for required argument 'StorageLensConfiguration'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource StorageLens
 	err := ctx.RegisterResource("aws-native:s3:StorageLens", name, args, &resource, opts...)
 	if err != nil {

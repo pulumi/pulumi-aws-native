@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Create and manage a Domain Configuration
 func LookupDomainConfiguration(ctx *pulumi.Context, args *LookupDomainConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupDomainConfigurationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDomainConfigurationResult
 	err := ctx.Invoke("aws-native:iot:getDomainConfiguration", args, &rv, opts...)
 	if err != nil {

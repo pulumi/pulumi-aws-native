@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -32,6 +33,7 @@ func NewDomain(ctx *pulumi.Context,
 	if args.ServerSideEncryptionConfiguration == nil {
 		return nil, errors.New("invalid value for required argument 'ServerSideEncryptionConfiguration'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Domain
 	err := ctx.RegisterResource("aws-native:voiceid:Domain", name, args, &resource, opts...)
 	if err != nil {

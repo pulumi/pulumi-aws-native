@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::GameLift::Script
 func LookupScript(ctx *pulumi.Context, args *LookupScriptArgs, opts ...pulumi.InvokeOption) (*LookupScriptResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupScriptResult
 	err := ctx.Invoke("aws-native:gamelift:getScript", args, &rv, opts...)
 	if err != nil {

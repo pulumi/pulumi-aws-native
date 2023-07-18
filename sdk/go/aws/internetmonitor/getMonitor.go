@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Represents a monitor, which defines the monitoring boundaries for measurements that Internet Monitor publishes information about for an application
 func LookupMonitor(ctx *pulumi.Context, args *LookupMonitorArgs, opts ...pulumi.InvokeOption) (*LookupMonitorResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupMonitorResult
 	err := ctx.Invoke("aws-native:internetmonitor:getMonitor", args, &rv, opts...)
 	if err != nil {

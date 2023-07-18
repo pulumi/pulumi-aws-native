@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // AWS Route53 Recovery Control Routing Control resource schema .
 func LookupRoutingControl(ctx *pulumi.Context, args *LookupRoutingControlArgs, opts ...pulumi.InvokeOption) (*LookupRoutingControlResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRoutingControlResult
 	err := ctx.Invoke("aws-native:route53recoverycontrol:getRoutingControl", args, &rv, opts...)
 	if err != nil {

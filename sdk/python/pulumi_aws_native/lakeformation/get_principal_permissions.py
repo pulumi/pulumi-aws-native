@@ -60,8 +60,8 @@ def get_principal_permissions(principal_identifier: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:lakeformation:getPrincipalPermissions', __args__, opts=opts, typ=GetPrincipalPermissionsResult).value
 
     return AwaitableGetPrincipalPermissionsResult(
-        principal_identifier=__ret__.principal_identifier,
-        resource_identifier=__ret__.resource_identifier)
+        principal_identifier=pulumi.get(__ret__, 'principal_identifier'),
+        resource_identifier=pulumi.get(__ret__, 'resource_identifier'))
 
 
 @_utilities.lift_output_func(get_principal_permissions)

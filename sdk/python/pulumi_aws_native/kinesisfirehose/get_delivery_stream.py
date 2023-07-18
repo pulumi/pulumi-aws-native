@@ -141,17 +141,17 @@ def get_delivery_stream(delivery_stream_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:kinesisfirehose:getDeliveryStream', __args__, opts=opts, typ=GetDeliveryStreamResult).value
 
     return AwaitableGetDeliveryStreamResult(
-        amazon_open_search_serverless_destination_configuration=__ret__.amazon_open_search_serverless_destination_configuration,
-        amazonopensearchservice_destination_configuration=__ret__.amazonopensearchservice_destination_configuration,
-        arn=__ret__.arn,
-        delivery_stream_encryption_configuration_input=__ret__.delivery_stream_encryption_configuration_input,
-        elasticsearch_destination_configuration=__ret__.elasticsearch_destination_configuration,
-        extended_s3_destination_configuration=__ret__.extended_s3_destination_configuration,
-        http_endpoint_destination_configuration=__ret__.http_endpoint_destination_configuration,
-        redshift_destination_configuration=__ret__.redshift_destination_configuration,
-        s3_destination_configuration=__ret__.s3_destination_configuration,
-        splunk_destination_configuration=__ret__.splunk_destination_configuration,
-        tags=__ret__.tags)
+        amazon_open_search_serverless_destination_configuration=pulumi.get(__ret__, 'amazon_open_search_serverless_destination_configuration'),
+        amazonopensearchservice_destination_configuration=pulumi.get(__ret__, 'amazonopensearchservice_destination_configuration'),
+        arn=pulumi.get(__ret__, 'arn'),
+        delivery_stream_encryption_configuration_input=pulumi.get(__ret__, 'delivery_stream_encryption_configuration_input'),
+        elasticsearch_destination_configuration=pulumi.get(__ret__, 'elasticsearch_destination_configuration'),
+        extended_s3_destination_configuration=pulumi.get(__ret__, 'extended_s3_destination_configuration'),
+        http_endpoint_destination_configuration=pulumi.get(__ret__, 'http_endpoint_destination_configuration'),
+        redshift_destination_configuration=pulumi.get(__ret__, 'redshift_destination_configuration'),
+        s3_destination_configuration=pulumi.get(__ret__, 's3_destination_configuration'),
+        splunk_destination_configuration=pulumi.get(__ret__, 'splunk_destination_configuration'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_delivery_stream)

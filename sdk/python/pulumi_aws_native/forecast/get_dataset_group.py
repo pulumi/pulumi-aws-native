@@ -93,10 +93,10 @@ def get_dataset_group(dataset_group_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:forecast:getDatasetGroup', __args__, opts=opts, typ=GetDatasetGroupResult).value
 
     return AwaitableGetDatasetGroupResult(
-        dataset_arns=__ret__.dataset_arns,
-        dataset_group_arn=__ret__.dataset_group_arn,
-        domain=__ret__.domain,
-        tags=__ret__.tags)
+        dataset_arns=pulumi.get(__ret__, 'dataset_arns'),
+        dataset_group_arn=pulumi.get(__ret__, 'dataset_group_arn'),
+        domain=pulumi.get(__ret__, 'domain'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_dataset_group)

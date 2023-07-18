@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,6 +40,7 @@ func NewSourceCredential(ctx *pulumi.Context,
 	if args.Token == nil {
 		return nil, errors.New("invalid value for required argument 'Token'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SourceCredential
 	err := ctx.RegisterResource("aws-native:codebuild:SourceCredential", name, args, &resource, opts...)
 	if err != nil {

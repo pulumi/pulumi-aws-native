@@ -68,9 +68,9 @@ def get_security_group(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:elasticache:getSecurityGroup', __args__, opts=opts, typ=GetSecurityGroupResult).value
 
     return AwaitableGetSecurityGroupResult(
-        description=__ret__.description,
-        id=__ret__.id,
-        tags=__ret__.tags)
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_security_group)

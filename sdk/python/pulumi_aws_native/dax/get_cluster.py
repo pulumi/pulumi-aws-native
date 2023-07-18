@@ -148,18 +148,18 @@ def get_cluster(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:dax:getCluster', __args__, opts=opts, typ=GetClusterResult).value
 
     return AwaitableGetClusterResult(
-        arn=__ret__.arn,
-        availability_zones=__ret__.availability_zones,
-        cluster_discovery_endpoint=__ret__.cluster_discovery_endpoint,
-        cluster_discovery_endpoint_url=__ret__.cluster_discovery_endpoint_url,
-        description=__ret__.description,
-        id=__ret__.id,
-        notification_topic_arn=__ret__.notification_topic_arn,
-        parameter_group_name=__ret__.parameter_group_name,
-        preferred_maintenance_window=__ret__.preferred_maintenance_window,
-        replication_factor=__ret__.replication_factor,
-        security_group_ids=__ret__.security_group_ids,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        availability_zones=pulumi.get(__ret__, 'availability_zones'),
+        cluster_discovery_endpoint=pulumi.get(__ret__, 'cluster_discovery_endpoint'),
+        cluster_discovery_endpoint_url=pulumi.get(__ret__, 'cluster_discovery_endpoint_url'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        notification_topic_arn=pulumi.get(__ret__, 'notification_topic_arn'),
+        parameter_group_name=pulumi.get(__ret__, 'parameter_group_name'),
+        preferred_maintenance_window=pulumi.get(__ret__, 'preferred_maintenance_window'),
+        replication_factor=pulumi.get(__ret__, 'replication_factor'),
+        security_group_ids=pulumi.get(__ret__, 'security_group_ids'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_cluster)

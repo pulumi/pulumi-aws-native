@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -34,6 +35,7 @@ func NewApplicationOutputResource(ctx *pulumi.Context,
 	if args.Output == nil {
 		return nil, errors.New("invalid value for required argument 'Output'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ApplicationOutputResource
 	err := ctx.RegisterResource("aws-native:kinesisanalytics:ApplicationOutputResource", name, args, &resource, opts...)
 	if err != nil {

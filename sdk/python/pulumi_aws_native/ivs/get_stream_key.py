@@ -80,9 +80,9 @@ def get_stream_key(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ivs:getStreamKey', __args__, opts=opts, typ=GetStreamKeyResult).value
 
     return AwaitableGetStreamKeyResult(
-        arn=__ret__.arn,
-        tags=__ret__.tags,
-        value=__ret__.value)
+        arn=pulumi.get(__ret__, 'arn'),
+        tags=pulumi.get(__ret__, 'tags'),
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(get_stream_key)

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::SSMContacts::Contact
 func LookupContact(ctx *pulumi.Context, args *LookupContactArgs, opts ...pulumi.InvokeOption) (*LookupContactResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupContactResult
 	err := ctx.Invoke("aws-native:ssmcontacts:getContact", args, &rv, opts...)
 	if err != nil {

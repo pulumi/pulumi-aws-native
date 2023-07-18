@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::Redshift::ClusterSecurityGroupIngress
 func LookupClusterSecurityGroupIngress(ctx *pulumi.Context, args *LookupClusterSecurityGroupIngressArgs, opts ...pulumi.InvokeOption) (*LookupClusterSecurityGroupIngressResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupClusterSecurityGroupIngressResult
 	err := ctx.Invoke("aws-native:redshift:getClusterSecurityGroupIngress", args, &rv, opts...)
 	if err != nil {

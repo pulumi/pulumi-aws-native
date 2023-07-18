@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // AWS::DeviceFarm::TestGridProject creates a new TestGrid Project
 func LookupTestGridProject(ctx *pulumi.Context, args *LookupTestGridProjectArgs, opts ...pulumi.InvokeOption) (*LookupTestGridProjectResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTestGridProjectResult
 	err := ctx.Invoke("aws-native:devicefarm:getTestGridProject", args, &rv, opts...)
 	if err != nil {

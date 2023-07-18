@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::EC2::Host
 func LookupHost(ctx *pulumi.Context, args *LookupHostArgs, opts ...pulumi.InvokeOption) (*LookupHostResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupHostResult
 	err := ctx.Invoke("aws-native:ec2:getHost", args, &rv, opts...)
 	if err != nil {

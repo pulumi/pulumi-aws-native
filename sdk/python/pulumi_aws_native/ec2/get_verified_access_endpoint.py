@@ -212,20 +212,20 @@ def get_verified_access_endpoint(verified_access_endpoint_id: Optional[str] = No
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getVerifiedAccessEndpoint', __args__, opts=opts, typ=GetVerifiedAccessEndpointResult).value
 
     return AwaitableGetVerifiedAccessEndpointResult(
-        creation_time=__ret__.creation_time,
-        description=__ret__.description,
-        device_validation_domain=__ret__.device_validation_domain,
-        endpoint_domain=__ret__.endpoint_domain,
-        last_updated_time=__ret__.last_updated_time,
-        load_balancer_options=__ret__.load_balancer_options,
-        network_interface_options=__ret__.network_interface_options,
-        policy_document=__ret__.policy_document,
-        policy_enabled=__ret__.policy_enabled,
-        status=__ret__.status,
-        tags=__ret__.tags,
-        verified_access_endpoint_id=__ret__.verified_access_endpoint_id,
-        verified_access_group_id=__ret__.verified_access_group_id,
-        verified_access_instance_id=__ret__.verified_access_instance_id)
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        description=pulumi.get(__ret__, 'description'),
+        device_validation_domain=pulumi.get(__ret__, 'device_validation_domain'),
+        endpoint_domain=pulumi.get(__ret__, 'endpoint_domain'),
+        last_updated_time=pulumi.get(__ret__, 'last_updated_time'),
+        load_balancer_options=pulumi.get(__ret__, 'load_balancer_options'),
+        network_interface_options=pulumi.get(__ret__, 'network_interface_options'),
+        policy_document=pulumi.get(__ret__, 'policy_document'),
+        policy_enabled=pulumi.get(__ret__, 'policy_enabled'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'),
+        verified_access_endpoint_id=pulumi.get(__ret__, 'verified_access_endpoint_id'),
+        verified_access_group_id=pulumi.get(__ret__, 'verified_access_group_id'),
+        verified_access_instance_id=pulumi.get(__ret__, 'verified_access_instance_id'))
 
 
 @_utilities.lift_output_func(get_verified_access_endpoint)

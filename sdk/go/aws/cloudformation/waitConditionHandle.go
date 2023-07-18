@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,6 +25,7 @@ func NewWaitConditionHandle(ctx *pulumi.Context,
 		args = &WaitConditionHandleArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource WaitConditionHandle
 	err := ctx.RegisterResource("aws-native:cloudformation:WaitConditionHandle", name, args, &resource, opts...)
 	if err != nil {

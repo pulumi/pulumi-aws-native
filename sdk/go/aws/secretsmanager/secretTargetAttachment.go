@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ func NewSecretTargetAttachment(ctx *pulumi.Context,
 	if args.TargetType == nil {
 		return nil, errors.New("invalid value for required argument 'TargetType'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SecretTargetAttachment
 	err := ctx.RegisterResource("aws-native:secretsmanager:SecretTargetAttachment", name, args, &resource, opts...)
 	if err != nil {

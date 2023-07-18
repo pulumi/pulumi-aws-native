@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Destination's resource schema demonstrating some basic constructs and validation rules.
 func LookupDestination(ctx *pulumi.Context, args *LookupDestinationArgs, opts ...pulumi.InvokeOption) (*LookupDestinationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDestinationResult
 	err := ctx.Invoke("aws-native:iotwireless:getDestination", args, &rv, opts...)
 	if err != nil {

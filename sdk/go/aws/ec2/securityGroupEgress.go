@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,6 +42,7 @@ func NewSecurityGroupEgress(ctx *pulumi.Context,
 	if args.IpProtocol == nil {
 		return nil, errors.New("invalid value for required argument 'IpProtocol'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SecurityGroupEgress
 	err := ctx.RegisterResource("aws-native:ec2:SecurityGroupEgress", name, args, &resource, opts...)
 	if err != nil {

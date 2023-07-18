@@ -107,11 +107,11 @@ def get_addon(addon_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:eks:getAddon', __args__, opts=opts, typ=GetAddonResult).value
 
     return AwaitableGetAddonResult(
-        addon_version=__ret__.addon_version,
-        arn=__ret__.arn,
-        configuration_values=__ret__.configuration_values,
-        service_account_role_arn=__ret__.service_account_role_arn,
-        tags=__ret__.tags)
+        addon_version=pulumi.get(__ret__, 'addon_version'),
+        arn=pulumi.get(__ret__, 'arn'),
+        configuration_values=pulumi.get(__ret__, 'configuration_values'),
+        service_account_role_arn=pulumi.get(__ret__, 'service_account_role_arn'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_addon)

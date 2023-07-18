@@ -74,9 +74,9 @@ def get_account_audit_configuration(account_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iot:getAccountAuditConfiguration', __args__, opts=opts, typ=GetAccountAuditConfigurationResult).value
 
     return AwaitableGetAccountAuditConfigurationResult(
-        audit_check_configurations=__ret__.audit_check_configurations,
-        audit_notification_target_configurations=__ret__.audit_notification_target_configurations,
-        role_arn=__ret__.role_arn)
+        audit_check_configurations=pulumi.get(__ret__, 'audit_check_configurations'),
+        audit_notification_target_configurations=pulumi.get(__ret__, 'audit_notification_target_configurations'),
+        role_arn=pulumi.get(__ret__, 'role_arn'))
 
 
 @_utilities.lift_output_func(get_account_audit_configuration)

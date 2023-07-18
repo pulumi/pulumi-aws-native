@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for AWS::EC2::NetworkInsightsAccessScope
 func LookupNetworkInsightsAccessScope(ctx *pulumi.Context, args *LookupNetworkInsightsAccessScopeArgs, opts ...pulumi.InvokeOption) (*LookupNetworkInsightsAccessScopeResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupNetworkInsightsAccessScopeResult
 	err := ctx.Invoke("aws-native:ec2:getNetworkInsightsAccessScope", args, &rv, opts...)
 	if err != nil {

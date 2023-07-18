@@ -79,9 +79,9 @@ def get_vpc_endpoint(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:opensearchserverless:getVpcEndpoint', __args__, opts=opts, typ=GetVpcEndpointResult).value
 
     return AwaitableGetVpcEndpointResult(
-        id=__ret__.id,
-        security_group_ids=__ret__.security_group_ids,
-        subnet_ids=__ret__.subnet_ids)
+        id=pulumi.get(__ret__, 'id'),
+        security_group_ids=pulumi.get(__ret__, 'security_group_ids'),
+        subnet_ids=pulumi.get(__ret__, 'subnet_ids'))
 
 
 @_utilities.lift_output_func(get_vpc_endpoint)

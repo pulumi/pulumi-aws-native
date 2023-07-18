@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -45,6 +46,7 @@ func NewScheduledAction(ctx *pulumi.Context,
 	if args.AutoScalingGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'AutoScalingGroupName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ScheduledAction
 	err := ctx.RegisterResource("aws-native:autoscaling:ScheduledAction", name, args, &resource, opts...)
 	if err != nil {

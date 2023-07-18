@@ -128,13 +128,13 @@ def get_report_definition(report_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cur:getReportDefinition', __args__, opts=opts, typ=GetReportDefinitionResult).value
 
     return AwaitableGetReportDefinitionResult(
-        additional_artifacts=__ret__.additional_artifacts,
-        compression=__ret__.compression,
-        format=__ret__.format,
-        refresh_closed_reports=__ret__.refresh_closed_reports,
-        s3_bucket=__ret__.s3_bucket,
-        s3_prefix=__ret__.s3_prefix,
-        s3_region=__ret__.s3_region)
+        additional_artifacts=pulumi.get(__ret__, 'additional_artifacts'),
+        compression=pulumi.get(__ret__, 'compression'),
+        format=pulumi.get(__ret__, 'format'),
+        refresh_closed_reports=pulumi.get(__ret__, 'refresh_closed_reports'),
+        s3_bucket=pulumi.get(__ret__, 's3_bucket'),
+        s3_prefix=pulumi.get(__ret__, 's3_prefix'),
+        s3_region=pulumi.get(__ret__, 's3_region'))
 
 
 @_utilities.lift_output_func(get_report_definition)

@@ -113,14 +113,14 @@ def get_cluster(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:emr:getCluster', __args__, opts=opts, typ=GetClusterResult).value
 
     return AwaitableGetClusterResult(
-        auto_termination_policy=__ret__.auto_termination_policy,
-        id=__ret__.id,
-        instances=__ret__.instances,
-        managed_scaling_policy=__ret__.managed_scaling_policy,
-        master_public_dns=__ret__.master_public_dns,
-        step_concurrency_level=__ret__.step_concurrency_level,
-        tags=__ret__.tags,
-        visible_to_all_users=__ret__.visible_to_all_users)
+        auto_termination_policy=pulumi.get(__ret__, 'auto_termination_policy'),
+        id=pulumi.get(__ret__, 'id'),
+        instances=pulumi.get(__ret__, 'instances'),
+        managed_scaling_policy=pulumi.get(__ret__, 'managed_scaling_policy'),
+        master_public_dns=pulumi.get(__ret__, 'master_public_dns'),
+        step_concurrency_level=pulumi.get(__ret__, 'step_concurrency_level'),
+        tags=pulumi.get(__ret__, 'tags'),
+        visible_to_all_users=pulumi.get(__ret__, 'visible_to_all_users'))
 
 
 @_utilities.lift_output_func(get_cluster)

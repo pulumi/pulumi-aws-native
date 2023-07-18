@@ -135,14 +135,14 @@ def get_asset(asset_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iotsitewise:getAsset', __args__, opts=opts, typ=GetAssetResult).value
 
     return AwaitableGetAssetResult(
-        asset_arn=__ret__.asset_arn,
-        asset_description=__ret__.asset_description,
-        asset_hierarchies=__ret__.asset_hierarchies,
-        asset_id=__ret__.asset_id,
-        asset_model_id=__ret__.asset_model_id,
-        asset_name=__ret__.asset_name,
-        asset_properties=__ret__.asset_properties,
-        tags=__ret__.tags)
+        asset_arn=pulumi.get(__ret__, 'asset_arn'),
+        asset_description=pulumi.get(__ret__, 'asset_description'),
+        asset_hierarchies=pulumi.get(__ret__, 'asset_hierarchies'),
+        asset_id=pulumi.get(__ret__, 'asset_id'),
+        asset_model_id=pulumi.get(__ret__, 'asset_model_id'),
+        asset_name=pulumi.get(__ret__, 'asset_name'),
+        asset_properties=pulumi.get(__ret__, 'asset_properties'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_asset)

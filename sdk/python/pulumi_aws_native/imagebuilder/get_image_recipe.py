@@ -68,8 +68,8 @@ def get_image_recipe(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:imagebuilder:getImageRecipe', __args__, opts=opts, typ=GetImageRecipeResult).value
 
     return AwaitableGetImageRecipeResult(
-        additional_instance_configuration=__ret__.additional_instance_configuration,
-        arn=__ret__.arn)
+        additional_instance_configuration=pulumi.get(__ret__, 'additional_instance_configuration'),
+        arn=pulumi.get(__ret__, 'arn'))
 
 
 @_utilities.lift_output_func(get_image_recipe)

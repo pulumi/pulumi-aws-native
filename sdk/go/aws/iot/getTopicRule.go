@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::IoT::TopicRule
 func LookupTopicRule(ctx *pulumi.Context, args *LookupTopicRuleArgs, opts ...pulumi.InvokeOption) (*LookupTopicRuleResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTopicRuleResult
 	err := ctx.Invoke("aws-native:iot:getTopicRule", args, &rv, opts...)
 	if err != nil {

@@ -112,14 +112,14 @@ def get_stack_set_constraint(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:servicecatalog:getStackSetConstraint', __args__, opts=opts, typ=GetStackSetConstraintResult).value
 
     return AwaitableGetStackSetConstraintResult(
-        accept_language=__ret__.accept_language,
-        account_list=__ret__.account_list,
-        admin_role=__ret__.admin_role,
-        description=__ret__.description,
-        execution_role=__ret__.execution_role,
-        id=__ret__.id,
-        region_list=__ret__.region_list,
-        stack_instance_control=__ret__.stack_instance_control)
+        accept_language=pulumi.get(__ret__, 'accept_language'),
+        account_list=pulumi.get(__ret__, 'account_list'),
+        admin_role=pulumi.get(__ret__, 'admin_role'),
+        description=pulumi.get(__ret__, 'description'),
+        execution_role=pulumi.get(__ret__, 'execution_role'),
+        id=pulumi.get(__ret__, 'id'),
+        region_list=pulumi.get(__ret__, 'region_list'),
+        stack_instance_control=pulumi.get(__ret__, 'stack_instance_control'))
 
 
 @_utilities.lift_output_func(get_stack_set_constraint)

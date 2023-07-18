@@ -96,12 +96,12 @@ def get_in_app_template(template_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:pinpoint:getInAppTemplate', __args__, opts=opts, typ=GetInAppTemplateResult).value
 
     return AwaitableGetInAppTemplateResult(
-        arn=__ret__.arn,
-        content=__ret__.content,
-        custom_config=__ret__.custom_config,
-        layout=__ret__.layout,
-        tags=__ret__.tags,
-        template_description=__ret__.template_description)
+        arn=pulumi.get(__ret__, 'arn'),
+        content=pulumi.get(__ret__, 'content'),
+        custom_config=pulumi.get(__ret__, 'custom_config'),
+        layout=pulumi.get(__ret__, 'layout'),
+        tags=pulumi.get(__ret__, 'tags'),
+        template_description=pulumi.get(__ret__, 'template_description'))
 
 
 @_utilities.lift_output_func(get_in_app_template)

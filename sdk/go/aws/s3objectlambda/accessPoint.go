@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ func NewAccessPoint(ctx *pulumi.Context,
 	if args.ObjectLambdaConfiguration == nil {
 		return nil, errors.New("invalid value for required argument 'ObjectLambdaConfiguration'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AccessPoint
 	err := ctx.RegisterResource("aws-native:s3objectlambda:AccessPoint", name, args, &resource, opts...)
 	if err != nil {

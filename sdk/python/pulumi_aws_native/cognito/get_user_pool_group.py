@@ -76,10 +76,10 @@ def get_user_pool_group(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cognito:getUserPoolGroup', __args__, opts=opts, typ=GetUserPoolGroupResult).value
 
     return AwaitableGetUserPoolGroupResult(
-        description=__ret__.description,
-        id=__ret__.id,
-        precedence=__ret__.precedence,
-        role_arn=__ret__.role_arn)
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        precedence=pulumi.get(__ret__, 'precedence'),
+        role_arn=pulumi.get(__ret__, 'role_arn'))
 
 
 @_utilities.lift_output_func(get_user_pool_group)

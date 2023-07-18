@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Subscription filters allow you to subscribe to a real-time stream of log events and have them delivered to a specific destination.
 func LookupSubscriptionFilter(ctx *pulumi.Context, args *LookupSubscriptionFilterArgs, opts ...pulumi.InvokeOption) (*LookupSubscriptionFilterResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSubscriptionFilterResult
 	err := ctx.Invoke("aws-native:logs:getSubscriptionFilter", args, &rv, opts...)
 	if err != nil {

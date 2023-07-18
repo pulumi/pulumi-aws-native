@@ -87,11 +87,11 @@ def get_job_queue(job_queue_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:batch:getJobQueue', __args__, opts=opts, typ=GetJobQueueResult).value
 
     return AwaitableGetJobQueueResult(
-        compute_environment_order=__ret__.compute_environment_order,
-        job_queue_arn=__ret__.job_queue_arn,
-        priority=__ret__.priority,
-        scheduling_policy_arn=__ret__.scheduling_policy_arn,
-        state=__ret__.state)
+        compute_environment_order=pulumi.get(__ret__, 'compute_environment_order'),
+        job_queue_arn=pulumi.get(__ret__, 'job_queue_arn'),
+        priority=pulumi.get(__ret__, 'priority'),
+        scheduling_policy_arn=pulumi.get(__ret__, 'scheduling_policy_arn'),
+        state=pulumi.get(__ret__, 'state'))
 
 
 @_utilities.lift_output_func(get_job_queue)

@@ -152,18 +152,18 @@ def get_vpc_connection(aws_account_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:quicksight:getVPCConnection', __args__, opts=opts, typ=GetVPCConnectionResult).value
 
     return AwaitableGetVPCConnectionResult(
-        arn=__ret__.arn,
-        availability_status=__ret__.availability_status,
-        created_time=__ret__.created_time,
-        dns_resolvers=__ret__.dns_resolvers,
-        last_updated_time=__ret__.last_updated_time,
-        name=__ret__.name,
-        network_interfaces=__ret__.network_interfaces,
-        role_arn=__ret__.role_arn,
-        security_group_ids=__ret__.security_group_ids,
-        status=__ret__.status,
-        tags=__ret__.tags,
-        v_pc_id=__ret__.v_pc_id)
+        arn=pulumi.get(__ret__, 'arn'),
+        availability_status=pulumi.get(__ret__, 'availability_status'),
+        created_time=pulumi.get(__ret__, 'created_time'),
+        dns_resolvers=pulumi.get(__ret__, 'dns_resolvers'),
+        last_updated_time=pulumi.get(__ret__, 'last_updated_time'),
+        name=pulumi.get(__ret__, 'name'),
+        network_interfaces=pulumi.get(__ret__, 'network_interfaces'),
+        role_arn=pulumi.get(__ret__, 'role_arn'),
+        security_group_ids=pulumi.get(__ret__, 'security_group_ids'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'),
+        v_pc_id=pulumi.get(__ret__, 'v_pc_id'))
 
 
 @_utilities.lift_output_func(get_vpc_connection)

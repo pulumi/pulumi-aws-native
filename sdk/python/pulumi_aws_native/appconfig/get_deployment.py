@@ -49,7 +49,7 @@ def get_deployment(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:appconfig:getDeployment', __args__, opts=opts, typ=GetDeploymentResult).value
 
     return AwaitableGetDeploymentResult(
-        id=__ret__.id)
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_deployment)

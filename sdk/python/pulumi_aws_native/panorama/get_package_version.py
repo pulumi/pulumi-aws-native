@@ -108,13 +108,13 @@ def get_package_version(package_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:panorama:getPackageVersion', __args__, opts=opts, typ=GetPackageVersionResult).value
 
     return AwaitableGetPackageVersionResult(
-        is_latest_patch=__ret__.is_latest_patch,
-        mark_latest=__ret__.mark_latest,
-        package_arn=__ret__.package_arn,
-        package_name=__ret__.package_name,
-        registered_time=__ret__.registered_time,
-        status=__ret__.status,
-        status_description=__ret__.status_description)
+        is_latest_patch=pulumi.get(__ret__, 'is_latest_patch'),
+        mark_latest=pulumi.get(__ret__, 'mark_latest'),
+        package_arn=pulumi.get(__ret__, 'package_arn'),
+        package_name=pulumi.get(__ret__, 'package_name'),
+        registered_time=pulumi.get(__ret__, 'registered_time'),
+        status=pulumi.get(__ret__, 'status'),
+        status_description=pulumi.get(__ret__, 'status_description'))
 
 
 @_utilities.lift_output_func(get_package_version)

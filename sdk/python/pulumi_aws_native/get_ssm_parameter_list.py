@@ -49,7 +49,7 @@ def get_ssm_parameter_list(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:index:getSsmParameterList', __args__, opts=opts, typ=GetSsmParameterListResult).value
 
     return AwaitableGetSsmParameterListResult(
-        value=__ret__.value)
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(get_ssm_parameter_list)

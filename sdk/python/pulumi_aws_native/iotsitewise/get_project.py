@@ -116,12 +116,12 @@ def get_project(project_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iotsitewise:getProject', __args__, opts=opts, typ=GetProjectResult).value
 
     return AwaitableGetProjectResult(
-        asset_ids=__ret__.asset_ids,
-        project_arn=__ret__.project_arn,
-        project_description=__ret__.project_description,
-        project_id=__ret__.project_id,
-        project_name=__ret__.project_name,
-        tags=__ret__.tags)
+        asset_ids=pulumi.get(__ret__, 'asset_ids'),
+        project_arn=pulumi.get(__ret__, 'project_arn'),
+        project_description=pulumi.get(__ret__, 'project_description'),
+        project_id=pulumi.get(__ret__, 'project_id'),
+        project_name=pulumi.get(__ret__, 'project_name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_project)

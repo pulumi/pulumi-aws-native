@@ -167,16 +167,16 @@ def get_device(device_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:networkmanager:getDevice', __args__, opts=opts, typ=GetDeviceResult).value
 
     return AwaitableGetDeviceResult(
-        description=__ret__.description,
-        device_arn=__ret__.device_arn,
-        device_id=__ret__.device_id,
-        location=__ret__.location,
-        model=__ret__.model,
-        serial_number=__ret__.serial_number,
-        site_id=__ret__.site_id,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        vendor=__ret__.vendor)
+        description=pulumi.get(__ret__, 'description'),
+        device_arn=pulumi.get(__ret__, 'device_arn'),
+        device_id=pulumi.get(__ret__, 'device_id'),
+        location=pulumi.get(__ret__, 'location'),
+        model=pulumi.get(__ret__, 'model'),
+        serial_number=pulumi.get(__ret__, 'serial_number'),
+        site_id=pulumi.get(__ret__, 'site_id'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        vendor=pulumi.get(__ret__, 'vendor'))
 
 
 @_utilities.lift_output_func(get_device)

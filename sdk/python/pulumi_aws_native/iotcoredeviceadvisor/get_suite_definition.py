@@ -101,11 +101,11 @@ def get_suite_definition(suite_definition_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iotcoredeviceadvisor:getSuiteDefinition', __args__, opts=opts, typ=GetSuiteDefinitionResult).value
 
     return AwaitableGetSuiteDefinitionResult(
-        suite_definition_arn=__ret__.suite_definition_arn,
-        suite_definition_configuration=__ret__.suite_definition_configuration,
-        suite_definition_id=__ret__.suite_definition_id,
-        suite_definition_version=__ret__.suite_definition_version,
-        tags=__ret__.tags)
+        suite_definition_arn=pulumi.get(__ret__, 'suite_definition_arn'),
+        suite_definition_configuration=pulumi.get(__ret__, 'suite_definition_configuration'),
+        suite_definition_id=pulumi.get(__ret__, 'suite_definition_id'),
+        suite_definition_version=pulumi.get(__ret__, 'suite_definition_version'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_suite_definition)

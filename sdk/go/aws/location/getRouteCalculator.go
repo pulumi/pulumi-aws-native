@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Definition of AWS::Location::RouteCalculator Resource Type
 func LookupRouteCalculator(ctx *pulumi.Context, args *LookupRouteCalculatorArgs, opts ...pulumi.InvokeOption) (*LookupRouteCalculatorResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRouteCalculatorResult
 	err := ctx.Invoke("aws-native:location:getRouteCalculator", args, &rv, opts...)
 	if err != nil {

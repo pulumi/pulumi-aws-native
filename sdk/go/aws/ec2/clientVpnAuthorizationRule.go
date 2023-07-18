@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -37,6 +38,7 @@ func NewClientVpnAuthorizationRule(ctx *pulumi.Context,
 	if args.TargetNetworkCidr == nil {
 		return nil, errors.New("invalid value for required argument 'TargetNetworkCidr'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ClientVpnAuthorizationRule
 	err := ctx.RegisterResource("aws-native:ec2:ClientVpnAuthorizationRule", name, args, &resource, opts...)
 	if err != nil {

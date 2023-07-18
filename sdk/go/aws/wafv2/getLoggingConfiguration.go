@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // A WAFv2 Logging Configuration Resource Provider
 func LookupLoggingConfiguration(ctx *pulumi.Context, args *LookupLoggingConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupLoggingConfigurationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLoggingConfigurationResult
 	err := ctx.Invoke("aws-native:wafv2:getLoggingConfiguration", args, &rv, opts...)
 	if err != nil {

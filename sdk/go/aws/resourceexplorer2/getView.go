@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Definition of AWS::ResourceExplorer2::View Resource Type
 func LookupView(ctx *pulumi.Context, args *LookupViewArgs, opts ...pulumi.InvokeOption) (*LookupViewResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupViewResult
 	err := ctx.Invoke("aws-native:resourceexplorer2:getView", args, &rv, opts...)
 	if err != nil {

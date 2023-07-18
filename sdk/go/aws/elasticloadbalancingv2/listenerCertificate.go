@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -34,6 +35,7 @@ func NewListenerCertificate(ctx *pulumi.Context,
 	if args.ListenerArn == nil {
 		return nil, errors.New("invalid value for required argument 'ListenerArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ListenerCertificate
 	err := ctx.RegisterResource("aws-native:elasticloadbalancingv2:ListenerCertificate", name, args, &resource, opts...)
 	if err != nil {

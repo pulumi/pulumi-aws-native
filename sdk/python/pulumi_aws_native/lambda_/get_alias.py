@@ -86,11 +86,11 @@ def get_alias(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:lambda:getAlias', __args__, opts=opts, typ=GetAliasResult).value
 
     return AwaitableGetAliasResult(
-        description=__ret__.description,
-        function_version=__ret__.function_version,
-        id=__ret__.id,
-        provisioned_concurrency_config=__ret__.provisioned_concurrency_config,
-        routing_config=__ret__.routing_config)
+        description=pulumi.get(__ret__, 'description'),
+        function_version=pulumi.get(__ret__, 'function_version'),
+        id=pulumi.get(__ret__, 'id'),
+        provisioned_concurrency_config=pulumi.get(__ret__, 'provisioned_concurrency_config'),
+        routing_config=pulumi.get(__ret__, 'routing_config'))
 
 
 @_utilities.lift_output_func(get_alias)

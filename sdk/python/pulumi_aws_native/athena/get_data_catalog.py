@@ -93,10 +93,10 @@ def get_data_catalog(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:athena:getDataCatalog', __args__, opts=opts, typ=GetDataCatalogResult).value
 
     return AwaitableGetDataCatalogResult(
-        description=__ret__.description,
-        parameters=__ret__.parameters,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        description=pulumi.get(__ret__, 'description'),
+        parameters=pulumi.get(__ret__, 'parameters'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_data_catalog)

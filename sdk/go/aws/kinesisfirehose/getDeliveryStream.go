@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::KinesisFirehose::DeliveryStream
 func LookupDeliveryStream(ctx *pulumi.Context, args *LookupDeliveryStreamArgs, opts ...pulumi.InvokeOption) (*LookupDeliveryStreamResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDeliveryStreamResult
 	err := ctx.Invoke("aws-native:kinesisfirehose:getDeliveryStream", args, &rv, opts...)
 	if err != nil {

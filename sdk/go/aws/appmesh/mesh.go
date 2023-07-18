@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -32,6 +33,7 @@ func NewMesh(ctx *pulumi.Context,
 		args = &MeshArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Mesh
 	err := ctx.RegisterResource("aws-native:appmesh:Mesh", name, args, &resource, opts...)
 	if err != nil {

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // AWS Route53 Recovery Control Control Panel resource schema .
 func LookupControlPanel(ctx *pulumi.Context, args *LookupControlPanelArgs, opts ...pulumi.InvokeOption) (*LookupControlPanelResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupControlPanelResult
 	err := ctx.Invoke("aws-native:route53recoverycontrol:getControlPanel", args, &rv, opts...)
 	if err != nil {

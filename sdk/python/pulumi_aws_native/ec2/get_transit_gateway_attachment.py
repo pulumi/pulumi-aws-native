@@ -80,10 +80,10 @@ def get_transit_gateway_attachment(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getTransitGatewayAttachment', __args__, opts=opts, typ=GetTransitGatewayAttachmentResult).value
 
     return AwaitableGetTransitGatewayAttachmentResult(
-        id=__ret__.id,
-        options=__ret__.options,
-        subnet_ids=__ret__.subnet_ids,
-        tags=__ret__.tags)
+        id=pulumi.get(__ret__, 'id'),
+        options=pulumi.get(__ret__, 'options'),
+        subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_transit_gateway_attachment)

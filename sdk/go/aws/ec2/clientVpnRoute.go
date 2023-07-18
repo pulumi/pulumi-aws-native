@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,6 +40,7 @@ func NewClientVpnRoute(ctx *pulumi.Context,
 	if args.TargetVpcSubnetId == nil {
 		return nil, errors.New("invalid value for required argument 'TargetVpcSubnetId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ClientVpnRoute
 	err := ctx.RegisterResource("aws-native:ec2:ClientVpnRoute", name, args, &resource, opts...)
 	if err != nil {

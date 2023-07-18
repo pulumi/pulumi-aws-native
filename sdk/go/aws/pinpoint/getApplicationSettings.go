@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::Pinpoint::ApplicationSettings
 func LookupApplicationSettings(ctx *pulumi.Context, args *LookupApplicationSettingsArgs, opts ...pulumi.InvokeOption) (*LookupApplicationSettingsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupApplicationSettingsResult
 	err := ctx.Invoke("aws-native:pinpoint:getApplicationSettings", args, &rv, opts...)
 	if err != nil {

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Schema of AWS::EC2::IPAMPool Type
 func LookupIPAMPool(ctx *pulumi.Context, args *LookupIPAMPoolArgs, opts ...pulumi.InvokeOption) (*LookupIPAMPoolResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupIPAMPoolResult
 	err := ctx.Invoke("aws-native:ec2:getIPAMPool", args, &rv, opts...)
 	if err != nil {

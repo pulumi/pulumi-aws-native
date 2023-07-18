@@ -73,9 +73,9 @@ def get_drt_access(account_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:shield:getDRTAccess', __args__, opts=opts, typ=GetDRTAccessResult).value
 
     return AwaitableGetDRTAccessResult(
-        account_id=__ret__.account_id,
-        log_bucket_list=__ret__.log_bucket_list,
-        role_arn=__ret__.role_arn)
+        account_id=pulumi.get(__ret__, 'account_id'),
+        log_bucket_list=pulumi.get(__ret__, 'log_bucket_list'),
+        role_arn=pulumi.get(__ret__, 'role_arn'))
 
 
 @_utilities.lift_output_func(get_drt_access)

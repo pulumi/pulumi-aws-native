@@ -107,12 +107,12 @@ def get_pipeline(pipeline_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:sagemaker:getPipeline', __args__, opts=opts, typ=GetPipelineResult).value
 
     return AwaitableGetPipelineResult(
-        parallelism_configuration=__ret__.parallelism_configuration,
-        pipeline_definition=__ret__.pipeline_definition,
-        pipeline_description=__ret__.pipeline_description,
-        pipeline_display_name=__ret__.pipeline_display_name,
-        role_arn=__ret__.role_arn,
-        tags=__ret__.tags)
+        parallelism_configuration=pulumi.get(__ret__, 'parallelism_configuration'),
+        pipeline_definition=pulumi.get(__ret__, 'pipeline_definition'),
+        pipeline_description=pulumi.get(__ret__, 'pipeline_description'),
+        pipeline_display_name=pulumi.get(__ret__, 'pipeline_display_name'),
+        role_arn=pulumi.get(__ret__, 'role_arn'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_pipeline)

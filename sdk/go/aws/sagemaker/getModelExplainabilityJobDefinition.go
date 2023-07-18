@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::SageMaker::ModelExplainabilityJobDefinition
 func LookupModelExplainabilityJobDefinition(ctx *pulumi.Context, args *LookupModelExplainabilityJobDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupModelExplainabilityJobDefinitionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupModelExplainabilityJobDefinitionResult
 	err := ctx.Invoke("aws-native:sagemaker:getModelExplainabilityJobDefinition", args, &rv, opts...)
 	if err != nil {

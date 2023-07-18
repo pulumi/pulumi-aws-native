@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::Transfer::Agreement
 func LookupAgreement(ctx *pulumi.Context, args *LookupAgreementArgs, opts ...pulumi.InvokeOption) (*LookupAgreementResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAgreementResult
 	err := ctx.Invoke("aws-native:transfer:getAgreement", args, &rv, opts...)
 	if err != nil {

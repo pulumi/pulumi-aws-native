@@ -103,11 +103,11 @@ def get_collection(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:opensearchserverless:getCollection', __args__, opts=opts, typ=GetCollectionResult).value
 
     return AwaitableGetCollectionResult(
-        arn=__ret__.arn,
-        collection_endpoint=__ret__.collection_endpoint,
-        dashboard_endpoint=__ret__.dashboard_endpoint,
-        description=__ret__.description,
-        id=__ret__.id)
+        arn=pulumi.get(__ret__, 'arn'),
+        collection_endpoint=pulumi.get(__ret__, 'collection_endpoint'),
+        dashboard_endpoint=pulumi.get(__ret__, 'dashboard_endpoint'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_collection)

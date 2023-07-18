@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Associates a gateway with a route table. The gateway and route table must be in the same VPC. This association causes the incoming traffic to the gateway to be routed according to the routes in the route table.
 func LookupGatewayRouteTableAssociation(ctx *pulumi.Context, args *LookupGatewayRouteTableAssociationArgs, opts ...pulumi.InvokeOption) (*LookupGatewayRouteTableAssociationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupGatewayRouteTableAssociationResult
 	err := ctx.Invoke("aws-native:ec2:getGatewayRouteTableAssociation", args, &rv, opts...)
 	if err != nil {

@@ -86,11 +86,11 @@ def get_ip_set(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:guardduty:getIPSet', __args__, opts=opts, typ=GetIPSetResult).value
 
     return AwaitableGetIPSetResult(
-        activate=__ret__.activate,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        tags=__ret__.tags)
+        activate=pulumi.get(__ret__, 'activate'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_ip_set)

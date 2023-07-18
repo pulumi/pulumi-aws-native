@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // The AWS::RDS::DBParameterGroup resource creates a custom parameter group for an RDS database family
 func LookupDBParameterGroup(ctx *pulumi.Context, args *LookupDBParameterGroupArgs, opts ...pulumi.InvokeOption) (*LookupDBParameterGroupResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDBParameterGroupResult
 	err := ctx.Invoke("aws-native:rds:getDBParameterGroup", args, &rv, opts...)
 	if err != nil {

@@ -92,10 +92,10 @@ def get_phone_number(phone_number_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:connect:getPhoneNumber', __args__, opts=opts, typ=GetPhoneNumberResult).value
 
     return AwaitableGetPhoneNumberResult(
-        address=__ret__.address,
-        phone_number_arn=__ret__.phone_number_arn,
-        tags=__ret__.tags,
-        target_arn=__ret__.target_arn)
+        address=pulumi.get(__ret__, 'address'),
+        phone_number_arn=pulumi.get(__ret__, 'phone_number_arn'),
+        tags=pulumi.get(__ret__, 'tags'),
+        target_arn=pulumi.get(__ret__, 'target_arn'))
 
 
 @_utilities.lift_output_func(get_phone_number)

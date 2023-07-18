@@ -75,9 +75,9 @@ def get_health_check(health_check_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:route53:getHealthCheck', __args__, opts=opts, typ=GetHealthCheckResult).value
 
     return AwaitableGetHealthCheckResult(
-        health_check_config=__ret__.health_check_config,
-        health_check_id=__ret__.health_check_id,
-        health_check_tags=__ret__.health_check_tags)
+        health_check_config=pulumi.get(__ret__, 'health_check_config'),
+        health_check_id=pulumi.get(__ret__, 'health_check_id'),
+        health_check_tags=pulumi.get(__ret__, 'health_check_tags'))
 
 
 @_utilities.lift_output_func(get_health_check)

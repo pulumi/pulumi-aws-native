@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Schema for AWS::EKS::FargateProfile
 func LookupFargateProfile(ctx *pulumi.Context, args *LookupFargateProfileArgs, opts ...pulumi.InvokeOption) (*LookupFargateProfileResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFargateProfileResult
 	err := ctx.Invoke("aws-native:eks:getFargateProfile", args, &rv, opts...)
 	if err != nil {

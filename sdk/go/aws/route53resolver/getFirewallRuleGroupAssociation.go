@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for AWS::Route53Resolver::FirewallRuleGroupAssociation.
 func LookupFirewallRuleGroupAssociation(ctx *pulumi.Context, args *LookupFirewallRuleGroupAssociationArgs, opts ...pulumi.InvokeOption) (*LookupFirewallRuleGroupAssociationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFirewallRuleGroupAssociationResult
 	err := ctx.Invoke("aws-native:route53resolver:getFirewallRuleGroupAssociation", args, &rv, opts...)
 	if err != nil {

@@ -129,13 +129,13 @@ def get_game_server_group(game_server_group_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:gamelift:getGameServerGroup', __args__, opts=opts, typ=GetGameServerGroupResult).value
 
     return AwaitableGetGameServerGroupResult(
-        auto_scaling_group_arn=__ret__.auto_scaling_group_arn,
-        balancing_strategy=__ret__.balancing_strategy,
-        game_server_group_arn=__ret__.game_server_group_arn,
-        game_server_group_name=__ret__.game_server_group_name,
-        game_server_protection_policy=__ret__.game_server_protection_policy,
-        instance_definitions=__ret__.instance_definitions,
-        role_arn=__ret__.role_arn)
+        auto_scaling_group_arn=pulumi.get(__ret__, 'auto_scaling_group_arn'),
+        balancing_strategy=pulumi.get(__ret__, 'balancing_strategy'),
+        game_server_group_arn=pulumi.get(__ret__, 'game_server_group_arn'),
+        game_server_group_name=pulumi.get(__ret__, 'game_server_group_name'),
+        game_server_protection_policy=pulumi.get(__ret__, 'game_server_protection_policy'),
+        instance_definitions=pulumi.get(__ret__, 'instance_definitions'),
+        role_arn=pulumi.get(__ret__, 'role_arn'))
 
 
 @_utilities.lift_output_func(get_game_server_group)

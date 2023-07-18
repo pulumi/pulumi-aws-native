@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -46,6 +47,7 @@ func NewCustomLineItem(ctx *pulumi.Context,
 	if args.BillingGroupArn == nil {
 		return nil, errors.New("invalid value for required argument 'BillingGroupArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CustomLineItem
 	err := ctx.RegisterResource("aws-native:billingconductor:CustomLineItem", name, args, &resource, opts...)
 	if err != nil {

@@ -55,7 +55,7 @@ def get_schema(schema_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:personalize:getSchema', __args__, opts=opts, typ=GetSchemaResult).value
 
     return AwaitableGetSchemaResult(
-        schema_arn=__ret__.schema_arn)
+        schema_arn=pulumi.get(__ret__, 'schema_arn'))
 
 
 @_utilities.lift_output_func(get_schema)

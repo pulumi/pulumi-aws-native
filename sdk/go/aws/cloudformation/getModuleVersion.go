@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // A module that has been registered in the CloudFormation registry.
 func LookupModuleVersion(ctx *pulumi.Context, args *LookupModuleVersionArgs, opts ...pulumi.InvokeOption) (*LookupModuleVersionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupModuleVersionResult
 	err := ctx.Invoke("aws-native:cloudformation:getModuleVersion", args, &rv, opts...)
 	if err != nil {

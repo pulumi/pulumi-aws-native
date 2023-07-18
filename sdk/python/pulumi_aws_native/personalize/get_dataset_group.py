@@ -55,7 +55,7 @@ def get_dataset_group(dataset_group_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:personalize:getDatasetGroup', __args__, opts=opts, typ=GetDatasetGroupResult).value
 
     return AwaitableGetDatasetGroupResult(
-        dataset_group_arn=__ret__.dataset_group_arn)
+        dataset_group_arn=pulumi.get(__ret__, 'dataset_group_arn'))
 
 
 @_utilities.lift_output_func(get_dataset_group)

@@ -49,7 +49,7 @@ def get_permission(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:lambda:getPermission', __args__, opts=opts, typ=GetPermissionResult).value
 
     return AwaitableGetPermissionResult(
-        id=__ret__.id)
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_permission)

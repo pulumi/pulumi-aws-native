@@ -61,5 +61,5 @@ def get_partition(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPa
     __ret__ = pulumi.runtime.invoke('aws-native:index:getPartition', __args__, opts=opts, typ=GetPartitionResult).value
 
     return AwaitableGetPartitionResult(
-        dns_suffix=__ret__.dns_suffix,
-        partition=__ret__.partition)
+        dns_suffix=pulumi.get(__ret__, 'dns_suffix'),
+        partition=pulumi.get(__ret__, 'partition'))

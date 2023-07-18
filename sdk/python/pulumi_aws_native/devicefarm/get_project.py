@@ -86,11 +86,11 @@ def get_project(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:devicefarm:getProject', __args__, opts=opts, typ=GetProjectResult).value
 
     return AwaitableGetProjectResult(
-        arn=__ret__.arn,
-        default_job_timeout_minutes=__ret__.default_job_timeout_minutes,
-        name=__ret__.name,
-        tags=__ret__.tags,
-        vpc_config=__ret__.vpc_config)
+        arn=pulumi.get(__ret__, 'arn'),
+        default_job_timeout_minutes=pulumi.get(__ret__, 'default_job_timeout_minutes'),
+        name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        vpc_config=pulumi.get(__ret__, 'vpc_config'))
 
 
 @_utilities.lift_output_func(get_project)

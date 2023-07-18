@@ -55,7 +55,7 @@ def get_resource_policy(resource_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cloudtrail:getResourcePolicy', __args__, opts=opts, typ=GetResourcePolicyResult).value
 
     return AwaitableGetResourcePolicyResult(
-        resource_policy=__ret__.resource_policy)
+        resource_policy=pulumi.get(__ret__, 'resource_policy'))
 
 
 @_utilities.lift_output_func(get_resource_policy)

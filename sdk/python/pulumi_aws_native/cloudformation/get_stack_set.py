@@ -177,17 +177,17 @@ def get_stack_set(stack_set_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cloudformation:getStackSet', __args__, opts=opts, typ=GetStackSetResult).value
 
     return AwaitableGetStackSetResult(
-        administration_role_arn=__ret__.administration_role_arn,
-        auto_deployment=__ret__.auto_deployment,
-        capabilities=__ret__.capabilities,
-        description=__ret__.description,
-        execution_role_name=__ret__.execution_role_name,
-        managed_execution=__ret__.managed_execution,
-        parameters=__ret__.parameters,
-        stack_instances_group=__ret__.stack_instances_group,
-        stack_set_id=__ret__.stack_set_id,
-        tags=__ret__.tags,
-        template_body=__ret__.template_body)
+        administration_role_arn=pulumi.get(__ret__, 'administration_role_arn'),
+        auto_deployment=pulumi.get(__ret__, 'auto_deployment'),
+        capabilities=pulumi.get(__ret__, 'capabilities'),
+        description=pulumi.get(__ret__, 'description'),
+        execution_role_name=pulumi.get(__ret__, 'execution_role_name'),
+        managed_execution=pulumi.get(__ret__, 'managed_execution'),
+        parameters=pulumi.get(__ret__, 'parameters'),
+        stack_instances_group=pulumi.get(__ret__, 'stack_instances_group'),
+        stack_set_id=pulumi.get(__ret__, 'stack_set_id'),
+        tags=pulumi.get(__ret__, 'tags'),
+        template_body=pulumi.get(__ret__, 'template_body'))
 
 
 @_utilities.lift_output_func(get_stack_set)

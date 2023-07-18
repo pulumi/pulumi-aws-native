@@ -92,10 +92,10 @@ def get_connector(connector_label: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:appflow:getConnector', __args__, opts=opts, typ=GetConnectorResult).value
 
     return AwaitableGetConnectorResult(
-        connector_arn=__ret__.connector_arn,
-        connector_provisioning_config=__ret__.connector_provisioning_config,
-        connector_provisioning_type=__ret__.connector_provisioning_type,
-        description=__ret__.description)
+        connector_arn=pulumi.get(__ret__, 'connector_arn'),
+        connector_provisioning_config=pulumi.get(__ret__, 'connector_provisioning_config'),
+        connector_provisioning_type=pulumi.get(__ret__, 'connector_provisioning_type'),
+        description=pulumi.get(__ret__, 'description'))
 
 
 @_utilities.lift_output_func(get_connector)

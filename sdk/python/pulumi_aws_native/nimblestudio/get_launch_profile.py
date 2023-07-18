@@ -115,12 +115,12 @@ def get_launch_profile(launch_profile_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:nimblestudio:getLaunchProfile', __args__, opts=opts, typ=GetLaunchProfileResult).value
 
     return AwaitableGetLaunchProfileResult(
-        description=__ret__.description,
-        launch_profile_id=__ret__.launch_profile_id,
-        launch_profile_protocol_versions=__ret__.launch_profile_protocol_versions,
-        name=__ret__.name,
-        stream_configuration=__ret__.stream_configuration,
-        studio_component_ids=__ret__.studio_component_ids)
+        description=pulumi.get(__ret__, 'description'),
+        launch_profile_id=pulumi.get(__ret__, 'launch_profile_id'),
+        launch_profile_protocol_versions=pulumi.get(__ret__, 'launch_profile_protocol_versions'),
+        name=pulumi.get(__ret__, 'name'),
+        stream_configuration=pulumi.get(__ret__, 'stream_configuration'),
+        studio_component_ids=pulumi.get(__ret__, 'studio_component_ids'))
 
 
 @_utilities.lift_output_func(get_launch_profile)

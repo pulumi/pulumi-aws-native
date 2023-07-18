@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Specifies an Amazon Redshift subnet group.
 func LookupClusterSubnetGroup(ctx *pulumi.Context, args *LookupClusterSubnetGroupArgs, opts ...pulumi.InvokeOption) (*LookupClusterSubnetGroupResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupClusterSubnetGroupResult
 	err := ctx.Invoke("aws-native:redshift:getClusterSubnetGroup", args, &rv, opts...)
 	if err != nil {

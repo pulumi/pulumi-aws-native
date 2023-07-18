@@ -76,10 +76,10 @@ def get_image_version(image_version_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:sagemaker:getImageVersion', __args__, opts=opts, typ=GetImageVersionResult).value
 
     return AwaitableGetImageVersionResult(
-        container_image=__ret__.container_image,
-        image_arn=__ret__.image_arn,
-        image_version_arn=__ret__.image_version_arn,
-        version=__ret__.version)
+        container_image=pulumi.get(__ret__, 'container_image'),
+        image_arn=pulumi.get(__ret__, 'image_arn'),
+        image_version_arn=pulumi.get(__ret__, 'image_version_arn'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_image_version)

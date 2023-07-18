@@ -67,9 +67,9 @@ def get_volume(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:opsworks:getVolume', __args__, opts=opts, typ=GetVolumeResult).value
 
     return AwaitableGetVolumeResult(
-        id=__ret__.id,
-        mount_point=__ret__.mount_point,
-        name=__ret__.name)
+        id=pulumi.get(__ret__, 'id'),
+        mount_point=pulumi.get(__ret__, 'mount_point'),
+        name=pulumi.get(__ret__, 'name'))
 
 
 @_utilities.lift_output_func(get_volume)

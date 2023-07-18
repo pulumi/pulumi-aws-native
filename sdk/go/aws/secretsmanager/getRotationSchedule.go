@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::SecretsManager::RotationSchedule
 func LookupRotationSchedule(ctx *pulumi.Context, args *LookupRotationScheduleArgs, opts ...pulumi.InvokeOption) (*LookupRotationScheduleResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRotationScheduleResult
 	err := ctx.Invoke("aws-native:secretsmanager:getRotationSchedule", args, &rv, opts...)
 	if err != nil {

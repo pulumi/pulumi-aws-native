@@ -171,17 +171,17 @@ def get_cluster(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:eks:getCluster', __args__, opts=opts, typ=GetClusterResult).value
 
     return AwaitableGetClusterResult(
-        arn=__ret__.arn,
-        certificate_authority_data=__ret__.certificate_authority_data,
-        cluster_security_group_id=__ret__.cluster_security_group_id,
-        encryption_config_key_arn=__ret__.encryption_config_key_arn,
-        endpoint=__ret__.endpoint,
-        id=__ret__.id,
-        logging=__ret__.logging,
-        open_id_connect_issuer_url=__ret__.open_id_connect_issuer_url,
-        resources_vpc_config=__ret__.resources_vpc_config,
-        tags=__ret__.tags,
-        version=__ret__.version)
+        arn=pulumi.get(__ret__, 'arn'),
+        certificate_authority_data=pulumi.get(__ret__, 'certificate_authority_data'),
+        cluster_security_group_id=pulumi.get(__ret__, 'cluster_security_group_id'),
+        encryption_config_key_arn=pulumi.get(__ret__, 'encryption_config_key_arn'),
+        endpoint=pulumi.get(__ret__, 'endpoint'),
+        id=pulumi.get(__ret__, 'id'),
+        logging=pulumi.get(__ret__, 'logging'),
+        open_id_connect_issuer_url=pulumi.get(__ret__, 'open_id_connect_issuer_url'),
+        resources_vpc_config=pulumi.get(__ret__, 'resources_vpc_config'),
+        tags=pulumi.get(__ret__, 'tags'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_cluster)

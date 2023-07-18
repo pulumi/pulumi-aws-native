@@ -70,8 +70,8 @@ def get_documentation_part(documentation_part_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:apigateway:getDocumentationPart', __args__, opts=opts, typ=GetDocumentationPartResult).value
 
     return AwaitableGetDocumentationPartResult(
-        documentation_part_id=__ret__.documentation_part_id,
-        properties=__ret__.properties)
+        documentation_part_id=pulumi.get(__ret__, 'documentation_part_id'),
+        properties=pulumi.get(__ret__, 'properties'))
 
 
 @_utilities.lift_output_func(get_documentation_part)

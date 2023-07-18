@@ -71,8 +71,8 @@ def get_aggregation_authorization(authorized_account_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:configuration:getAggregationAuthorization', __args__, opts=opts, typ=GetAggregationAuthorizationResult).value
 
     return AwaitableGetAggregationAuthorizationResult(
-        aggregation_authorization_arn=__ret__.aggregation_authorization_arn,
-        tags=__ret__.tags)
+        aggregation_authorization_arn=pulumi.get(__ret__, 'aggregation_authorization_arn'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_aggregation_authorization)

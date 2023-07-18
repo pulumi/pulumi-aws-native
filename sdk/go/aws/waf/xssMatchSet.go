@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -31,6 +32,7 @@ func NewXssMatchSet(ctx *pulumi.Context,
 	if args.XssMatchTuples == nil {
 		return nil, errors.New("invalid value for required argument 'XssMatchTuples'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource XssMatchSet
 	err := ctx.RegisterResource("aws-native:waf:XssMatchSet", name, args, &resource, opts...)
 	if err != nil {

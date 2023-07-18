@@ -152,15 +152,15 @@ def get_multicast_group(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iotwireless:getMulticastGroup', __args__, opts=opts, typ=GetMulticastGroupResult).value
 
     return AwaitableGetMulticastGroupResult(
-        arn=__ret__.arn,
-        associate_wireless_device=__ret__.associate_wireless_device,
-        description=__ret__.description,
-        disassociate_wireless_device=__ret__.disassociate_wireless_device,
-        id=__ret__.id,
-        lo_ra_wan=__ret__.lo_ra_wan,
-        name=__ret__.name,
-        status=__ret__.status,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        associate_wireless_device=pulumi.get(__ret__, 'associate_wireless_device'),
+        description=pulumi.get(__ret__, 'description'),
+        disassociate_wireless_device=pulumi.get(__ret__, 'disassociate_wireless_device'),
+        id=pulumi.get(__ret__, 'id'),
+        lo_ra_wan=pulumi.get(__ret__, 'lo_ra_wan'),
+        name=pulumi.get(__ret__, 'name'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_multicast_group)

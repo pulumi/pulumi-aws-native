@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Represents a dataset group that holds a collection of related datasets
 func LookupDatasetGroup(ctx *pulumi.Context, args *LookupDatasetGroupArgs, opts ...pulumi.InvokeOption) (*LookupDatasetGroupResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDatasetGroupResult
 	err := ctx.Invoke("aws-native:forecast:getDatasetGroup", args, &rv, opts...)
 	if err != nil {

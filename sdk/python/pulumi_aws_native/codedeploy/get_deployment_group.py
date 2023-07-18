@@ -203,24 +203,24 @@ def get_deployment_group(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:codedeploy:getDeploymentGroup', __args__, opts=opts, typ=GetDeploymentGroupResult).value
 
     return AwaitableGetDeploymentGroupResult(
-        alarm_configuration=__ret__.alarm_configuration,
-        auto_rollback_configuration=__ret__.auto_rollback_configuration,
-        auto_scaling_groups=__ret__.auto_scaling_groups,
-        blue_green_deployment_configuration=__ret__.blue_green_deployment_configuration,
-        deployment=__ret__.deployment,
-        deployment_config_name=__ret__.deployment_config_name,
-        deployment_style=__ret__.deployment_style,
-        e_cs_services=__ret__.e_cs_services,
-        ec2_tag_filters=__ret__.ec2_tag_filters,
-        ec2_tag_set=__ret__.ec2_tag_set,
-        id=__ret__.id,
-        load_balancer_info=__ret__.load_balancer_info,
-        on_premises_instance_tag_filters=__ret__.on_premises_instance_tag_filters,
-        on_premises_tag_set=__ret__.on_premises_tag_set,
-        outdated_instances_strategy=__ret__.outdated_instances_strategy,
-        service_role_arn=__ret__.service_role_arn,
-        tags=__ret__.tags,
-        trigger_configurations=__ret__.trigger_configurations)
+        alarm_configuration=pulumi.get(__ret__, 'alarm_configuration'),
+        auto_rollback_configuration=pulumi.get(__ret__, 'auto_rollback_configuration'),
+        auto_scaling_groups=pulumi.get(__ret__, 'auto_scaling_groups'),
+        blue_green_deployment_configuration=pulumi.get(__ret__, 'blue_green_deployment_configuration'),
+        deployment=pulumi.get(__ret__, 'deployment'),
+        deployment_config_name=pulumi.get(__ret__, 'deployment_config_name'),
+        deployment_style=pulumi.get(__ret__, 'deployment_style'),
+        e_cs_services=pulumi.get(__ret__, 'e_cs_services'),
+        ec2_tag_filters=pulumi.get(__ret__, 'ec2_tag_filters'),
+        ec2_tag_set=pulumi.get(__ret__, 'ec2_tag_set'),
+        id=pulumi.get(__ret__, 'id'),
+        load_balancer_info=pulumi.get(__ret__, 'load_balancer_info'),
+        on_premises_instance_tag_filters=pulumi.get(__ret__, 'on_premises_instance_tag_filters'),
+        on_premises_tag_set=pulumi.get(__ret__, 'on_premises_tag_set'),
+        outdated_instances_strategy=pulumi.get(__ret__, 'outdated_instances_strategy'),
+        service_role_arn=pulumi.get(__ret__, 'service_role_arn'),
+        tags=pulumi.get(__ret__, 'tags'),
+        trigger_configurations=pulumi.get(__ret__, 'trigger_configurations'))
 
 
 @_utilities.lift_output_func(get_deployment_group)

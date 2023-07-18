@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for AWS::DataBrew::Ruleset.
 func LookupRuleset(ctx *pulumi.Context, args *LookupRulesetArgs, opts ...pulumi.InvokeOption) (*LookupRulesetResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRulesetResult
 	err := ctx.Invoke("aws-native:databrew:getRuleset", args, &rv, opts...)
 	if err != nil {

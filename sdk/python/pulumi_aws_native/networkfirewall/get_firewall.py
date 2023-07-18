@@ -131,16 +131,16 @@ def get_firewall(firewall_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:networkfirewall:getFirewall', __args__, opts=opts, typ=GetFirewallResult).value
 
     return AwaitableGetFirewallResult(
-        delete_protection=__ret__.delete_protection,
-        description=__ret__.description,
-        endpoint_ids=__ret__.endpoint_ids,
-        firewall_arn=__ret__.firewall_arn,
-        firewall_id=__ret__.firewall_id,
-        firewall_policy_arn=__ret__.firewall_policy_arn,
-        firewall_policy_change_protection=__ret__.firewall_policy_change_protection,
-        subnet_change_protection=__ret__.subnet_change_protection,
-        subnet_mappings=__ret__.subnet_mappings,
-        tags=__ret__.tags)
+        delete_protection=pulumi.get(__ret__, 'delete_protection'),
+        description=pulumi.get(__ret__, 'description'),
+        endpoint_ids=pulumi.get(__ret__, 'endpoint_ids'),
+        firewall_arn=pulumi.get(__ret__, 'firewall_arn'),
+        firewall_id=pulumi.get(__ret__, 'firewall_id'),
+        firewall_policy_arn=pulumi.get(__ret__, 'firewall_policy_arn'),
+        firewall_policy_change_protection=pulumi.get(__ret__, 'firewall_policy_change_protection'),
+        subnet_change_protection=pulumi.get(__ret__, 'subnet_change_protection'),
+        subnet_mappings=pulumi.get(__ret__, 'subnet_mappings'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_firewall)

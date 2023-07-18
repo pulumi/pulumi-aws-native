@@ -49,7 +49,7 @@ def get_log_anomaly_detection_integration(account_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:devopsguru:getLogAnomalyDetectionIntegration', __args__, opts=opts, typ=GetLogAnomalyDetectionIntegrationResult).value
 
     return AwaitableGetLogAnomalyDetectionIntegrationResult(
-        account_id=__ret__.account_id)
+        account_id=pulumi.get(__ret__, 'account_id'))
 
 
 @_utilities.lift_output_func(get_log_anomaly_detection_integration)

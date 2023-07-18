@@ -51,7 +51,7 @@ def get_monitoring_subscription(distribution_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cloudfront:getMonitoringSubscription', __args__, opts=opts, typ=GetMonitoringSubscriptionResult).value
 
     return AwaitableGetMonitoringSubscriptionResult(
-        monitoring_subscription=__ret__.monitoring_subscription)
+        monitoring_subscription=pulumi.get(__ret__, 'monitoring_subscription'))
 
 
 @_utilities.lift_output_func(get_monitoring_subscription)

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -43,6 +44,7 @@ func NewApi(ctx *pulumi.Context,
 		args = &ApiArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Api
 	err := ctx.RegisterResource("aws-native:apigatewayv2:Api", name, args, &resource, opts...)
 	if err != nil {

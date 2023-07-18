@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::EMR::Step
 func LookupStep(ctx *pulumi.Context, args *LookupStepArgs, opts ...pulumi.InvokeOption) (*LookupStepResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupStepResult
 	err := ctx.Invoke("aws-native:emr:getStep", args, &rv, opts...)
 	if err != nil {

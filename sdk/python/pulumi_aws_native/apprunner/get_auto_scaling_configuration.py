@@ -79,9 +79,9 @@ def get_auto_scaling_configuration(auto_scaling_configuration_arn: Optional[str]
     __ret__ = pulumi.runtime.invoke('aws-native:apprunner:getAutoScalingConfiguration', __args__, opts=opts, typ=GetAutoScalingConfigurationResult).value
 
     return AwaitableGetAutoScalingConfigurationResult(
-        auto_scaling_configuration_arn=__ret__.auto_scaling_configuration_arn,
-        auto_scaling_configuration_revision=__ret__.auto_scaling_configuration_revision,
-        latest=__ret__.latest)
+        auto_scaling_configuration_arn=pulumi.get(__ret__, 'auto_scaling_configuration_arn'),
+        auto_scaling_configuration_revision=pulumi.get(__ret__, 'auto_scaling_configuration_revision'),
+        latest=pulumi.get(__ret__, 'latest'))
 
 
 @_utilities.lift_output_func(get_auto_scaling_configuration)

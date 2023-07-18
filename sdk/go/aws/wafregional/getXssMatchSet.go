@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::WAFRegional::XssMatchSet
 func LookupXssMatchSet(ctx *pulumi.Context, args *LookupXssMatchSetArgs, opts ...pulumi.InvokeOption) (*LookupXssMatchSetResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupXssMatchSetResult
 	err := ctx.Invoke("aws-native:wafregional:getXssMatchSet", args, &rv, opts...)
 	if err != nil {

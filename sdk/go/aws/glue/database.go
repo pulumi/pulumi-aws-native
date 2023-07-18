@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -34,6 +35,7 @@ func NewDatabase(ctx *pulumi.Context,
 	if args.DatabaseInput == nil {
 		return nil, errors.New("invalid value for required argument 'DatabaseInput'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Database
 	err := ctx.RegisterResource("aws-native:glue:Database", name, args, &resource, opts...)
 	if err != nil {

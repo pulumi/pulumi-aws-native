@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Represents an AWS account that is a part of a collaboration
 func LookupMembership(ctx *pulumi.Context, args *LookupMembershipArgs, opts ...pulumi.InvokeOption) (*LookupMembershipResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupMembershipResult
 	err := ctx.Invoke("aws-native:cleanrooms:getMembership", args, &rv, opts...)
 	if err != nil {

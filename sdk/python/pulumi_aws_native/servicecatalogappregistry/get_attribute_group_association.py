@@ -67,9 +67,9 @@ def get_attribute_group_association(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:servicecatalogappregistry:getAttributeGroupAssociation', __args__, opts=opts, typ=GetAttributeGroupAssociationResult).value
 
     return AwaitableGetAttributeGroupAssociationResult(
-        application_arn=__ret__.application_arn,
-        attribute_group_arn=__ret__.attribute_group_arn,
-        id=__ret__.id)
+        application_arn=pulumi.get(__ret__, 'application_arn'),
+        attribute_group_arn=pulumi.get(__ret__, 'attribute_group_arn'),
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_attribute_group_association)

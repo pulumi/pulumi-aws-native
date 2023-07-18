@@ -89,10 +89,10 @@ def get_public_repository(repository_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ecr:getPublicRepository', __args__, opts=opts, typ=GetPublicRepositoryResult).value
 
     return AwaitableGetPublicRepositoryResult(
-        arn=__ret__.arn,
-        repository_catalog_data=__ret__.repository_catalog_data,
-        repository_policy_text=__ret__.repository_policy_text,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        repository_catalog_data=pulumi.get(__ret__, 'repository_catalog_data'),
+        repository_policy_text=pulumi.get(__ret__, 'repository_policy_text'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_public_repository)

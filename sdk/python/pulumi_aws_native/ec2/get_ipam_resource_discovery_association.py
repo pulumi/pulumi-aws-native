@@ -152,15 +152,15 @@ def get_ipam_resource_discovery_association(ipam_resource_discovery_association_
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getIPAMResourceDiscoveryAssociation', __args__, opts=opts, typ=GetIPAMResourceDiscoveryAssociationResult).value
 
     return AwaitableGetIPAMResourceDiscoveryAssociationResult(
-        ipam_arn=__ret__.ipam_arn,
-        ipam_region=__ret__.ipam_region,
-        ipam_resource_discovery_association_arn=__ret__.ipam_resource_discovery_association_arn,
-        ipam_resource_discovery_association_id=__ret__.ipam_resource_discovery_association_id,
-        is_default=__ret__.is_default,
-        owner_id=__ret__.owner_id,
-        resource_discovery_status=__ret__.resource_discovery_status,
-        state=__ret__.state,
-        tags=__ret__.tags)
+        ipam_arn=pulumi.get(__ret__, 'ipam_arn'),
+        ipam_region=pulumi.get(__ret__, 'ipam_region'),
+        ipam_resource_discovery_association_arn=pulumi.get(__ret__, 'ipam_resource_discovery_association_arn'),
+        ipam_resource_discovery_association_id=pulumi.get(__ret__, 'ipam_resource_discovery_association_id'),
+        is_default=pulumi.get(__ret__, 'is_default'),
+        owner_id=pulumi.get(__ret__, 'owner_id'),
+        resource_discovery_status=pulumi.get(__ret__, 'resource_discovery_status'),
+        state=pulumi.get(__ret__, 'state'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_ipam_resource_discovery_association)

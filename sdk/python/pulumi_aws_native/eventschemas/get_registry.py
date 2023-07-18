@@ -77,10 +77,10 @@ def get_registry(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:eventschemas:getRegistry', __args__, opts=opts, typ=GetRegistryResult).value
 
     return AwaitableGetRegistryResult(
-        description=__ret__.description,
-        id=__ret__.id,
-        registry_arn=__ret__.registry_arn,
-        tags=__ret__.tags)
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        registry_arn=pulumi.get(__ret__, 'registry_arn'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_registry)

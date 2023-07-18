@@ -49,7 +49,7 @@ def get_resource_group(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:inspector:getResourceGroup', __args__, opts=opts, typ=GetResourceGroupResult).value
 
     return AwaitableGetResourceGroupResult(
-        arn=__ret__.arn)
+        arn=pulumi.get(__ret__, 'arn'))
 
 
 @_utilities.lift_output_func(get_resource_group)

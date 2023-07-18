@@ -116,12 +116,12 @@ def get_transit_gateway_multicast_domain(transit_gateway_multicast_domain_id: Op
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getTransitGatewayMulticastDomain', __args__, opts=opts, typ=GetTransitGatewayMulticastDomainResult).value
 
     return AwaitableGetTransitGatewayMulticastDomainResult(
-        creation_time=__ret__.creation_time,
-        options=__ret__.options,
-        state=__ret__.state,
-        tags=__ret__.tags,
-        transit_gateway_multicast_domain_arn=__ret__.transit_gateway_multicast_domain_arn,
-        transit_gateway_multicast_domain_id=__ret__.transit_gateway_multicast_domain_id)
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        options=pulumi.get(__ret__, 'options'),
+        state=pulumi.get(__ret__, 'state'),
+        tags=pulumi.get(__ret__, 'tags'),
+        transit_gateway_multicast_domain_arn=pulumi.get(__ret__, 'transit_gateway_multicast_domain_arn'),
+        transit_gateway_multicast_domain_id=pulumi.get(__ret__, 'transit_gateway_multicast_domain_id'))
 
 
 @_utilities.lift_output_func(get_transit_gateway_multicast_domain)

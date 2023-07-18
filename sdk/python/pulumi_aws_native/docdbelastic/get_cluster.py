@@ -113,14 +113,14 @@ def get_cluster(cluster_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:docdbelastic:getCluster', __args__, opts=opts, typ=GetClusterResult).value
 
     return AwaitableGetClusterResult(
-        cluster_arn=__ret__.cluster_arn,
-        cluster_endpoint=__ret__.cluster_endpoint,
-        preferred_maintenance_window=__ret__.preferred_maintenance_window,
-        shard_capacity=__ret__.shard_capacity,
-        shard_count=__ret__.shard_count,
-        subnet_ids=__ret__.subnet_ids,
-        tags=__ret__.tags,
-        vpc_security_group_ids=__ret__.vpc_security_group_ids)
+        cluster_arn=pulumi.get(__ret__, 'cluster_arn'),
+        cluster_endpoint=pulumi.get(__ret__, 'cluster_endpoint'),
+        preferred_maintenance_window=pulumi.get(__ret__, 'preferred_maintenance_window'),
+        shard_capacity=pulumi.get(__ret__, 'shard_capacity'),
+        shard_count=pulumi.get(__ret__, 'shard_count'),
+        subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
+        tags=pulumi.get(__ret__, 'tags'),
+        vpc_security_group_ids=pulumi.get(__ret__, 'vpc_security_group_ids'))
 
 
 @_utilities.lift_output_func(get_cluster)

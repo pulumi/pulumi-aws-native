@@ -159,19 +159,19 @@ def get_network_insights_analysis(network_insights_analysis_id: Optional[str] = 
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getNetworkInsightsAnalysis', __args__, opts=opts, typ=GetNetworkInsightsAnalysisResult).value
 
     return AwaitableGetNetworkInsightsAnalysisResult(
-        additional_accounts=__ret__.additional_accounts,
-        alternate_path_hints=__ret__.alternate_path_hints,
-        explanations=__ret__.explanations,
-        forward_path_components=__ret__.forward_path_components,
-        network_insights_analysis_arn=__ret__.network_insights_analysis_arn,
-        network_insights_analysis_id=__ret__.network_insights_analysis_id,
-        network_path_found=__ret__.network_path_found,
-        return_path_components=__ret__.return_path_components,
-        start_date=__ret__.start_date,
-        status=__ret__.status,
-        status_message=__ret__.status_message,
-        suggested_accounts=__ret__.suggested_accounts,
-        tags=__ret__.tags)
+        additional_accounts=pulumi.get(__ret__, 'additional_accounts'),
+        alternate_path_hints=pulumi.get(__ret__, 'alternate_path_hints'),
+        explanations=pulumi.get(__ret__, 'explanations'),
+        forward_path_components=pulumi.get(__ret__, 'forward_path_components'),
+        network_insights_analysis_arn=pulumi.get(__ret__, 'network_insights_analysis_arn'),
+        network_insights_analysis_id=pulumi.get(__ret__, 'network_insights_analysis_id'),
+        network_path_found=pulumi.get(__ret__, 'network_path_found'),
+        return_path_components=pulumi.get(__ret__, 'return_path_components'),
+        start_date=pulumi.get(__ret__, 'start_date'),
+        status=pulumi.get(__ret__, 'status'),
+        status_message=pulumi.get(__ret__, 'status_message'),
+        suggested_accounts=pulumi.get(__ret__, 'suggested_accounts'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_network_insights_analysis)

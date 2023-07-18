@@ -76,10 +76,10 @@ def get_vpc_gateway_attachment(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getVPCGatewayAttachment', __args__, opts=opts, typ=GetVPCGatewayAttachmentResult).value
 
     return AwaitableGetVPCGatewayAttachmentResult(
-        id=__ret__.id,
-        internet_gateway_id=__ret__.internet_gateway_id,
-        vpc_id=__ret__.vpc_id,
-        vpn_gateway_id=__ret__.vpn_gateway_id)
+        id=pulumi.get(__ret__, 'id'),
+        internet_gateway_id=pulumi.get(__ret__, 'internet_gateway_id'),
+        vpc_id=pulumi.get(__ret__, 'vpc_id'),
+        vpn_gateway_id=pulumi.get(__ret__, 'vpn_gateway_id'))
 
 
 @_utilities.lift_output_func(get_vpc_gateway_attachment)

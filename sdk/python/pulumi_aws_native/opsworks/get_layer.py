@@ -203,24 +203,24 @@ def get_layer(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:opsworks:getLayer', __args__, opts=opts, typ=GetLayerResult).value
 
     return AwaitableGetLayerResult(
-        attributes=__ret__.attributes,
-        auto_assign_elastic_ips=__ret__.auto_assign_elastic_ips,
-        auto_assign_public_ips=__ret__.auto_assign_public_ips,
-        custom_instance_profile_arn=__ret__.custom_instance_profile_arn,
-        custom_json=__ret__.custom_json,
-        custom_recipes=__ret__.custom_recipes,
-        custom_security_group_ids=__ret__.custom_security_group_ids,
-        enable_auto_healing=__ret__.enable_auto_healing,
-        id=__ret__.id,
-        install_updates_on_boot=__ret__.install_updates_on_boot,
-        lifecycle_event_configuration=__ret__.lifecycle_event_configuration,
-        load_based_auto_scaling=__ret__.load_based_auto_scaling,
-        name=__ret__.name,
-        packages=__ret__.packages,
-        shortname=__ret__.shortname,
-        tags=__ret__.tags,
-        use_ebs_optimized_instances=__ret__.use_ebs_optimized_instances,
-        volume_configurations=__ret__.volume_configurations)
+        attributes=pulumi.get(__ret__, 'attributes'),
+        auto_assign_elastic_ips=pulumi.get(__ret__, 'auto_assign_elastic_ips'),
+        auto_assign_public_ips=pulumi.get(__ret__, 'auto_assign_public_ips'),
+        custom_instance_profile_arn=pulumi.get(__ret__, 'custom_instance_profile_arn'),
+        custom_json=pulumi.get(__ret__, 'custom_json'),
+        custom_recipes=pulumi.get(__ret__, 'custom_recipes'),
+        custom_security_group_ids=pulumi.get(__ret__, 'custom_security_group_ids'),
+        enable_auto_healing=pulumi.get(__ret__, 'enable_auto_healing'),
+        id=pulumi.get(__ret__, 'id'),
+        install_updates_on_boot=pulumi.get(__ret__, 'install_updates_on_boot'),
+        lifecycle_event_configuration=pulumi.get(__ret__, 'lifecycle_event_configuration'),
+        load_based_auto_scaling=pulumi.get(__ret__, 'load_based_auto_scaling'),
+        name=pulumi.get(__ret__, 'name'),
+        packages=pulumi.get(__ret__, 'packages'),
+        shortname=pulumi.get(__ret__, 'shortname'),
+        tags=pulumi.get(__ret__, 'tags'),
+        use_ebs_optimized_instances=pulumi.get(__ret__, 'use_ebs_optimized_instances'),
+        volume_configurations=pulumi.get(__ret__, 'volume_configurations'))
 
 
 @_utilities.lift_output_func(get_layer)

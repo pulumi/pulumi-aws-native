@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::Greengrass::ConnectorDefinitionVersion
 func LookupConnectorDefinitionVersion(ctx *pulumi.Context, args *LookupConnectorDefinitionVersionArgs, opts ...pulumi.InvokeOption) (*LookupConnectorDefinitionVersionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupConnectorDefinitionVersionResult
 	err := ctx.Invoke("aws-native:greengrass:getConnectorDefinitionVersion", args, &rv, opts...)
 	if err != nil {

@@ -79,9 +79,9 @@ def get_sink(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:oam:getSink', __args__, opts=opts, typ=GetSinkResult).value
 
     return AwaitableGetSinkResult(
-        arn=__ret__.arn,
-        policy=__ret__.policy,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        policy=pulumi.get(__ret__, 'policy'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_sink)

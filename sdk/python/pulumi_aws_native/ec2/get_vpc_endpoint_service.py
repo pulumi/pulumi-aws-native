@@ -85,11 +85,11 @@ def get_vpc_endpoint_service(service_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getVPCEndpointService', __args__, opts=opts, typ=GetVPCEndpointServiceResult).value
 
     return AwaitableGetVPCEndpointServiceResult(
-        acceptance_required=__ret__.acceptance_required,
-        gateway_load_balancer_arns=__ret__.gateway_load_balancer_arns,
-        network_load_balancer_arns=__ret__.network_load_balancer_arns,
-        payer_responsibility=__ret__.payer_responsibility,
-        service_id=__ret__.service_id)
+        acceptance_required=pulumi.get(__ret__, 'acceptance_required'),
+        gateway_load_balancer_arns=pulumi.get(__ret__, 'gateway_load_balancer_arns'),
+        network_load_balancer_arns=pulumi.get(__ret__, 'network_load_balancer_arns'),
+        payer_responsibility=pulumi.get(__ret__, 'payer_responsibility'),
+        service_id=pulumi.get(__ret__, 'service_id'))
 
 
 @_utilities.lift_output_func(get_vpc_endpoint_service)

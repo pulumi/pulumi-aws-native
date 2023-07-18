@@ -185,22 +185,22 @@ def get_function_configuration(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:appsync:getFunctionConfiguration', __args__, opts=opts, typ=GetFunctionConfigurationResult).value
 
     return AwaitableGetFunctionConfigurationResult(
-        code=__ret__.code,
-        code_s3_location=__ret__.code_s3_location,
-        data_source_name=__ret__.data_source_name,
-        description=__ret__.description,
-        function_arn=__ret__.function_arn,
-        function_id=__ret__.function_id,
-        function_version=__ret__.function_version,
-        id=__ret__.id,
-        max_batch_size=__ret__.max_batch_size,
-        name=__ret__.name,
-        request_mapping_template=__ret__.request_mapping_template,
-        request_mapping_template_s3_location=__ret__.request_mapping_template_s3_location,
-        response_mapping_template=__ret__.response_mapping_template,
-        response_mapping_template_s3_location=__ret__.response_mapping_template_s3_location,
-        runtime=__ret__.runtime,
-        sync_config=__ret__.sync_config)
+        code=pulumi.get(__ret__, 'code'),
+        code_s3_location=pulumi.get(__ret__, 'code_s3_location'),
+        data_source_name=pulumi.get(__ret__, 'data_source_name'),
+        description=pulumi.get(__ret__, 'description'),
+        function_arn=pulumi.get(__ret__, 'function_arn'),
+        function_id=pulumi.get(__ret__, 'function_id'),
+        function_version=pulumi.get(__ret__, 'function_version'),
+        id=pulumi.get(__ret__, 'id'),
+        max_batch_size=pulumi.get(__ret__, 'max_batch_size'),
+        name=pulumi.get(__ret__, 'name'),
+        request_mapping_template=pulumi.get(__ret__, 'request_mapping_template'),
+        request_mapping_template_s3_location=pulumi.get(__ret__, 'request_mapping_template_s3_location'),
+        response_mapping_template=pulumi.get(__ret__, 'response_mapping_template'),
+        response_mapping_template_s3_location=pulumi.get(__ret__, 'response_mapping_template_s3_location'),
+        runtime=pulumi.get(__ret__, 'runtime'),
+        sync_config=pulumi.get(__ret__, 'sync_config'))
 
 
 @_utilities.lift_output_func(get_function_configuration)

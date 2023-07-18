@@ -236,22 +236,22 @@ def get_queue(queue_url: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:sqs:getQueue', __args__, opts=opts, typ=GetQueueResult).value
 
     return AwaitableGetQueueResult(
-        arn=__ret__.arn,
-        content_based_deduplication=__ret__.content_based_deduplication,
-        deduplication_scope=__ret__.deduplication_scope,
-        delay_seconds=__ret__.delay_seconds,
-        fifo_throughput_limit=__ret__.fifo_throughput_limit,
-        kms_data_key_reuse_period_seconds=__ret__.kms_data_key_reuse_period_seconds,
-        kms_master_key_id=__ret__.kms_master_key_id,
-        maximum_message_size=__ret__.maximum_message_size,
-        message_retention_period=__ret__.message_retention_period,
-        queue_url=__ret__.queue_url,
-        receive_message_wait_time_seconds=__ret__.receive_message_wait_time_seconds,
-        redrive_allow_policy=__ret__.redrive_allow_policy,
-        redrive_policy=__ret__.redrive_policy,
-        sqs_managed_sse_enabled=__ret__.sqs_managed_sse_enabled,
-        tags=__ret__.tags,
-        visibility_timeout=__ret__.visibility_timeout)
+        arn=pulumi.get(__ret__, 'arn'),
+        content_based_deduplication=pulumi.get(__ret__, 'content_based_deduplication'),
+        deduplication_scope=pulumi.get(__ret__, 'deduplication_scope'),
+        delay_seconds=pulumi.get(__ret__, 'delay_seconds'),
+        fifo_throughput_limit=pulumi.get(__ret__, 'fifo_throughput_limit'),
+        kms_data_key_reuse_period_seconds=pulumi.get(__ret__, 'kms_data_key_reuse_period_seconds'),
+        kms_master_key_id=pulumi.get(__ret__, 'kms_master_key_id'),
+        maximum_message_size=pulumi.get(__ret__, 'maximum_message_size'),
+        message_retention_period=pulumi.get(__ret__, 'message_retention_period'),
+        queue_url=pulumi.get(__ret__, 'queue_url'),
+        receive_message_wait_time_seconds=pulumi.get(__ret__, 'receive_message_wait_time_seconds'),
+        redrive_allow_policy=pulumi.get(__ret__, 'redrive_allow_policy'),
+        redrive_policy=pulumi.get(__ret__, 'redrive_policy'),
+        sqs_managed_sse_enabled=pulumi.get(__ret__, 'sqs_managed_sse_enabled'),
+        tags=pulumi.get(__ret__, 'tags'),
+        visibility_timeout=pulumi.get(__ret__, 'visibility_timeout'))
 
 
 @_utilities.lift_output_func(get_queue)

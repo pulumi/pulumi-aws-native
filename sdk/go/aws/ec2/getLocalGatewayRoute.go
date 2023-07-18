@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Describes a route for a local gateway route table.
 func LookupLocalGatewayRoute(ctx *pulumi.Context, args *LookupLocalGatewayRouteArgs, opts ...pulumi.InvokeOption) (*LookupLocalGatewayRouteResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLocalGatewayRouteResult
 	err := ctx.Invoke("aws-native:ec2:getLocalGatewayRoute", args, &rv, opts...)
 	if err != nil {

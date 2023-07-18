@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::Greengrass::DeviceDefinition
 func LookupDeviceDefinition(ctx *pulumi.Context, args *LookupDeviceDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupDeviceDefinitionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDeviceDefinitionResult
 	err := ctx.Invoke("aws-native:greengrass:getDeviceDefinition", args, &rv, opts...)
 	if err != nil {

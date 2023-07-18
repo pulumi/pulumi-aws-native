@@ -104,11 +104,11 @@ def get_access_policy(access_policy_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iotsitewise:getAccessPolicy', __args__, opts=opts, typ=GetAccessPolicyResult).value
 
     return AwaitableGetAccessPolicyResult(
-        access_policy_arn=__ret__.access_policy_arn,
-        access_policy_id=__ret__.access_policy_id,
-        access_policy_identity=__ret__.access_policy_identity,
-        access_policy_permission=__ret__.access_policy_permission,
-        access_policy_resource=__ret__.access_policy_resource)
+        access_policy_arn=pulumi.get(__ret__, 'access_policy_arn'),
+        access_policy_id=pulumi.get(__ret__, 'access_policy_id'),
+        access_policy_identity=pulumi.get(__ret__, 'access_policy_identity'),
+        access_policy_permission=pulumi.get(__ret__, 'access_policy_permission'),
+        access_policy_resource=pulumi.get(__ret__, 'access_policy_resource'))
 
 
 @_utilities.lift_output_func(get_access_policy)

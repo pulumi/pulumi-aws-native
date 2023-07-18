@@ -79,9 +79,9 @@ def get_input(input_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iotevents:getInput', __args__, opts=opts, typ=GetInputResult).value
 
     return AwaitableGetInputResult(
-        input_definition=__ret__.input_definition,
-        input_description=__ret__.input_description,
-        tags=__ret__.tags)
+        input_definition=pulumi.get(__ret__, 'input_definition'),
+        input_description=pulumi.get(__ret__, 'input_description'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_input)

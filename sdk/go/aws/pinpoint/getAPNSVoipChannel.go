@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::Pinpoint::APNSVoipChannel
 func LookupAPNSVoipChannel(ctx *pulumi.Context, args *LookupAPNSVoipChannelArgs, opts ...pulumi.InvokeOption) (*LookupAPNSVoipChannelResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAPNSVoipChannelResult
 	err := ctx.Invoke("aws-native:pinpoint:getAPNSVoipChannel", args, &rv, opts...)
 	if err != nil {

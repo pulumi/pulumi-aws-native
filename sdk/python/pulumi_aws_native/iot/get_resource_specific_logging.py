@@ -68,8 +68,8 @@ def get_resource_specific_logging(target_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iot:getResourceSpecificLogging', __args__, opts=opts, typ=GetResourceSpecificLoggingResult).value
 
     return AwaitableGetResourceSpecificLoggingResult(
-        log_level=__ret__.log_level,
-        target_id=__ret__.target_id)
+        log_level=pulumi.get(__ret__, 'log_level'),
+        target_id=pulumi.get(__ret__, 'target_id'))
 
 
 @_utilities.lift_output_func(get_resource_specific_logging)

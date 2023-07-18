@@ -65,8 +65,8 @@ def get_connector(connector_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:kafkaconnect:getConnector', __args__, opts=opts, typ=GetConnectorResult).value
 
     return AwaitableGetConnectorResult(
-        capacity=__ret__.capacity,
-        connector_arn=__ret__.connector_arn)
+        capacity=pulumi.get(__ret__, 'capacity'),
+        connector_arn=pulumi.get(__ret__, 'connector_arn'))
 
 
 @_utilities.lift_output_func(get_connector)

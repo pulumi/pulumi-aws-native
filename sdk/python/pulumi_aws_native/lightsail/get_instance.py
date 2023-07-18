@@ -210,21 +210,21 @@ def get_instance(instance_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:lightsail:getInstance', __args__, opts=opts, typ=GetInstanceResult).value
 
     return AwaitableGetInstanceResult(
-        add_ons=__ret__.add_ons,
-        hardware=__ret__.hardware,
-        instance_arn=__ret__.instance_arn,
-        is_static_ip=__ret__.is_static_ip,
-        key_pair_name=__ret__.key_pair_name,
-        location=__ret__.location,
-        networking=__ret__.networking,
-        private_ip_address=__ret__.private_ip_address,
-        public_ip_address=__ret__.public_ip_address,
-        resource_type=__ret__.resource_type,
-        ssh_key_name=__ret__.ssh_key_name,
-        state=__ret__.state,
-        support_code=__ret__.support_code,
-        tags=__ret__.tags,
-        user_name=__ret__.user_name)
+        add_ons=pulumi.get(__ret__, 'add_ons'),
+        hardware=pulumi.get(__ret__, 'hardware'),
+        instance_arn=pulumi.get(__ret__, 'instance_arn'),
+        is_static_ip=pulumi.get(__ret__, 'is_static_ip'),
+        key_pair_name=pulumi.get(__ret__, 'key_pair_name'),
+        location=pulumi.get(__ret__, 'location'),
+        networking=pulumi.get(__ret__, 'networking'),
+        private_ip_address=pulumi.get(__ret__, 'private_ip_address'),
+        public_ip_address=pulumi.get(__ret__, 'public_ip_address'),
+        resource_type=pulumi.get(__ret__, 'resource_type'),
+        ssh_key_name=pulumi.get(__ret__, 'ssh_key_name'),
+        state=pulumi.get(__ret__, 'state'),
+        support_code=pulumi.get(__ret__, 'support_code'),
+        tags=pulumi.get(__ret__, 'tags'),
+        user_name=pulumi.get(__ret__, 'user_name'))
 
 
 @_utilities.lift_output_func(get_instance)

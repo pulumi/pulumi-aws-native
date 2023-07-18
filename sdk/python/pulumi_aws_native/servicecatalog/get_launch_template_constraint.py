@@ -76,10 +76,10 @@ def get_launch_template_constraint(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:servicecatalog:getLaunchTemplateConstraint', __args__, opts=opts, typ=GetLaunchTemplateConstraintResult).value
 
     return AwaitableGetLaunchTemplateConstraintResult(
-        accept_language=__ret__.accept_language,
-        description=__ret__.description,
-        id=__ret__.id,
-        rules=__ret__.rules)
+        accept_language=pulumi.get(__ret__, 'accept_language'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        rules=pulumi.get(__ret__, 'rules'))
 
 
 @_utilities.lift_output_func(get_launch_template_constraint)

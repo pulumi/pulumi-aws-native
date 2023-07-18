@@ -80,10 +80,10 @@ def get_topic(aws_account_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:quicksight:getTopic', __args__, opts=opts, typ=GetTopicResult).value
 
     return AwaitableGetTopicResult(
-        arn=__ret__.arn,
-        data_sets=__ret__.data_sets,
-        description=__ret__.description,
-        name=__ret__.name)
+        arn=pulumi.get(__ret__, 'arn'),
+        data_sets=pulumi.get(__ret__, 'data_sets'),
+        description=pulumi.get(__ret__, 'description'),
+        name=pulumi.get(__ret__, 'name'))
 
 
 @_utilities.lift_output_func(get_topic)

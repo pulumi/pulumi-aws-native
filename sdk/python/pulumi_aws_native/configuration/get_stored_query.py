@@ -89,11 +89,11 @@ def get_stored_query(query_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:configuration:getStoredQuery', __args__, opts=opts, typ=GetStoredQueryResult).value
 
     return AwaitableGetStoredQueryResult(
-        query_arn=__ret__.query_arn,
-        query_description=__ret__.query_description,
-        query_expression=__ret__.query_expression,
-        query_id=__ret__.query_id,
-        tags=__ret__.tags)
+        query_arn=pulumi.get(__ret__, 'query_arn'),
+        query_description=pulumi.get(__ret__, 'query_description'),
+        query_expression=pulumi.get(__ret__, 'query_expression'),
+        query_id=pulumi.get(__ret__, 'query_id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_stored_query)

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::MSK::ClusterPolicy
 func LookupClusterPolicy(ctx *pulumi.Context, args *LookupClusterPolicyArgs, opts ...pulumi.InvokeOption) (*LookupClusterPolicyResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupClusterPolicyResult
 	err := ctx.Invoke("aws-native:msk:getClusterPolicy", args, &rv, opts...)
 	if err != nil {

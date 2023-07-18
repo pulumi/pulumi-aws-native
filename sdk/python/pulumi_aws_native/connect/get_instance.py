@@ -117,12 +117,12 @@ def get_instance(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:connect:getInstance', __args__, opts=opts, typ=GetInstanceResult).value
 
     return AwaitableGetInstanceResult(
-        arn=__ret__.arn,
-        attributes=__ret__.attributes,
-        created_time=__ret__.created_time,
-        id=__ret__.id,
-        instance_status=__ret__.instance_status,
-        service_role=__ret__.service_role)
+        arn=pulumi.get(__ret__, 'arn'),
+        attributes=pulumi.get(__ret__, 'attributes'),
+        created_time=pulumi.get(__ret__, 'created_time'),
+        id=pulumi.get(__ret__, 'id'),
+        instance_status=pulumi.get(__ret__, 'instance_status'),
+        service_role=pulumi.get(__ret__, 'service_role'))
 
 
 @_utilities.lift_output_func(get_instance)

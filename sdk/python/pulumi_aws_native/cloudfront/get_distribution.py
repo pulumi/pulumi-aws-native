@@ -77,10 +77,10 @@ def get_distribution(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cloudfront:getDistribution', __args__, opts=opts, typ=GetDistributionResult).value
 
     return AwaitableGetDistributionResult(
-        distribution_config=__ret__.distribution_config,
-        domain_name=__ret__.domain_name,
-        id=__ret__.id,
-        tags=__ret__.tags)
+        distribution_config=pulumi.get(__ret__, 'distribution_config'),
+        domain_name=pulumi.get(__ret__, 'domain_name'),
+        id=pulumi.get(__ret__, 'id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_distribution)

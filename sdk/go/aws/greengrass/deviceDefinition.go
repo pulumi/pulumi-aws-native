@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -30,6 +31,7 @@ func NewDeviceDefinition(ctx *pulumi.Context,
 		args = &DeviceDefinitionArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DeviceDefinition
 	err := ctx.RegisterResource("aws-native:greengrass:DeviceDefinition", name, args, &resource, opts...)
 	if err != nil {

@@ -197,19 +197,19 @@ def get_event_data_store(event_data_store_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cloudtrail:getEventDataStore', __args__, opts=opts, typ=GetEventDataStoreResult).value
 
     return AwaitableGetEventDataStoreResult(
-        advanced_event_selectors=__ret__.advanced_event_selectors,
-        created_timestamp=__ret__.created_timestamp,
-        event_data_store_arn=__ret__.event_data_store_arn,
-        ingestion_enabled=__ret__.ingestion_enabled,
-        kms_key_id=__ret__.kms_key_id,
-        multi_region_enabled=__ret__.multi_region_enabled,
-        name=__ret__.name,
-        organization_enabled=__ret__.organization_enabled,
-        retention_period=__ret__.retention_period,
-        status=__ret__.status,
-        tags=__ret__.tags,
-        termination_protection_enabled=__ret__.termination_protection_enabled,
-        updated_timestamp=__ret__.updated_timestamp)
+        advanced_event_selectors=pulumi.get(__ret__, 'advanced_event_selectors'),
+        created_timestamp=pulumi.get(__ret__, 'created_timestamp'),
+        event_data_store_arn=pulumi.get(__ret__, 'event_data_store_arn'),
+        ingestion_enabled=pulumi.get(__ret__, 'ingestion_enabled'),
+        kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
+        multi_region_enabled=pulumi.get(__ret__, 'multi_region_enabled'),
+        name=pulumi.get(__ret__, 'name'),
+        organization_enabled=pulumi.get(__ret__, 'organization_enabled'),
+        retention_period=pulumi.get(__ret__, 'retention_period'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'),
+        termination_protection_enabled=pulumi.get(__ret__, 'termination_protection_enabled'),
+        updated_timestamp=pulumi.get(__ret__, 'updated_timestamp'))
 
 
 @_utilities.lift_output_func(get_event_data_store)

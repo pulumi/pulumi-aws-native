@@ -116,12 +116,12 @@ def get_stream(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:kinesisvideo:getStream', __args__, opts=opts, typ=GetStreamResult).value
 
     return AwaitableGetStreamResult(
-        arn=__ret__.arn,
-        data_retention_in_hours=__ret__.data_retention_in_hours,
-        device_name=__ret__.device_name,
-        kms_key_id=__ret__.kms_key_id,
-        media_type=__ret__.media_type,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        data_retention_in_hours=pulumi.get(__ret__, 'data_retention_in_hours'),
+        device_name=pulumi.get(__ret__, 'device_name'),
+        kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
+        media_type=pulumi.get(__ret__, 'media_type'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_stream)

@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -44,6 +45,7 @@ func NewTransitGatewayConnect(ctx *pulumi.Context,
 	if args.TransportTransitGatewayAttachmentId == nil {
 		return nil, errors.New("invalid value for required argument 'TransportTransitGatewayAttachmentId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TransitGatewayConnect
 	err := ctx.RegisterResource("aws-native:ec2:TransitGatewayConnect", name, args, &resource, opts...)
 	if err != nil {

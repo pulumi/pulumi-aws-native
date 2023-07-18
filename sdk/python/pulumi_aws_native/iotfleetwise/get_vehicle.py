@@ -104,13 +104,13 @@ def get_vehicle(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iotfleetwise:getVehicle', __args__, opts=opts, typ=GetVehicleResult).value
 
     return AwaitableGetVehicleResult(
-        arn=__ret__.arn,
-        attributes=__ret__.attributes,
-        creation_time=__ret__.creation_time,
-        decoder_manifest_arn=__ret__.decoder_manifest_arn,
-        last_modification_time=__ret__.last_modification_time,
-        model_manifest_arn=__ret__.model_manifest_arn,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        attributes=pulumi.get(__ret__, 'attributes'),
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        decoder_manifest_arn=pulumi.get(__ret__, 'decoder_manifest_arn'),
+        last_modification_time=pulumi.get(__ret__, 'last_modification_time'),
+        model_manifest_arn=pulumi.get(__ret__, 'model_manifest_arn'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_vehicle)

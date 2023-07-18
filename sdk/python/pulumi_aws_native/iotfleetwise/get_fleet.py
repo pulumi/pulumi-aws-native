@@ -86,11 +86,11 @@ def get_fleet(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iotfleetwise:getFleet', __args__, opts=opts, typ=GetFleetResult).value
 
     return AwaitableGetFleetResult(
-        arn=__ret__.arn,
-        creation_time=__ret__.creation_time,
-        description=__ret__.description,
-        last_modification_time=__ret__.last_modification_time,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        description=pulumi.get(__ret__, 'description'),
+        last_modification_time=pulumi.get(__ret__, 'last_modification_time'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_fleet)

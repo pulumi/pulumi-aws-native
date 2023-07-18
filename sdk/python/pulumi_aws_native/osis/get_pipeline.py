@@ -137,14 +137,14 @@ def get_pipeline(pipeline_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:osis:getPipeline', __args__, opts=opts, typ=GetPipelineResult).value
 
     return AwaitableGetPipelineResult(
-        ingest_endpoint_urls=__ret__.ingest_endpoint_urls,
-        log_publishing_options=__ret__.log_publishing_options,
-        max_units=__ret__.max_units,
-        min_units=__ret__.min_units,
-        pipeline_arn=__ret__.pipeline_arn,
-        pipeline_configuration_body=__ret__.pipeline_configuration_body,
-        tags=__ret__.tags,
-        vpc_endpoints=__ret__.vpc_endpoints)
+        ingest_endpoint_urls=pulumi.get(__ret__, 'ingest_endpoint_urls'),
+        log_publishing_options=pulumi.get(__ret__, 'log_publishing_options'),
+        max_units=pulumi.get(__ret__, 'max_units'),
+        min_units=pulumi.get(__ret__, 'min_units'),
+        pipeline_arn=pulumi.get(__ret__, 'pipeline_arn'),
+        pipeline_configuration_body=pulumi.get(__ret__, 'pipeline_configuration_body'),
+        tags=pulumi.get(__ret__, 'tags'),
+        vpc_endpoints=pulumi.get(__ret__, 'vpc_endpoints'))
 
 
 @_utilities.lift_output_func(get_pipeline)

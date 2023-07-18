@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -32,6 +33,7 @@ func NewBackupPlan(ctx *pulumi.Context,
 	if args.BackupPlan == nil {
 		return nil, errors.New("invalid value for required argument 'BackupPlan'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BackupPlan
 	err := ctx.RegisterResource("aws-native:backup:BackupPlan", name, args, &resource, opts...)
 	if err != nil {

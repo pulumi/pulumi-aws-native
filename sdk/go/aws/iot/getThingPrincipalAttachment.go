@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::IoT::ThingPrincipalAttachment
 func LookupThingPrincipalAttachment(ctx *pulumi.Context, args *LookupThingPrincipalAttachmentArgs, opts ...pulumi.InvokeOption) (*LookupThingPrincipalAttachmentResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupThingPrincipalAttachmentResult
 	err := ctx.Invoke("aws-native:iot:getThingPrincipalAttachment", args, &rv, opts...)
 	if err != nil {

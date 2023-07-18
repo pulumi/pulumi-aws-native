@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -32,6 +33,7 @@ func NewExtensionAssociation(ctx *pulumi.Context,
 		args = &ExtensionAssociationArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ExtensionAssociation
 	err := ctx.RegisterResource("aws-native:appconfig:ExtensionAssociation", name, args, &resource, opts...)
 	if err != nil {

@@ -59,8 +59,8 @@ def get_security_configuration(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:glue:getSecurityConfiguration', __args__, opts=opts, typ=GetSecurityConfigurationResult).value
 
     return AwaitableGetSecurityConfigurationResult(
-        encryption_configuration=__ret__.encryption_configuration,
-        id=__ret__.id)
+        encryption_configuration=pulumi.get(__ret__, 'encryption_configuration'),
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_security_configuration)

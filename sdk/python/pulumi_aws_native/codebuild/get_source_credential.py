@@ -76,10 +76,10 @@ def get_source_credential(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:codebuild:getSourceCredential', __args__, opts=opts, typ=GetSourceCredentialResult).value
 
     return AwaitableGetSourceCredentialResult(
-        auth_type=__ret__.auth_type,
-        id=__ret__.id,
-        token=__ret__.token,
-        username=__ret__.username)
+        auth_type=pulumi.get(__ret__, 'auth_type'),
+        id=pulumi.get(__ret__, 'id'),
+        token=pulumi.get(__ret__, 'token'),
+        username=pulumi.get(__ret__, 'username'))
 
 
 @_utilities.lift_output_func(get_source_credential)

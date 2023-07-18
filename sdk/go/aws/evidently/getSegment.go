@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::Evidently::Segment
 func LookupSegment(ctx *pulumi.Context, args *LookupSegmentArgs, opts ...pulumi.InvokeOption) (*LookupSegmentResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSegmentResult
 	err := ctx.Invoke("aws-native:evidently:getSegment", args, &rv, opts...)
 	if err != nil {

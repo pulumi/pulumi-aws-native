@@ -58,8 +58,8 @@ def get_placement(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iot1click:getPlacement', __args__, opts=opts, typ=GetPlacementResult).value
 
     return AwaitableGetPlacementResult(
-        attributes=__ret__.attributes,
-        id=__ret__.id)
+        attributes=pulumi.get(__ret__, 'attributes'),
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_placement)

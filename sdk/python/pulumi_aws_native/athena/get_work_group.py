@@ -105,11 +105,11 @@ def get_work_group(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:athena:getWorkGroup', __args__, opts=opts, typ=GetWorkGroupResult).value
 
     return AwaitableGetWorkGroupResult(
-        creation_time=__ret__.creation_time,
-        description=__ret__.description,
-        state=__ret__.state,
-        tags=__ret__.tags,
-        work_group_configuration=__ret__.work_group_configuration)
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        description=pulumi.get(__ret__, 'description'),
+        state=pulumi.get(__ret__, 'state'),
+        tags=pulumi.get(__ret__, 'tags'),
+        work_group_configuration=pulumi.get(__ret__, 'work_group_configuration'))
 
 
 @_utilities.lift_output_func(get_work_group)

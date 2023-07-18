@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Definition of AWS::RolesAnywhere::TrustAnchor Resource Type.
 func LookupTrustAnchor(ctx *pulumi.Context, args *LookupTrustAnchorArgs, opts ...pulumi.InvokeOption) (*LookupTrustAnchorResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTrustAnchorResult
 	err := ctx.Invoke("aws-native:rolesanywhere:getTrustAnchor", args, &rv, opts...)
 	if err != nil {

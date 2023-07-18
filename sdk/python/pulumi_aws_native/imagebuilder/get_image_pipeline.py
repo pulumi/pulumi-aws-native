@@ -189,18 +189,18 @@ def get_image_pipeline(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:imagebuilder:getImagePipeline', __args__, opts=opts, typ=GetImagePipelineResult).value
 
     return AwaitableGetImagePipelineResult(
-        arn=__ret__.arn,
-        container_recipe_arn=__ret__.container_recipe_arn,
-        description=__ret__.description,
-        distribution_configuration_arn=__ret__.distribution_configuration_arn,
-        enhanced_image_metadata_enabled=__ret__.enhanced_image_metadata_enabled,
-        image_recipe_arn=__ret__.image_recipe_arn,
-        image_scanning_configuration=__ret__.image_scanning_configuration,
-        image_tests_configuration=__ret__.image_tests_configuration,
-        infrastructure_configuration_arn=__ret__.infrastructure_configuration_arn,
-        schedule=__ret__.schedule,
-        status=__ret__.status,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        container_recipe_arn=pulumi.get(__ret__, 'container_recipe_arn'),
+        description=pulumi.get(__ret__, 'description'),
+        distribution_configuration_arn=pulumi.get(__ret__, 'distribution_configuration_arn'),
+        enhanced_image_metadata_enabled=pulumi.get(__ret__, 'enhanced_image_metadata_enabled'),
+        image_recipe_arn=pulumi.get(__ret__, 'image_recipe_arn'),
+        image_scanning_configuration=pulumi.get(__ret__, 'image_scanning_configuration'),
+        image_tests_configuration=pulumi.get(__ret__, 'image_tests_configuration'),
+        infrastructure_configuration_arn=pulumi.get(__ret__, 'infrastructure_configuration_arn'),
+        schedule=pulumi.get(__ret__, 'schedule'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_image_pipeline)

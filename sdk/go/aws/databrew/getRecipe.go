@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for AWS::DataBrew::Recipe.
 func LookupRecipe(ctx *pulumi.Context, args *LookupRecipeArgs, opts ...pulumi.InvokeOption) (*LookupRecipeResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRecipeResult
 	err := ctx.Invoke("aws-native:databrew:getRecipe", args, &rv, opts...)
 	if err != nil {

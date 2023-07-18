@@ -62,8 +62,8 @@ def get_configuration_set_event_destination(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ses:getConfigurationSetEventDestination', __args__, opts=opts, typ=GetConfigurationSetEventDestinationResult).value
 
     return AwaitableGetConfigurationSetEventDestinationResult(
-        event_destination=__ret__.event_destination,
-        id=__ret__.id)
+        event_destination=pulumi.get(__ret__, 'event_destination'),
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_configuration_set_event_destination)

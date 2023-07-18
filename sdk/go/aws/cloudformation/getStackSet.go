@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // StackSet as a resource provides one-click experience for provisioning a StackSet and StackInstances
 func LookupStackSet(ctx *pulumi.Context, args *LookupStackSetArgs, opts ...pulumi.InvokeOption) (*LookupStackSetResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupStackSetResult
 	err := ctx.Invoke("aws-native:cloudformation:getStackSet", args, &rv, opts...)
 	if err != nil {

@@ -68,9 +68,9 @@ def get_public_key(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cloudfront:getPublicKey', __args__, opts=opts, typ=GetPublicKeyResult).value
 
     return AwaitableGetPublicKeyResult(
-        created_time=__ret__.created_time,
-        id=__ret__.id,
-        public_key_config=__ret__.public_key_config)
+        created_time=pulumi.get(__ret__, 'created_time'),
+        id=pulumi.get(__ret__, 'id'),
+        public_key_config=pulumi.get(__ret__, 'public_key_config'))
 
 
 @_utilities.lift_output_func(get_public_key)

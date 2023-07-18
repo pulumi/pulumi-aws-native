@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::RDS::DBSecurityGroupIngress
 func LookupDBSecurityGroupIngress(ctx *pulumi.Context, args *LookupDBSecurityGroupIngressArgs, opts ...pulumi.InvokeOption) (*LookupDBSecurityGroupIngressResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDBSecurityGroupIngressResult
 	err := ctx.Invoke("aws-native:rds:getDBSecurityGroupIngress", args, &rv, opts...)
 	if err != nil {

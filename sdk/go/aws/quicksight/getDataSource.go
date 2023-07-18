@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Definition of the AWS::QuickSight::DataSource Resource Type.
 func LookupDataSource(ctx *pulumi.Context, args *LookupDataSourceArgs, opts ...pulumi.InvokeOption) (*LookupDataSourceResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDataSourceResult
 	err := ctx.Invoke("aws-native:quicksight:getDataSource", args, &rv, opts...)
 	if err != nil {

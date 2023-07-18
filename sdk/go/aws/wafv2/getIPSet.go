@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Contains a list of IP addresses. This can be either IPV4 or IPV6. The list will be mutually
 func LookupIPSet(ctx *pulumi.Context, args *LookupIPSetArgs, opts ...pulumi.InvokeOption) (*LookupIPSetResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupIPSetResult
 	err := ctx.Invoke("aws-native:wafv2:getIPSet", args, &rv, opts...)
 	if err != nil {

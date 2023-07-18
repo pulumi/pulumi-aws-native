@@ -95,12 +95,12 @@ def get_storage_virtual_machine(storage_virtual_machine_id: Optional[str] = None
     __ret__ = pulumi.runtime.invoke('aws-native:fsx:getStorageVirtualMachine', __args__, opts=opts, typ=GetStorageVirtualMachineResult).value
 
     return AwaitableGetStorageVirtualMachineResult(
-        active_directory_configuration=__ret__.active_directory_configuration,
-        resource_arn=__ret__.resource_arn,
-        storage_virtual_machine_id=__ret__.storage_virtual_machine_id,
-        svm_admin_password=__ret__.svm_admin_password,
-        tags=__ret__.tags,
-        u_uid=__ret__.u_uid)
+        active_directory_configuration=pulumi.get(__ret__, 'active_directory_configuration'),
+        resource_arn=pulumi.get(__ret__, 'resource_arn'),
+        storage_virtual_machine_id=pulumi.get(__ret__, 'storage_virtual_machine_id'),
+        svm_admin_password=pulumi.get(__ret__, 'svm_admin_password'),
+        tags=pulumi.get(__ret__, 'tags'),
+        u_uid=pulumi.get(__ret__, 'u_uid'))
 
 
 @_utilities.lift_output_func(get_storage_virtual_machine)

@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -37,6 +38,7 @@ func NewStoredQuery(ctx *pulumi.Context,
 	if args.QueryName == nil {
 		return nil, errors.New("invalid value for required argument 'QueryName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource StoredQuery
 	err := ctx.RegisterResource("aws-native:configuration:StoredQuery", name, args, &resource, opts...)
 	if err != nil {

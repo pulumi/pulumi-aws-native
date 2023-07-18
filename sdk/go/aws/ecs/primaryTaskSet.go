@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,6 +40,7 @@ func NewPrimaryTaskSet(ctx *pulumi.Context,
 	if args.TaskSetId == nil {
 		return nil, errors.New("invalid value for required argument 'TaskSetId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PrimaryTaskSet
 	err := ctx.RegisterResource("aws-native:ecs:PrimaryTaskSet", name, args, &resource, opts...)
 	if err != nil {

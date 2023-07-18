@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::FSx::DataRepositoryAssociation
 func LookupDataRepositoryAssociation(ctx *pulumi.Context, args *LookupDataRepositoryAssociationArgs, opts ...pulumi.InvokeOption) (*LookupDataRepositoryAssociationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDataRepositoryAssociationResult
 	err := ctx.Invoke("aws-native:fsx:getDataRepositoryAssociation", args, &rv, opts...)
 	if err != nil {

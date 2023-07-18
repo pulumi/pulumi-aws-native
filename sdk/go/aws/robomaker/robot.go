@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ func NewRobot(ctx *pulumi.Context,
 	if args.GreengrassGroupId == nil {
 		return nil, errors.New("invalid value for required argument 'GreengrassGroupId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Robot
 	err := ctx.RegisterResource("aws-native:robomaker:Robot", name, args, &resource, opts...)
 	if err != nil {

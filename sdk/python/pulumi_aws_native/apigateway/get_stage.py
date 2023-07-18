@@ -191,18 +191,18 @@ def get_stage(rest_api_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:apigateway:getStage', __args__, opts=opts, typ=GetStageResult).value
 
     return AwaitableGetStageResult(
-        access_log_setting=__ret__.access_log_setting,
-        cache_cluster_enabled=__ret__.cache_cluster_enabled,
-        cache_cluster_size=__ret__.cache_cluster_size,
-        canary_setting=__ret__.canary_setting,
-        client_certificate_id=__ret__.client_certificate_id,
-        deployment_id=__ret__.deployment_id,
-        description=__ret__.description,
-        documentation_version=__ret__.documentation_version,
-        method_settings=__ret__.method_settings,
-        tags=__ret__.tags,
-        tracing_enabled=__ret__.tracing_enabled,
-        variables=__ret__.variables)
+        access_log_setting=pulumi.get(__ret__, 'access_log_setting'),
+        cache_cluster_enabled=pulumi.get(__ret__, 'cache_cluster_enabled'),
+        cache_cluster_size=pulumi.get(__ret__, 'cache_cluster_size'),
+        canary_setting=pulumi.get(__ret__, 'canary_setting'),
+        client_certificate_id=pulumi.get(__ret__, 'client_certificate_id'),
+        deployment_id=pulumi.get(__ret__, 'deployment_id'),
+        description=pulumi.get(__ret__, 'description'),
+        documentation_version=pulumi.get(__ret__, 'documentation_version'),
+        method_settings=pulumi.get(__ret__, 'method_settings'),
+        tags=pulumi.get(__ret__, 'tags'),
+        tracing_enabled=pulumi.get(__ret__, 'tracing_enabled'),
+        variables=pulumi.get(__ret__, 'variables'))
 
 
 @_utilities.lift_output_func(get_stage)

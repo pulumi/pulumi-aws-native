@@ -158,19 +158,19 @@ def get_identity_pool(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cognito:getIdentityPool', __args__, opts=opts, typ=GetIdentityPoolResult).value
 
     return AwaitableGetIdentityPoolResult(
-        allow_classic_flow=__ret__.allow_classic_flow,
-        allow_unauthenticated_identities=__ret__.allow_unauthenticated_identities,
-        cognito_events=__ret__.cognito_events,
-        cognito_identity_providers=__ret__.cognito_identity_providers,
-        cognito_streams=__ret__.cognito_streams,
-        developer_provider_name=__ret__.developer_provider_name,
-        id=__ret__.id,
-        identity_pool_name=__ret__.identity_pool_name,
-        name=__ret__.name,
-        open_id_connect_provider_arns=__ret__.open_id_connect_provider_arns,
-        push_sync=__ret__.push_sync,
-        saml_provider_arns=__ret__.saml_provider_arns,
-        supported_login_providers=__ret__.supported_login_providers)
+        allow_classic_flow=pulumi.get(__ret__, 'allow_classic_flow'),
+        allow_unauthenticated_identities=pulumi.get(__ret__, 'allow_unauthenticated_identities'),
+        cognito_events=pulumi.get(__ret__, 'cognito_events'),
+        cognito_identity_providers=pulumi.get(__ret__, 'cognito_identity_providers'),
+        cognito_streams=pulumi.get(__ret__, 'cognito_streams'),
+        developer_provider_name=pulumi.get(__ret__, 'developer_provider_name'),
+        id=pulumi.get(__ret__, 'id'),
+        identity_pool_name=pulumi.get(__ret__, 'identity_pool_name'),
+        name=pulumi.get(__ret__, 'name'),
+        open_id_connect_provider_arns=pulumi.get(__ret__, 'open_id_connect_provider_arns'),
+        push_sync=pulumi.get(__ret__, 'push_sync'),
+        saml_provider_arns=pulumi.get(__ret__, 'saml_provider_arns'),
+        supported_login_providers=pulumi.get(__ret__, 'supported_login_providers'))
 
 
 @_utilities.lift_output_func(get_identity_pool)

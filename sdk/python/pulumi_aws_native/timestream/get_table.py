@@ -104,11 +104,11 @@ def get_table(database_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:timestream:getTable', __args__, opts=opts, typ=GetTableResult).value
 
     return AwaitableGetTableResult(
-        arn=__ret__.arn,
-        magnetic_store_write_properties=__ret__.magnetic_store_write_properties,
-        name=__ret__.name,
-        retention_properties=__ret__.retention_properties,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        magnetic_store_write_properties=pulumi.get(__ret__, 'magnetic_store_write_properties'),
+        name=pulumi.get(__ret__, 'name'),
+        retention_properties=pulumi.get(__ret__, 'retention_properties'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_table)

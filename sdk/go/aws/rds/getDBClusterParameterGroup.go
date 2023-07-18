@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // The AWS::RDS::DBClusterParameterGroup resource creates a new Amazon RDS DB cluster parameter group. For more information, see Managing an Amazon Aurora DB Cluster in the Amazon Aurora User Guide.
 func LookupDBClusterParameterGroup(ctx *pulumi.Context, args *LookupDBClusterParameterGroupArgs, opts ...pulumi.InvokeOption) (*LookupDBClusterParameterGroupResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDBClusterParameterGroupResult
 	err := ctx.Invoke("aws-native:rds:getDBClusterParameterGroup", args, &rv, opts...)
 	if err != nil {

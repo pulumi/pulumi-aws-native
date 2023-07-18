@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::ApiGateway::BasePathMapping
 func LookupBasePathMapping(ctx *pulumi.Context, args *LookupBasePathMappingArgs, opts ...pulumi.InvokeOption) (*LookupBasePathMappingResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBasePathMappingResult
 	err := ctx.Invoke("aws-native:apigateway:getBasePathMapping", args, &rv, opts...)
 	if err != nil {

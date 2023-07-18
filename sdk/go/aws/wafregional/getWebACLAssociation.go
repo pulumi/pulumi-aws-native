@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::WAFRegional::WebACLAssociation
 func LookupWebACLAssociation(ctx *pulumi.Context, args *LookupWebACLAssociationArgs, opts ...pulumi.InvokeOption) (*LookupWebACLAssociationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupWebACLAssociationResult
 	err := ctx.Invoke("aws-native:wafregional:getWebACLAssociation", args, &rv, opts...)
 	if err != nil {

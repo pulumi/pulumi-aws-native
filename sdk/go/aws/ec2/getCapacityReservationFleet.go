@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::EC2::CapacityReservationFleet
 func LookupCapacityReservationFleet(ctx *pulumi.Context, args *LookupCapacityReservationFleetArgs, opts ...pulumi.InvokeOption) (*LookupCapacityReservationFleetResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCapacityReservationFleetResult
 	err := ctx.Invoke("aws-native:ec2:getCapacityReservationFleet", args, &rv, opts...)
 	if err != nil {

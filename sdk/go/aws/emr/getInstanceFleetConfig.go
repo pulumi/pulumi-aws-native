@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::EMR::InstanceFleetConfig
 func LookupInstanceFleetConfig(ctx *pulumi.Context, args *LookupInstanceFleetConfigArgs, opts ...pulumi.InvokeOption) (*LookupInstanceFleetConfigResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupInstanceFleetConfigResult
 	err := ctx.Invoke("aws-native:emr:getInstanceFleetConfig", args, &rv, opts...)
 	if err != nil {

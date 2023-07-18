@@ -76,10 +76,10 @@ def get_sms_channel(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:pinpoint:getSMSChannel', __args__, opts=opts, typ=GetSMSChannelResult).value
 
     return AwaitableGetSMSChannelResult(
-        enabled=__ret__.enabled,
-        id=__ret__.id,
-        sender_id=__ret__.sender_id,
-        short_code=__ret__.short_code)
+        enabled=pulumi.get(__ret__, 'enabled'),
+        id=pulumi.get(__ret__, 'id'),
+        sender_id=pulumi.get(__ret__, 'sender_id'),
+        short_code=pulumi.get(__ret__, 'short_code'))
 
 
 @_utilities.lift_output_func(get_sms_channel)

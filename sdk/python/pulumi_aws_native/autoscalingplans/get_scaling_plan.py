@@ -86,11 +86,11 @@ def get_scaling_plan(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:autoscalingplans:getScalingPlan', __args__, opts=opts, typ=GetScalingPlanResult).value
 
     return AwaitableGetScalingPlanResult(
-        application_source=__ret__.application_source,
-        id=__ret__.id,
-        scaling_instructions=__ret__.scaling_instructions,
-        scaling_plan_name=__ret__.scaling_plan_name,
-        scaling_plan_version=__ret__.scaling_plan_version)
+        application_source=pulumi.get(__ret__, 'application_source'),
+        id=pulumi.get(__ret__, 'id'),
+        scaling_instructions=pulumi.get(__ret__, 'scaling_instructions'),
+        scaling_plan_name=pulumi.get(__ret__, 'scaling_plan_name'),
+        scaling_plan_version=pulumi.get(__ret__, 'scaling_plan_version'))
 
 
 @_utilities.lift_output_func(get_scaling_plan)

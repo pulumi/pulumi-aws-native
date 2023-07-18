@@ -95,12 +95,12 @@ def get_detector(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:guardduty:getDetector', __args__, opts=opts, typ=GetDetectorResult).value
 
     return AwaitableGetDetectorResult(
-        data_sources=__ret__.data_sources,
-        enable=__ret__.enable,
-        features=__ret__.features,
-        finding_publishing_frequency=__ret__.finding_publishing_frequency,
-        id=__ret__.id,
-        tags=__ret__.tags)
+        data_sources=pulumi.get(__ret__, 'data_sources'),
+        enable=pulumi.get(__ret__, 'enable'),
+        features=pulumi.get(__ret__, 'features'),
+        finding_publishing_frequency=pulumi.get(__ret__, 'finding_publishing_frequency'),
+        id=pulumi.get(__ret__, 'id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_detector)

@@ -55,7 +55,7 @@ def get_schema_version(version_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:glue:getSchemaVersion', __args__, opts=opts, typ=GetSchemaVersionResult).value
 
     return AwaitableGetSchemaVersionResult(
-        version_id=__ret__.version_id)
+        version_id=pulumi.get(__ret__, 'version_id'))
 
 
 @_utilities.lift_output_func(get_schema_version)

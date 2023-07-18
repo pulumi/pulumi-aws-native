@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Pricing Plan enables you to customize your billing details consistent with the usage that accrues in each of your billing groups.
 func LookupPricingPlan(ctx *pulumi.Context, args *LookupPricingPlanArgs, opts ...pulumi.InvokeOption) (*LookupPricingPlanResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPricingPlanResult
 	err := ctx.Invoke("aws-native:billingconductor:getPricingPlan", args, &rv, opts...)
 	if err != nil {

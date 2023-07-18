@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -36,6 +37,7 @@ func NewPortfolioShare(ctx *pulumi.Context,
 	if args.PortfolioId == nil {
 		return nil, errors.New("invalid value for required argument 'PortfolioId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PortfolioShare
 	err := ctx.RegisterResource("aws-native:servicecatalog:PortfolioShare", name, args, &resource, opts...)
 	if err != nil {

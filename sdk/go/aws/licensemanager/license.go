@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -62,6 +63,7 @@ func NewLicense(ctx *pulumi.Context,
 	if args.Validity == nil {
 		return nil, errors.New("invalid value for required argument 'Validity'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource License
 	err := ctx.RegisterResource("aws-native:licensemanager:License", name, args, &resource, opts...)
 	if err != nil {

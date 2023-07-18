@@ -104,13 +104,13 @@ def get_provisioning_template(template_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iot:getProvisioningTemplate', __args__, opts=opts, typ=GetProvisioningTemplateResult).value
 
     return AwaitableGetProvisioningTemplateResult(
-        description=__ret__.description,
-        enabled=__ret__.enabled,
-        pre_provisioning_hook=__ret__.pre_provisioning_hook,
-        provisioning_role_arn=__ret__.provisioning_role_arn,
-        tags=__ret__.tags,
-        template_arn=__ret__.template_arn,
-        template_body=__ret__.template_body)
+        description=pulumi.get(__ret__, 'description'),
+        enabled=pulumi.get(__ret__, 'enabled'),
+        pre_provisioning_hook=pulumi.get(__ret__, 'pre_provisioning_hook'),
+        provisioning_role_arn=pulumi.get(__ret__, 'provisioning_role_arn'),
+        tags=pulumi.get(__ret__, 'tags'),
+        template_arn=pulumi.get(__ret__, 'template_arn'),
+        template_body=pulumi.get(__ret__, 'template_body'))
 
 
 @_utilities.lift_output_func(get_provisioning_template)

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::MSK::VpcConnection
 func LookupVpcConnection(ctx *pulumi.Context, args *LookupVpcConnectionArgs, opts ...pulumi.InvokeOption) (*LookupVpcConnectionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVpcConnectionResult
 	err := ctx.Invoke("aws-native:msk:getVpcConnection", args, &rv, opts...)
 	if err != nil {

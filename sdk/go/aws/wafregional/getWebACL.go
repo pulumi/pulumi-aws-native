@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::WAFRegional::WebACL
 func LookupWebACL(ctx *pulumi.Context, args *LookupWebACLArgs, opts ...pulumi.InvokeOption) (*LookupWebACLResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupWebACLResult
 	err := ctx.Invoke("aws-native:wafregional:getWebACL", args, &rv, opts...)
 	if err != nil {

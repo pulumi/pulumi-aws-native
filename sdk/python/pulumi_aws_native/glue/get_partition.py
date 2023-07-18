@@ -59,8 +59,8 @@ def get_partition(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:glue:getPartition', __args__, opts=opts, typ=GetPartitionResult).value
 
     return AwaitableGetPartitionResult(
-        id=__ret__.id,
-        partition_input=__ret__.partition_input)
+        id=pulumi.get(__ret__, 'id'),
+        partition_input=pulumi.get(__ret__, 'partition_input'))
 
 
 @_utilities.lift_output_func(get_partition)

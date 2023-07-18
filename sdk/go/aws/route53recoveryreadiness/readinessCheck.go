@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -31,6 +32,7 @@ func NewReadinessCheck(ctx *pulumi.Context,
 		args = &ReadinessCheckArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ReadinessCheck
 	err := ctx.RegisterResource("aws-native:route53recoveryreadiness:ReadinessCheck", name, args, &resource, opts...)
 	if err != nil {

@@ -92,10 +92,10 @@ def get_vpc_link(vpc_link_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:apigateway:getVpcLink', __args__, opts=opts, typ=GetVpcLinkResult).value
 
     return AwaitableGetVpcLinkResult(
-        description=__ret__.description,
-        name=__ret__.name,
-        tags=__ret__.tags,
-        vpc_link_id=__ret__.vpc_link_id)
+        description=pulumi.get(__ret__, 'description'),
+        name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        vpc_link_id=pulumi.get(__ret__, 'vpc_link_id'))
 
 
 @_utilities.lift_output_func(get_vpc_link)

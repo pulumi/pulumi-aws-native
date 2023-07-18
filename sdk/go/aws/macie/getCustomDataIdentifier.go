@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Macie CustomDataIdentifier resource schema
 func LookupCustomDataIdentifier(ctx *pulumi.Context, args *LookupCustomDataIdentifierArgs, opts ...pulumi.InvokeOption) (*LookupCustomDataIdentifierResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCustomDataIdentifierResult
 	err := ctx.Invoke("aws-native:macie:getCustomDataIdentifier", args, &rv, opts...)
 	if err != nil {

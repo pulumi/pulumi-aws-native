@@ -92,10 +92,10 @@ def get_user_group(user_group_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:elasticache:getUserGroup', __args__, opts=opts, typ=GetUserGroupResult).value
 
     return AwaitableGetUserGroupResult(
-        arn=__ret__.arn,
-        status=__ret__.status,
-        tags=__ret__.tags,
-        user_ids=__ret__.user_ids)
+        arn=pulumi.get(__ret__, 'arn'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'),
+        user_ids=pulumi.get(__ret__, 'user_ids'))
 
 
 @_utilities.lift_output_func(get_user_group)

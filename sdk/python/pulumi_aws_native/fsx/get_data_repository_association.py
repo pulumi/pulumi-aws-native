@@ -105,11 +105,11 @@ def get_data_repository_association(association_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:fsx:getDataRepositoryAssociation', __args__, opts=opts, typ=GetDataRepositoryAssociationResult).value
 
     return AwaitableGetDataRepositoryAssociationResult(
-        association_id=__ret__.association_id,
-        imported_file_chunk_size=__ret__.imported_file_chunk_size,
-        resource_arn=__ret__.resource_arn,
-        s3=__ret__.s3,
-        tags=__ret__.tags)
+        association_id=pulumi.get(__ret__, 'association_id'),
+        imported_file_chunk_size=pulumi.get(__ret__, 'imported_file_chunk_size'),
+        resource_arn=pulumi.get(__ret__, 'resource_arn'),
+        s3=pulumi.get(__ret__, 's3'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_data_repository_association)

@@ -58,8 +58,8 @@ def get_hypervisor(hypervisor_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:backupgateway:getHypervisor', __args__, opts=opts, typ=GetHypervisorResult).value
 
     return AwaitableGetHypervisorResult(
-        host=__ret__.host,
-        hypervisor_arn=__ret__.hypervisor_arn)
+        host=pulumi.get(__ret__, 'host'),
+        hypervisor_arn=pulumi.get(__ret__, 'hypervisor_arn'))
 
 
 @_utilities.lift_output_func(get_hypervisor)

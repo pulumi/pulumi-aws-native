@@ -60,7 +60,7 @@ def get_ipam_allocation(cidr: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getIPAMAllocation', __args__, opts=opts, typ=GetIPAMAllocationResult).value
 
     return AwaitableGetIPAMAllocationResult(
-        ipam_pool_allocation_id=__ret__.ipam_pool_allocation_id)
+        ipam_pool_allocation_id=pulumi.get(__ret__, 'ipam_pool_allocation_id'))
 
 
 @_utilities.lift_output_func(get_ipam_allocation)

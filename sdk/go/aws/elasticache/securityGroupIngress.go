@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -35,6 +36,7 @@ func NewSecurityGroupIngress(ctx *pulumi.Context,
 	if args.EC2SecurityGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'EC2SecurityGroupName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SecurityGroupIngress
 	err := ctx.RegisterResource("aws-native:elasticache:SecurityGroupIngress", name, args, &resource, opts...)
 	if err != nil {

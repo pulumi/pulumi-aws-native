@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ func NewMembership(ctx *pulumi.Context,
 	if args.QueryLogStatus == nil {
 		return nil, errors.New("invalid value for required argument 'QueryLogStatus'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Membership
 	err := ctx.RegisterResource("aws-native:cleanrooms:Membership", name, args, &resource, opts...)
 	if err != nil {

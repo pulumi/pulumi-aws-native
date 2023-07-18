@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -33,6 +34,7 @@ func NewRoutingControl(ctx *pulumi.Context,
 		args = &RoutingControlArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RoutingControl
 	err := ctx.RegisterResource("aws-native:route53recoverycontrol:RoutingControl", name, args, &resource, opts...)
 	if err != nil {

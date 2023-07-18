@@ -89,11 +89,11 @@ def get_segment(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:evidently:getSegment', __args__, opts=opts, typ=GetSegmentResult).value
 
     return AwaitableGetSegmentResult(
-        arn=__ret__.arn,
-        description=__ret__.description,
-        name=__ret__.name,
-        pattern=__ret__.pattern,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        description=pulumi.get(__ret__, 'description'),
+        name=pulumi.get(__ret__, 'name'),
+        pattern=pulumi.get(__ret__, 'pattern'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_segment)

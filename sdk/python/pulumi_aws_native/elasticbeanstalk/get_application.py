@@ -68,8 +68,8 @@ def get_application(application_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:elasticbeanstalk:getApplication', __args__, opts=opts, typ=GetApplicationResult).value
 
     return AwaitableGetApplicationResult(
-        description=__ret__.description,
-        resource_lifecycle_config=__ret__.resource_lifecycle_config)
+        description=pulumi.get(__ret__, 'description'),
+        resource_lifecycle_config=pulumi.get(__ret__, 'resource_lifecycle_config'))
 
 
 @_utilities.lift_output_func(get_application)

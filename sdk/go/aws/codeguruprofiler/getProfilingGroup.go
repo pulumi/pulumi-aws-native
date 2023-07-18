@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // This resource schema represents the Profiling Group resource in the Amazon CodeGuru Profiler service.
 func LookupProfilingGroup(ctx *pulumi.Context, args *LookupProfilingGroupArgs, opts ...pulumi.InvokeOption) (*LookupProfilingGroupResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupProfilingGroupResult
 	err := ctx.Invoke("aws-native:codeguruprofiler:getProfilingGroup", args, &rv, opts...)
 	if err != nil {

@@ -77,9 +77,9 @@ def get_state_machine_alias(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:stepfunctions:getStateMachineAlias', __args__, opts=opts, typ=GetStateMachineAliasResult).value
 
     return AwaitableGetStateMachineAliasResult(
-        arn=__ret__.arn,
-        description=__ret__.description,
-        routing_configuration=__ret__.routing_configuration)
+        arn=pulumi.get(__ret__, 'arn'),
+        description=pulumi.get(__ret__, 'description'),
+        routing_configuration=pulumi.get(__ret__, 'routing_configuration'))
 
 
 @_utilities.lift_output_func(get_state_machine_alias)

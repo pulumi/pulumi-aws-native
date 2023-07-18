@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,6 +40,7 @@ func NewRuleset(ctx *pulumi.Context,
 	if args.TargetArn == nil {
 		return nil, errors.New("invalid value for required argument 'TargetArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Ruleset
 	err := ctx.RegisterResource("aws-native:databrew:Ruleset", name, args, &resource, opts...)
 	if err != nil {

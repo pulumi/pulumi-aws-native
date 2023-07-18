@@ -140,17 +140,17 @@ def get_transit_gateway(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getTransitGateway', __args__, opts=opts, typ=GetTransitGatewayResult).value
 
     return AwaitableGetTransitGatewayResult(
-        association_default_route_table_id=__ret__.association_default_route_table_id,
-        auto_accept_shared_attachments=__ret__.auto_accept_shared_attachments,
-        default_route_table_association=__ret__.default_route_table_association,
-        default_route_table_propagation=__ret__.default_route_table_propagation,
-        description=__ret__.description,
-        dns_support=__ret__.dns_support,
-        id=__ret__.id,
-        propagation_default_route_table_id=__ret__.propagation_default_route_table_id,
-        tags=__ret__.tags,
-        transit_gateway_cidr_blocks=__ret__.transit_gateway_cidr_blocks,
-        vpn_ecmp_support=__ret__.vpn_ecmp_support)
+        association_default_route_table_id=pulumi.get(__ret__, 'association_default_route_table_id'),
+        auto_accept_shared_attachments=pulumi.get(__ret__, 'auto_accept_shared_attachments'),
+        default_route_table_association=pulumi.get(__ret__, 'default_route_table_association'),
+        default_route_table_propagation=pulumi.get(__ret__, 'default_route_table_propagation'),
+        description=pulumi.get(__ret__, 'description'),
+        dns_support=pulumi.get(__ret__, 'dns_support'),
+        id=pulumi.get(__ret__, 'id'),
+        propagation_default_route_table_id=pulumi.get(__ret__, 'propagation_default_route_table_id'),
+        tags=pulumi.get(__ret__, 'tags'),
+        transit_gateway_cidr_blocks=pulumi.get(__ret__, 'transit_gateway_cidr_blocks'),
+        vpn_ecmp_support=pulumi.get(__ret__, 'vpn_ecmp_support'))
 
 
 @_utilities.lift_output_func(get_transit_gateway)

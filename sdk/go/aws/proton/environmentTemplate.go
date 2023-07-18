@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -37,6 +38,7 @@ func NewEnvironmentTemplate(ctx *pulumi.Context,
 		args = &EnvironmentTemplateArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EnvironmentTemplate
 	err := ctx.RegisterResource("aws-native:proton:EnvironmentTemplate", name, args, &resource, opts...)
 	if err != nil {

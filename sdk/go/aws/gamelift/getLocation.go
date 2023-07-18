@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // The AWS::GameLift::Location resource creates an Amazon GameLift (GameLift) custom location.
 func LookupLocation(ctx *pulumi.Context, args *LookupLocationArgs, opts ...pulumi.InvokeOption) (*LookupLocationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLocationResult
 	err := ctx.Invoke("aws-native:gamelift:getLocation", args, &rv, opts...)
 	if err != nil {

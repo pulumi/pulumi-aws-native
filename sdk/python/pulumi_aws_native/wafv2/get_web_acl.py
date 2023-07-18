@@ -175,20 +175,20 @@ def get_web_acl(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:wafv2:getWebACL', __args__, opts=opts, typ=GetWebACLResult).value
 
     return AwaitableGetWebACLResult(
-        arn=__ret__.arn,
-        association_config=__ret__.association_config,
-        capacity=__ret__.capacity,
-        captcha_config=__ret__.captcha_config,
-        challenge_config=__ret__.challenge_config,
-        custom_response_bodies=__ret__.custom_response_bodies,
-        default_action=__ret__.default_action,
-        description=__ret__.description,
-        id=__ret__.id,
-        label_namespace=__ret__.label_namespace,
-        rules=__ret__.rules,
-        tags=__ret__.tags,
-        token_domains=__ret__.token_domains,
-        visibility_config=__ret__.visibility_config)
+        arn=pulumi.get(__ret__, 'arn'),
+        association_config=pulumi.get(__ret__, 'association_config'),
+        capacity=pulumi.get(__ret__, 'capacity'),
+        captcha_config=pulumi.get(__ret__, 'captcha_config'),
+        challenge_config=pulumi.get(__ret__, 'challenge_config'),
+        custom_response_bodies=pulumi.get(__ret__, 'custom_response_bodies'),
+        default_action=pulumi.get(__ret__, 'default_action'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        label_namespace=pulumi.get(__ret__, 'label_namespace'),
+        rules=pulumi.get(__ret__, 'rules'),
+        tags=pulumi.get(__ret__, 'tags'),
+        token_domains=pulumi.get(__ret__, 'token_domains'),
+        visibility_config=pulumi.get(__ret__, 'visibility_config'))
 
 
 @_utilities.lift_output_func(get_web_acl)

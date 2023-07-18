@@ -184,22 +184,22 @@ def get_instance(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:opsworks:getInstance', __args__, opts=opts, typ=GetInstanceResult).value
 
     return AwaitableGetInstanceResult(
-        agent_version=__ret__.agent_version,
-        ami_id=__ret__.ami_id,
-        architecture=__ret__.architecture,
-        elastic_ips=__ret__.elastic_ips,
-        hostname=__ret__.hostname,
-        id=__ret__.id,
-        install_updates_on_boot=__ret__.install_updates_on_boot,
-        instance_type=__ret__.instance_type,
-        layer_ids=__ret__.layer_ids,
-        os=__ret__.os,
-        private_dns_name=__ret__.private_dns_name,
-        private_ip=__ret__.private_ip,
-        public_dns_name=__ret__.public_dns_name,
-        public_ip=__ret__.public_ip,
-        ssh_key_name=__ret__.ssh_key_name,
-        volumes=__ret__.volumes)
+        agent_version=pulumi.get(__ret__, 'agent_version'),
+        ami_id=pulumi.get(__ret__, 'ami_id'),
+        architecture=pulumi.get(__ret__, 'architecture'),
+        elastic_ips=pulumi.get(__ret__, 'elastic_ips'),
+        hostname=pulumi.get(__ret__, 'hostname'),
+        id=pulumi.get(__ret__, 'id'),
+        install_updates_on_boot=pulumi.get(__ret__, 'install_updates_on_boot'),
+        instance_type=pulumi.get(__ret__, 'instance_type'),
+        layer_ids=pulumi.get(__ret__, 'layer_ids'),
+        os=pulumi.get(__ret__, 'os'),
+        private_dns_name=pulumi.get(__ret__, 'private_dns_name'),
+        private_ip=pulumi.get(__ret__, 'private_ip'),
+        public_dns_name=pulumi.get(__ret__, 'public_dns_name'),
+        public_ip=pulumi.get(__ret__, 'public_ip'),
+        ssh_key_name=pulumi.get(__ret__, 'ssh_key_name'),
+        volumes=pulumi.get(__ret__, 'volumes'))
 
 
 @_utilities.lift_output_func(get_instance)

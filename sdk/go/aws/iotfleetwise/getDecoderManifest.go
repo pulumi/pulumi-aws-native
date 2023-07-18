@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Definition of AWS::IoTFleetWise::DecoderManifest Resource Type
 func LookupDecoderManifest(ctx *pulumi.Context, args *LookupDecoderManifestArgs, opts ...pulumi.InvokeOption) (*LookupDecoderManifestResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDecoderManifestResult
 	err := ctx.Invoke("aws-native:iotfleetwise:getDecoderManifest", args, &rv, opts...)
 	if err != nil {

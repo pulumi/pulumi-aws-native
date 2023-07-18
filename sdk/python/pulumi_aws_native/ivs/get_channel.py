@@ -177,17 +177,17 @@ def get_channel(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ivs:getChannel', __args__, opts=opts, typ=GetChannelResult).value
 
     return AwaitableGetChannelResult(
-        arn=__ret__.arn,
-        authorized=__ret__.authorized,
-        ingest_endpoint=__ret__.ingest_endpoint,
-        insecure_ingest=__ret__.insecure_ingest,
-        latency_mode=__ret__.latency_mode,
-        name=__ret__.name,
-        playback_url=__ret__.playback_url,
-        preset=__ret__.preset,
-        recording_configuration_arn=__ret__.recording_configuration_arn,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        arn=pulumi.get(__ret__, 'arn'),
+        authorized=pulumi.get(__ret__, 'authorized'),
+        ingest_endpoint=pulumi.get(__ret__, 'ingest_endpoint'),
+        insecure_ingest=pulumi.get(__ret__, 'insecure_ingest'),
+        latency_mode=pulumi.get(__ret__, 'latency_mode'),
+        name=pulumi.get(__ret__, 'name'),
+        playback_url=pulumi.get(__ret__, 'playback_url'),
+        preset=pulumi.get(__ret__, 'preset'),
+        recording_configuration_arn=pulumi.get(__ret__, 'recording_configuration_arn'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_channel)

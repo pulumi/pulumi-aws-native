@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Definition of AWS::BackupGateway::Hypervisor Resource Type
 func LookupHypervisor(ctx *pulumi.Context, args *LookupHypervisorArgs, opts ...pulumi.InvokeOption) (*LookupHypervisorResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupHypervisorResult
 	err := ctx.Invoke("aws-native:backupgateway:getHypervisor", args, &rv, opts...)
 	if err != nil {

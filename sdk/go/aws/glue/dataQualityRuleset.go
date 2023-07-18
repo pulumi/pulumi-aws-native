@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -31,6 +32,7 @@ func NewDataQualityRuleset(ctx *pulumi.Context,
 		args = &DataQualityRulesetArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DataQualityRuleset
 	err := ctx.RegisterResource("aws-native:glue:DataQualityRuleset", name, args, &resource, opts...)
 	if err != nil {

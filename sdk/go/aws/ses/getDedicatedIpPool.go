@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::SES::DedicatedIpPool
 func LookupDedicatedIpPool(ctx *pulumi.Context, args *LookupDedicatedIpPoolArgs, opts ...pulumi.InvokeOption) (*LookupDedicatedIpPoolResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDedicatedIpPoolResult
 	err := ctx.Invoke("aws-native:ses:getDedicatedIpPool", args, &rv, opts...)
 	if err != nil {

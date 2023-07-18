@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::Config::AggregationAuthorization
 func LookupAggregationAuthorization(ctx *pulumi.Context, args *LookupAggregationAuthorizationArgs, opts ...pulumi.InvokeOption) (*LookupAggregationAuthorizationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAggregationAuthorizationResult
 	err := ctx.Invoke("aws-native:configuration:getAggregationAuthorization", args, &rv, opts...)
 	if err != nil {

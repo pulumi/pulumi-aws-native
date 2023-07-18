@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,6 +40,7 @@ func NewVerifiedAccessInstance(ctx *pulumi.Context,
 		args = &VerifiedAccessInstanceArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VerifiedAccessInstance
 	err := ctx.RegisterResource("aws-native:ec2:VerifiedAccessInstance", name, args, &resource, opts...)
 	if err != nil {

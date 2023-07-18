@@ -119,14 +119,14 @@ def get_bot(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:lex:getBot', __args__, opts=opts, typ=GetBotResult).value
 
     return AwaitableGetBotResult(
-        arn=__ret__.arn,
-        data_privacy=__ret__.data_privacy,
-        description=__ret__.description,
-        id=__ret__.id,
-        idle_session_ttl_in_seconds=__ret__.idle_session_ttl_in_seconds,
-        name=__ret__.name,
-        role_arn=__ret__.role_arn,
-        test_bot_alias_settings=__ret__.test_bot_alias_settings)
+        arn=pulumi.get(__ret__, 'arn'),
+        data_privacy=pulumi.get(__ret__, 'data_privacy'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        idle_session_ttl_in_seconds=pulumi.get(__ret__, 'idle_session_ttl_in_seconds'),
+        name=pulumi.get(__ret__, 'name'),
+        role_arn=pulumi.get(__ret__, 'role_arn'),
+        test_bot_alias_settings=pulumi.get(__ret__, 'test_bot_alias_settings'))
 
 
 @_utilities.lift_output_func(get_bot)

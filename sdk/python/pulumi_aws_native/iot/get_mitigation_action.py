@@ -93,11 +93,11 @@ def get_mitigation_action(action_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iot:getMitigationAction', __args__, opts=opts, typ=GetMitigationActionResult).value
 
     return AwaitableGetMitigationActionResult(
-        action_params=__ret__.action_params,
-        mitigation_action_arn=__ret__.mitigation_action_arn,
-        mitigation_action_id=__ret__.mitigation_action_id,
-        role_arn=__ret__.role_arn,
-        tags=__ret__.tags)
+        action_params=pulumi.get(__ret__, 'action_params'),
+        mitigation_action_arn=pulumi.get(__ret__, 'mitigation_action_arn'),
+        mitigation_action_id=pulumi.get(__ret__, 'mitigation_action_id'),
+        role_arn=pulumi.get(__ret__, 'role_arn'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_mitigation_action)

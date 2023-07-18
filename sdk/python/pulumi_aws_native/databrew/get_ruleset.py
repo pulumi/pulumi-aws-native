@@ -78,9 +78,9 @@ def get_ruleset(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:databrew:getRuleset', __args__, opts=opts, typ=GetRulesetResult).value
 
     return AwaitableGetRulesetResult(
-        description=__ret__.description,
-        rules=__ret__.rules,
-        tags=__ret__.tags)
+        description=pulumi.get(__ret__, 'description'),
+        rules=pulumi.get(__ret__, 'rules'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_ruleset)

@@ -141,14 +141,14 @@ def get_contact_flow_module(contact_flow_module_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:connect:getContactFlowModule', __args__, opts=opts, typ=GetContactFlowModuleResult).value
 
     return AwaitableGetContactFlowModuleResult(
-        contact_flow_module_arn=__ret__.contact_flow_module_arn,
-        content=__ret__.content,
-        description=__ret__.description,
-        instance_arn=__ret__.instance_arn,
-        name=__ret__.name,
-        state=__ret__.state,
-        status=__ret__.status,
-        tags=__ret__.tags)
+        contact_flow_module_arn=pulumi.get(__ret__, 'contact_flow_module_arn'),
+        content=pulumi.get(__ret__, 'content'),
+        description=pulumi.get(__ret__, 'description'),
+        instance_arn=pulumi.get(__ret__, 'instance_arn'),
+        name=pulumi.get(__ret__, 'name'),
+        state=pulumi.get(__ret__, 'state'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_contact_flow_module)

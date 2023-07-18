@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -46,6 +47,7 @@ func NewFirewallDomainList(ctx *pulumi.Context,
 		args = &FirewallDomainListArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FirewallDomainList
 	err := ctx.RegisterResource("aws-native:route53resolver:FirewallDomainList", name, args, &resource, opts...)
 	if err != nil {

@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,6 +40,7 @@ func NewVPCEConfiguration(ctx *pulumi.Context,
 	if args.VpceServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'VpceServiceName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VPCEConfiguration
 	err := ctx.RegisterResource("aws-native:devicefarm:VPCEConfiguration", name, args, &resource, opts...)
 	if err != nil {

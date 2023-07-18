@@ -114,12 +114,12 @@ def get_table(keyspace_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cassandra:getTable', __args__, opts=opts, typ=GetTableResult).value
 
     return AwaitableGetTableResult(
-        billing_mode=__ret__.billing_mode,
-        default_time_to_live=__ret__.default_time_to_live,
-        encryption_specification=__ret__.encryption_specification,
-        point_in_time_recovery_enabled=__ret__.point_in_time_recovery_enabled,
-        regular_columns=__ret__.regular_columns,
-        tags=__ret__.tags)
+        billing_mode=pulumi.get(__ret__, 'billing_mode'),
+        default_time_to_live=pulumi.get(__ret__, 'default_time_to_live'),
+        encryption_specification=pulumi.get(__ret__, 'encryption_specification'),
+        point_in_time_recovery_enabled=pulumi.get(__ret__, 'point_in_time_recovery_enabled'),
+        regular_columns=pulumi.get(__ret__, 'regular_columns'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_table)

@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -44,6 +45,7 @@ func NewIPAMScope(ctx *pulumi.Context,
 	if args.IpamId == nil {
 		return nil, errors.New("invalid value for required argument 'IpamId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource IPAMScope
 	err := ctx.RegisterResource("aws-native:ec2:IPAMScope", name, args, &resource, opts...)
 	if err != nil {

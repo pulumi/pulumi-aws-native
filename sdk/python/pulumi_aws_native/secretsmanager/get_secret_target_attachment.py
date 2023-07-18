@@ -76,10 +76,10 @@ def get_secret_target_attachment(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:secretsmanager:getSecretTargetAttachment', __args__, opts=opts, typ=GetSecretTargetAttachmentResult).value
 
     return AwaitableGetSecretTargetAttachmentResult(
-        id=__ret__.id,
-        secret_id=__ret__.secret_id,
-        target_id=__ret__.target_id,
-        target_type=__ret__.target_type)
+        id=pulumi.get(__ret__, 'id'),
+        secret_id=pulumi.get(__ret__, 'secret_id'),
+        target_id=pulumi.get(__ret__, 'target_id'),
+        target_type=pulumi.get(__ret__, 'target_type'))
 
 
 @_utilities.lift_output_func(get_secret_target_attachment)

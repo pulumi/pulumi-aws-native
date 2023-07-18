@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -35,6 +36,7 @@ func NewConfigurationSetEventDestination(ctx *pulumi.Context,
 	if args.EventDestinationName == nil {
 		return nil, errors.New("invalid value for required argument 'EventDestinationName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ConfigurationSetEventDestination
 	err := ctx.RegisterResource("aws-native:pinpointemail:ConfigurationSetEventDestination", name, args, &resource, opts...)
 	if err != nil {

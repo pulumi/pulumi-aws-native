@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,6 +42,7 @@ func NewAnomalyDetector(ctx *pulumi.Context,
 	if args.MetricSetList == nil {
 		return nil, errors.New("invalid value for required argument 'MetricSetList'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AnomalyDetector
 	err := ctx.RegisterResource("aws-native:lookoutmetrics:AnomalyDetector", name, args, &resource, opts...)
 	if err != nil {

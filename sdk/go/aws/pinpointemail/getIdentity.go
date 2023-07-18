@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::PinpointEmail::Identity
 func LookupIdentity(ctx *pulumi.Context, args *LookupIdentityArgs, opts ...pulumi.InvokeOption) (*LookupIdentityResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupIdentityResult
 	err := ctx.Invoke("aws-native:pinpointemail:getIdentity", args, &rv, opts...)
 	if err != nil {

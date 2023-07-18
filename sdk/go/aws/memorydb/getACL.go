@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::MemoryDB::ACL
 func LookupACL(ctx *pulumi.Context, args *LookupACLArgs, opts ...pulumi.InvokeOption) (*LookupACLResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupACLResult
 	err := ctx.Invoke("aws-native:memorydb:getACL", args, &rv, opts...)
 	if err != nil {

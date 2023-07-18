@@ -86,11 +86,11 @@ def get_listener_rule(rule_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:elasticloadbalancingv2:getListenerRule', __args__, opts=opts, typ=GetListenerRuleResult).value
 
     return AwaitableGetListenerRuleResult(
-        actions=__ret__.actions,
-        conditions=__ret__.conditions,
-        is_default=__ret__.is_default,
-        priority=__ret__.priority,
-        rule_arn=__ret__.rule_arn)
+        actions=pulumi.get(__ret__, 'actions'),
+        conditions=pulumi.get(__ret__, 'conditions'),
+        is_default=pulumi.get(__ret__, 'is_default'),
+        priority=pulumi.get(__ret__, 'priority'),
+        rule_arn=pulumi.get(__ret__, 'rule_arn'))
 
 
 @_utilities.lift_output_func(get_listener_rule)

@@ -116,12 +116,12 @@ def get_api_key(a_pi_key_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:apigateway:getApiKey', __args__, opts=opts, typ=GetApiKeyResult).value
 
     return AwaitableGetApiKeyResult(
-        a_pi_key_id=__ret__.a_pi_key_id,
-        customer_id=__ret__.customer_id,
-        description=__ret__.description,
-        enabled=__ret__.enabled,
-        stage_keys=__ret__.stage_keys,
-        tags=__ret__.tags)
+        a_pi_key_id=pulumi.get(__ret__, 'a_pi_key_id'),
+        customer_id=pulumi.get(__ret__, 'customer_id'),
+        description=pulumi.get(__ret__, 'description'),
+        enabled=pulumi.get(__ret__, 'enabled'),
+        stage_keys=pulumi.get(__ret__, 'stage_keys'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_api_key)

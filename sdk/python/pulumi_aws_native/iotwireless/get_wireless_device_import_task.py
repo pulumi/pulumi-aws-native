@@ -189,18 +189,18 @@ def get_wireless_device_import_task(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iotwireless:getWirelessDeviceImportTask', __args__, opts=opts, typ=GetWirelessDeviceImportTaskResult).value
 
     return AwaitableGetWirelessDeviceImportTaskResult(
-        arn=__ret__.arn,
-        creation_date=__ret__.creation_date,
-        destination_name=__ret__.destination_name,
-        failed_imported_devices_count=__ret__.failed_imported_devices_count,
-        id=__ret__.id,
-        initialized_imported_devices_count=__ret__.initialized_imported_devices_count,
-        onboarded_imported_devices_count=__ret__.onboarded_imported_devices_count,
-        pending_imported_devices_count=__ret__.pending_imported_devices_count,
-        sidewalk=__ret__.sidewalk,
-        status=__ret__.status,
-        status_reason=__ret__.status_reason,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        creation_date=pulumi.get(__ret__, 'creation_date'),
+        destination_name=pulumi.get(__ret__, 'destination_name'),
+        failed_imported_devices_count=pulumi.get(__ret__, 'failed_imported_devices_count'),
+        id=pulumi.get(__ret__, 'id'),
+        initialized_imported_devices_count=pulumi.get(__ret__, 'initialized_imported_devices_count'),
+        onboarded_imported_devices_count=pulumi.get(__ret__, 'onboarded_imported_devices_count'),
+        pending_imported_devices_count=pulumi.get(__ret__, 'pending_imported_devices_count'),
+        sidewalk=pulumi.get(__ret__, 'sidewalk'),
+        status=pulumi.get(__ret__, 'status'),
+        status_reason=pulumi.get(__ret__, 'status_reason'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_wireless_device_import_task)

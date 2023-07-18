@@ -181,18 +181,18 @@ def get_data_source(aws_account_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:quicksight:getDataSource', __args__, opts=opts, typ=GetDataSourceResult).value
 
     return AwaitableGetDataSourceResult(
-        alternate_data_source_parameters=__ret__.alternate_data_source_parameters,
-        arn=__ret__.arn,
-        created_time=__ret__.created_time,
-        data_source_parameters=__ret__.data_source_parameters,
-        error_info=__ret__.error_info,
-        last_updated_time=__ret__.last_updated_time,
-        name=__ret__.name,
-        permissions=__ret__.permissions,
-        ssl_properties=__ret__.ssl_properties,
-        status=__ret__.status,
-        tags=__ret__.tags,
-        vpc_connection_properties=__ret__.vpc_connection_properties)
+        alternate_data_source_parameters=pulumi.get(__ret__, 'alternate_data_source_parameters'),
+        arn=pulumi.get(__ret__, 'arn'),
+        created_time=pulumi.get(__ret__, 'created_time'),
+        data_source_parameters=pulumi.get(__ret__, 'data_source_parameters'),
+        error_info=pulumi.get(__ret__, 'error_info'),
+        last_updated_time=pulumi.get(__ret__, 'last_updated_time'),
+        name=pulumi.get(__ret__, 'name'),
+        permissions=pulumi.get(__ret__, 'permissions'),
+        ssl_properties=pulumi.get(__ret__, 'ssl_properties'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'),
+        vpc_connection_properties=pulumi.get(__ret__, 'vpc_connection_properties'))
 
 
 @_utilities.lift_output_func(get_data_source)

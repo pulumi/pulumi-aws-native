@@ -68,9 +68,9 @@ def get_instance_group_config(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:emr:getInstanceGroupConfig', __args__, opts=opts, typ=GetInstanceGroupConfigResult).value
 
     return AwaitableGetInstanceGroupConfigResult(
-        auto_scaling_policy=__ret__.auto_scaling_policy,
-        id=__ret__.id,
-        instance_count=__ret__.instance_count)
+        auto_scaling_policy=pulumi.get(__ret__, 'auto_scaling_policy'),
+        id=pulumi.get(__ret__, 'id'),
+        instance_count=pulumi.get(__ret__, 'instance_count'))
 
 
 @_utilities.lift_output_func(get_instance_group_config)

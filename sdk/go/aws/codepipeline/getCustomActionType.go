@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // The AWS::CodePipeline::CustomActionType resource creates a custom action for activities that aren't included in the CodePipeline default actions, such as running an internally developed build process or a test suite. You can use these custom actions in the stage of a pipeline.
 func LookupCustomActionType(ctx *pulumi.Context, args *LookupCustomActionTypeArgs, opts ...pulumi.InvokeOption) (*LookupCustomActionTypeResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCustomActionTypeResult
 	err := ctx.Invoke("aws-native:codepipeline:getCustomActionType", args, &rv, opts...)
 	if err != nil {

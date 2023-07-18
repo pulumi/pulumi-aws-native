@@ -80,10 +80,10 @@ def get_billing_group(billing_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iot:getBillingGroup', __args__, opts=opts, typ=GetBillingGroupResult).value
 
     return AwaitableGetBillingGroupResult(
-        arn=__ret__.arn,
-        billing_group_properties=__ret__.billing_group_properties,
-        id=__ret__.id,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        billing_group_properties=pulumi.get(__ret__, 'billing_group_properties'),
+        id=pulumi.get(__ret__, 'id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_billing_group)

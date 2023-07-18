@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // An example resource schema demonstrating some basic constructs and validation rules.
 func LookupBudgetsAction(ctx *pulumi.Context, args *LookupBudgetsActionArgs, opts ...pulumi.InvokeOption) (*LookupBudgetsActionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBudgetsActionResult
 	err := ctx.Invoke("aws-native:budgets:getBudgetsAction", args, &rv, opts...)
 	if err != nil {

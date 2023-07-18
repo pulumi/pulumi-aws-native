@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // An example resource schema demonstrating some basic constructs and validation rules.
 func LookupGrant(ctx *pulumi.Context, args *LookupGrantArgs, opts ...pulumi.InvokeOption) (*LookupGrantResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupGrantResult
 	err := ctx.Invoke("aws-native:licensemanager:getGrant", args, &rv, opts...)
 	if err != nil {

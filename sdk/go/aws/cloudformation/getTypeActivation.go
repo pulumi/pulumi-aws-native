@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Enable a resource that has been published in the CloudFormation Registry.
 func LookupTypeActivation(ctx *pulumi.Context, args *LookupTypeActivationArgs, opts ...pulumi.InvokeOption) (*LookupTypeActivationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTypeActivationResult
 	err := ctx.Invoke("aws-native:cloudformation:getTypeActivation", args, &rv, opts...)
 	if err != nil {

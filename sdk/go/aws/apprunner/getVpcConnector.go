@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // The AWS::AppRunner::VpcConnector resource specifies an App Runner VpcConnector.
 func LookupVpcConnector(ctx *pulumi.Context, args *LookupVpcConnectorArgs, opts ...pulumi.InvokeOption) (*LookupVpcConnectorResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVpcConnectorResult
 	err := ctx.Invoke("aws-native:apprunner:getVpcConnector", args, &rv, opts...)
 	if err != nil {

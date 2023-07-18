@@ -105,11 +105,11 @@ def get_network_analyzer_configuration(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iotwireless:getNetworkAnalyzerConfiguration', __args__, opts=opts, typ=GetNetworkAnalyzerConfigurationResult).value
 
     return AwaitableGetNetworkAnalyzerConfigurationResult(
-        arn=__ret__.arn,
-        description=__ret__.description,
-        trace_content=__ret__.trace_content,
-        wireless_devices=__ret__.wireless_devices,
-        wireless_gateways=__ret__.wireless_gateways)
+        arn=pulumi.get(__ret__, 'arn'),
+        description=pulumi.get(__ret__, 'description'),
+        trace_content=pulumi.get(__ret__, 'trace_content'),
+        wireless_devices=pulumi.get(__ret__, 'wireless_devices'),
+        wireless_gateways=pulumi.get(__ret__, 'wireless_gateways'))
 
 
 @_utilities.lift_output_func(get_network_analyzer_configuration)

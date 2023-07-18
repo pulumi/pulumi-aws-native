@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // A conformance pack is a collection of AWS Config rules and remediation actions that can be easily deployed as a single entity in an account and a region or across an entire AWS Organization.
 func LookupConformancePack(ctx *pulumi.Context, args *LookupConformancePackArgs, opts ...pulumi.InvokeOption) (*LookupConformancePackResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupConformancePackResult
 	err := ctx.Invoke("aws-native:configuration:getConformancePack", args, &rv, opts...)
 	if err != nil {

@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -54,6 +55,7 @@ func NewForm(ctx *pulumi.Context,
 	if args.Style == nil {
 		return nil, errors.New("invalid value for required argument 'Style'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Form
 	err := ctx.RegisterResource("aws-native:amplifyuibuilder:Form", name, args, &resource, opts...)
 	if err != nil {

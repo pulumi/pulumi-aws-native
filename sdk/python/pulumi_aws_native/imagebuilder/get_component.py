@@ -80,9 +80,9 @@ def get_component(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:imagebuilder:getComponent', __args__, opts=opts, typ=GetComponentResult).value
 
     return AwaitableGetComponentResult(
-        arn=__ret__.arn,
-        encrypted=__ret__.encrypted,
-        type=__ret__.type)
+        arn=pulumi.get(__ret__, 'arn'),
+        encrypted=pulumi.get(__ret__, 'encrypted'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_component)

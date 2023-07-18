@@ -55,7 +55,7 @@ def get_tag(tag_key: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:lakeformation:getTag', __args__, opts=opts, typ=GetTagResult).value
 
     return AwaitableGetTagResult(
-        tag_values=__ret__.tag_values)
+        tag_values=pulumi.get(__ret__, 'tag_values'))
 
 
 @_utilities.lift_output_func(get_tag)

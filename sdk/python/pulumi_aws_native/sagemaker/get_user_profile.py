@@ -72,8 +72,8 @@ def get_user_profile(domain_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:sagemaker:getUserProfile', __args__, opts=opts, typ=GetUserProfileResult).value
 
     return AwaitableGetUserProfileResult(
-        user_profile_arn=__ret__.user_profile_arn,
-        user_settings=__ret__.user_settings)
+        user_profile_arn=pulumi.get(__ret__, 'user_profile_arn'),
+        user_settings=pulumi.get(__ret__, 'user_settings'))
 
 
 @_utilities.lift_output_func(get_user_profile)

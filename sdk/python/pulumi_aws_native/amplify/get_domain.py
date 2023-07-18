@@ -113,14 +113,14 @@ def get_domain(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:amplify:getDomain', __args__, opts=opts, typ=GetDomainResult).value
 
     return AwaitableGetDomainResult(
-        arn=__ret__.arn,
-        auto_sub_domain_creation_patterns=__ret__.auto_sub_domain_creation_patterns,
-        auto_sub_domain_iam_role=__ret__.auto_sub_domain_iam_role,
-        certificate_record=__ret__.certificate_record,
-        domain_status=__ret__.domain_status,
-        enable_auto_sub_domain=__ret__.enable_auto_sub_domain,
-        status_reason=__ret__.status_reason,
-        sub_domain_settings=__ret__.sub_domain_settings)
+        arn=pulumi.get(__ret__, 'arn'),
+        auto_sub_domain_creation_patterns=pulumi.get(__ret__, 'auto_sub_domain_creation_patterns'),
+        auto_sub_domain_iam_role=pulumi.get(__ret__, 'auto_sub_domain_iam_role'),
+        certificate_record=pulumi.get(__ret__, 'certificate_record'),
+        domain_status=pulumi.get(__ret__, 'domain_status'),
+        enable_auto_sub_domain=pulumi.get(__ret__, 'enable_auto_sub_domain'),
+        status_reason=pulumi.get(__ret__, 'status_reason'),
+        sub_domain_settings=pulumi.get(__ret__, 'sub_domain_settings'))
 
 
 @_utilities.lift_output_func(get_domain)

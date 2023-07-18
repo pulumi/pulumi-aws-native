@@ -62,8 +62,8 @@ def get_dhcp_options(dhcp_options_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getDHCPOptions', __args__, opts=opts, typ=GetDHCPOptionsResult).value
 
     return AwaitableGetDHCPOptionsResult(
-        dhcp_options_id=__ret__.dhcp_options_id,
-        tags=__ret__.tags)
+        dhcp_options_id=pulumi.get(__ret__, 'dhcp_options_id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_dhcp_options)

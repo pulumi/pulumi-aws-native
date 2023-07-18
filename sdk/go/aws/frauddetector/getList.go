@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // A resource schema for a List in Amazon Fraud Detector.
 func LookupList(ctx *pulumi.Context, args *LookupListArgs, opts ...pulumi.InvokeOption) (*LookupListResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupListResult
 	err := ctx.Invoke("aws-native:frauddetector:getList", args, &rv, opts...)
 	if err != nil {

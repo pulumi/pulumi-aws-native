@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // The AWS::Rekognition::StreamProcessor type is used to create an Amazon Rekognition StreamProcessor that you can use to analyze streaming videos.
 func LookupStreamProcessor(ctx *pulumi.Context, args *LookupStreamProcessorArgs, opts ...pulumi.InvokeOption) (*LookupStreamProcessorResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupStreamProcessorResult
 	err := ctx.Invoke("aws-native:rekognition:getStreamProcessor", args, &rv, opts...)
 	if err != nil {

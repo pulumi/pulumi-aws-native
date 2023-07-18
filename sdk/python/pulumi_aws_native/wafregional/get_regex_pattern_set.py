@@ -58,8 +58,8 @@ def get_regex_pattern_set(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:wafregional:getRegexPatternSet', __args__, opts=opts, typ=GetRegexPatternSetResult).value
 
     return AwaitableGetRegexPatternSetResult(
-        id=__ret__.id,
-        regex_pattern_strings=__ret__.regex_pattern_strings)
+        id=pulumi.get(__ret__, 'id'),
+        regex_pattern_strings=pulumi.get(__ret__, 'regex_pattern_strings'))
 
 
 @_utilities.lift_output_func(get_regex_pattern_set)

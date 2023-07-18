@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for AWS::Athena::PreparedStatement
 func LookupPreparedStatement(ctx *pulumi.Context, args *LookupPreparedStatementArgs, opts ...pulumi.InvokeOption) (*LookupPreparedStatementResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPreparedStatementResult
 	err := ctx.Invoke("aws-native:athena:getPreparedStatement", args, &rv, opts...)
 	if err != nil {

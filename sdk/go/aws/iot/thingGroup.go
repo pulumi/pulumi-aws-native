@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -30,6 +31,7 @@ func NewThingGroup(ctx *pulumi.Context,
 		args = &ThingGroupArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ThingGroup
 	err := ctx.RegisterResource("aws-native:iot:ThingGroup", name, args, &resource, opts...)
 	if err != nil {

@@ -67,9 +67,9 @@ def get_member(member_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:guardduty:getMember', __args__, opts=opts, typ=GetMemberResult).value
 
     return AwaitableGetMemberResult(
-        disable_email_notification=__ret__.disable_email_notification,
-        message=__ret__.message,
-        status=__ret__.status)
+        disable_email_notification=pulumi.get(__ret__, 'disable_email_notification'),
+        message=pulumi.get(__ret__, 'message'),
+        status=pulumi.get(__ret__, 'status'))
 
 
 @_utilities.lift_output_func(get_member)

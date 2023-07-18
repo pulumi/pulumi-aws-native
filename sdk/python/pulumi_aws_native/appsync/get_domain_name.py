@@ -67,9 +67,9 @@ def get_domain_name(domain_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:appsync:getDomainName', __args__, opts=opts, typ=GetDomainNameResult).value
 
     return AwaitableGetDomainNameResult(
-        app_sync_domain_name=__ret__.app_sync_domain_name,
-        description=__ret__.description,
-        hosted_zone_id=__ret__.hosted_zone_id)
+        app_sync_domain_name=pulumi.get(__ret__, 'app_sync_domain_name'),
+        description=pulumi.get(__ret__, 'description'),
+        hosted_zone_id=pulumi.get(__ret__, 'hosted_zone_id'))
 
 
 @_utilities.lift_output_func(get_domain_name)

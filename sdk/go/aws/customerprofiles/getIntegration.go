@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // The resource schema for creating an Amazon Connect Customer Profiles Integration.
 func LookupIntegration(ctx *pulumi.Context, args *LookupIntegrationArgs, opts ...pulumi.InvokeOption) (*LookupIntegrationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupIntegrationResult
 	err := ctx.Invoke("aws-native:customerprofiles:getIntegration", args, &rv, opts...)
 	if err != nil {

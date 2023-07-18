@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::IAM::ServiceLinkedRole
 func LookupServiceLinkedRole(ctx *pulumi.Context, args *LookupServiceLinkedRoleArgs, opts ...pulumi.InvokeOption) (*LookupServiceLinkedRoleResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupServiceLinkedRoleResult
 	err := ctx.Invoke("aws-native:iam:getServiceLinkedRole", args, &rv, opts...)
 	if err != nil {

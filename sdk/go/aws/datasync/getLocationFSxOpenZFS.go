@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for AWS::DataSync::LocationFSxOpenZFS.
 func LookupLocationFSxOpenZFS(ctx *pulumi.Context, args *LookupLocationFSxOpenZFSArgs, opts ...pulumi.InvokeOption) (*LookupLocationFSxOpenZFSResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLocationFSxOpenZFSResult
 	err := ctx.Invoke("aws-native:datasync:getLocationFSxOpenZFS", args, &rv, opts...)
 	if err != nil {

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // The AWS::Amplify::Branch resource creates a new branch within an app.
 func LookupBranch(ctx *pulumi.Context, args *LookupBranchArgs, opts ...pulumi.InvokeOption) (*LookupBranchResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBranchResult
 	err := ctx.Invoke("aws-native:amplify:getBranch", args, &rv, opts...)
 	if err != nil {

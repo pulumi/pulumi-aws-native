@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::DocDB::DBClusterParameterGroup
 func LookupDBClusterParameterGroup(ctx *pulumi.Context, args *LookupDBClusterParameterGroupArgs, opts ...pulumi.InvokeOption) (*LookupDBClusterParameterGroupResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDBClusterParameterGroupResult
 	err := ctx.Invoke("aws-native:docdb:getDBClusterParameterGroup", args, &rv, opts...)
 	if err != nil {

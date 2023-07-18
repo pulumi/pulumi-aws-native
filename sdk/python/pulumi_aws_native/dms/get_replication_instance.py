@@ -167,20 +167,20 @@ def get_replication_instance(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:dms:getReplicationInstance', __args__, opts=opts, typ=GetReplicationInstanceResult).value
 
     return AwaitableGetReplicationInstanceResult(
-        allocated_storage=__ret__.allocated_storage,
-        allow_major_version_upgrade=__ret__.allow_major_version_upgrade,
-        auto_minor_version_upgrade=__ret__.auto_minor_version_upgrade,
-        availability_zone=__ret__.availability_zone,
-        engine_version=__ret__.engine_version,
-        id=__ret__.id,
-        multi_az=__ret__.multi_az,
-        preferred_maintenance_window=__ret__.preferred_maintenance_window,
-        replication_instance_class=__ret__.replication_instance_class,
-        replication_instance_identifier=__ret__.replication_instance_identifier,
-        replication_instance_private_ip_addresses=__ret__.replication_instance_private_ip_addresses,
-        replication_instance_public_ip_addresses=__ret__.replication_instance_public_ip_addresses,
-        tags=__ret__.tags,
-        vpc_security_group_ids=__ret__.vpc_security_group_ids)
+        allocated_storage=pulumi.get(__ret__, 'allocated_storage'),
+        allow_major_version_upgrade=pulumi.get(__ret__, 'allow_major_version_upgrade'),
+        auto_minor_version_upgrade=pulumi.get(__ret__, 'auto_minor_version_upgrade'),
+        availability_zone=pulumi.get(__ret__, 'availability_zone'),
+        engine_version=pulumi.get(__ret__, 'engine_version'),
+        id=pulumi.get(__ret__, 'id'),
+        multi_az=pulumi.get(__ret__, 'multi_az'),
+        preferred_maintenance_window=pulumi.get(__ret__, 'preferred_maintenance_window'),
+        replication_instance_class=pulumi.get(__ret__, 'replication_instance_class'),
+        replication_instance_identifier=pulumi.get(__ret__, 'replication_instance_identifier'),
+        replication_instance_private_ip_addresses=pulumi.get(__ret__, 'replication_instance_private_ip_addresses'),
+        replication_instance_public_ip_addresses=pulumi.get(__ret__, 'replication_instance_public_ip_addresses'),
+        tags=pulumi.get(__ret__, 'tags'),
+        vpc_security_group_ids=pulumi.get(__ret__, 'vpc_security_group_ids'))
 
 
 @_utilities.lift_output_func(get_replication_instance)

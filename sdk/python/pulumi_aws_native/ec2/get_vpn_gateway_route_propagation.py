@@ -67,9 +67,9 @@ def get_vpn_gateway_route_propagation(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getVPNGatewayRoutePropagation', __args__, opts=opts, typ=GetVPNGatewayRoutePropagationResult).value
 
     return AwaitableGetVPNGatewayRoutePropagationResult(
-        id=__ret__.id,
-        route_table_ids=__ret__.route_table_ids,
-        vpn_gateway_id=__ret__.vpn_gateway_id)
+        id=pulumi.get(__ret__, 'id'),
+        route_table_ids=pulumi.get(__ret__, 'route_table_ids'),
+        vpn_gateway_id=pulumi.get(__ret__, 'vpn_gateway_id'))
 
 
 @_utilities.lift_output_func(get_vpn_gateway_route_propagation)

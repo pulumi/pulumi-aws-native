@@ -77,10 +77,10 @@ def get_warm_pool(auto_scaling_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:autoscaling:getWarmPool', __args__, opts=opts, typ=GetWarmPoolResult).value
 
     return AwaitableGetWarmPoolResult(
-        instance_reuse_policy=__ret__.instance_reuse_policy,
-        max_group_prepared_capacity=__ret__.max_group_prepared_capacity,
-        min_size=__ret__.min_size,
-        pool_state=__ret__.pool_state)
+        instance_reuse_policy=pulumi.get(__ret__, 'instance_reuse_policy'),
+        max_group_prepared_capacity=pulumi.get(__ret__, 'max_group_prepared_capacity'),
+        min_size=pulumi.get(__ret__, 'min_size'),
+        pool_state=pulumi.get(__ret__, 'pool_state'))
 
 
 @_utilities.lift_output_func(get_warm_pool)

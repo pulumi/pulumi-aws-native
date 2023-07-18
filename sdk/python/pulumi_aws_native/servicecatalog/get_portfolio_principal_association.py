@@ -49,7 +49,7 @@ def get_portfolio_principal_association(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:servicecatalog:getPortfolioPrincipalAssociation', __args__, opts=opts, typ=GetPortfolioPrincipalAssociationResult).value
 
     return AwaitableGetPortfolioPrincipalAssociationResult(
-        id=__ret__.id)
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_portfolio_principal_association)

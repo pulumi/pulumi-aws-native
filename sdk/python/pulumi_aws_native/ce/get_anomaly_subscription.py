@@ -135,14 +135,14 @@ def get_anomaly_subscription(subscription_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ce:getAnomalySubscription', __args__, opts=opts, typ=GetAnomalySubscriptionResult).value
 
     return AwaitableGetAnomalySubscriptionResult(
-        account_id=__ret__.account_id,
-        frequency=__ret__.frequency,
-        monitor_arn_list=__ret__.monitor_arn_list,
-        subscribers=__ret__.subscribers,
-        subscription_arn=__ret__.subscription_arn,
-        subscription_name=__ret__.subscription_name,
-        threshold=__ret__.threshold,
-        threshold_expression=__ret__.threshold_expression)
+        account_id=pulumi.get(__ret__, 'account_id'),
+        frequency=pulumi.get(__ret__, 'frequency'),
+        monitor_arn_list=pulumi.get(__ret__, 'monitor_arn_list'),
+        subscribers=pulumi.get(__ret__, 'subscribers'),
+        subscription_arn=pulumi.get(__ret__, 'subscription_arn'),
+        subscription_name=pulumi.get(__ret__, 'subscription_name'),
+        threshold=pulumi.get(__ret__, 'threshold'),
+        threshold_expression=pulumi.get(__ret__, 'threshold_expression'))
 
 
 @_utilities.lift_output_func(get_anomaly_subscription)

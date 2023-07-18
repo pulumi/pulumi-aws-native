@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Test and Publish a resource that has been registered in the CloudFormation Registry.
 func LookupPublicTypeVersion(ctx *pulumi.Context, args *LookupPublicTypeVersionArgs, opts ...pulumi.InvokeOption) (*LookupPublicTypeVersionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPublicTypeVersionResult
 	err := ctx.Invoke("aws-native:cloudformation:getPublicTypeVersion", args, &rv, opts...)
 	if err != nil {

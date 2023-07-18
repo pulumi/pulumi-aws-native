@@ -78,10 +78,10 @@ def get_policy_store(policy_store_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:verifiedpermissions:getPolicyStore', __args__, opts=opts, typ=GetPolicyStoreResult).value
 
     return AwaitableGetPolicyStoreResult(
-        arn=__ret__.arn,
-        policy_store_id=__ret__.policy_store_id,
-        schema=__ret__.schema,
-        validation_settings=__ret__.validation_settings)
+        arn=pulumi.get(__ret__, 'arn'),
+        policy_store_id=pulumi.get(__ret__, 'policy_store_id'),
+        schema=pulumi.get(__ret__, 'schema'),
+        validation_settings=pulumi.get(__ret__, 'validation_settings'))
 
 
 @_utilities.lift_output_func(get_policy_store)

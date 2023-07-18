@@ -113,14 +113,14 @@ def get_file_system(file_system_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:efs:getFileSystem', __args__, opts=opts, typ=GetFileSystemResult).value
 
     return AwaitableGetFileSystemResult(
-        arn=__ret__.arn,
-        backup_policy=__ret__.backup_policy,
-        file_system_id=__ret__.file_system_id,
-        file_system_policy=__ret__.file_system_policy,
-        file_system_tags=__ret__.file_system_tags,
-        lifecycle_policies=__ret__.lifecycle_policies,
-        provisioned_throughput_in_mibps=__ret__.provisioned_throughput_in_mibps,
-        throughput_mode=__ret__.throughput_mode)
+        arn=pulumi.get(__ret__, 'arn'),
+        backup_policy=pulumi.get(__ret__, 'backup_policy'),
+        file_system_id=pulumi.get(__ret__, 'file_system_id'),
+        file_system_policy=pulumi.get(__ret__, 'file_system_policy'),
+        file_system_tags=pulumi.get(__ret__, 'file_system_tags'),
+        lifecycle_policies=pulumi.get(__ret__, 'lifecycle_policies'),
+        provisioned_throughput_in_mibps=pulumi.get(__ret__, 'provisioned_throughput_in_mibps'),
+        throughput_mode=pulumi.get(__ret__, 'throughput_mode'))
 
 
 @_utilities.lift_output_func(get_file_system)

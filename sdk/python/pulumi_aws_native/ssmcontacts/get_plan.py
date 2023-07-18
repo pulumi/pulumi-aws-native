@@ -68,8 +68,8 @@ def get_plan(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ssmcontacts:getPlan', __args__, opts=opts, typ=GetPlanResult).value
 
     return AwaitableGetPlanResult(
-        arn=__ret__.arn,
-        stages=__ret__.stages)
+        arn=pulumi.get(__ret__, 'arn'),
+        stages=pulumi.get(__ret__, 'stages'))
 
 
 @_utilities.lift_output_func(get_plan)

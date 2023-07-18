@@ -103,12 +103,12 @@ def get_ip_set(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:wafv2:getIPSet', __args__, opts=opts, typ=GetIPSetResult).value
 
     return AwaitableGetIPSetResult(
-        addresses=__ret__.addresses,
-        arn=__ret__.arn,
-        description=__ret__.description,
-        i_p_address_version=__ret__.i_p_address_version,
-        id=__ret__.id,
-        tags=__ret__.tags)
+        addresses=pulumi.get(__ret__, 'addresses'),
+        arn=pulumi.get(__ret__, 'arn'),
+        description=pulumi.get(__ret__, 'description'),
+        i_p_address_version=pulumi.get(__ret__, 'i_p_address_version'),
+        id=pulumi.get(__ret__, 'id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_ip_set)

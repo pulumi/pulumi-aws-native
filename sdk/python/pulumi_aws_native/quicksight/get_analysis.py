@@ -125,15 +125,15 @@ def get_analysis(analysis_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:quicksight:getAnalysis', __args__, opts=opts, typ=GetAnalysisResult).value
 
     return AwaitableGetAnalysisResult(
-        arn=__ret__.arn,
-        created_time=__ret__.created_time,
-        data_set_arns=__ret__.data_set_arns,
-        errors=__ret__.errors,
-        name=__ret__.name,
-        permissions=__ret__.permissions,
-        status=__ret__.status,
-        tags=__ret__.tags,
-        theme_arn=__ret__.theme_arn)
+        arn=pulumi.get(__ret__, 'arn'),
+        created_time=pulumi.get(__ret__, 'created_time'),
+        data_set_arns=pulumi.get(__ret__, 'data_set_arns'),
+        errors=pulumi.get(__ret__, 'errors'),
+        name=pulumi.get(__ret__, 'name'),
+        permissions=pulumi.get(__ret__, 'permissions'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'),
+        theme_arn=pulumi.get(__ret__, 'theme_arn'))
 
 
 @_utilities.lift_output_func(get_analysis)

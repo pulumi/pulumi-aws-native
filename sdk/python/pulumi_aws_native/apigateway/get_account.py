@@ -67,8 +67,8 @@ def get_account(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:apigateway:getAccount', __args__, opts=opts, typ=GetAccountResult).value
 
     return AwaitableGetAccountResult(
-        cloud_watch_role_arn=__ret__.cloud_watch_role_arn,
-        id=__ret__.id)
+        cloud_watch_role_arn=pulumi.get(__ret__, 'cloud_watch_role_arn'),
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_account)

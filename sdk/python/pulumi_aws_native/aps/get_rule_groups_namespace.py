@@ -92,10 +92,10 @@ def get_rule_groups_namespace(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:aps:getRuleGroupsNamespace', __args__, opts=opts, typ=GetRuleGroupsNamespaceResult).value
 
     return AwaitableGetRuleGroupsNamespaceResult(
-        arn=__ret__.arn,
-        data=__ret__.data,
-        tags=__ret__.tags,
-        workspace=__ret__.workspace)
+        arn=pulumi.get(__ret__, 'arn'),
+        data=pulumi.get(__ret__, 'data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        workspace=pulumi.get(__ret__, 'workspace'))
 
 
 @_utilities.lift_output_func(get_rule_groups_namespace)

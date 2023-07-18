@@ -92,10 +92,10 @@ def get_type_activation(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cloudformation:getTypeActivation', __args__, opts=opts, typ=GetTypeActivationResult).value
 
     return AwaitableGetTypeActivationResult(
-        arn=__ret__.arn,
-        auto_update=__ret__.auto_update,
-        major_version=__ret__.major_version,
-        version_bump=__ret__.version_bump)
+        arn=pulumi.get(__ret__, 'arn'),
+        auto_update=pulumi.get(__ret__, 'auto_update'),
+        major_version=pulumi.get(__ret__, 'major_version'),
+        version_bump=pulumi.get(__ret__, 'version_bump'))
 
 
 @_utilities.lift_output_func(get_type_activation)

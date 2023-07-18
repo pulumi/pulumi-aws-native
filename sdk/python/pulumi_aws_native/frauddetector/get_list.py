@@ -128,13 +128,13 @@ def get_list(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:frauddetector:getList', __args__, opts=opts, typ=GetListResult).value
 
     return AwaitableGetListResult(
-        arn=__ret__.arn,
-        created_time=__ret__.created_time,
-        description=__ret__.description,
-        elements=__ret__.elements,
-        last_updated_time=__ret__.last_updated_time,
-        tags=__ret__.tags,
-        variable_type=__ret__.variable_type)
+        arn=pulumi.get(__ret__, 'arn'),
+        created_time=pulumi.get(__ret__, 'created_time'),
+        description=pulumi.get(__ret__, 'description'),
+        elements=pulumi.get(__ret__, 'elements'),
+        last_updated_time=pulumi.get(__ret__, 'last_updated_time'),
+        tags=pulumi.get(__ret__, 'tags'),
+        variable_type=pulumi.get(__ret__, 'variable_type'))
 
 
 @_utilities.lift_output_func(get_list)

@@ -58,8 +58,8 @@ def get_mount_target(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:efs:getMountTarget', __args__, opts=opts, typ=GetMountTargetResult).value
 
     return AwaitableGetMountTargetResult(
-        id=__ret__.id,
-        security_groups=__ret__.security_groups)
+        id=pulumi.get(__ret__, 'id'),
+        security_groups=pulumi.get(__ret__, 'security_groups'))
 
 
 @_utilities.lift_output_func(get_mount_target)

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,6 +40,7 @@ func NewAutoScalingConfiguration(ctx *pulumi.Context,
 		args = &AutoScalingConfigurationArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AutoScalingConfiguration
 	err := ctx.RegisterResource("aws-native:apprunner:AutoScalingConfiguration", name, args, &resource, opts...)
 	if err != nil {

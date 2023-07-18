@@ -132,16 +132,16 @@ def get_service_network_vpc_association(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:vpclattice:getServiceNetworkVpcAssociation', __args__, opts=opts, typ=GetServiceNetworkVpcAssociationResult).value
 
     return AwaitableGetServiceNetworkVpcAssociationResult(
-        arn=__ret__.arn,
-        created_at=__ret__.created_at,
-        id=__ret__.id,
-        security_group_ids=__ret__.security_group_ids,
-        service_network_arn=__ret__.service_network_arn,
-        service_network_id=__ret__.service_network_id,
-        service_network_name=__ret__.service_network_name,
-        status=__ret__.status,
-        tags=__ret__.tags,
-        vpc_id=__ret__.vpc_id)
+        arn=pulumi.get(__ret__, 'arn'),
+        created_at=pulumi.get(__ret__, 'created_at'),
+        id=pulumi.get(__ret__, 'id'),
+        security_group_ids=pulumi.get(__ret__, 'security_group_ids'),
+        service_network_arn=pulumi.get(__ret__, 'service_network_arn'),
+        service_network_id=pulumi.get(__ret__, 'service_network_id'),
+        service_network_name=pulumi.get(__ret__, 'service_network_name'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'),
+        vpc_id=pulumi.get(__ret__, 'vpc_id'))
 
 
 @_utilities.lift_output_func(get_service_network_vpc_association)

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // This resource schema represents the LogAnomalyDetectionIntegration resource in the Amazon DevOps Guru.
 func LookupLogAnomalyDetectionIntegration(ctx *pulumi.Context, args *LookupLogAnomalyDetectionIntegrationArgs, opts ...pulumi.InvokeOption) (*LookupLogAnomalyDetectionIntegrationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLogAnomalyDetectionIntegrationResult
 	err := ctx.Invoke("aws-native:devopsguru:getLogAnomalyDetectionIntegration", args, &rv, opts...)
 	if err != nil {

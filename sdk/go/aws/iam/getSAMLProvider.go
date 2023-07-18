@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::IAM::SAMLProvider
 func LookupSAMLProvider(ctx *pulumi.Context, args *LookupSAMLProviderArgs, opts ...pulumi.InvokeOption) (*LookupSAMLProviderResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSAMLProviderResult
 	err := ctx.Invoke("aws-native:iam:getSAMLProvider", args, &rv, opts...)
 	if err != nil {

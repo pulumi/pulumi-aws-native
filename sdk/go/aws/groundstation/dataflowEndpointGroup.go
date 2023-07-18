@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -34,6 +35,7 @@ func NewDataflowEndpointGroup(ctx *pulumi.Context,
 	if args.EndpointDetails == nil {
 		return nil, errors.New("invalid value for required argument 'EndpointDetails'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DataflowEndpointGroup
 	err := ctx.RegisterResource("aws-native:groundstation:DataflowEndpointGroup", name, args, &resource, opts...)
 	if err != nil {

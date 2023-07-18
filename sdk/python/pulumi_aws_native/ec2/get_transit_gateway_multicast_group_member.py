@@ -145,14 +145,14 @@ def get_transit_gateway_multicast_group_member(group_ip_address: Optional[str] =
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getTransitGatewayMulticastGroupMember', __args__, opts=opts, typ=GetTransitGatewayMulticastGroupMemberResult).value
 
     return AwaitableGetTransitGatewayMulticastGroupMemberResult(
-        group_member=__ret__.group_member,
-        group_source=__ret__.group_source,
-        member_type=__ret__.member_type,
-        resource_id=__ret__.resource_id,
-        resource_type=__ret__.resource_type,
-        source_type=__ret__.source_type,
-        subnet_id=__ret__.subnet_id,
-        transit_gateway_attachment_id=__ret__.transit_gateway_attachment_id)
+        group_member=pulumi.get(__ret__, 'group_member'),
+        group_source=pulumi.get(__ret__, 'group_source'),
+        member_type=pulumi.get(__ret__, 'member_type'),
+        resource_id=pulumi.get(__ret__, 'resource_id'),
+        resource_type=pulumi.get(__ret__, 'resource_type'),
+        source_type=pulumi.get(__ret__, 'source_type'),
+        subnet_id=pulumi.get(__ret__, 'subnet_id'),
+        transit_gateway_attachment_id=pulumi.get(__ret__, 'transit_gateway_attachment_id'))
 
 
 @_utilities.lift_output_func(get_transit_gateway_multicast_group_member)

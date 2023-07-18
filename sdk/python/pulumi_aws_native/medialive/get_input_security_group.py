@@ -77,10 +77,10 @@ def get_input_security_group(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:medialive:getInputSecurityGroup', __args__, opts=opts, typ=GetInputSecurityGroupResult).value
 
     return AwaitableGetInputSecurityGroupResult(
-        arn=__ret__.arn,
-        id=__ret__.id,
-        tags=__ret__.tags,
-        whitelist_rules=__ret__.whitelist_rules)
+        arn=pulumi.get(__ret__, 'arn'),
+        id=pulumi.get(__ret__, 'id'),
+        tags=pulumi.get(__ret__, 'tags'),
+        whitelist_rules=pulumi.get(__ret__, 'whitelist_rules'))
 
 
 @_utilities.lift_output_func(get_input_security_group)

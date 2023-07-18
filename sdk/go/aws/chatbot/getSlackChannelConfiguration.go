@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for AWS::Chatbot::SlackChannelConfiguration.
 func LookupSlackChannelConfiguration(ctx *pulumi.Context, args *LookupSlackChannelConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupSlackChannelConfigurationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSlackChannelConfigurationResult
 	err := ctx.Invoke("aws-native:chatbot:getSlackChannelConfiguration", args, &rv, opts...)
 	if err != nil {

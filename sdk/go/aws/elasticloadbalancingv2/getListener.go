@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::ElasticLoadBalancingV2::Listener
 func LookupListener(ctx *pulumi.Context, args *LookupListenerArgs, opts ...pulumi.InvokeOption) (*LookupListenerResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupListenerResult
 	err := ctx.Invoke("aws-native:elasticloadbalancingv2:getListener", args, &rv, opts...)
 	if err != nil {

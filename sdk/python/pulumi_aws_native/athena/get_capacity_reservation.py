@@ -132,14 +132,14 @@ def get_capacity_reservation(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:athena:getCapacityReservation', __args__, opts=opts, typ=GetCapacityReservationResult).value
 
     return AwaitableGetCapacityReservationResult(
-        allocated_dpus=__ret__.allocated_dpus,
-        arn=__ret__.arn,
-        capacity_assignment_configuration=__ret__.capacity_assignment_configuration,
-        creation_time=__ret__.creation_time,
-        last_successful_allocation_time=__ret__.last_successful_allocation_time,
-        status=__ret__.status,
-        tags=__ret__.tags,
-        target_dpus=__ret__.target_dpus)
+        allocated_dpus=pulumi.get(__ret__, 'allocated_dpus'),
+        arn=pulumi.get(__ret__, 'arn'),
+        capacity_assignment_configuration=pulumi.get(__ret__, 'capacity_assignment_configuration'),
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        last_successful_allocation_time=pulumi.get(__ret__, 'last_successful_allocation_time'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'),
+        target_dpus=pulumi.get(__ret__, 'target_dpus'))
 
 
 @_utilities.lift_output_func(get_capacity_reservation)

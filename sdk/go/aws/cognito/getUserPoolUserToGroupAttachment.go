@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::Cognito::UserPoolUserToGroupAttachment
 func LookupUserPoolUserToGroupAttachment(ctx *pulumi.Context, args *LookupUserPoolUserToGroupAttachmentArgs, opts ...pulumi.InvokeOption) (*LookupUserPoolUserToGroupAttachmentResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupUserPoolUserToGroupAttachmentResult
 	err := ctx.Invoke("aws-native:cognito:getUserPoolUserToGroupAttachment", args, &rv, opts...)
 	if err != nil {

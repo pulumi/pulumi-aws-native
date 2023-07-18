@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Create and manage partner account
 func LookupPartnerAccount(ctx *pulumi.Context, args *LookupPartnerAccountArgs, opts ...pulumi.InvokeOption) (*LookupPartnerAccountResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPartnerAccountResult
 	err := ctx.Invoke("aws-native:iotwireless:getPartnerAccount", args, &rv, opts...)
 	if err != nil {

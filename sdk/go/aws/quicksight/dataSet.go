@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -57,6 +58,7 @@ func NewDataSet(ctx *pulumi.Context,
 		args = &DataSetArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DataSet
 	err := ctx.RegisterResource("aws-native:quicksight:DataSet", name, args, &resource, opts...)
 	if err != nil {

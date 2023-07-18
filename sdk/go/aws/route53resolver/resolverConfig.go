@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ func NewResolverConfig(ctx *pulumi.Context,
 	if args.ResourceId == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResolverConfig
 	err := ctx.RegisterResource("aws-native:route53resolver:ResolverConfig", name, args, &resource, opts...)
 	if err != nil {

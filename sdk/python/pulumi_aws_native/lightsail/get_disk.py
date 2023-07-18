@@ -183,18 +183,18 @@ def get_disk(disk_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:lightsail:getDisk', __args__, opts=opts, typ=GetDiskResult).value
 
     return AwaitableGetDiskResult(
-        add_ons=__ret__.add_ons,
-        attached_to=__ret__.attached_to,
-        attachment_state=__ret__.attachment_state,
-        disk_arn=__ret__.disk_arn,
-        iops=__ret__.iops,
-        is_attached=__ret__.is_attached,
-        location=__ret__.location,
-        path=__ret__.path,
-        resource_type=__ret__.resource_type,
-        state=__ret__.state,
-        support_code=__ret__.support_code,
-        tags=__ret__.tags)
+        add_ons=pulumi.get(__ret__, 'add_ons'),
+        attached_to=pulumi.get(__ret__, 'attached_to'),
+        attachment_state=pulumi.get(__ret__, 'attachment_state'),
+        disk_arn=pulumi.get(__ret__, 'disk_arn'),
+        iops=pulumi.get(__ret__, 'iops'),
+        is_attached=pulumi.get(__ret__, 'is_attached'),
+        location=pulumi.get(__ret__, 'location'),
+        path=pulumi.get(__ret__, 'path'),
+        resource_type=pulumi.get(__ret__, 'resource_type'),
+        state=pulumi.get(__ret__, 'state'),
+        support_code=pulumi.get(__ret__, 'support_code'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_disk)

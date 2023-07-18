@@ -76,10 +76,10 @@ def get_component_version(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:greengrassv2:getComponentVersion', __args__, opts=opts, typ=GetComponentVersionResult).value
 
     return AwaitableGetComponentVersionResult(
-        arn=__ret__.arn,
-        component_name=__ret__.component_name,
-        component_version=__ret__.component_version,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        component_name=pulumi.get(__ret__, 'component_name'),
+        component_version=pulumi.get(__ret__, 'component_version'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_component_version)

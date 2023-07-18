@@ -231,24 +231,24 @@ def get_association(association_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ssm:getAssociation', __args__, opts=opts, typ=GetAssociationResult).value
 
     return AwaitableGetAssociationResult(
-        apply_only_at_cron_interval=__ret__.apply_only_at_cron_interval,
-        association_id=__ret__.association_id,
-        association_name=__ret__.association_name,
-        automation_target_parameter_name=__ret__.automation_target_parameter_name,
-        calendar_names=__ret__.calendar_names,
-        compliance_severity=__ret__.compliance_severity,
-        document_version=__ret__.document_version,
-        instance_id=__ret__.instance_id,
-        max_concurrency=__ret__.max_concurrency,
-        max_errors=__ret__.max_errors,
-        name=__ret__.name,
-        output_location=__ret__.output_location,
-        parameters=__ret__.parameters,
-        schedule_expression=__ret__.schedule_expression,
-        schedule_offset=__ret__.schedule_offset,
-        sync_compliance=__ret__.sync_compliance,
-        targets=__ret__.targets,
-        wait_for_success_timeout_seconds=__ret__.wait_for_success_timeout_seconds)
+        apply_only_at_cron_interval=pulumi.get(__ret__, 'apply_only_at_cron_interval'),
+        association_id=pulumi.get(__ret__, 'association_id'),
+        association_name=pulumi.get(__ret__, 'association_name'),
+        automation_target_parameter_name=pulumi.get(__ret__, 'automation_target_parameter_name'),
+        calendar_names=pulumi.get(__ret__, 'calendar_names'),
+        compliance_severity=pulumi.get(__ret__, 'compliance_severity'),
+        document_version=pulumi.get(__ret__, 'document_version'),
+        instance_id=pulumi.get(__ret__, 'instance_id'),
+        max_concurrency=pulumi.get(__ret__, 'max_concurrency'),
+        max_errors=pulumi.get(__ret__, 'max_errors'),
+        name=pulumi.get(__ret__, 'name'),
+        output_location=pulumi.get(__ret__, 'output_location'),
+        parameters=pulumi.get(__ret__, 'parameters'),
+        schedule_expression=pulumi.get(__ret__, 'schedule_expression'),
+        schedule_offset=pulumi.get(__ret__, 'schedule_offset'),
+        sync_compliance=pulumi.get(__ret__, 'sync_compliance'),
+        targets=pulumi.get(__ret__, 'targets'),
+        wait_for_success_timeout_seconds=pulumi.get(__ret__, 'wait_for_success_timeout_seconds'))
 
 
 @_utilities.lift_output_func(get_association)

@@ -79,9 +79,9 @@ def get_user_hierarchy_group(user_hierarchy_group_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:connect:getUserHierarchyGroup', __args__, opts=opts, typ=GetUserHierarchyGroupResult).value
 
     return AwaitableGetUserHierarchyGroupResult(
-        instance_arn=__ret__.instance_arn,
-        name=__ret__.name,
-        user_hierarchy_group_arn=__ret__.user_hierarchy_group_arn)
+        instance_arn=pulumi.get(__ret__, 'instance_arn'),
+        name=pulumi.get(__ret__, 'name'),
+        user_hierarchy_group_arn=pulumi.get(__ret__, 'user_hierarchy_group_arn'))
 
 
 @_utilities.lift_output_func(get_user_hierarchy_group)

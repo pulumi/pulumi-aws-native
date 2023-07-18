@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,6 +42,7 @@ func NewProject(ctx *pulumi.Context,
 	if args.ServiceCatalogProvisioningDetails == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceCatalogProvisioningDetails'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Project
 	err := ctx.RegisterResource("aws-native:sagemaker:Project", name, args, &resource, opts...)
 	if err != nil {

@@ -107,11 +107,11 @@ def get_integration(domain_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:customerprofiles:getIntegration', __args__, opts=opts, typ=GetIntegrationResult).value
 
     return AwaitableGetIntegrationResult(
-        created_at=__ret__.created_at,
-        last_updated_at=__ret__.last_updated_at,
-        object_type_name=__ret__.object_type_name,
-        object_type_names=__ret__.object_type_names,
-        tags=__ret__.tags)
+        created_at=pulumi.get(__ret__, 'created_at'),
+        last_updated_at=pulumi.get(__ret__, 'last_updated_at'),
+        object_type_name=pulumi.get(__ret__, 'object_type_name'),
+        object_type_names=pulumi.get(__ret__, 'object_type_names'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_integration)

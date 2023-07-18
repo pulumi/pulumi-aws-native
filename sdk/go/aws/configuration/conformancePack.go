@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -37,6 +38,7 @@ func NewConformancePack(ctx *pulumi.Context,
 		args = &ConformancePackArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ConformancePack
 	err := ctx.RegisterResource("aws-native:configuration:ConformancePack", name, args, &resource, opts...)
 	if err != nil {

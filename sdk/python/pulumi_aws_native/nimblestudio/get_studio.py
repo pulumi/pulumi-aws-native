@@ -132,14 +132,14 @@ def get_studio(studio_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:nimblestudio:getStudio', __args__, opts=opts, typ=GetStudioResult).value
 
     return AwaitableGetStudioResult(
-        admin_role_arn=__ret__.admin_role_arn,
-        display_name=__ret__.display_name,
-        home_region=__ret__.home_region,
-        sso_client_id=__ret__.sso_client_id,
-        studio_encryption_configuration=__ret__.studio_encryption_configuration,
-        studio_id=__ret__.studio_id,
-        studio_url=__ret__.studio_url,
-        user_role_arn=__ret__.user_role_arn)
+        admin_role_arn=pulumi.get(__ret__, 'admin_role_arn'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        home_region=pulumi.get(__ret__, 'home_region'),
+        sso_client_id=pulumi.get(__ret__, 'sso_client_id'),
+        studio_encryption_configuration=pulumi.get(__ret__, 'studio_encryption_configuration'),
+        studio_id=pulumi.get(__ret__, 'studio_id'),
+        studio_url=pulumi.get(__ret__, 'studio_url'),
+        user_role_arn=pulumi.get(__ret__, 'user_role_arn'))
 
 
 @_utilities.lift_output_func(get_studio)

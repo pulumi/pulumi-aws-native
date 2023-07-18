@@ -175,21 +175,21 @@ def get_dev_endpoint(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:glue:getDevEndpoint', __args__, opts=opts, typ=GetDevEndpointResult).value
 
     return AwaitableGetDevEndpointResult(
-        arguments=__ret__.arguments,
-        extra_jars_s3_path=__ret__.extra_jars_s3_path,
-        extra_python_libs_s3_path=__ret__.extra_python_libs_s3_path,
-        glue_version=__ret__.glue_version,
-        id=__ret__.id,
-        number_of_nodes=__ret__.number_of_nodes,
-        number_of_workers=__ret__.number_of_workers,
-        public_key=__ret__.public_key,
-        public_keys=__ret__.public_keys,
-        role_arn=__ret__.role_arn,
-        security_configuration=__ret__.security_configuration,
-        security_group_ids=__ret__.security_group_ids,
-        subnet_id=__ret__.subnet_id,
-        tags=__ret__.tags,
-        worker_type=__ret__.worker_type)
+        arguments=pulumi.get(__ret__, 'arguments'),
+        extra_jars_s3_path=pulumi.get(__ret__, 'extra_jars_s3_path'),
+        extra_python_libs_s3_path=pulumi.get(__ret__, 'extra_python_libs_s3_path'),
+        glue_version=pulumi.get(__ret__, 'glue_version'),
+        id=pulumi.get(__ret__, 'id'),
+        number_of_nodes=pulumi.get(__ret__, 'number_of_nodes'),
+        number_of_workers=pulumi.get(__ret__, 'number_of_workers'),
+        public_key=pulumi.get(__ret__, 'public_key'),
+        public_keys=pulumi.get(__ret__, 'public_keys'),
+        role_arn=pulumi.get(__ret__, 'role_arn'),
+        security_configuration=pulumi.get(__ret__, 'security_configuration'),
+        security_group_ids=pulumi.get(__ret__, 'security_group_ids'),
+        subnet_id=pulumi.get(__ret__, 'subnet_id'),
+        tags=pulumi.get(__ret__, 'tags'),
+        worker_type=pulumi.get(__ret__, 'worker_type'))
 
 
 @_utilities.lift_output_func(get_dev_endpoint)

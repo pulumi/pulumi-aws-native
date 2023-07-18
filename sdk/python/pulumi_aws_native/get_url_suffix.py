@@ -46,4 +46,4 @@ def get_url_suffix(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetU
     __ret__ = pulumi.runtime.invoke('aws-native:index:getUrlSuffix', __args__, opts=opts, typ=GetUrlSuffixResult).value
 
     return AwaitableGetUrlSuffixResult(
-        url_suffix=__ret__.url_suffix)
+        url_suffix=pulumi.get(__ret__, 'url_suffix'))

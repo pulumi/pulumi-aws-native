@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -36,6 +37,7 @@ func NewKnowledgeBase(ctx *pulumi.Context,
 	if args.KnowledgeBaseType == nil {
 		return nil, errors.New("invalid value for required argument 'KnowledgeBaseType'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource KnowledgeBase
 	err := ctx.RegisterResource("aws-native:wisdom:KnowledgeBase", name, args, &resource, opts...)
 	if err != nil {

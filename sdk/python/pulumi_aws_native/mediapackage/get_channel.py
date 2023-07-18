@@ -104,11 +104,11 @@ def get_channel(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:mediapackage:getChannel', __args__, opts=opts, typ=GetChannelResult).value
 
     return AwaitableGetChannelResult(
-        arn=__ret__.arn,
-        description=__ret__.description,
-        egress_access_logs=__ret__.egress_access_logs,
-        hls_ingest=__ret__.hls_ingest,
-        ingress_access_logs=__ret__.ingress_access_logs)
+        arn=pulumi.get(__ret__, 'arn'),
+        description=pulumi.get(__ret__, 'description'),
+        egress_access_logs=pulumi.get(__ret__, 'egress_access_logs'),
+        hls_ingest=pulumi.get(__ret__, 'hls_ingest'),
+        ingress_access_logs=pulumi.get(__ret__, 'ingress_access_logs'))
 
 
 @_utilities.lift_output_func(get_channel)

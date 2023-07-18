@@ -132,16 +132,16 @@ def get_endpoint(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:events:getEndpoint', __args__, opts=opts, typ=GetEndpointResult).value
 
     return AwaitableGetEndpointResult(
-        arn=__ret__.arn,
-        description=__ret__.description,
-        endpoint_id=__ret__.endpoint_id,
-        endpoint_url=__ret__.endpoint_url,
-        event_buses=__ret__.event_buses,
-        replication_config=__ret__.replication_config,
-        role_arn=__ret__.role_arn,
-        routing_config=__ret__.routing_config,
-        state=__ret__.state,
-        state_reason=__ret__.state_reason)
+        arn=pulumi.get(__ret__, 'arn'),
+        description=pulumi.get(__ret__, 'description'),
+        endpoint_id=pulumi.get(__ret__, 'endpoint_id'),
+        endpoint_url=pulumi.get(__ret__, 'endpoint_url'),
+        event_buses=pulumi.get(__ret__, 'event_buses'),
+        replication_config=pulumi.get(__ret__, 'replication_config'),
+        role_arn=pulumi.get(__ret__, 'role_arn'),
+        routing_config=pulumi.get(__ret__, 'routing_config'),
+        state=pulumi.get(__ret__, 'state'),
+        state_reason=pulumi.get(__ret__, 'state_reason'))
 
 
 @_utilities.lift_output_func(get_endpoint)

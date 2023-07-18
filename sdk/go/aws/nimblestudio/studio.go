@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -50,6 +51,7 @@ func NewStudio(ctx *pulumi.Context,
 	if args.UserRoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'UserRoleArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Studio
 	err := ctx.RegisterResource("aws-native:nimblestudio:Studio", name, args, &resource, opts...)
 	if err != nil {

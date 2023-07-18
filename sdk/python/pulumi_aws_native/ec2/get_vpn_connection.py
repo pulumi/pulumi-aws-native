@@ -68,8 +68,8 @@ def get_vpn_connection(vpn_connection_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getVPNConnection', __args__, opts=opts, typ=GetVPNConnectionResult).value
 
     return AwaitableGetVPNConnectionResult(
-        tags=__ret__.tags,
-        vpn_connection_id=__ret__.vpn_connection_id)
+        tags=pulumi.get(__ret__, 'tags'),
+        vpn_connection_id=pulumi.get(__ret__, 'vpn_connection_id'))
 
 
 @_utilities.lift_output_func(get_vpn_connection)

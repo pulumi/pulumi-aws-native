@@ -65,8 +65,8 @@ def get_db_cluster_parameter_group(d_b_cluster_parameter_group_name: Optional[st
     __ret__ = pulumi.runtime.invoke('aws-native:rds:getDBClusterParameterGroup', __args__, opts=opts, typ=GetDBClusterParameterGroupResult).value
 
     return AwaitableGetDBClusterParameterGroupResult(
-        parameters=__ret__.parameters,
-        tags=__ret__.tags)
+        parameters=pulumi.get(__ret__, 'parameters'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_db_cluster_parameter_group)

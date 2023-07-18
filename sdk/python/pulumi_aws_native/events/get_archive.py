@@ -76,10 +76,10 @@ def get_archive(archive_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:events:getArchive', __args__, opts=opts, typ=GetArchiveResult).value
 
     return AwaitableGetArchiveResult(
-        arn=__ret__.arn,
-        description=__ret__.description,
-        event_pattern=__ret__.event_pattern,
-        retention_days=__ret__.retention_days)
+        arn=pulumi.get(__ret__, 'arn'),
+        description=pulumi.get(__ret__, 'description'),
+        event_pattern=pulumi.get(__ret__, 'event_pattern'),
+        retention_days=pulumi.get(__ret__, 'retention_days'))
 
 
 @_utilities.lift_output_func(get_archive)

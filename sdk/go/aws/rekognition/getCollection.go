@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // The AWS::Rekognition::Collection type creates an Amazon Rekognition Collection. A collection is a logical grouping of information about detected faces which can later be referenced for searches on the group
 func LookupCollection(ctx *pulumi.Context, args *LookupCollectionArgs, opts ...pulumi.InvokeOption) (*LookupCollectionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCollectionResult
 	err := ctx.Invoke("aws-native:rekognition:getCollection", args, &rv, opts...)
 	if err != nil {

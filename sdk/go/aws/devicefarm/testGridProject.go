@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -28,6 +29,7 @@ func NewTestGridProject(ctx *pulumi.Context,
 		args = &TestGridProjectArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TestGridProject
 	err := ctx.RegisterResource("aws-native:devicefarm:TestGridProject", name, args, &resource, opts...)
 	if err != nil {

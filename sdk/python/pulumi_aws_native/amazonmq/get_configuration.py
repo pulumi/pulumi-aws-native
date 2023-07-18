@@ -95,12 +95,12 @@ def get_configuration(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:amazonmq:getConfiguration', __args__, opts=opts, typ=GetConfigurationResult).value
 
     return AwaitableGetConfigurationResult(
-        arn=__ret__.arn,
-        data=__ret__.data,
-        description=__ret__.description,
-        id=__ret__.id,
-        revision=__ret__.revision,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        data=pulumi.get(__ret__, 'data'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        revision=pulumi.get(__ret__, 'revision'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_configuration)

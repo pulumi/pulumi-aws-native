@@ -76,10 +76,10 @@ def get_route_calculator(calculator_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:location:getRouteCalculator', __args__, opts=opts, typ=GetRouteCalculatorResult).value
 
     return AwaitableGetRouteCalculatorResult(
-        arn=__ret__.arn,
-        calculator_arn=__ret__.calculator_arn,
-        create_time=__ret__.create_time,
-        update_time=__ret__.update_time)
+        arn=pulumi.get(__ret__, 'arn'),
+        calculator_arn=pulumi.get(__ret__, 'calculator_arn'),
+        create_time=pulumi.get(__ret__, 'create_time'),
+        update_time=pulumi.get(__ret__, 'update_time'))
 
 
 @_utilities.lift_output_func(get_route_calculator)

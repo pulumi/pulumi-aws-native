@@ -85,11 +85,11 @@ def get_extension_association(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:appconfig:getExtensionAssociation', __args__, opts=opts, typ=GetExtensionAssociationResult).value
 
     return AwaitableGetExtensionAssociationResult(
-        arn=__ret__.arn,
-        extension_arn=__ret__.extension_arn,
-        id=__ret__.id,
-        parameters=__ret__.parameters,
-        resource_arn=__ret__.resource_arn)
+        arn=pulumi.get(__ret__, 'arn'),
+        extension_arn=pulumi.get(__ret__, 'extension_arn'),
+        id=pulumi.get(__ret__, 'id'),
+        parameters=pulumi.get(__ret__, 'parameters'),
+        resource_arn=pulumi.get(__ret__, 'resource_arn'))
 
 
 @_utilities.lift_output_func(get_extension_association)

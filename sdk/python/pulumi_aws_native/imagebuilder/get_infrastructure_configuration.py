@@ -201,19 +201,19 @@ def get_infrastructure_configuration(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:imagebuilder:getInfrastructureConfiguration', __args__, opts=opts, typ=GetInfrastructureConfigurationResult).value
 
     return AwaitableGetInfrastructureConfigurationResult(
-        arn=__ret__.arn,
-        description=__ret__.description,
-        instance_metadata_options=__ret__.instance_metadata_options,
-        instance_profile_name=__ret__.instance_profile_name,
-        instance_types=__ret__.instance_types,
-        key_pair=__ret__.key_pair,
-        logging=__ret__.logging,
-        resource_tags=__ret__.resource_tags,
-        security_group_ids=__ret__.security_group_ids,
-        sns_topic_arn=__ret__.sns_topic_arn,
-        subnet_id=__ret__.subnet_id,
-        tags=__ret__.tags,
-        terminate_instance_on_failure=__ret__.terminate_instance_on_failure)
+        arn=pulumi.get(__ret__, 'arn'),
+        description=pulumi.get(__ret__, 'description'),
+        instance_metadata_options=pulumi.get(__ret__, 'instance_metadata_options'),
+        instance_profile_name=pulumi.get(__ret__, 'instance_profile_name'),
+        instance_types=pulumi.get(__ret__, 'instance_types'),
+        key_pair=pulumi.get(__ret__, 'key_pair'),
+        logging=pulumi.get(__ret__, 'logging'),
+        resource_tags=pulumi.get(__ret__, 'resource_tags'),
+        security_group_ids=pulumi.get(__ret__, 'security_group_ids'),
+        sns_topic_arn=pulumi.get(__ret__, 'sns_topic_arn'),
+        subnet_id=pulumi.get(__ret__, 'subnet_id'),
+        tags=pulumi.get(__ret__, 'tags'),
+        terminate_instance_on_failure=pulumi.get(__ret__, 'terminate_instance_on_failure'))
 
 
 @_utilities.lift_output_func(get_infrastructure_configuration)

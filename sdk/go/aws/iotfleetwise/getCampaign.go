@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Definition of AWS::IoTFleetWise::Campaign Resource Type
 func LookupCampaign(ctx *pulumi.Context, args *LookupCampaignArgs, opts ...pulumi.InvokeOption) (*LookupCampaignResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCampaignResult
 	err := ctx.Invoke("aws-native:iotfleetwise:getCampaign", args, &rv, opts...)
 	if err != nil {

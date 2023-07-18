@@ -154,17 +154,17 @@ def get_rule_group(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:wafv2:getRuleGroup', __args__, opts=opts, typ=GetRuleGroupResult).value
 
     return AwaitableGetRuleGroupResult(
-        arn=__ret__.arn,
-        available_labels=__ret__.available_labels,
-        capacity=__ret__.capacity,
-        consumed_labels=__ret__.consumed_labels,
-        custom_response_bodies=__ret__.custom_response_bodies,
-        description=__ret__.description,
-        id=__ret__.id,
-        label_namespace=__ret__.label_namespace,
-        rules=__ret__.rules,
-        tags=__ret__.tags,
-        visibility_config=__ret__.visibility_config)
+        arn=pulumi.get(__ret__, 'arn'),
+        available_labels=pulumi.get(__ret__, 'available_labels'),
+        capacity=pulumi.get(__ret__, 'capacity'),
+        consumed_labels=pulumi.get(__ret__, 'consumed_labels'),
+        custom_response_bodies=pulumi.get(__ret__, 'custom_response_bodies'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        label_namespace=pulumi.get(__ret__, 'label_namespace'),
+        rules=pulumi.get(__ret__, 'rules'),
+        tags=pulumi.get(__ret__, 'tags'),
+        visibility_config=pulumi.get(__ret__, 'visibility_config'))
 
 
 @_utilities.lift_output_func(get_rule_group)

@@ -73,9 +73,9 @@ def get_reference_store(reference_store_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:omics:getReferenceStore', __args__, opts=opts, typ=GetReferenceStoreResult).value
 
     return AwaitableGetReferenceStoreResult(
-        arn=__ret__.arn,
-        creation_time=__ret__.creation_time,
-        reference_store_id=__ret__.reference_store_id)
+        arn=pulumi.get(__ret__, 'arn'),
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        reference_store_id=pulumi.get(__ret__, 'reference_store_id'))
 
 
 @_utilities.lift_output_func(get_reference_store)

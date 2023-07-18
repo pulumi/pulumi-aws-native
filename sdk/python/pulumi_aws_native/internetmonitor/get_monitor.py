@@ -150,18 +150,18 @@ def get_monitor(monitor_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:internetmonitor:getMonitor', __args__, opts=opts, typ=GetMonitorResult).value
 
     return AwaitableGetMonitorResult(
-        created_at=__ret__.created_at,
-        health_events_config=__ret__.health_events_config,
-        internet_measurements_log_delivery=__ret__.internet_measurements_log_delivery,
-        max_city_networks_to_monitor=__ret__.max_city_networks_to_monitor,
-        modified_at=__ret__.modified_at,
-        monitor_arn=__ret__.monitor_arn,
-        processing_status=__ret__.processing_status,
-        processing_status_info=__ret__.processing_status_info,
-        resources=__ret__.resources,
-        status=__ret__.status,
-        tags=__ret__.tags,
-        traffic_percentage_to_monitor=__ret__.traffic_percentage_to_monitor)
+        created_at=pulumi.get(__ret__, 'created_at'),
+        health_events_config=pulumi.get(__ret__, 'health_events_config'),
+        internet_measurements_log_delivery=pulumi.get(__ret__, 'internet_measurements_log_delivery'),
+        max_city_networks_to_monitor=pulumi.get(__ret__, 'max_city_networks_to_monitor'),
+        modified_at=pulumi.get(__ret__, 'modified_at'),
+        monitor_arn=pulumi.get(__ret__, 'monitor_arn'),
+        processing_status=pulumi.get(__ret__, 'processing_status'),
+        processing_status_info=pulumi.get(__ret__, 'processing_status_info'),
+        resources=pulumi.get(__ret__, 'resources'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'),
+        traffic_percentage_to_monitor=pulumi.get(__ret__, 'traffic_percentage_to_monitor'))
 
 
 @_utilities.lift_output_func(get_monitor)

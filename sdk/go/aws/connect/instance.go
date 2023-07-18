@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -46,6 +47,7 @@ func NewInstance(ctx *pulumi.Context,
 	if args.IdentityManagementType == nil {
 		return nil, errors.New("invalid value for required argument 'IdentityManagementType'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Instance
 	err := ctx.RegisterResource("aws-native:connect:Instance", name, args, &resource, opts...)
 	if err != nil {

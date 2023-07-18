@@ -76,10 +76,10 @@ def get_security_group_ingress(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:elasticache:getSecurityGroupIngress', __args__, opts=opts, typ=GetSecurityGroupIngressResult).value
 
     return AwaitableGetSecurityGroupIngressResult(
-        cache_security_group_name=__ret__.cache_security_group_name,
-        e_c2_security_group_name=__ret__.e_c2_security_group_name,
-        e_c2_security_group_owner_id=__ret__.e_c2_security_group_owner_id,
-        id=__ret__.id)
+        cache_security_group_name=pulumi.get(__ret__, 'cache_security_group_name'),
+        e_c2_security_group_name=pulumi.get(__ret__, 'e_c2_security_group_name'),
+        e_c2_security_group_owner_id=pulumi.get(__ret__, 'e_c2_security_group_owner_id'),
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_security_group_ingress)

@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -36,6 +37,7 @@ func NewDocumentationVersion(ctx *pulumi.Context,
 	if args.RestApiId == nil {
 		return nil, errors.New("invalid value for required argument 'RestApiId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DocumentationVersion
 	err := ctx.RegisterResource("aws-native:apigateway:DocumentationVersion", name, args, &resource, opts...)
 	if err != nil {

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::ElastiCache::CacheCluster
 func LookupCacheCluster(ctx *pulumi.Context, args *LookupCacheClusterArgs, opts ...pulumi.InvokeOption) (*LookupCacheClusterResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCacheClusterResult
 	err := ctx.Invoke("aws-native:elasticache:getCacheCluster", args, &rv, opts...)
 	if err != nil {

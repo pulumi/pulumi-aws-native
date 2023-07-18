@@ -153,18 +153,18 @@ def get_cluster(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:msk:getCluster', __args__, opts=opts, typ=GetClusterResult).value
 
     return AwaitableGetClusterResult(
-        arn=__ret__.arn,
-        broker_node_group_info=__ret__.broker_node_group_info,
-        client_authentication=__ret__.client_authentication,
-        configuration_info=__ret__.configuration_info,
-        current_version=__ret__.current_version,
-        encryption_info=__ret__.encryption_info,
-        enhanced_monitoring=__ret__.enhanced_monitoring,
-        kafka_version=__ret__.kafka_version,
-        logging_info=__ret__.logging_info,
-        number_of_broker_nodes=__ret__.number_of_broker_nodes,
-        open_monitoring=__ret__.open_monitoring,
-        storage_mode=__ret__.storage_mode)
+        arn=pulumi.get(__ret__, 'arn'),
+        broker_node_group_info=pulumi.get(__ret__, 'broker_node_group_info'),
+        client_authentication=pulumi.get(__ret__, 'client_authentication'),
+        configuration_info=pulumi.get(__ret__, 'configuration_info'),
+        current_version=pulumi.get(__ret__, 'current_version'),
+        encryption_info=pulumi.get(__ret__, 'encryption_info'),
+        enhanced_monitoring=pulumi.get(__ret__, 'enhanced_monitoring'),
+        kafka_version=pulumi.get(__ret__, 'kafka_version'),
+        logging_info=pulumi.get(__ret__, 'logging_info'),
+        number_of_broker_nodes=pulumi.get(__ret__, 'number_of_broker_nodes'),
+        open_monitoring=pulumi.get(__ret__, 'open_monitoring'),
+        storage_mode=pulumi.get(__ret__, 'storage_mode'))
 
 
 @_utilities.lift_output_func(get_cluster)

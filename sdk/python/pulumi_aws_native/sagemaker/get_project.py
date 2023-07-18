@@ -96,11 +96,11 @@ def get_project(project_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:sagemaker:getProject', __args__, opts=opts, typ=GetProjectResult).value
 
     return AwaitableGetProjectResult(
-        creation_time=__ret__.creation_time,
-        project_arn=__ret__.project_arn,
-        project_id=__ret__.project_id,
-        project_status=__ret__.project_status,
-        service_catalog_provisioned_product_details=__ret__.service_catalog_provisioned_product_details)
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        project_arn=pulumi.get(__ret__, 'project_arn'),
+        project_id=pulumi.get(__ret__, 'project_id'),
+        project_status=pulumi.get(__ret__, 'project_status'),
+        service_catalog_provisioned_product_details=pulumi.get(__ret__, 'service_catalog_provisioned_product_details'))
 
 
 @_utilities.lift_output_func(get_project)

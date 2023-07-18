@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::MediaLive::InputSecurityGroup
 func LookupInputSecurityGroup(ctx *pulumi.Context, args *LookupInputSecurityGroupArgs, opts ...pulumi.InvokeOption) (*LookupInputSecurityGroupResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupInputSecurityGroupResult
 	err := ctx.Invoke("aws-native:medialive:getInputSecurityGroup", args, &rv, opts...)
 	if err != nil {

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // A markup/discount that is defined for a specific set of services that can later be associated with a pricing plan.
 func LookupPricingRule(ctx *pulumi.Context, args *LookupPricingRuleArgs, opts ...pulumi.InvokeOption) (*LookupPricingRuleResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPricingRuleResult
 	err := ctx.Invoke("aws-native:billingconductor:getPricingRule", args, &rv, opts...)
 	if err != nil {

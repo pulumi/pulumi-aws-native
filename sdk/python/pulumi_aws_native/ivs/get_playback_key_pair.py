@@ -80,9 +80,9 @@ def get_playback_key_pair(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ivs:getPlaybackKeyPair', __args__, opts=opts, typ=GetPlaybackKeyPairResult).value
 
     return AwaitableGetPlaybackKeyPairResult(
-        arn=__ret__.arn,
-        fingerprint=__ret__.fingerprint,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        fingerprint=pulumi.get(__ret__, 'fingerprint'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_playback_key_pair)

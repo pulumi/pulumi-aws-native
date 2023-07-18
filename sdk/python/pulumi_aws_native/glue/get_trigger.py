@@ -113,14 +113,14 @@ def get_trigger(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:glue:getTrigger', __args__, opts=opts, typ=GetTriggerResult).value
 
     return AwaitableGetTriggerResult(
-        actions=__ret__.actions,
-        description=__ret__.description,
-        event_batching_condition=__ret__.event_batching_condition,
-        id=__ret__.id,
-        predicate=__ret__.predicate,
-        schedule=__ret__.schedule,
-        start_on_creation=__ret__.start_on_creation,
-        tags=__ret__.tags)
+        actions=pulumi.get(__ret__, 'actions'),
+        description=pulumi.get(__ret__, 'description'),
+        event_batching_condition=pulumi.get(__ret__, 'event_batching_condition'),
+        id=pulumi.get(__ret__, 'id'),
+        predicate=pulumi.get(__ret__, 'predicate'),
+        schedule=pulumi.get(__ret__, 'schedule'),
+        start_on_creation=pulumi.get(__ret__, 'start_on_creation'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_trigger)

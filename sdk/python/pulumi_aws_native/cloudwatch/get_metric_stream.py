@@ -176,17 +176,17 @@ def get_metric_stream(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cloudwatch:getMetricStream', __args__, opts=opts, typ=GetMetricStreamResult).value
 
     return AwaitableGetMetricStreamResult(
-        arn=__ret__.arn,
-        creation_date=__ret__.creation_date,
-        exclude_filters=__ret__.exclude_filters,
-        firehose_arn=__ret__.firehose_arn,
-        include_filters=__ret__.include_filters,
-        include_linked_accounts_metrics=__ret__.include_linked_accounts_metrics,
-        last_update_date=__ret__.last_update_date,
-        output_format=__ret__.output_format,
-        role_arn=__ret__.role_arn,
-        state=__ret__.state,
-        statistics_configurations=__ret__.statistics_configurations)
+        arn=pulumi.get(__ret__, 'arn'),
+        creation_date=pulumi.get(__ret__, 'creation_date'),
+        exclude_filters=pulumi.get(__ret__, 'exclude_filters'),
+        firehose_arn=pulumi.get(__ret__, 'firehose_arn'),
+        include_filters=pulumi.get(__ret__, 'include_filters'),
+        include_linked_accounts_metrics=pulumi.get(__ret__, 'include_linked_accounts_metrics'),
+        last_update_date=pulumi.get(__ret__, 'last_update_date'),
+        output_format=pulumi.get(__ret__, 'output_format'),
+        role_arn=pulumi.get(__ret__, 'role_arn'),
+        state=pulumi.get(__ret__, 'state'),
+        statistics_configurations=pulumi.get(__ret__, 'statistics_configurations'))
 
 
 @_utilities.lift_output_func(get_metric_stream)

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for AWS::IoTTwinMaker::ComponentType
 func LookupComponentType(ctx *pulumi.Context, args *LookupComponentTypeArgs, opts ...pulumi.InvokeOption) (*LookupComponentTypeResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupComponentTypeResult
 	err := ctx.Invoke("aws-native:iottwinmaker:getComponentType", args, &rv, opts...)
 	if err != nil {

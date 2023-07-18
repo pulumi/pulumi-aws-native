@@ -60,8 +60,8 @@ def get_identity_pool_principal_tag(identity_pool_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cognito:getIdentityPoolPrincipalTag', __args__, opts=opts, typ=GetIdentityPoolPrincipalTagResult).value
 
     return AwaitableGetIdentityPoolPrincipalTagResult(
-        principal_tags=__ret__.principal_tags,
-        use_defaults=__ret__.use_defaults)
+        principal_tags=pulumi.get(__ret__, 'principal_tags'),
+        use_defaults=pulumi.get(__ret__, 'use_defaults'))
 
 
 @_utilities.lift_output_func(get_identity_pool_principal_tag)

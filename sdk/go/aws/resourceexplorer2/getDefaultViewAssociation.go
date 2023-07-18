@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Definition of AWS::ResourceExplorer2::DefaultViewAssociation Resource Type
 func LookupDefaultViewAssociation(ctx *pulumi.Context, args *LookupDefaultViewAssociationArgs, opts ...pulumi.InvokeOption) (*LookupDefaultViewAssociationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDefaultViewAssociationResult
 	err := ctx.Invoke("aws-native:resourceexplorer2:getDefaultViewAssociation", args, &rv, opts...)
 	if err != nil {

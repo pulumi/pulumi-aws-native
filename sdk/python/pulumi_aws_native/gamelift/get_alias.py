@@ -93,10 +93,10 @@ def get_alias(alias_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:gamelift:getAlias', __args__, opts=opts, typ=GetAliasResult).value
 
     return AwaitableGetAliasResult(
-        alias_id=__ret__.alias_id,
-        description=__ret__.description,
-        name=__ret__.name,
-        routing_strategy=__ret__.routing_strategy)
+        alias_id=pulumi.get(__ret__, 'alias_id'),
+        description=pulumi.get(__ret__, 'description'),
+        name=pulumi.get(__ret__, 'name'),
+        routing_strategy=pulumi.get(__ret__, 'routing_strategy'))
 
 
 @_utilities.lift_output_func(get_alias)

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::SSM::MaintenanceWindowTask
 func LookupMaintenanceWindowTask(ctx *pulumi.Context, args *LookupMaintenanceWindowTaskArgs, opts ...pulumi.InvokeOption) (*LookupMaintenanceWindowTaskResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupMaintenanceWindowTaskResult
 	err := ctx.Invoke("aws-native:ssm:getMaintenanceWindowTask", args, &rv, opts...)
 	if err != nil {

@@ -104,13 +104,13 @@ def get_volume(volume_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:fsx:getVolume', __args__, opts=opts, typ=GetVolumeResult).value
 
     return AwaitableGetVolumeResult(
-        name=__ret__.name,
-        ontap_configuration=__ret__.ontap_configuration,
-        open_zfs_configuration=__ret__.open_zfs_configuration,
-        resource_arn=__ret__.resource_arn,
-        tags=__ret__.tags,
-        u_uid=__ret__.u_uid,
-        volume_id=__ret__.volume_id)
+        name=pulumi.get(__ret__, 'name'),
+        ontap_configuration=pulumi.get(__ret__, 'ontap_configuration'),
+        open_zfs_configuration=pulumi.get(__ret__, 'open_zfs_configuration'),
+        resource_arn=pulumi.get(__ret__, 'resource_arn'),
+        tags=pulumi.get(__ret__, 'tags'),
+        u_uid=pulumi.get(__ret__, 'u_uid'),
+        volume_id=pulumi.get(__ret__, 'volume_id'))
 
 
 @_utilities.lift_output_func(get_volume)

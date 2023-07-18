@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Scheduled audits can be used to specify the checks you want to perform during an audit and how often the audit should be run.
 func LookupScheduledAudit(ctx *pulumi.Context, args *LookupScheduledAuditArgs, opts ...pulumi.InvokeOption) (*LookupScheduledAuditResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupScheduledAuditResult
 	err := ctx.Invoke("aws-native:iot:getScheduledAudit", args, &rv, opts...)
 	if err != nil {

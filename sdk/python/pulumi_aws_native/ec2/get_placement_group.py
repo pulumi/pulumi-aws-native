@@ -68,8 +68,8 @@ def get_placement_group(group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getPlacementGroup', __args__, opts=opts, typ=GetPlacementGroupResult).value
 
     return AwaitableGetPlacementGroupResult(
-        group_name=__ret__.group_name,
-        tags=__ret__.tags)
+        group_name=pulumi.get(__ret__, 'group_name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_placement_group)

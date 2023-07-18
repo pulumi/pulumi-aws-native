@@ -59,8 +59,8 @@ def get_domain(domain_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:voiceid:getDomain', __args__, opts=opts, typ=GetDomainResult).value
 
     return AwaitableGetDomainResult(
-        domain_id=__ret__.domain_id,
-        tags=__ret__.tags)
+        domain_id=pulumi.get(__ret__, 'domain_id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_domain)

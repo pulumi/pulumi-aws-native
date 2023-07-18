@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Specifies the configuration data for a registered hook in CloudFormation Registry.
 func LookupHookTypeConfig(ctx *pulumi.Context, args *LookupHookTypeConfigArgs, opts ...pulumi.InvokeOption) (*LookupHookTypeConfigResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupHookTypeConfigResult
 	err := ctx.Invoke("aws-native:cloudformation:getHookTypeConfig", args, &rv, opts...)
 	if err != nil {

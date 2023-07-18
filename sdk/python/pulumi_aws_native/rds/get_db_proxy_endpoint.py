@@ -129,13 +129,13 @@ def get_db_proxy_endpoint(d_b_proxy_endpoint_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:rds:getDBProxyEndpoint', __args__, opts=opts, typ=GetDBProxyEndpointResult).value
 
     return AwaitableGetDBProxyEndpointResult(
-        d_b_proxy_endpoint_arn=__ret__.d_b_proxy_endpoint_arn,
-        endpoint=__ret__.endpoint,
-        is_default=__ret__.is_default,
-        tags=__ret__.tags,
-        target_role=__ret__.target_role,
-        vpc_id=__ret__.vpc_id,
-        vpc_security_group_ids=__ret__.vpc_security_group_ids)
+        d_b_proxy_endpoint_arn=pulumi.get(__ret__, 'd_b_proxy_endpoint_arn'),
+        endpoint=pulumi.get(__ret__, 'endpoint'),
+        is_default=pulumi.get(__ret__, 'is_default'),
+        tags=pulumi.get(__ret__, 'tags'),
+        target_role=pulumi.get(__ret__, 'target_role'),
+        vpc_id=pulumi.get(__ret__, 'vpc_id'),
+        vpc_security_group_ids=pulumi.get(__ret__, 'vpc_security_group_ids'))
 
 
 @_utilities.lift_output_func(get_db_proxy_endpoint)

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Definition of AWS::Proton::EnvironmentTemplate Resource Type
 func LookupEnvironmentTemplate(ctx *pulumi.Context, args *LookupEnvironmentTemplateArgs, opts ...pulumi.InvokeOption) (*LookupEnvironmentTemplateResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEnvironmentTemplateResult
 	err := ctx.Invoke("aws-native:proton:getEnvironmentTemplate", args, &rv, opts...)
 	if err != nil {

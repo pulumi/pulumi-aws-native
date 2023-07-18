@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Definition of AWS::Proton::ServiceTemplate Resource Type
 func LookupServiceTemplate(ctx *pulumi.Context, args *LookupServiceTemplateArgs, opts ...pulumi.InvokeOption) (*LookupServiceTemplateResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupServiceTemplateResult
 	err := ctx.Invoke("aws-native:proton:getServiceTemplate", args, &rv, opts...)
 	if err != nil {

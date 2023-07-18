@@ -128,13 +128,13 @@ def get_organization(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:organizations:getOrganization', __args__, opts=opts, typ=GetOrganizationResult).value
 
     return AwaitableGetOrganizationResult(
-        arn=__ret__.arn,
-        feature_set=__ret__.feature_set,
-        id=__ret__.id,
-        management_account_arn=__ret__.management_account_arn,
-        management_account_email=__ret__.management_account_email,
-        management_account_id=__ret__.management_account_id,
-        root_id=__ret__.root_id)
+        arn=pulumi.get(__ret__, 'arn'),
+        feature_set=pulumi.get(__ret__, 'feature_set'),
+        id=pulumi.get(__ret__, 'id'),
+        management_account_arn=pulumi.get(__ret__, 'management_account_arn'),
+        management_account_email=pulumi.get(__ret__, 'management_account_email'),
+        management_account_id=pulumi.get(__ret__, 'management_account_id'),
+        root_id=pulumi.get(__ret__, 'root_id'))
 
 
 @_utilities.lift_output_func(get_organization)

@@ -49,7 +49,7 @@ def get_serverless_cluster(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:msk:getServerlessCluster', __args__, opts=opts, typ=GetServerlessClusterResult).value
 
     return AwaitableGetServerlessClusterResult(
-        arn=__ret__.arn)
+        arn=pulumi.get(__ret__, 'arn'))
 
 
 @_utilities.lift_output_func(get_serverless_cluster)

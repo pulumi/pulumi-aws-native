@@ -93,10 +93,10 @@ def get_project(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:databrew:getProject', __args__, opts=opts, typ=GetProjectResult).value
 
     return AwaitableGetProjectResult(
-        dataset_name=__ret__.dataset_name,
-        recipe_name=__ret__.recipe_name,
-        role_arn=__ret__.role_arn,
-        sample=__ret__.sample)
+        dataset_name=pulumi.get(__ret__, 'dataset_name'),
+        recipe_name=pulumi.get(__ret__, 'recipe_name'),
+        role_arn=pulumi.get(__ret__, 'role_arn'),
+        sample=pulumi.get(__ret__, 'sample'))
 
 
 @_utilities.lift_output_func(get_project)

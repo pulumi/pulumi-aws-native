@@ -68,9 +68,9 @@ def get_configuration_recorder(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:configuration:getConfigurationRecorder', __args__, opts=opts, typ=GetConfigurationRecorderResult).value
 
     return AwaitableGetConfigurationRecorderResult(
-        id=__ret__.id,
-        recording_group=__ret__.recording_group,
-        role_arn=__ret__.role_arn)
+        id=pulumi.get(__ret__, 'id'),
+        recording_group=pulumi.get(__ret__, 'recording_group'),
+        role_arn=pulumi.get(__ret__, 'role_arn'))
 
 
 @_utilities.lift_output_func(get_configuration_recorder)

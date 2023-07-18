@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Definition of the AWS::QuickSight::Analysis Resource Type.
 func LookupAnalysis(ctx *pulumi.Context, args *LookupAnalysisArgs, opts ...pulumi.InvokeOption) (*LookupAnalysisResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAnalysisResult
 	err := ctx.Invoke("aws-native:quicksight:getAnalysis", args, &rv, opts...)
 	if err != nil {

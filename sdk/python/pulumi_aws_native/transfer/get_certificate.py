@@ -189,18 +189,18 @@ def get_certificate(certificate_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:transfer:getCertificate', __args__, opts=opts, typ=GetCertificateResult).value
 
     return AwaitableGetCertificateResult(
-        active_date=__ret__.active_date,
-        arn=__ret__.arn,
-        certificate_id=__ret__.certificate_id,
-        description=__ret__.description,
-        inactive_date=__ret__.inactive_date,
-        not_after_date=__ret__.not_after_date,
-        not_before_date=__ret__.not_before_date,
-        serial=__ret__.serial,
-        status=__ret__.status,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        usage=__ret__.usage)
+        active_date=pulumi.get(__ret__, 'active_date'),
+        arn=pulumi.get(__ret__, 'arn'),
+        certificate_id=pulumi.get(__ret__, 'certificate_id'),
+        description=pulumi.get(__ret__, 'description'),
+        inactive_date=pulumi.get(__ret__, 'inactive_date'),
+        not_after_date=pulumi.get(__ret__, 'not_after_date'),
+        not_before_date=pulumi.get(__ret__, 'not_before_date'),
+        serial=pulumi.get(__ret__, 'serial'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        usage=pulumi.get(__ret__, 'usage'))
 
 
 @_utilities.lift_output_func(get_certificate)

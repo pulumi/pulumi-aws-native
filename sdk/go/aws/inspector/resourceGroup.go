@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -29,6 +30,7 @@ func NewResourceGroup(ctx *pulumi.Context,
 	if args.ResourceGroupTags == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupTags'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResourceGroup
 	err := ctx.RegisterResource("aws-native:inspector:ResourceGroup", name, args, &resource, opts...)
 	if err != nil {

@@ -49,7 +49,7 @@ def get_azs(region: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:index:getAzs', __args__, opts=opts, typ=GetAzsResult).value
 
     return AwaitableGetAzsResult(
-        azs=__ret__.azs)
+        azs=pulumi.get(__ret__, 'azs'))
 
 
 @_utilities.lift_output_func(get_azs)

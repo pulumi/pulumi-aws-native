@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Definition of AWS::IoTFleetWise::Vehicle Resource Type
 func LookupVehicle(ctx *pulumi.Context, args *LookupVehicleArgs, opts ...pulumi.InvokeOption) (*LookupVehicleResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVehicleResult
 	err := ctx.Invoke("aws-native:iotfleetwise:getVehicle", args, &rv, opts...)
 	if err != nil {

@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ func NewNode(ctx *pulumi.Context,
 	if args.NodeConfiguration == nil {
 		return nil, errors.New("invalid value for required argument 'NodeConfiguration'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Node
 	err := ctx.RegisterResource("aws-native:managedblockchain:Node", name, args, &resource, opts...)
 	if err != nil {

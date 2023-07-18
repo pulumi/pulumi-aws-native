@@ -80,9 +80,9 @@ def get_conformance_pack(conformance_pack_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:configuration:getConformancePack', __args__, opts=opts, typ=GetConformancePackResult).value
 
     return AwaitableGetConformancePackResult(
-        conformance_pack_input_parameters=__ret__.conformance_pack_input_parameters,
-        delivery_s3_bucket=__ret__.delivery_s3_bucket,
-        delivery_s3_key_prefix=__ret__.delivery_s3_key_prefix)
+        conformance_pack_input_parameters=pulumi.get(__ret__, 'conformance_pack_input_parameters'),
+        delivery_s3_bucket=pulumi.get(__ret__, 'delivery_s3_bucket'),
+        delivery_s3_key_prefix=pulumi.get(__ret__, 'delivery_s3_key_prefix'))
 
 
 @_utilities.lift_output_func(get_conformance_pack)

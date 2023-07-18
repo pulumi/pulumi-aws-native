@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // An example resource schema demonstrating some basic constructs and validation rules.
 func LookupCarrierGateway(ctx *pulumi.Context, args *LookupCarrierGatewayArgs, opts ...pulumi.InvokeOption) (*LookupCarrierGatewayResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCarrierGatewayResult
 	err := ctx.Invoke("aws-native:ec2:getCarrierGateway", args, &rv, opts...)
 	if err != nil {

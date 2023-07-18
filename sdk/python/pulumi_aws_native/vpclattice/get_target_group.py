@@ -114,14 +114,14 @@ def get_target_group(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:vpclattice:getTargetGroup', __args__, opts=opts, typ=GetTargetGroupResult).value
 
     return AwaitableGetTargetGroupResult(
-        arn=__ret__.arn,
-        config=__ret__.config,
-        created_at=__ret__.created_at,
-        id=__ret__.id,
-        last_updated_at=__ret__.last_updated_at,
-        status=__ret__.status,
-        tags=__ret__.tags,
-        targets=__ret__.targets)
+        arn=pulumi.get(__ret__, 'arn'),
+        config=pulumi.get(__ret__, 'config'),
+        created_at=pulumi.get(__ret__, 'created_at'),
+        id=pulumi.get(__ret__, 'id'),
+        last_updated_at=pulumi.get(__ret__, 'last_updated_at'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'),
+        targets=pulumi.get(__ret__, 'targets'))
 
 
 @_utilities.lift_output_func(get_target_group)

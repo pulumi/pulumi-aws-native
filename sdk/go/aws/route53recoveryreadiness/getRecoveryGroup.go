@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // AWS Route53 Recovery Readiness Recovery Group Schema and API specifications.
 func LookupRecoveryGroup(ctx *pulumi.Context, args *LookupRecoveryGroupArgs, opts ...pulumi.InvokeOption) (*LookupRecoveryGroupResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRecoveryGroupResult
 	err := ctx.Invoke("aws-native:route53recoveryreadiness:getRecoveryGroup", args, &rv, opts...)
 	if err != nil {

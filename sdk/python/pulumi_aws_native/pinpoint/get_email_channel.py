@@ -94,12 +94,12 @@ def get_email_channel(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:pinpoint:getEmailChannel', __args__, opts=opts, typ=GetEmailChannelResult).value
 
     return AwaitableGetEmailChannelResult(
-        configuration_set=__ret__.configuration_set,
-        enabled=__ret__.enabled,
-        from_address=__ret__.from_address,
-        id=__ret__.id,
-        identity=__ret__.identity,
-        role_arn=__ret__.role_arn)
+        configuration_set=pulumi.get(__ret__, 'configuration_set'),
+        enabled=pulumi.get(__ret__, 'enabled'),
+        from_address=pulumi.get(__ret__, 'from_address'),
+        id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
+        role_arn=pulumi.get(__ret__, 'role_arn'))
 
 
 @_utilities.lift_output_func(get_email_channel)

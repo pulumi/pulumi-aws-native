@@ -77,9 +77,9 @@ def get_proactive_engagement(account_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:shield:getProactiveEngagement', __args__, opts=opts, typ=GetProactiveEngagementResult).value
 
     return AwaitableGetProactiveEngagementResult(
-        account_id=__ret__.account_id,
-        emergency_contact_list=__ret__.emergency_contact_list,
-        proactive_engagement_status=__ret__.proactive_engagement_status)
+        account_id=pulumi.get(__ret__, 'account_id'),
+        emergency_contact_list=pulumi.get(__ret__, 'emergency_contact_list'),
+        proactive_engagement_status=pulumi.get(__ret__, 'proactive_engagement_status'))
 
 
 @_utilities.lift_output_func(get_proactive_engagement)

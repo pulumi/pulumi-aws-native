@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // This resource schema represents the ResourceCollection resource in the Amazon DevOps Guru.
 func LookupResourceCollection(ctx *pulumi.Context, args *LookupResourceCollectionArgs, opts ...pulumi.InvokeOption) (*LookupResourceCollectionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResourceCollectionResult
 	err := ctx.Invoke("aws-native:devopsguru:getResourceCollection", args, &rv, opts...)
 	if err != nil {

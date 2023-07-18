@@ -60,8 +60,8 @@ def get_bot_version(bot_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:lex:getBotVersion', __args__, opts=opts, typ=GetBotVersionResult).value
 
     return AwaitableGetBotVersionResult(
-        bot_version=__ret__.bot_version,
-        description=__ret__.description)
+        bot_version=pulumi.get(__ret__, 'bot_version'),
+        description=pulumi.get(__ret__, 'description'))
 
 
 @_utilities.lift_output_func(get_bot_version)

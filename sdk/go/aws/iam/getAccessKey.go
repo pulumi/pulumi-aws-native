@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::IAM::AccessKey
 func LookupAccessKey(ctx *pulumi.Context, args *LookupAccessKeyArgs, opts ...pulumi.InvokeOption) (*LookupAccessKeyResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAccessKeyResult
 	err := ctx.Invoke("aws-native:iam:getAccessKey", args, &rv, opts...)
 	if err != nil {

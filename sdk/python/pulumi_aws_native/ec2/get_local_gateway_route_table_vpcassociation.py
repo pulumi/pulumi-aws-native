@@ -92,10 +92,10 @@ def get_local_gateway_route_table_vpcassociation(local_gateway_route_table_vpc_a
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getLocalGatewayRouteTableVPCAssociation', __args__, opts=opts, typ=GetLocalGatewayRouteTableVPCAssociationResult).value
 
     return AwaitableGetLocalGatewayRouteTableVPCAssociationResult(
-        local_gateway_id=__ret__.local_gateway_id,
-        local_gateway_route_table_vpc_association_id=__ret__.local_gateway_route_table_vpc_association_id,
-        state=__ret__.state,
-        tags=__ret__.tags)
+        local_gateway_id=pulumi.get(__ret__, 'local_gateway_id'),
+        local_gateway_route_table_vpc_association_id=pulumi.get(__ret__, 'local_gateway_route_table_vpc_association_id'),
+        state=pulumi.get(__ret__, 'state'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_local_gateway_route_table_vpcassociation)

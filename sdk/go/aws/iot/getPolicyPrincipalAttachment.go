@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::IoT::PolicyPrincipalAttachment
 func LookupPolicyPrincipalAttachment(ctx *pulumi.Context, args *LookupPolicyPrincipalAttachmentArgs, opts ...pulumi.InvokeOption) (*LookupPolicyPrincipalAttachmentResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPolicyPrincipalAttachmentResult
 	err := ctx.Invoke("aws-native:iot:getPolicyPrincipalAttachment", args, &rv, opts...)
 	if err != nil {

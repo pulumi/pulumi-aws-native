@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // An example resource schema demonstrating some basic constructs and validation rules.
 func LookupStudioSessionMapping(ctx *pulumi.Context, args *LookupStudioSessionMappingArgs, opts ...pulumi.InvokeOption) (*LookupStudioSessionMappingResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupStudioSessionMappingResult
 	err := ctx.Invoke("aws-native:emr:getStudioSessionMapping", args, &rv, opts...)
 	if err != nil {

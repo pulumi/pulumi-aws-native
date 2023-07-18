@@ -155,15 +155,15 @@ def get_topic(topic_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:sns:getTopic', __args__, opts=opts, typ=GetTopicResult).value
 
     return AwaitableGetTopicResult(
-        content_based_deduplication=__ret__.content_based_deduplication,
-        data_protection_policy=__ret__.data_protection_policy,
-        display_name=__ret__.display_name,
-        kms_master_key_id=__ret__.kms_master_key_id,
-        signature_version=__ret__.signature_version,
-        subscription=__ret__.subscription,
-        tags=__ret__.tags,
-        topic_arn=__ret__.topic_arn,
-        tracing_config=__ret__.tracing_config)
+        content_based_deduplication=pulumi.get(__ret__, 'content_based_deduplication'),
+        data_protection_policy=pulumi.get(__ret__, 'data_protection_policy'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        kms_master_key_id=pulumi.get(__ret__, 'kms_master_key_id'),
+        signature_version=pulumi.get(__ret__, 'signature_version'),
+        subscription=pulumi.get(__ret__, 'subscription'),
+        tags=pulumi.get(__ret__, 'tags'),
+        topic_arn=pulumi.get(__ret__, 'topic_arn'),
+        tracing_config=pulumi.get(__ret__, 'tracing_config'))
 
 
 @_utilities.lift_output_func(get_topic)

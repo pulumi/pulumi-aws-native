@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::AppMesh::VirtualService
 func LookupVirtualService(ctx *pulumi.Context, args *LookupVirtualServiceArgs, opts ...pulumi.InvokeOption) (*LookupVirtualServiceResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVirtualServiceResult
 	err := ctx.Invoke("aws-native:appmesh:getVirtualService", args, &rv, opts...)
 	if err != nil {

@@ -84,10 +84,10 @@ def get_route(application_identifier: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:refactorspaces:getRoute', __args__, opts=opts, typ=GetRouteResult).value
 
     return AwaitableGetRouteResult(
-        arn=__ret__.arn,
-        path_resource_to_id=__ret__.path_resource_to_id,
-        route_identifier=__ret__.route_identifier,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        path_resource_to_id=pulumi.get(__ret__, 'path_resource_to_id'),
+        route_identifier=pulumi.get(__ret__, 'route_identifier'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_route)

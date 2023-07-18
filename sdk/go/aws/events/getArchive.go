@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::Events::Archive
 func LookupArchive(ctx *pulumi.Context, args *LookupArchiveArgs, opts ...pulumi.InvokeOption) (*LookupArchiveResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupArchiveResult
 	err := ctx.Invoke("aws-native:events:getArchive", args, &rv, opts...)
 	if err != nil {

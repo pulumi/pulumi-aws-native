@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -35,6 +36,7 @@ func NewLabel(ctx *pulumi.Context,
 		args = &LabelArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Label
 	err := ctx.RegisterResource("aws-native:frauddetector:Label", name, args, &resource, opts...)
 	if err != nil {

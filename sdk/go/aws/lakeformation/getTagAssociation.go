@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // A resource schema representing a Lake Formation Tag Association. While tag associations are not explicit Lake Formation resources, this CloudFormation resource can be used to associate tags with Lake Formation entities.
 func LookupTagAssociation(ctx *pulumi.Context, args *LookupTagAssociationArgs, opts ...pulumi.InvokeOption) (*LookupTagAssociationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTagAssociationResult
 	err := ctx.Invoke("aws-native:lakeformation:getTagAssociation", args, &rv, opts...)
 	if err != nil {

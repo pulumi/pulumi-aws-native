@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::KinesisAnalyticsV2::ApplicationCloudWatchLoggingOption
 func LookupApplicationCloudWatchLoggingOption(ctx *pulumi.Context, args *LookupApplicationCloudWatchLoggingOptionArgs, opts ...pulumi.InvokeOption) (*LookupApplicationCloudWatchLoggingOptionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupApplicationCloudWatchLoggingOptionResult
 	err := ctx.Invoke("aws-native:kinesisanalyticsv2:getApplicationCloudWatchLoggingOption", args, &rv, opts...)
 	if err != nil {

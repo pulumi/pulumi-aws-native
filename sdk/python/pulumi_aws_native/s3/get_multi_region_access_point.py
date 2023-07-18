@@ -67,8 +67,8 @@ def get_multi_region_access_point(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:s3:getMultiRegionAccessPoint', __args__, opts=opts, typ=GetMultiRegionAccessPointResult).value
 
     return AwaitableGetMultiRegionAccessPointResult(
-        alias=__ret__.alias,
-        created_at=__ret__.created_at)
+        alias=pulumi.get(__ret__, 'alias'),
+        created_at=pulumi.get(__ret__, 'created_at'))
 
 
 @_utilities.lift_output_func(get_multi_region_access_point)

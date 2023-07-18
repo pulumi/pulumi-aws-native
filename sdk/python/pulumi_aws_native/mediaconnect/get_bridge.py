@@ -141,15 +141,15 @@ def get_bridge(bridge_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:mediaconnect:getBridge', __args__, opts=opts, typ=GetBridgeResult).value
 
     return AwaitableGetBridgeResult(
-        bridge_arn=__ret__.bridge_arn,
-        bridge_state=__ret__.bridge_state,
-        egress_gateway_bridge=__ret__.egress_gateway_bridge,
-        ingress_gateway_bridge=__ret__.ingress_gateway_bridge,
-        name=__ret__.name,
-        outputs=__ret__.outputs,
-        placement_arn=__ret__.placement_arn,
-        source_failover_config=__ret__.source_failover_config,
-        sources=__ret__.sources)
+        bridge_arn=pulumi.get(__ret__, 'bridge_arn'),
+        bridge_state=pulumi.get(__ret__, 'bridge_state'),
+        egress_gateway_bridge=pulumi.get(__ret__, 'egress_gateway_bridge'),
+        ingress_gateway_bridge=pulumi.get(__ret__, 'ingress_gateway_bridge'),
+        name=pulumi.get(__ret__, 'name'),
+        outputs=pulumi.get(__ret__, 'outputs'),
+        placement_arn=pulumi.get(__ret__, 'placement_arn'),
+        source_failover_config=pulumi.get(__ret__, 'source_failover_config'),
+        sources=pulumi.get(__ret__, 'sources'))
 
 
 @_utilities.lift_output_func(get_bridge)

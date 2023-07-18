@@ -141,14 +141,14 @@ def get_location_object_storage(location_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:datasync:getLocationObjectStorage', __args__, opts=opts, typ=GetLocationObjectStorageResult).value
 
     return AwaitableGetLocationObjectStorageResult(
-        access_key=__ret__.access_key,
-        agent_arns=__ret__.agent_arns,
-        location_arn=__ret__.location_arn,
-        location_uri=__ret__.location_uri,
-        server_certificate=__ret__.server_certificate,
-        server_port=__ret__.server_port,
-        server_protocol=__ret__.server_protocol,
-        tags=__ret__.tags)
+        access_key=pulumi.get(__ret__, 'access_key'),
+        agent_arns=pulumi.get(__ret__, 'agent_arns'),
+        location_arn=pulumi.get(__ret__, 'location_arn'),
+        location_uri=pulumi.get(__ret__, 'location_uri'),
+        server_certificate=pulumi.get(__ret__, 'server_certificate'),
+        server_port=pulumi.get(__ret__, 'server_port'),
+        server_protocol=pulumi.get(__ret__, 'server_protocol'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_location_object_storage)

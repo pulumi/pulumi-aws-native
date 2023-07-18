@@ -94,12 +94,12 @@ def get_api_cache(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:appsync:getApiCache', __args__, opts=opts, typ=GetApiCacheResult).value
 
     return AwaitableGetApiCacheResult(
-        api_caching_behavior=__ret__.api_caching_behavior,
-        at_rest_encryption_enabled=__ret__.at_rest_encryption_enabled,
-        id=__ret__.id,
-        transit_encryption_enabled=__ret__.transit_encryption_enabled,
-        ttl=__ret__.ttl,
-        type=__ret__.type)
+        api_caching_behavior=pulumi.get(__ret__, 'api_caching_behavior'),
+        at_rest_encryption_enabled=pulumi.get(__ret__, 'at_rest_encryption_enabled'),
+        id=pulumi.get(__ret__, 'id'),
+        transit_encryption_enabled=pulumi.get(__ret__, 'transit_encryption_enabled'),
+        ttl=pulumi.get(__ret__, 'ttl'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_api_cache)

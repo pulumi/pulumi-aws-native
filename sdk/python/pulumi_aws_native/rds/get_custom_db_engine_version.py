@@ -96,10 +96,10 @@ def get_custom_db_engine_version(engine: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:rds:getCustomDBEngineVersion', __args__, opts=opts, typ=GetCustomDBEngineVersionResult).value
 
     return AwaitableGetCustomDBEngineVersionResult(
-        d_b_engine_version_arn=__ret__.d_b_engine_version_arn,
-        description=__ret__.description,
-        status=__ret__.status,
-        tags=__ret__.tags)
+        d_b_engine_version_arn=pulumi.get(__ret__, 'd_b_engine_version_arn'),
+        description=pulumi.get(__ret__, 'description'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_custom_db_engine_version)

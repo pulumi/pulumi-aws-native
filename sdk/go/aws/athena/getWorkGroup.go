@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for AWS::Athena::WorkGroup
 func LookupWorkGroup(ctx *pulumi.Context, args *LookupWorkGroupArgs, opts ...pulumi.InvokeOption) (*LookupWorkGroupResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupWorkGroupResult
 	err := ctx.Invoke("aws-native:athena:getWorkGroup", args, &rv, opts...)
 	if err != nil {

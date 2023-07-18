@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::Lightsail::StaticIp
 func LookupStaticIp(ctx *pulumi.Context, args *LookupStaticIpArgs, opts ...pulumi.InvokeOption) (*LookupStaticIpResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupStaticIpResult
 	err := ctx.Invoke("aws-native:lightsail:getStaticIp", args, &rv, opts...)
 	if err != nil {

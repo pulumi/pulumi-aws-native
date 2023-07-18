@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -51,6 +52,7 @@ func NewLocationObjectStorage(ctx *pulumi.Context,
 	if args.AgentArns == nil {
 		return nil, errors.New("invalid value for required argument 'AgentArns'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LocationObjectStorage
 	err := ctx.RegisterResource("aws-native:datasync:LocationObjectStorage", name, args, &resource, opts...)
 	if err != nil {

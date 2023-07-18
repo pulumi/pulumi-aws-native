@@ -142,14 +142,14 @@ def get_scheduled_action(auto_scaling_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:autoscaling:getScheduledAction', __args__, opts=opts, typ=GetScheduledActionResult).value
 
     return AwaitableGetScheduledActionResult(
-        desired_capacity=__ret__.desired_capacity,
-        end_time=__ret__.end_time,
-        max_size=__ret__.max_size,
-        min_size=__ret__.min_size,
-        recurrence=__ret__.recurrence,
-        scheduled_action_name=__ret__.scheduled_action_name,
-        start_time=__ret__.start_time,
-        time_zone=__ret__.time_zone)
+        desired_capacity=pulumi.get(__ret__, 'desired_capacity'),
+        end_time=pulumi.get(__ret__, 'end_time'),
+        max_size=pulumi.get(__ret__, 'max_size'),
+        min_size=pulumi.get(__ret__, 'min_size'),
+        recurrence=pulumi.get(__ret__, 'recurrence'),
+        scheduled_action_name=pulumi.get(__ret__, 'scheduled_action_name'),
+        start_time=pulumi.get(__ret__, 'start_time'),
+        time_zone=pulumi.get(__ret__, 'time_zone'))
 
 
 @_utilities.lift_output_func(get_scheduled_action)

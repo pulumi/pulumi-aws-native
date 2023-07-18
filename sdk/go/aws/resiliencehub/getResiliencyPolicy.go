@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type Definition for Resiliency Policy.
 func LookupResiliencyPolicy(ctx *pulumi.Context, args *LookupResiliencyPolicyArgs, opts ...pulumi.InvokeOption) (*LookupResiliencyPolicyResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResiliencyPolicyResult
 	err := ctx.Invoke("aws-native:resiliencehub:getResiliencyPolicy", args, &rv, opts...)
 	if err != nil {

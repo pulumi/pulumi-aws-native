@@ -147,15 +147,15 @@ def get_monitoring_schedule(monitoring_schedule_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:sagemaker:getMonitoringSchedule', __args__, opts=opts, typ=GetMonitoringScheduleResult).value
 
     return AwaitableGetMonitoringScheduleResult(
-        creation_time=__ret__.creation_time,
-        endpoint_name=__ret__.endpoint_name,
-        failure_reason=__ret__.failure_reason,
-        last_modified_time=__ret__.last_modified_time,
-        last_monitoring_execution_summary=__ret__.last_monitoring_execution_summary,
-        monitoring_schedule_arn=__ret__.monitoring_schedule_arn,
-        monitoring_schedule_config=__ret__.monitoring_schedule_config,
-        monitoring_schedule_status=__ret__.monitoring_schedule_status,
-        tags=__ret__.tags)
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        endpoint_name=pulumi.get(__ret__, 'endpoint_name'),
+        failure_reason=pulumi.get(__ret__, 'failure_reason'),
+        last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
+        last_monitoring_execution_summary=pulumi.get(__ret__, 'last_monitoring_execution_summary'),
+        monitoring_schedule_arn=pulumi.get(__ret__, 'monitoring_schedule_arn'),
+        monitoring_schedule_config=pulumi.get(__ret__, 'monitoring_schedule_config'),
+        monitoring_schedule_status=pulumi.get(__ret__, 'monitoring_schedule_status'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_monitoring_schedule)

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // A resource schema for an EventType in Amazon Fraud Detector.
 func LookupEventType(ctx *pulumi.Context, args *LookupEventTypeArgs, opts ...pulumi.InvokeOption) (*LookupEventTypeResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEventTypeResult
 	err := ctx.Invoke("aws-native:frauddetector:getEventType", args, &rv, opts...)
 	if err != nil {

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::GameLift::GameSessionQueue
 func LookupGameSessionQueue(ctx *pulumi.Context, args *LookupGameSessionQueueArgs, opts ...pulumi.InvokeOption) (*LookupGameSessionQueueResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupGameSessionQueueResult
 	err := ctx.Invoke("aws-native:gamelift:getGameSessionQueue", args, &rv, opts...)
 	if err != nil {

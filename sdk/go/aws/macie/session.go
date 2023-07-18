@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -31,6 +32,7 @@ func NewSession(ctx *pulumi.Context,
 		args = &SessionArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Session
 	err := ctx.RegisterResource("aws-native:macie:Session", name, args, &resource, opts...)
 	if err != nil {

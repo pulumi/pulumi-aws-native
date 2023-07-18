@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -51,6 +52,7 @@ func NewDataIntegration(ctx *pulumi.Context,
 	if args.SourceURI == nil {
 		return nil, errors.New("invalid value for required argument 'SourceURI'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DataIntegration
 	err := ctx.RegisterResource("aws-native:appintegrations:DataIntegration", name, args, &resource, opts...)
 	if err != nil {

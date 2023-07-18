@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // The AWS::Comprehend::Flywheel resource creates an Amazon Comprehend Flywheel that enables customer to train their model.
 func LookupFlywheel(ctx *pulumi.Context, args *LookupFlywheelArgs, opts ...pulumi.InvokeOption) (*LookupFlywheelResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFlywheelResult
 	err := ctx.Invoke("aws-native:comprehend:getFlywheel", args, &rv, opts...)
 	if err != nil {

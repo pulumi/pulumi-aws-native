@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -30,6 +31,7 @@ func NewFunctionDefinition(ctx *pulumi.Context,
 		args = &FunctionDefinitionArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FunctionDefinition
 	err := ctx.RegisterResource("aws-native:greengrass:FunctionDefinition", name, args, &resource, opts...)
 	if err != nil {

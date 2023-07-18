@@ -128,13 +128,13 @@ def get_data_integration(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:appintegrations:getDataIntegration', __args__, opts=opts, typ=GetDataIntegrationResult).value
 
     return AwaitableGetDataIntegrationResult(
-        data_integration_arn=__ret__.data_integration_arn,
-        description=__ret__.description,
-        file_configuration=__ret__.file_configuration,
-        id=__ret__.id,
-        name=__ret__.name,
-        object_configuration=__ret__.object_configuration,
-        tags=__ret__.tags)
+        data_integration_arn=pulumi.get(__ret__, 'data_integration_arn'),
+        description=pulumi.get(__ret__, 'description'),
+        file_configuration=pulumi.get(__ret__, 'file_configuration'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        object_configuration=pulumi.get(__ret__, 'object_configuration'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_data_integration)

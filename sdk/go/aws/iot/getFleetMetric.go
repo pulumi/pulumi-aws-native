@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // An aggregated metric of certain devices in your fleet
 func LookupFleetMetric(ctx *pulumi.Context, args *LookupFleetMetricArgs, opts ...pulumi.InvokeOption) (*LookupFleetMetricResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFleetMetricResult
 	err := ctx.Invoke("aws-native:iot:getFleetMetric", args, &rv, opts...)
 	if err != nil {

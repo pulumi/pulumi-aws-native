@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // The default version of a resource that has been registered in the CloudFormation Registry.
 func LookupResourceDefaultVersion(ctx *pulumi.Context, args *LookupResourceDefaultVersionArgs, opts ...pulumi.InvokeOption) (*LookupResourceDefaultVersionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResourceDefaultVersionResult
 	err := ctx.Invoke("aws-native:cloudformation:getResourceDefaultVersion", args, &rv, opts...)
 	if err != nil {

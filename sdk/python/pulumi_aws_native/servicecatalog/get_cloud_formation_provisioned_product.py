@@ -171,20 +171,20 @@ def get_cloud_formation_provisioned_product(provisioned_product_id: Optional[str
     __ret__ = pulumi.runtime.invoke('aws-native:servicecatalog:getCloudFormationProvisionedProduct', __args__, opts=opts, typ=GetCloudFormationProvisionedProductResult).value
 
     return AwaitableGetCloudFormationProvisionedProductResult(
-        accept_language=__ret__.accept_language,
-        cloudformation_stack_arn=__ret__.cloudformation_stack_arn,
-        outputs=__ret__.outputs,
-        path_id=__ret__.path_id,
-        path_name=__ret__.path_name,
-        product_id=__ret__.product_id,
-        product_name=__ret__.product_name,
-        provisioned_product_id=__ret__.provisioned_product_id,
-        provisioning_artifact_id=__ret__.provisioning_artifact_id,
-        provisioning_artifact_name=__ret__.provisioning_artifact_name,
-        provisioning_parameters=__ret__.provisioning_parameters,
-        provisioning_preferences=__ret__.provisioning_preferences,
-        record_id=__ret__.record_id,
-        tags=__ret__.tags)
+        accept_language=pulumi.get(__ret__, 'accept_language'),
+        cloudformation_stack_arn=pulumi.get(__ret__, 'cloudformation_stack_arn'),
+        outputs=pulumi.get(__ret__, 'outputs'),
+        path_id=pulumi.get(__ret__, 'path_id'),
+        path_name=pulumi.get(__ret__, 'path_name'),
+        product_id=pulumi.get(__ret__, 'product_id'),
+        product_name=pulumi.get(__ret__, 'product_name'),
+        provisioned_product_id=pulumi.get(__ret__, 'provisioned_product_id'),
+        provisioning_artifact_id=pulumi.get(__ret__, 'provisioning_artifact_id'),
+        provisioning_artifact_name=pulumi.get(__ret__, 'provisioning_artifact_name'),
+        provisioning_parameters=pulumi.get(__ret__, 'provisioning_parameters'),
+        provisioning_preferences=pulumi.get(__ret__, 'provisioning_preferences'),
+        record_id=pulumi.get(__ret__, 'record_id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_cloud_formation_provisioned_product)

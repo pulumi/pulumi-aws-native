@@ -80,9 +80,9 @@ def get_cidr_collection(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:route53:getCidrCollection', __args__, opts=opts, typ=GetCidrCollectionResult).value
 
     return AwaitableGetCidrCollectionResult(
-        arn=__ret__.arn,
-        id=__ret__.id,
-        locations=__ret__.locations)
+        arn=pulumi.get(__ret__, 'arn'),
+        id=pulumi.get(__ret__, 'id'),
+        locations=pulumi.get(__ret__, 'locations'))
 
 
 @_utilities.lift_output_func(get_cidr_collection)

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -33,6 +34,7 @@ func NewTracker(ctx *pulumi.Context,
 		args = &TrackerArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Tracker
 	err := ctx.RegisterResource("aws-native:location:Tracker", name, args, &resource, opts...)
 	if err != nil {

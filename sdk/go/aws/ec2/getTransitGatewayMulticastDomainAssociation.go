@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // The AWS::EC2::TransitGatewayMulticastDomainAssociation type
 func LookupTransitGatewayMulticastDomainAssociation(ctx *pulumi.Context, args *LookupTransitGatewayMulticastDomainAssociationArgs, opts ...pulumi.InvokeOption) (*LookupTransitGatewayMulticastDomainAssociationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTransitGatewayMulticastDomainAssociationResult
 	err := ctx.Invoke("aws-native:ec2:getTransitGatewayMulticastDomainAssociation", args, &rv, opts...)
 	if err != nil {

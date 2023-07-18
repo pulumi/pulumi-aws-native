@@ -70,8 +70,8 @@ def get_base_path_mapping(base_path: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:apigateway:getBasePathMapping', __args__, opts=opts, typ=GetBasePathMappingResult).value
 
     return AwaitableGetBasePathMappingResult(
-        rest_api_id=__ret__.rest_api_id,
-        stage=__ret__.stage)
+        rest_api_id=pulumi.get(__ret__, 'rest_api_id'),
+        stage=pulumi.get(__ret__, 'stage'))
 
 
 @_utilities.lift_output_func(get_base_path_mapping)

@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -33,6 +34,7 @@ func NewClusterSecurityGroupIngress(ctx *pulumi.Context,
 	if args.ClusterSecurityGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ClusterSecurityGroupName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ClusterSecurityGroupIngress
 	err := ctx.RegisterResource("aws-native:redshift:ClusterSecurityGroupIngress", name, args, &resource, opts...)
 	if err != nil {

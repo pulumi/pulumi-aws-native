@@ -188,18 +188,18 @@ def get_application(application_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iotfleethub:getApplication', __args__, opts=opts, typ=GetApplicationResult).value
 
     return AwaitableGetApplicationResult(
-        application_arn=__ret__.application_arn,
-        application_creation_date=__ret__.application_creation_date,
-        application_description=__ret__.application_description,
-        application_id=__ret__.application_id,
-        application_last_update_date=__ret__.application_last_update_date,
-        application_name=__ret__.application_name,
-        application_state=__ret__.application_state,
-        application_url=__ret__.application_url,
-        error_message=__ret__.error_message,
-        role_arn=__ret__.role_arn,
-        sso_client_id=__ret__.sso_client_id,
-        tags=__ret__.tags)
+        application_arn=pulumi.get(__ret__, 'application_arn'),
+        application_creation_date=pulumi.get(__ret__, 'application_creation_date'),
+        application_description=pulumi.get(__ret__, 'application_description'),
+        application_id=pulumi.get(__ret__, 'application_id'),
+        application_last_update_date=pulumi.get(__ret__, 'application_last_update_date'),
+        application_name=pulumi.get(__ret__, 'application_name'),
+        application_state=pulumi.get(__ret__, 'application_state'),
+        application_url=pulumi.get(__ret__, 'application_url'),
+        error_message=pulumi.get(__ret__, 'error_message'),
+        role_arn=pulumi.get(__ret__, 'role_arn'),
+        sso_client_id=pulumi.get(__ret__, 'sso_client_id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_application)

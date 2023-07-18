@@ -94,10 +94,10 @@ def get_sync_job(sync_source: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iottwinmaker:getSyncJob', __args__, opts=opts, typ=GetSyncJobResult).value
 
     return AwaitableGetSyncJobResult(
-        arn=__ret__.arn,
-        creation_date_time=__ret__.creation_date_time,
-        state=__ret__.state,
-        update_date_time=__ret__.update_date_time)
+        arn=pulumi.get(__ret__, 'arn'),
+        creation_date_time=pulumi.get(__ret__, 'creation_date_time'),
+        state=pulumi.get(__ret__, 'state'),
+        update_date_time=pulumi.get(__ret__, 'update_date_time'))
 
 
 @_utilities.lift_output_func(get_sync_job)

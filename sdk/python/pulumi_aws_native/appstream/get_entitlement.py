@@ -88,11 +88,11 @@ def get_entitlement(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:appstream:getEntitlement', __args__, opts=opts, typ=GetEntitlementResult).value
 
     return AwaitableGetEntitlementResult(
-        app_visibility=__ret__.app_visibility,
-        attributes=__ret__.attributes,
-        created_time=__ret__.created_time,
-        description=__ret__.description,
-        last_modified_time=__ret__.last_modified_time)
+        app_visibility=pulumi.get(__ret__, 'app_visibility'),
+        attributes=pulumi.get(__ret__, 'attributes'),
+        created_time=pulumi.get(__ret__, 'created_time'),
+        description=pulumi.get(__ret__, 'description'),
+        last_modified_time=pulumi.get(__ret__, 'last_modified_time'))
 
 
 @_utilities.lift_output_func(get_entitlement)

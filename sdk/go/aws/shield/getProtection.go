@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Enables AWS Shield Advanced for a specific AWS resource. The resource can be an Amazon CloudFront distribution, Amazon Route 53 hosted zone, AWS Global Accelerator standard accelerator, Elastic IP Address, Application Load Balancer, or a Classic Load Balancer. You can protect Amazon EC2 instances and Network Load Balancers by association with protected Amazon EC2 Elastic IP addresses.
 func LookupProtection(ctx *pulumi.Context, args *LookupProtectionArgs, opts ...pulumi.InvokeOption) (*LookupProtectionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupProtectionResult
 	err := ctx.Invoke("aws-native:shield:getProtection", args, &rv, opts...)
 	if err != nil {

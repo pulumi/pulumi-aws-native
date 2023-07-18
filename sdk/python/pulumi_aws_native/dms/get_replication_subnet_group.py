@@ -77,10 +77,10 @@ def get_replication_subnet_group(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:dms:getReplicationSubnetGroup', __args__, opts=opts, typ=GetReplicationSubnetGroupResult).value
 
     return AwaitableGetReplicationSubnetGroupResult(
-        id=__ret__.id,
-        replication_subnet_group_description=__ret__.replication_subnet_group_description,
-        subnet_ids=__ret__.subnet_ids,
-        tags=__ret__.tags)
+        id=pulumi.get(__ret__, 'id'),
+        replication_subnet_group_description=pulumi.get(__ret__, 'replication_subnet_group_description'),
+        subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_replication_subnet_group)

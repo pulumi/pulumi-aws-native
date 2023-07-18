@@ -128,13 +128,13 @@ def get_endpoint_access(endpoint_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:redshift:getEndpointAccess', __args__, opts=opts, typ=GetEndpointAccessResult).value
 
     return AwaitableGetEndpointAccessResult(
-        address=__ret__.address,
-        endpoint_create_time=__ret__.endpoint_create_time,
-        endpoint_status=__ret__.endpoint_status,
-        port=__ret__.port,
-        vpc_endpoint=__ret__.vpc_endpoint,
-        vpc_security_group_ids=__ret__.vpc_security_group_ids,
-        vpc_security_groups=__ret__.vpc_security_groups)
+        address=pulumi.get(__ret__, 'address'),
+        endpoint_create_time=pulumi.get(__ret__, 'endpoint_create_time'),
+        endpoint_status=pulumi.get(__ret__, 'endpoint_status'),
+        port=pulumi.get(__ret__, 'port'),
+        vpc_endpoint=pulumi.get(__ret__, 'vpc_endpoint'),
+        vpc_security_group_ids=pulumi.get(__ret__, 'vpc_security_group_ids'),
+        vpc_security_groups=pulumi.get(__ret__, 'vpc_security_groups'))
 
 
 @_utilities.lift_output_func(get_endpoint_access)

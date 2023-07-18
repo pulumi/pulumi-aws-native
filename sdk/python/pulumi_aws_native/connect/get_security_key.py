@@ -51,7 +51,7 @@ def get_security_key(association_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:connect:getSecurityKey', __args__, opts=opts, typ=GetSecurityKeyResult).value
 
     return AwaitableGetSecurityKeyResult(
-        association_id=__ret__.association_id)
+        association_id=pulumi.get(__ret__, 'association_id'))
 
 
 @_utilities.lift_output_func(get_security_key)

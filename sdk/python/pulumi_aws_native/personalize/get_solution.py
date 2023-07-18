@@ -49,7 +49,7 @@ def get_solution(solution_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:personalize:getSolution', __args__, opts=opts, typ=GetSolutionResult).value
 
     return AwaitableGetSolutionResult(
-        solution_arn=__ret__.solution_arn)
+        solution_arn=pulumi.get(__ret__, 'solution_arn'))
 
 
 @_utilities.lift_output_func(get_solution)

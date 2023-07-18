@@ -103,12 +103,12 @@ def get_hosted_zone(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:route53:getHostedZone', __args__, opts=opts, typ=GetHostedZoneResult).value
 
     return AwaitableGetHostedZoneResult(
-        hosted_zone_config=__ret__.hosted_zone_config,
-        hosted_zone_tags=__ret__.hosted_zone_tags,
-        id=__ret__.id,
-        name_servers=__ret__.name_servers,
-        query_logging_config=__ret__.query_logging_config,
-        v_pcs=__ret__.v_pcs)
+        hosted_zone_config=pulumi.get(__ret__, 'hosted_zone_config'),
+        hosted_zone_tags=pulumi.get(__ret__, 'hosted_zone_tags'),
+        id=pulumi.get(__ret__, 'id'),
+        name_servers=pulumi.get(__ret__, 'name_servers'),
+        query_logging_config=pulumi.get(__ret__, 'query_logging_config'),
+        v_pcs=pulumi.get(__ret__, 'v_pcs'))
 
 
 @_utilities.lift_output_func(get_hosted_zone)

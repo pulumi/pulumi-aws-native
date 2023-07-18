@@ -149,18 +149,18 @@ def get_data_source(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:appsync:getDataSource', __args__, opts=opts, typ=GetDataSourceResult).value
 
     return AwaitableGetDataSourceResult(
-        data_source_arn=__ret__.data_source_arn,
-        description=__ret__.description,
-        dynamo_db_config=__ret__.dynamo_db_config,
-        elasticsearch_config=__ret__.elasticsearch_config,
-        event_bridge_config=__ret__.event_bridge_config,
-        http_config=__ret__.http_config,
-        id=__ret__.id,
-        lambda_config=__ret__.lambda_config,
-        open_search_service_config=__ret__.open_search_service_config,
-        relational_database_config=__ret__.relational_database_config,
-        service_role_arn=__ret__.service_role_arn,
-        type=__ret__.type)
+        data_source_arn=pulumi.get(__ret__, 'data_source_arn'),
+        description=pulumi.get(__ret__, 'description'),
+        dynamo_db_config=pulumi.get(__ret__, 'dynamo_db_config'),
+        elasticsearch_config=pulumi.get(__ret__, 'elasticsearch_config'),
+        event_bridge_config=pulumi.get(__ret__, 'event_bridge_config'),
+        http_config=pulumi.get(__ret__, 'http_config'),
+        id=pulumi.get(__ret__, 'id'),
+        lambda_config=pulumi.get(__ret__, 'lambda_config'),
+        open_search_service_config=pulumi.get(__ret__, 'open_search_service_config'),
+        relational_database_config=pulumi.get(__ret__, 'relational_database_config'),
+        service_role_arn=pulumi.get(__ret__, 'service_role_arn'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_data_source)

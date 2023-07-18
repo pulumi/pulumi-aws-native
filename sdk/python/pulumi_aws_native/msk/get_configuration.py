@@ -58,8 +58,8 @@ def get_configuration(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:msk:getConfiguration', __args__, opts=opts, typ=GetConfigurationResult).value
 
     return AwaitableGetConfigurationResult(
-        arn=__ret__.arn,
-        description=__ret__.description)
+        arn=pulumi.get(__ret__, 'arn'),
+        description=pulumi.get(__ret__, 'description'))
 
 
 @_utilities.lift_output_func(get_configuration)

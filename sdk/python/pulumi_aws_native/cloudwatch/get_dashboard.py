@@ -58,8 +58,8 @@ def get_dashboard(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cloudwatch:getDashboard', __args__, opts=opts, typ=GetDashboardResult).value
 
     return AwaitableGetDashboardResult(
-        dashboard_body=__ret__.dashboard_body,
-        id=__ret__.id)
+        dashboard_body=pulumi.get(__ret__, 'dashboard_body'),
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_dashboard)

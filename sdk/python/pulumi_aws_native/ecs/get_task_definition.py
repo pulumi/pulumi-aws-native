@@ -65,8 +65,8 @@ def get_task_definition(task_definition_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ecs:getTaskDefinition', __args__, opts=opts, typ=GetTaskDefinitionResult).value
 
     return AwaitableGetTaskDefinitionResult(
-        tags=__ret__.tags,
-        task_definition_arn=__ret__.task_definition_arn)
+        tags=pulumi.get(__ret__, 'tags'),
+        task_definition_arn=pulumi.get(__ret__, 'task_definition_arn'))
 
 
 @_utilities.lift_output_func(get_task_definition)

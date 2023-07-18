@@ -124,13 +124,13 @@ def get_alarm_model(alarm_model_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iotevents:getAlarmModel', __args__, opts=opts, typ=GetAlarmModelResult).value
 
     return AwaitableGetAlarmModelResult(
-        alarm_capabilities=__ret__.alarm_capabilities,
-        alarm_event_actions=__ret__.alarm_event_actions,
-        alarm_model_description=__ret__.alarm_model_description,
-        alarm_rule=__ret__.alarm_rule,
-        role_arn=__ret__.role_arn,
-        severity=__ret__.severity,
-        tags=__ret__.tags)
+        alarm_capabilities=pulumi.get(__ret__, 'alarm_capabilities'),
+        alarm_event_actions=pulumi.get(__ret__, 'alarm_event_actions'),
+        alarm_model_description=pulumi.get(__ret__, 'alarm_model_description'),
+        alarm_rule=pulumi.get(__ret__, 'alarm_rule'),
+        role_arn=pulumi.get(__ret__, 'role_arn'),
+        severity=pulumi.get(__ret__, 'severity'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_alarm_model)

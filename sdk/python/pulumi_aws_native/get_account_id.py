@@ -46,4 +46,4 @@ def get_account_id(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetA
     __ret__ = pulumi.runtime.invoke('aws-native:index:getAccountId', __args__, opts=opts, typ=GetAccountIdResult).value
 
     return AwaitableGetAccountIdResult(
-        account_id=__ret__.account_id)
+        account_id=pulumi.get(__ret__, 'account_id'))

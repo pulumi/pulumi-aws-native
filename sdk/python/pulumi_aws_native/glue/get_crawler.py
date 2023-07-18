@@ -158,19 +158,19 @@ def get_crawler(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:glue:getCrawler', __args__, opts=opts, typ=GetCrawlerResult).value
 
     return AwaitableGetCrawlerResult(
-        classifiers=__ret__.classifiers,
-        configuration=__ret__.configuration,
-        crawler_security_configuration=__ret__.crawler_security_configuration,
-        database_name=__ret__.database_name,
-        description=__ret__.description,
-        id=__ret__.id,
-        recrawl_policy=__ret__.recrawl_policy,
-        role=__ret__.role,
-        schedule=__ret__.schedule,
-        schema_change_policy=__ret__.schema_change_policy,
-        table_prefix=__ret__.table_prefix,
-        tags=__ret__.tags,
-        targets=__ret__.targets)
+        classifiers=pulumi.get(__ret__, 'classifiers'),
+        configuration=pulumi.get(__ret__, 'configuration'),
+        crawler_security_configuration=pulumi.get(__ret__, 'crawler_security_configuration'),
+        database_name=pulumi.get(__ret__, 'database_name'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        recrawl_policy=pulumi.get(__ret__, 'recrawl_policy'),
+        role=pulumi.get(__ret__, 'role'),
+        schedule=pulumi.get(__ret__, 'schedule'),
+        schema_change_policy=pulumi.get(__ret__, 'schema_change_policy'),
+        table_prefix=pulumi.get(__ret__, 'table_prefix'),
+        tags=pulumi.get(__ret__, 'tags'),
+        targets=pulumi.get(__ret__, 'targets'))
 
 
 @_utilities.lift_output_func(get_crawler)

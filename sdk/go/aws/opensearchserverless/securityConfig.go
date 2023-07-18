@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -29,6 +30,7 @@ func NewSecurityConfig(ctx *pulumi.Context,
 		args = &SecurityConfigArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SecurityConfig
 	err := ctx.RegisterResource("aws-native:opensearchserverless:SecurityConfig", name, args, &resource, opts...)
 	if err != nil {

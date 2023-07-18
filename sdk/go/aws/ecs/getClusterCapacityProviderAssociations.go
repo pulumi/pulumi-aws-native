@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Associate a set of ECS Capacity Providers with a specified ECS Cluster
 func LookupClusterCapacityProviderAssociations(ctx *pulumi.Context, args *LookupClusterCapacityProviderAssociationsArgs, opts ...pulumi.InvokeOption) (*LookupClusterCapacityProviderAssociationsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupClusterCapacityProviderAssociationsResult
 	err := ctx.Invoke("aws-native:ecs:getClusterCapacityProviderAssociations", args, &rv, opts...)
 	if err != nil {

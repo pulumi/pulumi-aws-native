@@ -122,15 +122,15 @@ def get_git_hub_repository(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:codestar:getGitHubRepository', __args__, opts=opts, typ=GetGitHubRepositoryResult).value
 
     return AwaitableGetGitHubRepositoryResult(
-        code=__ret__.code,
-        connection_arn=__ret__.connection_arn,
-        enable_issues=__ret__.enable_issues,
-        id=__ret__.id,
-        is_private=__ret__.is_private,
-        repository_access_token=__ret__.repository_access_token,
-        repository_description=__ret__.repository_description,
-        repository_name=__ret__.repository_name,
-        repository_owner=__ret__.repository_owner)
+        code=pulumi.get(__ret__, 'code'),
+        connection_arn=pulumi.get(__ret__, 'connection_arn'),
+        enable_issues=pulumi.get(__ret__, 'enable_issues'),
+        id=pulumi.get(__ret__, 'id'),
+        is_private=pulumi.get(__ret__, 'is_private'),
+        repository_access_token=pulumi.get(__ret__, 'repository_access_token'),
+        repository_description=pulumi.get(__ret__, 'repository_description'),
+        repository_name=pulumi.get(__ret__, 'repository_name'),
+        repository_owner=pulumi.get(__ret__, 'repository_owner'))
 
 
 @_utilities.lift_output_func(get_git_hub_repository)

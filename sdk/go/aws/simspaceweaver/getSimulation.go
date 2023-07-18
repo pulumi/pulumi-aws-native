@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // AWS::SimSpaceWeaver::Simulation resource creates an AWS Simulation.
 func LookupSimulation(ctx *pulumi.Context, args *LookupSimulationArgs, opts ...pulumi.InvokeOption) (*LookupSimulationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSimulationResult
 	err := ctx.Invoke("aws-native:simspaceweaver:getSimulation", args, &rv, opts...)
 	if err != nil {

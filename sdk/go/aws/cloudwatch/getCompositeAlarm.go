@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // The AWS::CloudWatch::CompositeAlarm type specifies an alarm which aggregates the states of other Alarms (Metric or Composite Alarms) as defined by the AlarmRule expression
 func LookupCompositeAlarm(ctx *pulumi.Context, args *LookupCompositeAlarmArgs, opts ...pulumi.InvokeOption) (*LookupCompositeAlarmResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCompositeAlarmResult
 	err := ctx.Invoke("aws-native:cloudwatch:getCompositeAlarm", args, &rv, opts...)
 	if err != nil {

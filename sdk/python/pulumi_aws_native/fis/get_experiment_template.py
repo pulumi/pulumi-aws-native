@@ -104,13 +104,13 @@ def get_experiment_template(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:fis:getExperimentTemplate', __args__, opts=opts, typ=GetExperimentTemplateResult).value
 
     return AwaitableGetExperimentTemplateResult(
-        actions=__ret__.actions,
-        description=__ret__.description,
-        id=__ret__.id,
-        log_configuration=__ret__.log_configuration,
-        role_arn=__ret__.role_arn,
-        stop_conditions=__ret__.stop_conditions,
-        targets=__ret__.targets)
+        actions=pulumi.get(__ret__, 'actions'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        log_configuration=pulumi.get(__ret__, 'log_configuration'),
+        role_arn=pulumi.get(__ret__, 'role_arn'),
+        stop_conditions=pulumi.get(__ret__, 'stop_conditions'),
+        targets=pulumi.get(__ret__, 'targets'))
 
 
 @_utilities.lift_output_func(get_experiment_template)

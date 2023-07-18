@@ -92,10 +92,10 @@ def get_publisher(publisher_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cloudformation:getPublisher', __args__, opts=opts, typ=GetPublisherResult).value
 
     return AwaitableGetPublisherResult(
-        identity_provider=__ret__.identity_provider,
-        publisher_id=__ret__.publisher_id,
-        publisher_profile=__ret__.publisher_profile,
-        publisher_status=__ret__.publisher_status)
+        identity_provider=pulumi.get(__ret__, 'identity_provider'),
+        publisher_id=pulumi.get(__ret__, 'publisher_id'),
+        publisher_profile=pulumi.get(__ret__, 'publisher_profile'),
+        publisher_status=pulumi.get(__ret__, 'publisher_status'))
 
 
 @_utilities.lift_output_func(get_publisher)

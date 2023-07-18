@@ -137,16 +137,16 @@ def get_data_source(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:kendra:getDataSource', __args__, opts=opts, typ=GetDataSourceResult).value
 
     return AwaitableGetDataSourceResult(
-        arn=__ret__.arn,
-        custom_document_enrichment_configuration=__ret__.custom_document_enrichment_configuration,
-        data_source_configuration=__ret__.data_source_configuration,
-        description=__ret__.description,
-        id=__ret__.id,
-        index_id=__ret__.index_id,
-        name=__ret__.name,
-        role_arn=__ret__.role_arn,
-        schedule=__ret__.schedule,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        custom_document_enrichment_configuration=pulumi.get(__ret__, 'custom_document_enrichment_configuration'),
+        data_source_configuration=pulumi.get(__ret__, 'data_source_configuration'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        index_id=pulumi.get(__ret__, 'index_id'),
+        name=pulumi.get(__ret__, 'name'),
+        role_arn=pulumi.get(__ret__, 'role_arn'),
+        schedule=pulumi.get(__ret__, 'schedule'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_data_source)
