@@ -32,6 +32,12 @@
       "type" : "string"
     }
   },
+  "tagging" : {
+    "taggable" : false,
+    "tagOnCreate" : false,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false
+  },
   "additionalProperties" : false,
   "required" : [ "Status" ],
   "createOnlyProperties" : [ "/properties/CertificateSigningRequest", "/properties/CACertificatePem", "/properties/CertificatePem", "/properties/CertificateMode" ],
@@ -40,16 +46,16 @@
   "primaryIdentifier" : [ "/properties/Id" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "iot:CreateCertificateFromCsr", "iot:RegisterCertificate", "iot:RegisterCertificateWithoutCA" ]
+      "permissions" : [ "iot:CreateCertificateFromCsr", "iot:RegisterCertificate", "iot:RegisterCertificateWithoutCA", "iot:DescribeCertificate" ]
     },
     "read" : {
       "permissions" : [ "iot:DescribeCertificate" ]
     },
     "update" : {
-      "permissions" : [ "iot:UpdateCertificate" ]
+      "permissions" : [ "iot:UpdateCertificate", "iot:DescribeCertificate" ]
     },
     "delete" : {
-      "permissions" : [ "iot:DeleteCertificate" ]
+      "permissions" : [ "iot:DeleteCertificate", "iot:UpdateCertificate", "iot:DescribeCertificate" ]
     },
     "list" : {
       "permissions" : [ "iot:ListCertificates" ]

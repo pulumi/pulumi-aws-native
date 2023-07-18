@@ -520,7 +520,7 @@
   "deprecatedProperties" : [ "/properties/HlsPackage/Encryption/SpekeKeyProvider/EncryptionContractConfiguration/PresetSpeke20Audio", "/properties/HlsPackage/Encryption/SpekeKeyProvider/EncryptionContractConfiguration/PresetSpeke20Video", "/properties/MssPackage/Encryption/SpekeKeyProvider/EncryptionContractConfiguration/PresetSpeke20Audio", "/properties/MssPackage/Encryption/SpekeKeyProvider/EncryptionContractConfiguration/PresetSpeke20Video", "/properties/CmafPackage/HlsManifests/*/Url" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "mediapackage:CreateOriginEndpoint", "mediapackage:DescribeChannel", "mediapackage:TagResource", "iam:PassRole" ]
+      "permissions" : [ "mediapackage:CreateOriginEndpoint", "mediapackage:DescribeOriginEndpoint", "mediapackage:DescribeChannel", "mediapackage:TagResource", "iam:PassRole", "acm:DescribeCertificate" ]
     },
     "read" : {
       "permissions" : [ "mediapackage:DescribeOriginEndpoint" ]
