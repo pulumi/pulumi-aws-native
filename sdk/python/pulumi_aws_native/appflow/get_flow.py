@@ -153,15 +153,15 @@ def get_flow(flow_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:appflow:getFlow', __args__, opts=opts, typ=GetFlowResult).value
 
     return AwaitableGetFlowResult(
-        description=__ret__.description,
-        destination_flow_config_list=__ret__.destination_flow_config_list,
-        flow_arn=__ret__.flow_arn,
-        flow_status=__ret__.flow_status,
-        metadata_catalog_config=__ret__.metadata_catalog_config,
-        source_flow_config=__ret__.source_flow_config,
-        tags=__ret__.tags,
-        tasks=__ret__.tasks,
-        trigger_config=__ret__.trigger_config)
+        description=pulumi.get(__ret__, 'description'),
+        destination_flow_config_list=pulumi.get(__ret__, 'destination_flow_config_list'),
+        flow_arn=pulumi.get(__ret__, 'flow_arn'),
+        flow_status=pulumi.get(__ret__, 'flow_status'),
+        metadata_catalog_config=pulumi.get(__ret__, 'metadata_catalog_config'),
+        source_flow_config=pulumi.get(__ret__, 'source_flow_config'),
+        tags=pulumi.get(__ret__, 'tags'),
+        tasks=pulumi.get(__ret__, 'tasks'),
+        trigger_config=pulumi.get(__ret__, 'trigger_config'))
 
 
 @_utilities.lift_output_func(get_flow)

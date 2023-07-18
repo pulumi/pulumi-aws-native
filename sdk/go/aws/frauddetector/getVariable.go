@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // A resource schema for a Variable in Amazon Fraud Detector.
 func LookupVariable(ctx *pulumi.Context, args *LookupVariableArgs, opts ...pulumi.InvokeOption) (*LookupVariableResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVariableResult
 	err := ctx.Invoke("aws-native:frauddetector:getVariable", args, &rv, opts...)
 	if err != nil {

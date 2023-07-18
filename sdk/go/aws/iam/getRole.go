@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::IAM::Role
 func LookupRole(ctx *pulumi.Context, args *LookupRoleArgs, opts ...pulumi.InvokeOption) (*LookupRoleResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRoleResult
 	err := ctx.Invoke("aws-native:iam:getRole", args, &rv, opts...)
 	if err != nil {

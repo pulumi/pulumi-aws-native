@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // The AWS::NetworkManager::GlobalNetwork type specifies a global network of the user's account
 func LookupGlobalNetwork(ctx *pulumi.Context, args *LookupGlobalNetworkArgs, opts ...pulumi.InvokeOption) (*LookupGlobalNetworkResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupGlobalNetworkResult
 	err := ctx.Invoke("aws-native:networkmanager:getGlobalNetwork", args, &rv, opts...)
 	if err != nil {

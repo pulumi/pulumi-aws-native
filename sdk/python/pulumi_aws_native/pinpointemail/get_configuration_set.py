@@ -95,12 +95,12 @@ def get_configuration_set(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:pinpointemail:getConfigurationSet', __args__, opts=opts, typ=GetConfigurationSetResult).value
 
     return AwaitableGetConfigurationSetResult(
-        delivery_options=__ret__.delivery_options,
-        id=__ret__.id,
-        reputation_options=__ret__.reputation_options,
-        sending_options=__ret__.sending_options,
-        tags=__ret__.tags,
-        tracking_options=__ret__.tracking_options)
+        delivery_options=pulumi.get(__ret__, 'delivery_options'),
+        id=pulumi.get(__ret__, 'id'),
+        reputation_options=pulumi.get(__ret__, 'reputation_options'),
+        sending_options=pulumi.get(__ret__, 'sending_options'),
+        tags=pulumi.get(__ret__, 'tags'),
+        tracking_options=pulumi.get(__ret__, 'tracking_options'))
 
 
 @_utilities.lift_output_func(get_configuration_set)

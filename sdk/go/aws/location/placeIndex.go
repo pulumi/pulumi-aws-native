@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,6 +40,7 @@ func NewPlaceIndex(ctx *pulumi.Context,
 	if args.IndexName == nil {
 		return nil, errors.New("invalid value for required argument 'IndexName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PlaceIndex
 	err := ctx.RegisterResource("aws-native:location:PlaceIndex", name, args, &resource, opts...)
 	if err != nil {

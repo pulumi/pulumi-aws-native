@@ -96,11 +96,11 @@ def get_model_package_group(model_package_group_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:sagemaker:getModelPackageGroup', __args__, opts=opts, typ=GetModelPackageGroupResult).value
 
     return AwaitableGetModelPackageGroupResult(
-        creation_time=__ret__.creation_time,
-        model_package_group_arn=__ret__.model_package_group_arn,
-        model_package_group_policy=__ret__.model_package_group_policy,
-        model_package_group_status=__ret__.model_package_group_status,
-        tags=__ret__.tags)
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        model_package_group_arn=pulumi.get(__ret__, 'model_package_group_arn'),
+        model_package_group_policy=pulumi.get(__ret__, 'model_package_group_policy'),
+        model_package_group_status=pulumi.get(__ret__, 'model_package_group_status'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_model_package_group)

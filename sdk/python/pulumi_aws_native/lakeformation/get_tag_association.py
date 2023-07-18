@@ -70,8 +70,8 @@ def get_tag_association(resource_identifier: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:lakeformation:getTagAssociation', __args__, opts=opts, typ=GetTagAssociationResult).value
 
     return AwaitableGetTagAssociationResult(
-        resource_identifier=__ret__.resource_identifier,
-        tags_identifier=__ret__.tags_identifier)
+        resource_identifier=pulumi.get(__ret__, 'resource_identifier'),
+        tags_identifier=pulumi.get(__ret__, 'tags_identifier'))
 
 
 @_utilities.lift_output_func(get_tag_association)

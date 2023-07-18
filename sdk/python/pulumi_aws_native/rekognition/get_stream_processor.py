@@ -89,10 +89,10 @@ def get_stream_processor(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:rekognition:getStreamProcessor', __args__, opts=opts, typ=GetStreamProcessorResult).value
 
     return AwaitableGetStreamProcessorResult(
-        arn=__ret__.arn,
-        status=__ret__.status,
-        status_message=__ret__.status_message,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        status=pulumi.get(__ret__, 'status'),
+        status_message=pulumi.get(__ret__, 'status_message'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_stream_processor)

@@ -49,7 +49,7 @@ def get_batch_scram_secret(cluster_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:msk:getBatchScramSecret', __args__, opts=opts, typ=GetBatchScramSecretResult).value
 
     return AwaitableGetBatchScramSecretResult(
-        secret_arn_list=__ret__.secret_arn_list)
+        secret_arn_list=pulumi.get(__ret__, 'secret_arn_list'))
 
 
 @_utilities.lift_output_func(get_batch_scram_secret)

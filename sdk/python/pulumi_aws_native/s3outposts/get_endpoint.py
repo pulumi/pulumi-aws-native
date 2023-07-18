@@ -126,13 +126,13 @@ def get_endpoint(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:s3outposts:getEndpoint', __args__, opts=opts, typ=GetEndpointResult).value
 
     return AwaitableGetEndpointResult(
-        arn=__ret__.arn,
-        cidr_block=__ret__.cidr_block,
-        creation_time=__ret__.creation_time,
-        failed_reason=__ret__.failed_reason,
-        id=__ret__.id,
-        network_interfaces=__ret__.network_interfaces,
-        status=__ret__.status)
+        arn=pulumi.get(__ret__, 'arn'),
+        cidr_block=pulumi.get(__ret__, 'cidr_block'),
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        failed_reason=pulumi.get(__ret__, 'failed_reason'),
+        id=pulumi.get(__ret__, 'id'),
+        network_interfaces=pulumi.get(__ret__, 'network_interfaces'),
+        status=pulumi.get(__ret__, 'status'))
 
 
 @_utilities.lift_output_func(get_endpoint)

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::SageMaker::AppImageConfig
 func LookupAppImageConfig(ctx *pulumi.Context, args *LookupAppImageConfigArgs, opts ...pulumi.InvokeOption) (*LookupAppImageConfigResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAppImageConfigResult
 	err := ctx.Invoke("aws-native:sagemaker:getAppImageConfig", args, &rv, opts...)
 	if err != nil {

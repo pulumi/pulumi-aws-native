@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -31,6 +32,7 @@ func NewContactList(ctx *pulumi.Context,
 		args = &ContactListArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ContactList
 	err := ctx.RegisterResource("aws-native:ses:ContactList", name, args, &resource, opts...)
 	if err != nil {

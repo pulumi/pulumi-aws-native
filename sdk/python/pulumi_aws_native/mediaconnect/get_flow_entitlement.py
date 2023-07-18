@@ -117,12 +117,12 @@ def get_flow_entitlement(entitlement_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:mediaconnect:getFlowEntitlement', __args__, opts=opts, typ=GetFlowEntitlementResult).value
 
     return AwaitableGetFlowEntitlementResult(
-        description=__ret__.description,
-        encryption=__ret__.encryption,
-        entitlement_arn=__ret__.entitlement_arn,
-        entitlement_status=__ret__.entitlement_status,
-        flow_arn=__ret__.flow_arn,
-        subscribers=__ret__.subscribers)
+        description=pulumi.get(__ret__, 'description'),
+        encryption=pulumi.get(__ret__, 'encryption'),
+        entitlement_arn=pulumi.get(__ret__, 'entitlement_arn'),
+        entitlement_status=pulumi.get(__ret__, 'entitlement_status'),
+        flow_arn=pulumi.get(__ret__, 'flow_arn'),
+        subscribers=pulumi.get(__ret__, 'subscribers'))
 
 
 @_utilities.lift_output_func(get_flow_entitlement)

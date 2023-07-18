@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for AWS::ImageBuilder::InfrastructureConfiguration
 func LookupInfrastructureConfiguration(ctx *pulumi.Context, args *LookupInfrastructureConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupInfrastructureConfigurationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupInfrastructureConfigurationResult
 	err := ctx.Invoke("aws-native:imagebuilder:getInfrastructureConfiguration", args, &rv, opts...)
 	if err != nil {

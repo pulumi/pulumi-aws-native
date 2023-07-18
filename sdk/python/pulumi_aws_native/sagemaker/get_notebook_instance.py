@@ -140,17 +140,17 @@ def get_notebook_instance(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:sagemaker:getNotebookInstance', __args__, opts=opts, typ=GetNotebookInstanceResult).value
 
     return AwaitableGetNotebookInstanceResult(
-        accelerator_types=__ret__.accelerator_types,
-        additional_code_repositories=__ret__.additional_code_repositories,
-        default_code_repository=__ret__.default_code_repository,
-        id=__ret__.id,
-        instance_metadata_service_configuration=__ret__.instance_metadata_service_configuration,
-        instance_type=__ret__.instance_type,
-        lifecycle_config_name=__ret__.lifecycle_config_name,
-        role_arn=__ret__.role_arn,
-        root_access=__ret__.root_access,
-        tags=__ret__.tags,
-        volume_size_in_gb=__ret__.volume_size_in_gb)
+        accelerator_types=pulumi.get(__ret__, 'accelerator_types'),
+        additional_code_repositories=pulumi.get(__ret__, 'additional_code_repositories'),
+        default_code_repository=pulumi.get(__ret__, 'default_code_repository'),
+        id=pulumi.get(__ret__, 'id'),
+        instance_metadata_service_configuration=pulumi.get(__ret__, 'instance_metadata_service_configuration'),
+        instance_type=pulumi.get(__ret__, 'instance_type'),
+        lifecycle_config_name=pulumi.get(__ret__, 'lifecycle_config_name'),
+        role_arn=pulumi.get(__ret__, 'role_arn'),
+        root_access=pulumi.get(__ret__, 'root_access'),
+        tags=pulumi.get(__ret__, 'tags'),
+        volume_size_in_gb=pulumi.get(__ret__, 'volume_size_in_gb'))
 
 
 @_utilities.lift_output_func(get_notebook_instance)

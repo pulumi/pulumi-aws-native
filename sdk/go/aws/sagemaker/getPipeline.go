@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::SageMaker::Pipeline
 func LookupPipeline(ctx *pulumi.Context, args *LookupPipelineArgs, opts ...pulumi.InvokeOption) (*LookupPipelineResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPipelineResult
 	err := ctx.Invoke("aws-native:sagemaker:getPipeline", args, &rv, opts...)
 	if err != nil {

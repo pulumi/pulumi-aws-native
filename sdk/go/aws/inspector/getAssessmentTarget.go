@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::Inspector::AssessmentTarget
 func LookupAssessmentTarget(ctx *pulumi.Context, args *LookupAssessmentTargetArgs, opts ...pulumi.InvokeOption) (*LookupAssessmentTargetResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAssessmentTargetResult
 	err := ctx.Invoke("aws-native:inspector:getAssessmentTarget", args, &rv, opts...)
 	if err != nil {

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::SageMaker::Image
 func LookupImage(ctx *pulumi.Context, args *LookupImageArgs, opts ...pulumi.InvokeOption) (*LookupImageResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupImageResult
 	err := ctx.Invoke("aws-native:sagemaker:getImage", args, &rv, opts...)
 	if err != nil {

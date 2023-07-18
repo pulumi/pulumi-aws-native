@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // An example resource schema demonstrating some basic constructs and validation rules.
 func LookupPipeline(ctx *pulumi.Context, args *LookupPipelineArgs, opts ...pulumi.InvokeOption) (*LookupPipelineResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPipelineResult
 	err := ctx.Invoke("aws-native:datapipeline:getPipeline", args, &rv, opts...)
 	if err != nil {

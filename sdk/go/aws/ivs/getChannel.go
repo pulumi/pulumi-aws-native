@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::IVS::Channel
 func LookupChannel(ctx *pulumi.Context, args *LookupChannelArgs, opts ...pulumi.InvokeOption) (*LookupChannelResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupChannelResult
 	err := ctx.Invoke("aws-native:ivs:getChannel", args, &rv, opts...)
 	if err != nil {

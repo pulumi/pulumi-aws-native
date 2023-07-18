@@ -126,13 +126,13 @@ def get_location_smb(location_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:datasync:getLocationSMB', __args__, opts=opts, typ=GetLocationSMBResult).value
 
     return AwaitableGetLocationSMBResult(
-        agent_arns=__ret__.agent_arns,
-        domain=__ret__.domain,
-        location_arn=__ret__.location_arn,
-        location_uri=__ret__.location_uri,
-        mount_options=__ret__.mount_options,
-        tags=__ret__.tags,
-        user=__ret__.user)
+        agent_arns=pulumi.get(__ret__, 'agent_arns'),
+        domain=pulumi.get(__ret__, 'domain'),
+        location_arn=pulumi.get(__ret__, 'location_arn'),
+        location_uri=pulumi.get(__ret__, 'location_uri'),
+        mount_options=pulumi.get(__ret__, 'mount_options'),
+        tags=pulumi.get(__ret__, 'tags'),
+        user=pulumi.get(__ret__, 'user'))
 
 
 @_utilities.lift_output_func(get_location_smb)

@@ -49,7 +49,7 @@ def get_custom_resource(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cloudformation:getCustomResource', __args__, opts=opts, typ=GetCustomResourceResult).value
 
     return AwaitableGetCustomResourceResult(
-        id=__ret__.id)
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_custom_resource)

@@ -78,10 +78,10 @@ def get_index(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:resourceexplorer2:getIndex', __args__, opts=opts, typ=GetIndexResult).value
 
     return AwaitableGetIndexResult(
-        arn=__ret__.arn,
-        index_state=__ret__.index_state,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        arn=pulumi.get(__ret__, 'arn'),
+        index_state=pulumi.get(__ret__, 'index_state'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_index)

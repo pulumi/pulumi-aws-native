@@ -77,10 +77,10 @@ def get_parameter_group(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:elasticache:getParameterGroup', __args__, opts=opts, typ=GetParameterGroupResult).value
 
     return AwaitableGetParameterGroupResult(
-        description=__ret__.description,
-        id=__ret__.id,
-        properties=__ret__.properties,
-        tags=__ret__.tags)
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        properties=pulumi.get(__ret__, 'properties'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_parameter_group)

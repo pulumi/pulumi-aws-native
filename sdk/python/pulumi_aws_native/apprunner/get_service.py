@@ -138,15 +138,15 @@ def get_service(service_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:apprunner:getService', __args__, opts=opts, typ=GetServiceResult).value
 
     return AwaitableGetServiceResult(
-        health_check_configuration=__ret__.health_check_configuration,
-        instance_configuration=__ret__.instance_configuration,
-        network_configuration=__ret__.network_configuration,
-        observability_configuration=__ret__.observability_configuration,
-        service_arn=__ret__.service_arn,
-        service_id=__ret__.service_id,
-        service_url=__ret__.service_url,
-        source_configuration=__ret__.source_configuration,
-        status=__ret__.status)
+        health_check_configuration=pulumi.get(__ret__, 'health_check_configuration'),
+        instance_configuration=pulumi.get(__ret__, 'instance_configuration'),
+        network_configuration=pulumi.get(__ret__, 'network_configuration'),
+        observability_configuration=pulumi.get(__ret__, 'observability_configuration'),
+        service_arn=pulumi.get(__ret__, 'service_arn'),
+        service_id=pulumi.get(__ret__, 'service_id'),
+        service_url=pulumi.get(__ret__, 'service_url'),
+        source_configuration=pulumi.get(__ret__, 'source_configuration'),
+        status=pulumi.get(__ret__, 'status'))
 
 
 @_utilities.lift_output_func(get_service)

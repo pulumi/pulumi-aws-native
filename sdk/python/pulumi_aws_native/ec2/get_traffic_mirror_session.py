@@ -113,14 +113,14 @@ def get_traffic_mirror_session(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getTrafficMirrorSession', __args__, opts=opts, typ=GetTrafficMirrorSessionResult).value
 
     return AwaitableGetTrafficMirrorSessionResult(
-        description=__ret__.description,
-        id=__ret__.id,
-        packet_length=__ret__.packet_length,
-        session_number=__ret__.session_number,
-        tags=__ret__.tags,
-        traffic_mirror_filter_id=__ret__.traffic_mirror_filter_id,
-        traffic_mirror_target_id=__ret__.traffic_mirror_target_id,
-        virtual_network_id=__ret__.virtual_network_id)
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        packet_length=pulumi.get(__ret__, 'packet_length'),
+        session_number=pulumi.get(__ret__, 'session_number'),
+        tags=pulumi.get(__ret__, 'tags'),
+        traffic_mirror_filter_id=pulumi.get(__ret__, 'traffic_mirror_filter_id'),
+        traffic_mirror_target_id=pulumi.get(__ret__, 'traffic_mirror_target_id'),
+        virtual_network_id=pulumi.get(__ret__, 'virtual_network_id'))
 
 
 @_utilities.lift_output_func(get_traffic_mirror_session)

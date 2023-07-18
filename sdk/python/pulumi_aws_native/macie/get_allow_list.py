@@ -129,13 +129,13 @@ def get_allow_list(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:macie:getAllowList', __args__, opts=opts, typ=GetAllowListResult).value
 
     return AwaitableGetAllowListResult(
-        arn=__ret__.arn,
-        criteria=__ret__.criteria,
-        description=__ret__.description,
-        id=__ret__.id,
-        name=__ret__.name,
-        status=__ret__.status,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        criteria=pulumi.get(__ret__, 'criteria'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_allow_list)

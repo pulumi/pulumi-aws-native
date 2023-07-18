@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::Cognito::UserPoolRiskConfigurationAttachment
 func LookupUserPoolRiskConfigurationAttachment(ctx *pulumi.Context, args *LookupUserPoolRiskConfigurationAttachmentArgs, opts ...pulumi.InvokeOption) (*LookupUserPoolRiskConfigurationAttachmentResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupUserPoolRiskConfigurationAttachmentResult
 	err := ctx.Invoke("aws-native:cognito:getUserPoolRiskConfigurationAttachment", args, &rv, opts...)
 	if err != nil {

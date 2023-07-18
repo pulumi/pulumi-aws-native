@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for AWS::MediaTailor::PlaybackConfiguration
 func LookupPlaybackConfiguration(ctx *pulumi.Context, args *LookupPlaybackConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupPlaybackConfigurationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPlaybackConfigurationResult
 	err := ctx.Invoke("aws-native:mediatailor:getPlaybackConfiguration", args, &rv, opts...)
 	if err != nil {

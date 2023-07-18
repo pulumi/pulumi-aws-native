@@ -171,20 +171,20 @@ def get_component(app_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:amplifyuibuilder:getComponent', __args__, opts=opts, typ=GetComponentResult).value
 
     return AwaitableGetComponentResult(
-        app_id=__ret__.app_id,
-        binding_properties=__ret__.binding_properties,
-        children=__ret__.children,
-        collection_properties=__ret__.collection_properties,
-        component_type=__ret__.component_type,
-        environment_name=__ret__.environment_name,
-        events=__ret__.events,
-        id=__ret__.id,
-        name=__ret__.name,
-        overrides=__ret__.overrides,
-        properties=__ret__.properties,
-        schema_version=__ret__.schema_version,
-        source_id=__ret__.source_id,
-        variants=__ret__.variants)
+        app_id=pulumi.get(__ret__, 'app_id'),
+        binding_properties=pulumi.get(__ret__, 'binding_properties'),
+        children=pulumi.get(__ret__, 'children'),
+        collection_properties=pulumi.get(__ret__, 'collection_properties'),
+        component_type=pulumi.get(__ret__, 'component_type'),
+        environment_name=pulumi.get(__ret__, 'environment_name'),
+        events=pulumi.get(__ret__, 'events'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        overrides=pulumi.get(__ret__, 'overrides'),
+        properties=pulumi.get(__ret__, 'properties'),
+        schema_version=pulumi.get(__ret__, 'schema_version'),
+        source_id=pulumi.get(__ret__, 'source_id'),
+        variants=pulumi.get(__ret__, 'variants'))
 
 
 @_utilities.lift_output_func(get_component)

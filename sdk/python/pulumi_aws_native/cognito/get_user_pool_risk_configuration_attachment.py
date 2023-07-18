@@ -77,10 +77,10 @@ def get_user_pool_risk_configuration_attachment(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cognito:getUserPoolRiskConfigurationAttachment', __args__, opts=opts, typ=GetUserPoolRiskConfigurationAttachmentResult).value
 
     return AwaitableGetUserPoolRiskConfigurationAttachmentResult(
-        account_takeover_risk_configuration=__ret__.account_takeover_risk_configuration,
-        compromised_credentials_risk_configuration=__ret__.compromised_credentials_risk_configuration,
-        id=__ret__.id,
-        risk_exception_configuration=__ret__.risk_exception_configuration)
+        account_takeover_risk_configuration=pulumi.get(__ret__, 'account_takeover_risk_configuration'),
+        compromised_credentials_risk_configuration=pulumi.get(__ret__, 'compromised_credentials_risk_configuration'),
+        id=pulumi.get(__ret__, 'id'),
+        risk_exception_configuration=pulumi.get(__ret__, 'risk_exception_configuration'))
 
 
 @_utilities.lift_output_func(get_user_pool_risk_configuration_attachment)

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // AWS Ground Station Mission Profile resource type for CloudFormation.
 func LookupMissionProfile(ctx *pulumi.Context, args *LookupMissionProfileArgs, opts ...pulumi.InvokeOption) (*LookupMissionProfileResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupMissionProfileResult
 	err := ctx.Invoke("aws-native:groundstation:getMissionProfile", args, &rv, opts...)
 	if err != nil {

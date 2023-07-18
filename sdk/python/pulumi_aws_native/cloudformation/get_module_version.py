@@ -144,14 +144,14 @@ def get_module_version(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cloudformation:getModuleVersion', __args__, opts=opts, typ=GetModuleVersionResult).value
 
     return AwaitableGetModuleVersionResult(
-        arn=__ret__.arn,
-        description=__ret__.description,
-        documentation_url=__ret__.documentation_url,
-        is_default_version=__ret__.is_default_version,
-        schema=__ret__.schema,
-        time_created=__ret__.time_created,
-        version_id=__ret__.version_id,
-        visibility=__ret__.visibility)
+        arn=pulumi.get(__ret__, 'arn'),
+        description=pulumi.get(__ret__, 'description'),
+        documentation_url=pulumi.get(__ret__, 'documentation_url'),
+        is_default_version=pulumi.get(__ret__, 'is_default_version'),
+        schema=pulumi.get(__ret__, 'schema'),
+        time_created=pulumi.get(__ret__, 'time_created'),
+        version_id=pulumi.get(__ret__, 'version_id'),
+        visibility=pulumi.get(__ret__, 'visibility'))
 
 
 @_utilities.lift_output_func(get_module_version)

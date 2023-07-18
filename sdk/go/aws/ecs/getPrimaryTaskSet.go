@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // A pseudo-resource that manages which of your ECS task sets is primary.
 func LookupPrimaryTaskSet(ctx *pulumi.Context, args *LookupPrimaryTaskSetArgs, opts ...pulumi.InvokeOption) (*LookupPrimaryTaskSetResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPrimaryTaskSetResult
 	err := ctx.Invoke("aws-native:ecs:getPrimaryTaskSet", args, &rv, opts...)
 	if err != nil {

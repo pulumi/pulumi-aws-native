@@ -85,11 +85,11 @@ def get_wait_condition(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cloudformation:getWaitCondition', __args__, opts=opts, typ=GetWaitConditionResult).value
 
     return AwaitableGetWaitConditionResult(
-        count=__ret__.count,
-        data=__ret__.data,
-        handle=__ret__.handle,
-        id=__ret__.id,
-        timeout=__ret__.timeout)
+        count=pulumi.get(__ret__, 'count'),
+        data=pulumi.get(__ret__, 'data'),
+        handle=pulumi.get(__ret__, 'handle'),
+        id=pulumi.get(__ret__, 'id'),
+        timeout=pulumi.get(__ret__, 'timeout'))
 
 
 @_utilities.lift_output_func(get_wait_condition)

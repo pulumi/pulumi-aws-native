@@ -91,10 +91,10 @@ def get_simple_ad(directory_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:directoryservice:getSimpleAD', __args__, opts=opts, typ=GetSimpleADResult).value
 
     return AwaitableGetSimpleADResult(
-        alias=__ret__.alias,
-        directory_id=__ret__.directory_id,
-        dns_ip_addresses=__ret__.dns_ip_addresses,
-        enable_sso=__ret__.enable_sso)
+        alias=pulumi.get(__ret__, 'alias'),
+        directory_id=pulumi.get(__ret__, 'directory_id'),
+        dns_ip_addresses=pulumi.get(__ret__, 'dns_ip_addresses'),
+        enable_sso=pulumi.get(__ret__, 'enable_sso'))
 
 
 @_utilities.lift_output_func(get_simple_ad)

@@ -86,11 +86,11 @@ def get_nat_gateway(nat_gateway_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getNatGateway', __args__, opts=opts, typ=GetNatGatewayResult).value
 
     return AwaitableGetNatGatewayResult(
-        nat_gateway_id=__ret__.nat_gateway_id,
-        secondary_allocation_ids=__ret__.secondary_allocation_ids,
-        secondary_private_ip_address_count=__ret__.secondary_private_ip_address_count,
-        secondary_private_ip_addresses=__ret__.secondary_private_ip_addresses,
-        tags=__ret__.tags)
+        nat_gateway_id=pulumi.get(__ret__, 'nat_gateway_id'),
+        secondary_allocation_ids=pulumi.get(__ret__, 'secondary_allocation_ids'),
+        secondary_private_ip_address_count=pulumi.get(__ret__, 'secondary_private_ip_address_count'),
+        secondary_private_ip_addresses=pulumi.get(__ret__, 'secondary_private_ip_addresses'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_nat_gateway)

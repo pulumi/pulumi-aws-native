@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::AppMesh::VirtualGateway
 func LookupVirtualGateway(ctx *pulumi.Context, args *LookupVirtualGatewayArgs, opts ...pulumi.InvokeOption) (*LookupVirtualGatewayResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVirtualGatewayResult
 	err := ctx.Invoke("aws-native:appmesh:getVirtualGateway", args, &rv, opts...)
 	if err != nil {

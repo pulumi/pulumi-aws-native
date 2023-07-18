@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::Route53Resolver::ResolverEndpoint
 func LookupResolverEndpoint(ctx *pulumi.Context, args *LookupResolverEndpointArgs, opts ...pulumi.InvokeOption) (*LookupResolverEndpointResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResolverEndpointResult
 	err := ctx.Invoke("aws-native:route53resolver:getResolverEndpoint", args, &rv, opts...)
 	if err != nil {

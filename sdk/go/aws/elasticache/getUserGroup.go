@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::ElastiCache::UserGroup
 func LookupUserGroup(ctx *pulumi.Context, args *LookupUserGroupArgs, opts ...pulumi.InvokeOption) (*LookupUserGroupResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupUserGroupResult
 	err := ctx.Invoke("aws-native:elasticache:getUserGroup", args, &rv, opts...)
 	if err != nil {

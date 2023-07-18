@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Schema for AWS::ServiceCatalogAppRegistry::AttributeGroup.
 func LookupAttributeGroup(ctx *pulumi.Context, args *LookupAttributeGroupArgs, opts ...pulumi.InvokeOption) (*LookupAttributeGroupResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAttributeGroupResult
 	err := ctx.Invoke("aws-native:servicecatalogappregistry:getAttributeGroup", args, &rv, opts...)
 	if err != nil {

@@ -141,14 +141,14 @@ def get_asset_model(asset_model_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iotsitewise:getAssetModel', __args__, opts=opts, typ=GetAssetModelResult).value
 
     return AwaitableGetAssetModelResult(
-        asset_model_arn=__ret__.asset_model_arn,
-        asset_model_composite_models=__ret__.asset_model_composite_models,
-        asset_model_description=__ret__.asset_model_description,
-        asset_model_hierarchies=__ret__.asset_model_hierarchies,
-        asset_model_id=__ret__.asset_model_id,
-        asset_model_name=__ret__.asset_model_name,
-        asset_model_properties=__ret__.asset_model_properties,
-        tags=__ret__.tags)
+        asset_model_arn=pulumi.get(__ret__, 'asset_model_arn'),
+        asset_model_composite_models=pulumi.get(__ret__, 'asset_model_composite_models'),
+        asset_model_description=pulumi.get(__ret__, 'asset_model_description'),
+        asset_model_hierarchies=pulumi.get(__ret__, 'asset_model_hierarchies'),
+        asset_model_id=pulumi.get(__ret__, 'asset_model_id'),
+        asset_model_name=pulumi.get(__ret__, 'asset_model_name'),
+        asset_model_properties=pulumi.get(__ret__, 'asset_model_properties'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_asset_model)

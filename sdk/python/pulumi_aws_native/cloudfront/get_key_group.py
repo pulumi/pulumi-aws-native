@@ -68,9 +68,9 @@ def get_key_group(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cloudfront:getKeyGroup', __args__, opts=opts, typ=GetKeyGroupResult).value
 
     return AwaitableGetKeyGroupResult(
-        id=__ret__.id,
-        key_group_config=__ret__.key_group_config,
-        last_modified_time=__ret__.last_modified_time)
+        id=pulumi.get(__ret__, 'id'),
+        key_group_config=pulumi.get(__ret__, 'key_group_config'),
+        last_modified_time=pulumi.get(__ret__, 'last_modified_time'))
 
 
 @_utilities.lift_output_func(get_key_group)

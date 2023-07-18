@@ -95,12 +95,12 @@ def get_crl(crl_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:rolesanywhere:getCRL', __args__, opts=opts, typ=GetCRLResult).value
 
     return AwaitableGetCRLResult(
-        crl_data=__ret__.crl_data,
-        crl_id=__ret__.crl_id,
-        enabled=__ret__.enabled,
-        name=__ret__.name,
-        tags=__ret__.tags,
-        trust_anchor_arn=__ret__.trust_anchor_arn)
+        crl_data=pulumi.get(__ret__, 'crl_data'),
+        crl_id=pulumi.get(__ret__, 'crl_id'),
+        enabled=pulumi.get(__ret__, 'enabled'),
+        name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        trust_anchor_arn=pulumi.get(__ret__, 'trust_anchor_arn'))
 
 
 @_utilities.lift_output_func(get_crl)

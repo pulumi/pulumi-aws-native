@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -35,6 +36,7 @@ func NewUsagePlan(ctx *pulumi.Context,
 		args = &UsagePlanArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource UsagePlan
 	err := ctx.RegisterResource("aws-native:apigateway:UsagePlan", name, args, &resource, opts...)
 	if err != nil {

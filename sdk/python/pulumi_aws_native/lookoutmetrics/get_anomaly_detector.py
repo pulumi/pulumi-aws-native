@@ -99,11 +99,11 @@ def get_anomaly_detector(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:lookoutmetrics:getAnomalyDetector', __args__, opts=opts, typ=GetAnomalyDetectorResult).value
 
     return AwaitableGetAnomalyDetectorResult(
-        anomaly_detector_config=__ret__.anomaly_detector_config,
-        anomaly_detector_description=__ret__.anomaly_detector_description,
-        arn=__ret__.arn,
-        kms_key_arn=__ret__.kms_key_arn,
-        metric_set_list=__ret__.metric_set_list)
+        anomaly_detector_config=pulumi.get(__ret__, 'anomaly_detector_config'),
+        anomaly_detector_description=pulumi.get(__ret__, 'anomaly_detector_description'),
+        arn=pulumi.get(__ret__, 'arn'),
+        kms_key_arn=pulumi.get(__ret__, 'kms_key_arn'),
+        metric_set_list=pulumi.get(__ret__, 'metric_set_list'))
 
 
 @_utilities.lift_output_func(get_anomaly_detector)

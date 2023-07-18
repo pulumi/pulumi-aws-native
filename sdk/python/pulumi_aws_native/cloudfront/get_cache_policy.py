@@ -68,9 +68,9 @@ def get_cache_policy(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cloudfront:getCachePolicy', __args__, opts=opts, typ=GetCachePolicyResult).value
 
     return AwaitableGetCachePolicyResult(
-        cache_policy_config=__ret__.cache_policy_config,
-        id=__ret__.id,
-        last_modified_time=__ret__.last_modified_time)
+        cache_policy_config=pulumi.get(__ret__, 'cache_policy_config'),
+        id=pulumi.get(__ret__, 'id'),
+        last_modified_time=pulumi.get(__ret__, 'last_modified_time'))
 
 
 @_utilities.lift_output_func(get_cache_policy)

@@ -114,14 +114,14 @@ def get_workflow(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:omics:getWorkflow', __args__, opts=opts, typ=GetWorkflowResult).value
 
     return AwaitableGetWorkflowResult(
-        arn=__ret__.arn,
-        creation_time=__ret__.creation_time,
-        description=__ret__.description,
-        id=__ret__.id,
-        name=__ret__.name,
-        status=__ret__.status,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        arn=pulumi.get(__ret__, 'arn'),
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_workflow)

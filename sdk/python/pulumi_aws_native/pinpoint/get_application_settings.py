@@ -86,11 +86,11 @@ def get_application_settings(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:pinpoint:getApplicationSettings', __args__, opts=opts, typ=GetApplicationSettingsResult).value
 
     return AwaitableGetApplicationSettingsResult(
-        campaign_hook=__ret__.campaign_hook,
-        cloud_watch_metrics_enabled=__ret__.cloud_watch_metrics_enabled,
-        id=__ret__.id,
-        limits=__ret__.limits,
-        quiet_time=__ret__.quiet_time)
+        campaign_hook=pulumi.get(__ret__, 'campaign_hook'),
+        cloud_watch_metrics_enabled=pulumi.get(__ret__, 'cloud_watch_metrics_enabled'),
+        id=pulumi.get(__ret__, 'id'),
+        limits=pulumi.get(__ret__, 'limits'),
+        quiet_time=pulumi.get(__ret__, 'quiet_time'))
 
 
 @_utilities.lift_output_func(get_application_settings)

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Schema of AWS::EC2::IPAMResourceDiscoveryAssociation Type
 func LookupIPAMResourceDiscoveryAssociation(ctx *pulumi.Context, args *LookupIPAMResourceDiscoveryAssociationArgs, opts ...pulumi.InvokeOption) (*LookupIPAMResourceDiscoveryAssociationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupIPAMResourceDiscoveryAssociationResult
 	err := ctx.Invoke("aws-native:ec2:getIPAMResourceDiscoveryAssociation", args, &rv, opts...)
 	if err != nil {

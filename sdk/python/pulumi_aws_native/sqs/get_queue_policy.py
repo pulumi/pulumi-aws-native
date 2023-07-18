@@ -67,9 +67,9 @@ def get_queue_policy(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:sqs:getQueuePolicy', __args__, opts=opts, typ=GetQueuePolicyResult).value
 
     return AwaitableGetQueuePolicyResult(
-        id=__ret__.id,
-        policy_document=__ret__.policy_document,
-        queues=__ret__.queues)
+        id=pulumi.get(__ret__, 'id'),
+        policy_document=pulumi.get(__ret__, 'policy_document'),
+        queues=pulumi.get(__ret__, 'queues'))
 
 
 @_utilities.lift_output_func(get_queue_policy)

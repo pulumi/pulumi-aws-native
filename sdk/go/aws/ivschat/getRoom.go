@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource type definition for AWS::IVSChat::Room.
 func LookupRoom(ctx *pulumi.Context, args *LookupRoomArgs, opts ...pulumi.InvokeOption) (*LookupRoomResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRoomResult
 	err := ctx.Invoke("aws-native:ivschat:getRoom", args, &rv, opts...)
 	if err != nil {

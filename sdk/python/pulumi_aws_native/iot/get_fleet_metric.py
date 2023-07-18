@@ -197,19 +197,19 @@ def get_fleet_metric(metric_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iot:getFleetMetric', __args__, opts=opts, typ=GetFleetMetricResult).value
 
     return AwaitableGetFleetMetricResult(
-        aggregation_field=__ret__.aggregation_field,
-        aggregation_type=__ret__.aggregation_type,
-        creation_date=__ret__.creation_date,
-        description=__ret__.description,
-        index_name=__ret__.index_name,
-        last_modified_date=__ret__.last_modified_date,
-        metric_arn=__ret__.metric_arn,
-        period=__ret__.period,
-        query_string=__ret__.query_string,
-        query_version=__ret__.query_version,
-        tags=__ret__.tags,
-        unit=__ret__.unit,
-        version=__ret__.version)
+        aggregation_field=pulumi.get(__ret__, 'aggregation_field'),
+        aggregation_type=pulumi.get(__ret__, 'aggregation_type'),
+        creation_date=pulumi.get(__ret__, 'creation_date'),
+        description=pulumi.get(__ret__, 'description'),
+        index_name=pulumi.get(__ret__, 'index_name'),
+        last_modified_date=pulumi.get(__ret__, 'last_modified_date'),
+        metric_arn=pulumi.get(__ret__, 'metric_arn'),
+        period=pulumi.get(__ret__, 'period'),
+        query_string=pulumi.get(__ret__, 'query_string'),
+        query_version=pulumi.get(__ret__, 'query_version'),
+        tags=pulumi.get(__ret__, 'tags'),
+        unit=pulumi.get(__ret__, 'unit'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_fleet_metric)

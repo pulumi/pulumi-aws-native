@@ -58,8 +58,8 @@ def get_domain_name_api_association(api_association_identifier: Optional[str] = 
     __ret__ = pulumi.runtime.invoke('aws-native:appsync:getDomainNameApiAssociation', __args__, opts=opts, typ=GetDomainNameApiAssociationResult).value
 
     return AwaitableGetDomainNameApiAssociationResult(
-        api_association_identifier=__ret__.api_association_identifier,
-        api_id=__ret__.api_id)
+        api_association_identifier=pulumi.get(__ret__, 'api_association_identifier'),
+        api_id=pulumi.get(__ret__, 'api_id'))
 
 
 @_utilities.lift_output_func(get_domain_name_api_association)

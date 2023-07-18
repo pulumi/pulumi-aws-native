@@ -95,12 +95,12 @@ def get_private_dns_namespace(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:servicediscovery:getPrivateDnsNamespace', __args__, opts=opts, typ=GetPrivateDnsNamespaceResult).value
 
     return AwaitableGetPrivateDnsNamespaceResult(
-        arn=__ret__.arn,
-        description=__ret__.description,
-        hosted_zone_id=__ret__.hosted_zone_id,
-        id=__ret__.id,
-        properties=__ret__.properties,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        description=pulumi.get(__ret__, 'description'),
+        hosted_zone_id=pulumi.get(__ret__, 'hosted_zone_id'),
+        id=pulumi.get(__ret__, 'id'),
+        properties=pulumi.get(__ret__, 'properties'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_private_dns_namespace)

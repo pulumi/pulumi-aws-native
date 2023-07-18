@@ -71,8 +71,8 @@ def get_custom_action_type(category: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:codepipeline:getCustomActionType', __args__, opts=opts, typ=GetCustomActionTypeResult).value
 
     return AwaitableGetCustomActionTypeResult(
-        id=__ret__.id,
-        tags=__ret__.tags)
+        id=pulumi.get(__ret__, 'id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_custom_action_type)

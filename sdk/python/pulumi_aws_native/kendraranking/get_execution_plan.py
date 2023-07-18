@@ -104,12 +104,12 @@ def get_execution_plan(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:kendraranking:getExecutionPlan', __args__, opts=opts, typ=GetExecutionPlanResult).value
 
     return AwaitableGetExecutionPlanResult(
-        arn=__ret__.arn,
-        capacity_units=__ret__.capacity_units,
-        description=__ret__.description,
-        id=__ret__.id,
-        name=__ret__.name,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        capacity_units=pulumi.get(__ret__, 'capacity_units'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_execution_plan)

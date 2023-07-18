@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,6 +42,7 @@ func NewSigningProfile(ctx *pulumi.Context,
 	if args.PlatformId == nil {
 		return nil, errors.New("invalid value for required argument 'PlatformId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SigningProfile
 	err := ctx.RegisterResource("aws-native:signer:SigningProfile", name, args, &resource, opts...)
 	if err != nil {

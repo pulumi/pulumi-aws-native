@@ -88,10 +88,10 @@ def get_destination(destination_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:logs:getDestination', __args__, opts=opts, typ=GetDestinationResult).value
 
     return AwaitableGetDestinationResult(
-        arn=__ret__.arn,
-        destination_policy=__ret__.destination_policy,
-        role_arn=__ret__.role_arn,
-        target_arn=__ret__.target_arn)
+        arn=pulumi.get(__ret__, 'arn'),
+        destination_policy=pulumi.get(__ret__, 'destination_policy'),
+        role_arn=pulumi.get(__ret__, 'role_arn'),
+        target_arn=pulumi.get(__ret__, 'target_arn'))
 
 
 @_utilities.lift_output_func(get_destination)

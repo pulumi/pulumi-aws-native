@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::AppSync::GraphQLSchema
 func LookupGraphQLSchema(ctx *pulumi.Context, args *LookupGraphQLSchemaArgs, opts ...pulumi.InvokeOption) (*LookupGraphQLSchemaResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupGraphQLSchemaResult
 	err := ctx.Invoke("aws-native:appsync:getGraphQLSchema", args, &rv, opts...)
 	if err != nil {

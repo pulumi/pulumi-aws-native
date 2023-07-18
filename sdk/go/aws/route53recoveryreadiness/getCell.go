@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // The API Schema for AWS Route53 Recovery Readiness Cells.
 func LookupCell(ctx *pulumi.Context, args *LookupCellArgs, opts ...pulumi.InvokeOption) (*LookupCellResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCellResult
 	err := ctx.Invoke("aws-native:route53recoveryreadiness:getCell", args, &rv, opts...)
 	if err != nil {

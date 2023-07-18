@@ -67,8 +67,8 @@ def get_service_linked_role(role_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iam:getServiceLinkedRole', __args__, opts=opts, typ=GetServiceLinkedRoleResult).value
 
     return AwaitableGetServiceLinkedRoleResult(
-        description=__ret__.description,
-        role_name=__ret__.role_name)
+        description=pulumi.get(__ret__, 'description'),
+        role_name=pulumi.get(__ret__, 'role_name'))
 
 
 @_utilities.lift_output_func(get_service_linked_role)

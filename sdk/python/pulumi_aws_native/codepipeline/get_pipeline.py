@@ -122,15 +122,15 @@ def get_pipeline(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:codepipeline:getPipeline', __args__, opts=opts, typ=GetPipelineResult).value
 
     return AwaitableGetPipelineResult(
-        artifact_store=__ret__.artifact_store,
-        artifact_stores=__ret__.artifact_stores,
-        disable_inbound_stage_transitions=__ret__.disable_inbound_stage_transitions,
-        id=__ret__.id,
-        restart_execution_on_update=__ret__.restart_execution_on_update,
-        role_arn=__ret__.role_arn,
-        stages=__ret__.stages,
-        tags=__ret__.tags,
-        version=__ret__.version)
+        artifact_store=pulumi.get(__ret__, 'artifact_store'),
+        artifact_stores=pulumi.get(__ret__, 'artifact_stores'),
+        disable_inbound_stage_transitions=pulumi.get(__ret__, 'disable_inbound_stage_transitions'),
+        id=pulumi.get(__ret__, 'id'),
+        restart_execution_on_update=pulumi.get(__ret__, 'restart_execution_on_update'),
+        role_arn=pulumi.get(__ret__, 'role_arn'),
+        stages=pulumi.get(__ret__, 'stages'),
+        tags=pulumi.get(__ret__, 'tags'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_pipeline)

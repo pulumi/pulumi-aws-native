@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // The AWS::ECR::ReplicationConfiguration resource configures the replication destinations for an Amazon Elastic Container Registry (Amazon Private ECR). For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/replication.html
 func LookupReplicationConfiguration(ctx *pulumi.Context, args *LookupReplicationConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupReplicationConfigurationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupReplicationConfigurationResult
 	err := ctx.Invoke("aws-native:ecr:getReplicationConfiguration", args, &rv, opts...)
 	if err != nil {

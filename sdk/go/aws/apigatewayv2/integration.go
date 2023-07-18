@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -50,6 +51,7 @@ func NewIntegration(ctx *pulumi.Context,
 	if args.IntegrationType == nil {
 		return nil, errors.New("invalid value for required argument 'IntegrationType'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Integration
 	err := ctx.RegisterResource("aws-native:apigatewayv2:Integration", name, args, &resource, opts...)
 	if err != nil {

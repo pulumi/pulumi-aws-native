@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for AWS::RDS::DBProxy
 func LookupDBProxy(ctx *pulumi.Context, args *LookupDBProxyArgs, opts ...pulumi.InvokeOption) (*LookupDBProxyResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDBProxyResult
 	err := ctx.Invoke("aws-native:rds:getDBProxy", args, &rv, opts...)
 	if err != nil {

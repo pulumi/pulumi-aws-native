@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::EC2::VPCEndpointService
 func LookupVPCEndpointService(ctx *pulumi.Context, args *LookupVPCEndpointServiceArgs, opts ...pulumi.InvokeOption) (*LookupVPCEndpointServiceResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVPCEndpointServiceResult
 	err := ctx.Invoke("aws-native:ec2:getVPCEndpointService", args, &rv, opts...)
 	if err != nil {

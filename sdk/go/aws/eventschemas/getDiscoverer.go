@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::EventSchemas::Discoverer
 func LookupDiscoverer(ctx *pulumi.Context, args *LookupDiscovererArgs, opts ...pulumi.InvokeOption) (*LookupDiscovererResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDiscovererResult
 	err := ctx.Invoke("aws-native:eventschemas:getDiscoverer", args, &rv, opts...)
 	if err != nil {

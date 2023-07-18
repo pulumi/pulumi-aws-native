@@ -80,9 +80,9 @@ def get_connector_profile(connector_profile_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:appflow:getConnectorProfile', __args__, opts=opts, typ=GetConnectorProfileResult).value
 
     return AwaitableGetConnectorProfileResult(
-        connection_mode=__ret__.connection_mode,
-        connector_profile_arn=__ret__.connector_profile_arn,
-        credentials_arn=__ret__.credentials_arn)
+        connection_mode=pulumi.get(__ret__, 'connection_mode'),
+        connector_profile_arn=pulumi.get(__ret__, 'connector_profile_arn'),
+        credentials_arn=pulumi.get(__ret__, 'credentials_arn'))
 
 
 @_utilities.lift_output_func(get_connector_profile)

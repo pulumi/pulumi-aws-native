@@ -92,10 +92,10 @@ def get_device_fleet(device_fleet_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:sagemaker:getDeviceFleet', __args__, opts=opts, typ=GetDeviceFleetResult).value
 
     return AwaitableGetDeviceFleetResult(
-        description=__ret__.description,
-        output_config=__ret__.output_config,
-        role_arn=__ret__.role_arn,
-        tags=__ret__.tags)
+        description=pulumi.get(__ret__, 'description'),
+        output_config=pulumi.get(__ret__, 'output_config'),
+        role_arn=pulumi.get(__ret__, 'role_arn'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_device_fleet)

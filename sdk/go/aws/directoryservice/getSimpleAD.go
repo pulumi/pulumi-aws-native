@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::DirectoryService::SimpleAD
 func LookupSimpleAD(ctx *pulumi.Context, args *LookupSimpleADArgs, opts ...pulumi.InvokeOption) (*LookupSimpleADResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSimpleADResult
 	err := ctx.Invoke("aws-native:directoryservice:getSimpleAD", args, &rv, opts...)
 	if err != nil {

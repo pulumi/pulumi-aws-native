@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Definition of AWS::IoTFleetWise::ModelManifest Resource Type
 func LookupModelManifest(ctx *pulumi.Context, args *LookupModelManifestArgs, opts ...pulumi.InvokeOption) (*LookupModelManifestResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupModelManifestResult
 	err := ctx.Invoke("aws-native:iotfleetwise:getModelManifest", args, &rv, opts...)
 	if err != nil {

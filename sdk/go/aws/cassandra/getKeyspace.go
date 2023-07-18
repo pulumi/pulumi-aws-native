@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for AWS::Cassandra::Keyspace
 func LookupKeyspace(ctx *pulumi.Context, args *LookupKeyspaceArgs, opts ...pulumi.InvokeOption) (*LookupKeyspaceResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupKeyspaceResult
 	err := ctx.Invoke("aws-native:cassandra:getKeyspace", args, &rv, opts...)
 	if err != nil {

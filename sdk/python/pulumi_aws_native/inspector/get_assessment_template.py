@@ -49,7 +49,7 @@ def get_assessment_template(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:inspector:getAssessmentTemplate', __args__, opts=opts, typ=GetAssessmentTemplateResult).value
 
     return AwaitableGetAssessmentTemplateResult(
-        arn=__ret__.arn)
+        arn=pulumi.get(__ret__, 'arn'))
 
 
 @_utilities.lift_output_func(get_assessment_template)

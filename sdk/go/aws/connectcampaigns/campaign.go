@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -43,6 +44,7 @@ func NewCampaign(ctx *pulumi.Context,
 	if args.OutboundCallConfig == nil {
 		return nil, errors.New("invalid value for required argument 'OutboundCallConfig'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Campaign
 	err := ctx.RegisterResource("aws-native:connectcampaigns:Campaign", name, args, &resource, opts...)
 	if err != nil {

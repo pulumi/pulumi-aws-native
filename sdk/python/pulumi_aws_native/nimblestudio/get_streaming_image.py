@@ -125,13 +125,13 @@ def get_streaming_image(streaming_image_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:nimblestudio:getStreamingImage', __args__, opts=opts, typ=GetStreamingImageResult).value
 
     return AwaitableGetStreamingImageResult(
-        description=__ret__.description,
-        encryption_configuration=__ret__.encryption_configuration,
-        eula_ids=__ret__.eula_ids,
-        name=__ret__.name,
-        owner=__ret__.owner,
-        platform=__ret__.platform,
-        streaming_image_id=__ret__.streaming_image_id)
+        description=pulumi.get(__ret__, 'description'),
+        encryption_configuration=pulumi.get(__ret__, 'encryption_configuration'),
+        eula_ids=pulumi.get(__ret__, 'eula_ids'),
+        name=pulumi.get(__ret__, 'name'),
+        owner=pulumi.get(__ret__, 'owner'),
+        platform=pulumi.get(__ret__, 'platform'),
+        streaming_image_id=pulumi.get(__ret__, 'streaming_image_id'))
 
 
 @_utilities.lift_output_func(get_streaming_image)

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for AWS::Config::OrganizationConformancePack.
 func LookupOrganizationConformancePack(ctx *pulumi.Context, args *LookupOrganizationConformancePackArgs, opts ...pulumi.InvokeOption) (*LookupOrganizationConformancePackResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupOrganizationConformancePackResult
 	err := ctx.Invoke("aws-native:configuration:getOrganizationConformancePack", args, &rv, opts...)
 	if err != nil {

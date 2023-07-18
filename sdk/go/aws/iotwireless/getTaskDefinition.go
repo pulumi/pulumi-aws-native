@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Creates a gateway task definition.
 func LookupTaskDefinition(ctx *pulumi.Context, args *LookupTaskDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupTaskDefinitionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTaskDefinitionResult
 	err := ctx.Invoke("aws-native:iotwireless:getTaskDefinition", args, &rv, opts...)
 	if err != nil {

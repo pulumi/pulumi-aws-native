@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // AWS::RoboMaker::RobotApplicationVersion resource creates an AWS RoboMaker RobotApplicationVersion. This helps you control which code your robot uses.
 func LookupRobotApplicationVersion(ctx *pulumi.Context, args *LookupRobotApplicationVersionArgs, opts ...pulumi.InvokeOption) (*LookupRobotApplicationVersionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRobotApplicationVersionResult
 	err := ctx.Invoke("aws-native:robomaker:getRobotApplicationVersion", args, &rv, opts...)
 	if err != nil {

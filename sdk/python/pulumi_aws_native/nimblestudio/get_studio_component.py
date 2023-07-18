@@ -152,16 +152,16 @@ def get_studio_component(studio_component_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:nimblestudio:getStudioComponent', __args__, opts=opts, typ=GetStudioComponentResult).value
 
     return AwaitableGetStudioComponentResult(
-        configuration=__ret__.configuration,
-        description=__ret__.description,
-        ec2_security_group_ids=__ret__.ec2_security_group_ids,
-        initialization_scripts=__ret__.initialization_scripts,
-        name=__ret__.name,
-        runtime_role_arn=__ret__.runtime_role_arn,
-        script_parameters=__ret__.script_parameters,
-        secure_initialization_role_arn=__ret__.secure_initialization_role_arn,
-        studio_component_id=__ret__.studio_component_id,
-        type=__ret__.type)
+        configuration=pulumi.get(__ret__, 'configuration'),
+        description=pulumi.get(__ret__, 'description'),
+        ec2_security_group_ids=pulumi.get(__ret__, 'ec2_security_group_ids'),
+        initialization_scripts=pulumi.get(__ret__, 'initialization_scripts'),
+        name=pulumi.get(__ret__, 'name'),
+        runtime_role_arn=pulumi.get(__ret__, 'runtime_role_arn'),
+        script_parameters=pulumi.get(__ret__, 'script_parameters'),
+        secure_initialization_role_arn=pulumi.get(__ret__, 'secure_initialization_role_arn'),
+        studio_component_id=pulumi.get(__ret__, 'studio_component_id'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_studio_component)

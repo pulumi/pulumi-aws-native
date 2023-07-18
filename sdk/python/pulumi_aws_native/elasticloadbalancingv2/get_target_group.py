@@ -236,22 +236,22 @@ def get_target_group(target_group_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:elasticloadbalancingv2:getTargetGroup', __args__, opts=opts, typ=GetTargetGroupResult).value
 
     return AwaitableGetTargetGroupResult(
-        health_check_enabled=__ret__.health_check_enabled,
-        health_check_interval_seconds=__ret__.health_check_interval_seconds,
-        health_check_path=__ret__.health_check_path,
-        health_check_port=__ret__.health_check_port,
-        health_check_protocol=__ret__.health_check_protocol,
-        health_check_timeout_seconds=__ret__.health_check_timeout_seconds,
-        healthy_threshold_count=__ret__.healthy_threshold_count,
-        load_balancer_arns=__ret__.load_balancer_arns,
-        matcher=__ret__.matcher,
-        tags=__ret__.tags,
-        target_group_arn=__ret__.target_group_arn,
-        target_group_attributes=__ret__.target_group_attributes,
-        target_group_full_name=__ret__.target_group_full_name,
-        target_group_name=__ret__.target_group_name,
-        targets=__ret__.targets,
-        unhealthy_threshold_count=__ret__.unhealthy_threshold_count)
+        health_check_enabled=pulumi.get(__ret__, 'health_check_enabled'),
+        health_check_interval_seconds=pulumi.get(__ret__, 'health_check_interval_seconds'),
+        health_check_path=pulumi.get(__ret__, 'health_check_path'),
+        health_check_port=pulumi.get(__ret__, 'health_check_port'),
+        health_check_protocol=pulumi.get(__ret__, 'health_check_protocol'),
+        health_check_timeout_seconds=pulumi.get(__ret__, 'health_check_timeout_seconds'),
+        healthy_threshold_count=pulumi.get(__ret__, 'healthy_threshold_count'),
+        load_balancer_arns=pulumi.get(__ret__, 'load_balancer_arns'),
+        matcher=pulumi.get(__ret__, 'matcher'),
+        tags=pulumi.get(__ret__, 'tags'),
+        target_group_arn=pulumi.get(__ret__, 'target_group_arn'),
+        target_group_attributes=pulumi.get(__ret__, 'target_group_attributes'),
+        target_group_full_name=pulumi.get(__ret__, 'target_group_full_name'),
+        target_group_name=pulumi.get(__ret__, 'target_group_name'),
+        targets=pulumi.get(__ret__, 'targets'),
+        unhealthy_threshold_count=pulumi.get(__ret__, 'unhealthy_threshold_count'))
 
 
 @_utilities.lift_output_func(get_target_group)

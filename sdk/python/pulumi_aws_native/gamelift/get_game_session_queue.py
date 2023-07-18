@@ -131,16 +131,16 @@ def get_game_session_queue(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:gamelift:getGameSessionQueue', __args__, opts=opts, typ=GetGameSessionQueueResult).value
 
     return AwaitableGetGameSessionQueueResult(
-        arn=__ret__.arn,
-        custom_event_data=__ret__.custom_event_data,
-        destinations=__ret__.destinations,
-        filter_configuration=__ret__.filter_configuration,
-        id=__ret__.id,
-        notification_target=__ret__.notification_target,
-        player_latency_policies=__ret__.player_latency_policies,
-        priority_configuration=__ret__.priority_configuration,
-        tags=__ret__.tags,
-        timeout_in_seconds=__ret__.timeout_in_seconds)
+        arn=pulumi.get(__ret__, 'arn'),
+        custom_event_data=pulumi.get(__ret__, 'custom_event_data'),
+        destinations=pulumi.get(__ret__, 'destinations'),
+        filter_configuration=pulumi.get(__ret__, 'filter_configuration'),
+        id=pulumi.get(__ret__, 'id'),
+        notification_target=pulumi.get(__ret__, 'notification_target'),
+        player_latency_policies=pulumi.get(__ret__, 'player_latency_policies'),
+        priority_configuration=pulumi.get(__ret__, 'priority_configuration'),
+        tags=pulumi.get(__ret__, 'tags'),
+        timeout_in_seconds=pulumi.get(__ret__, 'timeout_in_seconds'))
 
 
 @_utilities.lift_output_func(get_game_session_queue)

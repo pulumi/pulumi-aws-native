@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -32,6 +33,7 @@ func NewConnectionAlias(ctx *pulumi.Context,
 	if args.ConnectionString == nil {
 		return nil, errors.New("invalid value for required argument 'ConnectionString'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ConnectionAlias
 	err := ctx.RegisterResource("aws-native:workspaces:ConnectionAlias", name, args, &resource, opts...)
 	if err != nil {

@@ -59,8 +59,8 @@ def get_size_constraint_set(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:waf:getSizeConstraintSet', __args__, opts=opts, typ=GetSizeConstraintSetResult).value
 
     return AwaitableGetSizeConstraintSetResult(
-        id=__ret__.id,
-        size_constraints=__ret__.size_constraints)
+        id=pulumi.get(__ret__, 'id'),
+        size_constraints=pulumi.get(__ret__, 'size_constraints'))
 
 
 @_utilities.lift_output_func(get_size_constraint_set)

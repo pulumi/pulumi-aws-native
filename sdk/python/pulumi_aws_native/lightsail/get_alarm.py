@@ -160,16 +160,16 @@ def get_alarm(alarm_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:lightsail:getAlarm', __args__, opts=opts, typ=GetAlarmResult).value
 
     return AwaitableGetAlarmResult(
-        alarm_arn=__ret__.alarm_arn,
-        comparison_operator=__ret__.comparison_operator,
-        contact_protocols=__ret__.contact_protocols,
-        datapoints_to_alarm=__ret__.datapoints_to_alarm,
-        evaluation_periods=__ret__.evaluation_periods,
-        notification_enabled=__ret__.notification_enabled,
-        notification_triggers=__ret__.notification_triggers,
-        state=__ret__.state,
-        threshold=__ret__.threshold,
-        treat_missing_data=__ret__.treat_missing_data)
+        alarm_arn=pulumi.get(__ret__, 'alarm_arn'),
+        comparison_operator=pulumi.get(__ret__, 'comparison_operator'),
+        contact_protocols=pulumi.get(__ret__, 'contact_protocols'),
+        datapoints_to_alarm=pulumi.get(__ret__, 'datapoints_to_alarm'),
+        evaluation_periods=pulumi.get(__ret__, 'evaluation_periods'),
+        notification_enabled=pulumi.get(__ret__, 'notification_enabled'),
+        notification_triggers=pulumi.get(__ret__, 'notification_triggers'),
+        state=pulumi.get(__ret__, 'state'),
+        threshold=pulumi.get(__ret__, 'threshold'),
+        treat_missing_data=pulumi.get(__ret__, 'treat_missing_data'))
 
 
 @_utilities.lift_output_func(get_alarm)

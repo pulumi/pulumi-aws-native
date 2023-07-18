@@ -95,12 +95,12 @@ def get_vpce_configuration(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:devicefarm:getVPCEConfiguration', __args__, opts=opts, typ=GetVPCEConfigurationResult).value
 
     return AwaitableGetVPCEConfigurationResult(
-        arn=__ret__.arn,
-        service_dns_name=__ret__.service_dns_name,
-        tags=__ret__.tags,
-        vpce_configuration_description=__ret__.vpce_configuration_description,
-        vpce_configuration_name=__ret__.vpce_configuration_name,
-        vpce_service_name=__ret__.vpce_service_name)
+        arn=pulumi.get(__ret__, 'arn'),
+        service_dns_name=pulumi.get(__ret__, 'service_dns_name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        vpce_configuration_description=pulumi.get(__ret__, 'vpce_configuration_description'),
+        vpce_configuration_name=pulumi.get(__ret__, 'vpce_configuration_name'),
+        vpce_service_name=pulumi.get(__ret__, 'vpce_service_name'))
 
 
 @_utilities.lift_output_func(get_vpce_configuration)

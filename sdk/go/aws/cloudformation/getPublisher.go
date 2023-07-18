@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Register as a publisher in the CloudFormation Registry.
 func LookupPublisher(ctx *pulumi.Context, args *LookupPublisherArgs, opts ...pulumi.InvokeOption) (*LookupPublisherResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPublisherResult
 	err := ctx.Invoke("aws-native:cloudformation:getPublisher", args, &rv, opts...)
 	if err != nil {

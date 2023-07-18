@@ -163,16 +163,16 @@ def get_composite_alarm(alarm_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cloudwatch:getCompositeAlarm', __args__, opts=opts, typ=GetCompositeAlarmResult).value
 
     return AwaitableGetCompositeAlarmResult(
-        actions_enabled=__ret__.actions_enabled,
-        actions_suppressor=__ret__.actions_suppressor,
-        actions_suppressor_extension_period=__ret__.actions_suppressor_extension_period,
-        actions_suppressor_wait_period=__ret__.actions_suppressor_wait_period,
-        alarm_actions=__ret__.alarm_actions,
-        alarm_description=__ret__.alarm_description,
-        alarm_rule=__ret__.alarm_rule,
-        arn=__ret__.arn,
-        insufficient_data_actions=__ret__.insufficient_data_actions,
-        o_k_actions=__ret__.o_k_actions)
+        actions_enabled=pulumi.get(__ret__, 'actions_enabled'),
+        actions_suppressor=pulumi.get(__ret__, 'actions_suppressor'),
+        actions_suppressor_extension_period=pulumi.get(__ret__, 'actions_suppressor_extension_period'),
+        actions_suppressor_wait_period=pulumi.get(__ret__, 'actions_suppressor_wait_period'),
+        alarm_actions=pulumi.get(__ret__, 'alarm_actions'),
+        alarm_description=pulumi.get(__ret__, 'alarm_description'),
+        alarm_rule=pulumi.get(__ret__, 'alarm_rule'),
+        arn=pulumi.get(__ret__, 'arn'),
+        insufficient_data_actions=pulumi.get(__ret__, 'insufficient_data_actions'),
+        o_k_actions=pulumi.get(__ret__, 'o_k_actions'))
 
 
 @_utilities.lift_output_func(get_composite_alarm)

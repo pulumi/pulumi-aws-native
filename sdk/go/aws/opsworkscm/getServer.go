@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::OpsWorksCM::Server
 func LookupServer(ctx *pulumi.Context, args *LookupServerArgs, opts ...pulumi.InvokeOption) (*LookupServerResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupServerResult
 	err := ctx.Invoke("aws-native:opsworkscm:getServer", args, &rv, opts...)
 	if err != nil {

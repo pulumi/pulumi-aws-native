@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -34,6 +35,7 @@ func NewVolume(ctx *pulumi.Context,
 		args = &VolumeArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Volume
 	err := ctx.RegisterResource("aws-native:fsx:Volume", name, args, &resource, opts...)
 	if err != nil {

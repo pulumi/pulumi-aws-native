@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource type definition for AWS::IVSChat::LoggingConfiguration.
 func LookupLoggingConfiguration(ctx *pulumi.Context, args *LookupLoggingConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupLoggingConfigurationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLoggingConfigurationResult
 	err := ctx.Invoke("aws-native:ivschat:getLoggingConfiguration", args, &rv, opts...)
 	if err != nil {

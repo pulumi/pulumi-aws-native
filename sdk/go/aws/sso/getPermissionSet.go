@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for SSO PermissionSet
 func LookupPermissionSet(ctx *pulumi.Context, args *LookupPermissionSetArgs, opts ...pulumi.InvokeOption) (*LookupPermissionSetResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPermissionSetResult
 	err := ctx.Invoke("aws-native:sso:getPermissionSet", args, &rv, opts...)
 	if err != nil {

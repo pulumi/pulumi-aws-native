@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // An object representing an Amazon EKS IdentityProviderConfig.
 func LookupIdentityProviderConfig(ctx *pulumi.Context, args *LookupIdentityProviderConfigArgs, opts ...pulumi.InvokeOption) (*LookupIdentityProviderConfigResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupIdentityProviderConfigResult
 	err := ctx.Invoke("aws-native:eks:getIdentityProviderConfig", args, &rv, opts...)
 	if err != nil {

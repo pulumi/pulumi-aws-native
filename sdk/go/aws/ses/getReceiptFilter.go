@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::SES::ReceiptFilter
 func LookupReceiptFilter(ctx *pulumi.Context, args *LookupReceiptFilterArgs, opts ...pulumi.InvokeOption) (*LookupReceiptFilterResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupReceiptFilterResult
 	err := ctx.Invoke("aws-native:ses:getReceiptFilter", args, &rv, opts...)
 	if err != nil {

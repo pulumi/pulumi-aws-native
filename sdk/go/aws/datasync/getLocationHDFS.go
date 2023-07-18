@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for AWS::DataSync::LocationHDFS.
 func LookupLocationHDFS(ctx *pulumi.Context, args *LookupLocationHDFSArgs, opts ...pulumi.InvokeOption) (*LookupLocationHDFSResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLocationHDFSResult
 	err := ctx.Invoke("aws-native:datasync:getLocationHDFS", args, &rv, opts...)
 	if err != nil {

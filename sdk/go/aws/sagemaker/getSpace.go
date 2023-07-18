@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::SageMaker::Space
 func LookupSpace(ctx *pulumi.Context, args *LookupSpaceArgs, opts ...pulumi.InvokeOption) (*LookupSpaceResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSpaceResult
 	err := ctx.Invoke("aws-native:sagemaker:getSpace", args, &rv, opts...)
 	if err != nil {

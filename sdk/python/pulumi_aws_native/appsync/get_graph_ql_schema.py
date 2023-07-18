@@ -67,9 +67,9 @@ def get_graph_ql_schema(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:appsync:getGraphQLSchema', __args__, opts=opts, typ=GetGraphQLSchemaResult).value
 
     return AwaitableGetGraphQLSchemaResult(
-        definition=__ret__.definition,
-        definition_s3_location=__ret__.definition_s3_location,
-        id=__ret__.id)
+        definition=pulumi.get(__ret__, 'definition'),
+        definition_s3_location=pulumi.get(__ret__, 'definition_s3_location'),
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_graph_ql_schema)

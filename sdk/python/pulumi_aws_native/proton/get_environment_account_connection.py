@@ -167,16 +167,16 @@ def get_environment_account_connection(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:proton:getEnvironmentAccountConnection', __args__, opts=opts, typ=GetEnvironmentAccountConnectionResult).value
 
     return AwaitableGetEnvironmentAccountConnectionResult(
-        arn=__ret__.arn,
-        codebuild_role_arn=__ret__.codebuild_role_arn,
-        component_role_arn=__ret__.component_role_arn,
-        environment_account_id=__ret__.environment_account_id,
-        environment_name=__ret__.environment_name,
-        id=__ret__.id,
-        management_account_id=__ret__.management_account_id,
-        role_arn=__ret__.role_arn,
-        status=__ret__.status,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        codebuild_role_arn=pulumi.get(__ret__, 'codebuild_role_arn'),
+        component_role_arn=pulumi.get(__ret__, 'component_role_arn'),
+        environment_account_id=pulumi.get(__ret__, 'environment_account_id'),
+        environment_name=pulumi.get(__ret__, 'environment_name'),
+        id=pulumi.get(__ret__, 'id'),
+        management_account_id=pulumi.get(__ret__, 'management_account_id'),
+        role_arn=pulumi.get(__ret__, 'role_arn'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_environment_account_connection)

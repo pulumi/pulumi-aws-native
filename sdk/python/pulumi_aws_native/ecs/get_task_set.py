@@ -75,8 +75,8 @@ def get_task_set(cluster: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ecs:getTaskSet', __args__, opts=opts, typ=GetTaskSetResult).value
 
     return AwaitableGetTaskSetResult(
-        id=__ret__.id,
-        scale=__ret__.scale)
+        id=pulumi.get(__ret__, 'id'),
+        scale=pulumi.get(__ret__, 'scale'))
 
 
 @_utilities.lift_output_func(get_task_set)

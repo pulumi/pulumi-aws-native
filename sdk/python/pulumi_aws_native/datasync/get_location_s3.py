@@ -80,9 +80,9 @@ def get_location_s3(location_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:datasync:getLocationS3', __args__, opts=opts, typ=GetLocationS3Result).value
 
     return AwaitableGetLocationS3Result(
-        location_arn=__ret__.location_arn,
-        location_uri=__ret__.location_uri,
-        tags=__ret__.tags)
+        location_arn=pulumi.get(__ret__, 'location_arn'),
+        location_uri=pulumi.get(__ret__, 'location_uri'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_location_s3)

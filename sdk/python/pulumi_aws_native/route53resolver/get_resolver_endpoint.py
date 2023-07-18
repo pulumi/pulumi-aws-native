@@ -113,14 +113,14 @@ def get_resolver_endpoint(resolver_endpoint_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:route53resolver:getResolverEndpoint', __args__, opts=opts, typ=GetResolverEndpointResult).value
 
     return AwaitableGetResolverEndpointResult(
-        arn=__ret__.arn,
-        host_vpc_id=__ret__.host_vpc_id,
-        ip_address_count=__ret__.ip_address_count,
-        ip_addresses=__ret__.ip_addresses,
-        name=__ret__.name,
-        resolver_endpoint_id=__ret__.resolver_endpoint_id,
-        resolver_endpoint_type=__ret__.resolver_endpoint_type,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        host_vpc_id=pulumi.get(__ret__, 'host_vpc_id'),
+        ip_address_count=pulumi.get(__ret__, 'ip_address_count'),
+        ip_addresses=pulumi.get(__ret__, 'ip_addresses'),
+        name=pulumi.get(__ret__, 'name'),
+        resolver_endpoint_id=pulumi.get(__ret__, 'resolver_endpoint_id'),
+        resolver_endpoint_type=pulumi.get(__ret__, 'resolver_endpoint_type'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_resolver_endpoint)

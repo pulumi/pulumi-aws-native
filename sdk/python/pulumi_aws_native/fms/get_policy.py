@@ -177,21 +177,21 @@ def get_policy(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:fms:getPolicy', __args__, opts=opts, typ=GetPolicyResult).value
 
     return AwaitableGetPolicyResult(
-        arn=__ret__.arn,
-        exclude_map=__ret__.exclude_map,
-        exclude_resource_tags=__ret__.exclude_resource_tags,
-        id=__ret__.id,
-        include_map=__ret__.include_map,
-        policy_description=__ret__.policy_description,
-        policy_name=__ret__.policy_name,
-        remediation_enabled=__ret__.remediation_enabled,
-        resource_set_ids=__ret__.resource_set_ids,
-        resource_tags=__ret__.resource_tags,
-        resource_type=__ret__.resource_type,
-        resource_type_list=__ret__.resource_type_list,
-        resources_clean_up=__ret__.resources_clean_up,
-        security_service_policy_data=__ret__.security_service_policy_data,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        exclude_map=pulumi.get(__ret__, 'exclude_map'),
+        exclude_resource_tags=pulumi.get(__ret__, 'exclude_resource_tags'),
+        id=pulumi.get(__ret__, 'id'),
+        include_map=pulumi.get(__ret__, 'include_map'),
+        policy_description=pulumi.get(__ret__, 'policy_description'),
+        policy_name=pulumi.get(__ret__, 'policy_name'),
+        remediation_enabled=pulumi.get(__ret__, 'remediation_enabled'),
+        resource_set_ids=pulumi.get(__ret__, 'resource_set_ids'),
+        resource_tags=pulumi.get(__ret__, 'resource_tags'),
+        resource_type=pulumi.get(__ret__, 'resource_type'),
+        resource_type_list=pulumi.get(__ret__, 'resource_type_list'),
+        resources_clean_up=pulumi.get(__ret__, 'resources_clean_up'),
+        security_service_policy_data=pulumi.get(__ret__, 'security_service_policy_data'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_policy)

@@ -68,9 +68,9 @@ def get_receipt_rule(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ses:getReceiptRule', __args__, opts=opts, typ=GetReceiptRuleResult).value
 
     return AwaitableGetReceiptRuleResult(
-        after=__ret__.after,
-        id=__ret__.id,
-        rule=__ret__.rule)
+        after=pulumi.get(__ret__, 'after'),
+        id=pulumi.get(__ret__, 'id'),
+        rule=pulumi.get(__ret__, 'rule'))
 
 
 @_utilities.lift_output_func(get_receipt_rule)

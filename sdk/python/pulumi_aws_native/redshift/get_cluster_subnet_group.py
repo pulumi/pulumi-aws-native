@@ -79,9 +79,9 @@ def get_cluster_subnet_group(cluster_subnet_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:redshift:getClusterSubnetGroup', __args__, opts=opts, typ=GetClusterSubnetGroupResult).value
 
     return AwaitableGetClusterSubnetGroupResult(
-        cluster_subnet_group_name=__ret__.cluster_subnet_group_name,
-        description=__ret__.description,
-        subnet_ids=__ret__.subnet_ids)
+        cluster_subnet_group_name=pulumi.get(__ret__, 'cluster_subnet_group_name'),
+        description=pulumi.get(__ret__, 'description'),
+        subnet_ids=pulumi.get(__ret__, 'subnet_ids'))
 
 
 @_utilities.lift_output_func(get_cluster_subnet_group)

@@ -87,11 +87,11 @@ def get_service_action(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:servicecatalog:getServiceAction', __args__, opts=opts, typ=GetServiceActionResult).value
 
     return AwaitableGetServiceActionResult(
-        definition=__ret__.definition,
-        definition_type=__ret__.definition_type,
-        description=__ret__.description,
-        id=__ret__.id,
-        name=__ret__.name)
+        definition=pulumi.get(__ret__, 'definition'),
+        definition_type=pulumi.get(__ret__, 'definition_type'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'))
 
 
 @_utilities.lift_output_func(get_service_action)

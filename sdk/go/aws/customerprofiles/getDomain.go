@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // A domain defined for 3rd party data source in Profile Service
 func LookupDomain(ctx *pulumi.Context, args *LookupDomainArgs, opts ...pulumi.InvokeOption) (*LookupDomainResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDomainResult
 	err := ctx.Invoke("aws-native:customerprofiles:getDomain", args, &rv, opts...)
 	if err != nil {

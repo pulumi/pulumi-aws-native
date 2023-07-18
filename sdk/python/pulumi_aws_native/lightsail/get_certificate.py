@@ -77,9 +77,9 @@ def get_certificate(certificate_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:lightsail:getCertificate', __args__, opts=opts, typ=GetCertificateResult).value
 
     return AwaitableGetCertificateResult(
-        certificate_arn=__ret__.certificate_arn,
-        status=__ret__.status,
-        tags=__ret__.tags)
+        certificate_arn=pulumi.get(__ret__, 'certificate_arn'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_certificate)

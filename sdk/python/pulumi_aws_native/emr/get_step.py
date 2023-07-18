@@ -49,7 +49,7 @@ def get_step(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:emr:getStep', __args__, opts=opts, typ=GetStepResult).value
 
     return AwaitableGetStepResult(
-        id=__ret__.id)
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_step)

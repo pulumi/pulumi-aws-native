@@ -113,14 +113,14 @@ def get_config_rule(config_rule_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:configuration:getConfigRule', __args__, opts=opts, typ=GetConfigRuleResult).value
 
     return AwaitableGetConfigRuleResult(
-        arn=__ret__.arn,
-        compliance_type=__ret__.compliance_type,
-        config_rule_id=__ret__.config_rule_id,
-        description=__ret__.description,
-        input_parameters=__ret__.input_parameters,
-        maximum_execution_frequency=__ret__.maximum_execution_frequency,
-        scope=__ret__.scope,
-        source=__ret__.source)
+        arn=pulumi.get(__ret__, 'arn'),
+        compliance_type=pulumi.get(__ret__, 'compliance_type'),
+        config_rule_id=pulumi.get(__ret__, 'config_rule_id'),
+        description=pulumi.get(__ret__, 'description'),
+        input_parameters=pulumi.get(__ret__, 'input_parameters'),
+        maximum_execution_frequency=pulumi.get(__ret__, 'maximum_execution_frequency'),
+        scope=pulumi.get(__ret__, 'scope'),
+        source=pulumi.get(__ret__, 'source'))
 
 
 @_utilities.lift_output_func(get_config_rule)

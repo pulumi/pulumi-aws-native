@@ -59,8 +59,8 @@ def get_fleet(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:robomaker:getFleet', __args__, opts=opts, typ=GetFleetResult).value
 
     return AwaitableGetFleetResult(
-        arn=__ret__.arn,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_fleet)

@@ -76,10 +76,10 @@ def get_launch_notification_constraint(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:servicecatalog:getLaunchNotificationConstraint', __args__, opts=opts, typ=GetLaunchNotificationConstraintResult).value
 
     return AwaitableGetLaunchNotificationConstraintResult(
-        accept_language=__ret__.accept_language,
-        description=__ret__.description,
-        id=__ret__.id,
-        notification_arns=__ret__.notification_arns)
+        accept_language=pulumi.get(__ret__, 'accept_language'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        notification_arns=pulumi.get(__ret__, 'notification_arns'))
 
 
 @_utilities.lift_output_func(get_launch_notification_constraint)

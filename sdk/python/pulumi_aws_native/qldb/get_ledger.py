@@ -86,11 +86,11 @@ def get_ledger(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:qldb:getLedger', __args__, opts=opts, typ=GetLedgerResult).value
 
     return AwaitableGetLedgerResult(
-        deletion_protection=__ret__.deletion_protection,
-        id=__ret__.id,
-        kms_key=__ret__.kms_key,
-        permissions_mode=__ret__.permissions_mode,
-        tags=__ret__.tags)
+        deletion_protection=pulumi.get(__ret__, 'deletion_protection'),
+        id=pulumi.get(__ret__, 'id'),
+        kms_key=pulumi.get(__ret__, 'kms_key'),
+        permissions_mode=pulumi.get(__ret__, 'permissions_mode'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_ledger)

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::OpsWorks::App
 func LookupApp(ctx *pulumi.Context, args *LookupAppArgs, opts ...pulumi.InvokeOption) (*LookupAppResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAppResult
 	err := ctx.Invoke("aws-native:opsworks:getApp", args, &rv, opts...)
 	if err != nil {

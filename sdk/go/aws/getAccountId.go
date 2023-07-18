@@ -4,10 +4,12 @@
 package aws
 
 import (
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func GetAccountId(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetAccountIdResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAccountIdResult
 	err := ctx.Invoke("aws-native:index:getAccountId", nil, &rv, opts...)
 	if err != nil {

@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -31,6 +32,7 @@ func NewRegexPatternSet(ctx *pulumi.Context,
 	if args.RegexPatternStrings == nil {
 		return nil, errors.New("invalid value for required argument 'RegexPatternStrings'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RegexPatternSet
 	err := ctx.RegisterResource("aws-native:wafregional:RegexPatternSet", name, args, &resource, opts...)
 	if err != nil {

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for AWS::Route53Resolver::ResolverConfig.
 func LookupResolverConfig(ctx *pulumi.Context, args *LookupResolverConfigArgs, opts ...pulumi.InvokeOption) (*LookupResolverConfigResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResolverConfigResult
 	err := ctx.Invoke("aws-native:route53resolver:getResolverConfig", args, &rv, opts...)
 	if err != nil {

@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -46,6 +47,7 @@ func NewAnalysis(ctx *pulumi.Context,
 	if args.AwsAccountId == nil {
 		return nil, errors.New("invalid value for required argument 'AwsAccountId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Analysis
 	err := ctx.RegisterResource("aws-native:quicksight:Analysis", name, args, &resource, opts...)
 	if err != nil {

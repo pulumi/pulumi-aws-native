@@ -117,12 +117,12 @@ def get_rule(rule_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:connect:getRule', __args__, opts=opts, typ=GetRuleResult).value
 
     return AwaitableGetRuleResult(
-        actions=__ret__.actions,
-        function=__ret__.function,
-        name=__ret__.name,
-        publish_status=__ret__.publish_status,
-        rule_arn=__ret__.rule_arn,
-        tags=__ret__.tags)
+        actions=pulumi.get(__ret__, 'actions'),
+        function=pulumi.get(__ret__, 'function'),
+        name=pulumi.get(__ret__, 'name'),
+        publish_status=pulumi.get(__ret__, 'publish_status'),
+        rule_arn=pulumi.get(__ret__, 'rule_arn'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_rule)

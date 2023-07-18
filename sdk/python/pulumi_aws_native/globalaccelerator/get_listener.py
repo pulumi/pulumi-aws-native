@@ -90,10 +90,10 @@ def get_listener(listener_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:globalaccelerator:getListener', __args__, opts=opts, typ=GetListenerResult).value
 
     return AwaitableGetListenerResult(
-        client_affinity=__ret__.client_affinity,
-        listener_arn=__ret__.listener_arn,
-        port_ranges=__ret__.port_ranges,
-        protocol=__ret__.protocol)
+        client_affinity=pulumi.get(__ret__, 'client_affinity'),
+        listener_arn=pulumi.get(__ret__, 'listener_arn'),
+        port_ranges=pulumi.get(__ret__, 'port_ranges'),
+        protocol=pulumi.get(__ret__, 'protocol'))
 
 
 @_utilities.lift_output_func(get_listener)

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::SageMaker::NotebookInstanceLifecycleConfig
 func LookupNotebookInstanceLifecycleConfig(ctx *pulumi.Context, args *LookupNotebookInstanceLifecycleConfigArgs, opts ...pulumi.InvokeOption) (*LookupNotebookInstanceLifecycleConfigResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupNotebookInstanceLifecycleConfigResult
 	err := ctx.Invoke("aws-native:sagemaker:getNotebookInstanceLifecycleConfig", args, &rv, opts...)
 	if err != nil {

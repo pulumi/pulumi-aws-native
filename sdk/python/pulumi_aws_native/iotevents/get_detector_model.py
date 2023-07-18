@@ -104,11 +104,11 @@ def get_detector_model(detector_model_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iotevents:getDetectorModel', __args__, opts=opts, typ=GetDetectorModelResult).value
 
     return AwaitableGetDetectorModelResult(
-        detector_model_definition=__ret__.detector_model_definition,
-        detector_model_description=__ret__.detector_model_description,
-        evaluation_method=__ret__.evaluation_method,
-        role_arn=__ret__.role_arn,
-        tags=__ret__.tags)
+        detector_model_definition=pulumi.get(__ret__, 'detector_model_definition'),
+        detector_model_description=pulumi.get(__ret__, 'detector_model_description'),
+        evaluation_method=pulumi.get(__ret__, 'evaluation_method'),
+        role_arn=pulumi.get(__ret__, 'role_arn'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_detector_model)

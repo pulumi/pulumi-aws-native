@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::SSM::ResourceDataSync
 func LookupResourceDataSync(ctx *pulumi.Context, args *LookupResourceDataSyncArgs, opts ...pulumi.InvokeOption) (*LookupResourceDataSyncResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResourceDataSyncResult
 	err := ctx.Invoke("aws-native:ssm:getResourceDataSync", args, &rv, opts...)
 	if err != nil {

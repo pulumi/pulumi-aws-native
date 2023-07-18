@@ -49,7 +49,7 @@ def get_transit_gateway_route_table(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getTransitGatewayRouteTable', __args__, opts=opts, typ=GetTransitGatewayRouteTableResult).value
 
     return AwaitableGetTransitGatewayRouteTableResult(
-        id=__ret__.id)
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_transit_gateway_route_table)

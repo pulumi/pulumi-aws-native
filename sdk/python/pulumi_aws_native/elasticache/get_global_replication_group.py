@@ -93,10 +93,10 @@ def get_global_replication_group(global_replication_group_id: Optional[str] = No
     __ret__ = pulumi.runtime.invoke('aws-native:elasticache:getGlobalReplicationGroup', __args__, opts=opts, typ=GetGlobalReplicationGroupResult).value
 
     return AwaitableGetGlobalReplicationGroupResult(
-        cache_parameter_group_name=__ret__.cache_parameter_group_name,
-        global_replication_group_id=__ret__.global_replication_group_id,
-        members=__ret__.members,
-        status=__ret__.status)
+        cache_parameter_group_name=pulumi.get(__ret__, 'cache_parameter_group_name'),
+        global_replication_group_id=pulumi.get(__ret__, 'global_replication_group_id'),
+        members=pulumi.get(__ret__, 'members'),
+        status=pulumi.get(__ret__, 'status'))
 
 
 @_utilities.lift_output_func(get_global_replication_group)

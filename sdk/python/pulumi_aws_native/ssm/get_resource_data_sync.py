@@ -50,7 +50,7 @@ def get_resource_data_sync(sync_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ssm:getResourceDataSync', __args__, opts=opts, typ=GetResourceDataSyncResult).value
 
     return AwaitableGetResourceDataSyncResult(
-        sync_source=__ret__.sync_source)
+        sync_source=pulumi.get(__ret__, 'sync_source'))
 
 
 @_utilities.lift_output_func(get_resource_data_sync)

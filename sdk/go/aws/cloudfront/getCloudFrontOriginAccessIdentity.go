@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::CloudFront::CloudFrontOriginAccessIdentity
 func LookupCloudFrontOriginAccessIdentity(ctx *pulumi.Context, args *LookupCloudFrontOriginAccessIdentityArgs, opts ...pulumi.InvokeOption) (*LookupCloudFrontOriginAccessIdentityResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCloudFrontOriginAccessIdentityResult
 	err := ctx.Invoke("aws-native:cloudfront:getCloudFrontOriginAccessIdentity", args, &rv, opts...)
 	if err != nil {

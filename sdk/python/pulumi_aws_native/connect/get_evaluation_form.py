@@ -141,14 +141,14 @@ def get_evaluation_form(evaluation_form_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:connect:getEvaluationForm', __args__, opts=opts, typ=GetEvaluationFormResult).value
 
     return AwaitableGetEvaluationFormResult(
-        description=__ret__.description,
-        evaluation_form_arn=__ret__.evaluation_form_arn,
-        instance_arn=__ret__.instance_arn,
-        items=__ret__.items,
-        scoring_strategy=__ret__.scoring_strategy,
-        status=__ret__.status,
-        tags=__ret__.tags,
-        title=__ret__.title)
+        description=pulumi.get(__ret__, 'description'),
+        evaluation_form_arn=pulumi.get(__ret__, 'evaluation_form_arn'),
+        instance_arn=pulumi.get(__ret__, 'instance_arn'),
+        items=pulumi.get(__ret__, 'items'),
+        scoring_strategy=pulumi.get(__ret__, 'scoring_strategy'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'),
+        title=pulumi.get(__ret__, 'title'))
 
 
 @_utilities.lift_output_func(get_evaluation_form)

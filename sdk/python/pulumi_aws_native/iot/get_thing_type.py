@@ -80,10 +80,10 @@ def get_thing_type(thing_type_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iot:getThingType', __args__, opts=opts, typ=GetThingTypeResult).value
 
     return AwaitableGetThingTypeResult(
-        arn=__ret__.arn,
-        deprecate_thing_type=__ret__.deprecate_thing_type,
-        id=__ret__.id,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        deprecate_thing_type=pulumi.get(__ret__, 'deprecate_thing_type'),
+        id=pulumi.get(__ret__, 'id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_thing_type)

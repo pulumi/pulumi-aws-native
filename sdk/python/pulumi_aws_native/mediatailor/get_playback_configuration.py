@@ -249,23 +249,23 @@ def get_playback_configuration(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:mediatailor:getPlaybackConfiguration', __args__, opts=opts, typ=GetPlaybackConfigurationResult).value
 
     return AwaitableGetPlaybackConfigurationResult(
-        ad_decision_server_url=__ret__.ad_decision_server_url,
-        avail_suppression=__ret__.avail_suppression,
-        bumper=__ret__.bumper,
-        cdn_configuration=__ret__.cdn_configuration,
-        configuration_aliases=__ret__.configuration_aliases,
-        dash_configuration=__ret__.dash_configuration,
-        hls_configuration=__ret__.hls_configuration,
-        live_pre_roll_configuration=__ret__.live_pre_roll_configuration,
-        manifest_processing_rules=__ret__.manifest_processing_rules,
-        personalization_threshold_seconds=__ret__.personalization_threshold_seconds,
-        playback_configuration_arn=__ret__.playback_configuration_arn,
-        playback_endpoint_prefix=__ret__.playback_endpoint_prefix,
-        session_initialization_endpoint_prefix=__ret__.session_initialization_endpoint_prefix,
-        slate_ad_url=__ret__.slate_ad_url,
-        tags=__ret__.tags,
-        transcode_profile_name=__ret__.transcode_profile_name,
-        video_content_source_url=__ret__.video_content_source_url)
+        ad_decision_server_url=pulumi.get(__ret__, 'ad_decision_server_url'),
+        avail_suppression=pulumi.get(__ret__, 'avail_suppression'),
+        bumper=pulumi.get(__ret__, 'bumper'),
+        cdn_configuration=pulumi.get(__ret__, 'cdn_configuration'),
+        configuration_aliases=pulumi.get(__ret__, 'configuration_aliases'),
+        dash_configuration=pulumi.get(__ret__, 'dash_configuration'),
+        hls_configuration=pulumi.get(__ret__, 'hls_configuration'),
+        live_pre_roll_configuration=pulumi.get(__ret__, 'live_pre_roll_configuration'),
+        manifest_processing_rules=pulumi.get(__ret__, 'manifest_processing_rules'),
+        personalization_threshold_seconds=pulumi.get(__ret__, 'personalization_threshold_seconds'),
+        playback_configuration_arn=pulumi.get(__ret__, 'playback_configuration_arn'),
+        playback_endpoint_prefix=pulumi.get(__ret__, 'playback_endpoint_prefix'),
+        session_initialization_endpoint_prefix=pulumi.get(__ret__, 'session_initialization_endpoint_prefix'),
+        slate_ad_url=pulumi.get(__ret__, 'slate_ad_url'),
+        tags=pulumi.get(__ret__, 'tags'),
+        transcode_profile_name=pulumi.get(__ret__, 'transcode_profile_name'),
+        video_content_source_url=pulumi.get(__ret__, 'video_content_source_url'))
 
 
 @_utilities.lift_output_func(get_playback_configuration)

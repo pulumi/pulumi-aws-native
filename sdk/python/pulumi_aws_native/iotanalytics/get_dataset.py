@@ -114,14 +114,14 @@ def get_dataset(dataset_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iotanalytics:getDataset', __args__, opts=opts, typ=GetDatasetResult).value
 
     return AwaitableGetDatasetResult(
-        actions=__ret__.actions,
-        content_delivery_rules=__ret__.content_delivery_rules,
-        id=__ret__.id,
-        late_data_rules=__ret__.late_data_rules,
-        retention_period=__ret__.retention_period,
-        tags=__ret__.tags,
-        triggers=__ret__.triggers,
-        versioning_configuration=__ret__.versioning_configuration)
+        actions=pulumi.get(__ret__, 'actions'),
+        content_delivery_rules=pulumi.get(__ret__, 'content_delivery_rules'),
+        id=pulumi.get(__ret__, 'id'),
+        late_data_rules=pulumi.get(__ret__, 'late_data_rules'),
+        retention_period=pulumi.get(__ret__, 'retention_period'),
+        tags=pulumi.get(__ret__, 'tags'),
+        triggers=pulumi.get(__ret__, 'triggers'),
+        versioning_configuration=pulumi.get(__ret__, 'versioning_configuration'))
 
 
 @_utilities.lift_output_func(get_dataset)

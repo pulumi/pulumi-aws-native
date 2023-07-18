@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -37,6 +38,7 @@ func NewIntegrationAssociation(ctx *pulumi.Context,
 	if args.IntegrationType == nil {
 		return nil, errors.New("invalid value for required argument 'IntegrationType'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource IntegrationAssociation
 	err := ctx.RegisterResource("aws-native:connect:IntegrationAssociation", name, args, &resource, opts...)
 	if err != nil {

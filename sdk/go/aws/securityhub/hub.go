@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -29,6 +30,7 @@ func NewHub(ctx *pulumi.Context,
 		args = &HubArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Hub
 	err := ctx.RegisterResource("aws-native:securityhub:Hub", name, args, &resource, opts...)
 	if err != nil {

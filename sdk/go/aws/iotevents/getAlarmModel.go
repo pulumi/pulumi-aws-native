@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -14,6 +15,7 @@ import (
 //
 // Alarms are instances of alarm models. The alarm model specifies what to detect, when to send notifications, who gets notified, and more. You can also specify one or more supported actions that occur when the alarm state changes. AWS IoT Events routes input attributes derived from your data to the appropriate alarms. If the data that you're monitoring is outside the specified range, the alarm is invoked. You can also acknowledge the alarms or set them to the snooze mode.
 func LookupAlarmModel(ctx *pulumi.Context, args *LookupAlarmModelArgs, opts ...pulumi.InvokeOption) (*LookupAlarmModelResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAlarmModelResult
 	err := ctx.Invoke("aws-native:iotevents:getAlarmModel", args, &rv, opts...)
 	if err != nil {

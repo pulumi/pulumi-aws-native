@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::EventSchemas::RegistryPolicy
 func LookupRegistryPolicy(ctx *pulumi.Context, args *LookupRegistryPolicyArgs, opts ...pulumi.InvokeOption) (*LookupRegistryPolicyResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRegistryPolicyResult
 	err := ctx.Invoke("aws-native:eventschemas:getRegistryPolicy", args, &rv, opts...)
 	if err != nil {

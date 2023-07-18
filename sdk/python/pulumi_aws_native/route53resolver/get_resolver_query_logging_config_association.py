@@ -104,11 +104,11 @@ def get_resolver_query_logging_config_association(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:route53resolver:getResolverQueryLoggingConfigAssociation', __args__, opts=opts, typ=GetResolverQueryLoggingConfigAssociationResult).value
 
     return AwaitableGetResolverQueryLoggingConfigAssociationResult(
-        creation_time=__ret__.creation_time,
-        error=__ret__.error,
-        error_message=__ret__.error_message,
-        id=__ret__.id,
-        status=__ret__.status)
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        error=pulumi.get(__ret__, 'error'),
+        error_message=pulumi.get(__ret__, 'error_message'),
+        id=pulumi.get(__ret__, 'id'),
+        status=pulumi.get(__ret__, 'status'))
 
 
 @_utilities.lift_output_func(get_resolver_query_logging_config_association)

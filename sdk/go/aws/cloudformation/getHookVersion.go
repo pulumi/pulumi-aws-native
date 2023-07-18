@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Publishes new or first hook version to AWS CloudFormation Registry.
 func LookupHookVersion(ctx *pulumi.Context, args *LookupHookVersionArgs, opts ...pulumi.InvokeOption) (*LookupHookVersionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupHookVersionResult
 	err := ctx.Invoke("aws-native:cloudformation:getHookVersion", args, &rv, opts...)
 	if err != nil {

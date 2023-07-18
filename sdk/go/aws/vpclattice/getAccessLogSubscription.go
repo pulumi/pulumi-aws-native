@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Enables access logs to be sent to Amazon CloudWatch, Amazon S3, and Amazon Kinesis Data Firehose. The service network owner can use the access logs to audit the services in the network. The service network owner will only see access logs from clients and services that are associated with their service network. Access log entries represent traffic originated from VPCs associated with that network.
 func LookupAccessLogSubscription(ctx *pulumi.Context, args *LookupAccessLogSubscriptionArgs, opts ...pulumi.InvokeOption) (*LookupAccessLogSubscriptionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAccessLogSubscriptionResult
 	err := ctx.Invoke("aws-native:vpclattice:getAccessLogSubscription", args, &rv, opts...)
 	if err != nil {

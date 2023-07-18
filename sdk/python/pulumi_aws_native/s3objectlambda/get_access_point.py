@@ -107,12 +107,12 @@ def get_access_point(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:s3objectlambda:getAccessPoint', __args__, opts=opts, typ=GetAccessPointResult).value
 
     return AwaitableGetAccessPointResult(
-        alias=__ret__.alias,
-        arn=__ret__.arn,
-        creation_date=__ret__.creation_date,
-        object_lambda_configuration=__ret__.object_lambda_configuration,
-        policy_status=__ret__.policy_status,
-        public_access_block_configuration=__ret__.public_access_block_configuration)
+        alias=pulumi.get(__ret__, 'alias'),
+        arn=pulumi.get(__ret__, 'arn'),
+        creation_date=pulumi.get(__ret__, 'creation_date'),
+        object_lambda_configuration=pulumi.get(__ret__, 'object_lambda_configuration'),
+        policy_status=pulumi.get(__ret__, 'policy_status'),
+        public_access_block_configuration=pulumi.get(__ret__, 'public_access_block_configuration'))
 
 
 @_utilities.lift_output_func(get_access_point)

@@ -83,9 +83,9 @@ def get_group_membership(identity_store_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:identitystore:getGroupMembership', __args__, opts=opts, typ=GetGroupMembershipResult).value
 
     return AwaitableGetGroupMembershipResult(
-        group_id=__ret__.group_id,
-        member_id=__ret__.member_id,
-        membership_id=__ret__.membership_id)
+        group_id=pulumi.get(__ret__, 'group_id'),
+        member_id=pulumi.get(__ret__, 'member_id'),
+        membership_id=pulumi.get(__ret__, 'membership_id'))
 
 
 @_utilities.lift_output_func(get_group_membership)

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::AppStream::ImageBuilder
 func LookupImageBuilder(ctx *pulumi.Context, args *LookupImageBuilderArgs, opts ...pulumi.InvokeOption) (*LookupImageBuilderResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupImageBuilderResult
 	err := ctx.Invoke("aws-native:appstream:getImageBuilder", args, &rv, opts...)
 	if err != nil {

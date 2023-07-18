@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::CloudFront::MonitoringSubscription
 func LookupMonitoringSubscription(ctx *pulumi.Context, args *LookupMonitoringSubscriptionArgs, opts ...pulumi.InvokeOption) (*LookupMonitoringSubscriptionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupMonitoringSubscriptionResult
 	err := ctx.Invoke("aws-native:cloudfront:getMonitoringSubscription", args, &rv, opts...)
 	if err != nil {

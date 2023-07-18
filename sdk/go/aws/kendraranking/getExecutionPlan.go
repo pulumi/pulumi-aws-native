@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // A KendraRanking Rescore execution plan
 func LookupExecutionPlan(ctx *pulumi.Context, args *LookupExecutionPlanArgs, opts ...pulumi.InvokeOption) (*LookupExecutionPlanResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupExecutionPlanResult
 	err := ctx.Invoke("aws-native:kendraranking:getExecutionPlan", args, &rv, opts...)
 	if err != nil {

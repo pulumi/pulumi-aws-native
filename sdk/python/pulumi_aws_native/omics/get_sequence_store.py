@@ -73,9 +73,9 @@ def get_sequence_store(sequence_store_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:omics:getSequenceStore', __args__, opts=opts, typ=GetSequenceStoreResult).value
 
     return AwaitableGetSequenceStoreResult(
-        arn=__ret__.arn,
-        creation_time=__ret__.creation_time,
-        sequence_store_id=__ret__.sequence_store_id)
+        arn=pulumi.get(__ret__, 'arn'),
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        sequence_store_id=pulumi.get(__ret__, 'sequence_store_id'))
 
 
 @_utilities.lift_output_func(get_sequence_store)

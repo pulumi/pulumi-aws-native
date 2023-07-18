@@ -107,11 +107,11 @@ def get_eip(allocation_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getEIP', __args__, opts=opts, typ=GetEIPResult).value
 
     return AwaitableGetEIPResult(
-        allocation_id=__ret__.allocation_id,
-        instance_id=__ret__.instance_id,
-        public_ip=__ret__.public_ip,
-        public_ipv4_pool=__ret__.public_ipv4_pool,
-        tags=__ret__.tags)
+        allocation_id=pulumi.get(__ret__, 'allocation_id'),
+        instance_id=pulumi.get(__ret__, 'instance_id'),
+        public_ip=pulumi.get(__ret__, 'public_ip'),
+        public_ipv4_pool=pulumi.get(__ret__, 'public_ipv4_pool'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_eip)

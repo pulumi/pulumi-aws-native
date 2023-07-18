@@ -128,13 +128,13 @@ def get_resolver_rule(resolver_rule_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:route53resolver:getResolverRule', __args__, opts=opts, typ=GetResolverRuleResult).value
 
     return AwaitableGetResolverRuleResult(
-        arn=__ret__.arn,
-        domain_name=__ret__.domain_name,
-        name=__ret__.name,
-        resolver_endpoint_id=__ret__.resolver_endpoint_id,
-        resolver_rule_id=__ret__.resolver_rule_id,
-        tags=__ret__.tags,
-        target_ips=__ret__.target_ips)
+        arn=pulumi.get(__ret__, 'arn'),
+        domain_name=pulumi.get(__ret__, 'domain_name'),
+        name=pulumi.get(__ret__, 'name'),
+        resolver_endpoint_id=pulumi.get(__ret__, 'resolver_endpoint_id'),
+        resolver_rule_id=pulumi.get(__ret__, 'resolver_rule_id'),
+        tags=pulumi.get(__ret__, 'tags'),
+        target_ips=pulumi.get(__ret__, 'target_ips'))
 
 
 @_utilities.lift_output_func(get_resolver_rule)

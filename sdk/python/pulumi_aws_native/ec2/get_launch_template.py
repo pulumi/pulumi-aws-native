@@ -79,9 +79,9 @@ def get_launch_template(launch_template_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getLaunchTemplate', __args__, opts=opts, typ=GetLaunchTemplateResult).value
 
     return AwaitableGetLaunchTemplateResult(
-        default_version_number=__ret__.default_version_number,
-        latest_version_number=__ret__.latest_version_number,
-        launch_template_id=__ret__.launch_template_id)
+        default_version_number=pulumi.get(__ret__, 'default_version_number'),
+        latest_version_number=pulumi.get(__ret__, 'latest_version_number'),
+        launch_template_id=pulumi.get(__ret__, 'launch_template_id'))
 
 
 @_utilities.lift_output_func(get_launch_template)

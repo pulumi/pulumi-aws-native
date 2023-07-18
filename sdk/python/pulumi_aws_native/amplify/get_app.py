@@ -177,21 +177,21 @@ def get_app(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:amplify:getApp', __args__, opts=opts, typ=GetAppResult).value
 
     return AwaitableGetAppResult(
-        app_id=__ret__.app_id,
-        app_name=__ret__.app_name,
-        arn=__ret__.arn,
-        build_spec=__ret__.build_spec,
-        custom_headers=__ret__.custom_headers,
-        custom_rules=__ret__.custom_rules,
-        default_domain=__ret__.default_domain,
-        description=__ret__.description,
-        enable_branch_auto_deletion=__ret__.enable_branch_auto_deletion,
-        environment_variables=__ret__.environment_variables,
-        i_am_service_role=__ret__.i_am_service_role,
-        name=__ret__.name,
-        platform=__ret__.platform,
-        repository=__ret__.repository,
-        tags=__ret__.tags)
+        app_id=pulumi.get(__ret__, 'app_id'),
+        app_name=pulumi.get(__ret__, 'app_name'),
+        arn=pulumi.get(__ret__, 'arn'),
+        build_spec=pulumi.get(__ret__, 'build_spec'),
+        custom_headers=pulumi.get(__ret__, 'custom_headers'),
+        custom_rules=pulumi.get(__ret__, 'custom_rules'),
+        default_domain=pulumi.get(__ret__, 'default_domain'),
+        description=pulumi.get(__ret__, 'description'),
+        enable_branch_auto_deletion=pulumi.get(__ret__, 'enable_branch_auto_deletion'),
+        environment_variables=pulumi.get(__ret__, 'environment_variables'),
+        i_am_service_role=pulumi.get(__ret__, 'i_am_service_role'),
+        name=pulumi.get(__ret__, 'name'),
+        platform=pulumi.get(__ret__, 'platform'),
+        repository=pulumi.get(__ret__, 'repository'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_app)

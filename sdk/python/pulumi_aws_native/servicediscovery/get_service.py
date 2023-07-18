@@ -95,12 +95,12 @@ def get_service(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:servicediscovery:getService', __args__, opts=opts, typ=GetServiceResult).value
 
     return AwaitableGetServiceResult(
-        arn=__ret__.arn,
-        description=__ret__.description,
-        dns_config=__ret__.dns_config,
-        health_check_config=__ret__.health_check_config,
-        id=__ret__.id,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        description=pulumi.get(__ret__, 'description'),
+        dns_config=pulumi.get(__ret__, 'dns_config'),
+        health_check_config=pulumi.get(__ret__, 'health_check_config'),
+        id=pulumi.get(__ret__, 'id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_service)

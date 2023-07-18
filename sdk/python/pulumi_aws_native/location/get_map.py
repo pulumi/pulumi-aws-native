@@ -85,11 +85,11 @@ def get_map(map_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:location:getMap', __args__, opts=opts, typ=GetMapResult).value
 
     return AwaitableGetMapResult(
-        arn=__ret__.arn,
-        create_time=__ret__.create_time,
-        data_source=__ret__.data_source,
-        map_arn=__ret__.map_arn,
-        update_time=__ret__.update_time)
+        arn=pulumi.get(__ret__, 'arn'),
+        create_time=pulumi.get(__ret__, 'create_time'),
+        data_source=pulumi.get(__ret__, 'data_source'),
+        map_arn=pulumi.get(__ret__, 'map_arn'),
+        update_time=pulumi.get(__ret__, 'update_time'))
 
 
 @_utilities.lift_output_func(get_map)

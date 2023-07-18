@@ -76,10 +76,10 @@ def get_resource_update_constraint(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:servicecatalog:getResourceUpdateConstraint', __args__, opts=opts, typ=GetResourceUpdateConstraintResult).value
 
     return AwaitableGetResourceUpdateConstraintResult(
-        accept_language=__ret__.accept_language,
-        description=__ret__.description,
-        id=__ret__.id,
-        tag_update_on_provisioned_product=__ret__.tag_update_on_provisioned_product)
+        accept_language=pulumi.get(__ret__, 'accept_language'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        tag_update_on_provisioned_product=pulumi.get(__ret__, 'tag_update_on_provisioned_product'))
 
 
 @_utilities.lift_output_func(get_resource_update_constraint)

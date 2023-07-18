@@ -94,10 +94,10 @@ def get_api_mapping(api_mapping_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:apigatewayv2:getApiMapping', __args__, opts=opts, typ=GetApiMappingResult).value
 
     return AwaitableGetApiMappingResult(
-        api_id=__ret__.api_id,
-        api_mapping_id=__ret__.api_mapping_id,
-        api_mapping_key=__ret__.api_mapping_key,
-        stage=__ret__.stage)
+        api_id=pulumi.get(__ret__, 'api_id'),
+        api_mapping_id=pulumi.get(__ret__, 'api_mapping_id'),
+        api_mapping_key=pulumi.get(__ret__, 'api_mapping_key'),
+        stage=pulumi.get(__ret__, 'stage'))
 
 
 @_utilities.lift_output_func(get_api_mapping)

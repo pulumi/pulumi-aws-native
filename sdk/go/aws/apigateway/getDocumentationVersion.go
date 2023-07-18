@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // A snapshot of the documentation of an API.
 func LookupDocumentationVersion(ctx *pulumi.Context, args *LookupDocumentationVersionArgs, opts ...pulumi.InvokeOption) (*LookupDocumentationVersionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDocumentationVersionResult
 	err := ctx.Invoke("aws-native:apigateway:getDocumentationVersion", args, &rv, opts...)
 	if err != nil {

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Definition of AWS::GameCast::StreamGroup Resource Type
 func LookupStreamGroup(ctx *pulumi.Context, args *LookupStreamGroupArgs, opts ...pulumi.InvokeOption) (*LookupStreamGroupResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupStreamGroupResult
 	err := ctx.Invoke("aws-native:gamecast:getStreamGroup", args, &rv, opts...)
 	if err != nil {

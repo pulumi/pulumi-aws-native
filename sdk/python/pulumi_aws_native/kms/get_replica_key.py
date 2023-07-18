@@ -107,12 +107,12 @@ def get_replica_key(key_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:kms:getReplicaKey', __args__, opts=opts, typ=GetReplicaKeyResult).value
 
     return AwaitableGetReplicaKeyResult(
-        arn=__ret__.arn,
-        description=__ret__.description,
-        enabled=__ret__.enabled,
-        key_id=__ret__.key_id,
-        key_policy=__ret__.key_policy,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        description=pulumi.get(__ret__, 'description'),
+        enabled=pulumi.get(__ret__, 'enabled'),
+        key_id=pulumi.get(__ret__, 'key_id'),
+        key_policy=pulumi.get(__ret__, 'key_policy'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_replica_key)

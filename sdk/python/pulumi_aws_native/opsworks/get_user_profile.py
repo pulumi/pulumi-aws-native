@@ -76,10 +76,10 @@ def get_user_profile(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:opsworks:getUserProfile', __args__, opts=opts, typ=GetUserProfileResult).value
 
     return AwaitableGetUserProfileResult(
-        allow_self_management=__ret__.allow_self_management,
-        id=__ret__.id,
-        ssh_public_key=__ret__.ssh_public_key,
-        ssh_username=__ret__.ssh_username)
+        allow_self_management=pulumi.get(__ret__, 'allow_self_management'),
+        id=pulumi.get(__ret__, 'id'),
+        ssh_public_key=pulumi.get(__ret__, 'ssh_public_key'),
+        ssh_username=pulumi.get(__ret__, 'ssh_username'))
 
 
 @_utilities.lift_output_func(get_user_profile)

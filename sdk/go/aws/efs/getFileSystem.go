@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::EFS::FileSystem
 func LookupFileSystem(ctx *pulumi.Context, args *LookupFileSystemArgs, opts ...pulumi.InvokeOption) (*LookupFileSystemResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFileSystemResult
 	err := ctx.Invoke("aws-native:efs:getFileSystem", args, &rv, opts...)
 	if err != nil {

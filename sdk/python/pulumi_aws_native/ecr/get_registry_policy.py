@@ -61,8 +61,8 @@ def get_registry_policy(registry_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ecr:getRegistryPolicy', __args__, opts=opts, typ=GetRegistryPolicyResult).value
 
     return AwaitableGetRegistryPolicyResult(
-        policy_text=__ret__.policy_text,
-        registry_id=__ret__.registry_id)
+        policy_text=pulumi.get(__ret__, 'policy_text'),
+        registry_id=pulumi.get(__ret__, 'registry_id'))
 
 
 @_utilities.lift_output_func(get_registry_policy)

@@ -58,8 +58,8 @@ def get_assistant(assistant_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:wisdom:getAssistant', __args__, opts=opts, typ=GetAssistantResult).value
 
     return AwaitableGetAssistantResult(
-        assistant_arn=__ret__.assistant_arn,
-        assistant_id=__ret__.assistant_id)
+        assistant_arn=pulumi.get(__ret__, 'assistant_arn'),
+        assistant_id=pulumi.get(__ret__, 'assistant_id'))
 
 
 @_utilities.lift_output_func(get_assistant)

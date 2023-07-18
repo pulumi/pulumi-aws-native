@@ -173,17 +173,17 @@ def get_distribution(distribution_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:lightsail:getDistribution', __args__, opts=opts, typ=GetDistributionResult).value
 
     return AwaitableGetDistributionResult(
-        able_to_update_bundle=__ret__.able_to_update_bundle,
-        bundle_id=__ret__.bundle_id,
-        cache_behavior_settings=__ret__.cache_behavior_settings,
-        cache_behaviors=__ret__.cache_behaviors,
-        certificate_name=__ret__.certificate_name,
-        default_cache_behavior=__ret__.default_cache_behavior,
-        distribution_arn=__ret__.distribution_arn,
-        is_enabled=__ret__.is_enabled,
-        origin=__ret__.origin,
-        status=__ret__.status,
-        tags=__ret__.tags)
+        able_to_update_bundle=pulumi.get(__ret__, 'able_to_update_bundle'),
+        bundle_id=pulumi.get(__ret__, 'bundle_id'),
+        cache_behavior_settings=pulumi.get(__ret__, 'cache_behavior_settings'),
+        cache_behaviors=pulumi.get(__ret__, 'cache_behaviors'),
+        certificate_name=pulumi.get(__ret__, 'certificate_name'),
+        default_cache_behavior=pulumi.get(__ret__, 'default_cache_behavior'),
+        distribution_arn=pulumi.get(__ret__, 'distribution_arn'),
+        is_enabled=pulumi.get(__ret__, 'is_enabled'),
+        origin=pulumi.get(__ret__, 'origin'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_distribution)

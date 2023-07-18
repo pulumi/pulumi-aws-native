@@ -74,9 +74,9 @@ def get_vdm_attributes(vdm_attributes_resource_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ses:getVdmAttributes', __args__, opts=opts, typ=GetVdmAttributesResult).value
 
     return AwaitableGetVdmAttributesResult(
-        dashboard_attributes=__ret__.dashboard_attributes,
-        guardian_attributes=__ret__.guardian_attributes,
-        vdm_attributes_resource_id=__ret__.vdm_attributes_resource_id)
+        dashboard_attributes=pulumi.get(__ret__, 'dashboard_attributes'),
+        guardian_attributes=pulumi.get(__ret__, 'guardian_attributes'),
+        vdm_attributes_resource_id=pulumi.get(__ret__, 'vdm_attributes_resource_id'))
 
 
 @_utilities.lift_output_func(get_vdm_attributes)

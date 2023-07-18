@@ -169,18 +169,18 @@ def get_mission_profile(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:groundstation:getMissionProfile', __args__, opts=opts, typ=GetMissionProfileResult).value
 
     return AwaitableGetMissionProfileResult(
-        arn=__ret__.arn,
-        contact_post_pass_duration_seconds=__ret__.contact_post_pass_duration_seconds,
-        contact_pre_pass_duration_seconds=__ret__.contact_pre_pass_duration_seconds,
-        dataflow_edges=__ret__.dataflow_edges,
-        id=__ret__.id,
-        minimum_viable_contact_duration_seconds=__ret__.minimum_viable_contact_duration_seconds,
-        name=__ret__.name,
-        region=__ret__.region,
-        streams_kms_key=__ret__.streams_kms_key,
-        streams_kms_role=__ret__.streams_kms_role,
-        tags=__ret__.tags,
-        tracking_config_arn=__ret__.tracking_config_arn)
+        arn=pulumi.get(__ret__, 'arn'),
+        contact_post_pass_duration_seconds=pulumi.get(__ret__, 'contact_post_pass_duration_seconds'),
+        contact_pre_pass_duration_seconds=pulumi.get(__ret__, 'contact_pre_pass_duration_seconds'),
+        dataflow_edges=pulumi.get(__ret__, 'dataflow_edges'),
+        id=pulumi.get(__ret__, 'id'),
+        minimum_viable_contact_duration_seconds=pulumi.get(__ret__, 'minimum_viable_contact_duration_seconds'),
+        name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
+        streams_kms_key=pulumi.get(__ret__, 'streams_kms_key'),
+        streams_kms_role=pulumi.get(__ret__, 'streams_kms_role'),
+        tags=pulumi.get(__ret__, 'tags'),
+        tracking_config_arn=pulumi.get(__ret__, 'tracking_config_arn'))
 
 
 @_utilities.lift_output_func(get_mission_profile)

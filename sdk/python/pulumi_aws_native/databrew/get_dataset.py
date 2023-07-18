@@ -93,10 +93,10 @@ def get_dataset(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:databrew:getDataset', __args__, opts=opts, typ=GetDatasetResult).value
 
     return AwaitableGetDatasetResult(
-        format=__ret__.format,
-        format_options=__ret__.format_options,
-        input=__ret__.input,
-        path_options=__ret__.path_options)
+        format=pulumi.get(__ret__, 'format'),
+        format_options=pulumi.get(__ret__, 'format_options'),
+        input=pulumi.get(__ret__, 'input'),
+        path_options=pulumi.get(__ret__, 'path_options'))
 
 
 @_utilities.lift_output_func(get_dataset)

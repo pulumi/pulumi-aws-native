@@ -132,16 +132,16 @@ def get_route(api_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:apigatewayv2:getRoute', __args__, opts=opts, typ=GetRouteResult).value
 
     return AwaitableGetRouteResult(
-        api_key_required=__ret__.api_key_required,
-        authorization_scopes=__ret__.authorization_scopes,
-        authorization_type=__ret__.authorization_type,
-        model_selection_expression=__ret__.model_selection_expression,
-        operation_name=__ret__.operation_name,
-        request_models=__ret__.request_models,
-        route_id=__ret__.route_id,
-        route_key=__ret__.route_key,
-        route_response_selection_expression=__ret__.route_response_selection_expression,
-        target=__ret__.target)
+        api_key_required=pulumi.get(__ret__, 'api_key_required'),
+        authorization_scopes=pulumi.get(__ret__, 'authorization_scopes'),
+        authorization_type=pulumi.get(__ret__, 'authorization_type'),
+        model_selection_expression=pulumi.get(__ret__, 'model_selection_expression'),
+        operation_name=pulumi.get(__ret__, 'operation_name'),
+        request_models=pulumi.get(__ret__, 'request_models'),
+        route_id=pulumi.get(__ret__, 'route_id'),
+        route_key=pulumi.get(__ret__, 'route_key'),
+        route_response_selection_expression=pulumi.get(__ret__, 'route_response_selection_expression'),
+        target=pulumi.get(__ret__, 'target'))
 
 
 @_utilities.lift_output_func(get_route)

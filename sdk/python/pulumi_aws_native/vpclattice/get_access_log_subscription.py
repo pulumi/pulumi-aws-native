@@ -95,12 +95,12 @@ def get_access_log_subscription(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:vpclattice:getAccessLogSubscription', __args__, opts=opts, typ=GetAccessLogSubscriptionResult).value
 
     return AwaitableGetAccessLogSubscriptionResult(
-        arn=__ret__.arn,
-        destination_arn=__ret__.destination_arn,
-        id=__ret__.id,
-        resource_arn=__ret__.resource_arn,
-        resource_id=__ret__.resource_id,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        destination_arn=pulumi.get(__ret__, 'destination_arn'),
+        id=pulumi.get(__ret__, 'id'),
+        resource_arn=pulumi.get(__ret__, 'resource_arn'),
+        resource_id=pulumi.get(__ret__, 'resource_id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_access_log_subscription)

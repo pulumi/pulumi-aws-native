@@ -77,10 +77,10 @@ def get_snapshot(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:fsx:getSnapshot', __args__, opts=opts, typ=GetSnapshotResult).value
 
     return AwaitableGetSnapshotResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        resource_arn=__ret__.resource_arn,
-        tags=__ret__.tags)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_arn=pulumi.get(__ret__, 'resource_arn'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_snapshot)

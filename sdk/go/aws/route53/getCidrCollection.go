@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for AWS::Route53::CidrCollection.
 func LookupCidrCollection(ctx *pulumi.Context, args *LookupCidrCollectionArgs, opts ...pulumi.InvokeOption) (*LookupCidrCollectionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCidrCollectionResult
 	err := ctx.Invoke("aws-native:route53:getCidrCollection", args, &rv, opts...)
 	if err != nil {

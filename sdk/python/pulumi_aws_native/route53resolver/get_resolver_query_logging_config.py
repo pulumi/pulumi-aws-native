@@ -140,14 +140,14 @@ def get_resolver_query_logging_config(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:route53resolver:getResolverQueryLoggingConfig', __args__, opts=opts, typ=GetResolverQueryLoggingConfigResult).value
 
     return AwaitableGetResolverQueryLoggingConfigResult(
-        arn=__ret__.arn,
-        association_count=__ret__.association_count,
-        creation_time=__ret__.creation_time,
-        creator_request_id=__ret__.creator_request_id,
-        id=__ret__.id,
-        owner_id=__ret__.owner_id,
-        share_status=__ret__.share_status,
-        status=__ret__.status)
+        arn=pulumi.get(__ret__, 'arn'),
+        association_count=pulumi.get(__ret__, 'association_count'),
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        creator_request_id=pulumi.get(__ret__, 'creator_request_id'),
+        id=pulumi.get(__ret__, 'id'),
+        owner_id=pulumi.get(__ret__, 'owner_id'),
+        share_status=pulumi.get(__ret__, 'share_status'),
+        status=pulumi.get(__ret__, 'status'))
 
 
 @_utilities.lift_output_func(get_resolver_query_logging_config)

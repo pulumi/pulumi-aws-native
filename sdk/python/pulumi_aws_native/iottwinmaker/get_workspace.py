@@ -127,13 +127,13 @@ def get_workspace(workspace_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iottwinmaker:getWorkspace', __args__, opts=opts, typ=GetWorkspaceResult).value
 
     return AwaitableGetWorkspaceResult(
-        arn=__ret__.arn,
-        creation_date_time=__ret__.creation_date_time,
-        description=__ret__.description,
-        role=__ret__.role,
-        s3_location=__ret__.s3_location,
-        tags=__ret__.tags,
-        update_date_time=__ret__.update_date_time)
+        arn=pulumi.get(__ret__, 'arn'),
+        creation_date_time=pulumi.get(__ret__, 'creation_date_time'),
+        description=pulumi.get(__ret__, 'description'),
+        role=pulumi.get(__ret__, 'role'),
+        s3_location=pulumi.get(__ret__, 's3_location'),
+        tags=pulumi.get(__ret__, 'tags'),
+        update_date_time=pulumi.get(__ret__, 'update_date_time'))
 
 
 @_utilities.lift_output_func(get_workspace)

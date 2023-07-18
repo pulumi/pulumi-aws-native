@@ -67,9 +67,9 @@ def get_identity_pool_role_attachment(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cognito:getIdentityPoolRoleAttachment', __args__, opts=opts, typ=GetIdentityPoolRoleAttachmentResult).value
 
     return AwaitableGetIdentityPoolRoleAttachmentResult(
-        id=__ret__.id,
-        role_mappings=__ret__.role_mappings,
-        roles=__ret__.roles)
+        id=pulumi.get(__ret__, 'id'),
+        role_mappings=pulumi.get(__ret__, 'role_mappings'),
+        roles=pulumi.get(__ret__, 'roles'))
 
 
 @_utilities.lift_output_func(get_identity_pool_role_attachment)

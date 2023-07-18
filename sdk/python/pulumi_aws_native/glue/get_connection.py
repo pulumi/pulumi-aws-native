@@ -59,8 +59,8 @@ def get_connection(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:glue:getConnection', __args__, opts=opts, typ=GetConnectionResult).value
 
     return AwaitableGetConnectionResult(
-        connection_input=__ret__.connection_input,
-        id=__ret__.id)
+        connection_input=pulumi.get(__ret__, 'connection_input'),
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_connection)

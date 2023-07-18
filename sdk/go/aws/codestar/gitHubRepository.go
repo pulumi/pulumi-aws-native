@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ func NewGitHubRepository(ctx *pulumi.Context,
 	if args.RepositoryOwner == nil {
 		return nil, errors.New("invalid value for required argument 'RepositoryOwner'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource GitHubRepository
 	err := ctx.RegisterResource("aws-native:codestar:GitHubRepository", name, args, &resource, opts...)
 	if err != nil {

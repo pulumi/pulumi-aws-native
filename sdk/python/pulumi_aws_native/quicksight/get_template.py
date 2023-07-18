@@ -79,10 +79,10 @@ def get_template(aws_account_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:quicksight:getTemplate', __args__, opts=opts, typ=GetTemplateResult).value
 
     return AwaitableGetTemplateResult(
-        arn=__ret__.arn,
-        name=__ret__.name,
-        permissions=__ret__.permissions,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        name=pulumi.get(__ret__, 'name'),
+        permissions=pulumi.get(__ret__, 'permissions'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_template)

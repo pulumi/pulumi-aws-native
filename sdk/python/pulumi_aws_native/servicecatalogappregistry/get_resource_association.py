@@ -67,9 +67,9 @@ def get_resource_association(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:servicecatalogappregistry:getResourceAssociation', __args__, opts=opts, typ=GetResourceAssociationResult).value
 
     return AwaitableGetResourceAssociationResult(
-        application_arn=__ret__.application_arn,
-        id=__ret__.id,
-        resource_arn=__ret__.resource_arn)
+        application_arn=pulumi.get(__ret__, 'application_arn'),
+        id=pulumi.get(__ret__, 'id'),
+        resource_arn=pulumi.get(__ret__, 'resource_arn'))
 
 
 @_utilities.lift_output_func(get_resource_association)

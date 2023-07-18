@@ -101,12 +101,12 @@ def get_attribute_group(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:servicecatalogappregistry:getAttributeGroup', __args__, opts=opts, typ=GetAttributeGroupResult).value
 
     return AwaitableGetAttributeGroupResult(
-        arn=__ret__.arn,
-        attributes=__ret__.attributes,
-        description=__ret__.description,
-        id=__ret__.id,
-        name=__ret__.name,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        attributes=pulumi.get(__ret__, 'attributes'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_attribute_group)

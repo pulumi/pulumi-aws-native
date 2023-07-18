@@ -49,7 +49,7 @@ def get_subnet_network_acl_association(association_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getSubnetNetworkAclAssociation', __args__, opts=opts, typ=GetSubnetNetworkAclAssociationResult).value
 
     return AwaitableGetSubnetNetworkAclAssociationResult(
-        association_id=__ret__.association_id)
+        association_id=pulumi.get(__ret__, 'association_id'))
 
 
 @_utilities.lift_output_func(get_subnet_network_acl_association)

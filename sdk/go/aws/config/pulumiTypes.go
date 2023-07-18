@@ -3,6 +3,12 @@
 
 package config
 
+import (
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
+)
+
+var _ = internal.GetEnvOrDefault
+
 // The configuration for a Provider to assume a role.
 type AssumeRole struct {
 	// Number of seconds to restrict the assume role session duration.

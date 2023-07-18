@@ -59,8 +59,8 @@ def get_application_output_resource(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:kinesisanalyticsv2:getApplicationOutputResource', __args__, opts=opts, typ=GetApplicationOutputResourceResult).value
 
     return AwaitableGetApplicationOutputResourceResult(
-        id=__ret__.id,
-        output=__ret__.output)
+        id=pulumi.get(__ret__, 'id'),
+        output=pulumi.get(__ret__, 'output'))
 
 
 @_utilities.lift_output_func(get_application_output_resource)

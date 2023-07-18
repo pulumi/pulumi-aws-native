@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -29,6 +30,7 @@ func NewRecordSetGroup(ctx *pulumi.Context,
 		args = &RecordSetGroupArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RecordSetGroup
 	err := ctx.RegisterResource("aws-native:route53:RecordSetGroup", name, args, &resource, opts...)
 	if err != nil {

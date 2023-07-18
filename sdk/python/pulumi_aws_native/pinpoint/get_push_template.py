@@ -131,16 +131,16 @@ def get_push_template(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:pinpoint:getPushTemplate', __args__, opts=opts, typ=GetPushTemplateResult).value
 
     return AwaitableGetPushTemplateResult(
-        a_dm=__ret__.a_dm,
-        a_pns=__ret__.a_pns,
-        arn=__ret__.arn,
-        baidu=__ret__.baidu,
-        default=__ret__.default,
-        default_substitutions=__ret__.default_substitutions,
-        g_cm=__ret__.g_cm,
-        id=__ret__.id,
-        tags=__ret__.tags,
-        template_description=__ret__.template_description)
+        a_dm=pulumi.get(__ret__, 'a_dm'),
+        a_pns=pulumi.get(__ret__, 'a_pns'),
+        arn=pulumi.get(__ret__, 'arn'),
+        baidu=pulumi.get(__ret__, 'baidu'),
+        default=pulumi.get(__ret__, 'default'),
+        default_substitutions=pulumi.get(__ret__, 'default_substitutions'),
+        g_cm=pulumi.get(__ret__, 'g_cm'),
+        id=pulumi.get(__ret__, 'id'),
+        tags=pulumi.get(__ret__, 'tags'),
+        template_description=pulumi.get(__ret__, 'template_description'))
 
 
 @_utilities.lift_output_func(get_push_template)

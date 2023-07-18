@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // A resource schema representing a Lake Formation Tag.
 func LookupTag(ctx *pulumi.Context, args *LookupTagArgs, opts ...pulumi.InvokeOption) (*LookupTagResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTagResult
 	err := ctx.Invoke("aws-native:lakeformation:getTag", args, &rv, opts...)
 	if err != nil {

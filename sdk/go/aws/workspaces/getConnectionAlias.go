@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::WorkSpaces::ConnectionAlias
 func LookupConnectionAlias(ctx *pulumi.Context, args *LookupConnectionAliasArgs, opts ...pulumi.InvokeOption) (*LookupConnectionAliasResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupConnectionAliasResult
 	err := ctx.Invoke("aws-native:workspaces:getConnectionAlias", args, &rv, opts...)
 	if err != nil {

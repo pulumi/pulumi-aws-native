@@ -65,8 +65,8 @@ def get_dataset(dataset_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:personalize:getDataset', __args__, opts=opts, typ=GetDatasetResult).value
 
     return AwaitableGetDatasetResult(
-        dataset_arn=__ret__.dataset_arn,
-        dataset_import_job=__ret__.dataset_import_job)
+        dataset_arn=pulumi.get(__ret__, 'dataset_arn'),
+        dataset_import_job=pulumi.get(__ret__, 'dataset_import_job'))
 
 
 @_utilities.lift_output_func(get_dataset)

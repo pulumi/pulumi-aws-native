@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -37,6 +38,7 @@ func NewVpcLink(ctx *pulumi.Context,
 	if args.TargetArns == nil {
 		return nil, errors.New("invalid value for required argument 'TargetArns'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcLink
 	err := ctx.RegisterResource("aws-native:apigateway:VpcLink", name, args, &resource, opts...)
 	if err != nil {

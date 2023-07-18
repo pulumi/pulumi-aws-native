@@ -131,13 +131,13 @@ def get_link(global_network_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:networkmanager:getLink', __args__, opts=opts, typ=GetLinkResult).value
 
     return AwaitableGetLinkResult(
-        bandwidth=__ret__.bandwidth,
-        description=__ret__.description,
-        link_arn=__ret__.link_arn,
-        link_id=__ret__.link_id,
-        provider=__ret__.provider,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        bandwidth=pulumi.get(__ret__, 'bandwidth'),
+        description=pulumi.get(__ret__, 'description'),
+        link_arn=pulumi.get(__ret__, 'link_arn'),
+        link_id=pulumi.get(__ret__, 'link_id'),
+        provider=pulumi.get(__ret__, 'provider'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_link)

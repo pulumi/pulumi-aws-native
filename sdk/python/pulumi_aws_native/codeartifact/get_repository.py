@@ -128,13 +128,13 @@ def get_repository(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:codeartifact:getRepository', __args__, opts=opts, typ=GetRepositoryResult).value
 
     return AwaitableGetRepositoryResult(
-        arn=__ret__.arn,
-        description=__ret__.description,
-        external_connections=__ret__.external_connections,
-        name=__ret__.name,
-        permissions_policy_document=__ret__.permissions_policy_document,
-        tags=__ret__.tags,
-        upstreams=__ret__.upstreams)
+        arn=pulumi.get(__ret__, 'arn'),
+        description=pulumi.get(__ret__, 'description'),
+        external_connections=pulumi.get(__ret__, 'external_connections'),
+        name=pulumi.get(__ret__, 'name'),
+        permissions_policy_document=pulumi.get(__ret__, 'permissions_policy_document'),
+        tags=pulumi.get(__ret__, 'tags'),
+        upstreams=pulumi.get(__ret__, 'upstreams'))
 
 
 @_utilities.lift_output_func(get_repository)

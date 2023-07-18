@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for AWS::ImageBuilder::Component
 func LookupComponent(ctx *pulumi.Context, args *LookupComponentArgs, opts ...pulumi.InvokeOption) (*LookupComponentResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupComponentResult
 	err := ctx.Invoke("aws-native:imagebuilder:getComponent", args, &rv, opts...)
 	if err != nil {

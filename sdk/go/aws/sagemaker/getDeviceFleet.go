@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for AWS::SageMaker::DeviceFleet
 func LookupDeviceFleet(ctx *pulumi.Context, args *LookupDeviceFleetArgs, opts ...pulumi.InvokeOption) (*LookupDeviceFleetResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDeviceFleetResult
 	err := ctx.Invoke("aws-native:sagemaker:getDeviceFleet", args, &rv, opts...)
 	if err != nil {

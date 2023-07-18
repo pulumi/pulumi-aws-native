@@ -96,12 +96,12 @@ def get_fhir_datastore(datastore_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:healthlake:getFHIRDatastore', __args__, opts=opts, typ=GetFHIRDatastoreResult).value
 
     return AwaitableGetFHIRDatastoreResult(
-        created_at=__ret__.created_at,
-        datastore_arn=__ret__.datastore_arn,
-        datastore_endpoint=__ret__.datastore_endpoint,
-        datastore_id=__ret__.datastore_id,
-        datastore_status=__ret__.datastore_status,
-        tags=__ret__.tags)
+        created_at=pulumi.get(__ret__, 'created_at'),
+        datastore_arn=pulumi.get(__ret__, 'datastore_arn'),
+        datastore_endpoint=pulumi.get(__ret__, 'datastore_endpoint'),
+        datastore_id=pulumi.get(__ret__, 'datastore_id'),
+        datastore_status=pulumi.get(__ret__, 'datastore_status'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_fhir_datastore)

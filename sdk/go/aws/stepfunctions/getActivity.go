@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for Activity
 func LookupActivity(ctx *pulumi.Context, args *LookupActivityArgs, opts ...pulumi.InvokeOption) (*LookupActivityResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupActivityResult
 	err := ctx.Invoke("aws-native:stepfunctions:getActivity", args, &rv, opts...)
 	if err != nil {

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::IoT1Click::Placement
 func LookupPlacement(ctx *pulumi.Context, args *LookupPlacementArgs, opts ...pulumi.InvokeOption) (*LookupPlacementResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPlacementResult
 	err := ctx.Invoke("aws-native:iot1click:getPlacement", args, &rv, opts...)
 	if err != nil {

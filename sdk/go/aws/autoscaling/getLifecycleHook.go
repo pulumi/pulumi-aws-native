@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::AutoScaling::LifecycleHook
 func LookupLifecycleHook(ctx *pulumi.Context, args *LookupLifecycleHookArgs, opts ...pulumi.InvokeOption) (*LookupLifecycleHookResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLifecycleHookResult
 	err := ctx.Invoke("aws-native:autoscaling:getLifecycleHook", args, &rv, opts...)
 	if err != nil {

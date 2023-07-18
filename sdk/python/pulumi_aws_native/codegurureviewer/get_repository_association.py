@@ -55,7 +55,7 @@ def get_repository_association(association_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:codegurureviewer:getRepositoryAssociation', __args__, opts=opts, typ=GetRepositoryAssociationResult).value
 
     return AwaitableGetRepositoryAssociationResult(
-        association_arn=__ret__.association_arn)
+        association_arn=pulumi.get(__ret__, 'association_arn'))
 
 
 @_utilities.lift_output_func(get_repository_association)

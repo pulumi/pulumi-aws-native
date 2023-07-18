@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::Lambda::EventInvokeConfig
 func LookupEventInvokeConfig(ctx *pulumi.Context, args *LookupEventInvokeConfigArgs, opts ...pulumi.InvokeOption) (*LookupEventInvokeConfigResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEventInvokeConfigResult
 	err := ctx.Invoke("aws-native:lambda:getEventInvokeConfig", args, &rv, opts...)
 	if err != nil {

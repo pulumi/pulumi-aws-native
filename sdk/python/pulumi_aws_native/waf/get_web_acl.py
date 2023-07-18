@@ -68,9 +68,9 @@ def get_web_acl(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:waf:getWebACL', __args__, opts=opts, typ=GetWebACLResult).value
 
     return AwaitableGetWebACLResult(
-        default_action=__ret__.default_action,
-        id=__ret__.id,
-        rules=__ret__.rules)
+        default_action=pulumi.get(__ret__, 'default_action'),
+        id=pulumi.get(__ret__, 'id'),
+        rules=pulumi.get(__ret__, 'rules'))
 
 
 @_utilities.lift_output_func(get_web_acl)

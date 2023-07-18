@@ -123,13 +123,13 @@ def get_rotation(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ssmcontacts:getRotation', __args__, opts=opts, typ=GetRotationResult).value
 
     return AwaitableGetRotationResult(
-        arn=__ret__.arn,
-        contact_ids=__ret__.contact_ids,
-        name=__ret__.name,
-        recurrence=__ret__.recurrence,
-        start_time=__ret__.start_time,
-        tags=__ret__.tags,
-        time_zone_id=__ret__.time_zone_id)
+        arn=pulumi.get(__ret__, 'arn'),
+        contact_ids=pulumi.get(__ret__, 'contact_ids'),
+        name=pulumi.get(__ret__, 'name'),
+        recurrence=pulumi.get(__ret__, 'recurrence'),
+        start_time=pulumi.get(__ret__, 'start_time'),
+        tags=pulumi.get(__ret__, 'tags'),
+        time_zone_id=pulumi.get(__ret__, 'time_zone_id'))
 
 
 @_utilities.lift_output_func(get_rotation)

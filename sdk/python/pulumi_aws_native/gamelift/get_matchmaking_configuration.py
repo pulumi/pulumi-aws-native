@@ -185,22 +185,22 @@ def get_matchmaking_configuration(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:gamelift:getMatchmakingConfiguration', __args__, opts=opts, typ=GetMatchmakingConfigurationResult).value
 
     return AwaitableGetMatchmakingConfigurationResult(
-        acceptance_required=__ret__.acceptance_required,
-        acceptance_timeout_seconds=__ret__.acceptance_timeout_seconds,
-        additional_player_count=__ret__.additional_player_count,
-        arn=__ret__.arn,
-        backfill_mode=__ret__.backfill_mode,
-        custom_event_data=__ret__.custom_event_data,
-        description=__ret__.description,
-        flex_match_mode=__ret__.flex_match_mode,
-        game_properties=__ret__.game_properties,
-        game_session_data=__ret__.game_session_data,
-        game_session_queue_arns=__ret__.game_session_queue_arns,
-        id=__ret__.id,
-        notification_target=__ret__.notification_target,
-        request_timeout_seconds=__ret__.request_timeout_seconds,
-        rule_set_name=__ret__.rule_set_name,
-        tags=__ret__.tags)
+        acceptance_required=pulumi.get(__ret__, 'acceptance_required'),
+        acceptance_timeout_seconds=pulumi.get(__ret__, 'acceptance_timeout_seconds'),
+        additional_player_count=pulumi.get(__ret__, 'additional_player_count'),
+        arn=pulumi.get(__ret__, 'arn'),
+        backfill_mode=pulumi.get(__ret__, 'backfill_mode'),
+        custom_event_data=pulumi.get(__ret__, 'custom_event_data'),
+        description=pulumi.get(__ret__, 'description'),
+        flex_match_mode=pulumi.get(__ret__, 'flex_match_mode'),
+        game_properties=pulumi.get(__ret__, 'game_properties'),
+        game_session_data=pulumi.get(__ret__, 'game_session_data'),
+        game_session_queue_arns=pulumi.get(__ret__, 'game_session_queue_arns'),
+        id=pulumi.get(__ret__, 'id'),
+        notification_target=pulumi.get(__ret__, 'notification_target'),
+        request_timeout_seconds=pulumi.get(__ret__, 'request_timeout_seconds'),
+        rule_set_name=pulumi.get(__ret__, 'rule_set_name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_matchmaking_configuration)

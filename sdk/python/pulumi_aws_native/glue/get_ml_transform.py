@@ -158,19 +158,19 @@ def get_ml_transform(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:glue:getMLTransform', __args__, opts=opts, typ=GetMLTransformResult).value
 
     return AwaitableGetMLTransformResult(
-        description=__ret__.description,
-        glue_version=__ret__.glue_version,
-        id=__ret__.id,
-        max_capacity=__ret__.max_capacity,
-        max_retries=__ret__.max_retries,
-        name=__ret__.name,
-        number_of_workers=__ret__.number_of_workers,
-        role=__ret__.role,
-        tags=__ret__.tags,
-        timeout=__ret__.timeout,
-        transform_encryption=__ret__.transform_encryption,
-        transform_parameters=__ret__.transform_parameters,
-        worker_type=__ret__.worker_type)
+        description=pulumi.get(__ret__, 'description'),
+        glue_version=pulumi.get(__ret__, 'glue_version'),
+        id=pulumi.get(__ret__, 'id'),
+        max_capacity=pulumi.get(__ret__, 'max_capacity'),
+        max_retries=pulumi.get(__ret__, 'max_retries'),
+        name=pulumi.get(__ret__, 'name'),
+        number_of_workers=pulumi.get(__ret__, 'number_of_workers'),
+        role=pulumi.get(__ret__, 'role'),
+        tags=pulumi.get(__ret__, 'tags'),
+        timeout=pulumi.get(__ret__, 'timeout'),
+        transform_encryption=pulumi.get(__ret__, 'transform_encryption'),
+        transform_parameters=pulumi.get(__ret__, 'transform_parameters'),
+        worker_type=pulumi.get(__ret__, 'worker_type'))
 
 
 @_utilities.lift_output_func(get_ml_transform)

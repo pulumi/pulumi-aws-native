@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -45,6 +46,7 @@ func NewTransitGatewayMulticastDomainAssociation(ctx *pulumi.Context,
 	if args.TransitGatewayMulticastDomainId == nil {
 		return nil, errors.New("invalid value for required argument 'TransitGatewayMulticastDomainId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TransitGatewayMulticastDomainAssociation
 	err := ctx.RegisterResource("aws-native:ec2:TransitGatewayMulticastDomainAssociation", name, args, &resource, opts...)
 	if err != nil {

@@ -153,15 +153,15 @@ def get_account(account_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:organizations:getAccount', __args__, opts=opts, typ=GetAccountResult).value
 
     return AwaitableGetAccountResult(
-        account_id=__ret__.account_id,
-        account_name=__ret__.account_name,
-        arn=__ret__.arn,
-        email=__ret__.email,
-        joined_method=__ret__.joined_method,
-        joined_timestamp=__ret__.joined_timestamp,
-        parent_ids=__ret__.parent_ids,
-        status=__ret__.status,
-        tags=__ret__.tags)
+        account_id=pulumi.get(__ret__, 'account_id'),
+        account_name=pulumi.get(__ret__, 'account_name'),
+        arn=pulumi.get(__ret__, 'arn'),
+        email=pulumi.get(__ret__, 'email'),
+        joined_method=pulumi.get(__ret__, 'joined_method'),
+        joined_timestamp=pulumi.get(__ret__, 'joined_timestamp'),
+        parent_ids=pulumi.get(__ret__, 'parent_ids'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_account)

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::SSM::Parameter
 func LookupParameter(ctx *pulumi.Context, args *LookupParameterArgs, opts ...pulumi.InvokeOption) (*LookupParameterResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupParameterResult
 	err := ctx.Invoke("aws-native:ssm:getParameter", args, &rv, opts...)
 	if err != nil {

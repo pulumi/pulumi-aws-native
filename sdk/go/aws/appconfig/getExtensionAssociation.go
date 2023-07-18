@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // An example resource schema demonstrating some basic constructs and validation rules.
 func LookupExtensionAssociation(ctx *pulumi.Context, args *LookupExtensionAssociationArgs, opts ...pulumi.InvokeOption) (*LookupExtensionAssociationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupExtensionAssociationResult
 	err := ctx.Invoke("aws-native:appconfig:getExtensionAssociation", args, &rv, opts...)
 	if err != nil {

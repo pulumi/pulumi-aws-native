@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Definition of AWS::Location::Map Resource Type
 func LookupMap(ctx *pulumi.Context, args *LookupMapArgs, opts ...pulumi.InvokeOption) (*LookupMapResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupMapResult
 	err := ctx.Invoke("aws-native:location:getMap", args, &rv, opts...)
 	if err != nil {

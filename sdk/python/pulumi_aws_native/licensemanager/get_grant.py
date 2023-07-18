@@ -103,11 +103,11 @@ def get_grant(grant_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:licensemanager:getGrant', __args__, opts=opts, typ=GetGrantResult).value
 
     return AwaitableGetGrantResult(
-        grant_arn=__ret__.grant_arn,
-        grant_name=__ret__.grant_name,
-        home_region=__ret__.home_region,
-        license_arn=__ret__.license_arn,
-        version=__ret__.version)
+        grant_arn=pulumi.get(__ret__, 'grant_arn'),
+        grant_name=pulumi.get(__ret__, 'grant_name'),
+        home_region=pulumi.get(__ret__, 'home_region'),
+        license_arn=pulumi.get(__ret__, 'license_arn'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_grant)

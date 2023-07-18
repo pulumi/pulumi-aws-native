@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::KinesisAnalytics::ApplicationOutput
 func LookupApplicationOutputResource(ctx *pulumi.Context, args *LookupApplicationOutputResourceArgs, opts ...pulumi.InvokeOption) (*LookupApplicationOutputResourceResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupApplicationOutputResourceResult
 	err := ctx.Invoke("aws-native:kinesisanalytics:getApplicationOutputResource", args, &rv, opts...)
 	if err != nil {

@@ -238,24 +238,24 @@ def get_data_set(aws_account_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:quicksight:getDataSet', __args__, opts=opts, typ=GetDataSetResult).value
 
     return AwaitableGetDataSetResult(
-        arn=__ret__.arn,
-        column_groups=__ret__.column_groups,
-        column_level_permission_rules=__ret__.column_level_permission_rules,
-        consumed_spice_capacity_in_bytes=__ret__.consumed_spice_capacity_in_bytes,
-        created_time=__ret__.created_time,
-        data_set_refresh_properties=__ret__.data_set_refresh_properties,
-        data_set_usage_configuration=__ret__.data_set_usage_configuration,
-        dataset_parameters=__ret__.dataset_parameters,
-        import_mode=__ret__.import_mode,
-        last_updated_time=__ret__.last_updated_time,
-        logical_table_map=__ret__.logical_table_map,
-        name=__ret__.name,
-        output_columns=__ret__.output_columns,
-        permissions=__ret__.permissions,
-        physical_table_map=__ret__.physical_table_map,
-        row_level_permission_data_set=__ret__.row_level_permission_data_set,
-        row_level_permission_tag_configuration=__ret__.row_level_permission_tag_configuration,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        column_groups=pulumi.get(__ret__, 'column_groups'),
+        column_level_permission_rules=pulumi.get(__ret__, 'column_level_permission_rules'),
+        consumed_spice_capacity_in_bytes=pulumi.get(__ret__, 'consumed_spice_capacity_in_bytes'),
+        created_time=pulumi.get(__ret__, 'created_time'),
+        data_set_refresh_properties=pulumi.get(__ret__, 'data_set_refresh_properties'),
+        data_set_usage_configuration=pulumi.get(__ret__, 'data_set_usage_configuration'),
+        dataset_parameters=pulumi.get(__ret__, 'dataset_parameters'),
+        import_mode=pulumi.get(__ret__, 'import_mode'),
+        last_updated_time=pulumi.get(__ret__, 'last_updated_time'),
+        logical_table_map=pulumi.get(__ret__, 'logical_table_map'),
+        name=pulumi.get(__ret__, 'name'),
+        output_columns=pulumi.get(__ret__, 'output_columns'),
+        permissions=pulumi.get(__ret__, 'permissions'),
+        physical_table_map=pulumi.get(__ret__, 'physical_table_map'),
+        row_level_permission_data_set=pulumi.get(__ret__, 'row_level_permission_data_set'),
+        row_level_permission_tag_configuration=pulumi.get(__ret__, 'row_level_permission_tag_configuration'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_data_set)

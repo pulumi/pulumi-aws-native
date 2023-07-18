@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::EC2::TrafficMirrorFilter
 func LookupTrafficMirrorFilter(ctx *pulumi.Context, args *LookupTrafficMirrorFilterArgs, opts ...pulumi.InvokeOption) (*LookupTrafficMirrorFilterResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTrafficMirrorFilterResult
 	err := ctx.Invoke("aws-native:ec2:getTrafficMirrorFilter", args, &rv, opts...)
 	if err != nil {

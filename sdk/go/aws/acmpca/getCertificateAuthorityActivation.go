@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Used to install the certificate authority certificate and update the certificate authority status.
 func LookupCertificateAuthorityActivation(ctx *pulumi.Context, args *LookupCertificateAuthorityActivationArgs, opts ...pulumi.InvokeOption) (*LookupCertificateAuthorityActivationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCertificateAuthorityActivationResult
 	err := ctx.Invoke("aws-native:acmpca:getCertificateAuthorityActivation", args, &rv, opts...)
 	if err != nil {

@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -44,6 +45,7 @@ func NewNetworkPerformanceMetricSubscription(ctx *pulumi.Context,
 	if args.Statistic == nil {
 		return nil, errors.New("invalid value for required argument 'Statistic'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NetworkPerformanceMetricSubscription
 	err := ctx.RegisterResource("aws-native:ec2:NetworkPerformanceMetricSubscription", name, args, &resource, opts...)
 	if err != nil {

@@ -126,13 +126,13 @@ def get_app(app_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:resiliencehub:getApp', __args__, opts=opts, typ=GetAppResult).value
 
     return AwaitableGetAppResult(
-        app_arn=__ret__.app_arn,
-        app_assessment_schedule=__ret__.app_assessment_schedule,
-        app_template_body=__ret__.app_template_body,
-        description=__ret__.description,
-        resiliency_policy_arn=__ret__.resiliency_policy_arn,
-        resource_mappings=__ret__.resource_mappings,
-        tags=__ret__.tags)
+        app_arn=pulumi.get(__ret__, 'app_arn'),
+        app_assessment_schedule=pulumi.get(__ret__, 'app_assessment_schedule'),
+        app_template_body=pulumi.get(__ret__, 'app_template_body'),
+        description=pulumi.get(__ret__, 'description'),
+        resiliency_policy_arn=pulumi.get(__ret__, 'resiliency_policy_arn'),
+        resource_mappings=pulumi.get(__ret__, 'resource_mappings'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_app)

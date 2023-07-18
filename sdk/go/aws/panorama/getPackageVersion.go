@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Schema for PackageVersion Resource Type
 func LookupPackageVersion(ctx *pulumi.Context, args *LookupPackageVersionArgs, opts ...pulumi.InvokeOption) (*LookupPackageVersionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPackageVersionResult
 	err := ctx.Invoke("aws-native:panorama:getPackageVersion", args, &rv, opts...)
 	if err != nil {

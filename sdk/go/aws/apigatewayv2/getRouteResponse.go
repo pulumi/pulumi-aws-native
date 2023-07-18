@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::ApiGatewayV2::RouteResponse
 func LookupRouteResponse(ctx *pulumi.Context, args *LookupRouteResponseArgs, opts ...pulumi.InvokeOption) (*LookupRouteResponseResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRouteResponseResult
 	err := ctx.Invoke("aws-native:apigatewayv2:getRouteResponse", args, &rv, opts...)
 	if err != nil {

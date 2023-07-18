@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::CodeStar::GitHubRepository
 func LookupGitHubRepository(ctx *pulumi.Context, args *LookupGitHubRepositoryArgs, opts ...pulumi.InvokeOption) (*LookupGitHubRepositoryResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupGitHubRepositoryResult
 	err := ctx.Invoke("aws-native:codestar:getGitHubRepository", args, &rv, opts...)
 	if err != nil {

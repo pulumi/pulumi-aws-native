@@ -55,7 +55,7 @@ def get_access_point_policy(object_lambda_access_point: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:s3objectlambda:getAccessPointPolicy', __args__, opts=opts, typ=GetAccessPointPolicyResult).value
 
     return AwaitableGetAccessPointPolicyResult(
-        policy_document=__ret__.policy_document)
+        policy_document=pulumi.get(__ret__, 'policy_document'))
 
 
 @_utilities.lift_output_func(get_access_point_policy)

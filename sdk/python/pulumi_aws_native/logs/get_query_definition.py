@@ -91,10 +91,10 @@ def get_query_definition(query_definition_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:logs:getQueryDefinition', __args__, opts=opts, typ=GetQueryDefinitionResult).value
 
     return AwaitableGetQueryDefinitionResult(
-        log_group_names=__ret__.log_group_names,
-        name=__ret__.name,
-        query_definition_id=__ret__.query_definition_id,
-        query_string=__ret__.query_string)
+        log_group_names=pulumi.get(__ret__, 'log_group_names'),
+        name=pulumi.get(__ret__, 'name'),
+        query_definition_id=pulumi.get(__ret__, 'query_definition_id'),
+        query_string=pulumi.get(__ret__, 'query_string'))
 
 
 @_utilities.lift_output_func(get_query_definition)

@@ -68,9 +68,9 @@ def get_access_point(access_point_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:efs:getAccessPoint', __args__, opts=opts, typ=GetAccessPointResult).value
 
     return AwaitableGetAccessPointResult(
-        access_point_id=__ret__.access_point_id,
-        access_point_tags=__ret__.access_point_tags,
-        arn=__ret__.arn)
+        access_point_id=pulumi.get(__ret__, 'access_point_id'),
+        access_point_tags=pulumi.get(__ret__, 'access_point_tags'),
+        arn=pulumi.get(__ret__, 'arn'))
 
 
 @_utilities.lift_output_func(get_access_point)

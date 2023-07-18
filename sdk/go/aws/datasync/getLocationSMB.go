@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for AWS::DataSync::LocationSMB.
 func LookupLocationSMB(ctx *pulumi.Context, args *LookupLocationSMBArgs, opts ...pulumi.InvokeOption) (*LookupLocationSMBResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLocationSMBResult
 	err := ctx.Invoke("aws-native:datasync:getLocationSMB", args, &rv, opts...)
 	if err != nil {

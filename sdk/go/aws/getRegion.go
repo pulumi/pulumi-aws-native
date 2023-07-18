@@ -4,10 +4,12 @@
 package aws
 
 import (
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func GetRegion(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetRegionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRegionResult
 	err := ctx.Invoke("aws-native:index:getRegion", nil, &rv, opts...)
 	if err != nil {

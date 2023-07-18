@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -70,6 +71,7 @@ func NewNodegroup(ctx *pulumi.Context,
 	if args.Subnets == nil {
 		return nil, errors.New("invalid value for required argument 'Subnets'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Nodegroup
 	err := ctx.RegisterResource("aws-native:eks:Nodegroup", name, args, &resource, opts...)
 	if err != nil {

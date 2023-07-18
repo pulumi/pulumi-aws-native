@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // The AWS::Neptune::DBCluster resource creates an Amazon Neptune DB cluster.
 func LookupDBCluster(ctx *pulumi.Context, args *LookupDBClusterArgs, opts ...pulumi.InvokeOption) (*LookupDBClusterResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDBClusterResult
 	err := ctx.Invoke("aws-native:neptune:getDBCluster", args, &rv, opts...)
 	if err != nil {

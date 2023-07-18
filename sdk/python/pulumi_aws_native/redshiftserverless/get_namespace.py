@@ -126,13 +126,13 @@ def get_namespace(namespace_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:redshiftserverless:getNamespace', __args__, opts=opts, typ=GetNamespaceResult).value
 
     return AwaitableGetNamespaceResult(
-        admin_username=__ret__.admin_username,
-        db_name=__ret__.db_name,
-        default_iam_role_arn=__ret__.default_iam_role_arn,
-        iam_roles=__ret__.iam_roles,
-        kms_key_id=__ret__.kms_key_id,
-        log_exports=__ret__.log_exports,
-        namespace=__ret__.namespace)
+        admin_username=pulumi.get(__ret__, 'admin_username'),
+        db_name=pulumi.get(__ret__, 'db_name'),
+        default_iam_role_arn=pulumi.get(__ret__, 'default_iam_role_arn'),
+        iam_roles=pulumi.get(__ret__, 'iam_roles'),
+        kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
+        log_exports=pulumi.get(__ret__, 'log_exports'),
+        namespace=pulumi.get(__ret__, 'namespace'))
 
 
 @_utilities.lift_output_func(get_namespace)

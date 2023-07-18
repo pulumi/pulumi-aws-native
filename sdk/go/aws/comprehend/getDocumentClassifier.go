@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Document Classifier enables training document classifier models.
 func LookupDocumentClassifier(ctx *pulumi.Context, args *LookupDocumentClassifierArgs, opts ...pulumi.InvokeOption) (*LookupDocumentClassifierResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDocumentClassifierResult
 	err := ctx.Invoke("aws-native:comprehend:getDocumentClassifier", args, &rv, opts...)
 	if err != nil {

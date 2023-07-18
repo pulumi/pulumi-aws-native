@@ -81,9 +81,9 @@ def get_cluster(cluster_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:route53recoverycontrol:getCluster', __args__, opts=opts, typ=GetClusterResult).value
 
     return AwaitableGetClusterResult(
-        cluster_arn=__ret__.cluster_arn,
-        cluster_endpoints=__ret__.cluster_endpoints,
-        status=__ret__.status)
+        cluster_arn=pulumi.get(__ret__, 'cluster_arn'),
+        cluster_endpoints=pulumi.get(__ret__, 'cluster_endpoints'),
+        status=pulumi.get(__ret__, 'status'))
 
 
 @_utilities.lift_output_func(get_cluster)

@@ -123,15 +123,15 @@ def get_network_insights_access_scope_analysis(network_insights_access_scope_ana
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getNetworkInsightsAccessScopeAnalysis', __args__, opts=opts, typ=GetNetworkInsightsAccessScopeAnalysisResult).value
 
     return AwaitableGetNetworkInsightsAccessScopeAnalysisResult(
-        analyzed_eni_count=__ret__.analyzed_eni_count,
-        end_date=__ret__.end_date,
-        findings_found=__ret__.findings_found,
-        network_insights_access_scope_analysis_arn=__ret__.network_insights_access_scope_analysis_arn,
-        network_insights_access_scope_analysis_id=__ret__.network_insights_access_scope_analysis_id,
-        start_date=__ret__.start_date,
-        status=__ret__.status,
-        status_message=__ret__.status_message,
-        tags=__ret__.tags)
+        analyzed_eni_count=pulumi.get(__ret__, 'analyzed_eni_count'),
+        end_date=pulumi.get(__ret__, 'end_date'),
+        findings_found=pulumi.get(__ret__, 'findings_found'),
+        network_insights_access_scope_analysis_arn=pulumi.get(__ret__, 'network_insights_access_scope_analysis_arn'),
+        network_insights_access_scope_analysis_id=pulumi.get(__ret__, 'network_insights_access_scope_analysis_id'),
+        start_date=pulumi.get(__ret__, 'start_date'),
+        status=pulumi.get(__ret__, 'status'),
+        status_message=pulumi.get(__ret__, 'status_message'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_network_insights_access_scope_analysis)

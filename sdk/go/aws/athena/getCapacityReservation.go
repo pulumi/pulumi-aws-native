@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for AWS::Athena::CapacityReservation
 func LookupCapacityReservation(ctx *pulumi.Context, args *LookupCapacityReservationArgs, opts ...pulumi.InvokeOption) (*LookupCapacityReservationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCapacityReservationResult
 	err := ctx.Invoke("aws-native:athena:getCapacityReservation", args, &rv, opts...)
 	if err != nil {

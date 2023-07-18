@@ -59,8 +59,8 @@ def get_endpoint_config(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:sagemaker:getEndpointConfig', __args__, opts=opts, typ=GetEndpointConfigResult).value
 
     return AwaitableGetEndpointConfigResult(
-        id=__ret__.id,
-        tags=__ret__.tags)
+        id=pulumi.get(__ret__, 'id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_endpoint_config)

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::MSK::BatchScramSecret
 func LookupBatchScramSecret(ctx *pulumi.Context, args *LookupBatchScramSecretArgs, opts ...pulumi.InvokeOption) (*LookupBatchScramSecretResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBatchScramSecretResult
 	err := ctx.Invoke("aws-native:msk:getBatchScramSecret", args, &rv, opts...)
 	if err != nil {

@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -33,6 +34,7 @@ func NewSchedule(ctx *pulumi.Context,
 	if args.CronExpression == nil {
 		return nil, errors.New("invalid value for required argument 'CronExpression'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Schedule
 	err := ctx.RegisterResource("aws-native:databrew:Schedule", name, args, &resource, opts...)
 	if err != nil {

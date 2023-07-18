@@ -98,11 +98,11 @@ def get_campaign(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:connectcampaigns:getCampaign', __args__, opts=opts, typ=GetCampaignResult).value
 
     return AwaitableGetCampaignResult(
-        arn=__ret__.arn,
-        dialer_config=__ret__.dialer_config,
-        name=__ret__.name,
-        outbound_call_config=__ret__.outbound_call_config,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        dialer_config=pulumi.get(__ret__, 'dialer_config'),
+        name=pulumi.get(__ret__, 'name'),
+        outbound_call_config=pulumi.get(__ret__, 'outbound_call_config'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_campaign)

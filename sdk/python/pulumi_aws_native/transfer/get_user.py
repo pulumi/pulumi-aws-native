@@ -131,16 +131,16 @@ def get_user(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:transfer:getUser', __args__, opts=opts, typ=GetUserResult).value
 
     return AwaitableGetUserResult(
-        arn=__ret__.arn,
-        home_directory=__ret__.home_directory,
-        home_directory_mappings=__ret__.home_directory_mappings,
-        home_directory_type=__ret__.home_directory_type,
-        id=__ret__.id,
-        policy=__ret__.policy,
-        posix_profile=__ret__.posix_profile,
-        role=__ret__.role,
-        ssh_public_keys=__ret__.ssh_public_keys,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        home_directory=pulumi.get(__ret__, 'home_directory'),
+        home_directory_mappings=pulumi.get(__ret__, 'home_directory_mappings'),
+        home_directory_type=pulumi.get(__ret__, 'home_directory_type'),
+        id=pulumi.get(__ret__, 'id'),
+        policy=pulumi.get(__ret__, 'policy'),
+        posix_profile=pulumi.get(__ret__, 'posix_profile'),
+        role=pulumi.get(__ret__, 'role'),
+        ssh_public_keys=pulumi.get(__ret__, 'ssh_public_keys'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_user)

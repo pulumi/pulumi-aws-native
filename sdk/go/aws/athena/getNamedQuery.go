@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for AWS::Athena::NamedQuery
 func LookupNamedQuery(ctx *pulumi.Context, args *LookupNamedQueryArgs, opts ...pulumi.InvokeOption) (*LookupNamedQueryResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupNamedQueryResult
 	err := ctx.Invoke("aws-native:athena:getNamedQuery", args, &rv, opts...)
 	if err != nil {

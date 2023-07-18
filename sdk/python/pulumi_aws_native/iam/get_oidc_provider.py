@@ -83,10 +83,10 @@ def get_oidc_provider(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iam:getOIDCProvider', __args__, opts=opts, typ=GetOIDCProviderResult).value
 
     return AwaitableGetOIDCProviderResult(
-        arn=__ret__.arn,
-        client_id_list=__ret__.client_id_list,
-        tags=__ret__.tags,
-        thumbprint_list=__ret__.thumbprint_list)
+        arn=pulumi.get(__ret__, 'arn'),
+        client_id_list=pulumi.get(__ret__, 'client_id_list'),
+        tags=pulumi.get(__ret__, 'tags'),
+        thumbprint_list=pulumi.get(__ret__, 'thumbprint_list'))
 
 
 @_utilities.lift_output_func(get_oidc_provider)

@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -36,6 +37,7 @@ func NewGeofenceCollection(ctx *pulumi.Context,
 	if args.CollectionName == nil {
 		return nil, errors.New("invalid value for required argument 'CollectionName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource GeofenceCollection
 	err := ctx.RegisterResource("aws-native:location:GeofenceCollection", name, args, &resource, opts...)
 	if err != nil {

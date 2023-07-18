@@ -90,10 +90,10 @@ def get_vpc_ingress_connection(vpc_ingress_connection_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:apprunner:getVpcIngressConnection', __args__, opts=opts, typ=GetVpcIngressConnectionResult).value
 
     return AwaitableGetVpcIngressConnectionResult(
-        domain_name=__ret__.domain_name,
-        ingress_vpc_configuration=__ret__.ingress_vpc_configuration,
-        status=__ret__.status,
-        vpc_ingress_connection_arn=__ret__.vpc_ingress_connection_arn)
+        domain_name=pulumi.get(__ret__, 'domain_name'),
+        ingress_vpc_configuration=pulumi.get(__ret__, 'ingress_vpc_configuration'),
+        status=pulumi.get(__ret__, 'status'),
+        vpc_ingress_connection_arn=pulumi.get(__ret__, 'vpc_ingress_connection_arn'))
 
 
 @_utilities.lift_output_func(get_vpc_ingress_connection)

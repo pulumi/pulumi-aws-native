@@ -194,23 +194,23 @@ def get_cloud_formation_product(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:servicecatalog:getCloudFormationProduct', __args__, opts=opts, typ=GetCloudFormationProductResult).value
 
     return AwaitableGetCloudFormationProductResult(
-        accept_language=__ret__.accept_language,
-        description=__ret__.description,
-        distributor=__ret__.distributor,
-        id=__ret__.id,
-        name=__ret__.name,
-        owner=__ret__.owner,
-        product_name=__ret__.product_name,
-        product_type=__ret__.product_type,
-        provisioning_artifact_ids=__ret__.provisioning_artifact_ids,
-        provisioning_artifact_names=__ret__.provisioning_artifact_names,
-        provisioning_artifact_parameters=__ret__.provisioning_artifact_parameters,
-        replace_provisioning_artifacts=__ret__.replace_provisioning_artifacts,
-        source_connection=__ret__.source_connection,
-        support_description=__ret__.support_description,
-        support_email=__ret__.support_email,
-        support_url=__ret__.support_url,
-        tags=__ret__.tags)
+        accept_language=pulumi.get(__ret__, 'accept_language'),
+        description=pulumi.get(__ret__, 'description'),
+        distributor=pulumi.get(__ret__, 'distributor'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        owner=pulumi.get(__ret__, 'owner'),
+        product_name=pulumi.get(__ret__, 'product_name'),
+        product_type=pulumi.get(__ret__, 'product_type'),
+        provisioning_artifact_ids=pulumi.get(__ret__, 'provisioning_artifact_ids'),
+        provisioning_artifact_names=pulumi.get(__ret__, 'provisioning_artifact_names'),
+        provisioning_artifact_parameters=pulumi.get(__ret__, 'provisioning_artifact_parameters'),
+        replace_provisioning_artifacts=pulumi.get(__ret__, 'replace_provisioning_artifacts'),
+        source_connection=pulumi.get(__ret__, 'source_connection'),
+        support_description=pulumi.get(__ret__, 'support_description'),
+        support_email=pulumi.get(__ret__, 'support_email'),
+        support_url=pulumi.get(__ret__, 'support_url'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_cloud_formation_product)

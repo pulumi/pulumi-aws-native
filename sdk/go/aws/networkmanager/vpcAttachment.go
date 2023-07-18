@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -67,6 +68,7 @@ func NewVpcAttachment(ctx *pulumi.Context,
 	if args.VpcArn == nil {
 		return nil, errors.New("invalid value for required argument 'VpcArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcAttachment
 	err := ctx.RegisterResource("aws-native:networkmanager:VpcAttachment", name, args, &resource, opts...)
 	if err != nil {

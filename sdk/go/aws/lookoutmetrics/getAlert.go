@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::LookoutMetrics::Alert
 func LookupAlert(ctx *pulumi.Context, args *LookupAlertArgs, opts ...pulumi.InvokeOption) (*LookupAlertResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAlertResult
 	err := ctx.Invoke("aws-native:lookoutmetrics:getAlert", args, &rv, opts...)
 	if err != nil {

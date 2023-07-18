@@ -112,14 +112,14 @@ def get_subscription(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:sns:getSubscription', __args__, opts=opts, typ=GetSubscriptionResult).value
 
     return AwaitableGetSubscriptionResult(
-        delivery_policy=__ret__.delivery_policy,
-        filter_policy=__ret__.filter_policy,
-        filter_policy_scope=__ret__.filter_policy_scope,
-        id=__ret__.id,
-        raw_message_delivery=__ret__.raw_message_delivery,
-        redrive_policy=__ret__.redrive_policy,
-        region=__ret__.region,
-        subscription_role_arn=__ret__.subscription_role_arn)
+        delivery_policy=pulumi.get(__ret__, 'delivery_policy'),
+        filter_policy=pulumi.get(__ret__, 'filter_policy'),
+        filter_policy_scope=pulumi.get(__ret__, 'filter_policy_scope'),
+        id=pulumi.get(__ret__, 'id'),
+        raw_message_delivery=pulumi.get(__ret__, 'raw_message_delivery'),
+        redrive_policy=pulumi.get(__ret__, 'redrive_policy'),
+        region=pulumi.get(__ret__, 'region'),
+        subscription_role_arn=pulumi.get(__ret__, 'subscription_role_arn'))
 
 
 @_utilities.lift_output_func(get_subscription)

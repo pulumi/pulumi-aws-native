@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -29,6 +30,7 @@ func NewModuleDefaultVersion(ctx *pulumi.Context,
 		args = &ModuleDefaultVersionArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ModuleDefaultVersion
 	err := ctx.RegisterResource("aws-native:cloudformation:ModuleDefaultVersion", name, args, &resource, opts...)
 	if err != nil {

@@ -80,9 +80,9 @@ def get_readiness_check(readiness_check_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:route53recoveryreadiness:getReadinessCheck', __args__, opts=opts, typ=GetReadinessCheckResult).value
 
     return AwaitableGetReadinessCheckResult(
-        readiness_check_arn=__ret__.readiness_check_arn,
-        resource_set_name=__ret__.resource_set_name,
-        tags=__ret__.tags)
+        readiness_check_arn=pulumi.get(__ret__, 'readiness_check_arn'),
+        resource_set_name=pulumi.get(__ret__, 'resource_set_name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_readiness_check)

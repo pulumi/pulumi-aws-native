@@ -99,12 +99,12 @@ def get_ca_certificate(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iot:getCACertificate', __args__, opts=opts, typ=GetCACertificateResult).value
 
     return AwaitableGetCACertificateResult(
-        arn=__ret__.arn,
-        auto_registration_status=__ret__.auto_registration_status,
-        id=__ret__.id,
-        registration_config=__ret__.registration_config,
-        status=__ret__.status,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        auto_registration_status=pulumi.get(__ret__, 'auto_registration_status'),
+        id=pulumi.get(__ret__, 'id'),
+        registration_config=pulumi.get(__ret__, 'registration_config'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_ca_certificate)

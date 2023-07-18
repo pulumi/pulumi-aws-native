@@ -129,13 +129,13 @@ def get_security_profile(security_profile_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iot:getSecurityProfile', __args__, opts=opts, typ=GetSecurityProfileResult).value
 
     return AwaitableGetSecurityProfileResult(
-        additional_metrics_to_retain_v2=__ret__.additional_metrics_to_retain_v2,
-        alert_targets=__ret__.alert_targets,
-        behaviors=__ret__.behaviors,
-        security_profile_arn=__ret__.security_profile_arn,
-        security_profile_description=__ret__.security_profile_description,
-        tags=__ret__.tags,
-        target_arns=__ret__.target_arns)
+        additional_metrics_to_retain_v2=pulumi.get(__ret__, 'additional_metrics_to_retain_v2'),
+        alert_targets=pulumi.get(__ret__, 'alert_targets'),
+        behaviors=pulumi.get(__ret__, 'behaviors'),
+        security_profile_arn=pulumi.get(__ret__, 'security_profile_arn'),
+        security_profile_description=pulumi.get(__ret__, 'security_profile_description'),
+        tags=pulumi.get(__ret__, 'tags'),
+        target_arns=pulumi.get(__ret__, 'target_arns'))
 
 
 @_utilities.lift_output_func(get_security_profile)

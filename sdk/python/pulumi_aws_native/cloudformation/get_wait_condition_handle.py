@@ -49,7 +49,7 @@ def get_wait_condition_handle(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cloudformation:getWaitConditionHandle', __args__, opts=opts, typ=GetWaitConditionHandleResult).value
 
     return AwaitableGetWaitConditionHandleResult(
-        id=__ret__.id)
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_wait_condition_handle)

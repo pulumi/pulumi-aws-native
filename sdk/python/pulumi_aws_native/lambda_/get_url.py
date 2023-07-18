@@ -102,11 +102,11 @@ def get_url(function_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:lambda:getUrl', __args__, opts=opts, typ=GetUrlResult).value
 
     return AwaitableGetUrlResult(
-        auth_type=__ret__.auth_type,
-        cors=__ret__.cors,
-        function_arn=__ret__.function_arn,
-        function_url=__ret__.function_url,
-        invoke_mode=__ret__.invoke_mode)
+        auth_type=pulumi.get(__ret__, 'auth_type'),
+        cors=pulumi.get(__ret__, 'cors'),
+        function_arn=pulumi.get(__ret__, 'function_arn'),
+        function_url=pulumi.get(__ret__, 'function_url'),
+        invoke_mode=pulumi.get(__ret__, 'invoke_mode'))
 
 
 @_utilities.lift_output_func(get_url)

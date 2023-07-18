@@ -104,13 +104,13 @@ def get_signal_catalog(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iotfleetwise:getSignalCatalog', __args__, opts=opts, typ=GetSignalCatalogResult).value
 
     return AwaitableGetSignalCatalogResult(
-        arn=__ret__.arn,
-        creation_time=__ret__.creation_time,
-        description=__ret__.description,
-        last_modification_time=__ret__.last_modification_time,
-        node_counts=__ret__.node_counts,
-        nodes=__ret__.nodes,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        description=pulumi.get(__ret__, 'description'),
+        last_modification_time=pulumi.get(__ret__, 'last_modification_time'),
+        node_counts=pulumi.get(__ret__, 'node_counts'),
+        nodes=pulumi.get(__ret__, 'nodes'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_signal_catalog)

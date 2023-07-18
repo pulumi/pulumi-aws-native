@@ -80,9 +80,9 @@ def get_dimension(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iot:getDimension', __args__, opts=opts, typ=GetDimensionResult).value
 
     return AwaitableGetDimensionResult(
-        arn=__ret__.arn,
-        string_values=__ret__.string_values,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        string_values=pulumi.get(__ret__, 'string_values'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_dimension)

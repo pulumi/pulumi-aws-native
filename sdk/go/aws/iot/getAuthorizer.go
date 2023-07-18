@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Creates an authorizer.
 func LookupAuthorizer(ctx *pulumi.Context, args *LookupAuthorizerArgs, opts ...pulumi.InvokeOption) (*LookupAuthorizerResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAuthorizerResult
 	err := ctx.Invoke("aws-native:iot:getAuthorizer", args, &rv, opts...)
 	if err != nil {

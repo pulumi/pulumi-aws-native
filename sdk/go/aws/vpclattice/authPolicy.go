@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -33,6 +34,7 @@ func NewAuthPolicy(ctx *pulumi.Context,
 	if args.ResourceIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceIdentifier'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AuthPolicy
 	err := ctx.RegisterResource("aws-native:vpclattice:AuthPolicy", name, args, &resource, opts...)
 	if err != nil {

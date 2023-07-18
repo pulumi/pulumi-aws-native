@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::WAF::SqlInjectionMatchSet
 func LookupSqlInjectionMatchSet(ctx *pulumi.Context, args *LookupSqlInjectionMatchSetArgs, opts ...pulumi.InvokeOption) (*LookupSqlInjectionMatchSetResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSqlInjectionMatchSetResult
 	err := ctx.Invoke("aws-native:waf:getSqlInjectionMatchSet", args, &rv, opts...)
 	if err != nil {

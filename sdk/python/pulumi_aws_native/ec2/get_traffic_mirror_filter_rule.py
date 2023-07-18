@@ -131,16 +131,16 @@ def get_traffic_mirror_filter_rule(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getTrafficMirrorFilterRule', __args__, opts=opts, typ=GetTrafficMirrorFilterRuleResult).value
 
     return AwaitableGetTrafficMirrorFilterRuleResult(
-        description=__ret__.description,
-        destination_cidr_block=__ret__.destination_cidr_block,
-        destination_port_range=__ret__.destination_port_range,
-        id=__ret__.id,
-        protocol=__ret__.protocol,
-        rule_action=__ret__.rule_action,
-        rule_number=__ret__.rule_number,
-        source_cidr_block=__ret__.source_cidr_block,
-        source_port_range=__ret__.source_port_range,
-        traffic_direction=__ret__.traffic_direction)
+        description=pulumi.get(__ret__, 'description'),
+        destination_cidr_block=pulumi.get(__ret__, 'destination_cidr_block'),
+        destination_port_range=pulumi.get(__ret__, 'destination_port_range'),
+        id=pulumi.get(__ret__, 'id'),
+        protocol=pulumi.get(__ret__, 'protocol'),
+        rule_action=pulumi.get(__ret__, 'rule_action'),
+        rule_number=pulumi.get(__ret__, 'rule_number'),
+        source_cidr_block=pulumi.get(__ret__, 'source_cidr_block'),
+        source_port_range=pulumi.get(__ret__, 'source_port_range'),
+        traffic_direction=pulumi.get(__ret__, 'traffic_direction'))
 
 
 @_utilities.lift_output_func(get_traffic_mirror_filter_rule)

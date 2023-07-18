@@ -68,8 +68,8 @@ def get_standard(standards_subscription_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:securityhub:getStandard', __args__, opts=opts, typ=GetStandardResult).value
 
     return AwaitableGetStandardResult(
-        disabled_standards_controls=__ret__.disabled_standards_controls,
-        standards_subscription_arn=__ret__.standards_subscription_arn)
+        disabled_standards_controls=pulumi.get(__ret__, 'disabled_standards_controls'),
+        standards_subscription_arn=pulumi.get(__ret__, 'standards_subscription_arn'))
 
 
 @_utilities.lift_output_func(get_standard)

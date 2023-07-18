@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for AWS::ImageBuilder::ImagePipeline
 func LookupImagePipeline(ctx *pulumi.Context, args *LookupImagePipelineArgs, opts ...pulumi.InvokeOption) (*LookupImagePipelineResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupImagePipelineResult
 	err := ctx.Invoke("aws-native:imagebuilder:getImagePipeline", args, &rv, opts...)
 	if err != nil {

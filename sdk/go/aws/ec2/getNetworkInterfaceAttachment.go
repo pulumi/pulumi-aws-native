@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::EC2::NetworkInterfaceAttachment
 func LookupNetworkInterfaceAttachment(ctx *pulumi.Context, args *LookupNetworkInterfaceAttachmentArgs, opts ...pulumi.InvokeOption) (*LookupNetworkInterfaceAttachmentResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupNetworkInterfaceAttachmentResult
 	err := ctx.Invoke("aws-native:ec2:getNetworkInterfaceAttachment", args, &rv, opts...)
 	if err != nil {

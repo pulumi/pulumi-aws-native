@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -37,6 +38,7 @@ func NewDomain(ctx *pulumi.Context,
 		args = &DomainArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Domain
 	err := ctx.RegisterResource("aws-native:codeartifact:Domain", name, args, &resource, opts...)
 	if err != nil {

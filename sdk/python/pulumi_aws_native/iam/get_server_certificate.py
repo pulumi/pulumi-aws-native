@@ -71,9 +71,9 @@ def get_server_certificate(server_certificate_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iam:getServerCertificate', __args__, opts=opts, typ=GetServerCertificateResult).value
 
     return AwaitableGetServerCertificateResult(
-        arn=__ret__.arn,
-        path=__ret__.path,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        path=pulumi.get(__ret__, 'path'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_server_certificate)

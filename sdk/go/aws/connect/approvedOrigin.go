@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -32,6 +33,7 @@ func NewApprovedOrigin(ctx *pulumi.Context,
 	if args.Origin == nil {
 		return nil, errors.New("invalid value for required argument 'Origin'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ApprovedOrigin
 	err := ctx.RegisterResource("aws-native:connect:ApprovedOrigin", name, args, &resource, opts...)
 	if err != nil {

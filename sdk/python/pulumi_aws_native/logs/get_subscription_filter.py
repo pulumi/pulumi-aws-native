@@ -95,10 +95,10 @@ def get_subscription_filter(filter_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:logs:getSubscriptionFilter', __args__, opts=opts, typ=GetSubscriptionFilterResult).value
 
     return AwaitableGetSubscriptionFilterResult(
-        destination_arn=__ret__.destination_arn,
-        distribution=__ret__.distribution,
-        filter_pattern=__ret__.filter_pattern,
-        role_arn=__ret__.role_arn)
+        destination_arn=pulumi.get(__ret__, 'destination_arn'),
+        distribution=pulumi.get(__ret__, 'distribution'),
+        filter_pattern=pulumi.get(__ret__, 'filter_pattern'),
+        role_arn=pulumi.get(__ret__, 'role_arn'))
 
 
 @_utilities.lift_output_func(get_subscription_filter)

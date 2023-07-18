@@ -68,9 +68,9 @@ def get_response_headers_policy(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cloudfront:getResponseHeadersPolicy', __args__, opts=opts, typ=GetResponseHeadersPolicyResult).value
 
     return AwaitableGetResponseHeadersPolicyResult(
-        id=__ret__.id,
-        last_modified_time=__ret__.last_modified_time,
-        response_headers_policy_config=__ret__.response_headers_policy_config)
+        id=pulumi.get(__ret__, 'id'),
+        last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
+        response_headers_policy_config=pulumi.get(__ret__, 'response_headers_policy_config'))
 
 
 @_utilities.lift_output_func(get_response_headers_policy)

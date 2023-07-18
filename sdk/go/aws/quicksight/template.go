@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,6 +43,7 @@ func NewTemplate(ctx *pulumi.Context,
 	if args.TemplateId == nil {
 		return nil, errors.New("invalid value for required argument 'TemplateId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Template
 	err := ctx.RegisterResource("aws-native:quicksight:Template", name, args, &resource, opts...)
 	if err != nil {

@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -32,6 +33,7 @@ func NewConfigurationRecorder(ctx *pulumi.Context,
 	if args.RoleARN == nil {
 		return nil, errors.New("invalid value for required argument 'RoleARN'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ConfigurationRecorder
 	err := ctx.RegisterResource("aws-native:configuration:ConfigurationRecorder", name, args, &resource, opts...)
 	if err != nil {

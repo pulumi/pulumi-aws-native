@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,6 +40,7 @@ func NewStep(ctx *pulumi.Context,
 	if args.JobFlowId == nil {
 		return nil, errors.New("invalid value for required argument 'JobFlowId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Step
 	err := ctx.RegisterResource("aws-native:emr:Step", name, args, &resource, opts...)
 	if err != nil {

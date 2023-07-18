@@ -162,16 +162,16 @@ def get_accelerator(accelerator_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:globalaccelerator:getAccelerator', __args__, opts=opts, typ=GetAcceleratorResult).value
 
     return AwaitableGetAcceleratorResult(
-        accelerator_arn=__ret__.accelerator_arn,
-        dns_name=__ret__.dns_name,
-        dual_stack_dns_name=__ret__.dual_stack_dns_name,
-        enabled=__ret__.enabled,
-        ip_address_type=__ret__.ip_address_type,
-        ip_addresses=__ret__.ip_addresses,
-        ipv4_addresses=__ret__.ipv4_addresses,
-        ipv6_addresses=__ret__.ipv6_addresses,
-        name=__ret__.name,
-        tags=__ret__.tags)
+        accelerator_arn=pulumi.get(__ret__, 'accelerator_arn'),
+        dns_name=pulumi.get(__ret__, 'dns_name'),
+        dual_stack_dns_name=pulumi.get(__ret__, 'dual_stack_dns_name'),
+        enabled=pulumi.get(__ret__, 'enabled'),
+        ip_address_type=pulumi.get(__ret__, 'ip_address_type'),
+        ip_addresses=pulumi.get(__ret__, 'ip_addresses'),
+        ipv4_addresses=pulumi.get(__ret__, 'ipv4_addresses'),
+        ipv6_addresses=pulumi.get(__ret__, 'ipv6_addresses'),
+        name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_accelerator)

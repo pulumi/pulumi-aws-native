@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::Greengrass::CoreDefinitionVersion
 func LookupCoreDefinitionVersion(ctx *pulumi.Context, args *LookupCoreDefinitionVersionArgs, opts ...pulumi.InvokeOption) (*LookupCoreDefinitionVersionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCoreDefinitionVersionResult
 	err := ctx.Invoke("aws-native:greengrass:getCoreDefinitionVersion", args, &rv, opts...)
 	if err != nil {

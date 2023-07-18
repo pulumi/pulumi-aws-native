@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -37,6 +38,7 @@ func NewAppBlock(ctx *pulumi.Context,
 	if args.SourceS3Location == nil {
 		return nil, errors.New("invalid value for required argument 'SourceS3Location'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AppBlock
 	err := ctx.RegisterResource("aws-native:appstream:AppBlock", name, args, &resource, opts...)
 	if err != nil {

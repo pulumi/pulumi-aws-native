@@ -92,10 +92,10 @@ def get_gateway(gateway_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iotsitewise:getGateway', __args__, opts=opts, typ=GetGatewayResult).value
 
     return AwaitableGetGatewayResult(
-        gateway_capability_summaries=__ret__.gateway_capability_summaries,
-        gateway_id=__ret__.gateway_id,
-        gateway_name=__ret__.gateway_name,
-        tags=__ret__.tags)
+        gateway_capability_summaries=pulumi.get(__ret__, 'gateway_capability_summaries'),
+        gateway_id=pulumi.get(__ret__, 'gateway_id'),
+        gateway_name=pulumi.get(__ret__, 'gateway_name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_gateway)

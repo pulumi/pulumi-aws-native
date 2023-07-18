@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -36,6 +37,7 @@ func NewWorkspace(ctx *pulumi.Context,
 		args = &WorkspaceArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Workspace
 	err := ctx.RegisterResource("aws-native:aps:Workspace", name, args, &resource, opts...)
 	if err != nil {

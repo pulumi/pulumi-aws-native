@@ -59,8 +59,8 @@ def get_configuration_association(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:amazonmq:getConfigurationAssociation', __args__, opts=opts, typ=GetConfigurationAssociationResult).value
 
     return AwaitableGetConfigurationAssociationResult(
-        configuration=__ret__.configuration,
-        id=__ret__.id)
+        configuration=pulumi.get(__ret__, 'configuration'),
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_configuration_association)

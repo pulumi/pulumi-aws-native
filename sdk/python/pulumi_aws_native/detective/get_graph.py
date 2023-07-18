@@ -77,9 +77,9 @@ def get_graph(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:detective:getGraph', __args__, opts=opts, typ=GetGraphResult).value
 
     return AwaitableGetGraphResult(
-        arn=__ret__.arn,
-        auto_enable_members=__ret__.auto_enable_members,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        auto_enable_members=pulumi.get(__ret__, 'auto_enable_members'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_graph)

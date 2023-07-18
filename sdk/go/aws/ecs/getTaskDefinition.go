@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Schema describing various properties for ECS TaskDefinition
 func LookupTaskDefinition(ctx *pulumi.Context, args *LookupTaskDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupTaskDefinitionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTaskDefinitionResult
 	err := ctx.Invoke("aws-native:ecs:getTaskDefinition", args, &rv, opts...)
 	if err != nil {

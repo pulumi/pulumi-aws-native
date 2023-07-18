@@ -183,18 +183,18 @@ def get_automation_rule(rule_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:securityhub:getAutomationRule', __args__, opts=opts, typ=GetAutomationRuleResult).value
 
     return AwaitableGetAutomationRuleResult(
-        actions=__ret__.actions,
-        created_at=__ret__.created_at,
-        created_by=__ret__.created_by,
-        criteria=__ret__.criteria,
-        description=__ret__.description,
-        is_terminal=__ret__.is_terminal,
-        rule_arn=__ret__.rule_arn,
-        rule_name=__ret__.rule_name,
-        rule_order=__ret__.rule_order,
-        rule_status=__ret__.rule_status,
-        tags=__ret__.tags,
-        updated_at=__ret__.updated_at)
+        actions=pulumi.get(__ret__, 'actions'),
+        created_at=pulumi.get(__ret__, 'created_at'),
+        created_by=pulumi.get(__ret__, 'created_by'),
+        criteria=pulumi.get(__ret__, 'criteria'),
+        description=pulumi.get(__ret__, 'description'),
+        is_terminal=pulumi.get(__ret__, 'is_terminal'),
+        rule_arn=pulumi.get(__ret__, 'rule_arn'),
+        rule_name=pulumi.get(__ret__, 'rule_name'),
+        rule_order=pulumi.get(__ret__, 'rule_order'),
+        rule_status=pulumi.get(__ret__, 'rule_status'),
+        tags=pulumi.get(__ret__, 'tags'),
+        updated_at=pulumi.get(__ret__, 'updated_at'))
 
 
 @_utilities.lift_output_func(get_automation_rule)

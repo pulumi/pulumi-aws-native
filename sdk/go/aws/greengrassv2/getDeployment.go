@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource for Greengrass V2 deployment.
 func LookupDeployment(ctx *pulumi.Context, args *LookupDeploymentArgs, opts ...pulumi.InvokeOption) (*LookupDeploymentResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDeploymentResult
 	err := ctx.Invoke("aws-native:greengrassv2:getDeployment", args, &rv, opts...)
 	if err != nil {

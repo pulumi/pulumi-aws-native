@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -28,6 +29,7 @@ func NewNotebookInstanceLifecycleConfig(ctx *pulumi.Context,
 		args = &NotebookInstanceLifecycleConfigArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NotebookInstanceLifecycleConfig
 	err := ctx.RegisterResource("aws-native:sagemaker:NotebookInstanceLifecycleConfig", name, args, &resource, opts...)
 	if err != nil {

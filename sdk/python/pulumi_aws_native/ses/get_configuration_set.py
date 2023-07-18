@@ -98,12 +98,12 @@ def get_configuration_set(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ses:getConfigurationSet', __args__, opts=opts, typ=GetConfigurationSetResult).value
 
     return AwaitableGetConfigurationSetResult(
-        delivery_options=__ret__.delivery_options,
-        reputation_options=__ret__.reputation_options,
-        sending_options=__ret__.sending_options,
-        suppression_options=__ret__.suppression_options,
-        tracking_options=__ret__.tracking_options,
-        vdm_options=__ret__.vdm_options)
+        delivery_options=pulumi.get(__ret__, 'delivery_options'),
+        reputation_options=pulumi.get(__ret__, 'reputation_options'),
+        sending_options=pulumi.get(__ret__, 'sending_options'),
+        suppression_options=pulumi.get(__ret__, 'suppression_options'),
+        tracking_options=pulumi.get(__ret__, 'tracking_options'),
+        vdm_options=pulumi.get(__ret__, 'vdm_options'))
 
 
 @_utilities.lift_output_func(get_configuration_set)

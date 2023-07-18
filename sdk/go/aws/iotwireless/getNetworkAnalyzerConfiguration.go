@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Create and manage NetworkAnalyzerConfiguration resource.
 func LookupNetworkAnalyzerConfiguration(ctx *pulumi.Context, args *LookupNetworkAnalyzerConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupNetworkAnalyzerConfigurationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupNetworkAnalyzerConfigurationResult
 	err := ctx.Invoke("aws-native:iotwireless:getNetworkAnalyzerConfiguration", args, &rv, opts...)
 	if err != nil {

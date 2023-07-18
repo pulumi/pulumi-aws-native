@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ func NewLocationS3(ctx *pulumi.Context,
 	if args.S3Config == nil {
 		return nil, errors.New("invalid value for required argument 'S3Config'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LocationS3
 	err := ctx.RegisterResource("aws-native:datasync:LocationS3", name, args, &resource, opts...)
 	if err != nil {

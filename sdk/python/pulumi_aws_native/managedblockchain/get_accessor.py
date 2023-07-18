@@ -86,11 +86,11 @@ def get_accessor(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:managedblockchain:getAccessor', __args__, opts=opts, typ=GetAccessorResult).value
 
     return AwaitableGetAccessorResult(
-        arn=__ret__.arn,
-        billing_token=__ret__.billing_token,
-        creation_date=__ret__.creation_date,
-        id=__ret__.id,
-        status=__ret__.status)
+        arn=pulumi.get(__ret__, 'arn'),
+        billing_token=pulumi.get(__ret__, 'billing_token'),
+        creation_date=pulumi.get(__ret__, 'creation_date'),
+        id=pulumi.get(__ret__, 'id'),
+        status=pulumi.get(__ret__, 'status'))
 
 
 @_utilities.lift_output_func(get_accessor)

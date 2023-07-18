@@ -113,14 +113,14 @@ def get_resource_share(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ram:getResourceShare', __args__, opts=opts, typ=GetResourceShareResult).value
 
     return AwaitableGetResourceShareResult(
-        allow_external_principals=__ret__.allow_external_principals,
-        arn=__ret__.arn,
-        id=__ret__.id,
-        name=__ret__.name,
-        permission_arns=__ret__.permission_arns,
-        principals=__ret__.principals,
-        resource_arns=__ret__.resource_arns,
-        tags=__ret__.tags)
+        allow_external_principals=pulumi.get(__ret__, 'allow_external_principals'),
+        arn=pulumi.get(__ret__, 'arn'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        permission_arns=pulumi.get(__ret__, 'permission_arns'),
+        principals=pulumi.get(__ret__, 'principals'),
+        resource_arns=pulumi.get(__ret__, 'resource_arns'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_resource_share)

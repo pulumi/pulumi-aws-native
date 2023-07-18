@@ -68,9 +68,9 @@ def get_origin_request_policy(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cloudfront:getOriginRequestPolicy', __args__, opts=opts, typ=GetOriginRequestPolicyResult).value
 
     return AwaitableGetOriginRequestPolicyResult(
-        id=__ret__.id,
-        last_modified_time=__ret__.last_modified_time,
-        origin_request_policy_config=__ret__.origin_request_policy_config)
+        id=pulumi.get(__ret__, 'id'),
+        last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
+        origin_request_policy_config=pulumi.get(__ret__, 'origin_request_policy_config'))
 
 
 @_utilities.lift_output_func(get_origin_request_policy)

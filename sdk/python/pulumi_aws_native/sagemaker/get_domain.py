@@ -162,16 +162,16 @@ def get_domain(domain_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:sagemaker:getDomain', __args__, opts=opts, typ=GetDomainResult).value
 
     return AwaitableGetDomainResult(
-        app_security_group_management=__ret__.app_security_group_management,
-        default_space_settings=__ret__.default_space_settings,
-        default_user_settings=__ret__.default_user_settings,
-        domain_arn=__ret__.domain_arn,
-        domain_id=__ret__.domain_id,
-        domain_settings=__ret__.domain_settings,
-        home_efs_file_system_id=__ret__.home_efs_file_system_id,
-        security_group_id_for_domain_boundary=__ret__.security_group_id_for_domain_boundary,
-        single_sign_on_managed_application_instance_id=__ret__.single_sign_on_managed_application_instance_id,
-        url=__ret__.url)
+        app_security_group_management=pulumi.get(__ret__, 'app_security_group_management'),
+        default_space_settings=pulumi.get(__ret__, 'default_space_settings'),
+        default_user_settings=pulumi.get(__ret__, 'default_user_settings'),
+        domain_arn=pulumi.get(__ret__, 'domain_arn'),
+        domain_id=pulumi.get(__ret__, 'domain_id'),
+        domain_settings=pulumi.get(__ret__, 'domain_settings'),
+        home_efs_file_system_id=pulumi.get(__ret__, 'home_efs_file_system_id'),
+        security_group_id_for_domain_boundary=pulumi.get(__ret__, 'security_group_id_for_domain_boundary'),
+        single_sign_on_managed_application_instance_id=pulumi.get(__ret__, 'single_sign_on_managed_application_instance_id'),
+        url=pulumi.get(__ret__, 'url'))
 
 
 @_utilities.lift_output_func(get_domain)

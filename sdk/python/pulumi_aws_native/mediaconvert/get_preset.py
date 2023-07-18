@@ -94,12 +94,12 @@ def get_preset(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:mediaconvert:getPreset', __args__, opts=opts, typ=GetPresetResult).value
 
     return AwaitableGetPresetResult(
-        arn=__ret__.arn,
-        category=__ret__.category,
-        description=__ret__.description,
-        id=__ret__.id,
-        settings_json=__ret__.settings_json,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        category=pulumi.get(__ret__, 'category'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        settings_json=pulumi.get(__ret__, 'settings_json'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_preset)

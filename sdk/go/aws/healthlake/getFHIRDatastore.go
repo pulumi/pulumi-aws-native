@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // HealthLake FHIR Datastore
 func LookupFHIRDatastore(ctx *pulumi.Context, args *LookupFHIRDatastoreArgs, opts ...pulumi.InvokeOption) (*LookupFHIRDatastoreResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFHIRDatastoreResult
 	err := ctx.Invoke("aws-native:healthlake:getFHIRDatastore", args, &rv, opts...)
 	if err != nil {

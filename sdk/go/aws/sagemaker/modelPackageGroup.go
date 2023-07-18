@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -33,6 +34,7 @@ func NewModelPackageGroup(ctx *pulumi.Context,
 		args = &ModelPackageGroupArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ModelPackageGroup
 	err := ctx.RegisterResource("aws-native:sagemaker:ModelPackageGroup", name, args, &resource, opts...)
 	if err != nil {

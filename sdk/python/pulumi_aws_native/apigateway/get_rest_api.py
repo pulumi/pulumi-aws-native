@@ -140,17 +140,17 @@ def get_rest_api(rest_api_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:apigateway:getRestApi', __args__, opts=opts, typ=GetRestApiResult).value
 
     return AwaitableGetRestApiResult(
-        api_key_source_type=__ret__.api_key_source_type,
-        binary_media_types=__ret__.binary_media_types,
-        description=__ret__.description,
-        disable_execute_api_endpoint=__ret__.disable_execute_api_endpoint,
-        endpoint_configuration=__ret__.endpoint_configuration,
-        minimum_compression_size=__ret__.minimum_compression_size,
-        name=__ret__.name,
-        policy=__ret__.policy,
-        rest_api_id=__ret__.rest_api_id,
-        root_resource_id=__ret__.root_resource_id,
-        tags=__ret__.tags)
+        api_key_source_type=pulumi.get(__ret__, 'api_key_source_type'),
+        binary_media_types=pulumi.get(__ret__, 'binary_media_types'),
+        description=pulumi.get(__ret__, 'description'),
+        disable_execute_api_endpoint=pulumi.get(__ret__, 'disable_execute_api_endpoint'),
+        endpoint_configuration=pulumi.get(__ret__, 'endpoint_configuration'),
+        minimum_compression_size=pulumi.get(__ret__, 'minimum_compression_size'),
+        name=pulumi.get(__ret__, 'name'),
+        policy=pulumi.get(__ret__, 'policy'),
+        rest_api_id=pulumi.get(__ret__, 'rest_api_id'),
+        root_resource_id=pulumi.get(__ret__, 'root_resource_id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_rest_api)

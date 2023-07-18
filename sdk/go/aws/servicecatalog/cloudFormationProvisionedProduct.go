@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ func NewCloudFormationProvisionedProduct(ctx *pulumi.Context,
 		args = &CloudFormationProvisionedProductArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CloudFormationProvisionedProduct
 	err := ctx.RegisterResource("aws-native:servicecatalog:CloudFormationProvisionedProduct", name, args, &resource, opts...)
 	if err != nil {

@@ -164,16 +164,16 @@ def get_verified_access_group(verified_access_group_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getVerifiedAccessGroup', __args__, opts=opts, typ=GetVerifiedAccessGroupResult).value
 
     return AwaitableGetVerifiedAccessGroupResult(
-        creation_time=__ret__.creation_time,
-        description=__ret__.description,
-        last_updated_time=__ret__.last_updated_time,
-        owner=__ret__.owner,
-        policy_document=__ret__.policy_document,
-        policy_enabled=__ret__.policy_enabled,
-        tags=__ret__.tags,
-        verified_access_group_arn=__ret__.verified_access_group_arn,
-        verified_access_group_id=__ret__.verified_access_group_id,
-        verified_access_instance_id=__ret__.verified_access_instance_id)
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        description=pulumi.get(__ret__, 'description'),
+        last_updated_time=pulumi.get(__ret__, 'last_updated_time'),
+        owner=pulumi.get(__ret__, 'owner'),
+        policy_document=pulumi.get(__ret__, 'policy_document'),
+        policy_enabled=pulumi.get(__ret__, 'policy_enabled'),
+        tags=pulumi.get(__ret__, 'tags'),
+        verified_access_group_arn=pulumi.get(__ret__, 'verified_access_group_arn'),
+        verified_access_group_id=pulumi.get(__ret__, 'verified_access_group_id'),
+        verified_access_instance_id=pulumi.get(__ret__, 'verified_access_instance_id'))
 
 
 @_utilities.lift_output_func(get_verified_access_group)

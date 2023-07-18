@@ -140,17 +140,17 @@ def get_load_balancer(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:elasticloadbalancingv2:getLoadBalancer', __args__, opts=opts, typ=GetLoadBalancerResult).value
 
     return AwaitableGetLoadBalancerResult(
-        canonical_hosted_zone_id=__ret__.canonical_hosted_zone_id,
-        d_ns_name=__ret__.d_ns_name,
-        id=__ret__.id,
-        ip_address_type=__ret__.ip_address_type,
-        load_balancer_attributes=__ret__.load_balancer_attributes,
-        load_balancer_full_name=__ret__.load_balancer_full_name,
-        load_balancer_name=__ret__.load_balancer_name,
-        security_groups=__ret__.security_groups,
-        subnet_mappings=__ret__.subnet_mappings,
-        subnets=__ret__.subnets,
-        tags=__ret__.tags)
+        canonical_hosted_zone_id=pulumi.get(__ret__, 'canonical_hosted_zone_id'),
+        d_ns_name=pulumi.get(__ret__, 'd_ns_name'),
+        id=pulumi.get(__ret__, 'id'),
+        ip_address_type=pulumi.get(__ret__, 'ip_address_type'),
+        load_balancer_attributes=pulumi.get(__ret__, 'load_balancer_attributes'),
+        load_balancer_full_name=pulumi.get(__ret__, 'load_balancer_full_name'),
+        load_balancer_name=pulumi.get(__ret__, 'load_balancer_name'),
+        security_groups=pulumi.get(__ret__, 'security_groups'),
+        subnet_mappings=pulumi.get(__ret__, 'subnet_mappings'),
+        subnets=pulumi.get(__ret__, 'subnets'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_load_balancer)

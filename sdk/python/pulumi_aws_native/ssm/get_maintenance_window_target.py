@@ -95,12 +95,12 @@ def get_maintenance_window_target(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ssm:getMaintenanceWindowTarget', __args__, opts=opts, typ=GetMaintenanceWindowTargetResult).value
 
     return AwaitableGetMaintenanceWindowTargetResult(
-        description=__ret__.description,
-        id=__ret__.id,
-        name=__ret__.name,
-        owner_information=__ret__.owner_information,
-        resource_type=__ret__.resource_type,
-        targets=__ret__.targets)
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        owner_information=pulumi.get(__ret__, 'owner_information'),
+        resource_type=pulumi.get(__ret__, 'resource_type'),
+        targets=pulumi.get(__ret__, 'targets'))
 
 
 @_utilities.lift_output_func(get_maintenance_window_target)

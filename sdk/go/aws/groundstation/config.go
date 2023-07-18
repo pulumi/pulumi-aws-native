@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -32,6 +33,7 @@ func NewConfig(ctx *pulumi.Context,
 	if args.ConfigData == nil {
 		return nil, errors.New("invalid value for required argument 'ConfigData'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Config
 	err := ctx.RegisterResource("aws-native:groundstation:Config", name, args, &resource, opts...)
 	if err != nil {

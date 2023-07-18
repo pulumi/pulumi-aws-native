@@ -121,15 +121,15 @@ def get_apns_voip_sandbox_channel(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:pinpoint:getAPNSVoipSandboxChannel', __args__, opts=opts, typ=GetAPNSVoipSandboxChannelResult).value
 
     return AwaitableGetAPNSVoipSandboxChannelResult(
-        bundle_id=__ret__.bundle_id,
-        certificate=__ret__.certificate,
-        default_authentication_method=__ret__.default_authentication_method,
-        enabled=__ret__.enabled,
-        id=__ret__.id,
-        private_key=__ret__.private_key,
-        team_id=__ret__.team_id,
-        token_key=__ret__.token_key,
-        token_key_id=__ret__.token_key_id)
+        bundle_id=pulumi.get(__ret__, 'bundle_id'),
+        certificate=pulumi.get(__ret__, 'certificate'),
+        default_authentication_method=pulumi.get(__ret__, 'default_authentication_method'),
+        enabled=pulumi.get(__ret__, 'enabled'),
+        id=pulumi.get(__ret__, 'id'),
+        private_key=pulumi.get(__ret__, 'private_key'),
+        team_id=pulumi.get(__ret__, 'team_id'),
+        token_key=pulumi.get(__ret__, 'token_key'),
+        token_key_id=pulumi.get(__ret__, 'token_key_id'))
 
 
 @_utilities.lift_output_func(get_apns_voip_sandbox_channel)

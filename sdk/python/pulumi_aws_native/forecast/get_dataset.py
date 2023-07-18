@@ -114,13 +114,13 @@ def get_dataset(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:forecast:getDataset', __args__, opts=opts, typ=GetDatasetResult).value
 
     return AwaitableGetDatasetResult(
-        arn=__ret__.arn,
-        data_frequency=__ret__.data_frequency,
-        dataset_type=__ret__.dataset_type,
-        domain=__ret__.domain,
-        encryption_config=__ret__.encryption_config,
-        schema=__ret__.schema,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        data_frequency=pulumi.get(__ret__, 'data_frequency'),
+        dataset_type=pulumi.get(__ret__, 'dataset_type'),
+        domain=pulumi.get(__ret__, 'domain'),
+        encryption_config=pulumi.get(__ret__, 'encryption_config'),
+        schema=pulumi.get(__ret__, 'schema'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_dataset)

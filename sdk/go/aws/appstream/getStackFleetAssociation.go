@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::AppStream::StackFleetAssociation
 func LookupStackFleetAssociation(ctx *pulumi.Context, args *LookupStackFleetAssociationArgs, opts ...pulumi.InvokeOption) (*LookupStackFleetAssociationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupStackFleetAssociationResult
 	err := ctx.Invoke("aws-native:appstream:getStackFleetAssociation", args, &rv, opts...)
 	if err != nil {

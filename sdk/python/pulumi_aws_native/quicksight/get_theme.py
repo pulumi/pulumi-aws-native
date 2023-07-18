@@ -116,14 +116,14 @@ def get_theme(aws_account_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:quicksight:getTheme', __args__, opts=opts, typ=GetThemeResult).value
 
     return AwaitableGetThemeResult(
-        arn=__ret__.arn,
-        created_time=__ret__.created_time,
-        last_updated_time=__ret__.last_updated_time,
-        name=__ret__.name,
-        permissions=__ret__.permissions,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        version=__ret__.version)
+        arn=pulumi.get(__ret__, 'arn'),
+        created_time=pulumi.get(__ret__, 'created_time'),
+        last_updated_time=pulumi.get(__ret__, 'last_updated_time'),
+        name=pulumi.get(__ret__, 'name'),
+        permissions=pulumi.get(__ret__, 'permissions'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_theme)

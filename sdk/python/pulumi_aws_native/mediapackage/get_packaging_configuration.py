@@ -129,13 +129,13 @@ def get_packaging_configuration(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:mediapackage:getPackagingConfiguration', __args__, opts=opts, typ=GetPackagingConfigurationResult).value
 
     return AwaitableGetPackagingConfigurationResult(
-        arn=__ret__.arn,
-        cmaf_package=__ret__.cmaf_package,
-        dash_package=__ret__.dash_package,
-        hls_package=__ret__.hls_package,
-        mss_package=__ret__.mss_package,
-        packaging_group_id=__ret__.packaging_group_id,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        cmaf_package=pulumi.get(__ret__, 'cmaf_package'),
+        dash_package=pulumi.get(__ret__, 'dash_package'),
+        hls_package=pulumi.get(__ret__, 'hls_package'),
+        mss_package=pulumi.get(__ret__, 'mss_package'),
+        packaging_group_id=pulumi.get(__ret__, 'packaging_group_id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_packaging_configuration)

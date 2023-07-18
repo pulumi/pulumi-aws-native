@@ -104,13 +104,13 @@ def get_network_acl_entry(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getNetworkAclEntry', __args__, opts=opts, typ=GetNetworkAclEntryResult).value
 
     return AwaitableGetNetworkAclEntryResult(
-        cidr_block=__ret__.cidr_block,
-        icmp=__ret__.icmp,
-        id=__ret__.id,
-        ipv6_cidr_block=__ret__.ipv6_cidr_block,
-        port_range=__ret__.port_range,
-        protocol=__ret__.protocol,
-        rule_action=__ret__.rule_action)
+        cidr_block=pulumi.get(__ret__, 'cidr_block'),
+        icmp=pulumi.get(__ret__, 'icmp'),
+        id=pulumi.get(__ret__, 'id'),
+        ipv6_cidr_block=pulumi.get(__ret__, 'ipv6_cidr_block'),
+        port_range=pulumi.get(__ret__, 'port_range'),
+        protocol=pulumi.get(__ret__, 'protocol'),
+        rule_action=pulumi.get(__ret__, 'rule_action'))
 
 
 @_utilities.lift_output_func(get_network_acl_entry)

@@ -158,19 +158,19 @@ def get_maintenance_window_task(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ssm:getMaintenanceWindowTask', __args__, opts=opts, typ=GetMaintenanceWindowTaskResult).value
 
     return AwaitableGetMaintenanceWindowTaskResult(
-        cutoff_behavior=__ret__.cutoff_behavior,
-        description=__ret__.description,
-        id=__ret__.id,
-        logging_info=__ret__.logging_info,
-        max_concurrency=__ret__.max_concurrency,
-        max_errors=__ret__.max_errors,
-        name=__ret__.name,
-        priority=__ret__.priority,
-        service_role_arn=__ret__.service_role_arn,
-        targets=__ret__.targets,
-        task_arn=__ret__.task_arn,
-        task_invocation_parameters=__ret__.task_invocation_parameters,
-        task_parameters=__ret__.task_parameters)
+        cutoff_behavior=pulumi.get(__ret__, 'cutoff_behavior'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        logging_info=pulumi.get(__ret__, 'logging_info'),
+        max_concurrency=pulumi.get(__ret__, 'max_concurrency'),
+        max_errors=pulumi.get(__ret__, 'max_errors'),
+        name=pulumi.get(__ret__, 'name'),
+        priority=pulumi.get(__ret__, 'priority'),
+        service_role_arn=pulumi.get(__ret__, 'service_role_arn'),
+        targets=pulumi.get(__ret__, 'targets'),
+        task_arn=pulumi.get(__ret__, 'task_arn'),
+        task_invocation_parameters=pulumi.get(__ret__, 'task_invocation_parameters'),
+        task_parameters=pulumi.get(__ret__, 'task_parameters'))
 
 
 @_utilities.lift_output_func(get_maintenance_window_task)

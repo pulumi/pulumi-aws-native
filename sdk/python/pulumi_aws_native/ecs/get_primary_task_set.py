@@ -58,7 +58,7 @@ def get_primary_task_set(cluster: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ecs:getPrimaryTaskSet', __args__, opts=opts, typ=GetPrimaryTaskSetResult).value
 
     return AwaitableGetPrimaryTaskSetResult(
-        task_set_id=__ret__.task_set_id)
+        task_set_id=pulumi.get(__ret__, 'task_set_id'))
 
 
 @_utilities.lift_output_func(get_primary_task_set)

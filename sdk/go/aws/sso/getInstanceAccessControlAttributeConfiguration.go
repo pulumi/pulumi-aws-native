@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for SSO InstanceAccessControlAttributeConfiguration
 func LookupInstanceAccessControlAttributeConfiguration(ctx *pulumi.Context, args *LookupInstanceAccessControlAttributeConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupInstanceAccessControlAttributeConfigurationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupInstanceAccessControlAttributeConfigurationResult
 	err := ctx.Invoke("aws-native:sso:getInstanceAccessControlAttributeConfiguration", args, &rv, opts...)
 	if err != nil {

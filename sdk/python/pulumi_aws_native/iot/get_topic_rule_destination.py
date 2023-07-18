@@ -80,9 +80,9 @@ def get_topic_rule_destination(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iot:getTopicRuleDestination', __args__, opts=opts, typ=GetTopicRuleDestinationResult).value
 
     return AwaitableGetTopicRuleDestinationResult(
-        arn=__ret__.arn,
-        status=__ret__.status,
-        status_reason=__ret__.status_reason)
+        arn=pulumi.get(__ret__, 'arn'),
+        status=pulumi.get(__ret__, 'status'),
+        status_reason=pulumi.get(__ret__, 'status_reason'))
 
 
 @_utilities.lift_output_func(get_topic_rule_destination)

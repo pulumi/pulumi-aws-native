@@ -77,9 +77,9 @@ def get_security_config(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:opensearchserverless:getSecurityConfig', __args__, opts=opts, typ=GetSecurityConfigResult).value
 
     return AwaitableGetSecurityConfigResult(
-        description=__ret__.description,
-        id=__ret__.id,
-        saml_options=__ret__.saml_options)
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        saml_options=pulumi.get(__ret__, 'saml_options'))
 
 
 @_utilities.lift_output_func(get_security_config)

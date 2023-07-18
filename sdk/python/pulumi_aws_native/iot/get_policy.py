@@ -67,9 +67,9 @@ def get_policy(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iot:getPolicy', __args__, opts=opts, typ=GetPolicyResult).value
 
     return AwaitableGetPolicyResult(
-        arn=__ret__.arn,
-        id=__ret__.id,
-        policy_document=__ret__.policy_document)
+        arn=pulumi.get(__ret__, 'arn'),
+        id=pulumi.get(__ret__, 'id'),
+        policy_document=pulumi.get(__ret__, 'policy_document'))
 
 
 @_utilities.lift_output_func(get_policy)

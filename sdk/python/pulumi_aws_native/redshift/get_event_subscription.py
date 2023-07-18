@@ -188,18 +188,18 @@ def get_event_subscription(subscription_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:redshift:getEventSubscription', __args__, opts=opts, typ=GetEventSubscriptionResult).value
 
     return AwaitableGetEventSubscriptionResult(
-        cust_subscription_id=__ret__.cust_subscription_id,
-        customer_aws_id=__ret__.customer_aws_id,
-        enabled=__ret__.enabled,
-        event_categories=__ret__.event_categories,
-        event_categories_list=__ret__.event_categories_list,
-        severity=__ret__.severity,
-        sns_topic_arn=__ret__.sns_topic_arn,
-        source_ids=__ret__.source_ids,
-        source_ids_list=__ret__.source_ids_list,
-        source_type=__ret__.source_type,
-        status=__ret__.status,
-        subscription_creation_time=__ret__.subscription_creation_time)
+        cust_subscription_id=pulumi.get(__ret__, 'cust_subscription_id'),
+        customer_aws_id=pulumi.get(__ret__, 'customer_aws_id'),
+        enabled=pulumi.get(__ret__, 'enabled'),
+        event_categories=pulumi.get(__ret__, 'event_categories'),
+        event_categories_list=pulumi.get(__ret__, 'event_categories_list'),
+        severity=pulumi.get(__ret__, 'severity'),
+        sns_topic_arn=pulumi.get(__ret__, 'sns_topic_arn'),
+        source_ids=pulumi.get(__ret__, 'source_ids'),
+        source_ids_list=pulumi.get(__ret__, 'source_ids_list'),
+        source_type=pulumi.get(__ret__, 'source_type'),
+        status=pulumi.get(__ret__, 'status'),
+        subscription_creation_time=pulumi.get(__ret__, 'subscription_creation_time'))
 
 
 @_utilities.lift_output_func(get_event_subscription)

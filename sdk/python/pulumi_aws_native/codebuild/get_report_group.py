@@ -86,11 +86,11 @@ def get_report_group(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:codebuild:getReportGroup', __args__, opts=opts, typ=GetReportGroupResult).value
 
     return AwaitableGetReportGroupResult(
-        arn=__ret__.arn,
-        delete_reports=__ret__.delete_reports,
-        export_config=__ret__.export_config,
-        id=__ret__.id,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        delete_reports=pulumi.get(__ret__, 'delete_reports'),
+        export_config=pulumi.get(__ret__, 'export_config'),
+        id=pulumi.get(__ret__, 'id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_report_group)

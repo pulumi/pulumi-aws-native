@@ -86,11 +86,11 @@ def get_security_group(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getSecurityGroup', __args__, opts=opts, typ=GetSecurityGroupResult).value
 
     return AwaitableGetSecurityGroupResult(
-        group_id=__ret__.group_id,
-        id=__ret__.id,
-        security_group_egress=__ret__.security_group_egress,
-        security_group_ingress=__ret__.security_group_ingress,
-        tags=__ret__.tags)
+        group_id=pulumi.get(__ret__, 'group_id'),
+        id=pulumi.get(__ret__, 'id'),
+        security_group_egress=pulumi.get(__ret__, 'security_group_egress'),
+        security_group_ingress=pulumi.get(__ret__, 'security_group_ingress'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_security_group)

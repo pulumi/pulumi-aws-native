@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::IoTAnalytics::Datastore
 func LookupDatastore(ctx *pulumi.Context, args *LookupDatastoreArgs, opts ...pulumi.InvokeOption) (*LookupDatastoreResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDatastoreResult
 	err := ctx.Invoke("aws-native:iotanalytics:getDatastore", args, &rv, opts...)
 	if err != nil {

@@ -197,19 +197,19 @@ def get_canary(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:synthetics:getCanary', __args__, opts=opts, typ=GetCanaryResult).value
 
     return AwaitableGetCanaryResult(
-        artifact_config=__ret__.artifact_config,
-        artifact_s3_location=__ret__.artifact_s3_location,
-        code=__ret__.code,
-        execution_role_arn=__ret__.execution_role_arn,
-        failure_retention_period=__ret__.failure_retention_period,
-        id=__ret__.id,
-        run_config=__ret__.run_config,
-        runtime_version=__ret__.runtime_version,
-        schedule=__ret__.schedule,
-        state=__ret__.state,
-        success_retention_period=__ret__.success_retention_period,
-        tags=__ret__.tags,
-        v_pc_config=__ret__.v_pc_config)
+        artifact_config=pulumi.get(__ret__, 'artifact_config'),
+        artifact_s3_location=pulumi.get(__ret__, 'artifact_s3_location'),
+        code=pulumi.get(__ret__, 'code'),
+        execution_role_arn=pulumi.get(__ret__, 'execution_role_arn'),
+        failure_retention_period=pulumi.get(__ret__, 'failure_retention_period'),
+        id=pulumi.get(__ret__, 'id'),
+        run_config=pulumi.get(__ret__, 'run_config'),
+        runtime_version=pulumi.get(__ret__, 'runtime_version'),
+        schedule=pulumi.get(__ret__, 'schedule'),
+        state=pulumi.get(__ret__, 'state'),
+        success_retention_period=pulumi.get(__ret__, 'success_retention_period'),
+        tags=pulumi.get(__ret__, 'tags'),
+        v_pc_config=pulumi.get(__ret__, 'v_pc_config'))
 
 
 @_utilities.lift_output_func(get_canary)

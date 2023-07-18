@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -34,6 +35,7 @@ func NewReferenceStore(ctx *pulumi.Context,
 		args = &ReferenceStoreArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ReferenceStore
 	err := ctx.RegisterResource("aws-native:omics:ReferenceStore", name, args, &resource, opts...)
 	if err != nil {

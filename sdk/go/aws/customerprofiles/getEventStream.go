@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // An Event Stream resource of Amazon Connect Customer Profiles
 func LookupEventStream(ctx *pulumi.Context, args *LookupEventStreamArgs, opts ...pulumi.InvokeOption) (*LookupEventStreamResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEventStreamResult
 	err := ctx.Invoke("aws-native:customerprofiles:getEventStream", args, &rv, opts...)
 	if err != nil {

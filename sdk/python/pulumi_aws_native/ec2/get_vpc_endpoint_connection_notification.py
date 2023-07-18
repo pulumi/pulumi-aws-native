@@ -67,9 +67,9 @@ def get_vpc_endpoint_connection_notification(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getVPCEndpointConnectionNotification', __args__, opts=opts, typ=GetVPCEndpointConnectionNotificationResult).value
 
     return AwaitableGetVPCEndpointConnectionNotificationResult(
-        connection_events=__ret__.connection_events,
-        connection_notification_arn=__ret__.connection_notification_arn,
-        id=__ret__.id)
+        connection_events=pulumi.get(__ret__, 'connection_events'),
+        connection_notification_arn=pulumi.get(__ret__, 'connection_notification_arn'),
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_vpc_endpoint_connection_notification)

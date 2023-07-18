@@ -68,9 +68,9 @@ def get_skill(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ask:getSkill', __args__, opts=opts, typ=GetSkillResult).value
 
     return AwaitableGetSkillResult(
-        authentication_configuration=__ret__.authentication_configuration,
-        id=__ret__.id,
-        skill_package=__ret__.skill_package)
+        authentication_configuration=pulumi.get(__ret__, 'authentication_configuration'),
+        id=pulumi.get(__ret__, 'id'),
+        skill_package=pulumi.get(__ret__, 'skill_package'))
 
 
 @_utilities.lift_output_func(get_skill)

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::EC2::ClientVpnAuthorizationRule
 func LookupClientVpnAuthorizationRule(ctx *pulumi.Context, args *LookupClientVpnAuthorizationRuleArgs, opts ...pulumi.InvokeOption) (*LookupClientVpnAuthorizationRuleResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupClientVpnAuthorizationRuleResult
 	err := ctx.Invoke("aws-native:ec2:getClientVpnAuthorizationRule", args, &rv, opts...)
 	if err != nil {

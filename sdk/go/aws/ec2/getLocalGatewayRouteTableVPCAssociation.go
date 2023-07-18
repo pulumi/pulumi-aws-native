@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Describes an association between a local gateway route table and a VPC.
 func LookupLocalGatewayRouteTableVPCAssociation(ctx *pulumi.Context, args *LookupLocalGatewayRouteTableVPCAssociationArgs, opts ...pulumi.InvokeOption) (*LookupLocalGatewayRouteTableVPCAssociationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLocalGatewayRouteTableVPCAssociationResult
 	err := ctx.Invoke("aws-native:ec2:getLocalGatewayRouteTableVPCAssociation", args, &rv, opts...)
 	if err != nil {

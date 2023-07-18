@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ func NewInsightRule(ctx *pulumi.Context,
 	if args.RuleState == nil {
 		return nil, errors.New("invalid value for required argument 'RuleState'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource InsightRule
 	err := ctx.RegisterResource("aws-native:cloudwatch:InsightRule", name, args, &resource, opts...)
 	if err != nil {

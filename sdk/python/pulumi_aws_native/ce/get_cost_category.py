@@ -110,12 +110,12 @@ def get_cost_category(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ce:getCostCategory', __args__, opts=opts, typ=GetCostCategoryResult).value
 
     return AwaitableGetCostCategoryResult(
-        arn=__ret__.arn,
-        default_value=__ret__.default_value,
-        effective_start=__ret__.effective_start,
-        rule_version=__ret__.rule_version,
-        rules=__ret__.rules,
-        split_charge_rules=__ret__.split_charge_rules)
+        arn=pulumi.get(__ret__, 'arn'),
+        default_value=pulumi.get(__ret__, 'default_value'),
+        effective_start=pulumi.get(__ret__, 'effective_start'),
+        rule_version=pulumi.get(__ret__, 'rule_version'),
+        rules=pulumi.get(__ret__, 'rules'),
+        split_charge_rules=pulumi.get(__ret__, 'split_charge_rules'))
 
 
 @_utilities.lift_output_func(get_cost_category)

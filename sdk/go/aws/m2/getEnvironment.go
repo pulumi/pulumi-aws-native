@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Represents a runtime environment that can run migrated mainframe applications.
 func LookupEnvironment(ctx *pulumi.Context, args *LookupEnvironmentArgs, opts ...pulumi.InvokeOption) (*LookupEnvironmentResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEnvironmentResult
 	err := ctx.Invoke("aws-native:m2:getEnvironment", args, &rv, opts...)
 	if err != nil {

@@ -154,15 +154,15 @@ def get_scene(scene_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iottwinmaker:getScene', __args__, opts=opts, typ=GetSceneResult).value
 
     return AwaitableGetSceneResult(
-        arn=__ret__.arn,
-        capabilities=__ret__.capabilities,
-        content_location=__ret__.content_location,
-        creation_date_time=__ret__.creation_date_time,
-        description=__ret__.description,
-        generated_scene_metadata=__ret__.generated_scene_metadata,
-        scene_metadata=__ret__.scene_metadata,
-        tags=__ret__.tags,
-        update_date_time=__ret__.update_date_time)
+        arn=pulumi.get(__ret__, 'arn'),
+        capabilities=pulumi.get(__ret__, 'capabilities'),
+        content_location=pulumi.get(__ret__, 'content_location'),
+        creation_date_time=pulumi.get(__ret__, 'creation_date_time'),
+        description=pulumi.get(__ret__, 'description'),
+        generated_scene_metadata=pulumi.get(__ret__, 'generated_scene_metadata'),
+        scene_metadata=pulumi.get(__ret__, 'scene_metadata'),
+        tags=pulumi.get(__ret__, 'tags'),
+        update_date_time=pulumi.get(__ret__, 'update_date_time'))
 
 
 @_utilities.lift_output_func(get_scene)

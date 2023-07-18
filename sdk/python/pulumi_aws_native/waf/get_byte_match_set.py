@@ -59,8 +59,8 @@ def get_byte_match_set(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:waf:getByteMatchSet', __args__, opts=opts, typ=GetByteMatchSetResult).value
 
     return AwaitableGetByteMatchSetResult(
-        byte_match_tuples=__ret__.byte_match_tuples,
-        id=__ret__.id)
+        byte_match_tuples=pulumi.get(__ret__, 'byte_match_tuples'),
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_byte_match_set)

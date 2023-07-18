@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -43,6 +44,7 @@ func NewResponsePlan(ctx *pulumi.Context,
 	if args.IncidentTemplate == nil {
 		return nil, errors.New("invalid value for required argument 'IncidentTemplate'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResponsePlan
 	err := ctx.RegisterResource("aws-native:ssmincidents:ResponsePlan", name, args, &resource, opts...)
 	if err != nil {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,6 +26,7 @@ func NewAccount(ctx *pulumi.Context,
 		args = &AccountArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Account
 	err := ctx.RegisterResource("aws-native:apigateway:Account", name, args, &resource, opts...)
 	if err != nil {

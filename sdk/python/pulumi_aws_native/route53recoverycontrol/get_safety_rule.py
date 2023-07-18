@@ -96,11 +96,11 @@ def get_safety_rule(safety_rule_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:route53recoverycontrol:getSafetyRule', __args__, opts=opts, typ=GetSafetyRuleResult).value
 
     return AwaitableGetSafetyRuleResult(
-        assertion_rule=__ret__.assertion_rule,
-        gating_rule=__ret__.gating_rule,
-        name=__ret__.name,
-        safety_rule_arn=__ret__.safety_rule_arn,
-        status=__ret__.status)
+        assertion_rule=pulumi.get(__ret__, 'assertion_rule'),
+        gating_rule=pulumi.get(__ret__, 'gating_rule'),
+        name=pulumi.get(__ret__, 'name'),
+        safety_rule_arn=pulumi.get(__ret__, 'safety_rule_arn'),
+        status=pulumi.get(__ret__, 'status'))
 
 
 @_utilities.lift_output_func(get_safety_rule)

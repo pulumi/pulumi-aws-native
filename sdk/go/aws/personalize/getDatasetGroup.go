@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Schema for AWS::Personalize::DatasetGroup.
 func LookupDatasetGroup(ctx *pulumi.Context, args *LookupDatasetGroupArgs, opts ...pulumi.InvokeOption) (*LookupDatasetGroupResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDatasetGroupResult
 	err := ctx.Invoke("aws-native:personalize:getDatasetGroup", args, &rv, opts...)
 	if err != nil {

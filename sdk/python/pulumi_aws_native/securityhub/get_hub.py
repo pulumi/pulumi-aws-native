@@ -85,11 +85,11 @@ def get_hub(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:securityhub:getHub', __args__, opts=opts, typ=GetHubResult).value
 
     return AwaitableGetHubResult(
-        auto_enable_controls=__ret__.auto_enable_controls,
-        control_finding_generator=__ret__.control_finding_generator,
-        enable_default_standards=__ret__.enable_default_standards,
-        id=__ret__.id,
-        tags=__ret__.tags)
+        auto_enable_controls=pulumi.get(__ret__, 'auto_enable_controls'),
+        control_finding_generator=pulumi.get(__ret__, 'control_finding_generator'),
+        enable_default_standards=pulumi.get(__ret__, 'enable_default_standards'),
+        id=pulumi.get(__ret__, 'id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_hub)

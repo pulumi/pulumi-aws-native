@@ -92,10 +92,10 @@ def get_carrier_gateway(carrier_gateway_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getCarrierGateway', __args__, opts=opts, typ=GetCarrierGatewayResult).value
 
     return AwaitableGetCarrierGatewayResult(
-        carrier_gateway_id=__ret__.carrier_gateway_id,
-        owner_id=__ret__.owner_id,
-        state=__ret__.state,
-        tags=__ret__.tags)
+        carrier_gateway_id=pulumi.get(__ret__, 'carrier_gateway_id'),
+        owner_id=pulumi.get(__ret__, 'owner_id'),
+        state=pulumi.get(__ret__, 'state'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_carrier_gateway)

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // The AWS::EC2::TransitGatewayConnect type
 func LookupTransitGatewayConnect(ctx *pulumi.Context, args *LookupTransitGatewayConnectArgs, opts ...pulumi.InvokeOption) (*LookupTransitGatewayConnectResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTransitGatewayConnectResult
 	err := ctx.Invoke("aws-native:ec2:getTransitGatewayConnect", args, &rv, opts...)
 	if err != nil {

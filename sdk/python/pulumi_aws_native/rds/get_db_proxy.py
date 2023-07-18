@@ -165,16 +165,16 @@ def get_db_proxy(d_b_proxy_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:rds:getDBProxy', __args__, opts=opts, typ=GetDBProxyResult).value
 
     return AwaitableGetDBProxyResult(
-        auth=__ret__.auth,
-        d_b_proxy_arn=__ret__.d_b_proxy_arn,
-        debug_logging=__ret__.debug_logging,
-        endpoint=__ret__.endpoint,
-        idle_client_timeout=__ret__.idle_client_timeout,
-        require_tls=__ret__.require_tls,
-        role_arn=__ret__.role_arn,
-        tags=__ret__.tags,
-        vpc_id=__ret__.vpc_id,
-        vpc_security_group_ids=__ret__.vpc_security_group_ids)
+        auth=pulumi.get(__ret__, 'auth'),
+        d_b_proxy_arn=pulumi.get(__ret__, 'd_b_proxy_arn'),
+        debug_logging=pulumi.get(__ret__, 'debug_logging'),
+        endpoint=pulumi.get(__ret__, 'endpoint'),
+        idle_client_timeout=pulumi.get(__ret__, 'idle_client_timeout'),
+        require_tls=pulumi.get(__ret__, 'require_tls'),
+        role_arn=pulumi.get(__ret__, 'role_arn'),
+        tags=pulumi.get(__ret__, 'tags'),
+        vpc_id=pulumi.get(__ret__, 'vpc_id'),
+        vpc_security_group_ids=pulumi.get(__ret__, 'vpc_security_group_ids'))
 
 
 @_utilities.lift_output_func(get_db_proxy)

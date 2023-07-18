@@ -127,13 +127,13 @@ def get_slack_channel_configuration(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:chatbot:getSlackChannelConfiguration', __args__, opts=opts, typ=GetSlackChannelConfigurationResult).value
 
     return AwaitableGetSlackChannelConfigurationResult(
-        arn=__ret__.arn,
-        guardrail_policies=__ret__.guardrail_policies,
-        iam_role_arn=__ret__.iam_role_arn,
-        logging_level=__ret__.logging_level,
-        slack_channel_id=__ret__.slack_channel_id,
-        sns_topic_arns=__ret__.sns_topic_arns,
-        user_role_required=__ret__.user_role_required)
+        arn=pulumi.get(__ret__, 'arn'),
+        guardrail_policies=pulumi.get(__ret__, 'guardrail_policies'),
+        iam_role_arn=pulumi.get(__ret__, 'iam_role_arn'),
+        logging_level=pulumi.get(__ret__, 'logging_level'),
+        slack_channel_id=pulumi.get(__ret__, 'slack_channel_id'),
+        sns_topic_arns=pulumi.get(__ret__, 'sns_topic_arns'),
+        user_role_required=pulumi.get(__ret__, 'user_role_required'))
 
 
 @_utilities.lift_output_func(get_slack_channel_configuration)

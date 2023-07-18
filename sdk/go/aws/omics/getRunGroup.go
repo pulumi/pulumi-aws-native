@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Definition of AWS::Omics::RunGroup Resource Type
 func LookupRunGroup(ctx *pulumi.Context, args *LookupRunGroupArgs, opts ...pulumi.InvokeOption) (*LookupRunGroupResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRunGroupResult
 	err := ctx.Invoke("aws-native:omics:getRunGroup", args, &rv, opts...)
 	if err != nil {

@@ -59,8 +59,8 @@ def get_scheduling_policy(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:batch:getSchedulingPolicy', __args__, opts=opts, typ=GetSchedulingPolicyResult).value
 
     return AwaitableGetSchedulingPolicyResult(
-        arn=__ret__.arn,
-        fairshare_policy=__ret__.fairshare_policy)
+        arn=pulumi.get(__ret__, 'arn'),
+        fairshare_policy=pulumi.get(__ret__, 'fairshare_policy'))
 
 
 @_utilities.lift_output_func(get_scheduling_policy)

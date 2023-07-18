@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -31,6 +32,7 @@ func NewSink(ctx *pulumi.Context,
 		args = &SinkArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Sink
 	err := ctx.RegisterResource("aws-native:oam:Sink", name, args, &resource, opts...)
 	if err != nil {

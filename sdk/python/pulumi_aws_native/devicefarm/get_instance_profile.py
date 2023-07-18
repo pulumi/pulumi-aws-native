@@ -104,13 +104,13 @@ def get_instance_profile(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:devicefarm:getInstanceProfile', __args__, opts=opts, typ=GetInstanceProfileResult).value
 
     return AwaitableGetInstanceProfileResult(
-        arn=__ret__.arn,
-        description=__ret__.description,
-        exclude_app_packages_from_cleanup=__ret__.exclude_app_packages_from_cleanup,
-        name=__ret__.name,
-        package_cleanup=__ret__.package_cleanup,
-        reboot_after_use=__ret__.reboot_after_use,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        description=pulumi.get(__ret__, 'description'),
+        exclude_app_packages_from_cleanup=pulumi.get(__ret__, 'exclude_app_packages_from_cleanup'),
+        name=pulumi.get(__ret__, 'name'),
+        package_cleanup=pulumi.get(__ret__, 'package_cleanup'),
+        reboot_after_use=pulumi.get(__ret__, 'reboot_after_use'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_instance_profile)

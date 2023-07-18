@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,6 +42,7 @@ func NewMetricFilter(ctx *pulumi.Context,
 	if args.MetricTransformations == nil {
 		return nil, errors.New("invalid value for required argument 'MetricTransformations'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MetricFilter
 	err := ctx.RegisterResource("aws-native:logs:MetricFilter", name, args, &resource, opts...)
 	if err != nil {

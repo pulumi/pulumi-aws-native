@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Device Profile's resource schema demonstrating some basic constructs and validation rules.
 func LookupDeviceProfile(ctx *pulumi.Context, args *LookupDeviceProfileArgs, opts ...pulumi.InvokeOption) (*LookupDeviceProfileResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDeviceProfileResult
 	err := ctx.Invoke("aws-native:iotwireless:getDeviceProfile", args, &rv, opts...)
 	if err != nil {

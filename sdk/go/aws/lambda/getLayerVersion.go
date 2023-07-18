@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::Lambda::LayerVersion
 func LookupLayerVersion(ctx *pulumi.Context, args *LookupLayerVersionArgs, opts ...pulumi.InvokeOption) (*LookupLayerVersionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLayerVersionResult
 	err := ctx.Invoke("aws-native:lambda:getLayerVersion", args, &rv, opts...)
 	if err != nil {

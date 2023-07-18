@@ -68,9 +68,9 @@ def get_rate_based_rule(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:wafregional:getRateBasedRule', __args__, opts=opts, typ=GetRateBasedRuleResult).value
 
     return AwaitableGetRateBasedRuleResult(
-        id=__ret__.id,
-        match_predicates=__ret__.match_predicates,
-        rate_limit=__ret__.rate_limit)
+        id=pulumi.get(__ret__, 'id'),
+        match_predicates=pulumi.get(__ret__, 'match_predicates'),
+        rate_limit=pulumi.get(__ret__, 'rate_limit'))
 
 
 @_utilities.lift_output_func(get_rate_based_rule)

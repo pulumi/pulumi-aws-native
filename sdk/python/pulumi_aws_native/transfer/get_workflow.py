@@ -80,9 +80,9 @@ def get_workflow(workflow_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:transfer:getWorkflow', __args__, opts=opts, typ=GetWorkflowResult).value
 
     return AwaitableGetWorkflowResult(
-        arn=__ret__.arn,
-        tags=__ret__.tags,
-        workflow_id=__ret__.workflow_id)
+        arn=pulumi.get(__ret__, 'arn'),
+        tags=pulumi.get(__ret__, 'tags'),
+        workflow_id=pulumi.get(__ret__, 'workflow_id'))
 
 
 @_utilities.lift_output_func(get_workflow)

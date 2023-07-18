@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::GuardDuty::Filter
 func LookupFilter(ctx *pulumi.Context, args *LookupFilterArgs, opts ...pulumi.InvokeOption) (*LookupFilterResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFilterResult
 	err := ctx.Invoke("aws-native:guardduty:getFilter", args, &rv, opts...)
 	if err != nil {

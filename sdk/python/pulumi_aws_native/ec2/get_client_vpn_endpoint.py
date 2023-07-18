@@ -158,19 +158,19 @@ def get_client_vpn_endpoint(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getClientVpnEndpoint', __args__, opts=opts, typ=GetClientVpnEndpointResult).value
 
     return AwaitableGetClientVpnEndpointResult(
-        client_connect_options=__ret__.client_connect_options,
-        client_login_banner_options=__ret__.client_login_banner_options,
-        connection_log_options=__ret__.connection_log_options,
-        description=__ret__.description,
-        dns_servers=__ret__.dns_servers,
-        id=__ret__.id,
-        security_group_ids=__ret__.security_group_ids,
-        self_service_portal=__ret__.self_service_portal,
-        server_certificate_arn=__ret__.server_certificate_arn,
-        session_timeout_hours=__ret__.session_timeout_hours,
-        split_tunnel=__ret__.split_tunnel,
-        vpc_id=__ret__.vpc_id,
-        vpn_port=__ret__.vpn_port)
+        client_connect_options=pulumi.get(__ret__, 'client_connect_options'),
+        client_login_banner_options=pulumi.get(__ret__, 'client_login_banner_options'),
+        connection_log_options=pulumi.get(__ret__, 'connection_log_options'),
+        description=pulumi.get(__ret__, 'description'),
+        dns_servers=pulumi.get(__ret__, 'dns_servers'),
+        id=pulumi.get(__ret__, 'id'),
+        security_group_ids=pulumi.get(__ret__, 'security_group_ids'),
+        self_service_portal=pulumi.get(__ret__, 'self_service_portal'),
+        server_certificate_arn=pulumi.get(__ret__, 'server_certificate_arn'),
+        session_timeout_hours=pulumi.get(__ret__, 'session_timeout_hours'),
+        split_tunnel=pulumi.get(__ret__, 'split_tunnel'),
+        vpc_id=pulumi.get(__ret__, 'vpc_id'),
+        vpn_port=pulumi.get(__ret__, 'vpn_port'))
 
 
 @_utilities.lift_output_func(get_client_vpn_endpoint)

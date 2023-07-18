@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::AppMesh::VirtualNode
 func LookupVirtualNode(ctx *pulumi.Context, args *LookupVirtualNodeArgs, opts ...pulumi.InvokeOption) (*LookupVirtualNodeResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVirtualNodeResult
 	err := ctx.Invoke("aws-native:appmesh:getVirtualNode", args, &rv, opts...)
 	if err != nil {

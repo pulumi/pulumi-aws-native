@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::ApiGateway::ApiKey
 func LookupApiKey(ctx *pulumi.Context, args *LookupApiKeyArgs, opts ...pulumi.InvokeOption) (*LookupApiKeyResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupApiKeyResult
 	err := ctx.Invoke("aws-native:apigateway:getApiKey", args, &rv, opts...)
 	if err != nil {

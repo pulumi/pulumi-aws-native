@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::ServiceCatalog::PortfolioShare
 func LookupPortfolioShare(ctx *pulumi.Context, args *LookupPortfolioShareArgs, opts ...pulumi.InvokeOption) (*LookupPortfolioShareResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPortfolioShareResult
 	err := ctx.Invoke("aws-native:servicecatalog:getPortfolioShare", args, &rv, opts...)
 	if err != nil {

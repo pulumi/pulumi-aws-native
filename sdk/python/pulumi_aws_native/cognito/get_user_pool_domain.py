@@ -68,9 +68,9 @@ def get_user_pool_domain(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cognito:getUserPoolDomain', __args__, opts=opts, typ=GetUserPoolDomainResult).value
 
     return AwaitableGetUserPoolDomainResult(
-        cloud_front_distribution=__ret__.cloud_front_distribution,
-        custom_domain_config=__ret__.custom_domain_config,
-        id=__ret__.id)
+        cloud_front_distribution=pulumi.get(__ret__, 'cloud_front_distribution'),
+        custom_domain_config=pulumi.get(__ret__, 'custom_domain_config'),
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_user_pool_domain)

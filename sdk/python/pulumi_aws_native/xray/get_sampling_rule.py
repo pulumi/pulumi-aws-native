@@ -95,12 +95,12 @@ def get_sampling_rule(rule_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:xray:getSamplingRule', __args__, opts=opts, typ=GetSamplingRuleResult).value
 
     return AwaitableGetSamplingRuleResult(
-        rule_arn=__ret__.rule_arn,
-        rule_name=__ret__.rule_name,
-        sampling_rule=__ret__.sampling_rule,
-        sampling_rule_record=__ret__.sampling_rule_record,
-        sampling_rule_update=__ret__.sampling_rule_update,
-        tags=__ret__.tags)
+        rule_arn=pulumi.get(__ret__, 'rule_arn'),
+        rule_name=pulumi.get(__ret__, 'rule_name'),
+        sampling_rule=pulumi.get(__ret__, 'sampling_rule'),
+        sampling_rule_record=pulumi.get(__ret__, 'sampling_rule_record'),
+        sampling_rule_update=pulumi.get(__ret__, 'sampling_rule_update'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_sampling_rule)

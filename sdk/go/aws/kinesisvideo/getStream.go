@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type Definition for AWS::KinesisVideo::Stream
 func LookupStream(ctx *pulumi.Context, args *LookupStreamArgs, opts ...pulumi.InvokeOption) (*LookupStreamResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupStreamResult
 	err := ctx.Invoke("aws-native:kinesisvideo:getStream", args, &rv, opts...)
 	if err != nil {

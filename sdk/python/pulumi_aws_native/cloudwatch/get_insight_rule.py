@@ -86,11 +86,11 @@ def get_insight_rule(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cloudwatch:getInsightRule', __args__, opts=opts, typ=GetInsightRuleResult).value
 
     return AwaitableGetInsightRuleResult(
-        arn=__ret__.arn,
-        id=__ret__.id,
-        rule_body=__ret__.rule_body,
-        rule_state=__ret__.rule_state,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        id=pulumi.get(__ret__, 'id'),
+        rule_body=pulumi.get(__ret__, 'rule_body'),
+        rule_state=pulumi.get(__ret__, 'rule_state'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_insight_rule)

@@ -164,16 +164,16 @@ def get_core_network(core_network_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:networkmanager:getCoreNetwork', __args__, opts=opts, typ=GetCoreNetworkResult).value
 
     return AwaitableGetCoreNetworkResult(
-        core_network_arn=__ret__.core_network_arn,
-        core_network_id=__ret__.core_network_id,
-        created_at=__ret__.created_at,
-        description=__ret__.description,
-        edges=__ret__.edges,
-        owner_account=__ret__.owner_account,
-        policy_document=__ret__.policy_document,
-        segments=__ret__.segments,
-        state=__ret__.state,
-        tags=__ret__.tags)
+        core_network_arn=pulumi.get(__ret__, 'core_network_arn'),
+        core_network_id=pulumi.get(__ret__, 'core_network_id'),
+        created_at=pulumi.get(__ret__, 'created_at'),
+        description=pulumi.get(__ret__, 'description'),
+        edges=pulumi.get(__ret__, 'edges'),
+        owner_account=pulumi.get(__ret__, 'owner_account'),
+        policy_document=pulumi.get(__ret__, 'policy_document'),
+        segments=pulumi.get(__ret__, 'segments'),
+        state=pulumi.get(__ret__, 'state'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_core_network)

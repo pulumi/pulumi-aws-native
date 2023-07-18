@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -33,6 +34,7 @@ func NewAccessLogSubscription(ctx *pulumi.Context,
 	if args.DestinationArn == nil {
 		return nil, errors.New("invalid value for required argument 'DestinationArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AccessLogSubscription
 	err := ctx.RegisterResource("aws-native:vpclattice:AccessLogSubscription", name, args, &resource, opts...)
 	if err != nil {

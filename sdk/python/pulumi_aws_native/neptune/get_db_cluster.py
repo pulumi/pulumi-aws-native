@@ -248,23 +248,23 @@ def get_db_cluster(d_b_cluster_identifier: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:neptune:getDBCluster', __args__, opts=opts, typ=GetDBClusterResult).value
 
     return AwaitableGetDBClusterResult(
-        associated_roles=__ret__.associated_roles,
-        backup_retention_period=__ret__.backup_retention_period,
-        cluster_resource_id=__ret__.cluster_resource_id,
-        copy_tags_to_snapshot=__ret__.copy_tags_to_snapshot,
-        d_b_cluster_parameter_group_name=__ret__.d_b_cluster_parameter_group_name,
-        deletion_protection=__ret__.deletion_protection,
-        enable_cloudwatch_logs_exports=__ret__.enable_cloudwatch_logs_exports,
-        endpoint=__ret__.endpoint,
-        engine_version=__ret__.engine_version,
-        iam_auth_enabled=__ret__.iam_auth_enabled,
-        port=__ret__.port,
-        preferred_backup_window=__ret__.preferred_backup_window,
-        preferred_maintenance_window=__ret__.preferred_maintenance_window,
-        read_endpoint=__ret__.read_endpoint,
-        serverless_scaling_configuration=__ret__.serverless_scaling_configuration,
-        tags=__ret__.tags,
-        vpc_security_group_ids=__ret__.vpc_security_group_ids)
+        associated_roles=pulumi.get(__ret__, 'associated_roles'),
+        backup_retention_period=pulumi.get(__ret__, 'backup_retention_period'),
+        cluster_resource_id=pulumi.get(__ret__, 'cluster_resource_id'),
+        copy_tags_to_snapshot=pulumi.get(__ret__, 'copy_tags_to_snapshot'),
+        d_b_cluster_parameter_group_name=pulumi.get(__ret__, 'd_b_cluster_parameter_group_name'),
+        deletion_protection=pulumi.get(__ret__, 'deletion_protection'),
+        enable_cloudwatch_logs_exports=pulumi.get(__ret__, 'enable_cloudwatch_logs_exports'),
+        endpoint=pulumi.get(__ret__, 'endpoint'),
+        engine_version=pulumi.get(__ret__, 'engine_version'),
+        iam_auth_enabled=pulumi.get(__ret__, 'iam_auth_enabled'),
+        port=pulumi.get(__ret__, 'port'),
+        preferred_backup_window=pulumi.get(__ret__, 'preferred_backup_window'),
+        preferred_maintenance_window=pulumi.get(__ret__, 'preferred_maintenance_window'),
+        read_endpoint=pulumi.get(__ret__, 'read_endpoint'),
+        serverless_scaling_configuration=pulumi.get(__ret__, 'serverless_scaling_configuration'),
+        tags=pulumi.get(__ret__, 'tags'),
+        vpc_security_group_ids=pulumi.get(__ret__, 'vpc_security_group_ids'))
 
 
 @_utilities.lift_output_func(get_db_cluster)

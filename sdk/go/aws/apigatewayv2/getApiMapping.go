@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Schema for AWS::ApiGatewayV2::ApiMapping
 func LookupApiMapping(ctx *pulumi.Context, args *LookupApiMappingArgs, opts ...pulumi.InvokeOption) (*LookupApiMappingResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupApiMappingResult
 	err := ctx.Invoke("aws-native:apigatewayv2:getApiMapping", args, &rv, opts...)
 	if err != nil {

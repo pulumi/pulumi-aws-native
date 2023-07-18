@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::Greengrass::GroupVersion
 func LookupGroupVersion(ctx *pulumi.Context, args *LookupGroupVersionArgs, opts ...pulumi.InvokeOption) (*LookupGroupVersionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupGroupVersionResult
 	err := ctx.Invoke("aws-native:greengrass:getGroupVersion", args, &rv, opts...)
 	if err != nil {

@@ -99,12 +99,12 @@ def get_theme(app_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:amplifyuibuilder:getTheme', __args__, opts=opts, typ=GetThemeResult).value
 
     return AwaitableGetThemeResult(
-        app_id=__ret__.app_id,
-        environment_name=__ret__.environment_name,
-        id=__ret__.id,
-        name=__ret__.name,
-        overrides=__ret__.overrides,
-        values=__ret__.values)
+        app_id=pulumi.get(__ret__, 'app_id'),
+        environment_name=pulumi.get(__ret__, 'environment_name'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        overrides=pulumi.get(__ret__, 'overrides'),
+        values=pulumi.get(__ret__, 'values'))
 
 
 @_utilities.lift_output_func(get_theme)

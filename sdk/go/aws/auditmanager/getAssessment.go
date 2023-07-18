@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // An entity that defines the scope of audit evidence collected by AWS Audit Manager.
 func LookupAssessment(ctx *pulumi.Context, args *LookupAssessmentArgs, opts ...pulumi.InvokeOption) (*LookupAssessmentResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAssessmentResult
 	err := ctx.Invoke("aws-native:auditmanager:getAssessment", args, &rv, opts...)
 	if err != nil {

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Definition of AWS::VerifiedPermissions::PolicyStore Resource Type
 func LookupPolicyStore(ctx *pulumi.Context, args *LookupPolicyStoreArgs, opts ...pulumi.InvokeOption) (*LookupPolicyStoreResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPolicyStoreResult
 	err := ctx.Invoke("aws-native:verifiedpermissions:getPolicyStore", args, &rv, opts...)
 	if err != nil {

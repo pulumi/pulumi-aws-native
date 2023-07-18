@@ -105,13 +105,13 @@ def get_authorizer(authorizer_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iot:getAuthorizer', __args__, opts=opts, typ=GetAuthorizerResult).value
 
     return AwaitableGetAuthorizerResult(
-        arn=__ret__.arn,
-        authorizer_function_arn=__ret__.authorizer_function_arn,
-        enable_caching_for_http=__ret__.enable_caching_for_http,
-        status=__ret__.status,
-        tags=__ret__.tags,
-        token_key_name=__ret__.token_key_name,
-        token_signing_public_keys=__ret__.token_signing_public_keys)
+        arn=pulumi.get(__ret__, 'arn'),
+        authorizer_function_arn=pulumi.get(__ret__, 'authorizer_function_arn'),
+        enable_caching_for_http=pulumi.get(__ret__, 'enable_caching_for_http'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'),
+        token_key_name=pulumi.get(__ret__, 'token_key_name'),
+        token_signing_public_keys=pulumi.get(__ret__, 'token_signing_public_keys'))
 
 
 @_utilities.lift_output_func(get_authorizer)

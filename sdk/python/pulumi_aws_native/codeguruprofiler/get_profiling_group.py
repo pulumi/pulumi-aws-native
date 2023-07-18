@@ -92,10 +92,10 @@ def get_profiling_group(profiling_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:codeguruprofiler:getProfilingGroup', __args__, opts=opts, typ=GetProfilingGroupResult).value
 
     return AwaitableGetProfilingGroupResult(
-        agent_permissions=__ret__.agent_permissions,
-        anomaly_detection_notification_configuration=__ret__.anomaly_detection_notification_configuration,
-        arn=__ret__.arn,
-        tags=__ret__.tags)
+        agent_permissions=pulumi.get(__ret__, 'agent_permissions'),
+        anomaly_detection_notification_configuration=pulumi.get(__ret__, 'anomaly_detection_notification_configuration'),
+        arn=pulumi.get(__ret__, 'arn'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_profiling_group)

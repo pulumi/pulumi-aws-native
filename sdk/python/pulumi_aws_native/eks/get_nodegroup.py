@@ -155,16 +155,16 @@ def get_nodegroup(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:eks:getNodegroup', __args__, opts=opts, typ=GetNodegroupResult).value
 
     return AwaitableGetNodegroupResult(
-        arn=__ret__.arn,
-        id=__ret__.id,
-        labels=__ret__.labels,
-        launch_template=__ret__.launch_template,
-        release_version=__ret__.release_version,
-        scaling_config=__ret__.scaling_config,
-        tags=__ret__.tags,
-        taints=__ret__.taints,
-        update_config=__ret__.update_config,
-        version=__ret__.version)
+        arn=pulumi.get(__ret__, 'arn'),
+        id=pulumi.get(__ret__, 'id'),
+        labels=pulumi.get(__ret__, 'labels'),
+        launch_template=pulumi.get(__ret__, 'launch_template'),
+        release_version=pulumi.get(__ret__, 'release_version'),
+        scaling_config=pulumi.get(__ret__, 'scaling_config'),
+        tags=pulumi.get(__ret__, 'tags'),
+        taints=pulumi.get(__ret__, 'taints'),
+        update_config=pulumi.get(__ret__, 'update_config'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_nodegroup)

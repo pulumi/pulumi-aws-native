@@ -77,10 +77,10 @@ def get_application(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:appconfig:getApplication', __args__, opts=opts, typ=GetApplicationResult).value
 
     return AwaitableGetApplicationResult(
-        description=__ret__.description,
-        id=__ret__.id,
-        name=__ret__.name,
-        tags=__ret__.tags)
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_application)

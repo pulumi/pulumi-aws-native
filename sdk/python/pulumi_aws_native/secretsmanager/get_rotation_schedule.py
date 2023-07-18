@@ -86,11 +86,11 @@ def get_rotation_schedule(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:secretsmanager:getRotationSchedule', __args__, opts=opts, typ=GetRotationScheduleResult).value
 
     return AwaitableGetRotationScheduleResult(
-        hosted_rotation_lambda=__ret__.hosted_rotation_lambda,
-        id=__ret__.id,
-        rotate_immediately_on_update=__ret__.rotate_immediately_on_update,
-        rotation_lambda_arn=__ret__.rotation_lambda_arn,
-        rotation_rules=__ret__.rotation_rules)
+        hosted_rotation_lambda=pulumi.get(__ret__, 'hosted_rotation_lambda'),
+        id=pulumi.get(__ret__, 'id'),
+        rotate_immediately_on_update=pulumi.get(__ret__, 'rotate_immediately_on_update'),
+        rotation_lambda_arn=pulumi.get(__ret__, 'rotation_lambda_arn'),
+        rotation_rules=pulumi.get(__ret__, 'rotation_rules'))
 
 
 @_utilities.lift_output_func(get_rotation_schedule)

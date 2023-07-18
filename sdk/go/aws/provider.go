@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -32,25 +33,31 @@ func NewProvider(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if isZero(args.Profile) {
-		args.Profile = pulumi.StringPtr(getEnvOrDefault("", nil, "AWS_PROFILE").(string))
+	if args.Profile == nil {
+		if d := internal.GetEnvOrDefault(nil, nil, "AWS_PROFILE"); d != nil {
+			args.Profile = pulumi.StringPtr(d.(string))
+		}
 	}
-	if isZero(args.Region) {
-		args.Region = pulumi.String(getEnvOrDefault("", nil, "AWS_REGION", "AWS_DEFAULT_REGION").(string))
+	if args.Region == nil {
+		if d := internal.GetEnvOrDefault(nil, nil, "AWS_REGION", "AWS_DEFAULT_REGION"); d != nil {
+			args.Region = pulumi.String(d.(string))
+		}
 	}
-	if isZero(args.SharedCredentialsFile) {
-		args.SharedCredentialsFile = pulumi.StringPtr(getEnvOrDefault("", nil, "AWS_SHARED_CREDENTIALS_FILE").(string))
+	if args.SharedCredentialsFile == nil {
+		if d := internal.GetEnvOrDefault(nil, nil, "AWS_SHARED_CREDENTIALS_FILE"); d != nil {
+			args.SharedCredentialsFile = pulumi.StringPtr(d.(string))
+		}
 	}
-	if isZero(args.SkipCredentialsValidation) {
+	if args.SkipCredentialsValidation == nil {
 		args.SkipCredentialsValidation = pulumi.BoolPtr(true)
 	}
-	if isZero(args.SkipGetEc2Platforms) {
+	if args.SkipGetEc2Platforms == nil {
 		args.SkipGetEc2Platforms = pulumi.BoolPtr(true)
 	}
-	if isZero(args.SkipMetadataApiCheck) {
+	if args.SkipMetadataApiCheck == nil {
 		args.SkipMetadataApiCheck = pulumi.BoolPtr(true)
 	}
-	if isZero(args.SkipRegionValidation) {
+	if args.SkipRegionValidation == nil {
 		args.SkipRegionValidation = pulumi.BoolPtr(true)
 	}
 	if args.AccessKey != nil {
@@ -62,6 +69,7 @@ func NewProvider(ctx *pulumi.Context,
 	if args.Token != nil {
 		args.Token = pulumi.ToSecret(args.Token).(pulumi.StringPtrInput)
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Provider
 	err := ctx.RegisterResource("pulumi:providers:aws-native", name, args, &resource, opts...)
 	if err != nil {

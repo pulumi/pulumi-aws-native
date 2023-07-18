@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // A custom line item is an one time charge that is applied to a specific billing group's bill.
 func LookupCustomLineItem(ctx *pulumi.Context, args *LookupCustomLineItemArgs, opts ...pulumi.InvokeOption) (*LookupCustomLineItemResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCustomLineItemResult
 	err := ctx.Invoke("aws-native:billingconductor:getCustomLineItem", args, &rv, opts...)
 	if err != nil {

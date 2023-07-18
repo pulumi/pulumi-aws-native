@@ -131,16 +131,16 @@ def get_profile(profile_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:rolesanywhere:getProfile', __args__, opts=opts, typ=GetProfileResult).value
 
     return AwaitableGetProfileResult(
-        duration_seconds=__ret__.duration_seconds,
-        enabled=__ret__.enabled,
-        managed_policy_arns=__ret__.managed_policy_arns,
-        name=__ret__.name,
-        profile_arn=__ret__.profile_arn,
-        profile_id=__ret__.profile_id,
-        require_instance_properties=__ret__.require_instance_properties,
-        role_arns=__ret__.role_arns,
-        session_policy=__ret__.session_policy,
-        tags=__ret__.tags)
+        duration_seconds=pulumi.get(__ret__, 'duration_seconds'),
+        enabled=pulumi.get(__ret__, 'enabled'),
+        managed_policy_arns=pulumi.get(__ret__, 'managed_policy_arns'),
+        name=pulumi.get(__ret__, 'name'),
+        profile_arn=pulumi.get(__ret__, 'profile_arn'),
+        profile_id=pulumi.get(__ret__, 'profile_id'),
+        require_instance_properties=pulumi.get(__ret__, 'require_instance_properties'),
+        role_arns=pulumi.get(__ret__, 'role_arns'),
+        session_policy=pulumi.get(__ret__, 'session_policy'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_profile)

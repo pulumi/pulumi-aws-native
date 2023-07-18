@@ -68,9 +68,9 @@ def get_certificate(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iot:getCertificate', __args__, opts=opts, typ=GetCertificateResult).value
 
     return AwaitableGetCertificateResult(
-        arn=__ret__.arn,
-        id=__ret__.id,
-        status=__ret__.status)
+        arn=pulumi.get(__ret__, 'arn'),
+        id=pulumi.get(__ret__, 'id'),
+        status=pulumi.get(__ret__, 'status'))
 
 
 @_utilities.lift_output_func(get_certificate)

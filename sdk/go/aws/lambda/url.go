@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -43,6 +44,7 @@ func NewUrl(ctx *pulumi.Context,
 	if args.TargetFunctionArn == nil {
 		return nil, errors.New("invalid value for required argument 'TargetFunctionArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Url
 	err := ctx.RegisterResource("aws-native:lambda:Url", name, args, &resource, opts...)
 	if err != nil {

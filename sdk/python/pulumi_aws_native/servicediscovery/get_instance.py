@@ -49,7 +49,7 @@ def get_instance(instance_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:servicediscovery:getInstance', __args__, opts=opts, typ=GetInstanceResult).value
 
     return AwaitableGetInstanceResult(
-        instance_attributes=__ret__.instance_attributes)
+        instance_attributes=pulumi.get(__ret__, 'instance_attributes'))
 
 
 @_utilities.lift_output_func(get_instance)

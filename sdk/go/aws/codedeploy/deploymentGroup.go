@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -51,6 +52,7 @@ func NewDeploymentGroup(ctx *pulumi.Context,
 	if args.ServiceRoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceRoleArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DeploymentGroup
 	err := ctx.RegisterResource("aws-native:codedeploy:DeploymentGroup", name, args, &resource, opts...)
 	if err != nil {

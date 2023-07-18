@@ -68,8 +68,8 @@ def get_logging(account_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iot:getLogging', __args__, opts=opts, typ=GetLoggingResult).value
 
     return AwaitableGetLoggingResult(
-        default_log_level=__ret__.default_log_level,
-        role_arn=__ret__.role_arn)
+        default_log_level=pulumi.get(__ret__, 'default_log_level'),
+        role_arn=pulumi.get(__ret__, 'role_arn'))
 
 
 @_utilities.lift_output_func(get_logging)

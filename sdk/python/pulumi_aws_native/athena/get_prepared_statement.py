@@ -70,8 +70,8 @@ def get_prepared_statement(statement_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:athena:getPreparedStatement', __args__, opts=opts, typ=GetPreparedStatementResult).value
 
     return AwaitableGetPreparedStatementResult(
-        description=__ret__.description,
-        query_statement=__ret__.query_statement)
+        description=pulumi.get(__ret__, 'description'),
+        query_statement=pulumi.get(__ret__, 'query_statement'))
 
 
 @_utilities.lift_output_func(get_prepared_statement)

@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -52,6 +53,7 @@ func NewModelCard(ctx *pulumi.Context,
 	if args.ModelCardStatus == nil {
 		return nil, errors.New("invalid value for required argument 'ModelCardStatus'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ModelCard
 	err := ctx.RegisterResource("aws-native:sagemaker:ModelCard", name, args, &resource, opts...)
 	if err != nil {

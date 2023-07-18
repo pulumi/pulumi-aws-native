@@ -89,10 +89,10 @@ def get_replication_set(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ssmincidents:getReplicationSet', __args__, opts=opts, typ=GetReplicationSetResult).value
 
     return AwaitableGetReplicationSetResult(
-        arn=__ret__.arn,
-        deletion_protected=__ret__.deletion_protected,
-        regions=__ret__.regions,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        deletion_protected=pulumi.get(__ret__, 'deletion_protected'),
+        regions=pulumi.get(__ret__, 'regions'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_replication_set)

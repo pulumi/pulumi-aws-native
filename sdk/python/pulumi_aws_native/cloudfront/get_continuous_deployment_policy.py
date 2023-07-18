@@ -69,9 +69,9 @@ def get_continuous_deployment_policy(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cloudfront:getContinuousDeploymentPolicy', __args__, opts=opts, typ=GetContinuousDeploymentPolicyResult).value
 
     return AwaitableGetContinuousDeploymentPolicyResult(
-        continuous_deployment_policy_config=__ret__.continuous_deployment_policy_config,
-        id=__ret__.id,
-        last_modified_time=__ret__.last_modified_time)
+        continuous_deployment_policy_config=pulumi.get(__ret__, 'continuous_deployment_policy_config'),
+        id=pulumi.get(__ret__, 'id'),
+        last_modified_time=pulumi.get(__ret__, 'last_modified_time'))
 
 
 @_utilities.lift_output_func(get_continuous_deployment_policy)

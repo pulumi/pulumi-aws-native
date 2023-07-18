@@ -68,8 +68,8 @@ def get_route_table(route_table_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getRouteTable', __args__, opts=opts, typ=GetRouteTableResult).value
 
     return AwaitableGetRouteTableResult(
-        route_table_id=__ret__.route_table_id,
-        tags=__ret__.tags)
+        route_table_id=pulumi.get(__ret__, 'route_table_id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_route_table)

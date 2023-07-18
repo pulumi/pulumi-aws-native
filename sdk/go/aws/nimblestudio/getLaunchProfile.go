@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Represents a launch profile which delegates access to a collection of studio components to studio users
 func LookupLaunchProfile(ctx *pulumi.Context, args *LookupLaunchProfileArgs, opts ...pulumi.InvokeOption) (*LookupLaunchProfileResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLaunchProfileResult
 	err := ctx.Invoke("aws-native:nimblestudio:getLaunchProfile", args, &rv, opts...)
 	if err != nil {

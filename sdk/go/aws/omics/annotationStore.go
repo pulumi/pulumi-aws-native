@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ func NewAnnotationStore(ctx *pulumi.Context,
 	if args.StoreFormat == nil {
 		return nil, errors.New("invalid value for required argument 'StoreFormat'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AnnotationStore
 	err := ctx.RegisterResource("aws-native:omics:AnnotationStore", name, args, &resource, opts...)
 	if err != nil {

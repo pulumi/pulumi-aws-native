@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // The AWS::ECR::RegistryPolicy is used to specify permissions for another AWS account and is used when configuring cross-account replication. For more information, see Registry permissions in the Amazon Elastic Container Registry User Guide: https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html
 func LookupRegistryPolicy(ctx *pulumi.Context, args *LookupRegistryPolicyArgs, opts ...pulumi.InvokeOption) (*LookupRegistryPolicyResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRegistryPolicyResult
 	err := ctx.Invoke("aws-native:ecr:getRegistryPolicy", args, &rv, opts...)
 	if err != nil {

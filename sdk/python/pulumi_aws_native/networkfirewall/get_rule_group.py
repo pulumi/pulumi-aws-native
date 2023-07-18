@@ -87,11 +87,11 @@ def get_rule_group(rule_group_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:networkfirewall:getRuleGroup', __args__, opts=opts, typ=GetRuleGroupResult).value
 
     return AwaitableGetRuleGroupResult(
-        description=__ret__.description,
-        rule_group=__ret__.rule_group,
-        rule_group_arn=__ret__.rule_group_arn,
-        rule_group_id=__ret__.rule_group_id,
-        tags=__ret__.tags)
+        description=pulumi.get(__ret__, 'description'),
+        rule_group=pulumi.get(__ret__, 'rule_group'),
+        rule_group_arn=pulumi.get(__ret__, 'rule_group_arn'),
+        rule_group_id=pulumi.get(__ret__, 'rule_group_id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_rule_group)

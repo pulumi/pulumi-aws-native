@@ -60,8 +60,8 @@ def get_spot_fleet(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getSpotFleet', __args__, opts=opts, typ=GetSpotFleetResult).value
 
     return AwaitableGetSpotFleetResult(
-        id=__ret__.id,
-        spot_fleet_request_config_data=__ret__.spot_fleet_request_config_data)
+        id=pulumi.get(__ret__, 'id'),
+        spot_fleet_request_config_data=pulumi.get(__ret__, 'spot_fleet_request_config_data'))
 
 
 @_utilities.lift_output_func(get_spot_fleet)

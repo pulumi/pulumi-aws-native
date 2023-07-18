@@ -118,12 +118,12 @@ def get_lifecycle_hook(auto_scaling_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:autoscaling:getLifecycleHook', __args__, opts=opts, typ=GetLifecycleHookResult).value
 
     return AwaitableGetLifecycleHookResult(
-        default_result=__ret__.default_result,
-        heartbeat_timeout=__ret__.heartbeat_timeout,
-        lifecycle_transition=__ret__.lifecycle_transition,
-        notification_metadata=__ret__.notification_metadata,
-        notification_target_arn=__ret__.notification_target_arn,
-        role_arn=__ret__.role_arn)
+        default_result=pulumi.get(__ret__, 'default_result'),
+        heartbeat_timeout=pulumi.get(__ret__, 'heartbeat_timeout'),
+        lifecycle_transition=pulumi.get(__ret__, 'lifecycle_transition'),
+        notification_metadata=pulumi.get(__ret__, 'notification_metadata'),
+        notification_target_arn=pulumi.get(__ret__, 'notification_target_arn'),
+        role_arn=pulumi.get(__ret__, 'role_arn'))
 
 
 @_utilities.lift_output_func(get_lifecycle_hook)

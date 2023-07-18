@@ -165,16 +165,16 @@ def get_user(user_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:connect:getUser', __args__, opts=opts, typ=GetUserResult).value
 
     return AwaitableGetUserResult(
-        directory_user_id=__ret__.directory_user_id,
-        hierarchy_group_arn=__ret__.hierarchy_group_arn,
-        identity_info=__ret__.identity_info,
-        instance_arn=__ret__.instance_arn,
-        phone_config=__ret__.phone_config,
-        routing_profile_arn=__ret__.routing_profile_arn,
-        security_profile_arns=__ret__.security_profile_arns,
-        tags=__ret__.tags,
-        user_arn=__ret__.user_arn,
-        username=__ret__.username)
+        directory_user_id=pulumi.get(__ret__, 'directory_user_id'),
+        hierarchy_group_arn=pulumi.get(__ret__, 'hierarchy_group_arn'),
+        identity_info=pulumi.get(__ret__, 'identity_info'),
+        instance_arn=pulumi.get(__ret__, 'instance_arn'),
+        phone_config=pulumi.get(__ret__, 'phone_config'),
+        routing_profile_arn=pulumi.get(__ret__, 'routing_profile_arn'),
+        security_profile_arns=pulumi.get(__ret__, 'security_profile_arns'),
+        tags=pulumi.get(__ret__, 'tags'),
+        user_arn=pulumi.get(__ret__, 'user_arn'),
+        username=pulumi.get(__ret__, 'username'))
 
 
 @_utilities.lift_output_func(get_user)

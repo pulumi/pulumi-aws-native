@@ -77,10 +77,10 @@ def get_test_grid_project(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:devicefarm:getTestGridProject', __args__, opts=opts, typ=GetTestGridProjectResult).value
 
     return AwaitableGetTestGridProjectResult(
-        arn=__ret__.arn,
-        description=__ret__.description,
-        name=__ret__.name,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        description=pulumi.get(__ret__, 'description'),
+        name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_test_grid_project)

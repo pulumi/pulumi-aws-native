@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for AWS::MediaPackage::PackagingGroup
 func LookupPackagingGroup(ctx *pulumi.Context, args *LookupPackagingGroupArgs, opts ...pulumi.InvokeOption) (*LookupPackagingGroupResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPackagingGroupResult
 	err := ctx.Invoke("aws-native:mediapackage:getPackagingGroup", args, &rv, opts...)
 	if err != nil {

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // An label for fraud detector.
 func LookupLabel(ctx *pulumi.Context, args *LookupLabelArgs, opts ...pulumi.InvokeOption) (*LookupLabelResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLabelResult
 	err := ctx.Invoke("aws-native:frauddetector:getLabel", args, &rv, opts...)
 	if err != nil {

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // A calculated attribute definition for Customer Profiles
 func LookupCalculatedAttributeDefinition(ctx *pulumi.Context, args *LookupCalculatedAttributeDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupCalculatedAttributeDefinitionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCalculatedAttributeDefinitionResult
 	err := ctx.Invoke("aws-native:customerprofiles:getCalculatedAttributeDefinition", args, &rv, opts...)
 	if err != nil {

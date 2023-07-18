@@ -102,12 +102,12 @@ def get_dataflow_endpoint_group(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:groundstation:getDataflowEndpointGroup', __args__, opts=opts, typ=GetDataflowEndpointGroupResult).value
 
     return AwaitableGetDataflowEndpointGroupResult(
-        arn=__ret__.arn,
-        contact_post_pass_duration_seconds=__ret__.contact_post_pass_duration_seconds,
-        contact_pre_pass_duration_seconds=__ret__.contact_pre_pass_duration_seconds,
-        endpoint_details=__ret__.endpoint_details,
-        id=__ret__.id,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        contact_post_pass_duration_seconds=pulumi.get(__ret__, 'contact_post_pass_duration_seconds'),
+        contact_pre_pass_duration_seconds=pulumi.get(__ret__, 'contact_pre_pass_duration_seconds'),
+        endpoint_details=pulumi.get(__ret__, 'endpoint_details'),
+        id=pulumi.get(__ret__, 'id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_dataflow_endpoint_group)

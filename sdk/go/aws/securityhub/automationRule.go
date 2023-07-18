@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -45,6 +46,7 @@ func NewAutomationRule(ctx *pulumi.Context,
 		args = &AutomationRuleArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AutomationRule
 	err := ctx.RegisterResource("aws-native:securityhub:AutomationRule", name, args, &resource, opts...)
 	if err != nil {

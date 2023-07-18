@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::AppStream::Entitlement
 func LookupEntitlement(ctx *pulumi.Context, args *LookupEntitlementArgs, opts ...pulumi.InvokeOption) (*LookupEntitlementResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEntitlementResult
 	err := ctx.Invoke("aws-native:appstream:getEntitlement", args, &rv, opts...)
 	if err != nil {

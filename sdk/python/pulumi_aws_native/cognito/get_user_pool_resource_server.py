@@ -68,9 +68,9 @@ def get_user_pool_resource_server(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cognito:getUserPoolResourceServer', __args__, opts=opts, typ=GetUserPoolResourceServerResult).value
 
     return AwaitableGetUserPoolResourceServerResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        scopes=__ret__.scopes)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        scopes=pulumi.get(__ret__, 'scopes'))
 
 
 @_utilities.lift_output_func(get_user_pool_resource_server)

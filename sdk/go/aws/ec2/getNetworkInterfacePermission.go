@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::EC2::NetworkInterfacePermission
 func LookupNetworkInterfacePermission(ctx *pulumi.Context, args *LookupNetworkInterfacePermissionArgs, opts ...pulumi.InvokeOption) (*LookupNetworkInterfacePermissionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupNetworkInterfacePermissionResult
 	err := ctx.Invoke("aws-native:ec2:getNetworkInterfacePermission", args, &rv, opts...)
 	if err != nil {

@@ -89,11 +89,11 @@ def get_transit_gateway_vpc_attachment(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getTransitGatewayVpcAttachment', __args__, opts=opts, typ=GetTransitGatewayVpcAttachmentResult).value
 
     return AwaitableGetTransitGatewayVpcAttachmentResult(
-        add_subnet_ids=__ret__.add_subnet_ids,
-        id=__ret__.id,
-        options=__ret__.options,
-        remove_subnet_ids=__ret__.remove_subnet_ids,
-        tags=__ret__.tags)
+        add_subnet_ids=pulumi.get(__ret__, 'add_subnet_ids'),
+        id=pulumi.get(__ret__, 'id'),
+        options=pulumi.get(__ret__, 'options'),
+        remove_subnet_ids=pulumi.get(__ret__, 'remove_subnet_ids'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_transit_gateway_vpc_attachment)

@@ -59,8 +59,8 @@ def get_account(account_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:certificatemanager:getAccount', __args__, opts=opts, typ=GetAccountResult).value
 
     return AwaitableGetAccountResult(
-        account_id=__ret__.account_id,
-        expiry_events_configuration=__ret__.expiry_events_configuration)
+        account_id=pulumi.get(__ret__, 'account_id'),
+        expiry_events_configuration=pulumi.get(__ret__, 'expiry_events_configuration'))
 
 
 @_utilities.lift_output_func(get_account)

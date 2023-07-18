@@ -77,10 +77,10 @@ def get_channel(channel_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iotanalytics:getChannel', __args__, opts=opts, typ=GetChannelResult).value
 
     return AwaitableGetChannelResult(
-        channel_storage=__ret__.channel_storage,
-        id=__ret__.id,
-        retention_period=__ret__.retention_period,
-        tags=__ret__.tags)
+        channel_storage=pulumi.get(__ret__, 'channel_storage'),
+        id=pulumi.get(__ret__, 'id'),
+        retention_period=pulumi.get(__ret__, 'retention_period'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_channel)

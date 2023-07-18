@@ -80,10 +80,10 @@ def get_link(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:oam:getLink', __args__, opts=opts, typ=GetLinkResult).value
 
     return AwaitableGetLinkResult(
-        arn=__ret__.arn,
-        label=__ret__.label,
-        resource_types=__ret__.resource_types,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        label=pulumi.get(__ret__, 'label'),
+        resource_types=pulumi.get(__ret__, 'resource_types'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_link)

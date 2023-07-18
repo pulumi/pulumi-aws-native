@@ -93,10 +93,10 @@ def get_hook_type_config(configuration_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cloudformation:getHookTypeConfig', __args__, opts=opts, typ=GetHookTypeConfigResult).value
 
     return AwaitableGetHookTypeConfigResult(
-        configuration=__ret__.configuration,
-        configuration_arn=__ret__.configuration_arn,
-        type_arn=__ret__.type_arn,
-        type_name=__ret__.type_name)
+        configuration=pulumi.get(__ret__, 'configuration'),
+        configuration_arn=pulumi.get(__ret__, 'configuration_arn'),
+        type_arn=pulumi.get(__ret__, 'type_arn'),
+        type_name=pulumi.get(__ret__, 'type_name'))
 
 
 @_utilities.lift_output_func(get_hook_type_config)

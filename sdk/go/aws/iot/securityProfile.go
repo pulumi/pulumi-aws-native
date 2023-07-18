@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,6 +40,7 @@ func NewSecurityProfile(ctx *pulumi.Context,
 		args = &SecurityProfileArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SecurityProfile
 	err := ctx.RegisterResource("aws-native:iot:SecurityProfile", name, args, &resource, opts...)
 	if err != nil {

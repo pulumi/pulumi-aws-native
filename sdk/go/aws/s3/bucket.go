@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -69,6 +70,7 @@ func NewBucket(ctx *pulumi.Context,
 		args = &BucketArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Bucket
 	err := ctx.RegisterResource("aws-native:s3:Bucket", name, args, &resource, opts...)
 	if err != nil {

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::MediaLive::Input
 func LookupInput(ctx *pulumi.Context, args *LookupInputArgs, opts ...pulumi.InvokeOption) (*LookupInputResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupInputResult
 	err := ctx.Invoke("aws-native:medialive:getInput", args, &rv, opts...)
 	if err != nil {

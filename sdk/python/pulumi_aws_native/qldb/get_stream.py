@@ -73,9 +73,9 @@ def get_stream(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:qldb:getStream', __args__, opts=opts, typ=GetStreamResult).value
 
     return AwaitableGetStreamResult(
-        arn=__ret__.arn,
-        id=__ret__.id,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        id=pulumi.get(__ret__, 'id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_stream)

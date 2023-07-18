@@ -104,13 +104,13 @@ def get_data_quality_ruleset(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:glue:getDataQualityRuleset', __args__, opts=opts, typ=GetDataQualityRulesetResult).value
 
     return AwaitableGetDataQualityRulesetResult(
-        client_token=__ret__.client_token,
-        description=__ret__.description,
-        id=__ret__.id,
-        name=__ret__.name,
-        ruleset=__ret__.ruleset,
-        tags=__ret__.tags,
-        target_table=__ret__.target_table)
+        client_token=pulumi.get(__ret__, 'client_token'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        ruleset=pulumi.get(__ret__, 'ruleset'),
+        tags=pulumi.get(__ret__, 'tags'),
+        target_table=pulumi.get(__ret__, 'target_table'))
 
 
 @_utilities.lift_output_func(get_data_quality_ruleset)

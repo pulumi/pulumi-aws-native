@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::EC2::Subnet
 func LookupSubnet(ctx *pulumi.Context, args *LookupSubnetArgs, opts ...pulumi.InvokeOption) (*LookupSubnetResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSubnetResult
 	err := ctx.Invoke("aws-native:ec2:getSubnet", args, &rv, opts...)
 	if err != nil {

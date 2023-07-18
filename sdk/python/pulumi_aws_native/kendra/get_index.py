@@ -144,16 +144,16 @@ def get_index(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:kendra:getIndex', __args__, opts=opts, typ=GetIndexResult).value
 
     return AwaitableGetIndexResult(
-        arn=__ret__.arn,
-        capacity_units=__ret__.capacity_units,
-        description=__ret__.description,
-        document_metadata_configurations=__ret__.document_metadata_configurations,
-        id=__ret__.id,
-        name=__ret__.name,
-        role_arn=__ret__.role_arn,
-        tags=__ret__.tags,
-        user_context_policy=__ret__.user_context_policy,
-        user_token_configurations=__ret__.user_token_configurations)
+        arn=pulumi.get(__ret__, 'arn'),
+        capacity_units=pulumi.get(__ret__, 'capacity_units'),
+        description=pulumi.get(__ret__, 'description'),
+        document_metadata_configurations=pulumi.get(__ret__, 'document_metadata_configurations'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        role_arn=pulumi.get(__ret__, 'role_arn'),
+        tags=pulumi.get(__ret__, 'tags'),
+        user_context_policy=pulumi.get(__ret__, 'user_context_policy'),
+        user_token_configurations=pulumi.get(__ret__, 'user_token_configurations'))
 
 
 @_utilities.lift_output_func(get_index)

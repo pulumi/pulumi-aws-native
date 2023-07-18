@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Definition of AWS::ManagedBlockchain::com.amazonaws.taiga.webservice.api#Accessor Resource Type
 func LookupAccessor(ctx *pulumi.Context, args *LookupAccessorArgs, opts ...pulumi.InvokeOption) (*LookupAccessorResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAccessorResult
 	err := ctx.Invoke("aws-native:managedblockchain:getAccessor", args, &rv, opts...)
 	if err != nil {

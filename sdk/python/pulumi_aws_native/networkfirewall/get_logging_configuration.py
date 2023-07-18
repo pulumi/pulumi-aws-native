@@ -51,7 +51,7 @@ def get_logging_configuration(firewall_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:networkfirewall:getLoggingConfiguration', __args__, opts=opts, typ=GetLoggingConfigurationResult).value
 
     return AwaitableGetLoggingConfigurationResult(
-        logging_configuration=__ret__.logging_configuration)
+        logging_configuration=pulumi.get(__ret__, 'logging_configuration'))
 
 
 @_utilities.lift_output_func(get_logging_configuration)

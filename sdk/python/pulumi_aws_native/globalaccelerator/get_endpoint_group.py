@@ -147,15 +147,15 @@ def get_endpoint_group(endpoint_group_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:globalaccelerator:getEndpointGroup', __args__, opts=opts, typ=GetEndpointGroupResult).value
 
     return AwaitableGetEndpointGroupResult(
-        endpoint_configurations=__ret__.endpoint_configurations,
-        endpoint_group_arn=__ret__.endpoint_group_arn,
-        health_check_interval_seconds=__ret__.health_check_interval_seconds,
-        health_check_path=__ret__.health_check_path,
-        health_check_port=__ret__.health_check_port,
-        health_check_protocol=__ret__.health_check_protocol,
-        port_overrides=__ret__.port_overrides,
-        threshold_count=__ret__.threshold_count,
-        traffic_dial_percentage=__ret__.traffic_dial_percentage)
+        endpoint_configurations=pulumi.get(__ret__, 'endpoint_configurations'),
+        endpoint_group_arn=pulumi.get(__ret__, 'endpoint_group_arn'),
+        health_check_interval_seconds=pulumi.get(__ret__, 'health_check_interval_seconds'),
+        health_check_path=pulumi.get(__ret__, 'health_check_path'),
+        health_check_port=pulumi.get(__ret__, 'health_check_port'),
+        health_check_protocol=pulumi.get(__ret__, 'health_check_protocol'),
+        port_overrides=pulumi.get(__ret__, 'port_overrides'),
+        threshold_count=pulumi.get(__ret__, 'threshold_count'),
+        traffic_dial_percentage=pulumi.get(__ret__, 'traffic_dial_percentage'))
 
 
 @_utilities.lift_output_func(get_endpoint_group)

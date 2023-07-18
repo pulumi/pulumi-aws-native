@@ -87,10 +87,10 @@ def get_application(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:systemsmanagersap:getApplication', __args__, opts=opts, typ=GetApplicationResult).value
 
     return AwaitableGetApplicationResult(
-        application_id=__ret__.application_id,
-        application_type=__ret__.application_type,
-        arn=__ret__.arn,
-        tags=__ret__.tags)
+        application_id=pulumi.get(__ret__, 'application_id'),
+        application_type=pulumi.get(__ret__, 'application_type'),
+        arn=pulumi.get(__ret__, 'arn'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_application)

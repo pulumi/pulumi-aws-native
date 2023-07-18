@@ -186,18 +186,18 @@ def get_location_hdfs(location_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:datasync:getLocationHDFS', __args__, opts=opts, typ=GetLocationHDFSResult).value
 
     return AwaitableGetLocationHDFSResult(
-        agent_arns=__ret__.agent_arns,
-        authentication_type=__ret__.authentication_type,
-        block_size=__ret__.block_size,
-        kerberos_principal=__ret__.kerberos_principal,
-        kms_key_provider_uri=__ret__.kms_key_provider_uri,
-        location_arn=__ret__.location_arn,
-        location_uri=__ret__.location_uri,
-        name_nodes=__ret__.name_nodes,
-        qop_configuration=__ret__.qop_configuration,
-        replication_factor=__ret__.replication_factor,
-        simple_user=__ret__.simple_user,
-        tags=__ret__.tags)
+        agent_arns=pulumi.get(__ret__, 'agent_arns'),
+        authentication_type=pulumi.get(__ret__, 'authentication_type'),
+        block_size=pulumi.get(__ret__, 'block_size'),
+        kerberos_principal=pulumi.get(__ret__, 'kerberos_principal'),
+        kms_key_provider_uri=pulumi.get(__ret__, 'kms_key_provider_uri'),
+        location_arn=pulumi.get(__ret__, 'location_arn'),
+        location_uri=pulumi.get(__ret__, 'location_uri'),
+        name_nodes=pulumi.get(__ret__, 'name_nodes'),
+        qop_configuration=pulumi.get(__ret__, 'qop_configuration'),
+        replication_factor=pulumi.get(__ret__, 'replication_factor'),
+        simple_user=pulumi.get(__ret__, 'simple_user'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_location_hdfs)

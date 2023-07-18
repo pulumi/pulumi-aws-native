@@ -95,12 +95,12 @@ def get_script(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:gamelift:getScript', __args__, opts=opts, typ=GetScriptResult).value
 
     return AwaitableGetScriptResult(
-        arn=__ret__.arn,
-        id=__ret__.id,
-        name=__ret__.name,
-        storage_location=__ret__.storage_location,
-        tags=__ret__.tags,
-        version=__ret__.version)
+        arn=pulumi.get(__ret__, 'arn'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        storage_location=pulumi.get(__ret__, 'storage_location'),
+        tags=pulumi.get(__ret__, 'tags'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_script)

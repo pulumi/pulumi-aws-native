@@ -194,23 +194,23 @@ def get_table(table_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:dynamodb:getTable', __args__, opts=opts, typ=GetTableResult).value
 
     return AwaitableGetTableResult(
-        arn=__ret__.arn,
-        attribute_definitions=__ret__.attribute_definitions,
-        billing_mode=__ret__.billing_mode,
-        contributor_insights_specification=__ret__.contributor_insights_specification,
-        deletion_protection_enabled=__ret__.deletion_protection_enabled,
-        global_secondary_indexes=__ret__.global_secondary_indexes,
-        key_schema=__ret__.key_schema,
-        kinesis_stream_specification=__ret__.kinesis_stream_specification,
-        local_secondary_indexes=__ret__.local_secondary_indexes,
-        point_in_time_recovery_specification=__ret__.point_in_time_recovery_specification,
-        provisioned_throughput=__ret__.provisioned_throughput,
-        s_se_specification=__ret__.s_se_specification,
-        stream_arn=__ret__.stream_arn,
-        stream_specification=__ret__.stream_specification,
-        table_class=__ret__.table_class,
-        tags=__ret__.tags,
-        time_to_live_specification=__ret__.time_to_live_specification)
+        arn=pulumi.get(__ret__, 'arn'),
+        attribute_definitions=pulumi.get(__ret__, 'attribute_definitions'),
+        billing_mode=pulumi.get(__ret__, 'billing_mode'),
+        contributor_insights_specification=pulumi.get(__ret__, 'contributor_insights_specification'),
+        deletion_protection_enabled=pulumi.get(__ret__, 'deletion_protection_enabled'),
+        global_secondary_indexes=pulumi.get(__ret__, 'global_secondary_indexes'),
+        key_schema=pulumi.get(__ret__, 'key_schema'),
+        kinesis_stream_specification=pulumi.get(__ret__, 'kinesis_stream_specification'),
+        local_secondary_indexes=pulumi.get(__ret__, 'local_secondary_indexes'),
+        point_in_time_recovery_specification=pulumi.get(__ret__, 'point_in_time_recovery_specification'),
+        provisioned_throughput=pulumi.get(__ret__, 'provisioned_throughput'),
+        s_se_specification=pulumi.get(__ret__, 's_se_specification'),
+        stream_arn=pulumi.get(__ret__, 'stream_arn'),
+        stream_specification=pulumi.get(__ret__, 'stream_specification'),
+        table_class=pulumi.get(__ret__, 'table_class'),
+        tags=pulumi.get(__ret__, 'tags'),
+        time_to_live_specification=pulumi.get(__ret__, 'time_to_live_specification'))
 
 
 @_utilities.lift_output_func(get_table)

@@ -122,15 +122,15 @@ def get_data_lake_settings(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:lakeformation:getDataLakeSettings', __args__, opts=opts, typ=GetDataLakeSettingsResult).value
 
     return AwaitableGetDataLakeSettingsResult(
-        admins=__ret__.admins,
-        allow_external_data_filtering=__ret__.allow_external_data_filtering,
-        authorized_session_tag_value_list=__ret__.authorized_session_tag_value_list,
-        create_database_default_permissions=__ret__.create_database_default_permissions,
-        create_table_default_permissions=__ret__.create_table_default_permissions,
-        external_data_filtering_allow_list=__ret__.external_data_filtering_allow_list,
-        id=__ret__.id,
-        parameters=__ret__.parameters,
-        trusted_resource_owners=__ret__.trusted_resource_owners)
+        admins=pulumi.get(__ret__, 'admins'),
+        allow_external_data_filtering=pulumi.get(__ret__, 'allow_external_data_filtering'),
+        authorized_session_tag_value_list=pulumi.get(__ret__, 'authorized_session_tag_value_list'),
+        create_database_default_permissions=pulumi.get(__ret__, 'create_database_default_permissions'),
+        create_table_default_permissions=pulumi.get(__ret__, 'create_table_default_permissions'),
+        external_data_filtering_allow_list=pulumi.get(__ret__, 'external_data_filtering_allow_list'),
+        id=pulumi.get(__ret__, 'id'),
+        parameters=pulumi.get(__ret__, 'parameters'),
+        trusted_resource_owners=pulumi.get(__ret__, 'trusted_resource_owners'))
 
 
 @_utilities.lift_output_func(get_data_lake_settings)

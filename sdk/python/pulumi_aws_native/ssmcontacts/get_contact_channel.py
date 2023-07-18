@@ -79,9 +79,9 @@ def get_contact_channel(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ssmcontacts:getContactChannel', __args__, opts=opts, typ=GetContactChannelResult).value
 
     return AwaitableGetContactChannelResult(
-        arn=__ret__.arn,
-        channel_address=__ret__.channel_address,
-        channel_name=__ret__.channel_name)
+        arn=pulumi.get(__ret__, 'arn'),
+        channel_address=pulumi.get(__ret__, 'channel_address'),
+        channel_name=pulumi.get(__ret__, 'channel_name'))
 
 
 @_utilities.lift_output_func(get_contact_channel)

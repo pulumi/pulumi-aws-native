@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -35,6 +36,7 @@ func NewSafetyRule(ctx *pulumi.Context,
 		args = &SafetyRuleArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SafetyRule
 	err := ctx.RegisterResource("aws-native:route53recoverycontrol:SafetyRule", name, args, &resource, opts...)
 	if err != nil {

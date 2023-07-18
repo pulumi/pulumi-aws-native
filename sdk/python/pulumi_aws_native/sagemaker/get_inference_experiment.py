@@ -189,19 +189,19 @@ def get_inference_experiment(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:sagemaker:getInferenceExperiment', __args__, opts=opts, typ=GetInferenceExperimentResult).value
 
     return AwaitableGetInferenceExperimentResult(
-        arn=__ret__.arn,
-        creation_time=__ret__.creation_time,
-        data_storage_config=__ret__.data_storage_config,
-        description=__ret__.description,
-        desired_state=__ret__.desired_state,
-        endpoint_metadata=__ret__.endpoint_metadata,
-        last_modified_time=__ret__.last_modified_time,
-        model_variants=__ret__.model_variants,
-        schedule=__ret__.schedule,
-        shadow_mode_config=__ret__.shadow_mode_config,
-        status=__ret__.status,
-        status_reason=__ret__.status_reason,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        data_storage_config=pulumi.get(__ret__, 'data_storage_config'),
+        description=pulumi.get(__ret__, 'description'),
+        desired_state=pulumi.get(__ret__, 'desired_state'),
+        endpoint_metadata=pulumi.get(__ret__, 'endpoint_metadata'),
+        last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
+        model_variants=pulumi.get(__ret__, 'model_variants'),
+        schedule=pulumi.get(__ret__, 'schedule'),
+        shadow_mode_config=pulumi.get(__ret__, 'shadow_mode_config'),
+        status=pulumi.get(__ret__, 'status'),
+        status_reason=pulumi.get(__ret__, 'status_reason'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_inference_experiment)

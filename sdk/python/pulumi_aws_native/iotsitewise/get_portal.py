@@ -164,16 +164,16 @@ def get_portal(portal_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iotsitewise:getPortal', __args__, opts=opts, typ=GetPortalResult).value
 
     return AwaitableGetPortalResult(
-        alarms=__ret__.alarms,
-        notification_sender_email=__ret__.notification_sender_email,
-        portal_arn=__ret__.portal_arn,
-        portal_client_id=__ret__.portal_client_id,
-        portal_contact_email=__ret__.portal_contact_email,
-        portal_description=__ret__.portal_description,
-        portal_id=__ret__.portal_id,
-        portal_name=__ret__.portal_name,
-        portal_start_url=__ret__.portal_start_url,
-        role_arn=__ret__.role_arn)
+        alarms=pulumi.get(__ret__, 'alarms'),
+        notification_sender_email=pulumi.get(__ret__, 'notification_sender_email'),
+        portal_arn=pulumi.get(__ret__, 'portal_arn'),
+        portal_client_id=pulumi.get(__ret__, 'portal_client_id'),
+        portal_contact_email=pulumi.get(__ret__, 'portal_contact_email'),
+        portal_description=pulumi.get(__ret__, 'portal_description'),
+        portal_id=pulumi.get(__ret__, 'portal_id'),
+        portal_name=pulumi.get(__ret__, 'portal_name'),
+        portal_start_url=pulumi.get(__ret__, 'portal_start_url'),
+        role_arn=pulumi.get(__ret__, 'role_arn'))
 
 
 @_utilities.lift_output_func(get_portal)

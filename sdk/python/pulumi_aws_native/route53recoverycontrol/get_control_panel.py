@@ -104,11 +104,11 @@ def get_control_panel(control_panel_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:route53recoverycontrol:getControlPanel', __args__, opts=opts, typ=GetControlPanelResult).value
 
     return AwaitableGetControlPanelResult(
-        control_panel_arn=__ret__.control_panel_arn,
-        default_control_panel=__ret__.default_control_panel,
-        name=__ret__.name,
-        routing_control_count=__ret__.routing_control_count,
-        status=__ret__.status)
+        control_panel_arn=pulumi.get(__ret__, 'control_panel_arn'),
+        default_control_panel=pulumi.get(__ret__, 'default_control_panel'),
+        name=pulumi.get(__ret__, 'name'),
+        routing_control_count=pulumi.get(__ret__, 'routing_control_count'),
+        status=pulumi.get(__ret__, 'status'))
 
 
 @_utilities.lift_output_func(get_control_panel)

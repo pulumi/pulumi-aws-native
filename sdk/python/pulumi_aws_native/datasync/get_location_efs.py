@@ -80,9 +80,9 @@ def get_location_efs(location_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:datasync:getLocationEFS', __args__, opts=opts, typ=GetLocationEFSResult).value
 
     return AwaitableGetLocationEFSResult(
-        location_arn=__ret__.location_arn,
-        location_uri=__ret__.location_uri,
-        tags=__ret__.tags)
+        location_arn=pulumi.get(__ret__, 'location_arn'),
+        location_uri=pulumi.get(__ret__, 'location_uri'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_location_efs)

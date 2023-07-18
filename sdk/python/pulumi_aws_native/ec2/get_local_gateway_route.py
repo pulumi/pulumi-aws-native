@@ -94,10 +94,10 @@ def get_local_gateway_route(destination_cidr_block: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getLocalGatewayRoute', __args__, opts=opts, typ=GetLocalGatewayRouteResult).value
 
     return AwaitableGetLocalGatewayRouteResult(
-        local_gateway_virtual_interface_group_id=__ret__.local_gateway_virtual_interface_group_id,
-        network_interface_id=__ret__.network_interface_id,
-        state=__ret__.state,
-        type=__ret__.type)
+        local_gateway_virtual_interface_group_id=pulumi.get(__ret__, 'local_gateway_virtual_interface_group_id'),
+        network_interface_id=pulumi.get(__ret__, 'network_interface_id'),
+        state=pulumi.get(__ret__, 'state'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_local_gateway_route)

@@ -58,8 +58,8 @@ def get_app_block(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:appstream:getAppBlock', __args__, opts=opts, typ=GetAppBlockResult).value
 
     return AwaitableGetAppBlockResult(
-        arn=__ret__.arn,
-        created_time=__ret__.created_time)
+        arn=pulumi.get(__ret__, 'arn'),
+        created_time=pulumi.get(__ret__, 'created_time'))
 
 
 @_utilities.lift_output_func(get_app_block)

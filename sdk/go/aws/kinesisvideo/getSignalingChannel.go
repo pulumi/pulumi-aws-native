@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type Definition for AWS::KinesisVideo::SignalingChannel
 func LookupSignalingChannel(ctx *pulumi.Context, args *LookupSignalingChannelArgs, opts ...pulumi.InvokeOption) (*LookupSignalingChannelResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSignalingChannelResult
 	err := ctx.Invoke("aws-native:kinesisvideo:getSignalingChannel", args, &rv, opts...)
 	if err != nil {

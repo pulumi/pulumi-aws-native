@@ -95,12 +95,12 @@ def get_delivery_channel(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:configuration:getDeliveryChannel', __args__, opts=opts, typ=GetDeliveryChannelResult).value
 
     return AwaitableGetDeliveryChannelResult(
-        config_snapshot_delivery_properties=__ret__.config_snapshot_delivery_properties,
-        id=__ret__.id,
-        s3_bucket_name=__ret__.s3_bucket_name,
-        s3_key_prefix=__ret__.s3_key_prefix,
-        s3_kms_key_arn=__ret__.s3_kms_key_arn,
-        sns_topic_arn=__ret__.sns_topic_arn)
+        config_snapshot_delivery_properties=pulumi.get(__ret__, 'config_snapshot_delivery_properties'),
+        id=pulumi.get(__ret__, 'id'),
+        s3_bucket_name=pulumi.get(__ret__, 's3_bucket_name'),
+        s3_key_prefix=pulumi.get(__ret__, 's3_key_prefix'),
+        s3_kms_key_arn=pulumi.get(__ret__, 's3_kms_key_arn'),
+        sns_topic_arn=pulumi.get(__ret__, 'sns_topic_arn'))
 
 
 @_utilities.lift_output_func(get_delivery_channel)

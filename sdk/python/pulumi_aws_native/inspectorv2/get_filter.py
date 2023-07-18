@@ -105,11 +105,11 @@ def get_filter(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:inspectorv2:getFilter', __args__, opts=opts, typ=GetFilterResult).value
 
     return AwaitableGetFilterResult(
-        arn=__ret__.arn,
-        description=__ret__.description,
-        filter_action=__ret__.filter_action,
-        filter_criteria=__ret__.filter_criteria,
-        name=__ret__.name)
+        arn=pulumi.get(__ret__, 'arn'),
+        description=pulumi.get(__ret__, 'description'),
+        filter_action=pulumi.get(__ret__, 'filter_action'),
+        filter_criteria=pulumi.get(__ret__, 'filter_criteria'),
+        name=pulumi.get(__ret__, 'name'))
 
 
 @_utilities.lift_output_func(get_filter)

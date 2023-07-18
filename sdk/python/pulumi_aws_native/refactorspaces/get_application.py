@@ -127,15 +127,15 @@ def get_application(application_identifier: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:refactorspaces:getApplication', __args__, opts=opts, typ=GetApplicationResult).value
 
     return AwaitableGetApplicationResult(
-        api_gateway_id=__ret__.api_gateway_id,
-        application_identifier=__ret__.application_identifier,
-        arn=__ret__.arn,
-        nlb_arn=__ret__.nlb_arn,
-        nlb_name=__ret__.nlb_name,
-        proxy_url=__ret__.proxy_url,
-        stage_name=__ret__.stage_name,
-        tags=__ret__.tags,
-        vpc_link_id=__ret__.vpc_link_id)
+        api_gateway_id=pulumi.get(__ret__, 'api_gateway_id'),
+        application_identifier=pulumi.get(__ret__, 'application_identifier'),
+        arn=pulumi.get(__ret__, 'arn'),
+        nlb_arn=pulumi.get(__ret__, 'nlb_arn'),
+        nlb_name=pulumi.get(__ret__, 'nlb_name'),
+        proxy_url=pulumi.get(__ret__, 'proxy_url'),
+        stage_name=pulumi.get(__ret__, 'stage_name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        vpc_link_id=pulumi.get(__ret__, 'vpc_link_id'))
 
 
 @_utilities.lift_output_func(get_application)

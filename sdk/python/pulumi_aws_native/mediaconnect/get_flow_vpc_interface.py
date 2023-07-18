@@ -94,10 +94,10 @@ def get_flow_vpc_interface(flow_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:mediaconnect:getFlowVpcInterface', __args__, opts=opts, typ=GetFlowVpcInterfaceResult).value
 
     return AwaitableGetFlowVpcInterfaceResult(
-        network_interface_ids=__ret__.network_interface_ids,
-        role_arn=__ret__.role_arn,
-        security_group_ids=__ret__.security_group_ids,
-        subnet_id=__ret__.subnet_id)
+        network_interface_ids=pulumi.get(__ret__, 'network_interface_ids'),
+        role_arn=pulumi.get(__ret__, 'role_arn'),
+        security_group_ids=pulumi.get(__ret__, 'security_group_ids'),
+        subnet_id=pulumi.get(__ret__, 'subnet_id'))
 
 
 @_utilities.lift_output_func(get_flow_vpc_interface)

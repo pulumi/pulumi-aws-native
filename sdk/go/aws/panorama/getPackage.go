@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Schema for Package CloudFormation Resource
 func LookupPackage(ctx *pulumi.Context, args *LookupPackageArgs, opts ...pulumi.InvokeOption) (*LookupPackageResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPackageResult
 	err := ctx.Invoke("aws-native:panorama:getPackage", args, &rv, opts...)
 	if err != nil {

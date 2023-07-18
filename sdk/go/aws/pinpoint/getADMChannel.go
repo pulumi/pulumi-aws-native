@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::Pinpoint::ADMChannel
 func LookupADMChannel(ctx *pulumi.Context, args *LookupADMChannelArgs, opts ...pulumi.InvokeOption) (*LookupADMChannelResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupADMChannelResult
 	err := ctx.Invoke("aws-native:pinpoint:getADMChannel", args, &rv, opts...)
 	if err != nil {

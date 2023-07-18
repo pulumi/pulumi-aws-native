@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for AWS::MediaConnect::FlowEntitlement
 func LookupFlowEntitlement(ctx *pulumi.Context, args *LookupFlowEntitlementArgs, opts ...pulumi.InvokeOption) (*LookupFlowEntitlementResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFlowEntitlementResult
 	err := ctx.Invoke("aws-native:mediaconnect:getFlowEntitlement", args, &rv, opts...)
 	if err != nil {

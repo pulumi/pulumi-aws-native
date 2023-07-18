@@ -96,12 +96,12 @@ def get_rule(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:vpclattice:getRule', __args__, opts=opts, typ=GetRuleResult).value
 
     return AwaitableGetRuleResult(
-        action=__ret__.action,
-        arn=__ret__.arn,
-        id=__ret__.id,
-        match=__ret__.match,
-        priority=__ret__.priority,
-        tags=__ret__.tags)
+        action=pulumi.get(__ret__, 'action'),
+        arn=pulumi.get(__ret__, 'arn'),
+        id=pulumi.get(__ret__, 'id'),
+        match=pulumi.get(__ret__, 'match'),
+        priority=pulumi.get(__ret__, 'priority'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_rule)

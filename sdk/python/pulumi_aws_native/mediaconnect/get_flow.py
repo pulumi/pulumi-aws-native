@@ -93,10 +93,10 @@ def get_flow(flow_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:mediaconnect:getFlow', __args__, opts=opts, typ=GetFlowResult).value
 
     return AwaitableGetFlowResult(
-        flow_arn=__ret__.flow_arn,
-        flow_availability_zone=__ret__.flow_availability_zone,
-        source=__ret__.source,
-        source_failover_config=__ret__.source_failover_config)
+        flow_arn=pulumi.get(__ret__, 'flow_arn'),
+        flow_availability_zone=pulumi.get(__ret__, 'flow_availability_zone'),
+        source=pulumi.get(__ret__, 'source'),
+        source_failover_config=pulumi.get(__ret__, 'source_failover_config'))
 
 
 @_utilities.lift_output_func(get_flow)

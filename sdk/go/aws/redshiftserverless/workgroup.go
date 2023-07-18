@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -34,6 +35,7 @@ func NewWorkgroup(ctx *pulumi.Context,
 		args = &WorkgroupArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Workgroup
 	err := ctx.RegisterResource("aws-native:redshiftserverless:Workgroup", name, args, &resource, opts...)
 	if err != nil {

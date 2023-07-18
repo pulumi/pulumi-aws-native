@@ -67,9 +67,9 @@ def get_access_key(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iam:getAccessKey', __args__, opts=opts, typ=GetAccessKeyResult).value
 
     return AwaitableGetAccessKeyResult(
-        id=__ret__.id,
-        secret_access_key=__ret__.secret_access_key,
-        status=__ret__.status)
+        id=pulumi.get(__ret__, 'id'),
+        secret_access_key=pulumi.get(__ret__, 'secret_access_key'),
+        status=pulumi.get(__ret__, 'status'))
 
 
 @_utilities.lift_output_func(get_access_key)

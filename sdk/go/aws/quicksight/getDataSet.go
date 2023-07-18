@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Definition of the AWS::QuickSight::DataSet Resource Type.
 func LookupDataSet(ctx *pulumi.Context, args *LookupDataSetArgs, opts ...pulumi.InvokeOption) (*LookupDataSetResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDataSetResult
 	err := ctx.Invoke("aws-native:quicksight:getDataSet", args, &rv, opts...)
 	if err != nil {

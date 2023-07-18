@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::SageMaker::EndpointConfig
 func LookupEndpointConfig(ctx *pulumi.Context, args *LookupEndpointConfigArgs, opts ...pulumi.InvokeOption) (*LookupEndpointConfigResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEndpointConfigResult
 	err := ctx.Invoke("aws-native:sagemaker:getEndpointConfig", args, &rv, opts...)
 	if err != nil {

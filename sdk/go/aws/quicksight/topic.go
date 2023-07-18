@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -29,6 +30,7 @@ func NewTopic(ctx *pulumi.Context,
 		args = &TopicArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Topic
 	err := ctx.RegisterResource("aws-native:quicksight:Topic", name, args, &resource, opts...)
 	if err != nil {

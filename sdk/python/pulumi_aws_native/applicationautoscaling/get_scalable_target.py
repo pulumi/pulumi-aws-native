@@ -110,11 +110,11 @@ def get_scalable_target(resource_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:applicationautoscaling:getScalableTarget', __args__, opts=opts, typ=GetScalableTargetResult).value
 
     return AwaitableGetScalableTargetResult(
-        id=__ret__.id,
-        max_capacity=__ret__.max_capacity,
-        min_capacity=__ret__.min_capacity,
-        scheduled_actions=__ret__.scheduled_actions,
-        suspended_state=__ret__.suspended_state)
+        id=pulumi.get(__ret__, 'id'),
+        max_capacity=pulumi.get(__ret__, 'max_capacity'),
+        min_capacity=pulumi.get(__ret__, 'min_capacity'),
+        scheduled_actions=pulumi.get(__ret__, 'scheduled_actions'),
+        suspended_state=pulumi.get(__ret__, 'suspended_state'))
 
 
 @_utilities.lift_output_func(get_scalable_target)

@@ -78,10 +78,10 @@ def get_workgroup(workgroup_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:redshiftserverless:getWorkgroup', __args__, opts=opts, typ=GetWorkgroupResult).value
 
     return AwaitableGetWorkgroupResult(
-        enhanced_vpc_routing=__ret__.enhanced_vpc_routing,
-        port=__ret__.port,
-        publicly_accessible=__ret__.publicly_accessible,
-        workgroup=__ret__.workgroup)
+        enhanced_vpc_routing=pulumi.get(__ret__, 'enhanced_vpc_routing'),
+        port=pulumi.get(__ret__, 'port'),
+        publicly_accessible=pulumi.get(__ret__, 'publicly_accessible'),
+        workgroup=pulumi.get(__ret__, 'workgroup'))
 
 
 @_utilities.lift_output_func(get_workgroup)

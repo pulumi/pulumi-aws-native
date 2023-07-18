@@ -59,8 +59,8 @@ def get_origin_access_control(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cloudfront:getOriginAccessControl', __args__, opts=opts, typ=GetOriginAccessControlResult).value
 
     return AwaitableGetOriginAccessControlResult(
-        id=__ret__.id,
-        origin_access_control_config=__ret__.origin_access_control_config)
+        id=pulumi.get(__ret__, 'id'),
+        origin_access_control_config=pulumi.get(__ret__, 'origin_access_control_config'))
 
 
 @_utilities.lift_output_func(get_origin_access_control)

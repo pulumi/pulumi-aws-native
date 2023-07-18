@@ -49,7 +49,7 @@ def get_layer_version(layer_version_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:lambda:getLayerVersion', __args__, opts=opts, typ=GetLayerVersionResult).value
 
     return AwaitableGetLayerVersionResult(
-        layer_version_arn=__ret__.layer_version_arn)
+        layer_version_arn=pulumi.get(__ret__, 'layer_version_arn'))
 
 
 @_utilities.lift_output_func(get_layer_version)

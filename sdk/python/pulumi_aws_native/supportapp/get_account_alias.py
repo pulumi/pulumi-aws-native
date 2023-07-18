@@ -67,8 +67,8 @@ def get_account_alias(account_alias_resource_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:supportapp:getAccountAlias', __args__, opts=opts, typ=GetAccountAliasResult).value
 
     return AwaitableGetAccountAliasResult(
-        account_alias=__ret__.account_alias,
-        account_alias_resource_id=__ret__.account_alias_resource_id)
+        account_alias=pulumi.get(__ret__, 'account_alias'),
+        account_alias_resource_id=pulumi.get(__ret__, 'account_alias_resource_id'))
 
 
 @_utilities.lift_output_func(get_account_alias)

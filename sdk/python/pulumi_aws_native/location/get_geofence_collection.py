@@ -95,12 +95,12 @@ def get_geofence_collection(collection_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:location:getGeofenceCollection', __args__, opts=opts, typ=GetGeofenceCollectionResult).value
 
     return AwaitableGetGeofenceCollectionResult(
-        arn=__ret__.arn,
-        collection_arn=__ret__.collection_arn,
-        create_time=__ret__.create_time,
-        pricing_plan=__ret__.pricing_plan,
-        pricing_plan_data_source=__ret__.pricing_plan_data_source,
-        update_time=__ret__.update_time)
+        arn=pulumi.get(__ret__, 'arn'),
+        collection_arn=pulumi.get(__ret__, 'collection_arn'),
+        create_time=pulumi.get(__ret__, 'create_time'),
+        pricing_plan=pulumi.get(__ret__, 'pricing_plan'),
+        pricing_plan_data_source=pulumi.get(__ret__, 'pricing_plan_data_source'),
+        update_time=pulumi.get(__ret__, 'update_time'))
 
 
 @_utilities.lift_output_func(get_geofence_collection)

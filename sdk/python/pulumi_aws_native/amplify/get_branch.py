@@ -141,17 +141,17 @@ def get_branch(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:amplify:getBranch', __args__, opts=opts, typ=GetBranchResult).value
 
     return AwaitableGetBranchResult(
-        arn=__ret__.arn,
-        build_spec=__ret__.build_spec,
-        description=__ret__.description,
-        enable_auto_build=__ret__.enable_auto_build,
-        enable_performance_mode=__ret__.enable_performance_mode,
-        enable_pull_request_preview=__ret__.enable_pull_request_preview,
-        environment_variables=__ret__.environment_variables,
-        framework=__ret__.framework,
-        pull_request_environment_name=__ret__.pull_request_environment_name,
-        stage=__ret__.stage,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        build_spec=pulumi.get(__ret__, 'build_spec'),
+        description=pulumi.get(__ret__, 'description'),
+        enable_auto_build=pulumi.get(__ret__, 'enable_auto_build'),
+        enable_performance_mode=pulumi.get(__ret__, 'enable_performance_mode'),
+        enable_pull_request_preview=pulumi.get(__ret__, 'enable_pull_request_preview'),
+        environment_variables=pulumi.get(__ret__, 'environment_variables'),
+        framework=pulumi.get(__ret__, 'framework'),
+        pull_request_environment_name=pulumi.get(__ret__, 'pull_request_environment_name'),
+        stage=pulumi.get(__ret__, 'stage'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_branch)

@@ -93,10 +93,10 @@ def get_resource_default_version(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cloudformation:getResourceDefaultVersion', __args__, opts=opts, typ=GetResourceDefaultVersionResult).value
 
     return AwaitableGetResourceDefaultVersionResult(
-        arn=__ret__.arn,
-        type_name=__ret__.type_name,
-        type_version_arn=__ret__.type_version_arn,
-        version_id=__ret__.version_id)
+        arn=pulumi.get(__ret__, 'arn'),
+        type_name=pulumi.get(__ret__, 'type_name'),
+        type_version_arn=pulumi.get(__ret__, 'type_version_arn'),
+        version_id=pulumi.get(__ret__, 'version_id'))
 
 
 @_utilities.lift_output_func(get_resource_default_version)

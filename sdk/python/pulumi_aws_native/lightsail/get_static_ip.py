@@ -88,10 +88,10 @@ def get_static_ip(static_ip_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:lightsail:getStaticIp', __args__, opts=opts, typ=GetStaticIpResult).value
 
     return AwaitableGetStaticIpResult(
-        attached_to=__ret__.attached_to,
-        ip_address=__ret__.ip_address,
-        is_attached=__ret__.is_attached,
-        static_ip_arn=__ret__.static_ip_arn)
+        attached_to=pulumi.get(__ret__, 'attached_to'),
+        ip_address=pulumi.get(__ret__, 'ip_address'),
+        is_attached=pulumi.get(__ret__, 'is_attached'),
+        static_ip_arn=pulumi.get(__ret__, 'static_ip_arn'))
 
 
 @_utilities.lift_output_func(get_static_ip)

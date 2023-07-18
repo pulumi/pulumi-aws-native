@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // The AWS::KMS::ReplicaKey resource specifies a multi-region replica AWS KMS key in AWS Key Management Service (AWS KMS).
 func LookupReplicaKey(ctx *pulumi.Context, args *LookupReplicaKeyArgs, opts ...pulumi.InvokeOption) (*LookupReplicaKeyResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupReplicaKeyResult
 	err := ctx.Invoke("aws-native:kms:getReplicaKey", args, &rv, opts...)
 	if err != nil {

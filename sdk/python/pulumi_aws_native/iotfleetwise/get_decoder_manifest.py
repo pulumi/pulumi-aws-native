@@ -114,14 +114,14 @@ def get_decoder_manifest(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iotfleetwise:getDecoderManifest', __args__, opts=opts, typ=GetDecoderManifestResult).value
 
     return AwaitableGetDecoderManifestResult(
-        arn=__ret__.arn,
-        creation_time=__ret__.creation_time,
-        description=__ret__.description,
-        last_modification_time=__ret__.last_modification_time,
-        network_interfaces=__ret__.network_interfaces,
-        signal_decoders=__ret__.signal_decoders,
-        status=__ret__.status,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        description=pulumi.get(__ret__, 'description'),
+        last_modification_time=pulumi.get(__ret__, 'last_modification_time'),
+        network_interfaces=pulumi.get(__ret__, 'network_interfaces'),
+        signal_decoders=pulumi.get(__ret__, 'signal_decoders'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_decoder_manifest)

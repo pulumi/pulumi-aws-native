@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Creates a fleet provisioning template.
 func LookupProvisioningTemplate(ctx *pulumi.Context, args *LookupProvisioningTemplateArgs, opts ...pulumi.InvokeOption) (*LookupProvisioningTemplateResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupProvisioningTemplateResult
 	err := ctx.Invoke("aws-native:iot:getProvisioningTemplate", args, &rv, opts...)
 	if err != nil {

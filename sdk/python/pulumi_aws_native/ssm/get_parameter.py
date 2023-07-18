@@ -121,15 +121,15 @@ def get_parameter(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ssm:getParameter', __args__, opts=opts, typ=GetParameterResult).value
 
     return AwaitableGetParameterResult(
-        allowed_pattern=__ret__.allowed_pattern,
-        data_type=__ret__.data_type,
-        description=__ret__.description,
-        id=__ret__.id,
-        policies=__ret__.policies,
-        tags=__ret__.tags,
-        tier=__ret__.tier,
-        type=__ret__.type,
-        value=__ret__.value)
+        allowed_pattern=pulumi.get(__ret__, 'allowed_pattern'),
+        data_type=pulumi.get(__ret__, 'data_type'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        policies=pulumi.get(__ret__, 'policies'),
+        tags=pulumi.get(__ret__, 'tags'),
+        tier=pulumi.get(__ret__, 'tier'),
+        type=pulumi.get(__ret__, 'type'),
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(get_parameter)

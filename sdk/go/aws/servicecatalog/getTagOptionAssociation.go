@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::ServiceCatalog::TagOptionAssociation
 func LookupTagOptionAssociation(ctx *pulumi.Context, args *LookupTagOptionAssociationArgs, opts ...pulumi.InvokeOption) (*LookupTagOptionAssociationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTagOptionAssociationResult
 	err := ctx.Invoke("aws-native:servicecatalog:getTagOptionAssociation", args, &rv, opts...)
 	if err != nil {

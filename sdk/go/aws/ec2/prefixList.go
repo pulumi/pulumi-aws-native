@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -48,6 +49,7 @@ func NewPrefixList(ctx *pulumi.Context,
 	if args.MaxEntries == nil {
 		return nil, errors.New("invalid value for required argument 'MaxEntries'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PrefixList
 	err := ctx.RegisterResource("aws-native:ec2:PrefixList", name, args, &resource, opts...)
 	if err != nil {

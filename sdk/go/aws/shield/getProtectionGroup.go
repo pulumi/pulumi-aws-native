@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // A grouping of protected resources so they can be handled as a collective. This resource grouping improves the accuracy of detection and reduces false positives.
 func LookupProtectionGroup(ctx *pulumi.Context, args *LookupProtectionGroupArgs, opts ...pulumi.InvokeOption) (*LookupProtectionGroupResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupProtectionGroupResult
 	err := ctx.Invoke("aws-native:shield:getProtectionGroup", args, &rv, opts...)
 	if err != nil {

@@ -85,11 +85,11 @@ def get_macro(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cloudformation:getMacro', __args__, opts=opts, typ=GetMacroResult).value
 
     return AwaitableGetMacroResult(
-        description=__ret__.description,
-        function_name=__ret__.function_name,
-        id=__ret__.id,
-        log_group_name=__ret__.log_group_name,
-        log_role_arn=__ret__.log_role_arn)
+        description=pulumi.get(__ret__, 'description'),
+        function_name=pulumi.get(__ret__, 'function_name'),
+        id=pulumi.get(__ret__, 'id'),
+        log_group_name=pulumi.get(__ret__, 'log_group_name'),
+        log_role_arn=pulumi.get(__ret__, 'log_role_arn'))
 
 
 @_utilities.lift_output_func(get_macro)

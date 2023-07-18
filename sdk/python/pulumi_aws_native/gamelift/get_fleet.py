@@ -200,19 +200,19 @@ def get_fleet(fleet_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:gamelift:getFleet', __args__, opts=opts, typ=GetFleetResult).value
 
     return AwaitableGetFleetResult(
-        anywhere_configuration=__ret__.anywhere_configuration,
-        description=__ret__.description,
-        desired_ec2_instances=__ret__.desired_ec2_instances,
-        e_c2_inbound_permissions=__ret__.e_c2_inbound_permissions,
-        fleet_id=__ret__.fleet_id,
-        locations=__ret__.locations,
-        max_size=__ret__.max_size,
-        metric_groups=__ret__.metric_groups,
-        min_size=__ret__.min_size,
-        name=__ret__.name,
-        new_game_session_protection_policy=__ret__.new_game_session_protection_policy,
-        resource_creation_limit_policy=__ret__.resource_creation_limit_policy,
-        runtime_configuration=__ret__.runtime_configuration)
+        anywhere_configuration=pulumi.get(__ret__, 'anywhere_configuration'),
+        description=pulumi.get(__ret__, 'description'),
+        desired_ec2_instances=pulumi.get(__ret__, 'desired_ec2_instances'),
+        e_c2_inbound_permissions=pulumi.get(__ret__, 'e_c2_inbound_permissions'),
+        fleet_id=pulumi.get(__ret__, 'fleet_id'),
+        locations=pulumi.get(__ret__, 'locations'),
+        max_size=pulumi.get(__ret__, 'max_size'),
+        metric_groups=pulumi.get(__ret__, 'metric_groups'),
+        min_size=pulumi.get(__ret__, 'min_size'),
+        name=pulumi.get(__ret__, 'name'),
+        new_game_session_protection_policy=pulumi.get(__ret__, 'new_game_session_protection_policy'),
+        resource_creation_limit_policy=pulumi.get(__ret__, 'resource_creation_limit_policy'),
+        runtime_configuration=pulumi.get(__ret__, 'runtime_configuration'))
 
 
 @_utilities.lift_output_func(get_fleet)

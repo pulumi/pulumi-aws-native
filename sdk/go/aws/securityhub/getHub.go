@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::SecurityHub::Hub
 func LookupHub(ctx *pulumi.Context, args *LookupHubArgs, opts ...pulumi.InvokeOption) (*LookupHubResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupHubResult
 	err := ctx.Invoke("aws-native:securityhub:getHub", args, &rv, opts...)
 	if err != nil {

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // An outcome for rule evaluation.
 func LookupOutcome(ctx *pulumi.Context, args *LookupOutcomeArgs, opts ...pulumi.InvokeOption) (*LookupOutcomeResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupOutcomeResult
 	err := ctx.Invoke("aws-native:frauddetector:getOutcome", args, &rv, opts...)
 	if err != nil {

@@ -147,17 +147,17 @@ def get_experiment(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:evidently:getExperiment', __args__, opts=opts, typ=GetExperimentResult).value
 
     return AwaitableGetExperimentResult(
-        arn=__ret__.arn,
-        description=__ret__.description,
-        metric_goals=__ret__.metric_goals,
-        online_ab_config=__ret__.online_ab_config,
-        randomization_salt=__ret__.randomization_salt,
-        remove_segment=__ret__.remove_segment,
-        running_status=__ret__.running_status,
-        sampling_rate=__ret__.sampling_rate,
-        segment=__ret__.segment,
-        tags=__ret__.tags,
-        treatments=__ret__.treatments)
+        arn=pulumi.get(__ret__, 'arn'),
+        description=pulumi.get(__ret__, 'description'),
+        metric_goals=pulumi.get(__ret__, 'metric_goals'),
+        online_ab_config=pulumi.get(__ret__, 'online_ab_config'),
+        randomization_salt=pulumi.get(__ret__, 'randomization_salt'),
+        remove_segment=pulumi.get(__ret__, 'remove_segment'),
+        running_status=pulumi.get(__ret__, 'running_status'),
+        sampling_rate=pulumi.get(__ret__, 'sampling_rate'),
+        segment=pulumi.get(__ret__, 'segment'),
+        tags=pulumi.get(__ret__, 'tags'),
+        treatments=pulumi.get(__ret__, 'treatments'))
 
 
 @_utilities.lift_output_func(get_experiment)

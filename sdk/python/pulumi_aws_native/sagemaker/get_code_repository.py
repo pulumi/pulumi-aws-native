@@ -68,9 +68,9 @@ def get_code_repository(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:sagemaker:getCodeRepository', __args__, opts=opts, typ=GetCodeRepositoryResult).value
 
     return AwaitableGetCodeRepositoryResult(
-        git_config=__ret__.git_config,
-        id=__ret__.id,
-        tags=__ret__.tags)
+        git_config=pulumi.get(__ret__, 'git_config'),
+        id=pulumi.get(__ret__, 'id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_code_repository)

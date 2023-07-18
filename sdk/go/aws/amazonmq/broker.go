@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -74,6 +75,7 @@ func NewBroker(ctx *pulumi.Context,
 	if args.Users == nil {
 		return nil, errors.New("invalid value for required argument 'Users'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Broker
 	err := ctx.RegisterResource("aws-native:amazonmq:Broker", name, args, &resource, opts...)
 	if err != nil {

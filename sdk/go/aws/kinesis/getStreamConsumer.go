@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::Kinesis::StreamConsumer
 func LookupStreamConsumer(ctx *pulumi.Context, args *LookupStreamConsumerArgs, opts ...pulumi.InvokeOption) (*LookupStreamConsumerResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupStreamConsumerResult
 	err := ctx.Invoke("aws-native:kinesis:getStreamConsumer", args, &rv, opts...)
 	if err != nil {

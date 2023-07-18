@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Authorizes the Shield Response Team (SRT) to use email and phone to notify contacts about escalations to the SRT and to initiate proactive customer support.
 func LookupProactiveEngagement(ctx *pulumi.Context, args *LookupProactiveEngagementArgs, opts ...pulumi.InvokeOption) (*LookupProactiveEngagementResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupProactiveEngagementResult
 	err := ctx.Invoke("aws-native:shield:getProactiveEngagement", args, &rv, opts...)
 	if err != nil {

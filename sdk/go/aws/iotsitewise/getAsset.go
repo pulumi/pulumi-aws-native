@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for AWS::IoTSiteWise::Asset
 func LookupAsset(ctx *pulumi.Context, args *LookupAssetArgs, opts ...pulumi.InvokeOption) (*LookupAssetResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAssetResult
 	err := ctx.Invoke("aws-native:iotsitewise:getAsset", args, &rv, opts...)
 	if err != nil {

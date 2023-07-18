@@ -94,10 +94,10 @@ def get_service_template(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:proton:getServiceTemplate', __args__, opts=opts, typ=GetServiceTemplateResult).value
 
     return AwaitableGetServiceTemplateResult(
-        arn=__ret__.arn,
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_service_template)

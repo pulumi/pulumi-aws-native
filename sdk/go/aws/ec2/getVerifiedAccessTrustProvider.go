@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // The AWS::EC2::VerifiedAccessTrustProvider type describes a verified access trust provider
 func LookupVerifiedAccessTrustProvider(ctx *pulumi.Context, args *LookupVerifiedAccessTrustProviderArgs, opts ...pulumi.InvokeOption) (*LookupVerifiedAccessTrustProviderResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVerifiedAccessTrustProviderResult
 	err := ctx.Invoke("aws-native:ec2:getVerifiedAccessTrustProvider", args, &rv, opts...)
 	if err != nil {

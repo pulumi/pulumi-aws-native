@@ -165,17 +165,17 @@ def get_schedule(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:scheduler:getSchedule', __args__, opts=opts, typ=GetScheduleResult).value
 
     return AwaitableGetScheduleResult(
-        arn=__ret__.arn,
-        description=__ret__.description,
-        end_date=__ret__.end_date,
-        flexible_time_window=__ret__.flexible_time_window,
-        group_name=__ret__.group_name,
-        kms_key_arn=__ret__.kms_key_arn,
-        schedule_expression=__ret__.schedule_expression,
-        schedule_expression_timezone=__ret__.schedule_expression_timezone,
-        start_date=__ret__.start_date,
-        state=__ret__.state,
-        target=__ret__.target)
+        arn=pulumi.get(__ret__, 'arn'),
+        description=pulumi.get(__ret__, 'description'),
+        end_date=pulumi.get(__ret__, 'end_date'),
+        flexible_time_window=pulumi.get(__ret__, 'flexible_time_window'),
+        group_name=pulumi.get(__ret__, 'group_name'),
+        kms_key_arn=pulumi.get(__ret__, 'kms_key_arn'),
+        schedule_expression=pulumi.get(__ret__, 'schedule_expression'),
+        schedule_expression_timezone=pulumi.get(__ret__, 'schedule_expression_timezone'),
+        start_date=pulumi.get(__ret__, 'start_date'),
+        state=pulumi.get(__ret__, 'state'),
+        target=pulumi.get(__ret__, 'target'))
 
 
 @_utilities.lift_output_func(get_schedule)

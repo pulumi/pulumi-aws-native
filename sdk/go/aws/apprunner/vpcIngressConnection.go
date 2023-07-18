@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,6 +43,7 @@ func NewVpcIngressConnection(ctx *pulumi.Context,
 	if args.ServiceArn == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcIngressConnection
 	err := ctx.RegisterResource("aws-native:apprunner:VpcIngressConnection", name, args, &resource, opts...)
 	if err != nil {

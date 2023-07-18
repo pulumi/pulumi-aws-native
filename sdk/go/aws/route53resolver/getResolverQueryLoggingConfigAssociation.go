@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation.
 func LookupResolverQueryLoggingConfigAssociation(ctx *pulumi.Context, args *LookupResolverQueryLoggingConfigAssociationArgs, opts ...pulumi.InvokeOption) (*LookupResolverQueryLoggingConfigAssociationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResolverQueryLoggingConfigAssociationResult
 	err := ctx.Invoke("aws-native:route53resolver:getResolverQueryLoggingConfigAssociation", args, &rv, opts...)
 	if err != nil {

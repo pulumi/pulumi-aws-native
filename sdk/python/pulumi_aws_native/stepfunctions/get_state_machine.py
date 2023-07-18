@@ -114,14 +114,14 @@ def get_state_machine(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:stepfunctions:getStateMachine', __args__, opts=opts, typ=GetStateMachineResult).value
 
     return AwaitableGetStateMachineResult(
-        arn=__ret__.arn,
-        definition_string=__ret__.definition_string,
-        logging_configuration=__ret__.logging_configuration,
-        name=__ret__.name,
-        role_arn=__ret__.role_arn,
-        state_machine_revision_id=__ret__.state_machine_revision_id,
-        tags=__ret__.tags,
-        tracing_configuration=__ret__.tracing_configuration)
+        arn=pulumi.get(__ret__, 'arn'),
+        definition_string=pulumi.get(__ret__, 'definition_string'),
+        logging_configuration=pulumi.get(__ret__, 'logging_configuration'),
+        name=pulumi.get(__ret__, 'name'),
+        role_arn=pulumi.get(__ret__, 'role_arn'),
+        state_machine_revision_id=pulumi.get(__ret__, 'state_machine_revision_id'),
+        tags=pulumi.get(__ret__, 'tags'),
+        tracing_configuration=pulumi.get(__ret__, 'tracing_configuration'))
 
 
 @_utilities.lift_output_func(get_state_machine)

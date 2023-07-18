@@ -76,10 +76,10 @@ def get_user_pool_identity_provider(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cognito:getUserPoolIdentityProvider', __args__, opts=opts, typ=GetUserPoolIdentityProviderResult).value
 
     return AwaitableGetUserPoolIdentityProviderResult(
-        attribute_mapping=__ret__.attribute_mapping,
-        id=__ret__.id,
-        idp_identifiers=__ret__.idp_identifiers,
-        provider_details=__ret__.provider_details)
+        attribute_mapping=pulumi.get(__ret__, 'attribute_mapping'),
+        id=pulumi.get(__ret__, 'id'),
+        idp_identifiers=pulumi.get(__ret__, 'idp_identifiers'),
+        provider_details=pulumi.get(__ret__, 'provider_details'))
 
 
 @_utilities.lift_output_func(get_user_pool_identity_provider)

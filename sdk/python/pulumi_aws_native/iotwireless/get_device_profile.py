@@ -104,11 +104,11 @@ def get_device_profile(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iotwireless:getDeviceProfile', __args__, opts=opts, typ=GetDeviceProfileResult).value
 
     return AwaitableGetDeviceProfileResult(
-        arn=__ret__.arn,
-        id=__ret__.id,
-        lo_ra_wan=__ret__.lo_ra_wan,
-        name=__ret__.name,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        id=pulumi.get(__ret__, 'id'),
+        lo_ra_wan=pulumi.get(__ret__, 'lo_ra_wan'),
+        name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_device_profile)

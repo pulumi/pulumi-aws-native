@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::EC2::DHCPOptions
 func LookupDHCPOptions(ctx *pulumi.Context, args *LookupDHCPOptionsArgs, opts ...pulumi.InvokeOption) (*LookupDHCPOptionsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDHCPOptionsResult
 	err := ctx.Invoke("aws-native:ec2:getDHCPOptions", args, &rv, opts...)
 	if err != nil {

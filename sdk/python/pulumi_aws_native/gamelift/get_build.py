@@ -79,9 +79,9 @@ def get_build(build_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:gamelift:getBuild', __args__, opts=opts, typ=GetBuildResult).value
 
     return AwaitableGetBuildResult(
-        build_id=__ret__.build_id,
-        name=__ret__.name,
-        version=__ret__.version)
+        build_id=pulumi.get(__ret__, 'build_id'),
+        name=pulumi.get(__ret__, 'name'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_build)

@@ -49,7 +49,7 @@ def get_user_pool_user_to_group_attachment(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cognito:getUserPoolUserToGroupAttachment', __args__, opts=opts, typ=GetUserPoolUserToGroupAttachmentResult).value
 
     return AwaitableGetUserPoolUserToGroupAttachmentResult(
-        id=__ret__.id)
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_user_pool_user_to_group_attachment)

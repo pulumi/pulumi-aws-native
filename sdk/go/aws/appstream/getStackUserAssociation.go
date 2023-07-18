@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::AppStream::StackUserAssociation
 func LookupStackUserAssociation(ctx *pulumi.Context, args *LookupStackUserAssociationArgs, opts ...pulumi.InvokeOption) (*LookupStackUserAssociationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupStackUserAssociationResult
 	err := ctx.Invoke("aws-native:appstream:getStackUserAssociation", args, &rv, opts...)
 	if err != nil {

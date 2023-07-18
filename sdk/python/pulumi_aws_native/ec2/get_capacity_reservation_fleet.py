@@ -76,10 +76,10 @@ def get_capacity_reservation_fleet(capacity_reservation_fleet_id: Optional[str] 
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getCapacityReservationFleet', __args__, opts=opts, typ=GetCapacityReservationFleetResult).value
 
     return AwaitableGetCapacityReservationFleetResult(
-        capacity_reservation_fleet_id=__ret__.capacity_reservation_fleet_id,
-        no_remove_end_date=__ret__.no_remove_end_date,
-        remove_end_date=__ret__.remove_end_date,
-        total_target_capacity=__ret__.total_target_capacity)
+        capacity_reservation_fleet_id=pulumi.get(__ret__, 'capacity_reservation_fleet_id'),
+        no_remove_end_date=pulumi.get(__ret__, 'no_remove_end_date'),
+        remove_end_date=pulumi.get(__ret__, 'remove_end_date'),
+        total_target_capacity=pulumi.get(__ret__, 'total_target_capacity'))
 
 
 @_utilities.lift_output_func(get_capacity_reservation_fleet)

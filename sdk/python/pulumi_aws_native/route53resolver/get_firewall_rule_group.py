@@ -189,18 +189,18 @@ def get_firewall_rule_group(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:route53resolver:getFirewallRuleGroup', __args__, opts=opts, typ=GetFirewallRuleGroupResult).value
 
     return AwaitableGetFirewallRuleGroupResult(
-        arn=__ret__.arn,
-        creation_time=__ret__.creation_time,
-        creator_request_id=__ret__.creator_request_id,
-        firewall_rules=__ret__.firewall_rules,
-        id=__ret__.id,
-        modification_time=__ret__.modification_time,
-        owner_id=__ret__.owner_id,
-        rule_count=__ret__.rule_count,
-        share_status=__ret__.share_status,
-        status=__ret__.status,
-        status_message=__ret__.status_message,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        creator_request_id=pulumi.get(__ret__, 'creator_request_id'),
+        firewall_rules=pulumi.get(__ret__, 'firewall_rules'),
+        id=pulumi.get(__ret__, 'id'),
+        modification_time=pulumi.get(__ret__, 'modification_time'),
+        owner_id=pulumi.get(__ret__, 'owner_id'),
+        rule_count=pulumi.get(__ret__, 'rule_count'),
+        share_status=pulumi.get(__ret__, 'share_status'),
+        status=pulumi.get(__ret__, 'status'),
+        status_message=pulumi.get(__ret__, 'status_message'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_firewall_rule_group)

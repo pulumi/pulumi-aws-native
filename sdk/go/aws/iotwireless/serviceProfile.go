@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -31,6 +32,7 @@ func NewServiceProfile(ctx *pulumi.Context,
 		args = &ServiceProfileArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ServiceProfile
 	err := ctx.RegisterResource("aws-native:iotwireless:ServiceProfile", name, args, &resource, opts...)
 	if err != nil {

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for AWS::IoTSiteWise::Dashboard
 func LookupDashboard(ctx *pulumi.Context, args *LookupDashboardArgs, opts ...pulumi.InvokeOption) (*LookupDashboardResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDashboardResult
 	err := ctx.Invoke("aws-native:iotsitewise:getDashboard", args, &rv, opts...)
 	if err != nil {

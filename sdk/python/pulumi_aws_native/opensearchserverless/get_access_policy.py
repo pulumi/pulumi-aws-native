@@ -70,8 +70,8 @@ def get_access_policy(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:opensearchserverless:getAccessPolicy', __args__, opts=opts, typ=GetAccessPolicyResult).value
 
     return AwaitableGetAccessPolicyResult(
-        description=__ret__.description,
-        policy=__ret__.policy)
+        description=pulumi.get(__ret__, 'description'),
+        policy=pulumi.get(__ret__, 'policy'))
 
 
 @_utilities.lift_output_func(get_access_policy)

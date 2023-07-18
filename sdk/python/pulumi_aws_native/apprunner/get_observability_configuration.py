@@ -79,9 +79,9 @@ def get_observability_configuration(observability_configuration_arn: Optional[st
     __ret__ = pulumi.runtime.invoke('aws-native:apprunner:getObservabilityConfiguration', __args__, opts=opts, typ=GetObservabilityConfigurationResult).value
 
     return AwaitableGetObservabilityConfigurationResult(
-        latest=__ret__.latest,
-        observability_configuration_arn=__ret__.observability_configuration_arn,
-        observability_configuration_revision=__ret__.observability_configuration_revision)
+        latest=pulumi.get(__ret__, 'latest'),
+        observability_configuration_arn=pulumi.get(__ret__, 'observability_configuration_arn'),
+        observability_configuration_revision=pulumi.get(__ret__, 'observability_configuration_revision'))
 
 
 @_utilities.lift_output_func(get_observability_configuration)

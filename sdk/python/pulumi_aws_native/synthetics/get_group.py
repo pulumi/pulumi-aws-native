@@ -74,9 +74,9 @@ def get_group(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:synthetics:getGroup', __args__, opts=opts, typ=GetGroupResult).value
 
     return AwaitableGetGroupResult(
-        id=__ret__.id,
-        resource_arns=__ret__.resource_arns,
-        tags=__ret__.tags)
+        id=pulumi.get(__ret__, 'id'),
+        resource_arns=pulumi.get(__ret__, 'resource_arns'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_group)

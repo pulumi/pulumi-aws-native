@@ -210,21 +210,21 @@ def get_origin_endpoint(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:mediapackage:getOriginEndpoint', __args__, opts=opts, typ=GetOriginEndpointResult).value
 
     return AwaitableGetOriginEndpointResult(
-        arn=__ret__.arn,
-        authorization=__ret__.authorization,
-        channel_id=__ret__.channel_id,
-        cmaf_package=__ret__.cmaf_package,
-        dash_package=__ret__.dash_package,
-        description=__ret__.description,
-        hls_package=__ret__.hls_package,
-        manifest_name=__ret__.manifest_name,
-        mss_package=__ret__.mss_package,
-        origination=__ret__.origination,
-        startover_window_seconds=__ret__.startover_window_seconds,
-        tags=__ret__.tags,
-        time_delay_seconds=__ret__.time_delay_seconds,
-        url=__ret__.url,
-        whitelist=__ret__.whitelist)
+        arn=pulumi.get(__ret__, 'arn'),
+        authorization=pulumi.get(__ret__, 'authorization'),
+        channel_id=pulumi.get(__ret__, 'channel_id'),
+        cmaf_package=pulumi.get(__ret__, 'cmaf_package'),
+        dash_package=pulumi.get(__ret__, 'dash_package'),
+        description=pulumi.get(__ret__, 'description'),
+        hls_package=pulumi.get(__ret__, 'hls_package'),
+        manifest_name=pulumi.get(__ret__, 'manifest_name'),
+        mss_package=pulumi.get(__ret__, 'mss_package'),
+        origination=pulumi.get(__ret__, 'origination'),
+        startover_window_seconds=pulumi.get(__ret__, 'startover_window_seconds'),
+        tags=pulumi.get(__ret__, 'tags'),
+        time_delay_seconds=pulumi.get(__ret__, 'time_delay_seconds'),
+        url=pulumi.get(__ret__, 'url'),
+        whitelist=pulumi.get(__ret__, 'whitelist'))
 
 
 @_utilities.lift_output_func(get_origin_endpoint)

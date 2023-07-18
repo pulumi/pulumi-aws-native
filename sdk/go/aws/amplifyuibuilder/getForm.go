@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Definition of AWS::AmplifyUIBuilder::Form Resource Type
 func LookupForm(ctx *pulumi.Context, args *LookupFormArgs, opts ...pulumi.InvokeOption) (*LookupFormResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFormResult
 	err := ctx.Invoke("aws-native:amplifyuibuilder:getForm", args, &rv, opts...)
 	if err != nil {

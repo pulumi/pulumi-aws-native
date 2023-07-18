@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::QLDB::Ledger
 func LookupLedger(ctx *pulumi.Context, args *LookupLedgerArgs, opts ...pulumi.InvokeOption) (*LookupLedgerResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLedgerResult
 	err := ctx.Invoke("aws-native:qldb:getLedger", args, &rv, opts...)
 	if err != nil {

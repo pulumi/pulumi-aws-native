@@ -59,8 +59,8 @@ def get_sql_injection_match_set(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:waf:getSqlInjectionMatchSet', __args__, opts=opts, typ=GetSqlInjectionMatchSetResult).value
 
     return AwaitableGetSqlInjectionMatchSetResult(
-        id=__ret__.id,
-        sql_injection_match_tuples=__ret__.sql_injection_match_tuples)
+        id=pulumi.get(__ret__, 'id'),
+        sql_injection_match_tuples=pulumi.get(__ret__, 'sql_injection_match_tuples'))
 
 
 @_utilities.lift_output_func(get_sql_injection_match_set)

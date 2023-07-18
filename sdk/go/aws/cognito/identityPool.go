@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,6 +42,7 @@ func NewIdentityPool(ctx *pulumi.Context,
 	if args.AllowUnauthenticatedIdentities == nil {
 		return nil, errors.New("invalid value for required argument 'AllowUnauthenticatedIdentities'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource IdentityPool
 	err := ctx.RegisterResource("aws-native:cognito:IdentityPool", name, args, &resource, opts...)
 	if err != nil {

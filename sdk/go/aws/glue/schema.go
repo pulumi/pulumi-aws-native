@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -51,6 +52,7 @@ func NewSchema(ctx *pulumi.Context,
 	if args.SchemaDefinition == nil {
 		return nil, errors.New("invalid value for required argument 'SchemaDefinition'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Schema
 	err := ctx.RegisterResource("aws-native:glue:Schema", name, args, &resource, opts...)
 	if err != nil {

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // AWS::NetworkManager::VpcAttachment Resoruce Type
 func LookupVpcAttachment(ctx *pulumi.Context, args *LookupVpcAttachmentArgs, opts ...pulumi.InvokeOption) (*LookupVpcAttachmentResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVpcAttachmentResult
 	err := ctx.Invoke("aws-native:networkmanager:getVpcAttachment", args, &rv, opts...)
 	if err != nil {

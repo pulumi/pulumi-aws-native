@@ -55,7 +55,7 @@ def get_named_query(named_query_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:athena:getNamedQuery', __args__, opts=opts, typ=GetNamedQueryResult).value
 
     return AwaitableGetNamedQueryResult(
-        named_query_id=__ret__.named_query_id)
+        named_query_id=pulumi.get(__ret__, 'named_query_id'))
 
 
 @_utilities.lift_output_func(get_named_query)

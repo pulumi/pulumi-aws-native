@@ -104,11 +104,11 @@ def get_signing_profile(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:signer:getSigningProfile', __args__, opts=opts, typ=GetSigningProfileResult).value
 
     return AwaitableGetSigningProfileResult(
-        arn=__ret__.arn,
-        profile_name=__ret__.profile_name,
-        profile_version=__ret__.profile_version,
-        profile_version_arn=__ret__.profile_version_arn,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        profile_name=pulumi.get(__ret__, 'profile_name'),
+        profile_version=pulumi.get(__ret__, 'profile_version'),
+        profile_version_arn=pulumi.get(__ret__, 'profile_version_arn'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_signing_profile)

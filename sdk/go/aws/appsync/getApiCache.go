@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::AppSync::ApiCache
 func LookupApiCache(ctx *pulumi.Context, args *LookupApiCacheArgs, opts ...pulumi.InvokeOption) (*LookupApiCacheResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupApiCacheResult
 	err := ctx.Invoke("aws-native:appsync:getApiCache", args, &rv, opts...)
 	if err != nil {

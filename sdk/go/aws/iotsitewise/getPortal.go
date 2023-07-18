@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for AWS::IoTSiteWise::Portal
 func LookupPortal(ctx *pulumi.Context, args *LookupPortalArgs, opts ...pulumi.InvokeOption) (*LookupPortalResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPortalResult
 	err := ctx.Invoke("aws-native:iotsitewise:getPortal", args, &rv, opts...)
 	if err != nil {

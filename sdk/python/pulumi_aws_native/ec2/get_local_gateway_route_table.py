@@ -116,12 +116,12 @@ def get_local_gateway_route_table(local_gateway_route_table_id: Optional[str] = 
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getLocalGatewayRouteTable', __args__, opts=opts, typ=GetLocalGatewayRouteTableResult).value
 
     return AwaitableGetLocalGatewayRouteTableResult(
-        local_gateway_route_table_arn=__ret__.local_gateway_route_table_arn,
-        local_gateway_route_table_id=__ret__.local_gateway_route_table_id,
-        outpost_arn=__ret__.outpost_arn,
-        owner_id=__ret__.owner_id,
-        state=__ret__.state,
-        tags=__ret__.tags)
+        local_gateway_route_table_arn=pulumi.get(__ret__, 'local_gateway_route_table_arn'),
+        local_gateway_route_table_id=pulumi.get(__ret__, 'local_gateway_route_table_id'),
+        outpost_arn=pulumi.get(__ret__, 'outpost_arn'),
+        owner_id=pulumi.get(__ret__, 'owner_id'),
+        state=pulumi.get(__ret__, 'state'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_local_gateway_route_table)

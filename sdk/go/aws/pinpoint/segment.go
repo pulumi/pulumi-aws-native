@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -36,6 +37,7 @@ func NewSegment(ctx *pulumi.Context,
 	if args.ApplicationId == nil {
 		return nil, errors.New("invalid value for required argument 'ApplicationId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Segment
 	err := ctx.RegisterResource("aws-native:pinpoint:Segment", name, args, &resource, opts...)
 	if err != nil {

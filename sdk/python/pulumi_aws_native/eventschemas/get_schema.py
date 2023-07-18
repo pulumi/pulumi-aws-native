@@ -104,13 +104,13 @@ def get_schema(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:eventschemas:getSchema', __args__, opts=opts, typ=GetSchemaResult).value
 
     return AwaitableGetSchemaResult(
-        content=__ret__.content,
-        description=__ret__.description,
-        id=__ret__.id,
-        schema_arn=__ret__.schema_arn,
-        schema_version=__ret__.schema_version,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        content=pulumi.get(__ret__, 'content'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        schema_arn=pulumi.get(__ret__, 'schema_arn'),
+        schema_version=pulumi.get(__ret__, 'schema_version'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_schema)

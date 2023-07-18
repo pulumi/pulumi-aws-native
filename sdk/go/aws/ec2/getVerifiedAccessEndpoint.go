@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // The AWS::EC2::VerifiedAccessEndpoint resource creates an AWS EC2 Verified Access Endpoint.
 func LookupVerifiedAccessEndpoint(ctx *pulumi.Context, args *LookupVerifiedAccessEndpointArgs, opts ...pulumi.InvokeOption) (*LookupVerifiedAccessEndpointResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVerifiedAccessEndpointResult
 	err := ctx.Invoke("aws-native:ec2:getVerifiedAccessEndpoint", args, &rv, opts...)
 	if err != nil {

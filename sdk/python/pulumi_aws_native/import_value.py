@@ -49,7 +49,7 @@ def import_value(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:index:importValue', __args__, opts=opts, typ=ImportValueResult).value
 
     return AwaitableImportValueResult(
-        value=__ret__.value)
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(import_value)

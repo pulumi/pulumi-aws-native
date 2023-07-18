@@ -155,16 +155,16 @@ def get_scheduled_query(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:timestream:getScheduledQuery', __args__, opts=opts, typ=GetScheduledQueryResult).value
 
     return AwaitableGetScheduledQueryResult(
-        arn=__ret__.arn,
-        s_q_error_report_configuration=__ret__.s_q_error_report_configuration,
-        s_q_kms_key_id=__ret__.s_q_kms_key_id,
-        s_q_name=__ret__.s_q_name,
-        s_q_notification_configuration=__ret__.s_q_notification_configuration,
-        s_q_query_string=__ret__.s_q_query_string,
-        s_q_schedule_configuration=__ret__.s_q_schedule_configuration,
-        s_q_scheduled_query_execution_role_arn=__ret__.s_q_scheduled_query_execution_role_arn,
-        s_q_target_configuration=__ret__.s_q_target_configuration,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        s_q_error_report_configuration=pulumi.get(__ret__, 's_q_error_report_configuration'),
+        s_q_kms_key_id=pulumi.get(__ret__, 's_q_kms_key_id'),
+        s_q_name=pulumi.get(__ret__, 's_q_name'),
+        s_q_notification_configuration=pulumi.get(__ret__, 's_q_notification_configuration'),
+        s_q_query_string=pulumi.get(__ret__, 's_q_query_string'),
+        s_q_schedule_configuration=pulumi.get(__ret__, 's_q_schedule_configuration'),
+        s_q_scheduled_query_execution_role_arn=pulumi.get(__ret__, 's_q_scheduled_query_execution_role_arn'),
+        s_q_target_configuration=pulumi.get(__ret__, 's_q_target_configuration'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_scheduled_query)

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -31,6 +32,7 @@ func NewExecutionPlan(ctx *pulumi.Context,
 		args = &ExecutionPlanArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ExecutionPlan
 	err := ctx.RegisterResource("aws-native:kendraranking:ExecutionPlan", name, args, &resource, opts...)
 	if err != nil {

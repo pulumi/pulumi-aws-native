@@ -64,8 +64,8 @@ def get_default_view_association(associated_aws_principal: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:resourceexplorer2:getDefaultViewAssociation', __args__, opts=opts, typ=GetDefaultViewAssociationResult).value
 
     return AwaitableGetDefaultViewAssociationResult(
-        associated_aws_principal=__ret__.associated_aws_principal,
-        view_arn=__ret__.view_arn)
+        associated_aws_principal=pulumi.get(__ret__, 'associated_aws_principal'),
+        view_arn=pulumi.get(__ret__, 'view_arn'))
 
 
 @_utilities.lift_output_func(get_default_view_association)

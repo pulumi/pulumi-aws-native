@@ -171,17 +171,17 @@ def get_detector(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:frauddetector:getDetector', __args__, opts=opts, typ=GetDetectorResult).value
 
     return AwaitableGetDetectorResult(
-        arn=__ret__.arn,
-        associated_models=__ret__.associated_models,
-        created_time=__ret__.created_time,
-        description=__ret__.description,
-        detector_version_id=__ret__.detector_version_id,
-        detector_version_status=__ret__.detector_version_status,
-        event_type=__ret__.event_type,
-        last_updated_time=__ret__.last_updated_time,
-        rule_execution_mode=__ret__.rule_execution_mode,
-        rules=__ret__.rules,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        associated_models=pulumi.get(__ret__, 'associated_models'),
+        created_time=pulumi.get(__ret__, 'created_time'),
+        description=pulumi.get(__ret__, 'description'),
+        detector_version_id=pulumi.get(__ret__, 'detector_version_id'),
+        detector_version_status=pulumi.get(__ret__, 'detector_version_status'),
+        event_type=pulumi.get(__ret__, 'event_type'),
+        last_updated_time=pulumi.get(__ret__, 'last_updated_time'),
+        rule_execution_mode=pulumi.get(__ret__, 'rule_execution_mode'),
+        rules=pulumi.get(__ret__, 'rules'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_detector)

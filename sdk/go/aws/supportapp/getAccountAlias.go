@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // An AWS Support App resource that creates, updates, reads, and deletes a customer's account alias.
 func LookupAccountAlias(ctx *pulumi.Context, args *LookupAccountAliasArgs, opts ...pulumi.InvokeOption) (*LookupAccountAliasResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAccountAliasResult
 	err := ctx.Invoke("aws-native:supportapp:getAccountAlias", args, &rv, opts...)
 	if err != nil {

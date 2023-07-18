@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -49,6 +50,7 @@ func NewCoreNetwork(ctx *pulumi.Context,
 	if args.GlobalNetworkId == nil {
 		return nil, errors.New("invalid value for required argument 'GlobalNetworkId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CoreNetwork
 	err := ctx.RegisterResource("aws-native:networkmanager:CoreNetwork", name, args, &resource, opts...)
 	if err != nil {

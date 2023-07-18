@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::IVS::PlaybackKeyPair
 func LookupPlaybackKeyPair(ctx *pulumi.Context, args *LookupPlaybackKeyPairArgs, opts ...pulumi.InvokeOption) (*LookupPlaybackKeyPairResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPlaybackKeyPairResult
 	err := ctx.Invoke("aws-native:ivs:getPlaybackKeyPair", args, &rv, opts...)
 	if err != nil {

@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::EC2::TrafficMirrorSession
 func LookupTrafficMirrorSession(ctx *pulumi.Context, args *LookupTrafficMirrorSessionArgs, opts ...pulumi.InvokeOption) (*LookupTrafficMirrorSessionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTrafficMirrorSessionResult
 	err := ctx.Invoke("aws-native:ec2:getTrafficMirrorSession", args, &rv, opts...)
 	if err != nil {

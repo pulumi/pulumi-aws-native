@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -66,6 +67,7 @@ func NewScheduledQuery(ctx *pulumi.Context,
 	if args.ScheduledQueryExecutionRoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'ScheduledQueryExecutionRoleArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ScheduledQuery
 	err := ctx.RegisterResource("aws-native:timestream:ScheduledQuery", name, args, &resource, opts...)
 	if err != nil {

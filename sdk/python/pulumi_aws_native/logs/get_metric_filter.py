@@ -72,8 +72,8 @@ def get_metric_filter(filter_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:logs:getMetricFilter', __args__, opts=opts, typ=GetMetricFilterResult).value
 
     return AwaitableGetMetricFilterResult(
-        filter_pattern=__ret__.filter_pattern,
-        metric_transformations=__ret__.metric_transformations)
+        filter_pattern=pulumi.get(__ret__, 'filter_pattern'),
+        metric_transformations=pulumi.get(__ret__, 'metric_transformations'))
 
 
 @_utilities.lift_output_func(get_metric_filter)

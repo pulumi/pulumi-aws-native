@@ -104,11 +104,11 @@ def get_domain(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:codeartifact:getDomain', __args__, opts=opts, typ=GetDomainResult).value
 
     return AwaitableGetDomainResult(
-        arn=__ret__.arn,
-        name=__ret__.name,
-        owner=__ret__.owner,
-        permissions_policy_document=__ret__.permissions_policy_document,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        name=pulumi.get(__ret__, 'name'),
+        owner=pulumi.get(__ret__, 'owner'),
+        permissions_policy_document=pulumi.get(__ret__, 'permissions_policy_document'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_domain)

@@ -49,7 +49,7 @@ def get_accepted_portfolio_share(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:servicecatalog:getAcceptedPortfolioShare', __args__, opts=opts, typ=GetAcceptedPortfolioShareResult).value
 
     return AwaitableGetAcceptedPortfolioShareResult(
-        id=__ret__.id)
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_accepted_portfolio_share)

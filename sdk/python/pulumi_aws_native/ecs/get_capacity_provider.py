@@ -60,8 +60,8 @@ def get_capacity_provider(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ecs:getCapacityProvider', __args__, opts=opts, typ=GetCapacityProviderResult).value
 
     return AwaitableGetCapacityProviderResult(
-        auto_scaling_group_provider=__ret__.auto_scaling_group_provider,
-        tags=__ret__.tags)
+        auto_scaling_group_provider=pulumi.get(__ret__, 'auto_scaling_group_provider'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_capacity_provider)

@@ -59,8 +59,8 @@ def get_application_reference_data_source(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:kinesisanalytics:getApplicationReferenceDataSource', __args__, opts=opts, typ=GetApplicationReferenceDataSourceResult).value
 
     return AwaitableGetApplicationReferenceDataSourceResult(
-        id=__ret__.id,
-        reference_data_source=__ret__.reference_data_source)
+        id=pulumi.get(__ret__, 'id'),
+        reference_data_source=pulumi.get(__ret__, 'reference_data_source'))
 
 
 @_utilities.lift_output_func(get_application_reference_data_source)

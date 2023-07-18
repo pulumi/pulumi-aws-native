@@ -77,10 +77,10 @@ def get_project(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iot1click:getProject', __args__, opts=opts, typ=GetProjectResult).value
 
     return AwaitableGetProjectResult(
-        arn=__ret__.arn,
-        description=__ret__.description,
-        id=__ret__.id,
-        placement_template=__ret__.placement_template)
+        arn=pulumi.get(__ret__, 'arn'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        placement_template=pulumi.get(__ret__, 'placement_template'))
 
 
 @_utilities.lift_output_func(get_project)

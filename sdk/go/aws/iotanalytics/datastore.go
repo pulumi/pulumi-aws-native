@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -29,6 +30,7 @@ func NewDatastore(ctx *pulumi.Context,
 		args = &DatastoreArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Datastore
 	err := ctx.RegisterResource("aws-native:iotanalytics:Datastore", name, args, &resource, opts...)
 	if err != nil {

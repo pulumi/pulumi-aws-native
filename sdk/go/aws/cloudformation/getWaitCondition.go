@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::CloudFormation::WaitCondition
 func LookupWaitCondition(ctx *pulumi.Context, args *LookupWaitConditionArgs, opts ...pulumi.InvokeOption) (*LookupWaitConditionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupWaitConditionResult
 	err := ctx.Invoke("aws-native:cloudformation:getWaitCondition", args, &rv, opts...)
 	if err != nil {

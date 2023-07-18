@@ -95,12 +95,12 @@ def get_stack(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cloudformation:getStack', __args__, opts=opts, typ=GetStackResult).value
 
     return AwaitableGetStackResult(
-        id=__ret__.id,
-        notification_arns=__ret__.notification_arns,
-        parameters=__ret__.parameters,
-        tags=__ret__.tags,
-        template_url=__ret__.template_url,
-        timeout_in_minutes=__ret__.timeout_in_minutes)
+        id=pulumi.get(__ret__, 'id'),
+        notification_arns=pulumi.get(__ret__, 'notification_arns'),
+        parameters=pulumi.get(__ret__, 'parameters'),
+        tags=pulumi.get(__ret__, 'tags'),
+        template_url=pulumi.get(__ret__, 'template_url'),
+        timeout_in_minutes=pulumi.get(__ret__, 'timeout_in_minutes'))
 
 
 @_utilities.lift_output_func(get_stack)

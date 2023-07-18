@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource schema for AWS::Personalize::Solution.
 func LookupSolution(ctx *pulumi.Context, args *LookupSolutionArgs, opts ...pulumi.InvokeOption) (*LookupSolutionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSolutionResult
 	err := ctx.Invoke("aws-native:personalize:getSolution", args, &rv, opts...)
 	if err != nil {

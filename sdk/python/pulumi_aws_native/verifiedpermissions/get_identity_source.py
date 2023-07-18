@@ -80,10 +80,10 @@ def get_identity_source(identity_source_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:verifiedpermissions:getIdentitySource', __args__, opts=opts, typ=GetIdentitySourceResult).value
 
     return AwaitableGetIdentitySourceResult(
-        configuration=__ret__.configuration,
-        details=__ret__.details,
-        identity_source_id=__ret__.identity_source_id,
-        principal_entity_type=__ret__.principal_entity_type)
+        configuration=pulumi.get(__ret__, 'configuration'),
+        details=pulumi.get(__ret__, 'details'),
+        identity_source_id=pulumi.get(__ret__, 'identity_source_id'),
+        principal_entity_type=pulumi.get(__ret__, 'principal_entity_type'))
 
 
 @_utilities.lift_output_func(get_identity_source)

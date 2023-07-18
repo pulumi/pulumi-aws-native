@@ -69,8 +69,8 @@ def get_multi_region_access_point_policy(mrap_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:s3:getMultiRegionAccessPointPolicy', __args__, opts=opts, typ=GetMultiRegionAccessPointPolicyResult).value
 
     return AwaitableGetMultiRegionAccessPointPolicyResult(
-        policy=__ret__.policy,
-        policy_status=__ret__.policy_status)
+        policy=pulumi.get(__ret__, 'policy'),
+        policy_status=pulumi.get(__ret__, 'policy_status'))
 
 
 @_utilities.lift_output_func(get_multi_region_access_point_policy)

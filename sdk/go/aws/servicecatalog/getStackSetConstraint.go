@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::ServiceCatalog::StackSetConstraint
 func LookupStackSetConstraint(ctx *pulumi.Context, args *LookupStackSetConstraintArgs, opts ...pulumi.InvokeOption) (*LookupStackSetConstraintResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupStackSetConstraintResult
 	err := ctx.Invoke("aws-native:servicecatalog:getStackSetConstraint", args, &rv, opts...)
 	if err != nil {

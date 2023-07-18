@@ -104,13 +104,13 @@ def get_listener(listener_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:elasticloadbalancingv2:getListener', __args__, opts=opts, typ=GetListenerResult).value
 
     return AwaitableGetListenerResult(
-        alpn_policy=__ret__.alpn_policy,
-        certificates=__ret__.certificates,
-        default_actions=__ret__.default_actions,
-        listener_arn=__ret__.listener_arn,
-        port=__ret__.port,
-        protocol=__ret__.protocol,
-        ssl_policy=__ret__.ssl_policy)
+        alpn_policy=pulumi.get(__ret__, 'alpn_policy'),
+        certificates=pulumi.get(__ret__, 'certificates'),
+        default_actions=pulumi.get(__ret__, 'default_actions'),
+        listener_arn=pulumi.get(__ret__, 'listener_arn'),
+        port=pulumi.get(__ret__, 'port'),
+        protocol=pulumi.get(__ret__, 'protocol'),
+        ssl_policy=pulumi.get(__ret__, 'ssl_policy'))
 
 
 @_utilities.lift_output_func(get_listener)

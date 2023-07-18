@@ -58,8 +58,8 @@ def get_assessment_target(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:inspector:getAssessmentTarget', __args__, opts=opts, typ=GetAssessmentTargetResult).value
 
     return AwaitableGetAssessmentTargetResult(
-        arn=__ret__.arn,
-        resource_group_arn=__ret__.resource_group_arn)
+        arn=pulumi.get(__ret__, 'arn'),
+        resource_group_arn=pulumi.get(__ret__, 'resource_group_arn'))
 
 
 @_utilities.lift_output_func(get_assessment_target)

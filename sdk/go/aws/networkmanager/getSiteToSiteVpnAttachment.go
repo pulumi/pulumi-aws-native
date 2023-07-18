@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // AWS::NetworkManager::SiteToSiteVpnAttachment Resource Type definition.
 func LookupSiteToSiteVpnAttachment(ctx *pulumi.Context, args *LookupSiteToSiteVpnAttachmentArgs, opts ...pulumi.InvokeOption) (*LookupSiteToSiteVpnAttachmentResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSiteToSiteVpnAttachmentResult
 	err := ctx.Invoke("aws-native:networkmanager:getSiteToSiteVpnAttachment", args, &rv, opts...)
 	if err != nil {

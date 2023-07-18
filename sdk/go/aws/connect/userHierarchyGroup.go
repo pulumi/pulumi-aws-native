@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -35,6 +36,7 @@ func NewUserHierarchyGroup(ctx *pulumi.Context,
 	if args.InstanceArn == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource UserHierarchyGroup
 	err := ctx.RegisterResource("aws-native:connect:UserHierarchyGroup", name, args, &resource, opts...)
 	if err != nil {

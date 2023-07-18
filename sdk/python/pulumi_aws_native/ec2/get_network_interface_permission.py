@@ -49,7 +49,7 @@ def get_network_interface_permission(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getNetworkInterfacePermission', __args__, opts=opts, typ=GetNetworkInterfacePermissionResult).value
 
     return AwaitableGetNetworkInterfacePermissionResult(
-        id=__ret__.id)
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_network_interface_permission)

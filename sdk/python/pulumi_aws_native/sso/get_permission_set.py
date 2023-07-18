@@ -143,15 +143,15 @@ def get_permission_set(instance_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:sso:getPermissionSet', __args__, opts=opts, typ=GetPermissionSetResult).value
 
     return AwaitableGetPermissionSetResult(
-        customer_managed_policy_references=__ret__.customer_managed_policy_references,
-        description=__ret__.description,
-        inline_policy=__ret__.inline_policy,
-        managed_policies=__ret__.managed_policies,
-        permission_set_arn=__ret__.permission_set_arn,
-        permissions_boundary=__ret__.permissions_boundary,
-        relay_state_type=__ret__.relay_state_type,
-        session_duration=__ret__.session_duration,
-        tags=__ret__.tags)
+        customer_managed_policy_references=pulumi.get(__ret__, 'customer_managed_policy_references'),
+        description=pulumi.get(__ret__, 'description'),
+        inline_policy=pulumi.get(__ret__, 'inline_policy'),
+        managed_policies=pulumi.get(__ret__, 'managed_policies'),
+        permission_set_arn=pulumi.get(__ret__, 'permission_set_arn'),
+        permissions_boundary=pulumi.get(__ret__, 'permissions_boundary'),
+        relay_state_type=pulumi.get(__ret__, 'relay_state_type'),
+        session_duration=pulumi.get(__ret__, 'session_duration'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_permission_set)

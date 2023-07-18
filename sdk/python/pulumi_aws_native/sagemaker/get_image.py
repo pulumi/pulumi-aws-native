@@ -89,11 +89,11 @@ def get_image(image_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:sagemaker:getImage', __args__, opts=opts, typ=GetImageResult).value
 
     return AwaitableGetImageResult(
-        image_arn=__ret__.image_arn,
-        image_description=__ret__.image_description,
-        image_display_name=__ret__.image_display_name,
-        image_role_arn=__ret__.image_role_arn,
-        tags=__ret__.tags)
+        image_arn=pulumi.get(__ret__, 'image_arn'),
+        image_description=pulumi.get(__ret__, 'image_description'),
+        image_display_name=pulumi.get(__ret__, 'image_display_name'),
+        image_role_arn=pulumi.get(__ret__, 'image_role_arn'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_image)

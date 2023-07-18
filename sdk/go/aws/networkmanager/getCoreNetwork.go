@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // AWS::NetworkManager::CoreNetwork Resource Type Definition.
 func LookupCoreNetwork(ctx *pulumi.Context, args *LookupCoreNetworkArgs, opts ...pulumi.InvokeOption) (*LookupCoreNetworkResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCoreNetworkResult
 	err := ctx.Invoke("aws-native:networkmanager:getCoreNetwork", args, &rv, opts...)
 	if err != nil {

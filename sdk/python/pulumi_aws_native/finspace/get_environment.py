@@ -164,16 +164,16 @@ def get_environment(environment_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:finspace:getEnvironment', __args__, opts=opts, typ=GetEnvironmentResult).value
 
     return AwaitableGetEnvironmentResult(
-        aws_account_id=__ret__.aws_account_id,
-        dedicated_service_account_id=__ret__.dedicated_service_account_id,
-        description=__ret__.description,
-        environment_arn=__ret__.environment_arn,
-        environment_id=__ret__.environment_id,
-        environment_url=__ret__.environment_url,
-        federation_mode=__ret__.federation_mode,
-        name=__ret__.name,
-        sage_maker_studio_domain_url=__ret__.sage_maker_studio_domain_url,
-        status=__ret__.status)
+        aws_account_id=pulumi.get(__ret__, 'aws_account_id'),
+        dedicated_service_account_id=pulumi.get(__ret__, 'dedicated_service_account_id'),
+        description=pulumi.get(__ret__, 'description'),
+        environment_arn=pulumi.get(__ret__, 'environment_arn'),
+        environment_id=pulumi.get(__ret__, 'environment_id'),
+        environment_url=pulumi.get(__ret__, 'environment_url'),
+        federation_mode=pulumi.get(__ret__, 'federation_mode'),
+        name=pulumi.get(__ret__, 'name'),
+        sage_maker_studio_domain_url=pulumi.get(__ret__, 'sage_maker_studio_domain_url'),
+        status=pulumi.get(__ret__, 'status'))
 
 
 @_utilities.lift_output_func(get_environment)

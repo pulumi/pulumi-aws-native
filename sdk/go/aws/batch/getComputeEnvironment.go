@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::Batch::ComputeEnvironment
 func LookupComputeEnvironment(ctx *pulumi.Context, args *LookupComputeEnvironmentArgs, opts ...pulumi.InvokeOption) (*LookupComputeEnvironmentResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupComputeEnvironmentResult
 	err := ctx.Invoke("aws-native:batch:getComputeEnvironment", args, &rv, opts...)
 	if err != nil {

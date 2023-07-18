@@ -99,11 +99,11 @@ def get_location_nfs(location_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:datasync:getLocationNFS', __args__, opts=opts, typ=GetLocationNFSResult).value
 
     return AwaitableGetLocationNFSResult(
-        location_arn=__ret__.location_arn,
-        location_uri=__ret__.location_uri,
-        mount_options=__ret__.mount_options,
-        on_prem_config=__ret__.on_prem_config,
-        tags=__ret__.tags)
+        location_arn=pulumi.get(__ret__, 'location_arn'),
+        location_uri=pulumi.get(__ret__, 'location_uri'),
+        mount_options=pulumi.get(__ret__, 'mount_options'),
+        on_prem_config=pulumi.get(__ret__, 'on_prem_config'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_location_nfs)

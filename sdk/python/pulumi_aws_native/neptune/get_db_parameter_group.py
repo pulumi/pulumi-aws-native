@@ -68,9 +68,9 @@ def get_db_parameter_group(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:neptune:getDBParameterGroup', __args__, opts=opts, typ=GetDBParameterGroupResult).value
 
     return AwaitableGetDBParameterGroupResult(
-        id=__ret__.id,
-        parameters=__ret__.parameters,
-        tags=__ret__.tags)
+        id=pulumi.get(__ret__, 'id'),
+        parameters=pulumi.get(__ret__, 'parameters'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_db_parameter_group)

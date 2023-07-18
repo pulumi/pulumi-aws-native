@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::IAM::ManagedPolicy
 func LookupManagedPolicy(ctx *pulumi.Context, args *LookupManagedPolicyArgs, opts ...pulumi.InvokeOption) (*LookupManagedPolicyResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupManagedPolicyResult
 	err := ctx.Invoke("aws-native:iam:getManagedPolicy", args, &rv, opts...)
 	if err != nil {

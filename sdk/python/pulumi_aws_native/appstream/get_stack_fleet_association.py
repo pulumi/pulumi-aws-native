@@ -67,9 +67,9 @@ def get_stack_fleet_association(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:appstream:getStackFleetAssociation', __args__, opts=opts, typ=GetStackFleetAssociationResult).value
 
     return AwaitableGetStackFleetAssociationResult(
-        fleet_name=__ret__.fleet_name,
-        id=__ret__.id,
-        stack_name=__ret__.stack_name)
+        fleet_name=pulumi.get(__ret__, 'fleet_name'),
+        id=pulumi.get(__ret__, 'id'),
+        stack_name=pulumi.get(__ret__, 'stack_name'))
 
 
 @_utilities.lift_output_func(get_stack_fleet_association)

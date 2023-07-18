@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::Route53::RecordSetGroup
 func LookupRecordSetGroup(ctx *pulumi.Context, args *LookupRecordSetGroupArgs, opts ...pulumi.InvokeOption) (*LookupRecordSetGroupResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRecordSetGroupResult
 	err := ctx.Invoke("aws-native:route53:getRecordSetGroup", args, &rv, opts...)
 	if err != nil {

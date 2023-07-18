@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -34,6 +35,7 @@ func NewCoreDefinitionVersion(ctx *pulumi.Context,
 	if args.Cores == nil {
 		return nil, errors.New("invalid value for required argument 'Cores'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CoreDefinitionVersion
 	err := ctx.RegisterResource("aws-native:greengrass:CoreDefinitionVersion", name, args, &resource, opts...)
 	if err != nil {

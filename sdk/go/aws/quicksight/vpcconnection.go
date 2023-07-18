@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ func NewVPCConnection(ctx *pulumi.Context,
 		args = &VPCConnectionArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VPCConnection
 	err := ctx.RegisterResource("aws-native:quicksight:VPCConnection", name, args, &resource, opts...)
 	if err != nil {

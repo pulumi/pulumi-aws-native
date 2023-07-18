@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Create a task set in the specified cluster and service. This is used when a service uses the EXTERNAL deployment controller type. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.htmlin the Amazon Elastic Container Service Developer Guide.
 func LookupTaskSet(ctx *pulumi.Context, args *LookupTaskSetArgs, opts ...pulumi.InvokeOption) (*LookupTaskSetResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTaskSetResult
 	err := ctx.Invoke("aws-native:ecs:getTaskSet", args, &rv, opts...)
 	if err != nil {

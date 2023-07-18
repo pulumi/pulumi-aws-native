@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Specifies a VPC flow log, which enables you to capture IP traffic for a specific network interface, subnet, or VPC.
 func LookupFlowLog(ctx *pulumi.Context, args *LookupFlowLogArgs, opts ...pulumi.InvokeOption) (*LookupFlowLogResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFlowLogResult
 	err := ctx.Invoke("aws-native:ec2:getFlowLog", args, &rv, opts...)
 	if err != nil {

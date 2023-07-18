@@ -140,14 +140,14 @@ def get_verified_access_instance(verified_access_instance_id: Optional[str] = No
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getVerifiedAccessInstance', __args__, opts=opts, typ=GetVerifiedAccessInstanceResult).value
 
     return AwaitableGetVerifiedAccessInstanceResult(
-        creation_time=__ret__.creation_time,
-        description=__ret__.description,
-        last_updated_time=__ret__.last_updated_time,
-        logging_configurations=__ret__.logging_configurations,
-        tags=__ret__.tags,
-        verified_access_instance_id=__ret__.verified_access_instance_id,
-        verified_access_trust_provider_ids=__ret__.verified_access_trust_provider_ids,
-        verified_access_trust_providers=__ret__.verified_access_trust_providers)
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        description=pulumi.get(__ret__, 'description'),
+        last_updated_time=pulumi.get(__ret__, 'last_updated_time'),
+        logging_configurations=pulumi.get(__ret__, 'logging_configurations'),
+        tags=pulumi.get(__ret__, 'tags'),
+        verified_access_instance_id=pulumi.get(__ret__, 'verified_access_instance_id'),
+        verified_access_trust_provider_ids=pulumi.get(__ret__, 'verified_access_trust_provider_ids'),
+        verified_access_trust_providers=pulumi.get(__ret__, 'verified_access_trust_providers'))
 
 
 @_utilities.lift_output_func(get_verified_access_instance)

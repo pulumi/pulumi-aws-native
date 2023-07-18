@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::Greengrass::SubscriptionDefinitionVersion
 func LookupSubscriptionDefinitionVersion(ctx *pulumi.Context, args *LookupSubscriptionDefinitionVersionArgs, opts ...pulumi.InvokeOption) (*LookupSubscriptionDefinitionVersionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSubscriptionDefinitionVersionResult
 	err := ctx.Invoke("aws-native:greengrass:getSubscriptionDefinitionVersion", args, &rv, opts...)
 	if err != nil {

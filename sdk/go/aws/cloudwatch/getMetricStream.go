@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for Metric Stream
 func LookupMetricStream(ctx *pulumi.Context, args *LookupMetricStreamArgs, opts ...pulumi.InvokeOption) (*LookupMetricStreamResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupMetricStreamResult
 	err := ctx.Invoke("aws-native:cloudwatch:getMetricStream", args, &rv, opts...)
 	if err != nil {

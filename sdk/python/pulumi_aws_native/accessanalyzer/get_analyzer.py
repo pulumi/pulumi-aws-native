@@ -77,9 +77,9 @@ def get_analyzer(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:accessanalyzer:getAnalyzer', __args__, opts=opts, typ=GetAnalyzerResult).value
 
     return AwaitableGetAnalyzerResult(
-        archive_rules=__ret__.archive_rules,
-        arn=__ret__.arn,
-        tags=__ret__.tags)
+        archive_rules=pulumi.get(__ret__, 'archive_rules'),
+        arn=pulumi.get(__ret__, 'arn'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_analyzer)

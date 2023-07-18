@@ -7,10 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func GetSsmParameterList(ctx *pulumi.Context, args *GetSsmParameterListArgs, opts ...pulumi.InvokeOption) (*GetSsmParameterListResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSsmParameterListResult
 	err := ctx.Invoke("aws-native:index:getSsmParameterList", args, &rv, opts...)
 	if err != nil {

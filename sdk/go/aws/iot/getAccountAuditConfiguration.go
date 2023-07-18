@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Configures the Device Defender audit settings for this account. Settings include how audit notifications are sent and which audit checks are enabled or disabled.
 func LookupAccountAuditConfiguration(ctx *pulumi.Context, args *LookupAccountAuditConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupAccountAuditConfigurationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAccountAuditConfigurationResult
 	err := ctx.Invoke("aws-native:iot:getAccountAuditConfiguration", args, &rv, opts...)
 	if err != nil {

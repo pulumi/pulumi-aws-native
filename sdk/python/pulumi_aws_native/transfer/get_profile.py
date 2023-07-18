@@ -104,11 +104,11 @@ def get_profile(profile_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:transfer:getProfile', __args__, opts=opts, typ=GetProfileResult).value
 
     return AwaitableGetProfileResult(
-        arn=__ret__.arn,
-        as2_id=__ret__.as2_id,
-        certificate_ids=__ret__.certificate_ids,
-        profile_id=__ret__.profile_id,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        as2_id=pulumi.get(__ret__, 'as2_id'),
+        certificate_ids=pulumi.get(__ret__, 'certificate_ids'),
+        profile_id=pulumi.get(__ret__, 'profile_id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_profile)

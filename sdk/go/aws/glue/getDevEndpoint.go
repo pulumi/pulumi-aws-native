@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource Type definition for AWS::Glue::DevEndpoint
 func LookupDevEndpoint(ctx *pulumi.Context, args *LookupDevEndpointArgs, opts ...pulumi.InvokeOption) (*LookupDevEndpointResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDevEndpointResult
 	err := ctx.Invoke("aws-native:glue:getDevEndpoint", args, &rv, opts...)
 	if err != nil {

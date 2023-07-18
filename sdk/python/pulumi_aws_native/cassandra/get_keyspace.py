@@ -53,7 +53,7 @@ def get_keyspace(keyspace_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cassandra:getKeyspace', __args__, opts=opts, typ=GetKeyspaceResult).value
 
     return AwaitableGetKeyspaceResult(
-        tags=__ret__.tags)
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_keyspace)

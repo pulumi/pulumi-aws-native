@@ -90,11 +90,11 @@ def get_route_response(api_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:apigatewayv2:getRouteResponse', __args__, opts=opts, typ=GetRouteResponseResult).value
 
     return AwaitableGetRouteResponseResult(
-        model_selection_expression=__ret__.model_selection_expression,
-        response_models=__ret__.response_models,
-        response_parameters=__ret__.response_parameters,
-        route_response_id=__ret__.route_response_id,
-        route_response_key=__ret__.route_response_key)
+        model_selection_expression=pulumi.get(__ret__, 'model_selection_expression'),
+        response_models=pulumi.get(__ret__, 'response_models'),
+        response_parameters=pulumi.get(__ret__, 'response_parameters'),
+        route_response_id=pulumi.get(__ret__, 'route_response_id'),
+        route_response_key=pulumi.get(__ret__, 'route_response_key'))
 
 
 @_utilities.lift_output_func(get_route_response)

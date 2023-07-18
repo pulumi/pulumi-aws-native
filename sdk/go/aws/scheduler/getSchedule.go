@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Definition of AWS::Scheduler::Schedule Resource Type
 func LookupSchedule(ctx *pulumi.Context, args *LookupScheduleArgs, opts ...pulumi.InvokeOption) (*LookupScheduleResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupScheduleResult
 	err := ctx.Invoke("aws-native:scheduler:getSchedule", args, &rv, opts...)
 	if err != nil {
