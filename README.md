@@ -24,13 +24,26 @@ To learn how to configure credentials refer to the [AWS configuration options](h
 
 ### Dependencies
 
-- Go 1.17
+- Go 1.20
 - NodeJS 10.X.X or later
+- Yarn 1.22 or later
 - Python 3.6 or later
 - .NET Core 3.1
+- Gradel 7
+- Pulumi CLI and language plugins
+- pulumictl
 
-Please refer to [Contributing to Pulumi](https://github.com/pulumi/pulumi/blob/master/CONTRIBUTING.md) for installation
-guidance.
+You can quickly launch a shell environment with all the required dependencies using
+[devbox](https://www.jetpack.io/devbox/):
+```
+# Install devbox if needed
+$ which devbox || curl -fsSL https://get.jetpack.io/devbox | bash
+$ devbox shell
+```
+
+Alternatively, you can develop in a preconfigured container environment using 
+[an editor or service that supports the devcontainer standard](https://containers.dev/supporting#editors)
+such as [VS Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) or [Github Codespaces](https://codespaces.new/pulumi/pulumi-aws-native). Please note that building this project can be fairly memory intensive, if you are having trouble building in a container, please ensure you have at least 12GB of memory available for the container.
 
 ### Building locally
 
