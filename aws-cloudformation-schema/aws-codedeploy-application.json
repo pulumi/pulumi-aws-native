@@ -48,13 +48,13 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "codedeploy:CreateApplication" ]
+      "permissions" : [ "codedeploy:CreateApplication", "codedeploy:TagResource" ]
     },
     "read" : {
       "permissions" : [ "codedeploy:GetApplication", "codedeploy:ListTagsForResource" ]
     },
     "delete" : {
-      "permissions" : [ "codedeploy:DeleteApplication" ]
+      "permissions" : [ "codedeploy:GetApplication", "codedeploy:DeleteApplication" ]
     },
     "update" : {
       "permissions" : [ "codedeploy:TagResource", "codedeploy:UntagResource" ]

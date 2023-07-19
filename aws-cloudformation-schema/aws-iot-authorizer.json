@@ -75,7 +75,7 @@
   "primaryIdentifier" : [ "/properties/AuthorizerName" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "iot:CreateAuthorizer", "iot:DescribeAuthorizer", "iot:ListTagsForResource" ]
+      "permissions" : [ "iot:CreateAuthorizer", "iot:DescribeAuthorizer", "iot:TagResource", "iot:ListTagsForResource" ]
     },
     "read" : {
       "permissions" : [ "iot:DescribeAuthorizer", "iot:ListTagsForResource" ]

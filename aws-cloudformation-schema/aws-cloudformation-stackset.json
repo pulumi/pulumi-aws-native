@@ -296,23 +296,23 @@
   } ],
   "additionalProperties" : false,
   "createOnlyProperties" : [ "/properties/PermissionModel", "/properties/StackSetName" ],
-  "writeOnlyProperties" : [ "/properties/TemplateURL", "/properties/OperationPreferences", "/properties/CallAs" ],
+  "writeOnlyProperties" : [ "/properties/TemplateURL", "/properties/OperationPreferences", "/properties/StackInstancesGroup", "/properties/CallAs" ],
   "readOnlyProperties" : [ "/properties/StackSetId" ],
   "primaryIdentifier" : [ "/properties/StackSetId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "cloudformation:GetTemplateSummary", "cloudformation:CreateStackSet", "cloudformation:CreateStackInstances", "cloudformation:DescribeStackSetOperation", "cloudformation:ListStackSetOperationResults", "cloudformation:TagResource" ],
+      "permissions" : [ "cloudformation:GetTemplateSummary", "cloudformation:CreateStackSet", "cloudformation:CreateStackInstances", "cloudformation:DescribeStackSetOperation", "cloudformation:ListStackSetOperationResults", "cloudformation:TagResource", "iam:PassRole" ],
       "timeoutInMinutes" : 2160
     },
     "read" : {
       "permissions" : [ "cloudformation:DescribeStackSet", "cloudformation:ListStackInstances", "cloudformation:DescribeStackInstance" ]
     },
     "update" : {
-      "permissions" : [ "cloudformation:GetTemplateSummary", "cloudformation:UpdateStackSet", "cloudformation:CreateStackInstances", "cloudformation:DeleteStackInstances", "cloudformation:UpdateStackInstances", "cloudformation:DescribeStackSetOperation", "cloudformation:ListStackSetOperationResults", "cloudformation:TagResource", "cloudformation:UntagResource" ],
+      "permissions" : [ "cloudformation:GetTemplateSummary", "cloudformation:UpdateStackSet", "cloudformation:CreateStackInstances", "cloudformation:DeleteStackInstances", "cloudformation:UpdateStackInstances", "cloudformation:DescribeStackSet", "cloudformation:DescribeStackSetOperation", "cloudformation:ListStackSetOperationResults", "cloudformation:TagResource", "cloudformation:UntagResource", "iam:PassRole" ],
       "timeoutInMinutes" : 2160
     },
     "delete" : {
-      "permissions" : [ "cloudformation:DeleteStackSet", "cloudformation:DeleteStackInstances", "cloudformation:DescribeStackSetOperation", "cloudformation:ListStackSetOperationResults", "cloudformation:UntagResource" ],
+      "permissions" : [ "cloudformation:DeleteStackSet", "cloudformation:DeleteStackInstances", "cloudformation:DescribeStackSet", "cloudformation:DescribeStackSetOperation", "cloudformation:ListStackSetOperationResults", "cloudformation:UntagResource" ],
       "timeoutInMinutes" : 2160
     },
     "list" : {

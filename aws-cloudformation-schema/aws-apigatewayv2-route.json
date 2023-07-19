@@ -54,12 +54,13 @@
   "definitions" : {
     "ParameterConstraints" : {
       "type" : "object",
-      "additionalProperties" : false,
       "properties" : {
         "Required" : {
           "type" : "boolean"
         }
-      }
+      },
+      "required" : [ "Required" ],
+      "additionalProperties" : false
     }
   },
   "required" : [ "RouteKey", "ApiId" ],
@@ -84,6 +85,14 @@
       "permissions" : [ "apigateway:GET", "apigateway:DELETE" ]
     },
     "list" : {
+      "handlerSchema" : {
+        "properties" : {
+          "ApiId" : {
+            "$ref" : "resource-schema.json#/properties/ApiId"
+          }
+        },
+        "required" : [ "ApiId" ]
+      },
       "permissions" : [ "apigateway:GET" ]
     }
   }

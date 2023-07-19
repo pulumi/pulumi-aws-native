@@ -146,6 +146,18 @@
         }
       }
     },
+    "RuntimePlatform" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "OperatingSystemFamily" : {
+          "type" : "string"
+        },
+        "CpuArchitecture" : {
+          "type" : "string"
+        }
+      }
+    },
     "Volumes" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -290,6 +302,9 @@
         },
         "ExecutionRoleArn" : {
           "type" : "string"
+        },
+        "RuntimePlatform" : {
+          "$ref" : "#/definitions/RuntimePlatform"
         },
         "Volumes" : {
           "type" : "array",

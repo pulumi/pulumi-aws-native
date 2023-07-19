@@ -141,6 +141,7 @@
   "additionalProperties" : false,
   "required" : [ "Content" ],
   "createOnlyProperties" : [ "/properties/Name", "/properties/DocumentType" ],
+  "conditionalCreateOnlyProperties" : [ "/properties/Content", "/properties/Attachments", "/properties/VersionName", "/properties/DocumentFormat", "/properties/TargetType", "/properties/Requires" ],
   "writeOnlyProperties" : [ "/properties/UpdateMethod", "/properties/Attachments" ],
   "primaryIdentifier" : [ "/properties/Name" ],
   "tagging" : {
