@@ -1,5 +1,36 @@
 ## HEAD (Unreleased)
 
+## 0.69.0 (July 19, 2023)
+
+### Breaking changes:
+- Function "aws-native:s3:getBucket" missing output "accessControl"
+- Function "aws-native:cloudformation:getStackSet" missing output "stackInstancesGroup"
+- Function "aws-native:applicationinsights:getApplication" missing output "customComponents"
+- Function "aws-native:applicationinsights:getApplication" missing output "groupingType"
+- Function "aws-native:applicationinsights:getApplication" missing output "logPatternSets"
+- Function "aws-native:applicationinsights:getApplication" missing output "opsItemSNSTopicArn"
+- Function "aws-native:applicationinsights:getApplication" missing output "componentMonitoringSettings"
+- Type "aws-native:ecs:TaskSetLoadBalancer" missing property "loadBalancerName"
+
+#### New resources:
+
+- `connect.Queue`
+- `connect.RoutingProfile`
+- `ec2.EIPAssociation`
+- `iam.GroupPolicy`
+- `iam.RolePolicy`
+- `iam.UserPolicy`
+
+#### New functions:
+
+- `connect.getQueue`
+- `connect.getRoutingProfile`
+- `ec2.getEIPAssociation`
+- `iam.getGroupPolicy`
+- `iam.getRolePolicy`
+- `iam.getUserPolicy`
+
+
 ## 0.68.0 (July 7, 2023)
 
 2 Breaking Changes:
