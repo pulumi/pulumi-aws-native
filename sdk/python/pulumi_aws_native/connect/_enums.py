@@ -23,7 +23,11 @@ __all__ = [
     'InstanceStorageConfigInstanceStorageResourceType',
     'InstanceStorageConfigStorageType',
     'IntegrationAssociationIntegrationType',
+    'QueueStatus',
+    'QueueType',
     'QuickConnectType',
+    'RoutingProfileBehaviorType',
+    'RoutingProfileChannel',
     'RulePublishStatus',
     'RuleSendNotificationActionContentType',
     'RuleSendNotificationActionDeliveryMethod',
@@ -204,6 +208,22 @@ class IntegrationAssociationIntegrationType(str, Enum):
     LAMBDA_FUNCTION = "LAMBDA_FUNCTION"
 
 
+class QueueStatus(str, Enum):
+    """
+    The status of the queue.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class QueueType(str, Enum):
+    """
+    The type of queue.
+    """
+    STANDARD = "STANDARD"
+    AGENT = "AGENT"
+
+
 class QuickConnectType(str, Enum):
     """
     The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
@@ -211,6 +231,23 @@ class QuickConnectType(str, Enum):
     PHONE_NUMBER = "PHONE_NUMBER"
     QUEUE = "QUEUE"
     USER = "USER"
+
+
+class RoutingProfileBehaviorType(str, Enum):
+    """
+    Specifies the other channels that can be routed to an agent handling their current channel.
+    """
+    ROUTE_CURRENT_CHANNEL_ONLY = "ROUTE_CURRENT_CHANNEL_ONLY"
+    ROUTE_ANY_CHANNEL = "ROUTE_ANY_CHANNEL"
+
+
+class RoutingProfileChannel(str, Enum):
+    """
+    The channels that agents can handle in the Contact Control Panel (CCP).
+    """
+    VOICE = "VOICE"
+    CHAT = "CHAT"
+    TASK = "TASK"
 
 
 class RulePublishStatus(str, Enum):

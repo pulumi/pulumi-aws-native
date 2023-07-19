@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:logs:AccountPolicy":
+		r = &AccountPolicy{}
 	case "aws-native:logs:Destination":
 		r = &Destination{}
 	case "aws-native:logs:LogGroup":

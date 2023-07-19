@@ -80,6 +80,9 @@ namespace Pulumi.AwsNative.Batch.Inputs
             set => _resourceRequirements = value;
         }
 
+        [Input("runtimePlatform")]
+        public Input<Inputs.JobDefinitionRuntimePlatformArgs>? RuntimePlatform { get; set; }
+
         [Input("secrets")]
         private InputList<Inputs.JobDefinitionSecretArgs>? _secrets;
         public InputList<Inputs.JobDefinitionSecretArgs> Secrets

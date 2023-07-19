@@ -23,7 +23,7 @@ type User struct {
 	ManagedPolicyArns   pulumi.StringArrayOutput  `pulumi:"managedPolicyArns"`
 	Path                pulumi.StringPtrOutput    `pulumi:"path"`
 	PermissionsBoundary pulumi.StringPtrOutput    `pulumi:"permissionsBoundary"`
-	Policies            UserPolicyArrayOutput     `pulumi:"policies"`
+	Policies            UserPolicyTypeArrayOutput `pulumi:"policies"`
 	Tags                UserTagArrayOutput        `pulumi:"tags"`
 	UserName            pulumi.StringPtrOutput    `pulumi:"userName"`
 }
@@ -73,7 +73,7 @@ type userArgs struct {
 	ManagedPolicyArns   []string          `pulumi:"managedPolicyArns"`
 	Path                *string           `pulumi:"path"`
 	PermissionsBoundary *string           `pulumi:"permissionsBoundary"`
-	Policies            []UserPolicy      `pulumi:"policies"`
+	Policies            []UserPolicyType  `pulumi:"policies"`
 	Tags                []UserTag         `pulumi:"tags"`
 	UserName            *string           `pulumi:"userName"`
 }
@@ -85,7 +85,7 @@ type UserArgs struct {
 	ManagedPolicyArns   pulumi.StringArrayInput
 	Path                pulumi.StringPtrInput
 	PermissionsBoundary pulumi.StringPtrInput
-	Policies            UserPolicyArrayInput
+	Policies            UserPolicyTypeArrayInput
 	Tags                UserTagArrayInput
 	UserName            pulumi.StringPtrInput
 }
@@ -151,8 +151,8 @@ func (o UserOutput) PermissionsBoundary() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.PermissionsBoundary }).(pulumi.StringPtrOutput)
 }
 
-func (o UserOutput) Policies() UserPolicyArrayOutput {
-	return o.ApplyT(func(v *User) UserPolicyArrayOutput { return v.Policies }).(UserPolicyArrayOutput)
+func (o UserOutput) Policies() UserPolicyTypeArrayOutput {
+	return o.ApplyT(func(v *User) UserPolicyTypeArrayOutput { return v.Policies }).(UserPolicyTypeArrayOutput)
 }
 
 func (o UserOutput) Tags() UserTagArrayOutput {

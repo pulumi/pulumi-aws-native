@@ -2529,7 +2529,7 @@ class BucketServerSideEncryptionByDefault(dict):
                  k_ms_master_key_id: Optional[str] = None):
         """
         Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied.
-        :param str k_ms_master_key_id: "KMSMasterKeyID" can only be used when you set the value of SSEAlgorithm as aws:kms.
+        :param str k_ms_master_key_id: "KMSMasterKeyID" can only be used when you set the value of SSEAlgorithm as aws:kms or aws:kms:dsse.
         """
         pulumi.set(__self__, "s_se_algorithm", s_se_algorithm)
         if k_ms_master_key_id is not None:
@@ -2544,7 +2544,7 @@ class BucketServerSideEncryptionByDefault(dict):
     @pulumi.getter(name="kMSMasterKeyID")
     def k_ms_master_key_id(self) -> Optional[str]:
         """
-        "KMSMasterKeyID" can only be used when you set the value of SSEAlgorithm as aws:kms.
+        "KMSMasterKeyID" can only be used when you set the value of SSEAlgorithm as aws:kms or aws:kms:dsse.
         """
         return pulumi.get(self, "k_ms_master_key_id")
 

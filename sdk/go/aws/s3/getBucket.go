@@ -30,8 +30,6 @@ type LookupBucketArgs struct {
 type LookupBucketResult struct {
 	// Configuration for the transfer acceleration state.
 	AccelerateConfiguration *BucketAccelerateConfiguration `pulumi:"accelerateConfiguration"`
-	// A canned access control list (ACL) that grants predefined permissions to the bucket.
-	AccessControl *BucketAccessControl `pulumi:"accessControl"`
 	// The configuration and any analyses for the analytics filter of an Amazon S3 bucket.
 	AnalyticsConfigurations []BucketAnalyticsConfiguration `pulumi:"analyticsConfigurations"`
 	// The Amazon Resource Name (ARN) of the specified bucket.
@@ -111,11 +109,6 @@ func (o LookupBucketResultOutput) ToLookupBucketResultOutputWithContext(ctx cont
 // Configuration for the transfer acceleration state.
 func (o LookupBucketResultOutput) AccelerateConfiguration() BucketAccelerateConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupBucketResult) *BucketAccelerateConfiguration { return v.AccelerateConfiguration }).(BucketAccelerateConfigurationPtrOutput)
-}
-
-// A canned access control list (ACL) that grants predefined permissions to the bucket.
-func (o LookupBucketResultOutput) AccessControl() BucketAccessControlPtrOutput {
-	return o.ApplyT(func(v LookupBucketResult) *BucketAccessControl { return v.AccessControl }).(BucketAccessControlPtrOutput)
 }
 
 // The configuration and any analyses for the analytics filter of an Amazon S3 bucket.

@@ -5515,6 +5515,7 @@ export namespace batch {
         privileged?: pulumi.Input<boolean>;
         readonlyRootFilesystem?: pulumi.Input<boolean>;
         resourceRequirements?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionResourceRequirementArgs>[]>;
+        runtimePlatform?: pulumi.Input<inputs.batch.JobDefinitionRuntimePlatformArgs>;
         secrets?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionSecretArgs>[]>;
         ulimits?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionUlimitArgs>[]>;
         user?: pulumi.Input<string>;
@@ -5674,6 +5675,11 @@ export namespace batch {
     export interface JobDefinitionRetryStrategyArgs {
         attempts?: pulumi.Input<number>;
         evaluateOnExit?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionEvaluateOnExitArgs>[]>;
+    }
+
+    export interface JobDefinitionRuntimePlatformArgs {
+        cpuArchitecture?: pulumi.Input<string>;
+        operatingSystemFamily?: pulumi.Input<string>;
     }
 
     export interface JobDefinitionSecretArgs {
@@ -8485,6 +8491,23 @@ export namespace connect {
     }
 
     /**
+     * The outbound caller ID name, number, and outbound whisper flow.
+     */
+    export interface QueueOutboundCallerConfigArgs {
+        outboundCallerIdName?: pulumi.Input<string>;
+        outboundCallerIdNumberArn?: pulumi.Input<string>;
+        outboundFlowArn?: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface QueueTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    /**
      * Configuration settings for the quick connect.
      */
     export interface QuickConnectConfigArgs {
@@ -8529,6 +8552,53 @@ export namespace connect {
     export interface QuickConnectUserQuickConnectConfigArgs {
         contactFlowArn: pulumi.Input<string>;
         userArn: pulumi.Input<string>;
+    }
+
+    /**
+     * Defines the cross-channel routing behavior that allows an agent working on a contact in one channel to be offered a contact from a different channel.
+     */
+    export interface RoutingProfileCrossChannelBehaviorArgs {
+        behaviorType: pulumi.Input<enums.connect.RoutingProfileBehaviorType>;
+    }
+
+    /**
+     * Contains information about which channels are supported, and how many contacts an agent can have on a channel simultaneously.
+     */
+    export interface RoutingProfileMediaConcurrencyArgs {
+        channel: pulumi.Input<enums.connect.RoutingProfileChannel>;
+        concurrency: pulumi.Input<number>;
+        crossChannelBehavior?: pulumi.Input<inputs.connect.RoutingProfileCrossChannelBehaviorArgs>;
+    }
+
+    /**
+     * Contains information about the queue and channel for which priority and delay can be set.
+     */
+    export interface RoutingProfileQueueConfigArgs {
+        delay: pulumi.Input<number>;
+        priority: pulumi.Input<number>;
+        queueReference: pulumi.Input<inputs.connect.RoutingProfileQueueReferenceArgs>;
+    }
+
+    /**
+     * Contains the channel and queue identifier for a routing profile.
+     */
+    export interface RoutingProfileQueueReferenceArgs {
+        channel: pulumi.Input<enums.connect.RoutingProfileChannel>;
+        queueArn: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface RoutingProfileTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
     }
 
     /**
@@ -13628,10 +13698,6 @@ export namespace ecs {
          */
         containerPort?: pulumi.Input<number>;
         /**
-         * The name of the load balancer to associate with the Amazon ECS service or task set. A load balancer name is only specified when using a Classic Load Balancer. If you are using an Application Load Balancer or a Network Load Balancer this should be omitted.
-         */
-        loadBalancerName?: pulumi.Input<string>;
-        /**
          * The full Amazon Resource Name (ARN) of the Elastic Load Balancing target group or groups associated with a service or task set. A target group ARN is only specified when using an Application Load Balancer or Network Load Balancer. If you are using a Classic Load Balancer this should be omitted. For services using the ECS deployment controller, you can specify one or multiple target groups. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/register-multiple-targetgroups.html in the Amazon Elastic Container Service Developer Guide. For services using the CODE_DEPLOY deployment controller, you are required to define two target groups for the load balancer. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-bluegreen.html in the Amazon Elastic Container Service Developer Guide. If your service's task definition uses the awsvpc network mode (which is required for the Fargate launch type), you must choose ip as the target type, not instance, when creating your target groups because tasks that use the awsvpc network mode are associated with an elastic network interface, not an Amazon EC2 instance.
          */
         targetGroupArn?: pulumi.Input<string>;
@@ -16370,59 +16436,6 @@ export namespace fsx {
         id: pulumi.Input<number>;
         storageCapacityQuotaGiB: pulumi.Input<number>;
         type: pulumi.Input<string>;
-    }
-}
-
-export namespace gamecast {
-    /**
-     * Runtime environment is a combination of Windows compatibility layer and other graphics libraries used to run the application.
-     */
-    export interface ApplicationRuntimeEnvironmentArgs {
-        type: pulumi.Input<enums.gamecast.ApplicationRuntimeEnvironmentType>;
-        /**
-         * Versioned container environment used to run customer game. Each runtime fixed version of the Windows
-         * compatibility layer to provide a stable game performance. Refer to Motif public docs to see which wine, mesa, vulkan
-         * versions are used in which Motif runtime environment version.
-         */
-        version: pulumi.Input<string>;
-    }
-
-    /**
-     * Application save configuration
-     */
-    export interface ApplicationSaveConfigurationArgs {
-        /**
-         * A list of save file, registry key or log paths that are absolute paths that store game save files when the games
-         * are running on a Windows environment.
-         */
-        fileLocations?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * A list of save file, registry key or log paths that are absolute paths that store game save files when the games
-         * are running on a Windows environment.
-         */
-        registryLocations?: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
-    /**
-     * Common AWS tags for supporting resource tagging and tag-based resource authorization. The maximum number of tags is 50.
-     */
-    export interface ApplicationTagsArgs {
-    }
-
-    /**
-     * Information about default application running on the stream group.
-     */
-    export interface StreamGroupDefaultApplicationArgs {
-        /**
-         * GameCast resource ID, base62 encoded.
-         */
-        id?: pulumi.Input<string>;
-    }
-
-    /**
-     * Common AWS tags for supporting resource tagging and tag-based resource authorization. The maximum number of tags is 50.
-     */
-    export interface StreamGroupTagsArgs {
     }
 }
 
@@ -43436,7 +43449,7 @@ export namespace s3 {
      */
     export interface BucketServerSideEncryptionByDefaultArgs {
         /**
-         * "KMSMasterKeyID" can only be used when you set the value of SSEAlgorithm as aws:kms.
+         * "KMSMasterKeyID" can only be used when you set the value of SSEAlgorithm as aws:kms or aws:kms:dsse.
          */
         kMSMasterKeyID?: pulumi.Input<string>;
         sSEAlgorithm: pulumi.Input<enums.s3.BucketServerSideEncryptionByDefaultSSEAlgorithm>;

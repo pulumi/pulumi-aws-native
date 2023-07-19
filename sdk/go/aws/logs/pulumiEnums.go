@@ -10,6 +10,334 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Type of the policy.
+type AccountPolicyPolicyType string
+
+const (
+	AccountPolicyPolicyTypeDataProtectionPolicy = AccountPolicyPolicyType("DATA_PROTECTION_POLICY")
+)
+
+func (AccountPolicyPolicyType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountPolicyPolicyType)(nil)).Elem()
+}
+
+func (e AccountPolicyPolicyType) ToAccountPolicyPolicyTypeOutput() AccountPolicyPolicyTypeOutput {
+	return pulumi.ToOutput(e).(AccountPolicyPolicyTypeOutput)
+}
+
+func (e AccountPolicyPolicyType) ToAccountPolicyPolicyTypeOutputWithContext(ctx context.Context) AccountPolicyPolicyTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AccountPolicyPolicyTypeOutput)
+}
+
+func (e AccountPolicyPolicyType) ToAccountPolicyPolicyTypePtrOutput() AccountPolicyPolicyTypePtrOutput {
+	return e.ToAccountPolicyPolicyTypePtrOutputWithContext(context.Background())
+}
+
+func (e AccountPolicyPolicyType) ToAccountPolicyPolicyTypePtrOutputWithContext(ctx context.Context) AccountPolicyPolicyTypePtrOutput {
+	return AccountPolicyPolicyType(e).ToAccountPolicyPolicyTypeOutputWithContext(ctx).ToAccountPolicyPolicyTypePtrOutputWithContext(ctx)
+}
+
+func (e AccountPolicyPolicyType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AccountPolicyPolicyType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AccountPolicyPolicyType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AccountPolicyPolicyType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AccountPolicyPolicyTypeOutput struct{ *pulumi.OutputState }
+
+func (AccountPolicyPolicyTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountPolicyPolicyType)(nil)).Elem()
+}
+
+func (o AccountPolicyPolicyTypeOutput) ToAccountPolicyPolicyTypeOutput() AccountPolicyPolicyTypeOutput {
+	return o
+}
+
+func (o AccountPolicyPolicyTypeOutput) ToAccountPolicyPolicyTypeOutputWithContext(ctx context.Context) AccountPolicyPolicyTypeOutput {
+	return o
+}
+
+func (o AccountPolicyPolicyTypeOutput) ToAccountPolicyPolicyTypePtrOutput() AccountPolicyPolicyTypePtrOutput {
+	return o.ToAccountPolicyPolicyTypePtrOutputWithContext(context.Background())
+}
+
+func (o AccountPolicyPolicyTypeOutput) ToAccountPolicyPolicyTypePtrOutputWithContext(ctx context.Context) AccountPolicyPolicyTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountPolicyPolicyType) *AccountPolicyPolicyType {
+		return &v
+	}).(AccountPolicyPolicyTypePtrOutput)
+}
+
+func (o AccountPolicyPolicyTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AccountPolicyPolicyTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AccountPolicyPolicyType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AccountPolicyPolicyTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AccountPolicyPolicyTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AccountPolicyPolicyType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AccountPolicyPolicyTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AccountPolicyPolicyTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountPolicyPolicyType)(nil)).Elem()
+}
+
+func (o AccountPolicyPolicyTypePtrOutput) ToAccountPolicyPolicyTypePtrOutput() AccountPolicyPolicyTypePtrOutput {
+	return o
+}
+
+func (o AccountPolicyPolicyTypePtrOutput) ToAccountPolicyPolicyTypePtrOutputWithContext(ctx context.Context) AccountPolicyPolicyTypePtrOutput {
+	return o
+}
+
+func (o AccountPolicyPolicyTypePtrOutput) Elem() AccountPolicyPolicyTypeOutput {
+	return o.ApplyT(func(v *AccountPolicyPolicyType) AccountPolicyPolicyType {
+		if v != nil {
+			return *v
+		}
+		var ret AccountPolicyPolicyType
+		return ret
+	}).(AccountPolicyPolicyTypeOutput)
+}
+
+func (o AccountPolicyPolicyTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AccountPolicyPolicyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AccountPolicyPolicyType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AccountPolicyPolicyTypeInput is an input type that accepts AccountPolicyPolicyTypeArgs and AccountPolicyPolicyTypeOutput values.
+// You can construct a concrete instance of `AccountPolicyPolicyTypeInput` via:
+//
+//	AccountPolicyPolicyTypeArgs{...}
+type AccountPolicyPolicyTypeInput interface {
+	pulumi.Input
+
+	ToAccountPolicyPolicyTypeOutput() AccountPolicyPolicyTypeOutput
+	ToAccountPolicyPolicyTypeOutputWithContext(context.Context) AccountPolicyPolicyTypeOutput
+}
+
+var accountPolicyPolicyTypePtrType = reflect.TypeOf((**AccountPolicyPolicyType)(nil)).Elem()
+
+type AccountPolicyPolicyTypePtrInput interface {
+	pulumi.Input
+
+	ToAccountPolicyPolicyTypePtrOutput() AccountPolicyPolicyTypePtrOutput
+	ToAccountPolicyPolicyTypePtrOutputWithContext(context.Context) AccountPolicyPolicyTypePtrOutput
+}
+
+type accountPolicyPolicyTypePtr string
+
+func AccountPolicyPolicyTypePtr(v string) AccountPolicyPolicyTypePtrInput {
+	return (*accountPolicyPolicyTypePtr)(&v)
+}
+
+func (*accountPolicyPolicyTypePtr) ElementType() reflect.Type {
+	return accountPolicyPolicyTypePtrType
+}
+
+func (in *accountPolicyPolicyTypePtr) ToAccountPolicyPolicyTypePtrOutput() AccountPolicyPolicyTypePtrOutput {
+	return pulumi.ToOutput(in).(AccountPolicyPolicyTypePtrOutput)
+}
+
+func (in *accountPolicyPolicyTypePtr) ToAccountPolicyPolicyTypePtrOutputWithContext(ctx context.Context) AccountPolicyPolicyTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AccountPolicyPolicyTypePtrOutput)
+}
+
+// Scope for policy application
+type AccountPolicyScope string
+
+const (
+	AccountPolicyScopeAll = AccountPolicyScope("ALL")
+)
+
+func (AccountPolicyScope) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountPolicyScope)(nil)).Elem()
+}
+
+func (e AccountPolicyScope) ToAccountPolicyScopeOutput() AccountPolicyScopeOutput {
+	return pulumi.ToOutput(e).(AccountPolicyScopeOutput)
+}
+
+func (e AccountPolicyScope) ToAccountPolicyScopeOutputWithContext(ctx context.Context) AccountPolicyScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AccountPolicyScopeOutput)
+}
+
+func (e AccountPolicyScope) ToAccountPolicyScopePtrOutput() AccountPolicyScopePtrOutput {
+	return e.ToAccountPolicyScopePtrOutputWithContext(context.Background())
+}
+
+func (e AccountPolicyScope) ToAccountPolicyScopePtrOutputWithContext(ctx context.Context) AccountPolicyScopePtrOutput {
+	return AccountPolicyScope(e).ToAccountPolicyScopeOutputWithContext(ctx).ToAccountPolicyScopePtrOutputWithContext(ctx)
+}
+
+func (e AccountPolicyScope) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AccountPolicyScope) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AccountPolicyScope) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AccountPolicyScope) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AccountPolicyScopeOutput struct{ *pulumi.OutputState }
+
+func (AccountPolicyScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountPolicyScope)(nil)).Elem()
+}
+
+func (o AccountPolicyScopeOutput) ToAccountPolicyScopeOutput() AccountPolicyScopeOutput {
+	return o
+}
+
+func (o AccountPolicyScopeOutput) ToAccountPolicyScopeOutputWithContext(ctx context.Context) AccountPolicyScopeOutput {
+	return o
+}
+
+func (o AccountPolicyScopeOutput) ToAccountPolicyScopePtrOutput() AccountPolicyScopePtrOutput {
+	return o.ToAccountPolicyScopePtrOutputWithContext(context.Background())
+}
+
+func (o AccountPolicyScopeOutput) ToAccountPolicyScopePtrOutputWithContext(ctx context.Context) AccountPolicyScopePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountPolicyScope) *AccountPolicyScope {
+		return &v
+	}).(AccountPolicyScopePtrOutput)
+}
+
+func (o AccountPolicyScopeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AccountPolicyScopeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AccountPolicyScope) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AccountPolicyScopeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AccountPolicyScopeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AccountPolicyScope) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AccountPolicyScopePtrOutput struct{ *pulumi.OutputState }
+
+func (AccountPolicyScopePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountPolicyScope)(nil)).Elem()
+}
+
+func (o AccountPolicyScopePtrOutput) ToAccountPolicyScopePtrOutput() AccountPolicyScopePtrOutput {
+	return o
+}
+
+func (o AccountPolicyScopePtrOutput) ToAccountPolicyScopePtrOutputWithContext(ctx context.Context) AccountPolicyScopePtrOutput {
+	return o
+}
+
+func (o AccountPolicyScopePtrOutput) Elem() AccountPolicyScopeOutput {
+	return o.ApplyT(func(v *AccountPolicyScope) AccountPolicyScope {
+		if v != nil {
+			return *v
+		}
+		var ret AccountPolicyScope
+		return ret
+	}).(AccountPolicyScopeOutput)
+}
+
+func (o AccountPolicyScopePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AccountPolicyScopePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AccountPolicyScope) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AccountPolicyScopeInput is an input type that accepts AccountPolicyScopeArgs and AccountPolicyScopeOutput values.
+// You can construct a concrete instance of `AccountPolicyScopeInput` via:
+//
+//	AccountPolicyScopeArgs{...}
+type AccountPolicyScopeInput interface {
+	pulumi.Input
+
+	ToAccountPolicyScopeOutput() AccountPolicyScopeOutput
+	ToAccountPolicyScopeOutputWithContext(context.Context) AccountPolicyScopeOutput
+}
+
+var accountPolicyScopePtrType = reflect.TypeOf((**AccountPolicyScope)(nil)).Elem()
+
+type AccountPolicyScopePtrInput interface {
+	pulumi.Input
+
+	ToAccountPolicyScopePtrOutput() AccountPolicyScopePtrOutput
+	ToAccountPolicyScopePtrOutputWithContext(context.Context) AccountPolicyScopePtrOutput
+}
+
+type accountPolicyScopePtr string
+
+func AccountPolicyScopePtr(v string) AccountPolicyScopePtrInput {
+	return (*accountPolicyScopePtr)(&v)
+}
+
+func (*accountPolicyScopePtr) ElementType() reflect.Type {
+	return accountPolicyScopePtrType
+}
+
+func (in *accountPolicyScopePtr) ToAccountPolicyScopePtrOutput() AccountPolicyScopePtrOutput {
+	return pulumi.ToOutput(in).(AccountPolicyScopePtrOutput)
+}
+
+func (in *accountPolicyScopePtr) ToAccountPolicyScopePtrOutputWithContext(ctx context.Context) AccountPolicyScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AccountPolicyScopePtrOutput)
+}
+
 // The unit to assign to the metric. If you omit this, the unit is set as None.
 type MetricFilterMetricTransformationUnit string
 
@@ -366,10 +694,18 @@ func (in *subscriptionFilterDistributionPtr) ToSubscriptionFilterDistributionPtr
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountPolicyPolicyTypeInput)(nil)).Elem(), AccountPolicyPolicyType("DATA_PROTECTION_POLICY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountPolicyPolicyTypePtrInput)(nil)).Elem(), AccountPolicyPolicyType("DATA_PROTECTION_POLICY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountPolicyScopeInput)(nil)).Elem(), AccountPolicyScope("ALL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountPolicyScopePtrInput)(nil)).Elem(), AccountPolicyScope("ALL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricFilterMetricTransformationUnitInput)(nil)).Elem(), MetricFilterMetricTransformationUnit("Seconds"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricFilterMetricTransformationUnitPtrInput)(nil)).Elem(), MetricFilterMetricTransformationUnit("Seconds"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionFilterDistributionInput)(nil)).Elem(), SubscriptionFilterDistribution("Random"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionFilterDistributionPtrInput)(nil)).Elem(), SubscriptionFilterDistribution("Random"))
+	pulumi.RegisterOutputType(AccountPolicyPolicyTypeOutput{})
+	pulumi.RegisterOutputType(AccountPolicyPolicyTypePtrOutput{})
+	pulumi.RegisterOutputType(AccountPolicyScopeOutput{})
+	pulumi.RegisterOutputType(AccountPolicyScopePtrOutput{})
 	pulumi.RegisterOutputType(MetricFilterMetricTransformationUnitOutput{})
 	pulumi.RegisterOutputType(MetricFilterMetricTransformationUnitPtrOutput{})
 	pulumi.RegisterOutputType(SubscriptionFilterDistributionOutput{})

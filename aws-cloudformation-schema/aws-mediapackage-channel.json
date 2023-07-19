@@ -112,7 +112,7 @@
   "createOnlyProperties" : [ "/properties/Id", "/properties/Tags" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "mediapackage:CreateChannel", "mediapackage:TagResource", "mediapackage:ConfigureLogs", "iam:CreateServiceLinkedRole" ]
+      "permissions" : [ "mediapackage:CreateChannel", "mediapackage:DescribeChannel", "mediapackage:UpdateChannel", "mediapackage:TagResource", "mediapackage:ConfigureLogs", "iam:CreateServiceLinkedRole" ]
     },
     "read" : {
       "permissions" : [ "mediapackage:DescribeChannel" ]

@@ -17,11 +17,11 @@ import (
 type Group struct {
 	pulumi.CustomResourceState
 
-	Arn               pulumi.StringOutput      `pulumi:"arn"`
-	GroupName         pulumi.StringPtrOutput   `pulumi:"groupName"`
-	ManagedPolicyArns pulumi.StringArrayOutput `pulumi:"managedPolicyArns"`
-	Path              pulumi.StringPtrOutput   `pulumi:"path"`
-	Policies          GroupPolicyArrayOutput   `pulumi:"policies"`
+	Arn               pulumi.StringOutput        `pulumi:"arn"`
+	GroupName         pulumi.StringPtrOutput     `pulumi:"groupName"`
+	ManagedPolicyArns pulumi.StringArrayOutput   `pulumi:"managedPolicyArns"`
+	Path              pulumi.StringPtrOutput     `pulumi:"path"`
+	Policies          GroupPolicyTypeArrayOutput `pulumi:"policies"`
 }
 
 // NewGroup registers a new resource with the given unique name, arguments, and options.
@@ -64,10 +64,10 @@ func (GroupState) ElementType() reflect.Type {
 }
 
 type groupArgs struct {
-	GroupName         *string       `pulumi:"groupName"`
-	ManagedPolicyArns []string      `pulumi:"managedPolicyArns"`
-	Path              *string       `pulumi:"path"`
-	Policies          []GroupPolicy `pulumi:"policies"`
+	GroupName         *string           `pulumi:"groupName"`
+	ManagedPolicyArns []string          `pulumi:"managedPolicyArns"`
+	Path              *string           `pulumi:"path"`
+	Policies          []GroupPolicyType `pulumi:"policies"`
 }
 
 // The set of arguments for constructing a Group resource.
@@ -75,7 +75,7 @@ type GroupArgs struct {
 	GroupName         pulumi.StringPtrInput
 	ManagedPolicyArns pulumi.StringArrayInput
 	Path              pulumi.StringPtrInput
-	Policies          GroupPolicyArrayInput
+	Policies          GroupPolicyTypeArrayInput
 }
 
 func (GroupArgs) ElementType() reflect.Type {
@@ -131,8 +131,8 @@ func (o GroupOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-func (o GroupOutput) Policies() GroupPolicyArrayOutput {
-	return o.ApplyT(func(v *Group) GroupPolicyArrayOutput { return v.Policies }).(GroupPolicyArrayOutput)
+func (o GroupOutput) Policies() GroupPolicyTypeArrayOutput {
+	return o.ApplyT(func(v *Group) GroupPolicyTypeArrayOutput { return v.Policies }).(GroupPolicyTypeArrayOutput)
 }
 
 func init() {

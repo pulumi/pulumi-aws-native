@@ -70,10 +70,20 @@ export const getPrompt: typeof import("./getPrompt").getPrompt = null as any;
 export const getPromptOutput: typeof import("./getPrompt").getPromptOutput = null as any;
 utilities.lazyLoad(exports, ["getPrompt","getPromptOutput"], () => require("./getPrompt"));
 
+export { GetQueueArgs, GetQueueResult, GetQueueOutputArgs } from "./getQueue";
+export const getQueue: typeof import("./getQueue").getQueue = null as any;
+export const getQueueOutput: typeof import("./getQueue").getQueueOutput = null as any;
+utilities.lazyLoad(exports, ["getQueue","getQueueOutput"], () => require("./getQueue"));
+
 export { GetQuickConnectArgs, GetQuickConnectResult, GetQuickConnectOutputArgs } from "./getQuickConnect";
 export const getQuickConnect: typeof import("./getQuickConnect").getQuickConnect = null as any;
 export const getQuickConnectOutput: typeof import("./getQuickConnect").getQuickConnectOutput = null as any;
 utilities.lazyLoad(exports, ["getQuickConnect","getQuickConnectOutput"], () => require("./getQuickConnect"));
+
+export { GetRoutingProfileArgs, GetRoutingProfileResult, GetRoutingProfileOutputArgs } from "./getRoutingProfile";
+export const getRoutingProfile: typeof import("./getRoutingProfile").getRoutingProfile = null as any;
+export const getRoutingProfileOutput: typeof import("./getRoutingProfile").getRoutingProfileOutput = null as any;
+utilities.lazyLoad(exports, ["getRoutingProfile","getRoutingProfileOutput"], () => require("./getRoutingProfile"));
 
 export { GetRuleArgs, GetRuleResult, GetRuleOutputArgs } from "./getRule";
 export const getRule: typeof import("./getRule").getRule = null as any;
@@ -130,10 +140,20 @@ export type Prompt = import("./prompt").Prompt;
 export const Prompt: typeof import("./prompt").Prompt = null as any;
 utilities.lazyLoad(exports, ["Prompt"], () => require("./prompt"));
 
+export { QueueArgs } from "./queue";
+export type Queue = import("./queue").Queue;
+export const Queue: typeof import("./queue").Queue = null as any;
+utilities.lazyLoad(exports, ["Queue"], () => require("./queue"));
+
 export { QuickConnectArgs } from "./quickConnect";
 export type QuickConnect = import("./quickConnect").QuickConnect;
 export const QuickConnect: typeof import("./quickConnect").QuickConnect = null as any;
 utilities.lazyLoad(exports, ["QuickConnect"], () => require("./quickConnect"));
+
+export { RoutingProfileArgs } from "./routingProfile";
+export type RoutingProfile = import("./routingProfile").RoutingProfile;
+export const RoutingProfile: typeof import("./routingProfile").RoutingProfile = null as any;
+utilities.lazyLoad(exports, ["RoutingProfile"], () => require("./routingProfile"));
 
 export { RuleArgs } from "./rule";
 export type Rule = import("./rule").Rule;
@@ -188,8 +208,12 @@ const _module = {
                 return new PhoneNumber(name, <any>undefined, { urn })
             case "aws-native:connect:Prompt":
                 return new Prompt(name, <any>undefined, { urn })
+            case "aws-native:connect:Queue":
+                return new Queue(name, <any>undefined, { urn })
             case "aws-native:connect:QuickConnect":
                 return new QuickConnect(name, <any>undefined, { urn })
+            case "aws-native:connect:RoutingProfile":
+                return new RoutingProfile(name, <any>undefined, { urn })
             case "aws-native:connect:Rule":
                 return new Rule(name, <any>undefined, { urn })
             case "aws-native:connect:SecurityKey":

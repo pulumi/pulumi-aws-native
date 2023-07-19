@@ -31,10 +31,6 @@ export interface GetBucketResult {
      */
     readonly accelerateConfiguration?: outputs.s3.BucketAccelerateConfiguration;
     /**
-     * A canned access control list (ACL) that grants predefined permissions to the bucket.
-     */
-    readonly accessControl?: enums.s3.BucketAccessControl;
-    /**
      * The configuration and any analyses for the analytics filter of an Amazon S3 bucket.
      */
     readonly analyticsConfigurations?: outputs.s3.BucketAnalyticsConfiguration[];

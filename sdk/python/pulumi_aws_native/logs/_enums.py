@@ -5,9 +5,25 @@
 from enum import Enum
 
 __all__ = [
+    'AccountPolicyPolicyType',
+    'AccountPolicyScope',
     'MetricFilterMetricTransformationUnit',
     'SubscriptionFilterDistribution',
 ]
+
+
+class AccountPolicyPolicyType(str, Enum):
+    """
+    Type of the policy.
+    """
+    DATA_PROTECTION_POLICY = "DATA_PROTECTION_POLICY"
+
+
+class AccountPolicyScope(str, Enum):
+    """
+    Scope for policy application
+    """
+    ALL = "ALL"
 
 
 class MetricFilterMetricTransformationUnit(str, Enum):

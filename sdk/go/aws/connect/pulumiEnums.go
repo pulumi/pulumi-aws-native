@@ -2858,6 +2858,262 @@ func (in *integrationAssociationIntegrationTypePtr) ToIntegrationAssociationInte
 	return pulumi.ToOutputWithContext(ctx, in).(IntegrationAssociationIntegrationTypePtrOutput)
 }
 
+// The status of the queue.
+type QueueStatus string
+
+const (
+	QueueStatusEnabled  = QueueStatus("ENABLED")
+	QueueStatusDisabled = QueueStatus("DISABLED")
+)
+
+func (QueueStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueueStatus)(nil)).Elem()
+}
+
+func (e QueueStatus) ToQueueStatusOutput() QueueStatusOutput {
+	return pulumi.ToOutput(e).(QueueStatusOutput)
+}
+
+func (e QueueStatus) ToQueueStatusOutputWithContext(ctx context.Context) QueueStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(QueueStatusOutput)
+}
+
+func (e QueueStatus) ToQueueStatusPtrOutput() QueueStatusPtrOutput {
+	return e.ToQueueStatusPtrOutputWithContext(context.Background())
+}
+
+func (e QueueStatus) ToQueueStatusPtrOutputWithContext(ctx context.Context) QueueStatusPtrOutput {
+	return QueueStatus(e).ToQueueStatusOutputWithContext(ctx).ToQueueStatusPtrOutputWithContext(ctx)
+}
+
+func (e QueueStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e QueueStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e QueueStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e QueueStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type QueueStatusOutput struct{ *pulumi.OutputState }
+
+func (QueueStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueueStatus)(nil)).Elem()
+}
+
+func (o QueueStatusOutput) ToQueueStatusOutput() QueueStatusOutput {
+	return o
+}
+
+func (o QueueStatusOutput) ToQueueStatusOutputWithContext(ctx context.Context) QueueStatusOutput {
+	return o
+}
+
+func (o QueueStatusOutput) ToQueueStatusPtrOutput() QueueStatusPtrOutput {
+	return o.ToQueueStatusPtrOutputWithContext(context.Background())
+}
+
+func (o QueueStatusOutput) ToQueueStatusPtrOutputWithContext(ctx context.Context) QueueStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v QueueStatus) *QueueStatus {
+		return &v
+	}).(QueueStatusPtrOutput)
+}
+
+func (o QueueStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o QueueStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e QueueStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o QueueStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o QueueStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e QueueStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type QueueStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (QueueStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**QueueStatus)(nil)).Elem()
+}
+
+func (o QueueStatusPtrOutput) ToQueueStatusPtrOutput() QueueStatusPtrOutput {
+	return o
+}
+
+func (o QueueStatusPtrOutput) ToQueueStatusPtrOutputWithContext(ctx context.Context) QueueStatusPtrOutput {
+	return o
+}
+
+func (o QueueStatusPtrOutput) Elem() QueueStatusOutput {
+	return o.ApplyT(func(v *QueueStatus) QueueStatus {
+		if v != nil {
+			return *v
+		}
+		var ret QueueStatus
+		return ret
+	}).(QueueStatusOutput)
+}
+
+func (o QueueStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o QueueStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *QueueStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// QueueStatusInput is an input type that accepts QueueStatusArgs and QueueStatusOutput values.
+// You can construct a concrete instance of `QueueStatusInput` via:
+//
+//	QueueStatusArgs{...}
+type QueueStatusInput interface {
+	pulumi.Input
+
+	ToQueueStatusOutput() QueueStatusOutput
+	ToQueueStatusOutputWithContext(context.Context) QueueStatusOutput
+}
+
+var queueStatusPtrType = reflect.TypeOf((**QueueStatus)(nil)).Elem()
+
+type QueueStatusPtrInput interface {
+	pulumi.Input
+
+	ToQueueStatusPtrOutput() QueueStatusPtrOutput
+	ToQueueStatusPtrOutputWithContext(context.Context) QueueStatusPtrOutput
+}
+
+type queueStatusPtr string
+
+func QueueStatusPtr(v string) QueueStatusPtrInput {
+	return (*queueStatusPtr)(&v)
+}
+
+func (*queueStatusPtr) ElementType() reflect.Type {
+	return queueStatusPtrType
+}
+
+func (in *queueStatusPtr) ToQueueStatusPtrOutput() QueueStatusPtrOutput {
+	return pulumi.ToOutput(in).(QueueStatusPtrOutput)
+}
+
+func (in *queueStatusPtr) ToQueueStatusPtrOutputWithContext(ctx context.Context) QueueStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(QueueStatusPtrOutput)
+}
+
+// The type of queue.
+type QueueType string
+
+const (
+	QueueTypeStandard = QueueType("STANDARD")
+	QueueTypeAgent    = QueueType("AGENT")
+)
+
+type QueueTypeOutput struct{ *pulumi.OutputState }
+
+func (QueueTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueueType)(nil)).Elem()
+}
+
+func (o QueueTypeOutput) ToQueueTypeOutput() QueueTypeOutput {
+	return o
+}
+
+func (o QueueTypeOutput) ToQueueTypeOutputWithContext(ctx context.Context) QueueTypeOutput {
+	return o
+}
+
+func (o QueueTypeOutput) ToQueueTypePtrOutput() QueueTypePtrOutput {
+	return o.ToQueueTypePtrOutputWithContext(context.Background())
+}
+
+func (o QueueTypeOutput) ToQueueTypePtrOutputWithContext(ctx context.Context) QueueTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v QueueType) *QueueType {
+		return &v
+	}).(QueueTypePtrOutput)
+}
+
+func (o QueueTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o QueueTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e QueueType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o QueueTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o QueueTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e QueueType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type QueueTypePtrOutput struct{ *pulumi.OutputState }
+
+func (QueueTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**QueueType)(nil)).Elem()
+}
+
+func (o QueueTypePtrOutput) ToQueueTypePtrOutput() QueueTypePtrOutput {
+	return o
+}
+
+func (o QueueTypePtrOutput) ToQueueTypePtrOutputWithContext(ctx context.Context) QueueTypePtrOutput {
+	return o
+}
+
+func (o QueueTypePtrOutput) Elem() QueueTypeOutput {
+	return o.ApplyT(func(v *QueueType) QueueType {
+		if v != nil {
+			return *v
+		}
+		var ret QueueType
+		return ret
+	}).(QueueTypeOutput)
+}
+
+func (o QueueTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o QueueTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *QueueType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
 type QuickConnectType string
 
@@ -3022,6 +3278,337 @@ func (in *quickConnectTypePtr) ToQuickConnectTypePtrOutput() QuickConnectTypePtr
 
 func (in *quickConnectTypePtr) ToQuickConnectTypePtrOutputWithContext(ctx context.Context) QuickConnectTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(QuickConnectTypePtrOutput)
+}
+
+// Specifies the other channels that can be routed to an agent handling their current channel.
+type RoutingProfileBehaviorType string
+
+const (
+	RoutingProfileBehaviorTypeRouteCurrentChannelOnly = RoutingProfileBehaviorType("ROUTE_CURRENT_CHANNEL_ONLY")
+	RoutingProfileBehaviorTypeRouteAnyChannel         = RoutingProfileBehaviorType("ROUTE_ANY_CHANNEL")
+)
+
+func (RoutingProfileBehaviorType) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoutingProfileBehaviorType)(nil)).Elem()
+}
+
+func (e RoutingProfileBehaviorType) ToRoutingProfileBehaviorTypeOutput() RoutingProfileBehaviorTypeOutput {
+	return pulumi.ToOutput(e).(RoutingProfileBehaviorTypeOutput)
+}
+
+func (e RoutingProfileBehaviorType) ToRoutingProfileBehaviorTypeOutputWithContext(ctx context.Context) RoutingProfileBehaviorTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RoutingProfileBehaviorTypeOutput)
+}
+
+func (e RoutingProfileBehaviorType) ToRoutingProfileBehaviorTypePtrOutput() RoutingProfileBehaviorTypePtrOutput {
+	return e.ToRoutingProfileBehaviorTypePtrOutputWithContext(context.Background())
+}
+
+func (e RoutingProfileBehaviorType) ToRoutingProfileBehaviorTypePtrOutputWithContext(ctx context.Context) RoutingProfileBehaviorTypePtrOutput {
+	return RoutingProfileBehaviorType(e).ToRoutingProfileBehaviorTypeOutputWithContext(ctx).ToRoutingProfileBehaviorTypePtrOutputWithContext(ctx)
+}
+
+func (e RoutingProfileBehaviorType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RoutingProfileBehaviorType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RoutingProfileBehaviorType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RoutingProfileBehaviorType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RoutingProfileBehaviorTypeOutput struct{ *pulumi.OutputState }
+
+func (RoutingProfileBehaviorTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoutingProfileBehaviorType)(nil)).Elem()
+}
+
+func (o RoutingProfileBehaviorTypeOutput) ToRoutingProfileBehaviorTypeOutput() RoutingProfileBehaviorTypeOutput {
+	return o
+}
+
+func (o RoutingProfileBehaviorTypeOutput) ToRoutingProfileBehaviorTypeOutputWithContext(ctx context.Context) RoutingProfileBehaviorTypeOutput {
+	return o
+}
+
+func (o RoutingProfileBehaviorTypeOutput) ToRoutingProfileBehaviorTypePtrOutput() RoutingProfileBehaviorTypePtrOutput {
+	return o.ToRoutingProfileBehaviorTypePtrOutputWithContext(context.Background())
+}
+
+func (o RoutingProfileBehaviorTypeOutput) ToRoutingProfileBehaviorTypePtrOutputWithContext(ctx context.Context) RoutingProfileBehaviorTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RoutingProfileBehaviorType) *RoutingProfileBehaviorType {
+		return &v
+	}).(RoutingProfileBehaviorTypePtrOutput)
+}
+
+func (o RoutingProfileBehaviorTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RoutingProfileBehaviorTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RoutingProfileBehaviorType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RoutingProfileBehaviorTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RoutingProfileBehaviorTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RoutingProfileBehaviorType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RoutingProfileBehaviorTypePtrOutput struct{ *pulumi.OutputState }
+
+func (RoutingProfileBehaviorTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoutingProfileBehaviorType)(nil)).Elem()
+}
+
+func (o RoutingProfileBehaviorTypePtrOutput) ToRoutingProfileBehaviorTypePtrOutput() RoutingProfileBehaviorTypePtrOutput {
+	return o
+}
+
+func (o RoutingProfileBehaviorTypePtrOutput) ToRoutingProfileBehaviorTypePtrOutputWithContext(ctx context.Context) RoutingProfileBehaviorTypePtrOutput {
+	return o
+}
+
+func (o RoutingProfileBehaviorTypePtrOutput) Elem() RoutingProfileBehaviorTypeOutput {
+	return o.ApplyT(func(v *RoutingProfileBehaviorType) RoutingProfileBehaviorType {
+		if v != nil {
+			return *v
+		}
+		var ret RoutingProfileBehaviorType
+		return ret
+	}).(RoutingProfileBehaviorTypeOutput)
+}
+
+func (o RoutingProfileBehaviorTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RoutingProfileBehaviorTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RoutingProfileBehaviorType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RoutingProfileBehaviorTypeInput is an input type that accepts RoutingProfileBehaviorTypeArgs and RoutingProfileBehaviorTypeOutput values.
+// You can construct a concrete instance of `RoutingProfileBehaviorTypeInput` via:
+//
+//	RoutingProfileBehaviorTypeArgs{...}
+type RoutingProfileBehaviorTypeInput interface {
+	pulumi.Input
+
+	ToRoutingProfileBehaviorTypeOutput() RoutingProfileBehaviorTypeOutput
+	ToRoutingProfileBehaviorTypeOutputWithContext(context.Context) RoutingProfileBehaviorTypeOutput
+}
+
+var routingProfileBehaviorTypePtrType = reflect.TypeOf((**RoutingProfileBehaviorType)(nil)).Elem()
+
+type RoutingProfileBehaviorTypePtrInput interface {
+	pulumi.Input
+
+	ToRoutingProfileBehaviorTypePtrOutput() RoutingProfileBehaviorTypePtrOutput
+	ToRoutingProfileBehaviorTypePtrOutputWithContext(context.Context) RoutingProfileBehaviorTypePtrOutput
+}
+
+type routingProfileBehaviorTypePtr string
+
+func RoutingProfileBehaviorTypePtr(v string) RoutingProfileBehaviorTypePtrInput {
+	return (*routingProfileBehaviorTypePtr)(&v)
+}
+
+func (*routingProfileBehaviorTypePtr) ElementType() reflect.Type {
+	return routingProfileBehaviorTypePtrType
+}
+
+func (in *routingProfileBehaviorTypePtr) ToRoutingProfileBehaviorTypePtrOutput() RoutingProfileBehaviorTypePtrOutput {
+	return pulumi.ToOutput(in).(RoutingProfileBehaviorTypePtrOutput)
+}
+
+func (in *routingProfileBehaviorTypePtr) ToRoutingProfileBehaviorTypePtrOutputWithContext(ctx context.Context) RoutingProfileBehaviorTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RoutingProfileBehaviorTypePtrOutput)
+}
+
+// The channels that agents can handle in the Contact Control Panel (CCP).
+type RoutingProfileChannel string
+
+const (
+	RoutingProfileChannelVoice = RoutingProfileChannel("VOICE")
+	RoutingProfileChannelChat  = RoutingProfileChannel("CHAT")
+	RoutingProfileChannelTask  = RoutingProfileChannel("TASK")
+)
+
+func (RoutingProfileChannel) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoutingProfileChannel)(nil)).Elem()
+}
+
+func (e RoutingProfileChannel) ToRoutingProfileChannelOutput() RoutingProfileChannelOutput {
+	return pulumi.ToOutput(e).(RoutingProfileChannelOutput)
+}
+
+func (e RoutingProfileChannel) ToRoutingProfileChannelOutputWithContext(ctx context.Context) RoutingProfileChannelOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RoutingProfileChannelOutput)
+}
+
+func (e RoutingProfileChannel) ToRoutingProfileChannelPtrOutput() RoutingProfileChannelPtrOutput {
+	return e.ToRoutingProfileChannelPtrOutputWithContext(context.Background())
+}
+
+func (e RoutingProfileChannel) ToRoutingProfileChannelPtrOutputWithContext(ctx context.Context) RoutingProfileChannelPtrOutput {
+	return RoutingProfileChannel(e).ToRoutingProfileChannelOutputWithContext(ctx).ToRoutingProfileChannelPtrOutputWithContext(ctx)
+}
+
+func (e RoutingProfileChannel) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RoutingProfileChannel) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RoutingProfileChannel) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RoutingProfileChannel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RoutingProfileChannelOutput struct{ *pulumi.OutputState }
+
+func (RoutingProfileChannelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoutingProfileChannel)(nil)).Elem()
+}
+
+func (o RoutingProfileChannelOutput) ToRoutingProfileChannelOutput() RoutingProfileChannelOutput {
+	return o
+}
+
+func (o RoutingProfileChannelOutput) ToRoutingProfileChannelOutputWithContext(ctx context.Context) RoutingProfileChannelOutput {
+	return o
+}
+
+func (o RoutingProfileChannelOutput) ToRoutingProfileChannelPtrOutput() RoutingProfileChannelPtrOutput {
+	return o.ToRoutingProfileChannelPtrOutputWithContext(context.Background())
+}
+
+func (o RoutingProfileChannelOutput) ToRoutingProfileChannelPtrOutputWithContext(ctx context.Context) RoutingProfileChannelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RoutingProfileChannel) *RoutingProfileChannel {
+		return &v
+	}).(RoutingProfileChannelPtrOutput)
+}
+
+func (o RoutingProfileChannelOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RoutingProfileChannelOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RoutingProfileChannel) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RoutingProfileChannelOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RoutingProfileChannelOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RoutingProfileChannel) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RoutingProfileChannelPtrOutput struct{ *pulumi.OutputState }
+
+func (RoutingProfileChannelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoutingProfileChannel)(nil)).Elem()
+}
+
+func (o RoutingProfileChannelPtrOutput) ToRoutingProfileChannelPtrOutput() RoutingProfileChannelPtrOutput {
+	return o
+}
+
+func (o RoutingProfileChannelPtrOutput) ToRoutingProfileChannelPtrOutputWithContext(ctx context.Context) RoutingProfileChannelPtrOutput {
+	return o
+}
+
+func (o RoutingProfileChannelPtrOutput) Elem() RoutingProfileChannelOutput {
+	return o.ApplyT(func(v *RoutingProfileChannel) RoutingProfileChannel {
+		if v != nil {
+			return *v
+		}
+		var ret RoutingProfileChannel
+		return ret
+	}).(RoutingProfileChannelOutput)
+}
+
+func (o RoutingProfileChannelPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RoutingProfileChannelPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RoutingProfileChannel) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RoutingProfileChannelInput is an input type that accepts RoutingProfileChannelArgs and RoutingProfileChannelOutput values.
+// You can construct a concrete instance of `RoutingProfileChannelInput` via:
+//
+//	RoutingProfileChannelArgs{...}
+type RoutingProfileChannelInput interface {
+	pulumi.Input
+
+	ToRoutingProfileChannelOutput() RoutingProfileChannelOutput
+	ToRoutingProfileChannelOutputWithContext(context.Context) RoutingProfileChannelOutput
+}
+
+var routingProfileChannelPtrType = reflect.TypeOf((**RoutingProfileChannel)(nil)).Elem()
+
+type RoutingProfileChannelPtrInput interface {
+	pulumi.Input
+
+	ToRoutingProfileChannelPtrOutput() RoutingProfileChannelPtrOutput
+	ToRoutingProfileChannelPtrOutputWithContext(context.Context) RoutingProfileChannelPtrOutput
+}
+
+type routingProfileChannelPtr string
+
+func RoutingProfileChannelPtr(v string) RoutingProfileChannelPtrInput {
+	return (*routingProfileChannelPtr)(&v)
+}
+
+func (*routingProfileChannelPtr) ElementType() reflect.Type {
+	return routingProfileChannelPtrType
+}
+
+func (in *routingProfileChannelPtr) ToRoutingProfileChannelPtrOutput() RoutingProfileChannelPtrOutput {
+	return pulumi.ToOutput(in).(RoutingProfileChannelPtrOutput)
+}
+
+func (in *routingProfileChannelPtr) ToRoutingProfileChannelPtrOutputWithContext(ctx context.Context) RoutingProfileChannelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RoutingProfileChannelPtrOutput)
 }
 
 // The publish status of a rule, either draft or published.
@@ -4225,8 +4812,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceStorageConfigStorageTypePtrInput)(nil)).Elem(), InstanceStorageConfigStorageType("S3"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAssociationIntegrationTypeInput)(nil)).Elem(), IntegrationAssociationIntegrationType("LEX_BOT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAssociationIntegrationTypePtrInput)(nil)).Elem(), IntegrationAssociationIntegrationType("LEX_BOT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*QueueStatusInput)(nil)).Elem(), QueueStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*QueueStatusPtrInput)(nil)).Elem(), QueueStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectTypeInput)(nil)).Elem(), QuickConnectType("PHONE_NUMBER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectTypePtrInput)(nil)).Elem(), QuickConnectType("PHONE_NUMBER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingProfileBehaviorTypeInput)(nil)).Elem(), RoutingProfileBehaviorType("ROUTE_CURRENT_CHANNEL_ONLY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingProfileBehaviorTypePtrInput)(nil)).Elem(), RoutingProfileBehaviorType("ROUTE_CURRENT_CHANNEL_ONLY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingProfileChannelInput)(nil)).Elem(), RoutingProfileChannel("VOICE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingProfileChannelPtrInput)(nil)).Elem(), RoutingProfileChannel("VOICE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RulePublishStatusInput)(nil)).Elem(), RulePublishStatus("DRAFT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RulePublishStatusPtrInput)(nil)).Elem(), RulePublishStatus("DRAFT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleSendNotificationActionContentTypeInput)(nil)).Elem(), RuleSendNotificationActionContentType("PLAIN_TEXT"))
@@ -4277,8 +4870,16 @@ func init() {
 	pulumi.RegisterOutputType(InstanceStorageConfigStorageTypePtrOutput{})
 	pulumi.RegisterOutputType(IntegrationAssociationIntegrationTypeOutput{})
 	pulumi.RegisterOutputType(IntegrationAssociationIntegrationTypePtrOutput{})
+	pulumi.RegisterOutputType(QueueStatusOutput{})
+	pulumi.RegisterOutputType(QueueStatusPtrOutput{})
+	pulumi.RegisterOutputType(QueueTypeOutput{})
+	pulumi.RegisterOutputType(QueueTypePtrOutput{})
 	pulumi.RegisterOutputType(QuickConnectTypeOutput{})
 	pulumi.RegisterOutputType(QuickConnectTypePtrOutput{})
+	pulumi.RegisterOutputType(RoutingProfileBehaviorTypeOutput{})
+	pulumi.RegisterOutputType(RoutingProfileBehaviorTypePtrOutput{})
+	pulumi.RegisterOutputType(RoutingProfileChannelOutput{})
+	pulumi.RegisterOutputType(RoutingProfileChannelPtrOutput{})
 	pulumi.RegisterOutputType(RulePublishStatusOutput{})
 	pulumi.RegisterOutputType(RulePublishStatusPtrOutput{})
 	pulumi.RegisterOutputType(RuleSendNotificationActionContentTypeOutput{})

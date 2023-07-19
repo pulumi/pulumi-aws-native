@@ -34,18 +34,8 @@ type LookupApplicationResult struct {
 	AutoConfigurationEnabled *bool `pulumi:"autoConfigurationEnabled"`
 	// Indicates whether Application Insights can listen to CloudWatch events for the application resources.
 	CWEMonitorEnabled *bool `pulumi:"cWEMonitorEnabled"`
-	// The monitoring settings of the components.
-	ComponentMonitoringSettings []ApplicationComponentMonitoringSetting `pulumi:"componentMonitoringSettings"`
-	// The custom grouped components.
-	CustomComponents []ApplicationCustomComponent `pulumi:"customComponents"`
-	// The grouping type of the application
-	GroupingType *ApplicationGroupingType `pulumi:"groupingType"`
-	// The log pattern sets.
-	LogPatternSets []ApplicationLogPatternSet `pulumi:"logPatternSets"`
 	// When set to true, creates opsItems for any problems detected on an application.
 	OpsCenterEnabled *bool `pulumi:"opsCenterEnabled"`
-	// The SNS topic provided to Application Insights that is associated to the created opsItem.
-	OpsItemSNSTopicArn *string `pulumi:"opsItemSNSTopicArn"`
 	// The tags of Application Insights application.
 	Tags []ApplicationTag `pulumi:"tags"`
 }
@@ -101,36 +91,9 @@ func (o LookupApplicationResultOutput) CWEMonitorEnabled() pulumi.BoolPtrOutput 
 	return o.ApplyT(func(v LookupApplicationResult) *bool { return v.CWEMonitorEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The monitoring settings of the components.
-func (o LookupApplicationResultOutput) ComponentMonitoringSettings() ApplicationComponentMonitoringSettingArrayOutput {
-	return o.ApplyT(func(v LookupApplicationResult) []ApplicationComponentMonitoringSetting {
-		return v.ComponentMonitoringSettings
-	}).(ApplicationComponentMonitoringSettingArrayOutput)
-}
-
-// The custom grouped components.
-func (o LookupApplicationResultOutput) CustomComponents() ApplicationCustomComponentArrayOutput {
-	return o.ApplyT(func(v LookupApplicationResult) []ApplicationCustomComponent { return v.CustomComponents }).(ApplicationCustomComponentArrayOutput)
-}
-
-// The grouping type of the application
-func (o LookupApplicationResultOutput) GroupingType() ApplicationGroupingTypePtrOutput {
-	return o.ApplyT(func(v LookupApplicationResult) *ApplicationGroupingType { return v.GroupingType }).(ApplicationGroupingTypePtrOutput)
-}
-
-// The log pattern sets.
-func (o LookupApplicationResultOutput) LogPatternSets() ApplicationLogPatternSetArrayOutput {
-	return o.ApplyT(func(v LookupApplicationResult) []ApplicationLogPatternSet { return v.LogPatternSets }).(ApplicationLogPatternSetArrayOutput)
-}
-
 // When set to true, creates opsItems for any problems detected on an application.
 func (o LookupApplicationResultOutput) OpsCenterEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *bool { return v.OpsCenterEnabled }).(pulumi.BoolPtrOutput)
-}
-
-// The SNS topic provided to Application Insights that is associated to the created opsItem.
-func (o LookupApplicationResultOutput) OpsItemSNSTopicArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupApplicationResult) *string { return v.OpsItemSNSTopicArn }).(pulumi.StringPtrOutput)
 }
 
 // The tags of Application Insights application.

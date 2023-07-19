@@ -110,7 +110,7 @@
   "primaryIdentifier" : [ "/properties/Id" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "iam:GetRole", "iam:PassRole", "iot:RegisterCACertificate", "iot:DescribeCACertificate", "iot:ListTagsForResource" ]
+      "permissions" : [ "iam:GetRole", "iam:PassRole", "iot:RegisterCACertificate", "iot:DescribeCACertificate", "iot:TagResource", "iot:ListTagsForResource" ]
     },
     "read" : {
       "permissions" : [ "iot:DescribeCACertificate", "iot:ListTagsForResource" ]

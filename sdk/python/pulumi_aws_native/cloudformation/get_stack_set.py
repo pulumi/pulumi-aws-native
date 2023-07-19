@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetStackSetResult:
-    def __init__(__self__, administration_role_arn=None, auto_deployment=None, capabilities=None, description=None, execution_role_name=None, managed_execution=None, parameters=None, stack_instances_group=None, stack_set_id=None, tags=None, template_body=None):
+    def __init__(__self__, administration_role_arn=None, auto_deployment=None, capabilities=None, description=None, execution_role_name=None, managed_execution=None, parameters=None, stack_set_id=None, tags=None, template_body=None):
         if administration_role_arn and not isinstance(administration_role_arn, str):
             raise TypeError("Expected argument 'administration_role_arn' to be a str")
         pulumi.set(__self__, "administration_role_arn", administration_role_arn)
@@ -42,9 +42,6 @@ class GetStackSetResult:
         if parameters and not isinstance(parameters, list):
             raise TypeError("Expected argument 'parameters' to be a list")
         pulumi.set(__self__, "parameters", parameters)
-        if stack_instances_group and not isinstance(stack_instances_group, list):
-            raise TypeError("Expected argument 'stack_instances_group' to be a list")
-        pulumi.set(__self__, "stack_instances_group", stack_instances_group)
         if stack_set_id and not isinstance(stack_set_id, str):
             raise TypeError("Expected argument 'stack_set_id' to be a str")
         pulumi.set(__self__, "stack_set_id", stack_set_id)
@@ -112,14 +109,6 @@ class GetStackSetResult:
         return pulumi.get(self, "parameters")
 
     @property
-    @pulumi.getter(name="stackInstancesGroup")
-    def stack_instances_group(self) -> Optional[Sequence['outputs.StackSetStackInstances']]:
-        """
-        A group of stack instances with parameters in some specific accounts and regions.
-        """
-        return pulumi.get(self, "stack_instances_group")
-
-    @property
     @pulumi.getter(name="stackSetId")
     def stack_set_id(self) -> Optional[str]:
         """
@@ -157,7 +146,6 @@ class AwaitableGetStackSetResult(GetStackSetResult):
             execution_role_name=self.execution_role_name,
             managed_execution=self.managed_execution,
             parameters=self.parameters,
-            stack_instances_group=self.stack_instances_group,
             stack_set_id=self.stack_set_id,
             tags=self.tags,
             template_body=self.template_body)
@@ -184,7 +172,6 @@ def get_stack_set(stack_set_id: Optional[str] = None,
         execution_role_name=pulumi.get(__ret__, 'execution_role_name'),
         managed_execution=pulumi.get(__ret__, 'managed_execution'),
         parameters=pulumi.get(__ret__, 'parameters'),
-        stack_instances_group=pulumi.get(__ret__, 'stack_instances_group'),
         stack_set_id=pulumi.get(__ret__, 'stack_set_id'),
         tags=pulumi.get(__ret__, 'tags'),
         template_body=pulumi.get(__ret__, 'template_body'))

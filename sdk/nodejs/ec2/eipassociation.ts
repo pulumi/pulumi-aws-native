@@ -5,9 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::EC2::EIPAssociation
- *
- * @deprecated EIPAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+ * Resource schema for EC2 EIP association.
  */
 export class EIPAssociation extends pulumi.CustomResource {
     /**
@@ -19,7 +17,6 @@ export class EIPAssociation extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): EIPAssociation {
-        pulumi.log.warn("EIPAssociation is deprecated: EIPAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new EIPAssociation(name, undefined as any, { ...opts, id: id });
     }
 
@@ -37,10 +34,25 @@ export class EIPAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === EIPAssociation.__pulumiType;
     }
 
+    /**
+     * The allocation ID. This is required for EC2-VPC.
+     */
     public readonly allocationId!: pulumi.Output<string | undefined>;
+    /**
+     * The Elastic IP address to associate with the instance.
+     */
     public readonly eIP!: pulumi.Output<string | undefined>;
+    /**
+     * The ID of the instance.
+     */
     public readonly instanceId!: pulumi.Output<string | undefined>;
+    /**
+     * The ID of the network interface.
+     */
     public readonly networkInterfaceId!: pulumi.Output<string | undefined>;
+    /**
+     * The primary or secondary private IP address to associate with the Elastic IP address.
+     */
     public readonly privateIpAddress!: pulumi.Output<string | undefined>;
 
     /**
@@ -50,9 +62,7 @@ export class EIPAssociation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated EIPAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: EIPAssociationArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("EIPAssociation is deprecated: EIPAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -77,9 +87,24 @@ export class EIPAssociation extends pulumi.CustomResource {
  * The set of arguments for constructing a EIPAssociation resource.
  */
 export interface EIPAssociationArgs {
+    /**
+     * The allocation ID. This is required for EC2-VPC.
+     */
     allocationId?: pulumi.Input<string>;
+    /**
+     * The Elastic IP address to associate with the instance.
+     */
     eIP?: pulumi.Input<string>;
+    /**
+     * The ID of the instance.
+     */
     instanceId?: pulumi.Input<string>;
+    /**
+     * The ID of the network interface.
+     */
     networkInterfaceId?: pulumi.Input<string>;
+    /**
+     * The primary or secondary private IP address to associate with the Elastic IP address.
+     */
     privateIpAddress?: pulumi.Input<string>;
 }

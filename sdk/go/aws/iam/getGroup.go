@@ -27,11 +27,11 @@ type LookupGroupArgs struct {
 }
 
 type LookupGroupResult struct {
-	Arn               *string       `pulumi:"arn"`
-	Id                *string       `pulumi:"id"`
-	ManagedPolicyArns []string      `pulumi:"managedPolicyArns"`
-	Path              *string       `pulumi:"path"`
-	Policies          []GroupPolicy `pulumi:"policies"`
+	Arn               *string           `pulumi:"arn"`
+	Id                *string           `pulumi:"id"`
+	ManagedPolicyArns []string          `pulumi:"managedPolicyArns"`
+	Path              *string           `pulumi:"path"`
+	Policies          []GroupPolicyType `pulumi:"policies"`
 }
 
 func LookupGroupOutput(ctx *pulumi.Context, args LookupGroupOutputArgs, opts ...pulumi.InvokeOption) LookupGroupResultOutput {
@@ -85,8 +85,8 @@ func (o LookupGroupResultOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGroupResult) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupGroupResultOutput) Policies() GroupPolicyArrayOutput {
-	return o.ApplyT(func(v LookupGroupResult) []GroupPolicy { return v.Policies }).(GroupPolicyArrayOutput)
+func (o LookupGroupResultOutput) Policies() GroupPolicyTypeArrayOutput {
+	return o.ApplyT(func(v LookupGroupResult) []GroupPolicyType { return v.Policies }).(GroupPolicyTypeArrayOutput)
 }
 
 func init() {

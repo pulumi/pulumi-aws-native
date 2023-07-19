@@ -3518,8 +3518,9 @@ func (in *bucketRuleStatusPtr) ToBucketRuleStatusPtrOutputWithContext(ctx contex
 type BucketServerSideEncryptionByDefaultSSEAlgorithm string
 
 const (
-	BucketServerSideEncryptionByDefaultSSEAlgorithmAwskms = BucketServerSideEncryptionByDefaultSSEAlgorithm("aws:kms")
-	BucketServerSideEncryptionByDefaultSSEAlgorithmAes256 = BucketServerSideEncryptionByDefaultSSEAlgorithm("AES256")
+	BucketServerSideEncryptionByDefaultSSEAlgorithmAwskms     = BucketServerSideEncryptionByDefaultSSEAlgorithm("aws:kms")
+	BucketServerSideEncryptionByDefaultSSEAlgorithmAes256     = BucketServerSideEncryptionByDefaultSSEAlgorithm("AES256")
+	BucketServerSideEncryptionByDefaultSSEAlgorithmAwskmsdsse = BucketServerSideEncryptionByDefaultSSEAlgorithm("aws:kms:dsse")
 )
 
 func (BucketServerSideEncryptionByDefaultSSEAlgorithm) ElementType() reflect.Type {

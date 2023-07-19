@@ -34,7 +34,7 @@ type LookupUserResult struct {
 	ManagedPolicyArns   []string          `pulumi:"managedPolicyArns"`
 	Path                *string           `pulumi:"path"`
 	PermissionsBoundary *string           `pulumi:"permissionsBoundary"`
-	Policies            []UserPolicy      `pulumi:"policies"`
+	Policies            []UserPolicyType  `pulumi:"policies"`
 	Tags                []UserTag         `pulumi:"tags"`
 }
 
@@ -101,8 +101,8 @@ func (o LookupUserResultOutput) PermissionsBoundary() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupUserResult) *string { return v.PermissionsBoundary }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupUserResultOutput) Policies() UserPolicyArrayOutput {
-	return o.ApplyT(func(v LookupUserResult) []UserPolicy { return v.Policies }).(UserPolicyArrayOutput)
+func (o LookupUserResultOutput) Policies() UserPolicyTypeArrayOutput {
+	return o.ApplyT(func(v LookupUserResult) []UserPolicyType { return v.Policies }).(UserPolicyTypeArrayOutput)
 }
 
 func (o LookupUserResultOutput) Tags() UserTagArrayOutput {

@@ -47,16 +47,16 @@
   "additionalProperties" : false,
   "handlers" : {
     "create" : {
-      "permissions" : [ "resolverquerylogging:AssociateConfig", "resolverquerylogging:GetConfigAssociation" ]
+      "permissions" : [ "resolverquerylogging:AssociateConfig", "resolverquerylogging:GetConfigAssociation", "route53resolver:AssociateResolverQueryLogConfig", "ec2:DescribeVpcs", "route53resolver:GetResolverQueryLogConfigAssociation" ]
     },
     "read" : {
-      "permissions" : [ "resolverquerylogging:GetConfigAssociation" ]
+      "permissions" : [ "resolverquerylogging:GetConfigAssociation", "route53resolver:GetResolverQueryLogConfigAssociation" ]
     },
     "delete" : {
-      "permissions" : [ "resolverquerylogging:DisassociateConfig", "resolverquerylogging:ListConfigAssociation" ]
+      "permissions" : [ "resolverquerylogging:DisassociateConfig", "resolverquerylogging:ListConfigAssociation", "route53resolver:DisassociateResolverQueryLogConfig", "route53resolver:ListResolverQueryLogConfigAssociations", "route53resolver:GetResolverQueryLogConfigAssociation" ]
     },
     "list" : {
-      "permissions" : [ "resolverquerylogging:ListConfigAssociation" ]
+      "permissions" : [ "resolverquerylogging:ListConfigAssociations", "route53resolver:ListResolverQueryLogConfigAssociations" ]
     }
   }
 }

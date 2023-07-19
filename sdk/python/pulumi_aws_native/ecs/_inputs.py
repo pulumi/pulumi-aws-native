@@ -2858,21 +2858,17 @@ class TaskSetLoadBalancerArgs:
     def __init__(__self__, *,
                  container_name: Optional[pulumi.Input[str]] = None,
                  container_port: Optional[pulumi.Input[int]] = None,
-                 load_balancer_name: Optional[pulumi.Input[str]] = None,
                  target_group_arn: Optional[pulumi.Input[str]] = None):
         """
         A load balancer object representing the load balancer to use with the task set. The supported load balancer types are either an Application Load Balancer or a Network Load Balancer. 
         :param pulumi.Input[str] container_name: The name of the container (as it appears in a container definition) to associate with the load balancer.
         :param pulumi.Input[int] container_port: The port on the container to associate with the load balancer. This port must correspond to a containerPort in the task definition the tasks in the service are using. For tasks that use the EC2 launch type, the container instance they are launched on must allow ingress traffic on the hostPort of the port mapping.
-        :param pulumi.Input[str] load_balancer_name: The name of the load balancer to associate with the Amazon ECS service or task set. A load balancer name is only specified when using a Classic Load Balancer. If you are using an Application Load Balancer or a Network Load Balancer this should be omitted.
         :param pulumi.Input[str] target_group_arn: The full Amazon Resource Name (ARN) of the Elastic Load Balancing target group or groups associated with a service or task set. A target group ARN is only specified when using an Application Load Balancer or Network Load Balancer. If you are using a Classic Load Balancer this should be omitted. For services using the ECS deployment controller, you can specify one or multiple target groups. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/register-multiple-targetgroups.html in the Amazon Elastic Container Service Developer Guide. For services using the CODE_DEPLOY deployment controller, you are required to define two target groups for the load balancer. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-bluegreen.html in the Amazon Elastic Container Service Developer Guide. If your service's task definition uses the awsvpc network mode (which is required for the Fargate launch type), you must choose ip as the target type, not instance, when creating your target groups because tasks that use the awsvpc network mode are associated with an elastic network interface, not an Amazon EC2 instance.
         """
         if container_name is not None:
             pulumi.set(__self__, "container_name", container_name)
         if container_port is not None:
             pulumi.set(__self__, "container_port", container_port)
-        if load_balancer_name is not None:
-            pulumi.set(__self__, "load_balancer_name", load_balancer_name)
         if target_group_arn is not None:
             pulumi.set(__self__, "target_group_arn", target_group_arn)
 
@@ -2899,18 +2895,6 @@ class TaskSetLoadBalancerArgs:
     @container_port.setter
     def container_port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "container_port", value)
-
-    @property
-    @pulumi.getter(name="loadBalancerName")
-    def load_balancer_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the load balancer to associate with the Amazon ECS service or task set. A load balancer name is only specified when using a Classic Load Balancer. If you are using an Application Load Balancer or a Network Load Balancer this should be omitted.
-        """
-        return pulumi.get(self, "load_balancer_name")
-
-    @load_balancer_name.setter
-    def load_balancer_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "load_balancer_name", value)
 
     @property
     @pulumi.getter(name="targetGroupArn")

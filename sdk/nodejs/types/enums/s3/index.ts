@@ -225,6 +225,7 @@ export type BucketRuleStatus = (typeof BucketRuleStatus)[keyof typeof BucketRule
 export const BucketServerSideEncryptionByDefaultSSEAlgorithm = {
     Awskms: "aws:kms",
     Aes256: "AES256",
+    Awskmsdsse: "aws:kms:dsse",
 } as const;
 
 export type BucketServerSideEncryptionByDefaultSSEAlgorithm = (typeof BucketServerSideEncryptionByDefaultSSEAlgorithm)[keyof typeof BucketServerSideEncryptionByDefaultSSEAlgorithm];

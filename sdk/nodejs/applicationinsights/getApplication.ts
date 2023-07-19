@@ -39,29 +39,9 @@ export interface GetApplicationResult {
      */
     readonly cWEMonitorEnabled?: boolean;
     /**
-     * The monitoring settings of the components.
-     */
-    readonly componentMonitoringSettings?: outputs.applicationinsights.ApplicationComponentMonitoringSetting[];
-    /**
-     * The custom grouped components.
-     */
-    readonly customComponents?: outputs.applicationinsights.ApplicationCustomComponent[];
-    /**
-     * The grouping type of the application
-     */
-    readonly groupingType?: enums.applicationinsights.ApplicationGroupingType;
-    /**
-     * The log pattern sets.
-     */
-    readonly logPatternSets?: outputs.applicationinsights.ApplicationLogPatternSet[];
-    /**
      * When set to true, creates opsItems for any problems detected on an application.
      */
     readonly opsCenterEnabled?: boolean;
-    /**
-     * The SNS topic provided to Application Insights that is associated to the created opsItem.
-     */
-    readonly opsItemSNSTopicArn?: string;
     /**
      * The tags of Application Insights application.
      */

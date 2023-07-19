@@ -62,10 +62,6 @@ namespace Pulumi.AwsNative.S3
         /// </summary>
         public readonly Outputs.BucketAccelerateConfiguration? AccelerateConfiguration;
         /// <summary>
-        /// A canned access control list (ACL) that grants predefined permissions to the bucket.
-        /// </summary>
-        public readonly Pulumi.AwsNative.S3.BucketAccessControl? AccessControl;
-        /// <summary>
         /// The configuration and any analyses for the analytics filter of an Amazon S3 bucket.
         /// </summary>
         public readonly ImmutableArray<Outputs.BucketAnalyticsConfiguration> AnalyticsConfigurations;
@@ -142,8 +138,6 @@ namespace Pulumi.AwsNative.S3
         private GetBucketResult(
             Outputs.BucketAccelerateConfiguration? accelerateConfiguration,
 
-            Pulumi.AwsNative.S3.BucketAccessControl? accessControl,
-
             ImmutableArray<Outputs.BucketAnalyticsConfiguration> analyticsConfigurations,
 
             string? arn,
@@ -187,7 +181,6 @@ namespace Pulumi.AwsNative.S3
             string? websiteURL)
         {
             AccelerateConfiguration = accelerateConfiguration;
-            AccessControl = accessControl;
             AnalyticsConfigurations = analyticsConfigurations;
             Arn = arn;
             BucketEncryption = bucketEncryption;

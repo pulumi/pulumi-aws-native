@@ -80,10 +80,10 @@
       "permissions" : [ "vpc-lattice:CreateAccessLogSubscription", "vpc-lattice:TagResource", "vpc-lattice:GetAccessLogSubscription", "vpc-lattice:ListTagsForResource", "logs:CreateLogDelivery", "logs:CreateLogStream", "logs:PutDestination", "logs:PutDestinationPolicy", "logs:PutResourcePolicy", "logs:DescribeResourcePolicies", "logs:DescribeLogGroups", "logs:GetLogDelivery", "s3:PutBucketLogging", "s3:GetBucketLogging", "s3:GetBucketPolicy", "s3:PutBucketPolicy", "firehose:TagDeliveryStream", "firehose:CreateDeliveryStream", "firehose:DescribeDeliveryStream", "iam:CreateServiceLinkedRole" ]
     },
     "read" : {
-      "permissions" : [ "vpc-lattice:GetAccessLogSubscription", "vpc-lattice:ListTagsForResource" ]
+      "permissions" : [ "vpc-lattice:GetAccessLogSubscription", "vpc-lattice:ListTagsForResource", "logs:GetLogDelivery" ]
     },
     "update" : {
-      "permissions" : [ "vpc-lattice:GetAccessLogSubscription", "vpc-lattice:UpdateAccessLogSubscription", "logs:UpdateLogDelivery", "firehose:UpdateDestination", "vpc-lattice:TagResource", "vpc-lattice:UntagResource" ]
+      "permissions" : [ "vpc-lattice:GetAccessLogSubscription", "vpc-lattice:UpdateAccessLogSubscription", "vpc-lattice:TagResource", "vpc-lattice:UntagResource", "logs:UpdateLogDelivery", "firehose:UpdateDestination", "logs:CreateLogDelivery", "logs:CreateLogStream", "logs:PutDestination", "logs:PutDestinationPolicy", "logs:PutResourcePolicy", "logs:DescribeResourcePolicies", "logs:DescribeLogGroups", "logs:GetLogDelivery", "s3:PutBucketLogging", "s3:GetBucketLogging", "s3:GetBucketPolicy", "s3:PutBucketPolicy", "firehose:TagDeliveryStream", "firehose:CreateDeliveryStream", "firehose:DescribeDeliveryStream" ]
     },
     "delete" : {
       "permissions" : [ "vpc-lattice:DeleteAccessLogSubscription", "vpc-lattice:UntagResource", "logs:DeleteLogDelivery", "logs:DeleteLogStream", "logs:GetLogDelivery", "logs:DeleteDestination", "s3:PutBucketLogging", "iam:GetServiceLinkedRoleDeletionStatus", "iam:DeleteServiceLinkedRole", "firehose:DeleteDeliveryStream", "firehose:UntagDeliveryStream" ]

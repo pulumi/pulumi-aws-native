@@ -42,8 +42,6 @@ type LookupStackSetResult struct {
 	ManagedExecution *ManagedExecutionProperties `pulumi:"managedExecution"`
 	// The input parameters for the stack set template.
 	Parameters []StackSetParameter `pulumi:"parameters"`
-	// A group of stack instances with parameters in some specific accounts and regions.
-	StackInstancesGroup []StackSetStackInstances `pulumi:"stackInstancesGroup"`
 	// The ID of the stack set that you're creating.
 	StackSetId *string `pulumi:"stackSetId"`
 	// The key-value pairs to associate with this stack set and the stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the stacks. A maximum number of 50 tags can be specified.
@@ -121,11 +119,6 @@ func (o LookupStackSetResultOutput) ManagedExecution() ManagedExecutionPropertie
 // The input parameters for the stack set template.
 func (o LookupStackSetResultOutput) Parameters() StackSetParameterArrayOutput {
 	return o.ApplyT(func(v LookupStackSetResult) []StackSetParameter { return v.Parameters }).(StackSetParameterArrayOutput)
-}
-
-// A group of stack instances with parameters in some specific accounts and regions.
-func (o LookupStackSetResultOutput) StackInstancesGroup() StackSetStackInstancesArrayOutput {
-	return o.ApplyT(func(v LookupStackSetResult) []StackSetStackInstances { return v.StackInstancesGroup }).(StackSetStackInstancesArrayOutput)
 }
 
 // The ID of the stack set that you're creating.

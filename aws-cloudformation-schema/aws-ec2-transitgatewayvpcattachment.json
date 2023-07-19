@@ -82,7 +82,9 @@
   },
   "createOnlyProperties" : [ "/properties/TransitGatewayId", "/properties/SubnetIds", "/properties/VpcId" ],
   "required" : [ "SubnetIds", "VpcId", "TransitGatewayId" ],
-  "taggable" : true,
+  "tagging" : {
+    "taggable" : true
+  },
   "readOnlyProperties" : [ "/properties/Id" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "handlers" : {

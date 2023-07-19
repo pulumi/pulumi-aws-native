@@ -21,6 +21,11 @@ class EIPAssociationArgs:
                  private_ip_address: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a EIPAssociation resource.
+        :param pulumi.Input[str] allocation_id: The allocation ID. This is required for EC2-VPC.
+        :param pulumi.Input[str] e_ip: The Elastic IP address to associate with the instance.
+        :param pulumi.Input[str] instance_id: The ID of the instance.
+        :param pulumi.Input[str] network_interface_id: The ID of the network interface.
+        :param pulumi.Input[str] private_ip_address: The primary or secondary private IP address to associate with the Elastic IP address.
         """
         if allocation_id is not None:
             pulumi.set(__self__, "allocation_id", allocation_id)
@@ -36,6 +41,9 @@ class EIPAssociationArgs:
     @property
     @pulumi.getter(name="allocationId")
     def allocation_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The allocation ID. This is required for EC2-VPC.
+        """
         return pulumi.get(self, "allocation_id")
 
     @allocation_id.setter
@@ -45,6 +53,9 @@ class EIPAssociationArgs:
     @property
     @pulumi.getter(name="eIP")
     def e_ip(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Elastic IP address to associate with the instance.
+        """
         return pulumi.get(self, "e_ip")
 
     @e_ip.setter
@@ -54,6 +65,9 @@ class EIPAssociationArgs:
     @property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the instance.
+        """
         return pulumi.get(self, "instance_id")
 
     @instance_id.setter
@@ -63,6 +77,9 @@ class EIPAssociationArgs:
     @property
     @pulumi.getter(name="networkInterfaceId")
     def network_interface_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the network interface.
+        """
         return pulumi.get(self, "network_interface_id")
 
     @network_interface_id.setter
@@ -72,6 +89,9 @@ class EIPAssociationArgs:
     @property
     @pulumi.getter(name="privateIpAddress")
     def private_ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The primary or secondary private IP address to associate with the Elastic IP address.
+        """
         return pulumi.get(self, "private_ip_address")
 
     @private_ip_address.setter
@@ -79,12 +99,7 @@ class EIPAssociationArgs:
         pulumi.set(self, "private_ip_address", value)
 
 
-warnings.warn("""EIPAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class EIPAssociation(pulumi.CustomResource):
-    warnings.warn("""EIPAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -96,10 +111,15 @@ class EIPAssociation(pulumi.CustomResource):
                  private_ip_address: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::EC2::EIPAssociation
+        Resource schema for EC2 EIP association.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] allocation_id: The allocation ID. This is required for EC2-VPC.
+        :param pulumi.Input[str] e_ip: The Elastic IP address to associate with the instance.
+        :param pulumi.Input[str] instance_id: The ID of the instance.
+        :param pulumi.Input[str] network_interface_id: The ID of the network interface.
+        :param pulumi.Input[str] private_ip_address: The primary or secondary private IP address to associate with the Elastic IP address.
         """
         ...
     @overload
@@ -108,7 +128,7 @@ class EIPAssociation(pulumi.CustomResource):
                  args: Optional[EIPAssociationArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::EC2::EIPAssociation
+        Resource schema for EC2 EIP association.
 
         :param str resource_name: The name of the resource.
         :param EIPAssociationArgs args: The arguments to use to populate this resource's properties.
@@ -131,7 +151,6 @@ class EIPAssociation(pulumi.CustomResource):
                  network_interface_id: Optional[pulumi.Input[str]] = None,
                  private_ip_address: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""EIPAssociation is deprecated: EIPAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -177,25 +196,40 @@ class EIPAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="allocationId")
     def allocation_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The allocation ID. This is required for EC2-VPC.
+        """
         return pulumi.get(self, "allocation_id")
 
     @property
     @pulumi.getter(name="eIP")
     def e_ip(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Elastic IP address to associate with the instance.
+        """
         return pulumi.get(self, "e_ip")
 
     @property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the instance.
+        """
         return pulumi.get(self, "instance_id")
 
     @property
     @pulumi.getter(name="networkInterfaceId")
     def network_interface_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the network interface.
+        """
         return pulumi.get(self, "network_interface_id")
 
     @property
     @pulumi.getter(name="privateIpAddress")
     def private_ip_address(self) -> pulumi.Output[Optional[str]]:
+        """
+        The primary or secondary private IP address to associate with the Elastic IP address.
+        """
         return pulumi.get(self, "private_ip_address")
 

@@ -2,6 +2,24 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const AccountPolicyPolicyType = {
+    DataProtectionPolicy: "DATA_PROTECTION_POLICY",
+} as const;
+
+/**
+ * Type of the policy.
+ */
+export type AccountPolicyPolicyType = (typeof AccountPolicyPolicyType)[keyof typeof AccountPolicyPolicyType];
+
+export const AccountPolicyScope = {
+    All: "ALL",
+} as const;
+
+/**
+ * Scope for policy application
+ */
+export type AccountPolicyScope = (typeof AccountPolicyScope)[keyof typeof AccountPolicyScope];
+
 export const MetricFilterMetricTransformationUnit = {
     Seconds: "Seconds",
     Microseconds: "Microseconds",

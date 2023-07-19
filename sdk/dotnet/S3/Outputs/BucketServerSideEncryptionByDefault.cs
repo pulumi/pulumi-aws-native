@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.S3.Outputs
     public sealed class BucketServerSideEncryptionByDefault
     {
         /// <summary>
-        /// "KMSMasterKeyID" can only be used when you set the value of SSEAlgorithm as aws:kms.
+        /// "KMSMasterKeyID" can only be used when you set the value of SSEAlgorithm as aws:kms or aws:kms:dsse.
         /// </summary>
         public readonly string? KMSMasterKeyID;
         public readonly Pulumi.AwsNative.S3.BucketServerSideEncryptionByDefaultSSEAlgorithm SSEAlgorithm;

@@ -6838,7 +6838,7 @@ func (o BucketS3KeyFilterPtrOutput) Rules() BucketFilterRuleArrayOutput {
 
 // Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied.
 type BucketServerSideEncryptionByDefault struct {
-	// "KMSMasterKeyID" can only be used when you set the value of SSEAlgorithm as aws:kms.
+	// "KMSMasterKeyID" can only be used when you set the value of SSEAlgorithm as aws:kms or aws:kms:dsse.
 	KMSMasterKeyID *string                                         `pulumi:"kMSMasterKeyID"`
 	SSEAlgorithm   BucketServerSideEncryptionByDefaultSSEAlgorithm `pulumi:"sSEAlgorithm"`
 }
@@ -6856,7 +6856,7 @@ type BucketServerSideEncryptionByDefaultInput interface {
 
 // Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied.
 type BucketServerSideEncryptionByDefaultArgs struct {
-	// "KMSMasterKeyID" can only be used when you set the value of SSEAlgorithm as aws:kms.
+	// "KMSMasterKeyID" can only be used when you set the value of SSEAlgorithm as aws:kms or aws:kms:dsse.
 	KMSMasterKeyID pulumi.StringPtrInput                                `pulumi:"kMSMasterKeyID"`
 	SSEAlgorithm   BucketServerSideEncryptionByDefaultSSEAlgorithmInput `pulumi:"sSEAlgorithm"`
 }
@@ -6939,7 +6939,7 @@ func (o BucketServerSideEncryptionByDefaultOutput) ToBucketServerSideEncryptionB
 	}).(BucketServerSideEncryptionByDefaultPtrOutput)
 }
 
-// "KMSMasterKeyID" can only be used when you set the value of SSEAlgorithm as aws:kms.
+// "KMSMasterKeyID" can only be used when you set the value of SSEAlgorithm as aws:kms or aws:kms:dsse.
 func (o BucketServerSideEncryptionByDefaultOutput) KMSMasterKeyID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketServerSideEncryptionByDefault) *string { return v.KMSMasterKeyID }).(pulumi.StringPtrOutput)
 }
@@ -6974,7 +6974,7 @@ func (o BucketServerSideEncryptionByDefaultPtrOutput) Elem() BucketServerSideEnc
 	}).(BucketServerSideEncryptionByDefaultOutput)
 }
 
-// "KMSMasterKeyID" can only be used when you set the value of SSEAlgorithm as aws:kms.
+// "KMSMasterKeyID" can only be used when you set the value of SSEAlgorithm as aws:kms or aws:kms:dsse.
 func (o BucketServerSideEncryptionByDefaultPtrOutput) KMSMasterKeyID() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketServerSideEncryptionByDefault) *string {
 		if v == nil {

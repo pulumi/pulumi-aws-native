@@ -45,6 +45,7 @@ __all__ = [
     'JobDefinitionPodProperties',
     'JobDefinitionResourceRequirement',
     'JobDefinitionRetryStrategy',
+    'JobDefinitionRuntimePlatform',
     'JobDefinitionSecret',
     'JobDefinitionTimeout',
     'JobDefinitionTmpfs',
@@ -493,6 +494,8 @@ class JobDefinitionContainerProperties(dict):
             suggest = "readonly_root_filesystem"
         elif key == "resourceRequirements":
             suggest = "resource_requirements"
+        elif key == "runtimePlatform":
+            suggest = "runtime_platform"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in JobDefinitionContainerProperties. Access the value via the '{suggest}' property getter instead.")
@@ -522,6 +525,7 @@ class JobDefinitionContainerProperties(dict):
                  privileged: Optional[bool] = None,
                  readonly_root_filesystem: Optional[bool] = None,
                  resource_requirements: Optional[Sequence['outputs.JobDefinitionResourceRequirement']] = None,
+                 runtime_platform: Optional['outputs.JobDefinitionRuntimePlatform'] = None,
                  secrets: Optional[Sequence['outputs.JobDefinitionSecret']] = None,
                  ulimits: Optional[Sequence['outputs.JobDefinitionUlimit']] = None,
                  user: Optional[str] = None,
@@ -558,6 +562,8 @@ class JobDefinitionContainerProperties(dict):
             pulumi.set(__self__, "readonly_root_filesystem", readonly_root_filesystem)
         if resource_requirements is not None:
             pulumi.set(__self__, "resource_requirements", resource_requirements)
+        if runtime_platform is not None:
+            pulumi.set(__self__, "runtime_platform", runtime_platform)
         if secrets is not None:
             pulumi.set(__self__, "secrets", secrets)
         if ulimits is not None:
@@ -648,6 +654,11 @@ class JobDefinitionContainerProperties(dict):
     @pulumi.getter(name="resourceRequirements")
     def resource_requirements(self) -> Optional[Sequence['outputs.JobDefinitionResourceRequirement']]:
         return pulumi.get(self, "resource_requirements")
+
+    @property
+    @pulumi.getter(name="runtimePlatform")
+    def runtime_platform(self) -> Optional['outputs.JobDefinitionRuntimePlatform']:
+        return pulumi.get(self, "runtime_platform")
 
     @property
     @pulumi.getter
@@ -1785,6 +1796,46 @@ class JobDefinitionRetryStrategy(dict):
     @pulumi.getter(name="evaluateOnExit")
     def evaluate_on_exit(self) -> Optional[Sequence['outputs.JobDefinitionEvaluateOnExit']]:
         return pulumi.get(self, "evaluate_on_exit")
+
+
+@pulumi.output_type
+class JobDefinitionRuntimePlatform(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cpuArchitecture":
+            suggest = "cpu_architecture"
+        elif key == "operatingSystemFamily":
+            suggest = "operating_system_family"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobDefinitionRuntimePlatform. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobDefinitionRuntimePlatform.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobDefinitionRuntimePlatform.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cpu_architecture: Optional[str] = None,
+                 operating_system_family: Optional[str] = None):
+        if cpu_architecture is not None:
+            pulumi.set(__self__, "cpu_architecture", cpu_architecture)
+        if operating_system_family is not None:
+            pulumi.set(__self__, "operating_system_family", operating_system_family)
+
+    @property
+    @pulumi.getter(name="cpuArchitecture")
+    def cpu_architecture(self) -> Optional[str]:
+        return pulumi.get(self, "cpu_architecture")
+
+    @property
+    @pulumi.getter(name="operatingSystemFamily")
+    def operating_system_family(self) -> Optional[str]:
+        return pulumi.get(self, "operating_system_family")
 
 
 @pulumi.output_type

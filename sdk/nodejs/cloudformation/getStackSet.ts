@@ -55,10 +55,6 @@ export interface GetStackSetResult {
      */
     readonly parameters?: outputs.cloudformation.StackSetParameter[];
     /**
-     * A group of stack instances with parameters in some specific accounts and regions.
-     */
-    readonly stackInstancesGroup?: outputs.cloudformation.StackSetStackInstances[];
-    /**
      * The ID of the stack set that you're creating.
      */
     readonly stackSetId?: string;

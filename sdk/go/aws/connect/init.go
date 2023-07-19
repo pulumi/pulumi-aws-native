@@ -41,8 +41,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &PhoneNumber{}
 	case "aws-native:connect:Prompt":
 		r = &Prompt{}
+	case "aws-native:connect:Queue":
+		r = &Queue{}
 	case "aws-native:connect:QuickConnect":
 		r = &QuickConnect{}
+	case "aws-native:connect:RoutingProfile":
+		r = &RoutingProfile{}
 	case "aws-native:connect:Rule":
 		r = &Rule{}
 	case "aws-native:connect:SecurityKey":

@@ -94,7 +94,7 @@
       "permissions" : [ "codedeploy:GetDeploymentConfig" ]
     },
     "delete" : {
-      "permissions" : [ "codedeploy:DeleteDeploymentConfig" ]
+      "permissions" : [ "codedeploy:GetDeploymentConfig", "codedeploy:DeleteDeploymentConfig" ]
     },
     "list" : {
       "permissions" : [ "codedeploy:ListDeploymentConfigs" ]

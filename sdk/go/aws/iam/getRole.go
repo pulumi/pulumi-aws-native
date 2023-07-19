@@ -41,7 +41,7 @@ type LookupRoleResult struct {
 	// The ARN of the policy used to set the permissions boundary for the role.
 	PermissionsBoundary *string `pulumi:"permissionsBoundary"`
 	// Adds or updates an inline policy document that is embedded in the specified IAM role.
-	Policies []RolePolicy `pulumi:"policies"`
+	Policies []RolePolicyType `pulumi:"policies"`
 	// The stable and unique string identifying the role.
 	RoleId *string `pulumi:"roleId"`
 	// A list of tags that are attached to the role.
@@ -115,8 +115,8 @@ func (o LookupRoleResultOutput) PermissionsBoundary() pulumi.StringPtrOutput {
 }
 
 // Adds or updates an inline policy document that is embedded in the specified IAM role.
-func (o LookupRoleResultOutput) Policies() RolePolicyArrayOutput {
-	return o.ApplyT(func(v LookupRoleResult) []RolePolicy { return v.Policies }).(RolePolicyArrayOutput)
+func (o LookupRoleResultOutput) Policies() RolePolicyTypeArrayOutput {
+	return o.ApplyT(func(v LookupRoleResult) []RolePolicyType { return v.Policies }).(RolePolicyTypeArrayOutput)
 }
 
 // The stable and unique string identifying the role.

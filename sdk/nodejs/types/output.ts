@@ -4836,6 +4836,7 @@ export namespace batch {
         privileged?: boolean;
         readonlyRootFilesystem?: boolean;
         resourceRequirements?: outputs.batch.JobDefinitionResourceRequirement[];
+        runtimePlatform?: outputs.batch.JobDefinitionRuntimePlatform;
         secrets?: outputs.batch.JobDefinitionSecret[];
         ulimits?: outputs.batch.JobDefinitionUlimit[];
         user?: string;
@@ -4995,6 +4996,11 @@ export namespace batch {
     export interface JobDefinitionRetryStrategy {
         attempts?: number;
         evaluateOnExit?: outputs.batch.JobDefinitionEvaluateOnExit[];
+    }
+
+    export interface JobDefinitionRuntimePlatform {
+        cpuArchitecture?: string;
+        operatingSystemFamily?: string;
     }
 
     export interface JobDefinitionSecret {
@@ -8535,6 +8541,23 @@ export namespace connect {
     }
 
     /**
+     * The outbound caller ID name, number, and outbound whisper flow.
+     */
+    export interface QueueOutboundCallerConfig {
+        outboundCallerIdName?: string;
+        outboundCallerIdNumberArn?: string;
+        outboundFlowArn?: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface QueueTag {
+        key: string;
+        value: string;
+    }
+
+    /**
      * Configuration settings for the quick connect.
      */
     export interface QuickConnectConfig {
@@ -8579,6 +8602,53 @@ export namespace connect {
     export interface QuickConnectUserQuickConnectConfig {
         contactFlowArn: string;
         userArn: string;
+    }
+
+    /**
+     * Defines the cross-channel routing behavior that allows an agent working on a contact in one channel to be offered a contact from a different channel.
+     */
+    export interface RoutingProfileCrossChannelBehavior {
+        behaviorType: enums.connect.RoutingProfileBehaviorType;
+    }
+
+    /**
+     * Contains information about which channels are supported, and how many contacts an agent can have on a channel simultaneously.
+     */
+    export interface RoutingProfileMediaConcurrency {
+        channel: enums.connect.RoutingProfileChannel;
+        concurrency: number;
+        crossChannelBehavior?: outputs.connect.RoutingProfileCrossChannelBehavior;
+    }
+
+    /**
+     * Contains information about the queue and channel for which priority and delay can be set.
+     */
+    export interface RoutingProfileQueueConfig {
+        delay: number;
+        priority: number;
+        queueReference: outputs.connect.RoutingProfileQueueReference;
+    }
+
+    /**
+     * Contains the channel and queue identifier for a routing profile.
+     */
+    export interface RoutingProfileQueueReference {
+        channel: enums.connect.RoutingProfileChannel;
+        queueArn: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface RoutingProfileTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
     }
 
     /**
@@ -13873,10 +13943,6 @@ export namespace ecs {
          */
         containerPort?: number;
         /**
-         * The name of the load balancer to associate with the Amazon ECS service or task set. A load balancer name is only specified when using a Classic Load Balancer. If you are using an Application Load Balancer or a Network Load Balancer this should be omitted.
-         */
-        loadBalancerName?: string;
-        /**
          * The full Amazon Resource Name (ARN) of the Elastic Load Balancing target group or groups associated with a service or task set. A target group ARN is only specified when using an Application Load Balancer or Network Load Balancer. If you are using a Classic Load Balancer this should be omitted. For services using the ECS deployment controller, you can specify one or multiple target groups. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/register-multiple-targetgroups.html in the Amazon Elastic Container Service Developer Guide. For services using the CODE_DEPLOY deployment controller, you are required to define two target groups for the load balancer. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-bluegreen.html in the Amazon Elastic Container Service Developer Guide. If your service's task definition uses the awsvpc network mode (which is required for the Fargate launch type), you must choose ip as the target type, not instance, when creating your target groups because tasks that use the awsvpc network mode are associated with an elastic network interface, not an Amazon EC2 instance.
          */
         targetGroupArn?: string;
@@ -16634,60 +16700,6 @@ export namespace fsx {
         id: number;
         storageCapacityQuotaGiB: number;
         type: string;
-    }
-
-}
-
-export namespace gamecast {
-    /**
-     * Runtime environment is a combination of Windows compatibility layer and other graphics libraries used to run the application.
-     */
-    export interface ApplicationRuntimeEnvironment {
-        type: enums.gamecast.ApplicationRuntimeEnvironmentType;
-        /**
-         * Versioned container environment used to run customer game. Each runtime fixed version of the Windows
-         * compatibility layer to provide a stable game performance. Refer to Motif public docs to see which wine, mesa, vulkan
-         * versions are used in which Motif runtime environment version.
-         */
-        version: string;
-    }
-
-    /**
-     * Application save configuration
-     */
-    export interface ApplicationSaveConfiguration {
-        /**
-         * A list of save file, registry key or log paths that are absolute paths that store game save files when the games
-         * are running on a Windows environment.
-         */
-        fileLocations?: string[];
-        /**
-         * A list of save file, registry key or log paths that are absolute paths that store game save files when the games
-         * are running on a Windows environment.
-         */
-        registryLocations?: string[];
-    }
-
-    /**
-     * Common AWS tags for supporting resource tagging and tag-based resource authorization. The maximum number of tags is 50.
-     */
-    export interface ApplicationTags {
-    }
-
-    /**
-     * Information about default application running on the stream group.
-     */
-    export interface StreamGroupDefaultApplication {
-        /**
-         * GameCast resource ID, base62 encoded.
-         */
-        id?: string;
-    }
-
-    /**
-     * Common AWS tags for supporting resource tagging and tag-based resource authorization. The maximum number of tags is 50.
-     */
-    export interface StreamGroupTags {
     }
 
 }
@@ -44177,7 +44189,7 @@ export namespace s3 {
      */
     export interface BucketServerSideEncryptionByDefault {
         /**
-         * "KMSMasterKeyID" can only be used when you set the value of SSEAlgorithm as aws:kms.
+         * "KMSMasterKeyID" can only be used when you set the value of SSEAlgorithm as aws:kms or aws:kms:dsse.
          */
         kMSMasterKeyID?: string;
         sSEAlgorithm: enums.s3.BucketServerSideEncryptionByDefaultSSEAlgorithm;

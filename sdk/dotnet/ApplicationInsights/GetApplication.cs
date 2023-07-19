@@ -70,29 +70,9 @@ namespace Pulumi.AwsNative.ApplicationInsights
         /// </summary>
         public readonly bool? CWEMonitorEnabled;
         /// <summary>
-        /// The monitoring settings of the components.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationComponentMonitoringSetting> ComponentMonitoringSettings;
-        /// <summary>
-        /// The custom grouped components.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationCustomComponent> CustomComponents;
-        /// <summary>
-        /// The grouping type of the application
-        /// </summary>
-        public readonly Pulumi.AwsNative.ApplicationInsights.ApplicationGroupingType? GroupingType;
-        /// <summary>
-        /// The log pattern sets.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationLogPatternSet> LogPatternSets;
-        /// <summary>
         /// When set to true, creates opsItems for any problems detected on an application.
         /// </summary>
         public readonly bool? OpsCenterEnabled;
-        /// <summary>
-        /// The SNS topic provided to Application Insights that is associated to the created opsItem.
-        /// </summary>
-        public readonly string? OpsItemSNSTopicArn;
         /// <summary>
         /// The tags of Application Insights application.
         /// </summary>
@@ -106,29 +86,14 @@ namespace Pulumi.AwsNative.ApplicationInsights
 
             bool? cWEMonitorEnabled,
 
-            ImmutableArray<Outputs.ApplicationComponentMonitoringSetting> componentMonitoringSettings,
-
-            ImmutableArray<Outputs.ApplicationCustomComponent> customComponents,
-
-            Pulumi.AwsNative.ApplicationInsights.ApplicationGroupingType? groupingType,
-
-            ImmutableArray<Outputs.ApplicationLogPatternSet> logPatternSets,
-
             bool? opsCenterEnabled,
-
-            string? opsItemSNSTopicArn,
 
             ImmutableArray<Outputs.ApplicationTag> tags)
         {
             ApplicationARN = applicationARN;
             AutoConfigurationEnabled = autoConfigurationEnabled;
             CWEMonitorEnabled = cWEMonitorEnabled;
-            ComponentMonitoringSettings = componentMonitoringSettings;
-            CustomComponents = customComponents;
-            GroupingType = groupingType;
-            LogPatternSets = logPatternSets;
             OpsCenterEnabled = opsCenterEnabled;
-            OpsItemSNSTopicArn = opsItemSNSTopicArn;
             Tags = tags;
         }
     }

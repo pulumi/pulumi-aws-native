@@ -20,13 +20,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetBucketResult:
-    def __init__(__self__, accelerate_configuration=None, access_control=None, analytics_configurations=None, arn=None, bucket_encryption=None, cors_configuration=None, domain_name=None, dual_stack_domain_name=None, intelligent_tiering_configurations=None, inventory_configurations=None, lifecycle_configuration=None, logging_configuration=None, metrics_configurations=None, notification_configuration=None, object_lock_configuration=None, ownership_controls=None, public_access_block_configuration=None, regional_domain_name=None, replication_configuration=None, tags=None, versioning_configuration=None, website_configuration=None, website_url=None):
+    def __init__(__self__, accelerate_configuration=None, analytics_configurations=None, arn=None, bucket_encryption=None, cors_configuration=None, domain_name=None, dual_stack_domain_name=None, intelligent_tiering_configurations=None, inventory_configurations=None, lifecycle_configuration=None, logging_configuration=None, metrics_configurations=None, notification_configuration=None, object_lock_configuration=None, ownership_controls=None, public_access_block_configuration=None, regional_domain_name=None, replication_configuration=None, tags=None, versioning_configuration=None, website_configuration=None, website_url=None):
         if accelerate_configuration and not isinstance(accelerate_configuration, dict):
             raise TypeError("Expected argument 'accelerate_configuration' to be a dict")
         pulumi.set(__self__, "accelerate_configuration", accelerate_configuration)
-        if access_control and not isinstance(access_control, str):
-            raise TypeError("Expected argument 'access_control' to be a str")
-        pulumi.set(__self__, "access_control", access_control)
         if analytics_configurations and not isinstance(analytics_configurations, list):
             raise TypeError("Expected argument 'analytics_configurations' to be a list")
         pulumi.set(__self__, "analytics_configurations", analytics_configurations)
@@ -98,14 +95,6 @@ class GetBucketResult:
         Configuration for the transfer acceleration state.
         """
         return pulumi.get(self, "accelerate_configuration")
-
-    @property
-    @pulumi.getter(name="accessControl")
-    def access_control(self) -> Optional['BucketAccessControl']:
-        """
-        A canned access control list (ACL) that grants predefined permissions to the bucket.
-        """
-        return pulumi.get(self, "access_control")
 
     @property
     @pulumi.getter(name="analyticsConfigurations")
@@ -271,7 +260,6 @@ class AwaitableGetBucketResult(GetBucketResult):
             yield self
         return GetBucketResult(
             accelerate_configuration=self.accelerate_configuration,
-            access_control=self.access_control,
             analytics_configurations=self.analytics_configurations,
             arn=self.arn,
             bucket_encryption=self.bucket_encryption,
@@ -310,7 +298,6 @@ def get_bucket(bucket_name: Optional[str] = None,
 
     return AwaitableGetBucketResult(
         accelerate_configuration=pulumi.get(__ret__, 'accelerate_configuration'),
-        access_control=pulumi.get(__ret__, 'access_control'),
         analytics_configurations=pulumi.get(__ret__, 'analytics_configurations'),
         arn=pulumi.get(__ret__, 'arn'),
         bucket_encryption=pulumi.get(__ret__, 'bucket_encryption'),

@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.S3.Inputs
     public sealed class BucketServerSideEncryptionByDefaultArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// "KMSMasterKeyID" can only be used when you set the value of SSEAlgorithm as aws:kms.
+        /// "KMSMasterKeyID" can only be used when you set the value of SSEAlgorithm as aws:kms or aws:kms:dsse.
         /// </summary>
         [Input("kMSMasterKeyID")]
         public Input<string>? KMSMasterKeyID { get; set; }

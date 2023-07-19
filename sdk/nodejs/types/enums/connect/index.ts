@@ -208,6 +208,26 @@ export const IntegrationAssociationIntegrationType = {
  */
 export type IntegrationAssociationIntegrationType = (typeof IntegrationAssociationIntegrationType)[keyof typeof IntegrationAssociationIntegrationType];
 
+export const QueueStatus = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * The status of the queue.
+ */
+export type QueueStatus = (typeof QueueStatus)[keyof typeof QueueStatus];
+
+export const QueueType = {
+    Standard: "STANDARD",
+    Agent: "AGENT",
+} as const;
+
+/**
+ * The type of queue.
+ */
+export type QueueType = (typeof QueueType)[keyof typeof QueueType];
+
 export const QuickConnectType = {
     PhoneNumber: "PHONE_NUMBER",
     Queue: "QUEUE",
@@ -218,6 +238,27 @@ export const QuickConnectType = {
  * The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
  */
 export type QuickConnectType = (typeof QuickConnectType)[keyof typeof QuickConnectType];
+
+export const RoutingProfileBehaviorType = {
+    RouteCurrentChannelOnly: "ROUTE_CURRENT_CHANNEL_ONLY",
+    RouteAnyChannel: "ROUTE_ANY_CHANNEL",
+} as const;
+
+/**
+ * Specifies the other channels that can be routed to an agent handling their current channel.
+ */
+export type RoutingProfileBehaviorType = (typeof RoutingProfileBehaviorType)[keyof typeof RoutingProfileBehaviorType];
+
+export const RoutingProfileChannel = {
+    Voice: "VOICE",
+    Chat: "CHAT",
+    Task: "TASK",
+} as const;
+
+/**
+ * The channels that agents can handle in the Contact Control Panel (CCP).
+ */
+export type RoutingProfileChannel = (typeof RoutingProfileChannel)[keyof typeof RoutingProfileChannel];
 
 export const RulePublishStatus = {
     Draft: "DRAFT",

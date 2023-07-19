@@ -1139,6 +1139,7 @@ type JobDefinitionContainerProperties struct {
 	Privileged                   *bool                                      `pulumi:"privileged"`
 	ReadonlyRootFilesystem       *bool                                      `pulumi:"readonlyRootFilesystem"`
 	ResourceRequirements         []JobDefinitionResourceRequirement         `pulumi:"resourceRequirements"`
+	RuntimePlatform              *JobDefinitionRuntimePlatform              `pulumi:"runtimePlatform"`
 	Secrets                      []JobDefinitionSecret                      `pulumi:"secrets"`
 	Ulimits                      []JobDefinitionUlimit                      `pulumi:"ulimits"`
 	User                         *string                                    `pulumi:"user"`
@@ -1174,6 +1175,7 @@ type JobDefinitionContainerPropertiesArgs struct {
 	Privileged                   pulumi.BoolPtrInput                               `pulumi:"privileged"`
 	ReadonlyRootFilesystem       pulumi.BoolPtrInput                               `pulumi:"readonlyRootFilesystem"`
 	ResourceRequirements         JobDefinitionResourceRequirementArrayInput        `pulumi:"resourceRequirements"`
+	RuntimePlatform              JobDefinitionRuntimePlatformPtrInput              `pulumi:"runtimePlatform"`
 	Secrets                      JobDefinitionSecretArrayInput                     `pulumi:"secrets"`
 	Ulimits                      JobDefinitionUlimitArrayInput                     `pulumi:"ulimits"`
 	User                         pulumi.StringPtrInput                             `pulumi:"user"`
@@ -1326,6 +1328,10 @@ func (o JobDefinitionContainerPropertiesOutput) ResourceRequirements() JobDefini
 	return o.ApplyT(func(v JobDefinitionContainerProperties) []JobDefinitionResourceRequirement {
 		return v.ResourceRequirements
 	}).(JobDefinitionResourceRequirementArrayOutput)
+}
+
+func (o JobDefinitionContainerPropertiesOutput) RuntimePlatform() JobDefinitionRuntimePlatformPtrOutput {
+	return o.ApplyT(func(v JobDefinitionContainerProperties) *JobDefinitionRuntimePlatform { return v.RuntimePlatform }).(JobDefinitionRuntimePlatformPtrOutput)
 }
 
 func (o JobDefinitionContainerPropertiesOutput) Secrets() JobDefinitionSecretArrayOutput {
@@ -1514,6 +1520,15 @@ func (o JobDefinitionContainerPropertiesPtrOutput) ResourceRequirements() JobDef
 		}
 		return v.ResourceRequirements
 	}).(JobDefinitionResourceRequirementArrayOutput)
+}
+
+func (o JobDefinitionContainerPropertiesPtrOutput) RuntimePlatform() JobDefinitionRuntimePlatformPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionContainerProperties) *JobDefinitionRuntimePlatform {
+		if v == nil {
+			return nil
+		}
+		return v.RuntimePlatform
+	}).(JobDefinitionRuntimePlatformPtrOutput)
 }
 
 func (o JobDefinitionContainerPropertiesPtrOutput) Secrets() JobDefinitionSecretArrayOutput {
@@ -5165,6 +5180,154 @@ func (o JobDefinitionRetryStrategyPtrOutput) EvaluateOnExit() JobDefinitionEvalu
 	}).(JobDefinitionEvaluateOnExitArrayOutput)
 }
 
+type JobDefinitionRuntimePlatform struct {
+	CpuArchitecture       *string `pulumi:"cpuArchitecture"`
+	OperatingSystemFamily *string `pulumi:"operatingSystemFamily"`
+}
+
+// JobDefinitionRuntimePlatformInput is an input type that accepts JobDefinitionRuntimePlatformArgs and JobDefinitionRuntimePlatformOutput values.
+// You can construct a concrete instance of `JobDefinitionRuntimePlatformInput` via:
+//
+//	JobDefinitionRuntimePlatformArgs{...}
+type JobDefinitionRuntimePlatformInput interface {
+	pulumi.Input
+
+	ToJobDefinitionRuntimePlatformOutput() JobDefinitionRuntimePlatformOutput
+	ToJobDefinitionRuntimePlatformOutputWithContext(context.Context) JobDefinitionRuntimePlatformOutput
+}
+
+type JobDefinitionRuntimePlatformArgs struct {
+	CpuArchitecture       pulumi.StringPtrInput `pulumi:"cpuArchitecture"`
+	OperatingSystemFamily pulumi.StringPtrInput `pulumi:"operatingSystemFamily"`
+}
+
+func (JobDefinitionRuntimePlatformArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionRuntimePlatform)(nil)).Elem()
+}
+
+func (i JobDefinitionRuntimePlatformArgs) ToJobDefinitionRuntimePlatformOutput() JobDefinitionRuntimePlatformOutput {
+	return i.ToJobDefinitionRuntimePlatformOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionRuntimePlatformArgs) ToJobDefinitionRuntimePlatformOutputWithContext(ctx context.Context) JobDefinitionRuntimePlatformOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionRuntimePlatformOutput)
+}
+
+func (i JobDefinitionRuntimePlatformArgs) ToJobDefinitionRuntimePlatformPtrOutput() JobDefinitionRuntimePlatformPtrOutput {
+	return i.ToJobDefinitionRuntimePlatformPtrOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionRuntimePlatformArgs) ToJobDefinitionRuntimePlatformPtrOutputWithContext(ctx context.Context) JobDefinitionRuntimePlatformPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionRuntimePlatformOutput).ToJobDefinitionRuntimePlatformPtrOutputWithContext(ctx)
+}
+
+// JobDefinitionRuntimePlatformPtrInput is an input type that accepts JobDefinitionRuntimePlatformArgs, JobDefinitionRuntimePlatformPtr and JobDefinitionRuntimePlatformPtrOutput values.
+// You can construct a concrete instance of `JobDefinitionRuntimePlatformPtrInput` via:
+//
+//	        JobDefinitionRuntimePlatformArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobDefinitionRuntimePlatformPtrInput interface {
+	pulumi.Input
+
+	ToJobDefinitionRuntimePlatformPtrOutput() JobDefinitionRuntimePlatformPtrOutput
+	ToJobDefinitionRuntimePlatformPtrOutputWithContext(context.Context) JobDefinitionRuntimePlatformPtrOutput
+}
+
+type jobDefinitionRuntimePlatformPtrType JobDefinitionRuntimePlatformArgs
+
+func JobDefinitionRuntimePlatformPtr(v *JobDefinitionRuntimePlatformArgs) JobDefinitionRuntimePlatformPtrInput {
+	return (*jobDefinitionRuntimePlatformPtrType)(v)
+}
+
+func (*jobDefinitionRuntimePlatformPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionRuntimePlatform)(nil)).Elem()
+}
+
+func (i *jobDefinitionRuntimePlatformPtrType) ToJobDefinitionRuntimePlatformPtrOutput() JobDefinitionRuntimePlatformPtrOutput {
+	return i.ToJobDefinitionRuntimePlatformPtrOutputWithContext(context.Background())
+}
+
+func (i *jobDefinitionRuntimePlatformPtrType) ToJobDefinitionRuntimePlatformPtrOutputWithContext(ctx context.Context) JobDefinitionRuntimePlatformPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionRuntimePlatformPtrOutput)
+}
+
+type JobDefinitionRuntimePlatformOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionRuntimePlatformOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionRuntimePlatform)(nil)).Elem()
+}
+
+func (o JobDefinitionRuntimePlatformOutput) ToJobDefinitionRuntimePlatformOutput() JobDefinitionRuntimePlatformOutput {
+	return o
+}
+
+func (o JobDefinitionRuntimePlatformOutput) ToJobDefinitionRuntimePlatformOutputWithContext(ctx context.Context) JobDefinitionRuntimePlatformOutput {
+	return o
+}
+
+func (o JobDefinitionRuntimePlatformOutput) ToJobDefinitionRuntimePlatformPtrOutput() JobDefinitionRuntimePlatformPtrOutput {
+	return o.ToJobDefinitionRuntimePlatformPtrOutputWithContext(context.Background())
+}
+
+func (o JobDefinitionRuntimePlatformOutput) ToJobDefinitionRuntimePlatformPtrOutputWithContext(ctx context.Context) JobDefinitionRuntimePlatformPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDefinitionRuntimePlatform) *JobDefinitionRuntimePlatform {
+		return &v
+	}).(JobDefinitionRuntimePlatformPtrOutput)
+}
+
+func (o JobDefinitionRuntimePlatformOutput) CpuArchitecture() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobDefinitionRuntimePlatform) *string { return v.CpuArchitecture }).(pulumi.StringPtrOutput)
+}
+
+func (o JobDefinitionRuntimePlatformOutput) OperatingSystemFamily() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobDefinitionRuntimePlatform) *string { return v.OperatingSystemFamily }).(pulumi.StringPtrOutput)
+}
+
+type JobDefinitionRuntimePlatformPtrOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionRuntimePlatformPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionRuntimePlatform)(nil)).Elem()
+}
+
+func (o JobDefinitionRuntimePlatformPtrOutput) ToJobDefinitionRuntimePlatformPtrOutput() JobDefinitionRuntimePlatformPtrOutput {
+	return o
+}
+
+func (o JobDefinitionRuntimePlatformPtrOutput) ToJobDefinitionRuntimePlatformPtrOutputWithContext(ctx context.Context) JobDefinitionRuntimePlatformPtrOutput {
+	return o
+}
+
+func (o JobDefinitionRuntimePlatformPtrOutput) Elem() JobDefinitionRuntimePlatformOutput {
+	return o.ApplyT(func(v *JobDefinitionRuntimePlatform) JobDefinitionRuntimePlatform {
+		if v != nil {
+			return *v
+		}
+		var ret JobDefinitionRuntimePlatform
+		return ret
+	}).(JobDefinitionRuntimePlatformOutput)
+}
+
+func (o JobDefinitionRuntimePlatformPtrOutput) CpuArchitecture() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionRuntimePlatform) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CpuArchitecture
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o JobDefinitionRuntimePlatformPtrOutput) OperatingSystemFamily() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionRuntimePlatform) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OperatingSystemFamily
+	}).(pulumi.StringPtrOutput)
+}
+
 type JobDefinitionSecret struct {
 	Name      string `pulumi:"name"`
 	ValueFrom string `pulumi:"valueFrom"`
@@ -6286,6 +6449,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionResourceRequirementArrayInput)(nil)).Elem(), JobDefinitionResourceRequirementArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionRetryStrategyInput)(nil)).Elem(), JobDefinitionRetryStrategyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionRetryStrategyPtrInput)(nil)).Elem(), JobDefinitionRetryStrategyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionRuntimePlatformInput)(nil)).Elem(), JobDefinitionRuntimePlatformArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionRuntimePlatformPtrInput)(nil)).Elem(), JobDefinitionRuntimePlatformArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionSecretInput)(nil)).Elem(), JobDefinitionSecretArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionSecretArrayInput)(nil)).Elem(), JobDefinitionSecretArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionTimeoutInput)(nil)).Elem(), JobDefinitionTimeoutArgs{})
@@ -6370,6 +6535,8 @@ func init() {
 	pulumi.RegisterOutputType(JobDefinitionResourceRequirementArrayOutput{})
 	pulumi.RegisterOutputType(JobDefinitionRetryStrategyOutput{})
 	pulumi.RegisterOutputType(JobDefinitionRetryStrategyPtrOutput{})
+	pulumi.RegisterOutputType(JobDefinitionRuntimePlatformOutput{})
+	pulumi.RegisterOutputType(JobDefinitionRuntimePlatformPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionSecretOutput{})
 	pulumi.RegisterOutputType(JobDefinitionSecretArrayOutput{})
 	pulumi.RegisterOutputType(JobDefinitionTimeoutOutput{})

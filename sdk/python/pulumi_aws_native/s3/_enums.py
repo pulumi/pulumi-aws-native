@@ -218,6 +218,7 @@ class BucketRuleStatus(str, Enum):
 class BucketServerSideEncryptionByDefaultSSEAlgorithm(str, Enum):
     AWSKMS = "aws:kms"
     AES256 = "AES256"
+    AWSKMSDSSE = "aws:kms:dsse"
 
 
 class BucketSseKmsEncryptedObjectsStatus(str, Enum):

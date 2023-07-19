@@ -67,16 +67,16 @@
   "additionalProperties" : false,
   "handlers" : {
     "create" : {
-      "permissions" : [ "resolverquerylogging:CreateConfig", "resolverquerylogging:GetConfig" ]
+      "permissions" : [ "resolverquerylogging:CreateConfig", "resolverquerylogging:GetConfig", "route53resolver:CreateResolverQueryLogConfig", "route53resolver:GetResolverQueryLogConfig", "logs:CreateLogDelivery", "logs:GetLogDelivery", "logs:UpdateLogDelivery", "logs:DeleteLogDelivery", "logs:ListLogDeliveries", "logs:PutResourcePolicy", "logs:DescribeResourcePolicies", "logs:DescribeLogGroups" ]
     },
     "read" : {
-      "permissions" : [ "resolverquerylogging:GetConfig" ]
+      "permissions" : [ "resolverquerylogging:GetConfig", "route53resolver:GetResolverQueryLogConfig" ]
     },
     "delete" : {
-      "permissions" : [ "resolverquerylogging:DeleteConfig", "resolverquerylogging:ListConfig" ]
+      "permissions" : [ "resolverquerylogging:DeleteConfig", "resolverquerylogging:ListConfig", "route53resolver:DeleteResolverQueryLogConfig", "route53resolver:ListResolverQueryLogConfigs" ]
     },
     "list" : {
-      "permissions" : [ "resolverquerylogging:ListConfig" ]
+      "permissions" : [ "resolverquerylogging:ListConfig", "route53resolver:ListResolverQueryLogConfigs" ]
     }
   }
 }

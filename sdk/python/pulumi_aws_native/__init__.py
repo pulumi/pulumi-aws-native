@@ -203,8 +203,6 @@ if typing.TYPE_CHECKING:
     frauddetector = __frauddetector
     import pulumi_aws_native.fsx as __fsx
     fsx = __fsx
-    import pulumi_aws_native.gamecast as __gamecast
-    gamecast = __gamecast
     import pulumi_aws_native.gamelift as __gamelift
     gamelift = __gamelift
     import pulumi_aws_native.globalaccelerator as __globalaccelerator
@@ -559,7 +557,6 @@ else:
     forecast = _utilities.lazy_import('pulumi_aws_native.forecast')
     frauddetector = _utilities.lazy_import('pulumi_aws_native.frauddetector')
     fsx = _utilities.lazy_import('pulumi_aws_native.fsx')
-    gamecast = _utilities.lazy_import('pulumi_aws_native.gamecast')
     gamelift = _utilities.lazy_import('pulumi_aws_native.gamelift')
     globalaccelerator = _utilities.lazy_import('pulumi_aws_native.globalaccelerator')
     glue = _utilities.lazy_import('pulumi_aws_native.glue')
@@ -1284,7 +1281,9 @@ _utilities.register(
    "aws-native:connect:IntegrationAssociation": "IntegrationAssociation",
    "aws-native:connect:PhoneNumber": "PhoneNumber",
    "aws-native:connect:Prompt": "Prompt",
+   "aws-native:connect:Queue": "Queue",
    "aws-native:connect:QuickConnect": "QuickConnect",
+   "aws-native:connect:RoutingProfile": "RoutingProfile",
    "aws-native:connect:Rule": "Rule",
    "aws-native:connect:SecurityKey": "SecurityKey",
    "aws-native:connect:TaskTemplate": "TaskTemplate",
@@ -1801,15 +1800,6 @@ _utilities.register(
  },
  {
   "pkg": "aws-native",
-  "mod": "gamecast",
-  "fqn": "pulumi_aws_native.gamecast",
-  "classes": {
-   "aws-native:gamecast:Application": "Application",
-   "aws-native:gamecast:StreamGroup": "StreamGroup"
-  }
- },
- {
-  "pkg": "aws-native",
   "mod": "gamelift",
   "fqn": "pulumi_aws_native.gamelift",
   "classes": {
@@ -1937,15 +1927,18 @@ _utilities.register(
   "classes": {
    "aws-native:iam:AccessKey": "AccessKey",
    "aws-native:iam:Group": "Group",
+   "aws-native:iam:GroupPolicy": "GroupPolicy",
    "aws-native:iam:InstanceProfile": "InstanceProfile",
    "aws-native:iam:ManagedPolicy": "ManagedPolicy",
    "aws-native:iam:OIDCProvider": "OIDCProvider",
    "aws-native:iam:Policy": "Policy",
    "aws-native:iam:Role": "Role",
+   "aws-native:iam:RolePolicy": "RolePolicy",
    "aws-native:iam:SAMLProvider": "SAMLProvider",
    "aws-native:iam:ServerCertificate": "ServerCertificate",
    "aws-native:iam:ServiceLinkedRole": "ServiceLinkedRole",
    "aws-native:iam:User": "User",
+   "aws-native:iam:UserPolicy": "UserPolicy",
    "aws-native:iam:UserToGroupAddition": "UserToGroupAddition",
    "aws-native:iam:VirtualMFADevice": "VirtualMFADevice"
   }
@@ -2341,6 +2334,7 @@ _utilities.register(
   "mod": "logs",
   "fqn": "pulumi_aws_native.logs",
   "classes": {
+   "aws-native:logs:AccountPolicy": "AccountPolicy",
    "aws-native:logs:Destination": "Destination",
    "aws-native:logs:LogGroup": "LogGroup",
    "aws-native:logs:LogStream": "LogStream",

@@ -42,11 +42,18 @@ __all__ = [
     'InstanceStorageConfigS3Config',
     'PhoneNumberTag',
     'PromptTag',
+    'QueueOutboundCallerConfig',
+    'QueueTag',
     'QuickConnectConfig',
     'QuickConnectPhoneNumberQuickConnectConfig',
     'QuickConnectQueueQuickConnectConfig',
     'QuickConnectTag',
     'QuickConnectUserQuickConnectConfig',
+    'RoutingProfileCrossChannelBehavior',
+    'RoutingProfileMediaConcurrency',
+    'RoutingProfileQueueConfig',
+    'RoutingProfileQueueReference',
+    'RoutingProfileTag',
     'RuleActions',
     'RuleAssignContactCategoryAction',
     'RuleEventBridgeAction',
@@ -1544,6 +1551,87 @@ class PromptTag(dict):
 
 
 @pulumi.output_type
+class QueueOutboundCallerConfig(dict):
+    """
+    The outbound caller ID name, number, and outbound whisper flow.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "outboundCallerIdName":
+            suggest = "outbound_caller_id_name"
+        elif key == "outboundCallerIdNumberArn":
+            suggest = "outbound_caller_id_number_arn"
+        elif key == "outboundFlowArn":
+            suggest = "outbound_flow_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in QueueOutboundCallerConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        QueueOutboundCallerConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        QueueOutboundCallerConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 outbound_caller_id_name: Optional[str] = None,
+                 outbound_caller_id_number_arn: Optional[str] = None,
+                 outbound_flow_arn: Optional[str] = None):
+        """
+        The outbound caller ID name, number, and outbound whisper flow.
+        """
+        if outbound_caller_id_name is not None:
+            pulumi.set(__self__, "outbound_caller_id_name", outbound_caller_id_name)
+        if outbound_caller_id_number_arn is not None:
+            pulumi.set(__self__, "outbound_caller_id_number_arn", outbound_caller_id_number_arn)
+        if outbound_flow_arn is not None:
+            pulumi.set(__self__, "outbound_flow_arn", outbound_flow_arn)
+
+    @property
+    @pulumi.getter(name="outboundCallerIdName")
+    def outbound_caller_id_name(self) -> Optional[str]:
+        return pulumi.get(self, "outbound_caller_id_name")
+
+    @property
+    @pulumi.getter(name="outboundCallerIdNumberArn")
+    def outbound_caller_id_number_arn(self) -> Optional[str]:
+        return pulumi.get(self, "outbound_caller_id_number_arn")
+
+    @property
+    @pulumi.getter(name="outboundFlowArn")
+    def outbound_flow_arn(self) -> Optional[str]:
+        return pulumi.get(self, "outbound_flow_arn")
+
+
+@pulumi.output_type
+class QueueTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class QuickConnectConfig(dict):
     """
     Configuration settings for the quick connect.
@@ -1762,6 +1850,215 @@ class QuickConnectUserQuickConnectConfig(dict):
     @pulumi.getter(name="userArn")
     def user_arn(self) -> str:
         return pulumi.get(self, "user_arn")
+
+
+@pulumi.output_type
+class RoutingProfileCrossChannelBehavior(dict):
+    """
+    Defines the cross-channel routing behavior that allows an agent working on a contact in one channel to be offered a contact from a different channel.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "behaviorType":
+            suggest = "behavior_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RoutingProfileCrossChannelBehavior. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RoutingProfileCrossChannelBehavior.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RoutingProfileCrossChannelBehavior.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 behavior_type: 'RoutingProfileBehaviorType'):
+        """
+        Defines the cross-channel routing behavior that allows an agent working on a contact in one channel to be offered a contact from a different channel.
+        """
+        pulumi.set(__self__, "behavior_type", behavior_type)
+
+    @property
+    @pulumi.getter(name="behaviorType")
+    def behavior_type(self) -> 'RoutingProfileBehaviorType':
+        return pulumi.get(self, "behavior_type")
+
+
+@pulumi.output_type
+class RoutingProfileMediaConcurrency(dict):
+    """
+    Contains information about which channels are supported, and how many contacts an agent can have on a channel simultaneously.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "crossChannelBehavior":
+            suggest = "cross_channel_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RoutingProfileMediaConcurrency. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RoutingProfileMediaConcurrency.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RoutingProfileMediaConcurrency.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 channel: 'RoutingProfileChannel',
+                 concurrency: int,
+                 cross_channel_behavior: Optional['outputs.RoutingProfileCrossChannelBehavior'] = None):
+        """
+        Contains information about which channels are supported, and how many contacts an agent can have on a channel simultaneously.
+        """
+        pulumi.set(__self__, "channel", channel)
+        pulumi.set(__self__, "concurrency", concurrency)
+        if cross_channel_behavior is not None:
+            pulumi.set(__self__, "cross_channel_behavior", cross_channel_behavior)
+
+    @property
+    @pulumi.getter
+    def channel(self) -> 'RoutingProfileChannel':
+        return pulumi.get(self, "channel")
+
+    @property
+    @pulumi.getter
+    def concurrency(self) -> int:
+        return pulumi.get(self, "concurrency")
+
+    @property
+    @pulumi.getter(name="crossChannelBehavior")
+    def cross_channel_behavior(self) -> Optional['outputs.RoutingProfileCrossChannelBehavior']:
+        return pulumi.get(self, "cross_channel_behavior")
+
+
+@pulumi.output_type
+class RoutingProfileQueueConfig(dict):
+    """
+    Contains information about the queue and channel for which priority and delay can be set.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "queueReference":
+            suggest = "queue_reference"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RoutingProfileQueueConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RoutingProfileQueueConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RoutingProfileQueueConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 delay: int,
+                 priority: int,
+                 queue_reference: 'outputs.RoutingProfileQueueReference'):
+        """
+        Contains information about the queue and channel for which priority and delay can be set.
+        """
+        pulumi.set(__self__, "delay", delay)
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "queue_reference", queue_reference)
+
+    @property
+    @pulumi.getter
+    def delay(self) -> int:
+        return pulumi.get(self, "delay")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> int:
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter(name="queueReference")
+    def queue_reference(self) -> 'outputs.RoutingProfileQueueReference':
+        return pulumi.get(self, "queue_reference")
+
+
+@pulumi.output_type
+class RoutingProfileQueueReference(dict):
+    """
+    Contains the channel and queue identifier for a routing profile.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "queueArn":
+            suggest = "queue_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RoutingProfileQueueReference. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RoutingProfileQueueReference.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RoutingProfileQueueReference.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 channel: 'RoutingProfileChannel',
+                 queue_arn: str):
+        """
+        Contains the channel and queue identifier for a routing profile.
+        """
+        pulumi.set(__self__, "channel", channel)
+        pulumi.set(__self__, "queue_arn", queue_arn)
+
+    @property
+    @pulumi.getter
+    def channel(self) -> 'RoutingProfileChannel':
+        return pulumi.get(self, "channel")
+
+    @property
+    @pulumi.getter(name="queueArn")
+    def queue_arn(self) -> str:
+        return pulumi.get(self, "queue_arn")
+
+
+@pulumi.output_type
+class RoutingProfileTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

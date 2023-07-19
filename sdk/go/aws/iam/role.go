@@ -31,7 +31,7 @@ type Role struct {
 	// The ARN of the policy used to set the permissions boundary for the role.
 	PermissionsBoundary pulumi.StringPtrOutput `pulumi:"permissionsBoundary"`
 	// Adds or updates an inline policy document that is embedded in the specified IAM role.
-	Policies RolePolicyArrayOutput `pulumi:"policies"`
+	Policies RolePolicyTypeArrayOutput `pulumi:"policies"`
 	// The stable and unique string identifying the role.
 	RoleId pulumi.StringOutput `pulumi:"roleId"`
 	// A name for the IAM role, up to 64 characters in length.
@@ -96,7 +96,7 @@ type roleArgs struct {
 	// The ARN of the policy used to set the permissions boundary for the role.
 	PermissionsBoundary *string `pulumi:"permissionsBoundary"`
 	// Adds or updates an inline policy document that is embedded in the specified IAM role.
-	Policies []RolePolicy `pulumi:"policies"`
+	Policies []RolePolicyType `pulumi:"policies"`
 	// A name for the IAM role, up to 64 characters in length.
 	RoleName *string `pulumi:"roleName"`
 	// A list of tags that are attached to the role.
@@ -118,7 +118,7 @@ type RoleArgs struct {
 	// The ARN of the policy used to set the permissions boundary for the role.
 	PermissionsBoundary pulumi.StringPtrInput
 	// Adds or updates an inline policy document that is embedded in the specified IAM role.
-	Policies RolePolicyArrayInput
+	Policies RolePolicyTypeArrayInput
 	// A name for the IAM role, up to 64 characters in length.
 	RoleName pulumi.StringPtrInput
 	// A list of tags that are attached to the role.
@@ -198,8 +198,8 @@ func (o RoleOutput) PermissionsBoundary() pulumi.StringPtrOutput {
 }
 
 // Adds or updates an inline policy document that is embedded in the specified IAM role.
-func (o RoleOutput) Policies() RolePolicyArrayOutput {
-	return o.ApplyT(func(v *Role) RolePolicyArrayOutput { return v.Policies }).(RolePolicyArrayOutput)
+func (o RoleOutput) Policies() RolePolicyTypeArrayOutput {
+	return o.ApplyT(func(v *Role) RolePolicyTypeArrayOutput { return v.Policies }).(RolePolicyTypeArrayOutput)
 }
 
 // The stable and unique string identifying the role.

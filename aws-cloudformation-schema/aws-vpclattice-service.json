@@ -97,13 +97,13 @@
   "additionalIdentifiers" : [ [ "/properties/Id" ], [ "/properties/Name" ] ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "vpc-lattice:CreateService", "vpc-lattice:GetService", "vpc-lattice:ListTagsForResource", "vpc-lattice:TagResource", "acm:DescribeCertificate", "acm:ListCertificates" ]
+      "permissions" : [ "vpc-lattice:CreateService", "vpc-lattice:GetService", "vpc-lattice:ListTagsForResource", "vpc-lattice:TagResource", "acm:DescribeCertificate", "acm:ListCertificates", "iam:CreateServiceLinkedRole" ]
     },
     "read" : {
       "permissions" : [ "vpc-lattice:GetService", "vpc-lattice:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "vpc-lattice:UpdateService", "vpc-lattice:TagResource", "vpc-lattice:UntagResource" ]
+      "permissions" : [ "vpc-lattice:UpdateService", "vpc-lattice:TagResource", "vpc-lattice:UntagResource", "vpc-lattice:GetService", "vpc-lattice:ListTagsForResource" ]
     },
     "delete" : {
       "permissions" : [ "vpc-lattice:DeleteService", "vpc-lattice:GetService" ]

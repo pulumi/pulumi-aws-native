@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AccessKey{}
 	case "aws-native:iam:Group":
 		r = &Group{}
+	case "aws-native:iam:GroupPolicy":
+		r = &GroupPolicy{}
 	case "aws-native:iam:InstanceProfile":
 		r = &InstanceProfile{}
 	case "aws-native:iam:ManagedPolicy":
@@ -35,6 +37,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Policy{}
 	case "aws-native:iam:Role":
 		r = &Role{}
+	case "aws-native:iam:RolePolicy":
+		r = &RolePolicy{}
 	case "aws-native:iam:SAMLProvider":
 		r = &SAMLProvider{}
 	case "aws-native:iam:ServerCertificate":
@@ -43,6 +47,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ServiceLinkedRole{}
 	case "aws-native:iam:User":
 		r = &User{}
+	case "aws-native:iam:UserPolicy":
+		r = &UserPolicy{}
 	case "aws-native:iam:UserToGroupAddition":
 		r = &UserToGroupAddition{}
 	case "aws-native:iam:VirtualMFADevice":

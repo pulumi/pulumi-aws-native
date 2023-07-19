@@ -8,6 +8,66 @@ using Pulumi;
 namespace Pulumi.AwsNative.Logs
 {
     /// <summary>
+    /// Type of the policy.
+    /// </summary>
+    [EnumType]
+    public readonly struct AccountPolicyPolicyType : IEquatable<AccountPolicyPolicyType>
+    {
+        private readonly string _value;
+
+        private AccountPolicyPolicyType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AccountPolicyPolicyType DataProtectionPolicy { get; } = new AccountPolicyPolicyType("DATA_PROTECTION_POLICY");
+
+        public static bool operator ==(AccountPolicyPolicyType left, AccountPolicyPolicyType right) => left.Equals(right);
+        public static bool operator !=(AccountPolicyPolicyType left, AccountPolicyPolicyType right) => !left.Equals(right);
+
+        public static explicit operator string(AccountPolicyPolicyType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AccountPolicyPolicyType other && Equals(other);
+        public bool Equals(AccountPolicyPolicyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Scope for policy application
+    /// </summary>
+    [EnumType]
+    public readonly struct AccountPolicyScope : IEquatable<AccountPolicyScope>
+    {
+        private readonly string _value;
+
+        private AccountPolicyScope(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AccountPolicyScope All { get; } = new AccountPolicyScope("ALL");
+
+        public static bool operator ==(AccountPolicyScope left, AccountPolicyScope right) => left.Equals(right);
+        public static bool operator !=(AccountPolicyScope left, AccountPolicyScope right) => !left.Equals(right);
+
+        public static explicit operator string(AccountPolicyScope value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AccountPolicyScope other && Equals(other);
+        public bool Equals(AccountPolicyScope other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The unit to assign to the metric. If you omit this, the unit is set as None.
     /// </summary>
     [EnumType]

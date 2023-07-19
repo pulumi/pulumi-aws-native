@@ -20,6 +20,11 @@ export const getGroup: typeof import("./getGroup").getGroup = null as any;
 export const getGroupOutput: typeof import("./getGroup").getGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getGroup","getGroupOutput"], () => require("./getGroup"));
 
+export { GetGroupPolicyArgs, GetGroupPolicyResult, GetGroupPolicyOutputArgs } from "./getGroupPolicy";
+export const getGroupPolicy: typeof import("./getGroupPolicy").getGroupPolicy = null as any;
+export const getGroupPolicyOutput: typeof import("./getGroupPolicy").getGroupPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getGroupPolicy","getGroupPolicyOutput"], () => require("./getGroupPolicy"));
+
 export { GetInstanceProfileArgs, GetInstanceProfileResult, GetInstanceProfileOutputArgs } from "./getInstanceProfile";
 export const getInstanceProfile: typeof import("./getInstanceProfile").getInstanceProfile = null as any;
 export const getInstanceProfileOutput: typeof import("./getInstanceProfile").getInstanceProfileOutput = null as any;
@@ -45,6 +50,11 @@ export const getRole: typeof import("./getRole").getRole = null as any;
 export const getRoleOutput: typeof import("./getRole").getRoleOutput = null as any;
 utilities.lazyLoad(exports, ["getRole","getRoleOutput"], () => require("./getRole"));
 
+export { GetRolePolicyArgs, GetRolePolicyResult, GetRolePolicyOutputArgs } from "./getRolePolicy";
+export const getRolePolicy: typeof import("./getRolePolicy").getRolePolicy = null as any;
+export const getRolePolicyOutput: typeof import("./getRolePolicy").getRolePolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getRolePolicy","getRolePolicyOutput"], () => require("./getRolePolicy"));
+
 export { GetSAMLProviderArgs, GetSAMLProviderResult, GetSAMLProviderOutputArgs } from "./getSAMLProvider";
 export const getSAMLProvider: typeof import("./getSAMLProvider").getSAMLProvider = null as any;
 export const getSAMLProviderOutput: typeof import("./getSAMLProvider").getSAMLProviderOutput = null as any;
@@ -65,6 +75,11 @@ export const getUser: typeof import("./getUser").getUser = null as any;
 export const getUserOutput: typeof import("./getUser").getUserOutput = null as any;
 utilities.lazyLoad(exports, ["getUser","getUserOutput"], () => require("./getUser"));
 
+export { GetUserPolicyArgs, GetUserPolicyResult, GetUserPolicyOutputArgs } from "./getUserPolicy";
+export const getUserPolicy: typeof import("./getUserPolicy").getUserPolicy = null as any;
+export const getUserPolicyOutput: typeof import("./getUserPolicy").getUserPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getUserPolicy","getUserPolicyOutput"], () => require("./getUserPolicy"));
+
 export { GetUserToGroupAdditionArgs, GetUserToGroupAdditionResult, GetUserToGroupAdditionOutputArgs } from "./getUserToGroupAddition";
 export const getUserToGroupAddition: typeof import("./getUserToGroupAddition").getUserToGroupAddition = null as any;
 export const getUserToGroupAdditionOutput: typeof import("./getUserToGroupAddition").getUserToGroupAdditionOutput = null as any;
@@ -79,6 +94,11 @@ export { GroupArgs } from "./group";
 export type Group = import("./group").Group;
 export const Group: typeof import("./group").Group = null as any;
 utilities.lazyLoad(exports, ["Group"], () => require("./group"));
+
+export { GroupPolicyArgs } from "./groupPolicy";
+export type GroupPolicy = import("./groupPolicy").GroupPolicy;
+export const GroupPolicy: typeof import("./groupPolicy").GroupPolicy = null as any;
+utilities.lazyLoad(exports, ["GroupPolicy"], () => require("./groupPolicy"));
 
 export { InstanceProfileArgs } from "./instanceProfile";
 export type InstanceProfile = import("./instanceProfile").InstanceProfile;
@@ -105,6 +125,11 @@ export type Role = import("./role").Role;
 export const Role: typeof import("./role").Role = null as any;
 utilities.lazyLoad(exports, ["Role"], () => require("./role"));
 
+export { RolePolicyArgs } from "./rolePolicy";
+export type RolePolicy = import("./rolePolicy").RolePolicy;
+export const RolePolicy: typeof import("./rolePolicy").RolePolicy = null as any;
+utilities.lazyLoad(exports, ["RolePolicy"], () => require("./rolePolicy"));
+
 export { SAMLProviderArgs } from "./samlprovider";
 export type SAMLProvider = import("./samlprovider").SAMLProvider;
 export const SAMLProvider: typeof import("./samlprovider").SAMLProvider = null as any;
@@ -125,6 +150,11 @@ export type User = import("./user").User;
 export const User: typeof import("./user").User = null as any;
 utilities.lazyLoad(exports, ["User"], () => require("./user"));
 
+export { UserPolicyArgs } from "./userPolicy";
+export type UserPolicy = import("./userPolicy").UserPolicy;
+export const UserPolicy: typeof import("./userPolicy").UserPolicy = null as any;
+utilities.lazyLoad(exports, ["UserPolicy"], () => require("./userPolicy"));
+
 export { UserToGroupAdditionArgs } from "./userToGroupAddition";
 export type UserToGroupAddition = import("./userToGroupAddition").UserToGroupAddition;
 export const UserToGroupAddition: typeof import("./userToGroupAddition").UserToGroupAddition = null as any;
@@ -144,6 +174,8 @@ const _module = {
                 return new AccessKey(name, <any>undefined, { urn })
             case "aws-native:iam:Group":
                 return new Group(name, <any>undefined, { urn })
+            case "aws-native:iam:GroupPolicy":
+                return new GroupPolicy(name, <any>undefined, { urn })
             case "aws-native:iam:InstanceProfile":
                 return new InstanceProfile(name, <any>undefined, { urn })
             case "aws-native:iam:ManagedPolicy":
@@ -154,6 +186,8 @@ const _module = {
                 return new Policy(name, <any>undefined, { urn })
             case "aws-native:iam:Role":
                 return new Role(name, <any>undefined, { urn })
+            case "aws-native:iam:RolePolicy":
+                return new RolePolicy(name, <any>undefined, { urn })
             case "aws-native:iam:SAMLProvider":
                 return new SAMLProvider(name, <any>undefined, { urn })
             case "aws-native:iam:ServerCertificate":
@@ -162,6 +196,8 @@ const _module = {
                 return new ServiceLinkedRole(name, <any>undefined, { urn })
             case "aws-native:iam:User":
                 return new User(name, <any>undefined, { urn })
+            case "aws-native:iam:UserPolicy":
+                return new UserPolicy(name, <any>undefined, { urn })
             case "aws-native:iam:UserToGroupAddition":
                 return new UserToGroupAddition(name, <any>undefined, { urn })
             case "aws-native:iam:VirtualMFADevice":

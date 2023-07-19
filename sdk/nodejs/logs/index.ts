@@ -5,10 +5,20 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AccountPolicyArgs } from "./accountPolicy";
+export type AccountPolicy = import("./accountPolicy").AccountPolicy;
+export const AccountPolicy: typeof import("./accountPolicy").AccountPolicy = null as any;
+utilities.lazyLoad(exports, ["AccountPolicy"], () => require("./accountPolicy"));
+
 export { DestinationArgs } from "./destination";
 export type Destination = import("./destination").Destination;
 export const Destination: typeof import("./destination").Destination = null as any;
 utilities.lazyLoad(exports, ["Destination"], () => require("./destination"));
+
+export { GetAccountPolicyArgs, GetAccountPolicyResult, GetAccountPolicyOutputArgs } from "./getAccountPolicy";
+export const getAccountPolicy: typeof import("./getAccountPolicy").getAccountPolicy = null as any;
+export const getAccountPolicyOutput: typeof import("./getAccountPolicy").getAccountPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getAccountPolicy","getAccountPolicyOutput"], () => require("./getAccountPolicy"));
 
 export { GetDestinationArgs, GetDestinationResult, GetDestinationOutputArgs } from "./getDestination";
 export const getDestination: typeof import("./getDestination").getDestination = null as any;
@@ -78,6 +88,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:logs:AccountPolicy":
+                return new AccountPolicy(name, <any>undefined, { urn })
             case "aws-native:logs:Destination":
                 return new Destination(name, <any>undefined, { urn })
             case "aws-native:logs:LogGroup":

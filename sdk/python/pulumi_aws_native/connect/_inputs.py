@@ -41,11 +41,18 @@ __all__ = [
     'InstanceStorageConfigS3ConfigArgs',
     'PhoneNumberTagArgs',
     'PromptTagArgs',
+    'QueueOutboundCallerConfigArgs',
+    'QueueTagArgs',
     'QuickConnectConfigArgs',
     'QuickConnectPhoneNumberQuickConnectConfigArgs',
     'QuickConnectQueueQuickConnectConfigArgs',
     'QuickConnectTagArgs',
     'QuickConnectUserQuickConnectConfigArgs',
+    'RoutingProfileCrossChannelBehaviorArgs',
+    'RoutingProfileMediaConcurrencyArgs',
+    'RoutingProfileQueueConfigArgs',
+    'RoutingProfileQueueReferenceArgs',
+    'RoutingProfileTagArgs',
     'RuleActionsArgs',
     'RuleAssignContactCategoryActionArgs',
     'RuleEventBridgeActionArgs',
@@ -1424,6 +1431,80 @@ class PromptTagArgs:
 
 
 @pulumi.input_type
+class QueueOutboundCallerConfigArgs:
+    def __init__(__self__, *,
+                 outbound_caller_id_name: Optional[pulumi.Input[str]] = None,
+                 outbound_caller_id_number_arn: Optional[pulumi.Input[str]] = None,
+                 outbound_flow_arn: Optional[pulumi.Input[str]] = None):
+        """
+        The outbound caller ID name, number, and outbound whisper flow.
+        """
+        if outbound_caller_id_name is not None:
+            pulumi.set(__self__, "outbound_caller_id_name", outbound_caller_id_name)
+        if outbound_caller_id_number_arn is not None:
+            pulumi.set(__self__, "outbound_caller_id_number_arn", outbound_caller_id_number_arn)
+        if outbound_flow_arn is not None:
+            pulumi.set(__self__, "outbound_flow_arn", outbound_flow_arn)
+
+    @property
+    @pulumi.getter(name="outboundCallerIdName")
+    def outbound_caller_id_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "outbound_caller_id_name")
+
+    @outbound_caller_id_name.setter
+    def outbound_caller_id_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "outbound_caller_id_name", value)
+
+    @property
+    @pulumi.getter(name="outboundCallerIdNumberArn")
+    def outbound_caller_id_number_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "outbound_caller_id_number_arn")
+
+    @outbound_caller_id_number_arn.setter
+    def outbound_caller_id_number_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "outbound_caller_id_number_arn", value)
+
+    @property
+    @pulumi.getter(name="outboundFlowArn")
+    def outbound_flow_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "outbound_flow_arn")
+
+    @outbound_flow_arn.setter
+    def outbound_flow_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "outbound_flow_arn", value)
+
+
+@pulumi.input_type
+class QueueTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        A key-value pair to associate with a resource.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class QuickConnectConfigArgs:
     def __init__(__self__, *,
                  quick_connect_type: pulumi.Input['QuickConnectType'],
@@ -1593,6 +1674,176 @@ class QuickConnectUserQuickConnectConfigArgs:
     @user_arn.setter
     def user_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "user_arn", value)
+
+
+@pulumi.input_type
+class RoutingProfileCrossChannelBehaviorArgs:
+    def __init__(__self__, *,
+                 behavior_type: pulumi.Input['RoutingProfileBehaviorType']):
+        """
+        Defines the cross-channel routing behavior that allows an agent working on a contact in one channel to be offered a contact from a different channel.
+        """
+        pulumi.set(__self__, "behavior_type", behavior_type)
+
+    @property
+    @pulumi.getter(name="behaviorType")
+    def behavior_type(self) -> pulumi.Input['RoutingProfileBehaviorType']:
+        return pulumi.get(self, "behavior_type")
+
+    @behavior_type.setter
+    def behavior_type(self, value: pulumi.Input['RoutingProfileBehaviorType']):
+        pulumi.set(self, "behavior_type", value)
+
+
+@pulumi.input_type
+class RoutingProfileMediaConcurrencyArgs:
+    def __init__(__self__, *,
+                 channel: pulumi.Input['RoutingProfileChannel'],
+                 concurrency: pulumi.Input[int],
+                 cross_channel_behavior: Optional[pulumi.Input['RoutingProfileCrossChannelBehaviorArgs']] = None):
+        """
+        Contains information about which channels are supported, and how many contacts an agent can have on a channel simultaneously.
+        """
+        pulumi.set(__self__, "channel", channel)
+        pulumi.set(__self__, "concurrency", concurrency)
+        if cross_channel_behavior is not None:
+            pulumi.set(__self__, "cross_channel_behavior", cross_channel_behavior)
+
+    @property
+    @pulumi.getter
+    def channel(self) -> pulumi.Input['RoutingProfileChannel']:
+        return pulumi.get(self, "channel")
+
+    @channel.setter
+    def channel(self, value: pulumi.Input['RoutingProfileChannel']):
+        pulumi.set(self, "channel", value)
+
+    @property
+    @pulumi.getter
+    def concurrency(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "concurrency")
+
+    @concurrency.setter
+    def concurrency(self, value: pulumi.Input[int]):
+        pulumi.set(self, "concurrency", value)
+
+    @property
+    @pulumi.getter(name="crossChannelBehavior")
+    def cross_channel_behavior(self) -> Optional[pulumi.Input['RoutingProfileCrossChannelBehaviorArgs']]:
+        return pulumi.get(self, "cross_channel_behavior")
+
+    @cross_channel_behavior.setter
+    def cross_channel_behavior(self, value: Optional[pulumi.Input['RoutingProfileCrossChannelBehaviorArgs']]):
+        pulumi.set(self, "cross_channel_behavior", value)
+
+
+@pulumi.input_type
+class RoutingProfileQueueConfigArgs:
+    def __init__(__self__, *,
+                 delay: pulumi.Input[int],
+                 priority: pulumi.Input[int],
+                 queue_reference: pulumi.Input['RoutingProfileQueueReferenceArgs']):
+        """
+        Contains information about the queue and channel for which priority and delay can be set.
+        """
+        pulumi.set(__self__, "delay", delay)
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "queue_reference", queue_reference)
+
+    @property
+    @pulumi.getter
+    def delay(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "delay")
+
+    @delay.setter
+    def delay(self, value: pulumi.Input[int]):
+        pulumi.set(self, "delay", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: pulumi.Input[int]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter(name="queueReference")
+    def queue_reference(self) -> pulumi.Input['RoutingProfileQueueReferenceArgs']:
+        return pulumi.get(self, "queue_reference")
+
+    @queue_reference.setter
+    def queue_reference(self, value: pulumi.Input['RoutingProfileQueueReferenceArgs']):
+        pulumi.set(self, "queue_reference", value)
+
+
+@pulumi.input_type
+class RoutingProfileQueueReferenceArgs:
+    def __init__(__self__, *,
+                 channel: pulumi.Input['RoutingProfileChannel'],
+                 queue_arn: pulumi.Input[str]):
+        """
+        Contains the channel and queue identifier for a routing profile.
+        """
+        pulumi.set(__self__, "channel", channel)
+        pulumi.set(__self__, "queue_arn", queue_arn)
+
+    @property
+    @pulumi.getter
+    def channel(self) -> pulumi.Input['RoutingProfileChannel']:
+        return pulumi.get(self, "channel")
+
+    @channel.setter
+    def channel(self, value: pulumi.Input['RoutingProfileChannel']):
+        pulumi.set(self, "channel", value)
+
+    @property
+    @pulumi.getter(name="queueArn")
+    def queue_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "queue_arn")
+
+    @queue_arn.setter
+    def queue_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "queue_arn", value)
+
+
+@pulumi.input_type
+class RoutingProfileTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        A key-value pair to associate with a resource.
+        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

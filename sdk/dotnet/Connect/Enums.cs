@@ -592,6 +592,68 @@ namespace Pulumi.AwsNative.Connect
     }
 
     /// <summary>
+    /// The status of the queue.
+    /// </summary>
+    [EnumType]
+    public readonly struct QueueStatus : IEquatable<QueueStatus>
+    {
+        private readonly string _value;
+
+        private QueueStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static QueueStatus Enabled { get; } = new QueueStatus("ENABLED");
+        public static QueueStatus Disabled { get; } = new QueueStatus("DISABLED");
+
+        public static bool operator ==(QueueStatus left, QueueStatus right) => left.Equals(right);
+        public static bool operator !=(QueueStatus left, QueueStatus right) => !left.Equals(right);
+
+        public static explicit operator string(QueueStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is QueueStatus other && Equals(other);
+        public bool Equals(QueueStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of queue.
+    /// </summary>
+    [EnumType]
+    public readonly struct QueueType : IEquatable<QueueType>
+    {
+        private readonly string _value;
+
+        private QueueType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static QueueType Standard { get; } = new QueueType("STANDARD");
+        public static QueueType Agent { get; } = new QueueType("AGENT");
+
+        public static bool operator ==(QueueType left, QueueType right) => left.Equals(right);
+        public static bool operator !=(QueueType left, QueueType right) => !left.Equals(right);
+
+        public static explicit operator string(QueueType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is QueueType other && Equals(other);
+        public bool Equals(QueueType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
     /// </summary>
     [EnumType]
@@ -616,6 +678,69 @@ namespace Pulumi.AwsNative.Connect
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is QuickConnectType other && Equals(other);
         public bool Equals(QuickConnectType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the other channels that can be routed to an agent handling their current channel.
+    /// </summary>
+    [EnumType]
+    public readonly struct RoutingProfileBehaviorType : IEquatable<RoutingProfileBehaviorType>
+    {
+        private readonly string _value;
+
+        private RoutingProfileBehaviorType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RoutingProfileBehaviorType RouteCurrentChannelOnly { get; } = new RoutingProfileBehaviorType("ROUTE_CURRENT_CHANNEL_ONLY");
+        public static RoutingProfileBehaviorType RouteAnyChannel { get; } = new RoutingProfileBehaviorType("ROUTE_ANY_CHANNEL");
+
+        public static bool operator ==(RoutingProfileBehaviorType left, RoutingProfileBehaviorType right) => left.Equals(right);
+        public static bool operator !=(RoutingProfileBehaviorType left, RoutingProfileBehaviorType right) => !left.Equals(right);
+
+        public static explicit operator string(RoutingProfileBehaviorType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RoutingProfileBehaviorType other && Equals(other);
+        public bool Equals(RoutingProfileBehaviorType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The channels that agents can handle in the Contact Control Panel (CCP).
+    /// </summary>
+    [EnumType]
+    public readonly struct RoutingProfileChannel : IEquatable<RoutingProfileChannel>
+    {
+        private readonly string _value;
+
+        private RoutingProfileChannel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RoutingProfileChannel Voice { get; } = new RoutingProfileChannel("VOICE");
+        public static RoutingProfileChannel Chat { get; } = new RoutingProfileChannel("CHAT");
+        public static RoutingProfileChannel Task { get; } = new RoutingProfileChannel("TASK");
+
+        public static bool operator ==(RoutingProfileChannel left, RoutingProfileChannel right) => left.Equals(right);
+        public static bool operator !=(RoutingProfileChannel left, RoutingProfileChannel right) => !left.Equals(right);
+
+        public static explicit operator string(RoutingProfileChannel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RoutingProfileChannel other && Equals(other);
+        public bool Equals(RoutingProfileChannel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

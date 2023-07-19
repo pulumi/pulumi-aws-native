@@ -4195,6 +4195,275 @@ func (o PromptTagArrayOutput) Index(i pulumi.IntInput) PromptTagOutput {
 	}).(PromptTagOutput)
 }
 
+// The outbound caller ID name, number, and outbound whisper flow.
+type QueueOutboundCallerConfig struct {
+	OutboundCallerIdName      *string `pulumi:"outboundCallerIdName"`
+	OutboundCallerIdNumberArn *string `pulumi:"outboundCallerIdNumberArn"`
+	OutboundFlowArn           *string `pulumi:"outboundFlowArn"`
+}
+
+// QueueOutboundCallerConfigInput is an input type that accepts QueueOutboundCallerConfigArgs and QueueOutboundCallerConfigOutput values.
+// You can construct a concrete instance of `QueueOutboundCallerConfigInput` via:
+//
+//	QueueOutboundCallerConfigArgs{...}
+type QueueOutboundCallerConfigInput interface {
+	pulumi.Input
+
+	ToQueueOutboundCallerConfigOutput() QueueOutboundCallerConfigOutput
+	ToQueueOutboundCallerConfigOutputWithContext(context.Context) QueueOutboundCallerConfigOutput
+}
+
+// The outbound caller ID name, number, and outbound whisper flow.
+type QueueOutboundCallerConfigArgs struct {
+	OutboundCallerIdName      pulumi.StringPtrInput `pulumi:"outboundCallerIdName"`
+	OutboundCallerIdNumberArn pulumi.StringPtrInput `pulumi:"outboundCallerIdNumberArn"`
+	OutboundFlowArn           pulumi.StringPtrInput `pulumi:"outboundFlowArn"`
+}
+
+func (QueueOutboundCallerConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueueOutboundCallerConfig)(nil)).Elem()
+}
+
+func (i QueueOutboundCallerConfigArgs) ToQueueOutboundCallerConfigOutput() QueueOutboundCallerConfigOutput {
+	return i.ToQueueOutboundCallerConfigOutputWithContext(context.Background())
+}
+
+func (i QueueOutboundCallerConfigArgs) ToQueueOutboundCallerConfigOutputWithContext(ctx context.Context) QueueOutboundCallerConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueueOutboundCallerConfigOutput)
+}
+
+func (i QueueOutboundCallerConfigArgs) ToQueueOutboundCallerConfigPtrOutput() QueueOutboundCallerConfigPtrOutput {
+	return i.ToQueueOutboundCallerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i QueueOutboundCallerConfigArgs) ToQueueOutboundCallerConfigPtrOutputWithContext(ctx context.Context) QueueOutboundCallerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueueOutboundCallerConfigOutput).ToQueueOutboundCallerConfigPtrOutputWithContext(ctx)
+}
+
+// QueueOutboundCallerConfigPtrInput is an input type that accepts QueueOutboundCallerConfigArgs, QueueOutboundCallerConfigPtr and QueueOutboundCallerConfigPtrOutput values.
+// You can construct a concrete instance of `QueueOutboundCallerConfigPtrInput` via:
+//
+//	        QueueOutboundCallerConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type QueueOutboundCallerConfigPtrInput interface {
+	pulumi.Input
+
+	ToQueueOutboundCallerConfigPtrOutput() QueueOutboundCallerConfigPtrOutput
+	ToQueueOutboundCallerConfigPtrOutputWithContext(context.Context) QueueOutboundCallerConfigPtrOutput
+}
+
+type queueOutboundCallerConfigPtrType QueueOutboundCallerConfigArgs
+
+func QueueOutboundCallerConfigPtr(v *QueueOutboundCallerConfigArgs) QueueOutboundCallerConfigPtrInput {
+	return (*queueOutboundCallerConfigPtrType)(v)
+}
+
+func (*queueOutboundCallerConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**QueueOutboundCallerConfig)(nil)).Elem()
+}
+
+func (i *queueOutboundCallerConfigPtrType) ToQueueOutboundCallerConfigPtrOutput() QueueOutboundCallerConfigPtrOutput {
+	return i.ToQueueOutboundCallerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *queueOutboundCallerConfigPtrType) ToQueueOutboundCallerConfigPtrOutputWithContext(ctx context.Context) QueueOutboundCallerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueueOutboundCallerConfigPtrOutput)
+}
+
+// The outbound caller ID name, number, and outbound whisper flow.
+type QueueOutboundCallerConfigOutput struct{ *pulumi.OutputState }
+
+func (QueueOutboundCallerConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueueOutboundCallerConfig)(nil)).Elem()
+}
+
+func (o QueueOutboundCallerConfigOutput) ToQueueOutboundCallerConfigOutput() QueueOutboundCallerConfigOutput {
+	return o
+}
+
+func (o QueueOutboundCallerConfigOutput) ToQueueOutboundCallerConfigOutputWithContext(ctx context.Context) QueueOutboundCallerConfigOutput {
+	return o
+}
+
+func (o QueueOutboundCallerConfigOutput) ToQueueOutboundCallerConfigPtrOutput() QueueOutboundCallerConfigPtrOutput {
+	return o.ToQueueOutboundCallerConfigPtrOutputWithContext(context.Background())
+}
+
+func (o QueueOutboundCallerConfigOutput) ToQueueOutboundCallerConfigPtrOutputWithContext(ctx context.Context) QueueOutboundCallerConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v QueueOutboundCallerConfig) *QueueOutboundCallerConfig {
+		return &v
+	}).(QueueOutboundCallerConfigPtrOutput)
+}
+
+func (o QueueOutboundCallerConfigOutput) OutboundCallerIdName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v QueueOutboundCallerConfig) *string { return v.OutboundCallerIdName }).(pulumi.StringPtrOutput)
+}
+
+func (o QueueOutboundCallerConfigOutput) OutboundCallerIdNumberArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v QueueOutboundCallerConfig) *string { return v.OutboundCallerIdNumberArn }).(pulumi.StringPtrOutput)
+}
+
+func (o QueueOutboundCallerConfigOutput) OutboundFlowArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v QueueOutboundCallerConfig) *string { return v.OutboundFlowArn }).(pulumi.StringPtrOutput)
+}
+
+type QueueOutboundCallerConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (QueueOutboundCallerConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**QueueOutboundCallerConfig)(nil)).Elem()
+}
+
+func (o QueueOutboundCallerConfigPtrOutput) ToQueueOutboundCallerConfigPtrOutput() QueueOutboundCallerConfigPtrOutput {
+	return o
+}
+
+func (o QueueOutboundCallerConfigPtrOutput) ToQueueOutboundCallerConfigPtrOutputWithContext(ctx context.Context) QueueOutboundCallerConfigPtrOutput {
+	return o
+}
+
+func (o QueueOutboundCallerConfigPtrOutput) Elem() QueueOutboundCallerConfigOutput {
+	return o.ApplyT(func(v *QueueOutboundCallerConfig) QueueOutboundCallerConfig {
+		if v != nil {
+			return *v
+		}
+		var ret QueueOutboundCallerConfig
+		return ret
+	}).(QueueOutboundCallerConfigOutput)
+}
+
+func (o QueueOutboundCallerConfigPtrOutput) OutboundCallerIdName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *QueueOutboundCallerConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OutboundCallerIdName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o QueueOutboundCallerConfigPtrOutput) OutboundCallerIdNumberArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *QueueOutboundCallerConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OutboundCallerIdNumberArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o QueueOutboundCallerConfigPtrOutput) OutboundFlowArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *QueueOutboundCallerConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OutboundFlowArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type QueueTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// QueueTagInput is an input type that accepts QueueTagArgs and QueueTagOutput values.
+// You can construct a concrete instance of `QueueTagInput` via:
+//
+//	QueueTagArgs{...}
+type QueueTagInput interface {
+	pulumi.Input
+
+	ToQueueTagOutput() QueueTagOutput
+	ToQueueTagOutputWithContext(context.Context) QueueTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type QueueTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (QueueTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueueTag)(nil)).Elem()
+}
+
+func (i QueueTagArgs) ToQueueTagOutput() QueueTagOutput {
+	return i.ToQueueTagOutputWithContext(context.Background())
+}
+
+func (i QueueTagArgs) ToQueueTagOutputWithContext(ctx context.Context) QueueTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueueTagOutput)
+}
+
+// QueueTagArrayInput is an input type that accepts QueueTagArray and QueueTagArrayOutput values.
+// You can construct a concrete instance of `QueueTagArrayInput` via:
+//
+//	QueueTagArray{ QueueTagArgs{...} }
+type QueueTagArrayInput interface {
+	pulumi.Input
+
+	ToQueueTagArrayOutput() QueueTagArrayOutput
+	ToQueueTagArrayOutputWithContext(context.Context) QueueTagArrayOutput
+}
+
+type QueueTagArray []QueueTagInput
+
+func (QueueTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]QueueTag)(nil)).Elem()
+}
+
+func (i QueueTagArray) ToQueueTagArrayOutput() QueueTagArrayOutput {
+	return i.ToQueueTagArrayOutputWithContext(context.Background())
+}
+
+func (i QueueTagArray) ToQueueTagArrayOutputWithContext(ctx context.Context) QueueTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueueTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type QueueTagOutput struct{ *pulumi.OutputState }
+
+func (QueueTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueueTag)(nil)).Elem()
+}
+
+func (o QueueTagOutput) ToQueueTagOutput() QueueTagOutput {
+	return o
+}
+
+func (o QueueTagOutput) ToQueueTagOutputWithContext(ctx context.Context) QueueTagOutput {
+	return o
+}
+
+func (o QueueTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v QueueTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o QueueTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v QueueTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type QueueTagArrayOutput struct{ *pulumi.OutputState }
+
+func (QueueTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]QueueTag)(nil)).Elem()
+}
+
+func (o QueueTagArrayOutput) ToQueueTagArrayOutput() QueueTagArrayOutput {
+	return o
+}
+
+func (o QueueTagArrayOutput) ToQueueTagArrayOutputWithContext(ctx context.Context) QueueTagArrayOutput {
+	return o
+}
+
+func (o QueueTagArrayOutput) Index(i pulumi.IntInput) QueueTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) QueueTag {
+		return vs[0].([]QueueTag)[vs[1].(int)]
+	}).(QueueTagOutput)
+}
+
 // Configuration settings for the quick connect.
 type QuickConnectConfig struct {
 	PhoneConfig      *QuickConnectPhoneNumberQuickConnectConfig `pulumi:"phoneConfig"`
@@ -4870,6 +5139,529 @@ func (o QuickConnectUserQuickConnectConfigPtrOutput) UserArn() pulumi.StringPtrO
 		}
 		return &v.UserArn
 	}).(pulumi.StringPtrOutput)
+}
+
+// Defines the cross-channel routing behavior that allows an agent working on a contact in one channel to be offered a contact from a different channel.
+type RoutingProfileCrossChannelBehavior struct {
+	BehaviorType RoutingProfileBehaviorType `pulumi:"behaviorType"`
+}
+
+// RoutingProfileCrossChannelBehaviorInput is an input type that accepts RoutingProfileCrossChannelBehaviorArgs and RoutingProfileCrossChannelBehaviorOutput values.
+// You can construct a concrete instance of `RoutingProfileCrossChannelBehaviorInput` via:
+//
+//	RoutingProfileCrossChannelBehaviorArgs{...}
+type RoutingProfileCrossChannelBehaviorInput interface {
+	pulumi.Input
+
+	ToRoutingProfileCrossChannelBehaviorOutput() RoutingProfileCrossChannelBehaviorOutput
+	ToRoutingProfileCrossChannelBehaviorOutputWithContext(context.Context) RoutingProfileCrossChannelBehaviorOutput
+}
+
+// Defines the cross-channel routing behavior that allows an agent working on a contact in one channel to be offered a contact from a different channel.
+type RoutingProfileCrossChannelBehaviorArgs struct {
+	BehaviorType RoutingProfileBehaviorTypeInput `pulumi:"behaviorType"`
+}
+
+func (RoutingProfileCrossChannelBehaviorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoutingProfileCrossChannelBehavior)(nil)).Elem()
+}
+
+func (i RoutingProfileCrossChannelBehaviorArgs) ToRoutingProfileCrossChannelBehaviorOutput() RoutingProfileCrossChannelBehaviorOutput {
+	return i.ToRoutingProfileCrossChannelBehaviorOutputWithContext(context.Background())
+}
+
+func (i RoutingProfileCrossChannelBehaviorArgs) ToRoutingProfileCrossChannelBehaviorOutputWithContext(ctx context.Context) RoutingProfileCrossChannelBehaviorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoutingProfileCrossChannelBehaviorOutput)
+}
+
+func (i RoutingProfileCrossChannelBehaviorArgs) ToRoutingProfileCrossChannelBehaviorPtrOutput() RoutingProfileCrossChannelBehaviorPtrOutput {
+	return i.ToRoutingProfileCrossChannelBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (i RoutingProfileCrossChannelBehaviorArgs) ToRoutingProfileCrossChannelBehaviorPtrOutputWithContext(ctx context.Context) RoutingProfileCrossChannelBehaviorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoutingProfileCrossChannelBehaviorOutput).ToRoutingProfileCrossChannelBehaviorPtrOutputWithContext(ctx)
+}
+
+// RoutingProfileCrossChannelBehaviorPtrInput is an input type that accepts RoutingProfileCrossChannelBehaviorArgs, RoutingProfileCrossChannelBehaviorPtr and RoutingProfileCrossChannelBehaviorPtrOutput values.
+// You can construct a concrete instance of `RoutingProfileCrossChannelBehaviorPtrInput` via:
+//
+//	        RoutingProfileCrossChannelBehaviorArgs{...}
+//
+//	or:
+//
+//	        nil
+type RoutingProfileCrossChannelBehaviorPtrInput interface {
+	pulumi.Input
+
+	ToRoutingProfileCrossChannelBehaviorPtrOutput() RoutingProfileCrossChannelBehaviorPtrOutput
+	ToRoutingProfileCrossChannelBehaviorPtrOutputWithContext(context.Context) RoutingProfileCrossChannelBehaviorPtrOutput
+}
+
+type routingProfileCrossChannelBehaviorPtrType RoutingProfileCrossChannelBehaviorArgs
+
+func RoutingProfileCrossChannelBehaviorPtr(v *RoutingProfileCrossChannelBehaviorArgs) RoutingProfileCrossChannelBehaviorPtrInput {
+	return (*routingProfileCrossChannelBehaviorPtrType)(v)
+}
+
+func (*routingProfileCrossChannelBehaviorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoutingProfileCrossChannelBehavior)(nil)).Elem()
+}
+
+func (i *routingProfileCrossChannelBehaviorPtrType) ToRoutingProfileCrossChannelBehaviorPtrOutput() RoutingProfileCrossChannelBehaviorPtrOutput {
+	return i.ToRoutingProfileCrossChannelBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (i *routingProfileCrossChannelBehaviorPtrType) ToRoutingProfileCrossChannelBehaviorPtrOutputWithContext(ctx context.Context) RoutingProfileCrossChannelBehaviorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoutingProfileCrossChannelBehaviorPtrOutput)
+}
+
+// Defines the cross-channel routing behavior that allows an agent working on a contact in one channel to be offered a contact from a different channel.
+type RoutingProfileCrossChannelBehaviorOutput struct{ *pulumi.OutputState }
+
+func (RoutingProfileCrossChannelBehaviorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoutingProfileCrossChannelBehavior)(nil)).Elem()
+}
+
+func (o RoutingProfileCrossChannelBehaviorOutput) ToRoutingProfileCrossChannelBehaviorOutput() RoutingProfileCrossChannelBehaviorOutput {
+	return o
+}
+
+func (o RoutingProfileCrossChannelBehaviorOutput) ToRoutingProfileCrossChannelBehaviorOutputWithContext(ctx context.Context) RoutingProfileCrossChannelBehaviorOutput {
+	return o
+}
+
+func (o RoutingProfileCrossChannelBehaviorOutput) ToRoutingProfileCrossChannelBehaviorPtrOutput() RoutingProfileCrossChannelBehaviorPtrOutput {
+	return o.ToRoutingProfileCrossChannelBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (o RoutingProfileCrossChannelBehaviorOutput) ToRoutingProfileCrossChannelBehaviorPtrOutputWithContext(ctx context.Context) RoutingProfileCrossChannelBehaviorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RoutingProfileCrossChannelBehavior) *RoutingProfileCrossChannelBehavior {
+		return &v
+	}).(RoutingProfileCrossChannelBehaviorPtrOutput)
+}
+
+func (o RoutingProfileCrossChannelBehaviorOutput) BehaviorType() RoutingProfileBehaviorTypeOutput {
+	return o.ApplyT(func(v RoutingProfileCrossChannelBehavior) RoutingProfileBehaviorType { return v.BehaviorType }).(RoutingProfileBehaviorTypeOutput)
+}
+
+type RoutingProfileCrossChannelBehaviorPtrOutput struct{ *pulumi.OutputState }
+
+func (RoutingProfileCrossChannelBehaviorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoutingProfileCrossChannelBehavior)(nil)).Elem()
+}
+
+func (o RoutingProfileCrossChannelBehaviorPtrOutput) ToRoutingProfileCrossChannelBehaviorPtrOutput() RoutingProfileCrossChannelBehaviorPtrOutput {
+	return o
+}
+
+func (o RoutingProfileCrossChannelBehaviorPtrOutput) ToRoutingProfileCrossChannelBehaviorPtrOutputWithContext(ctx context.Context) RoutingProfileCrossChannelBehaviorPtrOutput {
+	return o
+}
+
+func (o RoutingProfileCrossChannelBehaviorPtrOutput) Elem() RoutingProfileCrossChannelBehaviorOutput {
+	return o.ApplyT(func(v *RoutingProfileCrossChannelBehavior) RoutingProfileCrossChannelBehavior {
+		if v != nil {
+			return *v
+		}
+		var ret RoutingProfileCrossChannelBehavior
+		return ret
+	}).(RoutingProfileCrossChannelBehaviorOutput)
+}
+
+func (o RoutingProfileCrossChannelBehaviorPtrOutput) BehaviorType() RoutingProfileBehaviorTypePtrOutput {
+	return o.ApplyT(func(v *RoutingProfileCrossChannelBehavior) *RoutingProfileBehaviorType {
+		if v == nil {
+			return nil
+		}
+		return &v.BehaviorType
+	}).(RoutingProfileBehaviorTypePtrOutput)
+}
+
+// Contains information about which channels are supported, and how many contacts an agent can have on a channel simultaneously.
+type RoutingProfileMediaConcurrency struct {
+	Channel              RoutingProfileChannel               `pulumi:"channel"`
+	Concurrency          int                                 `pulumi:"concurrency"`
+	CrossChannelBehavior *RoutingProfileCrossChannelBehavior `pulumi:"crossChannelBehavior"`
+}
+
+// RoutingProfileMediaConcurrencyInput is an input type that accepts RoutingProfileMediaConcurrencyArgs and RoutingProfileMediaConcurrencyOutput values.
+// You can construct a concrete instance of `RoutingProfileMediaConcurrencyInput` via:
+//
+//	RoutingProfileMediaConcurrencyArgs{...}
+type RoutingProfileMediaConcurrencyInput interface {
+	pulumi.Input
+
+	ToRoutingProfileMediaConcurrencyOutput() RoutingProfileMediaConcurrencyOutput
+	ToRoutingProfileMediaConcurrencyOutputWithContext(context.Context) RoutingProfileMediaConcurrencyOutput
+}
+
+// Contains information about which channels are supported, and how many contacts an agent can have on a channel simultaneously.
+type RoutingProfileMediaConcurrencyArgs struct {
+	Channel              RoutingProfileChannelInput                 `pulumi:"channel"`
+	Concurrency          pulumi.IntInput                            `pulumi:"concurrency"`
+	CrossChannelBehavior RoutingProfileCrossChannelBehaviorPtrInput `pulumi:"crossChannelBehavior"`
+}
+
+func (RoutingProfileMediaConcurrencyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoutingProfileMediaConcurrency)(nil)).Elem()
+}
+
+func (i RoutingProfileMediaConcurrencyArgs) ToRoutingProfileMediaConcurrencyOutput() RoutingProfileMediaConcurrencyOutput {
+	return i.ToRoutingProfileMediaConcurrencyOutputWithContext(context.Background())
+}
+
+func (i RoutingProfileMediaConcurrencyArgs) ToRoutingProfileMediaConcurrencyOutputWithContext(ctx context.Context) RoutingProfileMediaConcurrencyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoutingProfileMediaConcurrencyOutput)
+}
+
+// RoutingProfileMediaConcurrencyArrayInput is an input type that accepts RoutingProfileMediaConcurrencyArray and RoutingProfileMediaConcurrencyArrayOutput values.
+// You can construct a concrete instance of `RoutingProfileMediaConcurrencyArrayInput` via:
+//
+//	RoutingProfileMediaConcurrencyArray{ RoutingProfileMediaConcurrencyArgs{...} }
+type RoutingProfileMediaConcurrencyArrayInput interface {
+	pulumi.Input
+
+	ToRoutingProfileMediaConcurrencyArrayOutput() RoutingProfileMediaConcurrencyArrayOutput
+	ToRoutingProfileMediaConcurrencyArrayOutputWithContext(context.Context) RoutingProfileMediaConcurrencyArrayOutput
+}
+
+type RoutingProfileMediaConcurrencyArray []RoutingProfileMediaConcurrencyInput
+
+func (RoutingProfileMediaConcurrencyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RoutingProfileMediaConcurrency)(nil)).Elem()
+}
+
+func (i RoutingProfileMediaConcurrencyArray) ToRoutingProfileMediaConcurrencyArrayOutput() RoutingProfileMediaConcurrencyArrayOutput {
+	return i.ToRoutingProfileMediaConcurrencyArrayOutputWithContext(context.Background())
+}
+
+func (i RoutingProfileMediaConcurrencyArray) ToRoutingProfileMediaConcurrencyArrayOutputWithContext(ctx context.Context) RoutingProfileMediaConcurrencyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoutingProfileMediaConcurrencyArrayOutput)
+}
+
+// Contains information about which channels are supported, and how many contacts an agent can have on a channel simultaneously.
+type RoutingProfileMediaConcurrencyOutput struct{ *pulumi.OutputState }
+
+func (RoutingProfileMediaConcurrencyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoutingProfileMediaConcurrency)(nil)).Elem()
+}
+
+func (o RoutingProfileMediaConcurrencyOutput) ToRoutingProfileMediaConcurrencyOutput() RoutingProfileMediaConcurrencyOutput {
+	return o
+}
+
+func (o RoutingProfileMediaConcurrencyOutput) ToRoutingProfileMediaConcurrencyOutputWithContext(ctx context.Context) RoutingProfileMediaConcurrencyOutput {
+	return o
+}
+
+func (o RoutingProfileMediaConcurrencyOutput) Channel() RoutingProfileChannelOutput {
+	return o.ApplyT(func(v RoutingProfileMediaConcurrency) RoutingProfileChannel { return v.Channel }).(RoutingProfileChannelOutput)
+}
+
+func (o RoutingProfileMediaConcurrencyOutput) Concurrency() pulumi.IntOutput {
+	return o.ApplyT(func(v RoutingProfileMediaConcurrency) int { return v.Concurrency }).(pulumi.IntOutput)
+}
+
+func (o RoutingProfileMediaConcurrencyOutput) CrossChannelBehavior() RoutingProfileCrossChannelBehaviorPtrOutput {
+	return o.ApplyT(func(v RoutingProfileMediaConcurrency) *RoutingProfileCrossChannelBehavior {
+		return v.CrossChannelBehavior
+	}).(RoutingProfileCrossChannelBehaviorPtrOutput)
+}
+
+type RoutingProfileMediaConcurrencyArrayOutput struct{ *pulumi.OutputState }
+
+func (RoutingProfileMediaConcurrencyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RoutingProfileMediaConcurrency)(nil)).Elem()
+}
+
+func (o RoutingProfileMediaConcurrencyArrayOutput) ToRoutingProfileMediaConcurrencyArrayOutput() RoutingProfileMediaConcurrencyArrayOutput {
+	return o
+}
+
+func (o RoutingProfileMediaConcurrencyArrayOutput) ToRoutingProfileMediaConcurrencyArrayOutputWithContext(ctx context.Context) RoutingProfileMediaConcurrencyArrayOutput {
+	return o
+}
+
+func (o RoutingProfileMediaConcurrencyArrayOutput) Index(i pulumi.IntInput) RoutingProfileMediaConcurrencyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RoutingProfileMediaConcurrency {
+		return vs[0].([]RoutingProfileMediaConcurrency)[vs[1].(int)]
+	}).(RoutingProfileMediaConcurrencyOutput)
+}
+
+// Contains information about the queue and channel for which priority and delay can be set.
+type RoutingProfileQueueConfig struct {
+	Delay          int                          `pulumi:"delay"`
+	Priority       int                          `pulumi:"priority"`
+	QueueReference RoutingProfileQueueReference `pulumi:"queueReference"`
+}
+
+// RoutingProfileQueueConfigInput is an input type that accepts RoutingProfileQueueConfigArgs and RoutingProfileQueueConfigOutput values.
+// You can construct a concrete instance of `RoutingProfileQueueConfigInput` via:
+//
+//	RoutingProfileQueueConfigArgs{...}
+type RoutingProfileQueueConfigInput interface {
+	pulumi.Input
+
+	ToRoutingProfileQueueConfigOutput() RoutingProfileQueueConfigOutput
+	ToRoutingProfileQueueConfigOutputWithContext(context.Context) RoutingProfileQueueConfigOutput
+}
+
+// Contains information about the queue and channel for which priority and delay can be set.
+type RoutingProfileQueueConfigArgs struct {
+	Delay          pulumi.IntInput                   `pulumi:"delay"`
+	Priority       pulumi.IntInput                   `pulumi:"priority"`
+	QueueReference RoutingProfileQueueReferenceInput `pulumi:"queueReference"`
+}
+
+func (RoutingProfileQueueConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoutingProfileQueueConfig)(nil)).Elem()
+}
+
+func (i RoutingProfileQueueConfigArgs) ToRoutingProfileQueueConfigOutput() RoutingProfileQueueConfigOutput {
+	return i.ToRoutingProfileQueueConfigOutputWithContext(context.Background())
+}
+
+func (i RoutingProfileQueueConfigArgs) ToRoutingProfileQueueConfigOutputWithContext(ctx context.Context) RoutingProfileQueueConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoutingProfileQueueConfigOutput)
+}
+
+// RoutingProfileQueueConfigArrayInput is an input type that accepts RoutingProfileQueueConfigArray and RoutingProfileQueueConfigArrayOutput values.
+// You can construct a concrete instance of `RoutingProfileQueueConfigArrayInput` via:
+//
+//	RoutingProfileQueueConfigArray{ RoutingProfileQueueConfigArgs{...} }
+type RoutingProfileQueueConfigArrayInput interface {
+	pulumi.Input
+
+	ToRoutingProfileQueueConfigArrayOutput() RoutingProfileQueueConfigArrayOutput
+	ToRoutingProfileQueueConfigArrayOutputWithContext(context.Context) RoutingProfileQueueConfigArrayOutput
+}
+
+type RoutingProfileQueueConfigArray []RoutingProfileQueueConfigInput
+
+func (RoutingProfileQueueConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RoutingProfileQueueConfig)(nil)).Elem()
+}
+
+func (i RoutingProfileQueueConfigArray) ToRoutingProfileQueueConfigArrayOutput() RoutingProfileQueueConfigArrayOutput {
+	return i.ToRoutingProfileQueueConfigArrayOutputWithContext(context.Background())
+}
+
+func (i RoutingProfileQueueConfigArray) ToRoutingProfileQueueConfigArrayOutputWithContext(ctx context.Context) RoutingProfileQueueConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoutingProfileQueueConfigArrayOutput)
+}
+
+// Contains information about the queue and channel for which priority and delay can be set.
+type RoutingProfileQueueConfigOutput struct{ *pulumi.OutputState }
+
+func (RoutingProfileQueueConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoutingProfileQueueConfig)(nil)).Elem()
+}
+
+func (o RoutingProfileQueueConfigOutput) ToRoutingProfileQueueConfigOutput() RoutingProfileQueueConfigOutput {
+	return o
+}
+
+func (o RoutingProfileQueueConfigOutput) ToRoutingProfileQueueConfigOutputWithContext(ctx context.Context) RoutingProfileQueueConfigOutput {
+	return o
+}
+
+func (o RoutingProfileQueueConfigOutput) Delay() pulumi.IntOutput {
+	return o.ApplyT(func(v RoutingProfileQueueConfig) int { return v.Delay }).(pulumi.IntOutput)
+}
+
+func (o RoutingProfileQueueConfigOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v RoutingProfileQueueConfig) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+func (o RoutingProfileQueueConfigOutput) QueueReference() RoutingProfileQueueReferenceOutput {
+	return o.ApplyT(func(v RoutingProfileQueueConfig) RoutingProfileQueueReference { return v.QueueReference }).(RoutingProfileQueueReferenceOutput)
+}
+
+type RoutingProfileQueueConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (RoutingProfileQueueConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RoutingProfileQueueConfig)(nil)).Elem()
+}
+
+func (o RoutingProfileQueueConfigArrayOutput) ToRoutingProfileQueueConfigArrayOutput() RoutingProfileQueueConfigArrayOutput {
+	return o
+}
+
+func (o RoutingProfileQueueConfigArrayOutput) ToRoutingProfileQueueConfigArrayOutputWithContext(ctx context.Context) RoutingProfileQueueConfigArrayOutput {
+	return o
+}
+
+func (o RoutingProfileQueueConfigArrayOutput) Index(i pulumi.IntInput) RoutingProfileQueueConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RoutingProfileQueueConfig {
+		return vs[0].([]RoutingProfileQueueConfig)[vs[1].(int)]
+	}).(RoutingProfileQueueConfigOutput)
+}
+
+// Contains the channel and queue identifier for a routing profile.
+type RoutingProfileQueueReference struct {
+	Channel  RoutingProfileChannel `pulumi:"channel"`
+	QueueArn string                `pulumi:"queueArn"`
+}
+
+// RoutingProfileQueueReferenceInput is an input type that accepts RoutingProfileQueueReferenceArgs and RoutingProfileQueueReferenceOutput values.
+// You can construct a concrete instance of `RoutingProfileQueueReferenceInput` via:
+//
+//	RoutingProfileQueueReferenceArgs{...}
+type RoutingProfileQueueReferenceInput interface {
+	pulumi.Input
+
+	ToRoutingProfileQueueReferenceOutput() RoutingProfileQueueReferenceOutput
+	ToRoutingProfileQueueReferenceOutputWithContext(context.Context) RoutingProfileQueueReferenceOutput
+}
+
+// Contains the channel and queue identifier for a routing profile.
+type RoutingProfileQueueReferenceArgs struct {
+	Channel  RoutingProfileChannelInput `pulumi:"channel"`
+	QueueArn pulumi.StringInput         `pulumi:"queueArn"`
+}
+
+func (RoutingProfileQueueReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoutingProfileQueueReference)(nil)).Elem()
+}
+
+func (i RoutingProfileQueueReferenceArgs) ToRoutingProfileQueueReferenceOutput() RoutingProfileQueueReferenceOutput {
+	return i.ToRoutingProfileQueueReferenceOutputWithContext(context.Background())
+}
+
+func (i RoutingProfileQueueReferenceArgs) ToRoutingProfileQueueReferenceOutputWithContext(ctx context.Context) RoutingProfileQueueReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoutingProfileQueueReferenceOutput)
+}
+
+// Contains the channel and queue identifier for a routing profile.
+type RoutingProfileQueueReferenceOutput struct{ *pulumi.OutputState }
+
+func (RoutingProfileQueueReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoutingProfileQueueReference)(nil)).Elem()
+}
+
+func (o RoutingProfileQueueReferenceOutput) ToRoutingProfileQueueReferenceOutput() RoutingProfileQueueReferenceOutput {
+	return o
+}
+
+func (o RoutingProfileQueueReferenceOutput) ToRoutingProfileQueueReferenceOutputWithContext(ctx context.Context) RoutingProfileQueueReferenceOutput {
+	return o
+}
+
+func (o RoutingProfileQueueReferenceOutput) Channel() RoutingProfileChannelOutput {
+	return o.ApplyT(func(v RoutingProfileQueueReference) RoutingProfileChannel { return v.Channel }).(RoutingProfileChannelOutput)
+}
+
+func (o RoutingProfileQueueReferenceOutput) QueueArn() pulumi.StringOutput {
+	return o.ApplyT(func(v RoutingProfileQueueReference) string { return v.QueueArn }).(pulumi.StringOutput)
+}
+
+// A key-value pair to associate with a resource.
+type RoutingProfileTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// RoutingProfileTagInput is an input type that accepts RoutingProfileTagArgs and RoutingProfileTagOutput values.
+// You can construct a concrete instance of `RoutingProfileTagInput` via:
+//
+//	RoutingProfileTagArgs{...}
+type RoutingProfileTagInput interface {
+	pulumi.Input
+
+	ToRoutingProfileTagOutput() RoutingProfileTagOutput
+	ToRoutingProfileTagOutputWithContext(context.Context) RoutingProfileTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type RoutingProfileTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (RoutingProfileTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoutingProfileTag)(nil)).Elem()
+}
+
+func (i RoutingProfileTagArgs) ToRoutingProfileTagOutput() RoutingProfileTagOutput {
+	return i.ToRoutingProfileTagOutputWithContext(context.Background())
+}
+
+func (i RoutingProfileTagArgs) ToRoutingProfileTagOutputWithContext(ctx context.Context) RoutingProfileTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoutingProfileTagOutput)
+}
+
+// RoutingProfileTagArrayInput is an input type that accepts RoutingProfileTagArray and RoutingProfileTagArrayOutput values.
+// You can construct a concrete instance of `RoutingProfileTagArrayInput` via:
+//
+//	RoutingProfileTagArray{ RoutingProfileTagArgs{...} }
+type RoutingProfileTagArrayInput interface {
+	pulumi.Input
+
+	ToRoutingProfileTagArrayOutput() RoutingProfileTagArrayOutput
+	ToRoutingProfileTagArrayOutputWithContext(context.Context) RoutingProfileTagArrayOutput
+}
+
+type RoutingProfileTagArray []RoutingProfileTagInput
+
+func (RoutingProfileTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RoutingProfileTag)(nil)).Elem()
+}
+
+func (i RoutingProfileTagArray) ToRoutingProfileTagArrayOutput() RoutingProfileTagArrayOutput {
+	return i.ToRoutingProfileTagArrayOutputWithContext(context.Background())
+}
+
+func (i RoutingProfileTagArray) ToRoutingProfileTagArrayOutputWithContext(ctx context.Context) RoutingProfileTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoutingProfileTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type RoutingProfileTagOutput struct{ *pulumi.OutputState }
+
+func (RoutingProfileTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoutingProfileTag)(nil)).Elem()
+}
+
+func (o RoutingProfileTagOutput) ToRoutingProfileTagOutput() RoutingProfileTagOutput {
+	return o
+}
+
+func (o RoutingProfileTagOutput) ToRoutingProfileTagOutputWithContext(ctx context.Context) RoutingProfileTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o RoutingProfileTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v RoutingProfileTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o RoutingProfileTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v RoutingProfileTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type RoutingProfileTagArrayOutput struct{ *pulumi.OutputState }
+
+func (RoutingProfileTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RoutingProfileTag)(nil)).Elem()
+}
+
+func (o RoutingProfileTagArrayOutput) ToRoutingProfileTagArrayOutput() RoutingProfileTagArrayOutput {
+	return o
+}
+
+func (o RoutingProfileTagArrayOutput) ToRoutingProfileTagArrayOutputWithContext(ctx context.Context) RoutingProfileTagArrayOutput {
+	return o
+}
+
+func (o RoutingProfileTagArrayOutput) Index(i pulumi.IntInput) RoutingProfileTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RoutingProfileTag {
+		return vs[0].([]RoutingProfileTag)[vs[1].(int)]
+	}).(RoutingProfileTagOutput)
 }
 
 // The list of actions that will be executed when a rule is triggered.
@@ -6862,6 +7654,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PhoneNumberTagArrayInput)(nil)).Elem(), PhoneNumberTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PromptTagInput)(nil)).Elem(), PromptTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PromptTagArrayInput)(nil)).Elem(), PromptTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QueueOutboundCallerConfigInput)(nil)).Elem(), QueueOutboundCallerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QueueOutboundCallerConfigPtrInput)(nil)).Elem(), QueueOutboundCallerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QueueTagInput)(nil)).Elem(), QueueTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QueueTagArrayInput)(nil)).Elem(), QueueTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectConfigInput)(nil)).Elem(), QuickConnectConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectPhoneNumberQuickConnectConfigInput)(nil)).Elem(), QuickConnectPhoneNumberQuickConnectConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectPhoneNumberQuickConnectConfigPtrInput)(nil)).Elem(), QuickConnectPhoneNumberQuickConnectConfigArgs{})
@@ -6871,6 +7667,15 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectTagArrayInput)(nil)).Elem(), QuickConnectTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectUserQuickConnectConfigInput)(nil)).Elem(), QuickConnectUserQuickConnectConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectUserQuickConnectConfigPtrInput)(nil)).Elem(), QuickConnectUserQuickConnectConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingProfileCrossChannelBehaviorInput)(nil)).Elem(), RoutingProfileCrossChannelBehaviorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingProfileCrossChannelBehaviorPtrInput)(nil)).Elem(), RoutingProfileCrossChannelBehaviorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingProfileMediaConcurrencyInput)(nil)).Elem(), RoutingProfileMediaConcurrencyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingProfileMediaConcurrencyArrayInput)(nil)).Elem(), RoutingProfileMediaConcurrencyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingProfileQueueConfigInput)(nil)).Elem(), RoutingProfileQueueConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingProfileQueueConfigArrayInput)(nil)).Elem(), RoutingProfileQueueConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingProfileQueueReferenceInput)(nil)).Elem(), RoutingProfileQueueReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingProfileTagInput)(nil)).Elem(), RoutingProfileTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingProfileTagArrayInput)(nil)).Elem(), RoutingProfileTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleActionsInput)(nil)).Elem(), RuleActionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleAssignContactCategoryActionInput)(nil)).Elem(), RuleAssignContactCategoryActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleAssignContactCategoryActionArrayInput)(nil)).Elem(), RuleAssignContactCategoryActionArray{})
@@ -6960,6 +7765,10 @@ func init() {
 	pulumi.RegisterOutputType(PhoneNumberTagArrayOutput{})
 	pulumi.RegisterOutputType(PromptTagOutput{})
 	pulumi.RegisterOutputType(PromptTagArrayOutput{})
+	pulumi.RegisterOutputType(QueueOutboundCallerConfigOutput{})
+	pulumi.RegisterOutputType(QueueOutboundCallerConfigPtrOutput{})
+	pulumi.RegisterOutputType(QueueTagOutput{})
+	pulumi.RegisterOutputType(QueueTagArrayOutput{})
 	pulumi.RegisterOutputType(QuickConnectConfigOutput{})
 	pulumi.RegisterOutputType(QuickConnectConfigPtrOutput{})
 	pulumi.RegisterOutputType(QuickConnectPhoneNumberQuickConnectConfigOutput{})
@@ -6970,6 +7779,15 @@ func init() {
 	pulumi.RegisterOutputType(QuickConnectTagArrayOutput{})
 	pulumi.RegisterOutputType(QuickConnectUserQuickConnectConfigOutput{})
 	pulumi.RegisterOutputType(QuickConnectUserQuickConnectConfigPtrOutput{})
+	pulumi.RegisterOutputType(RoutingProfileCrossChannelBehaviorOutput{})
+	pulumi.RegisterOutputType(RoutingProfileCrossChannelBehaviorPtrOutput{})
+	pulumi.RegisterOutputType(RoutingProfileMediaConcurrencyOutput{})
+	pulumi.RegisterOutputType(RoutingProfileMediaConcurrencyArrayOutput{})
+	pulumi.RegisterOutputType(RoutingProfileQueueConfigOutput{})
+	pulumi.RegisterOutputType(RoutingProfileQueueConfigArrayOutput{})
+	pulumi.RegisterOutputType(RoutingProfileQueueReferenceOutput{})
+	pulumi.RegisterOutputType(RoutingProfileTagOutput{})
+	pulumi.RegisterOutputType(RoutingProfileTagArrayOutput{})
 	pulumi.RegisterOutputType(RuleActionsOutput{})
 	pulumi.RegisterOutputType(RuleActionsPtrOutput{})
 	pulumi.RegisterOutputType(RuleAssignContactCategoryActionOutput{})

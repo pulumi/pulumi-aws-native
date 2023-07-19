@@ -255,19 +255,38 @@
   "taggable" : false,
   "handlers" : {
     "create" : {
-      "permissions" : [ "elasticloadbalancing:CreateListener", "elasticloadbalancing:DescribeListeners" ]
+      "permissions" : [ "elasticloadbalancing:CreateListener", "elasticloadbalancing:DescribeListeners", "cognito-idp:DescribeUserPoolClient" ]
     },
     "delete" : {
-      "permissions" : [ "elasticloadbalancing:DeleteListener" ]
+      "permissions" : [ "elasticloadbalancing:DeleteListener", "elasticloadbalancing:DescribeListeners" ]
     },
     "list" : {
+      "handlerSchema" : {
+        "properties" : {
+          "LoadBalancerArn" : {
+            "$ref" : "resource-schema.json#/properties/LoadBalancerArn"
+          },
+          "ListenerArns" : {
+            "type" : "array",
+            "uniqueItems" : false,
+            "items" : {
+              "$ref" : "resource-schema.json#/properties/ListenerArn"
+            }
+          }
+        },
+        "oneOf" : [ {
+          "required" : [ "LoadBalancerArn" ]
+        }, {
+          "required" : [ "ListenerArns" ]
+        } ]
+      },
       "permissions" : [ "elasticloadbalancing:DescribeListeners" ]
     },
     "read" : {
       "permissions" : [ "elasticloadbalancing:DescribeListeners" ]
     },
     "update" : {
-      "permissions" : [ "elasticloadbalancing:ModifyListener" ]
+      "permissions" : [ "elasticloadbalancing:ModifyListener", "elasticloadbalancing:DescribeListeners", "cognito-idp:DescribeUserPoolClient" ]
     }
   }
 }

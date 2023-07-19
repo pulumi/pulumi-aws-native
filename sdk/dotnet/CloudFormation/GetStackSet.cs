@@ -86,10 +86,6 @@ namespace Pulumi.AwsNative.CloudFormation
         /// </summary>
         public readonly ImmutableArray<Outputs.StackSetParameter> Parameters;
         /// <summary>
-        /// A group of stack instances with parameters in some specific accounts and regions.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.StackSetStackInstances> StackInstancesGroup;
-        /// <summary>
         /// The ID of the stack set that you're creating.
         /// </summary>
         public readonly string? StackSetId;
@@ -118,8 +114,6 @@ namespace Pulumi.AwsNative.CloudFormation
 
             ImmutableArray<Outputs.StackSetParameter> parameters,
 
-            ImmutableArray<Outputs.StackSetStackInstances> stackInstancesGroup,
-
             string? stackSetId,
 
             ImmutableArray<Outputs.StackSetTag> tags,
@@ -133,7 +127,6 @@ namespace Pulumi.AwsNative.CloudFormation
             ExecutionRoleName = executionRoleName;
             ManagedExecution = managedExecution;
             Parameters = parameters;
-            StackInstancesGroup = stackInstancesGroup;
             StackSetId = stackSetId;
             Tags = tags;
             TemplateBody = templateBody;

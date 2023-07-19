@@ -68,7 +68,7 @@
   "additionalIdentifiers" : [ [ "/properties/Id" ], [ "/properties/Name" ] ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "vpc-lattice:GetServiceNetwork", "vpc-lattice:ListTagsForResource", "vpc-lattice:CreateServiceNetwork", "vpc-lattice:TagResource" ]
+      "permissions" : [ "vpc-lattice:GetServiceNetwork", "vpc-lattice:ListTagsForResource", "vpc-lattice:CreateServiceNetwork", "vpc-lattice:TagResource", "iam:CreateServiceLinkedRole" ]
     },
     "read" : {
       "permissions" : [ "vpc-lattice:GetServiceNetwork", "vpc-lattice:ListTagsForResource" ]

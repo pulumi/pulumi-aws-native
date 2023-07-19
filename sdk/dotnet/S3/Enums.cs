@@ -680,6 +680,7 @@ namespace Pulumi.AwsNative.S3
 
         public static BucketServerSideEncryptionByDefaultSSEAlgorithm Awskms { get; } = new BucketServerSideEncryptionByDefaultSSEAlgorithm("aws:kms");
         public static BucketServerSideEncryptionByDefaultSSEAlgorithm Aes256 { get; } = new BucketServerSideEncryptionByDefaultSSEAlgorithm("AES256");
+        public static BucketServerSideEncryptionByDefaultSSEAlgorithm Awskmsdsse { get; } = new BucketServerSideEncryptionByDefaultSSEAlgorithm("aws:kms:dsse");
 
         public static bool operator ==(BucketServerSideEncryptionByDefaultSSEAlgorithm left, BucketServerSideEncryptionByDefaultSSEAlgorithm right) => left.Equals(right);
         public static bool operator !=(BucketServerSideEncryptionByDefaultSSEAlgorithm left, BucketServerSideEncryptionByDefaultSSEAlgorithm right) => !left.Equals(right);

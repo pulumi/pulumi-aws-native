@@ -44,6 +44,7 @@ __all__ = [
     'JobDefinitionPodPropertiesArgs',
     'JobDefinitionResourceRequirementArgs',
     'JobDefinitionRetryStrategyArgs',
+    'JobDefinitionRuntimePlatformArgs',
     'JobDefinitionSecretArgs',
     'JobDefinitionTimeoutArgs',
     'JobDefinitionTmpfsArgs',
@@ -464,6 +465,7 @@ class JobDefinitionContainerPropertiesArgs:
                  privileged: Optional[pulumi.Input[bool]] = None,
                  readonly_root_filesystem: Optional[pulumi.Input[bool]] = None,
                  resource_requirements: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionResourceRequirementArgs']]]] = None,
+                 runtime_platform: Optional[pulumi.Input['JobDefinitionRuntimePlatformArgs']] = None,
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionSecretArgs']]]] = None,
                  ulimits: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionUlimitArgs']]]] = None,
                  user: Optional[pulumi.Input[str]] = None,
@@ -500,6 +502,8 @@ class JobDefinitionContainerPropertiesArgs:
             pulumi.set(__self__, "readonly_root_filesystem", readonly_root_filesystem)
         if resource_requirements is not None:
             pulumi.set(__self__, "resource_requirements", resource_requirements)
+        if runtime_platform is not None:
+            pulumi.set(__self__, "runtime_platform", runtime_platform)
         if secrets is not None:
             pulumi.set(__self__, "secrets", secrets)
         if ulimits is not None:
@@ -654,6 +658,15 @@ class JobDefinitionContainerPropertiesArgs:
     @resource_requirements.setter
     def resource_requirements(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionResourceRequirementArgs']]]]):
         pulumi.set(self, "resource_requirements", value)
+
+    @property
+    @pulumi.getter(name="runtimePlatform")
+    def runtime_platform(self) -> Optional[pulumi.Input['JobDefinitionRuntimePlatformArgs']]:
+        return pulumi.get(self, "runtime_platform")
+
+    @runtime_platform.setter
+    def runtime_platform(self, value: Optional[pulumi.Input['JobDefinitionRuntimePlatformArgs']]):
+        pulumi.set(self, "runtime_platform", value)
 
     @property
     @pulumi.getter
@@ -1729,6 +1742,35 @@ class JobDefinitionRetryStrategyArgs:
     @evaluate_on_exit.setter
     def evaluate_on_exit(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEvaluateOnExitArgs']]]]):
         pulumi.set(self, "evaluate_on_exit", value)
+
+
+@pulumi.input_type
+class JobDefinitionRuntimePlatformArgs:
+    def __init__(__self__, *,
+                 cpu_architecture: Optional[pulumi.Input[str]] = None,
+                 operating_system_family: Optional[pulumi.Input[str]] = None):
+        if cpu_architecture is not None:
+            pulumi.set(__self__, "cpu_architecture", cpu_architecture)
+        if operating_system_family is not None:
+            pulumi.set(__self__, "operating_system_family", operating_system_family)
+
+    @property
+    @pulumi.getter(name="cpuArchitecture")
+    def cpu_architecture(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "cpu_architecture")
+
+    @cpu_architecture.setter
+    def cpu_architecture(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cpu_architecture", value)
+
+    @property
+    @pulumi.getter(name="operatingSystemFamily")
+    def operating_system_family(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "operating_system_family")
+
+    @operating_system_family.setter
+    def operating_system_family(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "operating_system_family", value)
 
 
 @pulumi.input_type
