@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.CloudWatch
         /// <summary>
         /// The date of creation of the metric stream.
         /// </summary>
-        public readonly object? CreationDate;
+        public readonly string? CreationDate;
         /// <summary>
         /// Define which metrics will be not streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AwsNative.CloudWatch
         /// <summary>
         /// The date of the last update of the metric stream.
         /// </summary>
-        public readonly object? LastUpdateDate;
+        public readonly string? LastUpdateDate;
         /// <summary>
         /// The output format of the data streamed to the Kinesis Firehose.
         /// </summary>
@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.CloudWatch
         private GetMetricStreamResult(
             string? arn,
 
-            object? creationDate,
+            string? creationDate,
 
             ImmutableArray<Outputs.MetricStreamFilter> excludeFilters,
 
@@ -116,7 +116,7 @@ namespace Pulumi.AwsNative.CloudWatch
 
             bool? includeLinkedAccountsMetrics,
 
-            object? lastUpdateDate,
+            string? lastUpdateDate,
 
             string? outputFormat,
 

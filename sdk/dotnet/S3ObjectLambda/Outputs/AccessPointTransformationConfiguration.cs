@@ -17,13 +17,13 @@ namespace Pulumi.AwsNative.S3ObjectLambda.Outputs
     public sealed class AccessPointTransformationConfiguration
     {
         public readonly ImmutableArray<string> Actions;
-        public readonly Outputs.AccessPointTransformationConfigurationContentTransformationProperties ContentTransformation;
+        public readonly Outputs.AccessPointTransformationConfigurationContentTransformation0Properties ContentTransformation;
 
         [OutputConstructor]
         private AccessPointTransformationConfiguration(
             ImmutableArray<string> actions,
 
-            Outputs.AccessPointTransformationConfigurationContentTransformationProperties contentTransformation)
+            Outputs.AccessPointTransformationConfigurationContentTransformation0Properties contentTransformation)
         {
             Actions = actions;
             ContentTransformation = contentTransformation;

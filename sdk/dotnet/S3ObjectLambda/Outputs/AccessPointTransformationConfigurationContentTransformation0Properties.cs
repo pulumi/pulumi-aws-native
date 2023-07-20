@@ -11,12 +11,12 @@ namespace Pulumi.AwsNative.S3ObjectLambda.Outputs
 {
 
     [OutputType]
-    public sealed class AccessPointTransformationConfigurationContentTransformationProperties
+    public sealed class AccessPointTransformationConfigurationContentTransformation0Properties
     {
         public readonly Outputs.AccessPointAwsLambda AwsLambda;
 
         [OutputConstructor]
-        private AccessPointTransformationConfigurationContentTransformationProperties(Outputs.AccessPointAwsLambda awsLambda)
+        private AccessPointTransformationConfigurationContentTransformation0Properties(Outputs.AccessPointAwsLambda awsLambda)
         {
             AwsLambda = awsLambda;
         }

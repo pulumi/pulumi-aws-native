@@ -8,26 +8,26 @@ using Pulumi;
 namespace Pulumi.AwsNative.IoTTwinMaker
 {
     [EnumType]
-    public readonly struct ComponentTypeStatusErrorPropertiesCode : IEquatable<ComponentTypeStatusErrorPropertiesCode>
+    public readonly struct ComponentTypeStatusError1PropertiesCode : IEquatable<ComponentTypeStatusError1PropertiesCode>
     {
         private readonly string _value;
 
-        private ComponentTypeStatusErrorPropertiesCode(string value)
+        private ComponentTypeStatusError1PropertiesCode(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static ComponentTypeStatusErrorPropertiesCode ValidationError { get; } = new ComponentTypeStatusErrorPropertiesCode("VALIDATION_ERROR");
-        public static ComponentTypeStatusErrorPropertiesCode InternalFailure { get; } = new ComponentTypeStatusErrorPropertiesCode("INTERNAL_FAILURE");
+        public static ComponentTypeStatusError1PropertiesCode ValidationError { get; } = new ComponentTypeStatusError1PropertiesCode("VALIDATION_ERROR");
+        public static ComponentTypeStatusError1PropertiesCode InternalFailure { get; } = new ComponentTypeStatusError1PropertiesCode("INTERNAL_FAILURE");
 
-        public static bool operator ==(ComponentTypeStatusErrorPropertiesCode left, ComponentTypeStatusErrorPropertiesCode right) => left.Equals(right);
-        public static bool operator !=(ComponentTypeStatusErrorPropertiesCode left, ComponentTypeStatusErrorPropertiesCode right) => !left.Equals(right);
+        public static bool operator ==(ComponentTypeStatusError1PropertiesCode left, ComponentTypeStatusError1PropertiesCode right) => left.Equals(right);
+        public static bool operator !=(ComponentTypeStatusError1PropertiesCode left, ComponentTypeStatusError1PropertiesCode right) => !left.Equals(right);
 
-        public static explicit operator string(ComponentTypeStatusErrorPropertiesCode value) => value._value;
+        public static explicit operator string(ComponentTypeStatusError1PropertiesCode value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ComponentTypeStatusErrorPropertiesCode other && Equals(other);
-        public bool Equals(ComponentTypeStatusErrorPropertiesCode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is ComponentTypeStatusError1PropertiesCode other && Equals(other);
+        public bool Equals(ComponentTypeStatusError1PropertiesCode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -67,26 +67,26 @@ namespace Pulumi.AwsNative.IoTTwinMaker
     }
 
     [EnumType]
-    public readonly struct EntityStatusErrorPropertiesCode : IEquatable<EntityStatusErrorPropertiesCode>
+    public readonly struct EntityStatusError1PropertiesCode : IEquatable<EntityStatusError1PropertiesCode>
     {
         private readonly string _value;
 
-        private EntityStatusErrorPropertiesCode(string value)
+        private EntityStatusError1PropertiesCode(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static EntityStatusErrorPropertiesCode ValidationError { get; } = new EntityStatusErrorPropertiesCode("VALIDATION_ERROR");
-        public static EntityStatusErrorPropertiesCode InternalFailure { get; } = new EntityStatusErrorPropertiesCode("INTERNAL_FAILURE");
+        public static EntityStatusError1PropertiesCode ValidationError { get; } = new EntityStatusError1PropertiesCode("VALIDATION_ERROR");
+        public static EntityStatusError1PropertiesCode InternalFailure { get; } = new EntityStatusError1PropertiesCode("INTERNAL_FAILURE");
 
-        public static bool operator ==(EntityStatusErrorPropertiesCode left, EntityStatusErrorPropertiesCode right) => left.Equals(right);
-        public static bool operator !=(EntityStatusErrorPropertiesCode left, EntityStatusErrorPropertiesCode right) => !left.Equals(right);
+        public static bool operator ==(EntityStatusError1PropertiesCode left, EntityStatusError1PropertiesCode right) => left.Equals(right);
+        public static bool operator !=(EntityStatusError1PropertiesCode left, EntityStatusError1PropertiesCode right) => !left.Equals(right);
 
-        public static explicit operator string(EntityStatusErrorPropertiesCode value) => value._value;
+        public static explicit operator string(EntityStatusError1PropertiesCode value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is EntityStatusErrorPropertiesCode other && Equals(other);
-        public bool Equals(EntityStatusErrorPropertiesCode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is EntityStatusError1PropertiesCode other && Equals(other);
+        public bool Equals(EntityStatusError1PropertiesCode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

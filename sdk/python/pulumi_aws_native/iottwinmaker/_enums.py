@@ -5,14 +5,14 @@
 from enum import Enum
 
 __all__ = [
-    'ComponentTypeStatusErrorPropertiesCode',
+    'ComponentTypeStatusError1PropertiesCode',
     'ComponentTypeStatusState',
-    'EntityStatusErrorPropertiesCode',
+    'EntityStatusError1PropertiesCode',
     'EntityStatusState',
 ]
 
 
-class ComponentTypeStatusErrorPropertiesCode(str, Enum):
+class ComponentTypeStatusError1PropertiesCode(str, Enum):
     VALIDATION_ERROR = "VALIDATION_ERROR"
     INTERNAL_FAILURE = "INTERNAL_FAILURE"
 
@@ -25,7 +25,7 @@ class ComponentTypeStatusState(str, Enum):
     ERROR = "ERROR"
 
 
-class EntityStatusErrorPropertiesCode(str, Enum):
+class EntityStatusError1PropertiesCode(str, Enum):
     VALIDATION_ERROR = "VALIDATION_ERROR"
     INTERNAL_FAILURE = "INTERNAL_FAILURE"
 

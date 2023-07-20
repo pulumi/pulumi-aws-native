@@ -17,7 +17,7 @@ __all__ = [
     'AccessPointPolicyStatus',
     'AccessPointPublicAccessBlockConfiguration',
     'AccessPointTransformationConfiguration',
-    'AccessPointTransformationConfigurationContentTransformationProperties',
+    'AccessPointTransformationConfigurationContentTransformation0Properties',
 ]
 
 @pulumi.output_type
@@ -304,7 +304,7 @@ class AccessPointTransformationConfiguration(dict):
 
     def __init__(__self__, *,
                  actions: Sequence[str],
-                 content_transformation: 'outputs.AccessPointTransformationConfigurationContentTransformationProperties'):
+                 content_transformation: 'outputs.AccessPointTransformationConfigurationContentTransformation0Properties'):
         """
         Configuration to define what content transformation will be applied on which S3 Action.
         """
@@ -318,12 +318,12 @@ class AccessPointTransformationConfiguration(dict):
 
     @property
     @pulumi.getter(name="contentTransformation")
-    def content_transformation(self) -> 'outputs.AccessPointTransformationConfigurationContentTransformationProperties':
+    def content_transformation(self) -> 'outputs.AccessPointTransformationConfigurationContentTransformation0Properties':
         return pulumi.get(self, "content_transformation")
 
 
 @pulumi.output_type
-class AccessPointTransformationConfigurationContentTransformationProperties(dict):
+class AccessPointTransformationConfigurationContentTransformation0Properties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -331,14 +331,14 @@ class AccessPointTransformationConfigurationContentTransformationProperties(dict
             suggest = "aws_lambda"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AccessPointTransformationConfigurationContentTransformationProperties. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in AccessPointTransformationConfigurationContentTransformation0Properties. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        AccessPointTransformationConfigurationContentTransformationProperties.__key_warning(key)
+        AccessPointTransformationConfigurationContentTransformation0Properties.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        AccessPointTransformationConfigurationContentTransformationProperties.__key_warning(key)
+        AccessPointTransformationConfigurationContentTransformation0Properties.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

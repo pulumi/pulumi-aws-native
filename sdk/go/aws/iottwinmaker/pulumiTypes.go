@@ -83,9 +83,9 @@ func (o ComponentTypeStatusPtrOutput) State() ComponentTypeStatusStatePtrOutput 
 }
 
 // Error object with Message and Code.
-type ComponentTypeStatusErrorProperties struct {
-	Code    *ComponentTypeStatusErrorPropertiesCode `pulumi:"code"`
-	Message *string                                 `pulumi:"message"`
+type ComponentTypeStatusError1Properties struct {
+	Code    *ComponentTypeStatusError1PropertiesCode `pulumi:"code"`
+	Message *string                                  `pulumi:"message"`
 }
 
 type EntityStatus struct {
@@ -158,9 +158,9 @@ func (o EntityStatusPtrOutput) State() EntityStatusStatePtrOutput {
 }
 
 // Error object with Message and Code.
-type EntityStatusErrorProperties struct {
-	Code    *EntityStatusErrorPropertiesCode `pulumi:"code"`
-	Message *string                          `pulumi:"message"`
+type EntityStatusError1Properties struct {
+	Code    *EntityStatusError1PropertiesCode `pulumi:"code"`
+	Message *string                           `pulumi:"message"`
 }
 
 func init() {

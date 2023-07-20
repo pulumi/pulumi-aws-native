@@ -13495,7 +13495,7 @@ export namespace ecs {
 
     export interface ClusterCapacityProviderAssociationsCapacityProviderStrategy {
         base?: number;
-        capacityProvider: enums.ecs.ClusterCapacityProviderAssociationsCapacityProvider | string;
+        capacityProvider: enums.ecs.ClusterCapacityProviderAssociationsCapacityProvider0 | string;
         weight?: number;
     }
 
@@ -21605,28 +21605,28 @@ export namespace iotthingsgraph {
 
 export namespace iottwinmaker {
     export interface ComponentTypeStatus {
-        error?: any | outputs.iottwinmaker.ComponentTypeStatusErrorProperties;
+        error?: any | outputs.iottwinmaker.ComponentTypeStatusError1Properties;
         state?: enums.iottwinmaker.ComponentTypeStatusState;
     }
 
     /**
      * Error object with Message and Code.
      */
-    export interface ComponentTypeStatusErrorProperties {
-        code?: enums.iottwinmaker.ComponentTypeStatusErrorPropertiesCode;
+    export interface ComponentTypeStatusError1Properties {
+        code?: enums.iottwinmaker.ComponentTypeStatusError1PropertiesCode;
         message?: string;
     }
 
     export interface EntityStatus {
-        error?: any | outputs.iottwinmaker.EntityStatusErrorProperties;
+        error?: any | outputs.iottwinmaker.EntityStatusError1Properties;
         state?: enums.iottwinmaker.EntityStatusState;
     }
 
     /**
      * Error object with Message and Code.
      */
-    export interface EntityStatusErrorProperties {
-        code?: enums.iottwinmaker.EntityStatusErrorPropertiesCode;
+    export interface EntityStatusError1Properties {
+        code?: enums.iottwinmaker.EntityStatusError1PropertiesCode;
         message?: string;
     }
 
@@ -44607,10 +44607,10 @@ export namespace s3objectlambda {
      */
     export interface AccessPointTransformationConfiguration {
         actions: string[];
-        contentTransformation: outputs.s3objectlambda.AccessPointTransformationConfigurationContentTransformationProperties;
+        contentTransformation: outputs.s3objectlambda.AccessPointTransformationConfigurationContentTransformation0Properties;
     }
 
-    export interface AccessPointTransformationConfigurationContentTransformationProperties {
+    export interface AccessPointTransformationConfigurationContentTransformation0Properties {
         awsLambda: outputs.s3objectlambda.AccessPointAwsLambda;
     }
 
@@ -49047,6 +49047,9 @@ export namespace shield {
         status: enums.shield.ProtectionApplicationLayerAutomaticResponseConfigurationStatus;
     }
 
+    /**
+     * Specifies the action setting that Shield Advanced should use in the AWS WAF rules that it creates on behalf of the protected resource in response to DDoS attacks. You specify this as part of the configuration for the automatic application layer DDoS mitigation feature, when you enable or update automatic mitigation. Shield Advanced creates the AWS WAF rules in a Shield Advanced-managed rule group, inside the web ACL that you have associated with the resource.
+     */
     export interface ProtectionApplicationLayerAutomaticResponseConfigurationAction0Properties {
         /**
          * Specifies that Shield Advanced should configure its AWS WAF rules with the AWS WAF `Count` action.
@@ -49055,6 +49058,9 @@ export namespace shield {
         count?: any;
     }
 
+    /**
+     * Specifies the action setting that Shield Advanced should use in the AWS WAF rules that it creates on behalf of the protected resource in response to DDoS attacks. You specify this as part of the configuration for the automatic application layer DDoS mitigation feature, when you enable or update automatic mitigation. Shield Advanced creates the AWS WAF rules in a Shield Advanced-managed rule group, inside the web ACL that you have associated with the resource.
+     */
     export interface ProtectionApplicationLayerAutomaticResponseConfigurationAction1Properties {
         /**
          * Specifies that Shield Advanced should configure its AWS WAF rules with the AWS WAF `Block` action.

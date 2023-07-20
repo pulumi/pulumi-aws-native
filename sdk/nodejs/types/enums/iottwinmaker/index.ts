@@ -2,12 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const ComponentTypeStatusErrorPropertiesCode = {
+export const ComponentTypeStatusError1PropertiesCode = {
     ValidationError: "VALIDATION_ERROR",
     InternalFailure: "INTERNAL_FAILURE",
 } as const;
 
-export type ComponentTypeStatusErrorPropertiesCode = (typeof ComponentTypeStatusErrorPropertiesCode)[keyof typeof ComponentTypeStatusErrorPropertiesCode];
+export type ComponentTypeStatusError1PropertiesCode = (typeof ComponentTypeStatusError1PropertiesCode)[keyof typeof ComponentTypeStatusError1PropertiesCode];
 
 export const ComponentTypeStatusState = {
     Creating: "CREATING",
@@ -19,12 +19,12 @@ export const ComponentTypeStatusState = {
 
 export type ComponentTypeStatusState = (typeof ComponentTypeStatusState)[keyof typeof ComponentTypeStatusState];
 
-export const EntityStatusErrorPropertiesCode = {
+export const EntityStatusError1PropertiesCode = {
     ValidationError: "VALIDATION_ERROR",
     InternalFailure: "INTERNAL_FAILURE",
 } as const;
 
-export type EntityStatusErrorPropertiesCode = (typeof EntityStatusErrorPropertiesCode)[keyof typeof EntityStatusErrorPropertiesCode];
+export type EntityStatusError1PropertiesCode = (typeof EntityStatusError1PropertiesCode)[keyof typeof EntityStatusError1PropertiesCode];
 
 export const EntityStatusState = {
     Creating: "CREATING",

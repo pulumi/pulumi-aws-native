@@ -12,7 +12,7 @@ from .. import _utilities
 __all__ = [
     'AccessPointAwsLambdaArgs',
     'AccessPointObjectLambdaConfigurationArgs',
-    'AccessPointTransformationConfigurationContentTransformationPropertiesArgs',
+    'AccessPointTransformationConfigurationContentTransformation0PropertiesArgs',
     'AccessPointTransformationConfigurationArgs',
 ]
 
@@ -99,7 +99,7 @@ class AccessPointObjectLambdaConfigurationArgs:
 
 
 @pulumi.input_type
-class AccessPointTransformationConfigurationContentTransformationPropertiesArgs:
+class AccessPointTransformationConfigurationContentTransformation0PropertiesArgs:
     def __init__(__self__, *,
                  aws_lambda: pulumi.Input['AccessPointAwsLambdaArgs']):
         pulumi.set(__self__, "aws_lambda", aws_lambda)
@@ -118,7 +118,7 @@ class AccessPointTransformationConfigurationContentTransformationPropertiesArgs:
 class AccessPointTransformationConfigurationArgs:
     def __init__(__self__, *,
                  actions: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 content_transformation: pulumi.Input['AccessPointTransformationConfigurationContentTransformationPropertiesArgs']):
+                 content_transformation: pulumi.Input['AccessPointTransformationConfigurationContentTransformation0PropertiesArgs']):
         """
         Configuration to define what content transformation will be applied on which S3 Action.
         """
@@ -136,11 +136,11 @@ class AccessPointTransformationConfigurationArgs:
 
     @property
     @pulumi.getter(name="contentTransformation")
-    def content_transformation(self) -> pulumi.Input['AccessPointTransformationConfigurationContentTransformationPropertiesArgs']:
+    def content_transformation(self) -> pulumi.Input['AccessPointTransformationConfigurationContentTransformation0PropertiesArgs']:
         return pulumi.get(self, "content_transformation")
 
     @content_transformation.setter
-    def content_transformation(self, value: pulumi.Input['AccessPointTransformationConfigurationContentTransformationPropertiesArgs']):
+    def content_transformation(self, value: pulumi.Input['AccessPointTransformationConfigurationContentTransformation0PropertiesArgs']):
         pulumi.set(self, "content_transformation", value)
 
 

@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.ECS.Inputs
         public Input<int>? Base { get; set; }
 
         [Input("capacityProvider", required: true)]
-        public InputUnion<Pulumi.AwsNative.ECS.ClusterCapacityProviderAssociationsCapacityProvider, string> CapacityProvider { get; set; } = null!;
+        public InputUnion<Pulumi.AwsNative.ECS.ClusterCapacityProviderAssociationsCapacityProvider0, string> CapacityProvider { get; set; } = null!;
 
         [Input("weight")]
         public Input<int>? Weight { get; set; }

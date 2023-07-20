@@ -300,7 +300,7 @@ class MetricStream(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationDate")
-    def creation_date(self) -> pulumi.Output[Any]:
+    def creation_date(self) -> pulumi.Output[str]:
         """
         The date of creation of the metric stream.
         """
@@ -340,7 +340,7 @@ class MetricStream(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastUpdateDate")
-    def last_update_date(self) -> pulumi.Output[Any]:
+    def last_update_date(self) -> pulumi.Output[str]:
         """
         The date of the last update of the metric stream.
         """

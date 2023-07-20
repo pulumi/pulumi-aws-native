@@ -13250,7 +13250,7 @@ export namespace ecs {
 
     export interface ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs {
         base?: pulumi.Input<number>;
-        capacityProvider: pulumi.Input<enums.ecs.ClusterCapacityProviderAssociationsCapacityProvider | string>;
+        capacityProvider: pulumi.Input<enums.ecs.ClusterCapacityProviderAssociationsCapacityProvider0 | string>;
         weight?: pulumi.Input<number>;
     }
 
@@ -43811,10 +43811,10 @@ export namespace s3objectlambda {
      */
     export interface AccessPointTransformationConfigurationArgs {
         actions: pulumi.Input<pulumi.Input<string>[]>;
-        contentTransformation: pulumi.Input<inputs.s3objectlambda.AccessPointTransformationConfigurationContentTransformationPropertiesArgs>;
+        contentTransformation: pulumi.Input<inputs.s3objectlambda.AccessPointTransformationConfigurationContentTransformation0PropertiesArgs>;
     }
 
-    export interface AccessPointTransformationConfigurationContentTransformationPropertiesArgs {
+    export interface AccessPointTransformationConfigurationContentTransformation0PropertiesArgs {
         awsLambda: pulumi.Input<inputs.s3objectlambda.AccessPointAwsLambdaArgs>;
     }
 }
@@ -48220,6 +48220,9 @@ export namespace shield {
         status: pulumi.Input<enums.shield.ProtectionApplicationLayerAutomaticResponseConfigurationStatus>;
     }
 
+    /**
+     * Specifies the action setting that Shield Advanced should use in the AWS WAF rules that it creates on behalf of the protected resource in response to DDoS attacks. You specify this as part of the configuration for the automatic application layer DDoS mitigation feature, when you enable or update automatic mitigation. Shield Advanced creates the AWS WAF rules in a Shield Advanced-managed rule group, inside the web ACL that you have associated with the resource.
+     */
     export interface ProtectionApplicationLayerAutomaticResponseConfigurationAction0PropertiesArgs {
         /**
          * Specifies that Shield Advanced should configure its AWS WAF rules with the AWS WAF `Count` action.
@@ -48228,6 +48231,9 @@ export namespace shield {
         count?: any;
     }
 
+    /**
+     * Specifies the action setting that Shield Advanced should use in the AWS WAF rules that it creates on behalf of the protected resource in response to DDoS attacks. You specify this as part of the configuration for the automatic application layer DDoS mitigation feature, when you enable or update automatic mitigation. Shield Advanced creates the AWS WAF rules in a Shield Advanced-managed rule group, inside the web ACL that you have associated with the resource.
+     */
     export interface ProtectionApplicationLayerAutomaticResponseConfigurationAction1PropertiesArgs {
         /**
          * Specifies that Shield Advanced should configure its AWS WAF rules with the AWS WAF `Block` action.

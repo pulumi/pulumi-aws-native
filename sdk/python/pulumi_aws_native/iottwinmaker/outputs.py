@@ -13,9 +13,9 @@ from ._enums import *
 
 __all__ = [
     'ComponentTypeStatus',
-    'ComponentTypeStatusErrorProperties',
+    'ComponentTypeStatusError1Properties',
     'EntityStatus',
-    'EntityStatusErrorProperties',
+    'EntityStatusError1Properties',
 ]
 
 @pulumi.output_type
@@ -40,12 +40,12 @@ class ComponentTypeStatus(dict):
 
 
 @pulumi.output_type
-class ComponentTypeStatusErrorProperties(dict):
+class ComponentTypeStatusError1Properties(dict):
     """
     Error object with Message and Code.
     """
     def __init__(__self__, *,
-                 code: Optional['ComponentTypeStatusErrorPropertiesCode'] = None,
+                 code: Optional['ComponentTypeStatusError1PropertiesCode'] = None,
                  message: Optional[str] = None):
         """
         Error object with Message and Code.
@@ -57,7 +57,7 @@ class ComponentTypeStatusErrorProperties(dict):
 
     @property
     @pulumi.getter
-    def code(self) -> Optional['ComponentTypeStatusErrorPropertiesCode']:
+    def code(self) -> Optional['ComponentTypeStatusError1PropertiesCode']:
         return pulumi.get(self, "code")
 
     @property
@@ -88,12 +88,12 @@ class EntityStatus(dict):
 
 
 @pulumi.output_type
-class EntityStatusErrorProperties(dict):
+class EntityStatusError1Properties(dict):
     """
     Error object with Message and Code.
     """
     def __init__(__self__, *,
-                 code: Optional['EntityStatusErrorPropertiesCode'] = None,
+                 code: Optional['EntityStatusError1PropertiesCode'] = None,
                  message: Optional[str] = None):
         """
         Error object with Message and Code.
@@ -105,7 +105,7 @@ class EntityStatusErrorProperties(dict):
 
     @property
     @pulumi.getter
-    def code(self) -> Optional['EntityStatusErrorPropertiesCode']:
+    def code(self) -> Optional['EntityStatusError1PropertiesCode']:
         return pulumi.get(self, "code")
 
     @property
