@@ -1008,7 +1008,7 @@
       "permissions" : [ "ec2:CreateLaunchTemplateVersion" ]
     },
     "delete" : {
-      "permissions" : [ "ec2:DeleteLaunchTemplate", "ec2:DeleteTags" ]
+      "permissions" : [ "ec2:DeleteLaunchTemplate", "ec2:DeleteTags", "ec2:DescribeLaunchTemplates" ]
     },
     "list" : {
       "permissions" : [ "ec2:DescribeLaunchTemplates" ]
