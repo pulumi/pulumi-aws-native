@@ -933,44 +933,34 @@ func (ctx *context) propertyTypeSpec(parentName string, propSchema *jsschema.Sch
 		return &pschema.TypeSpec{Ref: referencedTypeName}, nil
 	}
 
-	// Union types.
-	if len(propSchema.AnyOf) == 1 {
-		return ctx.propertyTypeSpec(parentName, propSchema.AnyOf[0])
-	}
-
-	if len(propSchema.AnyOf) > 1 {
-		var types []pschema.TypeSpec
-		for _, sch := range propSchema.AnyOf {
-			typ, err := ctx.propertyTypeSpec(parentName, sch)
-			if err != nil {
-				return nil, err
-			}
-			types = append(types, *typ)
-		}
-		return &pschema.TypeSpec{
-			OneOf: types,
-		}, nil
-	}
-
-	if len(propSchema.OneOf) == 1 {
-		return ctx.propertyTypeSpec(parentName, propSchema.OneOf[0])
-	}
-
-	if len(propSchema.OneOf) > 1 {
-		var types []pschema.TypeSpec
-		for i, sch := range propSchema.OneOf {
+	// Union types
+	if len(propSchema.AnyOf) > 0 || len(propSchema.OneOf) > 0 {
+		schemas := FlattenJSSchema(propSchema)
+		types := make([]pschema.TypeSpec, 0, len(schemas))
+		typeMap := make(map[string]bool, len(schemas))
+		for i, sch := range schemas {
 			typ, err := ctx.propertyTypeSpec(fmt.Sprintf("%s%d", parentName, i), sch)
 			if err != nil {
 				return nil, err
 			}
-			types = append(types, *typ)
-		}
-		for _, typ := range types {
-			if typ.Ref != "pulumi.json#/Any" {
-				return &pschema.TypeSpec{
-					OneOf: types,
-				}, nil
+
+			// stringify to create a key for identifying duplicates
+			keybytes, err := json.Marshal(*typ)
+			if err != nil {
+				return nil, err
 			}
+			key := string(keybytes)
+
+			if _, ok := typeMap[key]; !ok {
+				types = append(types, *typ)
+				typeMap[key] = true
+			}
+		}
+
+		if len(types) == 1 {
+			return &types[0], nil
+		} else {
+			return &pschema.TypeSpec{OneOf: types}, nil
 		}
 	}
 
