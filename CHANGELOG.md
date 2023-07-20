@@ -1,5 +1,16 @@
 ## HEAD (Unreleased)
 
+### Breaking changes:
+- The Resource property types have been renamed:
+    - "aws-native:ecs:ClusterCapacityProviderAssociationsCapacityProvider"
+    + "aws-native:ecs:ClusterCapacityProviderAssociationsCapacityProvider0"
+    - "aws-native:iottwinmaker:ComponentTypeStatusErrorProperties"
+    + "aws-native:iottwinmaker:ComponentTypeStatusError1Properties"
+    - "aws-native:iottwinmaker:ComponentTypeStatusErrorPropertiesCode"
+    + "aws-native:iottwinmaker:ComponentTypeStatusError1PropertiesCode"
+    - "aws-native:s3objectlambda:AccessPointTransformationConfigurationContentTransformationProperties"
+    + "aws-native:s3objectlambda:AccessPointTransformationConfigurationContentTransformation0Properties"
+
 ## 0.69.0 (July 19, 2023)
 
 ### Breaking changes:
