@@ -57,19 +57,19 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "elasticache:CreateCacheSubnetGroup", "elasticache:DescribeCacheSubnetGroups" ]
+      "permissions" : [ "elasticache:CreateCacheSubnetGroup", "elasticache:AddTagsToResource", "elasticache:DescribeCacheSubnetGroups", "elasticache:ListTagsForResource" ]
     },
     "read" : {
       "permissions" : [ "elasticache:DescribeCacheSubnetGroups", "elasticache:ListTagsForResource" ]
     },
     "delete" : {
-      "permissions" : [ "elasticache:DeleteCacheSubnetGroup", "elasticache:DescribeCacheSubnetGroups" ]
+      "permissions" : [ "elasticache:DeleteCacheSubnetGroup", "elasticache:DescribeCacheSubnetGroups", "elasticache:ListTagsForResource" ]
     },
     "list" : {
       "permissions" : [ "elasticache:DescribeCacheSubnetGroups" ]
     },
     "update" : {
-      "permissions" : [ "elasticache:ModifyCacheSubnetGroup", "elasticache:AddTagsToResource", "elasticache:RemoveTagsFromResource" ]
+      "permissions" : [ "elasticache:ModifyCacheSubnetGroup", "elasticache:DescribeCacheSubnetGroups", "elasticache:AddTagsToResource", "elasticache:RemoveTagsFromResource" ]
     }
   }
 }

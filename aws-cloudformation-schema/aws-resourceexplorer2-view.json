@@ -69,7 +69,7 @@
       "permissions" : [ "resource-explorer-2:UpdateView", "resource-explorer-2:TagResource", "resource-explorer-2:UntagResource", "resource-explorer-2:ListTagsForResource" ]
     },
     "delete" : {
-      "permissions" : [ "resource-explorer-2:DeleteView", "resource-explorer-2:UntagResource" ]
+      "permissions" : [ "resource-explorer-2:DeleteView", "resource-explorer-2:GetView", "resource-explorer-2:UntagResource" ]
     },
     "list" : {
       "permissions" : [ "resource-explorer-2:ListViews" ]

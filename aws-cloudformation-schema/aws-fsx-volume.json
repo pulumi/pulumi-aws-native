@@ -100,6 +100,22 @@
         }
       }
     },
+    "SnaplockRetentionPeriod" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "MinimumRetention" : {
+          "$ref" : "#/definitions/RetentionPeriod"
+        },
+        "DefaultRetention" : {
+          "$ref" : "#/definitions/RetentionPeriod"
+        },
+        "MaximumRetention" : {
+          "$ref" : "#/definitions/RetentionPeriod"
+        }
+      },
+      "required" : [ "DefaultRetention", "MaximumRetention", "MinimumRetention" ]
+    },
     "NfsExports" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -142,6 +158,9 @@
         "SecurityStyle" : {
           "type" : "string"
         },
+        "SnaplockConfiguration" : {
+          "$ref" : "#/definitions/SnaplockConfiguration"
+        },
         "OntapVolumeType" : {
           "type" : "string"
         }
@@ -177,6 +196,57 @@
         }
       },
       "required" : [ "Value", "Key" ]
+    },
+    "AutocommitPeriod" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Value" : {
+          "type" : "integer"
+        },
+        "Type" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "Type" ]
+    },
+    "RetentionPeriod" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Value" : {
+          "type" : "integer"
+        },
+        "Type" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "Type" ]
+    },
+    "SnaplockConfiguration" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "AuditLogVolume" : {
+          "type" : "string"
+        },
+        "VolumeAppendModeEnabled" : {
+          "type" : "string"
+        },
+        "AutocommitPeriod" : {
+          "$ref" : "#/definitions/AutocommitPeriod"
+        },
+        "RetentionPeriod" : {
+          "$ref" : "#/definitions/SnaplockRetentionPeriod"
+        },
+        "PrivilegedDelete" : {
+          "type" : "string"
+        },
+        "SnaplockType" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "SnaplockType" ]
     },
     "OriginSnapshot" : {
       "type" : "object",

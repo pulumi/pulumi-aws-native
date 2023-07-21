@@ -561,19 +561,22 @@
       }
     }
   },
+  "tagging" : {
+    "taggable" : true
+  },
   "required" : [ "Type", "Capacity", "RuleGroupName" ],
   "readOnlyProperties" : [ "/properties/RuleGroupArn", "/properties/RuleGroupId" ],
   "createOnlyProperties" : [ "/properties/RuleGroupName", "/properties/Capacity", "/properties/Type" ],
   "primaryIdentifier" : [ "/properties/RuleGroupArn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "network-firewall:CreateRuleGroup", "network-firewall:DescribeRuleGroup", "network-firewall:TagResource" ]
+      "permissions" : [ "network-firewall:CreateRuleGroup", "network-firewall:DescribeRuleGroup", "network-firewall:TagResource", "network-firewall:ListRuleGroups", "iam:CreateServiceLinkedRole", "ec2:GetManagedPrefixListEntries" ]
     },
     "read" : {
       "permissions" : [ "network-firewall:DescribeRuleGroup", "network-firewall:ListTagsForResources" ]
     },
     "update" : {
-      "permissions" : [ "network-firewall:UpdateRuleGroup", "network-firewall:DescribeRuleGroup", "network-firewall:TagResource", "network-firewall:UntagResource" ]
+      "permissions" : [ "network-firewall:UpdateRuleGroup", "network-firewall:DescribeRuleGroup", "network-firewall:TagResource", "network-firewall:UntagResource", "iam:CreateServiceLinkedRole", "ec2:GetManagedPrefixListEntries" ]
     },
     "delete" : {
       "permissions" : [ "network-firewall:DeleteRuleGroup", "network-firewall:DescribeRuleGroup", "network-firewall:UntagResource" ]
