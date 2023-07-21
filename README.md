@@ -43,6 +43,14 @@ $ make build
 
 Add the `bin` folder to your `$PATH` or copy the `bin/pulumi-resource-aws-native` file to another location in your `$PATH`.
 
+### Running tests
+
+To run unittests, use:
+
+```
+$ make test_provider
+```
+
 ### Running an example
 
 Navigate to the ECS example and run Pulumi:
@@ -56,6 +64,11 @@ $ pulumi up
 ``` 
 
 ### Local Development
+
+#### Additional Build Targets
+
+`make build` can be a bit slow as it rebuilds the sdks for every language; 
+you can use `make provider` or `make codegen` to just rebuild the provider plugin or codegen binaries
 
 #### Debugging / Logging
 
