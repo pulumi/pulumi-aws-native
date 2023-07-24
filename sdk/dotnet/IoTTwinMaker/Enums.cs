@@ -36,6 +36,34 @@ namespace Pulumi.AwsNative.IoTTwinMaker
     }
 
     [EnumType]
+    public readonly struct ComponentTypeStatusErrorPropertiesCode : IEquatable<ComponentTypeStatusErrorPropertiesCode>
+    {
+        private readonly string _value;
+
+        private ComponentTypeStatusErrorPropertiesCode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ComponentTypeStatusErrorPropertiesCode ValidationError { get; } = new ComponentTypeStatusErrorPropertiesCode("VALIDATION_ERROR");
+        public static ComponentTypeStatusErrorPropertiesCode InternalFailure { get; } = new ComponentTypeStatusErrorPropertiesCode("INTERNAL_FAILURE");
+
+        public static bool operator ==(ComponentTypeStatusErrorPropertiesCode left, ComponentTypeStatusErrorPropertiesCode right) => left.Equals(right);
+        public static bool operator !=(ComponentTypeStatusErrorPropertiesCode left, ComponentTypeStatusErrorPropertiesCode right) => !left.Equals(right);
+
+        public static explicit operator string(ComponentTypeStatusErrorPropertiesCode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ComponentTypeStatusErrorPropertiesCode other && Equals(other);
+        public bool Equals(ComponentTypeStatusErrorPropertiesCode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct ComponentTypeStatusState : IEquatable<ComponentTypeStatusState>
     {
         private readonly string _value;
@@ -87,6 +115,34 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is EntityStatusError1PropertiesCode other && Equals(other);
         public bool Equals(EntityStatusError1PropertiesCode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct EntityStatusErrorPropertiesCode : IEquatable<EntityStatusErrorPropertiesCode>
+    {
+        private readonly string _value;
+
+        private EntityStatusErrorPropertiesCode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EntityStatusErrorPropertiesCode ValidationError { get; } = new EntityStatusErrorPropertiesCode("VALIDATION_ERROR");
+        public static EntityStatusErrorPropertiesCode InternalFailure { get; } = new EntityStatusErrorPropertiesCode("INTERNAL_FAILURE");
+
+        public static bool operator ==(EntityStatusErrorPropertiesCode left, EntityStatusErrorPropertiesCode right) => left.Equals(right);
+        public static bool operator !=(EntityStatusErrorPropertiesCode left, EntityStatusErrorPropertiesCode right) => !left.Equals(right);
+
+        public static explicit operator string(EntityStatusErrorPropertiesCode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EntityStatusErrorPropertiesCode other && Equals(other);
+        public bool Equals(EntityStatusErrorPropertiesCode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

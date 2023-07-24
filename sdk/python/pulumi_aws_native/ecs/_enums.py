@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'CapacityProviderAutoScalingGroupProviderManagedTerminationProtection',
     'CapacityProviderManagedScalingStatus',
+    'ClusterCapacityProviderAssociationsCapacityProvider',
     'ClusterCapacityProviderAssociationsCapacityProvider0',
     'ServiceAwsVpcConfigurationAssignPublicIp',
     'ServiceDeploymentControllerType',
@@ -32,6 +33,14 @@ class CapacityProviderAutoScalingGroupProviderManagedTerminationProtection(str, 
 class CapacityProviderManagedScalingStatus(str, Enum):
     DISABLED = "DISABLED"
     ENABLED = "ENABLED"
+
+
+class ClusterCapacityProviderAssociationsCapacityProvider(str, Enum):
+    """
+    If using ec2 auto-scaling, the name of the associated capacity provider. Otherwise FARGATE, FARGATE_SPOT.
+    """
+    FARGATE = "FARGATE"
+    FARGATE_SPOT = "FARGATE_SPOT"
 
 
 class ClusterCapacityProviderAssociationsCapacityProvider0(str, Enum):

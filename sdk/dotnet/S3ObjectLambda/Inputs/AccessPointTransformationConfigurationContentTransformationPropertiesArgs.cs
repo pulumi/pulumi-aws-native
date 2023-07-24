@@ -10,14 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3ObjectLambda.Inputs
 {
 
-    public sealed class AccessPointTransformationConfigurationContentTransformation0PropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class AccessPointTransformationConfigurationContentTransformationPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("awsLambda", required: true)]
         public Input<Inputs.AccessPointAwsLambdaArgs> AwsLambda { get; set; } = null!;
 
-        public AccessPointTransformationConfigurationContentTransformation0PropertiesArgs()
+        public AccessPointTransformationConfigurationContentTransformationPropertiesArgs()
         {
         }
-        public static new AccessPointTransformationConfigurationContentTransformation0PropertiesArgs Empty => new AccessPointTransformationConfigurationContentTransformation0PropertiesArgs();
+        public static new AccessPointTransformationConfigurationContentTransformationPropertiesArgs Empty => new AccessPointTransformationConfigurationContentTransformationPropertiesArgs();
     }
 }

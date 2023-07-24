@@ -14,14 +14,14 @@ namespace Pulumi.AwsNative.IoTTwinMaker.Outputs
     /// Error object with Message and Code.
     /// </summary>
     [OutputType]
-    public sealed class ComponentTypeStatusError1Properties
+    public sealed class EntityStatusErrorProperties
     {
-        public readonly Pulumi.AwsNative.IoTTwinMaker.ComponentTypeStatusError1PropertiesCode? Code;
+        public readonly Pulumi.AwsNative.IoTTwinMaker.EntityStatusErrorPropertiesCode? Code;
         public readonly string? Message;
 
         [OutputConstructor]
-        private ComponentTypeStatusError1Properties(
-            Pulumi.AwsNative.IoTTwinMaker.ComponentTypeStatusError1PropertiesCode? code,
+        private EntityStatusErrorProperties(
+            Pulumi.AwsNative.IoTTwinMaker.EntityStatusErrorPropertiesCode? code,
 
             string? message)
         {

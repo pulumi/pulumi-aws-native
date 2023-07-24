@@ -70,10 +70,10 @@ namespace Pulumi.AwsNative.ECS
     public sealed class ClusterCapacityProviderAssociationsArgs : global::Pulumi.ResourceArgs
     {
         [Input("capacityProviders", required: true)]
-        private InputList<Union<Pulumi.AwsNative.ECS.ClusterCapacityProviderAssociationsCapacityProvider0, string>>? _capacityProviders;
-        public InputList<Union<Pulumi.AwsNative.ECS.ClusterCapacityProviderAssociationsCapacityProvider0, string>> CapacityProviders
+        private InputList<Union<Pulumi.AwsNative.ECS.ClusterCapacityProviderAssociationsCapacityProvider, string>>? _capacityProviders;
+        public InputList<Union<Pulumi.AwsNative.ECS.ClusterCapacityProviderAssociationsCapacityProvider, string>> CapacityProviders
         {
-            get => _capacityProviders ?? (_capacityProviders = new InputList<Union<Pulumi.AwsNative.ECS.ClusterCapacityProviderAssociationsCapacityProvider0, string>>());
+            get => _capacityProviders ?? (_capacityProviders = new InputList<Union<Pulumi.AwsNative.ECS.ClusterCapacityProviderAssociationsCapacityProvider, string>>());
             set => _capacityProviders = value;
         }
 

@@ -13250,7 +13250,7 @@ export namespace ecs {
 
     export interface ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs {
         base?: pulumi.Input<number>;
-        capacityProvider: pulumi.Input<enums.ecs.ClusterCapacityProviderAssociationsCapacityProvider0 | string>;
+        capacityProvider: pulumi.Input<enums.ecs.ClusterCapacityProviderAssociationsCapacityProvider | string>;
         weight?: pulumi.Input<number>;
     }
 
@@ -43811,10 +43811,10 @@ export namespace s3objectlambda {
      */
     export interface AccessPointTransformationConfigurationArgs {
         actions: pulumi.Input<pulumi.Input<string>[]>;
-        contentTransformation: pulumi.Input<inputs.s3objectlambda.AccessPointTransformationConfigurationContentTransformation0PropertiesArgs>;
+        contentTransformation: pulumi.Input<inputs.s3objectlambda.AccessPointTransformationConfigurationContentTransformationPropertiesArgs>;
     }
 
-    export interface AccessPointTransformationConfigurationContentTransformation0PropertiesArgs {
+    export interface AccessPointTransformationConfigurationContentTransformationPropertiesArgs {
         awsLambda: pulumi.Input<inputs.s3objectlambda.AccessPointAwsLambdaArgs>;
     }
 }

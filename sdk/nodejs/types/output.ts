@@ -13495,7 +13495,7 @@ export namespace ecs {
 
     export interface ClusterCapacityProviderAssociationsCapacityProviderStrategy {
         base?: number;
-        capacityProvider: enums.ecs.ClusterCapacityProviderAssociationsCapacityProvider0 | string;
+        capacityProvider: enums.ecs.ClusterCapacityProviderAssociationsCapacityProvider | string;
         weight?: number;
     }
 
@@ -21605,28 +21605,28 @@ export namespace iotthingsgraph {
 
 export namespace iottwinmaker {
     export interface ComponentTypeStatus {
-        error?: any | outputs.iottwinmaker.ComponentTypeStatusError1Properties;
+        error?: any | outputs.iottwinmaker.ComponentTypeStatusErrorProperties;
         state?: enums.iottwinmaker.ComponentTypeStatusState;
     }
 
     /**
      * Error object with Message and Code.
      */
-    export interface ComponentTypeStatusError1Properties {
-        code?: enums.iottwinmaker.ComponentTypeStatusError1PropertiesCode;
+    export interface ComponentTypeStatusErrorProperties {
+        code?: enums.iottwinmaker.ComponentTypeStatusErrorPropertiesCode;
         message?: string;
     }
 
     export interface EntityStatus {
-        error?: any | outputs.iottwinmaker.EntityStatusError1Properties;
+        error?: any | outputs.iottwinmaker.EntityStatusErrorProperties;
         state?: enums.iottwinmaker.EntityStatusState;
     }
 
     /**
      * Error object with Message and Code.
      */
-    export interface EntityStatusError1Properties {
-        code?: enums.iottwinmaker.EntityStatusError1PropertiesCode;
+    export interface EntityStatusErrorProperties {
+        code?: enums.iottwinmaker.EntityStatusErrorPropertiesCode;
         message?: string;
     }
 
@@ -44607,10 +44607,10 @@ export namespace s3objectlambda {
      */
     export interface AccessPointTransformationConfiguration {
         actions: string[];
-        contentTransformation: outputs.s3objectlambda.AccessPointTransformationConfigurationContentTransformation0Properties;
+        contentTransformation: outputs.s3objectlambda.AccessPointTransformationConfigurationContentTransformationProperties;
     }
 
-    export interface AccessPointTransformationConfigurationContentTransformation0Properties {
+    export interface AccessPointTransformationConfigurationContentTransformationProperties {
         awsLambda: outputs.s3objectlambda.AccessPointAwsLambda;
     }
 

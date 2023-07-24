@@ -17,6 +17,13 @@ const (
 	ComponentTypeStatusError1PropertiesCodeInternalFailure = ComponentTypeStatusError1PropertiesCode("INTERNAL_FAILURE")
 )
 
+type ComponentTypeStatusErrorPropertiesCode string
+
+const (
+	ComponentTypeStatusErrorPropertiesCodeValidationError = ComponentTypeStatusErrorPropertiesCode("VALIDATION_ERROR")
+	ComponentTypeStatusErrorPropertiesCodeInternalFailure = ComponentTypeStatusErrorPropertiesCode("INTERNAL_FAILURE")
+)
+
 type ComponentTypeStatusState string
 
 const (
@@ -115,6 +122,13 @@ type EntityStatusError1PropertiesCode string
 const (
 	EntityStatusError1PropertiesCodeValidationError = EntityStatusError1PropertiesCode("VALIDATION_ERROR")
 	EntityStatusError1PropertiesCodeInternalFailure = EntityStatusError1PropertiesCode("INTERNAL_FAILURE")
+)
+
+type EntityStatusErrorPropertiesCode string
+
+const (
+	EntityStatusErrorPropertiesCodeValidationError = EntityStatusErrorPropertiesCode("VALIDATION_ERROR")
+	EntityStatusErrorPropertiesCodeInternalFailure = EntityStatusErrorPropertiesCode("INTERNAL_FAILURE")
 )
 
 type EntityStatusState string

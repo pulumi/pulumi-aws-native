@@ -16,6 +16,16 @@ export const CapacityProviderManagedScalingStatus = {
 
 export type CapacityProviderManagedScalingStatus = (typeof CapacityProviderManagedScalingStatus)[keyof typeof CapacityProviderManagedScalingStatus];
 
+export const ClusterCapacityProviderAssociationsCapacityProvider = {
+    Fargate: "FARGATE",
+    FargateSpot: "FARGATE_SPOT",
+} as const;
+
+/**
+ * If using ec2 auto-scaling, the name of the associated capacity provider. Otherwise FARGATE, FARGATE_SPOT.
+ */
+export type ClusterCapacityProviderAssociationsCapacityProvider = (typeof ClusterCapacityProviderAssociationsCapacityProvider)[keyof typeof ClusterCapacityProviderAssociationsCapacityProvider];
+
 export const ClusterCapacityProviderAssociationsCapacityProvider0 = {
     Fargate: "FARGATE",
     FargateSpot: "FARGATE_SPOT",

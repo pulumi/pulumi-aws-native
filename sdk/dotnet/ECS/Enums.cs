@@ -67,6 +67,37 @@ namespace Pulumi.AwsNative.ECS
     /// If using ec2 auto-scaling, the name of the associated capacity provider. Otherwise FARGATE, FARGATE_SPOT.
     /// </summary>
     [EnumType]
+    public readonly struct ClusterCapacityProviderAssociationsCapacityProvider : IEquatable<ClusterCapacityProviderAssociationsCapacityProvider>
+    {
+        private readonly string _value;
+
+        private ClusterCapacityProviderAssociationsCapacityProvider(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClusterCapacityProviderAssociationsCapacityProvider Fargate { get; } = new ClusterCapacityProviderAssociationsCapacityProvider("FARGATE");
+        public static ClusterCapacityProviderAssociationsCapacityProvider FargateSpot { get; } = new ClusterCapacityProviderAssociationsCapacityProvider("FARGATE_SPOT");
+
+        public static bool operator ==(ClusterCapacityProviderAssociationsCapacityProvider left, ClusterCapacityProviderAssociationsCapacityProvider right) => left.Equals(right);
+        public static bool operator !=(ClusterCapacityProviderAssociationsCapacityProvider left, ClusterCapacityProviderAssociationsCapacityProvider right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterCapacityProviderAssociationsCapacityProvider value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterCapacityProviderAssociationsCapacityProvider other && Equals(other);
+        public bool Equals(ClusterCapacityProviderAssociationsCapacityProvider other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// If using ec2 auto-scaling, the name of the associated capacity provider. Otherwise FARGATE, FARGATE_SPOT.
+    /// </summary>
+    [EnumType]
     public readonly struct ClusterCapacityProviderAssociationsCapacityProvider0 : IEquatable<ClusterCapacityProviderAssociationsCapacityProvider0>
     {
         private readonly string _value;

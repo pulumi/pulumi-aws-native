@@ -339,6 +339,14 @@ func (in *capacityProviderManagedScalingStatusPtr) ToCapacityProviderManagedScal
 }
 
 // If using ec2 auto-scaling, the name of the associated capacity provider. Otherwise FARGATE, FARGATE_SPOT.
+type ClusterCapacityProviderAssociationsCapacityProvider string
+
+const (
+	ClusterCapacityProviderAssociationsCapacityProviderFargate     = ClusterCapacityProviderAssociationsCapacityProvider("FARGATE")
+	ClusterCapacityProviderAssociationsCapacityProviderFargateSpot = ClusterCapacityProviderAssociationsCapacityProvider("FARGATE_SPOT")
+)
+
+// If using ec2 auto-scaling, the name of the associated capacity provider. Otherwise FARGATE, FARGATE_SPOT.
 type ClusterCapacityProviderAssociationsCapacityProvider0 string
 
 const (
