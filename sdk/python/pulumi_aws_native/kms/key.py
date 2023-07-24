@@ -24,6 +24,7 @@ class KeyArgs:
                  key_spec: Optional[pulumi.Input['KeySpec']] = None,
                  key_usage: Optional[pulumi.Input['KeyUsage']] = None,
                  multi_region: Optional[pulumi.Input[bool]] = None,
+                 origin: Optional[pulumi.Input['KeyOrigin']] = None,
                  pending_window_in_days: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['KeyTagArgs']]]] = None):
         """
@@ -35,6 +36,7 @@ class KeyArgs:
         :param pulumi.Input['KeySpec'] key_spec: Specifies the type of AWS KMS key to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric AWS KMS keys. You can't change the KeySpec value after the AWS KMS key is created.
         :param pulumi.Input['KeyUsage'] key_usage: Determines the cryptographic operations for which you can use the AWS KMS key. The default value is ENCRYPT_DECRYPT. This property is required only for asymmetric AWS KMS keys. You can't change the KeyUsage value after the AWS KMS key is created.
         :param pulumi.Input[bool] multi_region: Specifies whether the AWS KMS key should be Multi-Region. You can't change the MultiRegion value after the AWS KMS key is created.
+        :param pulumi.Input['KeyOrigin'] origin: The source of the key material for the KMS key. You cannot change the origin after you create the KMS key. The default is AWS_KMS, which means that AWS KMS creates the key material.
         :param pulumi.Input[int] pending_window_in_days: Specifies the number of days in the waiting period before AWS KMS deletes an AWS KMS key that has been removed from a CloudFormation stack. Enter a value between 7 and 30 days. The default value is 30 days.
         :param pulumi.Input[Sequence[pulumi.Input['KeyTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -51,6 +53,8 @@ class KeyArgs:
             pulumi.set(__self__, "key_usage", key_usage)
         if multi_region is not None:
             pulumi.set(__self__, "multi_region", multi_region)
+        if origin is not None:
+            pulumi.set(__self__, "origin", origin)
         if pending_window_in_days is not None:
             pulumi.set(__self__, "pending_window_in_days", pending_window_in_days)
         if tags is not None:
@@ -141,6 +145,18 @@ class KeyArgs:
         pulumi.set(self, "multi_region", value)
 
     @property
+    @pulumi.getter
+    def origin(self) -> Optional[pulumi.Input['KeyOrigin']]:
+        """
+        The source of the key material for the KMS key. You cannot change the origin after you create the KMS key. The default is AWS_KMS, which means that AWS KMS creates the key material.
+        """
+        return pulumi.get(self, "origin")
+
+    @origin.setter
+    def origin(self, value: Optional[pulumi.Input['KeyOrigin']]):
+        pulumi.set(self, "origin", value)
+
+    @property
     @pulumi.getter(name="pendingWindowInDays")
     def pending_window_in_days(self) -> Optional[pulumi.Input[int]]:
         """
@@ -177,6 +193,7 @@ class Key(pulumi.CustomResource):
                  key_spec: Optional[pulumi.Input['KeySpec']] = None,
                  key_usage: Optional[pulumi.Input['KeyUsage']] = None,
                  multi_region: Optional[pulumi.Input[bool]] = None,
+                 origin: Optional[pulumi.Input['KeyOrigin']] = None,
                  pending_window_in_days: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeyTagArgs']]]]] = None,
                  __props__=None):
@@ -192,6 +209,7 @@ class Key(pulumi.CustomResource):
         :param pulumi.Input['KeySpec'] key_spec: Specifies the type of AWS KMS key to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric AWS KMS keys. You can't change the KeySpec value after the AWS KMS key is created.
         :param pulumi.Input['KeyUsage'] key_usage: Determines the cryptographic operations for which you can use the AWS KMS key. The default value is ENCRYPT_DECRYPT. This property is required only for asymmetric AWS KMS keys. You can't change the KeyUsage value after the AWS KMS key is created.
         :param pulumi.Input[bool] multi_region: Specifies whether the AWS KMS key should be Multi-Region. You can't change the MultiRegion value after the AWS KMS key is created.
+        :param pulumi.Input['KeyOrigin'] origin: The source of the key material for the KMS key. You cannot change the origin after you create the KMS key. The default is AWS_KMS, which means that AWS KMS creates the key material.
         :param pulumi.Input[int] pending_window_in_days: Specifies the number of days in the waiting period before AWS KMS deletes an AWS KMS key that has been removed from a CloudFormation stack. Enter a value between 7 and 30 days. The default value is 30 days.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeyTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -226,6 +244,7 @@ class Key(pulumi.CustomResource):
                  key_spec: Optional[pulumi.Input['KeySpec']] = None,
                  key_usage: Optional[pulumi.Input['KeyUsage']] = None,
                  multi_region: Optional[pulumi.Input[bool]] = None,
+                 origin: Optional[pulumi.Input['KeyOrigin']] = None,
                  pending_window_in_days: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeyTagArgs']]]]] = None,
                  __props__=None):
@@ -246,6 +265,7 @@ class Key(pulumi.CustomResource):
             __props__.__dict__["key_spec"] = key_spec
             __props__.__dict__["key_usage"] = key_usage
             __props__.__dict__["multi_region"] = multi_region
+            __props__.__dict__["origin"] = origin
             __props__.__dict__["pending_window_in_days"] = pending_window_in_days
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
@@ -281,6 +301,7 @@ class Key(pulumi.CustomResource):
         __props__.__dict__["key_spec"] = None
         __props__.__dict__["key_usage"] = None
         __props__.__dict__["multi_region"] = None
+        __props__.__dict__["origin"] = None
         __props__.__dict__["pending_window_in_days"] = None
         __props__.__dict__["tags"] = None
         return Key(resource_name, opts=opts, __props__=__props__)
@@ -350,6 +371,14 @@ class Key(pulumi.CustomResource):
         Specifies whether the AWS KMS key should be Multi-Region. You can't change the MultiRegion value after the AWS KMS key is created.
         """
         return pulumi.get(self, "multi_region")
+
+    @property
+    @pulumi.getter
+    def origin(self) -> pulumi.Output[Optional['KeyOrigin']]:
+        """
+        The source of the key material for the KMS key. You cannot change the origin after you create the KMS key. The default is AWS_KMS, which means that AWS KMS creates the key material.
+        """
+        return pulumi.get(self, "origin")
 
     @property
     @pulumi.getter(name="pendingWindowInDays")

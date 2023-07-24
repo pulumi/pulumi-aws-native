@@ -3371,6 +3371,154 @@ func (o StorageVirtualMachineTagArrayOutput) Index(i pulumi.IntInput) StorageVir
 	}).(StorageVirtualMachineTagOutput)
 }
 
+type VolumeAutocommitPeriod struct {
+	Type  string `pulumi:"type"`
+	Value *int   `pulumi:"value"`
+}
+
+// VolumeAutocommitPeriodInput is an input type that accepts VolumeAutocommitPeriodArgs and VolumeAutocommitPeriodOutput values.
+// You can construct a concrete instance of `VolumeAutocommitPeriodInput` via:
+//
+//	VolumeAutocommitPeriodArgs{...}
+type VolumeAutocommitPeriodInput interface {
+	pulumi.Input
+
+	ToVolumeAutocommitPeriodOutput() VolumeAutocommitPeriodOutput
+	ToVolumeAutocommitPeriodOutputWithContext(context.Context) VolumeAutocommitPeriodOutput
+}
+
+type VolumeAutocommitPeriodArgs struct {
+	Type  pulumi.StringInput `pulumi:"type"`
+	Value pulumi.IntPtrInput `pulumi:"value"`
+}
+
+func (VolumeAutocommitPeriodArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeAutocommitPeriod)(nil)).Elem()
+}
+
+func (i VolumeAutocommitPeriodArgs) ToVolumeAutocommitPeriodOutput() VolumeAutocommitPeriodOutput {
+	return i.ToVolumeAutocommitPeriodOutputWithContext(context.Background())
+}
+
+func (i VolumeAutocommitPeriodArgs) ToVolumeAutocommitPeriodOutputWithContext(ctx context.Context) VolumeAutocommitPeriodOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeAutocommitPeriodOutput)
+}
+
+func (i VolumeAutocommitPeriodArgs) ToVolumeAutocommitPeriodPtrOutput() VolumeAutocommitPeriodPtrOutput {
+	return i.ToVolumeAutocommitPeriodPtrOutputWithContext(context.Background())
+}
+
+func (i VolumeAutocommitPeriodArgs) ToVolumeAutocommitPeriodPtrOutputWithContext(ctx context.Context) VolumeAutocommitPeriodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeAutocommitPeriodOutput).ToVolumeAutocommitPeriodPtrOutputWithContext(ctx)
+}
+
+// VolumeAutocommitPeriodPtrInput is an input type that accepts VolumeAutocommitPeriodArgs, VolumeAutocommitPeriodPtr and VolumeAutocommitPeriodPtrOutput values.
+// You can construct a concrete instance of `VolumeAutocommitPeriodPtrInput` via:
+//
+//	        VolumeAutocommitPeriodArgs{...}
+//
+//	or:
+//
+//	        nil
+type VolumeAutocommitPeriodPtrInput interface {
+	pulumi.Input
+
+	ToVolumeAutocommitPeriodPtrOutput() VolumeAutocommitPeriodPtrOutput
+	ToVolumeAutocommitPeriodPtrOutputWithContext(context.Context) VolumeAutocommitPeriodPtrOutput
+}
+
+type volumeAutocommitPeriodPtrType VolumeAutocommitPeriodArgs
+
+func VolumeAutocommitPeriodPtr(v *VolumeAutocommitPeriodArgs) VolumeAutocommitPeriodPtrInput {
+	return (*volumeAutocommitPeriodPtrType)(v)
+}
+
+func (*volumeAutocommitPeriodPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeAutocommitPeriod)(nil)).Elem()
+}
+
+func (i *volumeAutocommitPeriodPtrType) ToVolumeAutocommitPeriodPtrOutput() VolumeAutocommitPeriodPtrOutput {
+	return i.ToVolumeAutocommitPeriodPtrOutputWithContext(context.Background())
+}
+
+func (i *volumeAutocommitPeriodPtrType) ToVolumeAutocommitPeriodPtrOutputWithContext(ctx context.Context) VolumeAutocommitPeriodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeAutocommitPeriodPtrOutput)
+}
+
+type VolumeAutocommitPeriodOutput struct{ *pulumi.OutputState }
+
+func (VolumeAutocommitPeriodOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeAutocommitPeriod)(nil)).Elem()
+}
+
+func (o VolumeAutocommitPeriodOutput) ToVolumeAutocommitPeriodOutput() VolumeAutocommitPeriodOutput {
+	return o
+}
+
+func (o VolumeAutocommitPeriodOutput) ToVolumeAutocommitPeriodOutputWithContext(ctx context.Context) VolumeAutocommitPeriodOutput {
+	return o
+}
+
+func (o VolumeAutocommitPeriodOutput) ToVolumeAutocommitPeriodPtrOutput() VolumeAutocommitPeriodPtrOutput {
+	return o.ToVolumeAutocommitPeriodPtrOutputWithContext(context.Background())
+}
+
+func (o VolumeAutocommitPeriodOutput) ToVolumeAutocommitPeriodPtrOutputWithContext(ctx context.Context) VolumeAutocommitPeriodPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeAutocommitPeriod) *VolumeAutocommitPeriod {
+		return &v
+	}).(VolumeAutocommitPeriodPtrOutput)
+}
+
+func (o VolumeAutocommitPeriodOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeAutocommitPeriod) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o VolumeAutocommitPeriodOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VolumeAutocommitPeriod) *int { return v.Value }).(pulumi.IntPtrOutput)
+}
+
+type VolumeAutocommitPeriodPtrOutput struct{ *pulumi.OutputState }
+
+func (VolumeAutocommitPeriodPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeAutocommitPeriod)(nil)).Elem()
+}
+
+func (o VolumeAutocommitPeriodPtrOutput) ToVolumeAutocommitPeriodPtrOutput() VolumeAutocommitPeriodPtrOutput {
+	return o
+}
+
+func (o VolumeAutocommitPeriodPtrOutput) ToVolumeAutocommitPeriodPtrOutputWithContext(ctx context.Context) VolumeAutocommitPeriodPtrOutput {
+	return o
+}
+
+func (o VolumeAutocommitPeriodPtrOutput) Elem() VolumeAutocommitPeriodOutput {
+	return o.ApplyT(func(v *VolumeAutocommitPeriod) VolumeAutocommitPeriod {
+		if v != nil {
+			return *v
+		}
+		var ret VolumeAutocommitPeriod
+		return ret
+	}).(VolumeAutocommitPeriodOutput)
+}
+
+func (o VolumeAutocommitPeriodPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeAutocommitPeriod) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o VolumeAutocommitPeriodPtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VolumeAutocommitPeriod) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.IntPtrOutput)
+}
+
 type VolumeClientConfigurations struct {
 	Clients string   `pulumi:"clients"`
 	Options []string `pulumi:"options"`
@@ -3566,15 +3714,16 @@ func (o VolumeNfsExportsArrayOutput) Index(i pulumi.IntInput) VolumeNfsExportsOu
 }
 
 type VolumeOntapConfiguration struct {
-	CopyTagsToBackups        *string              `pulumi:"copyTagsToBackups"`
-	JunctionPath             *string              `pulumi:"junctionPath"`
-	OntapVolumeType          *string              `pulumi:"ontapVolumeType"`
-	SecurityStyle            *string              `pulumi:"securityStyle"`
-	SizeInMegabytes          string               `pulumi:"sizeInMegabytes"`
-	SnapshotPolicy           *string              `pulumi:"snapshotPolicy"`
-	StorageEfficiencyEnabled *string              `pulumi:"storageEfficiencyEnabled"`
-	StorageVirtualMachineId  string               `pulumi:"storageVirtualMachineId"`
-	TieringPolicy            *VolumeTieringPolicy `pulumi:"tieringPolicy"`
+	CopyTagsToBackups        *string                      `pulumi:"copyTagsToBackups"`
+	JunctionPath             *string                      `pulumi:"junctionPath"`
+	OntapVolumeType          *string                      `pulumi:"ontapVolumeType"`
+	SecurityStyle            *string                      `pulumi:"securityStyle"`
+	SizeInMegabytes          string                       `pulumi:"sizeInMegabytes"`
+	SnaplockConfiguration    *VolumeSnaplockConfiguration `pulumi:"snaplockConfiguration"`
+	SnapshotPolicy           *string                      `pulumi:"snapshotPolicy"`
+	StorageEfficiencyEnabled *string                      `pulumi:"storageEfficiencyEnabled"`
+	StorageVirtualMachineId  string                       `pulumi:"storageVirtualMachineId"`
+	TieringPolicy            *VolumeTieringPolicy         `pulumi:"tieringPolicy"`
 }
 
 // VolumeOntapConfigurationInput is an input type that accepts VolumeOntapConfigurationArgs and VolumeOntapConfigurationOutput values.
@@ -3589,15 +3738,16 @@ type VolumeOntapConfigurationInput interface {
 }
 
 type VolumeOntapConfigurationArgs struct {
-	CopyTagsToBackups        pulumi.StringPtrInput       `pulumi:"copyTagsToBackups"`
-	JunctionPath             pulumi.StringPtrInput       `pulumi:"junctionPath"`
-	OntapVolumeType          pulumi.StringPtrInput       `pulumi:"ontapVolumeType"`
-	SecurityStyle            pulumi.StringPtrInput       `pulumi:"securityStyle"`
-	SizeInMegabytes          pulumi.StringInput          `pulumi:"sizeInMegabytes"`
-	SnapshotPolicy           pulumi.StringPtrInput       `pulumi:"snapshotPolicy"`
-	StorageEfficiencyEnabled pulumi.StringPtrInput       `pulumi:"storageEfficiencyEnabled"`
-	StorageVirtualMachineId  pulumi.StringInput          `pulumi:"storageVirtualMachineId"`
-	TieringPolicy            VolumeTieringPolicyPtrInput `pulumi:"tieringPolicy"`
+	CopyTagsToBackups        pulumi.StringPtrInput               `pulumi:"copyTagsToBackups"`
+	JunctionPath             pulumi.StringPtrInput               `pulumi:"junctionPath"`
+	OntapVolumeType          pulumi.StringPtrInput               `pulumi:"ontapVolumeType"`
+	SecurityStyle            pulumi.StringPtrInput               `pulumi:"securityStyle"`
+	SizeInMegabytes          pulumi.StringInput                  `pulumi:"sizeInMegabytes"`
+	SnaplockConfiguration    VolumeSnaplockConfigurationPtrInput `pulumi:"snaplockConfiguration"`
+	SnapshotPolicy           pulumi.StringPtrInput               `pulumi:"snapshotPolicy"`
+	StorageEfficiencyEnabled pulumi.StringPtrInput               `pulumi:"storageEfficiencyEnabled"`
+	StorageVirtualMachineId  pulumi.StringInput                  `pulumi:"storageVirtualMachineId"`
+	TieringPolicy            VolumeTieringPolicyPtrInput         `pulumi:"tieringPolicy"`
 }
 
 func (VolumeOntapConfigurationArgs) ElementType() reflect.Type {
@@ -3697,6 +3847,10 @@ func (o VolumeOntapConfigurationOutput) SizeInMegabytes() pulumi.StringOutput {
 	return o.ApplyT(func(v VolumeOntapConfiguration) string { return v.SizeInMegabytes }).(pulumi.StringOutput)
 }
 
+func (o VolumeOntapConfigurationOutput) SnaplockConfiguration() VolumeSnaplockConfigurationPtrOutput {
+	return o.ApplyT(func(v VolumeOntapConfiguration) *VolumeSnaplockConfiguration { return v.SnaplockConfiguration }).(VolumeSnaplockConfigurationPtrOutput)
+}
+
 func (o VolumeOntapConfigurationOutput) SnapshotPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VolumeOntapConfiguration) *string { return v.SnapshotPolicy }).(pulumi.StringPtrOutput)
 }
@@ -3780,6 +3934,15 @@ func (o VolumeOntapConfigurationPtrOutput) SizeInMegabytes() pulumi.StringPtrOut
 		}
 		return &v.SizeInMegabytes
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o VolumeOntapConfigurationPtrOutput) SnaplockConfiguration() VolumeSnaplockConfigurationPtrOutput {
+	return o.ApplyT(func(v *VolumeOntapConfiguration) *VolumeSnaplockConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SnaplockConfiguration
+	}).(VolumeSnaplockConfigurationPtrOutput)
 }
 
 func (o VolumeOntapConfigurationPtrOutput) SnapshotPolicy() pulumi.StringPtrOutput {
@@ -4249,6 +4412,525 @@ func (o VolumeOriginSnapshotPtrOutput) SnapshotARN() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type VolumeRetentionPeriod struct {
+	Type  string `pulumi:"type"`
+	Value *int   `pulumi:"value"`
+}
+
+// VolumeRetentionPeriodInput is an input type that accepts VolumeRetentionPeriodArgs and VolumeRetentionPeriodOutput values.
+// You can construct a concrete instance of `VolumeRetentionPeriodInput` via:
+//
+//	VolumeRetentionPeriodArgs{...}
+type VolumeRetentionPeriodInput interface {
+	pulumi.Input
+
+	ToVolumeRetentionPeriodOutput() VolumeRetentionPeriodOutput
+	ToVolumeRetentionPeriodOutputWithContext(context.Context) VolumeRetentionPeriodOutput
+}
+
+type VolumeRetentionPeriodArgs struct {
+	Type  pulumi.StringInput `pulumi:"type"`
+	Value pulumi.IntPtrInput `pulumi:"value"`
+}
+
+func (VolumeRetentionPeriodArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeRetentionPeriod)(nil)).Elem()
+}
+
+func (i VolumeRetentionPeriodArgs) ToVolumeRetentionPeriodOutput() VolumeRetentionPeriodOutput {
+	return i.ToVolumeRetentionPeriodOutputWithContext(context.Background())
+}
+
+func (i VolumeRetentionPeriodArgs) ToVolumeRetentionPeriodOutputWithContext(ctx context.Context) VolumeRetentionPeriodOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeRetentionPeriodOutput)
+}
+
+func (i VolumeRetentionPeriodArgs) ToVolumeRetentionPeriodPtrOutput() VolumeRetentionPeriodPtrOutput {
+	return i.ToVolumeRetentionPeriodPtrOutputWithContext(context.Background())
+}
+
+func (i VolumeRetentionPeriodArgs) ToVolumeRetentionPeriodPtrOutputWithContext(ctx context.Context) VolumeRetentionPeriodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeRetentionPeriodOutput).ToVolumeRetentionPeriodPtrOutputWithContext(ctx)
+}
+
+// VolumeRetentionPeriodPtrInput is an input type that accepts VolumeRetentionPeriodArgs, VolumeRetentionPeriodPtr and VolumeRetentionPeriodPtrOutput values.
+// You can construct a concrete instance of `VolumeRetentionPeriodPtrInput` via:
+//
+//	        VolumeRetentionPeriodArgs{...}
+//
+//	or:
+//
+//	        nil
+type VolumeRetentionPeriodPtrInput interface {
+	pulumi.Input
+
+	ToVolumeRetentionPeriodPtrOutput() VolumeRetentionPeriodPtrOutput
+	ToVolumeRetentionPeriodPtrOutputWithContext(context.Context) VolumeRetentionPeriodPtrOutput
+}
+
+type volumeRetentionPeriodPtrType VolumeRetentionPeriodArgs
+
+func VolumeRetentionPeriodPtr(v *VolumeRetentionPeriodArgs) VolumeRetentionPeriodPtrInput {
+	return (*volumeRetentionPeriodPtrType)(v)
+}
+
+func (*volumeRetentionPeriodPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeRetentionPeriod)(nil)).Elem()
+}
+
+func (i *volumeRetentionPeriodPtrType) ToVolumeRetentionPeriodPtrOutput() VolumeRetentionPeriodPtrOutput {
+	return i.ToVolumeRetentionPeriodPtrOutputWithContext(context.Background())
+}
+
+func (i *volumeRetentionPeriodPtrType) ToVolumeRetentionPeriodPtrOutputWithContext(ctx context.Context) VolumeRetentionPeriodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeRetentionPeriodPtrOutput)
+}
+
+type VolumeRetentionPeriodOutput struct{ *pulumi.OutputState }
+
+func (VolumeRetentionPeriodOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeRetentionPeriod)(nil)).Elem()
+}
+
+func (o VolumeRetentionPeriodOutput) ToVolumeRetentionPeriodOutput() VolumeRetentionPeriodOutput {
+	return o
+}
+
+func (o VolumeRetentionPeriodOutput) ToVolumeRetentionPeriodOutputWithContext(ctx context.Context) VolumeRetentionPeriodOutput {
+	return o
+}
+
+func (o VolumeRetentionPeriodOutput) ToVolumeRetentionPeriodPtrOutput() VolumeRetentionPeriodPtrOutput {
+	return o.ToVolumeRetentionPeriodPtrOutputWithContext(context.Background())
+}
+
+func (o VolumeRetentionPeriodOutput) ToVolumeRetentionPeriodPtrOutputWithContext(ctx context.Context) VolumeRetentionPeriodPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeRetentionPeriod) *VolumeRetentionPeriod {
+		return &v
+	}).(VolumeRetentionPeriodPtrOutput)
+}
+
+func (o VolumeRetentionPeriodOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeRetentionPeriod) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o VolumeRetentionPeriodOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VolumeRetentionPeriod) *int { return v.Value }).(pulumi.IntPtrOutput)
+}
+
+type VolumeRetentionPeriodPtrOutput struct{ *pulumi.OutputState }
+
+func (VolumeRetentionPeriodPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeRetentionPeriod)(nil)).Elem()
+}
+
+func (o VolumeRetentionPeriodPtrOutput) ToVolumeRetentionPeriodPtrOutput() VolumeRetentionPeriodPtrOutput {
+	return o
+}
+
+func (o VolumeRetentionPeriodPtrOutput) ToVolumeRetentionPeriodPtrOutputWithContext(ctx context.Context) VolumeRetentionPeriodPtrOutput {
+	return o
+}
+
+func (o VolumeRetentionPeriodPtrOutput) Elem() VolumeRetentionPeriodOutput {
+	return o.ApplyT(func(v *VolumeRetentionPeriod) VolumeRetentionPeriod {
+		if v != nil {
+			return *v
+		}
+		var ret VolumeRetentionPeriod
+		return ret
+	}).(VolumeRetentionPeriodOutput)
+}
+
+func (o VolumeRetentionPeriodPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeRetentionPeriod) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o VolumeRetentionPeriodPtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VolumeRetentionPeriod) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.IntPtrOutput)
+}
+
+type VolumeSnaplockConfiguration struct {
+	AuditLogVolume          *string                        `pulumi:"auditLogVolume"`
+	AutocommitPeriod        *VolumeAutocommitPeriod        `pulumi:"autocommitPeriod"`
+	PrivilegedDelete        *string                        `pulumi:"privilegedDelete"`
+	RetentionPeriod         *VolumeSnaplockRetentionPeriod `pulumi:"retentionPeriod"`
+	SnaplockType            string                         `pulumi:"snaplockType"`
+	VolumeAppendModeEnabled *string                        `pulumi:"volumeAppendModeEnabled"`
+}
+
+// VolumeSnaplockConfigurationInput is an input type that accepts VolumeSnaplockConfigurationArgs and VolumeSnaplockConfigurationOutput values.
+// You can construct a concrete instance of `VolumeSnaplockConfigurationInput` via:
+//
+//	VolumeSnaplockConfigurationArgs{...}
+type VolumeSnaplockConfigurationInput interface {
+	pulumi.Input
+
+	ToVolumeSnaplockConfigurationOutput() VolumeSnaplockConfigurationOutput
+	ToVolumeSnaplockConfigurationOutputWithContext(context.Context) VolumeSnaplockConfigurationOutput
+}
+
+type VolumeSnaplockConfigurationArgs struct {
+	AuditLogVolume          pulumi.StringPtrInput                 `pulumi:"auditLogVolume"`
+	AutocommitPeriod        VolumeAutocommitPeriodPtrInput        `pulumi:"autocommitPeriod"`
+	PrivilegedDelete        pulumi.StringPtrInput                 `pulumi:"privilegedDelete"`
+	RetentionPeriod         VolumeSnaplockRetentionPeriodPtrInput `pulumi:"retentionPeriod"`
+	SnaplockType            pulumi.StringInput                    `pulumi:"snaplockType"`
+	VolumeAppendModeEnabled pulumi.StringPtrInput                 `pulumi:"volumeAppendModeEnabled"`
+}
+
+func (VolumeSnaplockConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeSnaplockConfiguration)(nil)).Elem()
+}
+
+func (i VolumeSnaplockConfigurationArgs) ToVolumeSnaplockConfigurationOutput() VolumeSnaplockConfigurationOutput {
+	return i.ToVolumeSnaplockConfigurationOutputWithContext(context.Background())
+}
+
+func (i VolumeSnaplockConfigurationArgs) ToVolumeSnaplockConfigurationOutputWithContext(ctx context.Context) VolumeSnaplockConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeSnaplockConfigurationOutput)
+}
+
+func (i VolumeSnaplockConfigurationArgs) ToVolumeSnaplockConfigurationPtrOutput() VolumeSnaplockConfigurationPtrOutput {
+	return i.ToVolumeSnaplockConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i VolumeSnaplockConfigurationArgs) ToVolumeSnaplockConfigurationPtrOutputWithContext(ctx context.Context) VolumeSnaplockConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeSnaplockConfigurationOutput).ToVolumeSnaplockConfigurationPtrOutputWithContext(ctx)
+}
+
+// VolumeSnaplockConfigurationPtrInput is an input type that accepts VolumeSnaplockConfigurationArgs, VolumeSnaplockConfigurationPtr and VolumeSnaplockConfigurationPtrOutput values.
+// You can construct a concrete instance of `VolumeSnaplockConfigurationPtrInput` via:
+//
+//	        VolumeSnaplockConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type VolumeSnaplockConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToVolumeSnaplockConfigurationPtrOutput() VolumeSnaplockConfigurationPtrOutput
+	ToVolumeSnaplockConfigurationPtrOutputWithContext(context.Context) VolumeSnaplockConfigurationPtrOutput
+}
+
+type volumeSnaplockConfigurationPtrType VolumeSnaplockConfigurationArgs
+
+func VolumeSnaplockConfigurationPtr(v *VolumeSnaplockConfigurationArgs) VolumeSnaplockConfigurationPtrInput {
+	return (*volumeSnaplockConfigurationPtrType)(v)
+}
+
+func (*volumeSnaplockConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeSnaplockConfiguration)(nil)).Elem()
+}
+
+func (i *volumeSnaplockConfigurationPtrType) ToVolumeSnaplockConfigurationPtrOutput() VolumeSnaplockConfigurationPtrOutput {
+	return i.ToVolumeSnaplockConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *volumeSnaplockConfigurationPtrType) ToVolumeSnaplockConfigurationPtrOutputWithContext(ctx context.Context) VolumeSnaplockConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeSnaplockConfigurationPtrOutput)
+}
+
+type VolumeSnaplockConfigurationOutput struct{ *pulumi.OutputState }
+
+func (VolumeSnaplockConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeSnaplockConfiguration)(nil)).Elem()
+}
+
+func (o VolumeSnaplockConfigurationOutput) ToVolumeSnaplockConfigurationOutput() VolumeSnaplockConfigurationOutput {
+	return o
+}
+
+func (o VolumeSnaplockConfigurationOutput) ToVolumeSnaplockConfigurationOutputWithContext(ctx context.Context) VolumeSnaplockConfigurationOutput {
+	return o
+}
+
+func (o VolumeSnaplockConfigurationOutput) ToVolumeSnaplockConfigurationPtrOutput() VolumeSnaplockConfigurationPtrOutput {
+	return o.ToVolumeSnaplockConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o VolumeSnaplockConfigurationOutput) ToVolumeSnaplockConfigurationPtrOutputWithContext(ctx context.Context) VolumeSnaplockConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeSnaplockConfiguration) *VolumeSnaplockConfiguration {
+		return &v
+	}).(VolumeSnaplockConfigurationPtrOutput)
+}
+
+func (o VolumeSnaplockConfigurationOutput) AuditLogVolume() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeSnaplockConfiguration) *string { return v.AuditLogVolume }).(pulumi.StringPtrOutput)
+}
+
+func (o VolumeSnaplockConfigurationOutput) AutocommitPeriod() VolumeAutocommitPeriodPtrOutput {
+	return o.ApplyT(func(v VolumeSnaplockConfiguration) *VolumeAutocommitPeriod { return v.AutocommitPeriod }).(VolumeAutocommitPeriodPtrOutput)
+}
+
+func (o VolumeSnaplockConfigurationOutput) PrivilegedDelete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeSnaplockConfiguration) *string { return v.PrivilegedDelete }).(pulumi.StringPtrOutput)
+}
+
+func (o VolumeSnaplockConfigurationOutput) RetentionPeriod() VolumeSnaplockRetentionPeriodPtrOutput {
+	return o.ApplyT(func(v VolumeSnaplockConfiguration) *VolumeSnaplockRetentionPeriod { return v.RetentionPeriod }).(VolumeSnaplockRetentionPeriodPtrOutput)
+}
+
+func (o VolumeSnaplockConfigurationOutput) SnaplockType() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeSnaplockConfiguration) string { return v.SnaplockType }).(pulumi.StringOutput)
+}
+
+func (o VolumeSnaplockConfigurationOutput) VolumeAppendModeEnabled() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeSnaplockConfiguration) *string { return v.VolumeAppendModeEnabled }).(pulumi.StringPtrOutput)
+}
+
+type VolumeSnaplockConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (VolumeSnaplockConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeSnaplockConfiguration)(nil)).Elem()
+}
+
+func (o VolumeSnaplockConfigurationPtrOutput) ToVolumeSnaplockConfigurationPtrOutput() VolumeSnaplockConfigurationPtrOutput {
+	return o
+}
+
+func (o VolumeSnaplockConfigurationPtrOutput) ToVolumeSnaplockConfigurationPtrOutputWithContext(ctx context.Context) VolumeSnaplockConfigurationPtrOutput {
+	return o
+}
+
+func (o VolumeSnaplockConfigurationPtrOutput) Elem() VolumeSnaplockConfigurationOutput {
+	return o.ApplyT(func(v *VolumeSnaplockConfiguration) VolumeSnaplockConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret VolumeSnaplockConfiguration
+		return ret
+	}).(VolumeSnaplockConfigurationOutput)
+}
+
+func (o VolumeSnaplockConfigurationPtrOutput) AuditLogVolume() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeSnaplockConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuditLogVolume
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o VolumeSnaplockConfigurationPtrOutput) AutocommitPeriod() VolumeAutocommitPeriodPtrOutput {
+	return o.ApplyT(func(v *VolumeSnaplockConfiguration) *VolumeAutocommitPeriod {
+		if v == nil {
+			return nil
+		}
+		return v.AutocommitPeriod
+	}).(VolumeAutocommitPeriodPtrOutput)
+}
+
+func (o VolumeSnaplockConfigurationPtrOutput) PrivilegedDelete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeSnaplockConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrivilegedDelete
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o VolumeSnaplockConfigurationPtrOutput) RetentionPeriod() VolumeSnaplockRetentionPeriodPtrOutput {
+	return o.ApplyT(func(v *VolumeSnaplockConfiguration) *VolumeSnaplockRetentionPeriod {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionPeriod
+	}).(VolumeSnaplockRetentionPeriodPtrOutput)
+}
+
+func (o VolumeSnaplockConfigurationPtrOutput) SnaplockType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeSnaplockConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SnaplockType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o VolumeSnaplockConfigurationPtrOutput) VolumeAppendModeEnabled() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeSnaplockConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeAppendModeEnabled
+	}).(pulumi.StringPtrOutput)
+}
+
+type VolumeSnaplockRetentionPeriod struct {
+	DefaultRetention VolumeRetentionPeriod `pulumi:"defaultRetention"`
+	MaximumRetention VolumeRetentionPeriod `pulumi:"maximumRetention"`
+	MinimumRetention VolumeRetentionPeriod `pulumi:"minimumRetention"`
+}
+
+// VolumeSnaplockRetentionPeriodInput is an input type that accepts VolumeSnaplockRetentionPeriodArgs and VolumeSnaplockRetentionPeriodOutput values.
+// You can construct a concrete instance of `VolumeSnaplockRetentionPeriodInput` via:
+//
+//	VolumeSnaplockRetentionPeriodArgs{...}
+type VolumeSnaplockRetentionPeriodInput interface {
+	pulumi.Input
+
+	ToVolumeSnaplockRetentionPeriodOutput() VolumeSnaplockRetentionPeriodOutput
+	ToVolumeSnaplockRetentionPeriodOutputWithContext(context.Context) VolumeSnaplockRetentionPeriodOutput
+}
+
+type VolumeSnaplockRetentionPeriodArgs struct {
+	DefaultRetention VolumeRetentionPeriodInput `pulumi:"defaultRetention"`
+	MaximumRetention VolumeRetentionPeriodInput `pulumi:"maximumRetention"`
+	MinimumRetention VolumeRetentionPeriodInput `pulumi:"minimumRetention"`
+}
+
+func (VolumeSnaplockRetentionPeriodArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeSnaplockRetentionPeriod)(nil)).Elem()
+}
+
+func (i VolumeSnaplockRetentionPeriodArgs) ToVolumeSnaplockRetentionPeriodOutput() VolumeSnaplockRetentionPeriodOutput {
+	return i.ToVolumeSnaplockRetentionPeriodOutputWithContext(context.Background())
+}
+
+func (i VolumeSnaplockRetentionPeriodArgs) ToVolumeSnaplockRetentionPeriodOutputWithContext(ctx context.Context) VolumeSnaplockRetentionPeriodOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeSnaplockRetentionPeriodOutput)
+}
+
+func (i VolumeSnaplockRetentionPeriodArgs) ToVolumeSnaplockRetentionPeriodPtrOutput() VolumeSnaplockRetentionPeriodPtrOutput {
+	return i.ToVolumeSnaplockRetentionPeriodPtrOutputWithContext(context.Background())
+}
+
+func (i VolumeSnaplockRetentionPeriodArgs) ToVolumeSnaplockRetentionPeriodPtrOutputWithContext(ctx context.Context) VolumeSnaplockRetentionPeriodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeSnaplockRetentionPeriodOutput).ToVolumeSnaplockRetentionPeriodPtrOutputWithContext(ctx)
+}
+
+// VolumeSnaplockRetentionPeriodPtrInput is an input type that accepts VolumeSnaplockRetentionPeriodArgs, VolumeSnaplockRetentionPeriodPtr and VolumeSnaplockRetentionPeriodPtrOutput values.
+// You can construct a concrete instance of `VolumeSnaplockRetentionPeriodPtrInput` via:
+//
+//	        VolumeSnaplockRetentionPeriodArgs{...}
+//
+//	or:
+//
+//	        nil
+type VolumeSnaplockRetentionPeriodPtrInput interface {
+	pulumi.Input
+
+	ToVolumeSnaplockRetentionPeriodPtrOutput() VolumeSnaplockRetentionPeriodPtrOutput
+	ToVolumeSnaplockRetentionPeriodPtrOutputWithContext(context.Context) VolumeSnaplockRetentionPeriodPtrOutput
+}
+
+type volumeSnaplockRetentionPeriodPtrType VolumeSnaplockRetentionPeriodArgs
+
+func VolumeSnaplockRetentionPeriodPtr(v *VolumeSnaplockRetentionPeriodArgs) VolumeSnaplockRetentionPeriodPtrInput {
+	return (*volumeSnaplockRetentionPeriodPtrType)(v)
+}
+
+func (*volumeSnaplockRetentionPeriodPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeSnaplockRetentionPeriod)(nil)).Elem()
+}
+
+func (i *volumeSnaplockRetentionPeriodPtrType) ToVolumeSnaplockRetentionPeriodPtrOutput() VolumeSnaplockRetentionPeriodPtrOutput {
+	return i.ToVolumeSnaplockRetentionPeriodPtrOutputWithContext(context.Background())
+}
+
+func (i *volumeSnaplockRetentionPeriodPtrType) ToVolumeSnaplockRetentionPeriodPtrOutputWithContext(ctx context.Context) VolumeSnaplockRetentionPeriodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeSnaplockRetentionPeriodPtrOutput)
+}
+
+type VolumeSnaplockRetentionPeriodOutput struct{ *pulumi.OutputState }
+
+func (VolumeSnaplockRetentionPeriodOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeSnaplockRetentionPeriod)(nil)).Elem()
+}
+
+func (o VolumeSnaplockRetentionPeriodOutput) ToVolumeSnaplockRetentionPeriodOutput() VolumeSnaplockRetentionPeriodOutput {
+	return o
+}
+
+func (o VolumeSnaplockRetentionPeriodOutput) ToVolumeSnaplockRetentionPeriodOutputWithContext(ctx context.Context) VolumeSnaplockRetentionPeriodOutput {
+	return o
+}
+
+func (o VolumeSnaplockRetentionPeriodOutput) ToVolumeSnaplockRetentionPeriodPtrOutput() VolumeSnaplockRetentionPeriodPtrOutput {
+	return o.ToVolumeSnaplockRetentionPeriodPtrOutputWithContext(context.Background())
+}
+
+func (o VolumeSnaplockRetentionPeriodOutput) ToVolumeSnaplockRetentionPeriodPtrOutputWithContext(ctx context.Context) VolumeSnaplockRetentionPeriodPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeSnaplockRetentionPeriod) *VolumeSnaplockRetentionPeriod {
+		return &v
+	}).(VolumeSnaplockRetentionPeriodPtrOutput)
+}
+
+func (o VolumeSnaplockRetentionPeriodOutput) DefaultRetention() VolumeRetentionPeriodOutput {
+	return o.ApplyT(func(v VolumeSnaplockRetentionPeriod) VolumeRetentionPeriod { return v.DefaultRetention }).(VolumeRetentionPeriodOutput)
+}
+
+func (o VolumeSnaplockRetentionPeriodOutput) MaximumRetention() VolumeRetentionPeriodOutput {
+	return o.ApplyT(func(v VolumeSnaplockRetentionPeriod) VolumeRetentionPeriod { return v.MaximumRetention }).(VolumeRetentionPeriodOutput)
+}
+
+func (o VolumeSnaplockRetentionPeriodOutput) MinimumRetention() VolumeRetentionPeriodOutput {
+	return o.ApplyT(func(v VolumeSnaplockRetentionPeriod) VolumeRetentionPeriod { return v.MinimumRetention }).(VolumeRetentionPeriodOutput)
+}
+
+type VolumeSnaplockRetentionPeriodPtrOutput struct{ *pulumi.OutputState }
+
+func (VolumeSnaplockRetentionPeriodPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeSnaplockRetentionPeriod)(nil)).Elem()
+}
+
+func (o VolumeSnaplockRetentionPeriodPtrOutput) ToVolumeSnaplockRetentionPeriodPtrOutput() VolumeSnaplockRetentionPeriodPtrOutput {
+	return o
+}
+
+func (o VolumeSnaplockRetentionPeriodPtrOutput) ToVolumeSnaplockRetentionPeriodPtrOutputWithContext(ctx context.Context) VolumeSnaplockRetentionPeriodPtrOutput {
+	return o
+}
+
+func (o VolumeSnaplockRetentionPeriodPtrOutput) Elem() VolumeSnaplockRetentionPeriodOutput {
+	return o.ApplyT(func(v *VolumeSnaplockRetentionPeriod) VolumeSnaplockRetentionPeriod {
+		if v != nil {
+			return *v
+		}
+		var ret VolumeSnaplockRetentionPeriod
+		return ret
+	}).(VolumeSnaplockRetentionPeriodOutput)
+}
+
+func (o VolumeSnaplockRetentionPeriodPtrOutput) DefaultRetention() VolumeRetentionPeriodPtrOutput {
+	return o.ApplyT(func(v *VolumeSnaplockRetentionPeriod) *VolumeRetentionPeriod {
+		if v == nil {
+			return nil
+		}
+		return &v.DefaultRetention
+	}).(VolumeRetentionPeriodPtrOutput)
+}
+
+func (o VolumeSnaplockRetentionPeriodPtrOutput) MaximumRetention() VolumeRetentionPeriodPtrOutput {
+	return o.ApplyT(func(v *VolumeSnaplockRetentionPeriod) *VolumeRetentionPeriod {
+		if v == nil {
+			return nil
+		}
+		return &v.MaximumRetention
+	}).(VolumeRetentionPeriodPtrOutput)
+}
+
+func (o VolumeSnaplockRetentionPeriodPtrOutput) MinimumRetention() VolumeRetentionPeriodPtrOutput {
+	return o.ApplyT(func(v *VolumeSnaplockRetentionPeriod) *VolumeRetentionPeriod {
+		if v == nil {
+			return nil
+		}
+		return &v.MinimumRetention
+	}).(VolumeRetentionPeriodPtrOutput)
+}
+
 type VolumeTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -4644,6 +5326,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrInput)(nil)).Elem(), StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageVirtualMachineTagInput)(nil)).Elem(), StorageVirtualMachineTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageVirtualMachineTagArrayInput)(nil)).Elem(), StorageVirtualMachineTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeAutocommitPeriodInput)(nil)).Elem(), VolumeAutocommitPeriodArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeAutocommitPeriodPtrInput)(nil)).Elem(), VolumeAutocommitPeriodArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeClientConfigurationsInput)(nil)).Elem(), VolumeClientConfigurationsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeClientConfigurationsArrayInput)(nil)).Elem(), VolumeClientConfigurationsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeNfsExportsInput)(nil)).Elem(), VolumeNfsExportsArgs{})
@@ -4654,6 +5338,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeOpenZFSConfigurationPtrInput)(nil)).Elem(), VolumeOpenZFSConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeOriginSnapshotInput)(nil)).Elem(), VolumeOriginSnapshotArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeOriginSnapshotPtrInput)(nil)).Elem(), VolumeOriginSnapshotArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeRetentionPeriodInput)(nil)).Elem(), VolumeRetentionPeriodArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeRetentionPeriodPtrInput)(nil)).Elem(), VolumeRetentionPeriodArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeSnaplockConfigurationInput)(nil)).Elem(), VolumeSnaplockConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeSnaplockConfigurationPtrInput)(nil)).Elem(), VolumeSnaplockConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeSnaplockRetentionPeriodInput)(nil)).Elem(), VolumeSnaplockRetentionPeriodArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeSnaplockRetentionPeriodPtrInput)(nil)).Elem(), VolumeSnaplockRetentionPeriodArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeTagInput)(nil)).Elem(), VolumeTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeTagArrayInput)(nil)).Elem(), VolumeTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeTieringPolicyInput)(nil)).Elem(), VolumeTieringPolicyArgs{})
@@ -4700,6 +5390,8 @@ func init() {
 	pulumi.RegisterOutputType(StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(StorageVirtualMachineTagOutput{})
 	pulumi.RegisterOutputType(StorageVirtualMachineTagArrayOutput{})
+	pulumi.RegisterOutputType(VolumeAutocommitPeriodOutput{})
+	pulumi.RegisterOutputType(VolumeAutocommitPeriodPtrOutput{})
 	pulumi.RegisterOutputType(VolumeClientConfigurationsOutput{})
 	pulumi.RegisterOutputType(VolumeClientConfigurationsArrayOutput{})
 	pulumi.RegisterOutputType(VolumeNfsExportsOutput{})
@@ -4710,6 +5402,12 @@ func init() {
 	pulumi.RegisterOutputType(VolumeOpenZFSConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(VolumeOriginSnapshotOutput{})
 	pulumi.RegisterOutputType(VolumeOriginSnapshotPtrOutput{})
+	pulumi.RegisterOutputType(VolumeRetentionPeriodOutput{})
+	pulumi.RegisterOutputType(VolumeRetentionPeriodPtrOutput{})
+	pulumi.RegisterOutputType(VolumeSnaplockConfigurationOutput{})
+	pulumi.RegisterOutputType(VolumeSnaplockConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(VolumeSnaplockRetentionPeriodOutput{})
+	pulumi.RegisterOutputType(VolumeSnaplockRetentionPeriodPtrOutput{})
 	pulumi.RegisterOutputType(VolumeTagOutput{})
 	pulumi.RegisterOutputType(VolumeTagArrayOutput{})
 	pulumi.RegisterOutputType(VolumeTieringPolicyOutput{})

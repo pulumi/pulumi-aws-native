@@ -14,16 +14,20 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     public sealed class EndpointDeploymentConfig
     {
         public readonly Outputs.EndpointAutoRollbackConfig? AutoRollbackConfiguration;
-        public readonly Outputs.EndpointBlueGreenUpdatePolicy BlueGreenUpdatePolicy;
+        public readonly Outputs.EndpointBlueGreenUpdatePolicy? BlueGreenUpdatePolicy;
+        public readonly Outputs.EndpointRollingUpdatePolicy? RollingUpdatePolicy;
 
         [OutputConstructor]
         private EndpointDeploymentConfig(
             Outputs.EndpointAutoRollbackConfig? autoRollbackConfiguration,
 
-            Outputs.EndpointBlueGreenUpdatePolicy blueGreenUpdatePolicy)
+            Outputs.EndpointBlueGreenUpdatePolicy? blueGreenUpdatePolicy,
+
+            Outputs.EndpointRollingUpdatePolicy? rollingUpdatePolicy)
         {
             AutoRollbackConfiguration = autoRollbackConfiguration;
             BlueGreenUpdatePolicy = blueGreenUpdatePolicy;
+            RollingUpdatePolicy = rollingUpdatePolicy;
         }
     }
 }

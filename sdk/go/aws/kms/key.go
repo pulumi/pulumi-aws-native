@@ -32,6 +32,8 @@ type Key struct {
 	KeyUsage KeyUsagePtrOutput `pulumi:"keyUsage"`
 	// Specifies whether the AWS KMS key should be Multi-Region. You can't change the MultiRegion value after the AWS KMS key is created.
 	MultiRegion pulumi.BoolPtrOutput `pulumi:"multiRegion"`
+	// The source of the key material for the KMS key. You cannot change the origin after you create the KMS key. The default is AWS_KMS, which means that AWS KMS creates the key material.
+	Origin KeyOriginPtrOutput `pulumi:"origin"`
 	// Specifies the number of days in the waiting period before AWS KMS deletes an AWS KMS key that has been removed from a CloudFormation stack. Enter a value between 7 and 30 days. The default value is 30 days.
 	PendingWindowInDays pulumi.IntPtrOutput `pulumi:"pendingWindowInDays"`
 	// An array of key-value pairs to apply to this resource.
@@ -95,6 +97,8 @@ type keyArgs struct {
 	KeyUsage *KeyUsage `pulumi:"keyUsage"`
 	// Specifies whether the AWS KMS key should be Multi-Region. You can't change the MultiRegion value after the AWS KMS key is created.
 	MultiRegion *bool `pulumi:"multiRegion"`
+	// The source of the key material for the KMS key. You cannot change the origin after you create the KMS key. The default is AWS_KMS, which means that AWS KMS creates the key material.
+	Origin *KeyOrigin `pulumi:"origin"`
 	// Specifies the number of days in the waiting period before AWS KMS deletes an AWS KMS key that has been removed from a CloudFormation stack. Enter a value between 7 and 30 days. The default value is 30 days.
 	PendingWindowInDays *int `pulumi:"pendingWindowInDays"`
 	// An array of key-value pairs to apply to this resource.
@@ -117,6 +121,8 @@ type KeyArgs struct {
 	KeyUsage KeyUsagePtrInput
 	// Specifies whether the AWS KMS key should be Multi-Region. You can't change the MultiRegion value after the AWS KMS key is created.
 	MultiRegion pulumi.BoolPtrInput
+	// The source of the key material for the KMS key. You cannot change the origin after you create the KMS key. The default is AWS_KMS, which means that AWS KMS creates the key material.
+	Origin KeyOriginPtrInput
 	// Specifies the number of days in the waiting period before AWS KMS deletes an AWS KMS key that has been removed from a CloudFormation stack. Enter a value between 7 and 30 days. The default value is 30 days.
 	PendingWindowInDays pulumi.IntPtrInput
 	// An array of key-value pairs to apply to this resource.
@@ -201,6 +207,11 @@ func (o KeyOutput) KeyUsage() KeyUsagePtrOutput {
 // Specifies whether the AWS KMS key should be Multi-Region. You can't change the MultiRegion value after the AWS KMS key is created.
 func (o KeyOutput) MultiRegion() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Key) pulumi.BoolPtrOutput { return v.MultiRegion }).(pulumi.BoolPtrOutput)
+}
+
+// The source of the key material for the KMS key. You cannot change the origin after you create the KMS key. The default is AWS_KMS, which means that AWS KMS creates the key material.
+func (o KeyOutput) Origin() KeyOriginPtrOutput {
+	return o.ApplyT(func(v *Key) KeyOriginPtrOutput { return v.Origin }).(KeyOriginPtrOutput)
 }
 
 // Specifies the number of days in the waiting period before AWS KMS deletes an AWS KMS key that has been removed from a CloudFormation stack. Enter a value between 7 and 30 days. The default value is 30 days.

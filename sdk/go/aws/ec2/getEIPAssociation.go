@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource schema for EC2 EIP association.
+// Resource Type definition for AWS::EC2::EIPAssociation
 func LookupEIPAssociation(ctx *pulumi.Context, args *LookupEIPAssociationArgs, opts ...pulumi.InvokeOption) (*LookupEIPAssociationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEIPAssociationResult
@@ -23,15 +23,16 @@ func LookupEIPAssociation(ctx *pulumi.Context, args *LookupEIPAssociationArgs, o
 }
 
 type LookupEIPAssociationArgs struct {
-	// Composite ID of non-empty properties, to determine the identification.
 	Id string `pulumi:"id"`
 }
 
 type LookupEIPAssociationResult struct {
-	// The Elastic IP address to associate with the instance.
-	EIP *string `pulumi:"eIP"`
-	// Composite ID of non-empty properties, to determine the identification.
-	Id *string `pulumi:"id"`
+	AllocationId       *string `pulumi:"allocationId"`
+	EIP                *string `pulumi:"eIP"`
+	Id                 *string `pulumi:"id"`
+	InstanceId         *string `pulumi:"instanceId"`
+	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
+	PrivateIpAddress   *string `pulumi:"privateIpAddress"`
 }
 
 func LookupEIPAssociationOutput(ctx *pulumi.Context, args LookupEIPAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupEIPAssociationResultOutput {
@@ -48,7 +49,6 @@ func LookupEIPAssociationOutput(ctx *pulumi.Context, args LookupEIPAssociationOu
 }
 
 type LookupEIPAssociationOutputArgs struct {
-	// Composite ID of non-empty properties, to determine the identification.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -70,14 +70,28 @@ func (o LookupEIPAssociationResultOutput) ToLookupEIPAssociationResultOutputWith
 	return o
 }
 
-// The Elastic IP address to associate with the instance.
+func (o LookupEIPAssociationResultOutput) AllocationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEIPAssociationResult) *string { return v.AllocationId }).(pulumi.StringPtrOutput)
+}
+
 func (o LookupEIPAssociationResultOutput) EIP() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEIPAssociationResult) *string { return v.EIP }).(pulumi.StringPtrOutput)
 }
 
-// Composite ID of non-empty properties, to determine the identification.
 func (o LookupEIPAssociationResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEIPAssociationResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupEIPAssociationResultOutput) InstanceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEIPAssociationResult) *string { return v.InstanceId }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupEIPAssociationResultOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEIPAssociationResult) *string { return v.NetworkInterfaceId }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupEIPAssociationResultOutput) PrivateIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEIPAssociationResult) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
 }
 
 func init() {

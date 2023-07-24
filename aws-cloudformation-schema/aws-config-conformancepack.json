@@ -98,7 +98,7 @@
   "primaryIdentifier" : [ "/properties/ConformancePackName" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "config:PutConformancePack", "config:DescribeConformancePackStatus", "s3:GetObject", "s3:GetBucketAcl", "iam:CreateServiceLinkedRole", "iam:PassRole" ]
+      "permissions" : [ "config:PutConformancePack", "config:DescribeConformancePackStatus", "config:DescribeConformancePacks", "s3:GetObject", "s3:GetBucketAcl", "iam:CreateServiceLinkedRole", "iam:PassRole" ]
     },
     "read" : {
       "permissions" : [ "config:DescribeConformancePacks" ]

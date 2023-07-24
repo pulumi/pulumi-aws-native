@@ -31,11 +31,15 @@ __all__ = [
     'StorageVirtualMachineActiveDirectoryConfigurationArgs',
     'StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs',
     'StorageVirtualMachineTagArgs',
+    'VolumeAutocommitPeriodArgs',
     'VolumeClientConfigurationsArgs',
     'VolumeNfsExportsArgs',
     'VolumeOntapConfigurationArgs',
     'VolumeOpenZFSConfigurationArgs',
     'VolumeOriginSnapshotArgs',
+    'VolumeRetentionPeriodArgs',
+    'VolumeSnaplockConfigurationArgs',
+    'VolumeSnaplockRetentionPeriodArgs',
     'VolumeTagArgs',
     'VolumeTieringPolicyArgs',
     'VolumeUserAndGroupQuotasArgs',
@@ -1179,6 +1183,34 @@ class StorageVirtualMachineTagArgs:
 
 
 @pulumi.input_type
+class VolumeAutocommitPeriodArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 value: Optional[pulumi.Input[int]] = None):
+        pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class VolumeClientConfigurationsArgs:
     def __init__(__self__, *,
                  clients: pulumi.Input[str],
@@ -1230,6 +1262,7 @@ class VolumeOntapConfigurationArgs:
                  junction_path: Optional[pulumi.Input[str]] = None,
                  ontap_volume_type: Optional[pulumi.Input[str]] = None,
                  security_style: Optional[pulumi.Input[str]] = None,
+                 snaplock_configuration: Optional[pulumi.Input['VolumeSnaplockConfigurationArgs']] = None,
                  snapshot_policy: Optional[pulumi.Input[str]] = None,
                  storage_efficiency_enabled: Optional[pulumi.Input[str]] = None,
                  tiering_policy: Optional[pulumi.Input['VolumeTieringPolicyArgs']] = None):
@@ -1243,6 +1276,8 @@ class VolumeOntapConfigurationArgs:
             pulumi.set(__self__, "ontap_volume_type", ontap_volume_type)
         if security_style is not None:
             pulumi.set(__self__, "security_style", security_style)
+        if snaplock_configuration is not None:
+            pulumi.set(__self__, "snaplock_configuration", snaplock_configuration)
         if snapshot_policy is not None:
             pulumi.set(__self__, "snapshot_policy", snapshot_policy)
         if storage_efficiency_enabled is not None:
@@ -1303,6 +1338,15 @@ class VolumeOntapConfigurationArgs:
     @security_style.setter
     def security_style(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "security_style", value)
+
+    @property
+    @pulumi.getter(name="snaplockConfiguration")
+    def snaplock_configuration(self) -> Optional[pulumi.Input['VolumeSnaplockConfigurationArgs']]:
+        return pulumi.get(self, "snaplock_configuration")
+
+    @snaplock_configuration.setter
+    def snaplock_configuration(self, value: Optional[pulumi.Input['VolumeSnaplockConfigurationArgs']]):
+        pulumi.set(self, "snaplock_configuration", value)
 
     @property
     @pulumi.getter(name="snapshotPolicy")
@@ -1493,6 +1537,148 @@ class VolumeOriginSnapshotArgs:
     @snapshot_arn.setter
     def snapshot_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "snapshot_arn", value)
+
+
+@pulumi.input_type
+class VolumeRetentionPeriodArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 value: Optional[pulumi.Input[int]] = None):
+        pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class VolumeSnaplockConfigurationArgs:
+    def __init__(__self__, *,
+                 snaplock_type: pulumi.Input[str],
+                 audit_log_volume: Optional[pulumi.Input[str]] = None,
+                 autocommit_period: Optional[pulumi.Input['VolumeAutocommitPeriodArgs']] = None,
+                 privileged_delete: Optional[pulumi.Input[str]] = None,
+                 retention_period: Optional[pulumi.Input['VolumeSnaplockRetentionPeriodArgs']] = None,
+                 volume_append_mode_enabled: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "snaplock_type", snaplock_type)
+        if audit_log_volume is not None:
+            pulumi.set(__self__, "audit_log_volume", audit_log_volume)
+        if autocommit_period is not None:
+            pulumi.set(__self__, "autocommit_period", autocommit_period)
+        if privileged_delete is not None:
+            pulumi.set(__self__, "privileged_delete", privileged_delete)
+        if retention_period is not None:
+            pulumi.set(__self__, "retention_period", retention_period)
+        if volume_append_mode_enabled is not None:
+            pulumi.set(__self__, "volume_append_mode_enabled", volume_append_mode_enabled)
+
+    @property
+    @pulumi.getter(name="snaplockType")
+    def snaplock_type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "snaplock_type")
+
+    @snaplock_type.setter
+    def snaplock_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "snaplock_type", value)
+
+    @property
+    @pulumi.getter(name="auditLogVolume")
+    def audit_log_volume(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "audit_log_volume")
+
+    @audit_log_volume.setter
+    def audit_log_volume(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "audit_log_volume", value)
+
+    @property
+    @pulumi.getter(name="autocommitPeriod")
+    def autocommit_period(self) -> Optional[pulumi.Input['VolumeAutocommitPeriodArgs']]:
+        return pulumi.get(self, "autocommit_period")
+
+    @autocommit_period.setter
+    def autocommit_period(self, value: Optional[pulumi.Input['VolumeAutocommitPeriodArgs']]):
+        pulumi.set(self, "autocommit_period", value)
+
+    @property
+    @pulumi.getter(name="privilegedDelete")
+    def privileged_delete(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "privileged_delete")
+
+    @privileged_delete.setter
+    def privileged_delete(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "privileged_delete", value)
+
+    @property
+    @pulumi.getter(name="retentionPeriod")
+    def retention_period(self) -> Optional[pulumi.Input['VolumeSnaplockRetentionPeriodArgs']]:
+        return pulumi.get(self, "retention_period")
+
+    @retention_period.setter
+    def retention_period(self, value: Optional[pulumi.Input['VolumeSnaplockRetentionPeriodArgs']]):
+        pulumi.set(self, "retention_period", value)
+
+    @property
+    @pulumi.getter(name="volumeAppendModeEnabled")
+    def volume_append_mode_enabled(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "volume_append_mode_enabled")
+
+    @volume_append_mode_enabled.setter
+    def volume_append_mode_enabled(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "volume_append_mode_enabled", value)
+
+
+@pulumi.input_type
+class VolumeSnaplockRetentionPeriodArgs:
+    def __init__(__self__, *,
+                 default_retention: pulumi.Input['VolumeRetentionPeriodArgs'],
+                 maximum_retention: pulumi.Input['VolumeRetentionPeriodArgs'],
+                 minimum_retention: pulumi.Input['VolumeRetentionPeriodArgs']):
+        pulumi.set(__self__, "default_retention", default_retention)
+        pulumi.set(__self__, "maximum_retention", maximum_retention)
+        pulumi.set(__self__, "minimum_retention", minimum_retention)
+
+    @property
+    @pulumi.getter(name="defaultRetention")
+    def default_retention(self) -> pulumi.Input['VolumeRetentionPeriodArgs']:
+        return pulumi.get(self, "default_retention")
+
+    @default_retention.setter
+    def default_retention(self, value: pulumi.Input['VolumeRetentionPeriodArgs']):
+        pulumi.set(self, "default_retention", value)
+
+    @property
+    @pulumi.getter(name="maximumRetention")
+    def maximum_retention(self) -> pulumi.Input['VolumeRetentionPeriodArgs']:
+        return pulumi.get(self, "maximum_retention")
+
+    @maximum_retention.setter
+    def maximum_retention(self, value: pulumi.Input['VolumeRetentionPeriodArgs']):
+        pulumi.set(self, "maximum_retention", value)
+
+    @property
+    @pulumi.getter(name="minimumRetention")
+    def minimum_retention(self) -> pulumi.Input['VolumeRetentionPeriodArgs']:
+        return pulumi.get(self, "minimum_retention")
+
+    @minimum_retention.setter
+    def minimum_retention(self, value: pulumi.Input['VolumeRetentionPeriodArgs']):
+        pulumi.set(self, "minimum_retention", value)
 
 
 @pulumi.input_type

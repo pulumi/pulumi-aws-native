@@ -5,9 +5,18 @@
 from enum import Enum
 
 __all__ = [
+    'KeyOrigin',
     'KeySpec',
     'KeyUsage',
 ]
+
+
+class KeyOrigin(str, Enum):
+    """
+    The source of the key material for the KMS key. You cannot change the origin after you create the KMS key. The default is AWS_KMS, which means that AWS KMS creates the key material.
+    """
+    AWS_KMS = "AWS_KMS"
+    EXTERNAL = "EXTERNAL"
 
 
 class KeySpec(str, Enum):

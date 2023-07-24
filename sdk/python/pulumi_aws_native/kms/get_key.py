@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetKeyResult:
-    def __init__(__self__, arn=None, description=None, enable_key_rotation=None, enabled=None, key_id=None, key_policy=None, key_spec=None, key_usage=None, multi_region=None, tags=None):
+    def __init__(__self__, arn=None, description=None, enable_key_rotation=None, enabled=None, key_id=None, key_policy=None, key_spec=None, key_usage=None, multi_region=None, origin=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -48,6 +48,9 @@ class GetKeyResult:
         if multi_region and not isinstance(multi_region, bool):
             raise TypeError("Expected argument 'multi_region' to be a bool")
         pulumi.set(__self__, "multi_region", multi_region)
+        if origin and not isinstance(origin, str):
+            raise TypeError("Expected argument 'origin' to be a str")
+        pulumi.set(__self__, "origin", origin)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -120,6 +123,14 @@ class GetKeyResult:
 
     @property
     @pulumi.getter
+    def origin(self) -> Optional['KeyOrigin']:
+        """
+        The source of the key material for the KMS key. You cannot change the origin after you create the KMS key. The default is AWS_KMS, which means that AWS KMS creates the key material.
+        """
+        return pulumi.get(self, "origin")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.KeyTag']]:
         """
         An array of key-value pairs to apply to this resource.
@@ -142,6 +153,7 @@ class AwaitableGetKeyResult(GetKeyResult):
             key_spec=self.key_spec,
             key_usage=self.key_usage,
             multi_region=self.multi_region,
+            origin=self.origin,
             tags=self.tags)
 
 
@@ -165,6 +177,7 @@ def get_key(key_id: Optional[str] = None,
         key_spec=pulumi.get(__ret__, 'key_spec'),
         key_usage=pulumi.get(__ret__, 'key_usage'),
         multi_region=pulumi.get(__ret__, 'multi_region'),
+        origin=pulumi.get(__ret__, 'origin'),
         tags=pulumi.get(__ret__, 'tags'))
 
 

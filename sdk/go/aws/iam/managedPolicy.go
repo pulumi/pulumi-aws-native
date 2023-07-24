@@ -13,18 +13,39 @@ import (
 )
 
 // Resource Type definition for AWS::IAM::ManagedPolicy
-//
-// Deprecated: ManagedPolicy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type ManagedPolicy struct {
 	pulumi.CustomResourceState
 
-	Description       pulumi.StringPtrOutput   `pulumi:"description"`
-	Groups            pulumi.StringArrayOutput `pulumi:"groups"`
-	ManagedPolicyName pulumi.StringPtrOutput   `pulumi:"managedPolicyName"`
-	Path              pulumi.StringPtrOutput   `pulumi:"path"`
-	PolicyDocument    pulumi.AnyOutput         `pulumi:"policyDocument"`
-	Roles             pulumi.StringArrayOutput `pulumi:"roles"`
-	Users             pulumi.StringArrayOutput `pulumi:"users"`
+	// The number of entities (users, groups, and roles) that the policy is attached to.
+	AttachmentCount pulumi.IntOutput `pulumi:"attachmentCount"`
+	// The date and time, in ISO 8601 date-time format, when the policy was created.
+	CreateDate pulumi.StringOutput `pulumi:"createDate"`
+	// The identifier for the version of the policy that is set as the default version.
+	DefaultVersionId pulumi.StringOutput `pulumi:"defaultVersionId"`
+	// A friendly description of the policy.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The name (friendly name, not ARN) of the group to attach the policy to.
+	Groups pulumi.StringArrayOutput `pulumi:"groups"`
+	// Specifies whether the policy can be attached to an IAM user, group, or role.
+	IsAttachable pulumi.BoolOutput `pulumi:"isAttachable"`
+	// The friendly name of the policy.
+	ManagedPolicyName pulumi.StringPtrOutput `pulumi:"managedPolicyName"`
+	// The path for the policy.
+	Path pulumi.StringPtrOutput `pulumi:"path"`
+	// The number of entities (users and roles) for which the policy is used to set the permissions boundary.
+	PermissionsBoundaryUsageCount pulumi.IntOutput `pulumi:"permissionsBoundaryUsageCount"`
+	// Amazon Resource Name (ARN) of the managed policy
+	PolicyArn pulumi.StringOutput `pulumi:"policyArn"`
+	// The JSON policy document that you want to use as the content for the new policy.
+	PolicyDocument pulumi.AnyOutput `pulumi:"policyDocument"`
+	// The stable and unique string identifying the policy.
+	PolicyId pulumi.StringOutput `pulumi:"policyId"`
+	// The name (friendly name, not ARN) of the role to attach the policy to.
+	Roles pulumi.StringArrayOutput `pulumi:"roles"`
+	// The date and time, in ISO 8601 date-time format, when the policy was last updated.
+	UpdateDate pulumi.StringOutput `pulumi:"updateDate"`
+	// The name (friendly name, not ARN) of the IAM user to attach the policy to.
+	Users pulumi.StringArrayOutput `pulumi:"users"`
 }
 
 // NewManagedPolicy registers a new resource with the given unique name, arguments, and options.
@@ -70,24 +91,38 @@ func (ManagedPolicyState) ElementType() reflect.Type {
 }
 
 type managedPolicyArgs struct {
-	Description       *string     `pulumi:"description"`
-	Groups            []string    `pulumi:"groups"`
-	ManagedPolicyName *string     `pulumi:"managedPolicyName"`
-	Path              *string     `pulumi:"path"`
-	PolicyDocument    interface{} `pulumi:"policyDocument"`
-	Roles             []string    `pulumi:"roles"`
-	Users             []string    `pulumi:"users"`
+	// A friendly description of the policy.
+	Description *string `pulumi:"description"`
+	// The name (friendly name, not ARN) of the group to attach the policy to.
+	Groups []string `pulumi:"groups"`
+	// The friendly name of the policy.
+	ManagedPolicyName *string `pulumi:"managedPolicyName"`
+	// The path for the policy.
+	Path *string `pulumi:"path"`
+	// The JSON policy document that you want to use as the content for the new policy.
+	PolicyDocument interface{} `pulumi:"policyDocument"`
+	// The name (friendly name, not ARN) of the role to attach the policy to.
+	Roles []string `pulumi:"roles"`
+	// The name (friendly name, not ARN) of the IAM user to attach the policy to.
+	Users []string `pulumi:"users"`
 }
 
 // The set of arguments for constructing a ManagedPolicy resource.
 type ManagedPolicyArgs struct {
-	Description       pulumi.StringPtrInput
-	Groups            pulumi.StringArrayInput
+	// A friendly description of the policy.
+	Description pulumi.StringPtrInput
+	// The name (friendly name, not ARN) of the group to attach the policy to.
+	Groups pulumi.StringArrayInput
+	// The friendly name of the policy.
 	ManagedPolicyName pulumi.StringPtrInput
-	Path              pulumi.StringPtrInput
-	PolicyDocument    pulumi.Input
-	Roles             pulumi.StringArrayInput
-	Users             pulumi.StringArrayInput
+	// The path for the policy.
+	Path pulumi.StringPtrInput
+	// The JSON policy document that you want to use as the content for the new policy.
+	PolicyDocument pulumi.Input
+	// The name (friendly name, not ARN) of the role to attach the policy to.
+	Roles pulumi.StringArrayInput
+	// The name (friendly name, not ARN) of the IAM user to attach the policy to.
+	Users pulumi.StringArrayInput
 }
 
 func (ManagedPolicyArgs) ElementType() reflect.Type {
@@ -127,30 +162,77 @@ func (o ManagedPolicyOutput) ToManagedPolicyOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The number of entities (users, groups, and roles) that the policy is attached to.
+func (o ManagedPolicyOutput) AttachmentCount() pulumi.IntOutput {
+	return o.ApplyT(func(v *ManagedPolicy) pulumi.IntOutput { return v.AttachmentCount }).(pulumi.IntOutput)
+}
+
+// The date and time, in ISO 8601 date-time format, when the policy was created.
+func (o ManagedPolicyOutput) CreateDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedPolicy) pulumi.StringOutput { return v.CreateDate }).(pulumi.StringOutput)
+}
+
+// The identifier for the version of the policy that is set as the default version.
+func (o ManagedPolicyOutput) DefaultVersionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedPolicy) pulumi.StringOutput { return v.DefaultVersionId }).(pulumi.StringOutput)
+}
+
+// A friendly description of the policy.
 func (o ManagedPolicyOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedPolicy) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The name (friendly name, not ARN) of the group to attach the policy to.
 func (o ManagedPolicyOutput) Groups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ManagedPolicy) pulumi.StringArrayOutput { return v.Groups }).(pulumi.StringArrayOutput)
 }
 
+// Specifies whether the policy can be attached to an IAM user, group, or role.
+func (o ManagedPolicyOutput) IsAttachable() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ManagedPolicy) pulumi.BoolOutput { return v.IsAttachable }).(pulumi.BoolOutput)
+}
+
+// The friendly name of the policy.
 func (o ManagedPolicyOutput) ManagedPolicyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedPolicy) pulumi.StringPtrOutput { return v.ManagedPolicyName }).(pulumi.StringPtrOutput)
 }
 
+// The path for the policy.
 func (o ManagedPolicyOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedPolicy) pulumi.StringPtrOutput { return v.Path }).(pulumi.StringPtrOutput)
 }
 
+// The number of entities (users and roles) for which the policy is used to set the permissions boundary.
+func (o ManagedPolicyOutput) PermissionsBoundaryUsageCount() pulumi.IntOutput {
+	return o.ApplyT(func(v *ManagedPolicy) pulumi.IntOutput { return v.PermissionsBoundaryUsageCount }).(pulumi.IntOutput)
+}
+
+// Amazon Resource Name (ARN) of the managed policy
+func (o ManagedPolicyOutput) PolicyArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedPolicy) pulumi.StringOutput { return v.PolicyArn }).(pulumi.StringOutput)
+}
+
+// The JSON policy document that you want to use as the content for the new policy.
 func (o ManagedPolicyOutput) PolicyDocument() pulumi.AnyOutput {
 	return o.ApplyT(func(v *ManagedPolicy) pulumi.AnyOutput { return v.PolicyDocument }).(pulumi.AnyOutput)
 }
 
+// The stable and unique string identifying the policy.
+func (o ManagedPolicyOutput) PolicyId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedPolicy) pulumi.StringOutput { return v.PolicyId }).(pulumi.StringOutput)
+}
+
+// The name (friendly name, not ARN) of the role to attach the policy to.
 func (o ManagedPolicyOutput) Roles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ManagedPolicy) pulumi.StringArrayOutput { return v.Roles }).(pulumi.StringArrayOutput)
 }
 
+// The date and time, in ISO 8601 date-time format, when the policy was last updated.
+func (o ManagedPolicyOutput) UpdateDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedPolicy) pulumi.StringOutput { return v.UpdateDate }).(pulumi.StringOutput)
+}
+
+// The name (friendly name, not ARN) of the IAM user to attach the policy to.
 func (o ManagedPolicyOutput) Users() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ManagedPolicy) pulumi.StringArrayOutput { return v.Users }).(pulumi.StringArrayOutput)
 }

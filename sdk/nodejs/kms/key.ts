@@ -68,6 +68,10 @@ export class Key extends pulumi.CustomResource {
      */
     public readonly multiRegion!: pulumi.Output<boolean | undefined>;
     /**
+     * The source of the key material for the KMS key. You cannot change the origin after you create the KMS key. The default is AWS_KMS, which means that AWS KMS creates the key material.
+     */
+    public readonly origin!: pulumi.Output<enums.kms.KeyOrigin | undefined>;
+    /**
      * Specifies the number of days in the waiting period before AWS KMS deletes an AWS KMS key that has been removed from a CloudFormation stack. Enter a value between 7 and 30 days. The default value is 30 days.
      */
     public readonly pendingWindowInDays!: pulumi.Output<number | undefined>;
@@ -97,6 +101,7 @@ export class Key extends pulumi.CustomResource {
             resourceInputs["keySpec"] = args ? args.keySpec : undefined;
             resourceInputs["keyUsage"] = args ? args.keyUsage : undefined;
             resourceInputs["multiRegion"] = args ? args.multiRegion : undefined;
+            resourceInputs["origin"] = args ? args.origin : undefined;
             resourceInputs["pendingWindowInDays"] = args ? args.pendingWindowInDays : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -111,6 +116,7 @@ export class Key extends pulumi.CustomResource {
             resourceInputs["keySpec"] = undefined /*out*/;
             resourceInputs["keyUsage"] = undefined /*out*/;
             resourceInputs["multiRegion"] = undefined /*out*/;
+            resourceInputs["origin"] = undefined /*out*/;
             resourceInputs["pendingWindowInDays"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
@@ -151,6 +157,10 @@ export interface KeyArgs {
      * Specifies whether the AWS KMS key should be Multi-Region. You can't change the MultiRegion value after the AWS KMS key is created.
      */
     multiRegion?: pulumi.Input<boolean>;
+    /**
+     * The source of the key material for the KMS key. You cannot change the origin after you create the KMS key. The default is AWS_KMS, which means that AWS KMS creates the key material.
+     */
+    origin?: pulumi.Input<enums.kms.KeyOrigin>;
     /**
      * Specifies the number of days in the waiting period before AWS KMS deletes an AWS KMS key that has been removed from a CloudFormation stack. Enter a value between 7 and 30 days. The default value is 30 days.
      */

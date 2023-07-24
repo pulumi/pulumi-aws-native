@@ -3127,6 +3127,7 @@ _utilities.register(
   "classes": {
    "aws-native:sns:Subscription": "Subscription",
    "aws-native:sns:Topic": "Topic",
+   "aws-native:sns:TopicInlinePolicy": "TopicInlinePolicy",
    "aws-native:sns:TopicPolicy": "TopicPolicy"
   }
  },

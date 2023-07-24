@@ -54,6 +54,10 @@ export interface GetKeyResult {
      */
     readonly multiRegion?: boolean;
     /**
+     * The source of the key material for the KMS key. You cannot change the origin after you create the KMS key. The default is AWS_KMS, which means that AWS KMS creates the key material.
+     */
+    readonly origin?: enums.kms.KeyOrigin;
+    /**
      * An array of key-value pairs to apply to this resource.
      */
     readonly tags?: outputs.kms.KeyTag[];

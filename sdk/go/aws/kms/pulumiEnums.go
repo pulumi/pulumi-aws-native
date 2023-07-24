@@ -10,6 +10,171 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The source of the key material for the KMS key. You cannot change the origin after you create the KMS key. The default is AWS_KMS, which means that AWS KMS creates the key material.
+type KeyOrigin string
+
+const (
+	KeyOriginAwsKms   = KeyOrigin("AWS_KMS")
+	KeyOriginExternal = KeyOrigin("EXTERNAL")
+)
+
+func (KeyOrigin) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyOrigin)(nil)).Elem()
+}
+
+func (e KeyOrigin) ToKeyOriginOutput() KeyOriginOutput {
+	return pulumi.ToOutput(e).(KeyOriginOutput)
+}
+
+func (e KeyOrigin) ToKeyOriginOutputWithContext(ctx context.Context) KeyOriginOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(KeyOriginOutput)
+}
+
+func (e KeyOrigin) ToKeyOriginPtrOutput() KeyOriginPtrOutput {
+	return e.ToKeyOriginPtrOutputWithContext(context.Background())
+}
+
+func (e KeyOrigin) ToKeyOriginPtrOutputWithContext(ctx context.Context) KeyOriginPtrOutput {
+	return KeyOrigin(e).ToKeyOriginOutputWithContext(ctx).ToKeyOriginPtrOutputWithContext(ctx)
+}
+
+func (e KeyOrigin) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KeyOrigin) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KeyOrigin) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e KeyOrigin) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type KeyOriginOutput struct{ *pulumi.OutputState }
+
+func (KeyOriginOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyOrigin)(nil)).Elem()
+}
+
+func (o KeyOriginOutput) ToKeyOriginOutput() KeyOriginOutput {
+	return o
+}
+
+func (o KeyOriginOutput) ToKeyOriginOutputWithContext(ctx context.Context) KeyOriginOutput {
+	return o
+}
+
+func (o KeyOriginOutput) ToKeyOriginPtrOutput() KeyOriginPtrOutput {
+	return o.ToKeyOriginPtrOutputWithContext(context.Background())
+}
+
+func (o KeyOriginOutput) ToKeyOriginPtrOutputWithContext(ctx context.Context) KeyOriginPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyOrigin) *KeyOrigin {
+		return &v
+	}).(KeyOriginPtrOutput)
+}
+
+func (o KeyOriginOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o KeyOriginOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KeyOrigin) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o KeyOriginOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KeyOriginOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KeyOrigin) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type KeyOriginPtrOutput struct{ *pulumi.OutputState }
+
+func (KeyOriginPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyOrigin)(nil)).Elem()
+}
+
+func (o KeyOriginPtrOutput) ToKeyOriginPtrOutput() KeyOriginPtrOutput {
+	return o
+}
+
+func (o KeyOriginPtrOutput) ToKeyOriginPtrOutputWithContext(ctx context.Context) KeyOriginPtrOutput {
+	return o
+}
+
+func (o KeyOriginPtrOutput) Elem() KeyOriginOutput {
+	return o.ApplyT(func(v *KeyOrigin) KeyOrigin {
+		if v != nil {
+			return *v
+		}
+		var ret KeyOrigin
+		return ret
+	}).(KeyOriginOutput)
+}
+
+func (o KeyOriginPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KeyOriginPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *KeyOrigin) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// KeyOriginInput is an input type that accepts KeyOriginArgs and KeyOriginOutput values.
+// You can construct a concrete instance of `KeyOriginInput` via:
+//
+//	KeyOriginArgs{...}
+type KeyOriginInput interface {
+	pulumi.Input
+
+	ToKeyOriginOutput() KeyOriginOutput
+	ToKeyOriginOutputWithContext(context.Context) KeyOriginOutput
+}
+
+var keyOriginPtrType = reflect.TypeOf((**KeyOrigin)(nil)).Elem()
+
+type KeyOriginPtrInput interface {
+	pulumi.Input
+
+	ToKeyOriginPtrOutput() KeyOriginPtrOutput
+	ToKeyOriginPtrOutputWithContext(context.Context) KeyOriginPtrOutput
+}
+
+type keyOriginPtr string
+
+func KeyOriginPtr(v string) KeyOriginPtrInput {
+	return (*keyOriginPtr)(&v)
+}
+
+func (*keyOriginPtr) ElementType() reflect.Type {
+	return keyOriginPtrType
+}
+
+func (in *keyOriginPtr) ToKeyOriginPtrOutput() KeyOriginPtrOutput {
+	return pulumi.ToOutput(in).(KeyOriginPtrOutput)
+}
+
+func (in *keyOriginPtr) ToKeyOriginPtrOutputWithContext(ctx context.Context) KeyOriginPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(KeyOriginPtrOutput)
+}
+
 // Specifies the type of AWS KMS key to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric AWS KMS keys. You can't change the KeySpec value after the AWS KMS key is created.
 type KeySpec string
 
@@ -353,10 +518,14 @@ func (in *keyUsagePtr) ToKeyUsagePtrOutputWithContext(ctx context.Context) KeyUs
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*KeyOriginInput)(nil)).Elem(), KeyOrigin("AWS_KMS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*KeyOriginPtrInput)(nil)).Elem(), KeyOrigin("AWS_KMS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KeySpecInput)(nil)).Elem(), KeySpec("SYMMETRIC_DEFAULT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KeySpecPtrInput)(nil)).Elem(), KeySpec("SYMMETRIC_DEFAULT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyUsageInput)(nil)).Elem(), KeyUsage("ENCRYPT_DECRYPT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyUsagePtrInput)(nil)).Elem(), KeyUsage("ENCRYPT_DECRYPT"))
+	pulumi.RegisterOutputType(KeyOriginOutput{})
+	pulumi.RegisterOutputType(KeyOriginPtrOutput{})
 	pulumi.RegisterOutputType(KeySpecOutput{})
 	pulumi.RegisterOutputType(KeySpecPtrOutput{})
 	pulumi.RegisterOutputType(KeyUsageOutput{})

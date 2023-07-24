@@ -43,6 +43,8 @@ type LookupKeyResult struct {
 	KeyUsage *KeyUsage `pulumi:"keyUsage"`
 	// Specifies whether the AWS KMS key should be Multi-Region. You can't change the MultiRegion value after the AWS KMS key is created.
 	MultiRegion *bool `pulumi:"multiRegion"`
+	// The source of the key material for the KMS key. You cannot change the origin after you create the KMS key. The default is AWS_KMS, which means that AWS KMS creates the key material.
+	Origin *KeyOrigin `pulumi:"origin"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []KeyTag `pulumi:"tags"`
 }
@@ -123,6 +125,11 @@ func (o LookupKeyResultOutput) KeyUsage() KeyUsagePtrOutput {
 // Specifies whether the AWS KMS key should be Multi-Region. You can't change the MultiRegion value after the AWS KMS key is created.
 func (o LookupKeyResultOutput) MultiRegion() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupKeyResult) *bool { return v.MultiRegion }).(pulumi.BoolPtrOutput)
+}
+
+// The source of the key material for the KMS key. You cannot change the origin after you create the KMS key. The default is AWS_KMS, which means that AWS KMS creates the key material.
+func (o LookupKeyResultOutput) Origin() KeyOriginPtrOutput {
+	return o.ApplyT(func(v LookupKeyResult) *KeyOrigin { return v.Origin }).(KeyOriginPtrOutput)
 }
 
 // An array of key-value pairs to apply to this resource.

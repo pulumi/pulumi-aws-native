@@ -18,6 +18,7 @@ namespace Pulumi.AwsNative.FSx.Outputs
         public readonly string? OntapVolumeType;
         public readonly string? SecurityStyle;
         public readonly string SizeInMegabytes;
+        public readonly Outputs.VolumeSnaplockConfiguration? SnaplockConfiguration;
         public readonly string? SnapshotPolicy;
         public readonly string? StorageEfficiencyEnabled;
         public readonly string StorageVirtualMachineId;
@@ -35,6 +36,8 @@ namespace Pulumi.AwsNative.FSx.Outputs
 
             string sizeInMegabytes,
 
+            Outputs.VolumeSnaplockConfiguration? snaplockConfiguration,
+
             string? snapshotPolicy,
 
             string? storageEfficiencyEnabled,
@@ -48,6 +51,7 @@ namespace Pulumi.AwsNative.FSx.Outputs
             OntapVolumeType = ontapVolumeType;
             SecurityStyle = securityStyle;
             SizeInMegabytes = sizeInMegabytes;
+            SnaplockConfiguration = snaplockConfiguration;
             SnapshotPolicy = snapshotPolicy;
             StorageEfficiencyEnabled = storageEfficiencyEnabled;
             StorageVirtualMachineId = storageVirtualMachineId;

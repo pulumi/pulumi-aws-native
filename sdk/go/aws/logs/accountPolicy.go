@@ -13,8 +13,6 @@ import (
 )
 
 // The AWS::Logs::AccountPolicy resource specifies a CloudWatch Logs AccountPolicy.
-//
-// Deprecated: AccountPolicy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type AccountPolicy struct {
 	pulumi.CustomResourceState
 

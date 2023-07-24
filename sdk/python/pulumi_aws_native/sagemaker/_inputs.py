@@ -77,6 +77,7 @@ __all__ = [
     'EndpointConfigServerlessConfigArgs',
     'EndpointConfigTagArgs',
     'EndpointDeploymentConfigArgs',
+    'EndpointRollingUpdatePolicyArgs',
     'EndpointTagArgs',
     'EndpointTrafficRoutingConfigArgs',
     'EndpointVariantPropertyArgs',
@@ -3097,20 +3098,15 @@ class EndpointConfigTagArgs:
 @pulumi.input_type
 class EndpointDeploymentConfigArgs:
     def __init__(__self__, *,
-                 blue_green_update_policy: pulumi.Input['EndpointBlueGreenUpdatePolicyArgs'],
-                 auto_rollback_configuration: Optional[pulumi.Input['EndpointAutoRollbackConfigArgs']] = None):
-        pulumi.set(__self__, "blue_green_update_policy", blue_green_update_policy)
+                 auto_rollback_configuration: Optional[pulumi.Input['EndpointAutoRollbackConfigArgs']] = None,
+                 blue_green_update_policy: Optional[pulumi.Input['EndpointBlueGreenUpdatePolicyArgs']] = None,
+                 rolling_update_policy: Optional[pulumi.Input['EndpointRollingUpdatePolicyArgs']] = None):
         if auto_rollback_configuration is not None:
             pulumi.set(__self__, "auto_rollback_configuration", auto_rollback_configuration)
-
-    @property
-    @pulumi.getter(name="blueGreenUpdatePolicy")
-    def blue_green_update_policy(self) -> pulumi.Input['EndpointBlueGreenUpdatePolicyArgs']:
-        return pulumi.get(self, "blue_green_update_policy")
-
-    @blue_green_update_policy.setter
-    def blue_green_update_policy(self, value: pulumi.Input['EndpointBlueGreenUpdatePolicyArgs']):
-        pulumi.set(self, "blue_green_update_policy", value)
+        if blue_green_update_policy is not None:
+            pulumi.set(__self__, "blue_green_update_policy", blue_green_update_policy)
+        if rolling_update_policy is not None:
+            pulumi.set(__self__, "rolling_update_policy", rolling_update_policy)
 
     @property
     @pulumi.getter(name="autoRollbackConfiguration")
@@ -3120,6 +3116,75 @@ class EndpointDeploymentConfigArgs:
     @auto_rollback_configuration.setter
     def auto_rollback_configuration(self, value: Optional[pulumi.Input['EndpointAutoRollbackConfigArgs']]):
         pulumi.set(self, "auto_rollback_configuration", value)
+
+    @property
+    @pulumi.getter(name="blueGreenUpdatePolicy")
+    def blue_green_update_policy(self) -> Optional[pulumi.Input['EndpointBlueGreenUpdatePolicyArgs']]:
+        return pulumi.get(self, "blue_green_update_policy")
+
+    @blue_green_update_policy.setter
+    def blue_green_update_policy(self, value: Optional[pulumi.Input['EndpointBlueGreenUpdatePolicyArgs']]):
+        pulumi.set(self, "blue_green_update_policy", value)
+
+    @property
+    @pulumi.getter(name="rollingUpdatePolicy")
+    def rolling_update_policy(self) -> Optional[pulumi.Input['EndpointRollingUpdatePolicyArgs']]:
+        return pulumi.get(self, "rolling_update_policy")
+
+    @rolling_update_policy.setter
+    def rolling_update_policy(self, value: Optional[pulumi.Input['EndpointRollingUpdatePolicyArgs']]):
+        pulumi.set(self, "rolling_update_policy", value)
+
+
+@pulumi.input_type
+class EndpointRollingUpdatePolicyArgs:
+    def __init__(__self__, *,
+                 maximum_batch_size: pulumi.Input['EndpointCapacitySizeArgs'],
+                 wait_interval_in_seconds: pulumi.Input[int],
+                 maximum_execution_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
+                 rollback_maximum_batch_size: Optional[pulumi.Input['EndpointCapacitySizeArgs']] = None):
+        pulumi.set(__self__, "maximum_batch_size", maximum_batch_size)
+        pulumi.set(__self__, "wait_interval_in_seconds", wait_interval_in_seconds)
+        if maximum_execution_timeout_in_seconds is not None:
+            pulumi.set(__self__, "maximum_execution_timeout_in_seconds", maximum_execution_timeout_in_seconds)
+        if rollback_maximum_batch_size is not None:
+            pulumi.set(__self__, "rollback_maximum_batch_size", rollback_maximum_batch_size)
+
+    @property
+    @pulumi.getter(name="maximumBatchSize")
+    def maximum_batch_size(self) -> pulumi.Input['EndpointCapacitySizeArgs']:
+        return pulumi.get(self, "maximum_batch_size")
+
+    @maximum_batch_size.setter
+    def maximum_batch_size(self, value: pulumi.Input['EndpointCapacitySizeArgs']):
+        pulumi.set(self, "maximum_batch_size", value)
+
+    @property
+    @pulumi.getter(name="waitIntervalInSeconds")
+    def wait_interval_in_seconds(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "wait_interval_in_seconds")
+
+    @wait_interval_in_seconds.setter
+    def wait_interval_in_seconds(self, value: pulumi.Input[int]):
+        pulumi.set(self, "wait_interval_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="maximumExecutionTimeoutInSeconds")
+    def maximum_execution_timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "maximum_execution_timeout_in_seconds")
+
+    @maximum_execution_timeout_in_seconds.setter
+    def maximum_execution_timeout_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "maximum_execution_timeout_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="rollbackMaximumBatchSize")
+    def rollback_maximum_batch_size(self) -> Optional[pulumi.Input['EndpointCapacitySizeArgs']]:
+        return pulumi.get(self, "rollback_maximum_batch_size")
+
+    @rollback_maximum_batch_size.setter
+    def rollback_maximum_batch_size(self, value: Optional[pulumi.Input['EndpointCapacitySizeArgs']]):
+        pulumi.set(self, "rollback_maximum_batch_size", value)
 
 
 @pulumi.input_type

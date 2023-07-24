@@ -16382,6 +16382,11 @@ export namespace fsx {
         value: pulumi.Input<string>;
     }
 
+    export interface VolumeAutocommitPeriodArgs {
+        type: pulumi.Input<string>;
+        value?: pulumi.Input<number>;
+    }
+
     export interface VolumeClientConfigurationsArgs {
         clients: pulumi.Input<string>;
         options: pulumi.Input<pulumi.Input<string>[]>;
@@ -16397,6 +16402,7 @@ export namespace fsx {
         ontapVolumeType?: pulumi.Input<string>;
         securityStyle?: pulumi.Input<string>;
         sizeInMegabytes: pulumi.Input<string>;
+        snaplockConfiguration?: pulumi.Input<inputs.fsx.VolumeSnaplockConfigurationArgs>;
         snapshotPolicy?: pulumi.Input<string>;
         storageEfficiencyEnabled?: pulumi.Input<string>;
         storageVirtualMachineId: pulumi.Input<string>;
@@ -16420,6 +16426,26 @@ export namespace fsx {
     export interface VolumeOriginSnapshotArgs {
         copyStrategy: pulumi.Input<string>;
         snapshotARN: pulumi.Input<string>;
+    }
+
+    export interface VolumeRetentionPeriodArgs {
+        type: pulumi.Input<string>;
+        value?: pulumi.Input<number>;
+    }
+
+    export interface VolumeSnaplockConfigurationArgs {
+        auditLogVolume?: pulumi.Input<string>;
+        autocommitPeriod?: pulumi.Input<inputs.fsx.VolumeAutocommitPeriodArgs>;
+        privilegedDelete?: pulumi.Input<string>;
+        retentionPeriod?: pulumi.Input<inputs.fsx.VolumeSnaplockRetentionPeriodArgs>;
+        snaplockType: pulumi.Input<string>;
+        volumeAppendModeEnabled?: pulumi.Input<string>;
+    }
+
+    export interface VolumeSnaplockRetentionPeriodArgs {
+        defaultRetention: pulumi.Input<inputs.fsx.VolumeRetentionPeriodArgs>;
+        maximumRetention: pulumi.Input<inputs.fsx.VolumeRetentionPeriodArgs>;
+        minimumRetention: pulumi.Input<inputs.fsx.VolumeRetentionPeriodArgs>;
     }
 
     export interface VolumeTagArgs {
@@ -44632,7 +44658,15 @@ export namespace sagemaker {
 
     export interface EndpointDeploymentConfigArgs {
         autoRollbackConfiguration?: pulumi.Input<inputs.sagemaker.EndpointAutoRollbackConfigArgs>;
-        blueGreenUpdatePolicy: pulumi.Input<inputs.sagemaker.EndpointBlueGreenUpdatePolicyArgs>;
+        blueGreenUpdatePolicy?: pulumi.Input<inputs.sagemaker.EndpointBlueGreenUpdatePolicyArgs>;
+        rollingUpdatePolicy?: pulumi.Input<inputs.sagemaker.EndpointRollingUpdatePolicyArgs>;
+    }
+
+    export interface EndpointRollingUpdatePolicyArgs {
+        maximumBatchSize: pulumi.Input<inputs.sagemaker.EndpointCapacitySizeArgs>;
+        maximumExecutionTimeoutInSeconds?: pulumi.Input<number>;
+        rollbackMaximumBatchSize?: pulumi.Input<inputs.sagemaker.EndpointCapacitySizeArgs>;
+        waitIntervalInSeconds: pulumi.Input<number>;
     }
 
     export interface EndpointTagArgs {

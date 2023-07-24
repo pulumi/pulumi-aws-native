@@ -16646,6 +16646,11 @@ export namespace fsx {
         value: string;
     }
 
+    export interface VolumeAutocommitPeriod {
+        type: string;
+        value?: number;
+    }
+
     export interface VolumeClientConfigurations {
         clients: string;
         options: string[];
@@ -16661,6 +16666,7 @@ export namespace fsx {
         ontapVolumeType?: string;
         securityStyle?: string;
         sizeInMegabytes: string;
+        snaplockConfiguration?: outputs.fsx.VolumeSnaplockConfiguration;
         snapshotPolicy?: string;
         storageEfficiencyEnabled?: string;
         storageVirtualMachineId: string;
@@ -16684,6 +16690,26 @@ export namespace fsx {
     export interface VolumeOriginSnapshot {
         copyStrategy: string;
         snapshotARN: string;
+    }
+
+    export interface VolumeRetentionPeriod {
+        type: string;
+        value?: number;
+    }
+
+    export interface VolumeSnaplockConfiguration {
+        auditLogVolume?: string;
+        autocommitPeriod?: outputs.fsx.VolumeAutocommitPeriod;
+        privilegedDelete?: string;
+        retentionPeriod?: outputs.fsx.VolumeSnaplockRetentionPeriod;
+        snaplockType: string;
+        volumeAppendModeEnabled?: string;
+    }
+
+    export interface VolumeSnaplockRetentionPeriod {
+        defaultRetention: outputs.fsx.VolumeRetentionPeriod;
+        maximumRetention: outputs.fsx.VolumeRetentionPeriod;
+        minimumRetention: outputs.fsx.VolumeRetentionPeriod;
     }
 
     export interface VolumeTag {
@@ -45436,7 +45462,15 @@ export namespace sagemaker {
 
     export interface EndpointDeploymentConfig {
         autoRollbackConfiguration?: outputs.sagemaker.EndpointAutoRollbackConfig;
-        blueGreenUpdatePolicy: outputs.sagemaker.EndpointBlueGreenUpdatePolicy;
+        blueGreenUpdatePolicy?: outputs.sagemaker.EndpointBlueGreenUpdatePolicy;
+        rollingUpdatePolicy?: outputs.sagemaker.EndpointRollingUpdatePolicy;
+    }
+
+    export interface EndpointRollingUpdatePolicy {
+        maximumBatchSize: outputs.sagemaker.EndpointCapacitySize;
+        maximumExecutionTimeoutInSeconds?: number;
+        rollbackMaximumBatchSize?: outputs.sagemaker.EndpointCapacitySize;
+        waitIntervalInSeconds: number;
     }
 
     export interface EndpointTag {

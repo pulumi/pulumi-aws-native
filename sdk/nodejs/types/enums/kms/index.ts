@@ -2,6 +2,16 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const KeyOrigin = {
+    AwsKms: "AWS_KMS",
+    External: "EXTERNAL",
+} as const;
+
+/**
+ * The source of the key material for the KMS key. You cannot change the origin after you create the KMS key. The default is AWS_KMS, which means that AWS KMS creates the key material.
+ */
+export type KeyOrigin = (typeof KeyOrigin)[keyof typeof KeyOrigin];
+
 export const KeySpec = {
     SymmetricDefault: "SYMMETRIC_DEFAULT",
     Rsa2048: "RSA_2048",

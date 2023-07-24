@@ -15,8 +15,11 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("autoRollbackConfiguration")]
         public Input<Inputs.EndpointAutoRollbackConfigArgs>? AutoRollbackConfiguration { get; set; }
 
-        [Input("blueGreenUpdatePolicy", required: true)]
-        public Input<Inputs.EndpointBlueGreenUpdatePolicyArgs> BlueGreenUpdatePolicy { get; set; } = null!;
+        [Input("blueGreenUpdatePolicy")]
+        public Input<Inputs.EndpointBlueGreenUpdatePolicyArgs>? BlueGreenUpdatePolicy { get; set; }
+
+        [Input("rollingUpdatePolicy")]
+        public Input<Inputs.EndpointRollingUpdatePolicyArgs>? RollingUpdatePolicy { get; set; }
 
         public EndpointDeploymentConfigArgs()
         {

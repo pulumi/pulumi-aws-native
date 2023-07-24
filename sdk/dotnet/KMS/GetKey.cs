@@ -82,6 +82,10 @@ namespace Pulumi.AwsNative.KMS
         /// </summary>
         public readonly bool? MultiRegion;
         /// <summary>
+        /// The source of the key material for the KMS key. You cannot change the origin after you create the KMS key. The default is AWS_KMS, which means that AWS KMS creates the key material.
+        /// </summary>
+        public readonly Pulumi.AwsNative.KMS.KeyOrigin? Origin;
+        /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         public readonly ImmutableArray<Outputs.KeyTag> Tags;
@@ -106,6 +110,8 @@ namespace Pulumi.AwsNative.KMS
 
             bool? multiRegion,
 
+            Pulumi.AwsNative.KMS.KeyOrigin? origin,
+
             ImmutableArray<Outputs.KeyTag> tags)
         {
             Arn = arn;
@@ -117,6 +123,7 @@ namespace Pulumi.AwsNative.KMS
             KeySpec = keySpec;
             KeyUsage = keyUsage;
             MultiRegion = multiRegion;
+            Origin = origin;
             Tags = tags;
         }
     }

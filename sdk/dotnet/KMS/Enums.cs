@@ -8,6 +8,37 @@ using Pulumi;
 namespace Pulumi.AwsNative.KMS
 {
     /// <summary>
+    /// The source of the key material for the KMS key. You cannot change the origin after you create the KMS key. The default is AWS_KMS, which means that AWS KMS creates the key material.
+    /// </summary>
+    [EnumType]
+    public readonly struct KeyOrigin : IEquatable<KeyOrigin>
+    {
+        private readonly string _value;
+
+        private KeyOrigin(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KeyOrigin AwsKms { get; } = new KeyOrigin("AWS_KMS");
+        public static KeyOrigin External { get; } = new KeyOrigin("EXTERNAL");
+
+        public static bool operator ==(KeyOrigin left, KeyOrigin right) => left.Equals(right);
+        public static bool operator !=(KeyOrigin left, KeyOrigin right) => !left.Equals(right);
+
+        public static explicit operator string(KeyOrigin value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KeyOrigin other && Equals(other);
+        public bool Equals(KeyOrigin other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Specifies the type of AWS KMS key to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric AWS KMS keys. You can't change the KeySpec value after the AWS KMS key is created.
     /// </summary>
     [EnumType]

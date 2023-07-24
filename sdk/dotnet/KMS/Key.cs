@@ -64,6 +64,12 @@ namespace Pulumi.AwsNative.KMS
         public Output<bool?> MultiRegion { get; private set; } = null!;
 
         /// <summary>
+        /// The source of the key material for the KMS key. You cannot change the origin after you create the KMS key. The default is AWS_KMS, which means that AWS KMS creates the key material.
+        /// </summary>
+        [Output("origin")]
+        public Output<Pulumi.AwsNative.KMS.KeyOrigin?> Origin { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the number of days in the waiting period before AWS KMS deletes an AWS KMS key that has been removed from a CloudFormation stack. Enter a value between 7 and 30 days. The default value is 30 days.
         /// </summary>
         [Output("pendingWindowInDays")]
@@ -161,6 +167,12 @@ namespace Pulumi.AwsNative.KMS
         /// </summary>
         [Input("multiRegion")]
         public Input<bool>? MultiRegion { get; set; }
+
+        /// <summary>
+        /// The source of the key material for the KMS key. You cannot change the origin after you create the KMS key. The default is AWS_KMS, which means that AWS KMS creates the key material.
+        /// </summary>
+        [Input("origin")]
+        public Input<Pulumi.AwsNative.KMS.KeyOrigin>? Origin { get; set; }
 
         /// <summary>
         /// Specifies the number of days in the waiting period before AWS KMS deletes an AWS KMS key that has been removed from a CloudFormation stack. Enter a value between 7 and 30 days. The default value is 30 days.

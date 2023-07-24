@@ -9224,8 +9224,9 @@ func (o EndpointConfigTagArrayOutput) Index(i pulumi.IntInput) EndpointConfigTag
 }
 
 type EndpointDeploymentConfig struct {
-	AutoRollbackConfiguration *EndpointAutoRollbackConfig   `pulumi:"autoRollbackConfiguration"`
-	BlueGreenUpdatePolicy     EndpointBlueGreenUpdatePolicy `pulumi:"blueGreenUpdatePolicy"`
+	AutoRollbackConfiguration *EndpointAutoRollbackConfig    `pulumi:"autoRollbackConfiguration"`
+	BlueGreenUpdatePolicy     *EndpointBlueGreenUpdatePolicy `pulumi:"blueGreenUpdatePolicy"`
+	RollingUpdatePolicy       *EndpointRollingUpdatePolicy   `pulumi:"rollingUpdatePolicy"`
 }
 
 // EndpointDeploymentConfigInput is an input type that accepts EndpointDeploymentConfigArgs and EndpointDeploymentConfigOutput values.
@@ -9240,8 +9241,9 @@ type EndpointDeploymentConfigInput interface {
 }
 
 type EndpointDeploymentConfigArgs struct {
-	AutoRollbackConfiguration EndpointAutoRollbackConfigPtrInput `pulumi:"autoRollbackConfiguration"`
-	BlueGreenUpdatePolicy     EndpointBlueGreenUpdatePolicyInput `pulumi:"blueGreenUpdatePolicy"`
+	AutoRollbackConfiguration EndpointAutoRollbackConfigPtrInput    `pulumi:"autoRollbackConfiguration"`
+	BlueGreenUpdatePolicy     EndpointBlueGreenUpdatePolicyPtrInput `pulumi:"blueGreenUpdatePolicy"`
+	RollingUpdatePolicy       EndpointRollingUpdatePolicyPtrInput   `pulumi:"rollingUpdatePolicy"`
 }
 
 func (EndpointDeploymentConfigArgs) ElementType() reflect.Type {
@@ -9325,8 +9327,12 @@ func (o EndpointDeploymentConfigOutput) AutoRollbackConfiguration() EndpointAuto
 	return o.ApplyT(func(v EndpointDeploymentConfig) *EndpointAutoRollbackConfig { return v.AutoRollbackConfiguration }).(EndpointAutoRollbackConfigPtrOutput)
 }
 
-func (o EndpointDeploymentConfigOutput) BlueGreenUpdatePolicy() EndpointBlueGreenUpdatePolicyOutput {
-	return o.ApplyT(func(v EndpointDeploymentConfig) EndpointBlueGreenUpdatePolicy { return v.BlueGreenUpdatePolicy }).(EndpointBlueGreenUpdatePolicyOutput)
+func (o EndpointDeploymentConfigOutput) BlueGreenUpdatePolicy() EndpointBlueGreenUpdatePolicyPtrOutput {
+	return o.ApplyT(func(v EndpointDeploymentConfig) *EndpointBlueGreenUpdatePolicy { return v.BlueGreenUpdatePolicy }).(EndpointBlueGreenUpdatePolicyPtrOutput)
+}
+
+func (o EndpointDeploymentConfigOutput) RollingUpdatePolicy() EndpointRollingUpdatePolicyPtrOutput {
+	return o.ApplyT(func(v EndpointDeploymentConfig) *EndpointRollingUpdatePolicy { return v.RollingUpdatePolicy }).(EndpointRollingUpdatePolicyPtrOutput)
 }
 
 type EndpointDeploymentConfigPtrOutput struct{ *pulumi.OutputState }
@@ -9367,8 +9373,195 @@ func (o EndpointDeploymentConfigPtrOutput) BlueGreenUpdatePolicy() EndpointBlueG
 		if v == nil {
 			return nil
 		}
-		return &v.BlueGreenUpdatePolicy
+		return v.BlueGreenUpdatePolicy
 	}).(EndpointBlueGreenUpdatePolicyPtrOutput)
+}
+
+func (o EndpointDeploymentConfigPtrOutput) RollingUpdatePolicy() EndpointRollingUpdatePolicyPtrOutput {
+	return o.ApplyT(func(v *EndpointDeploymentConfig) *EndpointRollingUpdatePolicy {
+		if v == nil {
+			return nil
+		}
+		return v.RollingUpdatePolicy
+	}).(EndpointRollingUpdatePolicyPtrOutput)
+}
+
+type EndpointRollingUpdatePolicy struct {
+	MaximumBatchSize                 EndpointCapacitySize  `pulumi:"maximumBatchSize"`
+	MaximumExecutionTimeoutInSeconds *int                  `pulumi:"maximumExecutionTimeoutInSeconds"`
+	RollbackMaximumBatchSize         *EndpointCapacitySize `pulumi:"rollbackMaximumBatchSize"`
+	WaitIntervalInSeconds            int                   `pulumi:"waitIntervalInSeconds"`
+}
+
+// EndpointRollingUpdatePolicyInput is an input type that accepts EndpointRollingUpdatePolicyArgs and EndpointRollingUpdatePolicyOutput values.
+// You can construct a concrete instance of `EndpointRollingUpdatePolicyInput` via:
+//
+//	EndpointRollingUpdatePolicyArgs{...}
+type EndpointRollingUpdatePolicyInput interface {
+	pulumi.Input
+
+	ToEndpointRollingUpdatePolicyOutput() EndpointRollingUpdatePolicyOutput
+	ToEndpointRollingUpdatePolicyOutputWithContext(context.Context) EndpointRollingUpdatePolicyOutput
+}
+
+type EndpointRollingUpdatePolicyArgs struct {
+	MaximumBatchSize                 EndpointCapacitySizeInput    `pulumi:"maximumBatchSize"`
+	MaximumExecutionTimeoutInSeconds pulumi.IntPtrInput           `pulumi:"maximumExecutionTimeoutInSeconds"`
+	RollbackMaximumBatchSize         EndpointCapacitySizePtrInput `pulumi:"rollbackMaximumBatchSize"`
+	WaitIntervalInSeconds            pulumi.IntInput              `pulumi:"waitIntervalInSeconds"`
+}
+
+func (EndpointRollingUpdatePolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointRollingUpdatePolicy)(nil)).Elem()
+}
+
+func (i EndpointRollingUpdatePolicyArgs) ToEndpointRollingUpdatePolicyOutput() EndpointRollingUpdatePolicyOutput {
+	return i.ToEndpointRollingUpdatePolicyOutputWithContext(context.Background())
+}
+
+func (i EndpointRollingUpdatePolicyArgs) ToEndpointRollingUpdatePolicyOutputWithContext(ctx context.Context) EndpointRollingUpdatePolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointRollingUpdatePolicyOutput)
+}
+
+func (i EndpointRollingUpdatePolicyArgs) ToEndpointRollingUpdatePolicyPtrOutput() EndpointRollingUpdatePolicyPtrOutput {
+	return i.ToEndpointRollingUpdatePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointRollingUpdatePolicyArgs) ToEndpointRollingUpdatePolicyPtrOutputWithContext(ctx context.Context) EndpointRollingUpdatePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointRollingUpdatePolicyOutput).ToEndpointRollingUpdatePolicyPtrOutputWithContext(ctx)
+}
+
+// EndpointRollingUpdatePolicyPtrInput is an input type that accepts EndpointRollingUpdatePolicyArgs, EndpointRollingUpdatePolicyPtr and EndpointRollingUpdatePolicyPtrOutput values.
+// You can construct a concrete instance of `EndpointRollingUpdatePolicyPtrInput` via:
+//
+//	        EndpointRollingUpdatePolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type EndpointRollingUpdatePolicyPtrInput interface {
+	pulumi.Input
+
+	ToEndpointRollingUpdatePolicyPtrOutput() EndpointRollingUpdatePolicyPtrOutput
+	ToEndpointRollingUpdatePolicyPtrOutputWithContext(context.Context) EndpointRollingUpdatePolicyPtrOutput
+}
+
+type endpointRollingUpdatePolicyPtrType EndpointRollingUpdatePolicyArgs
+
+func EndpointRollingUpdatePolicyPtr(v *EndpointRollingUpdatePolicyArgs) EndpointRollingUpdatePolicyPtrInput {
+	return (*endpointRollingUpdatePolicyPtrType)(v)
+}
+
+func (*endpointRollingUpdatePolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointRollingUpdatePolicy)(nil)).Elem()
+}
+
+func (i *endpointRollingUpdatePolicyPtrType) ToEndpointRollingUpdatePolicyPtrOutput() EndpointRollingUpdatePolicyPtrOutput {
+	return i.ToEndpointRollingUpdatePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointRollingUpdatePolicyPtrType) ToEndpointRollingUpdatePolicyPtrOutputWithContext(ctx context.Context) EndpointRollingUpdatePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointRollingUpdatePolicyPtrOutput)
+}
+
+type EndpointRollingUpdatePolicyOutput struct{ *pulumi.OutputState }
+
+func (EndpointRollingUpdatePolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointRollingUpdatePolicy)(nil)).Elem()
+}
+
+func (o EndpointRollingUpdatePolicyOutput) ToEndpointRollingUpdatePolicyOutput() EndpointRollingUpdatePolicyOutput {
+	return o
+}
+
+func (o EndpointRollingUpdatePolicyOutput) ToEndpointRollingUpdatePolicyOutputWithContext(ctx context.Context) EndpointRollingUpdatePolicyOutput {
+	return o
+}
+
+func (o EndpointRollingUpdatePolicyOutput) ToEndpointRollingUpdatePolicyPtrOutput() EndpointRollingUpdatePolicyPtrOutput {
+	return o.ToEndpointRollingUpdatePolicyPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointRollingUpdatePolicyOutput) ToEndpointRollingUpdatePolicyPtrOutputWithContext(ctx context.Context) EndpointRollingUpdatePolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointRollingUpdatePolicy) *EndpointRollingUpdatePolicy {
+		return &v
+	}).(EndpointRollingUpdatePolicyPtrOutput)
+}
+
+func (o EndpointRollingUpdatePolicyOutput) MaximumBatchSize() EndpointCapacitySizeOutput {
+	return o.ApplyT(func(v EndpointRollingUpdatePolicy) EndpointCapacitySize { return v.MaximumBatchSize }).(EndpointCapacitySizeOutput)
+}
+
+func (o EndpointRollingUpdatePolicyOutput) MaximumExecutionTimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointRollingUpdatePolicy) *int { return v.MaximumExecutionTimeoutInSeconds }).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointRollingUpdatePolicyOutput) RollbackMaximumBatchSize() EndpointCapacitySizePtrOutput {
+	return o.ApplyT(func(v EndpointRollingUpdatePolicy) *EndpointCapacitySize { return v.RollbackMaximumBatchSize }).(EndpointCapacitySizePtrOutput)
+}
+
+func (o EndpointRollingUpdatePolicyOutput) WaitIntervalInSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v EndpointRollingUpdatePolicy) int { return v.WaitIntervalInSeconds }).(pulumi.IntOutput)
+}
+
+type EndpointRollingUpdatePolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointRollingUpdatePolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointRollingUpdatePolicy)(nil)).Elem()
+}
+
+func (o EndpointRollingUpdatePolicyPtrOutput) ToEndpointRollingUpdatePolicyPtrOutput() EndpointRollingUpdatePolicyPtrOutput {
+	return o
+}
+
+func (o EndpointRollingUpdatePolicyPtrOutput) ToEndpointRollingUpdatePolicyPtrOutputWithContext(ctx context.Context) EndpointRollingUpdatePolicyPtrOutput {
+	return o
+}
+
+func (o EndpointRollingUpdatePolicyPtrOutput) Elem() EndpointRollingUpdatePolicyOutput {
+	return o.ApplyT(func(v *EndpointRollingUpdatePolicy) EndpointRollingUpdatePolicy {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointRollingUpdatePolicy
+		return ret
+	}).(EndpointRollingUpdatePolicyOutput)
+}
+
+func (o EndpointRollingUpdatePolicyPtrOutput) MaximumBatchSize() EndpointCapacitySizePtrOutput {
+	return o.ApplyT(func(v *EndpointRollingUpdatePolicy) *EndpointCapacitySize {
+		if v == nil {
+			return nil
+		}
+		return &v.MaximumBatchSize
+	}).(EndpointCapacitySizePtrOutput)
+}
+
+func (o EndpointRollingUpdatePolicyPtrOutput) MaximumExecutionTimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointRollingUpdatePolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaximumExecutionTimeoutInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointRollingUpdatePolicyPtrOutput) RollbackMaximumBatchSize() EndpointCapacitySizePtrOutput {
+	return o.ApplyT(func(v *EndpointRollingUpdatePolicy) *EndpointCapacitySize {
+		if v == nil {
+			return nil
+		}
+		return v.RollbackMaximumBatchSize
+	}).(EndpointCapacitySizePtrOutput)
+}
+
+func (o EndpointRollingUpdatePolicyPtrOutput) WaitIntervalInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointRollingUpdatePolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.WaitIntervalInSeconds
+	}).(pulumi.IntPtrOutput)
 }
 
 type EndpointTag struct {
@@ -36483,6 +36676,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigTagArrayInput)(nil)).Elem(), EndpointConfigTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointDeploymentConfigInput)(nil)).Elem(), EndpointDeploymentConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointDeploymentConfigPtrInput)(nil)).Elem(), EndpointDeploymentConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointRollingUpdatePolicyInput)(nil)).Elem(), EndpointRollingUpdatePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointRollingUpdatePolicyPtrInput)(nil)).Elem(), EndpointRollingUpdatePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointTagInput)(nil)).Elem(), EndpointTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointTagArrayInput)(nil)).Elem(), EndpointTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointTrafficRoutingConfigInput)(nil)).Elem(), EndpointTrafficRoutingConfigArgs{})
@@ -36958,6 +37153,8 @@ func init() {
 	pulumi.RegisterOutputType(EndpointConfigTagArrayOutput{})
 	pulumi.RegisterOutputType(EndpointDeploymentConfigOutput{})
 	pulumi.RegisterOutputType(EndpointDeploymentConfigPtrOutput{})
+	pulumi.RegisterOutputType(EndpointRollingUpdatePolicyOutput{})
+	pulumi.RegisterOutputType(EndpointRollingUpdatePolicyPtrOutput{})
 	pulumi.RegisterOutputType(EndpointTagOutput{})
 	pulumi.RegisterOutputType(EndpointTagArrayOutput{})
 	pulumi.RegisterOutputType(EndpointTrafficRoutingConfigOutput{})

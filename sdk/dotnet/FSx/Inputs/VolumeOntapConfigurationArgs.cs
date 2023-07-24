@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.FSx.Inputs
         [Input("sizeInMegabytes", required: true)]
         public Input<string> SizeInMegabytes { get; set; } = null!;
 
+        [Input("snaplockConfiguration")]
+        public Input<Inputs.VolumeSnaplockConfigurationArgs>? SnaplockConfiguration { get; set; }
+
         [Input("snapshotPolicy")]
         public Input<string>? SnapshotPolicy { get; set; }
 

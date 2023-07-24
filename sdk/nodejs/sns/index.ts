@@ -15,6 +15,11 @@ export const getTopic: typeof import("./getTopic").getTopic = null as any;
 export const getTopicOutput: typeof import("./getTopic").getTopicOutput = null as any;
 utilities.lazyLoad(exports, ["getTopic","getTopicOutput"], () => require("./getTopic"));
 
+export { GetTopicInlinePolicyArgs, GetTopicInlinePolicyResult, GetTopicInlinePolicyOutputArgs } from "./getTopicInlinePolicy";
+export const getTopicInlinePolicy: typeof import("./getTopicInlinePolicy").getTopicInlinePolicy = null as any;
+export const getTopicInlinePolicyOutput: typeof import("./getTopicInlinePolicy").getTopicInlinePolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getTopicInlinePolicy","getTopicInlinePolicyOutput"], () => require("./getTopicInlinePolicy"));
+
 export { GetTopicPolicyArgs, GetTopicPolicyResult, GetTopicPolicyOutputArgs } from "./getTopicPolicy";
 export const getTopicPolicy: typeof import("./getTopicPolicy").getTopicPolicy = null as any;
 export const getTopicPolicyOutput: typeof import("./getTopicPolicy").getTopicPolicyOutput = null as any;
@@ -30,6 +35,11 @@ export type Topic = import("./topic").Topic;
 export const Topic: typeof import("./topic").Topic = null as any;
 utilities.lazyLoad(exports, ["Topic"], () => require("./topic"));
 
+export { TopicInlinePolicyArgs } from "./topicInlinePolicy";
+export type TopicInlinePolicy = import("./topicInlinePolicy").TopicInlinePolicy;
+export const TopicInlinePolicy: typeof import("./topicInlinePolicy").TopicInlinePolicy = null as any;
+utilities.lazyLoad(exports, ["TopicInlinePolicy"], () => require("./topicInlinePolicy"));
+
 export { TopicPolicyArgs } from "./topicPolicy";
 export type TopicPolicy = import("./topicPolicy").TopicPolicy;
 export const TopicPolicy: typeof import("./topicPolicy").TopicPolicy = null as any;
@@ -44,6 +54,8 @@ const _module = {
                 return new Subscription(name, <any>undefined, { urn })
             case "aws-native:sns:Topic":
                 return new Topic(name, <any>undefined, { urn })
+            case "aws-native:sns:TopicInlinePolicy":
+                return new TopicInlinePolicy(name, <any>undefined, { urn })
             case "aws-native:sns:TopicPolicy":
                 return new TopicPolicy(name, <any>undefined, { urn })
             default:

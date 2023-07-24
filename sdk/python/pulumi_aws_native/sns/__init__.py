@@ -7,9 +7,11 @@ import typing
 # Export this package's modules as members:
 from .get_subscription import *
 from .get_topic import *
+from .get_topic_inline_policy import *
 from .get_topic_policy import *
 from .subscription import *
 from .topic import *
+from .topic_inline_policy import *
 from .topic_policy import *
 from ._inputs import *
 from . import outputs

@@ -32,11 +32,15 @@ __all__ = [
     'StorageVirtualMachineActiveDirectoryConfiguration',
     'StorageVirtualMachineSelfManagedActiveDirectoryConfiguration',
     'StorageVirtualMachineTag',
+    'VolumeAutocommitPeriod',
     'VolumeClientConfigurations',
     'VolumeNfsExports',
     'VolumeOntapConfiguration',
     'VolumeOpenZFSConfiguration',
     'VolumeOriginSnapshot',
+    'VolumeRetentionPeriod',
+    'VolumeSnaplockConfiguration',
+    'VolumeSnaplockRetentionPeriod',
     'VolumeTag',
     'VolumeTieringPolicy',
     'VolumeUserAndGroupQuotas',
@@ -1160,6 +1164,26 @@ class StorageVirtualMachineTag(dict):
 
 
 @pulumi.output_type
+class VolumeAutocommitPeriod(dict):
+    def __init__(__self__, *,
+                 type: str,
+                 value: Optional[int] = None):
+        pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[int]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class VolumeClientConfigurations(dict):
     def __init__(__self__, *,
                  clients: str,
@@ -1224,6 +1248,8 @@ class VolumeOntapConfiguration(dict):
             suggest = "ontap_volume_type"
         elif key == "securityStyle":
             suggest = "security_style"
+        elif key == "snaplockConfiguration":
+            suggest = "snaplock_configuration"
         elif key == "snapshotPolicy":
             suggest = "snapshot_policy"
         elif key == "storageEfficiencyEnabled":
@@ -1249,6 +1275,7 @@ class VolumeOntapConfiguration(dict):
                  junction_path: Optional[str] = None,
                  ontap_volume_type: Optional[str] = None,
                  security_style: Optional[str] = None,
+                 snaplock_configuration: Optional['outputs.VolumeSnaplockConfiguration'] = None,
                  snapshot_policy: Optional[str] = None,
                  storage_efficiency_enabled: Optional[str] = None,
                  tiering_policy: Optional['outputs.VolumeTieringPolicy'] = None):
@@ -1262,6 +1289,8 @@ class VolumeOntapConfiguration(dict):
             pulumi.set(__self__, "ontap_volume_type", ontap_volume_type)
         if security_style is not None:
             pulumi.set(__self__, "security_style", security_style)
+        if snaplock_configuration is not None:
+            pulumi.set(__self__, "snaplock_configuration", snaplock_configuration)
         if snapshot_policy is not None:
             pulumi.set(__self__, "snapshot_policy", snapshot_policy)
         if storage_efficiency_enabled is not None:
@@ -1298,6 +1327,11 @@ class VolumeOntapConfiguration(dict):
     @pulumi.getter(name="securityStyle")
     def security_style(self) -> Optional[str]:
         return pulumi.get(self, "security_style")
+
+    @property
+    @pulumi.getter(name="snaplockConfiguration")
+    def snaplock_configuration(self) -> Optional['outputs.VolumeSnaplockConfiguration']:
+        return pulumi.get(self, "snaplock_configuration")
 
     @property
     @pulumi.getter(name="snapshotPolicy")
@@ -1478,6 +1512,152 @@ class VolumeOriginSnapshot(dict):
     @pulumi.getter(name="snapshotARN")
     def snapshot_arn(self) -> str:
         return pulumi.get(self, "snapshot_arn")
+
+
+@pulumi.output_type
+class VolumeRetentionPeriod(dict):
+    def __init__(__self__, *,
+                 type: str,
+                 value: Optional[int] = None):
+        pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[int]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class VolumeSnaplockConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "snaplockType":
+            suggest = "snaplock_type"
+        elif key == "auditLogVolume":
+            suggest = "audit_log_volume"
+        elif key == "autocommitPeriod":
+            suggest = "autocommit_period"
+        elif key == "privilegedDelete":
+            suggest = "privileged_delete"
+        elif key == "retentionPeriod":
+            suggest = "retention_period"
+        elif key == "volumeAppendModeEnabled":
+            suggest = "volume_append_mode_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VolumeSnaplockConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VolumeSnaplockConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VolumeSnaplockConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 snaplock_type: str,
+                 audit_log_volume: Optional[str] = None,
+                 autocommit_period: Optional['outputs.VolumeAutocommitPeriod'] = None,
+                 privileged_delete: Optional[str] = None,
+                 retention_period: Optional['outputs.VolumeSnaplockRetentionPeriod'] = None,
+                 volume_append_mode_enabled: Optional[str] = None):
+        pulumi.set(__self__, "snaplock_type", snaplock_type)
+        if audit_log_volume is not None:
+            pulumi.set(__self__, "audit_log_volume", audit_log_volume)
+        if autocommit_period is not None:
+            pulumi.set(__self__, "autocommit_period", autocommit_period)
+        if privileged_delete is not None:
+            pulumi.set(__self__, "privileged_delete", privileged_delete)
+        if retention_period is not None:
+            pulumi.set(__self__, "retention_period", retention_period)
+        if volume_append_mode_enabled is not None:
+            pulumi.set(__self__, "volume_append_mode_enabled", volume_append_mode_enabled)
+
+    @property
+    @pulumi.getter(name="snaplockType")
+    def snaplock_type(self) -> str:
+        return pulumi.get(self, "snaplock_type")
+
+    @property
+    @pulumi.getter(name="auditLogVolume")
+    def audit_log_volume(self) -> Optional[str]:
+        return pulumi.get(self, "audit_log_volume")
+
+    @property
+    @pulumi.getter(name="autocommitPeriod")
+    def autocommit_period(self) -> Optional['outputs.VolumeAutocommitPeriod']:
+        return pulumi.get(self, "autocommit_period")
+
+    @property
+    @pulumi.getter(name="privilegedDelete")
+    def privileged_delete(self) -> Optional[str]:
+        return pulumi.get(self, "privileged_delete")
+
+    @property
+    @pulumi.getter(name="retentionPeriod")
+    def retention_period(self) -> Optional['outputs.VolumeSnaplockRetentionPeriod']:
+        return pulumi.get(self, "retention_period")
+
+    @property
+    @pulumi.getter(name="volumeAppendModeEnabled")
+    def volume_append_mode_enabled(self) -> Optional[str]:
+        return pulumi.get(self, "volume_append_mode_enabled")
+
+
+@pulumi.output_type
+class VolumeSnaplockRetentionPeriod(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultRetention":
+            suggest = "default_retention"
+        elif key == "maximumRetention":
+            suggest = "maximum_retention"
+        elif key == "minimumRetention":
+            suggest = "minimum_retention"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VolumeSnaplockRetentionPeriod. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VolumeSnaplockRetentionPeriod.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VolumeSnaplockRetentionPeriod.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 default_retention: 'outputs.VolumeRetentionPeriod',
+                 maximum_retention: 'outputs.VolumeRetentionPeriod',
+                 minimum_retention: 'outputs.VolumeRetentionPeriod'):
+        pulumi.set(__self__, "default_retention", default_retention)
+        pulumi.set(__self__, "maximum_retention", maximum_retention)
+        pulumi.set(__self__, "minimum_retention", minimum_retention)
+
+    @property
+    @pulumi.getter(name="defaultRetention")
+    def default_retention(self) -> 'outputs.VolumeRetentionPeriod':
+        return pulumi.get(self, "default_retention")
+
+    @property
+    @pulumi.getter(name="maximumRetention")
+    def maximum_retention(self) -> 'outputs.VolumeRetentionPeriod':
+        return pulumi.get(self, "maximum_retention")
+
+    @property
+    @pulumi.getter(name="minimumRetention")
+    def minimum_retention(self) -> 'outputs.VolumeRetentionPeriod':
+        return pulumi.get(self, "minimum_retention")
 
 
 @pulumi.output_type

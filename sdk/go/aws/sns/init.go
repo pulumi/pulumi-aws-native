@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Subscription{}
 	case "aws-native:sns:Topic":
 		r = &Topic{}
+	case "aws-native:sns:TopicInlinePolicy":
+		r = &TopicInlinePolicy{}
 	case "aws-native:sns:TopicPolicy":
 		r = &TopicPolicy{}
 	default:

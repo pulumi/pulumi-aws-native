@@ -351,6 +351,7 @@ AWS::GroundStation::MissionProfile
 AWS::HealthLake::FHIRDatastore
 AWS::IAM::GroupPolicy
 AWS::IAM::InstanceProfile
+AWS::IAM::ManagedPolicy
 AWS::IAM::OIDCProvider
 AWS::IAM::Role
 AWS::IAM::RolePolicy
@@ -478,6 +479,7 @@ AWS::Location::PlaceIndex
 AWS::Location::RouteCalculator
 AWS::Location::Tracker
 AWS::Location::TrackerConsumer
+AWS::Logs::AccountPolicy
 AWS::Logs::Destination
 AWS::Logs::LogGroup
 AWS::Logs::LogStream
@@ -673,6 +675,7 @@ AWS::SES::EmailIdentity
 AWS::SES::Template
 AWS::SES::VdmAttributes
 AWS::SNS::Topic
+AWS::SNS::TopicInlinePolicy
 AWS::SNS::TopicPolicy
 AWS::SQS::Queue
 AWS::SSM::Association
