@@ -1,15 +1,10 @@
 ## HEAD (Unreleased)
 
 ### Breaking changes:
-- The Resource property types have been renamed:
-    - "aws-native:ecs:ClusterCapacityProviderAssociationsCapacityProvider"
-    + "aws-native:ecs:ClusterCapacityProviderAssociationsCapacityProvider0"
-    - "aws-native:iottwinmaker:ComponentTypeStatusErrorProperties"
-    + "aws-native:iottwinmaker:ComponentTypeStatusError1Properties"
-    - "aws-native:iottwinmaker:ComponentTypeStatusErrorPropertiesCode"
-    + "aws-native:iottwinmaker:ComponentTypeStatusError1PropertiesCode"
-    - "aws-native:s3objectlambda:AccessPointTransformationConfigurationContentTransformationProperties"
-    + "aws-native:s3objectlambda:AccessPointTransformationConfigurationContentTransformation0Properties"
+- Resource "aws-native:cloudwatch:MetricStream" output "creationDate" type changed from "Any" to "string"
+- Resource "aws-native:cloudwatch:MetricStream" output "lastUpdateDate" type changed from "Any" to "string"
+- Function "aws-native:cloudwatch:getMetricStream" output "lastUpdateDate" type changed from "Any" to "string"
+- Function "aws-native:cloudwatch:getMetricStream" output "creationDate" type changed from "Any" to "string"
 
 ## 0.69.0 (July 19, 2023)
 
