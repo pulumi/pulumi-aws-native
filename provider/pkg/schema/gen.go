@@ -957,6 +957,24 @@ func (ctx *context) propertyTypeSpec(parentName string, propSchema *jsschema.Sch
 			}
 		}
 
+		//simplify names when there is only one arm with a named type
+		//TODO(https://github.com/pulumi/pulumi-aws-native/issues/994):
+		// don't generate the complicated type names at all if we don't need them
+		complexArms := []int{}
+		for i, t := range types {
+			if strings.HasSuffix(t.Ref, "Properties") || strings.HasSuffix(t.Ref, fmt.Sprintf("%s%d", parentName, i)) {
+				complexArms = append(complexArms, i)
+			}
+		}
+		if len(complexArms) == 1 {
+			i := complexArms[0]
+			typ, err := ctx.propertyTypeSpec(parentName, schemas[i])
+			if err != nil {
+				return nil, err
+			}
+			types[i] = *typ
+		}
+
 		if len(types) == 1 {
 			return &types[0], nil
 		} else {

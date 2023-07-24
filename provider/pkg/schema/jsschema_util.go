@@ -8,7 +8,7 @@ import (
 
 // FlattenJSSchema recursively flattens a schema containing AnyOf or OneOf into a list of schemas
 // Note: this only performs a shallow copy, don't use in situations where schema fields may be mutated.
-// TODO: this should probably handle AllOf and Not as well.
+// TODO(https://github.com/pulumi/pulumi-aws-native/issues/992): this should flatten AllOf as well.
 func FlattenJSSchema(sch *jsschema.Schema) jsschema.SchemaList {
 	if len(sch.AnyOf) == 0 && len(sch.OneOf) == 0 {
 		return jsschema.SchemaList{sch}
@@ -26,12 +26,12 @@ func FlattenJSSchema(sch *jsschema.Schema) jsschema.SchemaList {
 
 	// merge each with the base schema and clear the AnyOf/OneOf fields
 	for i, s := range schemas {
-		var merged jsschema.Schema
-		MergeJSSchema(&merged, sch)
+		merged := jsschema.New()
+		MergeJSSchema(merged, sch)
 		merged.AnyOf = nil
 		merged.OneOf = nil
-		MergeJSSchema(&merged, s)
-		schemas[i] = &merged
+		MergeJSSchema(merged, s)
+		schemas[i] = merged
 	}
 	return schemas
 
@@ -155,8 +155,8 @@ func MergeJSSchema(dest *jsschema.Schema, src *jsschema.Schema) {
 		if dest.AdditionalProperties == nil || dest.AdditionalProperties.Schema == nil {
 			dest.AdditionalProperties = src.AdditionalProperties
 		} else {
-			base := *dest.AdditionalProperties.Schema // shallow copy
-			merged := jsschema.AdditionalProperties{Schema: &base}
+			merged := jsschema.AdditionalProperties{Schema: jsschema.New()}
+			MergeJSSchema(merged.Schema, dest.AdditionalProperties.Schema)
 			MergeJSSchema(merged.Schema, src.AdditionalProperties.Schema)
 			dest.AdditionalProperties = &merged
 		}

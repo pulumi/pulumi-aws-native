@@ -3,7 +3,6 @@
 package schema
 
 import (
-	//	"encoding/json"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -79,14 +78,50 @@ func TestPropertyTypeSpec(t *testing.T) {
 				OneOf: []pschema.TypeSpec{{Type: "string"}, {Type: "number"}},
 			},
 		},
+		{
+			json: `{
+				"anyOf": [
+					{"type": "object", "properties": { "A": { "type": "number" } } },
+					{"type": "object", "properties": { "A": { "type": "string" } } }
+				]
+			}`,
+			expected: pschema.TypeSpec{
+				OneOf: []pschema.TypeSpec{
+					{Ref: "#/types/aws-native::Foo0Properties"},
+					{Ref: "#/types/aws-native::Foo1Properties"},
+				},
+			},
+		},
+		{
+			json: `{
+				"anyOf": [
+					{"type": "object", "properties": { "A": { "type": "number" } } },
+					{"type": "object" },
+					{"type": "string" }
+				]
+			}`,
+			expected: pschema.TypeSpec{
+				OneOf: []pschema.TypeSpec{
+					{Ref: "#/types/aws-native::FooProperties"},
+					{Ref: "pulumi.json#/Any"},
+					{Type: "string"},
+				},
+			},
+		},
 	}
 
 	for _, tt := range cases {
-		// t.Log("JSON: ", tt.json) // uncomment to debug
 		schema := jsschema.New()
 		err := schema.UnmarshalJSON([]byte(tt.json))
 		assert.Nil(t, err)
-		ctx := context{}
+		ctx := context{
+			pkg: &pschema.PackageSpec{
+				Types: map[string]pschema.ComplexTypeSpec{},
+			},
+			metadata: &CloudAPIMetadata{
+				Types: map[string]CloudAPIType{},
+			},
+		}
 		actual, _ := ctx.propertyTypeSpec("Foo", schema)
 		assert.Equal(t, tt.expected, *actual)
 	}
