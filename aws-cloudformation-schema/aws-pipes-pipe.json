@@ -1389,7 +1389,7 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "pipes:CreatePipe", "pipes:DescribePipe", "iam:PassRole" ]
+      "permissions" : [ "pipes:CreatePipe", "pipes:DescribePipe", "pipes:TagResource", "iam:PassRole" ]
     },
     "read" : {
       "permissions" : [ "pipes:DescribePipe" ]

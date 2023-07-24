@@ -21,7 +21,7 @@
   "primaryIdentifier" : [ "/properties/GatewayId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "ec2:AssociateRouteTable" ]
+      "permissions" : [ "ec2:DescribeRouteTables", "ec2:AssociateRouteTable" ]
     },
     "read" : {
       "permissions" : [ "ec2:DescribeRouteTables" ]

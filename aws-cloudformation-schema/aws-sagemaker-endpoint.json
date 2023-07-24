@@ -50,6 +50,25 @@
       },
       "required" : [ "Type", "Value" ]
     },
+    "RollingUpdatePolicy" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "MaximumExecutionTimeoutInSeconds" : {
+          "type" : "integer"
+        },
+        "MaximumBatchSize" : {
+          "$ref" : "#/definitions/CapacitySize"
+        },
+        "WaitIntervalInSeconds" : {
+          "type" : "integer"
+        },
+        "RollbackMaximumBatchSize" : {
+          "$ref" : "#/definitions/CapacitySize"
+        }
+      },
+      "required" : [ "MaximumBatchSize", "WaitIntervalInSeconds" ]
+    },
     "Alarm" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -94,11 +113,13 @@
         "AutoRollbackConfiguration" : {
           "$ref" : "#/definitions/AutoRollbackConfig"
         },
+        "RollingUpdatePolicy" : {
+          "$ref" : "#/definitions/RollingUpdatePolicy"
+        },
         "BlueGreenUpdatePolicy" : {
           "$ref" : "#/definitions/BlueGreenUpdatePolicy"
         }
-      },
-      "required" : [ "BlueGreenUpdatePolicy" ]
+      }
     },
     "BlueGreenUpdatePolicy" : {
       "type" : "object",

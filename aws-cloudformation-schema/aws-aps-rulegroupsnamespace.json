@@ -1,7 +1,7 @@
 {
   "typeName" : "AWS::APS::RuleGroupsNamespace",
   "description" : "RuleGroupsNamespace schema for cloudformation.",
-  "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
+  "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-aps",
   "definitions" : {
     "Tag" : {
       "description" : "A key-value pair to associate with a resource.",
@@ -81,7 +81,15 @@
       "permissions" : [ "aps:DeleteRuleGroupsNamespace", "aps:DescribeRuleGroupsNamespace" ]
     },
     "list" : {
-      "permissions" : [ "aps:ListRuleGroupsNamespaces", "aps:ListTagsForResource" ]
+      "permissions" : [ "aps:ListRuleGroupsNamespaces", "aps:ListTagsForResource" ],
+      "handlerSchema" : {
+        "properties" : {
+          "Arn" : {
+            "$ref" : "resource-schema.json#/properties/Workspace"
+          }
+        },
+        "required" : [ "Arn" ]
+      }
     }
   }
 }
