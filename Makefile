@@ -5,7 +5,7 @@ PACKDIR          := sdk
 PROJECT          := github.com/pulumi/pulumi-aws-native
 PROVIDER        := pulumi-resource-${PACK}
 CODEGEN         := pulumi-gen-${PACK}
-VERSION         := $(shell pulumictl get version)
+VERSION         := 3.76.1
 
 PROVIDER_PKGS	:= $(shell cd ./provider && go list ./...)
 WORKING_DIR		:= $(shell pwd)
