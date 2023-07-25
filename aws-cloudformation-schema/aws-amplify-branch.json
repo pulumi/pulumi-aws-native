@@ -138,19 +138,19 @@
   "writeOnlyProperties" : [ "/properties/BasicAuthConfig" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "amplify:CreateBranch", "amplify:TagResource", "codecommit:GetRepository", "codecommit:PutRepositoryTriggers", "codecommit:GetRepositoryTriggers", "s3:GetObject", "s3:GetObjectAcl", "s3:PutObject", "s3:PutObjectAcl", "sns:CreateTopic", "sns:Subscribe", "iam:PassRole" ]
+      "permissions" : [ "amplify:GetBranch", "amplify:CreateBranch", "amplify:TagResource", "codecommit:GetRepository", "codecommit:PutRepositoryTriggers", "codecommit:GetRepositoryTriggers", "s3:GetObject", "s3:GetObjectAcl", "s3:PutObject", "s3:PutObjectAcl", "sns:CreateTopic", "sns:Subscribe", "iam:PassRole" ]
     },
     "delete" : {
-      "permissions" : [ "amplify:DeleteBranch", "codecommit:GetRepository", "codecommit:GetRepositoryTriggers", "sns:Unsubscribe", "iam:PassRole" ]
+      "permissions" : [ "amplify:GetBranch", "amplify:DeleteBranch", "codecommit:GetRepository", "codecommit:GetRepositoryTriggers", "sns:Unsubscribe", "iam:PassRole" ]
     },
     "list" : {
-      "permissions" : [ "amplify:ListBranches", "amplify:ListTagsForResource", "iam:PassRole" ]
+      "permissions" : [ "amplify:GetBranch", "amplify:ListBranches", "amplify:ListTagsForResource", "iam:PassRole" ]
     },
     "read" : {
       "permissions" : [ "amplify:GetBranch", "amplify:ListTagsForResource", "codecommit:GetRepository", "codecommit:GetRepositoryTriggers", "s3:GetObject", "s3:GetObjectAcl", "iam:PassRole" ]
     },
     "update" : {
-      "permissions" : [ "amplify:UpdateBranch", "amplify:ListTagsForResource", "amplify:TagResource", "amplify:UntagResource", "codecommit:GetRepository", "codecommit:PutRepositoryTriggers", "codecommit:GetRepositoryTriggers", "s3:GetObject", "s3:GetObjectAcl", "s3:PutObject", "s3:PutObjectAcl", "sns:CreateTopic", "sns:Subscribe", "sns:Unsubscribe", "iam:PassRole" ]
+      "permissions" : [ "amplify:GetBranch", "amplify:UpdateBranch", "amplify:ListTagsForResource", "amplify:TagResource", "amplify:UntagResource", "codecommit:GetRepository", "codecommit:PutRepositoryTriggers", "codecommit:GetRepositoryTriggers", "s3:GetObject", "s3:GetObjectAcl", "s3:PutObject", "s3:PutObjectAcl", "sns:CreateTopic", "sns:Subscribe", "sns:Unsubscribe", "iam:PassRole" ]
     }
   }
 }

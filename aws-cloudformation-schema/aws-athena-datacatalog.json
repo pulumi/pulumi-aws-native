@@ -71,7 +71,7 @@
       "permissions" : [ "athena:GetDataCatalog", "athena:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "athena:UpdateDataCatalog", "athena:TagResource", "athena:UntagResource" ]
+      "permissions" : [ "athena:UpdateDataCatalog", "athena:TagResource", "athena:GetDataCatalog", "athena:UntagResource", "athena:ListTagsForResource" ]
     },
     "delete" : {
       "permissions" : [ "athena:DeleteDataCatalog" ]
