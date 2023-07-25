@@ -37,6 +37,8 @@ type LookupTableResult struct {
 	Name *string `pulumi:"name"`
 	// The retention duration of the memory store and the magnetic store.
 	RetentionProperties *RetentionPropertiesProperties `pulumi:"retentionProperties"`
+	// A Schema specifies the expected data model of the table.
+	Schema *SchemaProperties `pulumi:"schema"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []TableTag `pulumi:"tags"`
 }
@@ -98,6 +100,11 @@ func (o LookupTableResultOutput) Name() pulumi.StringPtrOutput {
 // The retention duration of the memory store and the magnetic store.
 func (o LookupTableResultOutput) RetentionProperties() RetentionPropertiesPropertiesPtrOutput {
 	return o.ApplyT(func(v LookupTableResult) *RetentionPropertiesProperties { return v.RetentionProperties }).(RetentionPropertiesPropertiesPtrOutput)
+}
+
+// A Schema specifies the expected data model of the table.
+func (o LookupTableResultOutput) Schema() SchemaPropertiesPtrOutput {
+	return o.ApplyT(func(v LookupTableResult) *SchemaProperties { return v.Schema }).(SchemaPropertiesPtrOutput)
 }
 
 // An array of key-value pairs to apply to this resource.

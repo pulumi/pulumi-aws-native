@@ -78,7 +78,15 @@
       "permissions" : [ "wafv2:UpdateRegexPatternSet", "wafv2:GetRegexPatternSet", "wafv2:ListTagsForResource" ]
     },
     "list" : {
-      "permissions" : [ "wafv2:listRegexPatternSets" ]
+      "permissions" : [ "wafv2:listRegexPatternSets" ],
+      "handlerSchema" : {
+        "properties" : {
+          "Scope" : {
+            "$ref" : "resource-schema.json#/properties/Scope"
+          }
+        },
+        "required" : [ "Scope" ]
+      }
     }
   }
 }

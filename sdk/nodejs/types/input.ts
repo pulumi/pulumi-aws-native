@@ -49307,6 +49307,22 @@ export namespace timestream {
     }
 
     /**
+     * A Schema specifies the expected data model of the table.
+     */
+    export interface SchemaPropertiesArgs {
+        compositePartitionKey?: pulumi.Input<pulumi.Input<inputs.timestream.TablePartitionKeyArgs>[]>;
+    }
+
+    /**
+     * An attribute used in partitioning data in a table. There are two types of partition keys: dimension keys and measure keys. A dimension key partitions data on a dimension name, while a measure key partitions data on the measure name.
+     */
+    export interface TablePartitionKeyArgs {
+        enforcementInRecord?: pulumi.Input<enums.timestream.TablePartitionKeyEnforcementLevel>;
+        name?: pulumi.Input<string>;
+        type: pulumi.Input<enums.timestream.TablePartitionKeyType>;
+    }
+
+    /**
      * You can use the Resource Tags property to apply tags to resources, which can help you identify and categorize those resources.
      */
     export interface TableTagArgs {
@@ -50398,9 +50414,103 @@ export namespace wafv2 {
 
     export interface RuleGroupRateBasedStatementArgs {
         aggregateKeyType: pulumi.Input<enums.wafv2.RuleGroupRateBasedStatementAggregateKeyType>;
+        /**
+         * Specifies the aggregate keys to use in a rate-base rule.
+         */
+        customKeys?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRateBasedStatementCustomKeyArgs>[]>;
         forwardedIPConfig?: pulumi.Input<inputs.wafv2.RuleGroupForwardedIPConfigurationArgs>;
         limit: pulumi.Input<number>;
         scopeDownStatement?: pulumi.Input<inputs.wafv2.RuleGroupStatementArgs>;
+    }
+
+    /**
+     * Specifies a single custom aggregate key for a rate-base rule.
+     */
+    export interface RuleGroupRateBasedStatementCustomKeyArgs {
+        cookie?: pulumi.Input<inputs.wafv2.RuleGroupRateLimitCookieArgs>;
+        forwardedIP?: pulumi.Input<inputs.wafv2.RuleGroupRateLimitForwardedIPArgs>;
+        hTTPMethod?: pulumi.Input<inputs.wafv2.RuleGroupRateLimitHTTPMethodArgs>;
+        header?: pulumi.Input<inputs.wafv2.RuleGroupRateLimitHeaderArgs>;
+        iP?: pulumi.Input<inputs.wafv2.RuleGroupRateLimitIPArgs>;
+        labelNamespace?: pulumi.Input<inputs.wafv2.RuleGroupRateLimitLabelNamespaceArgs>;
+        queryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRateLimitQueryArgumentArgs>;
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRateLimitQueryStringArgs>;
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRateLimitUriPathArgs>;
+    }
+
+    /**
+     * Specifies a cookie as an aggregate key for a rate-based rule.
+     */
+    export interface RuleGroupRateLimitCookieArgs {
+        /**
+         * The name of the cookie to use.
+         */
+        name: pulumi.Input<string>;
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupTextTransformationArgs>[]>;
+    }
+
+    /**
+     * Specifies the first IP address in an HTTP header as an aggregate key for a rate-based rule.
+     */
+    export interface RuleGroupRateLimitForwardedIPArgs {
+    }
+
+    /**
+     * Specifies the request's HTTP method as an aggregate key for a rate-based rule.
+     */
+    export interface RuleGroupRateLimitHTTPMethodArgs {
+    }
+
+    /**
+     * Specifies a header as an aggregate key for a rate-based rule.
+     */
+    export interface RuleGroupRateLimitHeaderArgs {
+        /**
+         * The name of the header to use.
+         */
+        name: pulumi.Input<string>;
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupTextTransformationArgs>[]>;
+    }
+
+    /**
+     * Specifies the IP address in the web request as an aggregate key for a rate-based rule.
+     */
+    export interface RuleGroupRateLimitIPArgs {
+    }
+
+    /**
+     * Specifies a label namespace to use as an aggregate key for a rate-based rule.
+     */
+    export interface RuleGroupRateLimitLabelNamespaceArgs {
+        /**
+         * The namespace to use for aggregation.
+         */
+        namespace: pulumi.Input<string>;
+    }
+
+    /**
+     * Specifies a query argument in the request as an aggregate key for a rate-based rule.
+     */
+    export interface RuleGroupRateLimitQueryArgumentArgs {
+        /**
+         * The name of the query argument to use.
+         */
+        name: pulumi.Input<string>;
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupTextTransformationArgs>[]>;
+    }
+
+    /**
+     * Specifies the request's query string as an aggregate key for a rate-based rule.
+     */
+    export interface RuleGroupRateLimitQueryStringArgs {
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupTextTransformationArgs>[]>;
+    }
+
+    /**
+     * Specifies the request's URI Path as an aggregate key for a rate-based rule.
+     */
+    export interface RuleGroupRateLimitUriPathArgs {
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupTextTransformationArgs>[]>;
     }
 
     export interface RuleGroupRegexMatchStatementArgs {
@@ -50848,9 +50958,103 @@ export namespace wafv2 {
 
     export interface WebACLRateBasedStatementArgs {
         aggregateKeyType: pulumi.Input<enums.wafv2.WebACLRateBasedStatementAggregateKeyType>;
+        /**
+         * Specifies the aggregate keys to use in a rate-base rule.
+         */
+        customKeys?: pulumi.Input<pulumi.Input<inputs.wafv2.WebACLRateBasedStatementCustomKeyArgs>[]>;
         forwardedIPConfig?: pulumi.Input<inputs.wafv2.WebACLForwardedIPConfigurationArgs>;
         limit: pulumi.Input<number>;
         scopeDownStatement?: pulumi.Input<inputs.wafv2.WebACLStatementArgs>;
+    }
+
+    /**
+     * Specifies a single custom aggregate key for a rate-base rule.
+     */
+    export interface WebACLRateBasedStatementCustomKeyArgs {
+        cookie?: pulumi.Input<inputs.wafv2.WebACLRateLimitCookieArgs>;
+        forwardedIP?: pulumi.Input<inputs.wafv2.WebACLRateLimitForwardedIPArgs>;
+        hTTPMethod?: pulumi.Input<inputs.wafv2.WebACLRateLimitHTTPMethodArgs>;
+        header?: pulumi.Input<inputs.wafv2.WebACLRateLimitHeaderArgs>;
+        iP?: pulumi.Input<inputs.wafv2.WebACLRateLimitIPArgs>;
+        labelNamespace?: pulumi.Input<inputs.wafv2.WebACLRateLimitLabelNamespaceArgs>;
+        queryArgument?: pulumi.Input<inputs.wafv2.WebACLRateLimitQueryArgumentArgs>;
+        queryString?: pulumi.Input<inputs.wafv2.WebACLRateLimitQueryStringArgs>;
+        uriPath?: pulumi.Input<inputs.wafv2.WebACLRateLimitUriPathArgs>;
+    }
+
+    /**
+     * Specifies a cookie as an aggregate key for a rate-based rule.
+     */
+    export interface WebACLRateLimitCookieArgs {
+        /**
+         * The name of the cookie to use.
+         */
+        name: pulumi.Input<string>;
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.WebACLTextTransformationArgs>[]>;
+    }
+
+    /**
+     * Specifies the first IP address in an HTTP header as an aggregate key for a rate-based rule.
+     */
+    export interface WebACLRateLimitForwardedIPArgs {
+    }
+
+    /**
+     * Specifies the request's HTTP method as an aggregate key for a rate-based rule.
+     */
+    export interface WebACLRateLimitHTTPMethodArgs {
+    }
+
+    /**
+     * Specifies a header as an aggregate key for a rate-based rule.
+     */
+    export interface WebACLRateLimitHeaderArgs {
+        /**
+         * The name of the header to use.
+         */
+        name: pulumi.Input<string>;
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.WebACLTextTransformationArgs>[]>;
+    }
+
+    /**
+     * Specifies the IP address in the web request as an aggregate key for a rate-based rule.
+     */
+    export interface WebACLRateLimitIPArgs {
+    }
+
+    /**
+     * Specifies a label namespace to use as an aggregate key for a rate-based rule.
+     */
+    export interface WebACLRateLimitLabelNamespaceArgs {
+        /**
+         * The namespace to use for aggregation.
+         */
+        namespace: pulumi.Input<string>;
+    }
+
+    /**
+     * Specifies a query argument in the request as an aggregate key for a rate-based rule.
+     */
+    export interface WebACLRateLimitQueryArgumentArgs {
+        /**
+         * The name of the query argument to use.
+         */
+        name: pulumi.Input<string>;
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.WebACLTextTransformationArgs>[]>;
+    }
+
+    /**
+     * Specifies the request's query string as an aggregate key for a rate-based rule.
+     */
+    export interface WebACLRateLimitQueryStringArgs {
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.WebACLTextTransformationArgs>[]>;
+    }
+
+    /**
+     * Specifies the request's URI Path as an aggregate key for a rate-based rule.
+     */
+    export interface WebACLRateLimitUriPathArgs {
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.WebACLTextTransformationArgs>[]>;
     }
 
     export interface WebACLRegexMatchStatementArgs {

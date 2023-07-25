@@ -83,6 +83,10 @@ namespace Pulumi.AwsNative.Timestream
         /// </summary>
         public readonly Outputs.RetentionPropertiesProperties? RetentionProperties;
         /// <summary>
+        /// A Schema specifies the expected data model of the table.
+        /// </summary>
+        public readonly Outputs.SchemaProperties? Schema;
+        /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         public readonly ImmutableArray<Outputs.TableTag> Tags;
@@ -97,12 +101,15 @@ namespace Pulumi.AwsNative.Timestream
 
             Outputs.RetentionPropertiesProperties? retentionProperties,
 
+            Outputs.SchemaProperties? schema,
+
             ImmutableArray<Outputs.TableTag> tags)
         {
             Arn = arn;
             MagneticStoreWriteProperties = magneticStoreWriteProperties;
             Name = name;
             RetentionProperties = retentionProperties;
+            Schema = schema;
             Tags = tags;
         }
     }

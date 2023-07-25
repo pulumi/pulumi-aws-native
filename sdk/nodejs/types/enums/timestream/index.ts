@@ -46,3 +46,23 @@ export const ScheduledQueryMultiMeasureAttributeMappingMeasureValueType = {
  * Value type of the measure value column to be read from the query result.
  */
 export type ScheduledQueryMultiMeasureAttributeMappingMeasureValueType = (typeof ScheduledQueryMultiMeasureAttributeMappingMeasureValueType)[keyof typeof ScheduledQueryMultiMeasureAttributeMappingMeasureValueType];
+
+export const TablePartitionKeyEnforcementLevel = {
+    Required: "REQUIRED",
+    Optional: "OPTIONAL",
+} as const;
+
+/**
+ * The level of enforcement for the specification of a dimension key in ingested records. Options are REQUIRED (dimension key must be specified) and OPTIONAL (dimension key does not have to be specified).
+ */
+export type TablePartitionKeyEnforcementLevel = (typeof TablePartitionKeyEnforcementLevel)[keyof typeof TablePartitionKeyEnforcementLevel];
+
+export const TablePartitionKeyType = {
+    Dimension: "DIMENSION",
+    Measure: "MEASURE",
+} as const;
+
+/**
+ * The type of the partition key. Options are DIMENSION (dimension key) and MEASURE (measure key).
+ */
+export type TablePartitionKeyType = (typeof TablePartitionKeyType)[keyof typeof TablePartitionKeyType];

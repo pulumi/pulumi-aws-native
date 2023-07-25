@@ -50146,6 +50146,22 @@ export namespace timestream {
     }
 
     /**
+     * A Schema specifies the expected data model of the table.
+     */
+    export interface SchemaProperties {
+        compositePartitionKey?: outputs.timestream.TablePartitionKey[];
+    }
+
+    /**
+     * An attribute used in partitioning data in a table. There are two types of partition keys: dimension keys and measure keys. A dimension key partitions data on a dimension name, while a measure key partitions data on the measure name.
+     */
+    export interface TablePartitionKey {
+        enforcementInRecord?: enums.timestream.TablePartitionKeyEnforcementLevel;
+        name?: string;
+        type: enums.timestream.TablePartitionKeyType;
+    }
+
+    /**
      * You can use the Resource Tags property to apply tags to resources, which can help you identify and categorize those resources.
      */
     export interface TableTag {
@@ -51251,9 +51267,103 @@ export namespace wafv2 {
 
     export interface RuleGroupRateBasedStatement {
         aggregateKeyType: enums.wafv2.RuleGroupRateBasedStatementAggregateKeyType;
+        /**
+         * Specifies the aggregate keys to use in a rate-base rule.
+         */
+        customKeys?: outputs.wafv2.RuleGroupRateBasedStatementCustomKey[];
         forwardedIPConfig?: outputs.wafv2.RuleGroupForwardedIPConfiguration;
         limit: number;
         scopeDownStatement?: outputs.wafv2.RuleGroupStatement;
+    }
+
+    /**
+     * Specifies a single custom aggregate key for a rate-base rule.
+     */
+    export interface RuleGroupRateBasedStatementCustomKey {
+        cookie?: outputs.wafv2.RuleGroupRateLimitCookie;
+        forwardedIP?: outputs.wafv2.RuleGroupRateLimitForwardedIP;
+        hTTPMethod?: outputs.wafv2.RuleGroupRateLimitHTTPMethod;
+        header?: outputs.wafv2.RuleGroupRateLimitHeader;
+        iP?: outputs.wafv2.RuleGroupRateLimitIP;
+        labelNamespace?: outputs.wafv2.RuleGroupRateLimitLabelNamespace;
+        queryArgument?: outputs.wafv2.RuleGroupRateLimitQueryArgument;
+        queryString?: outputs.wafv2.RuleGroupRateLimitQueryString;
+        uriPath?: outputs.wafv2.RuleGroupRateLimitUriPath;
+    }
+
+    /**
+     * Specifies a cookie as an aggregate key for a rate-based rule.
+     */
+    export interface RuleGroupRateLimitCookie {
+        /**
+         * The name of the cookie to use.
+         */
+        name: string;
+        textTransformations: outputs.wafv2.RuleGroupTextTransformation[];
+    }
+
+    /**
+     * Specifies the first IP address in an HTTP header as an aggregate key for a rate-based rule.
+     */
+    export interface RuleGroupRateLimitForwardedIP {
+    }
+
+    /**
+     * Specifies the request's HTTP method as an aggregate key for a rate-based rule.
+     */
+    export interface RuleGroupRateLimitHTTPMethod {
+    }
+
+    /**
+     * Specifies a header as an aggregate key for a rate-based rule.
+     */
+    export interface RuleGroupRateLimitHeader {
+        /**
+         * The name of the header to use.
+         */
+        name: string;
+        textTransformations: outputs.wafv2.RuleGroupTextTransformation[];
+    }
+
+    /**
+     * Specifies the IP address in the web request as an aggregate key for a rate-based rule.
+     */
+    export interface RuleGroupRateLimitIP {
+    }
+
+    /**
+     * Specifies a label namespace to use as an aggregate key for a rate-based rule.
+     */
+    export interface RuleGroupRateLimitLabelNamespace {
+        /**
+         * The namespace to use for aggregation.
+         */
+        namespace: string;
+    }
+
+    /**
+     * Specifies a query argument in the request as an aggregate key for a rate-based rule.
+     */
+    export interface RuleGroupRateLimitQueryArgument {
+        /**
+         * The name of the query argument to use.
+         */
+        name: string;
+        textTransformations: outputs.wafv2.RuleGroupTextTransformation[];
+    }
+
+    /**
+     * Specifies the request's query string as an aggregate key for a rate-based rule.
+     */
+    export interface RuleGroupRateLimitQueryString {
+        textTransformations: outputs.wafv2.RuleGroupTextTransformation[];
+    }
+
+    /**
+     * Specifies the request's URI Path as an aggregate key for a rate-based rule.
+     */
+    export interface RuleGroupRateLimitUriPath {
+        textTransformations: outputs.wafv2.RuleGroupTextTransformation[];
     }
 
     export interface RuleGroupRegexMatchStatement {
@@ -51701,9 +51811,103 @@ export namespace wafv2 {
 
     export interface WebACLRateBasedStatement {
         aggregateKeyType: enums.wafv2.WebACLRateBasedStatementAggregateKeyType;
+        /**
+         * Specifies the aggregate keys to use in a rate-base rule.
+         */
+        customKeys?: outputs.wafv2.WebACLRateBasedStatementCustomKey[];
         forwardedIPConfig?: outputs.wafv2.WebACLForwardedIPConfiguration;
         limit: number;
         scopeDownStatement?: outputs.wafv2.WebACLStatement;
+    }
+
+    /**
+     * Specifies a single custom aggregate key for a rate-base rule.
+     */
+    export interface WebACLRateBasedStatementCustomKey {
+        cookie?: outputs.wafv2.WebACLRateLimitCookie;
+        forwardedIP?: outputs.wafv2.WebACLRateLimitForwardedIP;
+        hTTPMethod?: outputs.wafv2.WebACLRateLimitHTTPMethod;
+        header?: outputs.wafv2.WebACLRateLimitHeader;
+        iP?: outputs.wafv2.WebACLRateLimitIP;
+        labelNamespace?: outputs.wafv2.WebACLRateLimitLabelNamespace;
+        queryArgument?: outputs.wafv2.WebACLRateLimitQueryArgument;
+        queryString?: outputs.wafv2.WebACLRateLimitQueryString;
+        uriPath?: outputs.wafv2.WebACLRateLimitUriPath;
+    }
+
+    /**
+     * Specifies a cookie as an aggregate key for a rate-based rule.
+     */
+    export interface WebACLRateLimitCookie {
+        /**
+         * The name of the cookie to use.
+         */
+        name: string;
+        textTransformations: outputs.wafv2.WebACLTextTransformation[];
+    }
+
+    /**
+     * Specifies the first IP address in an HTTP header as an aggregate key for a rate-based rule.
+     */
+    export interface WebACLRateLimitForwardedIP {
+    }
+
+    /**
+     * Specifies the request's HTTP method as an aggregate key for a rate-based rule.
+     */
+    export interface WebACLRateLimitHTTPMethod {
+    }
+
+    /**
+     * Specifies a header as an aggregate key for a rate-based rule.
+     */
+    export interface WebACLRateLimitHeader {
+        /**
+         * The name of the header to use.
+         */
+        name: string;
+        textTransformations: outputs.wafv2.WebACLTextTransformation[];
+    }
+
+    /**
+     * Specifies the IP address in the web request as an aggregate key for a rate-based rule.
+     */
+    export interface WebACLRateLimitIP {
+    }
+
+    /**
+     * Specifies a label namespace to use as an aggregate key for a rate-based rule.
+     */
+    export interface WebACLRateLimitLabelNamespace {
+        /**
+         * The namespace to use for aggregation.
+         */
+        namespace: string;
+    }
+
+    /**
+     * Specifies a query argument in the request as an aggregate key for a rate-based rule.
+     */
+    export interface WebACLRateLimitQueryArgument {
+        /**
+         * The name of the query argument to use.
+         */
+        name: string;
+        textTransformations: outputs.wafv2.WebACLTextTransformation[];
+    }
+
+    /**
+     * Specifies the request's query string as an aggregate key for a rate-based rule.
+     */
+    export interface WebACLRateLimitQueryString {
+        textTransformations: outputs.wafv2.WebACLTextTransformation[];
+    }
+
+    /**
+     * Specifies the request's URI Path as an aggregate key for a rate-based rule.
+     */
+    export interface WebACLRateLimitUriPath {
+        textTransformations: outputs.wafv2.WebACLTextTransformation[];
     }
 
     export interface WebACLRegexMatchStatement {

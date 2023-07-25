@@ -28,6 +28,8 @@ __all__ = [
     'ScheduledQueryTagArgs',
     'ScheduledQueryTargetConfigurationArgs',
     'ScheduledQueryTimestreamConfigurationArgs',
+    'SchemaPropertiesArgs',
+    'TablePartitionKeyArgs',
     'TableTagArgs',
 ]
 
@@ -660,6 +662,69 @@ class ScheduledQueryTimestreamConfigurationArgs:
     @multi_measure_mappings.setter
     def multi_measure_mappings(self, value: Optional[pulumi.Input['ScheduledQueryMultiMeasureMappingsArgs']]):
         pulumi.set(self, "multi_measure_mappings", value)
+
+
+@pulumi.input_type
+class SchemaPropertiesArgs:
+    def __init__(__self__, *,
+                 composite_partition_key: Optional[pulumi.Input[Sequence[pulumi.Input['TablePartitionKeyArgs']]]] = None):
+        """
+        A Schema specifies the expected data model of the table.
+        """
+        if composite_partition_key is not None:
+            pulumi.set(__self__, "composite_partition_key", composite_partition_key)
+
+    @property
+    @pulumi.getter(name="compositePartitionKey")
+    def composite_partition_key(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TablePartitionKeyArgs']]]]:
+        return pulumi.get(self, "composite_partition_key")
+
+    @composite_partition_key.setter
+    def composite_partition_key(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TablePartitionKeyArgs']]]]):
+        pulumi.set(self, "composite_partition_key", value)
+
+
+@pulumi.input_type
+class TablePartitionKeyArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input['TablePartitionKeyType'],
+                 enforcement_in_record: Optional[pulumi.Input['TablePartitionKeyEnforcementLevel']] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        An attribute used in partitioning data in a table. There are two types of partition keys: dimension keys and measure keys. A dimension key partitions data on a dimension name, while a measure key partitions data on the measure name.
+        """
+        pulumi.set(__self__, "type", type)
+        if enforcement_in_record is not None:
+            pulumi.set(__self__, "enforcement_in_record", enforcement_in_record)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['TablePartitionKeyType']:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['TablePartitionKeyType']):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="enforcementInRecord")
+    def enforcement_in_record(self) -> Optional[pulumi.Input['TablePartitionKeyEnforcementLevel']]:
+        return pulumi.get(self, "enforcement_in_record")
+
+    @enforcement_in_record.setter
+    def enforcement_in_record(self, value: Optional[pulumi.Input['TablePartitionKeyEnforcementLevel']]):
+        pulumi.set(self, "enforcement_in_record", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 @pulumi.input_type

@@ -197,6 +197,7 @@ class RuleGroupPositionalConstraint(str, Enum):
 class RuleGroupRateBasedStatementAggregateKeyType(str, Enum):
     IP = "IP"
     FORWARDED_IP = "FORWARDED_IP"
+    CUSTOM_KEYS = "CUSTOM_KEYS"
 
 
 class RuleGroupScope(str, Enum):
@@ -332,6 +333,7 @@ class WebACLPositionalConstraint(str, Enum):
 class WebACLRateBasedStatementAggregateKeyType(str, Enum):
     IP = "IP"
     FORWARDED_IP = "FORWARDED_IP"
+    CUSTOM_KEYS = "CUSTOM_KEYS"
 
 
 class WebACLRequestInspectionPayloadType(str, Enum):

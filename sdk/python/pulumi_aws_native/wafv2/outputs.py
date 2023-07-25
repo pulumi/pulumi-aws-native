@@ -57,6 +57,16 @@ __all__ = [
     'RuleGroupNotStatement',
     'RuleGroupOrStatement',
     'RuleGroupRateBasedStatement',
+    'RuleGroupRateBasedStatementCustomKey',
+    'RuleGroupRateLimitCookie',
+    'RuleGroupRateLimitForwardedIP',
+    'RuleGroupRateLimitHTTPMethod',
+    'RuleGroupRateLimitHeader',
+    'RuleGroupRateLimitIP',
+    'RuleGroupRateLimitLabelNamespace',
+    'RuleGroupRateLimitQueryArgument',
+    'RuleGroupRateLimitQueryString',
+    'RuleGroupRateLimitUriPath',
     'RuleGroupRegexMatchStatement',
     'RuleGroupRegexPatternSetReferenceStatement',
     'RuleGroupRule',
@@ -110,6 +120,16 @@ __all__ = [
     'WebACLOrStatement',
     'WebACLOverrideAction',
     'WebACLRateBasedStatement',
+    'WebACLRateBasedStatementCustomKey',
+    'WebACLRateLimitCookie',
+    'WebACLRateLimitForwardedIP',
+    'WebACLRateLimitHTTPMethod',
+    'WebACLRateLimitHeader',
+    'WebACLRateLimitIP',
+    'WebACLRateLimitLabelNamespace',
+    'WebACLRateLimitQueryArgument',
+    'WebACLRateLimitQueryString',
+    'WebACLRateLimitUriPath',
     'WebACLRegexMatchStatement',
     'WebACLRegexPatternSetReferenceStatement',
     'WebACLRequestBody',
@@ -1875,6 +1895,8 @@ class RuleGroupRateBasedStatement(dict):
         suggest = None
         if key == "aggregateKeyType":
             suggest = "aggregate_key_type"
+        elif key == "customKeys":
+            suggest = "custom_keys"
         elif key == "forwardedIPConfig":
             suggest = "forwarded_ip_config"
         elif key == "scopeDownStatement":
@@ -1894,10 +1916,16 @@ class RuleGroupRateBasedStatement(dict):
     def __init__(__self__, *,
                  aggregate_key_type: 'RuleGroupRateBasedStatementAggregateKeyType',
                  limit: int,
+                 custom_keys: Optional[Sequence['outputs.RuleGroupRateBasedStatementCustomKey']] = None,
                  forwarded_ip_config: Optional['outputs.RuleGroupForwardedIPConfiguration'] = None,
                  scope_down_statement: Optional['outputs.RuleGroupStatement'] = None):
+        """
+        :param Sequence['RuleGroupRateBasedStatementCustomKey'] custom_keys: Specifies the aggregate keys to use in a rate-base rule.
+        """
         pulumi.set(__self__, "aggregate_key_type", aggregate_key_type)
         pulumi.set(__self__, "limit", limit)
+        if custom_keys is not None:
+            pulumi.set(__self__, "custom_keys", custom_keys)
         if forwarded_ip_config is not None:
             pulumi.set(__self__, "forwarded_ip_config", forwarded_ip_config)
         if scope_down_statement is not None:
@@ -1914,6 +1942,14 @@ class RuleGroupRateBasedStatement(dict):
         return pulumi.get(self, "limit")
 
     @property
+    @pulumi.getter(name="customKeys")
+    def custom_keys(self) -> Optional[Sequence['outputs.RuleGroupRateBasedStatementCustomKey']]:
+        """
+        Specifies the aggregate keys to use in a rate-base rule.
+        """
+        return pulumi.get(self, "custom_keys")
+
+    @property
     @pulumi.getter(name="forwardedIPConfig")
     def forwarded_ip_config(self) -> Optional['outputs.RuleGroupForwardedIPConfiguration']:
         return pulumi.get(self, "forwarded_ip_config")
@@ -1922,6 +1958,384 @@ class RuleGroupRateBasedStatement(dict):
     @pulumi.getter(name="scopeDownStatement")
     def scope_down_statement(self) -> Optional['outputs.RuleGroupStatement']:
         return pulumi.get(self, "scope_down_statement")
+
+
+@pulumi.output_type
+class RuleGroupRateBasedStatementCustomKey(dict):
+    """
+    Specifies a single custom aggregate key for a rate-base rule.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "forwardedIP":
+            suggest = "forwarded_ip"
+        elif key == "hTTPMethod":
+            suggest = "h_ttp_method"
+        elif key == "iP":
+            suggest = "i_p"
+        elif key == "labelNamespace":
+            suggest = "label_namespace"
+        elif key == "queryArgument":
+            suggest = "query_argument"
+        elif key == "queryString":
+            suggest = "query_string"
+        elif key == "uriPath":
+            suggest = "uri_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRateBasedStatementCustomKey. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRateBasedStatementCustomKey.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRateBasedStatementCustomKey.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cookie: Optional['outputs.RuleGroupRateLimitCookie'] = None,
+                 forwarded_ip: Optional['outputs.RuleGroupRateLimitForwardedIP'] = None,
+                 h_ttp_method: Optional['outputs.RuleGroupRateLimitHTTPMethod'] = None,
+                 header: Optional['outputs.RuleGroupRateLimitHeader'] = None,
+                 i_p: Optional['outputs.RuleGroupRateLimitIP'] = None,
+                 label_namespace: Optional['outputs.RuleGroupRateLimitLabelNamespace'] = None,
+                 query_argument: Optional['outputs.RuleGroupRateLimitQueryArgument'] = None,
+                 query_string: Optional['outputs.RuleGroupRateLimitQueryString'] = None,
+                 uri_path: Optional['outputs.RuleGroupRateLimitUriPath'] = None):
+        """
+        Specifies a single custom aggregate key for a rate-base rule.
+        """
+        if cookie is not None:
+            pulumi.set(__self__, "cookie", cookie)
+        if forwarded_ip is not None:
+            pulumi.set(__self__, "forwarded_ip", forwarded_ip)
+        if h_ttp_method is not None:
+            pulumi.set(__self__, "h_ttp_method", h_ttp_method)
+        if header is not None:
+            pulumi.set(__self__, "header", header)
+        if i_p is not None:
+            pulumi.set(__self__, "i_p", i_p)
+        if label_namespace is not None:
+            pulumi.set(__self__, "label_namespace", label_namespace)
+        if query_argument is not None:
+            pulumi.set(__self__, "query_argument", query_argument)
+        if query_string is not None:
+            pulumi.set(__self__, "query_string", query_string)
+        if uri_path is not None:
+            pulumi.set(__self__, "uri_path", uri_path)
+
+    @property
+    @pulumi.getter
+    def cookie(self) -> Optional['outputs.RuleGroupRateLimitCookie']:
+        return pulumi.get(self, "cookie")
+
+    @property
+    @pulumi.getter(name="forwardedIP")
+    def forwarded_ip(self) -> Optional['outputs.RuleGroupRateLimitForwardedIP']:
+        return pulumi.get(self, "forwarded_ip")
+
+    @property
+    @pulumi.getter(name="hTTPMethod")
+    def h_ttp_method(self) -> Optional['outputs.RuleGroupRateLimitHTTPMethod']:
+        return pulumi.get(self, "h_ttp_method")
+
+    @property
+    @pulumi.getter
+    def header(self) -> Optional['outputs.RuleGroupRateLimitHeader']:
+        return pulumi.get(self, "header")
+
+    @property
+    @pulumi.getter(name="iP")
+    def i_p(self) -> Optional['outputs.RuleGroupRateLimitIP']:
+        return pulumi.get(self, "i_p")
+
+    @property
+    @pulumi.getter(name="labelNamespace")
+    def label_namespace(self) -> Optional['outputs.RuleGroupRateLimitLabelNamespace']:
+        return pulumi.get(self, "label_namespace")
+
+    @property
+    @pulumi.getter(name="queryArgument")
+    def query_argument(self) -> Optional['outputs.RuleGroupRateLimitQueryArgument']:
+        return pulumi.get(self, "query_argument")
+
+    @property
+    @pulumi.getter(name="queryString")
+    def query_string(self) -> Optional['outputs.RuleGroupRateLimitQueryString']:
+        return pulumi.get(self, "query_string")
+
+    @property
+    @pulumi.getter(name="uriPath")
+    def uri_path(self) -> Optional['outputs.RuleGroupRateLimitUriPath']:
+        return pulumi.get(self, "uri_path")
+
+
+@pulumi.output_type
+class RuleGroupRateLimitCookie(dict):
+    """
+    Specifies a cookie as an aggregate key for a rate-based rule.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "textTransformations":
+            suggest = "text_transformations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRateLimitCookie. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRateLimitCookie.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRateLimitCookie.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 text_transformations: Sequence['outputs.RuleGroupTextTransformation']):
+        """
+        Specifies a cookie as an aggregate key for a rate-based rule.
+        :param str name: The name of the cookie to use.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "text_transformations", text_transformations)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the cookie to use.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="textTransformations")
+    def text_transformations(self) -> Sequence['outputs.RuleGroupTextTransformation']:
+        return pulumi.get(self, "text_transformations")
+
+
+@pulumi.output_type
+class RuleGroupRateLimitForwardedIP(dict):
+    """
+    Specifies the first IP address in an HTTP header as an aggregate key for a rate-based rule.
+    """
+    def __init__(__self__):
+        """
+        Specifies the first IP address in an HTTP header as an aggregate key for a rate-based rule.
+        """
+        pass
+
+
+@pulumi.output_type
+class RuleGroupRateLimitHTTPMethod(dict):
+    """
+    Specifies the request's HTTP method as an aggregate key for a rate-based rule.
+    """
+    def __init__(__self__):
+        """
+        Specifies the request's HTTP method as an aggregate key for a rate-based rule.
+        """
+        pass
+
+
+@pulumi.output_type
+class RuleGroupRateLimitHeader(dict):
+    """
+    Specifies a header as an aggregate key for a rate-based rule.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "textTransformations":
+            suggest = "text_transformations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRateLimitHeader. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRateLimitHeader.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRateLimitHeader.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 text_transformations: Sequence['outputs.RuleGroupTextTransformation']):
+        """
+        Specifies a header as an aggregate key for a rate-based rule.
+        :param str name: The name of the header to use.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "text_transformations", text_transformations)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the header to use.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="textTransformations")
+    def text_transformations(self) -> Sequence['outputs.RuleGroupTextTransformation']:
+        return pulumi.get(self, "text_transformations")
+
+
+@pulumi.output_type
+class RuleGroupRateLimitIP(dict):
+    """
+    Specifies the IP address in the web request as an aggregate key for a rate-based rule.
+    """
+    def __init__(__self__):
+        """
+        Specifies the IP address in the web request as an aggregate key for a rate-based rule.
+        """
+        pass
+
+
+@pulumi.output_type
+class RuleGroupRateLimitLabelNamespace(dict):
+    """
+    Specifies a label namespace to use as an aggregate key for a rate-based rule.
+    """
+    def __init__(__self__, *,
+                 namespace: str):
+        """
+        Specifies a label namespace to use as an aggregate key for a rate-based rule.
+        :param str namespace: The namespace to use for aggregation.
+        """
+        pulumi.set(__self__, "namespace", namespace)
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> str:
+        """
+        The namespace to use for aggregation.
+        """
+        return pulumi.get(self, "namespace")
+
+
+@pulumi.output_type
+class RuleGroupRateLimitQueryArgument(dict):
+    """
+    Specifies a query argument in the request as an aggregate key for a rate-based rule.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "textTransformations":
+            suggest = "text_transformations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRateLimitQueryArgument. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRateLimitQueryArgument.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRateLimitQueryArgument.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 text_transformations: Sequence['outputs.RuleGroupTextTransformation']):
+        """
+        Specifies a query argument in the request as an aggregate key for a rate-based rule.
+        :param str name: The name of the query argument to use.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "text_transformations", text_transformations)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the query argument to use.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="textTransformations")
+    def text_transformations(self) -> Sequence['outputs.RuleGroupTextTransformation']:
+        return pulumi.get(self, "text_transformations")
+
+
+@pulumi.output_type
+class RuleGroupRateLimitQueryString(dict):
+    """
+    Specifies the request's query string as an aggregate key for a rate-based rule.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "textTransformations":
+            suggest = "text_transformations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRateLimitQueryString. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRateLimitQueryString.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRateLimitQueryString.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 text_transformations: Sequence['outputs.RuleGroupTextTransformation']):
+        """
+        Specifies the request's query string as an aggregate key for a rate-based rule.
+        """
+        pulumi.set(__self__, "text_transformations", text_transformations)
+
+    @property
+    @pulumi.getter(name="textTransformations")
+    def text_transformations(self) -> Sequence['outputs.RuleGroupTextTransformation']:
+        return pulumi.get(self, "text_transformations")
+
+
+@pulumi.output_type
+class RuleGroupRateLimitUriPath(dict):
+    """
+    Specifies the request's URI Path as an aggregate key for a rate-based rule.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "textTransformations":
+            suggest = "text_transformations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRateLimitUriPath. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRateLimitUriPath.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRateLimitUriPath.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 text_transformations: Sequence['outputs.RuleGroupTextTransformation']):
+        """
+        Specifies the request's URI Path as an aggregate key for a rate-based rule.
+        """
+        pulumi.set(__self__, "text_transformations", text_transformations)
+
+    @property
+    @pulumi.getter(name="textTransformations")
+    def text_transformations(self) -> Sequence['outputs.RuleGroupTextTransformation']:
+        return pulumi.get(self, "text_transformations")
 
 
 @pulumi.output_type
@@ -4229,6 +4643,8 @@ class WebACLRateBasedStatement(dict):
         suggest = None
         if key == "aggregateKeyType":
             suggest = "aggregate_key_type"
+        elif key == "customKeys":
+            suggest = "custom_keys"
         elif key == "forwardedIPConfig":
             suggest = "forwarded_ip_config"
         elif key == "scopeDownStatement":
@@ -4248,10 +4664,16 @@ class WebACLRateBasedStatement(dict):
     def __init__(__self__, *,
                  aggregate_key_type: 'WebACLRateBasedStatementAggregateKeyType',
                  limit: int,
+                 custom_keys: Optional[Sequence['outputs.WebACLRateBasedStatementCustomKey']] = None,
                  forwarded_ip_config: Optional['outputs.WebACLForwardedIPConfiguration'] = None,
                  scope_down_statement: Optional['outputs.WebACLStatement'] = None):
+        """
+        :param Sequence['WebACLRateBasedStatementCustomKey'] custom_keys: Specifies the aggregate keys to use in a rate-base rule.
+        """
         pulumi.set(__self__, "aggregate_key_type", aggregate_key_type)
         pulumi.set(__self__, "limit", limit)
+        if custom_keys is not None:
+            pulumi.set(__self__, "custom_keys", custom_keys)
         if forwarded_ip_config is not None:
             pulumi.set(__self__, "forwarded_ip_config", forwarded_ip_config)
         if scope_down_statement is not None:
@@ -4268,6 +4690,14 @@ class WebACLRateBasedStatement(dict):
         return pulumi.get(self, "limit")
 
     @property
+    @pulumi.getter(name="customKeys")
+    def custom_keys(self) -> Optional[Sequence['outputs.WebACLRateBasedStatementCustomKey']]:
+        """
+        Specifies the aggregate keys to use in a rate-base rule.
+        """
+        return pulumi.get(self, "custom_keys")
+
+    @property
     @pulumi.getter(name="forwardedIPConfig")
     def forwarded_ip_config(self) -> Optional['outputs.WebACLForwardedIPConfiguration']:
         return pulumi.get(self, "forwarded_ip_config")
@@ -4276,6 +4706,384 @@ class WebACLRateBasedStatement(dict):
     @pulumi.getter(name="scopeDownStatement")
     def scope_down_statement(self) -> Optional['outputs.WebACLStatement']:
         return pulumi.get(self, "scope_down_statement")
+
+
+@pulumi.output_type
+class WebACLRateBasedStatementCustomKey(dict):
+    """
+    Specifies a single custom aggregate key for a rate-base rule.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "forwardedIP":
+            suggest = "forwarded_ip"
+        elif key == "hTTPMethod":
+            suggest = "h_ttp_method"
+        elif key == "iP":
+            suggest = "i_p"
+        elif key == "labelNamespace":
+            suggest = "label_namespace"
+        elif key == "queryArgument":
+            suggest = "query_argument"
+        elif key == "queryString":
+            suggest = "query_string"
+        elif key == "uriPath":
+            suggest = "uri_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebACLRateBasedStatementCustomKey. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebACLRateBasedStatementCustomKey.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebACLRateBasedStatementCustomKey.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cookie: Optional['outputs.WebACLRateLimitCookie'] = None,
+                 forwarded_ip: Optional['outputs.WebACLRateLimitForwardedIP'] = None,
+                 h_ttp_method: Optional['outputs.WebACLRateLimitHTTPMethod'] = None,
+                 header: Optional['outputs.WebACLRateLimitHeader'] = None,
+                 i_p: Optional['outputs.WebACLRateLimitIP'] = None,
+                 label_namespace: Optional['outputs.WebACLRateLimitLabelNamespace'] = None,
+                 query_argument: Optional['outputs.WebACLRateLimitQueryArgument'] = None,
+                 query_string: Optional['outputs.WebACLRateLimitQueryString'] = None,
+                 uri_path: Optional['outputs.WebACLRateLimitUriPath'] = None):
+        """
+        Specifies a single custom aggregate key for a rate-base rule.
+        """
+        if cookie is not None:
+            pulumi.set(__self__, "cookie", cookie)
+        if forwarded_ip is not None:
+            pulumi.set(__self__, "forwarded_ip", forwarded_ip)
+        if h_ttp_method is not None:
+            pulumi.set(__self__, "h_ttp_method", h_ttp_method)
+        if header is not None:
+            pulumi.set(__self__, "header", header)
+        if i_p is not None:
+            pulumi.set(__self__, "i_p", i_p)
+        if label_namespace is not None:
+            pulumi.set(__self__, "label_namespace", label_namespace)
+        if query_argument is not None:
+            pulumi.set(__self__, "query_argument", query_argument)
+        if query_string is not None:
+            pulumi.set(__self__, "query_string", query_string)
+        if uri_path is not None:
+            pulumi.set(__self__, "uri_path", uri_path)
+
+    @property
+    @pulumi.getter
+    def cookie(self) -> Optional['outputs.WebACLRateLimitCookie']:
+        return pulumi.get(self, "cookie")
+
+    @property
+    @pulumi.getter(name="forwardedIP")
+    def forwarded_ip(self) -> Optional['outputs.WebACLRateLimitForwardedIP']:
+        return pulumi.get(self, "forwarded_ip")
+
+    @property
+    @pulumi.getter(name="hTTPMethod")
+    def h_ttp_method(self) -> Optional['outputs.WebACLRateLimitHTTPMethod']:
+        return pulumi.get(self, "h_ttp_method")
+
+    @property
+    @pulumi.getter
+    def header(self) -> Optional['outputs.WebACLRateLimitHeader']:
+        return pulumi.get(self, "header")
+
+    @property
+    @pulumi.getter(name="iP")
+    def i_p(self) -> Optional['outputs.WebACLRateLimitIP']:
+        return pulumi.get(self, "i_p")
+
+    @property
+    @pulumi.getter(name="labelNamespace")
+    def label_namespace(self) -> Optional['outputs.WebACLRateLimitLabelNamespace']:
+        return pulumi.get(self, "label_namespace")
+
+    @property
+    @pulumi.getter(name="queryArgument")
+    def query_argument(self) -> Optional['outputs.WebACLRateLimitQueryArgument']:
+        return pulumi.get(self, "query_argument")
+
+    @property
+    @pulumi.getter(name="queryString")
+    def query_string(self) -> Optional['outputs.WebACLRateLimitQueryString']:
+        return pulumi.get(self, "query_string")
+
+    @property
+    @pulumi.getter(name="uriPath")
+    def uri_path(self) -> Optional['outputs.WebACLRateLimitUriPath']:
+        return pulumi.get(self, "uri_path")
+
+
+@pulumi.output_type
+class WebACLRateLimitCookie(dict):
+    """
+    Specifies a cookie as an aggregate key for a rate-based rule.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "textTransformations":
+            suggest = "text_transformations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebACLRateLimitCookie. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebACLRateLimitCookie.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebACLRateLimitCookie.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 text_transformations: Sequence['outputs.WebACLTextTransformation']):
+        """
+        Specifies a cookie as an aggregate key for a rate-based rule.
+        :param str name: The name of the cookie to use.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "text_transformations", text_transformations)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the cookie to use.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="textTransformations")
+    def text_transformations(self) -> Sequence['outputs.WebACLTextTransformation']:
+        return pulumi.get(self, "text_transformations")
+
+
+@pulumi.output_type
+class WebACLRateLimitForwardedIP(dict):
+    """
+    Specifies the first IP address in an HTTP header as an aggregate key for a rate-based rule.
+    """
+    def __init__(__self__):
+        """
+        Specifies the first IP address in an HTTP header as an aggregate key for a rate-based rule.
+        """
+        pass
+
+
+@pulumi.output_type
+class WebACLRateLimitHTTPMethod(dict):
+    """
+    Specifies the request's HTTP method as an aggregate key for a rate-based rule.
+    """
+    def __init__(__self__):
+        """
+        Specifies the request's HTTP method as an aggregate key for a rate-based rule.
+        """
+        pass
+
+
+@pulumi.output_type
+class WebACLRateLimitHeader(dict):
+    """
+    Specifies a header as an aggregate key for a rate-based rule.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "textTransformations":
+            suggest = "text_transformations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebACLRateLimitHeader. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebACLRateLimitHeader.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebACLRateLimitHeader.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 text_transformations: Sequence['outputs.WebACLTextTransformation']):
+        """
+        Specifies a header as an aggregate key for a rate-based rule.
+        :param str name: The name of the header to use.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "text_transformations", text_transformations)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the header to use.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="textTransformations")
+    def text_transformations(self) -> Sequence['outputs.WebACLTextTransformation']:
+        return pulumi.get(self, "text_transformations")
+
+
+@pulumi.output_type
+class WebACLRateLimitIP(dict):
+    """
+    Specifies the IP address in the web request as an aggregate key for a rate-based rule.
+    """
+    def __init__(__self__):
+        """
+        Specifies the IP address in the web request as an aggregate key for a rate-based rule.
+        """
+        pass
+
+
+@pulumi.output_type
+class WebACLRateLimitLabelNamespace(dict):
+    """
+    Specifies a label namespace to use as an aggregate key for a rate-based rule.
+    """
+    def __init__(__self__, *,
+                 namespace: str):
+        """
+        Specifies a label namespace to use as an aggregate key for a rate-based rule.
+        :param str namespace: The namespace to use for aggregation.
+        """
+        pulumi.set(__self__, "namespace", namespace)
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> str:
+        """
+        The namespace to use for aggregation.
+        """
+        return pulumi.get(self, "namespace")
+
+
+@pulumi.output_type
+class WebACLRateLimitQueryArgument(dict):
+    """
+    Specifies a query argument in the request as an aggregate key for a rate-based rule.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "textTransformations":
+            suggest = "text_transformations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebACLRateLimitQueryArgument. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebACLRateLimitQueryArgument.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebACLRateLimitQueryArgument.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 text_transformations: Sequence['outputs.WebACLTextTransformation']):
+        """
+        Specifies a query argument in the request as an aggregate key for a rate-based rule.
+        :param str name: The name of the query argument to use.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "text_transformations", text_transformations)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the query argument to use.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="textTransformations")
+    def text_transformations(self) -> Sequence['outputs.WebACLTextTransformation']:
+        return pulumi.get(self, "text_transformations")
+
+
+@pulumi.output_type
+class WebACLRateLimitQueryString(dict):
+    """
+    Specifies the request's query string as an aggregate key for a rate-based rule.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "textTransformations":
+            suggest = "text_transformations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebACLRateLimitQueryString. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebACLRateLimitQueryString.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebACLRateLimitQueryString.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 text_transformations: Sequence['outputs.WebACLTextTransformation']):
+        """
+        Specifies the request's query string as an aggregate key for a rate-based rule.
+        """
+        pulumi.set(__self__, "text_transformations", text_transformations)
+
+    @property
+    @pulumi.getter(name="textTransformations")
+    def text_transformations(self) -> Sequence['outputs.WebACLTextTransformation']:
+        return pulumi.get(self, "text_transformations")
+
+
+@pulumi.output_type
+class WebACLRateLimitUriPath(dict):
+    """
+    Specifies the request's URI Path as an aggregate key for a rate-based rule.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "textTransformations":
+            suggest = "text_transformations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebACLRateLimitUriPath. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebACLRateLimitUriPath.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebACLRateLimitUriPath.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 text_transformations: Sequence['outputs.WebACLTextTransformation']):
+        """
+        Specifies the request's URI Path as an aggregate key for a rate-based rule.
+        """
+        pulumi.set(__self__, "text_transformations", text_transformations)
+
+    @property
+    @pulumi.getter(name="textTransformations")
+    def text_transformations(self) -> Sequence['outputs.WebACLTextTransformation']:
+        return pulumi.get(self, "text_transformations")
 
 
 @pulumi.output_type

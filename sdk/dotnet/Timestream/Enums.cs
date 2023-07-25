@@ -135,4 +135,66 @@ namespace Pulumi.AwsNative.Timestream
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// The level of enforcement for the specification of a dimension key in ingested records. Options are REQUIRED (dimension key must be specified) and OPTIONAL (dimension key does not have to be specified).
+    /// </summary>
+    [EnumType]
+    public readonly struct TablePartitionKeyEnforcementLevel : IEquatable<TablePartitionKeyEnforcementLevel>
+    {
+        private readonly string _value;
+
+        private TablePartitionKeyEnforcementLevel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TablePartitionKeyEnforcementLevel Required { get; } = new TablePartitionKeyEnforcementLevel("REQUIRED");
+        public static TablePartitionKeyEnforcementLevel Optional { get; } = new TablePartitionKeyEnforcementLevel("OPTIONAL");
+
+        public static bool operator ==(TablePartitionKeyEnforcementLevel left, TablePartitionKeyEnforcementLevel right) => left.Equals(right);
+        public static bool operator !=(TablePartitionKeyEnforcementLevel left, TablePartitionKeyEnforcementLevel right) => !left.Equals(right);
+
+        public static explicit operator string(TablePartitionKeyEnforcementLevel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TablePartitionKeyEnforcementLevel other && Equals(other);
+        public bool Equals(TablePartitionKeyEnforcementLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of the partition key. Options are DIMENSION (dimension key) and MEASURE (measure key).
+    /// </summary>
+    [EnumType]
+    public readonly struct TablePartitionKeyType : IEquatable<TablePartitionKeyType>
+    {
+        private readonly string _value;
+
+        private TablePartitionKeyType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TablePartitionKeyType Dimension { get; } = new TablePartitionKeyType("DIMENSION");
+        public static TablePartitionKeyType Measure { get; } = new TablePartitionKeyType("MEASURE");
+
+        public static bool operator ==(TablePartitionKeyType left, TablePartitionKeyType right) => left.Equals(right);
+        public static bool operator !=(TablePartitionKeyType left, TablePartitionKeyType right) => !left.Equals(right);
+
+        public static explicit operator string(TablePartitionKeyType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TablePartitionKeyType other && Equals(other);
+        public bool Equals(TablePartitionKeyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

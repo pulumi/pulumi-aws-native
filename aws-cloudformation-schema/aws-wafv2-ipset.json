@@ -108,7 +108,15 @@
       "permissions" : [ "wafv2:UpdateIPSet", "wafv2:GetIPSet", "wafv2:ListTagsForResource" ]
     },
     "list" : {
-      "permissions" : [ "wafv2:listIPSets" ]
+      "permissions" : [ "wafv2:listIPSets" ],
+      "handlerSchema" : {
+        "properties" : {
+          "Scope" : {
+            "$ref" : "resource-schema.json#/properties/Scope"
+          }
+        },
+        "required" : [ "Scope" ]
+      }
     }
   }
 }

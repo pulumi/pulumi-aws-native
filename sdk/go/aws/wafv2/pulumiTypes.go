@@ -6378,10 +6378,12 @@ func (o RuleGroupOrStatementPtrOutput) Statements() RuleGroupStatementArrayOutpu
 }
 
 type RuleGroupRateBasedStatement struct {
-	AggregateKeyType   RuleGroupRateBasedStatementAggregateKeyType `pulumi:"aggregateKeyType"`
-	ForwardedIPConfig  *RuleGroupForwardedIPConfiguration          `pulumi:"forwardedIPConfig"`
-	Limit              int                                         `pulumi:"limit"`
-	ScopeDownStatement *RuleGroupStatement                         `pulumi:"scopeDownStatement"`
+	AggregateKeyType RuleGroupRateBasedStatementAggregateKeyType `pulumi:"aggregateKeyType"`
+	// Specifies the aggregate keys to use in a rate-base rule.
+	CustomKeys         []RuleGroupRateBasedStatementCustomKey `pulumi:"customKeys"`
+	ForwardedIPConfig  *RuleGroupForwardedIPConfiguration     `pulumi:"forwardedIPConfig"`
+	Limit              int                                    `pulumi:"limit"`
+	ScopeDownStatement *RuleGroupStatement                    `pulumi:"scopeDownStatement"`
 }
 
 // RuleGroupRateBasedStatementInput is an input type that accepts RuleGroupRateBasedStatementArgs and RuleGroupRateBasedStatementOutput values.
@@ -6396,10 +6398,12 @@ type RuleGroupRateBasedStatementInput interface {
 }
 
 type RuleGroupRateBasedStatementArgs struct {
-	AggregateKeyType   RuleGroupRateBasedStatementAggregateKeyTypeInput `pulumi:"aggregateKeyType"`
-	ForwardedIPConfig  RuleGroupForwardedIPConfigurationPtrInput        `pulumi:"forwardedIPConfig"`
-	Limit              pulumi.IntInput                                  `pulumi:"limit"`
-	ScopeDownStatement RuleGroupStatementPtrInput                       `pulumi:"scopeDownStatement"`
+	AggregateKeyType RuleGroupRateBasedStatementAggregateKeyTypeInput `pulumi:"aggregateKeyType"`
+	// Specifies the aggregate keys to use in a rate-base rule.
+	CustomKeys         RuleGroupRateBasedStatementCustomKeyArrayInput `pulumi:"customKeys"`
+	ForwardedIPConfig  RuleGroupForwardedIPConfigurationPtrInput      `pulumi:"forwardedIPConfig"`
+	Limit              pulumi.IntInput                                `pulumi:"limit"`
+	ScopeDownStatement RuleGroupStatementPtrInput                     `pulumi:"scopeDownStatement"`
 }
 
 func (RuleGroupRateBasedStatementArgs) ElementType() reflect.Type {
@@ -6485,6 +6489,11 @@ func (o RuleGroupRateBasedStatementOutput) AggregateKeyType() RuleGroupRateBased
 	}).(RuleGroupRateBasedStatementAggregateKeyTypeOutput)
 }
 
+// Specifies the aggregate keys to use in a rate-base rule.
+func (o RuleGroupRateBasedStatementOutput) CustomKeys() RuleGroupRateBasedStatementCustomKeyArrayOutput {
+	return o.ApplyT(func(v RuleGroupRateBasedStatement) []RuleGroupRateBasedStatementCustomKey { return v.CustomKeys }).(RuleGroupRateBasedStatementCustomKeyArrayOutput)
+}
+
 func (o RuleGroupRateBasedStatementOutput) ForwardedIPConfig() RuleGroupForwardedIPConfigurationPtrOutput {
 	return o.ApplyT(func(v RuleGroupRateBasedStatement) *RuleGroupForwardedIPConfiguration { return v.ForwardedIPConfig }).(RuleGroupForwardedIPConfigurationPtrOutput)
 }
@@ -6530,6 +6539,16 @@ func (o RuleGroupRateBasedStatementPtrOutput) AggregateKeyType() RuleGroupRateBa
 	}).(RuleGroupRateBasedStatementAggregateKeyTypePtrOutput)
 }
 
+// Specifies the aggregate keys to use in a rate-base rule.
+func (o RuleGroupRateBasedStatementPtrOutput) CustomKeys() RuleGroupRateBasedStatementCustomKeyArrayOutput {
+	return o.ApplyT(func(v *RuleGroupRateBasedStatement) []RuleGroupRateBasedStatementCustomKey {
+		if v == nil {
+			return nil
+		}
+		return v.CustomKeys
+	}).(RuleGroupRateBasedStatementCustomKeyArrayOutput)
+}
+
 func (o RuleGroupRateBasedStatementPtrOutput) ForwardedIPConfig() RuleGroupForwardedIPConfigurationPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRateBasedStatement) *RuleGroupForwardedIPConfiguration {
 		if v == nil {
@@ -6555,6 +6574,1393 @@ func (o RuleGroupRateBasedStatementPtrOutput) ScopeDownStatement() RuleGroupStat
 		}
 		return v.ScopeDownStatement
 	}).(RuleGroupStatementPtrOutput)
+}
+
+// Specifies a single custom aggregate key for a rate-base rule.
+type RuleGroupRateBasedStatementCustomKey struct {
+	Cookie         *RuleGroupRateLimitCookie         `pulumi:"cookie"`
+	ForwardedIP    *RuleGroupRateLimitForwardedIP    `pulumi:"forwardedIP"`
+	HTTPMethod     *RuleGroupRateLimitHTTPMethod     `pulumi:"hTTPMethod"`
+	Header         *RuleGroupRateLimitHeader         `pulumi:"header"`
+	IP             *RuleGroupRateLimitIP             `pulumi:"iP"`
+	LabelNamespace *RuleGroupRateLimitLabelNamespace `pulumi:"labelNamespace"`
+	QueryArgument  *RuleGroupRateLimitQueryArgument  `pulumi:"queryArgument"`
+	QueryString    *RuleGroupRateLimitQueryString    `pulumi:"queryString"`
+	UriPath        *RuleGroupRateLimitUriPath        `pulumi:"uriPath"`
+}
+
+// RuleGroupRateBasedStatementCustomKeyInput is an input type that accepts RuleGroupRateBasedStatementCustomKeyArgs and RuleGroupRateBasedStatementCustomKeyOutput values.
+// You can construct a concrete instance of `RuleGroupRateBasedStatementCustomKeyInput` via:
+//
+//	RuleGroupRateBasedStatementCustomKeyArgs{...}
+type RuleGroupRateBasedStatementCustomKeyInput interface {
+	pulumi.Input
+
+	ToRuleGroupRateBasedStatementCustomKeyOutput() RuleGroupRateBasedStatementCustomKeyOutput
+	ToRuleGroupRateBasedStatementCustomKeyOutputWithContext(context.Context) RuleGroupRateBasedStatementCustomKeyOutput
+}
+
+// Specifies a single custom aggregate key for a rate-base rule.
+type RuleGroupRateBasedStatementCustomKeyArgs struct {
+	Cookie         RuleGroupRateLimitCookiePtrInput         `pulumi:"cookie"`
+	ForwardedIP    RuleGroupRateLimitForwardedIPPtrInput    `pulumi:"forwardedIP"`
+	HTTPMethod     RuleGroupRateLimitHTTPMethodPtrInput     `pulumi:"hTTPMethod"`
+	Header         RuleGroupRateLimitHeaderPtrInput         `pulumi:"header"`
+	IP             RuleGroupRateLimitIPPtrInput             `pulumi:"iP"`
+	LabelNamespace RuleGroupRateLimitLabelNamespacePtrInput `pulumi:"labelNamespace"`
+	QueryArgument  RuleGroupRateLimitQueryArgumentPtrInput  `pulumi:"queryArgument"`
+	QueryString    RuleGroupRateLimitQueryStringPtrInput    `pulumi:"queryString"`
+	UriPath        RuleGroupRateLimitUriPathPtrInput        `pulumi:"uriPath"`
+}
+
+func (RuleGroupRateBasedStatementCustomKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupRateBasedStatementCustomKey)(nil)).Elem()
+}
+
+func (i RuleGroupRateBasedStatementCustomKeyArgs) ToRuleGroupRateBasedStatementCustomKeyOutput() RuleGroupRateBasedStatementCustomKeyOutput {
+	return i.ToRuleGroupRateBasedStatementCustomKeyOutputWithContext(context.Background())
+}
+
+func (i RuleGroupRateBasedStatementCustomKeyArgs) ToRuleGroupRateBasedStatementCustomKeyOutputWithContext(ctx context.Context) RuleGroupRateBasedStatementCustomKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRateBasedStatementCustomKeyOutput)
+}
+
+// RuleGroupRateBasedStatementCustomKeyArrayInput is an input type that accepts RuleGroupRateBasedStatementCustomKeyArray and RuleGroupRateBasedStatementCustomKeyArrayOutput values.
+// You can construct a concrete instance of `RuleGroupRateBasedStatementCustomKeyArrayInput` via:
+//
+//	RuleGroupRateBasedStatementCustomKeyArray{ RuleGroupRateBasedStatementCustomKeyArgs{...} }
+type RuleGroupRateBasedStatementCustomKeyArrayInput interface {
+	pulumi.Input
+
+	ToRuleGroupRateBasedStatementCustomKeyArrayOutput() RuleGroupRateBasedStatementCustomKeyArrayOutput
+	ToRuleGroupRateBasedStatementCustomKeyArrayOutputWithContext(context.Context) RuleGroupRateBasedStatementCustomKeyArrayOutput
+}
+
+type RuleGroupRateBasedStatementCustomKeyArray []RuleGroupRateBasedStatementCustomKeyInput
+
+func (RuleGroupRateBasedStatementCustomKeyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleGroupRateBasedStatementCustomKey)(nil)).Elem()
+}
+
+func (i RuleGroupRateBasedStatementCustomKeyArray) ToRuleGroupRateBasedStatementCustomKeyArrayOutput() RuleGroupRateBasedStatementCustomKeyArrayOutput {
+	return i.ToRuleGroupRateBasedStatementCustomKeyArrayOutputWithContext(context.Background())
+}
+
+func (i RuleGroupRateBasedStatementCustomKeyArray) ToRuleGroupRateBasedStatementCustomKeyArrayOutputWithContext(ctx context.Context) RuleGroupRateBasedStatementCustomKeyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRateBasedStatementCustomKeyArrayOutput)
+}
+
+// Specifies a single custom aggregate key for a rate-base rule.
+type RuleGroupRateBasedStatementCustomKeyOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupRateBasedStatementCustomKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupRateBasedStatementCustomKey)(nil)).Elem()
+}
+
+func (o RuleGroupRateBasedStatementCustomKeyOutput) ToRuleGroupRateBasedStatementCustomKeyOutput() RuleGroupRateBasedStatementCustomKeyOutput {
+	return o
+}
+
+func (o RuleGroupRateBasedStatementCustomKeyOutput) ToRuleGroupRateBasedStatementCustomKeyOutputWithContext(ctx context.Context) RuleGroupRateBasedStatementCustomKeyOutput {
+	return o
+}
+
+func (o RuleGroupRateBasedStatementCustomKeyOutput) Cookie() RuleGroupRateLimitCookiePtrOutput {
+	return o.ApplyT(func(v RuleGroupRateBasedStatementCustomKey) *RuleGroupRateLimitCookie { return v.Cookie }).(RuleGroupRateLimitCookiePtrOutput)
+}
+
+func (o RuleGroupRateBasedStatementCustomKeyOutput) ForwardedIP() RuleGroupRateLimitForwardedIPPtrOutput {
+	return o.ApplyT(func(v RuleGroupRateBasedStatementCustomKey) *RuleGroupRateLimitForwardedIP { return v.ForwardedIP }).(RuleGroupRateLimitForwardedIPPtrOutput)
+}
+
+func (o RuleGroupRateBasedStatementCustomKeyOutput) HTTPMethod() RuleGroupRateLimitHTTPMethodPtrOutput {
+	return o.ApplyT(func(v RuleGroupRateBasedStatementCustomKey) *RuleGroupRateLimitHTTPMethod { return v.HTTPMethod }).(RuleGroupRateLimitHTTPMethodPtrOutput)
+}
+
+func (o RuleGroupRateBasedStatementCustomKeyOutput) Header() RuleGroupRateLimitHeaderPtrOutput {
+	return o.ApplyT(func(v RuleGroupRateBasedStatementCustomKey) *RuleGroupRateLimitHeader { return v.Header }).(RuleGroupRateLimitHeaderPtrOutput)
+}
+
+func (o RuleGroupRateBasedStatementCustomKeyOutput) IP() RuleGroupRateLimitIPPtrOutput {
+	return o.ApplyT(func(v RuleGroupRateBasedStatementCustomKey) *RuleGroupRateLimitIP { return v.IP }).(RuleGroupRateLimitIPPtrOutput)
+}
+
+func (o RuleGroupRateBasedStatementCustomKeyOutput) LabelNamespace() RuleGroupRateLimitLabelNamespacePtrOutput {
+	return o.ApplyT(func(v RuleGroupRateBasedStatementCustomKey) *RuleGroupRateLimitLabelNamespace {
+		return v.LabelNamespace
+	}).(RuleGroupRateLimitLabelNamespacePtrOutput)
+}
+
+func (o RuleGroupRateBasedStatementCustomKeyOutput) QueryArgument() RuleGroupRateLimitQueryArgumentPtrOutput {
+	return o.ApplyT(func(v RuleGroupRateBasedStatementCustomKey) *RuleGroupRateLimitQueryArgument { return v.QueryArgument }).(RuleGroupRateLimitQueryArgumentPtrOutput)
+}
+
+func (o RuleGroupRateBasedStatementCustomKeyOutput) QueryString() RuleGroupRateLimitQueryStringPtrOutput {
+	return o.ApplyT(func(v RuleGroupRateBasedStatementCustomKey) *RuleGroupRateLimitQueryString { return v.QueryString }).(RuleGroupRateLimitQueryStringPtrOutput)
+}
+
+func (o RuleGroupRateBasedStatementCustomKeyOutput) UriPath() RuleGroupRateLimitUriPathPtrOutput {
+	return o.ApplyT(func(v RuleGroupRateBasedStatementCustomKey) *RuleGroupRateLimitUriPath { return v.UriPath }).(RuleGroupRateLimitUriPathPtrOutput)
+}
+
+type RuleGroupRateBasedStatementCustomKeyArrayOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupRateBasedStatementCustomKeyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleGroupRateBasedStatementCustomKey)(nil)).Elem()
+}
+
+func (o RuleGroupRateBasedStatementCustomKeyArrayOutput) ToRuleGroupRateBasedStatementCustomKeyArrayOutput() RuleGroupRateBasedStatementCustomKeyArrayOutput {
+	return o
+}
+
+func (o RuleGroupRateBasedStatementCustomKeyArrayOutput) ToRuleGroupRateBasedStatementCustomKeyArrayOutputWithContext(ctx context.Context) RuleGroupRateBasedStatementCustomKeyArrayOutput {
+	return o
+}
+
+func (o RuleGroupRateBasedStatementCustomKeyArrayOutput) Index(i pulumi.IntInput) RuleGroupRateBasedStatementCustomKeyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleGroupRateBasedStatementCustomKey {
+		return vs[0].([]RuleGroupRateBasedStatementCustomKey)[vs[1].(int)]
+	}).(RuleGroupRateBasedStatementCustomKeyOutput)
+}
+
+// Specifies a cookie as an aggregate key for a rate-based rule.
+type RuleGroupRateLimitCookie struct {
+	// The name of the cookie to use.
+	Name                string                        `pulumi:"name"`
+	TextTransformations []RuleGroupTextTransformation `pulumi:"textTransformations"`
+}
+
+// RuleGroupRateLimitCookieInput is an input type that accepts RuleGroupRateLimitCookieArgs and RuleGroupRateLimitCookieOutput values.
+// You can construct a concrete instance of `RuleGroupRateLimitCookieInput` via:
+//
+//	RuleGroupRateLimitCookieArgs{...}
+type RuleGroupRateLimitCookieInput interface {
+	pulumi.Input
+
+	ToRuleGroupRateLimitCookieOutput() RuleGroupRateLimitCookieOutput
+	ToRuleGroupRateLimitCookieOutputWithContext(context.Context) RuleGroupRateLimitCookieOutput
+}
+
+// Specifies a cookie as an aggregate key for a rate-based rule.
+type RuleGroupRateLimitCookieArgs struct {
+	// The name of the cookie to use.
+	Name                pulumi.StringInput                    `pulumi:"name"`
+	TextTransformations RuleGroupTextTransformationArrayInput `pulumi:"textTransformations"`
+}
+
+func (RuleGroupRateLimitCookieArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupRateLimitCookie)(nil)).Elem()
+}
+
+func (i RuleGroupRateLimitCookieArgs) ToRuleGroupRateLimitCookieOutput() RuleGroupRateLimitCookieOutput {
+	return i.ToRuleGroupRateLimitCookieOutputWithContext(context.Background())
+}
+
+func (i RuleGroupRateLimitCookieArgs) ToRuleGroupRateLimitCookieOutputWithContext(ctx context.Context) RuleGroupRateLimitCookieOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRateLimitCookieOutput)
+}
+
+func (i RuleGroupRateLimitCookieArgs) ToRuleGroupRateLimitCookiePtrOutput() RuleGroupRateLimitCookiePtrOutput {
+	return i.ToRuleGroupRateLimitCookiePtrOutputWithContext(context.Background())
+}
+
+func (i RuleGroupRateLimitCookieArgs) ToRuleGroupRateLimitCookiePtrOutputWithContext(ctx context.Context) RuleGroupRateLimitCookiePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRateLimitCookieOutput).ToRuleGroupRateLimitCookiePtrOutputWithContext(ctx)
+}
+
+// RuleGroupRateLimitCookiePtrInput is an input type that accepts RuleGroupRateLimitCookieArgs, RuleGroupRateLimitCookiePtr and RuleGroupRateLimitCookiePtrOutput values.
+// You can construct a concrete instance of `RuleGroupRateLimitCookiePtrInput` via:
+//
+//	        RuleGroupRateLimitCookieArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleGroupRateLimitCookiePtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupRateLimitCookiePtrOutput() RuleGroupRateLimitCookiePtrOutput
+	ToRuleGroupRateLimitCookiePtrOutputWithContext(context.Context) RuleGroupRateLimitCookiePtrOutput
+}
+
+type ruleGroupRateLimitCookiePtrType RuleGroupRateLimitCookieArgs
+
+func RuleGroupRateLimitCookiePtr(v *RuleGroupRateLimitCookieArgs) RuleGroupRateLimitCookiePtrInput {
+	return (*ruleGroupRateLimitCookiePtrType)(v)
+}
+
+func (*ruleGroupRateLimitCookiePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupRateLimitCookie)(nil)).Elem()
+}
+
+func (i *ruleGroupRateLimitCookiePtrType) ToRuleGroupRateLimitCookiePtrOutput() RuleGroupRateLimitCookiePtrOutput {
+	return i.ToRuleGroupRateLimitCookiePtrOutputWithContext(context.Background())
+}
+
+func (i *ruleGroupRateLimitCookiePtrType) ToRuleGroupRateLimitCookiePtrOutputWithContext(ctx context.Context) RuleGroupRateLimitCookiePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRateLimitCookiePtrOutput)
+}
+
+// Specifies a cookie as an aggregate key for a rate-based rule.
+type RuleGroupRateLimitCookieOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupRateLimitCookieOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupRateLimitCookie)(nil)).Elem()
+}
+
+func (o RuleGroupRateLimitCookieOutput) ToRuleGroupRateLimitCookieOutput() RuleGroupRateLimitCookieOutput {
+	return o
+}
+
+func (o RuleGroupRateLimitCookieOutput) ToRuleGroupRateLimitCookieOutputWithContext(ctx context.Context) RuleGroupRateLimitCookieOutput {
+	return o
+}
+
+func (o RuleGroupRateLimitCookieOutput) ToRuleGroupRateLimitCookiePtrOutput() RuleGroupRateLimitCookiePtrOutput {
+	return o.ToRuleGroupRateLimitCookiePtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupRateLimitCookieOutput) ToRuleGroupRateLimitCookiePtrOutputWithContext(ctx context.Context) RuleGroupRateLimitCookiePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupRateLimitCookie) *RuleGroupRateLimitCookie {
+		return &v
+	}).(RuleGroupRateLimitCookiePtrOutput)
+}
+
+// The name of the cookie to use.
+func (o RuleGroupRateLimitCookieOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleGroupRateLimitCookie) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o RuleGroupRateLimitCookieOutput) TextTransformations() RuleGroupTextTransformationArrayOutput {
+	return o.ApplyT(func(v RuleGroupRateLimitCookie) []RuleGroupTextTransformation { return v.TextTransformations }).(RuleGroupTextTransformationArrayOutput)
+}
+
+type RuleGroupRateLimitCookiePtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupRateLimitCookiePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupRateLimitCookie)(nil)).Elem()
+}
+
+func (o RuleGroupRateLimitCookiePtrOutput) ToRuleGroupRateLimitCookiePtrOutput() RuleGroupRateLimitCookiePtrOutput {
+	return o
+}
+
+func (o RuleGroupRateLimitCookiePtrOutput) ToRuleGroupRateLimitCookiePtrOutputWithContext(ctx context.Context) RuleGroupRateLimitCookiePtrOutput {
+	return o
+}
+
+func (o RuleGroupRateLimitCookiePtrOutput) Elem() RuleGroupRateLimitCookieOutput {
+	return o.ApplyT(func(v *RuleGroupRateLimitCookie) RuleGroupRateLimitCookie {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupRateLimitCookie
+		return ret
+	}).(RuleGroupRateLimitCookieOutput)
+}
+
+// The name of the cookie to use.
+func (o RuleGroupRateLimitCookiePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleGroupRateLimitCookie) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RuleGroupRateLimitCookiePtrOutput) TextTransformations() RuleGroupTextTransformationArrayOutput {
+	return o.ApplyT(func(v *RuleGroupRateLimitCookie) []RuleGroupTextTransformation {
+		if v == nil {
+			return nil
+		}
+		return v.TextTransformations
+	}).(RuleGroupTextTransformationArrayOutput)
+}
+
+// Specifies the first IP address in an HTTP header as an aggregate key for a rate-based rule.
+type RuleGroupRateLimitForwardedIP struct {
+}
+
+// RuleGroupRateLimitForwardedIPInput is an input type that accepts RuleGroupRateLimitForwardedIPArgs and RuleGroupRateLimitForwardedIPOutput values.
+// You can construct a concrete instance of `RuleGroupRateLimitForwardedIPInput` via:
+//
+//	RuleGroupRateLimitForwardedIPArgs{...}
+type RuleGroupRateLimitForwardedIPInput interface {
+	pulumi.Input
+
+	ToRuleGroupRateLimitForwardedIPOutput() RuleGroupRateLimitForwardedIPOutput
+	ToRuleGroupRateLimitForwardedIPOutputWithContext(context.Context) RuleGroupRateLimitForwardedIPOutput
+}
+
+// Specifies the first IP address in an HTTP header as an aggregate key for a rate-based rule.
+type RuleGroupRateLimitForwardedIPArgs struct {
+}
+
+func (RuleGroupRateLimitForwardedIPArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupRateLimitForwardedIP)(nil)).Elem()
+}
+
+func (i RuleGroupRateLimitForwardedIPArgs) ToRuleGroupRateLimitForwardedIPOutput() RuleGroupRateLimitForwardedIPOutput {
+	return i.ToRuleGroupRateLimitForwardedIPOutputWithContext(context.Background())
+}
+
+func (i RuleGroupRateLimitForwardedIPArgs) ToRuleGroupRateLimitForwardedIPOutputWithContext(ctx context.Context) RuleGroupRateLimitForwardedIPOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRateLimitForwardedIPOutput)
+}
+
+func (i RuleGroupRateLimitForwardedIPArgs) ToRuleGroupRateLimitForwardedIPPtrOutput() RuleGroupRateLimitForwardedIPPtrOutput {
+	return i.ToRuleGroupRateLimitForwardedIPPtrOutputWithContext(context.Background())
+}
+
+func (i RuleGroupRateLimitForwardedIPArgs) ToRuleGroupRateLimitForwardedIPPtrOutputWithContext(ctx context.Context) RuleGroupRateLimitForwardedIPPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRateLimitForwardedIPOutput).ToRuleGroupRateLimitForwardedIPPtrOutputWithContext(ctx)
+}
+
+// RuleGroupRateLimitForwardedIPPtrInput is an input type that accepts RuleGroupRateLimitForwardedIPArgs, RuleGroupRateLimitForwardedIPPtr and RuleGroupRateLimitForwardedIPPtrOutput values.
+// You can construct a concrete instance of `RuleGroupRateLimitForwardedIPPtrInput` via:
+//
+//	        RuleGroupRateLimitForwardedIPArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleGroupRateLimitForwardedIPPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupRateLimitForwardedIPPtrOutput() RuleGroupRateLimitForwardedIPPtrOutput
+	ToRuleGroupRateLimitForwardedIPPtrOutputWithContext(context.Context) RuleGroupRateLimitForwardedIPPtrOutput
+}
+
+type ruleGroupRateLimitForwardedIPPtrType RuleGroupRateLimitForwardedIPArgs
+
+func RuleGroupRateLimitForwardedIPPtr(v *RuleGroupRateLimitForwardedIPArgs) RuleGroupRateLimitForwardedIPPtrInput {
+	return (*ruleGroupRateLimitForwardedIPPtrType)(v)
+}
+
+func (*ruleGroupRateLimitForwardedIPPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupRateLimitForwardedIP)(nil)).Elem()
+}
+
+func (i *ruleGroupRateLimitForwardedIPPtrType) ToRuleGroupRateLimitForwardedIPPtrOutput() RuleGroupRateLimitForwardedIPPtrOutput {
+	return i.ToRuleGroupRateLimitForwardedIPPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleGroupRateLimitForwardedIPPtrType) ToRuleGroupRateLimitForwardedIPPtrOutputWithContext(ctx context.Context) RuleGroupRateLimitForwardedIPPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRateLimitForwardedIPPtrOutput)
+}
+
+// Specifies the first IP address in an HTTP header as an aggregate key for a rate-based rule.
+type RuleGroupRateLimitForwardedIPOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupRateLimitForwardedIPOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupRateLimitForwardedIP)(nil)).Elem()
+}
+
+func (o RuleGroupRateLimitForwardedIPOutput) ToRuleGroupRateLimitForwardedIPOutput() RuleGroupRateLimitForwardedIPOutput {
+	return o
+}
+
+func (o RuleGroupRateLimitForwardedIPOutput) ToRuleGroupRateLimitForwardedIPOutputWithContext(ctx context.Context) RuleGroupRateLimitForwardedIPOutput {
+	return o
+}
+
+func (o RuleGroupRateLimitForwardedIPOutput) ToRuleGroupRateLimitForwardedIPPtrOutput() RuleGroupRateLimitForwardedIPPtrOutput {
+	return o.ToRuleGroupRateLimitForwardedIPPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupRateLimitForwardedIPOutput) ToRuleGroupRateLimitForwardedIPPtrOutputWithContext(ctx context.Context) RuleGroupRateLimitForwardedIPPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupRateLimitForwardedIP) *RuleGroupRateLimitForwardedIP {
+		return &v
+	}).(RuleGroupRateLimitForwardedIPPtrOutput)
+}
+
+type RuleGroupRateLimitForwardedIPPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupRateLimitForwardedIPPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupRateLimitForwardedIP)(nil)).Elem()
+}
+
+func (o RuleGroupRateLimitForwardedIPPtrOutput) ToRuleGroupRateLimitForwardedIPPtrOutput() RuleGroupRateLimitForwardedIPPtrOutput {
+	return o
+}
+
+func (o RuleGroupRateLimitForwardedIPPtrOutput) ToRuleGroupRateLimitForwardedIPPtrOutputWithContext(ctx context.Context) RuleGroupRateLimitForwardedIPPtrOutput {
+	return o
+}
+
+func (o RuleGroupRateLimitForwardedIPPtrOutput) Elem() RuleGroupRateLimitForwardedIPOutput {
+	return o.ApplyT(func(v *RuleGroupRateLimitForwardedIP) RuleGroupRateLimitForwardedIP {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupRateLimitForwardedIP
+		return ret
+	}).(RuleGroupRateLimitForwardedIPOutput)
+}
+
+// Specifies the request's HTTP method as an aggregate key for a rate-based rule.
+type RuleGroupRateLimitHTTPMethod struct {
+}
+
+// RuleGroupRateLimitHTTPMethodInput is an input type that accepts RuleGroupRateLimitHTTPMethodArgs and RuleGroupRateLimitHTTPMethodOutput values.
+// You can construct a concrete instance of `RuleGroupRateLimitHTTPMethodInput` via:
+//
+//	RuleGroupRateLimitHTTPMethodArgs{...}
+type RuleGroupRateLimitHTTPMethodInput interface {
+	pulumi.Input
+
+	ToRuleGroupRateLimitHTTPMethodOutput() RuleGroupRateLimitHTTPMethodOutput
+	ToRuleGroupRateLimitHTTPMethodOutputWithContext(context.Context) RuleGroupRateLimitHTTPMethodOutput
+}
+
+// Specifies the request's HTTP method as an aggregate key for a rate-based rule.
+type RuleGroupRateLimitHTTPMethodArgs struct {
+}
+
+func (RuleGroupRateLimitHTTPMethodArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupRateLimitHTTPMethod)(nil)).Elem()
+}
+
+func (i RuleGroupRateLimitHTTPMethodArgs) ToRuleGroupRateLimitHTTPMethodOutput() RuleGroupRateLimitHTTPMethodOutput {
+	return i.ToRuleGroupRateLimitHTTPMethodOutputWithContext(context.Background())
+}
+
+func (i RuleGroupRateLimitHTTPMethodArgs) ToRuleGroupRateLimitHTTPMethodOutputWithContext(ctx context.Context) RuleGroupRateLimitHTTPMethodOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRateLimitHTTPMethodOutput)
+}
+
+func (i RuleGroupRateLimitHTTPMethodArgs) ToRuleGroupRateLimitHTTPMethodPtrOutput() RuleGroupRateLimitHTTPMethodPtrOutput {
+	return i.ToRuleGroupRateLimitHTTPMethodPtrOutputWithContext(context.Background())
+}
+
+func (i RuleGroupRateLimitHTTPMethodArgs) ToRuleGroupRateLimitHTTPMethodPtrOutputWithContext(ctx context.Context) RuleGroupRateLimitHTTPMethodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRateLimitHTTPMethodOutput).ToRuleGroupRateLimitHTTPMethodPtrOutputWithContext(ctx)
+}
+
+// RuleGroupRateLimitHTTPMethodPtrInput is an input type that accepts RuleGroupRateLimitHTTPMethodArgs, RuleGroupRateLimitHTTPMethodPtr and RuleGroupRateLimitHTTPMethodPtrOutput values.
+// You can construct a concrete instance of `RuleGroupRateLimitHTTPMethodPtrInput` via:
+//
+//	        RuleGroupRateLimitHTTPMethodArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleGroupRateLimitHTTPMethodPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupRateLimitHTTPMethodPtrOutput() RuleGroupRateLimitHTTPMethodPtrOutput
+	ToRuleGroupRateLimitHTTPMethodPtrOutputWithContext(context.Context) RuleGroupRateLimitHTTPMethodPtrOutput
+}
+
+type ruleGroupRateLimitHTTPMethodPtrType RuleGroupRateLimitHTTPMethodArgs
+
+func RuleGroupRateLimitHTTPMethodPtr(v *RuleGroupRateLimitHTTPMethodArgs) RuleGroupRateLimitHTTPMethodPtrInput {
+	return (*ruleGroupRateLimitHTTPMethodPtrType)(v)
+}
+
+func (*ruleGroupRateLimitHTTPMethodPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupRateLimitHTTPMethod)(nil)).Elem()
+}
+
+func (i *ruleGroupRateLimitHTTPMethodPtrType) ToRuleGroupRateLimitHTTPMethodPtrOutput() RuleGroupRateLimitHTTPMethodPtrOutput {
+	return i.ToRuleGroupRateLimitHTTPMethodPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleGroupRateLimitHTTPMethodPtrType) ToRuleGroupRateLimitHTTPMethodPtrOutputWithContext(ctx context.Context) RuleGroupRateLimitHTTPMethodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRateLimitHTTPMethodPtrOutput)
+}
+
+// Specifies the request's HTTP method as an aggregate key for a rate-based rule.
+type RuleGroupRateLimitHTTPMethodOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupRateLimitHTTPMethodOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupRateLimitHTTPMethod)(nil)).Elem()
+}
+
+func (o RuleGroupRateLimitHTTPMethodOutput) ToRuleGroupRateLimitHTTPMethodOutput() RuleGroupRateLimitHTTPMethodOutput {
+	return o
+}
+
+func (o RuleGroupRateLimitHTTPMethodOutput) ToRuleGroupRateLimitHTTPMethodOutputWithContext(ctx context.Context) RuleGroupRateLimitHTTPMethodOutput {
+	return o
+}
+
+func (o RuleGroupRateLimitHTTPMethodOutput) ToRuleGroupRateLimitHTTPMethodPtrOutput() RuleGroupRateLimitHTTPMethodPtrOutput {
+	return o.ToRuleGroupRateLimitHTTPMethodPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupRateLimitHTTPMethodOutput) ToRuleGroupRateLimitHTTPMethodPtrOutputWithContext(ctx context.Context) RuleGroupRateLimitHTTPMethodPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupRateLimitHTTPMethod) *RuleGroupRateLimitHTTPMethod {
+		return &v
+	}).(RuleGroupRateLimitHTTPMethodPtrOutput)
+}
+
+type RuleGroupRateLimitHTTPMethodPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupRateLimitHTTPMethodPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupRateLimitHTTPMethod)(nil)).Elem()
+}
+
+func (o RuleGroupRateLimitHTTPMethodPtrOutput) ToRuleGroupRateLimitHTTPMethodPtrOutput() RuleGroupRateLimitHTTPMethodPtrOutput {
+	return o
+}
+
+func (o RuleGroupRateLimitHTTPMethodPtrOutput) ToRuleGroupRateLimitHTTPMethodPtrOutputWithContext(ctx context.Context) RuleGroupRateLimitHTTPMethodPtrOutput {
+	return o
+}
+
+func (o RuleGroupRateLimitHTTPMethodPtrOutput) Elem() RuleGroupRateLimitHTTPMethodOutput {
+	return o.ApplyT(func(v *RuleGroupRateLimitHTTPMethod) RuleGroupRateLimitHTTPMethod {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupRateLimitHTTPMethod
+		return ret
+	}).(RuleGroupRateLimitHTTPMethodOutput)
+}
+
+// Specifies a header as an aggregate key for a rate-based rule.
+type RuleGroupRateLimitHeader struct {
+	// The name of the header to use.
+	Name                string                        `pulumi:"name"`
+	TextTransformations []RuleGroupTextTransformation `pulumi:"textTransformations"`
+}
+
+// RuleGroupRateLimitHeaderInput is an input type that accepts RuleGroupRateLimitHeaderArgs and RuleGroupRateLimitHeaderOutput values.
+// You can construct a concrete instance of `RuleGroupRateLimitHeaderInput` via:
+//
+//	RuleGroupRateLimitHeaderArgs{...}
+type RuleGroupRateLimitHeaderInput interface {
+	pulumi.Input
+
+	ToRuleGroupRateLimitHeaderOutput() RuleGroupRateLimitHeaderOutput
+	ToRuleGroupRateLimitHeaderOutputWithContext(context.Context) RuleGroupRateLimitHeaderOutput
+}
+
+// Specifies a header as an aggregate key for a rate-based rule.
+type RuleGroupRateLimitHeaderArgs struct {
+	// The name of the header to use.
+	Name                pulumi.StringInput                    `pulumi:"name"`
+	TextTransformations RuleGroupTextTransformationArrayInput `pulumi:"textTransformations"`
+}
+
+func (RuleGroupRateLimitHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupRateLimitHeader)(nil)).Elem()
+}
+
+func (i RuleGroupRateLimitHeaderArgs) ToRuleGroupRateLimitHeaderOutput() RuleGroupRateLimitHeaderOutput {
+	return i.ToRuleGroupRateLimitHeaderOutputWithContext(context.Background())
+}
+
+func (i RuleGroupRateLimitHeaderArgs) ToRuleGroupRateLimitHeaderOutputWithContext(ctx context.Context) RuleGroupRateLimitHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRateLimitHeaderOutput)
+}
+
+func (i RuleGroupRateLimitHeaderArgs) ToRuleGroupRateLimitHeaderPtrOutput() RuleGroupRateLimitHeaderPtrOutput {
+	return i.ToRuleGroupRateLimitHeaderPtrOutputWithContext(context.Background())
+}
+
+func (i RuleGroupRateLimitHeaderArgs) ToRuleGroupRateLimitHeaderPtrOutputWithContext(ctx context.Context) RuleGroupRateLimitHeaderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRateLimitHeaderOutput).ToRuleGroupRateLimitHeaderPtrOutputWithContext(ctx)
+}
+
+// RuleGroupRateLimitHeaderPtrInput is an input type that accepts RuleGroupRateLimitHeaderArgs, RuleGroupRateLimitHeaderPtr and RuleGroupRateLimitHeaderPtrOutput values.
+// You can construct a concrete instance of `RuleGroupRateLimitHeaderPtrInput` via:
+//
+//	        RuleGroupRateLimitHeaderArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleGroupRateLimitHeaderPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupRateLimitHeaderPtrOutput() RuleGroupRateLimitHeaderPtrOutput
+	ToRuleGroupRateLimitHeaderPtrOutputWithContext(context.Context) RuleGroupRateLimitHeaderPtrOutput
+}
+
+type ruleGroupRateLimitHeaderPtrType RuleGroupRateLimitHeaderArgs
+
+func RuleGroupRateLimitHeaderPtr(v *RuleGroupRateLimitHeaderArgs) RuleGroupRateLimitHeaderPtrInput {
+	return (*ruleGroupRateLimitHeaderPtrType)(v)
+}
+
+func (*ruleGroupRateLimitHeaderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupRateLimitHeader)(nil)).Elem()
+}
+
+func (i *ruleGroupRateLimitHeaderPtrType) ToRuleGroupRateLimitHeaderPtrOutput() RuleGroupRateLimitHeaderPtrOutput {
+	return i.ToRuleGroupRateLimitHeaderPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleGroupRateLimitHeaderPtrType) ToRuleGroupRateLimitHeaderPtrOutputWithContext(ctx context.Context) RuleGroupRateLimitHeaderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRateLimitHeaderPtrOutput)
+}
+
+// Specifies a header as an aggregate key for a rate-based rule.
+type RuleGroupRateLimitHeaderOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupRateLimitHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupRateLimitHeader)(nil)).Elem()
+}
+
+func (o RuleGroupRateLimitHeaderOutput) ToRuleGroupRateLimitHeaderOutput() RuleGroupRateLimitHeaderOutput {
+	return o
+}
+
+func (o RuleGroupRateLimitHeaderOutput) ToRuleGroupRateLimitHeaderOutputWithContext(ctx context.Context) RuleGroupRateLimitHeaderOutput {
+	return o
+}
+
+func (o RuleGroupRateLimitHeaderOutput) ToRuleGroupRateLimitHeaderPtrOutput() RuleGroupRateLimitHeaderPtrOutput {
+	return o.ToRuleGroupRateLimitHeaderPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupRateLimitHeaderOutput) ToRuleGroupRateLimitHeaderPtrOutputWithContext(ctx context.Context) RuleGroupRateLimitHeaderPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupRateLimitHeader) *RuleGroupRateLimitHeader {
+		return &v
+	}).(RuleGroupRateLimitHeaderPtrOutput)
+}
+
+// The name of the header to use.
+func (o RuleGroupRateLimitHeaderOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleGroupRateLimitHeader) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o RuleGroupRateLimitHeaderOutput) TextTransformations() RuleGroupTextTransformationArrayOutput {
+	return o.ApplyT(func(v RuleGroupRateLimitHeader) []RuleGroupTextTransformation { return v.TextTransformations }).(RuleGroupTextTransformationArrayOutput)
+}
+
+type RuleGroupRateLimitHeaderPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupRateLimitHeaderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupRateLimitHeader)(nil)).Elem()
+}
+
+func (o RuleGroupRateLimitHeaderPtrOutput) ToRuleGroupRateLimitHeaderPtrOutput() RuleGroupRateLimitHeaderPtrOutput {
+	return o
+}
+
+func (o RuleGroupRateLimitHeaderPtrOutput) ToRuleGroupRateLimitHeaderPtrOutputWithContext(ctx context.Context) RuleGroupRateLimitHeaderPtrOutput {
+	return o
+}
+
+func (o RuleGroupRateLimitHeaderPtrOutput) Elem() RuleGroupRateLimitHeaderOutput {
+	return o.ApplyT(func(v *RuleGroupRateLimitHeader) RuleGroupRateLimitHeader {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupRateLimitHeader
+		return ret
+	}).(RuleGroupRateLimitHeaderOutput)
+}
+
+// The name of the header to use.
+func (o RuleGroupRateLimitHeaderPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleGroupRateLimitHeader) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RuleGroupRateLimitHeaderPtrOutput) TextTransformations() RuleGroupTextTransformationArrayOutput {
+	return o.ApplyT(func(v *RuleGroupRateLimitHeader) []RuleGroupTextTransformation {
+		if v == nil {
+			return nil
+		}
+		return v.TextTransformations
+	}).(RuleGroupTextTransformationArrayOutput)
+}
+
+// Specifies the IP address in the web request as an aggregate key for a rate-based rule.
+type RuleGroupRateLimitIP struct {
+}
+
+// RuleGroupRateLimitIPInput is an input type that accepts RuleGroupRateLimitIPArgs and RuleGroupRateLimitIPOutput values.
+// You can construct a concrete instance of `RuleGroupRateLimitIPInput` via:
+//
+//	RuleGroupRateLimitIPArgs{...}
+type RuleGroupRateLimitIPInput interface {
+	pulumi.Input
+
+	ToRuleGroupRateLimitIPOutput() RuleGroupRateLimitIPOutput
+	ToRuleGroupRateLimitIPOutputWithContext(context.Context) RuleGroupRateLimitIPOutput
+}
+
+// Specifies the IP address in the web request as an aggregate key for a rate-based rule.
+type RuleGroupRateLimitIPArgs struct {
+}
+
+func (RuleGroupRateLimitIPArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupRateLimitIP)(nil)).Elem()
+}
+
+func (i RuleGroupRateLimitIPArgs) ToRuleGroupRateLimitIPOutput() RuleGroupRateLimitIPOutput {
+	return i.ToRuleGroupRateLimitIPOutputWithContext(context.Background())
+}
+
+func (i RuleGroupRateLimitIPArgs) ToRuleGroupRateLimitIPOutputWithContext(ctx context.Context) RuleGroupRateLimitIPOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRateLimitIPOutput)
+}
+
+func (i RuleGroupRateLimitIPArgs) ToRuleGroupRateLimitIPPtrOutput() RuleGroupRateLimitIPPtrOutput {
+	return i.ToRuleGroupRateLimitIPPtrOutputWithContext(context.Background())
+}
+
+func (i RuleGroupRateLimitIPArgs) ToRuleGroupRateLimitIPPtrOutputWithContext(ctx context.Context) RuleGroupRateLimitIPPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRateLimitIPOutput).ToRuleGroupRateLimitIPPtrOutputWithContext(ctx)
+}
+
+// RuleGroupRateLimitIPPtrInput is an input type that accepts RuleGroupRateLimitIPArgs, RuleGroupRateLimitIPPtr and RuleGroupRateLimitIPPtrOutput values.
+// You can construct a concrete instance of `RuleGroupRateLimitIPPtrInput` via:
+//
+//	        RuleGroupRateLimitIPArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleGroupRateLimitIPPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupRateLimitIPPtrOutput() RuleGroupRateLimitIPPtrOutput
+	ToRuleGroupRateLimitIPPtrOutputWithContext(context.Context) RuleGroupRateLimitIPPtrOutput
+}
+
+type ruleGroupRateLimitIPPtrType RuleGroupRateLimitIPArgs
+
+func RuleGroupRateLimitIPPtr(v *RuleGroupRateLimitIPArgs) RuleGroupRateLimitIPPtrInput {
+	return (*ruleGroupRateLimitIPPtrType)(v)
+}
+
+func (*ruleGroupRateLimitIPPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupRateLimitIP)(nil)).Elem()
+}
+
+func (i *ruleGroupRateLimitIPPtrType) ToRuleGroupRateLimitIPPtrOutput() RuleGroupRateLimitIPPtrOutput {
+	return i.ToRuleGroupRateLimitIPPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleGroupRateLimitIPPtrType) ToRuleGroupRateLimitIPPtrOutputWithContext(ctx context.Context) RuleGroupRateLimitIPPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRateLimitIPPtrOutput)
+}
+
+// Specifies the IP address in the web request as an aggregate key for a rate-based rule.
+type RuleGroupRateLimitIPOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupRateLimitIPOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupRateLimitIP)(nil)).Elem()
+}
+
+func (o RuleGroupRateLimitIPOutput) ToRuleGroupRateLimitIPOutput() RuleGroupRateLimitIPOutput {
+	return o
+}
+
+func (o RuleGroupRateLimitIPOutput) ToRuleGroupRateLimitIPOutputWithContext(ctx context.Context) RuleGroupRateLimitIPOutput {
+	return o
+}
+
+func (o RuleGroupRateLimitIPOutput) ToRuleGroupRateLimitIPPtrOutput() RuleGroupRateLimitIPPtrOutput {
+	return o.ToRuleGroupRateLimitIPPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupRateLimitIPOutput) ToRuleGroupRateLimitIPPtrOutputWithContext(ctx context.Context) RuleGroupRateLimitIPPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupRateLimitIP) *RuleGroupRateLimitIP {
+		return &v
+	}).(RuleGroupRateLimitIPPtrOutput)
+}
+
+type RuleGroupRateLimitIPPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupRateLimitIPPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupRateLimitIP)(nil)).Elem()
+}
+
+func (o RuleGroupRateLimitIPPtrOutput) ToRuleGroupRateLimitIPPtrOutput() RuleGroupRateLimitIPPtrOutput {
+	return o
+}
+
+func (o RuleGroupRateLimitIPPtrOutput) ToRuleGroupRateLimitIPPtrOutputWithContext(ctx context.Context) RuleGroupRateLimitIPPtrOutput {
+	return o
+}
+
+func (o RuleGroupRateLimitIPPtrOutput) Elem() RuleGroupRateLimitIPOutput {
+	return o.ApplyT(func(v *RuleGroupRateLimitIP) RuleGroupRateLimitIP {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupRateLimitIP
+		return ret
+	}).(RuleGroupRateLimitIPOutput)
+}
+
+// Specifies a label namespace to use as an aggregate key for a rate-based rule.
+type RuleGroupRateLimitLabelNamespace struct {
+	// The namespace to use for aggregation.
+	Namespace string `pulumi:"namespace"`
+}
+
+// RuleGroupRateLimitLabelNamespaceInput is an input type that accepts RuleGroupRateLimitLabelNamespaceArgs and RuleGroupRateLimitLabelNamespaceOutput values.
+// You can construct a concrete instance of `RuleGroupRateLimitLabelNamespaceInput` via:
+//
+//	RuleGroupRateLimitLabelNamespaceArgs{...}
+type RuleGroupRateLimitLabelNamespaceInput interface {
+	pulumi.Input
+
+	ToRuleGroupRateLimitLabelNamespaceOutput() RuleGroupRateLimitLabelNamespaceOutput
+	ToRuleGroupRateLimitLabelNamespaceOutputWithContext(context.Context) RuleGroupRateLimitLabelNamespaceOutput
+}
+
+// Specifies a label namespace to use as an aggregate key for a rate-based rule.
+type RuleGroupRateLimitLabelNamespaceArgs struct {
+	// The namespace to use for aggregation.
+	Namespace pulumi.StringInput `pulumi:"namespace"`
+}
+
+func (RuleGroupRateLimitLabelNamespaceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupRateLimitLabelNamespace)(nil)).Elem()
+}
+
+func (i RuleGroupRateLimitLabelNamespaceArgs) ToRuleGroupRateLimitLabelNamespaceOutput() RuleGroupRateLimitLabelNamespaceOutput {
+	return i.ToRuleGroupRateLimitLabelNamespaceOutputWithContext(context.Background())
+}
+
+func (i RuleGroupRateLimitLabelNamespaceArgs) ToRuleGroupRateLimitLabelNamespaceOutputWithContext(ctx context.Context) RuleGroupRateLimitLabelNamespaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRateLimitLabelNamespaceOutput)
+}
+
+func (i RuleGroupRateLimitLabelNamespaceArgs) ToRuleGroupRateLimitLabelNamespacePtrOutput() RuleGroupRateLimitLabelNamespacePtrOutput {
+	return i.ToRuleGroupRateLimitLabelNamespacePtrOutputWithContext(context.Background())
+}
+
+func (i RuleGroupRateLimitLabelNamespaceArgs) ToRuleGroupRateLimitLabelNamespacePtrOutputWithContext(ctx context.Context) RuleGroupRateLimitLabelNamespacePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRateLimitLabelNamespaceOutput).ToRuleGroupRateLimitLabelNamespacePtrOutputWithContext(ctx)
+}
+
+// RuleGroupRateLimitLabelNamespacePtrInput is an input type that accepts RuleGroupRateLimitLabelNamespaceArgs, RuleGroupRateLimitLabelNamespacePtr and RuleGroupRateLimitLabelNamespacePtrOutput values.
+// You can construct a concrete instance of `RuleGroupRateLimitLabelNamespacePtrInput` via:
+//
+//	        RuleGroupRateLimitLabelNamespaceArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleGroupRateLimitLabelNamespacePtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupRateLimitLabelNamespacePtrOutput() RuleGroupRateLimitLabelNamespacePtrOutput
+	ToRuleGroupRateLimitLabelNamespacePtrOutputWithContext(context.Context) RuleGroupRateLimitLabelNamespacePtrOutput
+}
+
+type ruleGroupRateLimitLabelNamespacePtrType RuleGroupRateLimitLabelNamespaceArgs
+
+func RuleGroupRateLimitLabelNamespacePtr(v *RuleGroupRateLimitLabelNamespaceArgs) RuleGroupRateLimitLabelNamespacePtrInput {
+	return (*ruleGroupRateLimitLabelNamespacePtrType)(v)
+}
+
+func (*ruleGroupRateLimitLabelNamespacePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupRateLimitLabelNamespace)(nil)).Elem()
+}
+
+func (i *ruleGroupRateLimitLabelNamespacePtrType) ToRuleGroupRateLimitLabelNamespacePtrOutput() RuleGroupRateLimitLabelNamespacePtrOutput {
+	return i.ToRuleGroupRateLimitLabelNamespacePtrOutputWithContext(context.Background())
+}
+
+func (i *ruleGroupRateLimitLabelNamespacePtrType) ToRuleGroupRateLimitLabelNamespacePtrOutputWithContext(ctx context.Context) RuleGroupRateLimitLabelNamespacePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRateLimitLabelNamespacePtrOutput)
+}
+
+// Specifies a label namespace to use as an aggregate key for a rate-based rule.
+type RuleGroupRateLimitLabelNamespaceOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupRateLimitLabelNamespaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupRateLimitLabelNamespace)(nil)).Elem()
+}
+
+func (o RuleGroupRateLimitLabelNamespaceOutput) ToRuleGroupRateLimitLabelNamespaceOutput() RuleGroupRateLimitLabelNamespaceOutput {
+	return o
+}
+
+func (o RuleGroupRateLimitLabelNamespaceOutput) ToRuleGroupRateLimitLabelNamespaceOutputWithContext(ctx context.Context) RuleGroupRateLimitLabelNamespaceOutput {
+	return o
+}
+
+func (o RuleGroupRateLimitLabelNamespaceOutput) ToRuleGroupRateLimitLabelNamespacePtrOutput() RuleGroupRateLimitLabelNamespacePtrOutput {
+	return o.ToRuleGroupRateLimitLabelNamespacePtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupRateLimitLabelNamespaceOutput) ToRuleGroupRateLimitLabelNamespacePtrOutputWithContext(ctx context.Context) RuleGroupRateLimitLabelNamespacePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupRateLimitLabelNamespace) *RuleGroupRateLimitLabelNamespace {
+		return &v
+	}).(RuleGroupRateLimitLabelNamespacePtrOutput)
+}
+
+// The namespace to use for aggregation.
+func (o RuleGroupRateLimitLabelNamespaceOutput) Namespace() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleGroupRateLimitLabelNamespace) string { return v.Namespace }).(pulumi.StringOutput)
+}
+
+type RuleGroupRateLimitLabelNamespacePtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupRateLimitLabelNamespacePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupRateLimitLabelNamespace)(nil)).Elem()
+}
+
+func (o RuleGroupRateLimitLabelNamespacePtrOutput) ToRuleGroupRateLimitLabelNamespacePtrOutput() RuleGroupRateLimitLabelNamespacePtrOutput {
+	return o
+}
+
+func (o RuleGroupRateLimitLabelNamespacePtrOutput) ToRuleGroupRateLimitLabelNamespacePtrOutputWithContext(ctx context.Context) RuleGroupRateLimitLabelNamespacePtrOutput {
+	return o
+}
+
+func (o RuleGroupRateLimitLabelNamespacePtrOutput) Elem() RuleGroupRateLimitLabelNamespaceOutput {
+	return o.ApplyT(func(v *RuleGroupRateLimitLabelNamespace) RuleGroupRateLimitLabelNamespace {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupRateLimitLabelNamespace
+		return ret
+	}).(RuleGroupRateLimitLabelNamespaceOutput)
+}
+
+// The namespace to use for aggregation.
+func (o RuleGroupRateLimitLabelNamespacePtrOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleGroupRateLimitLabelNamespace) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Namespace
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies a query argument in the request as an aggregate key for a rate-based rule.
+type RuleGroupRateLimitQueryArgument struct {
+	// The name of the query argument to use.
+	Name                string                        `pulumi:"name"`
+	TextTransformations []RuleGroupTextTransformation `pulumi:"textTransformations"`
+}
+
+// RuleGroupRateLimitQueryArgumentInput is an input type that accepts RuleGroupRateLimitQueryArgumentArgs and RuleGroupRateLimitQueryArgumentOutput values.
+// You can construct a concrete instance of `RuleGroupRateLimitQueryArgumentInput` via:
+//
+//	RuleGroupRateLimitQueryArgumentArgs{...}
+type RuleGroupRateLimitQueryArgumentInput interface {
+	pulumi.Input
+
+	ToRuleGroupRateLimitQueryArgumentOutput() RuleGroupRateLimitQueryArgumentOutput
+	ToRuleGroupRateLimitQueryArgumentOutputWithContext(context.Context) RuleGroupRateLimitQueryArgumentOutput
+}
+
+// Specifies a query argument in the request as an aggregate key for a rate-based rule.
+type RuleGroupRateLimitQueryArgumentArgs struct {
+	// The name of the query argument to use.
+	Name                pulumi.StringInput                    `pulumi:"name"`
+	TextTransformations RuleGroupTextTransformationArrayInput `pulumi:"textTransformations"`
+}
+
+func (RuleGroupRateLimitQueryArgumentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupRateLimitQueryArgument)(nil)).Elem()
+}
+
+func (i RuleGroupRateLimitQueryArgumentArgs) ToRuleGroupRateLimitQueryArgumentOutput() RuleGroupRateLimitQueryArgumentOutput {
+	return i.ToRuleGroupRateLimitQueryArgumentOutputWithContext(context.Background())
+}
+
+func (i RuleGroupRateLimitQueryArgumentArgs) ToRuleGroupRateLimitQueryArgumentOutputWithContext(ctx context.Context) RuleGroupRateLimitQueryArgumentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRateLimitQueryArgumentOutput)
+}
+
+func (i RuleGroupRateLimitQueryArgumentArgs) ToRuleGroupRateLimitQueryArgumentPtrOutput() RuleGroupRateLimitQueryArgumentPtrOutput {
+	return i.ToRuleGroupRateLimitQueryArgumentPtrOutputWithContext(context.Background())
+}
+
+func (i RuleGroupRateLimitQueryArgumentArgs) ToRuleGroupRateLimitQueryArgumentPtrOutputWithContext(ctx context.Context) RuleGroupRateLimitQueryArgumentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRateLimitQueryArgumentOutput).ToRuleGroupRateLimitQueryArgumentPtrOutputWithContext(ctx)
+}
+
+// RuleGroupRateLimitQueryArgumentPtrInput is an input type that accepts RuleGroupRateLimitQueryArgumentArgs, RuleGroupRateLimitQueryArgumentPtr and RuleGroupRateLimitQueryArgumentPtrOutput values.
+// You can construct a concrete instance of `RuleGroupRateLimitQueryArgumentPtrInput` via:
+//
+//	        RuleGroupRateLimitQueryArgumentArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleGroupRateLimitQueryArgumentPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupRateLimitQueryArgumentPtrOutput() RuleGroupRateLimitQueryArgumentPtrOutput
+	ToRuleGroupRateLimitQueryArgumentPtrOutputWithContext(context.Context) RuleGroupRateLimitQueryArgumentPtrOutput
+}
+
+type ruleGroupRateLimitQueryArgumentPtrType RuleGroupRateLimitQueryArgumentArgs
+
+func RuleGroupRateLimitQueryArgumentPtr(v *RuleGroupRateLimitQueryArgumentArgs) RuleGroupRateLimitQueryArgumentPtrInput {
+	return (*ruleGroupRateLimitQueryArgumentPtrType)(v)
+}
+
+func (*ruleGroupRateLimitQueryArgumentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupRateLimitQueryArgument)(nil)).Elem()
+}
+
+func (i *ruleGroupRateLimitQueryArgumentPtrType) ToRuleGroupRateLimitQueryArgumentPtrOutput() RuleGroupRateLimitQueryArgumentPtrOutput {
+	return i.ToRuleGroupRateLimitQueryArgumentPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleGroupRateLimitQueryArgumentPtrType) ToRuleGroupRateLimitQueryArgumentPtrOutputWithContext(ctx context.Context) RuleGroupRateLimitQueryArgumentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRateLimitQueryArgumentPtrOutput)
+}
+
+// Specifies a query argument in the request as an aggregate key for a rate-based rule.
+type RuleGroupRateLimitQueryArgumentOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupRateLimitQueryArgumentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupRateLimitQueryArgument)(nil)).Elem()
+}
+
+func (o RuleGroupRateLimitQueryArgumentOutput) ToRuleGroupRateLimitQueryArgumentOutput() RuleGroupRateLimitQueryArgumentOutput {
+	return o
+}
+
+func (o RuleGroupRateLimitQueryArgumentOutput) ToRuleGroupRateLimitQueryArgumentOutputWithContext(ctx context.Context) RuleGroupRateLimitQueryArgumentOutput {
+	return o
+}
+
+func (o RuleGroupRateLimitQueryArgumentOutput) ToRuleGroupRateLimitQueryArgumentPtrOutput() RuleGroupRateLimitQueryArgumentPtrOutput {
+	return o.ToRuleGroupRateLimitQueryArgumentPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupRateLimitQueryArgumentOutput) ToRuleGroupRateLimitQueryArgumentPtrOutputWithContext(ctx context.Context) RuleGroupRateLimitQueryArgumentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupRateLimitQueryArgument) *RuleGroupRateLimitQueryArgument {
+		return &v
+	}).(RuleGroupRateLimitQueryArgumentPtrOutput)
+}
+
+// The name of the query argument to use.
+func (o RuleGroupRateLimitQueryArgumentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleGroupRateLimitQueryArgument) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o RuleGroupRateLimitQueryArgumentOutput) TextTransformations() RuleGroupTextTransformationArrayOutput {
+	return o.ApplyT(func(v RuleGroupRateLimitQueryArgument) []RuleGroupTextTransformation { return v.TextTransformations }).(RuleGroupTextTransformationArrayOutput)
+}
+
+type RuleGroupRateLimitQueryArgumentPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupRateLimitQueryArgumentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupRateLimitQueryArgument)(nil)).Elem()
+}
+
+func (o RuleGroupRateLimitQueryArgumentPtrOutput) ToRuleGroupRateLimitQueryArgumentPtrOutput() RuleGroupRateLimitQueryArgumentPtrOutput {
+	return o
+}
+
+func (o RuleGroupRateLimitQueryArgumentPtrOutput) ToRuleGroupRateLimitQueryArgumentPtrOutputWithContext(ctx context.Context) RuleGroupRateLimitQueryArgumentPtrOutput {
+	return o
+}
+
+func (o RuleGroupRateLimitQueryArgumentPtrOutput) Elem() RuleGroupRateLimitQueryArgumentOutput {
+	return o.ApplyT(func(v *RuleGroupRateLimitQueryArgument) RuleGroupRateLimitQueryArgument {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupRateLimitQueryArgument
+		return ret
+	}).(RuleGroupRateLimitQueryArgumentOutput)
+}
+
+// The name of the query argument to use.
+func (o RuleGroupRateLimitQueryArgumentPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleGroupRateLimitQueryArgument) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RuleGroupRateLimitQueryArgumentPtrOutput) TextTransformations() RuleGroupTextTransformationArrayOutput {
+	return o.ApplyT(func(v *RuleGroupRateLimitQueryArgument) []RuleGroupTextTransformation {
+		if v == nil {
+			return nil
+		}
+		return v.TextTransformations
+	}).(RuleGroupTextTransformationArrayOutput)
+}
+
+// Specifies the request's query string as an aggregate key for a rate-based rule.
+type RuleGroupRateLimitQueryString struct {
+	TextTransformations []RuleGroupTextTransformation `pulumi:"textTransformations"`
+}
+
+// RuleGroupRateLimitQueryStringInput is an input type that accepts RuleGroupRateLimitQueryStringArgs and RuleGroupRateLimitQueryStringOutput values.
+// You can construct a concrete instance of `RuleGroupRateLimitQueryStringInput` via:
+//
+//	RuleGroupRateLimitQueryStringArgs{...}
+type RuleGroupRateLimitQueryStringInput interface {
+	pulumi.Input
+
+	ToRuleGroupRateLimitQueryStringOutput() RuleGroupRateLimitQueryStringOutput
+	ToRuleGroupRateLimitQueryStringOutputWithContext(context.Context) RuleGroupRateLimitQueryStringOutput
+}
+
+// Specifies the request's query string as an aggregate key for a rate-based rule.
+type RuleGroupRateLimitQueryStringArgs struct {
+	TextTransformations RuleGroupTextTransformationArrayInput `pulumi:"textTransformations"`
+}
+
+func (RuleGroupRateLimitQueryStringArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupRateLimitQueryString)(nil)).Elem()
+}
+
+func (i RuleGroupRateLimitQueryStringArgs) ToRuleGroupRateLimitQueryStringOutput() RuleGroupRateLimitQueryStringOutput {
+	return i.ToRuleGroupRateLimitQueryStringOutputWithContext(context.Background())
+}
+
+func (i RuleGroupRateLimitQueryStringArgs) ToRuleGroupRateLimitQueryStringOutputWithContext(ctx context.Context) RuleGroupRateLimitQueryStringOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRateLimitQueryStringOutput)
+}
+
+func (i RuleGroupRateLimitQueryStringArgs) ToRuleGroupRateLimitQueryStringPtrOutput() RuleGroupRateLimitQueryStringPtrOutput {
+	return i.ToRuleGroupRateLimitQueryStringPtrOutputWithContext(context.Background())
+}
+
+func (i RuleGroupRateLimitQueryStringArgs) ToRuleGroupRateLimitQueryStringPtrOutputWithContext(ctx context.Context) RuleGroupRateLimitQueryStringPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRateLimitQueryStringOutput).ToRuleGroupRateLimitQueryStringPtrOutputWithContext(ctx)
+}
+
+// RuleGroupRateLimitQueryStringPtrInput is an input type that accepts RuleGroupRateLimitQueryStringArgs, RuleGroupRateLimitQueryStringPtr and RuleGroupRateLimitQueryStringPtrOutput values.
+// You can construct a concrete instance of `RuleGroupRateLimitQueryStringPtrInput` via:
+//
+//	        RuleGroupRateLimitQueryStringArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleGroupRateLimitQueryStringPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupRateLimitQueryStringPtrOutput() RuleGroupRateLimitQueryStringPtrOutput
+	ToRuleGroupRateLimitQueryStringPtrOutputWithContext(context.Context) RuleGroupRateLimitQueryStringPtrOutput
+}
+
+type ruleGroupRateLimitQueryStringPtrType RuleGroupRateLimitQueryStringArgs
+
+func RuleGroupRateLimitQueryStringPtr(v *RuleGroupRateLimitQueryStringArgs) RuleGroupRateLimitQueryStringPtrInput {
+	return (*ruleGroupRateLimitQueryStringPtrType)(v)
+}
+
+func (*ruleGroupRateLimitQueryStringPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupRateLimitQueryString)(nil)).Elem()
+}
+
+func (i *ruleGroupRateLimitQueryStringPtrType) ToRuleGroupRateLimitQueryStringPtrOutput() RuleGroupRateLimitQueryStringPtrOutput {
+	return i.ToRuleGroupRateLimitQueryStringPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleGroupRateLimitQueryStringPtrType) ToRuleGroupRateLimitQueryStringPtrOutputWithContext(ctx context.Context) RuleGroupRateLimitQueryStringPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRateLimitQueryStringPtrOutput)
+}
+
+// Specifies the request's query string as an aggregate key for a rate-based rule.
+type RuleGroupRateLimitQueryStringOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupRateLimitQueryStringOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupRateLimitQueryString)(nil)).Elem()
+}
+
+func (o RuleGroupRateLimitQueryStringOutput) ToRuleGroupRateLimitQueryStringOutput() RuleGroupRateLimitQueryStringOutput {
+	return o
+}
+
+func (o RuleGroupRateLimitQueryStringOutput) ToRuleGroupRateLimitQueryStringOutputWithContext(ctx context.Context) RuleGroupRateLimitQueryStringOutput {
+	return o
+}
+
+func (o RuleGroupRateLimitQueryStringOutput) ToRuleGroupRateLimitQueryStringPtrOutput() RuleGroupRateLimitQueryStringPtrOutput {
+	return o.ToRuleGroupRateLimitQueryStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupRateLimitQueryStringOutput) ToRuleGroupRateLimitQueryStringPtrOutputWithContext(ctx context.Context) RuleGroupRateLimitQueryStringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupRateLimitQueryString) *RuleGroupRateLimitQueryString {
+		return &v
+	}).(RuleGroupRateLimitQueryStringPtrOutput)
+}
+
+func (o RuleGroupRateLimitQueryStringOutput) TextTransformations() RuleGroupTextTransformationArrayOutput {
+	return o.ApplyT(func(v RuleGroupRateLimitQueryString) []RuleGroupTextTransformation { return v.TextTransformations }).(RuleGroupTextTransformationArrayOutput)
+}
+
+type RuleGroupRateLimitQueryStringPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupRateLimitQueryStringPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupRateLimitQueryString)(nil)).Elem()
+}
+
+func (o RuleGroupRateLimitQueryStringPtrOutput) ToRuleGroupRateLimitQueryStringPtrOutput() RuleGroupRateLimitQueryStringPtrOutput {
+	return o
+}
+
+func (o RuleGroupRateLimitQueryStringPtrOutput) ToRuleGroupRateLimitQueryStringPtrOutputWithContext(ctx context.Context) RuleGroupRateLimitQueryStringPtrOutput {
+	return o
+}
+
+func (o RuleGroupRateLimitQueryStringPtrOutput) Elem() RuleGroupRateLimitQueryStringOutput {
+	return o.ApplyT(func(v *RuleGroupRateLimitQueryString) RuleGroupRateLimitQueryString {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupRateLimitQueryString
+		return ret
+	}).(RuleGroupRateLimitQueryStringOutput)
+}
+
+func (o RuleGroupRateLimitQueryStringPtrOutput) TextTransformations() RuleGroupTextTransformationArrayOutput {
+	return o.ApplyT(func(v *RuleGroupRateLimitQueryString) []RuleGroupTextTransformation {
+		if v == nil {
+			return nil
+		}
+		return v.TextTransformations
+	}).(RuleGroupTextTransformationArrayOutput)
+}
+
+// Specifies the request's URI Path as an aggregate key for a rate-based rule.
+type RuleGroupRateLimitUriPath struct {
+	TextTransformations []RuleGroupTextTransformation `pulumi:"textTransformations"`
+}
+
+// RuleGroupRateLimitUriPathInput is an input type that accepts RuleGroupRateLimitUriPathArgs and RuleGroupRateLimitUriPathOutput values.
+// You can construct a concrete instance of `RuleGroupRateLimitUriPathInput` via:
+//
+//	RuleGroupRateLimitUriPathArgs{...}
+type RuleGroupRateLimitUriPathInput interface {
+	pulumi.Input
+
+	ToRuleGroupRateLimitUriPathOutput() RuleGroupRateLimitUriPathOutput
+	ToRuleGroupRateLimitUriPathOutputWithContext(context.Context) RuleGroupRateLimitUriPathOutput
+}
+
+// Specifies the request's URI Path as an aggregate key for a rate-based rule.
+type RuleGroupRateLimitUriPathArgs struct {
+	TextTransformations RuleGroupTextTransformationArrayInput `pulumi:"textTransformations"`
+}
+
+func (RuleGroupRateLimitUriPathArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupRateLimitUriPath)(nil)).Elem()
+}
+
+func (i RuleGroupRateLimitUriPathArgs) ToRuleGroupRateLimitUriPathOutput() RuleGroupRateLimitUriPathOutput {
+	return i.ToRuleGroupRateLimitUriPathOutputWithContext(context.Background())
+}
+
+func (i RuleGroupRateLimitUriPathArgs) ToRuleGroupRateLimitUriPathOutputWithContext(ctx context.Context) RuleGroupRateLimitUriPathOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRateLimitUriPathOutput)
+}
+
+func (i RuleGroupRateLimitUriPathArgs) ToRuleGroupRateLimitUriPathPtrOutput() RuleGroupRateLimitUriPathPtrOutput {
+	return i.ToRuleGroupRateLimitUriPathPtrOutputWithContext(context.Background())
+}
+
+func (i RuleGroupRateLimitUriPathArgs) ToRuleGroupRateLimitUriPathPtrOutputWithContext(ctx context.Context) RuleGroupRateLimitUriPathPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRateLimitUriPathOutput).ToRuleGroupRateLimitUriPathPtrOutputWithContext(ctx)
+}
+
+// RuleGroupRateLimitUriPathPtrInput is an input type that accepts RuleGroupRateLimitUriPathArgs, RuleGroupRateLimitUriPathPtr and RuleGroupRateLimitUriPathPtrOutput values.
+// You can construct a concrete instance of `RuleGroupRateLimitUriPathPtrInput` via:
+//
+//	        RuleGroupRateLimitUriPathArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleGroupRateLimitUriPathPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupRateLimitUriPathPtrOutput() RuleGroupRateLimitUriPathPtrOutput
+	ToRuleGroupRateLimitUriPathPtrOutputWithContext(context.Context) RuleGroupRateLimitUriPathPtrOutput
+}
+
+type ruleGroupRateLimitUriPathPtrType RuleGroupRateLimitUriPathArgs
+
+func RuleGroupRateLimitUriPathPtr(v *RuleGroupRateLimitUriPathArgs) RuleGroupRateLimitUriPathPtrInput {
+	return (*ruleGroupRateLimitUriPathPtrType)(v)
+}
+
+func (*ruleGroupRateLimitUriPathPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupRateLimitUriPath)(nil)).Elem()
+}
+
+func (i *ruleGroupRateLimitUriPathPtrType) ToRuleGroupRateLimitUriPathPtrOutput() RuleGroupRateLimitUriPathPtrOutput {
+	return i.ToRuleGroupRateLimitUriPathPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleGroupRateLimitUriPathPtrType) ToRuleGroupRateLimitUriPathPtrOutputWithContext(ctx context.Context) RuleGroupRateLimitUriPathPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRateLimitUriPathPtrOutput)
+}
+
+// Specifies the request's URI Path as an aggregate key for a rate-based rule.
+type RuleGroupRateLimitUriPathOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupRateLimitUriPathOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupRateLimitUriPath)(nil)).Elem()
+}
+
+func (o RuleGroupRateLimitUriPathOutput) ToRuleGroupRateLimitUriPathOutput() RuleGroupRateLimitUriPathOutput {
+	return o
+}
+
+func (o RuleGroupRateLimitUriPathOutput) ToRuleGroupRateLimitUriPathOutputWithContext(ctx context.Context) RuleGroupRateLimitUriPathOutput {
+	return o
+}
+
+func (o RuleGroupRateLimitUriPathOutput) ToRuleGroupRateLimitUriPathPtrOutput() RuleGroupRateLimitUriPathPtrOutput {
+	return o.ToRuleGroupRateLimitUriPathPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupRateLimitUriPathOutput) ToRuleGroupRateLimitUriPathPtrOutputWithContext(ctx context.Context) RuleGroupRateLimitUriPathPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupRateLimitUriPath) *RuleGroupRateLimitUriPath {
+		return &v
+	}).(RuleGroupRateLimitUriPathPtrOutput)
+}
+
+func (o RuleGroupRateLimitUriPathOutput) TextTransformations() RuleGroupTextTransformationArrayOutput {
+	return o.ApplyT(func(v RuleGroupRateLimitUriPath) []RuleGroupTextTransformation { return v.TextTransformations }).(RuleGroupTextTransformationArrayOutput)
+}
+
+type RuleGroupRateLimitUriPathPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupRateLimitUriPathPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupRateLimitUriPath)(nil)).Elem()
+}
+
+func (o RuleGroupRateLimitUriPathPtrOutput) ToRuleGroupRateLimitUriPathPtrOutput() RuleGroupRateLimitUriPathPtrOutput {
+	return o
+}
+
+func (o RuleGroupRateLimitUriPathPtrOutput) ToRuleGroupRateLimitUriPathPtrOutputWithContext(ctx context.Context) RuleGroupRateLimitUriPathPtrOutput {
+	return o
+}
+
+func (o RuleGroupRateLimitUriPathPtrOutput) Elem() RuleGroupRateLimitUriPathOutput {
+	return o.ApplyT(func(v *RuleGroupRateLimitUriPath) RuleGroupRateLimitUriPath {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupRateLimitUriPath
+		return ret
+	}).(RuleGroupRateLimitUriPathOutput)
+}
+
+func (o RuleGroupRateLimitUriPathPtrOutput) TextTransformations() RuleGroupTextTransformationArrayOutput {
+	return o.ApplyT(func(v *RuleGroupRateLimitUriPath) []RuleGroupTextTransformation {
+		if v == nil {
+			return nil
+		}
+		return v.TextTransformations
+	}).(RuleGroupTextTransformationArrayOutput)
 }
 
 type RuleGroupRegexMatchStatement struct {
@@ -14473,10 +15879,12 @@ func (o WebACLOverrideActionPtrOutput) None() pulumi.AnyOutput {
 }
 
 type WebACLRateBasedStatement struct {
-	AggregateKeyType   WebACLRateBasedStatementAggregateKeyType `pulumi:"aggregateKeyType"`
-	ForwardedIPConfig  *WebACLForwardedIPConfiguration          `pulumi:"forwardedIPConfig"`
-	Limit              int                                      `pulumi:"limit"`
-	ScopeDownStatement *WebACLStatement                         `pulumi:"scopeDownStatement"`
+	AggregateKeyType WebACLRateBasedStatementAggregateKeyType `pulumi:"aggregateKeyType"`
+	// Specifies the aggregate keys to use in a rate-base rule.
+	CustomKeys         []WebACLRateBasedStatementCustomKey `pulumi:"customKeys"`
+	ForwardedIPConfig  *WebACLForwardedIPConfiguration     `pulumi:"forwardedIPConfig"`
+	Limit              int                                 `pulumi:"limit"`
+	ScopeDownStatement *WebACLStatement                    `pulumi:"scopeDownStatement"`
 }
 
 // WebACLRateBasedStatementInput is an input type that accepts WebACLRateBasedStatementArgs and WebACLRateBasedStatementOutput values.
@@ -14491,10 +15899,12 @@ type WebACLRateBasedStatementInput interface {
 }
 
 type WebACLRateBasedStatementArgs struct {
-	AggregateKeyType   WebACLRateBasedStatementAggregateKeyTypeInput `pulumi:"aggregateKeyType"`
-	ForwardedIPConfig  WebACLForwardedIPConfigurationPtrInput        `pulumi:"forwardedIPConfig"`
-	Limit              pulumi.IntInput                               `pulumi:"limit"`
-	ScopeDownStatement WebACLStatementPtrInput                       `pulumi:"scopeDownStatement"`
+	AggregateKeyType WebACLRateBasedStatementAggregateKeyTypeInput `pulumi:"aggregateKeyType"`
+	// Specifies the aggregate keys to use in a rate-base rule.
+	CustomKeys         WebACLRateBasedStatementCustomKeyArrayInput `pulumi:"customKeys"`
+	ForwardedIPConfig  WebACLForwardedIPConfigurationPtrInput      `pulumi:"forwardedIPConfig"`
+	Limit              pulumi.IntInput                             `pulumi:"limit"`
+	ScopeDownStatement WebACLStatementPtrInput                     `pulumi:"scopeDownStatement"`
 }
 
 func (WebACLRateBasedStatementArgs) ElementType() reflect.Type {
@@ -14578,6 +15988,11 @@ func (o WebACLRateBasedStatementOutput) AggregateKeyType() WebACLRateBasedStatem
 	return o.ApplyT(func(v WebACLRateBasedStatement) WebACLRateBasedStatementAggregateKeyType { return v.AggregateKeyType }).(WebACLRateBasedStatementAggregateKeyTypeOutput)
 }
 
+// Specifies the aggregate keys to use in a rate-base rule.
+func (o WebACLRateBasedStatementOutput) CustomKeys() WebACLRateBasedStatementCustomKeyArrayOutput {
+	return o.ApplyT(func(v WebACLRateBasedStatement) []WebACLRateBasedStatementCustomKey { return v.CustomKeys }).(WebACLRateBasedStatementCustomKeyArrayOutput)
+}
+
 func (o WebACLRateBasedStatementOutput) ForwardedIPConfig() WebACLForwardedIPConfigurationPtrOutput {
 	return o.ApplyT(func(v WebACLRateBasedStatement) *WebACLForwardedIPConfiguration { return v.ForwardedIPConfig }).(WebACLForwardedIPConfigurationPtrOutput)
 }
@@ -14623,6 +16038,16 @@ func (o WebACLRateBasedStatementPtrOutput) AggregateKeyType() WebACLRateBasedSta
 	}).(WebACLRateBasedStatementAggregateKeyTypePtrOutput)
 }
 
+// Specifies the aggregate keys to use in a rate-base rule.
+func (o WebACLRateBasedStatementPtrOutput) CustomKeys() WebACLRateBasedStatementCustomKeyArrayOutput {
+	return o.ApplyT(func(v *WebACLRateBasedStatement) []WebACLRateBasedStatementCustomKey {
+		if v == nil {
+			return nil
+		}
+		return v.CustomKeys
+	}).(WebACLRateBasedStatementCustomKeyArrayOutput)
+}
+
 func (o WebACLRateBasedStatementPtrOutput) ForwardedIPConfig() WebACLForwardedIPConfigurationPtrOutput {
 	return o.ApplyT(func(v *WebACLRateBasedStatement) *WebACLForwardedIPConfiguration {
 		if v == nil {
@@ -14648,6 +16073,1391 @@ func (o WebACLRateBasedStatementPtrOutput) ScopeDownStatement() WebACLStatementP
 		}
 		return v.ScopeDownStatement
 	}).(WebACLStatementPtrOutput)
+}
+
+// Specifies a single custom aggregate key for a rate-base rule.
+type WebACLRateBasedStatementCustomKey struct {
+	Cookie         *WebACLRateLimitCookie         `pulumi:"cookie"`
+	ForwardedIP    *WebACLRateLimitForwardedIP    `pulumi:"forwardedIP"`
+	HTTPMethod     *WebACLRateLimitHTTPMethod     `pulumi:"hTTPMethod"`
+	Header         *WebACLRateLimitHeader         `pulumi:"header"`
+	IP             *WebACLRateLimitIP             `pulumi:"iP"`
+	LabelNamespace *WebACLRateLimitLabelNamespace `pulumi:"labelNamespace"`
+	QueryArgument  *WebACLRateLimitQueryArgument  `pulumi:"queryArgument"`
+	QueryString    *WebACLRateLimitQueryString    `pulumi:"queryString"`
+	UriPath        *WebACLRateLimitUriPath        `pulumi:"uriPath"`
+}
+
+// WebACLRateBasedStatementCustomKeyInput is an input type that accepts WebACLRateBasedStatementCustomKeyArgs and WebACLRateBasedStatementCustomKeyOutput values.
+// You can construct a concrete instance of `WebACLRateBasedStatementCustomKeyInput` via:
+//
+//	WebACLRateBasedStatementCustomKeyArgs{...}
+type WebACLRateBasedStatementCustomKeyInput interface {
+	pulumi.Input
+
+	ToWebACLRateBasedStatementCustomKeyOutput() WebACLRateBasedStatementCustomKeyOutput
+	ToWebACLRateBasedStatementCustomKeyOutputWithContext(context.Context) WebACLRateBasedStatementCustomKeyOutput
+}
+
+// Specifies a single custom aggregate key for a rate-base rule.
+type WebACLRateBasedStatementCustomKeyArgs struct {
+	Cookie         WebACLRateLimitCookiePtrInput         `pulumi:"cookie"`
+	ForwardedIP    WebACLRateLimitForwardedIPPtrInput    `pulumi:"forwardedIP"`
+	HTTPMethod     WebACLRateLimitHTTPMethodPtrInput     `pulumi:"hTTPMethod"`
+	Header         WebACLRateLimitHeaderPtrInput         `pulumi:"header"`
+	IP             WebACLRateLimitIPPtrInput             `pulumi:"iP"`
+	LabelNamespace WebACLRateLimitLabelNamespacePtrInput `pulumi:"labelNamespace"`
+	QueryArgument  WebACLRateLimitQueryArgumentPtrInput  `pulumi:"queryArgument"`
+	QueryString    WebACLRateLimitQueryStringPtrInput    `pulumi:"queryString"`
+	UriPath        WebACLRateLimitUriPathPtrInput        `pulumi:"uriPath"`
+}
+
+func (WebACLRateBasedStatementCustomKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLRateBasedStatementCustomKey)(nil)).Elem()
+}
+
+func (i WebACLRateBasedStatementCustomKeyArgs) ToWebACLRateBasedStatementCustomKeyOutput() WebACLRateBasedStatementCustomKeyOutput {
+	return i.ToWebACLRateBasedStatementCustomKeyOutputWithContext(context.Background())
+}
+
+func (i WebACLRateBasedStatementCustomKeyArgs) ToWebACLRateBasedStatementCustomKeyOutputWithContext(ctx context.Context) WebACLRateBasedStatementCustomKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLRateBasedStatementCustomKeyOutput)
+}
+
+// WebACLRateBasedStatementCustomKeyArrayInput is an input type that accepts WebACLRateBasedStatementCustomKeyArray and WebACLRateBasedStatementCustomKeyArrayOutput values.
+// You can construct a concrete instance of `WebACLRateBasedStatementCustomKeyArrayInput` via:
+//
+//	WebACLRateBasedStatementCustomKeyArray{ WebACLRateBasedStatementCustomKeyArgs{...} }
+type WebACLRateBasedStatementCustomKeyArrayInput interface {
+	pulumi.Input
+
+	ToWebACLRateBasedStatementCustomKeyArrayOutput() WebACLRateBasedStatementCustomKeyArrayOutput
+	ToWebACLRateBasedStatementCustomKeyArrayOutputWithContext(context.Context) WebACLRateBasedStatementCustomKeyArrayOutput
+}
+
+type WebACLRateBasedStatementCustomKeyArray []WebACLRateBasedStatementCustomKeyInput
+
+func (WebACLRateBasedStatementCustomKeyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebACLRateBasedStatementCustomKey)(nil)).Elem()
+}
+
+func (i WebACLRateBasedStatementCustomKeyArray) ToWebACLRateBasedStatementCustomKeyArrayOutput() WebACLRateBasedStatementCustomKeyArrayOutput {
+	return i.ToWebACLRateBasedStatementCustomKeyArrayOutputWithContext(context.Background())
+}
+
+func (i WebACLRateBasedStatementCustomKeyArray) ToWebACLRateBasedStatementCustomKeyArrayOutputWithContext(ctx context.Context) WebACLRateBasedStatementCustomKeyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLRateBasedStatementCustomKeyArrayOutput)
+}
+
+// Specifies a single custom aggregate key for a rate-base rule.
+type WebACLRateBasedStatementCustomKeyOutput struct{ *pulumi.OutputState }
+
+func (WebACLRateBasedStatementCustomKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLRateBasedStatementCustomKey)(nil)).Elem()
+}
+
+func (o WebACLRateBasedStatementCustomKeyOutput) ToWebACLRateBasedStatementCustomKeyOutput() WebACLRateBasedStatementCustomKeyOutput {
+	return o
+}
+
+func (o WebACLRateBasedStatementCustomKeyOutput) ToWebACLRateBasedStatementCustomKeyOutputWithContext(ctx context.Context) WebACLRateBasedStatementCustomKeyOutput {
+	return o
+}
+
+func (o WebACLRateBasedStatementCustomKeyOutput) Cookie() WebACLRateLimitCookiePtrOutput {
+	return o.ApplyT(func(v WebACLRateBasedStatementCustomKey) *WebACLRateLimitCookie { return v.Cookie }).(WebACLRateLimitCookiePtrOutput)
+}
+
+func (o WebACLRateBasedStatementCustomKeyOutput) ForwardedIP() WebACLRateLimitForwardedIPPtrOutput {
+	return o.ApplyT(func(v WebACLRateBasedStatementCustomKey) *WebACLRateLimitForwardedIP { return v.ForwardedIP }).(WebACLRateLimitForwardedIPPtrOutput)
+}
+
+func (o WebACLRateBasedStatementCustomKeyOutput) HTTPMethod() WebACLRateLimitHTTPMethodPtrOutput {
+	return o.ApplyT(func(v WebACLRateBasedStatementCustomKey) *WebACLRateLimitHTTPMethod { return v.HTTPMethod }).(WebACLRateLimitHTTPMethodPtrOutput)
+}
+
+func (o WebACLRateBasedStatementCustomKeyOutput) Header() WebACLRateLimitHeaderPtrOutput {
+	return o.ApplyT(func(v WebACLRateBasedStatementCustomKey) *WebACLRateLimitHeader { return v.Header }).(WebACLRateLimitHeaderPtrOutput)
+}
+
+func (o WebACLRateBasedStatementCustomKeyOutput) IP() WebACLRateLimitIPPtrOutput {
+	return o.ApplyT(func(v WebACLRateBasedStatementCustomKey) *WebACLRateLimitIP { return v.IP }).(WebACLRateLimitIPPtrOutput)
+}
+
+func (o WebACLRateBasedStatementCustomKeyOutput) LabelNamespace() WebACLRateLimitLabelNamespacePtrOutput {
+	return o.ApplyT(func(v WebACLRateBasedStatementCustomKey) *WebACLRateLimitLabelNamespace { return v.LabelNamespace }).(WebACLRateLimitLabelNamespacePtrOutput)
+}
+
+func (o WebACLRateBasedStatementCustomKeyOutput) QueryArgument() WebACLRateLimitQueryArgumentPtrOutput {
+	return o.ApplyT(func(v WebACLRateBasedStatementCustomKey) *WebACLRateLimitQueryArgument { return v.QueryArgument }).(WebACLRateLimitQueryArgumentPtrOutput)
+}
+
+func (o WebACLRateBasedStatementCustomKeyOutput) QueryString() WebACLRateLimitQueryStringPtrOutput {
+	return o.ApplyT(func(v WebACLRateBasedStatementCustomKey) *WebACLRateLimitQueryString { return v.QueryString }).(WebACLRateLimitQueryStringPtrOutput)
+}
+
+func (o WebACLRateBasedStatementCustomKeyOutput) UriPath() WebACLRateLimitUriPathPtrOutput {
+	return o.ApplyT(func(v WebACLRateBasedStatementCustomKey) *WebACLRateLimitUriPath { return v.UriPath }).(WebACLRateLimitUriPathPtrOutput)
+}
+
+type WebACLRateBasedStatementCustomKeyArrayOutput struct{ *pulumi.OutputState }
+
+func (WebACLRateBasedStatementCustomKeyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebACLRateBasedStatementCustomKey)(nil)).Elem()
+}
+
+func (o WebACLRateBasedStatementCustomKeyArrayOutput) ToWebACLRateBasedStatementCustomKeyArrayOutput() WebACLRateBasedStatementCustomKeyArrayOutput {
+	return o
+}
+
+func (o WebACLRateBasedStatementCustomKeyArrayOutput) ToWebACLRateBasedStatementCustomKeyArrayOutputWithContext(ctx context.Context) WebACLRateBasedStatementCustomKeyArrayOutput {
+	return o
+}
+
+func (o WebACLRateBasedStatementCustomKeyArrayOutput) Index(i pulumi.IntInput) WebACLRateBasedStatementCustomKeyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebACLRateBasedStatementCustomKey {
+		return vs[0].([]WebACLRateBasedStatementCustomKey)[vs[1].(int)]
+	}).(WebACLRateBasedStatementCustomKeyOutput)
+}
+
+// Specifies a cookie as an aggregate key for a rate-based rule.
+type WebACLRateLimitCookie struct {
+	// The name of the cookie to use.
+	Name                string                     `pulumi:"name"`
+	TextTransformations []WebACLTextTransformation `pulumi:"textTransformations"`
+}
+
+// WebACLRateLimitCookieInput is an input type that accepts WebACLRateLimitCookieArgs and WebACLRateLimitCookieOutput values.
+// You can construct a concrete instance of `WebACLRateLimitCookieInput` via:
+//
+//	WebACLRateLimitCookieArgs{...}
+type WebACLRateLimitCookieInput interface {
+	pulumi.Input
+
+	ToWebACLRateLimitCookieOutput() WebACLRateLimitCookieOutput
+	ToWebACLRateLimitCookieOutputWithContext(context.Context) WebACLRateLimitCookieOutput
+}
+
+// Specifies a cookie as an aggregate key for a rate-based rule.
+type WebACLRateLimitCookieArgs struct {
+	// The name of the cookie to use.
+	Name                pulumi.StringInput                 `pulumi:"name"`
+	TextTransformations WebACLTextTransformationArrayInput `pulumi:"textTransformations"`
+}
+
+func (WebACLRateLimitCookieArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLRateLimitCookie)(nil)).Elem()
+}
+
+func (i WebACLRateLimitCookieArgs) ToWebACLRateLimitCookieOutput() WebACLRateLimitCookieOutput {
+	return i.ToWebACLRateLimitCookieOutputWithContext(context.Background())
+}
+
+func (i WebACLRateLimitCookieArgs) ToWebACLRateLimitCookieOutputWithContext(ctx context.Context) WebACLRateLimitCookieOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLRateLimitCookieOutput)
+}
+
+func (i WebACLRateLimitCookieArgs) ToWebACLRateLimitCookiePtrOutput() WebACLRateLimitCookiePtrOutput {
+	return i.ToWebACLRateLimitCookiePtrOutputWithContext(context.Background())
+}
+
+func (i WebACLRateLimitCookieArgs) ToWebACLRateLimitCookiePtrOutputWithContext(ctx context.Context) WebACLRateLimitCookiePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLRateLimitCookieOutput).ToWebACLRateLimitCookiePtrOutputWithContext(ctx)
+}
+
+// WebACLRateLimitCookiePtrInput is an input type that accepts WebACLRateLimitCookieArgs, WebACLRateLimitCookiePtr and WebACLRateLimitCookiePtrOutput values.
+// You can construct a concrete instance of `WebACLRateLimitCookiePtrInput` via:
+//
+//	        WebACLRateLimitCookieArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebACLRateLimitCookiePtrInput interface {
+	pulumi.Input
+
+	ToWebACLRateLimitCookiePtrOutput() WebACLRateLimitCookiePtrOutput
+	ToWebACLRateLimitCookiePtrOutputWithContext(context.Context) WebACLRateLimitCookiePtrOutput
+}
+
+type webACLRateLimitCookiePtrType WebACLRateLimitCookieArgs
+
+func WebACLRateLimitCookiePtr(v *WebACLRateLimitCookieArgs) WebACLRateLimitCookiePtrInput {
+	return (*webACLRateLimitCookiePtrType)(v)
+}
+
+func (*webACLRateLimitCookiePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLRateLimitCookie)(nil)).Elem()
+}
+
+func (i *webACLRateLimitCookiePtrType) ToWebACLRateLimitCookiePtrOutput() WebACLRateLimitCookiePtrOutput {
+	return i.ToWebACLRateLimitCookiePtrOutputWithContext(context.Background())
+}
+
+func (i *webACLRateLimitCookiePtrType) ToWebACLRateLimitCookiePtrOutputWithContext(ctx context.Context) WebACLRateLimitCookiePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLRateLimitCookiePtrOutput)
+}
+
+// Specifies a cookie as an aggregate key for a rate-based rule.
+type WebACLRateLimitCookieOutput struct{ *pulumi.OutputState }
+
+func (WebACLRateLimitCookieOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLRateLimitCookie)(nil)).Elem()
+}
+
+func (o WebACLRateLimitCookieOutput) ToWebACLRateLimitCookieOutput() WebACLRateLimitCookieOutput {
+	return o
+}
+
+func (o WebACLRateLimitCookieOutput) ToWebACLRateLimitCookieOutputWithContext(ctx context.Context) WebACLRateLimitCookieOutput {
+	return o
+}
+
+func (o WebACLRateLimitCookieOutput) ToWebACLRateLimitCookiePtrOutput() WebACLRateLimitCookiePtrOutput {
+	return o.ToWebACLRateLimitCookiePtrOutputWithContext(context.Background())
+}
+
+func (o WebACLRateLimitCookieOutput) ToWebACLRateLimitCookiePtrOutputWithContext(ctx context.Context) WebACLRateLimitCookiePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLRateLimitCookie) *WebACLRateLimitCookie {
+		return &v
+	}).(WebACLRateLimitCookiePtrOutput)
+}
+
+// The name of the cookie to use.
+func (o WebACLRateLimitCookieOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WebACLRateLimitCookie) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o WebACLRateLimitCookieOutput) TextTransformations() WebACLTextTransformationArrayOutput {
+	return o.ApplyT(func(v WebACLRateLimitCookie) []WebACLTextTransformation { return v.TextTransformations }).(WebACLTextTransformationArrayOutput)
+}
+
+type WebACLRateLimitCookiePtrOutput struct{ *pulumi.OutputState }
+
+func (WebACLRateLimitCookiePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLRateLimitCookie)(nil)).Elem()
+}
+
+func (o WebACLRateLimitCookiePtrOutput) ToWebACLRateLimitCookiePtrOutput() WebACLRateLimitCookiePtrOutput {
+	return o
+}
+
+func (o WebACLRateLimitCookiePtrOutput) ToWebACLRateLimitCookiePtrOutputWithContext(ctx context.Context) WebACLRateLimitCookiePtrOutput {
+	return o
+}
+
+func (o WebACLRateLimitCookiePtrOutput) Elem() WebACLRateLimitCookieOutput {
+	return o.ApplyT(func(v *WebACLRateLimitCookie) WebACLRateLimitCookie {
+		if v != nil {
+			return *v
+		}
+		var ret WebACLRateLimitCookie
+		return ret
+	}).(WebACLRateLimitCookieOutput)
+}
+
+// The name of the cookie to use.
+func (o WebACLRateLimitCookiePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebACLRateLimitCookie) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WebACLRateLimitCookiePtrOutput) TextTransformations() WebACLTextTransformationArrayOutput {
+	return o.ApplyT(func(v *WebACLRateLimitCookie) []WebACLTextTransformation {
+		if v == nil {
+			return nil
+		}
+		return v.TextTransformations
+	}).(WebACLTextTransformationArrayOutput)
+}
+
+// Specifies the first IP address in an HTTP header as an aggregate key for a rate-based rule.
+type WebACLRateLimitForwardedIP struct {
+}
+
+// WebACLRateLimitForwardedIPInput is an input type that accepts WebACLRateLimitForwardedIPArgs and WebACLRateLimitForwardedIPOutput values.
+// You can construct a concrete instance of `WebACLRateLimitForwardedIPInput` via:
+//
+//	WebACLRateLimitForwardedIPArgs{...}
+type WebACLRateLimitForwardedIPInput interface {
+	pulumi.Input
+
+	ToWebACLRateLimitForwardedIPOutput() WebACLRateLimitForwardedIPOutput
+	ToWebACLRateLimitForwardedIPOutputWithContext(context.Context) WebACLRateLimitForwardedIPOutput
+}
+
+// Specifies the first IP address in an HTTP header as an aggregate key for a rate-based rule.
+type WebACLRateLimitForwardedIPArgs struct {
+}
+
+func (WebACLRateLimitForwardedIPArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLRateLimitForwardedIP)(nil)).Elem()
+}
+
+func (i WebACLRateLimitForwardedIPArgs) ToWebACLRateLimitForwardedIPOutput() WebACLRateLimitForwardedIPOutput {
+	return i.ToWebACLRateLimitForwardedIPOutputWithContext(context.Background())
+}
+
+func (i WebACLRateLimitForwardedIPArgs) ToWebACLRateLimitForwardedIPOutputWithContext(ctx context.Context) WebACLRateLimitForwardedIPOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLRateLimitForwardedIPOutput)
+}
+
+func (i WebACLRateLimitForwardedIPArgs) ToWebACLRateLimitForwardedIPPtrOutput() WebACLRateLimitForwardedIPPtrOutput {
+	return i.ToWebACLRateLimitForwardedIPPtrOutputWithContext(context.Background())
+}
+
+func (i WebACLRateLimitForwardedIPArgs) ToWebACLRateLimitForwardedIPPtrOutputWithContext(ctx context.Context) WebACLRateLimitForwardedIPPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLRateLimitForwardedIPOutput).ToWebACLRateLimitForwardedIPPtrOutputWithContext(ctx)
+}
+
+// WebACLRateLimitForwardedIPPtrInput is an input type that accepts WebACLRateLimitForwardedIPArgs, WebACLRateLimitForwardedIPPtr and WebACLRateLimitForwardedIPPtrOutput values.
+// You can construct a concrete instance of `WebACLRateLimitForwardedIPPtrInput` via:
+//
+//	        WebACLRateLimitForwardedIPArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebACLRateLimitForwardedIPPtrInput interface {
+	pulumi.Input
+
+	ToWebACLRateLimitForwardedIPPtrOutput() WebACLRateLimitForwardedIPPtrOutput
+	ToWebACLRateLimitForwardedIPPtrOutputWithContext(context.Context) WebACLRateLimitForwardedIPPtrOutput
+}
+
+type webACLRateLimitForwardedIPPtrType WebACLRateLimitForwardedIPArgs
+
+func WebACLRateLimitForwardedIPPtr(v *WebACLRateLimitForwardedIPArgs) WebACLRateLimitForwardedIPPtrInput {
+	return (*webACLRateLimitForwardedIPPtrType)(v)
+}
+
+func (*webACLRateLimitForwardedIPPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLRateLimitForwardedIP)(nil)).Elem()
+}
+
+func (i *webACLRateLimitForwardedIPPtrType) ToWebACLRateLimitForwardedIPPtrOutput() WebACLRateLimitForwardedIPPtrOutput {
+	return i.ToWebACLRateLimitForwardedIPPtrOutputWithContext(context.Background())
+}
+
+func (i *webACLRateLimitForwardedIPPtrType) ToWebACLRateLimitForwardedIPPtrOutputWithContext(ctx context.Context) WebACLRateLimitForwardedIPPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLRateLimitForwardedIPPtrOutput)
+}
+
+// Specifies the first IP address in an HTTP header as an aggregate key for a rate-based rule.
+type WebACLRateLimitForwardedIPOutput struct{ *pulumi.OutputState }
+
+func (WebACLRateLimitForwardedIPOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLRateLimitForwardedIP)(nil)).Elem()
+}
+
+func (o WebACLRateLimitForwardedIPOutput) ToWebACLRateLimitForwardedIPOutput() WebACLRateLimitForwardedIPOutput {
+	return o
+}
+
+func (o WebACLRateLimitForwardedIPOutput) ToWebACLRateLimitForwardedIPOutputWithContext(ctx context.Context) WebACLRateLimitForwardedIPOutput {
+	return o
+}
+
+func (o WebACLRateLimitForwardedIPOutput) ToWebACLRateLimitForwardedIPPtrOutput() WebACLRateLimitForwardedIPPtrOutput {
+	return o.ToWebACLRateLimitForwardedIPPtrOutputWithContext(context.Background())
+}
+
+func (o WebACLRateLimitForwardedIPOutput) ToWebACLRateLimitForwardedIPPtrOutputWithContext(ctx context.Context) WebACLRateLimitForwardedIPPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLRateLimitForwardedIP) *WebACLRateLimitForwardedIP {
+		return &v
+	}).(WebACLRateLimitForwardedIPPtrOutput)
+}
+
+type WebACLRateLimitForwardedIPPtrOutput struct{ *pulumi.OutputState }
+
+func (WebACLRateLimitForwardedIPPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLRateLimitForwardedIP)(nil)).Elem()
+}
+
+func (o WebACLRateLimitForwardedIPPtrOutput) ToWebACLRateLimitForwardedIPPtrOutput() WebACLRateLimitForwardedIPPtrOutput {
+	return o
+}
+
+func (o WebACLRateLimitForwardedIPPtrOutput) ToWebACLRateLimitForwardedIPPtrOutputWithContext(ctx context.Context) WebACLRateLimitForwardedIPPtrOutput {
+	return o
+}
+
+func (o WebACLRateLimitForwardedIPPtrOutput) Elem() WebACLRateLimitForwardedIPOutput {
+	return o.ApplyT(func(v *WebACLRateLimitForwardedIP) WebACLRateLimitForwardedIP {
+		if v != nil {
+			return *v
+		}
+		var ret WebACLRateLimitForwardedIP
+		return ret
+	}).(WebACLRateLimitForwardedIPOutput)
+}
+
+// Specifies the request's HTTP method as an aggregate key for a rate-based rule.
+type WebACLRateLimitHTTPMethod struct {
+}
+
+// WebACLRateLimitHTTPMethodInput is an input type that accepts WebACLRateLimitHTTPMethodArgs and WebACLRateLimitHTTPMethodOutput values.
+// You can construct a concrete instance of `WebACLRateLimitHTTPMethodInput` via:
+//
+//	WebACLRateLimitHTTPMethodArgs{...}
+type WebACLRateLimitHTTPMethodInput interface {
+	pulumi.Input
+
+	ToWebACLRateLimitHTTPMethodOutput() WebACLRateLimitHTTPMethodOutput
+	ToWebACLRateLimitHTTPMethodOutputWithContext(context.Context) WebACLRateLimitHTTPMethodOutput
+}
+
+// Specifies the request's HTTP method as an aggregate key for a rate-based rule.
+type WebACLRateLimitHTTPMethodArgs struct {
+}
+
+func (WebACLRateLimitHTTPMethodArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLRateLimitHTTPMethod)(nil)).Elem()
+}
+
+func (i WebACLRateLimitHTTPMethodArgs) ToWebACLRateLimitHTTPMethodOutput() WebACLRateLimitHTTPMethodOutput {
+	return i.ToWebACLRateLimitHTTPMethodOutputWithContext(context.Background())
+}
+
+func (i WebACLRateLimitHTTPMethodArgs) ToWebACLRateLimitHTTPMethodOutputWithContext(ctx context.Context) WebACLRateLimitHTTPMethodOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLRateLimitHTTPMethodOutput)
+}
+
+func (i WebACLRateLimitHTTPMethodArgs) ToWebACLRateLimitHTTPMethodPtrOutput() WebACLRateLimitHTTPMethodPtrOutput {
+	return i.ToWebACLRateLimitHTTPMethodPtrOutputWithContext(context.Background())
+}
+
+func (i WebACLRateLimitHTTPMethodArgs) ToWebACLRateLimitHTTPMethodPtrOutputWithContext(ctx context.Context) WebACLRateLimitHTTPMethodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLRateLimitHTTPMethodOutput).ToWebACLRateLimitHTTPMethodPtrOutputWithContext(ctx)
+}
+
+// WebACLRateLimitHTTPMethodPtrInput is an input type that accepts WebACLRateLimitHTTPMethodArgs, WebACLRateLimitHTTPMethodPtr and WebACLRateLimitHTTPMethodPtrOutput values.
+// You can construct a concrete instance of `WebACLRateLimitHTTPMethodPtrInput` via:
+//
+//	        WebACLRateLimitHTTPMethodArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebACLRateLimitHTTPMethodPtrInput interface {
+	pulumi.Input
+
+	ToWebACLRateLimitHTTPMethodPtrOutput() WebACLRateLimitHTTPMethodPtrOutput
+	ToWebACLRateLimitHTTPMethodPtrOutputWithContext(context.Context) WebACLRateLimitHTTPMethodPtrOutput
+}
+
+type webACLRateLimitHTTPMethodPtrType WebACLRateLimitHTTPMethodArgs
+
+func WebACLRateLimitHTTPMethodPtr(v *WebACLRateLimitHTTPMethodArgs) WebACLRateLimitHTTPMethodPtrInput {
+	return (*webACLRateLimitHTTPMethodPtrType)(v)
+}
+
+func (*webACLRateLimitHTTPMethodPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLRateLimitHTTPMethod)(nil)).Elem()
+}
+
+func (i *webACLRateLimitHTTPMethodPtrType) ToWebACLRateLimitHTTPMethodPtrOutput() WebACLRateLimitHTTPMethodPtrOutput {
+	return i.ToWebACLRateLimitHTTPMethodPtrOutputWithContext(context.Background())
+}
+
+func (i *webACLRateLimitHTTPMethodPtrType) ToWebACLRateLimitHTTPMethodPtrOutputWithContext(ctx context.Context) WebACLRateLimitHTTPMethodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLRateLimitHTTPMethodPtrOutput)
+}
+
+// Specifies the request's HTTP method as an aggregate key for a rate-based rule.
+type WebACLRateLimitHTTPMethodOutput struct{ *pulumi.OutputState }
+
+func (WebACLRateLimitHTTPMethodOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLRateLimitHTTPMethod)(nil)).Elem()
+}
+
+func (o WebACLRateLimitHTTPMethodOutput) ToWebACLRateLimitHTTPMethodOutput() WebACLRateLimitHTTPMethodOutput {
+	return o
+}
+
+func (o WebACLRateLimitHTTPMethodOutput) ToWebACLRateLimitHTTPMethodOutputWithContext(ctx context.Context) WebACLRateLimitHTTPMethodOutput {
+	return o
+}
+
+func (o WebACLRateLimitHTTPMethodOutput) ToWebACLRateLimitHTTPMethodPtrOutput() WebACLRateLimitHTTPMethodPtrOutput {
+	return o.ToWebACLRateLimitHTTPMethodPtrOutputWithContext(context.Background())
+}
+
+func (o WebACLRateLimitHTTPMethodOutput) ToWebACLRateLimitHTTPMethodPtrOutputWithContext(ctx context.Context) WebACLRateLimitHTTPMethodPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLRateLimitHTTPMethod) *WebACLRateLimitHTTPMethod {
+		return &v
+	}).(WebACLRateLimitHTTPMethodPtrOutput)
+}
+
+type WebACLRateLimitHTTPMethodPtrOutput struct{ *pulumi.OutputState }
+
+func (WebACLRateLimitHTTPMethodPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLRateLimitHTTPMethod)(nil)).Elem()
+}
+
+func (o WebACLRateLimitHTTPMethodPtrOutput) ToWebACLRateLimitHTTPMethodPtrOutput() WebACLRateLimitHTTPMethodPtrOutput {
+	return o
+}
+
+func (o WebACLRateLimitHTTPMethodPtrOutput) ToWebACLRateLimitHTTPMethodPtrOutputWithContext(ctx context.Context) WebACLRateLimitHTTPMethodPtrOutput {
+	return o
+}
+
+func (o WebACLRateLimitHTTPMethodPtrOutput) Elem() WebACLRateLimitHTTPMethodOutput {
+	return o.ApplyT(func(v *WebACLRateLimitHTTPMethod) WebACLRateLimitHTTPMethod {
+		if v != nil {
+			return *v
+		}
+		var ret WebACLRateLimitHTTPMethod
+		return ret
+	}).(WebACLRateLimitHTTPMethodOutput)
+}
+
+// Specifies a header as an aggregate key for a rate-based rule.
+type WebACLRateLimitHeader struct {
+	// The name of the header to use.
+	Name                string                     `pulumi:"name"`
+	TextTransformations []WebACLTextTransformation `pulumi:"textTransformations"`
+}
+
+// WebACLRateLimitHeaderInput is an input type that accepts WebACLRateLimitHeaderArgs and WebACLRateLimitHeaderOutput values.
+// You can construct a concrete instance of `WebACLRateLimitHeaderInput` via:
+//
+//	WebACLRateLimitHeaderArgs{...}
+type WebACLRateLimitHeaderInput interface {
+	pulumi.Input
+
+	ToWebACLRateLimitHeaderOutput() WebACLRateLimitHeaderOutput
+	ToWebACLRateLimitHeaderOutputWithContext(context.Context) WebACLRateLimitHeaderOutput
+}
+
+// Specifies a header as an aggregate key for a rate-based rule.
+type WebACLRateLimitHeaderArgs struct {
+	// The name of the header to use.
+	Name                pulumi.StringInput                 `pulumi:"name"`
+	TextTransformations WebACLTextTransformationArrayInput `pulumi:"textTransformations"`
+}
+
+func (WebACLRateLimitHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLRateLimitHeader)(nil)).Elem()
+}
+
+func (i WebACLRateLimitHeaderArgs) ToWebACLRateLimitHeaderOutput() WebACLRateLimitHeaderOutput {
+	return i.ToWebACLRateLimitHeaderOutputWithContext(context.Background())
+}
+
+func (i WebACLRateLimitHeaderArgs) ToWebACLRateLimitHeaderOutputWithContext(ctx context.Context) WebACLRateLimitHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLRateLimitHeaderOutput)
+}
+
+func (i WebACLRateLimitHeaderArgs) ToWebACLRateLimitHeaderPtrOutput() WebACLRateLimitHeaderPtrOutput {
+	return i.ToWebACLRateLimitHeaderPtrOutputWithContext(context.Background())
+}
+
+func (i WebACLRateLimitHeaderArgs) ToWebACLRateLimitHeaderPtrOutputWithContext(ctx context.Context) WebACLRateLimitHeaderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLRateLimitHeaderOutput).ToWebACLRateLimitHeaderPtrOutputWithContext(ctx)
+}
+
+// WebACLRateLimitHeaderPtrInput is an input type that accepts WebACLRateLimitHeaderArgs, WebACLRateLimitHeaderPtr and WebACLRateLimitHeaderPtrOutput values.
+// You can construct a concrete instance of `WebACLRateLimitHeaderPtrInput` via:
+//
+//	        WebACLRateLimitHeaderArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebACLRateLimitHeaderPtrInput interface {
+	pulumi.Input
+
+	ToWebACLRateLimitHeaderPtrOutput() WebACLRateLimitHeaderPtrOutput
+	ToWebACLRateLimitHeaderPtrOutputWithContext(context.Context) WebACLRateLimitHeaderPtrOutput
+}
+
+type webACLRateLimitHeaderPtrType WebACLRateLimitHeaderArgs
+
+func WebACLRateLimitHeaderPtr(v *WebACLRateLimitHeaderArgs) WebACLRateLimitHeaderPtrInput {
+	return (*webACLRateLimitHeaderPtrType)(v)
+}
+
+func (*webACLRateLimitHeaderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLRateLimitHeader)(nil)).Elem()
+}
+
+func (i *webACLRateLimitHeaderPtrType) ToWebACLRateLimitHeaderPtrOutput() WebACLRateLimitHeaderPtrOutput {
+	return i.ToWebACLRateLimitHeaderPtrOutputWithContext(context.Background())
+}
+
+func (i *webACLRateLimitHeaderPtrType) ToWebACLRateLimitHeaderPtrOutputWithContext(ctx context.Context) WebACLRateLimitHeaderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLRateLimitHeaderPtrOutput)
+}
+
+// Specifies a header as an aggregate key for a rate-based rule.
+type WebACLRateLimitHeaderOutput struct{ *pulumi.OutputState }
+
+func (WebACLRateLimitHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLRateLimitHeader)(nil)).Elem()
+}
+
+func (o WebACLRateLimitHeaderOutput) ToWebACLRateLimitHeaderOutput() WebACLRateLimitHeaderOutput {
+	return o
+}
+
+func (o WebACLRateLimitHeaderOutput) ToWebACLRateLimitHeaderOutputWithContext(ctx context.Context) WebACLRateLimitHeaderOutput {
+	return o
+}
+
+func (o WebACLRateLimitHeaderOutput) ToWebACLRateLimitHeaderPtrOutput() WebACLRateLimitHeaderPtrOutput {
+	return o.ToWebACLRateLimitHeaderPtrOutputWithContext(context.Background())
+}
+
+func (o WebACLRateLimitHeaderOutput) ToWebACLRateLimitHeaderPtrOutputWithContext(ctx context.Context) WebACLRateLimitHeaderPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLRateLimitHeader) *WebACLRateLimitHeader {
+		return &v
+	}).(WebACLRateLimitHeaderPtrOutput)
+}
+
+// The name of the header to use.
+func (o WebACLRateLimitHeaderOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WebACLRateLimitHeader) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o WebACLRateLimitHeaderOutput) TextTransformations() WebACLTextTransformationArrayOutput {
+	return o.ApplyT(func(v WebACLRateLimitHeader) []WebACLTextTransformation { return v.TextTransformations }).(WebACLTextTransformationArrayOutput)
+}
+
+type WebACLRateLimitHeaderPtrOutput struct{ *pulumi.OutputState }
+
+func (WebACLRateLimitHeaderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLRateLimitHeader)(nil)).Elem()
+}
+
+func (o WebACLRateLimitHeaderPtrOutput) ToWebACLRateLimitHeaderPtrOutput() WebACLRateLimitHeaderPtrOutput {
+	return o
+}
+
+func (o WebACLRateLimitHeaderPtrOutput) ToWebACLRateLimitHeaderPtrOutputWithContext(ctx context.Context) WebACLRateLimitHeaderPtrOutput {
+	return o
+}
+
+func (o WebACLRateLimitHeaderPtrOutput) Elem() WebACLRateLimitHeaderOutput {
+	return o.ApplyT(func(v *WebACLRateLimitHeader) WebACLRateLimitHeader {
+		if v != nil {
+			return *v
+		}
+		var ret WebACLRateLimitHeader
+		return ret
+	}).(WebACLRateLimitHeaderOutput)
+}
+
+// The name of the header to use.
+func (o WebACLRateLimitHeaderPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebACLRateLimitHeader) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WebACLRateLimitHeaderPtrOutput) TextTransformations() WebACLTextTransformationArrayOutput {
+	return o.ApplyT(func(v *WebACLRateLimitHeader) []WebACLTextTransformation {
+		if v == nil {
+			return nil
+		}
+		return v.TextTransformations
+	}).(WebACLTextTransformationArrayOutput)
+}
+
+// Specifies the IP address in the web request as an aggregate key for a rate-based rule.
+type WebACLRateLimitIP struct {
+}
+
+// WebACLRateLimitIPInput is an input type that accepts WebACLRateLimitIPArgs and WebACLRateLimitIPOutput values.
+// You can construct a concrete instance of `WebACLRateLimitIPInput` via:
+//
+//	WebACLRateLimitIPArgs{...}
+type WebACLRateLimitIPInput interface {
+	pulumi.Input
+
+	ToWebACLRateLimitIPOutput() WebACLRateLimitIPOutput
+	ToWebACLRateLimitIPOutputWithContext(context.Context) WebACLRateLimitIPOutput
+}
+
+// Specifies the IP address in the web request as an aggregate key for a rate-based rule.
+type WebACLRateLimitIPArgs struct {
+}
+
+func (WebACLRateLimitIPArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLRateLimitIP)(nil)).Elem()
+}
+
+func (i WebACLRateLimitIPArgs) ToWebACLRateLimitIPOutput() WebACLRateLimitIPOutput {
+	return i.ToWebACLRateLimitIPOutputWithContext(context.Background())
+}
+
+func (i WebACLRateLimitIPArgs) ToWebACLRateLimitIPOutputWithContext(ctx context.Context) WebACLRateLimitIPOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLRateLimitIPOutput)
+}
+
+func (i WebACLRateLimitIPArgs) ToWebACLRateLimitIPPtrOutput() WebACLRateLimitIPPtrOutput {
+	return i.ToWebACLRateLimitIPPtrOutputWithContext(context.Background())
+}
+
+func (i WebACLRateLimitIPArgs) ToWebACLRateLimitIPPtrOutputWithContext(ctx context.Context) WebACLRateLimitIPPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLRateLimitIPOutput).ToWebACLRateLimitIPPtrOutputWithContext(ctx)
+}
+
+// WebACLRateLimitIPPtrInput is an input type that accepts WebACLRateLimitIPArgs, WebACLRateLimitIPPtr and WebACLRateLimitIPPtrOutput values.
+// You can construct a concrete instance of `WebACLRateLimitIPPtrInput` via:
+//
+//	        WebACLRateLimitIPArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebACLRateLimitIPPtrInput interface {
+	pulumi.Input
+
+	ToWebACLRateLimitIPPtrOutput() WebACLRateLimitIPPtrOutput
+	ToWebACLRateLimitIPPtrOutputWithContext(context.Context) WebACLRateLimitIPPtrOutput
+}
+
+type webACLRateLimitIPPtrType WebACLRateLimitIPArgs
+
+func WebACLRateLimitIPPtr(v *WebACLRateLimitIPArgs) WebACLRateLimitIPPtrInput {
+	return (*webACLRateLimitIPPtrType)(v)
+}
+
+func (*webACLRateLimitIPPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLRateLimitIP)(nil)).Elem()
+}
+
+func (i *webACLRateLimitIPPtrType) ToWebACLRateLimitIPPtrOutput() WebACLRateLimitIPPtrOutput {
+	return i.ToWebACLRateLimitIPPtrOutputWithContext(context.Background())
+}
+
+func (i *webACLRateLimitIPPtrType) ToWebACLRateLimitIPPtrOutputWithContext(ctx context.Context) WebACLRateLimitIPPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLRateLimitIPPtrOutput)
+}
+
+// Specifies the IP address in the web request as an aggregate key for a rate-based rule.
+type WebACLRateLimitIPOutput struct{ *pulumi.OutputState }
+
+func (WebACLRateLimitIPOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLRateLimitIP)(nil)).Elem()
+}
+
+func (o WebACLRateLimitIPOutput) ToWebACLRateLimitIPOutput() WebACLRateLimitIPOutput {
+	return o
+}
+
+func (o WebACLRateLimitIPOutput) ToWebACLRateLimitIPOutputWithContext(ctx context.Context) WebACLRateLimitIPOutput {
+	return o
+}
+
+func (o WebACLRateLimitIPOutput) ToWebACLRateLimitIPPtrOutput() WebACLRateLimitIPPtrOutput {
+	return o.ToWebACLRateLimitIPPtrOutputWithContext(context.Background())
+}
+
+func (o WebACLRateLimitIPOutput) ToWebACLRateLimitIPPtrOutputWithContext(ctx context.Context) WebACLRateLimitIPPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLRateLimitIP) *WebACLRateLimitIP {
+		return &v
+	}).(WebACLRateLimitIPPtrOutput)
+}
+
+type WebACLRateLimitIPPtrOutput struct{ *pulumi.OutputState }
+
+func (WebACLRateLimitIPPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLRateLimitIP)(nil)).Elem()
+}
+
+func (o WebACLRateLimitIPPtrOutput) ToWebACLRateLimitIPPtrOutput() WebACLRateLimitIPPtrOutput {
+	return o
+}
+
+func (o WebACLRateLimitIPPtrOutput) ToWebACLRateLimitIPPtrOutputWithContext(ctx context.Context) WebACLRateLimitIPPtrOutput {
+	return o
+}
+
+func (o WebACLRateLimitIPPtrOutput) Elem() WebACLRateLimitIPOutput {
+	return o.ApplyT(func(v *WebACLRateLimitIP) WebACLRateLimitIP {
+		if v != nil {
+			return *v
+		}
+		var ret WebACLRateLimitIP
+		return ret
+	}).(WebACLRateLimitIPOutput)
+}
+
+// Specifies a label namespace to use as an aggregate key for a rate-based rule.
+type WebACLRateLimitLabelNamespace struct {
+	// The namespace to use for aggregation.
+	Namespace string `pulumi:"namespace"`
+}
+
+// WebACLRateLimitLabelNamespaceInput is an input type that accepts WebACLRateLimitLabelNamespaceArgs and WebACLRateLimitLabelNamespaceOutput values.
+// You can construct a concrete instance of `WebACLRateLimitLabelNamespaceInput` via:
+//
+//	WebACLRateLimitLabelNamespaceArgs{...}
+type WebACLRateLimitLabelNamespaceInput interface {
+	pulumi.Input
+
+	ToWebACLRateLimitLabelNamespaceOutput() WebACLRateLimitLabelNamespaceOutput
+	ToWebACLRateLimitLabelNamespaceOutputWithContext(context.Context) WebACLRateLimitLabelNamespaceOutput
+}
+
+// Specifies a label namespace to use as an aggregate key for a rate-based rule.
+type WebACLRateLimitLabelNamespaceArgs struct {
+	// The namespace to use for aggregation.
+	Namespace pulumi.StringInput `pulumi:"namespace"`
+}
+
+func (WebACLRateLimitLabelNamespaceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLRateLimitLabelNamespace)(nil)).Elem()
+}
+
+func (i WebACLRateLimitLabelNamespaceArgs) ToWebACLRateLimitLabelNamespaceOutput() WebACLRateLimitLabelNamespaceOutput {
+	return i.ToWebACLRateLimitLabelNamespaceOutputWithContext(context.Background())
+}
+
+func (i WebACLRateLimitLabelNamespaceArgs) ToWebACLRateLimitLabelNamespaceOutputWithContext(ctx context.Context) WebACLRateLimitLabelNamespaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLRateLimitLabelNamespaceOutput)
+}
+
+func (i WebACLRateLimitLabelNamespaceArgs) ToWebACLRateLimitLabelNamespacePtrOutput() WebACLRateLimitLabelNamespacePtrOutput {
+	return i.ToWebACLRateLimitLabelNamespacePtrOutputWithContext(context.Background())
+}
+
+func (i WebACLRateLimitLabelNamespaceArgs) ToWebACLRateLimitLabelNamespacePtrOutputWithContext(ctx context.Context) WebACLRateLimitLabelNamespacePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLRateLimitLabelNamespaceOutput).ToWebACLRateLimitLabelNamespacePtrOutputWithContext(ctx)
+}
+
+// WebACLRateLimitLabelNamespacePtrInput is an input type that accepts WebACLRateLimitLabelNamespaceArgs, WebACLRateLimitLabelNamespacePtr and WebACLRateLimitLabelNamespacePtrOutput values.
+// You can construct a concrete instance of `WebACLRateLimitLabelNamespacePtrInput` via:
+//
+//	        WebACLRateLimitLabelNamespaceArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebACLRateLimitLabelNamespacePtrInput interface {
+	pulumi.Input
+
+	ToWebACLRateLimitLabelNamespacePtrOutput() WebACLRateLimitLabelNamespacePtrOutput
+	ToWebACLRateLimitLabelNamespacePtrOutputWithContext(context.Context) WebACLRateLimitLabelNamespacePtrOutput
+}
+
+type webACLRateLimitLabelNamespacePtrType WebACLRateLimitLabelNamespaceArgs
+
+func WebACLRateLimitLabelNamespacePtr(v *WebACLRateLimitLabelNamespaceArgs) WebACLRateLimitLabelNamespacePtrInput {
+	return (*webACLRateLimitLabelNamespacePtrType)(v)
+}
+
+func (*webACLRateLimitLabelNamespacePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLRateLimitLabelNamespace)(nil)).Elem()
+}
+
+func (i *webACLRateLimitLabelNamespacePtrType) ToWebACLRateLimitLabelNamespacePtrOutput() WebACLRateLimitLabelNamespacePtrOutput {
+	return i.ToWebACLRateLimitLabelNamespacePtrOutputWithContext(context.Background())
+}
+
+func (i *webACLRateLimitLabelNamespacePtrType) ToWebACLRateLimitLabelNamespacePtrOutputWithContext(ctx context.Context) WebACLRateLimitLabelNamespacePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLRateLimitLabelNamespacePtrOutput)
+}
+
+// Specifies a label namespace to use as an aggregate key for a rate-based rule.
+type WebACLRateLimitLabelNamespaceOutput struct{ *pulumi.OutputState }
+
+func (WebACLRateLimitLabelNamespaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLRateLimitLabelNamespace)(nil)).Elem()
+}
+
+func (o WebACLRateLimitLabelNamespaceOutput) ToWebACLRateLimitLabelNamespaceOutput() WebACLRateLimitLabelNamespaceOutput {
+	return o
+}
+
+func (o WebACLRateLimitLabelNamespaceOutput) ToWebACLRateLimitLabelNamespaceOutputWithContext(ctx context.Context) WebACLRateLimitLabelNamespaceOutput {
+	return o
+}
+
+func (o WebACLRateLimitLabelNamespaceOutput) ToWebACLRateLimitLabelNamespacePtrOutput() WebACLRateLimitLabelNamespacePtrOutput {
+	return o.ToWebACLRateLimitLabelNamespacePtrOutputWithContext(context.Background())
+}
+
+func (o WebACLRateLimitLabelNamespaceOutput) ToWebACLRateLimitLabelNamespacePtrOutputWithContext(ctx context.Context) WebACLRateLimitLabelNamespacePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLRateLimitLabelNamespace) *WebACLRateLimitLabelNamespace {
+		return &v
+	}).(WebACLRateLimitLabelNamespacePtrOutput)
+}
+
+// The namespace to use for aggregation.
+func (o WebACLRateLimitLabelNamespaceOutput) Namespace() pulumi.StringOutput {
+	return o.ApplyT(func(v WebACLRateLimitLabelNamespace) string { return v.Namespace }).(pulumi.StringOutput)
+}
+
+type WebACLRateLimitLabelNamespacePtrOutput struct{ *pulumi.OutputState }
+
+func (WebACLRateLimitLabelNamespacePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLRateLimitLabelNamespace)(nil)).Elem()
+}
+
+func (o WebACLRateLimitLabelNamespacePtrOutput) ToWebACLRateLimitLabelNamespacePtrOutput() WebACLRateLimitLabelNamespacePtrOutput {
+	return o
+}
+
+func (o WebACLRateLimitLabelNamespacePtrOutput) ToWebACLRateLimitLabelNamespacePtrOutputWithContext(ctx context.Context) WebACLRateLimitLabelNamespacePtrOutput {
+	return o
+}
+
+func (o WebACLRateLimitLabelNamespacePtrOutput) Elem() WebACLRateLimitLabelNamespaceOutput {
+	return o.ApplyT(func(v *WebACLRateLimitLabelNamespace) WebACLRateLimitLabelNamespace {
+		if v != nil {
+			return *v
+		}
+		var ret WebACLRateLimitLabelNamespace
+		return ret
+	}).(WebACLRateLimitLabelNamespaceOutput)
+}
+
+// The namespace to use for aggregation.
+func (o WebACLRateLimitLabelNamespacePtrOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebACLRateLimitLabelNamespace) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Namespace
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies a query argument in the request as an aggregate key for a rate-based rule.
+type WebACLRateLimitQueryArgument struct {
+	// The name of the query argument to use.
+	Name                string                     `pulumi:"name"`
+	TextTransformations []WebACLTextTransformation `pulumi:"textTransformations"`
+}
+
+// WebACLRateLimitQueryArgumentInput is an input type that accepts WebACLRateLimitQueryArgumentArgs and WebACLRateLimitQueryArgumentOutput values.
+// You can construct a concrete instance of `WebACLRateLimitQueryArgumentInput` via:
+//
+//	WebACLRateLimitQueryArgumentArgs{...}
+type WebACLRateLimitQueryArgumentInput interface {
+	pulumi.Input
+
+	ToWebACLRateLimitQueryArgumentOutput() WebACLRateLimitQueryArgumentOutput
+	ToWebACLRateLimitQueryArgumentOutputWithContext(context.Context) WebACLRateLimitQueryArgumentOutput
+}
+
+// Specifies a query argument in the request as an aggregate key for a rate-based rule.
+type WebACLRateLimitQueryArgumentArgs struct {
+	// The name of the query argument to use.
+	Name                pulumi.StringInput                 `pulumi:"name"`
+	TextTransformations WebACLTextTransformationArrayInput `pulumi:"textTransformations"`
+}
+
+func (WebACLRateLimitQueryArgumentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLRateLimitQueryArgument)(nil)).Elem()
+}
+
+func (i WebACLRateLimitQueryArgumentArgs) ToWebACLRateLimitQueryArgumentOutput() WebACLRateLimitQueryArgumentOutput {
+	return i.ToWebACLRateLimitQueryArgumentOutputWithContext(context.Background())
+}
+
+func (i WebACLRateLimitQueryArgumentArgs) ToWebACLRateLimitQueryArgumentOutputWithContext(ctx context.Context) WebACLRateLimitQueryArgumentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLRateLimitQueryArgumentOutput)
+}
+
+func (i WebACLRateLimitQueryArgumentArgs) ToWebACLRateLimitQueryArgumentPtrOutput() WebACLRateLimitQueryArgumentPtrOutput {
+	return i.ToWebACLRateLimitQueryArgumentPtrOutputWithContext(context.Background())
+}
+
+func (i WebACLRateLimitQueryArgumentArgs) ToWebACLRateLimitQueryArgumentPtrOutputWithContext(ctx context.Context) WebACLRateLimitQueryArgumentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLRateLimitQueryArgumentOutput).ToWebACLRateLimitQueryArgumentPtrOutputWithContext(ctx)
+}
+
+// WebACLRateLimitQueryArgumentPtrInput is an input type that accepts WebACLRateLimitQueryArgumentArgs, WebACLRateLimitQueryArgumentPtr and WebACLRateLimitQueryArgumentPtrOutput values.
+// You can construct a concrete instance of `WebACLRateLimitQueryArgumentPtrInput` via:
+//
+//	        WebACLRateLimitQueryArgumentArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebACLRateLimitQueryArgumentPtrInput interface {
+	pulumi.Input
+
+	ToWebACLRateLimitQueryArgumentPtrOutput() WebACLRateLimitQueryArgumentPtrOutput
+	ToWebACLRateLimitQueryArgumentPtrOutputWithContext(context.Context) WebACLRateLimitQueryArgumentPtrOutput
+}
+
+type webACLRateLimitQueryArgumentPtrType WebACLRateLimitQueryArgumentArgs
+
+func WebACLRateLimitQueryArgumentPtr(v *WebACLRateLimitQueryArgumentArgs) WebACLRateLimitQueryArgumentPtrInput {
+	return (*webACLRateLimitQueryArgumentPtrType)(v)
+}
+
+func (*webACLRateLimitQueryArgumentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLRateLimitQueryArgument)(nil)).Elem()
+}
+
+func (i *webACLRateLimitQueryArgumentPtrType) ToWebACLRateLimitQueryArgumentPtrOutput() WebACLRateLimitQueryArgumentPtrOutput {
+	return i.ToWebACLRateLimitQueryArgumentPtrOutputWithContext(context.Background())
+}
+
+func (i *webACLRateLimitQueryArgumentPtrType) ToWebACLRateLimitQueryArgumentPtrOutputWithContext(ctx context.Context) WebACLRateLimitQueryArgumentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLRateLimitQueryArgumentPtrOutput)
+}
+
+// Specifies a query argument in the request as an aggregate key for a rate-based rule.
+type WebACLRateLimitQueryArgumentOutput struct{ *pulumi.OutputState }
+
+func (WebACLRateLimitQueryArgumentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLRateLimitQueryArgument)(nil)).Elem()
+}
+
+func (o WebACLRateLimitQueryArgumentOutput) ToWebACLRateLimitQueryArgumentOutput() WebACLRateLimitQueryArgumentOutput {
+	return o
+}
+
+func (o WebACLRateLimitQueryArgumentOutput) ToWebACLRateLimitQueryArgumentOutputWithContext(ctx context.Context) WebACLRateLimitQueryArgumentOutput {
+	return o
+}
+
+func (o WebACLRateLimitQueryArgumentOutput) ToWebACLRateLimitQueryArgumentPtrOutput() WebACLRateLimitQueryArgumentPtrOutput {
+	return o.ToWebACLRateLimitQueryArgumentPtrOutputWithContext(context.Background())
+}
+
+func (o WebACLRateLimitQueryArgumentOutput) ToWebACLRateLimitQueryArgumentPtrOutputWithContext(ctx context.Context) WebACLRateLimitQueryArgumentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLRateLimitQueryArgument) *WebACLRateLimitQueryArgument {
+		return &v
+	}).(WebACLRateLimitQueryArgumentPtrOutput)
+}
+
+// The name of the query argument to use.
+func (o WebACLRateLimitQueryArgumentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WebACLRateLimitQueryArgument) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o WebACLRateLimitQueryArgumentOutput) TextTransformations() WebACLTextTransformationArrayOutput {
+	return o.ApplyT(func(v WebACLRateLimitQueryArgument) []WebACLTextTransformation { return v.TextTransformations }).(WebACLTextTransformationArrayOutput)
+}
+
+type WebACLRateLimitQueryArgumentPtrOutput struct{ *pulumi.OutputState }
+
+func (WebACLRateLimitQueryArgumentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLRateLimitQueryArgument)(nil)).Elem()
+}
+
+func (o WebACLRateLimitQueryArgumentPtrOutput) ToWebACLRateLimitQueryArgumentPtrOutput() WebACLRateLimitQueryArgumentPtrOutput {
+	return o
+}
+
+func (o WebACLRateLimitQueryArgumentPtrOutput) ToWebACLRateLimitQueryArgumentPtrOutputWithContext(ctx context.Context) WebACLRateLimitQueryArgumentPtrOutput {
+	return o
+}
+
+func (o WebACLRateLimitQueryArgumentPtrOutput) Elem() WebACLRateLimitQueryArgumentOutput {
+	return o.ApplyT(func(v *WebACLRateLimitQueryArgument) WebACLRateLimitQueryArgument {
+		if v != nil {
+			return *v
+		}
+		var ret WebACLRateLimitQueryArgument
+		return ret
+	}).(WebACLRateLimitQueryArgumentOutput)
+}
+
+// The name of the query argument to use.
+func (o WebACLRateLimitQueryArgumentPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebACLRateLimitQueryArgument) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WebACLRateLimitQueryArgumentPtrOutput) TextTransformations() WebACLTextTransformationArrayOutput {
+	return o.ApplyT(func(v *WebACLRateLimitQueryArgument) []WebACLTextTransformation {
+		if v == nil {
+			return nil
+		}
+		return v.TextTransformations
+	}).(WebACLTextTransformationArrayOutput)
+}
+
+// Specifies the request's query string as an aggregate key for a rate-based rule.
+type WebACLRateLimitQueryString struct {
+	TextTransformations []WebACLTextTransformation `pulumi:"textTransformations"`
+}
+
+// WebACLRateLimitQueryStringInput is an input type that accepts WebACLRateLimitQueryStringArgs and WebACLRateLimitQueryStringOutput values.
+// You can construct a concrete instance of `WebACLRateLimitQueryStringInput` via:
+//
+//	WebACLRateLimitQueryStringArgs{...}
+type WebACLRateLimitQueryStringInput interface {
+	pulumi.Input
+
+	ToWebACLRateLimitQueryStringOutput() WebACLRateLimitQueryStringOutput
+	ToWebACLRateLimitQueryStringOutputWithContext(context.Context) WebACLRateLimitQueryStringOutput
+}
+
+// Specifies the request's query string as an aggregate key for a rate-based rule.
+type WebACLRateLimitQueryStringArgs struct {
+	TextTransformations WebACLTextTransformationArrayInput `pulumi:"textTransformations"`
+}
+
+func (WebACLRateLimitQueryStringArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLRateLimitQueryString)(nil)).Elem()
+}
+
+func (i WebACLRateLimitQueryStringArgs) ToWebACLRateLimitQueryStringOutput() WebACLRateLimitQueryStringOutput {
+	return i.ToWebACLRateLimitQueryStringOutputWithContext(context.Background())
+}
+
+func (i WebACLRateLimitQueryStringArgs) ToWebACLRateLimitQueryStringOutputWithContext(ctx context.Context) WebACLRateLimitQueryStringOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLRateLimitQueryStringOutput)
+}
+
+func (i WebACLRateLimitQueryStringArgs) ToWebACLRateLimitQueryStringPtrOutput() WebACLRateLimitQueryStringPtrOutput {
+	return i.ToWebACLRateLimitQueryStringPtrOutputWithContext(context.Background())
+}
+
+func (i WebACLRateLimitQueryStringArgs) ToWebACLRateLimitQueryStringPtrOutputWithContext(ctx context.Context) WebACLRateLimitQueryStringPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLRateLimitQueryStringOutput).ToWebACLRateLimitQueryStringPtrOutputWithContext(ctx)
+}
+
+// WebACLRateLimitQueryStringPtrInput is an input type that accepts WebACLRateLimitQueryStringArgs, WebACLRateLimitQueryStringPtr and WebACLRateLimitQueryStringPtrOutput values.
+// You can construct a concrete instance of `WebACLRateLimitQueryStringPtrInput` via:
+//
+//	        WebACLRateLimitQueryStringArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebACLRateLimitQueryStringPtrInput interface {
+	pulumi.Input
+
+	ToWebACLRateLimitQueryStringPtrOutput() WebACLRateLimitQueryStringPtrOutput
+	ToWebACLRateLimitQueryStringPtrOutputWithContext(context.Context) WebACLRateLimitQueryStringPtrOutput
+}
+
+type webACLRateLimitQueryStringPtrType WebACLRateLimitQueryStringArgs
+
+func WebACLRateLimitQueryStringPtr(v *WebACLRateLimitQueryStringArgs) WebACLRateLimitQueryStringPtrInput {
+	return (*webACLRateLimitQueryStringPtrType)(v)
+}
+
+func (*webACLRateLimitQueryStringPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLRateLimitQueryString)(nil)).Elem()
+}
+
+func (i *webACLRateLimitQueryStringPtrType) ToWebACLRateLimitQueryStringPtrOutput() WebACLRateLimitQueryStringPtrOutput {
+	return i.ToWebACLRateLimitQueryStringPtrOutputWithContext(context.Background())
+}
+
+func (i *webACLRateLimitQueryStringPtrType) ToWebACLRateLimitQueryStringPtrOutputWithContext(ctx context.Context) WebACLRateLimitQueryStringPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLRateLimitQueryStringPtrOutput)
+}
+
+// Specifies the request's query string as an aggregate key for a rate-based rule.
+type WebACLRateLimitQueryStringOutput struct{ *pulumi.OutputState }
+
+func (WebACLRateLimitQueryStringOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLRateLimitQueryString)(nil)).Elem()
+}
+
+func (o WebACLRateLimitQueryStringOutput) ToWebACLRateLimitQueryStringOutput() WebACLRateLimitQueryStringOutput {
+	return o
+}
+
+func (o WebACLRateLimitQueryStringOutput) ToWebACLRateLimitQueryStringOutputWithContext(ctx context.Context) WebACLRateLimitQueryStringOutput {
+	return o
+}
+
+func (o WebACLRateLimitQueryStringOutput) ToWebACLRateLimitQueryStringPtrOutput() WebACLRateLimitQueryStringPtrOutput {
+	return o.ToWebACLRateLimitQueryStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebACLRateLimitQueryStringOutput) ToWebACLRateLimitQueryStringPtrOutputWithContext(ctx context.Context) WebACLRateLimitQueryStringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLRateLimitQueryString) *WebACLRateLimitQueryString {
+		return &v
+	}).(WebACLRateLimitQueryStringPtrOutput)
+}
+
+func (o WebACLRateLimitQueryStringOutput) TextTransformations() WebACLTextTransformationArrayOutput {
+	return o.ApplyT(func(v WebACLRateLimitQueryString) []WebACLTextTransformation { return v.TextTransformations }).(WebACLTextTransformationArrayOutput)
+}
+
+type WebACLRateLimitQueryStringPtrOutput struct{ *pulumi.OutputState }
+
+func (WebACLRateLimitQueryStringPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLRateLimitQueryString)(nil)).Elem()
+}
+
+func (o WebACLRateLimitQueryStringPtrOutput) ToWebACLRateLimitQueryStringPtrOutput() WebACLRateLimitQueryStringPtrOutput {
+	return o
+}
+
+func (o WebACLRateLimitQueryStringPtrOutput) ToWebACLRateLimitQueryStringPtrOutputWithContext(ctx context.Context) WebACLRateLimitQueryStringPtrOutput {
+	return o
+}
+
+func (o WebACLRateLimitQueryStringPtrOutput) Elem() WebACLRateLimitQueryStringOutput {
+	return o.ApplyT(func(v *WebACLRateLimitQueryString) WebACLRateLimitQueryString {
+		if v != nil {
+			return *v
+		}
+		var ret WebACLRateLimitQueryString
+		return ret
+	}).(WebACLRateLimitQueryStringOutput)
+}
+
+func (o WebACLRateLimitQueryStringPtrOutput) TextTransformations() WebACLTextTransformationArrayOutput {
+	return o.ApplyT(func(v *WebACLRateLimitQueryString) []WebACLTextTransformation {
+		if v == nil {
+			return nil
+		}
+		return v.TextTransformations
+	}).(WebACLTextTransformationArrayOutput)
+}
+
+// Specifies the request's URI Path as an aggregate key for a rate-based rule.
+type WebACLRateLimitUriPath struct {
+	TextTransformations []WebACLTextTransformation `pulumi:"textTransformations"`
+}
+
+// WebACLRateLimitUriPathInput is an input type that accepts WebACLRateLimitUriPathArgs and WebACLRateLimitUriPathOutput values.
+// You can construct a concrete instance of `WebACLRateLimitUriPathInput` via:
+//
+//	WebACLRateLimitUriPathArgs{...}
+type WebACLRateLimitUriPathInput interface {
+	pulumi.Input
+
+	ToWebACLRateLimitUriPathOutput() WebACLRateLimitUriPathOutput
+	ToWebACLRateLimitUriPathOutputWithContext(context.Context) WebACLRateLimitUriPathOutput
+}
+
+// Specifies the request's URI Path as an aggregate key for a rate-based rule.
+type WebACLRateLimitUriPathArgs struct {
+	TextTransformations WebACLTextTransformationArrayInput `pulumi:"textTransformations"`
+}
+
+func (WebACLRateLimitUriPathArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLRateLimitUriPath)(nil)).Elem()
+}
+
+func (i WebACLRateLimitUriPathArgs) ToWebACLRateLimitUriPathOutput() WebACLRateLimitUriPathOutput {
+	return i.ToWebACLRateLimitUriPathOutputWithContext(context.Background())
+}
+
+func (i WebACLRateLimitUriPathArgs) ToWebACLRateLimitUriPathOutputWithContext(ctx context.Context) WebACLRateLimitUriPathOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLRateLimitUriPathOutput)
+}
+
+func (i WebACLRateLimitUriPathArgs) ToWebACLRateLimitUriPathPtrOutput() WebACLRateLimitUriPathPtrOutput {
+	return i.ToWebACLRateLimitUriPathPtrOutputWithContext(context.Background())
+}
+
+func (i WebACLRateLimitUriPathArgs) ToWebACLRateLimitUriPathPtrOutputWithContext(ctx context.Context) WebACLRateLimitUriPathPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLRateLimitUriPathOutput).ToWebACLRateLimitUriPathPtrOutputWithContext(ctx)
+}
+
+// WebACLRateLimitUriPathPtrInput is an input type that accepts WebACLRateLimitUriPathArgs, WebACLRateLimitUriPathPtr and WebACLRateLimitUriPathPtrOutput values.
+// You can construct a concrete instance of `WebACLRateLimitUriPathPtrInput` via:
+//
+//	        WebACLRateLimitUriPathArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebACLRateLimitUriPathPtrInput interface {
+	pulumi.Input
+
+	ToWebACLRateLimitUriPathPtrOutput() WebACLRateLimitUriPathPtrOutput
+	ToWebACLRateLimitUriPathPtrOutputWithContext(context.Context) WebACLRateLimitUriPathPtrOutput
+}
+
+type webACLRateLimitUriPathPtrType WebACLRateLimitUriPathArgs
+
+func WebACLRateLimitUriPathPtr(v *WebACLRateLimitUriPathArgs) WebACLRateLimitUriPathPtrInput {
+	return (*webACLRateLimitUriPathPtrType)(v)
+}
+
+func (*webACLRateLimitUriPathPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLRateLimitUriPath)(nil)).Elem()
+}
+
+func (i *webACLRateLimitUriPathPtrType) ToWebACLRateLimitUriPathPtrOutput() WebACLRateLimitUriPathPtrOutput {
+	return i.ToWebACLRateLimitUriPathPtrOutputWithContext(context.Background())
+}
+
+func (i *webACLRateLimitUriPathPtrType) ToWebACLRateLimitUriPathPtrOutputWithContext(ctx context.Context) WebACLRateLimitUriPathPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLRateLimitUriPathPtrOutput)
+}
+
+// Specifies the request's URI Path as an aggregate key for a rate-based rule.
+type WebACLRateLimitUriPathOutput struct{ *pulumi.OutputState }
+
+func (WebACLRateLimitUriPathOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLRateLimitUriPath)(nil)).Elem()
+}
+
+func (o WebACLRateLimitUriPathOutput) ToWebACLRateLimitUriPathOutput() WebACLRateLimitUriPathOutput {
+	return o
+}
+
+func (o WebACLRateLimitUriPathOutput) ToWebACLRateLimitUriPathOutputWithContext(ctx context.Context) WebACLRateLimitUriPathOutput {
+	return o
+}
+
+func (o WebACLRateLimitUriPathOutput) ToWebACLRateLimitUriPathPtrOutput() WebACLRateLimitUriPathPtrOutput {
+	return o.ToWebACLRateLimitUriPathPtrOutputWithContext(context.Background())
+}
+
+func (o WebACLRateLimitUriPathOutput) ToWebACLRateLimitUriPathPtrOutputWithContext(ctx context.Context) WebACLRateLimitUriPathPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLRateLimitUriPath) *WebACLRateLimitUriPath {
+		return &v
+	}).(WebACLRateLimitUriPathPtrOutput)
+}
+
+func (o WebACLRateLimitUriPathOutput) TextTransformations() WebACLTextTransformationArrayOutput {
+	return o.ApplyT(func(v WebACLRateLimitUriPath) []WebACLTextTransformation { return v.TextTransformations }).(WebACLTextTransformationArrayOutput)
+}
+
+type WebACLRateLimitUriPathPtrOutput struct{ *pulumi.OutputState }
+
+func (WebACLRateLimitUriPathPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLRateLimitUriPath)(nil)).Elem()
+}
+
+func (o WebACLRateLimitUriPathPtrOutput) ToWebACLRateLimitUriPathPtrOutput() WebACLRateLimitUriPathPtrOutput {
+	return o
+}
+
+func (o WebACLRateLimitUriPathPtrOutput) ToWebACLRateLimitUriPathPtrOutputWithContext(ctx context.Context) WebACLRateLimitUriPathPtrOutput {
+	return o
+}
+
+func (o WebACLRateLimitUriPathPtrOutput) Elem() WebACLRateLimitUriPathOutput {
+	return o.ApplyT(func(v *WebACLRateLimitUriPath) WebACLRateLimitUriPath {
+		if v != nil {
+			return *v
+		}
+		var ret WebACLRateLimitUriPath
+		return ret
+	}).(WebACLRateLimitUriPathOutput)
+}
+
+func (o WebACLRateLimitUriPathPtrOutput) TextTransformations() WebACLTextTransformationArrayOutput {
+	return o.ApplyT(func(v *WebACLRateLimitUriPath) []WebACLTextTransformation {
+		if v == nil {
+			return nil
+		}
+		return v.TextTransformations
+	}).(WebACLTextTransformationArrayOutput)
 }
 
 type WebACLRegexMatchStatement struct {
@@ -17996,6 +20806,26 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupOrStatementPtrInput)(nil)).Elem(), RuleGroupOrStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateBasedStatementInput)(nil)).Elem(), RuleGroupRateBasedStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateBasedStatementPtrInput)(nil)).Elem(), RuleGroupRateBasedStatementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateBasedStatementCustomKeyInput)(nil)).Elem(), RuleGroupRateBasedStatementCustomKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateBasedStatementCustomKeyArrayInput)(nil)).Elem(), RuleGroupRateBasedStatementCustomKeyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateLimitCookieInput)(nil)).Elem(), RuleGroupRateLimitCookieArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateLimitCookiePtrInput)(nil)).Elem(), RuleGroupRateLimitCookieArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateLimitForwardedIPInput)(nil)).Elem(), RuleGroupRateLimitForwardedIPArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateLimitForwardedIPPtrInput)(nil)).Elem(), RuleGroupRateLimitForwardedIPArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateLimitHTTPMethodInput)(nil)).Elem(), RuleGroupRateLimitHTTPMethodArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateLimitHTTPMethodPtrInput)(nil)).Elem(), RuleGroupRateLimitHTTPMethodArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateLimitHeaderInput)(nil)).Elem(), RuleGroupRateLimitHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateLimitHeaderPtrInput)(nil)).Elem(), RuleGroupRateLimitHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateLimitIPInput)(nil)).Elem(), RuleGroupRateLimitIPArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateLimitIPPtrInput)(nil)).Elem(), RuleGroupRateLimitIPArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateLimitLabelNamespaceInput)(nil)).Elem(), RuleGroupRateLimitLabelNamespaceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateLimitLabelNamespacePtrInput)(nil)).Elem(), RuleGroupRateLimitLabelNamespaceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateLimitQueryArgumentInput)(nil)).Elem(), RuleGroupRateLimitQueryArgumentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateLimitQueryArgumentPtrInput)(nil)).Elem(), RuleGroupRateLimitQueryArgumentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateLimitQueryStringInput)(nil)).Elem(), RuleGroupRateLimitQueryStringArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateLimitQueryStringPtrInput)(nil)).Elem(), RuleGroupRateLimitQueryStringArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateLimitUriPathInput)(nil)).Elem(), RuleGroupRateLimitUriPathArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRateLimitUriPathPtrInput)(nil)).Elem(), RuleGroupRateLimitUriPathArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRegexMatchStatementInput)(nil)).Elem(), RuleGroupRegexMatchStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRegexMatchStatementPtrInput)(nil)).Elem(), RuleGroupRegexMatchStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRegexPatternSetReferenceStatementInput)(nil)).Elem(), RuleGroupRegexPatternSetReferenceStatementArgs{})
@@ -18101,6 +20931,26 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLOverrideActionPtrInput)(nil)).Elem(), WebACLOverrideActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRateBasedStatementInput)(nil)).Elem(), WebACLRateBasedStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRateBasedStatementPtrInput)(nil)).Elem(), WebACLRateBasedStatementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRateBasedStatementCustomKeyInput)(nil)).Elem(), WebACLRateBasedStatementCustomKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRateBasedStatementCustomKeyArrayInput)(nil)).Elem(), WebACLRateBasedStatementCustomKeyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRateLimitCookieInput)(nil)).Elem(), WebACLRateLimitCookieArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRateLimitCookiePtrInput)(nil)).Elem(), WebACLRateLimitCookieArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRateLimitForwardedIPInput)(nil)).Elem(), WebACLRateLimitForwardedIPArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRateLimitForwardedIPPtrInput)(nil)).Elem(), WebACLRateLimitForwardedIPArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRateLimitHTTPMethodInput)(nil)).Elem(), WebACLRateLimitHTTPMethodArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRateLimitHTTPMethodPtrInput)(nil)).Elem(), WebACLRateLimitHTTPMethodArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRateLimitHeaderInput)(nil)).Elem(), WebACLRateLimitHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRateLimitHeaderPtrInput)(nil)).Elem(), WebACLRateLimitHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRateLimitIPInput)(nil)).Elem(), WebACLRateLimitIPArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRateLimitIPPtrInput)(nil)).Elem(), WebACLRateLimitIPArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRateLimitLabelNamespaceInput)(nil)).Elem(), WebACLRateLimitLabelNamespaceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRateLimitLabelNamespacePtrInput)(nil)).Elem(), WebACLRateLimitLabelNamespaceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRateLimitQueryArgumentInput)(nil)).Elem(), WebACLRateLimitQueryArgumentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRateLimitQueryArgumentPtrInput)(nil)).Elem(), WebACLRateLimitQueryArgumentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRateLimitQueryStringInput)(nil)).Elem(), WebACLRateLimitQueryStringArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRateLimitQueryStringPtrInput)(nil)).Elem(), WebACLRateLimitQueryStringArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRateLimitUriPathInput)(nil)).Elem(), WebACLRateLimitUriPathArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRateLimitUriPathPtrInput)(nil)).Elem(), WebACLRateLimitUriPathArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRegexMatchStatementInput)(nil)).Elem(), WebACLRegexMatchStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRegexMatchStatementPtrInput)(nil)).Elem(), WebACLRegexMatchStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRegexPatternSetReferenceStatementInput)(nil)).Elem(), WebACLRegexPatternSetReferenceStatementArgs{})
@@ -18231,6 +21081,26 @@ func init() {
 	pulumi.RegisterOutputType(RuleGroupOrStatementPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupRateBasedStatementOutput{})
 	pulumi.RegisterOutputType(RuleGroupRateBasedStatementPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupRateBasedStatementCustomKeyOutput{})
+	pulumi.RegisterOutputType(RuleGroupRateBasedStatementCustomKeyArrayOutput{})
+	pulumi.RegisterOutputType(RuleGroupRateLimitCookieOutput{})
+	pulumi.RegisterOutputType(RuleGroupRateLimitCookiePtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupRateLimitForwardedIPOutput{})
+	pulumi.RegisterOutputType(RuleGroupRateLimitForwardedIPPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupRateLimitHTTPMethodOutput{})
+	pulumi.RegisterOutputType(RuleGroupRateLimitHTTPMethodPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupRateLimitHeaderOutput{})
+	pulumi.RegisterOutputType(RuleGroupRateLimitHeaderPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupRateLimitIPOutput{})
+	pulumi.RegisterOutputType(RuleGroupRateLimitIPPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupRateLimitLabelNamespaceOutput{})
+	pulumi.RegisterOutputType(RuleGroupRateLimitLabelNamespacePtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupRateLimitQueryArgumentOutput{})
+	pulumi.RegisterOutputType(RuleGroupRateLimitQueryArgumentPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupRateLimitQueryStringOutput{})
+	pulumi.RegisterOutputType(RuleGroupRateLimitQueryStringPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupRateLimitUriPathOutput{})
+	pulumi.RegisterOutputType(RuleGroupRateLimitUriPathPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupRegexMatchStatementOutput{})
 	pulumi.RegisterOutputType(RuleGroupRegexMatchStatementPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupRegexPatternSetReferenceStatementOutput{})
@@ -18338,6 +21208,26 @@ func init() {
 	pulumi.RegisterOutputType(WebACLOverrideActionPtrOutput{})
 	pulumi.RegisterOutputType(WebACLRateBasedStatementOutput{})
 	pulumi.RegisterOutputType(WebACLRateBasedStatementPtrOutput{})
+	pulumi.RegisterOutputType(WebACLRateBasedStatementCustomKeyOutput{})
+	pulumi.RegisterOutputType(WebACLRateBasedStatementCustomKeyArrayOutput{})
+	pulumi.RegisterOutputType(WebACLRateLimitCookieOutput{})
+	pulumi.RegisterOutputType(WebACLRateLimitCookiePtrOutput{})
+	pulumi.RegisterOutputType(WebACLRateLimitForwardedIPOutput{})
+	pulumi.RegisterOutputType(WebACLRateLimitForwardedIPPtrOutput{})
+	pulumi.RegisterOutputType(WebACLRateLimitHTTPMethodOutput{})
+	pulumi.RegisterOutputType(WebACLRateLimitHTTPMethodPtrOutput{})
+	pulumi.RegisterOutputType(WebACLRateLimitHeaderOutput{})
+	pulumi.RegisterOutputType(WebACLRateLimitHeaderPtrOutput{})
+	pulumi.RegisterOutputType(WebACLRateLimitIPOutput{})
+	pulumi.RegisterOutputType(WebACLRateLimitIPPtrOutput{})
+	pulumi.RegisterOutputType(WebACLRateLimitLabelNamespaceOutput{})
+	pulumi.RegisterOutputType(WebACLRateLimitLabelNamespacePtrOutput{})
+	pulumi.RegisterOutputType(WebACLRateLimitQueryArgumentOutput{})
+	pulumi.RegisterOutputType(WebACLRateLimitQueryArgumentPtrOutput{})
+	pulumi.RegisterOutputType(WebACLRateLimitQueryStringOutput{})
+	pulumi.RegisterOutputType(WebACLRateLimitQueryStringPtrOutput{})
+	pulumi.RegisterOutputType(WebACLRateLimitUriPathOutput{})
+	pulumi.RegisterOutputType(WebACLRateLimitUriPathPtrOutput{})
 	pulumi.RegisterOutputType(WebACLRegexMatchStatementOutput{})
 	pulumi.RegisterOutputType(WebACLRegexMatchStatementPtrOutput{})
 	pulumi.RegisterOutputType(WebACLRegexPatternSetReferenceStatementOutput{})

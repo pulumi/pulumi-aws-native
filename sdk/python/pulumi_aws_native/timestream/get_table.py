@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'GetTableResult',
@@ -19,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetTableResult:
-    def __init__(__self__, arn=None, magnetic_store_write_properties=None, name=None, retention_properties=None, tags=None):
+    def __init__(__self__, arn=None, magnetic_store_write_properties=None, name=None, retention_properties=None, schema=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -32,6 +33,9 @@ class GetTableResult:
         if retention_properties and not isinstance(retention_properties, dict):
             raise TypeError("Expected argument 'retention_properties' to be a dict")
         pulumi.set(__self__, "retention_properties", retention_properties)
+        if schema and not isinstance(schema, dict):
+            raise TypeError("Expected argument 'schema' to be a dict")
+        pulumi.set(__self__, "schema", schema)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -67,6 +71,14 @@ class GetTableResult:
 
     @property
     @pulumi.getter
+    def schema(self) -> Optional['outputs.SchemaProperties']:
+        """
+        A Schema specifies the expected data model of the table.
+        """
+        return pulumi.get(self, "schema")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.TableTag']]:
         """
         An array of key-value pairs to apply to this resource.
@@ -84,6 +96,7 @@ class AwaitableGetTableResult(GetTableResult):
             magnetic_store_write_properties=self.magnetic_store_write_properties,
             name=self.name,
             retention_properties=self.retention_properties,
+            schema=self.schema,
             tags=self.tags)
 
 
@@ -108,6 +121,7 @@ def get_table(database_name: Optional[str] = None,
         magnetic_store_write_properties=pulumi.get(__ret__, 'magnetic_store_write_properties'),
         name=pulumi.get(__ret__, 'name'),
         retention_properties=pulumi.get(__ret__, 'retention_properties'),
+        schema=pulumi.get(__ret__, 'schema'),
         tags=pulumi.get(__ret__, 'tags'))
 
 

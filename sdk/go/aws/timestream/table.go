@@ -25,6 +25,8 @@ type Table struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The retention duration of the memory store and the magnetic store.
 	RetentionProperties RetentionPropertiesPropertiesPtrOutput `pulumi:"retentionProperties"`
+	// A Schema specifies the expected data model of the table.
+	Schema SchemaPropertiesPtrOutput `pulumi:"schema"`
 	// The name for the table. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the table name.
 	TableName pulumi.StringPtrOutput `pulumi:"tableName"`
 	// An array of key-value pairs to apply to this resource.
@@ -80,6 +82,8 @@ type tableArgs struct {
 	MagneticStoreWriteProperties *MagneticStoreWritePropertiesProperties `pulumi:"magneticStoreWriteProperties"`
 	// The retention duration of the memory store and the magnetic store.
 	RetentionProperties *RetentionPropertiesProperties `pulumi:"retentionProperties"`
+	// A Schema specifies the expected data model of the table.
+	Schema *SchemaProperties `pulumi:"schema"`
 	// The name for the table. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the table name.
 	TableName *string `pulumi:"tableName"`
 	// An array of key-value pairs to apply to this resource.
@@ -94,6 +98,8 @@ type TableArgs struct {
 	MagneticStoreWriteProperties MagneticStoreWritePropertiesPropertiesPtrInput
 	// The retention duration of the memory store and the magnetic store.
 	RetentionProperties RetentionPropertiesPropertiesPtrInput
+	// A Schema specifies the expected data model of the table.
+	Schema SchemaPropertiesPtrInput
 	// The name for the table. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the table name.
 	TableName pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
@@ -159,6 +165,11 @@ func (o TableOutput) Name() pulumi.StringOutput {
 // The retention duration of the memory store and the magnetic store.
 func (o TableOutput) RetentionProperties() RetentionPropertiesPropertiesPtrOutput {
 	return o.ApplyT(func(v *Table) RetentionPropertiesPropertiesPtrOutput { return v.RetentionProperties }).(RetentionPropertiesPropertiesPtrOutput)
+}
+
+// A Schema specifies the expected data model of the table.
+func (o TableOutput) Schema() SchemaPropertiesPtrOutput {
+	return o.ApplyT(func(v *Table) SchemaPropertiesPtrOutput { return v.Schema }).(SchemaPropertiesPtrOutput)
 }
 
 // The name for the table. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the table name.

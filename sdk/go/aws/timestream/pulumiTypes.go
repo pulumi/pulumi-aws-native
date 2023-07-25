@@ -2022,6 +2022,251 @@ func (o ScheduledQueryTimestreamConfigurationPtrOutput) TimeColumn() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// A Schema specifies the expected data model of the table.
+type SchemaProperties struct {
+	CompositePartitionKey []TablePartitionKey `pulumi:"compositePartitionKey"`
+}
+
+// SchemaPropertiesInput is an input type that accepts SchemaPropertiesArgs and SchemaPropertiesOutput values.
+// You can construct a concrete instance of `SchemaPropertiesInput` via:
+//
+//	SchemaPropertiesArgs{...}
+type SchemaPropertiesInput interface {
+	pulumi.Input
+
+	ToSchemaPropertiesOutput() SchemaPropertiesOutput
+	ToSchemaPropertiesOutputWithContext(context.Context) SchemaPropertiesOutput
+}
+
+// A Schema specifies the expected data model of the table.
+type SchemaPropertiesArgs struct {
+	CompositePartitionKey TablePartitionKeyArrayInput `pulumi:"compositePartitionKey"`
+}
+
+func (SchemaPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaProperties)(nil)).Elem()
+}
+
+func (i SchemaPropertiesArgs) ToSchemaPropertiesOutput() SchemaPropertiesOutput {
+	return i.ToSchemaPropertiesOutputWithContext(context.Background())
+}
+
+func (i SchemaPropertiesArgs) ToSchemaPropertiesOutputWithContext(ctx context.Context) SchemaPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaPropertiesOutput)
+}
+
+func (i SchemaPropertiesArgs) ToSchemaPropertiesPtrOutput() SchemaPropertiesPtrOutput {
+	return i.ToSchemaPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i SchemaPropertiesArgs) ToSchemaPropertiesPtrOutputWithContext(ctx context.Context) SchemaPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaPropertiesOutput).ToSchemaPropertiesPtrOutputWithContext(ctx)
+}
+
+// SchemaPropertiesPtrInput is an input type that accepts SchemaPropertiesArgs, SchemaPropertiesPtr and SchemaPropertiesPtrOutput values.
+// You can construct a concrete instance of `SchemaPropertiesPtrInput` via:
+//
+//	        SchemaPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type SchemaPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToSchemaPropertiesPtrOutput() SchemaPropertiesPtrOutput
+	ToSchemaPropertiesPtrOutputWithContext(context.Context) SchemaPropertiesPtrOutput
+}
+
+type schemaPropertiesPtrType SchemaPropertiesArgs
+
+func SchemaPropertiesPtr(v *SchemaPropertiesArgs) SchemaPropertiesPtrInput {
+	return (*schemaPropertiesPtrType)(v)
+}
+
+func (*schemaPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SchemaProperties)(nil)).Elem()
+}
+
+func (i *schemaPropertiesPtrType) ToSchemaPropertiesPtrOutput() SchemaPropertiesPtrOutput {
+	return i.ToSchemaPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *schemaPropertiesPtrType) ToSchemaPropertiesPtrOutputWithContext(ctx context.Context) SchemaPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaPropertiesPtrOutput)
+}
+
+// A Schema specifies the expected data model of the table.
+type SchemaPropertiesOutput struct{ *pulumi.OutputState }
+
+func (SchemaPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaProperties)(nil)).Elem()
+}
+
+func (o SchemaPropertiesOutput) ToSchemaPropertiesOutput() SchemaPropertiesOutput {
+	return o
+}
+
+func (o SchemaPropertiesOutput) ToSchemaPropertiesOutputWithContext(ctx context.Context) SchemaPropertiesOutput {
+	return o
+}
+
+func (o SchemaPropertiesOutput) ToSchemaPropertiesPtrOutput() SchemaPropertiesPtrOutput {
+	return o.ToSchemaPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o SchemaPropertiesOutput) ToSchemaPropertiesPtrOutputWithContext(ctx context.Context) SchemaPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SchemaProperties) *SchemaProperties {
+		return &v
+	}).(SchemaPropertiesPtrOutput)
+}
+
+func (o SchemaPropertiesOutput) CompositePartitionKey() TablePartitionKeyArrayOutput {
+	return o.ApplyT(func(v SchemaProperties) []TablePartitionKey { return v.CompositePartitionKey }).(TablePartitionKeyArrayOutput)
+}
+
+type SchemaPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (SchemaPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SchemaProperties)(nil)).Elem()
+}
+
+func (o SchemaPropertiesPtrOutput) ToSchemaPropertiesPtrOutput() SchemaPropertiesPtrOutput {
+	return o
+}
+
+func (o SchemaPropertiesPtrOutput) ToSchemaPropertiesPtrOutputWithContext(ctx context.Context) SchemaPropertiesPtrOutput {
+	return o
+}
+
+func (o SchemaPropertiesPtrOutput) Elem() SchemaPropertiesOutput {
+	return o.ApplyT(func(v *SchemaProperties) SchemaProperties {
+		if v != nil {
+			return *v
+		}
+		var ret SchemaProperties
+		return ret
+	}).(SchemaPropertiesOutput)
+}
+
+func (o SchemaPropertiesPtrOutput) CompositePartitionKey() TablePartitionKeyArrayOutput {
+	return o.ApplyT(func(v *SchemaProperties) []TablePartitionKey {
+		if v == nil {
+			return nil
+		}
+		return v.CompositePartitionKey
+	}).(TablePartitionKeyArrayOutput)
+}
+
+// An attribute used in partitioning data in a table. There are two types of partition keys: dimension keys and measure keys. A dimension key partitions data on a dimension name, while a measure key partitions data on the measure name.
+type TablePartitionKey struct {
+	EnforcementInRecord *TablePartitionKeyEnforcementLevel `pulumi:"enforcementInRecord"`
+	Name                *string                            `pulumi:"name"`
+	Type                TablePartitionKeyType              `pulumi:"type"`
+}
+
+// TablePartitionKeyInput is an input type that accepts TablePartitionKeyArgs and TablePartitionKeyOutput values.
+// You can construct a concrete instance of `TablePartitionKeyInput` via:
+//
+//	TablePartitionKeyArgs{...}
+type TablePartitionKeyInput interface {
+	pulumi.Input
+
+	ToTablePartitionKeyOutput() TablePartitionKeyOutput
+	ToTablePartitionKeyOutputWithContext(context.Context) TablePartitionKeyOutput
+}
+
+// An attribute used in partitioning data in a table. There are two types of partition keys: dimension keys and measure keys. A dimension key partitions data on a dimension name, while a measure key partitions data on the measure name.
+type TablePartitionKeyArgs struct {
+	EnforcementInRecord TablePartitionKeyEnforcementLevelPtrInput `pulumi:"enforcementInRecord"`
+	Name                pulumi.StringPtrInput                     `pulumi:"name"`
+	Type                TablePartitionKeyTypeInput                `pulumi:"type"`
+}
+
+func (TablePartitionKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TablePartitionKey)(nil)).Elem()
+}
+
+func (i TablePartitionKeyArgs) ToTablePartitionKeyOutput() TablePartitionKeyOutput {
+	return i.ToTablePartitionKeyOutputWithContext(context.Background())
+}
+
+func (i TablePartitionKeyArgs) ToTablePartitionKeyOutputWithContext(ctx context.Context) TablePartitionKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TablePartitionKeyOutput)
+}
+
+// TablePartitionKeyArrayInput is an input type that accepts TablePartitionKeyArray and TablePartitionKeyArrayOutput values.
+// You can construct a concrete instance of `TablePartitionKeyArrayInput` via:
+//
+//	TablePartitionKeyArray{ TablePartitionKeyArgs{...} }
+type TablePartitionKeyArrayInput interface {
+	pulumi.Input
+
+	ToTablePartitionKeyArrayOutput() TablePartitionKeyArrayOutput
+	ToTablePartitionKeyArrayOutputWithContext(context.Context) TablePartitionKeyArrayOutput
+}
+
+type TablePartitionKeyArray []TablePartitionKeyInput
+
+func (TablePartitionKeyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TablePartitionKey)(nil)).Elem()
+}
+
+func (i TablePartitionKeyArray) ToTablePartitionKeyArrayOutput() TablePartitionKeyArrayOutput {
+	return i.ToTablePartitionKeyArrayOutputWithContext(context.Background())
+}
+
+func (i TablePartitionKeyArray) ToTablePartitionKeyArrayOutputWithContext(ctx context.Context) TablePartitionKeyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TablePartitionKeyArrayOutput)
+}
+
+// An attribute used in partitioning data in a table. There are two types of partition keys: dimension keys and measure keys. A dimension key partitions data on a dimension name, while a measure key partitions data on the measure name.
+type TablePartitionKeyOutput struct{ *pulumi.OutputState }
+
+func (TablePartitionKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TablePartitionKey)(nil)).Elem()
+}
+
+func (o TablePartitionKeyOutput) ToTablePartitionKeyOutput() TablePartitionKeyOutput {
+	return o
+}
+
+func (o TablePartitionKeyOutput) ToTablePartitionKeyOutputWithContext(ctx context.Context) TablePartitionKeyOutput {
+	return o
+}
+
+func (o TablePartitionKeyOutput) EnforcementInRecord() TablePartitionKeyEnforcementLevelPtrOutput {
+	return o.ApplyT(func(v TablePartitionKey) *TablePartitionKeyEnforcementLevel { return v.EnforcementInRecord }).(TablePartitionKeyEnforcementLevelPtrOutput)
+}
+
+func (o TablePartitionKeyOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TablePartitionKey) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o TablePartitionKeyOutput) Type() TablePartitionKeyTypeOutput {
+	return o.ApplyT(func(v TablePartitionKey) TablePartitionKeyType { return v.Type }).(TablePartitionKeyTypeOutput)
+}
+
+type TablePartitionKeyArrayOutput struct{ *pulumi.OutputState }
+
+func (TablePartitionKeyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TablePartitionKey)(nil)).Elem()
+}
+
+func (o TablePartitionKeyArrayOutput) ToTablePartitionKeyArrayOutput() TablePartitionKeyArrayOutput {
+	return o
+}
+
+func (o TablePartitionKeyArrayOutput) ToTablePartitionKeyArrayOutputWithContext(ctx context.Context) TablePartitionKeyArrayOutput {
+	return o
+}
+
+func (o TablePartitionKeyArrayOutput) Index(i pulumi.IntInput) TablePartitionKeyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TablePartitionKey {
+		return vs[0].([]TablePartitionKey)[vs[1].(int)]
+	}).(TablePartitionKeyOutput)
+}
+
 // You can use the Resource Tags property to apply tags to resources, which can help you identify and categorize those resources.
 type TableTag struct {
 	Key   *string `pulumi:"key"`
@@ -2155,6 +2400,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryTargetConfigurationPtrInput)(nil)).Elem(), ScheduledQueryTargetConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryTimestreamConfigurationInput)(nil)).Elem(), ScheduledQueryTimestreamConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryTimestreamConfigurationPtrInput)(nil)).Elem(), ScheduledQueryTimestreamConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaPropertiesInput)(nil)).Elem(), SchemaPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaPropertiesPtrInput)(nil)).Elem(), SchemaPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TablePartitionKeyInput)(nil)).Elem(), TablePartitionKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TablePartitionKeyArrayInput)(nil)).Elem(), TablePartitionKeyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableTagInput)(nil)).Elem(), TableTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableTagArrayInput)(nil)).Elem(), TableTagArray{})
 	pulumi.RegisterOutputType(DatabaseTagOutput{})
@@ -2186,6 +2435,10 @@ func init() {
 	pulumi.RegisterOutputType(ScheduledQueryTargetConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ScheduledQueryTimestreamConfigurationOutput{})
 	pulumi.RegisterOutputType(ScheduledQueryTimestreamConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(SchemaPropertiesOutput{})
+	pulumi.RegisterOutputType(SchemaPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(TablePartitionKeyOutput{})
+	pulumi.RegisterOutputType(TablePartitionKeyArrayOutput{})
 	pulumi.RegisterOutputType(TableTagOutput{})
 	pulumi.RegisterOutputType(TableTagArrayOutput{})
 }

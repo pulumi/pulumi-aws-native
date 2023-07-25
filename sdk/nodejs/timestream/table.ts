@@ -55,6 +55,10 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly retentionProperties!: pulumi.Output<outputs.timestream.RetentionPropertiesProperties | undefined>;
     /**
+     * A Schema specifies the expected data model of the table.
+     */
+    public readonly schema!: pulumi.Output<outputs.timestream.SchemaProperties | undefined>;
+    /**
      * The name for the table. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the table name.
      */
     public readonly tableName!: pulumi.Output<string | undefined>;
@@ -80,6 +84,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
             resourceInputs["magneticStoreWriteProperties"] = args ? args.magneticStoreWriteProperties : undefined;
             resourceInputs["retentionProperties"] = args ? args.retentionProperties : undefined;
+            resourceInputs["schema"] = args ? args.schema : undefined;
             resourceInputs["tableName"] = args ? args.tableName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -90,6 +95,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["magneticStoreWriteProperties"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["retentionProperties"] = undefined /*out*/;
+            resourceInputs["schema"] = undefined /*out*/;
             resourceInputs["tableName"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
@@ -114,6 +120,10 @@ export interface TableArgs {
      * The retention duration of the memory store and the magnetic store.
      */
     retentionProperties?: pulumi.Input<inputs.timestream.RetentionPropertiesPropertiesArgs>;
+    /**
+     * A Schema specifies the expected data model of the table.
+     */
+    schema?: pulumi.Input<inputs.timestream.SchemaPropertiesArgs>;
     /**
      * The name for the table. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the table name.
      */

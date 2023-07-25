@@ -15,6 +15,18 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         [Input("aggregateKeyType", required: true)]
         public Input<Pulumi.AwsNative.WAFv2.RuleGroupRateBasedStatementAggregateKeyType> AggregateKeyType { get; set; } = null!;
 
+        [Input("customKeys")]
+        private InputList<Inputs.RuleGroupRateBasedStatementCustomKeyArgs>? _customKeys;
+
+        /// <summary>
+        /// Specifies the aggregate keys to use in a rate-base rule.
+        /// </summary>
+        public InputList<Inputs.RuleGroupRateBasedStatementCustomKeyArgs> CustomKeys
+        {
+            get => _customKeys ?? (_customKeys = new InputList<Inputs.RuleGroupRateBasedStatementCustomKeyArgs>());
+            set => _customKeys = value;
+        }
+
         [Input("forwardedIPConfig")]
         public Input<Inputs.RuleGroupForwardedIPConfigurationArgs>? ForwardedIPConfig { get; set; }
 

@@ -45,6 +45,10 @@ export interface GetTableResult {
      */
     readonly retentionProperties?: outputs.timestream.RetentionPropertiesProperties;
     /**
+     * A Schema specifies the expected data model of the table.
+     */
+    readonly schema?: outputs.timestream.SchemaProperties;
+    /**
      * An array of key-value pairs to apply to this resource.
      */
     readonly tags?: outputs.timestream.TableTag[];

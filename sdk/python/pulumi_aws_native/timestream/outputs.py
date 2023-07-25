@@ -29,6 +29,8 @@ __all__ = [
     'ScheduledQueryTag',
     'ScheduledQueryTargetConfiguration',
     'ScheduledQueryTimestreamConfiguration',
+    'SchemaProperties',
+    'TablePartitionKey',
     'TableTag',
 ]
 
@@ -847,6 +849,93 @@ class ScheduledQueryTimestreamConfiguration(dict):
     @pulumi.getter(name="multiMeasureMappings")
     def multi_measure_mappings(self) -> Optional['outputs.ScheduledQueryMultiMeasureMappings']:
         return pulumi.get(self, "multi_measure_mappings")
+
+
+@pulumi.output_type
+class SchemaProperties(dict):
+    """
+    A Schema specifies the expected data model of the table.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "compositePartitionKey":
+            suggest = "composite_partition_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SchemaProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SchemaProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SchemaProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 composite_partition_key: Optional[Sequence['outputs.TablePartitionKey']] = None):
+        """
+        A Schema specifies the expected data model of the table.
+        """
+        if composite_partition_key is not None:
+            pulumi.set(__self__, "composite_partition_key", composite_partition_key)
+
+    @property
+    @pulumi.getter(name="compositePartitionKey")
+    def composite_partition_key(self) -> Optional[Sequence['outputs.TablePartitionKey']]:
+        return pulumi.get(self, "composite_partition_key")
+
+
+@pulumi.output_type
+class TablePartitionKey(dict):
+    """
+    An attribute used in partitioning data in a table. There are two types of partition keys: dimension keys and measure keys. A dimension key partitions data on a dimension name, while a measure key partitions data on the measure name.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enforcementInRecord":
+            suggest = "enforcement_in_record"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TablePartitionKey. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TablePartitionKey.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TablePartitionKey.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: 'TablePartitionKeyType',
+                 enforcement_in_record: Optional['TablePartitionKeyEnforcementLevel'] = None,
+                 name: Optional[str] = None):
+        """
+        An attribute used in partitioning data in a table. There are two types of partition keys: dimension keys and measure keys. A dimension key partitions data on a dimension name, while a measure key partitions data on the measure name.
+        """
+        pulumi.set(__self__, "type", type)
+        if enforcement_in_record is not None:
+            pulumi.set(__self__, "enforcement_in_record", enforcement_in_record)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'TablePartitionKeyType':
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="enforcementInRecord")
+    def enforcement_in_record(self) -> Optional['TablePartitionKeyEnforcementLevel']:
+        return pulumi.get(self, "enforcement_in_record")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type

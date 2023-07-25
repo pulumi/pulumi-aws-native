@@ -9,6 +9,8 @@ __all__ = [
     'ScheduledQueryEncryptionOption',
     'ScheduledQueryMixedMeasureMappingMeasureValueType',
     'ScheduledQueryMultiMeasureAttributeMappingMeasureValueType',
+    'TablePartitionKeyEnforcementLevel',
+    'TablePartitionKeyType',
 ]
 
 
@@ -47,3 +49,19 @@ class ScheduledQueryMultiMeasureAttributeMappingMeasureValueType(str, Enum):
     DOUBLE = "DOUBLE"
     VARCHAR = "VARCHAR"
     TIMESTAMP = "TIMESTAMP"
+
+
+class TablePartitionKeyEnforcementLevel(str, Enum):
+    """
+    The level of enforcement for the specification of a dimension key in ingested records. Options are REQUIRED (dimension key must be specified) and OPTIONAL (dimension key does not have to be specified).
+    """
+    REQUIRED = "REQUIRED"
+    OPTIONAL = "OPTIONAL"
+
+
+class TablePartitionKeyType(str, Enum):
+    """
+    The type of the partition key. Options are DIMENSION (dimension key) and MEASURE (measure key).
+    """
+    DIMENSION = "DIMENSION"
+    MEASURE = "MEASURE"

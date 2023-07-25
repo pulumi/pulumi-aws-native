@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['TableArgs', 'Table']
@@ -19,6 +20,7 @@ class TableArgs:
                  database_name: pulumi.Input[str],
                  magnetic_store_write_properties: Optional[pulumi.Input['MagneticStoreWritePropertiesPropertiesArgs']] = None,
                  retention_properties: Optional[pulumi.Input['RetentionPropertiesPropertiesArgs']] = None,
+                 schema: Optional[pulumi.Input['SchemaPropertiesArgs']] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]]] = None):
         """
@@ -26,6 +28,7 @@ class TableArgs:
         :param pulumi.Input[str] database_name: The name for the database which the table to be created belongs to.
         :param pulumi.Input['MagneticStoreWritePropertiesPropertiesArgs'] magnetic_store_write_properties: The properties that determine whether magnetic store writes are enabled.
         :param pulumi.Input['RetentionPropertiesPropertiesArgs'] retention_properties: The retention duration of the memory store and the magnetic store.
+        :param pulumi.Input['SchemaPropertiesArgs'] schema: A Schema specifies the expected data model of the table.
         :param pulumi.Input[str] table_name: The name for the table. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the table name.
         :param pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -34,6 +37,8 @@ class TableArgs:
             pulumi.set(__self__, "magnetic_store_write_properties", magnetic_store_write_properties)
         if retention_properties is not None:
             pulumi.set(__self__, "retention_properties", retention_properties)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
         if table_name is not None:
             pulumi.set(__self__, "table_name", table_name)
         if tags is not None:
@@ -76,6 +81,18 @@ class TableArgs:
         pulumi.set(self, "retention_properties", value)
 
     @property
+    @pulumi.getter
+    def schema(self) -> Optional[pulumi.Input['SchemaPropertiesArgs']]:
+        """
+        A Schema specifies the expected data model of the table.
+        """
+        return pulumi.get(self, "schema")
+
+    @schema.setter
+    def schema(self, value: Optional[pulumi.Input['SchemaPropertiesArgs']]):
+        pulumi.set(self, "schema", value)
+
+    @property
     @pulumi.getter(name="tableName")
     def table_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -108,6 +125,7 @@ class Table(pulumi.CustomResource):
                  database_name: Optional[pulumi.Input[str]] = None,
                  magnetic_store_write_properties: Optional[pulumi.Input[pulumi.InputType['MagneticStoreWritePropertiesPropertiesArgs']]] = None,
                  retention_properties: Optional[pulumi.Input[pulumi.InputType['RetentionPropertiesPropertiesArgs']]] = None,
+                 schema: Optional[pulumi.Input[pulumi.InputType['SchemaPropertiesArgs']]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableTagArgs']]]]] = None,
                  __props__=None):
@@ -119,6 +137,7 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[str] database_name: The name for the database which the table to be created belongs to.
         :param pulumi.Input[pulumi.InputType['MagneticStoreWritePropertiesPropertiesArgs']] magnetic_store_write_properties: The properties that determine whether magnetic store writes are enabled.
         :param pulumi.Input[pulumi.InputType['RetentionPropertiesPropertiesArgs']] retention_properties: The retention duration of the memory store and the magnetic store.
+        :param pulumi.Input[pulumi.InputType['SchemaPropertiesArgs']] schema: A Schema specifies the expected data model of the table.
         :param pulumi.Input[str] table_name: The name for the table. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the table name.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -149,6 +168,7 @@ class Table(pulumi.CustomResource):
                  database_name: Optional[pulumi.Input[str]] = None,
                  magnetic_store_write_properties: Optional[pulumi.Input[pulumi.InputType['MagneticStoreWritePropertiesPropertiesArgs']]] = None,
                  retention_properties: Optional[pulumi.Input[pulumi.InputType['RetentionPropertiesPropertiesArgs']]] = None,
+                 schema: Optional[pulumi.Input[pulumi.InputType['SchemaPropertiesArgs']]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableTagArgs']]]]] = None,
                  __props__=None):
@@ -165,6 +185,7 @@ class Table(pulumi.CustomResource):
             __props__.__dict__["database_name"] = database_name
             __props__.__dict__["magnetic_store_write_properties"] = magnetic_store_write_properties
             __props__.__dict__["retention_properties"] = retention_properties
+            __props__.__dict__["schema"] = schema
             __props__.__dict__["table_name"] = table_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
@@ -196,6 +217,7 @@ class Table(pulumi.CustomResource):
         __props__.__dict__["magnetic_store_write_properties"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["retention_properties"] = None
+        __props__.__dict__["schema"] = None
         __props__.__dict__["table_name"] = None
         __props__.__dict__["tags"] = None
         return Table(resource_name, opts=opts, __props__=__props__)
@@ -236,6 +258,14 @@ class Table(pulumi.CustomResource):
         The retention duration of the memory store and the magnetic store.
         """
         return pulumi.get(self, "retention_properties")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> pulumi.Output[Optional['outputs.SchemaProperties']]:
+        """
+        A Schema specifies the expected data model of the table.
+        """
+        return pulumi.get(self, "schema")
 
     @property
     @pulumi.getter(name="tableName")

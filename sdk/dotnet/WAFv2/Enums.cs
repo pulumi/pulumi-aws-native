@@ -579,6 +579,7 @@ namespace Pulumi.AwsNative.WAFv2
 
         public static RuleGroupRateBasedStatementAggregateKeyType Ip { get; } = new RuleGroupRateBasedStatementAggregateKeyType("IP");
         public static RuleGroupRateBasedStatementAggregateKeyType ForwardedIp { get; } = new RuleGroupRateBasedStatementAggregateKeyType("FORWARDED_IP");
+        public static RuleGroupRateBasedStatementAggregateKeyType CustomKeys { get; } = new RuleGroupRateBasedStatementAggregateKeyType("CUSTOM_KEYS");
 
         public static bool operator ==(RuleGroupRateBasedStatementAggregateKeyType left, RuleGroupRateBasedStatementAggregateKeyType right) => left.Equals(right);
         public static bool operator !=(RuleGroupRateBasedStatementAggregateKeyType left, RuleGroupRateBasedStatementAggregateKeyType right) => !left.Equals(right);
@@ -1082,6 +1083,7 @@ namespace Pulumi.AwsNative.WAFv2
 
         public static WebACLRateBasedStatementAggregateKeyType Ip { get; } = new WebACLRateBasedStatementAggregateKeyType("IP");
         public static WebACLRateBasedStatementAggregateKeyType ForwardedIp { get; } = new WebACLRateBasedStatementAggregateKeyType("FORWARDED_IP");
+        public static WebACLRateBasedStatementAggregateKeyType CustomKeys { get; } = new WebACLRateBasedStatementAggregateKeyType("CUSTOM_KEYS");
 
         public static bool operator ==(WebACLRateBasedStatementAggregateKeyType left, WebACLRateBasedStatementAggregateKeyType right) => left.Equals(right);
         public static bool operator !=(WebACLRateBasedStatementAggregateKeyType left, WebACLRateBasedStatementAggregateKeyType right) => !left.Equals(right);

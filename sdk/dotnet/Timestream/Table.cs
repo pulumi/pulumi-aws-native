@@ -43,6 +43,12 @@ namespace Pulumi.AwsNative.Timestream
         public Output<Outputs.RetentionPropertiesProperties?> RetentionProperties { get; private set; } = null!;
 
         /// <summary>
+        /// A Schema specifies the expected data model of the table.
+        /// </summary>
+        [Output("schema")]
+        public Output<Outputs.SchemaProperties?> Schema { get; private set; } = null!;
+
+        /// <summary>
         /// The name for the table. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the table name.
         /// </summary>
         [Output("tableName")]
@@ -116,6 +122,12 @@ namespace Pulumi.AwsNative.Timestream
         /// </summary>
         [Input("retentionProperties")]
         public Input<Inputs.RetentionPropertiesPropertiesArgs>? RetentionProperties { get; set; }
+
+        /// <summary>
+        /// A Schema specifies the expected data model of the table.
+        /// </summary>
+        [Input("schema")]
+        public Input<Inputs.SchemaPropertiesArgs>? Schema { get; set; }
 
         /// <summary>
         /// The name for the table. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the table name.

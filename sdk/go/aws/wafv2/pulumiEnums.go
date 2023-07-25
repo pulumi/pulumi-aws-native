@@ -2995,6 +2995,7 @@ type RuleGroupRateBasedStatementAggregateKeyType string
 const (
 	RuleGroupRateBasedStatementAggregateKeyTypeIp          = RuleGroupRateBasedStatementAggregateKeyType("IP")
 	RuleGroupRateBasedStatementAggregateKeyTypeForwardedIp = RuleGroupRateBasedStatementAggregateKeyType("FORWARDED_IP")
+	RuleGroupRateBasedStatementAggregateKeyTypeCustomKeys  = RuleGroupRateBasedStatementAggregateKeyType("CUSTOM_KEYS")
 )
 
 func (RuleGroupRateBasedStatementAggregateKeyType) ElementType() reflect.Type {
@@ -5658,6 +5659,7 @@ type WebACLRateBasedStatementAggregateKeyType string
 const (
 	WebACLRateBasedStatementAggregateKeyTypeIp          = WebACLRateBasedStatementAggregateKeyType("IP")
 	WebACLRateBasedStatementAggregateKeyTypeForwardedIp = WebACLRateBasedStatementAggregateKeyType("FORWARDED_IP")
+	WebACLRateBasedStatementAggregateKeyTypeCustomKeys  = WebACLRateBasedStatementAggregateKeyType("CUSTOM_KEYS")
 )
 
 func (WebACLRateBasedStatementAggregateKeyType) ElementType() reflect.Type {

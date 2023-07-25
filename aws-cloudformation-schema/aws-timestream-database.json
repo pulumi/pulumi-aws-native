@@ -52,13 +52,13 @@
   "readOnlyProperties" : [ "/properties/Arn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "timestream:CreateDatabase", "timestream:DescribeEndpoints" ]
+      "permissions" : [ "timestream:CreateDatabase", "timestream:DescribeEndpoints", "timestream:TagResource", "kms:CreateGrant", "kms:DescribeKey", "kms:Decrypt" ]
     },
     "read" : {
       "permissions" : [ "timestream:DescribeDatabase", "timestream:DescribeEndpoints", "timestream:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "timestream:UpdateDatabase", "timestream:DescribeEndpoints", "timestream:TagResource", "timestream:UntagResource" ]
+      "permissions" : [ "timestream:UpdateDatabase", "timestream:DescribeDatabase", "timestream:DescribeEndpoints", "timestream:TagResource", "timestream:UntagResource" ]
     },
     "delete" : {
       "permissions" : [ "timestream:DeleteDatabase", "timestream:DescribeEndpoints" ]

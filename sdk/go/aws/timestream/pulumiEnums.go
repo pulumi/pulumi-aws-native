@@ -675,6 +675,336 @@ func (in *scheduledQueryMultiMeasureAttributeMappingMeasureValueTypePtr) ToSched
 	return pulumi.ToOutputWithContext(ctx, in).(ScheduledQueryMultiMeasureAttributeMappingMeasureValueTypePtrOutput)
 }
 
+// The level of enforcement for the specification of a dimension key in ingested records. Options are REQUIRED (dimension key must be specified) and OPTIONAL (dimension key does not have to be specified).
+type TablePartitionKeyEnforcementLevel string
+
+const (
+	TablePartitionKeyEnforcementLevelRequired = TablePartitionKeyEnforcementLevel("REQUIRED")
+	TablePartitionKeyEnforcementLevelOptional = TablePartitionKeyEnforcementLevel("OPTIONAL")
+)
+
+func (TablePartitionKeyEnforcementLevel) ElementType() reflect.Type {
+	return reflect.TypeOf((*TablePartitionKeyEnforcementLevel)(nil)).Elem()
+}
+
+func (e TablePartitionKeyEnforcementLevel) ToTablePartitionKeyEnforcementLevelOutput() TablePartitionKeyEnforcementLevelOutput {
+	return pulumi.ToOutput(e).(TablePartitionKeyEnforcementLevelOutput)
+}
+
+func (e TablePartitionKeyEnforcementLevel) ToTablePartitionKeyEnforcementLevelOutputWithContext(ctx context.Context) TablePartitionKeyEnforcementLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TablePartitionKeyEnforcementLevelOutput)
+}
+
+func (e TablePartitionKeyEnforcementLevel) ToTablePartitionKeyEnforcementLevelPtrOutput() TablePartitionKeyEnforcementLevelPtrOutput {
+	return e.ToTablePartitionKeyEnforcementLevelPtrOutputWithContext(context.Background())
+}
+
+func (e TablePartitionKeyEnforcementLevel) ToTablePartitionKeyEnforcementLevelPtrOutputWithContext(ctx context.Context) TablePartitionKeyEnforcementLevelPtrOutput {
+	return TablePartitionKeyEnforcementLevel(e).ToTablePartitionKeyEnforcementLevelOutputWithContext(ctx).ToTablePartitionKeyEnforcementLevelPtrOutputWithContext(ctx)
+}
+
+func (e TablePartitionKeyEnforcementLevel) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TablePartitionKeyEnforcementLevel) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TablePartitionKeyEnforcementLevel) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TablePartitionKeyEnforcementLevel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TablePartitionKeyEnforcementLevelOutput struct{ *pulumi.OutputState }
+
+func (TablePartitionKeyEnforcementLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TablePartitionKeyEnforcementLevel)(nil)).Elem()
+}
+
+func (o TablePartitionKeyEnforcementLevelOutput) ToTablePartitionKeyEnforcementLevelOutput() TablePartitionKeyEnforcementLevelOutput {
+	return o
+}
+
+func (o TablePartitionKeyEnforcementLevelOutput) ToTablePartitionKeyEnforcementLevelOutputWithContext(ctx context.Context) TablePartitionKeyEnforcementLevelOutput {
+	return o
+}
+
+func (o TablePartitionKeyEnforcementLevelOutput) ToTablePartitionKeyEnforcementLevelPtrOutput() TablePartitionKeyEnforcementLevelPtrOutput {
+	return o.ToTablePartitionKeyEnforcementLevelPtrOutputWithContext(context.Background())
+}
+
+func (o TablePartitionKeyEnforcementLevelOutput) ToTablePartitionKeyEnforcementLevelPtrOutputWithContext(ctx context.Context) TablePartitionKeyEnforcementLevelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TablePartitionKeyEnforcementLevel) *TablePartitionKeyEnforcementLevel {
+		return &v
+	}).(TablePartitionKeyEnforcementLevelPtrOutput)
+}
+
+func (o TablePartitionKeyEnforcementLevelOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TablePartitionKeyEnforcementLevelOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TablePartitionKeyEnforcementLevel) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TablePartitionKeyEnforcementLevelOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TablePartitionKeyEnforcementLevelOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TablePartitionKeyEnforcementLevel) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TablePartitionKeyEnforcementLevelPtrOutput struct{ *pulumi.OutputState }
+
+func (TablePartitionKeyEnforcementLevelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TablePartitionKeyEnforcementLevel)(nil)).Elem()
+}
+
+func (o TablePartitionKeyEnforcementLevelPtrOutput) ToTablePartitionKeyEnforcementLevelPtrOutput() TablePartitionKeyEnforcementLevelPtrOutput {
+	return o
+}
+
+func (o TablePartitionKeyEnforcementLevelPtrOutput) ToTablePartitionKeyEnforcementLevelPtrOutputWithContext(ctx context.Context) TablePartitionKeyEnforcementLevelPtrOutput {
+	return o
+}
+
+func (o TablePartitionKeyEnforcementLevelPtrOutput) Elem() TablePartitionKeyEnforcementLevelOutput {
+	return o.ApplyT(func(v *TablePartitionKeyEnforcementLevel) TablePartitionKeyEnforcementLevel {
+		if v != nil {
+			return *v
+		}
+		var ret TablePartitionKeyEnforcementLevel
+		return ret
+	}).(TablePartitionKeyEnforcementLevelOutput)
+}
+
+func (o TablePartitionKeyEnforcementLevelPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TablePartitionKeyEnforcementLevelPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TablePartitionKeyEnforcementLevel) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TablePartitionKeyEnforcementLevelInput is an input type that accepts TablePartitionKeyEnforcementLevelArgs and TablePartitionKeyEnforcementLevelOutput values.
+// You can construct a concrete instance of `TablePartitionKeyEnforcementLevelInput` via:
+//
+//	TablePartitionKeyEnforcementLevelArgs{...}
+type TablePartitionKeyEnforcementLevelInput interface {
+	pulumi.Input
+
+	ToTablePartitionKeyEnforcementLevelOutput() TablePartitionKeyEnforcementLevelOutput
+	ToTablePartitionKeyEnforcementLevelOutputWithContext(context.Context) TablePartitionKeyEnforcementLevelOutput
+}
+
+var tablePartitionKeyEnforcementLevelPtrType = reflect.TypeOf((**TablePartitionKeyEnforcementLevel)(nil)).Elem()
+
+type TablePartitionKeyEnforcementLevelPtrInput interface {
+	pulumi.Input
+
+	ToTablePartitionKeyEnforcementLevelPtrOutput() TablePartitionKeyEnforcementLevelPtrOutput
+	ToTablePartitionKeyEnforcementLevelPtrOutputWithContext(context.Context) TablePartitionKeyEnforcementLevelPtrOutput
+}
+
+type tablePartitionKeyEnforcementLevelPtr string
+
+func TablePartitionKeyEnforcementLevelPtr(v string) TablePartitionKeyEnforcementLevelPtrInput {
+	return (*tablePartitionKeyEnforcementLevelPtr)(&v)
+}
+
+func (*tablePartitionKeyEnforcementLevelPtr) ElementType() reflect.Type {
+	return tablePartitionKeyEnforcementLevelPtrType
+}
+
+func (in *tablePartitionKeyEnforcementLevelPtr) ToTablePartitionKeyEnforcementLevelPtrOutput() TablePartitionKeyEnforcementLevelPtrOutput {
+	return pulumi.ToOutput(in).(TablePartitionKeyEnforcementLevelPtrOutput)
+}
+
+func (in *tablePartitionKeyEnforcementLevelPtr) ToTablePartitionKeyEnforcementLevelPtrOutputWithContext(ctx context.Context) TablePartitionKeyEnforcementLevelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TablePartitionKeyEnforcementLevelPtrOutput)
+}
+
+// The type of the partition key. Options are DIMENSION (dimension key) and MEASURE (measure key).
+type TablePartitionKeyType string
+
+const (
+	TablePartitionKeyTypeDimension = TablePartitionKeyType("DIMENSION")
+	TablePartitionKeyTypeMeasure   = TablePartitionKeyType("MEASURE")
+)
+
+func (TablePartitionKeyType) ElementType() reflect.Type {
+	return reflect.TypeOf((*TablePartitionKeyType)(nil)).Elem()
+}
+
+func (e TablePartitionKeyType) ToTablePartitionKeyTypeOutput() TablePartitionKeyTypeOutput {
+	return pulumi.ToOutput(e).(TablePartitionKeyTypeOutput)
+}
+
+func (e TablePartitionKeyType) ToTablePartitionKeyTypeOutputWithContext(ctx context.Context) TablePartitionKeyTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TablePartitionKeyTypeOutput)
+}
+
+func (e TablePartitionKeyType) ToTablePartitionKeyTypePtrOutput() TablePartitionKeyTypePtrOutput {
+	return e.ToTablePartitionKeyTypePtrOutputWithContext(context.Background())
+}
+
+func (e TablePartitionKeyType) ToTablePartitionKeyTypePtrOutputWithContext(ctx context.Context) TablePartitionKeyTypePtrOutput {
+	return TablePartitionKeyType(e).ToTablePartitionKeyTypeOutputWithContext(ctx).ToTablePartitionKeyTypePtrOutputWithContext(ctx)
+}
+
+func (e TablePartitionKeyType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TablePartitionKeyType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TablePartitionKeyType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TablePartitionKeyType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TablePartitionKeyTypeOutput struct{ *pulumi.OutputState }
+
+func (TablePartitionKeyTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TablePartitionKeyType)(nil)).Elem()
+}
+
+func (o TablePartitionKeyTypeOutput) ToTablePartitionKeyTypeOutput() TablePartitionKeyTypeOutput {
+	return o
+}
+
+func (o TablePartitionKeyTypeOutput) ToTablePartitionKeyTypeOutputWithContext(ctx context.Context) TablePartitionKeyTypeOutput {
+	return o
+}
+
+func (o TablePartitionKeyTypeOutput) ToTablePartitionKeyTypePtrOutput() TablePartitionKeyTypePtrOutput {
+	return o.ToTablePartitionKeyTypePtrOutputWithContext(context.Background())
+}
+
+func (o TablePartitionKeyTypeOutput) ToTablePartitionKeyTypePtrOutputWithContext(ctx context.Context) TablePartitionKeyTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TablePartitionKeyType) *TablePartitionKeyType {
+		return &v
+	}).(TablePartitionKeyTypePtrOutput)
+}
+
+func (o TablePartitionKeyTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TablePartitionKeyTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TablePartitionKeyType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TablePartitionKeyTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TablePartitionKeyTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TablePartitionKeyType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TablePartitionKeyTypePtrOutput struct{ *pulumi.OutputState }
+
+func (TablePartitionKeyTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TablePartitionKeyType)(nil)).Elem()
+}
+
+func (o TablePartitionKeyTypePtrOutput) ToTablePartitionKeyTypePtrOutput() TablePartitionKeyTypePtrOutput {
+	return o
+}
+
+func (o TablePartitionKeyTypePtrOutput) ToTablePartitionKeyTypePtrOutputWithContext(ctx context.Context) TablePartitionKeyTypePtrOutput {
+	return o
+}
+
+func (o TablePartitionKeyTypePtrOutput) Elem() TablePartitionKeyTypeOutput {
+	return o.ApplyT(func(v *TablePartitionKeyType) TablePartitionKeyType {
+		if v != nil {
+			return *v
+		}
+		var ret TablePartitionKeyType
+		return ret
+	}).(TablePartitionKeyTypeOutput)
+}
+
+func (o TablePartitionKeyTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TablePartitionKeyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TablePartitionKeyType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TablePartitionKeyTypeInput is an input type that accepts TablePartitionKeyTypeArgs and TablePartitionKeyTypeOutput values.
+// You can construct a concrete instance of `TablePartitionKeyTypeInput` via:
+//
+//	TablePartitionKeyTypeArgs{...}
+type TablePartitionKeyTypeInput interface {
+	pulumi.Input
+
+	ToTablePartitionKeyTypeOutput() TablePartitionKeyTypeOutput
+	ToTablePartitionKeyTypeOutputWithContext(context.Context) TablePartitionKeyTypeOutput
+}
+
+var tablePartitionKeyTypePtrType = reflect.TypeOf((**TablePartitionKeyType)(nil)).Elem()
+
+type TablePartitionKeyTypePtrInput interface {
+	pulumi.Input
+
+	ToTablePartitionKeyTypePtrOutput() TablePartitionKeyTypePtrOutput
+	ToTablePartitionKeyTypePtrOutputWithContext(context.Context) TablePartitionKeyTypePtrOutput
+}
+
+type tablePartitionKeyTypePtr string
+
+func TablePartitionKeyTypePtr(v string) TablePartitionKeyTypePtrInput {
+	return (*tablePartitionKeyTypePtr)(&v)
+}
+
+func (*tablePartitionKeyTypePtr) ElementType() reflect.Type {
+	return tablePartitionKeyTypePtrType
+}
+
+func (in *tablePartitionKeyTypePtr) ToTablePartitionKeyTypePtrOutput() TablePartitionKeyTypePtrOutput {
+	return pulumi.ToOutput(in).(TablePartitionKeyTypePtrOutput)
+}
+
+func (in *tablePartitionKeyTypePtr) ToTablePartitionKeyTypePtrOutputWithContext(ctx context.Context) TablePartitionKeyTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TablePartitionKeyTypePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryDimensionValueTypeInput)(nil)).Elem(), ScheduledQueryDimensionValueType("VARCHAR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryDimensionValueTypePtrInput)(nil)).Elem(), ScheduledQueryDimensionValueType("VARCHAR"))
@@ -684,6 +1014,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryMixedMeasureMappingMeasureValueTypePtrInput)(nil)).Elem(), ScheduledQueryMixedMeasureMappingMeasureValueType("BIGINT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryMultiMeasureAttributeMappingMeasureValueTypeInput)(nil)).Elem(), ScheduledQueryMultiMeasureAttributeMappingMeasureValueType("BIGINT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryMultiMeasureAttributeMappingMeasureValueTypePtrInput)(nil)).Elem(), ScheduledQueryMultiMeasureAttributeMappingMeasureValueType("BIGINT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TablePartitionKeyEnforcementLevelInput)(nil)).Elem(), TablePartitionKeyEnforcementLevel("REQUIRED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TablePartitionKeyEnforcementLevelPtrInput)(nil)).Elem(), TablePartitionKeyEnforcementLevel("REQUIRED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TablePartitionKeyTypeInput)(nil)).Elem(), TablePartitionKeyType("DIMENSION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TablePartitionKeyTypePtrInput)(nil)).Elem(), TablePartitionKeyType("DIMENSION"))
 	pulumi.RegisterOutputType(ScheduledQueryDimensionValueTypeOutput{})
 	pulumi.RegisterOutputType(ScheduledQueryDimensionValueTypePtrOutput{})
 	pulumi.RegisterOutputType(ScheduledQueryEncryptionOptionOutput{})
@@ -692,4 +1026,8 @@ func init() {
 	pulumi.RegisterOutputType(ScheduledQueryMixedMeasureMappingMeasureValueTypePtrOutput{})
 	pulumi.RegisterOutputType(ScheduledQueryMultiMeasureAttributeMappingMeasureValueTypeOutput{})
 	pulumi.RegisterOutputType(ScheduledQueryMultiMeasureAttributeMappingMeasureValueTypePtrOutput{})
+	pulumi.RegisterOutputType(TablePartitionKeyEnforcementLevelOutput{})
+	pulumi.RegisterOutputType(TablePartitionKeyEnforcementLevelPtrOutput{})
+	pulumi.RegisterOutputType(TablePartitionKeyTypeOutput{})
+	pulumi.RegisterOutputType(TablePartitionKeyTypePtrOutput{})
 }

@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
     public sealed class RuleGroupRateBasedStatement
     {
         public readonly Pulumi.AwsNative.WAFv2.RuleGroupRateBasedStatementAggregateKeyType AggregateKeyType;
+        /// <summary>
+        /// Specifies the aggregate keys to use in a rate-base rule.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.RuleGroupRateBasedStatementCustomKey> CustomKeys;
         public readonly Outputs.RuleGroupForwardedIPConfiguration? ForwardedIPConfig;
         public readonly int Limit;
         public readonly Outputs.RuleGroupStatement? ScopeDownStatement;
@@ -22,6 +26,8 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
         private RuleGroupRateBasedStatement(
             Pulumi.AwsNative.WAFv2.RuleGroupRateBasedStatementAggregateKeyType aggregateKeyType,
 
+            ImmutableArray<Outputs.RuleGroupRateBasedStatementCustomKey> customKeys,
+
             Outputs.RuleGroupForwardedIPConfiguration? forwardedIPConfig,
 
             int limit,
@@ -29,6 +35,7 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
             Outputs.RuleGroupStatement? scopeDownStatement)
         {
             AggregateKeyType = aggregateKeyType;
+            CustomKeys = customKeys;
             ForwardedIPConfig = forwardedIPConfig;
             Limit = limit;
             ScopeDownStatement = scopeDownStatement;
