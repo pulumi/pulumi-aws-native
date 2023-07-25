@@ -15,7 +15,7 @@ namespace Pulumi.AwsNative.Pipes.Outputs
     {
         public readonly ImmutableArray<string> AdditionalBootstrapServers;
         public readonly int? BatchSize;
-        public readonly string? ConsumerGroupID;
+        public readonly string? ConsumerGroupId;
         public readonly object? Credentials;
         public readonly int? MaximumBatchingWindowInSeconds;
         /// <summary>
@@ -32,7 +32,7 @@ namespace Pulumi.AwsNative.Pipes.Outputs
 
             int? batchSize,
 
-            string? consumerGroupID,
+            string? consumerGroupId,
 
             object? credentials,
 
@@ -48,7 +48,7 @@ namespace Pulumi.AwsNative.Pipes.Outputs
         {
             AdditionalBootstrapServers = additionalBootstrapServers;
             BatchSize = batchSize;
-            ConsumerGroupID = consumerGroupID;
+            ConsumerGroupId = consumerGroupId;
             Credentials = credentials;
             MaximumBatchingWindowInSeconds = maximumBatchingWindowInSeconds;
             ServerRootCaCertificate = serverRootCaCertificate;

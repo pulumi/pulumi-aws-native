@@ -13,19 +13,19 @@ namespace Pulumi.AwsNative.Elasticsearch.Outputs
     [OutputType]
     public sealed class DomainMasterUserOptions
     {
-        public readonly string? MasterUserARN;
+        public readonly string? MasterUserArn;
         public readonly string? MasterUserName;
         public readonly string? MasterUserPassword;
 
         [OutputConstructor]
         private DomainMasterUserOptions(
-            string? masterUserARN,
+            string? masterUserArn,
 
             string? masterUserName,
 
             string? masterUserPassword)
         {
-            MasterUserARN = masterUserARN;
+            MasterUserArn = masterUserArn;
             MasterUserName = masterUserName;
             MasterUserPassword = masterUserPassword;
         }

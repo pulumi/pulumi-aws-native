@@ -69,7 +69,7 @@ export interface GetFuotaTaskResult {
     /**
      * FUOTA task LoRaWAN
      */
-    readonly loRaWAN?: outputs.iotwireless.FuotaTaskLoRaWAN;
+    readonly loRaWan?: outputs.iotwireless.FuotaTaskLoRaWAN;
     /**
      * Name of FUOTA task
      */

@@ -38,7 +38,7 @@ export interface GetAlarmResult {
     readonly metricName?: string;
     readonly metrics?: outputs.cloudwatch.AlarmMetricDataQuery[];
     readonly namespace?: string;
-    readonly oKActions?: string[];
+    readonly okActions?: string[];
     readonly period?: number;
     readonly statistic?: string;
     readonly threshold?: number;

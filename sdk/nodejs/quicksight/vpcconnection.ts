@@ -50,8 +50,8 @@ export class VPCConnection extends pulumi.CustomResource {
     public /*out*/ readonly status!: pulumi.Output<enums.quicksight.VPCConnectionResourceStatus>;
     public readonly subnetIds!: pulumi.Output<string[] | undefined>;
     public readonly tags!: pulumi.Output<outputs.quicksight.VPCConnectionTag[] | undefined>;
-    public readonly vPCConnectionId!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly vPCId!: pulumi.Output<string>;
+    public readonly vpcConnectionId!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly vpcId!: pulumi.Output<string>;
 
     /**
      * Create a VPCConnection resource with the given unique name, arguments, and options.
@@ -72,13 +72,13 @@ export class VPCConnection extends pulumi.CustomResource {
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vPCConnectionId"] = args ? args.vPCConnectionId : undefined;
+            resourceInputs["vpcConnectionId"] = args ? args.vpcConnectionId : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["lastUpdatedTime"] = undefined /*out*/;
             resourceInputs["networkInterfaces"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
-            resourceInputs["vPCId"] = undefined /*out*/;
+            resourceInputs["vpcId"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["availabilityStatus"] = undefined /*out*/;
@@ -93,8 +93,8 @@ export class VPCConnection extends pulumi.CustomResource {
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["subnetIds"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
-            resourceInputs["vPCConnectionId"] = undefined /*out*/;
-            resourceInputs["vPCId"] = undefined /*out*/;
+            resourceInputs["vpcConnectionId"] = undefined /*out*/;
+            resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VPCConnection.__pulumiType, name, resourceInputs, opts);
@@ -113,5 +113,5 @@ export interface VPCConnectionArgs {
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     tags?: pulumi.Input<pulumi.Input<inputs.quicksight.VPCConnectionTagArgs>[]>;
-    vPCConnectionId?: pulumi.Input<string>;
+    vpcConnectionId?: pulumi.Input<string>;
 }

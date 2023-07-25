@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetIPSetResult:
-    def __init__(__self__, addresses=None, arn=None, description=None, i_p_address_version=None, id=None, tags=None):
+    def __init__(__self__, addresses=None, arn=None, description=None, id=None, ip_address_version=None, tags=None):
         if addresses and not isinstance(addresses, list):
             raise TypeError("Expected argument 'addresses' to be a list")
         pulumi.set(__self__, "addresses", addresses)
@@ -30,12 +30,12 @@ class GetIPSetResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
-        if i_p_address_version and not isinstance(i_p_address_version, str):
-            raise TypeError("Expected argument 'i_p_address_version' to be a str")
-        pulumi.set(__self__, "i_p_address_version", i_p_address_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if ip_address_version and not isinstance(ip_address_version, str):
+            raise TypeError("Expected argument 'ip_address_version' to be a str")
+        pulumi.set(__self__, "ip_address_version", ip_address_version)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -59,14 +59,14 @@ class GetIPSetResult:
         return pulumi.get(self, "description")
 
     @property
-    @pulumi.getter(name="iPAddressVersion")
-    def i_p_address_version(self) -> Optional['IPSetIPAddressVersion']:
-        return pulumi.get(self, "i_p_address_version")
-
-    @property
     @pulumi.getter
     def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="ipAddressVersion")
+    def ip_address_version(self) -> Optional['IPSetIPAddressVersion']:
+        return pulumi.get(self, "ip_address_version")
 
     @property
     @pulumi.getter
@@ -83,8 +83,8 @@ class AwaitableGetIPSetResult(GetIPSetResult):
             addresses=self.addresses,
             arn=self.arn,
             description=self.description,
-            i_p_address_version=self.i_p_address_version,
             id=self.id,
+            ip_address_version=self.ip_address_version,
             tags=self.tags)
 
 
@@ -106,8 +106,8 @@ def get_ip_set(id: Optional[str] = None,
         addresses=pulumi.get(__ret__, 'addresses'),
         arn=pulumi.get(__ret__, 'arn'),
         description=pulumi.get(__ret__, 'description'),
-        i_p_address_version=pulumi.get(__ret__, 'i_p_address_version'),
         id=pulumi.get(__ret__, 'id'),
+        ip_address_version=pulumi.get(__ret__, 'ip_address_version'),
         tags=pulumi.get(__ret__, 'tags'))
 
 

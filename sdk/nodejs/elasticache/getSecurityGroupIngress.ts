@@ -21,8 +21,8 @@ export interface GetSecurityGroupIngressArgs {
 
 export interface GetSecurityGroupIngressResult {
     readonly cacheSecurityGroupName?: string;
-    readonly eC2SecurityGroupName?: string;
-    readonly eC2SecurityGroupOwnerId?: string;
+    readonly ec2SecurityGroupName?: string;
+    readonly ec2SecurityGroupOwnerId?: string;
     readonly id?: string;
 }
 /**

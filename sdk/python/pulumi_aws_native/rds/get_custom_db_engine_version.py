@@ -20,10 +20,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetCustomDBEngineVersionResult:
-    def __init__(__self__, d_b_engine_version_arn=None, description=None, status=None, tags=None):
-        if d_b_engine_version_arn and not isinstance(d_b_engine_version_arn, str):
-            raise TypeError("Expected argument 'd_b_engine_version_arn' to be a str")
-        pulumi.set(__self__, "d_b_engine_version_arn", d_b_engine_version_arn)
+    def __init__(__self__, db_engine_version_arn=None, description=None, status=None, tags=None):
+        if db_engine_version_arn and not isinstance(db_engine_version_arn, str):
+            raise TypeError("Expected argument 'db_engine_version_arn' to be a str")
+        pulumi.set(__self__, "db_engine_version_arn", db_engine_version_arn)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -35,12 +35,12 @@ class GetCustomDBEngineVersionResult:
         pulumi.set(__self__, "tags", tags)
 
     @property
-    @pulumi.getter(name="dBEngineVersionArn")
-    def d_b_engine_version_arn(self) -> Optional[str]:
+    @pulumi.getter(name="dbEngineVersionArn")
+    def db_engine_version_arn(self) -> Optional[str]:
         """
         The ARN of the custom engine version.
         """
-        return pulumi.get(self, "d_b_engine_version_arn")
+        return pulumi.get(self, "db_engine_version_arn")
 
     @property
     @pulumi.getter
@@ -73,7 +73,7 @@ class AwaitableGetCustomDBEngineVersionResult(GetCustomDBEngineVersionResult):
         if False:
             yield self
         return GetCustomDBEngineVersionResult(
-            d_b_engine_version_arn=self.d_b_engine_version_arn,
+            db_engine_version_arn=self.db_engine_version_arn,
             description=self.description,
             status=self.status,
             tags=self.tags)
@@ -96,7 +96,7 @@ def get_custom_db_engine_version(engine: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:rds:getCustomDBEngineVersion', __args__, opts=opts, typ=GetCustomDBEngineVersionResult).value
 
     return AwaitableGetCustomDBEngineVersionResult(
-        d_b_engine_version_arn=pulumi.get(__ret__, 'd_b_engine_version_arn'),
+        db_engine_version_arn=pulumi.get(__ret__, 'db_engine_version_arn'),
         description=pulumi.get(__ret__, 'description'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))

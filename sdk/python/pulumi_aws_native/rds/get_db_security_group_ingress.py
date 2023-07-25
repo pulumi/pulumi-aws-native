@@ -18,50 +18,50 @@ __all__ = [
 
 @pulumi.output_type
 class GetDBSecurityGroupIngressResult:
-    def __init__(__self__, c_idrip=None, d_b_security_group_name=None, e_c2_security_group_id=None, e_c2_security_group_name=None, e_c2_security_group_owner_id=None, id=None):
-        if c_idrip and not isinstance(c_idrip, str):
-            raise TypeError("Expected argument 'c_idrip' to be a str")
-        pulumi.set(__self__, "c_idrip", c_idrip)
-        if d_b_security_group_name and not isinstance(d_b_security_group_name, str):
-            raise TypeError("Expected argument 'd_b_security_group_name' to be a str")
-        pulumi.set(__self__, "d_b_security_group_name", d_b_security_group_name)
-        if e_c2_security_group_id and not isinstance(e_c2_security_group_id, str):
-            raise TypeError("Expected argument 'e_c2_security_group_id' to be a str")
-        pulumi.set(__self__, "e_c2_security_group_id", e_c2_security_group_id)
-        if e_c2_security_group_name and not isinstance(e_c2_security_group_name, str):
-            raise TypeError("Expected argument 'e_c2_security_group_name' to be a str")
-        pulumi.set(__self__, "e_c2_security_group_name", e_c2_security_group_name)
-        if e_c2_security_group_owner_id and not isinstance(e_c2_security_group_owner_id, str):
-            raise TypeError("Expected argument 'e_c2_security_group_owner_id' to be a str")
-        pulumi.set(__self__, "e_c2_security_group_owner_id", e_c2_security_group_owner_id)
+    def __init__(__self__, cidrip=None, db_security_group_name=None, ec2_security_group_id=None, ec2_security_group_name=None, ec2_security_group_owner_id=None, id=None):
+        if cidrip and not isinstance(cidrip, str):
+            raise TypeError("Expected argument 'cidrip' to be a str")
+        pulumi.set(__self__, "cidrip", cidrip)
+        if db_security_group_name and not isinstance(db_security_group_name, str):
+            raise TypeError("Expected argument 'db_security_group_name' to be a str")
+        pulumi.set(__self__, "db_security_group_name", db_security_group_name)
+        if ec2_security_group_id and not isinstance(ec2_security_group_id, str):
+            raise TypeError("Expected argument 'ec2_security_group_id' to be a str")
+        pulumi.set(__self__, "ec2_security_group_id", ec2_security_group_id)
+        if ec2_security_group_name and not isinstance(ec2_security_group_name, str):
+            raise TypeError("Expected argument 'ec2_security_group_name' to be a str")
+        pulumi.set(__self__, "ec2_security_group_name", ec2_security_group_name)
+        if ec2_security_group_owner_id and not isinstance(ec2_security_group_owner_id, str):
+            raise TypeError("Expected argument 'ec2_security_group_owner_id' to be a str")
+        pulumi.set(__self__, "ec2_security_group_owner_id", ec2_security_group_owner_id)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
 
     @property
-    @pulumi.getter(name="cIDRIP")
-    def c_idrip(self) -> Optional[str]:
-        return pulumi.get(self, "c_idrip")
+    @pulumi.getter
+    def cidrip(self) -> Optional[str]:
+        return pulumi.get(self, "cidrip")
 
     @property
-    @pulumi.getter(name="dBSecurityGroupName")
-    def d_b_security_group_name(self) -> Optional[str]:
-        return pulumi.get(self, "d_b_security_group_name")
+    @pulumi.getter(name="dbSecurityGroupName")
+    def db_security_group_name(self) -> Optional[str]:
+        return pulumi.get(self, "db_security_group_name")
 
     @property
-    @pulumi.getter(name="eC2SecurityGroupId")
-    def e_c2_security_group_id(self) -> Optional[str]:
-        return pulumi.get(self, "e_c2_security_group_id")
+    @pulumi.getter(name="ec2SecurityGroupId")
+    def ec2_security_group_id(self) -> Optional[str]:
+        return pulumi.get(self, "ec2_security_group_id")
 
     @property
-    @pulumi.getter(name="eC2SecurityGroupName")
-    def e_c2_security_group_name(self) -> Optional[str]:
-        return pulumi.get(self, "e_c2_security_group_name")
+    @pulumi.getter(name="ec2SecurityGroupName")
+    def ec2_security_group_name(self) -> Optional[str]:
+        return pulumi.get(self, "ec2_security_group_name")
 
     @property
-    @pulumi.getter(name="eC2SecurityGroupOwnerId")
-    def e_c2_security_group_owner_id(self) -> Optional[str]:
-        return pulumi.get(self, "e_c2_security_group_owner_id")
+    @pulumi.getter(name="ec2SecurityGroupOwnerId")
+    def ec2_security_group_owner_id(self) -> Optional[str]:
+        return pulumi.get(self, "ec2_security_group_owner_id")
 
     @property
     @pulumi.getter
@@ -75,11 +75,11 @@ class AwaitableGetDBSecurityGroupIngressResult(GetDBSecurityGroupIngressResult):
         if False:
             yield self
         return GetDBSecurityGroupIngressResult(
-            c_idrip=self.c_idrip,
-            d_b_security_group_name=self.d_b_security_group_name,
-            e_c2_security_group_id=self.e_c2_security_group_id,
-            e_c2_security_group_name=self.e_c2_security_group_name,
-            e_c2_security_group_owner_id=self.e_c2_security_group_owner_id,
+            cidrip=self.cidrip,
+            db_security_group_name=self.db_security_group_name,
+            ec2_security_group_id=self.ec2_security_group_id,
+            ec2_security_group_name=self.ec2_security_group_name,
+            ec2_security_group_owner_id=self.ec2_security_group_owner_id,
             id=self.id)
 
 
@@ -94,11 +94,11 @@ def get_db_security_group_ingress(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:rds:getDBSecurityGroupIngress', __args__, opts=opts, typ=GetDBSecurityGroupIngressResult).value
 
     return AwaitableGetDBSecurityGroupIngressResult(
-        c_idrip=pulumi.get(__ret__, 'c_idrip'),
-        d_b_security_group_name=pulumi.get(__ret__, 'd_b_security_group_name'),
-        e_c2_security_group_id=pulumi.get(__ret__, 'e_c2_security_group_id'),
-        e_c2_security_group_name=pulumi.get(__ret__, 'e_c2_security_group_name'),
-        e_c2_security_group_owner_id=pulumi.get(__ret__, 'e_c2_security_group_owner_id'),
+        cidrip=pulumi.get(__ret__, 'cidrip'),
+        db_security_group_name=pulumi.get(__ret__, 'db_security_group_name'),
+        ec2_security_group_id=pulumi.get(__ret__, 'ec2_security_group_id'),
+        ec2_security_group_name=pulumi.get(__ret__, 'ec2_security_group_name'),
+        ec2_security_group_owner_id=pulumi.get(__ret__, 'ec2_security_group_owner_id'),
         id=pulumi.get(__ret__, 'id'))
 
 

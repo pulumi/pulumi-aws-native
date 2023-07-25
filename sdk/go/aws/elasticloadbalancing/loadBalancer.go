@@ -22,14 +22,14 @@ type LoadBalancer struct {
 	AppCookieStickinessPolicy     LoadBalancerAppCookieStickinessPolicyArrayOutput `pulumi:"appCookieStickinessPolicy"`
 	AvailabilityZones             pulumi.StringArrayOutput                         `pulumi:"availabilityZones"`
 	CanonicalHostedZoneName       pulumi.StringOutput                              `pulumi:"canonicalHostedZoneName"`
-	CanonicalHostedZoneNameID     pulumi.StringOutput                              `pulumi:"canonicalHostedZoneNameID"`
+	CanonicalHostedZoneNameId     pulumi.StringOutput                              `pulumi:"canonicalHostedZoneNameId"`
 	ConnectionDrainingPolicy      LoadBalancerConnectionDrainingPolicyPtrOutput    `pulumi:"connectionDrainingPolicy"`
 	ConnectionSettings            LoadBalancerConnectionSettingsPtrOutput          `pulumi:"connectionSettings"`
 	CrossZone                     pulumi.BoolPtrOutput                             `pulumi:"crossZone"`
-	DNSName                       pulumi.StringOutput                              `pulumi:"dNSName"`
+	DnsName                       pulumi.StringOutput                              `pulumi:"dnsName"`
 	HealthCheck                   LoadBalancerHealthCheckPtrOutput                 `pulumi:"healthCheck"`
 	Instances                     pulumi.StringArrayOutput                         `pulumi:"instances"`
-	LBCookieStickinessPolicy      LoadBalancerLBCookieStickinessPolicyArrayOutput  `pulumi:"lBCookieStickinessPolicy"`
+	LbCookieStickinessPolicy      LoadBalancerLBCookieStickinessPolicyArrayOutput  `pulumi:"lbCookieStickinessPolicy"`
 	Listeners                     LoadBalancerListenersArrayOutput                 `pulumi:"listeners"`
 	LoadBalancerName              pulumi.StringPtrOutput                           `pulumi:"loadBalancerName"`
 	Policies                      LoadBalancerPoliciesArrayOutput                  `pulumi:"policies"`
@@ -92,7 +92,7 @@ type loadBalancerArgs struct {
 	CrossZone                     *bool                                   `pulumi:"crossZone"`
 	HealthCheck                   *LoadBalancerHealthCheck                `pulumi:"healthCheck"`
 	Instances                     []string                                `pulumi:"instances"`
-	LBCookieStickinessPolicy      []LoadBalancerLBCookieStickinessPolicy  `pulumi:"lBCookieStickinessPolicy"`
+	LbCookieStickinessPolicy      []LoadBalancerLBCookieStickinessPolicy  `pulumi:"lbCookieStickinessPolicy"`
 	Listeners                     []LoadBalancerListeners                 `pulumi:"listeners"`
 	LoadBalancerName              *string                                 `pulumi:"loadBalancerName"`
 	Policies                      []LoadBalancerPolicies                  `pulumi:"policies"`
@@ -114,7 +114,7 @@ type LoadBalancerArgs struct {
 	CrossZone                     pulumi.BoolPtrInput
 	HealthCheck                   LoadBalancerHealthCheckPtrInput
 	Instances                     pulumi.StringArrayInput
-	LBCookieStickinessPolicy      LoadBalancerLBCookieStickinessPolicyArrayInput
+	LbCookieStickinessPolicy      LoadBalancerLBCookieStickinessPolicyArrayInput
 	Listeners                     LoadBalancerListenersArrayInput
 	LoadBalancerName              pulumi.StringPtrInput
 	Policies                      LoadBalancerPoliciesArrayInput
@@ -181,8 +181,8 @@ func (o LoadBalancerOutput) CanonicalHostedZoneName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.CanonicalHostedZoneName }).(pulumi.StringOutput)
 }
 
-func (o LoadBalancerOutput) CanonicalHostedZoneNameID() pulumi.StringOutput {
-	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.CanonicalHostedZoneNameID }).(pulumi.StringOutput)
+func (o LoadBalancerOutput) CanonicalHostedZoneNameId() pulumi.StringOutput {
+	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.CanonicalHostedZoneNameId }).(pulumi.StringOutput)
 }
 
 func (o LoadBalancerOutput) ConnectionDrainingPolicy() LoadBalancerConnectionDrainingPolicyPtrOutput {
@@ -197,8 +197,8 @@ func (o LoadBalancerOutput) CrossZone() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.BoolPtrOutput { return v.CrossZone }).(pulumi.BoolPtrOutput)
 }
 
-func (o LoadBalancerOutput) DNSName() pulumi.StringOutput {
-	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.DNSName }).(pulumi.StringOutput)
+func (o LoadBalancerOutput) DnsName() pulumi.StringOutput {
+	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.DnsName }).(pulumi.StringOutput)
 }
 
 func (o LoadBalancerOutput) HealthCheck() LoadBalancerHealthCheckPtrOutput {
@@ -209,9 +209,9 @@ func (o LoadBalancerOutput) Instances() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringArrayOutput { return v.Instances }).(pulumi.StringArrayOutput)
 }
 
-func (o LoadBalancerOutput) LBCookieStickinessPolicy() LoadBalancerLBCookieStickinessPolicyArrayOutput {
+func (o LoadBalancerOutput) LbCookieStickinessPolicy() LoadBalancerLBCookieStickinessPolicyArrayOutput {
 	return o.ApplyT(func(v *LoadBalancer) LoadBalancerLBCookieStickinessPolicyArrayOutput {
-		return v.LBCookieStickinessPolicy
+		return v.LbCookieStickinessPolicy
 	}).(LoadBalancerLBCookieStickinessPolicyArrayOutput)
 }
 

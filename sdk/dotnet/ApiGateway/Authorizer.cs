@@ -63,8 +63,8 @@ namespace Pulumi.AwsNative.ApiGateway
         /// <summary>
         /// A list of the Amazon Cognito user pool ARNs for the COGNITO_USER_POOLS authorizer.
         /// </summary>
-        [Output("providerARNs")]
-        public Output<ImmutableArray<string>> ProviderARNs { get; private set; } = null!;
+        [Output("providerArns")]
+        public Output<ImmutableArray<string>> ProviderArns { get; private set; } = null!;
 
         /// <summary>
         /// The identifier of the API.
@@ -165,16 +165,16 @@ namespace Pulumi.AwsNative.ApiGateway
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("providerARNs")]
-        private InputList<string>? _providerARNs;
+        [Input("providerArns")]
+        private InputList<string>? _providerArns;
 
         /// <summary>
         /// A list of the Amazon Cognito user pool ARNs for the COGNITO_USER_POOLS authorizer.
         /// </summary>
-        public InputList<string> ProviderARNs
+        public InputList<string> ProviderArns
         {
-            get => _providerARNs ?? (_providerARNs = new InputList<string>());
-            set => _providerARNs = value;
+            get => _providerArns ?? (_providerArns = new InputList<string>());
+            set => _providerArns = value;
         }
 
         /// <summary>

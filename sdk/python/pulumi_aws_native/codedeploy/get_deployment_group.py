@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDeploymentGroupResult:
-    def __init__(__self__, alarm_configuration=None, auto_rollback_configuration=None, auto_scaling_groups=None, blue_green_deployment_configuration=None, deployment=None, deployment_config_name=None, deployment_style=None, e_cs_services=None, ec2_tag_filters=None, ec2_tag_set=None, id=None, load_balancer_info=None, on_premises_instance_tag_filters=None, on_premises_tag_set=None, outdated_instances_strategy=None, service_role_arn=None, tags=None, trigger_configurations=None):
+    def __init__(__self__, alarm_configuration=None, auto_rollback_configuration=None, auto_scaling_groups=None, blue_green_deployment_configuration=None, deployment=None, deployment_config_name=None, deployment_style=None, ec2_tag_filters=None, ec2_tag_set=None, ecs_services=None, id=None, load_balancer_info=None, on_premises_instance_tag_filters=None, on_premises_tag_set=None, outdated_instances_strategy=None, service_role_arn=None, tags=None, trigger_configurations=None):
         if alarm_configuration and not isinstance(alarm_configuration, dict):
             raise TypeError("Expected argument 'alarm_configuration' to be a dict")
         pulumi.set(__self__, "alarm_configuration", alarm_configuration)
@@ -41,15 +41,15 @@ class GetDeploymentGroupResult:
         if deployment_style and not isinstance(deployment_style, dict):
             raise TypeError("Expected argument 'deployment_style' to be a dict")
         pulumi.set(__self__, "deployment_style", deployment_style)
-        if e_cs_services and not isinstance(e_cs_services, list):
-            raise TypeError("Expected argument 'e_cs_services' to be a list")
-        pulumi.set(__self__, "e_cs_services", e_cs_services)
         if ec2_tag_filters and not isinstance(ec2_tag_filters, list):
             raise TypeError("Expected argument 'ec2_tag_filters' to be a list")
         pulumi.set(__self__, "ec2_tag_filters", ec2_tag_filters)
         if ec2_tag_set and not isinstance(ec2_tag_set, dict):
             raise TypeError("Expected argument 'ec2_tag_set' to be a dict")
         pulumi.set(__self__, "ec2_tag_set", ec2_tag_set)
+        if ecs_services and not isinstance(ecs_services, list):
+            raise TypeError("Expected argument 'ecs_services' to be a list")
+        pulumi.set(__self__, "ecs_services", ecs_services)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -111,11 +111,6 @@ class GetDeploymentGroupResult:
         return pulumi.get(self, "deployment_style")
 
     @property
-    @pulumi.getter(name="eCSServices")
-    def e_cs_services(self) -> Optional[Sequence['outputs.DeploymentGroupECSService']]:
-        return pulumi.get(self, "e_cs_services")
-
-    @property
     @pulumi.getter(name="ec2TagFilters")
     def ec2_tag_filters(self) -> Optional[Sequence['outputs.DeploymentGroupEC2TagFilter']]:
         return pulumi.get(self, "ec2_tag_filters")
@@ -124,6 +119,11 @@ class GetDeploymentGroupResult:
     @pulumi.getter(name="ec2TagSet")
     def ec2_tag_set(self) -> Optional['outputs.DeploymentGroupEC2TagSet']:
         return pulumi.get(self, "ec2_tag_set")
+
+    @property
+    @pulumi.getter(name="ecsServices")
+    def ecs_services(self) -> Optional[Sequence['outputs.DeploymentGroupECSService']]:
+        return pulumi.get(self, "ecs_services")
 
     @property
     @pulumi.getter
@@ -179,9 +179,9 @@ class AwaitableGetDeploymentGroupResult(GetDeploymentGroupResult):
             deployment=self.deployment,
             deployment_config_name=self.deployment_config_name,
             deployment_style=self.deployment_style,
-            e_cs_services=self.e_cs_services,
             ec2_tag_filters=self.ec2_tag_filters,
             ec2_tag_set=self.ec2_tag_set,
+            ecs_services=self.ecs_services,
             id=self.id,
             load_balancer_info=self.load_balancer_info,
             on_premises_instance_tag_filters=self.on_premises_instance_tag_filters,
@@ -210,9 +210,9 @@ def get_deployment_group(id: Optional[str] = None,
         deployment=pulumi.get(__ret__, 'deployment'),
         deployment_config_name=pulumi.get(__ret__, 'deployment_config_name'),
         deployment_style=pulumi.get(__ret__, 'deployment_style'),
-        e_cs_services=pulumi.get(__ret__, 'e_cs_services'),
         ec2_tag_filters=pulumi.get(__ret__, 'ec2_tag_filters'),
         ec2_tag_set=pulumi.get(__ret__, 'ec2_tag_set'),
+        ecs_services=pulumi.get(__ret__, 'ecs_services'),
         id=pulumi.get(__ret__, 'id'),
         load_balancer_info=pulumi.get(__ret__, 'load_balancer_info'),
         on_premises_instance_tag_filters=pulumi.get(__ret__, 'on_premises_instance_tag_filters'),

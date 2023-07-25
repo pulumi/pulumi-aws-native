@@ -12,8 +12,8 @@ namespace Pulumi.AwsNative.OpenSearchService.Inputs
 
     public sealed class DomainMasterUserOptionsArgs : global::Pulumi.ResourceArgs
     {
-        [Input("masterUserARN")]
-        public Input<string>? MasterUserARN { get; set; }
+        [Input("masterUserArn")]
+        public Input<string>? MasterUserArn { get; set; }
 
         [Input("masterUserName")]
         public Input<string>? MasterUserName { get; set; }

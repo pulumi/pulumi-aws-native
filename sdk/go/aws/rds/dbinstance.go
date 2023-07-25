@@ -28,7 +28,7 @@ type DBInstance struct {
 	// The number of days for which automated backups are retained. Setting this parameter to a positive number enables backups. Setting this parameter to 0 disables automated backups.
 	BackupRetentionPeriod pulumi.IntPtrOutput `pulumi:"backupRetentionPeriod"`
 	// The identifier of the CA certificate for this DB instance.
-	CACertificateIdentifier pulumi.StringPtrOutput `pulumi:"cACertificateIdentifier"`
+	CaCertificateIdentifier pulumi.StringPtrOutput `pulumi:"caCertificateIdentifier"`
 	// Returns the details of the DB instance's server certificate.
 	CertificateDetails DBInstanceCertificateDetailsPtrOutput `pulumi:"certificateDetails"`
 	// A value that indicates whether the DB instance is restarted when you rotate your SSL/TLS certificate.
@@ -47,9 +47,9 @@ type DBInstance struct {
 	//    For the list of permissions required for the IAM role, see Configure IAM and your VPC in the Amazon RDS User Guide .
 	//
 	// This setting is required for RDS Custom.
-	CustomIAMInstanceProfile pulumi.StringPtrOutput `pulumi:"customIAMInstanceProfile"`
+	CustomIamInstanceProfile pulumi.StringPtrOutput `pulumi:"customIamInstanceProfile"`
 	// The identifier of the DB cluster that the instance will belong to.
-	DBClusterIdentifier pulumi.StringPtrOutput `pulumi:"dBClusterIdentifier"`
+	DbClusterIdentifier pulumi.StringPtrOutput `pulumi:"dbClusterIdentifier"`
 	// The identifier for the RDS for MySQL Multi-AZ DB cluster snapshot to restore from. For more information on Multi-AZ DB clusters, see Multi-AZ deployments with two readable standby DB instances in the Amazon RDS User Guide .
 	//
 	// Constraints:
@@ -59,25 +59,25 @@ type DBInstance struct {
 	//  * If you are restoring from a shared manual Multi-AZ DB cluster snapshot, the DBClusterSnapshotIdentifier must be the ARN of the shared snapshot.
 	//  * Can't be the identifier of an Aurora DB cluster snapshot.
 	//  * Can't be the identifier of an RDS for PostgreSQL Multi-AZ DB cluster snapshot.
-	DBClusterSnapshotIdentifier pulumi.StringPtrOutput `pulumi:"dBClusterSnapshotIdentifier"`
+	DbClusterSnapshotIdentifier pulumi.StringPtrOutput `pulumi:"dbClusterSnapshotIdentifier"`
 	// The Amazon Resource Name (ARN) for the DB instance.
-	DBInstanceArn pulumi.StringOutput `pulumi:"dBInstanceArn"`
+	DbInstanceArn pulumi.StringOutput `pulumi:"dbInstanceArn"`
 	// The compute and memory capacity of the DB instance, for example, db.m4.large. Not all DB instance classes are available in all AWS Regions, or for all database engines.
-	DBInstanceClass pulumi.StringPtrOutput `pulumi:"dBInstanceClass"`
+	DbInstanceClass pulumi.StringPtrOutput `pulumi:"dbInstanceClass"`
 	// A name for the DB instance. If you specify a name, AWS CloudFormation converts it to lowercase. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the DB instance.
-	DBInstanceIdentifier pulumi.StringPtrOutput `pulumi:"dBInstanceIdentifier"`
+	DbInstanceIdentifier pulumi.StringPtrOutput `pulumi:"dbInstanceIdentifier"`
 	// The meaning of this parameter differs according to the database engine you use.
-	DBName pulumi.StringPtrOutput `pulumi:"dBName"`
+	DbName pulumi.StringPtrOutput `pulumi:"dbName"`
 	// The name of an existing DB parameter group or a reference to an AWS::RDS::DBParameterGroup resource created in the template.
-	DBParameterGroupName pulumi.StringPtrOutput `pulumi:"dBParameterGroupName"`
+	DbParameterGroupName pulumi.StringPtrOutput `pulumi:"dbParameterGroupName"`
 	// A list of the DB security groups to assign to the DB instance. The list can include both the name of existing DB security groups or references to AWS::RDS::DBSecurityGroup resources created in the template.
-	DBSecurityGroups pulumi.StringArrayOutput `pulumi:"dBSecurityGroups"`
+	DbSecurityGroups pulumi.StringArrayOutput `pulumi:"dbSecurityGroups"`
 	// The name or Amazon Resource Name (ARN) of the DB snapshot that's used to restore the DB instance. If you're restoring from a shared manual DB snapshot, you must specify the ARN of the snapshot.
-	DBSnapshotIdentifier pulumi.StringPtrOutput `pulumi:"dBSnapshotIdentifier"`
+	DbSnapshotIdentifier pulumi.StringPtrOutput `pulumi:"dbSnapshotIdentifier"`
 	// A DB subnet group to associate with the DB instance. If you update this value, the new subnet group must be a subnet group in a new VPC.
-	DBSubnetGroupName pulumi.StringPtrOutput `pulumi:"dBSubnetGroupName"`
+	DbSubnetGroupName pulumi.StringPtrOutput `pulumi:"dbSubnetGroupName"`
 	// The Oracle system ID (Oracle SID) for a container database (CDB). The Oracle SID is also the name of the CDB. This setting is valid for RDS Custom only.
-	DBSystemId pulumi.StringOutput `pulumi:"dBSystemId"`
+	DbSystemId pulumi.StringOutput `pulumi:"dbSystemId"`
 	// The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
 	DbiResourceId pulumi.StringOutput `pulumi:"dbiResourceId"`
 	// A value that indicates whether to remove automated backups immediately after the DB instance is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB instance is deleted.
@@ -87,11 +87,11 @@ type DBInstance struct {
 	// The Active Directory directory ID to create the DB instance in. Currently, only MySQL, Microsoft SQL Server, Oracle, and PostgreSQL DB instances can be created in an Active Directory Domain.
 	Domain pulumi.StringPtrOutput `pulumi:"domain"`
 	// Specify the name of the IAM role to be used when making API calls to the Directory Service.
-	DomainIAMRoleName pulumi.StringPtrOutput `pulumi:"domainIAMRoleName"`
+	DomainIamRoleName pulumi.StringPtrOutput `pulumi:"domainIamRoleName"`
 	// The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used.
 	EnableCloudwatchLogsExports pulumi.StringArrayOutput `pulumi:"enableCloudwatchLogsExports"`
 	// A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
-	EnableIAMDatabaseAuthentication pulumi.BoolPtrOutput `pulumi:"enableIAMDatabaseAuthentication"`
+	EnableIamDatabaseAuthentication pulumi.BoolPtrOutput `pulumi:"enableIamDatabaseAuthentication"`
 	// A value that indicates whether to enable Performance Insights for the DB instance.
 	EnablePerformanceInsights pulumi.BoolPtrOutput `pulumi:"enablePerformanceInsights"`
 	// Specifies the connection endpoint.
@@ -121,7 +121,7 @@ type DBInstance struct {
 	// The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to Amazon CloudWatch Logs.
 	MonitoringRoleArn pulumi.StringPtrOutput `pulumi:"monitoringRoleArn"`
 	// Specifies whether the database instance is a multiple Availability Zone deployment.
-	MultiAZ pulumi.BoolPtrOutput `pulumi:"multiAZ"`
+	MultiAz pulumi.BoolPtrOutput `pulumi:"multiAz"`
 	// The name of the NCHAR character set for the Oracle DB instance. This parameter doesn't apply to RDS Custom.
 	NcharCharacterSetName pulumi.StringPtrOutput `pulumi:"ncharCharacterSetName"`
 	// The network type of the DB cluster.
@@ -129,7 +129,7 @@ type DBInstance struct {
 	// Indicates that the DB instance should be associated with the specified option group.
 	OptionGroupName pulumi.StringPtrOutput `pulumi:"optionGroupName"`
 	// The AWS KMS key identifier for encryption of Performance Insights data. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.
-	PerformanceInsightsKMSKeyId pulumi.StringPtrOutput `pulumi:"performanceInsightsKMSKeyId"`
+	PerformanceInsightsKmsKeyId pulumi.StringPtrOutput `pulumi:"performanceInsightsKmsKeyId"`
 	// The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years).
 	PerformanceInsightsRetentionPeriod pulumi.IntPtrOutput `pulumi:"performanceInsightsRetentionPeriod"`
 	// The port number on which the database accepts connections.
@@ -149,11 +149,11 @@ type DBInstance struct {
 	// The date and time to restore from.
 	RestoreTime pulumi.StringPtrOutput `pulumi:"restoreTime"`
 	// The identifier of the Multi-AZ DB cluster that will act as the source for the read replica. Each DB cluster can have up to 15 read replicas.
-	SourceDBClusterIdentifier pulumi.StringPtrOutput `pulumi:"sourceDBClusterIdentifier"`
+	SourceDbClusterIdentifier pulumi.StringPtrOutput `pulumi:"sourceDbClusterIdentifier"`
 	// The Amazon Resource Name (ARN) of the replicated automated backups from which to restore.
-	SourceDBInstanceAutomatedBackupsArn pulumi.StringPtrOutput `pulumi:"sourceDBInstanceAutomatedBackupsArn"`
+	SourceDbInstanceAutomatedBackupsArn pulumi.StringPtrOutput `pulumi:"sourceDbInstanceAutomatedBackupsArn"`
 	// If you want to create a Read Replica DB instance, specify the ID of the source DB instance. Each DB instance can have a limited number of Read Replicas.
-	SourceDBInstanceIdentifier pulumi.StringPtrOutput `pulumi:"sourceDBInstanceIdentifier"`
+	SourceDbInstanceIdentifier pulumi.StringPtrOutput `pulumi:"sourceDbInstanceIdentifier"`
 	// The resource ID of the source DB instance from which to restore.
 	SourceDbiResourceId pulumi.StringPtrOutput `pulumi:"sourceDbiResourceId"`
 	// The ID of the region that contains the source DB instance for the Read Replica.
@@ -177,7 +177,7 @@ type DBInstance struct {
 	// A value that indicates whether the DB instance is restored from the latest backup time. By default, the DB instance isn't restored from the latest backup time.
 	UseLatestRestorableTime pulumi.BoolPtrOutput `pulumi:"useLatestRestorableTime"`
 	// A list of the VPC security group IDs to assign to the DB instance. The list can include both the physical IDs of existing VPC security groups and references to AWS::EC2::SecurityGroup resources created in the template.
-	VPCSecurityGroups pulumi.StringArrayOutput `pulumi:"vPCSecurityGroups"`
+	VpcSecurityGroups pulumi.StringArrayOutput `pulumi:"vpcSecurityGroups"`
 }
 
 // NewDBInstance registers a new resource with the given unique name, arguments, and options.
@@ -233,7 +233,7 @@ type dbinstanceArgs struct {
 	// The number of days for which automated backups are retained. Setting this parameter to a positive number enables backups. Setting this parameter to 0 disables automated backups.
 	BackupRetentionPeriod *int `pulumi:"backupRetentionPeriod"`
 	// The identifier of the CA certificate for this DB instance.
-	CACertificateIdentifier *string `pulumi:"cACertificateIdentifier"`
+	CaCertificateIdentifier *string `pulumi:"caCertificateIdentifier"`
 	// Returns the details of the DB instance's server certificate.
 	CertificateDetails *DBInstanceCertificateDetails `pulumi:"certificateDetails"`
 	// A value that indicates whether the DB instance is restarted when you rotate your SSL/TLS certificate.
@@ -252,9 +252,9 @@ type dbinstanceArgs struct {
 	//    For the list of permissions required for the IAM role, see Configure IAM and your VPC in the Amazon RDS User Guide .
 	//
 	// This setting is required for RDS Custom.
-	CustomIAMInstanceProfile *string `pulumi:"customIAMInstanceProfile"`
+	CustomIamInstanceProfile *string `pulumi:"customIamInstanceProfile"`
 	// The identifier of the DB cluster that the instance will belong to.
-	DBClusterIdentifier *string `pulumi:"dBClusterIdentifier"`
+	DbClusterIdentifier *string `pulumi:"dbClusterIdentifier"`
 	// The identifier for the RDS for MySQL Multi-AZ DB cluster snapshot to restore from. For more information on Multi-AZ DB clusters, see Multi-AZ deployments with two readable standby DB instances in the Amazon RDS User Guide .
 	//
 	// Constraints:
@@ -264,21 +264,21 @@ type dbinstanceArgs struct {
 	//  * If you are restoring from a shared manual Multi-AZ DB cluster snapshot, the DBClusterSnapshotIdentifier must be the ARN of the shared snapshot.
 	//  * Can't be the identifier of an Aurora DB cluster snapshot.
 	//  * Can't be the identifier of an RDS for PostgreSQL Multi-AZ DB cluster snapshot.
-	DBClusterSnapshotIdentifier *string `pulumi:"dBClusterSnapshotIdentifier"`
+	DbClusterSnapshotIdentifier *string `pulumi:"dbClusterSnapshotIdentifier"`
 	// The compute and memory capacity of the DB instance, for example, db.m4.large. Not all DB instance classes are available in all AWS Regions, or for all database engines.
-	DBInstanceClass *string `pulumi:"dBInstanceClass"`
+	DbInstanceClass *string `pulumi:"dbInstanceClass"`
 	// A name for the DB instance. If you specify a name, AWS CloudFormation converts it to lowercase. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the DB instance.
-	DBInstanceIdentifier *string `pulumi:"dBInstanceIdentifier"`
+	DbInstanceIdentifier *string `pulumi:"dbInstanceIdentifier"`
 	// The meaning of this parameter differs according to the database engine you use.
-	DBName *string `pulumi:"dBName"`
+	DbName *string `pulumi:"dbName"`
 	// The name of an existing DB parameter group or a reference to an AWS::RDS::DBParameterGroup resource created in the template.
-	DBParameterGroupName *string `pulumi:"dBParameterGroupName"`
+	DbParameterGroupName *string `pulumi:"dbParameterGroupName"`
 	// A list of the DB security groups to assign to the DB instance. The list can include both the name of existing DB security groups or references to AWS::RDS::DBSecurityGroup resources created in the template.
-	DBSecurityGroups []string `pulumi:"dBSecurityGroups"`
+	DbSecurityGroups []string `pulumi:"dbSecurityGroups"`
 	// The name or Amazon Resource Name (ARN) of the DB snapshot that's used to restore the DB instance. If you're restoring from a shared manual DB snapshot, you must specify the ARN of the snapshot.
-	DBSnapshotIdentifier *string `pulumi:"dBSnapshotIdentifier"`
+	DbSnapshotIdentifier *string `pulumi:"dbSnapshotIdentifier"`
 	// A DB subnet group to associate with the DB instance. If you update this value, the new subnet group must be a subnet group in a new VPC.
-	DBSubnetGroupName *string `pulumi:"dBSubnetGroupName"`
+	DbSubnetGroupName *string `pulumi:"dbSubnetGroupName"`
 	// A value that indicates whether to remove automated backups immediately after the DB instance is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB instance is deleted.
 	DeleteAutomatedBackups *bool `pulumi:"deleteAutomatedBackups"`
 	// A value that indicates whether the DB instance has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
@@ -286,11 +286,11 @@ type dbinstanceArgs struct {
 	// The Active Directory directory ID to create the DB instance in. Currently, only MySQL, Microsoft SQL Server, Oracle, and PostgreSQL DB instances can be created in an Active Directory Domain.
 	Domain *string `pulumi:"domain"`
 	// Specify the name of the IAM role to be used when making API calls to the Directory Service.
-	DomainIAMRoleName *string `pulumi:"domainIAMRoleName"`
+	DomainIamRoleName *string `pulumi:"domainIamRoleName"`
 	// The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used.
 	EnableCloudwatchLogsExports []string `pulumi:"enableCloudwatchLogsExports"`
 	// A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
-	EnableIAMDatabaseAuthentication *bool `pulumi:"enableIAMDatabaseAuthentication"`
+	EnableIamDatabaseAuthentication *bool `pulumi:"enableIamDatabaseAuthentication"`
 	// A value that indicates whether to enable Performance Insights for the DB instance.
 	EnablePerformanceInsights *bool `pulumi:"enablePerformanceInsights"`
 	// Specifies the connection endpoint.
@@ -320,7 +320,7 @@ type dbinstanceArgs struct {
 	// The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to Amazon CloudWatch Logs.
 	MonitoringRoleArn *string `pulumi:"monitoringRoleArn"`
 	// Specifies whether the database instance is a multiple Availability Zone deployment.
-	MultiAZ *bool `pulumi:"multiAZ"`
+	MultiAz *bool `pulumi:"multiAz"`
 	// The name of the NCHAR character set for the Oracle DB instance. This parameter doesn't apply to RDS Custom.
 	NcharCharacterSetName *string `pulumi:"ncharCharacterSetName"`
 	// The network type of the DB cluster.
@@ -328,7 +328,7 @@ type dbinstanceArgs struct {
 	// Indicates that the DB instance should be associated with the specified option group.
 	OptionGroupName *string `pulumi:"optionGroupName"`
 	// The AWS KMS key identifier for encryption of Performance Insights data. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.
-	PerformanceInsightsKMSKeyId *string `pulumi:"performanceInsightsKMSKeyId"`
+	PerformanceInsightsKmsKeyId *string `pulumi:"performanceInsightsKmsKeyId"`
 	// The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years).
 	PerformanceInsightsRetentionPeriod *int `pulumi:"performanceInsightsRetentionPeriod"`
 	// The port number on which the database accepts connections.
@@ -348,11 +348,11 @@ type dbinstanceArgs struct {
 	// The date and time to restore from.
 	RestoreTime *string `pulumi:"restoreTime"`
 	// The identifier of the Multi-AZ DB cluster that will act as the source for the read replica. Each DB cluster can have up to 15 read replicas.
-	SourceDBClusterIdentifier *string `pulumi:"sourceDBClusterIdentifier"`
+	SourceDbClusterIdentifier *string `pulumi:"sourceDbClusterIdentifier"`
 	// The Amazon Resource Name (ARN) of the replicated automated backups from which to restore.
-	SourceDBInstanceAutomatedBackupsArn *string `pulumi:"sourceDBInstanceAutomatedBackupsArn"`
+	SourceDbInstanceAutomatedBackupsArn *string `pulumi:"sourceDbInstanceAutomatedBackupsArn"`
 	// If you want to create a Read Replica DB instance, specify the ID of the source DB instance. Each DB instance can have a limited number of Read Replicas.
-	SourceDBInstanceIdentifier *string `pulumi:"sourceDBInstanceIdentifier"`
+	SourceDbInstanceIdentifier *string `pulumi:"sourceDbInstanceIdentifier"`
 	// The resource ID of the source DB instance from which to restore.
 	SourceDbiResourceId *string `pulumi:"sourceDbiResourceId"`
 	// The ID of the region that contains the source DB instance for the Read Replica.
@@ -376,7 +376,7 @@ type dbinstanceArgs struct {
 	// A value that indicates whether the DB instance is restored from the latest backup time. By default, the DB instance isn't restored from the latest backup time.
 	UseLatestRestorableTime *bool `pulumi:"useLatestRestorableTime"`
 	// A list of the VPC security group IDs to assign to the DB instance. The list can include both the physical IDs of existing VPC security groups and references to AWS::EC2::SecurityGroup resources created in the template.
-	VPCSecurityGroups []string `pulumi:"vPCSecurityGroups"`
+	VpcSecurityGroups []string `pulumi:"vpcSecurityGroups"`
 }
 
 // The set of arguments for constructing a DBInstance resource.
@@ -394,7 +394,7 @@ type DBInstanceArgs struct {
 	// The number of days for which automated backups are retained. Setting this parameter to a positive number enables backups. Setting this parameter to 0 disables automated backups.
 	BackupRetentionPeriod pulumi.IntPtrInput
 	// The identifier of the CA certificate for this DB instance.
-	CACertificateIdentifier pulumi.StringPtrInput
+	CaCertificateIdentifier pulumi.StringPtrInput
 	// Returns the details of the DB instance's server certificate.
 	CertificateDetails DBInstanceCertificateDetailsPtrInput
 	// A value that indicates whether the DB instance is restarted when you rotate your SSL/TLS certificate.
@@ -413,9 +413,9 @@ type DBInstanceArgs struct {
 	//    For the list of permissions required for the IAM role, see Configure IAM and your VPC in the Amazon RDS User Guide .
 	//
 	// This setting is required for RDS Custom.
-	CustomIAMInstanceProfile pulumi.StringPtrInput
+	CustomIamInstanceProfile pulumi.StringPtrInput
 	// The identifier of the DB cluster that the instance will belong to.
-	DBClusterIdentifier pulumi.StringPtrInput
+	DbClusterIdentifier pulumi.StringPtrInput
 	// The identifier for the RDS for MySQL Multi-AZ DB cluster snapshot to restore from. For more information on Multi-AZ DB clusters, see Multi-AZ deployments with two readable standby DB instances in the Amazon RDS User Guide .
 	//
 	// Constraints:
@@ -425,21 +425,21 @@ type DBInstanceArgs struct {
 	//  * If you are restoring from a shared manual Multi-AZ DB cluster snapshot, the DBClusterSnapshotIdentifier must be the ARN of the shared snapshot.
 	//  * Can't be the identifier of an Aurora DB cluster snapshot.
 	//  * Can't be the identifier of an RDS for PostgreSQL Multi-AZ DB cluster snapshot.
-	DBClusterSnapshotIdentifier pulumi.StringPtrInput
+	DbClusterSnapshotIdentifier pulumi.StringPtrInput
 	// The compute and memory capacity of the DB instance, for example, db.m4.large. Not all DB instance classes are available in all AWS Regions, or for all database engines.
-	DBInstanceClass pulumi.StringPtrInput
+	DbInstanceClass pulumi.StringPtrInput
 	// A name for the DB instance. If you specify a name, AWS CloudFormation converts it to lowercase. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the DB instance.
-	DBInstanceIdentifier pulumi.StringPtrInput
+	DbInstanceIdentifier pulumi.StringPtrInput
 	// The meaning of this parameter differs according to the database engine you use.
-	DBName pulumi.StringPtrInput
+	DbName pulumi.StringPtrInput
 	// The name of an existing DB parameter group or a reference to an AWS::RDS::DBParameterGroup resource created in the template.
-	DBParameterGroupName pulumi.StringPtrInput
+	DbParameterGroupName pulumi.StringPtrInput
 	// A list of the DB security groups to assign to the DB instance. The list can include both the name of existing DB security groups or references to AWS::RDS::DBSecurityGroup resources created in the template.
-	DBSecurityGroups pulumi.StringArrayInput
+	DbSecurityGroups pulumi.StringArrayInput
 	// The name or Amazon Resource Name (ARN) of the DB snapshot that's used to restore the DB instance. If you're restoring from a shared manual DB snapshot, you must specify the ARN of the snapshot.
-	DBSnapshotIdentifier pulumi.StringPtrInput
+	DbSnapshotIdentifier pulumi.StringPtrInput
 	// A DB subnet group to associate with the DB instance. If you update this value, the new subnet group must be a subnet group in a new VPC.
-	DBSubnetGroupName pulumi.StringPtrInput
+	DbSubnetGroupName pulumi.StringPtrInput
 	// A value that indicates whether to remove automated backups immediately after the DB instance is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB instance is deleted.
 	DeleteAutomatedBackups pulumi.BoolPtrInput
 	// A value that indicates whether the DB instance has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
@@ -447,11 +447,11 @@ type DBInstanceArgs struct {
 	// The Active Directory directory ID to create the DB instance in. Currently, only MySQL, Microsoft SQL Server, Oracle, and PostgreSQL DB instances can be created in an Active Directory Domain.
 	Domain pulumi.StringPtrInput
 	// Specify the name of the IAM role to be used when making API calls to the Directory Service.
-	DomainIAMRoleName pulumi.StringPtrInput
+	DomainIamRoleName pulumi.StringPtrInput
 	// The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used.
 	EnableCloudwatchLogsExports pulumi.StringArrayInput
 	// A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
-	EnableIAMDatabaseAuthentication pulumi.BoolPtrInput
+	EnableIamDatabaseAuthentication pulumi.BoolPtrInput
 	// A value that indicates whether to enable Performance Insights for the DB instance.
 	EnablePerformanceInsights pulumi.BoolPtrInput
 	// Specifies the connection endpoint.
@@ -481,7 +481,7 @@ type DBInstanceArgs struct {
 	// The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to Amazon CloudWatch Logs.
 	MonitoringRoleArn pulumi.StringPtrInput
 	// Specifies whether the database instance is a multiple Availability Zone deployment.
-	MultiAZ pulumi.BoolPtrInput
+	MultiAz pulumi.BoolPtrInput
 	// The name of the NCHAR character set for the Oracle DB instance. This parameter doesn't apply to RDS Custom.
 	NcharCharacterSetName pulumi.StringPtrInput
 	// The network type of the DB cluster.
@@ -489,7 +489,7 @@ type DBInstanceArgs struct {
 	// Indicates that the DB instance should be associated with the specified option group.
 	OptionGroupName pulumi.StringPtrInput
 	// The AWS KMS key identifier for encryption of Performance Insights data. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.
-	PerformanceInsightsKMSKeyId pulumi.StringPtrInput
+	PerformanceInsightsKmsKeyId pulumi.StringPtrInput
 	// The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years).
 	PerformanceInsightsRetentionPeriod pulumi.IntPtrInput
 	// The port number on which the database accepts connections.
@@ -509,11 +509,11 @@ type DBInstanceArgs struct {
 	// The date and time to restore from.
 	RestoreTime pulumi.StringPtrInput
 	// The identifier of the Multi-AZ DB cluster that will act as the source for the read replica. Each DB cluster can have up to 15 read replicas.
-	SourceDBClusterIdentifier pulumi.StringPtrInput
+	SourceDbClusterIdentifier pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the replicated automated backups from which to restore.
-	SourceDBInstanceAutomatedBackupsArn pulumi.StringPtrInput
+	SourceDbInstanceAutomatedBackupsArn pulumi.StringPtrInput
 	// If you want to create a Read Replica DB instance, specify the ID of the source DB instance. Each DB instance can have a limited number of Read Replicas.
-	SourceDBInstanceIdentifier pulumi.StringPtrInput
+	SourceDbInstanceIdentifier pulumi.StringPtrInput
 	// The resource ID of the source DB instance from which to restore.
 	SourceDbiResourceId pulumi.StringPtrInput
 	// The ID of the region that contains the source DB instance for the Read Replica.
@@ -537,7 +537,7 @@ type DBInstanceArgs struct {
 	// A value that indicates whether the DB instance is restored from the latest backup time. By default, the DB instance isn't restored from the latest backup time.
 	UseLatestRestorableTime pulumi.BoolPtrInput
 	// A list of the VPC security group IDs to assign to the DB instance. The list can include both the physical IDs of existing VPC security groups and references to AWS::EC2::SecurityGroup resources created in the template.
-	VPCSecurityGroups pulumi.StringArrayInput
+	VpcSecurityGroups pulumi.StringArrayInput
 }
 
 func (DBInstanceArgs) ElementType() reflect.Type {
@@ -608,8 +608,8 @@ func (o DBInstanceOutput) BackupRetentionPeriod() pulumi.IntPtrOutput {
 }
 
 // The identifier of the CA certificate for this DB instance.
-func (o DBInstanceOutput) CACertificateIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.CACertificateIdentifier }).(pulumi.StringPtrOutput)
+func (o DBInstanceOutput) CaCertificateIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.CaCertificateIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // Returns the details of the DB instance's server certificate.
@@ -642,13 +642,13 @@ func (o DBInstanceOutput) CopyTagsToSnapshot() pulumi.BoolPtrOutput {
 //     For the list of permissions required for the IAM role, see Configure IAM and your VPC in the Amazon RDS User Guide .
 //
 // This setting is required for RDS Custom.
-func (o DBInstanceOutput) CustomIAMInstanceProfile() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.CustomIAMInstanceProfile }).(pulumi.StringPtrOutput)
+func (o DBInstanceOutput) CustomIamInstanceProfile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.CustomIamInstanceProfile }).(pulumi.StringPtrOutput)
 }
 
 // The identifier of the DB cluster that the instance will belong to.
-func (o DBInstanceOutput) DBClusterIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.DBClusterIdentifier }).(pulumi.StringPtrOutput)
+func (o DBInstanceOutput) DbClusterIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.DbClusterIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // The identifier for the RDS for MySQL Multi-AZ DB cluster snapshot to restore from. For more information on Multi-AZ DB clusters, see Multi-AZ deployments with two readable standby DB instances in the Amazon RDS User Guide .
@@ -660,53 +660,53 @@ func (o DBInstanceOutput) DBClusterIdentifier() pulumi.StringPtrOutput {
 //   - If you are restoring from a shared manual Multi-AZ DB cluster snapshot, the DBClusterSnapshotIdentifier must be the ARN of the shared snapshot.
 //   - Can't be the identifier of an Aurora DB cluster snapshot.
 //   - Can't be the identifier of an RDS for PostgreSQL Multi-AZ DB cluster snapshot.
-func (o DBInstanceOutput) DBClusterSnapshotIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.DBClusterSnapshotIdentifier }).(pulumi.StringPtrOutput)
+func (o DBInstanceOutput) DbClusterSnapshotIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.DbClusterSnapshotIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) for the DB instance.
-func (o DBInstanceOutput) DBInstanceArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *DBInstance) pulumi.StringOutput { return v.DBInstanceArn }).(pulumi.StringOutput)
+func (o DBInstanceOutput) DbInstanceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *DBInstance) pulumi.StringOutput { return v.DbInstanceArn }).(pulumi.StringOutput)
 }
 
 // The compute and memory capacity of the DB instance, for example, db.m4.large. Not all DB instance classes are available in all AWS Regions, or for all database engines.
-func (o DBInstanceOutput) DBInstanceClass() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.DBInstanceClass }).(pulumi.StringPtrOutput)
+func (o DBInstanceOutput) DbInstanceClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.DbInstanceClass }).(pulumi.StringPtrOutput)
 }
 
 // A name for the DB instance. If you specify a name, AWS CloudFormation converts it to lowercase. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the DB instance.
-func (o DBInstanceOutput) DBInstanceIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.DBInstanceIdentifier }).(pulumi.StringPtrOutput)
+func (o DBInstanceOutput) DbInstanceIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.DbInstanceIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // The meaning of this parameter differs according to the database engine you use.
-func (o DBInstanceOutput) DBName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.DBName }).(pulumi.StringPtrOutput)
+func (o DBInstanceOutput) DbName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.DbName }).(pulumi.StringPtrOutput)
 }
 
 // The name of an existing DB parameter group or a reference to an AWS::RDS::DBParameterGroup resource created in the template.
-func (o DBInstanceOutput) DBParameterGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.DBParameterGroupName }).(pulumi.StringPtrOutput)
+func (o DBInstanceOutput) DbParameterGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.DbParameterGroupName }).(pulumi.StringPtrOutput)
 }
 
 // A list of the DB security groups to assign to the DB instance. The list can include both the name of existing DB security groups or references to AWS::RDS::DBSecurityGroup resources created in the template.
-func (o DBInstanceOutput) DBSecurityGroups() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DBInstance) pulumi.StringArrayOutput { return v.DBSecurityGroups }).(pulumi.StringArrayOutput)
+func (o DBInstanceOutput) DbSecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DBInstance) pulumi.StringArrayOutput { return v.DbSecurityGroups }).(pulumi.StringArrayOutput)
 }
 
 // The name or Amazon Resource Name (ARN) of the DB snapshot that's used to restore the DB instance. If you're restoring from a shared manual DB snapshot, you must specify the ARN of the snapshot.
-func (o DBInstanceOutput) DBSnapshotIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.DBSnapshotIdentifier }).(pulumi.StringPtrOutput)
+func (o DBInstanceOutput) DbSnapshotIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.DbSnapshotIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // A DB subnet group to associate with the DB instance. If you update this value, the new subnet group must be a subnet group in a new VPC.
-func (o DBInstanceOutput) DBSubnetGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.DBSubnetGroupName }).(pulumi.StringPtrOutput)
+func (o DBInstanceOutput) DbSubnetGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.DbSubnetGroupName }).(pulumi.StringPtrOutput)
 }
 
 // The Oracle system ID (Oracle SID) for a container database (CDB). The Oracle SID is also the name of the CDB. This setting is valid for RDS Custom only.
-func (o DBInstanceOutput) DBSystemId() pulumi.StringOutput {
-	return o.ApplyT(func(v *DBInstance) pulumi.StringOutput { return v.DBSystemId }).(pulumi.StringOutput)
+func (o DBInstanceOutput) DbSystemId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DBInstance) pulumi.StringOutput { return v.DbSystemId }).(pulumi.StringOutput)
 }
 
 // The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
@@ -730,8 +730,8 @@ func (o DBInstanceOutput) Domain() pulumi.StringPtrOutput {
 }
 
 // Specify the name of the IAM role to be used when making API calls to the Directory Service.
-func (o DBInstanceOutput) DomainIAMRoleName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.DomainIAMRoleName }).(pulumi.StringPtrOutput)
+func (o DBInstanceOutput) DomainIamRoleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.DomainIamRoleName }).(pulumi.StringPtrOutput)
 }
 
 // The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used.
@@ -740,8 +740,8 @@ func (o DBInstanceOutput) EnableCloudwatchLogsExports() pulumi.StringArrayOutput
 }
 
 // A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
-func (o DBInstanceOutput) EnableIAMDatabaseAuthentication() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DBInstance) pulumi.BoolPtrOutput { return v.EnableIAMDatabaseAuthentication }).(pulumi.BoolPtrOutput)
+func (o DBInstanceOutput) EnableIamDatabaseAuthentication() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DBInstance) pulumi.BoolPtrOutput { return v.EnableIamDatabaseAuthentication }).(pulumi.BoolPtrOutput)
 }
 
 // A value that indicates whether to enable Performance Insights for the DB instance.
@@ -815,8 +815,8 @@ func (o DBInstanceOutput) MonitoringRoleArn() pulumi.StringPtrOutput {
 }
 
 // Specifies whether the database instance is a multiple Availability Zone deployment.
-func (o DBInstanceOutput) MultiAZ() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DBInstance) pulumi.BoolPtrOutput { return v.MultiAZ }).(pulumi.BoolPtrOutput)
+func (o DBInstanceOutput) MultiAz() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DBInstance) pulumi.BoolPtrOutput { return v.MultiAz }).(pulumi.BoolPtrOutput)
 }
 
 // The name of the NCHAR character set for the Oracle DB instance. This parameter doesn't apply to RDS Custom.
@@ -835,8 +835,8 @@ func (o DBInstanceOutput) OptionGroupName() pulumi.StringPtrOutput {
 }
 
 // The AWS KMS key identifier for encryption of Performance Insights data. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.
-func (o DBInstanceOutput) PerformanceInsightsKMSKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.PerformanceInsightsKMSKeyId }).(pulumi.StringPtrOutput)
+func (o DBInstanceOutput) PerformanceInsightsKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.PerformanceInsightsKmsKeyId }).(pulumi.StringPtrOutput)
 }
 
 // The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years).
@@ -885,18 +885,18 @@ func (o DBInstanceOutput) RestoreTime() pulumi.StringPtrOutput {
 }
 
 // The identifier of the Multi-AZ DB cluster that will act as the source for the read replica. Each DB cluster can have up to 15 read replicas.
-func (o DBInstanceOutput) SourceDBClusterIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.SourceDBClusterIdentifier }).(pulumi.StringPtrOutput)
+func (o DBInstanceOutput) SourceDbClusterIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.SourceDbClusterIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the replicated automated backups from which to restore.
-func (o DBInstanceOutput) SourceDBInstanceAutomatedBackupsArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.SourceDBInstanceAutomatedBackupsArn }).(pulumi.StringPtrOutput)
+func (o DBInstanceOutput) SourceDbInstanceAutomatedBackupsArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.SourceDbInstanceAutomatedBackupsArn }).(pulumi.StringPtrOutput)
 }
 
 // If you want to create a Read Replica DB instance, specify the ID of the source DB instance. Each DB instance can have a limited number of Read Replicas.
-func (o DBInstanceOutput) SourceDBInstanceIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.SourceDBInstanceIdentifier }).(pulumi.StringPtrOutput)
+func (o DBInstanceOutput) SourceDbInstanceIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.SourceDbInstanceIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // The resource ID of the source DB instance from which to restore.
@@ -955,8 +955,8 @@ func (o DBInstanceOutput) UseLatestRestorableTime() pulumi.BoolPtrOutput {
 }
 
 // A list of the VPC security group IDs to assign to the DB instance. The list can include both the physical IDs of existing VPC security groups and references to AWS::EC2::SecurityGroup resources created in the template.
-func (o DBInstanceOutput) VPCSecurityGroups() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DBInstance) pulumi.StringArrayOutput { return v.VPCSecurityGroups }).(pulumi.StringArrayOutput)
+func (o DBInstanceOutput) VpcSecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DBInstance) pulumi.StringArrayOutput { return v.VpcSecurityGroups }).(pulumi.StringArrayOutput)
 }
 
 func init() {

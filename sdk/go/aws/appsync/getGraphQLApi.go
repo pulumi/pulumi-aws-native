@@ -31,14 +31,14 @@ type LookupGraphQLApiResult struct {
 	ApiId                             *string                                      `pulumi:"apiId"`
 	Arn                               *string                                      `pulumi:"arn"`
 	AuthenticationType                *string                                      `pulumi:"authenticationType"`
-	GraphQLDns                        *string                                      `pulumi:"graphQLDns"`
-	GraphQLUrl                        *string                                      `pulumi:"graphQLUrl"`
+	GraphQlDns                        *string                                      `pulumi:"graphQlDns"`
+	GraphQlUrl                        *string                                      `pulumi:"graphQlUrl"`
 	Id                                *string                                      `pulumi:"id"`
 	LambdaAuthorizerConfig            *GraphQLApiLambdaAuthorizerConfig            `pulumi:"lambdaAuthorizerConfig"`
 	LogConfig                         *GraphQLApiLogConfig                         `pulumi:"logConfig"`
 	MergedApiExecutionRoleArn         *string                                      `pulumi:"mergedApiExecutionRoleArn"`
 	Name                              *string                                      `pulumi:"name"`
-	OpenIDConnectConfig               *GraphQLApiOpenIDConnectConfig               `pulumi:"openIDConnectConfig"`
+	OpenIdConnectConfig               *GraphQLApiOpenIDConnectConfig               `pulumi:"openIdConnectConfig"`
 	OwnerContact                      *string                                      `pulumi:"ownerContact"`
 	RealtimeDns                       *string                                      `pulumi:"realtimeDns"`
 	RealtimeUrl                       *string                                      `pulumi:"realtimeUrl"`
@@ -100,12 +100,12 @@ func (o LookupGraphQLApiResultOutput) AuthenticationType() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v LookupGraphQLApiResult) *string { return v.AuthenticationType }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupGraphQLApiResultOutput) GraphQLDns() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupGraphQLApiResult) *string { return v.GraphQLDns }).(pulumi.StringPtrOutput)
+func (o LookupGraphQLApiResultOutput) GraphQlDns() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupGraphQLApiResult) *string { return v.GraphQlDns }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupGraphQLApiResultOutput) GraphQLUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupGraphQLApiResult) *string { return v.GraphQLUrl }).(pulumi.StringPtrOutput)
+func (o LookupGraphQLApiResultOutput) GraphQlUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupGraphQLApiResult) *string { return v.GraphQlUrl }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupGraphQLApiResultOutput) Id() pulumi.StringPtrOutput {
@@ -128,8 +128,8 @@ func (o LookupGraphQLApiResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGraphQLApiResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupGraphQLApiResultOutput) OpenIDConnectConfig() GraphQLApiOpenIDConnectConfigPtrOutput {
-	return o.ApplyT(func(v LookupGraphQLApiResult) *GraphQLApiOpenIDConnectConfig { return v.OpenIDConnectConfig }).(GraphQLApiOpenIDConnectConfigPtrOutput)
+func (o LookupGraphQLApiResultOutput) OpenIdConnectConfig() GraphQLApiOpenIDConnectConfigPtrOutput {
+	return o.ApplyT(func(v LookupGraphQLApiResult) *GraphQLApiOpenIDConnectConfig { return v.OpenIdConnectConfig }).(GraphQLApiOpenIDConnectConfigPtrOutput)
 }
 
 func (o LookupGraphQLApiResultOutput) OwnerContact() pulumi.StringPtrOutput {

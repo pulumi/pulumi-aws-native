@@ -13,12 +13,12 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
     [OutputType]
     public sealed class RuleGroupReferenceSets
     {
-        public readonly object? IPSetReferences;
+        public readonly object? IpSetReferences;
 
         [OutputConstructor]
-        private RuleGroupReferenceSets(object? iPSetReferences)
+        private RuleGroupReferenceSets(object? ipSetReferences)
         {
-            IPSetReferences = iPSetReferences;
+            IpSetReferences = ipSetReferences;
         }
     }
 }

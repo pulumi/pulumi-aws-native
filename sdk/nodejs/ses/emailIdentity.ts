@@ -39,12 +39,12 @@ export class EmailIdentity extends pulumi.CustomResource {
 
     public readonly configurationSetAttributes!: pulumi.Output<outputs.ses.EmailIdentityConfigurationSetAttributes | undefined>;
     public readonly dkimAttributes!: pulumi.Output<outputs.ses.EmailIdentityDkimAttributes | undefined>;
-    public /*out*/ readonly dkimDNSTokenName1!: pulumi.Output<string>;
-    public /*out*/ readonly dkimDNSTokenName2!: pulumi.Output<string>;
-    public /*out*/ readonly dkimDNSTokenName3!: pulumi.Output<string>;
-    public /*out*/ readonly dkimDNSTokenValue1!: pulumi.Output<string>;
-    public /*out*/ readonly dkimDNSTokenValue2!: pulumi.Output<string>;
-    public /*out*/ readonly dkimDNSTokenValue3!: pulumi.Output<string>;
+    public /*out*/ readonly dkimDnsTokenName1!: pulumi.Output<string>;
+    public /*out*/ readonly dkimDnsTokenName2!: pulumi.Output<string>;
+    public /*out*/ readonly dkimDnsTokenName3!: pulumi.Output<string>;
+    public /*out*/ readonly dkimDnsTokenValue1!: pulumi.Output<string>;
+    public /*out*/ readonly dkimDnsTokenValue2!: pulumi.Output<string>;
+    public /*out*/ readonly dkimDnsTokenValue3!: pulumi.Output<string>;
     public readonly dkimSigningAttributes!: pulumi.Output<outputs.ses.EmailIdentityDkimSigningAttributes | undefined>;
     /**
      * The email address or domain to verify.
@@ -73,21 +73,21 @@ export class EmailIdentity extends pulumi.CustomResource {
             resourceInputs["emailIdentity"] = args ? args.emailIdentity : undefined;
             resourceInputs["feedbackAttributes"] = args ? args.feedbackAttributes : undefined;
             resourceInputs["mailFromAttributes"] = args ? args.mailFromAttributes : undefined;
-            resourceInputs["dkimDNSTokenName1"] = undefined /*out*/;
-            resourceInputs["dkimDNSTokenName2"] = undefined /*out*/;
-            resourceInputs["dkimDNSTokenName3"] = undefined /*out*/;
-            resourceInputs["dkimDNSTokenValue1"] = undefined /*out*/;
-            resourceInputs["dkimDNSTokenValue2"] = undefined /*out*/;
-            resourceInputs["dkimDNSTokenValue3"] = undefined /*out*/;
+            resourceInputs["dkimDnsTokenName1"] = undefined /*out*/;
+            resourceInputs["dkimDnsTokenName2"] = undefined /*out*/;
+            resourceInputs["dkimDnsTokenName3"] = undefined /*out*/;
+            resourceInputs["dkimDnsTokenValue1"] = undefined /*out*/;
+            resourceInputs["dkimDnsTokenValue2"] = undefined /*out*/;
+            resourceInputs["dkimDnsTokenValue3"] = undefined /*out*/;
         } else {
             resourceInputs["configurationSetAttributes"] = undefined /*out*/;
             resourceInputs["dkimAttributes"] = undefined /*out*/;
-            resourceInputs["dkimDNSTokenName1"] = undefined /*out*/;
-            resourceInputs["dkimDNSTokenName2"] = undefined /*out*/;
-            resourceInputs["dkimDNSTokenName3"] = undefined /*out*/;
-            resourceInputs["dkimDNSTokenValue1"] = undefined /*out*/;
-            resourceInputs["dkimDNSTokenValue2"] = undefined /*out*/;
-            resourceInputs["dkimDNSTokenValue3"] = undefined /*out*/;
+            resourceInputs["dkimDnsTokenName1"] = undefined /*out*/;
+            resourceInputs["dkimDnsTokenName2"] = undefined /*out*/;
+            resourceInputs["dkimDnsTokenName3"] = undefined /*out*/;
+            resourceInputs["dkimDnsTokenValue1"] = undefined /*out*/;
+            resourceInputs["dkimDnsTokenValue2"] = undefined /*out*/;
+            resourceInputs["dkimDnsTokenValue3"] = undefined /*out*/;
             resourceInputs["dkimSigningAttributes"] = undefined /*out*/;
             resourceInputs["emailIdentity"] = undefined /*out*/;
             resourceInputs["feedbackAttributes"] = undefined /*out*/;

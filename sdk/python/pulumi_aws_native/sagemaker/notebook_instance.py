@@ -202,7 +202,7 @@ class NotebookInstanceArgs:
         pulumi.set(self, "tags", value)
 
     @property
-    @pulumi.getter(name="volumeSizeInGB")
+    @pulumi.getter(name="volumeSizeInGb")
     def volume_size_in_gb(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "volume_size_in_gb")
 
@@ -430,7 +430,7 @@ class NotebookInstance(pulumi.CustomResource):
         return pulumi.get(self, "tags")
 
     @property
-    @pulumi.getter(name="volumeSizeInGB")
+    @pulumi.getter(name="volumeSizeInGb")
     def volume_size_in_gb(self) -> pulumi.Output[Optional[int]]:
         return pulumi.get(self, "volume_size_in_gb")
 

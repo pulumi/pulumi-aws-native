@@ -354,10 +354,10 @@ class ConfigurationSetEventDestinationKinesisFirehoseDestination(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "deliveryStreamARN":
+        if key == "deliveryStreamArn":
             suggest = "delivery_stream_arn"
-        elif key == "iAMRoleARN":
-            suggest = "i_am_role_arn"
+        elif key == "iamRoleArn":
+            suggest = "iam_role_arn"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ConfigurationSetEventDestinationKinesisFirehoseDestination. Access the value via the '{suggest}' property getter instead.")
@@ -372,17 +372,17 @@ class ConfigurationSetEventDestinationKinesisFirehoseDestination(dict):
 
     def __init__(__self__, *,
                  delivery_stream_arn: str,
-                 i_am_role_arn: str):
+                 iam_role_arn: str):
         """
         An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.
         :param str delivery_stream_arn: The ARN of the Amazon Kinesis Firehose stream that email sending events should be published to.
-        :param str i_am_role_arn: The ARN of the IAM role under which Amazon SES publishes email sending events to the Amazon Kinesis Firehose stream.
+        :param str iam_role_arn: The ARN of the IAM role under which Amazon SES publishes email sending events to the Amazon Kinesis Firehose stream.
         """
         pulumi.set(__self__, "delivery_stream_arn", delivery_stream_arn)
-        pulumi.set(__self__, "i_am_role_arn", i_am_role_arn)
+        pulumi.set(__self__, "iam_role_arn", iam_role_arn)
 
     @property
-    @pulumi.getter(name="deliveryStreamARN")
+    @pulumi.getter(name="deliveryStreamArn")
     def delivery_stream_arn(self) -> str:
         """
         The ARN of the Amazon Kinesis Firehose stream that email sending events should be published to.
@@ -390,12 +390,12 @@ class ConfigurationSetEventDestinationKinesisFirehoseDestination(dict):
         return pulumi.get(self, "delivery_stream_arn")
 
     @property
-    @pulumi.getter(name="iAMRoleARN")
-    def i_am_role_arn(self) -> str:
+    @pulumi.getter(name="iamRoleArn")
+    def iam_role_arn(self) -> str:
         """
         The ARN of the IAM role under which Amazon SES publishes email sending events to the Amazon Kinesis Firehose stream.
         """
-        return pulumi.get(self, "i_am_role_arn")
+        return pulumi.get(self, "iam_role_arn")
 
 
 @pulumi.output_type
@@ -406,7 +406,7 @@ class ConfigurationSetEventDestinationSnsDestination(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "topicARN":
+        if key == "topicArn":
             suggest = "topic_arn"
 
         if suggest:
@@ -428,7 +428,7 @@ class ConfigurationSetEventDestinationSnsDestination(dict):
         pulumi.set(__self__, "topic_arn", topic_arn)
 
     @property
-    @pulumi.getter(name="topicARN")
+    @pulumi.getter(name="topicArn")
     def topic_arn(self) -> str:
         return pulumi.get(self, "topic_arn")
 
@@ -1073,8 +1073,8 @@ class ReceiptRuleAction(dict):
             suggest = "lambda_action"
         elif key == "s3Action":
             suggest = "s3_action"
-        elif key == "sNSAction":
-            suggest = "s_ns_action"
+        elif key == "snsAction":
+            suggest = "sns_action"
         elif key == "stopAction":
             suggest = "stop_action"
         elif key == "workmailAction":
@@ -1096,7 +1096,7 @@ class ReceiptRuleAction(dict):
                  bounce_action: Optional['outputs.ReceiptRuleBounceAction'] = None,
                  lambda_action: Optional['outputs.ReceiptRuleLambdaAction'] = None,
                  s3_action: Optional['outputs.ReceiptRuleS3Action'] = None,
-                 s_ns_action: Optional['outputs.ReceiptRuleSNSAction'] = None,
+                 sns_action: Optional['outputs.ReceiptRuleSNSAction'] = None,
                  stop_action: Optional['outputs.ReceiptRuleStopAction'] = None,
                  workmail_action: Optional['outputs.ReceiptRuleWorkmailAction'] = None):
         if add_header_action is not None:
@@ -1107,8 +1107,8 @@ class ReceiptRuleAction(dict):
             pulumi.set(__self__, "lambda_action", lambda_action)
         if s3_action is not None:
             pulumi.set(__self__, "s3_action", s3_action)
-        if s_ns_action is not None:
-            pulumi.set(__self__, "s_ns_action", s_ns_action)
+        if sns_action is not None:
+            pulumi.set(__self__, "sns_action", sns_action)
         if stop_action is not None:
             pulumi.set(__self__, "stop_action", stop_action)
         if workmail_action is not None:
@@ -1135,9 +1135,9 @@ class ReceiptRuleAction(dict):
         return pulumi.get(self, "s3_action")
 
     @property
-    @pulumi.getter(name="sNSAction")
-    def s_ns_action(self) -> Optional['outputs.ReceiptRuleSNSAction']:
-        return pulumi.get(self, "s_ns_action")
+    @pulumi.getter(name="snsAction")
+    def sns_action(self) -> Optional['outputs.ReceiptRuleSNSAction']:
+        return pulumi.get(self, "sns_action")
 
     @property
     @pulumi.getter(name="stopAction")

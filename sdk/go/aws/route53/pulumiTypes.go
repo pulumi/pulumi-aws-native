@@ -282,13 +282,13 @@ func (o HealthCheckAlarmIdentifierPtrOutput) Region() pulumi.StringPtrOutput {
 type HealthCheckConfigProperties struct {
 	AlarmIdentifier              *HealthCheckAlarmIdentifier                              `pulumi:"alarmIdentifier"`
 	ChildHealthChecks            []string                                                 `pulumi:"childHealthChecks"`
-	EnableSNI                    *bool                                                    `pulumi:"enableSNI"`
+	EnableSni                    *bool                                                    `pulumi:"enableSni"`
 	FailureThreshold             *int                                                     `pulumi:"failureThreshold"`
 	FullyQualifiedDomainName     *string                                                  `pulumi:"fullyQualifiedDomainName"`
 	HealthThreshold              *int                                                     `pulumi:"healthThreshold"`
-	IPAddress                    *string                                                  `pulumi:"iPAddress"`
 	InsufficientDataHealthStatus *HealthCheckConfigPropertiesInsufficientDataHealthStatus `pulumi:"insufficientDataHealthStatus"`
 	Inverted                     *bool                                                    `pulumi:"inverted"`
+	IpAddress                    *string                                                  `pulumi:"ipAddress"`
 	MeasureLatency               *bool                                                    `pulumi:"measureLatency"`
 	Port                         *int                                                     `pulumi:"port"`
 	Regions                      []string                                                 `pulumi:"regions"`
@@ -314,13 +314,13 @@ type HealthCheckConfigPropertiesInput interface {
 type HealthCheckConfigPropertiesArgs struct {
 	AlarmIdentifier              HealthCheckAlarmIdentifierPtrInput                              `pulumi:"alarmIdentifier"`
 	ChildHealthChecks            pulumi.StringArrayInput                                         `pulumi:"childHealthChecks"`
-	EnableSNI                    pulumi.BoolPtrInput                                             `pulumi:"enableSNI"`
+	EnableSni                    pulumi.BoolPtrInput                                             `pulumi:"enableSni"`
 	FailureThreshold             pulumi.IntPtrInput                                              `pulumi:"failureThreshold"`
 	FullyQualifiedDomainName     pulumi.StringPtrInput                                           `pulumi:"fullyQualifiedDomainName"`
 	HealthThreshold              pulumi.IntPtrInput                                              `pulumi:"healthThreshold"`
-	IPAddress                    pulumi.StringPtrInput                                           `pulumi:"iPAddress"`
 	InsufficientDataHealthStatus HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrInput `pulumi:"insufficientDataHealthStatus"`
 	Inverted                     pulumi.BoolPtrInput                                             `pulumi:"inverted"`
+	IpAddress                    pulumi.StringPtrInput                                           `pulumi:"ipAddress"`
 	MeasureLatency               pulumi.BoolPtrInput                                             `pulumi:"measureLatency"`
 	Port                         pulumi.IntPtrInput                                              `pulumi:"port"`
 	Regions                      pulumi.StringArrayInput                                         `pulumi:"regions"`
@@ -366,8 +366,8 @@ func (o HealthCheckConfigPropertiesOutput) ChildHealthChecks() pulumi.StringArra
 	return o.ApplyT(func(v HealthCheckConfigProperties) []string { return v.ChildHealthChecks }).(pulumi.StringArrayOutput)
 }
 
-func (o HealthCheckConfigPropertiesOutput) EnableSNI() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v HealthCheckConfigProperties) *bool { return v.EnableSNI }).(pulumi.BoolPtrOutput)
+func (o HealthCheckConfigPropertiesOutput) EnableSni() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v HealthCheckConfigProperties) *bool { return v.EnableSni }).(pulumi.BoolPtrOutput)
 }
 
 func (o HealthCheckConfigPropertiesOutput) FailureThreshold() pulumi.IntPtrOutput {
@@ -382,10 +382,6 @@ func (o HealthCheckConfigPropertiesOutput) HealthThreshold() pulumi.IntPtrOutput
 	return o.ApplyT(func(v HealthCheckConfigProperties) *int { return v.HealthThreshold }).(pulumi.IntPtrOutput)
 }
 
-func (o HealthCheckConfigPropertiesOutput) IPAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HealthCheckConfigProperties) *string { return v.IPAddress }).(pulumi.StringPtrOutput)
-}
-
 func (o HealthCheckConfigPropertiesOutput) InsufficientDataHealthStatus() HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutput {
 	return o.ApplyT(func(v HealthCheckConfigProperties) *HealthCheckConfigPropertiesInsufficientDataHealthStatus {
 		return v.InsufficientDataHealthStatus
@@ -394,6 +390,10 @@ func (o HealthCheckConfigPropertiesOutput) InsufficientDataHealthStatus() Health
 
 func (o HealthCheckConfigPropertiesOutput) Inverted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v HealthCheckConfigProperties) *bool { return v.Inverted }).(pulumi.BoolPtrOutput)
+}
+
+func (o HealthCheckConfigPropertiesOutput) IpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HealthCheckConfigProperties) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
 }
 
 func (o HealthCheckConfigPropertiesOutput) MeasureLatency() pulumi.BoolPtrOutput {
@@ -470,12 +470,12 @@ func (o HealthCheckConfigPropertiesPtrOutput) ChildHealthChecks() pulumi.StringA
 	}).(pulumi.StringArrayOutput)
 }
 
-func (o HealthCheckConfigPropertiesPtrOutput) EnableSNI() pulumi.BoolPtrOutput {
+func (o HealthCheckConfigPropertiesPtrOutput) EnableSni() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *HealthCheckConfigProperties) *bool {
 		if v == nil {
 			return nil
 		}
-		return v.EnableSNI
+		return v.EnableSni
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -506,15 +506,6 @@ func (o HealthCheckConfigPropertiesPtrOutput) HealthThreshold() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o HealthCheckConfigPropertiesPtrOutput) IPAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HealthCheckConfigProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.IPAddress
-	}).(pulumi.StringPtrOutput)
-}
-
 func (o HealthCheckConfigPropertiesPtrOutput) InsufficientDataHealthStatus() HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutput {
 	return o.ApplyT(func(v *HealthCheckConfigProperties) *HealthCheckConfigPropertiesInsufficientDataHealthStatus {
 		if v == nil {
@@ -531,6 +522,15 @@ func (o HealthCheckConfigPropertiesPtrOutput) Inverted() pulumi.BoolPtrOutput {
 		}
 		return v.Inverted
 	}).(pulumi.BoolPtrOutput)
+}
+
+func (o HealthCheckConfigPropertiesPtrOutput) IpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HealthCheckConfigProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IpAddress
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o HealthCheckConfigPropertiesPtrOutput) MeasureLatency() pulumi.BoolPtrOutput {
@@ -1112,9 +1112,9 @@ func (o HostedZoneTagArrayOutput) Index(i pulumi.IntInput) HostedZoneTagOutput {
 // A complex type that contains information about an Amazon VPC. Route 53 Resolver uses the records in the private hosted zone to route traffic in that VPC.
 type HostedZoneVPC struct {
 	// The ID of an Amazon VPC.
-	VPCId string `pulumi:"vPCId"`
+	VpcId string `pulumi:"vpcId"`
 	// The region that an Amazon VPC was created in. See https://docs.aws.amazon.com/general/latest/gr/rande.html for a list of up to date regions.
-	VPCRegion string `pulumi:"vPCRegion"`
+	VpcRegion string `pulumi:"vpcRegion"`
 }
 
 // HostedZoneVPCInput is an input type that accepts HostedZoneVPCArgs and HostedZoneVPCOutput values.
@@ -1131,9 +1131,9 @@ type HostedZoneVPCInput interface {
 // A complex type that contains information about an Amazon VPC. Route 53 Resolver uses the records in the private hosted zone to route traffic in that VPC.
 type HostedZoneVPCArgs struct {
 	// The ID of an Amazon VPC.
-	VPCId pulumi.StringInput `pulumi:"vPCId"`
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
 	// The region that an Amazon VPC was created in. See https://docs.aws.amazon.com/general/latest/gr/rande.html for a list of up to date regions.
-	VPCRegion pulumi.StringInput `pulumi:"vPCRegion"`
+	VpcRegion pulumi.StringInput `pulumi:"vpcRegion"`
 }
 
 func (HostedZoneVPCArgs) ElementType() reflect.Type {
@@ -1189,13 +1189,13 @@ func (o HostedZoneVPCOutput) ToHostedZoneVPCOutputWithContext(ctx context.Contex
 }
 
 // The ID of an Amazon VPC.
-func (o HostedZoneVPCOutput) VPCId() pulumi.StringOutput {
-	return o.ApplyT(func(v HostedZoneVPC) string { return v.VPCId }).(pulumi.StringOutput)
+func (o HostedZoneVPCOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v HostedZoneVPC) string { return v.VpcId }).(pulumi.StringOutput)
 }
 
 // The region that an Amazon VPC was created in. See https://docs.aws.amazon.com/general/latest/gr/rande.html for a list of up to date regions.
-func (o HostedZoneVPCOutput) VPCRegion() pulumi.StringOutput {
-	return o.ApplyT(func(v HostedZoneVPC) string { return v.VPCRegion }).(pulumi.StringOutput)
+func (o HostedZoneVPCOutput) VpcRegion() pulumi.StringOutput {
+	return o.ApplyT(func(v HostedZoneVPC) string { return v.VpcRegion }).(pulumi.StringOutput)
 }
 
 type HostedZoneVPCArrayOutput struct{ *pulumi.OutputState }
@@ -1219,7 +1219,7 @@ func (o HostedZoneVPCArrayOutput) Index(i pulumi.IntInput) HostedZoneVPCOutput {
 }
 
 type RecordSetAliasTarget struct {
-	DNSName              string `pulumi:"dNSName"`
+	DnsName              string `pulumi:"dnsName"`
 	EvaluateTargetHealth *bool  `pulumi:"evaluateTargetHealth"`
 	HostedZoneId         string `pulumi:"hostedZoneId"`
 }
@@ -1236,7 +1236,7 @@ type RecordSetAliasTargetInput interface {
 }
 
 type RecordSetAliasTargetArgs struct {
-	DNSName              pulumi.StringInput  `pulumi:"dNSName"`
+	DnsName              pulumi.StringInput  `pulumi:"dnsName"`
 	EvaluateTargetHealth pulumi.BoolPtrInput `pulumi:"evaluateTargetHealth"`
 	HostedZoneId         pulumi.StringInput  `pulumi:"hostedZoneId"`
 }
@@ -1318,8 +1318,8 @@ func (o RecordSetAliasTargetOutput) ToRecordSetAliasTargetPtrOutputWithContext(c
 	}).(RecordSetAliasTargetPtrOutput)
 }
 
-func (o RecordSetAliasTargetOutput) DNSName() pulumi.StringOutput {
-	return o.ApplyT(func(v RecordSetAliasTarget) string { return v.DNSName }).(pulumi.StringOutput)
+func (o RecordSetAliasTargetOutput) DnsName() pulumi.StringOutput {
+	return o.ApplyT(func(v RecordSetAliasTarget) string { return v.DnsName }).(pulumi.StringOutput)
 }
 
 func (o RecordSetAliasTargetOutput) EvaluateTargetHealth() pulumi.BoolPtrOutput {
@@ -1354,12 +1354,12 @@ func (o RecordSetAliasTargetPtrOutput) Elem() RecordSetAliasTargetOutput {
 	}).(RecordSetAliasTargetOutput)
 }
 
-func (o RecordSetAliasTargetPtrOutput) DNSName() pulumi.StringPtrOutput {
+func (o RecordSetAliasTargetPtrOutput) DnsName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RecordSetAliasTarget) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.DNSName
+		return &v.DnsName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1693,7 +1693,7 @@ func (o RecordSetGeoLocationPtrOutput) SubdivisionCode() pulumi.StringPtrOutput 
 }
 
 type RecordSetGroupAliasTarget struct {
-	DNSName              string `pulumi:"dNSName"`
+	DnsName              string `pulumi:"dnsName"`
 	EvaluateTargetHealth *bool  `pulumi:"evaluateTargetHealth"`
 	HostedZoneId         string `pulumi:"hostedZoneId"`
 }
@@ -1710,7 +1710,7 @@ type RecordSetGroupAliasTargetInput interface {
 }
 
 type RecordSetGroupAliasTargetArgs struct {
-	DNSName              pulumi.StringInput  `pulumi:"dNSName"`
+	DnsName              pulumi.StringInput  `pulumi:"dnsName"`
 	EvaluateTargetHealth pulumi.BoolPtrInput `pulumi:"evaluateTargetHealth"`
 	HostedZoneId         pulumi.StringInput  `pulumi:"hostedZoneId"`
 }
@@ -1792,8 +1792,8 @@ func (o RecordSetGroupAliasTargetOutput) ToRecordSetGroupAliasTargetPtrOutputWit
 	}).(RecordSetGroupAliasTargetPtrOutput)
 }
 
-func (o RecordSetGroupAliasTargetOutput) DNSName() pulumi.StringOutput {
-	return o.ApplyT(func(v RecordSetGroupAliasTarget) string { return v.DNSName }).(pulumi.StringOutput)
+func (o RecordSetGroupAliasTargetOutput) DnsName() pulumi.StringOutput {
+	return o.ApplyT(func(v RecordSetGroupAliasTarget) string { return v.DnsName }).(pulumi.StringOutput)
 }
 
 func (o RecordSetGroupAliasTargetOutput) EvaluateTargetHealth() pulumi.BoolPtrOutput {
@@ -1828,12 +1828,12 @@ func (o RecordSetGroupAliasTargetPtrOutput) Elem() RecordSetGroupAliasTargetOutp
 	}).(RecordSetGroupAliasTargetOutput)
 }
 
-func (o RecordSetGroupAliasTargetPtrOutput) DNSName() pulumi.StringPtrOutput {
+func (o RecordSetGroupAliasTargetPtrOutput) DnsName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RecordSetGroupAliasTarget) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.DNSName
+		return &v.DnsName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2179,7 +2179,7 @@ type RecordSetGroupRecordSet struct {
 	Region            *string                          `pulumi:"region"`
 	ResourceRecords   []string                         `pulumi:"resourceRecords"`
 	SetIdentifier     *string                          `pulumi:"setIdentifier"`
-	TTL               *string                          `pulumi:"tTL"`
+	Ttl               *string                          `pulumi:"ttl"`
 	Type              string                           `pulumi:"type"`
 	Weight            *int                             `pulumi:"weight"`
 }
@@ -2208,7 +2208,7 @@ type RecordSetGroupRecordSetArgs struct {
 	Region            pulumi.StringPtrInput                   `pulumi:"region"`
 	ResourceRecords   pulumi.StringArrayInput                 `pulumi:"resourceRecords"`
 	SetIdentifier     pulumi.StringPtrInput                   `pulumi:"setIdentifier"`
-	TTL               pulumi.StringPtrInput                   `pulumi:"tTL"`
+	Ttl               pulumi.StringPtrInput                   `pulumi:"ttl"`
 	Type              pulumi.StringInput                      `pulumi:"type"`
 	Weight            pulumi.IntPtrInput                      `pulumi:"weight"`
 }
@@ -2312,8 +2312,8 @@ func (o RecordSetGroupRecordSetOutput) SetIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecordSetGroupRecordSet) *string { return v.SetIdentifier }).(pulumi.StringPtrOutput)
 }
 
-func (o RecordSetGroupRecordSetOutput) TTL() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecordSetGroupRecordSet) *string { return v.TTL }).(pulumi.StringPtrOutput)
+func (o RecordSetGroupRecordSetOutput) Ttl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecordSetGroupRecordSet) *string { return v.Ttl }).(pulumi.StringPtrOutput)
 }
 
 func (o RecordSetGroupRecordSetOutput) Type() pulumi.StringOutput {

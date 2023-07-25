@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.Route53
         public readonly string? Region;
         public readonly ImmutableArray<string> ResourceRecords;
         public readonly string? SetIdentifier;
-        public readonly string? TTL;
+        public readonly string? Ttl;
         public readonly string? Type;
         public readonly int? Weight;
 
@@ -90,7 +90,7 @@ namespace Pulumi.AwsNative.Route53
 
             string? setIdentifier,
 
-            string? tTL,
+            string? ttl,
 
             string? type,
 
@@ -107,7 +107,7 @@ namespace Pulumi.AwsNative.Route53
             Region = region;
             ResourceRecords = resourceRecords;
             SetIdentifier = setIdentifier;
-            TTL = tTL;
+            Ttl = ttl;
             Type = type;
             Weight = weight;
         }

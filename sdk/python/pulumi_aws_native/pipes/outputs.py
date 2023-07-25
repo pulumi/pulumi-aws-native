@@ -1291,7 +1291,7 @@ class PipeSourceManagedStreamingKafkaParameters(dict):
             suggest = "topic_name"
         elif key == "batchSize":
             suggest = "batch_size"
-        elif key == "consumerGroupID":
+        elif key == "consumerGroupId":
             suggest = "consumer_group_id"
         elif key == "maximumBatchingWindowInSeconds":
             suggest = "maximum_batching_window_in_seconds"
@@ -1339,7 +1339,7 @@ class PipeSourceManagedStreamingKafkaParameters(dict):
         return pulumi.get(self, "batch_size")
 
     @property
-    @pulumi.getter(name="consumerGroupID")
+    @pulumi.getter(name="consumerGroupId")
     def consumer_group_id(self) -> Optional[str]:
         return pulumi.get(self, "consumer_group_id")
 
@@ -1364,9 +1364,9 @@ class PipeSourceParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "activeMQBrokerParameters":
+        if key == "activeMqBrokerParameters":
             suggest = "active_mq_broker_parameters"
-        elif key == "dynamoDBStreamParameters":
+        elif key == "dynamoDbStreamParameters":
             suggest = "dynamo_db_stream_parameters"
         elif key == "filterCriteria":
             suggest = "filter_criteria"
@@ -1374,7 +1374,7 @@ class PipeSourceParameters(dict):
             suggest = "kinesis_stream_parameters"
         elif key == "managedStreamingKafkaParameters":
             suggest = "managed_streaming_kafka_parameters"
-        elif key == "rabbitMQBrokerParameters":
+        elif key == "rabbitMqBrokerParameters":
             suggest = "rabbit_mq_broker_parameters"
         elif key == "selfManagedKafkaParameters":
             suggest = "self_managed_kafka_parameters"
@@ -1419,12 +1419,12 @@ class PipeSourceParameters(dict):
             pulumi.set(__self__, "sqs_queue_parameters", sqs_queue_parameters)
 
     @property
-    @pulumi.getter(name="activeMQBrokerParameters")
+    @pulumi.getter(name="activeMqBrokerParameters")
     def active_mq_broker_parameters(self) -> Optional['outputs.PipeSourceActiveMQBrokerParameters']:
         return pulumi.get(self, "active_mq_broker_parameters")
 
     @property
-    @pulumi.getter(name="dynamoDBStreamParameters")
+    @pulumi.getter(name="dynamoDbStreamParameters")
     def dynamo_db_stream_parameters(self) -> Optional['outputs.PipeSourceDynamoDBStreamParameters']:
         return pulumi.get(self, "dynamo_db_stream_parameters")
 
@@ -1444,7 +1444,7 @@ class PipeSourceParameters(dict):
         return pulumi.get(self, "managed_streaming_kafka_parameters")
 
     @property
-    @pulumi.getter(name="rabbitMQBrokerParameters")
+    @pulumi.getter(name="rabbitMqBrokerParameters")
     def rabbit_mq_broker_parameters(self) -> Optional['outputs.PipeSourceRabbitMQBrokerParameters']:
         return pulumi.get(self, "rabbit_mq_broker_parameters")
 
@@ -1536,7 +1536,7 @@ class PipeSourceSelfManagedKafkaParameters(dict):
             suggest = "additional_bootstrap_servers"
         elif key == "batchSize":
             suggest = "batch_size"
-        elif key == "consumerGroupID":
+        elif key == "consumerGroupId":
             suggest = "consumer_group_id"
         elif key == "maximumBatchingWindowInSeconds":
             suggest = "maximum_batching_window_in_seconds"
@@ -1603,7 +1603,7 @@ class PipeSourceSelfManagedKafkaParameters(dict):
         return pulumi.get(self, "batch_size")
 
     @property
-    @pulumi.getter(name="consumerGroupID")
+    @pulumi.getter(name="consumerGroupId")
     def consumer_group_id(self) -> Optional[str]:
         return pulumi.get(self, "consumer_group_id")
 
@@ -1834,7 +1834,7 @@ class PipeTargetEcsTaskParameters(dict):
             suggest = "task_definition_arn"
         elif key == "capacityProviderStrategy":
             suggest = "capacity_provider_strategy"
-        elif key == "enableECSManagedTags":
+        elif key == "enableEcsManagedTags":
             suggest = "enable_ecs_managed_tags"
         elif key == "enableExecuteCommand":
             suggest = "enable_execute_command"
@@ -1923,7 +1923,7 @@ class PipeTargetEcsTaskParameters(dict):
         return pulumi.get(self, "capacity_provider_strategy")
 
     @property
-    @pulumi.getter(name="enableECSManagedTags")
+    @pulumi.getter(name="enableEcsManagedTags")
     def enable_ecs_managed_tags(self) -> Optional[bool]:
         return pulumi.get(self, "enable_ecs_managed_tags")
 

@@ -390,17 +390,17 @@ class GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs:
 @pulumi.input_type
 class GlobalTableReplicaSSESpecificationArgs:
     def __init__(__self__, *,
-                 k_ms_master_key_id: pulumi.Input[str]):
-        pulumi.set(__self__, "k_ms_master_key_id", k_ms_master_key_id)
+                 kms_master_key_id: pulumi.Input[str]):
+        pulumi.set(__self__, "kms_master_key_id", kms_master_key_id)
 
     @property
-    @pulumi.getter(name="kMSMasterKeyId")
-    def k_ms_master_key_id(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "k_ms_master_key_id")
+    @pulumi.getter(name="kmsMasterKeyId")
+    def kms_master_key_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "kms_master_key_id")
 
-    @k_ms_master_key_id.setter
-    def k_ms_master_key_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "k_ms_master_key_id", value)
+    @kms_master_key_id.setter
+    def kms_master_key_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "kms_master_key_id", value)
 
 
 @pulumi.input_type
@@ -413,7 +413,7 @@ class GlobalTableReplicaSpecificationArgs:
                  kinesis_stream_specification: Optional[pulumi.Input['GlobalTableKinesisStreamSpecificationArgs']] = None,
                  point_in_time_recovery_specification: Optional[pulumi.Input['GlobalTablePointInTimeRecoverySpecificationArgs']] = None,
                  read_provisioned_throughput_settings: Optional[pulumi.Input['GlobalTableReadProvisionedThroughputSettingsArgs']] = None,
-                 s_se_specification: Optional[pulumi.Input['GlobalTableReplicaSSESpecificationArgs']] = None,
+                 sse_specification: Optional[pulumi.Input['GlobalTableReplicaSSESpecificationArgs']] = None,
                  table_class: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableTagArgs']]]] = None):
         pulumi.set(__self__, "region", region)
@@ -429,8 +429,8 @@ class GlobalTableReplicaSpecificationArgs:
             pulumi.set(__self__, "point_in_time_recovery_specification", point_in_time_recovery_specification)
         if read_provisioned_throughput_settings is not None:
             pulumi.set(__self__, "read_provisioned_throughput_settings", read_provisioned_throughput_settings)
-        if s_se_specification is not None:
-            pulumi.set(__self__, "s_se_specification", s_se_specification)
+        if sse_specification is not None:
+            pulumi.set(__self__, "sse_specification", sse_specification)
         if table_class is not None:
             pulumi.set(__self__, "table_class", table_class)
         if tags is not None:
@@ -500,13 +500,13 @@ class GlobalTableReplicaSpecificationArgs:
         pulumi.set(self, "read_provisioned_throughput_settings", value)
 
     @property
-    @pulumi.getter(name="sSESpecification")
-    def s_se_specification(self) -> Optional[pulumi.Input['GlobalTableReplicaSSESpecificationArgs']]:
-        return pulumi.get(self, "s_se_specification")
+    @pulumi.getter(name="sseSpecification")
+    def sse_specification(self) -> Optional[pulumi.Input['GlobalTableReplicaSSESpecificationArgs']]:
+        return pulumi.get(self, "sse_specification")
 
-    @s_se_specification.setter
-    def s_se_specification(self, value: Optional[pulumi.Input['GlobalTableReplicaSSESpecificationArgs']]):
-        pulumi.set(self, "s_se_specification", value)
+    @sse_specification.setter
+    def sse_specification(self, value: Optional[pulumi.Input['GlobalTableReplicaSSESpecificationArgs']]):
+        pulumi.set(self, "sse_specification", value)
 
     @property
     @pulumi.getter(name="tableClass")
@@ -530,29 +530,29 @@ class GlobalTableReplicaSpecificationArgs:
 @pulumi.input_type
 class GlobalTableSSESpecificationArgs:
     def __init__(__self__, *,
-                 s_se_enabled: pulumi.Input[bool],
-                 s_se_type: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "s_se_enabled", s_se_enabled)
-        if s_se_type is not None:
-            pulumi.set(__self__, "s_se_type", s_se_type)
+                 sse_enabled: pulumi.Input[bool],
+                 sse_type: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "sse_enabled", sse_enabled)
+        if sse_type is not None:
+            pulumi.set(__self__, "sse_type", sse_type)
 
     @property
-    @pulumi.getter(name="sSEEnabled")
-    def s_se_enabled(self) -> pulumi.Input[bool]:
-        return pulumi.get(self, "s_se_enabled")
+    @pulumi.getter(name="sseEnabled")
+    def sse_enabled(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "sse_enabled")
 
-    @s_se_enabled.setter
-    def s_se_enabled(self, value: pulumi.Input[bool]):
-        pulumi.set(self, "s_se_enabled", value)
+    @sse_enabled.setter
+    def sse_enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "sse_enabled", value)
 
     @property
-    @pulumi.getter(name="sSEType")
-    def s_se_type(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "s_se_type")
+    @pulumi.getter(name="sseType")
+    def sse_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "sse_type")
 
-    @s_se_type.setter
-    def s_se_type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "s_se_type", value)
+    @sse_type.setter
+    def sse_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sse_type", value)
 
 
 @pulumi.input_type
@@ -1094,41 +1094,41 @@ class TableS3BucketSourceArgs:
 @pulumi.input_type
 class TableSSESpecificationArgs:
     def __init__(__self__, *,
-                 s_se_enabled: pulumi.Input[bool],
-                 k_ms_master_key_id: Optional[pulumi.Input[str]] = None,
-                 s_se_type: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "s_se_enabled", s_se_enabled)
-        if k_ms_master_key_id is not None:
-            pulumi.set(__self__, "k_ms_master_key_id", k_ms_master_key_id)
-        if s_se_type is not None:
-            pulumi.set(__self__, "s_se_type", s_se_type)
+                 sse_enabled: pulumi.Input[bool],
+                 kms_master_key_id: Optional[pulumi.Input[str]] = None,
+                 sse_type: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "sse_enabled", sse_enabled)
+        if kms_master_key_id is not None:
+            pulumi.set(__self__, "kms_master_key_id", kms_master_key_id)
+        if sse_type is not None:
+            pulumi.set(__self__, "sse_type", sse_type)
 
     @property
-    @pulumi.getter(name="sSEEnabled")
-    def s_se_enabled(self) -> pulumi.Input[bool]:
-        return pulumi.get(self, "s_se_enabled")
+    @pulumi.getter(name="sseEnabled")
+    def sse_enabled(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "sse_enabled")
 
-    @s_se_enabled.setter
-    def s_se_enabled(self, value: pulumi.Input[bool]):
-        pulumi.set(self, "s_se_enabled", value)
-
-    @property
-    @pulumi.getter(name="kMSMasterKeyId")
-    def k_ms_master_key_id(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "k_ms_master_key_id")
-
-    @k_ms_master_key_id.setter
-    def k_ms_master_key_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "k_ms_master_key_id", value)
+    @sse_enabled.setter
+    def sse_enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "sse_enabled", value)
 
     @property
-    @pulumi.getter(name="sSEType")
-    def s_se_type(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "s_se_type")
+    @pulumi.getter(name="kmsMasterKeyId")
+    def kms_master_key_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "kms_master_key_id")
 
-    @s_se_type.setter
-    def s_se_type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "s_se_type", value)
+    @kms_master_key_id.setter
+    def kms_master_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_master_key_id", value)
+
+    @property
+    @pulumi.getter(name="sseType")
+    def sse_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "sse_type")
+
+    @sse_type.setter
+    def sse_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sse_type", value)
 
 
 @pulumi.input_type

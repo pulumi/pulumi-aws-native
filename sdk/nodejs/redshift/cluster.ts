@@ -96,7 +96,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The name of the first database to be created when the cluster is created. To create additional databases after the cluster is created, connect to the cluster with a SQL client and use SQL commands to create a database.
      */
-    public readonly dBName!: pulumi.Output<string>;
+    public readonly dbName!: pulumi.Output<string>;
     /**
      * A boolean indicating whether to enable the deferred maintenance window.
      */
@@ -253,8 +253,8 @@ export class Cluster extends pulumi.CustomResource {
             if ((!args || args.clusterType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterType'");
             }
-            if ((!args || args.dBName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'dBName'");
+            if ((!args || args.dbName === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'dbName'");
             }
             if ((!args || args.masterUserPassword === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'masterUserPassword'");
@@ -278,7 +278,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["clusterSubnetGroupName"] = args ? args.clusterSubnetGroupName : undefined;
             resourceInputs["clusterType"] = args ? args.clusterType : undefined;
             resourceInputs["clusterVersion"] = args ? args.clusterVersion : undefined;
-            resourceInputs["dBName"] = args ? args.dBName : undefined;
+            resourceInputs["dbName"] = args ? args.dbName : undefined;
             resourceInputs["deferMaintenance"] = args ? args.deferMaintenance : undefined;
             resourceInputs["deferMaintenanceDuration"] = args ? args.deferMaintenanceDuration : undefined;
             resourceInputs["deferMaintenanceEndTime"] = args ? args.deferMaintenanceEndTime : undefined;
@@ -328,7 +328,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["clusterSubnetGroupName"] = undefined /*out*/;
             resourceInputs["clusterType"] = undefined /*out*/;
             resourceInputs["clusterVersion"] = undefined /*out*/;
-            resourceInputs["dBName"] = undefined /*out*/;
+            resourceInputs["dbName"] = undefined /*out*/;
             resourceInputs["deferMaintenance"] = undefined /*out*/;
             resourceInputs["deferMaintenanceDuration"] = undefined /*out*/;
             resourceInputs["deferMaintenanceEndTime"] = undefined /*out*/;
@@ -433,7 +433,7 @@ export interface ClusterArgs {
     /**
      * The name of the first database to be created when the cluster is created. To create additional databases after the cluster is created, connect to the cluster with a SQL client and use SQL commands to create a database.
      */
-    dBName: pulumi.Input<string>;
+    dbName: pulumi.Input<string>;
     /**
      * A boolean indicating whether to enable the deferred maintenance window.
      */

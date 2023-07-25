@@ -1743,7 +1743,7 @@ func (o PipelineTagArrayOutput) Index(i pulumi.IntInput) PipelineTagOutput {
 }
 
 type WebhookAuthConfiguration struct {
-	AllowedIPRange *string `pulumi:"allowedIPRange"`
+	AllowedIpRange *string `pulumi:"allowedIpRange"`
 	SecretToken    *string `pulumi:"secretToken"`
 }
 
@@ -1759,7 +1759,7 @@ type WebhookAuthConfigurationInput interface {
 }
 
 type WebhookAuthConfigurationArgs struct {
-	AllowedIPRange pulumi.StringPtrInput `pulumi:"allowedIPRange"`
+	AllowedIpRange pulumi.StringPtrInput `pulumi:"allowedIpRange"`
 	SecretToken    pulumi.StringPtrInput `pulumi:"secretToken"`
 }
 
@@ -1789,8 +1789,8 @@ func (o WebhookAuthConfigurationOutput) ToWebhookAuthConfigurationOutputWithCont
 	return o
 }
 
-func (o WebhookAuthConfigurationOutput) AllowedIPRange() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WebhookAuthConfiguration) *string { return v.AllowedIPRange }).(pulumi.StringPtrOutput)
+func (o WebhookAuthConfigurationOutput) AllowedIpRange() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebhookAuthConfiguration) *string { return v.AllowedIpRange }).(pulumi.StringPtrOutput)
 }
 
 func (o WebhookAuthConfigurationOutput) SecretToken() pulumi.StringPtrOutput {
@@ -1821,12 +1821,12 @@ func (o WebhookAuthConfigurationPtrOutput) Elem() WebhookAuthConfigurationOutput
 	}).(WebhookAuthConfigurationOutput)
 }
 
-func (o WebhookAuthConfigurationPtrOutput) AllowedIPRange() pulumi.StringPtrOutput {
+func (o WebhookAuthConfigurationPtrOutput) AllowedIpRange() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebhookAuthConfiguration) *string {
 		if v == nil {
 			return nil
 		}
-		return v.AllowedIPRange
+		return v.AllowedIpRange
 	}).(pulumi.StringPtrOutput)
 }
 

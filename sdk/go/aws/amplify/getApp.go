@@ -37,7 +37,7 @@ type LookupAppResult struct {
 	Description              *string                  `pulumi:"description"`
 	EnableBranchAutoDeletion *bool                    `pulumi:"enableBranchAutoDeletion"`
 	EnvironmentVariables     []AppEnvironmentVariable `pulumi:"environmentVariables"`
-	IAMServiceRole           *string                  `pulumi:"iAMServiceRole"`
+	IamServiceRole           *string                  `pulumi:"iamServiceRole"`
 	Name                     *string                  `pulumi:"name"`
 	Platform                 *AppPlatform             `pulumi:"platform"`
 	Repository               *string                  `pulumi:"repository"`
@@ -119,8 +119,8 @@ func (o LookupAppResultOutput) EnvironmentVariables() AppEnvironmentVariableArra
 	return o.ApplyT(func(v LookupAppResult) []AppEnvironmentVariable { return v.EnvironmentVariables }).(AppEnvironmentVariableArrayOutput)
 }
 
-func (o LookupAppResultOutput) IAMServiceRole() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupAppResult) *string { return v.IAMServiceRole }).(pulumi.StringPtrOutput)
+func (o LookupAppResultOutput) IamServiceRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAppResult) *string { return v.IamServiceRole }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupAppResultOutput) Name() pulumi.StringPtrOutput {

@@ -72,7 +72,7 @@ class GetClusterResult:
         return pulumi.get(self, "cluster_discovery_endpoint")
 
     @property
-    @pulumi.getter(name="clusterDiscoveryEndpointURL")
+    @pulumi.getter(name="clusterDiscoveryEndpointUrl")
     def cluster_discovery_endpoint_url(self) -> Optional[str]:
         return pulumi.get(self, "cluster_discovery_endpoint_url")
 
@@ -87,7 +87,7 @@ class GetClusterResult:
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="notificationTopicARN")
+    @pulumi.getter(name="notificationTopicArn")
     def notification_topic_arn(self) -> Optional[str]:
         return pulumi.get(self, "notification_topic_arn")
 

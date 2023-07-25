@@ -60,7 +60,7 @@ namespace Pulumi.AwsNative.ECS
         public readonly ImmutableArray<Outputs.ServiceCapacityProviderStrategyItem> CapacityProviderStrategy;
         public readonly Outputs.ServiceDeploymentConfiguration? DeploymentConfiguration;
         public readonly int? DesiredCount;
-        public readonly bool? EnableECSManagedTags;
+        public readonly bool? EnableEcsManagedTags;
         public readonly bool? EnableExecuteCommand;
         public readonly int? HealthCheckGracePeriodSeconds;
         public readonly ImmutableArray<Outputs.ServiceLoadBalancer> LoadBalancers;
@@ -83,7 +83,7 @@ namespace Pulumi.AwsNative.ECS
 
             int? desiredCount,
 
-            bool? enableECSManagedTags,
+            bool? enableEcsManagedTags,
 
             bool? enableExecuteCommand,
 
@@ -114,7 +114,7 @@ namespace Pulumi.AwsNative.ECS
             CapacityProviderStrategy = capacityProviderStrategy;
             DeploymentConfiguration = deploymentConfiguration;
             DesiredCount = desiredCount;
-            EnableECSManagedTags = enableECSManagedTags;
+            EnableEcsManagedTags = enableEcsManagedTags;
             EnableExecuteCommand = enableExecuteCommand;
             HealthCheckGracePeriodSeconds = healthCheckGracePeriodSeconds;
             LoadBalancers = loadBalancers;

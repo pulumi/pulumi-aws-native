@@ -18,11 +18,11 @@ import (
 type StreamConsumer struct {
 	pulumi.CustomResourceState
 
-	ConsumerARN               pulumi.StringOutput `pulumi:"consumerARN"`
+	ConsumerArn               pulumi.StringOutput `pulumi:"consumerArn"`
 	ConsumerCreationTimestamp pulumi.StringOutput `pulumi:"consumerCreationTimestamp"`
 	ConsumerName              pulumi.StringOutput `pulumi:"consumerName"`
 	ConsumerStatus            pulumi.StringOutput `pulumi:"consumerStatus"`
-	StreamARN                 pulumi.StringOutput `pulumi:"streamARN"`
+	StreamArn                 pulumi.StringOutput `pulumi:"streamArn"`
 }
 
 // NewStreamConsumer registers a new resource with the given unique name, arguments, and options.
@@ -35,8 +35,8 @@ func NewStreamConsumer(ctx *pulumi.Context,
 	if args.ConsumerName == nil {
 		return nil, errors.New("invalid value for required argument 'ConsumerName'")
 	}
-	if args.StreamARN == nil {
-		return nil, errors.New("invalid value for required argument 'StreamARN'")
+	if args.StreamArn == nil {
+		return nil, errors.New("invalid value for required argument 'StreamArn'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource StreamConsumer
@@ -72,13 +72,13 @@ func (StreamConsumerState) ElementType() reflect.Type {
 
 type streamConsumerArgs struct {
 	ConsumerName string `pulumi:"consumerName"`
-	StreamARN    string `pulumi:"streamARN"`
+	StreamArn    string `pulumi:"streamArn"`
 }
 
 // The set of arguments for constructing a StreamConsumer resource.
 type StreamConsumerArgs struct {
 	ConsumerName pulumi.StringInput
-	StreamARN    pulumi.StringInput
+	StreamArn    pulumi.StringInput
 }
 
 func (StreamConsumerArgs) ElementType() reflect.Type {
@@ -118,8 +118,8 @@ func (o StreamConsumerOutput) ToStreamConsumerOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o StreamConsumerOutput) ConsumerARN() pulumi.StringOutput {
-	return o.ApplyT(func(v *StreamConsumer) pulumi.StringOutput { return v.ConsumerARN }).(pulumi.StringOutput)
+func (o StreamConsumerOutput) ConsumerArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *StreamConsumer) pulumi.StringOutput { return v.ConsumerArn }).(pulumi.StringOutput)
 }
 
 func (o StreamConsumerOutput) ConsumerCreationTimestamp() pulumi.StringOutput {
@@ -134,8 +134,8 @@ func (o StreamConsumerOutput) ConsumerStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *StreamConsumer) pulumi.StringOutput { return v.ConsumerStatus }).(pulumi.StringOutput)
 }
 
-func (o StreamConsumerOutput) StreamARN() pulumi.StringOutput {
-	return o.ApplyT(func(v *StreamConsumer) pulumi.StringOutput { return v.StreamARN }).(pulumi.StringOutput)
+func (o StreamConsumerOutput) StreamArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *StreamConsumer) pulumi.StringOutput { return v.StreamArn }).(pulumi.StringOutput)
 }
 
 func init() {

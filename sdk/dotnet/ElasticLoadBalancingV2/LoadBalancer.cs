@@ -16,11 +16,11 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
     [AwsNativeResourceType("aws-native:elasticloadbalancingv2:LoadBalancer")]
     public partial class LoadBalancer : global::Pulumi.CustomResource
     {
-        [Output("canonicalHostedZoneID")]
-        public Output<string> CanonicalHostedZoneID { get; private set; } = null!;
+        [Output("canonicalHostedZoneId")]
+        public Output<string> CanonicalHostedZoneId { get; private set; } = null!;
 
-        [Output("dNSName")]
-        public Output<string> DNSName { get; private set; } = null!;
+        [Output("dnsName")]
+        public Output<string> DnsName { get; private set; } = null!;
 
         [Output("ipAddressType")]
         public Output<string?> IpAddressType { get; private set; } = null!;

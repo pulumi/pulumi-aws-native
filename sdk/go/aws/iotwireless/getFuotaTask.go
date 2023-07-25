@@ -49,7 +49,7 @@ type LookupFuotaTaskResult struct {
 	// FUOTA task id. Returned after successful create.
 	Id *string `pulumi:"id"`
 	// FUOTA task LoRaWAN
-	LoRaWAN *FuotaTaskLoRaWAN `pulumi:"loRaWAN"`
+	LoRaWan *FuotaTaskLoRaWAN `pulumi:"loRaWan"`
 	// Name of FUOTA task
 	Name *string `pulumi:"name"`
 	// A list of key-value pairs that contain metadata for the FUOTA task.
@@ -143,8 +143,8 @@ func (o LookupFuotaTaskResultOutput) Id() pulumi.StringPtrOutput {
 }
 
 // FUOTA task LoRaWAN
-func (o LookupFuotaTaskResultOutput) LoRaWAN() FuotaTaskLoRaWANPtrOutput {
-	return o.ApplyT(func(v LookupFuotaTaskResult) *FuotaTaskLoRaWAN { return v.LoRaWAN }).(FuotaTaskLoRaWANPtrOutput)
+func (o LookupFuotaTaskResultOutput) LoRaWan() FuotaTaskLoRaWANPtrOutput {
+	return o.ApplyT(func(v LookupFuotaTaskResult) *FuotaTaskLoRaWAN { return v.LoRaWan }).(FuotaTaskLoRaWANPtrOutput)
 }
 
 // Name of FUOTA task

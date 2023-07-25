@@ -19,13 +19,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetLoadBalancerResult:
-    def __init__(__self__, canonical_hosted_zone_id=None, d_ns_name=None, id=None, ip_address_type=None, load_balancer_attributes=None, load_balancer_full_name=None, load_balancer_name=None, security_groups=None, subnet_mappings=None, subnets=None, tags=None):
+    def __init__(__self__, canonical_hosted_zone_id=None, dns_name=None, id=None, ip_address_type=None, load_balancer_attributes=None, load_balancer_full_name=None, load_balancer_name=None, security_groups=None, subnet_mappings=None, subnets=None, tags=None):
         if canonical_hosted_zone_id and not isinstance(canonical_hosted_zone_id, str):
             raise TypeError("Expected argument 'canonical_hosted_zone_id' to be a str")
         pulumi.set(__self__, "canonical_hosted_zone_id", canonical_hosted_zone_id)
-        if d_ns_name and not isinstance(d_ns_name, str):
-            raise TypeError("Expected argument 'd_ns_name' to be a str")
-        pulumi.set(__self__, "d_ns_name", d_ns_name)
+        if dns_name and not isinstance(dns_name, str):
+            raise TypeError("Expected argument 'dns_name' to be a str")
+        pulumi.set(__self__, "dns_name", dns_name)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -55,14 +55,14 @@ class GetLoadBalancerResult:
         pulumi.set(__self__, "tags", tags)
 
     @property
-    @pulumi.getter(name="canonicalHostedZoneID")
+    @pulumi.getter(name="canonicalHostedZoneId")
     def canonical_hosted_zone_id(self) -> Optional[str]:
         return pulumi.get(self, "canonical_hosted_zone_id")
 
     @property
-    @pulumi.getter(name="dNSName")
-    def d_ns_name(self) -> Optional[str]:
-        return pulumi.get(self, "d_ns_name")
+    @pulumi.getter(name="dnsName")
+    def dns_name(self) -> Optional[str]:
+        return pulumi.get(self, "dns_name")
 
     @property
     @pulumi.getter
@@ -117,7 +117,7 @@ class AwaitableGetLoadBalancerResult(GetLoadBalancerResult):
             yield self
         return GetLoadBalancerResult(
             canonical_hosted_zone_id=self.canonical_hosted_zone_id,
-            d_ns_name=self.d_ns_name,
+            dns_name=self.dns_name,
             id=self.id,
             ip_address_type=self.ip_address_type,
             load_balancer_attributes=self.load_balancer_attributes,
@@ -141,7 +141,7 @@ def get_load_balancer(id: Optional[str] = None,
 
     return AwaitableGetLoadBalancerResult(
         canonical_hosted_zone_id=pulumi.get(__ret__, 'canonical_hosted_zone_id'),
-        d_ns_name=pulumi.get(__ret__, 'd_ns_name'),
+        dns_name=pulumi.get(__ret__, 'dns_name'),
         id=pulumi.get(__ret__, 'id'),
         ip_address_type=pulumi.get(__ret__, 'ip_address_type'),
         load_balancer_attributes=pulumi.get(__ret__, 'load_balancer_attributes'),

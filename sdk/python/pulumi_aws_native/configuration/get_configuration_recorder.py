@@ -41,7 +41,7 @@ class GetConfigurationRecorderResult:
         return pulumi.get(self, "recording_group")
 
     @property
-    @pulumi.getter(name="roleARN")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[str]:
         return pulumi.get(self, "role_arn")
 

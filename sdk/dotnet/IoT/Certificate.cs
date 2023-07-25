@@ -18,8 +18,8 @@ namespace Pulumi.AwsNative.IoT
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        [Output("cACertificatePem")]
-        public Output<string?> CACertificatePem { get; private set; } = null!;
+        [Output("caCertificatePem")]
+        public Output<string?> CaCertificatePem { get; private set; } = null!;
 
         [Output("certificateMode")]
         public Output<Pulumi.AwsNative.IoT.CertificateMode?> CertificateMode { get; private set; } = null!;
@@ -78,8 +78,8 @@ namespace Pulumi.AwsNative.IoT
 
     public sealed class CertificateArgs : global::Pulumi.ResourceArgs
     {
-        [Input("cACertificatePem")]
-        public Input<string>? CACertificatePem { get; set; }
+        [Input("caCertificatePem")]
+        public Input<string>? CaCertificatePem { get; set; }
 
         [Input("certificateMode")]
         public Input<Pulumi.AwsNative.IoT.CertificateMode>? CertificateMode { get; set; }

@@ -16,17 +16,17 @@ __all__ = [
 @pulumi.input_type
 class ClusterSSESpecificationArgs:
     def __init__(__self__, *,
-                 s_se_enabled: Optional[pulumi.Input[bool]] = None):
-        if s_se_enabled is not None:
-            pulumi.set(__self__, "s_se_enabled", s_se_enabled)
+                 sse_enabled: Optional[pulumi.Input[bool]] = None):
+        if sse_enabled is not None:
+            pulumi.set(__self__, "sse_enabled", sse_enabled)
 
     @property
-    @pulumi.getter(name="sSEEnabled")
-    def s_se_enabled(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "s_se_enabled")
+    @pulumi.getter(name="sseEnabled")
+    def sse_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "sse_enabled")
 
-    @s_se_enabled.setter
-    def s_se_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "s_se_enabled", value)
+    @sse_enabled.setter
+    def sse_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "sse_enabled", value)
 
 

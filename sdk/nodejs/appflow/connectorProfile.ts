@@ -68,7 +68,7 @@ export class ConnectorProfile extends pulumi.CustomResource {
     /**
      * The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
      */
-    public readonly kMSArn!: pulumi.Output<string | undefined>;
+    public readonly kmsArn!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ConnectorProfile resource with the given unique name, arguments, and options.
@@ -92,7 +92,7 @@ export class ConnectorProfile extends pulumi.CustomResource {
             resourceInputs["connectorProfileConfig"] = args ? args.connectorProfileConfig : undefined;
             resourceInputs["connectorProfileName"] = args ? args.connectorProfileName : undefined;
             resourceInputs["connectorType"] = args ? args.connectorType : undefined;
-            resourceInputs["kMSArn"] = args ? args.kMSArn : undefined;
+            resourceInputs["kmsArn"] = args ? args.kmsArn : undefined;
             resourceInputs["connectorProfileArn"] = undefined /*out*/;
             resourceInputs["credentialsArn"] = undefined /*out*/;
         } else {
@@ -103,7 +103,7 @@ export class ConnectorProfile extends pulumi.CustomResource {
             resourceInputs["connectorProfileName"] = undefined /*out*/;
             resourceInputs["connectorType"] = undefined /*out*/;
             resourceInputs["credentialsArn"] = undefined /*out*/;
-            resourceInputs["kMSArn"] = undefined /*out*/;
+            resourceInputs["kmsArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ConnectorProfile.__pulumiType, name, resourceInputs, opts);
@@ -137,5 +137,5 @@ export interface ConnectorProfileArgs {
     /**
      * The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
      */
-    kMSArn?: pulumi.Input<string>;
+    kmsArn?: pulumi.Input<string>;
 }

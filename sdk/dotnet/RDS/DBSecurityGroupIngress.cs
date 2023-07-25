@@ -16,20 +16,20 @@ namespace Pulumi.AwsNative.RDS
     [AwsNativeResourceType("aws-native:rds:DBSecurityGroupIngress")]
     public partial class DBSecurityGroupIngress : global::Pulumi.CustomResource
     {
-        [Output("cIDRIP")]
-        public Output<string?> CIDRIP { get; private set; } = null!;
+        [Output("cidrip")]
+        public Output<string?> Cidrip { get; private set; } = null!;
 
-        [Output("dBSecurityGroupName")]
-        public Output<string> DBSecurityGroupName { get; private set; } = null!;
+        [Output("dbSecurityGroupName")]
+        public Output<string> DbSecurityGroupName { get; private set; } = null!;
 
-        [Output("eC2SecurityGroupId")]
-        public Output<string?> EC2SecurityGroupId { get; private set; } = null!;
+        [Output("ec2SecurityGroupId")]
+        public Output<string?> Ec2SecurityGroupId { get; private set; } = null!;
 
-        [Output("eC2SecurityGroupName")]
-        public Output<string?> EC2SecurityGroupName { get; private set; } = null!;
+        [Output("ec2SecurityGroupName")]
+        public Output<string?> Ec2SecurityGroupName { get; private set; } = null!;
 
-        [Output("eC2SecurityGroupOwnerId")]
-        public Output<string?> EC2SecurityGroupOwnerId { get; private set; } = null!;
+        [Output("ec2SecurityGroupOwnerId")]
+        public Output<string?> Ec2SecurityGroupOwnerId { get; private set; } = null!;
 
 
         /// <summary>
@@ -76,20 +76,20 @@ namespace Pulumi.AwsNative.RDS
 
     public sealed class DBSecurityGroupIngressArgs : global::Pulumi.ResourceArgs
     {
-        [Input("cIDRIP")]
-        public Input<string>? CIDRIP { get; set; }
+        [Input("cidrip")]
+        public Input<string>? Cidrip { get; set; }
 
-        [Input("dBSecurityGroupName", required: true)]
-        public Input<string> DBSecurityGroupName { get; set; } = null!;
+        [Input("dbSecurityGroupName", required: true)]
+        public Input<string> DbSecurityGroupName { get; set; } = null!;
 
-        [Input("eC2SecurityGroupId")]
-        public Input<string>? EC2SecurityGroupId { get; set; }
+        [Input("ec2SecurityGroupId")]
+        public Input<string>? Ec2SecurityGroupId { get; set; }
 
-        [Input("eC2SecurityGroupName")]
-        public Input<string>? EC2SecurityGroupName { get; set; }
+        [Input("ec2SecurityGroupName")]
+        public Input<string>? Ec2SecurityGroupName { get; set; }
 
-        [Input("eC2SecurityGroupOwnerId")]
-        public Input<string>? EC2SecurityGroupOwnerId { get; set; }
+        [Input("ec2SecurityGroupOwnerId")]
+        public Input<string>? Ec2SecurityGroupOwnerId { get; set; }
 
         public DBSecurityGroupIngressArgs()
         {

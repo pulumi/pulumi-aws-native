@@ -47,9 +47,9 @@ export class Stack extends pulumi.CustomResource {
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly displayName!: pulumi.Output<string | undefined>;
     public readonly embedHostDomains!: pulumi.Output<string[] | undefined>;
-    public readonly feedbackURL!: pulumi.Output<string | undefined>;
+    public readonly feedbackUrl!: pulumi.Output<string | undefined>;
     public readonly name!: pulumi.Output<string | undefined>;
-    public readonly redirectURL!: pulumi.Output<string | undefined>;
+    public readonly redirectUrl!: pulumi.Output<string | undefined>;
     public readonly storageConnectors!: pulumi.Output<outputs.appstream.StackStorageConnector[] | undefined>;
     public readonly streamingExperienceSettings!: pulumi.Output<outputs.appstream.StackStreamingExperienceSettings | undefined>;
     public readonly tags!: pulumi.Output<outputs.appstream.StackTag[] | undefined>;
@@ -75,9 +75,9 @@ export class Stack extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["embedHostDomains"] = args ? args.embedHostDomains : undefined;
-            resourceInputs["feedbackURL"] = args ? args.feedbackURL : undefined;
+            resourceInputs["feedbackUrl"] = args ? args.feedbackUrl : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["redirectURL"] = args ? args.redirectURL : undefined;
+            resourceInputs["redirectUrl"] = args ? args.redirectUrl : undefined;
             resourceInputs["storageConnectors"] = args ? args.storageConnectors : undefined;
             resourceInputs["streamingExperienceSettings"] = args ? args.streamingExperienceSettings : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -90,9 +90,9 @@ export class Stack extends pulumi.CustomResource {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["embedHostDomains"] = undefined /*out*/;
-            resourceInputs["feedbackURL"] = undefined /*out*/;
+            resourceInputs["feedbackUrl"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["redirectURL"] = undefined /*out*/;
+            resourceInputs["redirectUrl"] = undefined /*out*/;
             resourceInputs["storageConnectors"] = undefined /*out*/;
             resourceInputs["streamingExperienceSettings"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -114,9 +114,9 @@ export interface StackArgs {
     description?: pulumi.Input<string>;
     displayName?: pulumi.Input<string>;
     embedHostDomains?: pulumi.Input<pulumi.Input<string>[]>;
-    feedbackURL?: pulumi.Input<string>;
+    feedbackUrl?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
-    redirectURL?: pulumi.Input<string>;
+    redirectUrl?: pulumi.Input<string>;
     storageConnectors?: pulumi.Input<pulumi.Input<inputs.appstream.StackStorageConnectorArgs>[]>;
     streamingExperienceSettings?: pulumi.Input<inputs.appstream.StackStreamingExperienceSettingsArgs>;
     tags?: pulumi.Input<pulumi.Input<inputs.appstream.StackTagArgs>[]>;

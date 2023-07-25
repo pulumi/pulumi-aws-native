@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Pipes.Outputs
     public sealed class PipeTargetEcsTaskParameters
     {
         public readonly ImmutableArray<Outputs.PipeCapacityProviderStrategyItem> CapacityProviderStrategy;
-        public readonly bool? EnableECSManagedTags;
+        public readonly bool? EnableEcsManagedTags;
         public readonly bool? EnableExecuteCommand;
         public readonly string? Group;
         public readonly Pulumi.AwsNative.Pipes.PipeLaunchType? LaunchType;
@@ -33,7 +33,7 @@ namespace Pulumi.AwsNative.Pipes.Outputs
         private PipeTargetEcsTaskParameters(
             ImmutableArray<Outputs.PipeCapacityProviderStrategyItem> capacityProviderStrategy,
 
-            bool? enableECSManagedTags,
+            bool? enableEcsManagedTags,
 
             bool? enableExecuteCommand,
 
@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.Pipes.Outputs
             string taskDefinitionArn)
         {
             CapacityProviderStrategy = capacityProviderStrategy;
-            EnableECSManagedTags = enableECSManagedTags;
+            EnableEcsManagedTags = enableEcsManagedTags;
             EnableExecuteCommand = enableExecuteCommand;
             Group = group;
             LaunchType = launchType;

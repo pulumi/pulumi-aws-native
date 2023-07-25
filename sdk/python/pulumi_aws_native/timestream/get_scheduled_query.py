@@ -19,34 +19,34 @@ __all__ = [
 
 @pulumi.output_type
 class GetScheduledQueryResult:
-    def __init__(__self__, arn=None, s_q_error_report_configuration=None, s_q_kms_key_id=None, s_q_name=None, s_q_notification_configuration=None, s_q_query_string=None, s_q_schedule_configuration=None, s_q_scheduled_query_execution_role_arn=None, s_q_target_configuration=None, tags=None):
+    def __init__(__self__, arn=None, sq_error_report_configuration=None, sq_kms_key_id=None, sq_name=None, sq_notification_configuration=None, sq_query_string=None, sq_schedule_configuration=None, sq_scheduled_query_execution_role_arn=None, sq_target_configuration=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
-        if s_q_error_report_configuration and not isinstance(s_q_error_report_configuration, str):
-            raise TypeError("Expected argument 's_q_error_report_configuration' to be a str")
-        pulumi.set(__self__, "s_q_error_report_configuration", s_q_error_report_configuration)
-        if s_q_kms_key_id and not isinstance(s_q_kms_key_id, str):
-            raise TypeError("Expected argument 's_q_kms_key_id' to be a str")
-        pulumi.set(__self__, "s_q_kms_key_id", s_q_kms_key_id)
-        if s_q_name and not isinstance(s_q_name, str):
-            raise TypeError("Expected argument 's_q_name' to be a str")
-        pulumi.set(__self__, "s_q_name", s_q_name)
-        if s_q_notification_configuration and not isinstance(s_q_notification_configuration, str):
-            raise TypeError("Expected argument 's_q_notification_configuration' to be a str")
-        pulumi.set(__self__, "s_q_notification_configuration", s_q_notification_configuration)
-        if s_q_query_string and not isinstance(s_q_query_string, str):
-            raise TypeError("Expected argument 's_q_query_string' to be a str")
-        pulumi.set(__self__, "s_q_query_string", s_q_query_string)
-        if s_q_schedule_configuration and not isinstance(s_q_schedule_configuration, str):
-            raise TypeError("Expected argument 's_q_schedule_configuration' to be a str")
-        pulumi.set(__self__, "s_q_schedule_configuration", s_q_schedule_configuration)
-        if s_q_scheduled_query_execution_role_arn and not isinstance(s_q_scheduled_query_execution_role_arn, str):
-            raise TypeError("Expected argument 's_q_scheduled_query_execution_role_arn' to be a str")
-        pulumi.set(__self__, "s_q_scheduled_query_execution_role_arn", s_q_scheduled_query_execution_role_arn)
-        if s_q_target_configuration and not isinstance(s_q_target_configuration, str):
-            raise TypeError("Expected argument 's_q_target_configuration' to be a str")
-        pulumi.set(__self__, "s_q_target_configuration", s_q_target_configuration)
+        if sq_error_report_configuration and not isinstance(sq_error_report_configuration, str):
+            raise TypeError("Expected argument 'sq_error_report_configuration' to be a str")
+        pulumi.set(__self__, "sq_error_report_configuration", sq_error_report_configuration)
+        if sq_kms_key_id and not isinstance(sq_kms_key_id, str):
+            raise TypeError("Expected argument 'sq_kms_key_id' to be a str")
+        pulumi.set(__self__, "sq_kms_key_id", sq_kms_key_id)
+        if sq_name and not isinstance(sq_name, str):
+            raise TypeError("Expected argument 'sq_name' to be a str")
+        pulumi.set(__self__, "sq_name", sq_name)
+        if sq_notification_configuration and not isinstance(sq_notification_configuration, str):
+            raise TypeError("Expected argument 'sq_notification_configuration' to be a str")
+        pulumi.set(__self__, "sq_notification_configuration", sq_notification_configuration)
+        if sq_query_string and not isinstance(sq_query_string, str):
+            raise TypeError("Expected argument 'sq_query_string' to be a str")
+        pulumi.set(__self__, "sq_query_string", sq_query_string)
+        if sq_schedule_configuration and not isinstance(sq_schedule_configuration, str):
+            raise TypeError("Expected argument 'sq_schedule_configuration' to be a str")
+        pulumi.set(__self__, "sq_schedule_configuration", sq_schedule_configuration)
+        if sq_scheduled_query_execution_role_arn and not isinstance(sq_scheduled_query_execution_role_arn, str):
+            raise TypeError("Expected argument 'sq_scheduled_query_execution_role_arn' to be a str")
+        pulumi.set(__self__, "sq_scheduled_query_execution_role_arn", sq_scheduled_query_execution_role_arn)
+        if sq_target_configuration and not isinstance(sq_target_configuration, str):
+            raise TypeError("Expected argument 'sq_target_configuration' to be a str")
+        pulumi.set(__self__, "sq_target_configuration", sq_target_configuration)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -57,68 +57,68 @@ class GetScheduledQueryResult:
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="sQErrorReportConfiguration")
-    def s_q_error_report_configuration(self) -> Optional[str]:
+    @pulumi.getter(name="sqErrorReportConfiguration")
+    def sq_error_report_configuration(self) -> Optional[str]:
         """
         Configuration for error reporting. Error reports will be generated when a problem is encountered when writing the query results.
         """
-        return pulumi.get(self, "s_q_error_report_configuration")
+        return pulumi.get(self, "sq_error_report_configuration")
 
     @property
-    @pulumi.getter(name="sQKmsKeyId")
-    def s_q_kms_key_id(self) -> Optional[str]:
+    @pulumi.getter(name="sqKmsKeyId")
+    def sq_kms_key_id(self) -> Optional[str]:
         """
         The Amazon KMS key used to encrypt the scheduled query resource, at-rest. If the Amazon KMS key is not specified, the scheduled query resource will be encrypted with a Timestream owned Amazon KMS key. To specify a KMS key, use the key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix the name with alias/. If ErrorReportConfiguration uses SSE_KMS as encryption type, the same KmsKeyId is used to encrypt the error report at rest.
         """
-        return pulumi.get(self, "s_q_kms_key_id")
+        return pulumi.get(self, "sq_kms_key_id")
 
     @property
-    @pulumi.getter(name="sQName")
-    def s_q_name(self) -> Optional[str]:
+    @pulumi.getter(name="sqName")
+    def sq_name(self) -> Optional[str]:
         """
         The name of the scheduled query. Scheduled query names must be unique within each Region.
         """
-        return pulumi.get(self, "s_q_name")
+        return pulumi.get(self, "sq_name")
 
     @property
-    @pulumi.getter(name="sQNotificationConfiguration")
-    def s_q_notification_configuration(self) -> Optional[str]:
+    @pulumi.getter(name="sqNotificationConfiguration")
+    def sq_notification_configuration(self) -> Optional[str]:
         """
         Notification configuration for the scheduled query. A notification is sent by Timestream when a query run finishes, when the state is updated or when you delete it.
         """
-        return pulumi.get(self, "s_q_notification_configuration")
+        return pulumi.get(self, "sq_notification_configuration")
 
     @property
-    @pulumi.getter(name="sQQueryString")
-    def s_q_query_string(self) -> Optional[str]:
+    @pulumi.getter(name="sqQueryString")
+    def sq_query_string(self) -> Optional[str]:
         """
         The query string to run. Parameter names can be specified in the query string @ character followed by an identifier. The named Parameter @scheduled_runtime is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the ScheduleConfiguration parameter, will be the value of @scheduled_runtime paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the @scheduled_runtime parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
         """
-        return pulumi.get(self, "s_q_query_string")
+        return pulumi.get(self, "sq_query_string")
 
     @property
-    @pulumi.getter(name="sQScheduleConfiguration")
-    def s_q_schedule_configuration(self) -> Optional[str]:
+    @pulumi.getter(name="sqScheduleConfiguration")
+    def sq_schedule_configuration(self) -> Optional[str]:
         """
         Configuration for when the scheduled query is executed.
         """
-        return pulumi.get(self, "s_q_schedule_configuration")
+        return pulumi.get(self, "sq_schedule_configuration")
 
     @property
-    @pulumi.getter(name="sQScheduledQueryExecutionRoleArn")
-    def s_q_scheduled_query_execution_role_arn(self) -> Optional[str]:
+    @pulumi.getter(name="sqScheduledQueryExecutionRoleArn")
+    def sq_scheduled_query_execution_role_arn(self) -> Optional[str]:
         """
         The ARN for the IAM role that Timestream will assume when running the scheduled query.
         """
-        return pulumi.get(self, "s_q_scheduled_query_execution_role_arn")
+        return pulumi.get(self, "sq_scheduled_query_execution_role_arn")
 
     @property
-    @pulumi.getter(name="sQTargetConfiguration")
-    def s_q_target_configuration(self) -> Optional[str]:
+    @pulumi.getter(name="sqTargetConfiguration")
+    def sq_target_configuration(self) -> Optional[str]:
         """
         Configuration of target store where scheduled query results are written to.
         """
-        return pulumi.get(self, "s_q_target_configuration")
+        return pulumi.get(self, "sq_target_configuration")
 
     @property
     @pulumi.getter
@@ -133,14 +133,14 @@ class AwaitableGetScheduledQueryResult(GetScheduledQueryResult):
             yield self
         return GetScheduledQueryResult(
             arn=self.arn,
-            s_q_error_report_configuration=self.s_q_error_report_configuration,
-            s_q_kms_key_id=self.s_q_kms_key_id,
-            s_q_name=self.s_q_name,
-            s_q_notification_configuration=self.s_q_notification_configuration,
-            s_q_query_string=self.s_q_query_string,
-            s_q_schedule_configuration=self.s_q_schedule_configuration,
-            s_q_scheduled_query_execution_role_arn=self.s_q_scheduled_query_execution_role_arn,
-            s_q_target_configuration=self.s_q_target_configuration,
+            sq_error_report_configuration=self.sq_error_report_configuration,
+            sq_kms_key_id=self.sq_kms_key_id,
+            sq_name=self.sq_name,
+            sq_notification_configuration=self.sq_notification_configuration,
+            sq_query_string=self.sq_query_string,
+            sq_schedule_configuration=self.sq_schedule_configuration,
+            sq_scheduled_query_execution_role_arn=self.sq_scheduled_query_execution_role_arn,
+            sq_target_configuration=self.sq_target_configuration,
             tags=self.tags)
 
 
@@ -156,14 +156,14 @@ def get_scheduled_query(arn: Optional[str] = None,
 
     return AwaitableGetScheduledQueryResult(
         arn=pulumi.get(__ret__, 'arn'),
-        s_q_error_report_configuration=pulumi.get(__ret__, 's_q_error_report_configuration'),
-        s_q_kms_key_id=pulumi.get(__ret__, 's_q_kms_key_id'),
-        s_q_name=pulumi.get(__ret__, 's_q_name'),
-        s_q_notification_configuration=pulumi.get(__ret__, 's_q_notification_configuration'),
-        s_q_query_string=pulumi.get(__ret__, 's_q_query_string'),
-        s_q_schedule_configuration=pulumi.get(__ret__, 's_q_schedule_configuration'),
-        s_q_scheduled_query_execution_role_arn=pulumi.get(__ret__, 's_q_scheduled_query_execution_role_arn'),
-        s_q_target_configuration=pulumi.get(__ret__, 's_q_target_configuration'),
+        sq_error_report_configuration=pulumi.get(__ret__, 'sq_error_report_configuration'),
+        sq_kms_key_id=pulumi.get(__ret__, 'sq_kms_key_id'),
+        sq_name=pulumi.get(__ret__, 'sq_name'),
+        sq_notification_configuration=pulumi.get(__ret__, 'sq_notification_configuration'),
+        sq_query_string=pulumi.get(__ret__, 'sq_query_string'),
+        sq_schedule_configuration=pulumi.get(__ret__, 'sq_schedule_configuration'),
+        sq_scheduled_query_execution_role_arn=pulumi.get(__ret__, 'sq_scheduled_query_execution_role_arn'),
+        sq_target_configuration=pulumi.get(__ret__, 'sq_target_configuration'),
         tags=pulumi.get(__ret__, 'tags'))
 
 

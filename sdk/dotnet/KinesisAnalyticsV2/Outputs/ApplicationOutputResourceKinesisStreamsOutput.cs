@@ -13,12 +13,12 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Outputs
     [OutputType]
     public sealed class ApplicationOutputResourceKinesisStreamsOutput
     {
-        public readonly string ResourceARN;
+        public readonly string ResourceArn;
 
         [OutputConstructor]
-        private ApplicationOutputResourceKinesisStreamsOutput(string resourceARN)
+        private ApplicationOutputResourceKinesisStreamsOutput(string resourceArn)
         {
-            ResourceARN = resourceARN;
+            ResourceArn = resourceArn;
         }
     }
 }

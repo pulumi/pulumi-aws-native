@@ -33,16 +33,16 @@ type LookupUserPoolClientResult struct {
 	AllowedOAuthScopes                       []string                              `pulumi:"allowedOAuthScopes"`
 	AnalyticsConfiguration                   *UserPoolClientAnalyticsConfiguration `pulumi:"analyticsConfiguration"`
 	AuthSessionValidity                      *int                                  `pulumi:"authSessionValidity"`
-	CallbackURLs                             []string                              `pulumi:"callbackURLs"`
+	CallbackUrls                             []string                              `pulumi:"callbackUrls"`
 	ClientName                               *string                               `pulumi:"clientName"`
 	ClientSecret                             *string                               `pulumi:"clientSecret"`
-	DefaultRedirectURI                       *string                               `pulumi:"defaultRedirectURI"`
+	DefaultRedirectUri                       *string                               `pulumi:"defaultRedirectUri"`
 	EnablePropagateAdditionalUserContextData *bool                                 `pulumi:"enablePropagateAdditionalUserContextData"`
 	EnableTokenRevocation                    *bool                                 `pulumi:"enableTokenRevocation"`
 	ExplicitAuthFlows                        []string                              `pulumi:"explicitAuthFlows"`
 	Id                                       *string                               `pulumi:"id"`
 	IdTokenValidity                          *int                                  `pulumi:"idTokenValidity"`
-	LogoutURLs                               []string                              `pulumi:"logoutURLs"`
+	LogoutUrls                               []string                              `pulumi:"logoutUrls"`
 	Name                                     *string                               `pulumi:"name"`
 	PreventUserExistenceErrors               *string                               `pulumi:"preventUserExistenceErrors"`
 	ReadAttributes                           []string                              `pulumi:"readAttributes"`
@@ -113,8 +113,8 @@ func (o LookupUserPoolClientResultOutput) AuthSessionValidity() pulumi.IntPtrOut
 	return o.ApplyT(func(v LookupUserPoolClientResult) *int { return v.AuthSessionValidity }).(pulumi.IntPtrOutput)
 }
 
-func (o LookupUserPoolClientResultOutput) CallbackURLs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v LookupUserPoolClientResult) []string { return v.CallbackURLs }).(pulumi.StringArrayOutput)
+func (o LookupUserPoolClientResultOutput) CallbackUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupUserPoolClientResult) []string { return v.CallbackUrls }).(pulumi.StringArrayOutput)
 }
 
 func (o LookupUserPoolClientResultOutput) ClientName() pulumi.StringPtrOutput {
@@ -125,8 +125,8 @@ func (o LookupUserPoolClientResultOutput) ClientSecret() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v LookupUserPoolClientResult) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupUserPoolClientResultOutput) DefaultRedirectURI() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupUserPoolClientResult) *string { return v.DefaultRedirectURI }).(pulumi.StringPtrOutput)
+func (o LookupUserPoolClientResultOutput) DefaultRedirectUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserPoolClientResult) *string { return v.DefaultRedirectUri }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupUserPoolClientResultOutput) EnablePropagateAdditionalUserContextData() pulumi.BoolPtrOutput {
@@ -149,8 +149,8 @@ func (o LookupUserPoolClientResultOutput) IdTokenValidity() pulumi.IntPtrOutput 
 	return o.ApplyT(func(v LookupUserPoolClientResult) *int { return v.IdTokenValidity }).(pulumi.IntPtrOutput)
 }
 
-func (o LookupUserPoolClientResultOutput) LogoutURLs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v LookupUserPoolClientResult) []string { return v.LogoutURLs }).(pulumi.StringArrayOutput)
+func (o LookupUserPoolClientResultOutput) LogoutUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupUserPoolClientResult) []string { return v.LogoutUrls }).(pulumi.StringArrayOutput)
 }
 
 func (o LookupUserPoolClientResultOutput) Name() pulumi.StringPtrOutput {

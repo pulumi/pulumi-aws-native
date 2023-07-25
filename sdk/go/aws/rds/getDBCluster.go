@@ -24,7 +24,7 @@ func LookupDBCluster(ctx *pulumi.Context, args *LookupDBClusterArgs, opts ...pul
 
 type LookupDBClusterArgs struct {
 	// The DB cluster identifier. This parameter is stored as a lowercase string.
-	DBClusterIdentifier string `pulumi:"dBClusterIdentifier"`
+	DbClusterIdentifier string `pulumi:"dbClusterIdentifier"`
 }
 
 type LookupDBClusterResult struct {
@@ -41,25 +41,25 @@ type LookupDBClusterResult struct {
 	// A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default is not to copy them.
 	CopyTagsToSnapshot *bool `pulumi:"copyTagsToSnapshot"`
 	// The Amazon Resource Name (ARN) for the DB cluster.
-	DBClusterArn *string `pulumi:"dBClusterArn"`
+	DbClusterArn *string `pulumi:"dbClusterArn"`
 	// The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge.
-	DBClusterInstanceClass *string `pulumi:"dBClusterInstanceClass"`
+	DbClusterInstanceClass *string `pulumi:"dbClusterInstanceClass"`
 	// The name of the DB cluster parameter group to associate with this DB cluster.
-	DBClusterParameterGroupName *string `pulumi:"dBClusterParameterGroupName"`
+	DbClusterParameterGroupName *string `pulumi:"dbClusterParameterGroupName"`
 	// The AWS Region-unique, immutable identifier for the DB cluster.
-	DBClusterResourceId *string `pulumi:"dBClusterResourceId"`
+	DbClusterResourceId *string `pulumi:"dbClusterResourceId"`
 	// A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
 	DeletionProtection *bool `pulumi:"deletionProtection"`
 	// The Active Directory directory ID to create the DB cluster in.
 	Domain *string `pulumi:"domain"`
 	// Specify the name of the IAM role to be used when making API calls to the Directory Service.
-	DomainIAMRoleName *string `pulumi:"domainIAMRoleName"`
+	DomainIamRoleName *string `pulumi:"domainIamRoleName"`
 	// The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see Publishing Database Logs to Amazon CloudWatch Logs in the Amazon Aurora User Guide.
 	EnableCloudwatchLogsExports []string `pulumi:"enableCloudwatchLogsExports"`
 	// A value that indicates whether to enable the HTTP endpoint for an Aurora Serverless DB cluster. By default, the HTTP endpoint is disabled.
 	EnableHttpEndpoint *bool `pulumi:"enableHttpEndpoint"`
 	// A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
-	EnableIAMDatabaseAuthentication *bool              `pulumi:"enableIAMDatabaseAuthentication"`
+	EnableIamDatabaseAuthentication *bool              `pulumi:"enableIamDatabaseAuthentication"`
 	Endpoint                        *DBClusterEndpoint `pulumi:"endpoint"`
 	// The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora), and aurora-postgresql
 	Engine *string `pulumi:"engine"`
@@ -125,7 +125,7 @@ func LookupDBClusterOutput(ctx *pulumi.Context, args LookupDBClusterOutputArgs, 
 
 type LookupDBClusterOutputArgs struct {
 	// The DB cluster identifier. This parameter is stored as a lowercase string.
-	DBClusterIdentifier pulumi.StringInput `pulumi:"dBClusterIdentifier"`
+	DbClusterIdentifier pulumi.StringInput `pulumi:"dbClusterIdentifier"`
 }
 
 func (LookupDBClusterOutputArgs) ElementType() reflect.Type {
@@ -177,23 +177,23 @@ func (o LookupDBClusterResultOutput) CopyTagsToSnapshot() pulumi.BoolPtrOutput {
 }
 
 // The Amazon Resource Name (ARN) for the DB cluster.
-func (o LookupDBClusterResultOutput) DBClusterArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupDBClusterResult) *string { return v.DBClusterArn }).(pulumi.StringPtrOutput)
+func (o LookupDBClusterResultOutput) DbClusterArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDBClusterResult) *string { return v.DbClusterArn }).(pulumi.StringPtrOutput)
 }
 
 // The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge.
-func (o LookupDBClusterResultOutput) DBClusterInstanceClass() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupDBClusterResult) *string { return v.DBClusterInstanceClass }).(pulumi.StringPtrOutput)
+func (o LookupDBClusterResultOutput) DbClusterInstanceClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDBClusterResult) *string { return v.DbClusterInstanceClass }).(pulumi.StringPtrOutput)
 }
 
 // The name of the DB cluster parameter group to associate with this DB cluster.
-func (o LookupDBClusterResultOutput) DBClusterParameterGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupDBClusterResult) *string { return v.DBClusterParameterGroupName }).(pulumi.StringPtrOutput)
+func (o LookupDBClusterResultOutput) DbClusterParameterGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDBClusterResult) *string { return v.DbClusterParameterGroupName }).(pulumi.StringPtrOutput)
 }
 
 // The AWS Region-unique, immutable identifier for the DB cluster.
-func (o LookupDBClusterResultOutput) DBClusterResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupDBClusterResult) *string { return v.DBClusterResourceId }).(pulumi.StringPtrOutput)
+func (o LookupDBClusterResultOutput) DbClusterResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDBClusterResult) *string { return v.DbClusterResourceId }).(pulumi.StringPtrOutput)
 }
 
 // A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
@@ -207,8 +207,8 @@ func (o LookupDBClusterResultOutput) Domain() pulumi.StringPtrOutput {
 }
 
 // Specify the name of the IAM role to be used when making API calls to the Directory Service.
-func (o LookupDBClusterResultOutput) DomainIAMRoleName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupDBClusterResult) *string { return v.DomainIAMRoleName }).(pulumi.StringPtrOutput)
+func (o LookupDBClusterResultOutput) DomainIamRoleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDBClusterResult) *string { return v.DomainIamRoleName }).(pulumi.StringPtrOutput)
 }
 
 // The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see Publishing Database Logs to Amazon CloudWatch Logs in the Amazon Aurora User Guide.
@@ -222,8 +222,8 @@ func (o LookupDBClusterResultOutput) EnableHttpEndpoint() pulumi.BoolPtrOutput {
 }
 
 // A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
-func (o LookupDBClusterResultOutput) EnableIAMDatabaseAuthentication() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LookupDBClusterResult) *bool { return v.EnableIAMDatabaseAuthentication }).(pulumi.BoolPtrOutput)
+func (o LookupDBClusterResultOutput) EnableIamDatabaseAuthentication() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupDBClusterResult) *bool { return v.EnableIamDatabaseAuthentication }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupDBClusterResultOutput) Endpoint() DBClusterEndpointPtrOutput {

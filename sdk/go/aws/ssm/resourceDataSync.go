@@ -19,7 +19,7 @@ type ResourceDataSync struct {
 	BucketName    pulumi.StringPtrOutput                 `pulumi:"bucketName"`
 	BucketPrefix  pulumi.StringPtrOutput                 `pulumi:"bucketPrefix"`
 	BucketRegion  pulumi.StringPtrOutput                 `pulumi:"bucketRegion"`
-	KMSKeyArn     pulumi.StringPtrOutput                 `pulumi:"kMSKeyArn"`
+	KmsKeyArn     pulumi.StringPtrOutput                 `pulumi:"kmsKeyArn"`
 	S3Destination ResourceDataSyncS3DestinationPtrOutput `pulumi:"s3Destination"`
 	SyncFormat    pulumi.StringPtrOutput                 `pulumi:"syncFormat"`
 	SyncName      pulumi.StringOutput                    `pulumi:"syncName"`
@@ -73,7 +73,7 @@ type resourceDataSyncArgs struct {
 	BucketName    *string                        `pulumi:"bucketName"`
 	BucketPrefix  *string                        `pulumi:"bucketPrefix"`
 	BucketRegion  *string                        `pulumi:"bucketRegion"`
-	KMSKeyArn     *string                        `pulumi:"kMSKeyArn"`
+	KmsKeyArn     *string                        `pulumi:"kmsKeyArn"`
 	S3Destination *ResourceDataSyncS3Destination `pulumi:"s3Destination"`
 	SyncFormat    *string                        `pulumi:"syncFormat"`
 	SyncName      string                         `pulumi:"syncName"`
@@ -86,7 +86,7 @@ type ResourceDataSyncArgs struct {
 	BucketName    pulumi.StringPtrInput
 	BucketPrefix  pulumi.StringPtrInput
 	BucketRegion  pulumi.StringPtrInput
-	KMSKeyArn     pulumi.StringPtrInput
+	KmsKeyArn     pulumi.StringPtrInput
 	S3Destination ResourceDataSyncS3DestinationPtrInput
 	SyncFormat    pulumi.StringPtrInput
 	SyncName      pulumi.StringInput
@@ -143,8 +143,8 @@ func (o ResourceDataSyncOutput) BucketRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceDataSync) pulumi.StringPtrOutput { return v.BucketRegion }).(pulumi.StringPtrOutput)
 }
 
-func (o ResourceDataSyncOutput) KMSKeyArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ResourceDataSync) pulumi.StringPtrOutput { return v.KMSKeyArn }).(pulumi.StringPtrOutput)
+func (o ResourceDataSyncOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceDataSync) pulumi.StringPtrOutput { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
 func (o ResourceDataSyncOutput) S3Destination() ResourceDataSyncS3DestinationPtrOutput {

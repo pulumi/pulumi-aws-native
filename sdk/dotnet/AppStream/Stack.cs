@@ -37,14 +37,14 @@ namespace Pulumi.AwsNative.AppStream
         [Output("embedHostDomains")]
         public Output<ImmutableArray<string>> EmbedHostDomains { get; private set; } = null!;
 
-        [Output("feedbackURL")]
-        public Output<string?> FeedbackURL { get; private set; } = null!;
+        [Output("feedbackUrl")]
+        public Output<string?> FeedbackUrl { get; private set; } = null!;
 
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
-        [Output("redirectURL")]
-        public Output<string?> RedirectURL { get; private set; } = null!;
+        [Output("redirectUrl")]
+        public Output<string?> RedirectUrl { get; private set; } = null!;
 
         [Output("storageConnectors")]
         public Output<ImmutableArray<Outputs.StackStorageConnector>> StorageConnectors { get; private set; } = null!;
@@ -139,14 +139,14 @@ namespace Pulumi.AwsNative.AppStream
             set => _embedHostDomains = value;
         }
 
-        [Input("feedbackURL")]
-        public Input<string>? FeedbackURL { get; set; }
+        [Input("feedbackUrl")]
+        public Input<string>? FeedbackUrl { get; set; }
 
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("redirectURL")]
-        public Input<string>? RedirectURL { get; set; }
+        [Input("redirectUrl")]
+        public Input<string>? RedirectUrl { get; set; }
 
         [Input("storageConnectors")]
         private InputList<Inputs.StackStorageConnectorArgs>? _storageConnectors;

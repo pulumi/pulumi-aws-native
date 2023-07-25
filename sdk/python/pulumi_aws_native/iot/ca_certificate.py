@@ -17,7 +17,7 @@ __all__ = ['CACertificateArgs', 'CACertificate']
 @pulumi.input_type
 class CACertificateArgs:
     def __init__(__self__, *,
-                 c_a_certificate_pem: pulumi.Input[str],
+                 ca_certificate_pem: pulumi.Input[str],
                  status: pulumi.Input['CACertificateStatus'],
                  auto_registration_status: Optional[pulumi.Input['CACertificateAutoRegistrationStatus']] = None,
                  certificate_mode: Optional[pulumi.Input['CACertificateCertificateMode']] = None,
@@ -30,7 +30,7 @@ class CACertificateArgs:
         :param pulumi.Input[Sequence[pulumi.Input['CACertificateTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[str] verification_certificate_pem: The private key verification certificate.
         """
-        pulumi.set(__self__, "c_a_certificate_pem", c_a_certificate_pem)
+        pulumi.set(__self__, "ca_certificate_pem", ca_certificate_pem)
         pulumi.set(__self__, "status", status)
         if auto_registration_status is not None:
             pulumi.set(__self__, "auto_registration_status", auto_registration_status)
@@ -46,13 +46,13 @@ class CACertificateArgs:
             pulumi.set(__self__, "verification_certificate_pem", verification_certificate_pem)
 
     @property
-    @pulumi.getter(name="cACertificatePem")
-    def c_a_certificate_pem(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "c_a_certificate_pem")
+    @pulumi.getter(name="caCertificatePem")
+    def ca_certificate_pem(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "ca_certificate_pem")
 
-    @c_a_certificate_pem.setter
-    def c_a_certificate_pem(self, value: pulumi.Input[str]):
-        pulumi.set(self, "c_a_certificate_pem", value)
+    @ca_certificate_pem.setter
+    def ca_certificate_pem(self, value: pulumi.Input[str]):
+        pulumi.set(self, "ca_certificate_pem", value)
 
     @property
     @pulumi.getter
@@ -130,7 +130,7 @@ class CACertificate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_registration_status: Optional[pulumi.Input['CACertificateAutoRegistrationStatus']] = None,
-                 c_a_certificate_pem: Optional[pulumi.Input[str]] = None,
+                 ca_certificate_pem: Optional[pulumi.Input[str]] = None,
                  certificate_mode: Optional[pulumi.Input['CACertificateCertificateMode']] = None,
                  registration_config: Optional[pulumi.Input[pulumi.InputType['CACertificateRegistrationConfigArgs']]] = None,
                  remove_auto_registration: Optional[pulumi.Input[bool]] = None,
@@ -171,7 +171,7 @@ class CACertificate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_registration_status: Optional[pulumi.Input['CACertificateAutoRegistrationStatus']] = None,
-                 c_a_certificate_pem: Optional[pulumi.Input[str]] = None,
+                 ca_certificate_pem: Optional[pulumi.Input[str]] = None,
                  certificate_mode: Optional[pulumi.Input['CACertificateCertificateMode']] = None,
                  registration_config: Optional[pulumi.Input[pulumi.InputType['CACertificateRegistrationConfigArgs']]] = None,
                  remove_auto_registration: Optional[pulumi.Input[bool]] = None,
@@ -188,9 +188,9 @@ class CACertificate(pulumi.CustomResource):
             __props__ = CACertificateArgs.__new__(CACertificateArgs)
 
             __props__.__dict__["auto_registration_status"] = auto_registration_status
-            if c_a_certificate_pem is None and not opts.urn:
-                raise TypeError("Missing required property 'c_a_certificate_pem'")
-            __props__.__dict__["c_a_certificate_pem"] = c_a_certificate_pem
+            if ca_certificate_pem is None and not opts.urn:
+                raise TypeError("Missing required property 'ca_certificate_pem'")
+            __props__.__dict__["ca_certificate_pem"] = ca_certificate_pem
             __props__.__dict__["certificate_mode"] = certificate_mode
             __props__.__dict__["registration_config"] = registration_config
             __props__.__dict__["remove_auto_registration"] = remove_auto_registration
@@ -224,7 +224,7 @@ class CACertificate(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["auto_registration_status"] = None
-        __props__.__dict__["c_a_certificate_pem"] = None
+        __props__.__dict__["ca_certificate_pem"] = None
         __props__.__dict__["certificate_mode"] = None
         __props__.__dict__["registration_config"] = None
         __props__.__dict__["remove_auto_registration"] = None
@@ -244,9 +244,9 @@ class CACertificate(pulumi.CustomResource):
         return pulumi.get(self, "auto_registration_status")
 
     @property
-    @pulumi.getter(name="cACertificatePem")
-    def c_a_certificate_pem(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "c_a_certificate_pem")
+    @pulumi.getter(name="caCertificatePem")
+    def ca_certificate_pem(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "ca_certificate_pem")
 
     @property
     @pulumi.getter(name="certificateMode")

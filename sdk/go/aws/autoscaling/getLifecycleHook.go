@@ -39,9 +39,9 @@ type LookupLifecycleHookResult struct {
 	// Additional information that is included any time Amazon EC2 Auto Scaling sends a message to the notification target.
 	NotificationMetadata *string `pulumi:"notificationMetadata"`
 	// The Amazon Resource Name (ARN) of the notification target that Amazon EC2 Auto Scaling uses to notify you when an instance is in the transition state for the lifecycle hook. You can specify an Amazon SQS queue or an Amazon SNS topic. The notification message includes the following information: lifecycle action token, user account ID, Auto Scaling group name, lifecycle hook name, instance ID, lifecycle transition, and notification metadata.
-	NotificationTargetARN *string `pulumi:"notificationTargetARN"`
+	NotificationTargetArn *string `pulumi:"notificationTargetArn"`
 	// The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target, for example, an Amazon SNS topic or an Amazon SQS queue.
-	RoleARN *string `pulumi:"roleARN"`
+	RoleArn *string `pulumi:"roleArn"`
 }
 
 func LookupLifecycleHookOutput(ctx *pulumi.Context, args LookupLifecycleHookOutputArgs, opts ...pulumi.InvokeOption) LookupLifecycleHookResultOutput {
@@ -103,13 +103,13 @@ func (o LookupLifecycleHookResultOutput) NotificationMetadata() pulumi.StringPtr
 }
 
 // The Amazon Resource Name (ARN) of the notification target that Amazon EC2 Auto Scaling uses to notify you when an instance is in the transition state for the lifecycle hook. You can specify an Amazon SQS queue or an Amazon SNS topic. The notification message includes the following information: lifecycle action token, user account ID, Auto Scaling group name, lifecycle hook name, instance ID, lifecycle transition, and notification metadata.
-func (o LookupLifecycleHookResultOutput) NotificationTargetARN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupLifecycleHookResult) *string { return v.NotificationTargetARN }).(pulumi.StringPtrOutput)
+func (o LookupLifecycleHookResultOutput) NotificationTargetArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLifecycleHookResult) *string { return v.NotificationTargetArn }).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target, for example, an Amazon SNS topic or an Amazon SQS queue.
-func (o LookupLifecycleHookResultOutput) RoleARN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupLifecycleHookResult) *string { return v.RoleARN }).(pulumi.StringPtrOutput)
+func (o LookupLifecycleHookResultOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLifecycleHookResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
 func init() {

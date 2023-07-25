@@ -308,7 +308,7 @@ class ConfigDecodeConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "unvalidatedJSON":
+        if key == "unvalidatedJson":
             suggest = "unvalidated_json"
 
         if suggest:
@@ -328,7 +328,7 @@ class ConfigDecodeConfig(dict):
             pulumi.set(__self__, "unvalidated_json", unvalidated_json)
 
     @property
-    @pulumi.getter(name="unvalidatedJSON")
+    @pulumi.getter(name="unvalidatedJson")
     def unvalidated_json(self) -> Optional[str]:
         return pulumi.get(self, "unvalidated_json")
 
@@ -338,7 +338,7 @@ class ConfigDemodulationConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "unvalidatedJSON":
+        if key == "unvalidatedJson":
             suggest = "unvalidated_json"
 
         if suggest:
@@ -358,7 +358,7 @@ class ConfigDemodulationConfig(dict):
             pulumi.set(__self__, "unvalidated_json", unvalidated_json)
 
     @property
-    @pulumi.getter(name="unvalidatedJSON")
+    @pulumi.getter(name="unvalidatedJson")
     def unvalidated_json(self) -> Optional[str]:
         return pulumi.get(self, "unvalidated_json")
 

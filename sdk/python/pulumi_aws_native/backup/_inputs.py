@@ -503,9 +503,9 @@ class BackupVaultLockConfigurationTypeArgs:
 class BackupVaultNotificationObjectTypeArgs:
     def __init__(__self__, *,
                  backup_vault_events: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 s_ns_topic_arn: pulumi.Input[str]):
+                 sns_topic_arn: pulumi.Input[str]):
         pulumi.set(__self__, "backup_vault_events", backup_vault_events)
-        pulumi.set(__self__, "s_ns_topic_arn", s_ns_topic_arn)
+        pulumi.set(__self__, "sns_topic_arn", sns_topic_arn)
 
     @property
     @pulumi.getter(name="backupVaultEvents")
@@ -517,13 +517,13 @@ class BackupVaultNotificationObjectTypeArgs:
         pulumi.set(self, "backup_vault_events", value)
 
     @property
-    @pulumi.getter(name="sNSTopicArn")
-    def s_ns_topic_arn(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "s_ns_topic_arn")
+    @pulumi.getter(name="snsTopicArn")
+    def sns_topic_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "sns_topic_arn")
 
-    @s_ns_topic_arn.setter
-    def s_ns_topic_arn(self, value: pulumi.Input[str]):
-        pulumi.set(self, "s_ns_topic_arn", value)
+    @sns_topic_arn.setter
+    def sns_topic_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "sns_topic_arn", value)
 
 
 @pulumi.input_type

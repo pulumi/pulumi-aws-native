@@ -40,14 +40,14 @@ namespace Pulumi.AwsNative.Cognito
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        [Output("openIdConnectProviderARNs")]
-        public Output<ImmutableArray<string>> OpenIdConnectProviderARNs { get; private set; } = null!;
+        [Output("openIdConnectProviderArns")]
+        public Output<ImmutableArray<string>> OpenIdConnectProviderArns { get; private set; } = null!;
 
         [Output("pushSync")]
         public Output<Outputs.IdentityPoolPushSync?> PushSync { get; private set; } = null!;
 
-        [Output("samlProviderARNs")]
-        public Output<ImmutableArray<string>> SamlProviderARNs { get; private set; } = null!;
+        [Output("samlProviderArns")]
+        public Output<ImmutableArray<string>> SamlProviderArns { get; private set; } = null!;
 
         [Output("supportedLoginProviders")]
         public Output<object?> SupportedLoginProviders { get; private set; } = null!;
@@ -123,23 +123,23 @@ namespace Pulumi.AwsNative.Cognito
         [Input("identityPoolName")]
         public Input<string>? IdentityPoolName { get; set; }
 
-        [Input("openIdConnectProviderARNs")]
-        private InputList<string>? _openIdConnectProviderARNs;
-        public InputList<string> OpenIdConnectProviderARNs
+        [Input("openIdConnectProviderArns")]
+        private InputList<string>? _openIdConnectProviderArns;
+        public InputList<string> OpenIdConnectProviderArns
         {
-            get => _openIdConnectProviderARNs ?? (_openIdConnectProviderARNs = new InputList<string>());
-            set => _openIdConnectProviderARNs = value;
+            get => _openIdConnectProviderArns ?? (_openIdConnectProviderArns = new InputList<string>());
+            set => _openIdConnectProviderArns = value;
         }
 
         [Input("pushSync")]
         public Input<Inputs.IdentityPoolPushSyncArgs>? PushSync { get; set; }
 
-        [Input("samlProviderARNs")]
-        private InputList<string>? _samlProviderARNs;
-        public InputList<string> SamlProviderARNs
+        [Input("samlProviderArns")]
+        private InputList<string>? _samlProviderArns;
+        public InputList<string> SamlProviderArns
         {
-            get => _samlProviderARNs ?? (_samlProviderARNs = new InputList<string>());
-            set => _samlProviderARNs = value;
+            get => _samlProviderArns ?? (_samlProviderArns = new InputList<string>());
+            set => _samlProviderArns = value;
         }
 
         [Input("supportedLoginProviders")]

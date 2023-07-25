@@ -15,9 +15,9 @@ namespace Pulumi.AwsNative.Glue.Outputs
     {
         public readonly ImmutableArray<Outputs.CrawlerCatalogTarget> CatalogTargets;
         public readonly ImmutableArray<Outputs.CrawlerDeltaTarget> DeltaTargets;
-        public readonly ImmutableArray<Outputs.CrawlerDynamoDBTarget> DynamoDBTargets;
+        public readonly ImmutableArray<Outputs.CrawlerDynamoDBTarget> DynamoDbTargets;
         public readonly ImmutableArray<Outputs.CrawlerJdbcTarget> JdbcTargets;
-        public readonly ImmutableArray<Outputs.CrawlerMongoDBTarget> MongoDBTargets;
+        public readonly ImmutableArray<Outputs.CrawlerMongoDBTarget> MongoDbTargets;
         public readonly ImmutableArray<Outputs.CrawlerS3Target> S3Targets;
 
         [OutputConstructor]
@@ -26,19 +26,19 @@ namespace Pulumi.AwsNative.Glue.Outputs
 
             ImmutableArray<Outputs.CrawlerDeltaTarget> deltaTargets,
 
-            ImmutableArray<Outputs.CrawlerDynamoDBTarget> dynamoDBTargets,
+            ImmutableArray<Outputs.CrawlerDynamoDBTarget> dynamoDbTargets,
 
             ImmutableArray<Outputs.CrawlerJdbcTarget> jdbcTargets,
 
-            ImmutableArray<Outputs.CrawlerMongoDBTarget> mongoDBTargets,
+            ImmutableArray<Outputs.CrawlerMongoDBTarget> mongoDbTargets,
 
             ImmutableArray<Outputs.CrawlerS3Target> s3Targets)
         {
             CatalogTargets = catalogTargets;
             DeltaTargets = deltaTargets;
-            DynamoDBTargets = dynamoDBTargets;
+            DynamoDbTargets = dynamoDbTargets;
             JdbcTargets = jdbcTargets;
-            MongoDBTargets = mongoDBTargets;
+            MongoDbTargets = mongoDbTargets;
             S3Targets = s3Targets;
         }
     }

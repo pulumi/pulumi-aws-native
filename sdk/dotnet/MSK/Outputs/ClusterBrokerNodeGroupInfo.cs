@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.MSK.Outputs
     [OutputType]
     public sealed class ClusterBrokerNodeGroupInfo
     {
-        public readonly string? BrokerAZDistribution;
+        public readonly string? BrokerAzDistribution;
         public readonly ImmutableArray<string> ClientSubnets;
         public readonly Outputs.ClusterConnectivityInfo? ConnectivityInfo;
         public readonly string InstanceType;
@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.MSK.Outputs
 
         [OutputConstructor]
         private ClusterBrokerNodeGroupInfo(
-            string? brokerAZDistribution,
+            string? brokerAzDistribution,
 
             ImmutableArray<string> clientSubnets,
 
@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.MSK.Outputs
 
             Outputs.ClusterStorageInfo? storageInfo)
         {
-            BrokerAZDistribution = brokerAZDistribution;
+            BrokerAzDistribution = brokerAzDistribution;
             ClientSubnets = clientSubnets;
             ConnectivityInfo = connectivityInfo;
             InstanceType = instanceType;

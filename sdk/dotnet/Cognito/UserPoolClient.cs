@@ -34,8 +34,8 @@ namespace Pulumi.AwsNative.Cognito
         [Output("authSessionValidity")]
         public Output<int?> AuthSessionValidity { get; private set; } = null!;
 
-        [Output("callbackURLs")]
-        public Output<ImmutableArray<string>> CallbackURLs { get; private set; } = null!;
+        [Output("callbackUrls")]
+        public Output<ImmutableArray<string>> CallbackUrls { get; private set; } = null!;
 
         [Output("clientName")]
         public Output<string?> ClientName { get; private set; } = null!;
@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.Cognito
         [Output("clientSecret")]
         public Output<string> ClientSecret { get; private set; } = null!;
 
-        [Output("defaultRedirectURI")]
-        public Output<string?> DefaultRedirectURI { get; private set; } = null!;
+        [Output("defaultRedirectUri")]
+        public Output<string?> DefaultRedirectUri { get; private set; } = null!;
 
         [Output("enablePropagateAdditionalUserContextData")]
         public Output<bool?> EnablePropagateAdditionalUserContextData { get; private set; } = null!;
@@ -61,8 +61,8 @@ namespace Pulumi.AwsNative.Cognito
         [Output("idTokenValidity")]
         public Output<int?> IdTokenValidity { get; private set; } = null!;
 
-        [Output("logoutURLs")]
-        public Output<ImmutableArray<string>> LogoutURLs { get; private set; } = null!;
+        [Output("logoutUrls")]
+        public Output<ImmutableArray<string>> LogoutUrls { get; private set; } = null!;
 
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -161,19 +161,19 @@ namespace Pulumi.AwsNative.Cognito
         [Input("authSessionValidity")]
         public Input<int>? AuthSessionValidity { get; set; }
 
-        [Input("callbackURLs")]
-        private InputList<string>? _callbackURLs;
-        public InputList<string> CallbackURLs
+        [Input("callbackUrls")]
+        private InputList<string>? _callbackUrls;
+        public InputList<string> CallbackUrls
         {
-            get => _callbackURLs ?? (_callbackURLs = new InputList<string>());
-            set => _callbackURLs = value;
+            get => _callbackUrls ?? (_callbackUrls = new InputList<string>());
+            set => _callbackUrls = value;
         }
 
         [Input("clientName")]
         public Input<string>? ClientName { get; set; }
 
-        [Input("defaultRedirectURI")]
-        public Input<string>? DefaultRedirectURI { get; set; }
+        [Input("defaultRedirectUri")]
+        public Input<string>? DefaultRedirectUri { get; set; }
 
         [Input("enablePropagateAdditionalUserContextData")]
         public Input<bool>? EnablePropagateAdditionalUserContextData { get; set; }
@@ -195,12 +195,12 @@ namespace Pulumi.AwsNative.Cognito
         [Input("idTokenValidity")]
         public Input<int>? IdTokenValidity { get; set; }
 
-        [Input("logoutURLs")]
-        private InputList<string>? _logoutURLs;
-        public InputList<string> LogoutURLs
+        [Input("logoutUrls")]
+        private InputList<string>? _logoutUrls;
+        public InputList<string> LogoutUrls
         {
-            get => _logoutURLs ?? (_logoutURLs = new InputList<string>());
-            set => _logoutURLs = value;
+            get => _logoutUrls ?? (_logoutUrls = new InputList<string>());
+            set => _logoutUrls = value;
         }
 
         [Input("preventUserExistenceErrors")]

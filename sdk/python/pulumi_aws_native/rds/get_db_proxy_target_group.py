@@ -19,16 +19,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetDBProxyTargetGroupResult:
-    def __init__(__self__, connection_pool_configuration_info=None, d_b_cluster_identifiers=None, d_b_instance_identifiers=None, target_group_arn=None):
+    def __init__(__self__, connection_pool_configuration_info=None, db_cluster_identifiers=None, db_instance_identifiers=None, target_group_arn=None):
         if connection_pool_configuration_info and not isinstance(connection_pool_configuration_info, dict):
             raise TypeError("Expected argument 'connection_pool_configuration_info' to be a dict")
         pulumi.set(__self__, "connection_pool_configuration_info", connection_pool_configuration_info)
-        if d_b_cluster_identifiers and not isinstance(d_b_cluster_identifiers, list):
-            raise TypeError("Expected argument 'd_b_cluster_identifiers' to be a list")
-        pulumi.set(__self__, "d_b_cluster_identifiers", d_b_cluster_identifiers)
-        if d_b_instance_identifiers and not isinstance(d_b_instance_identifiers, list):
-            raise TypeError("Expected argument 'd_b_instance_identifiers' to be a list")
-        pulumi.set(__self__, "d_b_instance_identifiers", d_b_instance_identifiers)
+        if db_cluster_identifiers and not isinstance(db_cluster_identifiers, list):
+            raise TypeError("Expected argument 'db_cluster_identifiers' to be a list")
+        pulumi.set(__self__, "db_cluster_identifiers", db_cluster_identifiers)
+        if db_instance_identifiers and not isinstance(db_instance_identifiers, list):
+            raise TypeError("Expected argument 'db_instance_identifiers' to be a list")
+        pulumi.set(__self__, "db_instance_identifiers", db_instance_identifiers)
         if target_group_arn and not isinstance(target_group_arn, str):
             raise TypeError("Expected argument 'target_group_arn' to be a str")
         pulumi.set(__self__, "target_group_arn", target_group_arn)
@@ -39,14 +39,14 @@ class GetDBProxyTargetGroupResult:
         return pulumi.get(self, "connection_pool_configuration_info")
 
     @property
-    @pulumi.getter(name="dBClusterIdentifiers")
-    def d_b_cluster_identifiers(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "d_b_cluster_identifiers")
+    @pulumi.getter(name="dbClusterIdentifiers")
+    def db_cluster_identifiers(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "db_cluster_identifiers")
 
     @property
-    @pulumi.getter(name="dBInstanceIdentifiers")
-    def d_b_instance_identifiers(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "d_b_instance_identifiers")
+    @pulumi.getter(name="dbInstanceIdentifiers")
+    def db_instance_identifiers(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "db_instance_identifiers")
 
     @property
     @pulumi.getter(name="targetGroupArn")
@@ -64,8 +64,8 @@ class AwaitableGetDBProxyTargetGroupResult(GetDBProxyTargetGroupResult):
             yield self
         return GetDBProxyTargetGroupResult(
             connection_pool_configuration_info=self.connection_pool_configuration_info,
-            d_b_cluster_identifiers=self.d_b_cluster_identifiers,
-            d_b_instance_identifiers=self.d_b_instance_identifiers,
+            db_cluster_identifiers=self.db_cluster_identifiers,
+            db_instance_identifiers=self.db_instance_identifiers,
             target_group_arn=self.target_group_arn)
 
 
@@ -84,8 +84,8 @@ def get_db_proxy_target_group(target_group_arn: Optional[str] = None,
 
     return AwaitableGetDBProxyTargetGroupResult(
         connection_pool_configuration_info=pulumi.get(__ret__, 'connection_pool_configuration_info'),
-        d_b_cluster_identifiers=pulumi.get(__ret__, 'd_b_cluster_identifiers'),
-        d_b_instance_identifiers=pulumi.get(__ret__, 'd_b_instance_identifiers'),
+        db_cluster_identifiers=pulumi.get(__ret__, 'db_cluster_identifiers'),
+        db_instance_identifiers=pulumi.get(__ret__, 'db_instance_identifiers'),
         target_group_arn=pulumi.get(__ret__, 'target_group_arn'))
 
 

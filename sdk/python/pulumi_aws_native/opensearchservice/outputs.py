@@ -45,8 +45,8 @@ class DomainAdvancedSecurityOptionsInput(dict):
             suggest = "internal_user_database_enabled"
         elif key == "masterUserOptions":
             suggest = "master_user_options"
-        elif key == "sAMLOptions":
-            suggest = "s_aml_options"
+        elif key == "samlOptions":
+            suggest = "saml_options"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DomainAdvancedSecurityOptionsInput. Access the value via the '{suggest}' property getter instead.")
@@ -65,7 +65,7 @@ class DomainAdvancedSecurityOptionsInput(dict):
                  enabled: Optional[bool] = None,
                  internal_user_database_enabled: Optional[bool] = None,
                  master_user_options: Optional['outputs.DomainMasterUserOptions'] = None,
-                 s_aml_options: Optional['outputs.DomainSAMLOptions'] = None):
+                 saml_options: Optional['outputs.DomainSAMLOptions'] = None):
         if anonymous_auth_disable_date is not None:
             pulumi.set(__self__, "anonymous_auth_disable_date", anonymous_auth_disable_date)
         if anonymous_auth_enabled is not None:
@@ -76,8 +76,8 @@ class DomainAdvancedSecurityOptionsInput(dict):
             pulumi.set(__self__, "internal_user_database_enabled", internal_user_database_enabled)
         if master_user_options is not None:
             pulumi.set(__self__, "master_user_options", master_user_options)
-        if s_aml_options is not None:
-            pulumi.set(__self__, "s_aml_options", s_aml_options)
+        if saml_options is not None:
+            pulumi.set(__self__, "saml_options", saml_options)
 
     @property
     @pulumi.getter(name="anonymousAuthDisableDate")
@@ -105,9 +105,9 @@ class DomainAdvancedSecurityOptionsInput(dict):
         return pulumi.get(self, "master_user_options")
 
     @property
-    @pulumi.getter(name="sAMLOptions")
-    def s_aml_options(self) -> Optional['outputs.DomainSAMLOptions']:
-        return pulumi.get(self, "s_aml_options")
+    @pulumi.getter(name="samlOptions")
+    def saml_options(self) -> Optional['outputs.DomainSAMLOptions']:
+        return pulumi.get(self, "saml_options")
 
 
 @pulumi.output_type
@@ -125,7 +125,7 @@ class DomainClusterConfig(dict):
             suggest = "instance_count"
         elif key == "instanceType":
             suggest = "instance_type"
-        elif key == "multiAZWithStandbyEnabled":
+        elif key == "multiAzWithStandbyEnabled":
             suggest = "multi_az_with_standby_enabled"
         elif key == "warmCount":
             suggest = "warm_count"
@@ -210,7 +210,7 @@ class DomainClusterConfig(dict):
         return pulumi.get(self, "instance_type")
 
     @property
-    @pulumi.getter(name="multiAZWithStandbyEnabled")
+    @pulumi.getter(name="multiAzWithStandbyEnabled")
     def multi_az_with_standby_enabled(self) -> Optional[bool]:
         return pulumi.get(self, "multi_az_with_standby_enabled")
 
@@ -303,8 +303,8 @@ class DomainEBSOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "eBSEnabled":
-            suggest = "e_bs_enabled"
+        if key == "ebsEnabled":
+            suggest = "ebs_enabled"
         elif key == "volumeSize":
             suggest = "volume_size"
         elif key == "volumeType":
@@ -322,13 +322,13 @@ class DomainEBSOptions(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 e_bs_enabled: Optional[bool] = None,
+                 ebs_enabled: Optional[bool] = None,
                  iops: Optional[int] = None,
                  throughput: Optional[int] = None,
                  volume_size: Optional[int] = None,
                  volume_type: Optional[str] = None):
-        if e_bs_enabled is not None:
-            pulumi.set(__self__, "e_bs_enabled", e_bs_enabled)
+        if ebs_enabled is not None:
+            pulumi.set(__self__, "ebs_enabled", ebs_enabled)
         if iops is not None:
             pulumi.set(__self__, "iops", iops)
         if throughput is not None:
@@ -339,9 +339,9 @@ class DomainEBSOptions(dict):
             pulumi.set(__self__, "volume_type", volume_type)
 
     @property
-    @pulumi.getter(name="eBSEnabled")
-    def e_bs_enabled(self) -> Optional[bool]:
-        return pulumi.get(self, "e_bs_enabled")
+    @pulumi.getter(name="ebsEnabled")
+    def ebs_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "ebs_enabled")
 
     @property
     @pulumi.getter
@@ -413,10 +413,10 @@ class DomainEndpointOptions(dict):
             suggest = "custom_endpoint_certificate_arn"
         elif key == "customEndpointEnabled":
             suggest = "custom_endpoint_enabled"
-        elif key == "enforceHTTPS":
+        elif key == "enforceHttps":
             suggest = "enforce_https"
-        elif key == "tLSSecurityPolicy":
-            suggest = "t_ls_security_policy"
+        elif key == "tlsSecurityPolicy":
+            suggest = "tls_security_policy"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DomainEndpointOptions. Access the value via the '{suggest}' property getter instead.")
@@ -434,7 +434,7 @@ class DomainEndpointOptions(dict):
                  custom_endpoint_certificate_arn: Optional[str] = None,
                  custom_endpoint_enabled: Optional[bool] = None,
                  enforce_https: Optional[bool] = None,
-                 t_ls_security_policy: Optional[str] = None):
+                 tls_security_policy: Optional[str] = None):
         if custom_endpoint is not None:
             pulumi.set(__self__, "custom_endpoint", custom_endpoint)
         if custom_endpoint_certificate_arn is not None:
@@ -443,8 +443,8 @@ class DomainEndpointOptions(dict):
             pulumi.set(__self__, "custom_endpoint_enabled", custom_endpoint_enabled)
         if enforce_https is not None:
             pulumi.set(__self__, "enforce_https", enforce_https)
-        if t_ls_security_policy is not None:
-            pulumi.set(__self__, "t_ls_security_policy", t_ls_security_policy)
+        if tls_security_policy is not None:
+            pulumi.set(__self__, "tls_security_policy", tls_security_policy)
 
     @property
     @pulumi.getter(name="customEndpoint")
@@ -462,14 +462,14 @@ class DomainEndpointOptions(dict):
         return pulumi.get(self, "custom_endpoint_enabled")
 
     @property
-    @pulumi.getter(name="enforceHTTPS")
+    @pulumi.getter(name="enforceHttps")
     def enforce_https(self) -> Optional[bool]:
         return pulumi.get(self, "enforce_https")
 
     @property
-    @pulumi.getter(name="tLSSecurityPolicy")
-    def t_ls_security_policy(self) -> Optional[str]:
-        return pulumi.get(self, "t_ls_security_policy")
+    @pulumi.getter(name="tlsSecurityPolicy")
+    def tls_security_policy(self) -> Optional[str]:
+        return pulumi.get(self, "tls_security_policy")
 
 
 @pulumi.output_type
@@ -515,7 +515,7 @@ class DomainMasterUserOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "masterUserARN":
+        if key == "masterUserArn":
             suggest = "master_user_arn"
         elif key == "masterUserName":
             suggest = "master_user_name"
@@ -545,7 +545,7 @@ class DomainMasterUserOptions(dict):
             pulumi.set(__self__, "master_user_password", master_user_password)
 
     @property
-    @pulumi.getter(name="masterUserARN")
+    @pulumi.getter(name="masterUserArn")
     def master_user_arn(self) -> Optional[str]:
         return pulumi.get(self, "master_user_arn")
 

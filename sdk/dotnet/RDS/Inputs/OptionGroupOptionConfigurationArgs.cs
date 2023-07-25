@@ -15,16 +15,16 @@ namespace Pulumi.AwsNative.RDS.Inputs
     /// </summary>
     public sealed class OptionGroupOptionConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        [Input("dBSecurityGroupMemberships")]
-        private InputList<string>? _dBSecurityGroupMemberships;
+        [Input("dbSecurityGroupMemberships")]
+        private InputList<string>? _dbSecurityGroupMemberships;
 
         /// <summary>
         /// A list of DBSecurityGroupMembership name strings used for this option.
         /// </summary>
-        public InputList<string> DBSecurityGroupMemberships
+        public InputList<string> DbSecurityGroupMemberships
         {
-            get => _dBSecurityGroupMemberships ?? (_dBSecurityGroupMemberships = new InputList<string>());
-            set => _dBSecurityGroupMemberships = value;
+            get => _dbSecurityGroupMemberships ?? (_dbSecurityGroupMemberships = new InputList<string>());
+            set => _dbSecurityGroupMemberships = value;
         }
 
         /// <summary>

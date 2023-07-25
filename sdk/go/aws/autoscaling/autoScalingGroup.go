@@ -42,11 +42,11 @@ type AutoScalingGroup struct {
 	NewInstancesProtectedFromScaleIn pulumi.BoolPtrOutput                                  `pulumi:"newInstancesProtectedFromScaleIn"`
 	NotificationConfigurations       AutoScalingGroupNotificationConfigurationArrayOutput  `pulumi:"notificationConfigurations"`
 	PlacementGroup                   pulumi.StringPtrOutput                                `pulumi:"placementGroup"`
-	ServiceLinkedRoleARN             pulumi.StringPtrOutput                                `pulumi:"serviceLinkedRoleARN"`
+	ServiceLinkedRoleArn             pulumi.StringPtrOutput                                `pulumi:"serviceLinkedRoleArn"`
 	Tags                             AutoScalingGroupTagPropertyArrayOutput                `pulumi:"tags"`
-	TargetGroupARNs                  pulumi.StringArrayOutput                              `pulumi:"targetGroupARNs"`
+	TargetGroupArns                  pulumi.StringArrayOutput                              `pulumi:"targetGroupArns"`
 	TerminationPolicies              pulumi.StringArrayOutput                              `pulumi:"terminationPolicies"`
-	VPCZoneIdentifier                pulumi.StringArrayOutput                              `pulumi:"vPCZoneIdentifier"`
+	VpcZoneIdentifier                pulumi.StringArrayOutput                              `pulumi:"vpcZoneIdentifier"`
 }
 
 // NewAutoScalingGroup registers a new resource with the given unique name, arguments, and options.
@@ -118,11 +118,11 @@ type autoScalingGroupArgs struct {
 	NewInstancesProtectedFromScaleIn *bool                                        `pulumi:"newInstancesProtectedFromScaleIn"`
 	NotificationConfigurations       []AutoScalingGroupNotificationConfiguration  `pulumi:"notificationConfigurations"`
 	PlacementGroup                   *string                                      `pulumi:"placementGroup"`
-	ServiceLinkedRoleARN             *string                                      `pulumi:"serviceLinkedRoleARN"`
+	ServiceLinkedRoleArn             *string                                      `pulumi:"serviceLinkedRoleArn"`
 	Tags                             []AutoScalingGroupTagProperty                `pulumi:"tags"`
-	TargetGroupARNs                  []string                                     `pulumi:"targetGroupARNs"`
+	TargetGroupArns                  []string                                     `pulumi:"targetGroupArns"`
 	TerminationPolicies              []string                                     `pulumi:"terminationPolicies"`
-	VPCZoneIdentifier                []string                                     `pulumi:"vPCZoneIdentifier"`
+	VpcZoneIdentifier                []string                                     `pulumi:"vpcZoneIdentifier"`
 }
 
 // The set of arguments for constructing a AutoScalingGroup resource.
@@ -150,11 +150,11 @@ type AutoScalingGroupArgs struct {
 	NewInstancesProtectedFromScaleIn pulumi.BoolPtrInput
 	NotificationConfigurations       AutoScalingGroupNotificationConfigurationArrayInput
 	PlacementGroup                   pulumi.StringPtrInput
-	ServiceLinkedRoleARN             pulumi.StringPtrInput
+	ServiceLinkedRoleArn             pulumi.StringPtrInput
 	Tags                             AutoScalingGroupTagPropertyArrayInput
-	TargetGroupARNs                  pulumi.StringArrayInput
+	TargetGroupArns                  pulumi.StringArrayInput
 	TerminationPolicies              pulumi.StringArrayInput
-	VPCZoneIdentifier                pulumi.StringArrayInput
+	VpcZoneIdentifier                pulumi.StringArrayInput
 }
 
 func (AutoScalingGroupArgs) ElementType() reflect.Type {
@@ -296,24 +296,24 @@ func (o AutoScalingGroupOutput) PlacementGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutoScalingGroup) pulumi.StringPtrOutput { return v.PlacementGroup }).(pulumi.StringPtrOutput)
 }
 
-func (o AutoScalingGroupOutput) ServiceLinkedRoleARN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AutoScalingGroup) pulumi.StringPtrOutput { return v.ServiceLinkedRoleARN }).(pulumi.StringPtrOutput)
+func (o AutoScalingGroupOutput) ServiceLinkedRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutoScalingGroup) pulumi.StringPtrOutput { return v.ServiceLinkedRoleArn }).(pulumi.StringPtrOutput)
 }
 
 func (o AutoScalingGroupOutput) Tags() AutoScalingGroupTagPropertyArrayOutput {
 	return o.ApplyT(func(v *AutoScalingGroup) AutoScalingGroupTagPropertyArrayOutput { return v.Tags }).(AutoScalingGroupTagPropertyArrayOutput)
 }
 
-func (o AutoScalingGroupOutput) TargetGroupARNs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *AutoScalingGroup) pulumi.StringArrayOutput { return v.TargetGroupARNs }).(pulumi.StringArrayOutput)
+func (o AutoScalingGroupOutput) TargetGroupArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AutoScalingGroup) pulumi.StringArrayOutput { return v.TargetGroupArns }).(pulumi.StringArrayOutput)
 }
 
 func (o AutoScalingGroupOutput) TerminationPolicies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AutoScalingGroup) pulumi.StringArrayOutput { return v.TerminationPolicies }).(pulumi.StringArrayOutput)
 }
 
-func (o AutoScalingGroupOutput) VPCZoneIdentifier() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *AutoScalingGroup) pulumi.StringArrayOutput { return v.VPCZoneIdentifier }).(pulumi.StringArrayOutput)
+func (o AutoScalingGroupOutput) VpcZoneIdentifier() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AutoScalingGroup) pulumi.StringArrayOutput { return v.VpcZoneIdentifier }).(pulumi.StringArrayOutput)
 }
 
 func init() {

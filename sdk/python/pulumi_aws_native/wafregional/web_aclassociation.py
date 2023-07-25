@@ -32,7 +32,7 @@ class WebACLAssociationArgs:
         pulumi.set(self, "resource_arn", value)
 
     @property
-    @pulumi.getter(name="webACLId")
+    @pulumi.getter(name="webAclId")
     def web_acl_id(self) -> pulumi.Input[str]:
         return pulumi.get(self, "web_acl_id")
 
@@ -134,7 +134,7 @@ class WebACLAssociation(pulumi.CustomResource):
         return pulumi.get(self, "resource_arn")
 
     @property
-    @pulumi.getter(name="webACLId")
+    @pulumi.getter(name="webAclId")
     def web_acl_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "web_acl_id")
 

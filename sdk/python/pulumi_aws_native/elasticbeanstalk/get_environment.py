@@ -51,7 +51,7 @@ class GetEnvironmentResult:
         return pulumi.get(self, "description")
 
     @property
-    @pulumi.getter(name="endpointURL")
+    @pulumi.getter(name="endpointUrl")
     def endpoint_url(self) -> Optional[str]:
         return pulumi.get(self, "endpoint_url")
 

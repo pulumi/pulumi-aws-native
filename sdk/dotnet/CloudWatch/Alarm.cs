@@ -61,8 +61,8 @@ namespace Pulumi.AwsNative.CloudWatch
         [Output("namespace")]
         public Output<string?> Namespace { get; private set; } = null!;
 
-        [Output("oKActions")]
-        public Output<ImmutableArray<string>> OKActions { get; private set; } = null!;
+        [Output("okActions")]
+        public Output<ImmutableArray<string>> OkActions { get; private set; } = null!;
 
         [Output("period")]
         public Output<int?> Period { get; private set; } = null!;
@@ -189,12 +189,12 @@ namespace Pulumi.AwsNative.CloudWatch
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }
 
-        [Input("oKActions")]
-        private InputList<string>? _oKActions;
-        public InputList<string> OKActions
+        [Input("okActions")]
+        private InputList<string>? _okActions;
+        public InputList<string> OkActions
         {
-            get => _oKActions ?? (_oKActions = new InputList<string>());
-            set => _oKActions = value;
+            get => _okActions ?? (_okActions = new InputList<string>());
+            set => _okActions = value;
         }
 
         [Input("period")]

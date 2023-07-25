@@ -13,12 +13,12 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
     [OutputType]
     public sealed class DeliveryStreamKMSEncryptionConfig
     {
-        public readonly string AWSKMSKeyARN;
+        public readonly string AwskmsKeyArn;
 
         [OutputConstructor]
-        private DeliveryStreamKMSEncryptionConfig(string aWSKMSKeyARN)
+        private DeliveryStreamKMSEncryptionConfig(string awskmsKeyArn)
         {
-            AWSKMSKeyARN = aWSKMSKeyARN;
+            AwskmsKeyArn = awskmsKeyArn;
         }
     }
 }

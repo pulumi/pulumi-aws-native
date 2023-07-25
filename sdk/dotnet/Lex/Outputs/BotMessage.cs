@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.Lex.Outputs
         public readonly Outputs.BotCustomPayload? CustomPayload;
         public readonly Outputs.BotImageResponseCard? ImageResponseCard;
         public readonly Outputs.BotPlainTextMessage? PlainTextMessage;
-        public readonly Outputs.BotSSMLMessage? SSMLMessage;
+        public readonly Outputs.BotSSMLMessage? SsmlMessage;
 
         [OutputConstructor]
         private BotMessage(
@@ -29,12 +29,12 @@ namespace Pulumi.AwsNative.Lex.Outputs
 
             Outputs.BotPlainTextMessage? plainTextMessage,
 
-            Outputs.BotSSMLMessage? sSMLMessage)
+            Outputs.BotSSMLMessage? ssmlMessage)
         {
             CustomPayload = customPayload;
             ImageResponseCard = imageResponseCard;
             PlainTextMessage = plainTextMessage;
-            SSMLMessage = sSMLMessage;
+            SsmlMessage = ssmlMessage;
         }
     }
 }

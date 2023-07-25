@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
         public readonly string IndexName;
         public readonly Outputs.DeliveryStreamProcessingConfiguration? ProcessingConfiguration;
         public readonly Outputs.DeliveryStreamAmazonOpenSearchServerlessRetryOptions? RetryOptions;
-        public readonly string RoleARN;
+        public readonly string RoleArn;
         public readonly Pulumi.AwsNative.KinesisFirehose.DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode? S3BackupMode;
         public readonly Outputs.DeliveryStreamS3DestinationConfiguration S3Configuration;
         public readonly Outputs.DeliveryStreamVpcConfiguration? VpcConfiguration;
@@ -38,7 +38,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
 
             Outputs.DeliveryStreamAmazonOpenSearchServerlessRetryOptions? retryOptions,
 
-            string roleARN,
+            string roleArn,
 
             Pulumi.AwsNative.KinesisFirehose.DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode? s3BackupMode,
 
@@ -52,7 +52,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
             IndexName = indexName;
             ProcessingConfiguration = processingConfiguration;
             RetryOptions = retryOptions;
-            RoleARN = roleARN;
+            RoleArn = roleArn;
             S3BackupMode = s3BackupMode;
             S3Configuration = s3Configuration;
             VpcConfiguration = vpcConfiguration;

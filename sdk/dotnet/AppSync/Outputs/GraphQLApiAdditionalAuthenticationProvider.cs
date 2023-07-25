@@ -15,7 +15,7 @@ namespace Pulumi.AwsNative.AppSync.Outputs
     {
         public readonly string AuthenticationType;
         public readonly Outputs.GraphQLApiLambdaAuthorizerConfig? LambdaAuthorizerConfig;
-        public readonly Outputs.GraphQLApiOpenIDConnectConfig? OpenIDConnectConfig;
+        public readonly Outputs.GraphQLApiOpenIDConnectConfig? OpenIdConnectConfig;
         public readonly Outputs.GraphQLApiCognitoUserPoolConfig? UserPoolConfig;
 
         [OutputConstructor]
@@ -24,13 +24,13 @@ namespace Pulumi.AwsNative.AppSync.Outputs
 
             Outputs.GraphQLApiLambdaAuthorizerConfig? lambdaAuthorizerConfig,
 
-            Outputs.GraphQLApiOpenIDConnectConfig? openIDConnectConfig,
+            Outputs.GraphQLApiOpenIDConnectConfig? openIdConnectConfig,
 
             Outputs.GraphQLApiCognitoUserPoolConfig? userPoolConfig)
         {
             AuthenticationType = authenticationType;
             LambdaAuthorizerConfig = lambdaAuthorizerConfig;
-            OpenIDConnectConfig = openIDConnectConfig;
+            OpenIdConnectConfig = openIdConnectConfig;
             UserPoolConfig = userPoolConfig;
         }
     }

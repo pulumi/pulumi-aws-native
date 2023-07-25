@@ -92,11 +92,11 @@ class CachePolicyConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "defaultTTL":
+        if key == "defaultTtl":
             suggest = "default_ttl"
-        elif key == "maxTTL":
+        elif key == "maxTtl":
             suggest = "max_ttl"
-        elif key == "minTTL":
+        elif key == "minTtl":
             suggest = "min_ttl"
         elif key == "parametersInCacheKeyAndForwardedToOrigin":
             suggest = "parameters_in_cache_key_and_forwarded_to_origin"
@@ -128,17 +128,17 @@ class CachePolicyConfig(dict):
             pulumi.set(__self__, "comment", comment)
 
     @property
-    @pulumi.getter(name="defaultTTL")
+    @pulumi.getter(name="defaultTtl")
     def default_ttl(self) -> float:
         return pulumi.get(self, "default_ttl")
 
     @property
-    @pulumi.getter(name="maxTTL")
+    @pulumi.getter(name="maxTtl")
     def max_ttl(self) -> float:
         return pulumi.get(self, "max_ttl")
 
     @property
-    @pulumi.getter(name="minTTL")
+    @pulumi.getter(name="minTtl")
     def min_ttl(self) -> float:
         return pulumi.get(self, "min_ttl")
 
@@ -400,9 +400,9 @@ class ContinuousDeploymentPolicySessionStickinessConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "idleTTL":
+        if key == "idleTtl":
             suggest = "idle_ttl"
-        elif key == "maximumTTL":
+        elif key == "maximumTtl":
             suggest = "maximum_ttl"
 
         if suggest:
@@ -423,12 +423,12 @@ class ContinuousDeploymentPolicySessionStickinessConfig(dict):
         pulumi.set(__self__, "maximum_ttl", maximum_ttl)
 
     @property
-    @pulumi.getter(name="idleTTL")
+    @pulumi.getter(name="idleTtl")
     def idle_ttl(self) -> int:
         return pulumi.get(self, "idle_ttl")
 
     @property
-    @pulumi.getter(name="maximumTTL")
+    @pulumi.getter(name="maximumTtl")
     def maximum_ttl(self) -> int:
         return pulumi.get(self, "maximum_ttl")
 
@@ -553,7 +553,7 @@ class DistributionCacheBehavior(dict):
             suggest = "cache_policy_id"
         elif key == "cachedMethods":
             suggest = "cached_methods"
-        elif key == "defaultTTL":
+        elif key == "defaultTtl":
             suggest = "default_ttl"
         elif key == "fieldLevelEncryptionId":
             suggest = "field_level_encryption_id"
@@ -563,9 +563,9 @@ class DistributionCacheBehavior(dict):
             suggest = "function_associations"
         elif key == "lambdaFunctionAssociations":
             suggest = "lambda_function_associations"
-        elif key == "maxTTL":
+        elif key == "maxTtl":
             suggest = "max_ttl"
-        elif key == "minTTL":
+        elif key == "minTtl":
             suggest = "min_ttl"
         elif key == "originRequestPolicyId":
             suggest = "origin_request_policy_id"
@@ -686,7 +686,7 @@ class DistributionCacheBehavior(dict):
         return pulumi.get(self, "compress")
 
     @property
-    @pulumi.getter(name="defaultTTL")
+    @pulumi.getter(name="defaultTtl")
     def default_ttl(self) -> Optional[float]:
         return pulumi.get(self, "default_ttl")
 
@@ -711,12 +711,12 @@ class DistributionCacheBehavior(dict):
         return pulumi.get(self, "lambda_function_associations")
 
     @property
-    @pulumi.getter(name="maxTTL")
+    @pulumi.getter(name="maxTtl")
     def max_ttl(self) -> Optional[float]:
         return pulumi.get(self, "max_ttl")
 
     @property
-    @pulumi.getter(name="minTTL")
+    @pulumi.getter(name="minTtl")
     def min_ttl(self) -> Optional[float]:
         return pulumi.get(self, "min_ttl")
 
@@ -758,8 +758,6 @@ class DistributionConfig(dict):
         suggest = None
         if key == "defaultCacheBehavior":
             suggest = "default_cache_behavior"
-        elif key == "cNAMEs":
-            suggest = "c_names"
         elif key == "cacheBehaviors":
             suggest = "cache_behaviors"
         elif key == "continuousDeploymentPolicyId":
@@ -772,8 +770,8 @@ class DistributionConfig(dict):
             suggest = "default_root_object"
         elif key == "httpVersion":
             suggest = "http_version"
-        elif key == "iPV6Enabled":
-            suggest = "i_pv6_enabled"
+        elif key == "ipv6Enabled":
+            suggest = "ipv6_enabled"
         elif key == "originGroups":
             suggest = "origin_groups"
         elif key == "priceClass":
@@ -782,7 +780,7 @@ class DistributionConfig(dict):
             suggest = "s3_origin"
         elif key == "viewerCertificate":
             suggest = "viewer_certificate"
-        elif key == "webACLId":
+        elif key == "webAclId":
             suggest = "web_acl_id"
 
         if suggest:
@@ -800,15 +798,15 @@ class DistributionConfig(dict):
                  default_cache_behavior: 'outputs.DistributionDefaultCacheBehavior',
                  enabled: bool,
                  aliases: Optional[Sequence[str]] = None,
-                 c_names: Optional[Sequence[str]] = None,
                  cache_behaviors: Optional[Sequence['outputs.DistributionCacheBehavior']] = None,
+                 cnames: Optional[Sequence[str]] = None,
                  comment: Optional[str] = None,
                  continuous_deployment_policy_id: Optional[str] = None,
                  custom_error_responses: Optional[Sequence['outputs.DistributionCustomErrorResponse']] = None,
                  custom_origin: Optional['outputs.DistributionLegacyCustomOrigin'] = None,
                  default_root_object: Optional[str] = None,
                  http_version: Optional[str] = None,
-                 i_pv6_enabled: Optional[bool] = None,
+                 ipv6_enabled: Optional[bool] = None,
                  logging: Optional['outputs.DistributionLogging'] = None,
                  origin_groups: Optional['outputs.DistributionOriginGroups'] = None,
                  origins: Optional[Sequence['outputs.DistributionOrigin']] = None,
@@ -822,10 +820,10 @@ class DistributionConfig(dict):
         pulumi.set(__self__, "enabled", enabled)
         if aliases is not None:
             pulumi.set(__self__, "aliases", aliases)
-        if c_names is not None:
-            pulumi.set(__self__, "c_names", c_names)
         if cache_behaviors is not None:
             pulumi.set(__self__, "cache_behaviors", cache_behaviors)
+        if cnames is not None:
+            pulumi.set(__self__, "cnames", cnames)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
         if continuous_deployment_policy_id is not None:
@@ -838,8 +836,8 @@ class DistributionConfig(dict):
             pulumi.set(__self__, "default_root_object", default_root_object)
         if http_version is not None:
             pulumi.set(__self__, "http_version", http_version)
-        if i_pv6_enabled is not None:
-            pulumi.set(__self__, "i_pv6_enabled", i_pv6_enabled)
+        if ipv6_enabled is not None:
+            pulumi.set(__self__, "ipv6_enabled", ipv6_enabled)
         if logging is not None:
             pulumi.set(__self__, "logging", logging)
         if origin_groups is not None:
@@ -875,14 +873,14 @@ class DistributionConfig(dict):
         return pulumi.get(self, "aliases")
 
     @property
-    @pulumi.getter(name="cNAMEs")
-    def c_names(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "c_names")
-
-    @property
     @pulumi.getter(name="cacheBehaviors")
     def cache_behaviors(self) -> Optional[Sequence['outputs.DistributionCacheBehavior']]:
         return pulumi.get(self, "cache_behaviors")
+
+    @property
+    @pulumi.getter
+    def cnames(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "cnames")
 
     @property
     @pulumi.getter
@@ -915,9 +913,9 @@ class DistributionConfig(dict):
         return pulumi.get(self, "http_version")
 
     @property
-    @pulumi.getter(name="iPV6Enabled")
-    def i_pv6_enabled(self) -> Optional[bool]:
-        return pulumi.get(self, "i_pv6_enabled")
+    @pulumi.getter(name="ipv6Enabled")
+    def ipv6_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "ipv6_enabled")
 
     @property
     @pulumi.getter
@@ -960,7 +958,7 @@ class DistributionConfig(dict):
         return pulumi.get(self, "viewer_certificate")
 
     @property
-    @pulumi.getter(name="webACLId")
+    @pulumi.getter(name="webAclId")
     def web_acl_id(self) -> Optional[str]:
         return pulumi.get(self, "web_acl_id")
 
@@ -1009,7 +1007,7 @@ class DistributionCustomErrorResponse(dict):
         suggest = None
         if key == "errorCode":
             suggest = "error_code"
-        elif key == "errorCachingMinTTL":
+        elif key == "errorCachingMinTtl":
             suggest = "error_caching_min_ttl"
         elif key == "responseCode":
             suggest = "response_code"
@@ -1046,7 +1044,7 @@ class DistributionCustomErrorResponse(dict):
         return pulumi.get(self, "error_code")
 
     @property
-    @pulumi.getter(name="errorCachingMinTTL")
+    @pulumi.getter(name="errorCachingMinTtl")
     def error_caching_min_ttl(self) -> Optional[float]:
         return pulumi.get(self, "error_caching_min_ttl")
 
@@ -1068,15 +1066,15 @@ class DistributionCustomOriginConfig(dict):
         suggest = None
         if key == "originProtocolPolicy":
             suggest = "origin_protocol_policy"
-        elif key == "hTTPPort":
-            suggest = "h_ttp_port"
-        elif key == "hTTPSPort":
-            suggest = "h_ttps_port"
+        elif key == "httpPort":
+            suggest = "http_port"
+        elif key == "httpsPort":
+            suggest = "https_port"
         elif key == "originKeepaliveTimeout":
             suggest = "origin_keepalive_timeout"
         elif key == "originReadTimeout":
             suggest = "origin_read_timeout"
-        elif key == "originSSLProtocols":
+        elif key == "originSslProtocols":
             suggest = "origin_ssl_protocols"
 
         if suggest:
@@ -1092,16 +1090,16 @@ class DistributionCustomOriginConfig(dict):
 
     def __init__(__self__, *,
                  origin_protocol_policy: str,
-                 h_ttp_port: Optional[int] = None,
-                 h_ttps_port: Optional[int] = None,
+                 http_port: Optional[int] = None,
+                 https_port: Optional[int] = None,
                  origin_keepalive_timeout: Optional[int] = None,
                  origin_read_timeout: Optional[int] = None,
                  origin_ssl_protocols: Optional[Sequence[str]] = None):
         pulumi.set(__self__, "origin_protocol_policy", origin_protocol_policy)
-        if h_ttp_port is not None:
-            pulumi.set(__self__, "h_ttp_port", h_ttp_port)
-        if h_ttps_port is not None:
-            pulumi.set(__self__, "h_ttps_port", h_ttps_port)
+        if http_port is not None:
+            pulumi.set(__self__, "http_port", http_port)
+        if https_port is not None:
+            pulumi.set(__self__, "https_port", https_port)
         if origin_keepalive_timeout is not None:
             pulumi.set(__self__, "origin_keepalive_timeout", origin_keepalive_timeout)
         if origin_read_timeout is not None:
@@ -1115,14 +1113,14 @@ class DistributionCustomOriginConfig(dict):
         return pulumi.get(self, "origin_protocol_policy")
 
     @property
-    @pulumi.getter(name="hTTPPort")
-    def h_ttp_port(self) -> Optional[int]:
-        return pulumi.get(self, "h_ttp_port")
+    @pulumi.getter(name="httpPort")
+    def http_port(self) -> Optional[int]:
+        return pulumi.get(self, "http_port")
 
     @property
-    @pulumi.getter(name="hTTPSPort")
-    def h_ttps_port(self) -> Optional[int]:
-        return pulumi.get(self, "h_ttps_port")
+    @pulumi.getter(name="httpsPort")
+    def https_port(self) -> Optional[int]:
+        return pulumi.get(self, "https_port")
 
     @property
     @pulumi.getter(name="originKeepaliveTimeout")
@@ -1135,7 +1133,7 @@ class DistributionCustomOriginConfig(dict):
         return pulumi.get(self, "origin_read_timeout")
 
     @property
-    @pulumi.getter(name="originSSLProtocols")
+    @pulumi.getter(name="originSslProtocols")
     def origin_ssl_protocols(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "origin_ssl_protocols")
 
@@ -1155,7 +1153,7 @@ class DistributionDefaultCacheBehavior(dict):
             suggest = "cache_policy_id"
         elif key == "cachedMethods":
             suggest = "cached_methods"
-        elif key == "defaultTTL":
+        elif key == "defaultTtl":
             suggest = "default_ttl"
         elif key == "fieldLevelEncryptionId":
             suggest = "field_level_encryption_id"
@@ -1165,9 +1163,9 @@ class DistributionDefaultCacheBehavior(dict):
             suggest = "function_associations"
         elif key == "lambdaFunctionAssociations":
             suggest = "lambda_function_associations"
-        elif key == "maxTTL":
+        elif key == "maxTtl":
             suggest = "max_ttl"
-        elif key == "minTTL":
+        elif key == "minTtl":
             suggest = "min_ttl"
         elif key == "originRequestPolicyId":
             suggest = "origin_request_policy_id"
@@ -1281,7 +1279,7 @@ class DistributionDefaultCacheBehavior(dict):
         return pulumi.get(self, "compress")
 
     @property
-    @pulumi.getter(name="defaultTTL")
+    @pulumi.getter(name="defaultTtl")
     def default_ttl(self) -> Optional[float]:
         return pulumi.get(self, "default_ttl")
 
@@ -1306,12 +1304,12 @@ class DistributionDefaultCacheBehavior(dict):
         return pulumi.get(self, "lambda_function_associations")
 
     @property
-    @pulumi.getter(name="maxTTL")
+    @pulumi.getter(name="maxTtl")
     def max_ttl(self) -> Optional[float]:
         return pulumi.get(self, "max_ttl")
 
     @property
-    @pulumi.getter(name="minTTL")
+    @pulumi.getter(name="minTtl")
     def min_ttl(self) -> Optional[float]:
         return pulumi.get(self, "min_ttl")
 
@@ -1408,7 +1406,7 @@ class DistributionFunctionAssociation(dict):
         suggest = None
         if key == "eventType":
             suggest = "event_type"
-        elif key == "functionARN":
+        elif key == "functionArn":
             suggest = "function_arn"
 
         if suggest:
@@ -1436,7 +1434,7 @@ class DistributionFunctionAssociation(dict):
         return pulumi.get(self, "event_type")
 
     @property
-    @pulumi.getter(name="functionARN")
+    @pulumi.getter(name="functionArn")
     def function_arn(self) -> Optional[str]:
         return pulumi.get(self, "function_arn")
 
@@ -1487,7 +1485,7 @@ class DistributionLambdaFunctionAssociation(dict):
             suggest = "event_type"
         elif key == "includeBody":
             suggest = "include_body"
-        elif key == "lambdaFunctionARN":
+        elif key == "lambdaFunctionArn":
             suggest = "lambda_function_arn"
 
         if suggest:
@@ -1523,7 +1521,7 @@ class DistributionLambdaFunctionAssociation(dict):
         return pulumi.get(self, "include_body")
 
     @property
-    @pulumi.getter(name="lambdaFunctionARN")
+    @pulumi.getter(name="lambdaFunctionArn")
     def lambda_function_arn(self) -> Optional[str]:
         return pulumi.get(self, "lambda_function_arn")
 
@@ -1533,16 +1531,16 @@ class DistributionLegacyCustomOrigin(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dNSName":
-            suggest = "d_ns_name"
+        if key == "dnsName":
+            suggest = "dns_name"
         elif key == "originProtocolPolicy":
             suggest = "origin_protocol_policy"
-        elif key == "originSSLProtocols":
+        elif key == "originSslProtocols":
             suggest = "origin_ssl_protocols"
-        elif key == "hTTPPort":
-            suggest = "h_ttp_port"
-        elif key == "hTTPSPort":
-            suggest = "h_ttps_port"
+        elif key == "httpPort":
+            suggest = "http_port"
+        elif key == "httpsPort":
+            suggest = "https_port"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DistributionLegacyCustomOrigin. Access the value via the '{suggest}' property getter instead.")
@@ -1556,23 +1554,23 @@ class DistributionLegacyCustomOrigin(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 d_ns_name: str,
+                 dns_name: str,
                  origin_protocol_policy: str,
                  origin_ssl_protocols: Sequence[str],
-                 h_ttp_port: Optional[int] = None,
-                 h_ttps_port: Optional[int] = None):
-        pulumi.set(__self__, "d_ns_name", d_ns_name)
+                 http_port: Optional[int] = None,
+                 https_port: Optional[int] = None):
+        pulumi.set(__self__, "dns_name", dns_name)
         pulumi.set(__self__, "origin_protocol_policy", origin_protocol_policy)
         pulumi.set(__self__, "origin_ssl_protocols", origin_ssl_protocols)
-        if h_ttp_port is not None:
-            pulumi.set(__self__, "h_ttp_port", h_ttp_port)
-        if h_ttps_port is not None:
-            pulumi.set(__self__, "h_ttps_port", h_ttps_port)
+        if http_port is not None:
+            pulumi.set(__self__, "http_port", http_port)
+        if https_port is not None:
+            pulumi.set(__self__, "https_port", https_port)
 
     @property
-    @pulumi.getter(name="dNSName")
-    def d_ns_name(self) -> str:
-        return pulumi.get(self, "d_ns_name")
+    @pulumi.getter(name="dnsName")
+    def dns_name(self) -> str:
+        return pulumi.get(self, "dns_name")
 
     @property
     @pulumi.getter(name="originProtocolPolicy")
@@ -1580,19 +1578,19 @@ class DistributionLegacyCustomOrigin(dict):
         return pulumi.get(self, "origin_protocol_policy")
 
     @property
-    @pulumi.getter(name="originSSLProtocols")
+    @pulumi.getter(name="originSslProtocols")
     def origin_ssl_protocols(self) -> Sequence[str]:
         return pulumi.get(self, "origin_ssl_protocols")
 
     @property
-    @pulumi.getter(name="hTTPPort")
-    def h_ttp_port(self) -> Optional[int]:
-        return pulumi.get(self, "h_ttp_port")
+    @pulumi.getter(name="httpPort")
+    def http_port(self) -> Optional[int]:
+        return pulumi.get(self, "http_port")
 
     @property
-    @pulumi.getter(name="hTTPSPort")
-    def h_ttps_port(self) -> Optional[int]:
-        return pulumi.get(self, "h_ttps_port")
+    @pulumi.getter(name="httpsPort")
+    def https_port(self) -> Optional[int]:
+        return pulumi.get(self, "https_port")
 
 
 @pulumi.output_type
@@ -1600,8 +1598,8 @@ class DistributionLegacyS3Origin(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dNSName":
-            suggest = "d_ns_name"
+        if key == "dnsName":
+            suggest = "dns_name"
         elif key == "originAccessIdentity":
             suggest = "origin_access_identity"
 
@@ -1617,16 +1615,16 @@ class DistributionLegacyS3Origin(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 d_ns_name: str,
+                 dns_name: str,
                  origin_access_identity: Optional[str] = None):
-        pulumi.set(__self__, "d_ns_name", d_ns_name)
+        pulumi.set(__self__, "dns_name", dns_name)
         if origin_access_identity is not None:
             pulumi.set(__self__, "origin_access_identity", origin_access_identity)
 
     @property
-    @pulumi.getter(name="dNSName")
-    def d_ns_name(self) -> str:
-        return pulumi.get(self, "d_ns_name")
+    @pulumi.getter(name="dnsName")
+    def dns_name(self) -> str:
+        return pulumi.get(self, "dns_name")
 
     @property
     @pulumi.getter(name="originAccessIdentity")
@@ -2202,7 +2200,7 @@ class FunctionMetadata(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "functionARN":
+        if key == "functionArn":
             suggest = "function_arn"
 
         if suggest:
@@ -2222,7 +2220,7 @@ class FunctionMetadata(dict):
             pulumi.set(__self__, "function_arn", function_arn)
 
     @property
-    @pulumi.getter(name="functionARN")
+    @pulumi.getter(name="functionArn")
     def function_arn(self) -> Optional[str]:
         return pulumi.get(self, "function_arn")
 
@@ -3094,8 +3092,8 @@ class ResponseHeadersPolicySecurityHeadersConfig(dict):
             suggest = "referrer_policy"
         elif key == "strictTransportSecurity":
             suggest = "strict_transport_security"
-        elif key == "xSSProtection":
-            suggest = "x_ss_protection"
+        elif key == "xssProtection":
+            suggest = "xss_protection"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ResponseHeadersPolicySecurityHeadersConfig. Access the value via the '{suggest}' property getter instead.")
@@ -3114,7 +3112,7 @@ class ResponseHeadersPolicySecurityHeadersConfig(dict):
                  frame_options: Optional['outputs.ResponseHeadersPolicyFrameOptions'] = None,
                  referrer_policy: Optional['outputs.ResponseHeadersPolicyReferrerPolicy'] = None,
                  strict_transport_security: Optional['outputs.ResponseHeadersPolicyStrictTransportSecurity'] = None,
-                 x_ss_protection: Optional['outputs.ResponseHeadersPolicyXSSProtection'] = None):
+                 xss_protection: Optional['outputs.ResponseHeadersPolicyXSSProtection'] = None):
         if content_security_policy is not None:
             pulumi.set(__self__, "content_security_policy", content_security_policy)
         if content_type_options is not None:
@@ -3125,8 +3123,8 @@ class ResponseHeadersPolicySecurityHeadersConfig(dict):
             pulumi.set(__self__, "referrer_policy", referrer_policy)
         if strict_transport_security is not None:
             pulumi.set(__self__, "strict_transport_security", strict_transport_security)
-        if x_ss_protection is not None:
-            pulumi.set(__self__, "x_ss_protection", x_ss_protection)
+        if xss_protection is not None:
+            pulumi.set(__self__, "xss_protection", xss_protection)
 
     @property
     @pulumi.getter(name="contentSecurityPolicy")
@@ -3154,9 +3152,9 @@ class ResponseHeadersPolicySecurityHeadersConfig(dict):
         return pulumi.get(self, "strict_transport_security")
 
     @property
-    @pulumi.getter(name="xSSProtection")
-    def x_ss_protection(self) -> Optional['outputs.ResponseHeadersPolicyXSSProtection']:
-        return pulumi.get(self, "x_ss_protection")
+    @pulumi.getter(name="xssProtection")
+    def xss_protection(self) -> Optional['outputs.ResponseHeadersPolicyXSSProtection']:
+        return pulumi.get(self, "xss_protection")
 
 
 @pulumi.output_type

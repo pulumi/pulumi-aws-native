@@ -13,21 +13,21 @@ namespace Pulumi.AwsNative.AppSync.Outputs
     [OutputType]
     public sealed class DataSourceDeltaSyncConfig
     {
-        public readonly string BaseTableTTL;
+        public readonly string BaseTableTtl;
         public readonly string DeltaSyncTableName;
-        public readonly string DeltaSyncTableTTL;
+        public readonly string DeltaSyncTableTtl;
 
         [OutputConstructor]
         private DataSourceDeltaSyncConfig(
-            string baseTableTTL,
+            string baseTableTtl,
 
             string deltaSyncTableName,
 
-            string deltaSyncTableTTL)
+            string deltaSyncTableTtl)
         {
-            BaseTableTTL = baseTableTTL;
+            BaseTableTtl = baseTableTtl;
             DeltaSyncTableName = deltaSyncTableName;
-            DeltaSyncTableTTL = deltaSyncTableTTL;
+            DeltaSyncTableTtl = deltaSyncTableTtl;
         }
     }
 }

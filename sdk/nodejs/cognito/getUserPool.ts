@@ -39,7 +39,7 @@ export interface GetUserPoolResult {
     readonly mfaConfiguration?: string;
     readonly policies?: outputs.cognito.UserPoolPolicies;
     readonly providerName?: string;
-    readonly providerURL?: string;
+    readonly providerUrl?: string;
     readonly schema?: outputs.cognito.UserPoolSchemaAttribute[];
     readonly smsAuthenticationMessage?: string;
     readonly smsConfiguration?: outputs.cognito.UserPoolSmsConfiguration;

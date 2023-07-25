@@ -50,7 +50,7 @@ export class App extends pulumi.CustomResource {
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly enableBranchAutoDeletion!: pulumi.Output<boolean | undefined>;
     public readonly environmentVariables!: pulumi.Output<outputs.amplify.AppEnvironmentVariable[] | undefined>;
-    public readonly iAMServiceRole!: pulumi.Output<string | undefined>;
+    public readonly iamServiceRole!: pulumi.Output<string | undefined>;
     public readonly name!: pulumi.Output<string>;
     public readonly oauthToken!: pulumi.Output<string | undefined>;
     public readonly platform!: pulumi.Output<enums.amplify.AppPlatform | undefined>;
@@ -77,7 +77,7 @@ export class App extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["enableBranchAutoDeletion"] = args ? args.enableBranchAutoDeletion : undefined;
             resourceInputs["environmentVariables"] = args ? args.environmentVariables : undefined;
-            resourceInputs["iAMServiceRole"] = args ? args.iAMServiceRole : undefined;
+            resourceInputs["iamServiceRole"] = args ? args.iamServiceRole : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["oauthToken"] = args ? args.oauthToken : undefined;
             resourceInputs["platform"] = args ? args.platform : undefined;
@@ -101,7 +101,7 @@ export class App extends pulumi.CustomResource {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["enableBranchAutoDeletion"] = undefined /*out*/;
             resourceInputs["environmentVariables"] = undefined /*out*/;
-            resourceInputs["iAMServiceRole"] = undefined /*out*/;
+            resourceInputs["iamServiceRole"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["oauthToken"] = undefined /*out*/;
             resourceInputs["platform"] = undefined /*out*/;
@@ -126,7 +126,7 @@ export interface AppArgs {
     description?: pulumi.Input<string>;
     enableBranchAutoDeletion?: pulumi.Input<boolean>;
     environmentVariables?: pulumi.Input<pulumi.Input<inputs.amplify.AppEnvironmentVariableArgs>[]>;
-    iAMServiceRole?: pulumi.Input<string>;
+    iamServiceRole?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     oauthToken?: pulumi.Input<string>;
     platform?: pulumi.Input<enums.amplify.AppPlatform>;

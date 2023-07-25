@@ -3025,8 +3025,8 @@ type PrincipalPermissionsResource struct {
 	DataCellsFilter  *PrincipalPermissionsDataCellsFilterResource  `pulumi:"dataCellsFilter"`
 	DataLocation     *PrincipalPermissionsDataLocationResource     `pulumi:"dataLocation"`
 	Database         *PrincipalPermissionsDatabaseResource         `pulumi:"database"`
-	LFTag            *PrincipalPermissionsLFTagKeyResource         `pulumi:"lFTag"`
-	LFTagPolicy      *PrincipalPermissionsLFTagPolicyResource      `pulumi:"lFTagPolicy"`
+	LfTag            *PrincipalPermissionsLFTagKeyResource         `pulumi:"lfTag"`
+	LfTagPolicy      *PrincipalPermissionsLFTagPolicyResource      `pulumi:"lfTagPolicy"`
 	Table            *PrincipalPermissionsTableResource            `pulumi:"table"`
 	TableWithColumns *PrincipalPermissionsTableWithColumnsResource `pulumi:"tableWithColumns"`
 }
@@ -3047,8 +3047,8 @@ type PrincipalPermissionsResourceArgs struct {
 	DataCellsFilter  PrincipalPermissionsDataCellsFilterResourcePtrInput  `pulumi:"dataCellsFilter"`
 	DataLocation     PrincipalPermissionsDataLocationResourcePtrInput     `pulumi:"dataLocation"`
 	Database         PrincipalPermissionsDatabaseResourcePtrInput         `pulumi:"database"`
-	LFTag            PrincipalPermissionsLFTagKeyResourcePtrInput         `pulumi:"lFTag"`
-	LFTagPolicy      PrincipalPermissionsLFTagPolicyResourcePtrInput      `pulumi:"lFTagPolicy"`
+	LfTag            PrincipalPermissionsLFTagKeyResourcePtrInput         `pulumi:"lfTag"`
+	LfTagPolicy      PrincipalPermissionsLFTagPolicyResourcePtrInput      `pulumi:"lfTagPolicy"`
 	Table            PrincipalPermissionsTableResourcePtrInput            `pulumi:"table"`
 	TableWithColumns PrincipalPermissionsTableWithColumnsResourcePtrInput `pulumi:"tableWithColumns"`
 }
@@ -3097,12 +3097,12 @@ func (o PrincipalPermissionsResourceOutput) Database() PrincipalPermissionsDatab
 	return o.ApplyT(func(v PrincipalPermissionsResource) *PrincipalPermissionsDatabaseResource { return v.Database }).(PrincipalPermissionsDatabaseResourcePtrOutput)
 }
 
-func (o PrincipalPermissionsResourceOutput) LFTag() PrincipalPermissionsLFTagKeyResourcePtrOutput {
-	return o.ApplyT(func(v PrincipalPermissionsResource) *PrincipalPermissionsLFTagKeyResource { return v.LFTag }).(PrincipalPermissionsLFTagKeyResourcePtrOutput)
+func (o PrincipalPermissionsResourceOutput) LfTag() PrincipalPermissionsLFTagKeyResourcePtrOutput {
+	return o.ApplyT(func(v PrincipalPermissionsResource) *PrincipalPermissionsLFTagKeyResource { return v.LfTag }).(PrincipalPermissionsLFTagKeyResourcePtrOutput)
 }
 
-func (o PrincipalPermissionsResourceOutput) LFTagPolicy() PrincipalPermissionsLFTagPolicyResourcePtrOutput {
-	return o.ApplyT(func(v PrincipalPermissionsResource) *PrincipalPermissionsLFTagPolicyResource { return v.LFTagPolicy }).(PrincipalPermissionsLFTagPolicyResourcePtrOutput)
+func (o PrincipalPermissionsResourceOutput) LfTagPolicy() PrincipalPermissionsLFTagPolicyResourcePtrOutput {
+	return o.ApplyT(func(v PrincipalPermissionsResource) *PrincipalPermissionsLFTagPolicyResource { return v.LfTagPolicy }).(PrincipalPermissionsLFTagPolicyResourcePtrOutput)
 }
 
 func (o PrincipalPermissionsResourceOutput) Table() PrincipalPermissionsTableResourcePtrOutput {

@@ -58,9 +58,6 @@ export class VPCEConfiguration extends pulumi.CustomResource {
             if ((!args || args.serviceDnsName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceDnsName'");
             }
-            if ((!args || args.vpceConfigurationName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'vpceConfigurationName'");
-            }
             if ((!args || args.vpceServiceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpceServiceName'");
             }
@@ -90,6 +87,6 @@ export interface VPCEConfigurationArgs {
     serviceDnsName: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.devicefarm.VPCEConfigurationTagArgs>[]>;
     vpceConfigurationDescription?: pulumi.Input<string>;
-    vpceConfigurationName: pulumi.Input<string>;
+    vpceConfigurationName?: pulumi.Input<string>;
     vpceServiceName: pulumi.Input<string>;
 }

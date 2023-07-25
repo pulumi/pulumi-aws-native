@@ -27,7 +27,7 @@ type LookupStreamConsumerArgs struct {
 }
 
 type LookupStreamConsumerResult struct {
-	ConsumerARN               *string `pulumi:"consumerARN"`
+	ConsumerArn               *string `pulumi:"consumerArn"`
 	ConsumerCreationTimestamp *string `pulumi:"consumerCreationTimestamp"`
 	ConsumerStatus            *string `pulumi:"consumerStatus"`
 	Id                        *string `pulumi:"id"`
@@ -68,8 +68,8 @@ func (o LookupStreamConsumerResultOutput) ToLookupStreamConsumerResultOutputWith
 	return o
 }
 
-func (o LookupStreamConsumerResultOutput) ConsumerARN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupStreamConsumerResult) *string { return v.ConsumerARN }).(pulumi.StringPtrOutput)
+func (o LookupStreamConsumerResultOutput) ConsumerArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStreamConsumerResult) *string { return v.ConsumerArn }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupStreamConsumerResultOutput) ConsumerCreationTimestamp() pulumi.StringPtrOutput {

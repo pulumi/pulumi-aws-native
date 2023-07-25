@@ -60,15 +60,15 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * [DEPRECATED] The number of EC2 instances that you want this fleet to host. When creating a new fleet, GameLift automatically sets this value to "1" and initiates a single instance. Once the fleet is active, update this value to trigger GameLift to add or remove instances from the fleet.
      */
-    public readonly desiredEC2Instances!: pulumi.Output<number | undefined>;
+    public readonly desiredEc2Instances!: pulumi.Output<number | undefined>;
     /**
      * A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift server.
      */
-    public readonly eC2InboundPermissions!: pulumi.Output<outputs.gamelift.FleetIpPermission[] | undefined>;
+    public readonly ec2InboundPermissions!: pulumi.Output<outputs.gamelift.FleetIpPermission[] | undefined>;
     /**
      * The name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See Amazon EC2 Instance Types for detailed descriptions.
      */
-    public readonly eC2InstanceType!: pulumi.Output<string | undefined>;
+    public readonly ec2InstanceType!: pulumi.Output<string | undefined>;
     /**
      * Unique fleet ID
      */
@@ -80,7 +80,7 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * A unique identifier for an AWS IAM role that manages access to your AWS services. With an instance role ARN set, any application that runs on an instance in this fleet can assume the role, including install scripts, server processes, and daemons (background processes). Create a role or look up a role's ARN from the IAM dashboard in the AWS Management Console.
      */
-    public readonly instanceRoleARN!: pulumi.Output<string | undefined>;
+    public readonly instanceRoleArn!: pulumi.Output<string | undefined>;
     public readonly locations!: pulumi.Output<outputs.gamelift.FleetLocationConfiguration[] | undefined>;
     /**
      * This parameter is no longer used. When hosting a custom game build, specify where Amazon GameLift should store log files using the Amazon GameLift server API call ProcessReady()
@@ -155,11 +155,11 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["certificateConfiguration"] = args ? args.certificateConfiguration : undefined;
             resourceInputs["computeType"] = args ? args.computeType : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["desiredEC2Instances"] = args ? args.desiredEC2Instances : undefined;
-            resourceInputs["eC2InboundPermissions"] = args ? args.eC2InboundPermissions : undefined;
-            resourceInputs["eC2InstanceType"] = args ? args.eC2InstanceType : undefined;
+            resourceInputs["desiredEc2Instances"] = args ? args.desiredEc2Instances : undefined;
+            resourceInputs["ec2InboundPermissions"] = args ? args.ec2InboundPermissions : undefined;
+            resourceInputs["ec2InstanceType"] = args ? args.ec2InstanceType : undefined;
             resourceInputs["fleetType"] = args ? args.fleetType : undefined;
-            resourceInputs["instanceRoleARN"] = args ? args.instanceRoleARN : undefined;
+            resourceInputs["instanceRoleArn"] = args ? args.instanceRoleArn : undefined;
             resourceInputs["locations"] = args ? args.locations : undefined;
             resourceInputs["logPaths"] = args ? args.logPaths : undefined;
             resourceInputs["maxSize"] = args ? args.maxSize : undefined;
@@ -181,12 +181,12 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["certificateConfiguration"] = undefined /*out*/;
             resourceInputs["computeType"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
-            resourceInputs["desiredEC2Instances"] = undefined /*out*/;
-            resourceInputs["eC2InboundPermissions"] = undefined /*out*/;
-            resourceInputs["eC2InstanceType"] = undefined /*out*/;
+            resourceInputs["desiredEc2Instances"] = undefined /*out*/;
+            resourceInputs["ec2InboundPermissions"] = undefined /*out*/;
+            resourceInputs["ec2InstanceType"] = undefined /*out*/;
             resourceInputs["fleetId"] = undefined /*out*/;
             resourceInputs["fleetType"] = undefined /*out*/;
-            resourceInputs["instanceRoleARN"] = undefined /*out*/;
+            resourceInputs["instanceRoleArn"] = undefined /*out*/;
             resourceInputs["locations"] = undefined /*out*/;
             resourceInputs["logPaths"] = undefined /*out*/;
             resourceInputs["maxSize"] = undefined /*out*/;
@@ -234,15 +234,15 @@ export interface FleetArgs {
     /**
      * [DEPRECATED] The number of EC2 instances that you want this fleet to host. When creating a new fleet, GameLift automatically sets this value to "1" and initiates a single instance. Once the fleet is active, update this value to trigger GameLift to add or remove instances from the fleet.
      */
-    desiredEC2Instances?: pulumi.Input<number>;
+    desiredEc2Instances?: pulumi.Input<number>;
     /**
      * A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift server.
      */
-    eC2InboundPermissions?: pulumi.Input<pulumi.Input<inputs.gamelift.FleetIpPermissionArgs>[]>;
+    ec2InboundPermissions?: pulumi.Input<pulumi.Input<inputs.gamelift.FleetIpPermissionArgs>[]>;
     /**
      * The name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See Amazon EC2 Instance Types for detailed descriptions.
      */
-    eC2InstanceType?: pulumi.Input<string>;
+    ec2InstanceType?: pulumi.Input<string>;
     /**
      * Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
      */
@@ -250,7 +250,7 @@ export interface FleetArgs {
     /**
      * A unique identifier for an AWS IAM role that manages access to your AWS services. With an instance role ARN set, any application that runs on an instance in this fleet can assume the role, including install scripts, server processes, and daemons (background processes). Create a role or look up a role's ARN from the IAM dashboard in the AWS Management Console.
      */
-    instanceRoleARN?: pulumi.Input<string>;
+    instanceRoleArn?: pulumi.Input<string>;
     locations?: pulumi.Input<pulumi.Input<inputs.gamelift.FleetLocationConfigurationArgs>[]>;
     /**
      * This parameter is no longer used. When hosting a custom game build, specify where Amazon GameLift should store log files using the Amazon GameLift server API call ProcessReady()

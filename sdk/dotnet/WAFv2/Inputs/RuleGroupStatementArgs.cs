@@ -24,8 +24,8 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         [Input("geoMatchStatement")]
         public Input<Inputs.RuleGroupGeoMatchStatementArgs>? GeoMatchStatement { get; set; }
 
-        [Input("iPSetReferenceStatement")]
-        public Input<Inputs.RuleGroupIPSetReferenceStatementArgs>? IPSetReferenceStatement { get; set; }
+        [Input("ipSetReferenceStatement")]
+        public Input<Inputs.RuleGroupIPSetReferenceStatementArgs>? IpSetReferenceStatement { get; set; }
 
         [Input("labelMatchStatement")]
         public Input<Inputs.RuleGroupLabelMatchStatementArgs>? LabelMatchStatement { get; set; }

@@ -31,15 +31,15 @@ type LookupLoadBalancerResult struct {
 	AppCookieStickinessPolicy     []LoadBalancerAppCookieStickinessPolicy `pulumi:"appCookieStickinessPolicy"`
 	AvailabilityZones             []string                                `pulumi:"availabilityZones"`
 	CanonicalHostedZoneName       *string                                 `pulumi:"canonicalHostedZoneName"`
-	CanonicalHostedZoneNameID     *string                                 `pulumi:"canonicalHostedZoneNameID"`
+	CanonicalHostedZoneNameId     *string                                 `pulumi:"canonicalHostedZoneNameId"`
 	ConnectionDrainingPolicy      *LoadBalancerConnectionDrainingPolicy   `pulumi:"connectionDrainingPolicy"`
 	ConnectionSettings            *LoadBalancerConnectionSettings         `pulumi:"connectionSettings"`
 	CrossZone                     *bool                                   `pulumi:"crossZone"`
-	DNSName                       *string                                 `pulumi:"dNSName"`
+	DnsName                       *string                                 `pulumi:"dnsName"`
 	HealthCheck                   *LoadBalancerHealthCheck                `pulumi:"healthCheck"`
 	Id                            *string                                 `pulumi:"id"`
 	Instances                     []string                                `pulumi:"instances"`
-	LBCookieStickinessPolicy      []LoadBalancerLBCookieStickinessPolicy  `pulumi:"lBCookieStickinessPolicy"`
+	LbCookieStickinessPolicy      []LoadBalancerLBCookieStickinessPolicy  `pulumi:"lbCookieStickinessPolicy"`
 	Listeners                     []LoadBalancerListeners                 `pulumi:"listeners"`
 	Policies                      []LoadBalancerPolicies                  `pulumi:"policies"`
 	SecurityGroups                []string                                `pulumi:"securityGroups"`
@@ -102,8 +102,8 @@ func (o LookupLoadBalancerResultOutput) CanonicalHostedZoneName() pulumi.StringP
 	return o.ApplyT(func(v LookupLoadBalancerResult) *string { return v.CanonicalHostedZoneName }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupLoadBalancerResultOutput) CanonicalHostedZoneNameID() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupLoadBalancerResult) *string { return v.CanonicalHostedZoneNameID }).(pulumi.StringPtrOutput)
+func (o LookupLoadBalancerResultOutput) CanonicalHostedZoneNameId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) *string { return v.CanonicalHostedZoneNameId }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupLoadBalancerResultOutput) ConnectionDrainingPolicy() LoadBalancerConnectionDrainingPolicyPtrOutput {
@@ -120,8 +120,8 @@ func (o LookupLoadBalancerResultOutput) CrossZone() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupLoadBalancerResult) *bool { return v.CrossZone }).(pulumi.BoolPtrOutput)
 }
 
-func (o LookupLoadBalancerResultOutput) DNSName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupLoadBalancerResult) *string { return v.DNSName }).(pulumi.StringPtrOutput)
+func (o LookupLoadBalancerResultOutput) DnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) *string { return v.DnsName }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupLoadBalancerResultOutput) HealthCheck() LoadBalancerHealthCheckPtrOutput {
@@ -136,9 +136,9 @@ func (o LookupLoadBalancerResultOutput) Instances() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupLoadBalancerResult) []string { return v.Instances }).(pulumi.StringArrayOutput)
 }
 
-func (o LookupLoadBalancerResultOutput) LBCookieStickinessPolicy() LoadBalancerLBCookieStickinessPolicyArrayOutput {
+func (o LookupLoadBalancerResultOutput) LbCookieStickinessPolicy() LoadBalancerLBCookieStickinessPolicyArrayOutput {
 	return o.ApplyT(func(v LookupLoadBalancerResult) []LoadBalancerLBCookieStickinessPolicy {
-		return v.LBCookieStickinessPolicy
+		return v.LbCookieStickinessPolicy
 	}).(LoadBalancerLBCookieStickinessPolicyArrayOutput)
 }
 

@@ -14,7 +14,7 @@ export function getACL(args: GetACLArgs, opts?: pulumi.InvokeOptions): Promise<G
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:memorydb:getACL", {
-        "aCLName": args.aCLName,
+        "aclName": args.aclName,
     }, opts);
 }
 
@@ -22,7 +22,7 @@ export interface GetACLArgs {
     /**
      * The name of the acl.
      */
-    aCLName: string;
+    aclName: string;
 }
 
 export interface GetACLResult {
@@ -54,5 +54,5 @@ export interface GetACLOutputArgs {
     /**
      * The name of the acl.
      */
-    aCLName: pulumi.Input<string>;
+    aclName: pulumi.Input<string>;
 }

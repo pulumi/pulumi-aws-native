@@ -40,7 +40,7 @@ export class ResourceDataSync extends pulumi.CustomResource {
     public readonly bucketName!: pulumi.Output<string | undefined>;
     public readonly bucketPrefix!: pulumi.Output<string | undefined>;
     public readonly bucketRegion!: pulumi.Output<string | undefined>;
-    public readonly kMSKeyArn!: pulumi.Output<string | undefined>;
+    public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
     public readonly s3Destination!: pulumi.Output<outputs.ssm.ResourceDataSyncS3Destination | undefined>;
     public readonly syncFormat!: pulumi.Output<string | undefined>;
     public readonly syncName!: pulumi.Output<string>;
@@ -64,7 +64,7 @@ export class ResourceDataSync extends pulumi.CustomResource {
             resourceInputs["bucketName"] = args ? args.bucketName : undefined;
             resourceInputs["bucketPrefix"] = args ? args.bucketPrefix : undefined;
             resourceInputs["bucketRegion"] = args ? args.bucketRegion : undefined;
-            resourceInputs["kMSKeyArn"] = args ? args.kMSKeyArn : undefined;
+            resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
             resourceInputs["s3Destination"] = args ? args.s3Destination : undefined;
             resourceInputs["syncFormat"] = args ? args.syncFormat : undefined;
             resourceInputs["syncName"] = args ? args.syncName : undefined;
@@ -74,7 +74,7 @@ export class ResourceDataSync extends pulumi.CustomResource {
             resourceInputs["bucketName"] = undefined /*out*/;
             resourceInputs["bucketPrefix"] = undefined /*out*/;
             resourceInputs["bucketRegion"] = undefined /*out*/;
-            resourceInputs["kMSKeyArn"] = undefined /*out*/;
+            resourceInputs["kmsKeyArn"] = undefined /*out*/;
             resourceInputs["s3Destination"] = undefined /*out*/;
             resourceInputs["syncFormat"] = undefined /*out*/;
             resourceInputs["syncName"] = undefined /*out*/;
@@ -93,7 +93,7 @@ export interface ResourceDataSyncArgs {
     bucketName?: pulumi.Input<string>;
     bucketPrefix?: pulumi.Input<string>;
     bucketRegion?: pulumi.Input<string>;
-    kMSKeyArn?: pulumi.Input<string>;
+    kmsKeyArn?: pulumi.Input<string>;
     s3Destination?: pulumi.Input<inputs.ssm.ResourceDataSyncS3DestinationArgs>;
     syncFormat?: pulumi.Input<string>;
     syncName: pulumi.Input<string>;

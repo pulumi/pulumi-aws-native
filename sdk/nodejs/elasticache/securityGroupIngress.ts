@@ -38,8 +38,8 @@ export class SecurityGroupIngress extends pulumi.CustomResource {
     }
 
     public readonly cacheSecurityGroupName!: pulumi.Output<string>;
-    public readonly eC2SecurityGroupName!: pulumi.Output<string>;
-    public readonly eC2SecurityGroupOwnerId!: pulumi.Output<string | undefined>;
+    public readonly ec2SecurityGroupName!: pulumi.Output<string>;
+    public readonly ec2SecurityGroupOwnerId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a SecurityGroupIngress resource with the given unique name, arguments, and options.
@@ -57,16 +57,16 @@ export class SecurityGroupIngress extends pulumi.CustomResource {
             if ((!args || args.cacheSecurityGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'cacheSecurityGroupName'");
             }
-            if ((!args || args.eC2SecurityGroupName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'eC2SecurityGroupName'");
+            if ((!args || args.ec2SecurityGroupName === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'ec2SecurityGroupName'");
             }
             resourceInputs["cacheSecurityGroupName"] = args ? args.cacheSecurityGroupName : undefined;
-            resourceInputs["eC2SecurityGroupName"] = args ? args.eC2SecurityGroupName : undefined;
-            resourceInputs["eC2SecurityGroupOwnerId"] = args ? args.eC2SecurityGroupOwnerId : undefined;
+            resourceInputs["ec2SecurityGroupName"] = args ? args.ec2SecurityGroupName : undefined;
+            resourceInputs["ec2SecurityGroupOwnerId"] = args ? args.ec2SecurityGroupOwnerId : undefined;
         } else {
             resourceInputs["cacheSecurityGroupName"] = undefined /*out*/;
-            resourceInputs["eC2SecurityGroupName"] = undefined /*out*/;
-            resourceInputs["eC2SecurityGroupOwnerId"] = undefined /*out*/;
+            resourceInputs["ec2SecurityGroupName"] = undefined /*out*/;
+            resourceInputs["ec2SecurityGroupOwnerId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SecurityGroupIngress.__pulumiType, name, resourceInputs, opts);
@@ -78,6 +78,6 @@ export class SecurityGroupIngress extends pulumi.CustomResource {
  */
 export interface SecurityGroupIngressArgs {
     cacheSecurityGroupName: pulumi.Input<string>;
-    eC2SecurityGroupName: pulumi.Input<string>;
-    eC2SecurityGroupOwnerId?: pulumi.Input<string>;
+    ec2SecurityGroupName: pulumi.Input<string>;
+    ec2SecurityGroupOwnerId?: pulumi.Input<string>;
 }

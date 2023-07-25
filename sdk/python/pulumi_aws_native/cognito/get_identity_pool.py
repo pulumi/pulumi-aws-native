@@ -106,7 +106,7 @@ class GetIdentityPoolResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="openIdConnectProviderARNs")
+    @pulumi.getter(name="openIdConnectProviderArns")
     def open_id_connect_provider_arns(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "open_id_connect_provider_arns")
 
@@ -116,7 +116,7 @@ class GetIdentityPoolResult:
         return pulumi.get(self, "push_sync")
 
     @property
-    @pulumi.getter(name="samlProviderARNs")
+    @pulumi.getter(name="samlProviderArns")
     def saml_provider_arns(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "saml_provider_arns")
 

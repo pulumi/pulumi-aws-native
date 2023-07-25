@@ -14,16 +14,16 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
     public sealed class DatasetResourceConfiguration
     {
         public readonly Pulumi.AwsNative.IoTAnalytics.DatasetResourceConfigurationComputeType ComputeType;
-        public readonly int VolumeSizeInGB;
+        public readonly int VolumeSizeInGb;
 
         [OutputConstructor]
         private DatasetResourceConfiguration(
             Pulumi.AwsNative.IoTAnalytics.DatasetResourceConfigurationComputeType computeType,
 
-            int volumeSizeInGB)
+            int volumeSizeInGb)
         {
             ComputeType = computeType;
-            VolumeSizeInGB = volumeSizeInGB;
+            VolumeSizeInGb = volumeSizeInGb;
         }
     }
 }

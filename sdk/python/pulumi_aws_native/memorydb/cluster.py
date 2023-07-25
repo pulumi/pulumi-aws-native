@@ -17,7 +17,7 @@ __all__ = ['ClusterArgs', 'Cluster']
 @pulumi.input_type
 class ClusterArgs:
     def __init__(__self__, *,
-                 a_cl_name: pulumi.Input[str],
+                 acl_name: pulumi.Input[str],
                  node_type: pulumi.Input[str],
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  cluster_endpoint: Optional[pulumi.Input['ClusterEndpointArgs']] = None,
@@ -40,11 +40,11 @@ class ClusterArgs:
                  sns_topic_arn: Optional[pulumi.Input[str]] = None,
                  sns_topic_status: Optional[pulumi.Input[str]] = None,
                  subnet_group_name: Optional[pulumi.Input[str]] = None,
-                 t_ls_enabled: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterTagArgs']]]] = None,
+                 tls_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Cluster resource.
-        :param pulumi.Input[str] a_cl_name: The name of the Access Control List to associate with the cluster.
+        :param pulumi.Input[str] acl_name: The name of the Access Control List to associate with the cluster.
         :param pulumi.Input[str] node_type: The compute and memory capacity of the nodes in the cluster.
         :param pulumi.Input[bool] auto_minor_version_upgrade: A flag that enables automatic minor version upgrade when set to true.
                
@@ -69,12 +69,12 @@ class ClusterArgs:
         :param pulumi.Input[str] sns_topic_arn: The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) topic to which notifications are sent.
         :param pulumi.Input[str] sns_topic_status: The status of the Amazon SNS notification topic. Notifications are sent only if the status is enabled.
         :param pulumi.Input[str] subnet_group_name: The name of the subnet group to be used for the cluster.
-        :param pulumi.Input[bool] t_ls_enabled: A flag that enables in-transit encryption when set to true.
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterTagArgs']]] tags: An array of key-value pairs to apply to this cluster.
+        :param pulumi.Input[bool] tls_enabled: A flag that enables in-transit encryption when set to true.
                
                You cannot modify the value of TransitEncryptionEnabled after the cluster is created. To enable in-transit encryption on a cluster you must set TransitEncryptionEnabled to true when you create a cluster.
-        :param pulumi.Input[Sequence[pulumi.Input['ClusterTagArgs']]] tags: An array of key-value pairs to apply to this cluster.
         """
-        pulumi.set(__self__, "a_cl_name", a_cl_name)
+        pulumi.set(__self__, "acl_name", acl_name)
         pulumi.set(__self__, "node_type", node_type)
         if auto_minor_version_upgrade is not None:
             pulumi.set(__self__, "auto_minor_version_upgrade", auto_minor_version_upgrade)
@@ -118,22 +118,22 @@ class ClusterArgs:
             pulumi.set(__self__, "sns_topic_status", sns_topic_status)
         if subnet_group_name is not None:
             pulumi.set(__self__, "subnet_group_name", subnet_group_name)
-        if t_ls_enabled is not None:
-            pulumi.set(__self__, "t_ls_enabled", t_ls_enabled)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tls_enabled is not None:
+            pulumi.set(__self__, "tls_enabled", tls_enabled)
 
     @property
-    @pulumi.getter(name="aCLName")
-    def a_cl_name(self) -> pulumi.Input[str]:
+    @pulumi.getter(name="aclName")
+    def acl_name(self) -> pulumi.Input[str]:
         """
         The name of the Access Control List to associate with the cluster.
         """
-        return pulumi.get(self, "a_cl_name")
+        return pulumi.get(self, "acl_name")
 
-    @a_cl_name.setter
-    def a_cl_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "a_cl_name", value)
+    @acl_name.setter
+    def acl_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "acl_name", value)
 
     @property
     @pulumi.getter(name="nodeType")
@@ -402,20 +402,6 @@ class ClusterArgs:
         pulumi.set(self, "subnet_group_name", value)
 
     @property
-    @pulumi.getter(name="tLSEnabled")
-    def t_ls_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        A flag that enables in-transit encryption when set to true.
-
-        You cannot modify the value of TransitEncryptionEnabled after the cluster is created. To enable in-transit encryption on a cluster you must set TransitEncryptionEnabled to true when you create a cluster.
-        """
-        return pulumi.get(self, "t_ls_enabled")
-
-    @t_ls_enabled.setter
-    def t_ls_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "t_ls_enabled", value)
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterTagArgs']]]]:
         """
@@ -427,13 +413,27 @@ class ClusterArgs:
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tlsEnabled")
+    def tls_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A flag that enables in-transit encryption when set to true.
+
+        You cannot modify the value of TransitEncryptionEnabled after the cluster is created. To enable in-transit encryption on a cluster you must set TransitEncryptionEnabled to true when you create a cluster.
+        """
+        return pulumi.get(self, "tls_enabled")
+
+    @tls_enabled.setter
+    def tls_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "tls_enabled", value)
+
 
 class Cluster(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 a_cl_name: Optional[pulumi.Input[str]] = None,
+                 acl_name: Optional[pulumi.Input[str]] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  cluster_endpoint: Optional[pulumi.Input[pulumi.InputType['ClusterEndpointArgs']]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
@@ -456,15 +456,15 @@ class Cluster(pulumi.CustomResource):
                  sns_topic_arn: Optional[pulumi.Input[str]] = None,
                  sns_topic_status: Optional[pulumi.Input[str]] = None,
                  subnet_group_name: Optional[pulumi.Input[str]] = None,
-                 t_ls_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterTagArgs']]]]] = None,
+                 tls_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
         The AWS::MemoryDB::Cluster resource creates an Amazon MemoryDB Cluster.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] a_cl_name: The name of the Access Control List to associate with the cluster.
+        :param pulumi.Input[str] acl_name: The name of the Access Control List to associate with the cluster.
         :param pulumi.Input[bool] auto_minor_version_upgrade: A flag that enables automatic minor version upgrade when set to true.
                
                You cannot modify the value of AutoMinorVersionUpgrade after the cluster is created. To enable AutoMinorVersionUpgrade on a cluster you must set AutoMinorVersionUpgrade to true when you create a cluster.
@@ -489,10 +489,10 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] sns_topic_arn: The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) topic to which notifications are sent.
         :param pulumi.Input[str] sns_topic_status: The status of the Amazon SNS notification topic. Notifications are sent only if the status is enabled.
         :param pulumi.Input[str] subnet_group_name: The name of the subnet group to be used for the cluster.
-        :param pulumi.Input[bool] t_ls_enabled: A flag that enables in-transit encryption when set to true.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterTagArgs']]]] tags: An array of key-value pairs to apply to this cluster.
+        :param pulumi.Input[bool] tls_enabled: A flag that enables in-transit encryption when set to true.
                
                You cannot modify the value of TransitEncryptionEnabled after the cluster is created. To enable in-transit encryption on a cluster you must set TransitEncryptionEnabled to true when you create a cluster.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterTagArgs']]]] tags: An array of key-value pairs to apply to this cluster.
         """
         ...
     @overload
@@ -518,7 +518,7 @@ class Cluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 a_cl_name: Optional[pulumi.Input[str]] = None,
+                 acl_name: Optional[pulumi.Input[str]] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  cluster_endpoint: Optional[pulumi.Input[pulumi.InputType['ClusterEndpointArgs']]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
@@ -541,8 +541,8 @@ class Cluster(pulumi.CustomResource):
                  sns_topic_arn: Optional[pulumi.Input[str]] = None,
                  sns_topic_status: Optional[pulumi.Input[str]] = None,
                  subnet_group_name: Optional[pulumi.Input[str]] = None,
-                 t_ls_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterTagArgs']]]]] = None,
+                 tls_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -552,9 +552,9 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ClusterArgs.__new__(ClusterArgs)
 
-            if a_cl_name is None and not opts.urn:
-                raise TypeError("Missing required property 'a_cl_name'")
-            __props__.__dict__["a_cl_name"] = a_cl_name
+            if acl_name is None and not opts.urn:
+                raise TypeError("Missing required property 'acl_name'")
+            __props__.__dict__["acl_name"] = acl_name
             __props__.__dict__["auto_minor_version_upgrade"] = auto_minor_version_upgrade
             __props__.__dict__["cluster_endpoint"] = cluster_endpoint
             __props__.__dict__["cluster_name"] = cluster_name
@@ -579,9 +579,9 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["sns_topic_arn"] = sns_topic_arn
             __props__.__dict__["sns_topic_status"] = sns_topic_status
             __props__.__dict__["subnet_group_name"] = subnet_group_name
-            __props__.__dict__["t_ls_enabled"] = t_ls_enabled
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["a_rn"] = None
+            __props__.__dict__["tls_enabled"] = tls_enabled
+            __props__.__dict__["arn"] = None
             __props__.__dict__["parameter_group_status"] = None
             __props__.__dict__["status"] = None
         super(Cluster, __self__).__init__(
@@ -606,8 +606,8 @@ class Cluster(pulumi.CustomResource):
 
         __props__ = ClusterArgs.__new__(ClusterArgs)
 
-        __props__.__dict__["a_cl_name"] = None
-        __props__.__dict__["a_rn"] = None
+        __props__.__dict__["acl_name"] = None
+        __props__.__dict__["arn"] = None
         __props__.__dict__["auto_minor_version_upgrade"] = None
         __props__.__dict__["cluster_endpoint"] = None
         __props__.__dict__["cluster_name"] = None
@@ -632,25 +632,25 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["sns_topic_status"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["subnet_group_name"] = None
-        __props__.__dict__["t_ls_enabled"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["tls_enabled"] = None
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="aCLName")
-    def a_cl_name(self) -> pulumi.Output[str]:
+    @pulumi.getter(name="aclName")
+    def acl_name(self) -> pulumi.Output[str]:
         """
         The name of the Access Control List to associate with the cluster.
         """
-        return pulumi.get(self, "a_cl_name")
+        return pulumi.get(self, "acl_name")
 
     @property
-    @pulumi.getter(name="aRN")
-    def a_rn(self) -> pulumi.Output[str]:
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name (ARN) of the cluster.
         """
-        return pulumi.get(self, "a_rn")
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="autoMinorVersionUpgrade")
@@ -847,20 +847,20 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "subnet_group_name")
 
     @property
-    @pulumi.getter(name="tLSEnabled")
-    def t_ls_enabled(self) -> pulumi.Output[Optional[bool]]:
-        """
-        A flag that enables in-transit encryption when set to true.
-
-        You cannot modify the value of TransitEncryptionEnabled after the cluster is created. To enable in-transit encryption on a cluster you must set TransitEncryptionEnabled to true when you create a cluster.
-        """
-        return pulumi.get(self, "t_ls_enabled")
-
-    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ClusterTag']]]:
         """
         An array of key-value pairs to apply to this cluster.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tlsEnabled")
+    def tls_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        A flag that enables in-transit encryption when set to true.
+
+        You cannot modify the value of TransitEncryptionEnabled after the cluster is created. To enable in-transit encryption on a cluster you must set TransitEncryptionEnabled to true when you create a cluster.
+        """
+        return pulumi.get(self, "tls_enabled")
 

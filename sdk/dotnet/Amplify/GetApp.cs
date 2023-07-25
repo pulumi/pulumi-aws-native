@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.Amplify
         public readonly string? Description;
         public readonly bool? EnableBranchAutoDeletion;
         public readonly ImmutableArray<Outputs.AppEnvironmentVariable> EnvironmentVariables;
-        public readonly string? IAMServiceRole;
+        public readonly string? IamServiceRole;
         public readonly string? Name;
         public readonly Pulumi.AwsNative.Amplify.AppPlatform? Platform;
         public readonly string? Repository;
@@ -89,7 +89,7 @@ namespace Pulumi.AwsNative.Amplify
 
             ImmutableArray<Outputs.AppEnvironmentVariable> environmentVariables,
 
-            string? iAMServiceRole,
+            string? iamServiceRole,
 
             string? name,
 
@@ -109,7 +109,7 @@ namespace Pulumi.AwsNative.Amplify
             Description = description;
             EnableBranchAutoDeletion = enableBranchAutoDeletion;
             EnvironmentVariables = environmentVariables;
-            IAMServiceRole = iAMServiceRole;
+            IamServiceRole = iamServiceRole;
             Name = name;
             Platform = platform;
             Repository = repository;

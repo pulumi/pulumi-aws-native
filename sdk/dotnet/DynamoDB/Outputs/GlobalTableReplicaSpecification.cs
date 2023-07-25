@@ -20,7 +20,7 @@ namespace Pulumi.AwsNative.DynamoDB.Outputs
         public readonly Outputs.GlobalTablePointInTimeRecoverySpecification? PointInTimeRecoverySpecification;
         public readonly Outputs.GlobalTableReadProvisionedThroughputSettings? ReadProvisionedThroughputSettings;
         public readonly string Region;
-        public readonly Outputs.GlobalTableReplicaSSESpecification? SSESpecification;
+        public readonly Outputs.GlobalTableReplicaSSESpecification? SseSpecification;
         public readonly string? TableClass;
         public readonly ImmutableArray<Outputs.GlobalTableTag> Tags;
 
@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.DynamoDB.Outputs
 
             string region,
 
-            Outputs.GlobalTableReplicaSSESpecification? sSESpecification,
+            Outputs.GlobalTableReplicaSSESpecification? sseSpecification,
 
             string? tableClass,
 
@@ -53,7 +53,7 @@ namespace Pulumi.AwsNative.DynamoDB.Outputs
             PointInTimeRecoverySpecification = pointInTimeRecoverySpecification;
             ReadProvisionedThroughputSettings = readProvisionedThroughputSettings;
             Region = region;
-            SSESpecification = sSESpecification;
+            SseSpecification = sseSpecification;
             TableClass = tableClass;
             Tags = tags;
         }

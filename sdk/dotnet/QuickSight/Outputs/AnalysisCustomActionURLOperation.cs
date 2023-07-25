@@ -13,17 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisCustomActionURLOperation
     {
-        public readonly Pulumi.AwsNative.QuickSight.AnalysisURLTargetConfiguration URLTarget;
-        public readonly string URLTemplate;
+        public readonly Pulumi.AwsNative.QuickSight.AnalysisURLTargetConfiguration UrlTarget;
+        public readonly string UrlTemplate;
 
         [OutputConstructor]
         private AnalysisCustomActionURLOperation(
-            Pulumi.AwsNative.QuickSight.AnalysisURLTargetConfiguration uRLTarget,
+            Pulumi.AwsNative.QuickSight.AnalysisURLTargetConfiguration urlTarget,
 
-            string uRLTemplate)
+            string urlTemplate)
         {
-            URLTarget = uRLTarget;
-            URLTemplate = uRLTemplate;
+            UrlTarget = urlTarget;
+            UrlTemplate = urlTemplate;
         }
     }
 }

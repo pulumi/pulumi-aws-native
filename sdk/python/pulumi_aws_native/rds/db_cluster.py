@@ -23,13 +23,13 @@ class DBClusterArgs:
                  backtrack_window: Optional[pulumi.Input[int]] = None,
                  backup_retention_period: Optional[pulumi.Input[int]] = None,
                  copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
-                 d_b_cluster_identifier: Optional[pulumi.Input[str]] = None,
-                 d_b_cluster_instance_class: Optional[pulumi.Input[str]] = None,
-                 d_b_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
-                 d_b_instance_parameter_group_name: Optional[pulumi.Input[str]] = None,
-                 d_b_subnet_group_name: Optional[pulumi.Input[str]] = None,
-                 d_b_system_id: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
+                 db_cluster_identifier: Optional[pulumi.Input[str]] = None,
+                 db_cluster_instance_class: Optional[pulumi.Input[str]] = None,
+                 db_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
+                 db_instance_parameter_group_name: Optional[pulumi.Input[str]] = None,
+                 db_subnet_group_name: Optional[pulumi.Input[str]] = None,
+                 db_system_id: Optional[pulumi.Input[str]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
                  domain_iam_role_name: Optional[pulumi.Input[str]] = None,
@@ -79,13 +79,13 @@ class DBClusterArgs:
         :param pulumi.Input[int] backtrack_window: The target backtrack window, in seconds. To disable backtracking, set this value to 0.
         :param pulumi.Input[int] backup_retention_period: The number of days for which automated backups are retained.
         :param pulumi.Input[bool] copy_tags_to_snapshot: A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default is not to copy them.
-        :param pulumi.Input[str] d_b_cluster_identifier: The DB cluster identifier. This parameter is stored as a lowercase string.
-        :param pulumi.Input[str] d_b_cluster_instance_class: The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge.
-        :param pulumi.Input[str] d_b_cluster_parameter_group_name: The name of the DB cluster parameter group to associate with this DB cluster.
-        :param pulumi.Input[str] d_b_instance_parameter_group_name: The name of the DB parameter group to apply to all instances of the DB cluster.
-        :param pulumi.Input[str] d_b_subnet_group_name: A DB subnet group that you want to associate with this DB cluster.
-        :param pulumi.Input[str] d_b_system_id: Reserved for future use.
         :param pulumi.Input[str] database_name: The name of your database. If you don't provide a name, then Amazon RDS won't create a database in this DB cluster. For naming constraints, see Naming Constraints in the Amazon RDS User Guide.
+        :param pulumi.Input[str] db_cluster_identifier: The DB cluster identifier. This parameter is stored as a lowercase string.
+        :param pulumi.Input[str] db_cluster_instance_class: The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge.
+        :param pulumi.Input[str] db_cluster_parameter_group_name: The name of the DB cluster parameter group to associate with this DB cluster.
+        :param pulumi.Input[str] db_instance_parameter_group_name: The name of the DB parameter group to apply to all instances of the DB cluster.
+        :param pulumi.Input[str] db_subnet_group_name: A DB subnet group that you want to associate with this DB cluster.
+        :param pulumi.Input[str] db_system_id: Reserved for future use.
         :param pulumi.Input[bool] deletion_protection: A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
         :param pulumi.Input[str] domain: The Active Directory directory ID to create the DB cluster in.
         :param pulumi.Input[str] domain_iam_role_name: Specify the name of the IAM role to be used when making API calls to the Directory Service.
@@ -147,20 +147,20 @@ class DBClusterArgs:
             pulumi.set(__self__, "backup_retention_period", backup_retention_period)
         if copy_tags_to_snapshot is not None:
             pulumi.set(__self__, "copy_tags_to_snapshot", copy_tags_to_snapshot)
-        if d_b_cluster_identifier is not None:
-            pulumi.set(__self__, "d_b_cluster_identifier", d_b_cluster_identifier)
-        if d_b_cluster_instance_class is not None:
-            pulumi.set(__self__, "d_b_cluster_instance_class", d_b_cluster_instance_class)
-        if d_b_cluster_parameter_group_name is not None:
-            pulumi.set(__self__, "d_b_cluster_parameter_group_name", d_b_cluster_parameter_group_name)
-        if d_b_instance_parameter_group_name is not None:
-            pulumi.set(__self__, "d_b_instance_parameter_group_name", d_b_instance_parameter_group_name)
-        if d_b_subnet_group_name is not None:
-            pulumi.set(__self__, "d_b_subnet_group_name", d_b_subnet_group_name)
-        if d_b_system_id is not None:
-            pulumi.set(__self__, "d_b_system_id", d_b_system_id)
         if database_name is not None:
             pulumi.set(__self__, "database_name", database_name)
+        if db_cluster_identifier is not None:
+            pulumi.set(__self__, "db_cluster_identifier", db_cluster_identifier)
+        if db_cluster_instance_class is not None:
+            pulumi.set(__self__, "db_cluster_instance_class", db_cluster_instance_class)
+        if db_cluster_parameter_group_name is not None:
+            pulumi.set(__self__, "db_cluster_parameter_group_name", db_cluster_parameter_group_name)
+        if db_instance_parameter_group_name is not None:
+            pulumi.set(__self__, "db_instance_parameter_group_name", db_instance_parameter_group_name)
+        if db_subnet_group_name is not None:
+            pulumi.set(__self__, "db_subnet_group_name", db_subnet_group_name)
+        if db_system_id is not None:
+            pulumi.set(__self__, "db_system_id", db_system_id)
         if deletion_protection is not None:
             pulumi.set(__self__, "deletion_protection", deletion_protection)
         if domain is not None:
@@ -327,78 +327,6 @@ class DBClusterArgs:
         pulumi.set(self, "copy_tags_to_snapshot", value)
 
     @property
-    @pulumi.getter(name="dBClusterIdentifier")
-    def d_b_cluster_identifier(self) -> Optional[pulumi.Input[str]]:
-        """
-        The DB cluster identifier. This parameter is stored as a lowercase string.
-        """
-        return pulumi.get(self, "d_b_cluster_identifier")
-
-    @d_b_cluster_identifier.setter
-    def d_b_cluster_identifier(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "d_b_cluster_identifier", value)
-
-    @property
-    @pulumi.getter(name="dBClusterInstanceClass")
-    def d_b_cluster_instance_class(self) -> Optional[pulumi.Input[str]]:
-        """
-        The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge.
-        """
-        return pulumi.get(self, "d_b_cluster_instance_class")
-
-    @d_b_cluster_instance_class.setter
-    def d_b_cluster_instance_class(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "d_b_cluster_instance_class", value)
-
-    @property
-    @pulumi.getter(name="dBClusterParameterGroupName")
-    def d_b_cluster_parameter_group_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the DB cluster parameter group to associate with this DB cluster.
-        """
-        return pulumi.get(self, "d_b_cluster_parameter_group_name")
-
-    @d_b_cluster_parameter_group_name.setter
-    def d_b_cluster_parameter_group_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "d_b_cluster_parameter_group_name", value)
-
-    @property
-    @pulumi.getter(name="dBInstanceParameterGroupName")
-    def d_b_instance_parameter_group_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the DB parameter group to apply to all instances of the DB cluster.
-        """
-        return pulumi.get(self, "d_b_instance_parameter_group_name")
-
-    @d_b_instance_parameter_group_name.setter
-    def d_b_instance_parameter_group_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "d_b_instance_parameter_group_name", value)
-
-    @property
-    @pulumi.getter(name="dBSubnetGroupName")
-    def d_b_subnet_group_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        A DB subnet group that you want to associate with this DB cluster.
-        """
-        return pulumi.get(self, "d_b_subnet_group_name")
-
-    @d_b_subnet_group_name.setter
-    def d_b_subnet_group_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "d_b_subnet_group_name", value)
-
-    @property
-    @pulumi.getter(name="dBSystemId")
-    def d_b_system_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Reserved for future use.
-        """
-        return pulumi.get(self, "d_b_system_id")
-
-    @d_b_system_id.setter
-    def d_b_system_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "d_b_system_id", value)
-
-    @property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -409,6 +337,78 @@ class DBClusterArgs:
     @database_name.setter
     def database_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter(name="dbClusterIdentifier")
+    def db_cluster_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The DB cluster identifier. This parameter is stored as a lowercase string.
+        """
+        return pulumi.get(self, "db_cluster_identifier")
+
+    @db_cluster_identifier.setter
+    def db_cluster_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "db_cluster_identifier", value)
+
+    @property
+    @pulumi.getter(name="dbClusterInstanceClass")
+    def db_cluster_instance_class(self) -> Optional[pulumi.Input[str]]:
+        """
+        The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge.
+        """
+        return pulumi.get(self, "db_cluster_instance_class")
+
+    @db_cluster_instance_class.setter
+    def db_cluster_instance_class(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "db_cluster_instance_class", value)
+
+    @property
+    @pulumi.getter(name="dbClusterParameterGroupName")
+    def db_cluster_parameter_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the DB cluster parameter group to associate with this DB cluster.
+        """
+        return pulumi.get(self, "db_cluster_parameter_group_name")
+
+    @db_cluster_parameter_group_name.setter
+    def db_cluster_parameter_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "db_cluster_parameter_group_name", value)
+
+    @property
+    @pulumi.getter(name="dbInstanceParameterGroupName")
+    def db_instance_parameter_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the DB parameter group to apply to all instances of the DB cluster.
+        """
+        return pulumi.get(self, "db_instance_parameter_group_name")
+
+    @db_instance_parameter_group_name.setter
+    def db_instance_parameter_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "db_instance_parameter_group_name", value)
+
+    @property
+    @pulumi.getter(name="dbSubnetGroupName")
+    def db_subnet_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A DB subnet group that you want to associate with this DB cluster.
+        """
+        return pulumi.get(self, "db_subnet_group_name")
+
+    @db_subnet_group_name.setter
+    def db_subnet_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "db_subnet_group_name", value)
+
+    @property
+    @pulumi.getter(name="dbSystemId")
+    def db_system_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Reserved for future use.
+        """
+        return pulumi.get(self, "db_system_id")
+
+    @db_system_id.setter
+    def db_system_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "db_system_id", value)
 
     @property
     @pulumi.getter(name="deletionProtection")
@@ -435,7 +435,7 @@ class DBClusterArgs:
         pulumi.set(self, "domain", value)
 
     @property
-    @pulumi.getter(name="domainIAMRoleName")
+    @pulumi.getter(name="domainIamRoleName")
     def domain_iam_role_name(self) -> Optional[pulumi.Input[str]]:
         """
         Specify the name of the IAM role to be used when making API calls to the Directory Service.
@@ -471,7 +471,7 @@ class DBClusterArgs:
         pulumi.set(self, "enable_http_endpoint", value)
 
     @property
-    @pulumi.getter(name="enableIAMDatabaseAuthentication")
+    @pulumi.getter(name="enableIamDatabaseAuthentication")
     def enable_iam_database_authentication(self) -> Optional[pulumi.Input[bool]]:
         """
         A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
@@ -810,7 +810,7 @@ class DBClusterArgs:
         pulumi.set(self, "snapshot_identifier", value)
 
     @property
-    @pulumi.getter(name="sourceDBClusterIdentifier")
+    @pulumi.getter(name="sourceDbClusterIdentifier")
     def source_db_cluster_identifier(self) -> Optional[pulumi.Input[str]]:
         """
         The identifier of the source DB cluster from which to restore.
@@ -907,13 +907,13 @@ class DBCluster(pulumi.CustomResource):
                  backtrack_window: Optional[pulumi.Input[int]] = None,
                  backup_retention_period: Optional[pulumi.Input[int]] = None,
                  copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
-                 d_b_cluster_identifier: Optional[pulumi.Input[str]] = None,
-                 d_b_cluster_instance_class: Optional[pulumi.Input[str]] = None,
-                 d_b_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
-                 d_b_instance_parameter_group_name: Optional[pulumi.Input[str]] = None,
-                 d_b_subnet_group_name: Optional[pulumi.Input[str]] = None,
-                 d_b_system_id: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
+                 db_cluster_identifier: Optional[pulumi.Input[str]] = None,
+                 db_cluster_instance_class: Optional[pulumi.Input[str]] = None,
+                 db_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
+                 db_instance_parameter_group_name: Optional[pulumi.Input[str]] = None,
+                 db_subnet_group_name: Optional[pulumi.Input[str]] = None,
+                 db_system_id: Optional[pulumi.Input[str]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
                  domain_iam_role_name: Optional[pulumi.Input[str]] = None,
@@ -967,13 +967,13 @@ class DBCluster(pulumi.CustomResource):
         :param pulumi.Input[int] backtrack_window: The target backtrack window, in seconds. To disable backtracking, set this value to 0.
         :param pulumi.Input[int] backup_retention_period: The number of days for which automated backups are retained.
         :param pulumi.Input[bool] copy_tags_to_snapshot: A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default is not to copy them.
-        :param pulumi.Input[str] d_b_cluster_identifier: The DB cluster identifier. This parameter is stored as a lowercase string.
-        :param pulumi.Input[str] d_b_cluster_instance_class: The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge.
-        :param pulumi.Input[str] d_b_cluster_parameter_group_name: The name of the DB cluster parameter group to associate with this DB cluster.
-        :param pulumi.Input[str] d_b_instance_parameter_group_name: The name of the DB parameter group to apply to all instances of the DB cluster.
-        :param pulumi.Input[str] d_b_subnet_group_name: A DB subnet group that you want to associate with this DB cluster.
-        :param pulumi.Input[str] d_b_system_id: Reserved for future use.
         :param pulumi.Input[str] database_name: The name of your database. If you don't provide a name, then Amazon RDS won't create a database in this DB cluster. For naming constraints, see Naming Constraints in the Amazon RDS User Guide.
+        :param pulumi.Input[str] db_cluster_identifier: The DB cluster identifier. This parameter is stored as a lowercase string.
+        :param pulumi.Input[str] db_cluster_instance_class: The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge.
+        :param pulumi.Input[str] db_cluster_parameter_group_name: The name of the DB cluster parameter group to associate with this DB cluster.
+        :param pulumi.Input[str] db_instance_parameter_group_name: The name of the DB parameter group to apply to all instances of the DB cluster.
+        :param pulumi.Input[str] db_subnet_group_name: A DB subnet group that you want to associate with this DB cluster.
+        :param pulumi.Input[str] db_system_id: Reserved for future use.
         :param pulumi.Input[bool] deletion_protection: A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
         :param pulumi.Input[str] domain: The Active Directory directory ID to create the DB cluster in.
         :param pulumi.Input[str] domain_iam_role_name: Specify the name of the IAM role to be used when making API calls to the Directory Service.
@@ -1052,13 +1052,13 @@ class DBCluster(pulumi.CustomResource):
                  backtrack_window: Optional[pulumi.Input[int]] = None,
                  backup_retention_period: Optional[pulumi.Input[int]] = None,
                  copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
-                 d_b_cluster_identifier: Optional[pulumi.Input[str]] = None,
-                 d_b_cluster_instance_class: Optional[pulumi.Input[str]] = None,
-                 d_b_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
-                 d_b_instance_parameter_group_name: Optional[pulumi.Input[str]] = None,
-                 d_b_subnet_group_name: Optional[pulumi.Input[str]] = None,
-                 d_b_system_id: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
+                 db_cluster_identifier: Optional[pulumi.Input[str]] = None,
+                 db_cluster_instance_class: Optional[pulumi.Input[str]] = None,
+                 db_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
+                 db_instance_parameter_group_name: Optional[pulumi.Input[str]] = None,
+                 db_subnet_group_name: Optional[pulumi.Input[str]] = None,
+                 db_system_id: Optional[pulumi.Input[str]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
                  domain_iam_role_name: Optional[pulumi.Input[str]] = None,
@@ -1115,13 +1115,13 @@ class DBCluster(pulumi.CustomResource):
             __props__.__dict__["backtrack_window"] = backtrack_window
             __props__.__dict__["backup_retention_period"] = backup_retention_period
             __props__.__dict__["copy_tags_to_snapshot"] = copy_tags_to_snapshot
-            __props__.__dict__["d_b_cluster_identifier"] = d_b_cluster_identifier
-            __props__.__dict__["d_b_cluster_instance_class"] = d_b_cluster_instance_class
-            __props__.__dict__["d_b_cluster_parameter_group_name"] = d_b_cluster_parameter_group_name
-            __props__.__dict__["d_b_instance_parameter_group_name"] = d_b_instance_parameter_group_name
-            __props__.__dict__["d_b_subnet_group_name"] = d_b_subnet_group_name
-            __props__.__dict__["d_b_system_id"] = d_b_system_id
             __props__.__dict__["database_name"] = database_name
+            __props__.__dict__["db_cluster_identifier"] = db_cluster_identifier
+            __props__.__dict__["db_cluster_instance_class"] = db_cluster_instance_class
+            __props__.__dict__["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
+            __props__.__dict__["db_instance_parameter_group_name"] = db_instance_parameter_group_name
+            __props__.__dict__["db_subnet_group_name"] = db_subnet_group_name
+            __props__.__dict__["db_system_id"] = db_system_id
             __props__.__dict__["deletion_protection"] = deletion_protection
             __props__.__dict__["domain"] = domain
             __props__.__dict__["domain_iam_role_name"] = domain_iam_role_name
@@ -1162,8 +1162,8 @@ class DBCluster(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["use_latest_restorable_time"] = use_latest_restorable_time
             __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
-            __props__.__dict__["d_b_cluster_arn"] = None
-            __props__.__dict__["d_b_cluster_resource_id"] = None
+            __props__.__dict__["db_cluster_arn"] = None
+            __props__.__dict__["db_cluster_resource_id"] = None
             __props__.__dict__["endpoint"] = None
         super(DBCluster, __self__).__init__(
             'aws-native:rds:DBCluster',
@@ -1194,15 +1194,15 @@ class DBCluster(pulumi.CustomResource):
         __props__.__dict__["backtrack_window"] = None
         __props__.__dict__["backup_retention_period"] = None
         __props__.__dict__["copy_tags_to_snapshot"] = None
-        __props__.__dict__["d_b_cluster_arn"] = None
-        __props__.__dict__["d_b_cluster_identifier"] = None
-        __props__.__dict__["d_b_cluster_instance_class"] = None
-        __props__.__dict__["d_b_cluster_parameter_group_name"] = None
-        __props__.__dict__["d_b_cluster_resource_id"] = None
-        __props__.__dict__["d_b_instance_parameter_group_name"] = None
-        __props__.__dict__["d_b_subnet_group_name"] = None
-        __props__.__dict__["d_b_system_id"] = None
         __props__.__dict__["database_name"] = None
+        __props__.__dict__["db_cluster_arn"] = None
+        __props__.__dict__["db_cluster_identifier"] = None
+        __props__.__dict__["db_cluster_instance_class"] = None
+        __props__.__dict__["db_cluster_parameter_group_name"] = None
+        __props__.__dict__["db_cluster_resource_id"] = None
+        __props__.__dict__["db_instance_parameter_group_name"] = None
+        __props__.__dict__["db_subnet_group_name"] = None
+        __props__.__dict__["db_system_id"] = None
         __props__.__dict__["deletion_protection"] = None
         __props__.__dict__["domain"] = None
         __props__.__dict__["domain_iam_role_name"] = None
@@ -1303,76 +1303,76 @@ class DBCluster(pulumi.CustomResource):
         return pulumi.get(self, "copy_tags_to_snapshot")
 
     @property
-    @pulumi.getter(name="dBClusterArn")
-    def d_b_cluster_arn(self) -> pulumi.Output[str]:
-        """
-        The Amazon Resource Name (ARN) for the DB cluster.
-        """
-        return pulumi.get(self, "d_b_cluster_arn")
-
-    @property
-    @pulumi.getter(name="dBClusterIdentifier")
-    def d_b_cluster_identifier(self) -> pulumi.Output[Optional[str]]:
-        """
-        The DB cluster identifier. This parameter is stored as a lowercase string.
-        """
-        return pulumi.get(self, "d_b_cluster_identifier")
-
-    @property
-    @pulumi.getter(name="dBClusterInstanceClass")
-    def d_b_cluster_instance_class(self) -> pulumi.Output[Optional[str]]:
-        """
-        The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge.
-        """
-        return pulumi.get(self, "d_b_cluster_instance_class")
-
-    @property
-    @pulumi.getter(name="dBClusterParameterGroupName")
-    def d_b_cluster_parameter_group_name(self) -> pulumi.Output[Optional[str]]:
-        """
-        The name of the DB cluster parameter group to associate with this DB cluster.
-        """
-        return pulumi.get(self, "d_b_cluster_parameter_group_name")
-
-    @property
-    @pulumi.getter(name="dBClusterResourceId")
-    def d_b_cluster_resource_id(self) -> pulumi.Output[str]:
-        """
-        The AWS Region-unique, immutable identifier for the DB cluster.
-        """
-        return pulumi.get(self, "d_b_cluster_resource_id")
-
-    @property
-    @pulumi.getter(name="dBInstanceParameterGroupName")
-    def d_b_instance_parameter_group_name(self) -> pulumi.Output[Optional[str]]:
-        """
-        The name of the DB parameter group to apply to all instances of the DB cluster.
-        """
-        return pulumi.get(self, "d_b_instance_parameter_group_name")
-
-    @property
-    @pulumi.getter(name="dBSubnetGroupName")
-    def d_b_subnet_group_name(self) -> pulumi.Output[Optional[str]]:
-        """
-        A DB subnet group that you want to associate with this DB cluster.
-        """
-        return pulumi.get(self, "d_b_subnet_group_name")
-
-    @property
-    @pulumi.getter(name="dBSystemId")
-    def d_b_system_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        Reserved for future use.
-        """
-        return pulumi.get(self, "d_b_system_id")
-
-    @property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of your database. If you don't provide a name, then Amazon RDS won't create a database in this DB cluster. For naming constraints, see Naming Constraints in the Amazon RDS User Guide.
         """
         return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter(name="dbClusterArn")
+    def db_cluster_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) for the DB cluster.
+        """
+        return pulumi.get(self, "db_cluster_arn")
+
+    @property
+    @pulumi.getter(name="dbClusterIdentifier")
+    def db_cluster_identifier(self) -> pulumi.Output[Optional[str]]:
+        """
+        The DB cluster identifier. This parameter is stored as a lowercase string.
+        """
+        return pulumi.get(self, "db_cluster_identifier")
+
+    @property
+    @pulumi.getter(name="dbClusterInstanceClass")
+    def db_cluster_instance_class(self) -> pulumi.Output[Optional[str]]:
+        """
+        The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge.
+        """
+        return pulumi.get(self, "db_cluster_instance_class")
+
+    @property
+    @pulumi.getter(name="dbClusterParameterGroupName")
+    def db_cluster_parameter_group_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the DB cluster parameter group to associate with this DB cluster.
+        """
+        return pulumi.get(self, "db_cluster_parameter_group_name")
+
+    @property
+    @pulumi.getter(name="dbClusterResourceId")
+    def db_cluster_resource_id(self) -> pulumi.Output[str]:
+        """
+        The AWS Region-unique, immutable identifier for the DB cluster.
+        """
+        return pulumi.get(self, "db_cluster_resource_id")
+
+    @property
+    @pulumi.getter(name="dbInstanceParameterGroupName")
+    def db_instance_parameter_group_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the DB parameter group to apply to all instances of the DB cluster.
+        """
+        return pulumi.get(self, "db_instance_parameter_group_name")
+
+    @property
+    @pulumi.getter(name="dbSubnetGroupName")
+    def db_subnet_group_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        A DB subnet group that you want to associate with this DB cluster.
+        """
+        return pulumi.get(self, "db_subnet_group_name")
+
+    @property
+    @pulumi.getter(name="dbSystemId")
+    def db_system_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        Reserved for future use.
+        """
+        return pulumi.get(self, "db_system_id")
 
     @property
     @pulumi.getter(name="deletionProtection")
@@ -1391,7 +1391,7 @@ class DBCluster(pulumi.CustomResource):
         return pulumi.get(self, "domain")
 
     @property
-    @pulumi.getter(name="domainIAMRoleName")
+    @pulumi.getter(name="domainIamRoleName")
     def domain_iam_role_name(self) -> pulumi.Output[Optional[str]]:
         """
         Specify the name of the IAM role to be used when making API calls to the Directory Service.
@@ -1415,7 +1415,7 @@ class DBCluster(pulumi.CustomResource):
         return pulumi.get(self, "enable_http_endpoint")
 
     @property
-    @pulumi.getter(name="enableIAMDatabaseAuthentication")
+    @pulumi.getter(name="enableIamDatabaseAuthentication")
     def enable_iam_database_authentication(self) -> pulumi.Output[Optional[bool]]:
         """
         A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
@@ -1647,7 +1647,7 @@ class DBCluster(pulumi.CustomResource):
         return pulumi.get(self, "snapshot_identifier")
 
     @property
-    @pulumi.getter(name="sourceDBClusterIdentifier")
+    @pulumi.getter(name="sourceDbClusterIdentifier")
     def source_db_cluster_identifier(self) -> pulumi.Output[Optional[str]]:
         """
         The identifier of the source DB cluster from which to restore.

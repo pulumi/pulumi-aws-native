@@ -28,12 +28,12 @@ namespace Pulumi.AwsNative.Glue.Inputs
             set => _deltaTargets = value;
         }
 
-        [Input("dynamoDBTargets")]
-        private InputList<Inputs.CrawlerDynamoDBTargetArgs>? _dynamoDBTargets;
-        public InputList<Inputs.CrawlerDynamoDBTargetArgs> DynamoDBTargets
+        [Input("dynamoDbTargets")]
+        private InputList<Inputs.CrawlerDynamoDBTargetArgs>? _dynamoDbTargets;
+        public InputList<Inputs.CrawlerDynamoDBTargetArgs> DynamoDbTargets
         {
-            get => _dynamoDBTargets ?? (_dynamoDBTargets = new InputList<Inputs.CrawlerDynamoDBTargetArgs>());
-            set => _dynamoDBTargets = value;
+            get => _dynamoDbTargets ?? (_dynamoDbTargets = new InputList<Inputs.CrawlerDynamoDBTargetArgs>());
+            set => _dynamoDbTargets = value;
         }
 
         [Input("jdbcTargets")]
@@ -44,12 +44,12 @@ namespace Pulumi.AwsNative.Glue.Inputs
             set => _jdbcTargets = value;
         }
 
-        [Input("mongoDBTargets")]
-        private InputList<Inputs.CrawlerMongoDBTargetArgs>? _mongoDBTargets;
-        public InputList<Inputs.CrawlerMongoDBTargetArgs> MongoDBTargets
+        [Input("mongoDbTargets")]
+        private InputList<Inputs.CrawlerMongoDBTargetArgs>? _mongoDbTargets;
+        public InputList<Inputs.CrawlerMongoDBTargetArgs> MongoDbTargets
         {
-            get => _mongoDBTargets ?? (_mongoDBTargets = new InputList<Inputs.CrawlerMongoDBTargetArgs>());
-            set => _mongoDBTargets = value;
+            get => _mongoDbTargets ?? (_mongoDbTargets = new InputList<Inputs.CrawlerMongoDBTargetArgs>());
+            set => _mongoDbTargets = value;
         }
 
         [Input("s3Targets")]

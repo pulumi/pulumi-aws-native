@@ -13,12 +13,12 @@ namespace Pulumi.AwsNative.AppMesh.Outputs
     [OutputType]
     public sealed class VirtualNodeClientPolicy
     {
-        public readonly Outputs.VirtualNodeClientPolicyTls? TLS;
+        public readonly Outputs.VirtualNodeClientPolicyTls? Tls;
 
         [OutputConstructor]
-        private VirtualNodeClientPolicy(Outputs.VirtualNodeClientPolicyTls? tLS)
+        private VirtualNodeClientPolicy(Outputs.VirtualNodeClientPolicyTls? tls)
         {
-            TLS = tLS;
+            Tls = tls;
         }
     }
 }

@@ -13,17 +13,17 @@ namespace Pulumi.AwsNative.AppMesh.Outputs
     [OutputType]
     public sealed class VirtualNodeServiceDiscovery
     {
-        public readonly Outputs.VirtualNodeAwsCloudMapServiceDiscovery? AWSCloudMap;
-        public readonly Outputs.VirtualNodeDnsServiceDiscovery? DNS;
+        public readonly Outputs.VirtualNodeAwsCloudMapServiceDiscovery? AwsCloudMap;
+        public readonly Outputs.VirtualNodeDnsServiceDiscovery? Dns;
 
         [OutputConstructor]
         private VirtualNodeServiceDiscovery(
-            Outputs.VirtualNodeAwsCloudMapServiceDiscovery? aWSCloudMap,
+            Outputs.VirtualNodeAwsCloudMapServiceDiscovery? awsCloudMap,
 
-            Outputs.VirtualNodeDnsServiceDiscovery? dNS)
+            Outputs.VirtualNodeDnsServiceDiscovery? dns)
         {
-            AWSCloudMap = aWSCloudMap;
-            DNS = dNS;
+            AwsCloudMap = awsCloudMap;
+            Dns = dns;
         }
     }
 }

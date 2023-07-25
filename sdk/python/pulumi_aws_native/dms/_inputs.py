@@ -2847,7 +2847,7 @@ class ReplicationConfigComputeConfigArgs:
         pulumi.set(self, "min_capacity_units", value)
 
     @property
-    @pulumi.getter(name="multiAZ")
+    @pulumi.getter(name="multiAz")
     def multi_az(self) -> Optional[pulumi.Input[bool]]:
         return pulumi.get(self, "multi_az")
 

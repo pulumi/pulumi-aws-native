@@ -29,7 +29,7 @@ export interface GetSubnetGroupResult {
     /**
      * The Amazon Resource Name (ARN) of the subnet group.
      */
-    readonly aRN?: string;
+    readonly arn?: string;
     /**
      * An optional description of the subnet group.
      */

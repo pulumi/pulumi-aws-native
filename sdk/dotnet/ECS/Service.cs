@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.ECS
         [Output("desiredCount")]
         public Output<int?> DesiredCount { get; private set; } = null!;
 
-        [Output("enableECSManagedTags")]
-        public Output<bool?> EnableECSManagedTags { get; private set; } = null!;
+        [Output("enableEcsManagedTags")]
+        public Output<bool?> EnableEcsManagedTags { get; private set; } = null!;
 
         [Output("enableExecuteCommand")]
         public Output<bool?> EnableExecuteCommand { get; private set; } = null!;
@@ -152,8 +152,8 @@ namespace Pulumi.AwsNative.ECS
         [Input("desiredCount")]
         public Input<int>? DesiredCount { get; set; }
 
-        [Input("enableECSManagedTags")]
-        public Input<bool>? EnableECSManagedTags { get; set; }
+        [Input("enableEcsManagedTags")]
+        public Input<bool>? EnableEcsManagedTags { get; set; }
 
         [Input("enableExecuteCommand")]
         public Input<bool>? EnableExecuteCommand { get; set; }

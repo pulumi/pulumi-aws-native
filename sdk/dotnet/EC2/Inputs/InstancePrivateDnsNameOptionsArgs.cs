@@ -12,11 +12,11 @@ namespace Pulumi.AwsNative.EC2.Inputs
 
     public sealed class InstancePrivateDnsNameOptionsArgs : global::Pulumi.ResourceArgs
     {
-        [Input("enableResourceNameDnsAAAARecord")]
-        public Input<bool>? EnableResourceNameDnsAAAARecord { get; set; }
-
         [Input("enableResourceNameDnsARecord")]
         public Input<bool>? EnableResourceNameDnsARecord { get; set; }
+
+        [Input("enableResourceNameDnsAaaaRecord")]
+        public Input<bool>? EnableResourceNameDnsAaaaRecord { get; set; }
 
         [Input("hostnameType")]
         public Input<string>? HostnameType { get; set; }

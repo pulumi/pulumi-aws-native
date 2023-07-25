@@ -25,7 +25,7 @@ type WirelessDevice struct {
 	// The date and time when the most recent uplink was received.
 	LastUplinkReceivedAt pulumi.StringPtrOutput `pulumi:"lastUplinkReceivedAt"`
 	// The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Device.
-	LoRaWAN WirelessDeviceLoRaWANDevicePtrOutput `pulumi:"loRaWAN"`
+	LoRaWan WirelessDeviceLoRaWANDevicePtrOutput `pulumi:"loRaWan"`
 	// Wireless device name
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// A list of key-value pairs that contain metadata for the device. Currently not supported, will not create if tags are passed.
@@ -91,7 +91,7 @@ type wirelessDeviceArgs struct {
 	// The date and time when the most recent uplink was received.
 	LastUplinkReceivedAt *string `pulumi:"lastUplinkReceivedAt"`
 	// The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Device.
-	LoRaWAN *WirelessDeviceLoRaWANDevice `pulumi:"loRaWAN"`
+	LoRaWan *WirelessDeviceLoRaWANDevice `pulumi:"loRaWan"`
 	// Wireless device name
 	Name *string `pulumi:"name"`
 	// A list of key-value pairs that contain metadata for the device. Currently not supported, will not create if tags are passed.
@@ -111,7 +111,7 @@ type WirelessDeviceArgs struct {
 	// The date and time when the most recent uplink was received.
 	LastUplinkReceivedAt pulumi.StringPtrInput
 	// The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Device.
-	LoRaWAN WirelessDeviceLoRaWANDevicePtrInput
+	LoRaWan WirelessDeviceLoRaWANDevicePtrInput
 	// Wireless device name
 	Name pulumi.StringPtrInput
 	// A list of key-value pairs that contain metadata for the device. Currently not supported, will not create if tags are passed.
@@ -180,8 +180,8 @@ func (o WirelessDeviceOutput) LastUplinkReceivedAt() pulumi.StringPtrOutput {
 }
 
 // The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Device.
-func (o WirelessDeviceOutput) LoRaWAN() WirelessDeviceLoRaWANDevicePtrOutput {
-	return o.ApplyT(func(v *WirelessDevice) WirelessDeviceLoRaWANDevicePtrOutput { return v.LoRaWAN }).(WirelessDeviceLoRaWANDevicePtrOutput)
+func (o WirelessDeviceOutput) LoRaWan() WirelessDeviceLoRaWANDevicePtrOutput {
+	return o.ApplyT(func(v *WirelessDevice) WirelessDeviceLoRaWANDevicePtrOutput { return v.LoRaWan }).(WirelessDeviceLoRaWANDevicePtrOutput)
 }
 
 // Wireless device name

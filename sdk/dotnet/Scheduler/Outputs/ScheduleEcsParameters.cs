@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.Scheduler.Outputs
         /// <summary>
         /// Specifies whether to enable Amazon ECS managed tags for the task. For more information, see Tagging Your Amazon ECS Resources in the Amazon Elastic Container Service Developer Guide.
         /// </summary>
-        public readonly bool? EnableECSManagedTags;
+        public readonly bool? EnableEcsManagedTags;
         /// <summary>
         /// Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.Scheduler.Outputs
         private ScheduleEcsParameters(
             ImmutableArray<Outputs.ScheduleCapacityProviderStrategyItem> capacityProviderStrategy,
 
-            bool? enableECSManagedTags,
+            bool? enableEcsManagedTags,
 
             bool? enableExecuteCommand,
 
@@ -95,7 +95,7 @@ namespace Pulumi.AwsNative.Scheduler.Outputs
             string taskDefinitionArn)
         {
             CapacityProviderStrategy = capacityProviderStrategy;
-            EnableECSManagedTags = enableECSManagedTags;
+            EnableEcsManagedTags = enableEcsManagedTags;
             EnableExecuteCommand = enableExecuteCommand;
             Group = group;
             LaunchType = launchType;

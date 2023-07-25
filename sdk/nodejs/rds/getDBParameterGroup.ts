@@ -14,7 +14,7 @@ export function getDBParameterGroup(args: GetDBParameterGroupArgs, opts?: pulumi
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:rds:getDBParameterGroup", {
-        "dBParameterGroupName": args.dBParameterGroupName,
+        "dbParameterGroupName": args.dbParameterGroupName,
     }, opts);
 }
 
@@ -22,7 +22,7 @@ export interface GetDBParameterGroupArgs {
     /**
      * Specifies the name of the DB parameter group
      */
-    dBParameterGroupName: string;
+    dbParameterGroupName: string;
 }
 
 export interface GetDBParameterGroupResult {
@@ -46,5 +46,5 @@ export interface GetDBParameterGroupOutputArgs {
     /**
      * Specifies the name of the DB parameter group
      */
-    dBParameterGroupName: pulumi.Input<string>;
+    dbParameterGroupName: pulumi.Input<string>;
 }

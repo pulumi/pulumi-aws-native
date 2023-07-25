@@ -16,7 +16,7 @@ type EIPAssociation struct {
 	pulumi.CustomResourceState
 
 	AllocationId       pulumi.StringPtrOutput `pulumi:"allocationId"`
-	EIP                pulumi.StringPtrOutput `pulumi:"eIP"`
+	Eip                pulumi.StringPtrOutput `pulumi:"eip"`
 	InstanceId         pulumi.StringPtrOutput `pulumi:"instanceId"`
 	NetworkInterfaceId pulumi.StringPtrOutput `pulumi:"networkInterfaceId"`
 	PrivateIpAddress   pulumi.StringPtrOutput `pulumi:"privateIpAddress"`
@@ -63,7 +63,7 @@ func (EIPAssociationState) ElementType() reflect.Type {
 
 type eipassociationArgs struct {
 	AllocationId       *string `pulumi:"allocationId"`
-	EIP                *string `pulumi:"eIP"`
+	Eip                *string `pulumi:"eip"`
 	InstanceId         *string `pulumi:"instanceId"`
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
 	PrivateIpAddress   *string `pulumi:"privateIpAddress"`
@@ -72,7 +72,7 @@ type eipassociationArgs struct {
 // The set of arguments for constructing a EIPAssociation resource.
 type EIPAssociationArgs struct {
 	AllocationId       pulumi.StringPtrInput
-	EIP                pulumi.StringPtrInput
+	Eip                pulumi.StringPtrInput
 	InstanceId         pulumi.StringPtrInput
 	NetworkInterfaceId pulumi.StringPtrInput
 	PrivateIpAddress   pulumi.StringPtrInput
@@ -119,8 +119,8 @@ func (o EIPAssociationOutput) AllocationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EIPAssociation) pulumi.StringPtrOutput { return v.AllocationId }).(pulumi.StringPtrOutput)
 }
 
-func (o EIPAssociationOutput) EIP() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EIPAssociation) pulumi.StringPtrOutput { return v.EIP }).(pulumi.StringPtrOutput)
+func (o EIPAssociationOutput) Eip() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EIPAssociation) pulumi.StringPtrOutput { return v.Eip }).(pulumi.StringPtrOutput)
 }
 
 func (o EIPAssociationOutput) InstanceId() pulumi.StringPtrOutput {

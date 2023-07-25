@@ -1208,7 +1208,7 @@ class InstanceAttributesArgs:
         pulumi.set(self, "early_media", value)
 
     @property
-    @pulumi.getter(name="useCustomTTSVoices")
+    @pulumi.getter(name="useCustomTtsVoices")
     def use_custom_tts_voices(self) -> Optional[pulumi.Input[bool]]:
         return pulumi.get(self, "use_custom_tts_voices")
 

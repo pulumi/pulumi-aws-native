@@ -13,20 +13,20 @@ namespace Pulumi.AwsNative.EC2.Outputs
     [OutputType]
     public sealed class PrivateDnsNameOptionsOnLaunchProperties
     {
-        public readonly bool? EnableResourceNameDnsAAAARecord;
         public readonly bool? EnableResourceNameDnsARecord;
+        public readonly bool? EnableResourceNameDnsAaaaRecord;
         public readonly string? HostnameType;
 
         [OutputConstructor]
         private PrivateDnsNameOptionsOnLaunchProperties(
-            bool? enableResourceNameDnsAAAARecord,
-
             bool? enableResourceNameDnsARecord,
+
+            bool? enableResourceNameDnsAaaaRecord,
 
             string? hostnameType)
         {
-            EnableResourceNameDnsAAAARecord = enableResourceNameDnsAAAARecord;
             EnableResourceNameDnsARecord = enableResourceNameDnsARecord;
+            EnableResourceNameDnsAaaaRecord = enableResourceNameDnsAaaaRecord;
             HostnameType = hostnameType;
         }
     }

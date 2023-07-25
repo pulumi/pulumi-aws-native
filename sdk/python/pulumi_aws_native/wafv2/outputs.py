@@ -81,7 +81,6 @@ __all__ = [
     'WebACLAWSManagedRulesACFPRuleSet',
     'WebACLAWSManagedRulesATPRuleSet',
     'WebACLAWSManagedRulesBotControlRuleSet',
-    'WebACLAddressField',
     'WebACLAllowAction',
     'WebACLAndStatement',
     'WebACLAssociationConfig',
@@ -121,7 +120,6 @@ __all__ = [
     'WebACLNotStatement',
     'WebACLOrStatement',
     'WebACLOverrideAction',
-    'WebACLPhoneNumberField',
     'WebACLRateBasedStatement',
     'WebACLRateBasedStatementCustomKey',
     'WebACLRateLimitCookie',
@@ -1457,7 +1455,7 @@ class RuleGroupGeoMatchStatement(dict):
         suggest = None
         if key == "countryCodes":
             suggest = "country_codes"
-        elif key == "forwardedIPConfig":
+        elif key == "forwardedIpConfig":
             suggest = "forwarded_ip_config"
 
         if suggest:
@@ -1485,7 +1483,7 @@ class RuleGroupGeoMatchStatement(dict):
         return pulumi.get(self, "country_codes")
 
     @property
-    @pulumi.getter(name="forwardedIPConfig")
+    @pulumi.getter(name="forwardedIpConfig")
     def forwarded_ip_config(self) -> Optional['outputs.RuleGroupForwardedIPConfiguration']:
         return pulumi.get(self, "forwarded_ip_config")
 
@@ -1651,8 +1649,8 @@ class RuleGroupIPSetReferenceStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "iPSetForwardedIPConfig":
-            suggest = "i_p_set_forwarded_ip_config"
+        if key == "ipSetForwardedIpConfig":
+            suggest = "ip_set_forwarded_ip_config"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in RuleGroupIPSetReferenceStatement. Access the value via the '{suggest}' property getter instead.")
@@ -1667,10 +1665,10 @@ class RuleGroupIPSetReferenceStatement(dict):
 
     def __init__(__self__, *,
                  arn: str,
-                 i_p_set_forwarded_ip_config: Optional['outputs.RuleGroupIPSetForwardedIPConfiguration'] = None):
+                 ip_set_forwarded_ip_config: Optional['outputs.RuleGroupIPSetForwardedIPConfiguration'] = None):
         pulumi.set(__self__, "arn", arn)
-        if i_p_set_forwarded_ip_config is not None:
-            pulumi.set(__self__, "i_p_set_forwarded_ip_config", i_p_set_forwarded_ip_config)
+        if ip_set_forwarded_ip_config is not None:
+            pulumi.set(__self__, "ip_set_forwarded_ip_config", ip_set_forwarded_ip_config)
 
     @property
     @pulumi.getter
@@ -1678,9 +1676,9 @@ class RuleGroupIPSetReferenceStatement(dict):
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="iPSetForwardedIPConfig")
-    def i_p_set_forwarded_ip_config(self) -> Optional['outputs.RuleGroupIPSetForwardedIPConfiguration']:
-        return pulumi.get(self, "i_p_set_forwarded_ip_config")
+    @pulumi.getter(name="ipSetForwardedIpConfig")
+    def ip_set_forwarded_ip_config(self) -> Optional['outputs.RuleGroupIPSetForwardedIPConfiguration']:
+        return pulumi.get(self, "ip_set_forwarded_ip_config")
 
 
 @pulumi.output_type
@@ -1901,7 +1899,7 @@ class RuleGroupRateBasedStatement(dict):
             suggest = "aggregate_key_type"
         elif key == "customKeys":
             suggest = "custom_keys"
-        elif key == "forwardedIPConfig":
+        elif key == "forwardedIpConfig":
             suggest = "forwarded_ip_config"
         elif key == "scopeDownStatement":
             suggest = "scope_down_statement"
@@ -1954,7 +1952,7 @@ class RuleGroupRateBasedStatement(dict):
         return pulumi.get(self, "custom_keys")
 
     @property
-    @pulumi.getter(name="forwardedIPConfig")
+    @pulumi.getter(name="forwardedIpConfig")
     def forwarded_ip_config(self) -> Optional['outputs.RuleGroupForwardedIPConfiguration']:
         return pulumi.get(self, "forwarded_ip_config")
 
@@ -1972,12 +1970,10 @@ class RuleGroupRateBasedStatementCustomKey(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "forwardedIP":
+        if key == "forwardedIp":
             suggest = "forwarded_ip"
-        elif key == "hTTPMethod":
-            suggest = "h_ttp_method"
-        elif key == "iP":
-            suggest = "i_p"
+        elif key == "httpMethod":
+            suggest = "http_method"
         elif key == "labelNamespace":
             suggest = "label_namespace"
         elif key == "queryArgument":
@@ -2001,9 +1997,9 @@ class RuleGroupRateBasedStatementCustomKey(dict):
     def __init__(__self__, *,
                  cookie: Optional['outputs.RuleGroupRateLimitCookie'] = None,
                  forwarded_ip: Optional['outputs.RuleGroupRateLimitForwardedIP'] = None,
-                 h_ttp_method: Optional['outputs.RuleGroupRateLimitHTTPMethod'] = None,
                  header: Optional['outputs.RuleGroupRateLimitHeader'] = None,
-                 i_p: Optional['outputs.RuleGroupRateLimitIP'] = None,
+                 http_method: Optional['outputs.RuleGroupRateLimitHTTPMethod'] = None,
+                 ip: Optional['outputs.RuleGroupRateLimitIP'] = None,
                  label_namespace: Optional['outputs.RuleGroupRateLimitLabelNamespace'] = None,
                  query_argument: Optional['outputs.RuleGroupRateLimitQueryArgument'] = None,
                  query_string: Optional['outputs.RuleGroupRateLimitQueryString'] = None,
@@ -2015,12 +2011,12 @@ class RuleGroupRateBasedStatementCustomKey(dict):
             pulumi.set(__self__, "cookie", cookie)
         if forwarded_ip is not None:
             pulumi.set(__self__, "forwarded_ip", forwarded_ip)
-        if h_ttp_method is not None:
-            pulumi.set(__self__, "h_ttp_method", h_ttp_method)
         if header is not None:
             pulumi.set(__self__, "header", header)
-        if i_p is not None:
-            pulumi.set(__self__, "i_p", i_p)
+        if http_method is not None:
+            pulumi.set(__self__, "http_method", http_method)
+        if ip is not None:
+            pulumi.set(__self__, "ip", ip)
         if label_namespace is not None:
             pulumi.set(__self__, "label_namespace", label_namespace)
         if query_argument is not None:
@@ -2036,14 +2032,9 @@ class RuleGroupRateBasedStatementCustomKey(dict):
         return pulumi.get(self, "cookie")
 
     @property
-    @pulumi.getter(name="forwardedIP")
+    @pulumi.getter(name="forwardedIp")
     def forwarded_ip(self) -> Optional['outputs.RuleGroupRateLimitForwardedIP']:
         return pulumi.get(self, "forwarded_ip")
-
-    @property
-    @pulumi.getter(name="hTTPMethod")
-    def h_ttp_method(self) -> Optional['outputs.RuleGroupRateLimitHTTPMethod']:
-        return pulumi.get(self, "h_ttp_method")
 
     @property
     @pulumi.getter
@@ -2051,9 +2042,14 @@ class RuleGroupRateBasedStatementCustomKey(dict):
         return pulumi.get(self, "header")
 
     @property
-    @pulumi.getter(name="iP")
-    def i_p(self) -> Optional['outputs.RuleGroupRateLimitIP']:
-        return pulumi.get(self, "i_p")
+    @pulumi.getter(name="httpMethod")
+    def http_method(self) -> Optional['outputs.RuleGroupRateLimitHTTPMethod']:
+        return pulumi.get(self, "http_method")
+
+    @property
+    @pulumi.getter
+    def ip(self) -> Optional['outputs.RuleGroupRateLimitIP']:
+        return pulumi.get(self, "ip")
 
     @property
     @pulumi.getter(name="labelNamespace")
@@ -2711,8 +2707,8 @@ class RuleGroupStatement(dict):
             suggest = "byte_match_statement"
         elif key == "geoMatchStatement":
             suggest = "geo_match_statement"
-        elif key == "iPSetReferenceStatement":
-            suggest = "i_p_set_reference_statement"
+        elif key == "ipSetReferenceStatement":
+            suggest = "ip_set_reference_statement"
         elif key == "labelMatchStatement":
             suggest = "label_match_statement"
         elif key == "notStatement":
@@ -2747,7 +2743,7 @@ class RuleGroupStatement(dict):
                  and_statement: Optional['outputs.RuleGroupAndStatement'] = None,
                  byte_match_statement: Optional['outputs.RuleGroupByteMatchStatement'] = None,
                  geo_match_statement: Optional['outputs.RuleGroupGeoMatchStatement'] = None,
-                 i_p_set_reference_statement: Optional['outputs.RuleGroupIPSetReferenceStatement'] = None,
+                 ip_set_reference_statement: Optional['outputs.RuleGroupIPSetReferenceStatement'] = None,
                  label_match_statement: Optional['outputs.RuleGroupLabelMatchStatement'] = None,
                  not_statement: Optional['outputs.RuleGroupNotStatement'] = None,
                  or_statement: Optional['outputs.RuleGroupOrStatement'] = None,
@@ -2766,8 +2762,8 @@ class RuleGroupStatement(dict):
             pulumi.set(__self__, "byte_match_statement", byte_match_statement)
         if geo_match_statement is not None:
             pulumi.set(__self__, "geo_match_statement", geo_match_statement)
-        if i_p_set_reference_statement is not None:
-            pulumi.set(__self__, "i_p_set_reference_statement", i_p_set_reference_statement)
+        if ip_set_reference_statement is not None:
+            pulumi.set(__self__, "ip_set_reference_statement", ip_set_reference_statement)
         if label_match_statement is not None:
             pulumi.set(__self__, "label_match_statement", label_match_statement)
         if not_statement is not None:
@@ -2803,9 +2799,9 @@ class RuleGroupStatement(dict):
         return pulumi.get(self, "geo_match_statement")
 
     @property
-    @pulumi.getter(name="iPSetReferenceStatement")
-    def i_p_set_reference_statement(self) -> Optional['outputs.RuleGroupIPSetReferenceStatement']:
-        return pulumi.get(self, "i_p_set_reference_statement")
+    @pulumi.getter(name="ipSetReferenceStatement")
+    def ip_set_reference_statement(self) -> Optional['outputs.RuleGroupIPSetReferenceStatement']:
+        return pulumi.get(self, "ip_set_reference_statement")
 
     @property
     @pulumi.getter(name="labelMatchStatement")
@@ -3167,12 +3163,6 @@ class WebACLAWSManagedRulesBotControlRuleSet(dict):
     @pulumi.getter(name="inspectionLevel")
     def inspection_level(self) -> 'WebACLAWSManagedRulesBotControlRuleSetInspectionLevel':
         return pulumi.get(self, "inspection_level")
-
-
-@pulumi.output_type
-class WebACLAddressField(dict):
-    def __init__(__self__):
-        pass
 
 
 @pulumi.output_type
@@ -4092,7 +4082,7 @@ class WebACLGeoMatchStatement(dict):
         suggest = None
         if key == "countryCodes":
             suggest = "country_codes"
-        elif key == "forwardedIPConfig":
+        elif key == "forwardedIpConfig":
             suggest = "forwarded_ip_config"
 
         if suggest:
@@ -4120,7 +4110,7 @@ class WebACLGeoMatchStatement(dict):
         return pulumi.get(self, "country_codes")
 
     @property
-    @pulumi.getter(name="forwardedIPConfig")
+    @pulumi.getter(name="forwardedIpConfig")
     def forwarded_ip_config(self) -> Optional['outputs.WebACLForwardedIPConfiguration']:
         return pulumi.get(self, "forwarded_ip_config")
 
@@ -4286,8 +4276,8 @@ class WebACLIPSetReferenceStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "iPSetForwardedIPConfig":
-            suggest = "i_p_set_forwarded_ip_config"
+        if key == "ipSetForwardedIpConfig":
+            suggest = "ip_set_forwarded_ip_config"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in WebACLIPSetReferenceStatement. Access the value via the '{suggest}' property getter instead.")
@@ -4302,10 +4292,10 @@ class WebACLIPSetReferenceStatement(dict):
 
     def __init__(__self__, *,
                  arn: str,
-                 i_p_set_forwarded_ip_config: Optional['outputs.WebACLIPSetForwardedIPConfiguration'] = None):
+                 ip_set_forwarded_ip_config: Optional['outputs.WebACLIPSetForwardedIPConfiguration'] = None):
         pulumi.set(__self__, "arn", arn)
-        if i_p_set_forwarded_ip_config is not None:
-            pulumi.set(__self__, "i_p_set_forwarded_ip_config", i_p_set_forwarded_ip_config)
+        if ip_set_forwarded_ip_config is not None:
+            pulumi.set(__self__, "ip_set_forwarded_ip_config", ip_set_forwarded_ip_config)
 
     @property
     @pulumi.getter
@@ -4313,9 +4303,9 @@ class WebACLIPSetReferenceStatement(dict):
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="iPSetForwardedIPConfig")
-    def i_p_set_forwarded_ip_config(self) -> Optional['outputs.WebACLIPSetForwardedIPConfiguration']:
-        return pulumi.get(self, "i_p_set_forwarded_ip_config")
+    @pulumi.getter(name="ipSetForwardedIpConfig")
+    def ip_set_forwarded_ip_config(self) -> Optional['outputs.WebACLIPSetForwardedIPConfiguration']:
+        return pulumi.get(self, "ip_set_forwarded_ip_config")
 
 
 @pulumi.output_type
@@ -4498,12 +4488,12 @@ class WebACLManagedRuleGroupConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "aWSManagedRulesACFPRuleSet":
-            suggest = "a_ws_managed_rules_acfp_rule_set"
-        elif key == "aWSManagedRulesATPRuleSet":
-            suggest = "a_ws_managed_rules_atp_rule_set"
-        elif key == "aWSManagedRulesBotControlRuleSet":
-            suggest = "a_ws_managed_rules_bot_control_rule_set"
+        if key == "awsManagedRulesAcfpRuleSet":
+            suggest = "aws_managed_rules_acfp_rule_set"
+        elif key == "awsManagedRulesAtpRuleSet":
+            suggest = "aws_managed_rules_atp_rule_set"
+        elif key == "awsManagedRulesBotControlRuleSet":
+            suggest = "aws_managed_rules_bot_control_rule_set"
         elif key == "loginPath":
             suggest = "login_path"
         elif key == "passwordField":
@@ -4525,9 +4515,9 @@ class WebACLManagedRuleGroupConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 a_ws_managed_rules_acfp_rule_set: Optional['outputs.WebACLAWSManagedRulesACFPRuleSet'] = None,
-                 a_ws_managed_rules_atp_rule_set: Optional['outputs.WebACLAWSManagedRulesATPRuleSet'] = None,
-                 a_ws_managed_rules_bot_control_rule_set: Optional['outputs.WebACLAWSManagedRulesBotControlRuleSet'] = None,
+                 aws_managed_rules_acfp_rule_set: Optional['outputs.WebACLAWSManagedRulesACFPRuleSet'] = None,
+                 aws_managed_rules_atp_rule_set: Optional['outputs.WebACLAWSManagedRulesATPRuleSet'] = None,
+                 aws_managed_rules_bot_control_rule_set: Optional['outputs.WebACLAWSManagedRulesBotControlRuleSet'] = None,
                  login_path: Optional[str] = None,
                  password_field: Optional['outputs.WebACLFieldIdentifier'] = None,
                  payload_type: Optional['WebACLManagedRuleGroupConfigPayloadType'] = None,
@@ -4535,12 +4525,12 @@ class WebACLManagedRuleGroupConfig(dict):
         """
         ManagedRuleGroupConfig.
         """
-        if a_ws_managed_rules_acfp_rule_set is not None:
-            pulumi.set(__self__, "a_ws_managed_rules_acfp_rule_set", a_ws_managed_rules_acfp_rule_set)
-        if a_ws_managed_rules_atp_rule_set is not None:
-            pulumi.set(__self__, "a_ws_managed_rules_atp_rule_set", a_ws_managed_rules_atp_rule_set)
-        if a_ws_managed_rules_bot_control_rule_set is not None:
-            pulumi.set(__self__, "a_ws_managed_rules_bot_control_rule_set", a_ws_managed_rules_bot_control_rule_set)
+        if aws_managed_rules_acfp_rule_set is not None:
+            pulumi.set(__self__, "aws_managed_rules_acfp_rule_set", aws_managed_rules_acfp_rule_set)
+        if aws_managed_rules_atp_rule_set is not None:
+            pulumi.set(__self__, "aws_managed_rules_atp_rule_set", aws_managed_rules_atp_rule_set)
+        if aws_managed_rules_bot_control_rule_set is not None:
+            pulumi.set(__self__, "aws_managed_rules_bot_control_rule_set", aws_managed_rules_bot_control_rule_set)
         if login_path is not None:
             pulumi.set(__self__, "login_path", login_path)
         if password_field is not None:
@@ -4551,19 +4541,19 @@ class WebACLManagedRuleGroupConfig(dict):
             pulumi.set(__self__, "username_field", username_field)
 
     @property
-    @pulumi.getter(name="aWSManagedRulesACFPRuleSet")
-    def a_ws_managed_rules_acfp_rule_set(self) -> Optional['outputs.WebACLAWSManagedRulesACFPRuleSet']:
-        return pulumi.get(self, "a_ws_managed_rules_acfp_rule_set")
+    @pulumi.getter(name="awsManagedRulesAcfpRuleSet")
+    def aws_managed_rules_acfp_rule_set(self) -> Optional['outputs.WebACLAWSManagedRulesACFPRuleSet']:
+        return pulumi.get(self, "aws_managed_rules_acfp_rule_set")
 
     @property
-    @pulumi.getter(name="aWSManagedRulesATPRuleSet")
-    def a_ws_managed_rules_atp_rule_set(self) -> Optional['outputs.WebACLAWSManagedRulesATPRuleSet']:
-        return pulumi.get(self, "a_ws_managed_rules_atp_rule_set")
+    @pulumi.getter(name="awsManagedRulesAtpRuleSet")
+    def aws_managed_rules_atp_rule_set(self) -> Optional['outputs.WebACLAWSManagedRulesATPRuleSet']:
+        return pulumi.get(self, "aws_managed_rules_atp_rule_set")
 
     @property
-    @pulumi.getter(name="aWSManagedRulesBotControlRuleSet")
-    def a_ws_managed_rules_bot_control_rule_set(self) -> Optional['outputs.WebACLAWSManagedRulesBotControlRuleSet']:
-        return pulumi.get(self, "a_ws_managed_rules_bot_control_rule_set")
+    @pulumi.getter(name="awsManagedRulesBotControlRuleSet")
+    def aws_managed_rules_bot_control_rule_set(self) -> Optional['outputs.WebACLAWSManagedRulesBotControlRuleSet']:
+        return pulumi.get(self, "aws_managed_rules_bot_control_rule_set")
 
     @property
     @pulumi.getter(name="loginPath")
@@ -4740,12 +4730,6 @@ class WebACLOverrideAction(dict):
 
 
 @pulumi.output_type
-class WebACLPhoneNumberField(dict):
-    def __init__(__self__):
-        pass
-
-
-@pulumi.output_type
 class WebACLRateBasedStatement(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -4754,7 +4738,7 @@ class WebACLRateBasedStatement(dict):
             suggest = "aggregate_key_type"
         elif key == "customKeys":
             suggest = "custom_keys"
-        elif key == "forwardedIPConfig":
+        elif key == "forwardedIpConfig":
             suggest = "forwarded_ip_config"
         elif key == "scopeDownStatement":
             suggest = "scope_down_statement"
@@ -4807,7 +4791,7 @@ class WebACLRateBasedStatement(dict):
         return pulumi.get(self, "custom_keys")
 
     @property
-    @pulumi.getter(name="forwardedIPConfig")
+    @pulumi.getter(name="forwardedIpConfig")
     def forwarded_ip_config(self) -> Optional['outputs.WebACLForwardedIPConfiguration']:
         return pulumi.get(self, "forwarded_ip_config")
 
@@ -4825,12 +4809,10 @@ class WebACLRateBasedStatementCustomKey(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "forwardedIP":
+        if key == "forwardedIp":
             suggest = "forwarded_ip"
-        elif key == "hTTPMethod":
-            suggest = "h_ttp_method"
-        elif key == "iP":
-            suggest = "i_p"
+        elif key == "httpMethod":
+            suggest = "http_method"
         elif key == "labelNamespace":
             suggest = "label_namespace"
         elif key == "queryArgument":
@@ -4854,9 +4836,9 @@ class WebACLRateBasedStatementCustomKey(dict):
     def __init__(__self__, *,
                  cookie: Optional['outputs.WebACLRateLimitCookie'] = None,
                  forwarded_ip: Optional['outputs.WebACLRateLimitForwardedIP'] = None,
-                 h_ttp_method: Optional['outputs.WebACLRateLimitHTTPMethod'] = None,
                  header: Optional['outputs.WebACLRateLimitHeader'] = None,
-                 i_p: Optional['outputs.WebACLRateLimitIP'] = None,
+                 http_method: Optional['outputs.WebACLRateLimitHTTPMethod'] = None,
+                 ip: Optional['outputs.WebACLRateLimitIP'] = None,
                  label_namespace: Optional['outputs.WebACLRateLimitLabelNamespace'] = None,
                  query_argument: Optional['outputs.WebACLRateLimitQueryArgument'] = None,
                  query_string: Optional['outputs.WebACLRateLimitQueryString'] = None,
@@ -4868,12 +4850,12 @@ class WebACLRateBasedStatementCustomKey(dict):
             pulumi.set(__self__, "cookie", cookie)
         if forwarded_ip is not None:
             pulumi.set(__self__, "forwarded_ip", forwarded_ip)
-        if h_ttp_method is not None:
-            pulumi.set(__self__, "h_ttp_method", h_ttp_method)
         if header is not None:
             pulumi.set(__self__, "header", header)
-        if i_p is not None:
-            pulumi.set(__self__, "i_p", i_p)
+        if http_method is not None:
+            pulumi.set(__self__, "http_method", http_method)
+        if ip is not None:
+            pulumi.set(__self__, "ip", ip)
         if label_namespace is not None:
             pulumi.set(__self__, "label_namespace", label_namespace)
         if query_argument is not None:
@@ -4889,14 +4871,9 @@ class WebACLRateBasedStatementCustomKey(dict):
         return pulumi.get(self, "cookie")
 
     @property
-    @pulumi.getter(name="forwardedIP")
+    @pulumi.getter(name="forwardedIp")
     def forwarded_ip(self) -> Optional['outputs.WebACLRateLimitForwardedIP']:
         return pulumi.get(self, "forwarded_ip")
-
-    @property
-    @pulumi.getter(name="hTTPMethod")
-    def h_ttp_method(self) -> Optional['outputs.WebACLRateLimitHTTPMethod']:
-        return pulumi.get(self, "h_ttp_method")
 
     @property
     @pulumi.getter
@@ -4904,9 +4881,14 @@ class WebACLRateBasedStatementCustomKey(dict):
         return pulumi.get(self, "header")
 
     @property
-    @pulumi.getter(name="iP")
-    def i_p(self) -> Optional['outputs.WebACLRateLimitIP']:
-        return pulumi.get(self, "i_p")
+    @pulumi.getter(name="httpMethod")
+    def http_method(self) -> Optional['outputs.WebACLRateLimitHTTPMethod']:
+        return pulumi.get(self, "http_method")
+
+    @property
+    @pulumi.getter
+    def ip(self) -> Optional['outputs.WebACLRateLimitIP']:
+        return pulumi.get(self, "ip")
 
     @property
     @pulumi.getter(name="labelNamespace")
@@ -5386,10 +5368,10 @@ class WebACLRequestInspectionACFP(dict):
 
     def __init__(__self__, *,
                  payload_type: 'WebACLRequestInspectionACFPPayloadType',
-                 address_fields: Optional[Sequence['outputs.WebACLAddressField']] = None,
+                 address_fields: Optional[Sequence['outputs.WebACLFieldIdentifier']] = None,
                  email_field: Optional['outputs.WebACLFieldIdentifier'] = None,
                  password_field: Optional['outputs.WebACLFieldIdentifier'] = None,
-                 phone_number_fields: Optional[Sequence['outputs.WebACLPhoneNumberField']] = None,
+                 phone_number_fields: Optional[Sequence['outputs.WebACLFieldIdentifier']] = None,
                  username_field: Optional['outputs.WebACLFieldIdentifier'] = None):
         """
         Configures the inspection of sign-up requests
@@ -5413,7 +5395,7 @@ class WebACLRequestInspectionACFP(dict):
 
     @property
     @pulumi.getter(name="addressFields")
-    def address_fields(self) -> Optional[Sequence['outputs.WebACLAddressField']]:
+    def address_fields(self) -> Optional[Sequence['outputs.WebACLFieldIdentifier']]:
         return pulumi.get(self, "address_fields")
 
     @property
@@ -5428,7 +5410,7 @@ class WebACLRequestInspectionACFP(dict):
 
     @property
     @pulumi.getter(name="phoneNumberFields")
-    def phone_number_fields(self) -> Optional[Sequence['outputs.WebACLPhoneNumberField']]:
+    def phone_number_fields(self) -> Optional[Sequence['outputs.WebACLFieldIdentifier']]:
         return pulumi.get(self, "phone_number_fields")
 
     @property
@@ -6071,8 +6053,8 @@ class WebACLStatement(dict):
             suggest = "byte_match_statement"
         elif key == "geoMatchStatement":
             suggest = "geo_match_statement"
-        elif key == "iPSetReferenceStatement":
-            suggest = "i_p_set_reference_statement"
+        elif key == "ipSetReferenceStatement":
+            suggest = "ip_set_reference_statement"
         elif key == "labelMatchStatement":
             suggest = "label_match_statement"
         elif key == "managedRuleGroupStatement":
@@ -6111,7 +6093,7 @@ class WebACLStatement(dict):
                  and_statement: Optional['outputs.WebACLAndStatement'] = None,
                  byte_match_statement: Optional['outputs.WebACLByteMatchStatement'] = None,
                  geo_match_statement: Optional['outputs.WebACLGeoMatchStatement'] = None,
-                 i_p_set_reference_statement: Optional['outputs.WebACLIPSetReferenceStatement'] = None,
+                 ip_set_reference_statement: Optional['outputs.WebACLIPSetReferenceStatement'] = None,
                  label_match_statement: Optional['outputs.WebACLLabelMatchStatement'] = None,
                  managed_rule_group_statement: Optional['outputs.WebACLManagedRuleGroupStatement'] = None,
                  not_statement: Optional['outputs.WebACLNotStatement'] = None,
@@ -6132,8 +6114,8 @@ class WebACLStatement(dict):
             pulumi.set(__self__, "byte_match_statement", byte_match_statement)
         if geo_match_statement is not None:
             pulumi.set(__self__, "geo_match_statement", geo_match_statement)
-        if i_p_set_reference_statement is not None:
-            pulumi.set(__self__, "i_p_set_reference_statement", i_p_set_reference_statement)
+        if ip_set_reference_statement is not None:
+            pulumi.set(__self__, "ip_set_reference_statement", ip_set_reference_statement)
         if label_match_statement is not None:
             pulumi.set(__self__, "label_match_statement", label_match_statement)
         if managed_rule_group_statement is not None:
@@ -6173,9 +6155,9 @@ class WebACLStatement(dict):
         return pulumi.get(self, "geo_match_statement")
 
     @property
-    @pulumi.getter(name="iPSetReferenceStatement")
-    def i_p_set_reference_statement(self) -> Optional['outputs.WebACLIPSetReferenceStatement']:
-        return pulumi.get(self, "i_p_set_reference_statement")
+    @pulumi.getter(name="ipSetReferenceStatement")
+    def ip_set_reference_statement(self) -> Optional['outputs.WebACLIPSetReferenceStatement']:
+        return pulumi.get(self, "ip_set_reference_statement")
 
     @property
     @pulumi.getter(name="labelMatchStatement")

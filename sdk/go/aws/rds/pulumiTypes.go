@@ -1257,7 +1257,7 @@ func (o DBClusterTagArrayOutput) Index(i pulumi.IntInput) DBClusterTagOutput {
 
 type DBInstanceCertificateDetails struct {
 	// The CA identifier of the CA certificate used for the DB instance's server certificate.
-	CAIdentifier *string `pulumi:"cAIdentifier"`
+	CaIdentifier *string `pulumi:"caIdentifier"`
 	// The expiration date of the DB instance’s server certificate.
 	ValidTill *string `pulumi:"validTill"`
 }
@@ -1275,7 +1275,7 @@ type DBInstanceCertificateDetailsInput interface {
 
 type DBInstanceCertificateDetailsArgs struct {
 	// The CA identifier of the CA certificate used for the DB instance's server certificate.
-	CAIdentifier pulumi.StringPtrInput `pulumi:"cAIdentifier"`
+	CaIdentifier pulumi.StringPtrInput `pulumi:"caIdentifier"`
 	// The expiration date of the DB instance’s server certificate.
 	ValidTill pulumi.StringPtrInput `pulumi:"validTill"`
 }
@@ -1358,8 +1358,8 @@ func (o DBInstanceCertificateDetailsOutput) ToDBInstanceCertificateDetailsPtrOut
 }
 
 // The CA identifier of the CA certificate used for the DB instance's server certificate.
-func (o DBInstanceCertificateDetailsOutput) CAIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DBInstanceCertificateDetails) *string { return v.CAIdentifier }).(pulumi.StringPtrOutput)
+func (o DBInstanceCertificateDetailsOutput) CaIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DBInstanceCertificateDetails) *string { return v.CaIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // The expiration date of the DB instance’s server certificate.
@@ -1392,12 +1392,12 @@ func (o DBInstanceCertificateDetailsPtrOutput) Elem() DBInstanceCertificateDetai
 }
 
 // The CA identifier of the CA certificate used for the DB instance's server certificate.
-func (o DBInstanceCertificateDetailsPtrOutput) CAIdentifier() pulumi.StringPtrOutput {
+func (o DBInstanceCertificateDetailsPtrOutput) CaIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DBInstanceCertificateDetails) *string {
 		if v == nil {
 			return nil
 		}
-		return v.CAIdentifier
+		return v.CaIdentifier
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2180,7 +2180,7 @@ type DBProxyAuthFormat struct {
 	// A user-specified description about the authentication used by a proxy to log in as a specific database user.
 	Description *string `pulumi:"description"`
 	// Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy. The ENABLED value is valid only for proxies with RDS for Microsoft SQL Server.
-	IAMAuth *DBProxyAuthFormatIAMAuth `pulumi:"iAMAuth"`
+	IamAuth *DBProxyAuthFormatIAMAuth `pulumi:"iamAuth"`
 	// The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
 	SecretArn *string `pulumi:"secretArn"`
 }
@@ -2204,7 +2204,7 @@ type DBProxyAuthFormatArgs struct {
 	// A user-specified description about the authentication used by a proxy to log in as a specific database user.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy. The ENABLED value is valid only for proxies with RDS for Microsoft SQL Server.
-	IAMAuth DBProxyAuthFormatIAMAuthPtrInput `pulumi:"iAMAuth"`
+	IamAuth DBProxyAuthFormatIAMAuthPtrInput `pulumi:"iamAuth"`
 	// The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
 	SecretArn pulumi.StringPtrInput `pulumi:"secretArn"`
 }
@@ -2276,8 +2276,8 @@ func (o DBProxyAuthFormatOutput) Description() pulumi.StringPtrOutput {
 }
 
 // Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy. The ENABLED value is valid only for proxies with RDS for Microsoft SQL Server.
-func (o DBProxyAuthFormatOutput) IAMAuth() DBProxyAuthFormatIAMAuthPtrOutput {
-	return o.ApplyT(func(v DBProxyAuthFormat) *DBProxyAuthFormatIAMAuth { return v.IAMAuth }).(DBProxyAuthFormatIAMAuthPtrOutput)
+func (o DBProxyAuthFormatOutput) IamAuth() DBProxyAuthFormatIAMAuthPtrOutput {
+	return o.ApplyT(func(v DBProxyAuthFormat) *DBProxyAuthFormatIAMAuth { return v.IamAuth }).(DBProxyAuthFormatIAMAuthPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
@@ -2723,10 +2723,10 @@ func (o DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput) Sessio
 }
 
 type DBSecurityGroupIngressType struct {
-	CIDRIP                  *string `pulumi:"cIDRIP"`
-	EC2SecurityGroupId      *string `pulumi:"eC2SecurityGroupId"`
-	EC2SecurityGroupName    *string `pulumi:"eC2SecurityGroupName"`
-	EC2SecurityGroupOwnerId *string `pulumi:"eC2SecurityGroupOwnerId"`
+	Cidrip                  *string `pulumi:"cidrip"`
+	Ec2SecurityGroupId      *string `pulumi:"ec2SecurityGroupId"`
+	Ec2SecurityGroupName    *string `pulumi:"ec2SecurityGroupName"`
+	Ec2SecurityGroupOwnerId *string `pulumi:"ec2SecurityGroupOwnerId"`
 }
 
 // DBSecurityGroupIngressTypeInput is an input type that accepts DBSecurityGroupIngressTypeArgs and DBSecurityGroupIngressTypeOutput values.
@@ -2741,10 +2741,10 @@ type DBSecurityGroupIngressTypeInput interface {
 }
 
 type DBSecurityGroupIngressTypeArgs struct {
-	CIDRIP                  pulumi.StringPtrInput `pulumi:"cIDRIP"`
-	EC2SecurityGroupId      pulumi.StringPtrInput `pulumi:"eC2SecurityGroupId"`
-	EC2SecurityGroupName    pulumi.StringPtrInput `pulumi:"eC2SecurityGroupName"`
-	EC2SecurityGroupOwnerId pulumi.StringPtrInput `pulumi:"eC2SecurityGroupOwnerId"`
+	Cidrip                  pulumi.StringPtrInput `pulumi:"cidrip"`
+	Ec2SecurityGroupId      pulumi.StringPtrInput `pulumi:"ec2SecurityGroupId"`
+	Ec2SecurityGroupName    pulumi.StringPtrInput `pulumi:"ec2SecurityGroupName"`
+	Ec2SecurityGroupOwnerId pulumi.StringPtrInput `pulumi:"ec2SecurityGroupOwnerId"`
 }
 
 func (DBSecurityGroupIngressTypeArgs) ElementType() reflect.Type {
@@ -2798,20 +2798,20 @@ func (o DBSecurityGroupIngressTypeOutput) ToDBSecurityGroupIngressTypeOutputWith
 	return o
 }
 
-func (o DBSecurityGroupIngressTypeOutput) CIDRIP() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DBSecurityGroupIngressType) *string { return v.CIDRIP }).(pulumi.StringPtrOutput)
+func (o DBSecurityGroupIngressTypeOutput) Cidrip() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DBSecurityGroupIngressType) *string { return v.Cidrip }).(pulumi.StringPtrOutput)
 }
 
-func (o DBSecurityGroupIngressTypeOutput) EC2SecurityGroupId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DBSecurityGroupIngressType) *string { return v.EC2SecurityGroupId }).(pulumi.StringPtrOutput)
+func (o DBSecurityGroupIngressTypeOutput) Ec2SecurityGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DBSecurityGroupIngressType) *string { return v.Ec2SecurityGroupId }).(pulumi.StringPtrOutput)
 }
 
-func (o DBSecurityGroupIngressTypeOutput) EC2SecurityGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DBSecurityGroupIngressType) *string { return v.EC2SecurityGroupName }).(pulumi.StringPtrOutput)
+func (o DBSecurityGroupIngressTypeOutput) Ec2SecurityGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DBSecurityGroupIngressType) *string { return v.Ec2SecurityGroupName }).(pulumi.StringPtrOutput)
 }
 
-func (o DBSecurityGroupIngressTypeOutput) EC2SecurityGroupOwnerId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DBSecurityGroupIngressType) *string { return v.EC2SecurityGroupOwnerId }).(pulumi.StringPtrOutput)
+func (o DBSecurityGroupIngressTypeOutput) Ec2SecurityGroupOwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DBSecurityGroupIngressType) *string { return v.Ec2SecurityGroupOwnerId }).(pulumi.StringPtrOutput)
 }
 
 type DBSecurityGroupIngressTypeArrayOutput struct{ *pulumi.OutputState }
@@ -3155,7 +3155,7 @@ func (o EventSubscriptionTagArrayOutput) Index(i pulumi.IntInput) EventSubscript
 // The OptionConfiguration property type specifies an individual option, and its settings, within an AWS::RDS::OptionGroup resource.
 type OptionGroupOptionConfiguration struct {
 	// A list of DBSecurityGroupMembership name strings used for this option.
-	DBSecurityGroupMemberships []string `pulumi:"dBSecurityGroupMemberships"`
+	DbSecurityGroupMemberships []string `pulumi:"dbSecurityGroupMemberships"`
 	// The configuration of options to include in a group.
 	OptionName string `pulumi:"optionName"`
 	// The option settings to include in an option group.
@@ -3182,7 +3182,7 @@ type OptionGroupOptionConfigurationInput interface {
 // The OptionConfiguration property type specifies an individual option, and its settings, within an AWS::RDS::OptionGroup resource.
 type OptionGroupOptionConfigurationArgs struct {
 	// A list of DBSecurityGroupMembership name strings used for this option.
-	DBSecurityGroupMemberships pulumi.StringArrayInput `pulumi:"dBSecurityGroupMemberships"`
+	DbSecurityGroupMemberships pulumi.StringArrayInput `pulumi:"dbSecurityGroupMemberships"`
 	// The configuration of options to include in a group.
 	OptionName pulumi.StringInput `pulumi:"optionName"`
 	// The option settings to include in an option group.
@@ -3248,8 +3248,8 @@ func (o OptionGroupOptionConfigurationOutput) ToOptionGroupOptionConfigurationOu
 }
 
 // A list of DBSecurityGroupMembership name strings used for this option.
-func (o OptionGroupOptionConfigurationOutput) DBSecurityGroupMemberships() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v OptionGroupOptionConfiguration) []string { return v.DBSecurityGroupMemberships }).(pulumi.StringArrayOutput)
+func (o OptionGroupOptionConfigurationOutput) DbSecurityGroupMemberships() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OptionGroupOptionConfiguration) []string { return v.DbSecurityGroupMemberships }).(pulumi.StringArrayOutput)
 }
 
 // The configuration of options to include in a group.

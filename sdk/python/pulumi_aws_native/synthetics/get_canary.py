@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetCanaryResult:
-    def __init__(__self__, artifact_config=None, artifact_s3_location=None, code=None, execution_role_arn=None, failure_retention_period=None, id=None, run_config=None, runtime_version=None, schedule=None, state=None, success_retention_period=None, tags=None, v_pc_config=None):
+    def __init__(__self__, artifact_config=None, artifact_s3_location=None, code=None, execution_role_arn=None, failure_retention_period=None, id=None, run_config=None, runtime_version=None, schedule=None, state=None, success_retention_period=None, tags=None, vpc_config=None):
         if artifact_config and not isinstance(artifact_config, dict):
             raise TypeError("Expected argument 'artifact_config' to be a dict")
         pulumi.set(__self__, "artifact_config", artifact_config)
@@ -56,9 +56,9 @@ class GetCanaryResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
-        if v_pc_config and not isinstance(v_pc_config, dict):
-            raise TypeError("Expected argument 'v_pc_config' to be a dict")
-        pulumi.set(__self__, "v_pc_config", v_pc_config)
+        if vpc_config and not isinstance(vpc_config, dict):
+            raise TypeError("Expected argument 'vpc_config' to be a dict")
+        pulumi.set(__self__, "vpc_config", vpc_config)
 
     @property
     @pulumi.getter(name="artifactConfig")
@@ -154,12 +154,12 @@ class GetCanaryResult:
         return pulumi.get(self, "tags")
 
     @property
-    @pulumi.getter(name="vPCConfig")
-    def v_pc_config(self) -> Optional['outputs.CanaryVPCConfig']:
+    @pulumi.getter(name="vpcConfig")
+    def vpc_config(self) -> Optional['outputs.CanaryVPCConfig']:
         """
         Provide VPC Configuration if enabled.
         """
-        return pulumi.get(self, "v_pc_config")
+        return pulumi.get(self, "vpc_config")
 
 
 class AwaitableGetCanaryResult(GetCanaryResult):
@@ -180,7 +180,7 @@ class AwaitableGetCanaryResult(GetCanaryResult):
             state=self.state,
             success_retention_period=self.success_retention_period,
             tags=self.tags,
-            v_pc_config=self.v_pc_config)
+            vpc_config=self.vpc_config)
 
 
 def get_canary(name: Optional[str] = None,
@@ -209,7 +209,7 @@ def get_canary(name: Optional[str] = None,
         state=pulumi.get(__ret__, 'state'),
         success_retention_period=pulumi.get(__ret__, 'success_retention_period'),
         tags=pulumi.get(__ret__, 'tags'),
-        v_pc_config=pulumi.get(__ret__, 'v_pc_config'))
+        vpc_config=pulumi.get(__ret__, 'vpc_config'))
 
 
 @_utilities.lift_output_func(get_canary)

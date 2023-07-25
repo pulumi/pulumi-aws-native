@@ -101,7 +101,7 @@ class GetEventSourceMappingResult:
         return pulumi.get(self, "destination_config")
 
     @property
-    @pulumi.getter(name="documentDBEventSourceConfig")
+    @pulumi.getter(name="documentDbEventSourceConfig")
     def document_db_event_source_config(self) -> Optional['outputs.EventSourceMappingDocumentDBEventSourceConfig']:
         """
         Document db event source config.

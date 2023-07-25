@@ -12,14 +12,14 @@ namespace Pulumi.AwsNative.KinesisAnalytics.Inputs
 
     public sealed class ApplicationReferenceDataSourceS3ReferenceDataSourceArgs : global::Pulumi.ResourceArgs
     {
-        [Input("bucketARN", required: true)]
-        public Input<string> BucketARN { get; set; } = null!;
+        [Input("bucketArn", required: true)]
+        public Input<string> BucketArn { get; set; } = null!;
 
         [Input("fileKey", required: true)]
         public Input<string> FileKey { get; set; } = null!;
 
-        [Input("referenceRoleARN", required: true)]
-        public Input<string> ReferenceRoleARN { get; set; } = null!;
+        [Input("referenceRoleArn", required: true)]
+        public Input<string> ReferenceRoleArn { get; set; } = null!;
 
         public ApplicationReferenceDataSourceS3ReferenceDataSourceArgs()
         {

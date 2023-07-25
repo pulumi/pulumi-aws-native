@@ -13,12 +13,12 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Outputs
     [OutputType]
     public sealed class ApplicationCloudWatchLoggingOptionCloudWatchLoggingOption
     {
-        public readonly string LogStreamARN;
+        public readonly string LogStreamArn;
 
         [OutputConstructor]
-        private ApplicationCloudWatchLoggingOptionCloudWatchLoggingOption(string logStreamARN)
+        private ApplicationCloudWatchLoggingOptionCloudWatchLoggingOption(string logStreamArn)
         {
-            LogStreamARN = logStreamARN;
+            LogStreamArn = logStreamArn;
         }
     }
 }

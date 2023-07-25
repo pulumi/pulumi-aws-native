@@ -91,13 +91,13 @@ export class Canary extends pulumi.CustomResource {
     public readonly successRetentionPeriod!: pulumi.Output<number | undefined>;
     public readonly tags!: pulumi.Output<outputs.synthetics.CanaryTag[] | undefined>;
     /**
-     * Provide VPC Configuration if enabled.
-     */
-    public readonly vPCConfig!: pulumi.Output<outputs.synthetics.CanaryVPCConfig | undefined>;
-    /**
      * Visual reference configuration for visual testing
      */
     public readonly visualReference!: pulumi.Output<outputs.synthetics.CanaryVisualReference | undefined>;
+    /**
+     * Provide VPC Configuration if enabled.
+     */
+    public readonly vpcConfig!: pulumi.Output<outputs.synthetics.CanaryVPCConfig | undefined>;
 
     /**
      * Create a Canary resource with the given unique name, arguments, and options.
@@ -138,8 +138,8 @@ export class Canary extends pulumi.CustomResource {
             resourceInputs["startCanaryAfterCreation"] = args ? args.startCanaryAfterCreation : undefined;
             resourceInputs["successRetentionPeriod"] = args ? args.successRetentionPeriod : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vPCConfig"] = args ? args.vPCConfig : undefined;
             resourceInputs["visualReference"] = args ? args.visualReference : undefined;
+            resourceInputs["vpcConfig"] = args ? args.vpcConfig : undefined;
             resourceInputs["state"] = undefined /*out*/;
         } else {
             resourceInputs["artifactConfig"] = undefined /*out*/;
@@ -156,8 +156,8 @@ export class Canary extends pulumi.CustomResource {
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["successRetentionPeriod"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
-            resourceInputs["vPCConfig"] = undefined /*out*/;
             resourceInputs["visualReference"] = undefined /*out*/;
+            resourceInputs["vpcConfig"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Canary.__pulumiType, name, resourceInputs, opts);
@@ -218,11 +218,11 @@ export interface CanaryArgs {
     successRetentionPeriod?: pulumi.Input<number>;
     tags?: pulumi.Input<pulumi.Input<inputs.synthetics.CanaryTagArgs>[]>;
     /**
-     * Provide VPC Configuration if enabled.
-     */
-    vPCConfig?: pulumi.Input<inputs.synthetics.CanaryVPCConfigArgs>;
-    /**
      * Visual reference configuration for visual testing
      */
     visualReference?: pulumi.Input<inputs.synthetics.CanaryVisualReferenceArgs>;
+    /**
+     * Provide VPC Configuration if enabled.
+     */
+    vpcConfig?: pulumi.Input<inputs.synthetics.CanaryVPCConfigArgs>;
 }

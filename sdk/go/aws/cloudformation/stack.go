@@ -18,10 +18,10 @@ import (
 type Stack struct {
 	pulumi.CustomResourceState
 
-	NotificationARNs pulumi.StringArrayOutput `pulumi:"notificationARNs"`
+	NotificationArns pulumi.StringArrayOutput `pulumi:"notificationArns"`
 	Parameters       pulumi.AnyOutput         `pulumi:"parameters"`
 	Tags             StackTagArrayOutput      `pulumi:"tags"`
-	TemplateURL      pulumi.StringOutput      `pulumi:"templateURL"`
+	TemplateUrl      pulumi.StringOutput      `pulumi:"templateUrl"`
 	TimeoutInMinutes pulumi.IntPtrOutput      `pulumi:"timeoutInMinutes"`
 }
 
@@ -32,8 +32,8 @@ func NewStack(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.TemplateURL == nil {
-		return nil, errors.New("invalid value for required argument 'TemplateURL'")
+	if args.TemplateUrl == nil {
+		return nil, errors.New("invalid value for required argument 'TemplateUrl'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Stack
@@ -68,19 +68,19 @@ func (StackState) ElementType() reflect.Type {
 }
 
 type stackArgs struct {
-	NotificationARNs []string    `pulumi:"notificationARNs"`
+	NotificationArns []string    `pulumi:"notificationArns"`
 	Parameters       interface{} `pulumi:"parameters"`
 	Tags             []StackTag  `pulumi:"tags"`
-	TemplateURL      string      `pulumi:"templateURL"`
+	TemplateUrl      string      `pulumi:"templateUrl"`
 	TimeoutInMinutes *int        `pulumi:"timeoutInMinutes"`
 }
 
 // The set of arguments for constructing a Stack resource.
 type StackArgs struct {
-	NotificationARNs pulumi.StringArrayInput
+	NotificationArns pulumi.StringArrayInput
 	Parameters       pulumi.Input
 	Tags             StackTagArrayInput
-	TemplateURL      pulumi.StringInput
+	TemplateUrl      pulumi.StringInput
 	TimeoutInMinutes pulumi.IntPtrInput
 }
 
@@ -121,8 +121,8 @@ func (o StackOutput) ToStackOutputWithContext(ctx context.Context) StackOutput {
 	return o
 }
 
-func (o StackOutput) NotificationARNs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *Stack) pulumi.StringArrayOutput { return v.NotificationARNs }).(pulumi.StringArrayOutput)
+func (o StackOutput) NotificationArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Stack) pulumi.StringArrayOutput { return v.NotificationArns }).(pulumi.StringArrayOutput)
 }
 
 func (o StackOutput) Parameters() pulumi.AnyOutput {
@@ -133,8 +133,8 @@ func (o StackOutput) Tags() StackTagArrayOutput {
 	return o.ApplyT(func(v *Stack) StackTagArrayOutput { return v.Tags }).(StackTagArrayOutput)
 }
 
-func (o StackOutput) TemplateURL() pulumi.StringOutput {
-	return o.ApplyT(func(v *Stack) pulumi.StringOutput { return v.TemplateURL }).(pulumi.StringOutput)
+func (o StackOutput) TemplateUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *Stack) pulumi.StringOutput { return v.TemplateUrl }).(pulumi.StringOutput)
 }
 
 func (o StackOutput) TimeoutInMinutes() pulumi.IntPtrOutput {

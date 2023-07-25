@@ -32,7 +32,7 @@ class StreamConsumerArgs:
         pulumi.set(self, "consumer_name", value)
 
     @property
-    @pulumi.getter(name="streamARN")
+    @pulumi.getter(name="streamArn")
     def stream_arn(self) -> pulumi.Input[str]:
         return pulumi.get(self, "stream_arn")
 
@@ -135,7 +135,7 @@ class StreamConsumer(pulumi.CustomResource):
         return StreamConsumer(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="consumerARN")
+    @pulumi.getter(name="consumerArn")
     def consumer_arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "consumer_arn")
 
@@ -155,7 +155,7 @@ class StreamConsumer(pulumi.CustomResource):
         return pulumi.get(self, "consumer_status")
 
     @property
-    @pulumi.getter(name="streamARN")
+    @pulumi.getter(name="streamArn")
     def stream_arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "stream_arn")
 

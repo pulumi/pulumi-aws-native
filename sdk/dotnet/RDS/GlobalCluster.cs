@@ -43,8 +43,8 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// The Amazon Resource Name (ARN) to use as the primary cluster of the global database. This parameter is optional. This parameter is stored as a lowercase string.
         /// </summary>
-        [Output("sourceDBClusterIdentifier")]
-        public Output<string?> SourceDBClusterIdentifier { get; private set; } = null!;
+        [Output("sourceDbClusterIdentifier")]
+        public Output<string?> SourceDbClusterIdentifier { get; private set; } = null!;
 
         /// <summary>
         ///  The storage encryption setting for the new global database cluster.
@@ -126,8 +126,8 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// The Amazon Resource Name (ARN) to use as the primary cluster of the global database. This parameter is optional. This parameter is stored as a lowercase string.
         /// </summary>
-        [Input("sourceDBClusterIdentifier")]
-        public Input<string>? SourceDBClusterIdentifier { get; set; }
+        [Input("sourceDbClusterIdentifier")]
+        public Input<string>? SourceDbClusterIdentifier { get; set; }
 
         /// <summary>
         ///  The storage encryption setting for the new global database cluster.

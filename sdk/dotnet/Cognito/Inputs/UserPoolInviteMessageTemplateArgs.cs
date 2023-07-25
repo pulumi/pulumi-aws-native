@@ -18,8 +18,8 @@ namespace Pulumi.AwsNative.Cognito.Inputs
         [Input("emailSubject")]
         public Input<string>? EmailSubject { get; set; }
 
-        [Input("sMSMessage")]
-        public Input<string>? SMSMessage { get; set; }
+        [Input("smsMessage")]
+        public Input<string>? SmsMessage { get; set; }
 
         public UserPoolInviteMessageTemplateArgs()
         {

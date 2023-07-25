@@ -388,7 +388,7 @@ func (o ApplicationComponentConfigurationPtrOutput) SubComponentTypeConfiguratio
 // The monitoring setting of the component.
 type ApplicationComponentMonitoringSetting struct {
 	// The ARN of the compnonent.
-	ComponentARN *string `pulumi:"componentARN"`
+	ComponentArn *string `pulumi:"componentArn"`
 	// The component monitoring configuration mode.
 	ComponentConfigurationMode ApplicationComponentMonitoringSettingComponentConfigurationMode `pulumi:"componentConfigurationMode"`
 	// The name of the component.
@@ -415,7 +415,7 @@ type ApplicationComponentMonitoringSettingInput interface {
 // The monitoring setting of the component.
 type ApplicationComponentMonitoringSettingArgs struct {
 	// The ARN of the compnonent.
-	ComponentARN pulumi.StringPtrInput `pulumi:"componentARN"`
+	ComponentArn pulumi.StringPtrInput `pulumi:"componentArn"`
 	// The component monitoring configuration mode.
 	ComponentConfigurationMode ApplicationComponentMonitoringSettingComponentConfigurationModeInput `pulumi:"componentConfigurationMode"`
 	// The name of the component.
@@ -481,8 +481,8 @@ func (o ApplicationComponentMonitoringSettingOutput) ToApplicationComponentMonit
 }
 
 // The ARN of the compnonent.
-func (o ApplicationComponentMonitoringSettingOutput) ComponentARN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationComponentMonitoringSetting) *string { return v.ComponentARN }).(pulumi.StringPtrOutput)
+func (o ApplicationComponentMonitoringSettingOutput) ComponentArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationComponentMonitoringSetting) *string { return v.ComponentArn }).(pulumi.StringPtrOutput)
 }
 
 // The component monitoring configuration mode.
@@ -543,11 +543,11 @@ type ApplicationConfigurationDetails struct {
 	// A list of alarms to monitor for the component.
 	Alarms []ApplicationAlarm `pulumi:"alarms"`
 	// The HA cluster Prometheus Exporter settings.
-	HAClusterPrometheusExporter *ApplicationHAClusterPrometheusExporter `pulumi:"hAClusterPrometheusExporter"`
+	HaClusterPrometheusExporter *ApplicationHAClusterPrometheusExporter `pulumi:"haClusterPrometheusExporter"`
 	// The HANA DB Prometheus Exporter settings.
-	HANAPrometheusExporter *ApplicationHANAPrometheusExporter `pulumi:"hANAPrometheusExporter"`
+	HanaPrometheusExporter *ApplicationHANAPrometheusExporter `pulumi:"hanaPrometheusExporter"`
 	// The JMX Prometheus Exporter settings.
-	JMXPrometheusExporter *ApplicationJMXPrometheusExporter `pulumi:"jMXPrometheusExporter"`
+	JmxPrometheusExporter *ApplicationJMXPrometheusExporter `pulumi:"jmxPrometheusExporter"`
 	// A list of logs to monitor for the component.
 	Logs []ApplicationLog `pulumi:"logs"`
 	// A list of Windows Events to log.
@@ -572,11 +572,11 @@ type ApplicationConfigurationDetailsArgs struct {
 	// A list of alarms to monitor for the component.
 	Alarms ApplicationAlarmArrayInput `pulumi:"alarms"`
 	// The HA cluster Prometheus Exporter settings.
-	HAClusterPrometheusExporter ApplicationHAClusterPrometheusExporterPtrInput `pulumi:"hAClusterPrometheusExporter"`
+	HaClusterPrometheusExporter ApplicationHAClusterPrometheusExporterPtrInput `pulumi:"haClusterPrometheusExporter"`
 	// The HANA DB Prometheus Exporter settings.
-	HANAPrometheusExporter ApplicationHANAPrometheusExporterPtrInput `pulumi:"hANAPrometheusExporter"`
+	HanaPrometheusExporter ApplicationHANAPrometheusExporterPtrInput `pulumi:"hanaPrometheusExporter"`
 	// The JMX Prometheus Exporter settings.
-	JMXPrometheusExporter ApplicationJMXPrometheusExporterPtrInput `pulumi:"jMXPrometheusExporter"`
+	JmxPrometheusExporter ApplicationJMXPrometheusExporterPtrInput `pulumi:"jmxPrometheusExporter"`
 	// A list of logs to monitor for the component.
 	Logs ApplicationLogArrayInput `pulumi:"logs"`
 	// A list of Windows Events to log.
@@ -672,23 +672,23 @@ func (o ApplicationConfigurationDetailsOutput) Alarms() ApplicationAlarmArrayOut
 }
 
 // The HA cluster Prometheus Exporter settings.
-func (o ApplicationConfigurationDetailsOutput) HAClusterPrometheusExporter() ApplicationHAClusterPrometheusExporterPtrOutput {
+func (o ApplicationConfigurationDetailsOutput) HaClusterPrometheusExporter() ApplicationHAClusterPrometheusExporterPtrOutput {
 	return o.ApplyT(func(v ApplicationConfigurationDetails) *ApplicationHAClusterPrometheusExporter {
-		return v.HAClusterPrometheusExporter
+		return v.HaClusterPrometheusExporter
 	}).(ApplicationHAClusterPrometheusExporterPtrOutput)
 }
 
 // The HANA DB Prometheus Exporter settings.
-func (o ApplicationConfigurationDetailsOutput) HANAPrometheusExporter() ApplicationHANAPrometheusExporterPtrOutput {
+func (o ApplicationConfigurationDetailsOutput) HanaPrometheusExporter() ApplicationHANAPrometheusExporterPtrOutput {
 	return o.ApplyT(func(v ApplicationConfigurationDetails) *ApplicationHANAPrometheusExporter {
-		return v.HANAPrometheusExporter
+		return v.HanaPrometheusExporter
 	}).(ApplicationHANAPrometheusExporterPtrOutput)
 }
 
 // The JMX Prometheus Exporter settings.
-func (o ApplicationConfigurationDetailsOutput) JMXPrometheusExporter() ApplicationJMXPrometheusExporterPtrOutput {
+func (o ApplicationConfigurationDetailsOutput) JmxPrometheusExporter() ApplicationJMXPrometheusExporterPtrOutput {
 	return o.ApplyT(func(v ApplicationConfigurationDetails) *ApplicationJMXPrometheusExporter {
-		return v.JMXPrometheusExporter
+		return v.JmxPrometheusExporter
 	}).(ApplicationJMXPrometheusExporterPtrOutput)
 }
 
@@ -747,32 +747,32 @@ func (o ApplicationConfigurationDetailsPtrOutput) Alarms() ApplicationAlarmArray
 }
 
 // The HA cluster Prometheus Exporter settings.
-func (o ApplicationConfigurationDetailsPtrOutput) HAClusterPrometheusExporter() ApplicationHAClusterPrometheusExporterPtrOutput {
+func (o ApplicationConfigurationDetailsPtrOutput) HaClusterPrometheusExporter() ApplicationHAClusterPrometheusExporterPtrOutput {
 	return o.ApplyT(func(v *ApplicationConfigurationDetails) *ApplicationHAClusterPrometheusExporter {
 		if v == nil {
 			return nil
 		}
-		return v.HAClusterPrometheusExporter
+		return v.HaClusterPrometheusExporter
 	}).(ApplicationHAClusterPrometheusExporterPtrOutput)
 }
 
 // The HANA DB Prometheus Exporter settings.
-func (o ApplicationConfigurationDetailsPtrOutput) HANAPrometheusExporter() ApplicationHANAPrometheusExporterPtrOutput {
+func (o ApplicationConfigurationDetailsPtrOutput) HanaPrometheusExporter() ApplicationHANAPrometheusExporterPtrOutput {
 	return o.ApplyT(func(v *ApplicationConfigurationDetails) *ApplicationHANAPrometheusExporter {
 		if v == nil {
 			return nil
 		}
-		return v.HANAPrometheusExporter
+		return v.HanaPrometheusExporter
 	}).(ApplicationHANAPrometheusExporterPtrOutput)
 }
 
 // The JMX Prometheus Exporter settings.
-func (o ApplicationConfigurationDetailsPtrOutput) JMXPrometheusExporter() ApplicationJMXPrometheusExporterPtrOutput {
+func (o ApplicationConfigurationDetailsPtrOutput) JmxPrometheusExporter() ApplicationJMXPrometheusExporterPtrOutput {
 	return o.ApplyT(func(v *ApplicationConfigurationDetails) *ApplicationJMXPrometheusExporter {
 		if v == nil {
 			return nil
 		}
-		return v.JMXPrometheusExporter
+		return v.JmxPrometheusExporter
 	}).(ApplicationJMXPrometheusExporterPtrOutput)
 }
 
@@ -1048,16 +1048,16 @@ func (o ApplicationHAClusterPrometheusExporterPtrOutput) PrometheusPort() pulumi
 // The HANA DB Prometheus Exporter settings.
 type ApplicationHANAPrometheusExporter struct {
 	// A flag which indicates agreeing to install SAP HANA DB client.
-	AgreeToInstallHANADBClient bool `pulumi:"agreeToInstallHANADBClient"`
+	AgreeToInstallHanadbClient bool `pulumi:"agreeToInstallHanadbClient"`
 	// The HANA DB port.
-	HANAPort string `pulumi:"hANAPort"`
-	// HANA DB SID.
-	HANASID string `pulumi:"hANASID"`
+	HanaPort string `pulumi:"hanaPort"`
 	// The secret name which manages the HANA DB credentials e.g. {
 	//   "username": "<>",
 	//   "password": "<>"
 	// }.
-	HANASecretName string `pulumi:"hANASecretName"`
+	HanaSecretName string `pulumi:"hanaSecretName"`
+	// HANA DB SID.
+	Hanasid string `pulumi:"hanasid"`
 	// Prometheus exporter port.
 	PrometheusPort *string `pulumi:"prometheusPort"`
 }
@@ -1076,16 +1076,16 @@ type ApplicationHANAPrometheusExporterInput interface {
 // The HANA DB Prometheus Exporter settings.
 type ApplicationHANAPrometheusExporterArgs struct {
 	// A flag which indicates agreeing to install SAP HANA DB client.
-	AgreeToInstallHANADBClient pulumi.BoolInput `pulumi:"agreeToInstallHANADBClient"`
+	AgreeToInstallHanadbClient pulumi.BoolInput `pulumi:"agreeToInstallHanadbClient"`
 	// The HANA DB port.
-	HANAPort pulumi.StringInput `pulumi:"hANAPort"`
-	// HANA DB SID.
-	HANASID pulumi.StringInput `pulumi:"hANASID"`
+	HanaPort pulumi.StringInput `pulumi:"hanaPort"`
 	// The secret name which manages the HANA DB credentials e.g. {
 	//   "username": "<>",
 	//   "password": "<>"
 	// }.
-	HANASecretName pulumi.StringInput `pulumi:"hANASecretName"`
+	HanaSecretName pulumi.StringInput `pulumi:"hanaSecretName"`
+	// HANA DB SID.
+	Hanasid pulumi.StringInput `pulumi:"hanasid"`
 	// Prometheus exporter port.
 	PrometheusPort pulumi.StringPtrInput `pulumi:"prometheusPort"`
 }
@@ -1169,26 +1169,26 @@ func (o ApplicationHANAPrometheusExporterOutput) ToApplicationHANAPrometheusExpo
 }
 
 // A flag which indicates agreeing to install SAP HANA DB client.
-func (o ApplicationHANAPrometheusExporterOutput) AgreeToInstallHANADBClient() pulumi.BoolOutput {
-	return o.ApplyT(func(v ApplicationHANAPrometheusExporter) bool { return v.AgreeToInstallHANADBClient }).(pulumi.BoolOutput)
+func (o ApplicationHANAPrometheusExporterOutput) AgreeToInstallHanadbClient() pulumi.BoolOutput {
+	return o.ApplyT(func(v ApplicationHANAPrometheusExporter) bool { return v.AgreeToInstallHanadbClient }).(pulumi.BoolOutput)
 }
 
 // The HANA DB port.
-func (o ApplicationHANAPrometheusExporterOutput) HANAPort() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationHANAPrometheusExporter) string { return v.HANAPort }).(pulumi.StringOutput)
-}
-
-// HANA DB SID.
-func (o ApplicationHANAPrometheusExporterOutput) HANASID() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationHANAPrometheusExporter) string { return v.HANASID }).(pulumi.StringOutput)
+func (o ApplicationHANAPrometheusExporterOutput) HanaPort() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationHANAPrometheusExporter) string { return v.HanaPort }).(pulumi.StringOutput)
 }
 
 //	The secret name which manages the HANA DB credentials e.g. {
 //	  "username": "<>",
 //	  "password": "<>"
 //	}.
-func (o ApplicationHANAPrometheusExporterOutput) HANASecretName() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationHANAPrometheusExporter) string { return v.HANASecretName }).(pulumi.StringOutput)
+func (o ApplicationHANAPrometheusExporterOutput) HanaSecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationHANAPrometheusExporter) string { return v.HanaSecretName }).(pulumi.StringOutput)
+}
+
+// HANA DB SID.
+func (o ApplicationHANAPrometheusExporterOutput) Hanasid() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationHANAPrometheusExporter) string { return v.Hanasid }).(pulumi.StringOutput)
 }
 
 // Prometheus exporter port.
@@ -1221,32 +1221,22 @@ func (o ApplicationHANAPrometheusExporterPtrOutput) Elem() ApplicationHANAPromet
 }
 
 // A flag which indicates agreeing to install SAP HANA DB client.
-func (o ApplicationHANAPrometheusExporterPtrOutput) AgreeToInstallHANADBClient() pulumi.BoolPtrOutput {
+func (o ApplicationHANAPrometheusExporterPtrOutput) AgreeToInstallHanadbClient() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApplicationHANAPrometheusExporter) *bool {
 		if v == nil {
 			return nil
 		}
-		return &v.AgreeToInstallHANADBClient
+		return &v.AgreeToInstallHanadbClient
 	}).(pulumi.BoolPtrOutput)
 }
 
 // The HANA DB port.
-func (o ApplicationHANAPrometheusExporterPtrOutput) HANAPort() pulumi.StringPtrOutput {
+func (o ApplicationHANAPrometheusExporterPtrOutput) HanaPort() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationHANAPrometheusExporter) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.HANAPort
-	}).(pulumi.StringPtrOutput)
-}
-
-// HANA DB SID.
-func (o ApplicationHANAPrometheusExporterPtrOutput) HANASID() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationHANAPrometheusExporter) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.HANASID
+		return &v.HanaPort
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1254,12 +1244,22 @@ func (o ApplicationHANAPrometheusExporterPtrOutput) HANASID() pulumi.StringPtrOu
 //	  "username": "<>",
 //	  "password": "<>"
 //	}.
-func (o ApplicationHANAPrometheusExporterPtrOutput) HANASecretName() pulumi.StringPtrOutput {
+func (o ApplicationHANAPrometheusExporterPtrOutput) HanaSecretName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationHANAPrometheusExporter) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.HANASecretName
+		return &v.HanaSecretName
+	}).(pulumi.StringPtrOutput)
+}
+
+// HANA DB SID.
+func (o ApplicationHANAPrometheusExporterPtrOutput) Hanasid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationHANAPrometheusExporter) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Hanasid
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1278,7 +1278,7 @@ type ApplicationJMXPrometheusExporter struct {
 	// Java agent host port
 	HostPort *string `pulumi:"hostPort"`
 	// JMX service URL.
-	JMXURL *string `pulumi:"jMXURL"`
+	Jmxurl *string `pulumi:"jmxurl"`
 	// Prometheus exporter port.
 	PrometheusPort *string `pulumi:"prometheusPort"`
 }
@@ -1299,7 +1299,7 @@ type ApplicationJMXPrometheusExporterArgs struct {
 	// Java agent host port
 	HostPort pulumi.StringPtrInput `pulumi:"hostPort"`
 	// JMX service URL.
-	JMXURL pulumi.StringPtrInput `pulumi:"jMXURL"`
+	Jmxurl pulumi.StringPtrInput `pulumi:"jmxurl"`
 	// Prometheus exporter port.
 	PrometheusPort pulumi.StringPtrInput `pulumi:"prometheusPort"`
 }
@@ -1388,8 +1388,8 @@ func (o ApplicationJMXPrometheusExporterOutput) HostPort() pulumi.StringPtrOutpu
 }
 
 // JMX service URL.
-func (o ApplicationJMXPrometheusExporterOutput) JMXURL() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationJMXPrometheusExporter) *string { return v.JMXURL }).(pulumi.StringPtrOutput)
+func (o ApplicationJMXPrometheusExporterOutput) Jmxurl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationJMXPrometheusExporter) *string { return v.Jmxurl }).(pulumi.StringPtrOutput)
 }
 
 // Prometheus exporter port.
@@ -1432,12 +1432,12 @@ func (o ApplicationJMXPrometheusExporterPtrOutput) HostPort() pulumi.StringPtrOu
 }
 
 // JMX service URL.
-func (o ApplicationJMXPrometheusExporterPtrOutput) JMXURL() pulumi.StringPtrOutput {
+func (o ApplicationJMXPrometheusExporterPtrOutput) Jmxurl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationJMXPrometheusExporter) *string {
 		if v == nil {
 			return nil
 		}
-		return v.JMXURL
+		return v.Jmxurl
 	}).(pulumi.StringPtrOutput)
 }
 

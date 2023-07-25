@@ -13,17 +13,17 @@ namespace Pulumi.AwsNative.Greengrass.Outputs
     [OutputType]
     public sealed class ResourceDefinitionVersionSecretsManagerSecretResourceData
     {
-        public readonly string ARN;
         public readonly ImmutableArray<string> AdditionalStagingLabelsToDownload;
+        public readonly string Arn;
 
         [OutputConstructor]
         private ResourceDefinitionVersionSecretsManagerSecretResourceData(
-            string aRN,
+            ImmutableArray<string> additionalStagingLabelsToDownload,
 
-            ImmutableArray<string> additionalStagingLabelsToDownload)
+            string arn)
         {
-            ARN = aRN;
             AdditionalStagingLabelsToDownload = additionalStagingLabelsToDownload;
+            Arn = arn;
         }
     }
 }

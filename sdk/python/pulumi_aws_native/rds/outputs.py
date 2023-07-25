@@ -487,8 +487,8 @@ class DBInstanceCertificateDetails(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "cAIdentifier":
-            suggest = "c_a_identifier"
+        if key == "caIdentifier":
+            suggest = "ca_identifier"
         elif key == "validTill":
             suggest = "valid_till"
 
@@ -504,24 +504,24 @@ class DBInstanceCertificateDetails(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 c_a_identifier: Optional[str] = None,
+                 ca_identifier: Optional[str] = None,
                  valid_till: Optional[str] = None):
         """
-        :param str c_a_identifier: The CA identifier of the CA certificate used for the DB instance's server certificate.
+        :param str ca_identifier: The CA identifier of the CA certificate used for the DB instance's server certificate.
         :param str valid_till: The expiration date of the DB instance’s server certificate.
         """
-        if c_a_identifier is not None:
-            pulumi.set(__self__, "c_a_identifier", c_a_identifier)
+        if ca_identifier is not None:
+            pulumi.set(__self__, "ca_identifier", ca_identifier)
         if valid_till is not None:
             pulumi.set(__self__, "valid_till", valid_till)
 
     @property
-    @pulumi.getter(name="cAIdentifier")
-    def c_a_identifier(self) -> Optional[str]:
+    @pulumi.getter(name="caIdentifier")
+    def ca_identifier(self) -> Optional[str]:
         """
         The CA identifier of the CA certificate used for the DB instance's server certificate.
         """
-        return pulumi.get(self, "c_a_identifier")
+        return pulumi.get(self, "ca_identifier")
 
     @property
     @pulumi.getter(name="validTill")
@@ -798,8 +798,8 @@ class DBProxyAuthFormat(dict):
             suggest = "auth_scheme"
         elif key == "clientPasswordAuthType":
             suggest = "client_password_auth_type"
-        elif key == "iAMAuth":
-            suggest = "i_am_auth"
+        elif key == "iamAuth":
+            suggest = "iam_auth"
         elif key == "secretArn":
             suggest = "secret_arn"
 
@@ -818,13 +818,13 @@ class DBProxyAuthFormat(dict):
                  auth_scheme: Optional['DBProxyAuthFormatAuthScheme'] = None,
                  client_password_auth_type: Optional['DBProxyAuthFormatClientPasswordAuthType'] = None,
                  description: Optional[str] = None,
-                 i_am_auth: Optional['DBProxyAuthFormatIAMAuth'] = None,
+                 iam_auth: Optional['DBProxyAuthFormatIAMAuth'] = None,
                  secret_arn: Optional[str] = None):
         """
         :param 'DBProxyAuthFormatAuthScheme' auth_scheme: The type of authentication that the proxy uses for connections from the proxy to the underlying database. 
         :param 'DBProxyAuthFormatClientPasswordAuthType' client_password_auth_type: The type of authentication the proxy uses for connections from clients.
         :param str description: A user-specified description about the authentication used by a proxy to log in as a specific database user. 
-        :param 'DBProxyAuthFormatIAMAuth' i_am_auth: Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy. The ENABLED value is valid only for proxies with RDS for Microsoft SQL Server.
+        :param 'DBProxyAuthFormatIAMAuth' iam_auth: Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy. The ENABLED value is valid only for proxies with RDS for Microsoft SQL Server.
         :param str secret_arn: The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager. 
         """
         if auth_scheme is not None:
@@ -833,8 +833,8 @@ class DBProxyAuthFormat(dict):
             pulumi.set(__self__, "client_password_auth_type", client_password_auth_type)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if i_am_auth is not None:
-            pulumi.set(__self__, "i_am_auth", i_am_auth)
+        if iam_auth is not None:
+            pulumi.set(__self__, "iam_auth", iam_auth)
         if secret_arn is not None:
             pulumi.set(__self__, "secret_arn", secret_arn)
 
@@ -863,12 +863,12 @@ class DBProxyAuthFormat(dict):
         return pulumi.get(self, "description")
 
     @property
-    @pulumi.getter(name="iAMAuth")
-    def i_am_auth(self) -> Optional['DBProxyAuthFormatIAMAuth']:
+    @pulumi.getter(name="iamAuth")
+    def iam_auth(self) -> Optional['DBProxyAuthFormatIAMAuth']:
         """
         Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy. The ENABLED value is valid only for proxies with RDS for Microsoft SQL Server.
         """
-        return pulumi.get(self, "i_am_auth")
+        return pulumi.get(self, "iam_auth")
 
     @property
     @pulumi.getter(name="secretArn")
@@ -1018,14 +1018,12 @@ class DBSecurityGroupIngress(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "cIDRIP":
-            suggest = "c_idrip"
-        elif key == "eC2SecurityGroupId":
-            suggest = "e_c2_security_group_id"
-        elif key == "eC2SecurityGroupName":
-            suggest = "e_c2_security_group_name"
-        elif key == "eC2SecurityGroupOwnerId":
-            suggest = "e_c2_security_group_owner_id"
+        if key == "ec2SecurityGroupId":
+            suggest = "ec2_security_group_id"
+        elif key == "ec2SecurityGroupName":
+            suggest = "ec2_security_group_name"
+        elif key == "ec2SecurityGroupOwnerId":
+            suggest = "ec2_security_group_owner_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DBSecurityGroupIngress. Access the value via the '{suggest}' property getter instead.")
@@ -1039,38 +1037,38 @@ class DBSecurityGroupIngress(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 c_idrip: Optional[str] = None,
-                 e_c2_security_group_id: Optional[str] = None,
-                 e_c2_security_group_name: Optional[str] = None,
-                 e_c2_security_group_owner_id: Optional[str] = None):
-        if c_idrip is not None:
-            pulumi.set(__self__, "c_idrip", c_idrip)
-        if e_c2_security_group_id is not None:
-            pulumi.set(__self__, "e_c2_security_group_id", e_c2_security_group_id)
-        if e_c2_security_group_name is not None:
-            pulumi.set(__self__, "e_c2_security_group_name", e_c2_security_group_name)
-        if e_c2_security_group_owner_id is not None:
-            pulumi.set(__self__, "e_c2_security_group_owner_id", e_c2_security_group_owner_id)
+                 cidrip: Optional[str] = None,
+                 ec2_security_group_id: Optional[str] = None,
+                 ec2_security_group_name: Optional[str] = None,
+                 ec2_security_group_owner_id: Optional[str] = None):
+        if cidrip is not None:
+            pulumi.set(__self__, "cidrip", cidrip)
+        if ec2_security_group_id is not None:
+            pulumi.set(__self__, "ec2_security_group_id", ec2_security_group_id)
+        if ec2_security_group_name is not None:
+            pulumi.set(__self__, "ec2_security_group_name", ec2_security_group_name)
+        if ec2_security_group_owner_id is not None:
+            pulumi.set(__self__, "ec2_security_group_owner_id", ec2_security_group_owner_id)
 
     @property
-    @pulumi.getter(name="cIDRIP")
-    def c_idrip(self) -> Optional[str]:
-        return pulumi.get(self, "c_idrip")
+    @pulumi.getter
+    def cidrip(self) -> Optional[str]:
+        return pulumi.get(self, "cidrip")
 
     @property
-    @pulumi.getter(name="eC2SecurityGroupId")
-    def e_c2_security_group_id(self) -> Optional[str]:
-        return pulumi.get(self, "e_c2_security_group_id")
+    @pulumi.getter(name="ec2SecurityGroupId")
+    def ec2_security_group_id(self) -> Optional[str]:
+        return pulumi.get(self, "ec2_security_group_id")
 
     @property
-    @pulumi.getter(name="eC2SecurityGroupName")
-    def e_c2_security_group_name(self) -> Optional[str]:
-        return pulumi.get(self, "e_c2_security_group_name")
+    @pulumi.getter(name="ec2SecurityGroupName")
+    def ec2_security_group_name(self) -> Optional[str]:
+        return pulumi.get(self, "ec2_security_group_name")
 
     @property
-    @pulumi.getter(name="eC2SecurityGroupOwnerId")
-    def e_c2_security_group_owner_id(self) -> Optional[str]:
-        return pulumi.get(self, "e_c2_security_group_owner_id")
+    @pulumi.getter(name="ec2SecurityGroupOwnerId")
+    def ec2_security_group_owner_id(self) -> Optional[str]:
+        return pulumi.get(self, "ec2_security_group_owner_id")
 
 
 @pulumi.output_type
@@ -1170,8 +1168,8 @@ class OptionGroupOptionConfiguration(dict):
         suggest = None
         if key == "optionName":
             suggest = "option_name"
-        elif key == "dBSecurityGroupMemberships":
-            suggest = "d_b_security_group_memberships"
+        elif key == "dbSecurityGroupMemberships":
+            suggest = "db_security_group_memberships"
         elif key == "optionSettings":
             suggest = "option_settings"
         elif key == "optionVersion":
@@ -1192,7 +1190,7 @@ class OptionGroupOptionConfiguration(dict):
 
     def __init__(__self__, *,
                  option_name: str,
-                 d_b_security_group_memberships: Optional[Sequence[str]] = None,
+                 db_security_group_memberships: Optional[Sequence[str]] = None,
                  option_settings: Optional[Sequence['outputs.OptionGroupOptionSetting']] = None,
                  option_version: Optional[str] = None,
                  port: Optional[int] = None,
@@ -1200,15 +1198,15 @@ class OptionGroupOptionConfiguration(dict):
         """
         The OptionConfiguration property type specifies an individual option, and its settings, within an AWS::RDS::OptionGroup resource.
         :param str option_name: The configuration of options to include in a group.
-        :param Sequence[str] d_b_security_group_memberships: A list of DBSecurityGroupMembership name strings used for this option.
+        :param Sequence[str] db_security_group_memberships: A list of DBSecurityGroupMembership name strings used for this option.
         :param Sequence['OptionGroupOptionSetting'] option_settings: The option settings to include in an option group.
         :param str option_version: The version for the option.
         :param int port: The optional port for the option.
         :param Sequence[str] vpc_security_group_memberships: A list of VpcSecurityGroupMembership name strings used for this option.
         """
         pulumi.set(__self__, "option_name", option_name)
-        if d_b_security_group_memberships is not None:
-            pulumi.set(__self__, "d_b_security_group_memberships", d_b_security_group_memberships)
+        if db_security_group_memberships is not None:
+            pulumi.set(__self__, "db_security_group_memberships", db_security_group_memberships)
         if option_settings is not None:
             pulumi.set(__self__, "option_settings", option_settings)
         if option_version is not None:
@@ -1227,12 +1225,12 @@ class OptionGroupOptionConfiguration(dict):
         return pulumi.get(self, "option_name")
 
     @property
-    @pulumi.getter(name="dBSecurityGroupMemberships")
-    def d_b_security_group_memberships(self) -> Optional[Sequence[str]]:
+    @pulumi.getter(name="dbSecurityGroupMemberships")
+    def db_security_group_memberships(self) -> Optional[Sequence[str]]:
         """
         A list of DBSecurityGroupMembership name strings used for this option.
         """
-        return pulumi.get(self, "d_b_security_group_memberships")
+        return pulumi.get(self, "db_security_group_memberships")
 
     @property
     @pulumi.getter(name="optionSettings")

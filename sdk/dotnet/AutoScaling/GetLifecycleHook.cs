@@ -88,11 +88,11 @@ namespace Pulumi.AwsNative.AutoScaling
         /// <summary>
         /// The Amazon Resource Name (ARN) of the notification target that Amazon EC2 Auto Scaling uses to notify you when an instance is in the transition state for the lifecycle hook. You can specify an Amazon SQS queue or an Amazon SNS topic. The notification message includes the following information: lifecycle action token, user account ID, Auto Scaling group name, lifecycle hook name, instance ID, lifecycle transition, and notification metadata.
         /// </summary>
-        public readonly string? NotificationTargetARN;
+        public readonly string? NotificationTargetArn;
         /// <summary>
         /// The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target, for example, an Amazon SNS topic or an Amazon SQS queue.
         /// </summary>
-        public readonly string? RoleARN;
+        public readonly string? RoleArn;
 
         [OutputConstructor]
         private GetLifecycleHookResult(
@@ -104,16 +104,16 @@ namespace Pulumi.AwsNative.AutoScaling
 
             string? notificationMetadata,
 
-            string? notificationTargetARN,
+            string? notificationTargetArn,
 
-            string? roleARN)
+            string? roleArn)
         {
             DefaultResult = defaultResult;
             HeartbeatTimeout = heartbeatTimeout;
             LifecycleTransition = lifecycleTransition;
             NotificationMetadata = notificationMetadata;
-            NotificationTargetARN = notificationTargetARN;
-            RoleARN = roleARN;
+            NotificationTargetArn = notificationTargetArn;
+            RoleArn = roleArn;
         }
     }
 }

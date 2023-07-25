@@ -24,33 +24,33 @@ __all__ = [
 @pulumi.input_type
 class PolicyIEMapArgs:
     def __init__(__self__, *,
-                 a_ccount: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 o_rgunit: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 account: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 orgunit: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         An FMS includeMap or excludeMap.
         """
-        if a_ccount is not None:
-            pulumi.set(__self__, "a_ccount", a_ccount)
-        if o_rgunit is not None:
-            pulumi.set(__self__, "o_rgunit", o_rgunit)
+        if account is not None:
+            pulumi.set(__self__, "account", account)
+        if orgunit is not None:
+            pulumi.set(__self__, "orgunit", orgunit)
 
     @property
-    @pulumi.getter(name="aCCOUNT")
-    def a_ccount(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        return pulumi.get(self, "a_ccount")
+    @pulumi.getter
+    def account(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "account")
 
-    @a_ccount.setter
-    def a_ccount(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "a_ccount", value)
+    @account.setter
+    def account(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "account", value)
 
     @property
-    @pulumi.getter(name="oRGUNIT")
-    def o_rgunit(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        return pulumi.get(self, "o_rgunit")
+    @pulumi.getter
+    def orgunit(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "orgunit")
 
-    @o_rgunit.setter
-    def o_rgunit(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "o_rgunit", value)
+    @orgunit.setter
+    def orgunit(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "orgunit", value)
 
 
 @pulumi.input_type

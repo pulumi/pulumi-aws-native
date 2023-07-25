@@ -16,11 +16,11 @@ namespace Pulumi.AwsNative.RDS
     [AwsNativeResourceType("aws-native:rds:DBSecurityGroup")]
     public partial class DBSecurityGroup : global::Pulumi.CustomResource
     {
-        [Output("dBSecurityGroupIngress")]
-        public Output<ImmutableArray<Outputs.DBSecurityGroupIngress>> DBSecurityGroupIngress { get; private set; } = null!;
+        [Output("dbSecurityGroupIngress")]
+        public Output<ImmutableArray<Outputs.DBSecurityGroupIngress>> DbSecurityGroupIngress { get; private set; } = null!;
 
-        [Output("eC2VpcId")]
-        public Output<string?> EC2VpcId { get; private set; } = null!;
+        [Output("ec2VpcId")]
+        public Output<string?> Ec2VpcId { get; private set; } = null!;
 
         [Output("groupDescription")]
         public Output<string> GroupDescription { get; private set; } = null!;
@@ -73,16 +73,16 @@ namespace Pulumi.AwsNative.RDS
 
     public sealed class DBSecurityGroupArgs : global::Pulumi.ResourceArgs
     {
-        [Input("dBSecurityGroupIngress", required: true)]
-        private InputList<Inputs.DBSecurityGroupIngressArgs>? _dBSecurityGroupIngress;
-        public InputList<Inputs.DBSecurityGroupIngressArgs> DBSecurityGroupIngress
+        [Input("dbSecurityGroupIngress", required: true)]
+        private InputList<Inputs.DBSecurityGroupIngressArgs>? _dbSecurityGroupIngress;
+        public InputList<Inputs.DBSecurityGroupIngressArgs> DbSecurityGroupIngress
         {
-            get => _dBSecurityGroupIngress ?? (_dBSecurityGroupIngress = new InputList<Inputs.DBSecurityGroupIngressArgs>());
-            set => _dBSecurityGroupIngress = value;
+            get => _dbSecurityGroupIngress ?? (_dbSecurityGroupIngress = new InputList<Inputs.DBSecurityGroupIngressArgs>());
+            set => _dbSecurityGroupIngress = value;
         }
 
-        [Input("eC2VpcId")]
-        public Input<string>? EC2VpcId { get; set; }
+        [Input("ec2VpcId")]
+        public Input<string>? Ec2VpcId { get; set; }
 
         [Input("groupDescription", required: true)]
         public Input<string> GroupDescription { get; set; } = null!;

@@ -27,8 +27,8 @@ namespace Pulumi.AwsNative.WAFv2
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        [Output("iPAddressVersion")]
-        public Output<Pulumi.AwsNative.WAFv2.IPSetIPAddressVersion> IPAddressVersion { get; private set; } = null!;
+        [Output("ipAddressVersion")]
+        public Output<Pulumi.AwsNative.WAFv2.IPSetIPAddressVersion> IpAddressVersion { get; private set; } = null!;
 
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
@@ -99,8 +99,8 @@ namespace Pulumi.AwsNative.WAFv2
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("iPAddressVersion", required: true)]
-        public Input<Pulumi.AwsNative.WAFv2.IPSetIPAddressVersion> IPAddressVersion { get; set; } = null!;
+        [Input("ipAddressVersion", required: true)]
+        public Input<Pulumi.AwsNative.WAFv2.IPSetIPAddressVersion> IpAddressVersion { get; set; } = null!;
 
         [Input("name")]
         public Input<string>? Name { get; set; }

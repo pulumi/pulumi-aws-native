@@ -27,35 +27,35 @@ export interface GetScheduledQueryResult {
     /**
      * Configuration for error reporting. Error reports will be generated when a problem is encountered when writing the query results.
      */
-    readonly sQErrorReportConfiguration?: string;
+    readonly sqErrorReportConfiguration?: string;
     /**
      * The Amazon KMS key used to encrypt the scheduled query resource, at-rest. If the Amazon KMS key is not specified, the scheduled query resource will be encrypted with a Timestream owned Amazon KMS key. To specify a KMS key, use the key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix the name with alias/. If ErrorReportConfiguration uses SSE_KMS as encryption type, the same KmsKeyId is used to encrypt the error report at rest.
      */
-    readonly sQKmsKeyId?: string;
+    readonly sqKmsKeyId?: string;
     /**
      * The name of the scheduled query. Scheduled query names must be unique within each Region.
      */
-    readonly sQName?: string;
+    readonly sqName?: string;
     /**
      * Notification configuration for the scheduled query. A notification is sent by Timestream when a query run finishes, when the state is updated or when you delete it.
      */
-    readonly sQNotificationConfiguration?: string;
+    readonly sqNotificationConfiguration?: string;
     /**
      * The query string to run. Parameter names can be specified in the query string @ character followed by an identifier. The named Parameter @scheduled_runtime is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the ScheduleConfiguration parameter, will be the value of @scheduled_runtime paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the @scheduled_runtime parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
      */
-    readonly sQQueryString?: string;
+    readonly sqQueryString?: string;
     /**
      * Configuration for when the scheduled query is executed.
      */
-    readonly sQScheduleConfiguration?: string;
+    readonly sqScheduleConfiguration?: string;
     /**
      * The ARN for the IAM role that Timestream will assume when running the scheduled query.
      */
-    readonly sQScheduledQueryExecutionRoleArn?: string;
+    readonly sqScheduledQueryExecutionRoleArn?: string;
     /**
      * Configuration of target store where scheduled query results are written to.
      */
-    readonly sQTargetConfiguration?: string;
+    readonly sqTargetConfiguration?: string;
     readonly tags?: outputs.timestream.ScheduledQueryTag[];
 }
 /**

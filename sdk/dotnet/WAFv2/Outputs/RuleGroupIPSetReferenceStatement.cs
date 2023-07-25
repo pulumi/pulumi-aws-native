@@ -14,16 +14,16 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
     public sealed class RuleGroupIPSetReferenceStatement
     {
         public readonly string Arn;
-        public readonly Outputs.RuleGroupIPSetForwardedIPConfiguration? IPSetForwardedIPConfig;
+        public readonly Outputs.RuleGroupIPSetForwardedIPConfiguration? IpSetForwardedIpConfig;
 
         [OutputConstructor]
         private RuleGroupIPSetReferenceStatement(
             string arn,
 
-            Outputs.RuleGroupIPSetForwardedIPConfiguration? iPSetForwardedIPConfig)
+            Outputs.RuleGroupIPSetForwardedIPConfiguration? ipSetForwardedIpConfig)
         {
             Arn = arn;
-            IPSetForwardedIPConfig = iPSetForwardedIPConfig;
+            IpSetForwardedIpConfig = ipSetForwardedIpConfig;
         }
     }
 }

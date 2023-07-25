@@ -51,13 +51,13 @@ namespace Pulumi.AwsNative.FSx
     [OutputType]
     public sealed class GetFileSystemResult
     {
-        public readonly string? DNSName;
+        public readonly string? DnsName;
         public readonly string? Id;
         public readonly Outputs.FileSystemLustreConfiguration? LustreConfiguration;
         public readonly string? LustreMountName;
         public readonly Outputs.FileSystemOntapConfiguration? OntapConfiguration;
-        public readonly Outputs.FileSystemOpenZFSConfiguration? OpenZFSConfiguration;
-        public readonly string? ResourceARN;
+        public readonly Outputs.FileSystemOpenZFSConfiguration? OpenZfsConfiguration;
+        public readonly string? ResourceArn;
         public readonly string? RootVolumeId;
         public readonly int? StorageCapacity;
         public readonly ImmutableArray<Outputs.FileSystemTag> Tags;
@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.FSx
 
         [OutputConstructor]
         private GetFileSystemResult(
-            string? dNSName,
+            string? dnsName,
 
             string? id,
 
@@ -75,9 +75,9 @@ namespace Pulumi.AwsNative.FSx
 
             Outputs.FileSystemOntapConfiguration? ontapConfiguration,
 
-            Outputs.FileSystemOpenZFSConfiguration? openZFSConfiguration,
+            Outputs.FileSystemOpenZFSConfiguration? openZfsConfiguration,
 
-            string? resourceARN,
+            string? resourceArn,
 
             string? rootVolumeId,
 
@@ -87,13 +87,13 @@ namespace Pulumi.AwsNative.FSx
 
             Outputs.FileSystemWindowsConfiguration? windowsConfiguration)
         {
-            DNSName = dNSName;
+            DnsName = dnsName;
             Id = id;
             LustreConfiguration = lustreConfiguration;
             LustreMountName = lustreMountName;
             OntapConfiguration = ontapConfiguration;
-            OpenZFSConfiguration = openZFSConfiguration;
-            ResourceARN = resourceARN;
+            OpenZfsConfiguration = openZfsConfiguration;
+            ResourceArn = resourceArn;
             RootVolumeId = rootVolumeId;
             StorageCapacity = storageCapacity;
             Tags = tags;

@@ -25,23 +25,23 @@ namespace Pulumi.AwsNative.Neptune
         [Output("availabilityZone")]
         public Output<string?> AvailabilityZone { get; private set; } = null!;
 
-        [Output("dBClusterIdentifier")]
-        public Output<string?> DBClusterIdentifier { get; private set; } = null!;
+        [Output("dbClusterIdentifier")]
+        public Output<string?> DbClusterIdentifier { get; private set; } = null!;
 
-        [Output("dBInstanceClass")]
-        public Output<string> DBInstanceClass { get; private set; } = null!;
+        [Output("dbInstanceClass")]
+        public Output<string> DbInstanceClass { get; private set; } = null!;
 
-        [Output("dBInstanceIdentifier")]
-        public Output<string?> DBInstanceIdentifier { get; private set; } = null!;
+        [Output("dbInstanceIdentifier")]
+        public Output<string?> DbInstanceIdentifier { get; private set; } = null!;
 
-        [Output("dBParameterGroupName")]
-        public Output<string?> DBParameterGroupName { get; private set; } = null!;
+        [Output("dbParameterGroupName")]
+        public Output<string?> DbParameterGroupName { get; private set; } = null!;
 
-        [Output("dBSnapshotIdentifier")]
-        public Output<string?> DBSnapshotIdentifier { get; private set; } = null!;
+        [Output("dbSnapshotIdentifier")]
+        public Output<string?> DbSnapshotIdentifier { get; private set; } = null!;
 
-        [Output("dBSubnetGroupName")]
-        public Output<string?> DBSubnetGroupName { get; private set; } = null!;
+        [Output("dbSubnetGroupName")]
+        public Output<string?> DbSubnetGroupName { get; private set; } = null!;
 
         [Output("endpoint")]
         public Output<string> Endpoint { get; private set; } = null!;
@@ -109,23 +109,23 @@ namespace Pulumi.AwsNative.Neptune
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
 
-        [Input("dBClusterIdentifier")]
-        public Input<string>? DBClusterIdentifier { get; set; }
+        [Input("dbClusterIdentifier")]
+        public Input<string>? DbClusterIdentifier { get; set; }
 
-        [Input("dBInstanceClass", required: true)]
-        public Input<string> DBInstanceClass { get; set; } = null!;
+        [Input("dbInstanceClass", required: true)]
+        public Input<string> DbInstanceClass { get; set; } = null!;
 
-        [Input("dBInstanceIdentifier")]
-        public Input<string>? DBInstanceIdentifier { get; set; }
+        [Input("dbInstanceIdentifier")]
+        public Input<string>? DbInstanceIdentifier { get; set; }
 
-        [Input("dBParameterGroupName")]
-        public Input<string>? DBParameterGroupName { get; set; }
+        [Input("dbParameterGroupName")]
+        public Input<string>? DbParameterGroupName { get; set; }
 
-        [Input("dBSnapshotIdentifier")]
-        public Input<string>? DBSnapshotIdentifier { get; set; }
+        [Input("dbSnapshotIdentifier")]
+        public Input<string>? DbSnapshotIdentifier { get; set; }
 
-        [Input("dBSubnetGroupName")]
-        public Input<string>? DBSubnetGroupName { get; set; }
+        [Input("dbSubnetGroupName")]
+        public Input<string>? DbSubnetGroupName { get; set; }
 
         [Input("preferredMaintenanceWindow")]
         public Input<string>? PreferredMaintenanceWindow { get; set; }

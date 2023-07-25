@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
         /// </summary>
-        [Input("dBProxyName", required: true)]
-        public string DBProxyName { get; set; } = null!;
+        [Input("dbProxyName", required: true)]
+        public string DbProxyName { get; set; } = null!;
 
         public GetDBProxyArgs()
         {
@@ -44,8 +44,8 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
         /// </summary>
-        [Input("dBProxyName", required: true)]
-        public Input<string> DBProxyName { get; set; } = null!;
+        [Input("dbProxyName", required: true)]
+        public Input<string> DbProxyName { get; set; } = null!;
 
         public GetDBProxyInvokeArgs()
         {
@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// The Amazon Resource Name (ARN) for the proxy.
         /// </summary>
-        public readonly string? DBProxyArn;
+        public readonly string? DbProxyArn;
         /// <summary>
         /// Whether the proxy includes detailed information about SQL statements in its logs.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
         /// </summary>
-        public readonly bool? RequireTLS;
+        public readonly bool? RequireTls;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
         /// </summary>
@@ -102,7 +102,7 @@ namespace Pulumi.AwsNative.RDS
         private GetDBProxyResult(
             ImmutableArray<Outputs.DBProxyAuthFormat> auth,
 
-            string? dBProxyArn,
+            string? dbProxyArn,
 
             bool? debugLogging,
 
@@ -110,7 +110,7 @@ namespace Pulumi.AwsNative.RDS
 
             int? idleClientTimeout,
 
-            bool? requireTLS,
+            bool? requireTls,
 
             string? roleArn,
 
@@ -121,11 +121,11 @@ namespace Pulumi.AwsNative.RDS
             ImmutableArray<string> vpcSecurityGroupIds)
         {
             Auth = auth;
-            DBProxyArn = dBProxyArn;
+            DbProxyArn = dbProxyArn;
             DebugLogging = debugLogging;
             Endpoint = endpoint;
             IdleClientTimeout = idleClientTimeout;
-            RequireTLS = requireTLS;
+            RequireTls = requireTls;
             RoleArn = roleArn;
             Tags = tags;
             VpcId = vpcId;

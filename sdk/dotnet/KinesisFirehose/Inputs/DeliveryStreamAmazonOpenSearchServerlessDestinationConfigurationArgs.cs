@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         [Input("retryOptions")]
         public Input<Inputs.DeliveryStreamAmazonOpenSearchServerlessRetryOptionsArgs>? RetryOptions { get; set; }
 
-        [Input("roleARN", required: true)]
-        public Input<string> RoleARN { get; set; } = null!;
+        [Input("roleArn", required: true)]
+        public Input<string> RoleArn { get; set; } = null!;
 
         [Input("s3BackupMode")]
         public Input<Pulumi.AwsNative.KinesisFirehose.DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode>? S3BackupMode { get; set; }

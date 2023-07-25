@@ -19,15 +19,15 @@ type FileSystem struct {
 	pulumi.CustomResourceState
 
 	BackupId              pulumi.StringPtrOutput                  `pulumi:"backupId"`
-	DNSName               pulumi.StringOutput                     `pulumi:"dNSName"`
+	DnsName               pulumi.StringOutput                     `pulumi:"dnsName"`
 	FileSystemType        pulumi.StringOutput                     `pulumi:"fileSystemType"`
 	FileSystemTypeVersion pulumi.StringPtrOutput                  `pulumi:"fileSystemTypeVersion"`
 	KmsKeyId              pulumi.StringPtrOutput                  `pulumi:"kmsKeyId"`
 	LustreConfiguration   FileSystemLustreConfigurationPtrOutput  `pulumi:"lustreConfiguration"`
 	LustreMountName       pulumi.StringOutput                     `pulumi:"lustreMountName"`
 	OntapConfiguration    FileSystemOntapConfigurationPtrOutput   `pulumi:"ontapConfiguration"`
-	OpenZFSConfiguration  FileSystemOpenZFSConfigurationPtrOutput `pulumi:"openZFSConfiguration"`
-	ResourceARN           pulumi.StringOutput                     `pulumi:"resourceARN"`
+	OpenZfsConfiguration  FileSystemOpenZFSConfigurationPtrOutput `pulumi:"openZfsConfiguration"`
+	ResourceArn           pulumi.StringOutput                     `pulumi:"resourceArn"`
 	RootVolumeId          pulumi.StringOutput                     `pulumi:"rootVolumeId"`
 	SecurityGroupIds      pulumi.StringArrayOutput                `pulumi:"securityGroupIds"`
 	StorageCapacity       pulumi.IntPtrOutput                     `pulumi:"storageCapacity"`
@@ -89,7 +89,7 @@ type fileSystemArgs struct {
 	KmsKeyId              *string                         `pulumi:"kmsKeyId"`
 	LustreConfiguration   *FileSystemLustreConfiguration  `pulumi:"lustreConfiguration"`
 	OntapConfiguration    *FileSystemOntapConfiguration   `pulumi:"ontapConfiguration"`
-	OpenZFSConfiguration  *FileSystemOpenZFSConfiguration `pulumi:"openZFSConfiguration"`
+	OpenZfsConfiguration  *FileSystemOpenZFSConfiguration `pulumi:"openZfsConfiguration"`
 	SecurityGroupIds      []string                        `pulumi:"securityGroupIds"`
 	StorageCapacity       *int                            `pulumi:"storageCapacity"`
 	StorageType           *string                         `pulumi:"storageType"`
@@ -106,7 +106,7 @@ type FileSystemArgs struct {
 	KmsKeyId              pulumi.StringPtrInput
 	LustreConfiguration   FileSystemLustreConfigurationPtrInput
 	OntapConfiguration    FileSystemOntapConfigurationPtrInput
-	OpenZFSConfiguration  FileSystemOpenZFSConfigurationPtrInput
+	OpenZfsConfiguration  FileSystemOpenZFSConfigurationPtrInput
 	SecurityGroupIds      pulumi.StringArrayInput
 	StorageCapacity       pulumi.IntPtrInput
 	StorageType           pulumi.StringPtrInput
@@ -156,8 +156,8 @@ func (o FileSystemOutput) BackupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FileSystem) pulumi.StringPtrOutput { return v.BackupId }).(pulumi.StringPtrOutput)
 }
 
-func (o FileSystemOutput) DNSName() pulumi.StringOutput {
-	return o.ApplyT(func(v *FileSystem) pulumi.StringOutput { return v.DNSName }).(pulumi.StringOutput)
+func (o FileSystemOutput) DnsName() pulumi.StringOutput {
+	return o.ApplyT(func(v *FileSystem) pulumi.StringOutput { return v.DnsName }).(pulumi.StringOutput)
 }
 
 func (o FileSystemOutput) FileSystemType() pulumi.StringOutput {
@@ -184,12 +184,12 @@ func (o FileSystemOutput) OntapConfiguration() FileSystemOntapConfigurationPtrOu
 	return o.ApplyT(func(v *FileSystem) FileSystemOntapConfigurationPtrOutput { return v.OntapConfiguration }).(FileSystemOntapConfigurationPtrOutput)
 }
 
-func (o FileSystemOutput) OpenZFSConfiguration() FileSystemOpenZFSConfigurationPtrOutput {
-	return o.ApplyT(func(v *FileSystem) FileSystemOpenZFSConfigurationPtrOutput { return v.OpenZFSConfiguration }).(FileSystemOpenZFSConfigurationPtrOutput)
+func (o FileSystemOutput) OpenZfsConfiguration() FileSystemOpenZFSConfigurationPtrOutput {
+	return o.ApplyT(func(v *FileSystem) FileSystemOpenZFSConfigurationPtrOutput { return v.OpenZfsConfiguration }).(FileSystemOpenZFSConfigurationPtrOutput)
 }
 
-func (o FileSystemOutput) ResourceARN() pulumi.StringOutput {
-	return o.ApplyT(func(v *FileSystem) pulumi.StringOutput { return v.ResourceARN }).(pulumi.StringOutput)
+func (o FileSystemOutput) ResourceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *FileSystem) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
 }
 
 func (o FileSystemOutput) RootVolumeId() pulumi.StringOutput {

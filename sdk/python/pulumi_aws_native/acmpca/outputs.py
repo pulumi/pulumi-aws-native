@@ -477,8 +477,8 @@ class CertificateAuthorityKeyUsage(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "cRLSign":
-            suggest = "c_rl_sign"
+        if key == "crlSign":
+            suggest = "crl_sign"
         elif key == "dataEncipherment":
             suggest = "data_encipherment"
         elif key == "decipherOnly":
@@ -508,7 +508,7 @@ class CertificateAuthorityKeyUsage(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 c_rl_sign: Optional[bool] = None,
+                 crl_sign: Optional[bool] = None,
                  data_encipherment: Optional[bool] = None,
                  decipher_only: Optional[bool] = None,
                  digital_signature: Optional[bool] = None,
@@ -520,8 +520,8 @@ class CertificateAuthorityKeyUsage(dict):
         """
         Structure that contains X.509 KeyUsage information.
         """
-        if c_rl_sign is not None:
-            pulumi.set(__self__, "c_rl_sign", c_rl_sign)
+        if crl_sign is not None:
+            pulumi.set(__self__, "crl_sign", crl_sign)
         if data_encipherment is not None:
             pulumi.set(__self__, "data_encipherment", data_encipherment)
         if decipher_only is not None:
@@ -540,9 +540,9 @@ class CertificateAuthorityKeyUsage(dict):
             pulumi.set(__self__, "non_repudiation", non_repudiation)
 
     @property
-    @pulumi.getter(name="cRLSign")
-    def c_rl_sign(self) -> Optional[bool]:
-        return pulumi.get(self, "c_rl_sign")
+    @pulumi.getter(name="crlSign")
+    def crl_sign(self) -> Optional[bool]:
+        return pulumi.get(self, "crl_sign")
 
     @property
     @pulumi.getter(name="dataEncipherment")
@@ -1270,8 +1270,8 @@ class CertificateKeyUsage(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "cRLSign":
-            suggest = "c_rl_sign"
+        if key == "crlSign":
+            suggest = "crl_sign"
         elif key == "dataEncipherment":
             suggest = "data_encipherment"
         elif key == "decipherOnly":
@@ -1301,7 +1301,7 @@ class CertificateKeyUsage(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 c_rl_sign: Optional[bool] = None,
+                 crl_sign: Optional[bool] = None,
                  data_encipherment: Optional[bool] = None,
                  decipher_only: Optional[bool] = None,
                  digital_signature: Optional[bool] = None,
@@ -1313,8 +1313,8 @@ class CertificateKeyUsage(dict):
         """
         Structure that contains X.509 KeyUsage information.
         """
-        if c_rl_sign is not None:
-            pulumi.set(__self__, "c_rl_sign", c_rl_sign)
+        if crl_sign is not None:
+            pulumi.set(__self__, "crl_sign", crl_sign)
         if data_encipherment is not None:
             pulumi.set(__self__, "data_encipherment", data_encipherment)
         if decipher_only is not None:
@@ -1333,9 +1333,9 @@ class CertificateKeyUsage(dict):
             pulumi.set(__self__, "non_repudiation", non_repudiation)
 
     @property
-    @pulumi.getter(name="cRLSign")
-    def c_rl_sign(self) -> Optional[bool]:
-        return pulumi.get(self, "c_rl_sign")
+    @pulumi.getter(name="crlSign")
+    def crl_sign(self) -> Optional[bool]:
+        return pulumi.get(self, "crl_sign")
 
     @property
     @pulumi.getter(name="dataEncipherment")

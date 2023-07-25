@@ -104,7 +104,7 @@ class CachePolicyConfigArgs:
             pulumi.set(__self__, "comment", comment)
 
     @property
-    @pulumi.getter(name="defaultTTL")
+    @pulumi.getter(name="defaultTtl")
     def default_ttl(self) -> pulumi.Input[float]:
         return pulumi.get(self, "default_ttl")
 
@@ -113,7 +113,7 @@ class CachePolicyConfigArgs:
         pulumi.set(self, "default_ttl", value)
 
     @property
-    @pulumi.getter(name="maxTTL")
+    @pulumi.getter(name="maxTtl")
     def max_ttl(self) -> pulumi.Input[float]:
         return pulumi.get(self, "max_ttl")
 
@@ -122,7 +122,7 @@ class CachePolicyConfigArgs:
         pulumi.set(self, "max_ttl", value)
 
     @property
-    @pulumi.getter(name="minTTL")
+    @pulumi.getter(name="minTtl")
     def min_ttl(self) -> pulumi.Input[float]:
         return pulumi.get(self, "min_ttl")
 
@@ -367,7 +367,7 @@ class ContinuousDeploymentPolicySessionStickinessConfigArgs:
         pulumi.set(__self__, "maximum_ttl", maximum_ttl)
 
     @property
-    @pulumi.getter(name="idleTTL")
+    @pulumi.getter(name="idleTtl")
     def idle_ttl(self) -> pulumi.Input[int]:
         return pulumi.get(self, "idle_ttl")
 
@@ -376,7 +376,7 @@ class ContinuousDeploymentPolicySessionStickinessConfigArgs:
         pulumi.set(self, "idle_ttl", value)
 
     @property
-    @pulumi.getter(name="maximumTTL")
+    @pulumi.getter(name="maximumTtl")
     def maximum_ttl(self) -> pulumi.Input[int]:
         return pulumi.get(self, "maximum_ttl")
 
@@ -605,7 +605,7 @@ class DistributionCacheBehaviorArgs:
         pulumi.set(self, "compress", value)
 
     @property
-    @pulumi.getter(name="defaultTTL")
+    @pulumi.getter(name="defaultTtl")
     def default_ttl(self) -> Optional[pulumi.Input[float]]:
         return pulumi.get(self, "default_ttl")
 
@@ -650,7 +650,7 @@ class DistributionCacheBehaviorArgs:
         pulumi.set(self, "lambda_function_associations", value)
 
     @property
-    @pulumi.getter(name="maxTTL")
+    @pulumi.getter(name="maxTtl")
     def max_ttl(self) -> Optional[pulumi.Input[float]]:
         return pulumi.get(self, "max_ttl")
 
@@ -659,7 +659,7 @@ class DistributionCacheBehaviorArgs:
         pulumi.set(self, "max_ttl", value)
 
     @property
-    @pulumi.getter(name="minTTL")
+    @pulumi.getter(name="minTtl")
     def min_ttl(self) -> Optional[pulumi.Input[float]]:
         return pulumi.get(self, "min_ttl")
 
@@ -728,15 +728,15 @@ class DistributionConfigArgs:
                  default_cache_behavior: pulumi.Input['DistributionDefaultCacheBehaviorArgs'],
                  enabled: pulumi.Input[bool],
                  aliases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 c_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cache_behaviors: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionCacheBehaviorArgs']]]] = None,
+                 cnames: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  continuous_deployment_policy_id: Optional[pulumi.Input[str]] = None,
                  custom_error_responses: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionCustomErrorResponseArgs']]]] = None,
                  custom_origin: Optional[pulumi.Input['DistributionLegacyCustomOriginArgs']] = None,
                  default_root_object: Optional[pulumi.Input[str]] = None,
                  http_version: Optional[pulumi.Input[str]] = None,
-                 i_pv6_enabled: Optional[pulumi.Input[bool]] = None,
+                 ipv6_enabled: Optional[pulumi.Input[bool]] = None,
                  logging: Optional[pulumi.Input['DistributionLoggingArgs']] = None,
                  origin_groups: Optional[pulumi.Input['DistributionOriginGroupsArgs']] = None,
                  origins: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOriginArgs']]]] = None,
@@ -750,10 +750,10 @@ class DistributionConfigArgs:
         pulumi.set(__self__, "enabled", enabled)
         if aliases is not None:
             pulumi.set(__self__, "aliases", aliases)
-        if c_names is not None:
-            pulumi.set(__self__, "c_names", c_names)
         if cache_behaviors is not None:
             pulumi.set(__self__, "cache_behaviors", cache_behaviors)
+        if cnames is not None:
+            pulumi.set(__self__, "cnames", cnames)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
         if continuous_deployment_policy_id is not None:
@@ -766,8 +766,8 @@ class DistributionConfigArgs:
             pulumi.set(__self__, "default_root_object", default_root_object)
         if http_version is not None:
             pulumi.set(__self__, "http_version", http_version)
-        if i_pv6_enabled is not None:
-            pulumi.set(__self__, "i_pv6_enabled", i_pv6_enabled)
+        if ipv6_enabled is not None:
+            pulumi.set(__self__, "ipv6_enabled", ipv6_enabled)
         if logging is not None:
             pulumi.set(__self__, "logging", logging)
         if origin_groups is not None:
@@ -815,15 +815,6 @@ class DistributionConfigArgs:
         pulumi.set(self, "aliases", value)
 
     @property
-    @pulumi.getter(name="cNAMEs")
-    def c_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        return pulumi.get(self, "c_names")
-
-    @c_names.setter
-    def c_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "c_names", value)
-
-    @property
     @pulumi.getter(name="cacheBehaviors")
     def cache_behaviors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionCacheBehaviorArgs']]]]:
         return pulumi.get(self, "cache_behaviors")
@@ -831,6 +822,15 @@ class DistributionConfigArgs:
     @cache_behaviors.setter
     def cache_behaviors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionCacheBehaviorArgs']]]]):
         pulumi.set(self, "cache_behaviors", value)
+
+    @property
+    @pulumi.getter
+    def cnames(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "cnames")
+
+    @cnames.setter
+    def cnames(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "cnames", value)
 
     @property
     @pulumi.getter
@@ -887,13 +887,13 @@ class DistributionConfigArgs:
         pulumi.set(self, "http_version", value)
 
     @property
-    @pulumi.getter(name="iPV6Enabled")
-    def i_pv6_enabled(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "i_pv6_enabled")
+    @pulumi.getter(name="ipv6Enabled")
+    def ipv6_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "ipv6_enabled")
 
-    @i_pv6_enabled.setter
-    def i_pv6_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "i_pv6_enabled", value)
+    @ipv6_enabled.setter
+    def ipv6_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ipv6_enabled", value)
 
     @property
     @pulumi.getter
@@ -968,7 +968,7 @@ class DistributionConfigArgs:
         pulumi.set(self, "viewer_certificate", value)
 
     @property
-    @pulumi.getter(name="webACLId")
+    @pulumi.getter(name="webAclId")
     def web_acl_id(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "web_acl_id")
 
@@ -1030,7 +1030,7 @@ class DistributionCustomErrorResponseArgs:
         pulumi.set(self, "error_code", value)
 
     @property
-    @pulumi.getter(name="errorCachingMinTTL")
+    @pulumi.getter(name="errorCachingMinTtl")
     def error_caching_min_ttl(self) -> Optional[pulumi.Input[float]]:
         return pulumi.get(self, "error_caching_min_ttl")
 
@@ -1061,16 +1061,16 @@ class DistributionCustomErrorResponseArgs:
 class DistributionCustomOriginConfigArgs:
     def __init__(__self__, *,
                  origin_protocol_policy: pulumi.Input[str],
-                 h_ttp_port: Optional[pulumi.Input[int]] = None,
-                 h_ttps_port: Optional[pulumi.Input[int]] = None,
+                 http_port: Optional[pulumi.Input[int]] = None,
+                 https_port: Optional[pulumi.Input[int]] = None,
                  origin_keepalive_timeout: Optional[pulumi.Input[int]] = None,
                  origin_read_timeout: Optional[pulumi.Input[int]] = None,
                  origin_ssl_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         pulumi.set(__self__, "origin_protocol_policy", origin_protocol_policy)
-        if h_ttp_port is not None:
-            pulumi.set(__self__, "h_ttp_port", h_ttp_port)
-        if h_ttps_port is not None:
-            pulumi.set(__self__, "h_ttps_port", h_ttps_port)
+        if http_port is not None:
+            pulumi.set(__self__, "http_port", http_port)
+        if https_port is not None:
+            pulumi.set(__self__, "https_port", https_port)
         if origin_keepalive_timeout is not None:
             pulumi.set(__self__, "origin_keepalive_timeout", origin_keepalive_timeout)
         if origin_read_timeout is not None:
@@ -1088,22 +1088,22 @@ class DistributionCustomOriginConfigArgs:
         pulumi.set(self, "origin_protocol_policy", value)
 
     @property
-    @pulumi.getter(name="hTTPPort")
-    def h_ttp_port(self) -> Optional[pulumi.Input[int]]:
-        return pulumi.get(self, "h_ttp_port")
+    @pulumi.getter(name="httpPort")
+    def http_port(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "http_port")
 
-    @h_ttp_port.setter
-    def h_ttp_port(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "h_ttp_port", value)
+    @http_port.setter
+    def http_port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "http_port", value)
 
     @property
-    @pulumi.getter(name="hTTPSPort")
-    def h_ttps_port(self) -> Optional[pulumi.Input[int]]:
-        return pulumi.get(self, "h_ttps_port")
+    @pulumi.getter(name="httpsPort")
+    def https_port(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "https_port")
 
-    @h_ttps_port.setter
-    def h_ttps_port(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "h_ttps_port", value)
+    @https_port.setter
+    def https_port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "https_port", value)
 
     @property
     @pulumi.getter(name="originKeepaliveTimeout")
@@ -1124,7 +1124,7 @@ class DistributionCustomOriginConfigArgs:
         pulumi.set(self, "origin_read_timeout", value)
 
     @property
-    @pulumi.getter(name="originSSLProtocols")
+    @pulumi.getter(name="originSslProtocols")
     def origin_ssl_protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         return pulumi.get(self, "origin_ssl_protocols")
 
@@ -1247,7 +1247,7 @@ class DistributionDefaultCacheBehaviorArgs:
         pulumi.set(self, "compress", value)
 
     @property
-    @pulumi.getter(name="defaultTTL")
+    @pulumi.getter(name="defaultTtl")
     def default_ttl(self) -> Optional[pulumi.Input[float]]:
         return pulumi.get(self, "default_ttl")
 
@@ -1292,7 +1292,7 @@ class DistributionDefaultCacheBehaviorArgs:
         pulumi.set(self, "lambda_function_associations", value)
 
     @property
-    @pulumi.getter(name="maxTTL")
+    @pulumi.getter(name="maxTtl")
     def max_ttl(self) -> Optional[pulumi.Input[float]]:
         return pulumi.get(self, "max_ttl")
 
@@ -1301,7 +1301,7 @@ class DistributionDefaultCacheBehaviorArgs:
         pulumi.set(self, "max_ttl", value)
 
     @property
-    @pulumi.getter(name="minTTL")
+    @pulumi.getter(name="minTtl")
     def min_ttl(self) -> Optional[pulumi.Input[float]]:
         return pulumi.get(self, "min_ttl")
 
@@ -1436,7 +1436,7 @@ class DistributionFunctionAssociationArgs:
         pulumi.set(self, "event_type", value)
 
     @property
-    @pulumi.getter(name="functionARN")
+    @pulumi.getter(name="functionArn")
     def function_arn(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "function_arn")
 
@@ -1505,7 +1505,7 @@ class DistributionLambdaFunctionAssociationArgs:
         pulumi.set(self, "include_body", value)
 
     @property
-    @pulumi.getter(name="lambdaFunctionARN")
+    @pulumi.getter(name="lambdaFunctionArn")
     def lambda_function_arn(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "lambda_function_arn")
 
@@ -1517,27 +1517,27 @@ class DistributionLambdaFunctionAssociationArgs:
 @pulumi.input_type
 class DistributionLegacyCustomOriginArgs:
     def __init__(__self__, *,
-                 d_ns_name: pulumi.Input[str],
+                 dns_name: pulumi.Input[str],
                  origin_protocol_policy: pulumi.Input[str],
                  origin_ssl_protocols: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 h_ttp_port: Optional[pulumi.Input[int]] = None,
-                 h_ttps_port: Optional[pulumi.Input[int]] = None):
-        pulumi.set(__self__, "d_ns_name", d_ns_name)
+                 http_port: Optional[pulumi.Input[int]] = None,
+                 https_port: Optional[pulumi.Input[int]] = None):
+        pulumi.set(__self__, "dns_name", dns_name)
         pulumi.set(__self__, "origin_protocol_policy", origin_protocol_policy)
         pulumi.set(__self__, "origin_ssl_protocols", origin_ssl_protocols)
-        if h_ttp_port is not None:
-            pulumi.set(__self__, "h_ttp_port", h_ttp_port)
-        if h_ttps_port is not None:
-            pulumi.set(__self__, "h_ttps_port", h_ttps_port)
+        if http_port is not None:
+            pulumi.set(__self__, "http_port", http_port)
+        if https_port is not None:
+            pulumi.set(__self__, "https_port", https_port)
 
     @property
-    @pulumi.getter(name="dNSName")
-    def d_ns_name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "d_ns_name")
+    @pulumi.getter(name="dnsName")
+    def dns_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "dns_name")
 
-    @d_ns_name.setter
-    def d_ns_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "d_ns_name", value)
+    @dns_name.setter
+    def dns_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "dns_name", value)
 
     @property
     @pulumi.getter(name="originProtocolPolicy")
@@ -1549,7 +1549,7 @@ class DistributionLegacyCustomOriginArgs:
         pulumi.set(self, "origin_protocol_policy", value)
 
     @property
-    @pulumi.getter(name="originSSLProtocols")
+    @pulumi.getter(name="originSslProtocols")
     def origin_ssl_protocols(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         return pulumi.get(self, "origin_ssl_protocols")
 
@@ -1558,41 +1558,41 @@ class DistributionLegacyCustomOriginArgs:
         pulumi.set(self, "origin_ssl_protocols", value)
 
     @property
-    @pulumi.getter(name="hTTPPort")
-    def h_ttp_port(self) -> Optional[pulumi.Input[int]]:
-        return pulumi.get(self, "h_ttp_port")
+    @pulumi.getter(name="httpPort")
+    def http_port(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "http_port")
 
-    @h_ttp_port.setter
-    def h_ttp_port(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "h_ttp_port", value)
+    @http_port.setter
+    def http_port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "http_port", value)
 
     @property
-    @pulumi.getter(name="hTTPSPort")
-    def h_ttps_port(self) -> Optional[pulumi.Input[int]]:
-        return pulumi.get(self, "h_ttps_port")
+    @pulumi.getter(name="httpsPort")
+    def https_port(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "https_port")
 
-    @h_ttps_port.setter
-    def h_ttps_port(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "h_ttps_port", value)
+    @https_port.setter
+    def https_port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "https_port", value)
 
 
 @pulumi.input_type
 class DistributionLegacyS3OriginArgs:
     def __init__(__self__, *,
-                 d_ns_name: pulumi.Input[str],
+                 dns_name: pulumi.Input[str],
                  origin_access_identity: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "d_ns_name", d_ns_name)
+        pulumi.set(__self__, "dns_name", dns_name)
         if origin_access_identity is not None:
             pulumi.set(__self__, "origin_access_identity", origin_access_identity)
 
     @property
-    @pulumi.getter(name="dNSName")
-    def d_ns_name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "d_ns_name")
+    @pulumi.getter(name="dnsName")
+    def dns_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "dns_name")
 
-    @d_ns_name.setter
-    def d_ns_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "d_ns_name", value)
+    @dns_name.setter
+    def dns_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "dns_name", value)
 
     @property
     @pulumi.getter(name="originAccessIdentity")
@@ -2135,7 +2135,7 @@ class FunctionMetadataArgs:
             pulumi.set(__self__, "function_arn", function_arn)
 
     @property
-    @pulumi.getter(name="functionARN")
+    @pulumi.getter(name="functionArn")
     def function_arn(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "function_arn")
 
@@ -2953,7 +2953,7 @@ class ResponseHeadersPolicySecurityHeadersConfigArgs:
                  frame_options: Optional[pulumi.Input['ResponseHeadersPolicyFrameOptionsArgs']] = None,
                  referrer_policy: Optional[pulumi.Input['ResponseHeadersPolicyReferrerPolicyArgs']] = None,
                  strict_transport_security: Optional[pulumi.Input['ResponseHeadersPolicyStrictTransportSecurityArgs']] = None,
-                 x_ss_protection: Optional[pulumi.Input['ResponseHeadersPolicyXSSProtectionArgs']] = None):
+                 xss_protection: Optional[pulumi.Input['ResponseHeadersPolicyXSSProtectionArgs']] = None):
         if content_security_policy is not None:
             pulumi.set(__self__, "content_security_policy", content_security_policy)
         if content_type_options is not None:
@@ -2964,8 +2964,8 @@ class ResponseHeadersPolicySecurityHeadersConfigArgs:
             pulumi.set(__self__, "referrer_policy", referrer_policy)
         if strict_transport_security is not None:
             pulumi.set(__self__, "strict_transport_security", strict_transport_security)
-        if x_ss_protection is not None:
-            pulumi.set(__self__, "x_ss_protection", x_ss_protection)
+        if xss_protection is not None:
+            pulumi.set(__self__, "xss_protection", xss_protection)
 
     @property
     @pulumi.getter(name="contentSecurityPolicy")
@@ -3013,13 +3013,13 @@ class ResponseHeadersPolicySecurityHeadersConfigArgs:
         pulumi.set(self, "strict_transport_security", value)
 
     @property
-    @pulumi.getter(name="xSSProtection")
-    def x_ss_protection(self) -> Optional[pulumi.Input['ResponseHeadersPolicyXSSProtectionArgs']]:
-        return pulumi.get(self, "x_ss_protection")
+    @pulumi.getter(name="xssProtection")
+    def xss_protection(self) -> Optional[pulumi.Input['ResponseHeadersPolicyXSSProtectionArgs']]:
+        return pulumi.get(self, "xss_protection")
 
-    @x_ss_protection.setter
-    def x_ss_protection(self, value: Optional[pulumi.Input['ResponseHeadersPolicyXSSProtectionArgs']]):
-        pulumi.set(self, "x_ss_protection", value)
+    @xss_protection.setter
+    def xss_protection(self, value: Optional[pulumi.Input['ResponseHeadersPolicyXSSProtectionArgs']]):
+        pulumi.set(self, "xss_protection", value)
 
 
 @pulumi.input_type

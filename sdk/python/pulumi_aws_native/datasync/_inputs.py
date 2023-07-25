@@ -244,33 +244,33 @@ class LocationFSxONTAPNfsMountOptionsArgs:
 @pulumi.input_type
 class LocationFSxONTAPProtocolArgs:
     def __init__(__self__, *,
-                 n_fs: Optional[pulumi.Input['LocationFSxONTAPNFSArgs']] = None,
-                 s_mb: Optional[pulumi.Input['LocationFSxONTAPSMBArgs']] = None):
+                 nfs: Optional[pulumi.Input['LocationFSxONTAPNFSArgs']] = None,
+                 smb: Optional[pulumi.Input['LocationFSxONTAPSMBArgs']] = None):
         """
         Configuration settings for NFS or SMB protocol.
         """
-        if n_fs is not None:
-            pulumi.set(__self__, "n_fs", n_fs)
-        if s_mb is not None:
-            pulumi.set(__self__, "s_mb", s_mb)
+        if nfs is not None:
+            pulumi.set(__self__, "nfs", nfs)
+        if smb is not None:
+            pulumi.set(__self__, "smb", smb)
 
     @property
-    @pulumi.getter(name="nFS")
-    def n_fs(self) -> Optional[pulumi.Input['LocationFSxONTAPNFSArgs']]:
-        return pulumi.get(self, "n_fs")
+    @pulumi.getter
+    def nfs(self) -> Optional[pulumi.Input['LocationFSxONTAPNFSArgs']]:
+        return pulumi.get(self, "nfs")
 
-    @n_fs.setter
-    def n_fs(self, value: Optional[pulumi.Input['LocationFSxONTAPNFSArgs']]):
-        pulumi.set(self, "n_fs", value)
+    @nfs.setter
+    def nfs(self, value: Optional[pulumi.Input['LocationFSxONTAPNFSArgs']]):
+        pulumi.set(self, "nfs", value)
 
     @property
-    @pulumi.getter(name="sMB")
-    def s_mb(self) -> Optional[pulumi.Input['LocationFSxONTAPSMBArgs']]:
-        return pulumi.get(self, "s_mb")
+    @pulumi.getter
+    def smb(self) -> Optional[pulumi.Input['LocationFSxONTAPSMBArgs']]:
+        return pulumi.get(self, "smb")
 
-    @s_mb.setter
-    def s_mb(self, value: Optional[pulumi.Input['LocationFSxONTAPSMBArgs']]):
-        pulumi.set(self, "s_mb", value)
+    @smb.setter
+    def smb(self, value: Optional[pulumi.Input['LocationFSxONTAPSMBArgs']]):
+        pulumi.set(self, "smb", value)
 
 
 @pulumi.input_type
@@ -446,21 +446,21 @@ class LocationFSxOpenZFSNFSArgs:
 @pulumi.input_type
 class LocationFSxOpenZFSProtocolArgs:
     def __init__(__self__, *,
-                 n_fs: Optional[pulumi.Input['LocationFSxOpenZFSNFSArgs']] = None):
+                 nfs: Optional[pulumi.Input['LocationFSxOpenZFSNFSArgs']] = None):
         """
         Configuration settings for an NFS or SMB protocol, currently only support NFS
         """
-        if n_fs is not None:
-            pulumi.set(__self__, "n_fs", n_fs)
+        if nfs is not None:
+            pulumi.set(__self__, "nfs", nfs)
 
     @property
-    @pulumi.getter(name="nFS")
-    def n_fs(self) -> Optional[pulumi.Input['LocationFSxOpenZFSNFSArgs']]:
-        return pulumi.get(self, "n_fs")
+    @pulumi.getter
+    def nfs(self) -> Optional[pulumi.Input['LocationFSxOpenZFSNFSArgs']]:
+        return pulumi.get(self, "nfs")
 
-    @n_fs.setter
-    def n_fs(self, value: Optional[pulumi.Input['LocationFSxOpenZFSNFSArgs']]):
-        pulumi.set(self, "n_fs", value)
+    @nfs.setter
+    def nfs(self, value: Optional[pulumi.Input['LocationFSxOpenZFSNFSArgs']]):
+        pulumi.set(self, "nfs", value)
 
 
 @pulumi.input_type

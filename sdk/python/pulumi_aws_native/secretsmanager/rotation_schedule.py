@@ -62,7 +62,7 @@ class RotationScheduleArgs:
         pulumi.set(self, "rotate_immediately_on_update", value)
 
     @property
-    @pulumi.getter(name="rotationLambdaARN")
+    @pulumi.getter(name="rotationLambdaArn")
     def rotation_lambda_arn(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "rotation_lambda_arn")
 
@@ -188,7 +188,7 @@ class RotationSchedule(pulumi.CustomResource):
         return pulumi.get(self, "rotate_immediately_on_update")
 
     @property
-    @pulumi.getter(name="rotationLambdaARN")
+    @pulumi.getter(name="rotationLambdaArn")
     def rotation_lambda_arn(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "rotation_lambda_arn")
 

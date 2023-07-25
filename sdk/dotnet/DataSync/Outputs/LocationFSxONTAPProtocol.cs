@@ -16,17 +16,17 @@ namespace Pulumi.AwsNative.DataSync.Outputs
     [OutputType]
     public sealed class LocationFSxONTAPProtocol
     {
-        public readonly Outputs.LocationFSxONTAPNFS? NFS;
-        public readonly Outputs.LocationFSxONTAPSMB? SMB;
+        public readonly Outputs.LocationFSxONTAPNFS? Nfs;
+        public readonly Outputs.LocationFSxONTAPSMB? Smb;
 
         [OutputConstructor]
         private LocationFSxONTAPProtocol(
-            Outputs.LocationFSxONTAPNFS? nFS,
+            Outputs.LocationFSxONTAPNFS? nfs,
 
-            Outputs.LocationFSxONTAPSMB? sMB)
+            Outputs.LocationFSxONTAPSMB? smb)
         {
-            NFS = nFS;
-            SMB = sMB;
+            Nfs = nfs;
+            Smb = smb;
         }
     }
 }

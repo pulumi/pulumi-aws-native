@@ -16,12 +16,12 @@ namespace Pulumi.AwsNative.DataSync.Outputs
     [OutputType]
     public sealed class LocationFSxOpenZFSProtocol
     {
-        public readonly Outputs.LocationFSxOpenZFSNFS? NFS;
+        public readonly Outputs.LocationFSxOpenZFSNFS? Nfs;
 
         [OutputConstructor]
-        private LocationFSxOpenZFSProtocol(Outputs.LocationFSxOpenZFSNFS? nFS)
+        private LocationFSxOpenZFSProtocol(Outputs.LocationFSxOpenZFSNFS? nfs)
         {
-            NFS = nFS;
+            Nfs = nfs;
         }
     }
 }

@@ -17,7 +17,7 @@ __all__ = ['ClusterArgs', 'Cluster']
 class ClusterArgs:
     def __init__(__self__, *,
                  cluster_type: pulumi.Input[str],
-                 d_b_name: pulumi.Input[str],
+                 db_name: pulumi.Input[str],
                  master_user_password: pulumi.Input[str],
                  master_username: pulumi.Input[str],
                  node_type: pulumi.Input[str],
@@ -67,7 +67,7 @@ class ClusterArgs:
         """
         The set of arguments for constructing a Cluster resource.
         :param pulumi.Input[str] cluster_type: The type of the cluster. When cluster type is specified as single-node, the NumberOfNodes parameter is not required and if multi-node, the NumberOfNodes parameter is required
-        :param pulumi.Input[str] d_b_name: The name of the first database to be created when the cluster is created. To create additional databases after the cluster is created, connect to the cluster with a SQL client and use SQL commands to create a database.
+        :param pulumi.Input[str] db_name: The name of the first database to be created when the cluster is created. To create additional databases after the cluster is created, connect to the cluster with a SQL client and use SQL commands to create a database.
         :param pulumi.Input[str] master_user_password: The password associated with the master user account for the cluster that is being created. Password must be between 8 and 64 characters in length, should have at least one uppercase letter.Must contain at least one lowercase letter.Must contain one number.Can be any printable ASCII character.
         :param pulumi.Input[str] master_username: The user name associated with the master user account for the cluster that is being created. The user name can't be PUBLIC and first character must be a letter.
         :param pulumi.Input[str] node_type: The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.4xlarge | ra3.16xlarge
@@ -127,7 +127,7 @@ class ClusterArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
         """
         pulumi.set(__self__, "cluster_type", cluster_type)
-        pulumi.set(__self__, "d_b_name", d_b_name)
+        pulumi.set(__self__, "db_name", db_name)
         pulumi.set(__self__, "master_user_password", master_user_password)
         pulumi.set(__self__, "master_username", master_username)
         pulumi.set(__self__, "node_type", node_type)
@@ -231,16 +231,16 @@ class ClusterArgs:
         pulumi.set(self, "cluster_type", value)
 
     @property
-    @pulumi.getter(name="dBName")
-    def d_b_name(self) -> pulumi.Input[str]:
+    @pulumi.getter(name="dbName")
+    def db_name(self) -> pulumi.Input[str]:
         """
         The name of the first database to be created when the cluster is created. To create additional databases after the cluster is created, connect to the cluster with a SQL client and use SQL commands to create a database.
         """
-        return pulumi.get(self, "d_b_name")
+        return pulumi.get(self, "db_name")
 
-    @d_b_name.setter
-    def d_b_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "d_b_name", value)
+    @db_name.setter
+    def db_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "db_name", value)
 
     @property
     @pulumi.getter(name="masterUserPassword")
@@ -818,7 +818,7 @@ class Cluster(pulumi.CustomResource):
                  cluster_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  cluster_type: Optional[pulumi.Input[str]] = None,
                  cluster_version: Optional[pulumi.Input[str]] = None,
-                 d_b_name: Optional[pulumi.Input[str]] = None,
+                 db_name: Optional[pulumi.Input[str]] = None,
                  defer_maintenance: Optional[pulumi.Input[bool]] = None,
                  defer_maintenance_duration: Optional[pulumi.Input[int]] = None,
                  defer_maintenance_end_time: Optional[pulumi.Input[str]] = None,
@@ -876,7 +876,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_subnet_group_name: The name of a cluster subnet group to be associated with this cluster.
         :param pulumi.Input[str] cluster_type: The type of the cluster. When cluster type is specified as single-node, the NumberOfNodes parameter is not required and if multi-node, the NumberOfNodes parameter is required
         :param pulumi.Input[str] cluster_version: The version of the Amazon Redshift engine software that you want to deploy on the cluster.The version selected runs on all the nodes in the cluster.
-        :param pulumi.Input[str] d_b_name: The name of the first database to be created when the cluster is created. To create additional databases after the cluster is created, connect to the cluster with a SQL client and use SQL commands to create a database.
+        :param pulumi.Input[str] db_name: The name of the first database to be created when the cluster is created. To create additional databases after the cluster is created, connect to the cluster with a SQL client and use SQL commands to create a database.
         :param pulumi.Input[bool] defer_maintenance: A boolean indicating whether to enable the deferred maintenance window.
         :param pulumi.Input[int] defer_maintenance_duration: An integer indicating the duration of the maintenance window in days. If you specify a duration, you can't specify an end time. The duration must be 45 days or less.
         :param pulumi.Input[str] defer_maintenance_end_time: A timestamp indicating end time for the deferred maintenance window. If you specify an end time, you can't specify a duration.
@@ -956,7 +956,7 @@ class Cluster(pulumi.CustomResource):
                  cluster_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  cluster_type: Optional[pulumi.Input[str]] = None,
                  cluster_version: Optional[pulumi.Input[str]] = None,
-                 d_b_name: Optional[pulumi.Input[str]] = None,
+                 db_name: Optional[pulumi.Input[str]] = None,
                  defer_maintenance: Optional[pulumi.Input[bool]] = None,
                  defer_maintenance_duration: Optional[pulumi.Input[int]] = None,
                  defer_maintenance_end_time: Optional[pulumi.Input[str]] = None,
@@ -1015,9 +1015,9 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'cluster_type'")
             __props__.__dict__["cluster_type"] = cluster_type
             __props__.__dict__["cluster_version"] = cluster_version
-            if d_b_name is None and not opts.urn:
-                raise TypeError("Missing required property 'd_b_name'")
-            __props__.__dict__["d_b_name"] = d_b_name
+            if db_name is None and not opts.urn:
+                raise TypeError("Missing required property 'db_name'")
+            __props__.__dict__["db_name"] = db_name
             __props__.__dict__["defer_maintenance"] = defer_maintenance
             __props__.__dict__["defer_maintenance_duration"] = defer_maintenance_duration
             __props__.__dict__["defer_maintenance_end_time"] = defer_maintenance_end_time
@@ -1094,7 +1094,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["cluster_subnet_group_name"] = None
         __props__.__dict__["cluster_type"] = None
         __props__.__dict__["cluster_version"] = None
-        __props__.__dict__["d_b_name"] = None
+        __props__.__dict__["db_name"] = None
         __props__.__dict__["defer_maintenance"] = None
         __props__.__dict__["defer_maintenance_duration"] = None
         __props__.__dict__["defer_maintenance_end_time"] = None
@@ -1241,12 +1241,12 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "cluster_version")
 
     @property
-    @pulumi.getter(name="dBName")
-    def d_b_name(self) -> pulumi.Output[str]:
+    @pulumi.getter(name="dbName")
+    def db_name(self) -> pulumi.Output[str]:
         """
         The name of the first database to be created when the cluster is created. To create additional databases after the cluster is created, connect to the cluster with a SQL client and use SQL commands to create a database.
         """
-        return pulumi.get(self, "d_b_name")
+        return pulumi.get(self, "db_name")
 
     @property
     @pulumi.getter(name="deferMaintenance")

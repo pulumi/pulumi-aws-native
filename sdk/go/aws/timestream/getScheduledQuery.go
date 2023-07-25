@@ -29,21 +29,21 @@ type LookupScheduledQueryArgs struct {
 type LookupScheduledQueryResult struct {
 	Arn *string `pulumi:"arn"`
 	// Configuration for error reporting. Error reports will be generated when a problem is encountered when writing the query results.
-	SQErrorReportConfiguration *string `pulumi:"sQErrorReportConfiguration"`
+	SqErrorReportConfiguration *string `pulumi:"sqErrorReportConfiguration"`
 	// The Amazon KMS key used to encrypt the scheduled query resource, at-rest. If the Amazon KMS key is not specified, the scheduled query resource will be encrypted with a Timestream owned Amazon KMS key. To specify a KMS key, use the key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix the name with alias/. If ErrorReportConfiguration uses SSE_KMS as encryption type, the same KmsKeyId is used to encrypt the error report at rest.
-	SQKmsKeyId *string `pulumi:"sQKmsKeyId"`
+	SqKmsKeyId *string `pulumi:"sqKmsKeyId"`
 	// The name of the scheduled query. Scheduled query names must be unique within each Region.
-	SQName *string `pulumi:"sQName"`
+	SqName *string `pulumi:"sqName"`
 	// Notification configuration for the scheduled query. A notification is sent by Timestream when a query run finishes, when the state is updated or when you delete it.
-	SQNotificationConfiguration *string `pulumi:"sQNotificationConfiguration"`
+	SqNotificationConfiguration *string `pulumi:"sqNotificationConfiguration"`
 	// The query string to run. Parameter names can be specified in the query string @ character followed by an identifier. The named Parameter @scheduled_runtime is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the ScheduleConfiguration parameter, will be the value of @scheduled_runtime paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the @scheduled_runtime parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
-	SQQueryString *string `pulumi:"sQQueryString"`
+	SqQueryString *string `pulumi:"sqQueryString"`
 	// Configuration for when the scheduled query is executed.
-	SQScheduleConfiguration *string `pulumi:"sQScheduleConfiguration"`
+	SqScheduleConfiguration *string `pulumi:"sqScheduleConfiguration"`
 	// The ARN for the IAM role that Timestream will assume when running the scheduled query.
-	SQScheduledQueryExecutionRoleArn *string `pulumi:"sQScheduledQueryExecutionRoleArn"`
+	SqScheduledQueryExecutionRoleArn *string `pulumi:"sqScheduledQueryExecutionRoleArn"`
 	// Configuration of target store where scheduled query results are written to.
-	SQTargetConfiguration *string             `pulumi:"sQTargetConfiguration"`
+	SqTargetConfiguration *string             `pulumi:"sqTargetConfiguration"`
 	Tags                  []ScheduledQueryTag `pulumi:"tags"`
 }
 
@@ -87,43 +87,43 @@ func (o LookupScheduledQueryResultOutput) Arn() pulumi.StringPtrOutput {
 }
 
 // Configuration for error reporting. Error reports will be generated when a problem is encountered when writing the query results.
-func (o LookupScheduledQueryResultOutput) SQErrorReportConfiguration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupScheduledQueryResult) *string { return v.SQErrorReportConfiguration }).(pulumi.StringPtrOutput)
+func (o LookupScheduledQueryResultOutput) SqErrorReportConfiguration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupScheduledQueryResult) *string { return v.SqErrorReportConfiguration }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon KMS key used to encrypt the scheduled query resource, at-rest. If the Amazon KMS key is not specified, the scheduled query resource will be encrypted with a Timestream owned Amazon KMS key. To specify a KMS key, use the key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix the name with alias/. If ErrorReportConfiguration uses SSE_KMS as encryption type, the same KmsKeyId is used to encrypt the error report at rest.
-func (o LookupScheduledQueryResultOutput) SQKmsKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupScheduledQueryResult) *string { return v.SQKmsKeyId }).(pulumi.StringPtrOutput)
+func (o LookupScheduledQueryResultOutput) SqKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupScheduledQueryResult) *string { return v.SqKmsKeyId }).(pulumi.StringPtrOutput)
 }
 
 // The name of the scheduled query. Scheduled query names must be unique within each Region.
-func (o LookupScheduledQueryResultOutput) SQName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupScheduledQueryResult) *string { return v.SQName }).(pulumi.StringPtrOutput)
+func (o LookupScheduledQueryResultOutput) SqName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupScheduledQueryResult) *string { return v.SqName }).(pulumi.StringPtrOutput)
 }
 
 // Notification configuration for the scheduled query. A notification is sent by Timestream when a query run finishes, when the state is updated or when you delete it.
-func (o LookupScheduledQueryResultOutput) SQNotificationConfiguration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupScheduledQueryResult) *string { return v.SQNotificationConfiguration }).(pulumi.StringPtrOutput)
+func (o LookupScheduledQueryResultOutput) SqNotificationConfiguration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupScheduledQueryResult) *string { return v.SqNotificationConfiguration }).(pulumi.StringPtrOutput)
 }
 
 // The query string to run. Parameter names can be specified in the query string @ character followed by an identifier. The named Parameter @scheduled_runtime is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the ScheduleConfiguration parameter, will be the value of @scheduled_runtime paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the @scheduled_runtime parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
-func (o LookupScheduledQueryResultOutput) SQQueryString() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupScheduledQueryResult) *string { return v.SQQueryString }).(pulumi.StringPtrOutput)
+func (o LookupScheduledQueryResultOutput) SqQueryString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupScheduledQueryResult) *string { return v.SqQueryString }).(pulumi.StringPtrOutput)
 }
 
 // Configuration for when the scheduled query is executed.
-func (o LookupScheduledQueryResultOutput) SQScheduleConfiguration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupScheduledQueryResult) *string { return v.SQScheduleConfiguration }).(pulumi.StringPtrOutput)
+func (o LookupScheduledQueryResultOutput) SqScheduleConfiguration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupScheduledQueryResult) *string { return v.SqScheduleConfiguration }).(pulumi.StringPtrOutput)
 }
 
 // The ARN for the IAM role that Timestream will assume when running the scheduled query.
-func (o LookupScheduledQueryResultOutput) SQScheduledQueryExecutionRoleArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupScheduledQueryResult) *string { return v.SQScheduledQueryExecutionRoleArn }).(pulumi.StringPtrOutput)
+func (o LookupScheduledQueryResultOutput) SqScheduledQueryExecutionRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupScheduledQueryResult) *string { return v.SqScheduledQueryExecutionRoleArn }).(pulumi.StringPtrOutput)
 }
 
 // Configuration of target store where scheduled query results are written to.
-func (o LookupScheduledQueryResultOutput) SQTargetConfiguration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupScheduledQueryResult) *string { return v.SQTargetConfiguration }).(pulumi.StringPtrOutput)
+func (o LookupScheduledQueryResultOutput) SqTargetConfiguration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupScheduledQueryResult) *string { return v.SqTargetConfiguration }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupScheduledQueryResultOutput) Tags() ScheduledQueryTagArrayOutput {

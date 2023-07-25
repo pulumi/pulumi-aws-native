@@ -13,17 +13,17 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
     [OutputType]
     public sealed class DeliveryStreamKinesisStreamSourceConfiguration
     {
-        public readonly string KinesisStreamARN;
-        public readonly string RoleARN;
+        public readonly string KinesisStreamArn;
+        public readonly string RoleArn;
 
         [OutputConstructor]
         private DeliveryStreamKinesisStreamSourceConfiguration(
-            string kinesisStreamARN,
+            string kinesisStreamArn,
 
-            string roleARN)
+            string roleArn)
         {
-            KinesisStreamARN = kinesisStreamARN;
-            RoleARN = roleARN;
+            KinesisStreamArn = kinesisStreamArn;
+            RoleArn = roleArn;
         }
     }
 }

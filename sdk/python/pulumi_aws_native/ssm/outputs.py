@@ -985,8 +985,8 @@ class ResourceDataSyncS3Destination(dict):
             suggest = "sync_format"
         elif key == "bucketPrefix":
             suggest = "bucket_prefix"
-        elif key == "kMSKeyArn":
-            suggest = "k_ms_key_arn"
+        elif key == "kmsKeyArn":
+            suggest = "kms_key_arn"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ResourceDataSyncS3Destination. Access the value via the '{suggest}' property getter instead.")
@@ -1004,14 +1004,14 @@ class ResourceDataSyncS3Destination(dict):
                  bucket_region: str,
                  sync_format: str,
                  bucket_prefix: Optional[str] = None,
-                 k_ms_key_arn: Optional[str] = None):
+                 kms_key_arn: Optional[str] = None):
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "bucket_region", bucket_region)
         pulumi.set(__self__, "sync_format", sync_format)
         if bucket_prefix is not None:
             pulumi.set(__self__, "bucket_prefix", bucket_prefix)
-        if k_ms_key_arn is not None:
-            pulumi.set(__self__, "k_ms_key_arn", k_ms_key_arn)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -1034,9 +1034,9 @@ class ResourceDataSyncS3Destination(dict):
         return pulumi.get(self, "bucket_prefix")
 
     @property
-    @pulumi.getter(name="kMSKeyArn")
-    def k_ms_key_arn(self) -> Optional[str]:
-        return pulumi.get(self, "k_ms_key_arn")
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[str]:
+        return pulumi.get(self, "kms_key_arn")
 
 
 @pulumi.output_type

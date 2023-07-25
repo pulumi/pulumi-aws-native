@@ -85,7 +85,7 @@ class PermissionArgs:
         pulumi.set(self, "function_url_auth_type", value)
 
     @property
-    @pulumi.getter(name="principalOrgID")
+    @pulumi.getter(name="principalOrgId")
     def principal_org_id(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "principal_org_id")
 
@@ -245,7 +245,7 @@ class Permission(pulumi.CustomResource):
         return pulumi.get(self, "principal")
 
     @property
-    @pulumi.getter(name="principalOrgID")
+    @pulumi.getter(name="principalOrgId")
     def principal_org_id(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "principal_org_id")
 

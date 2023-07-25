@@ -53,7 +53,7 @@ export class RecordSet extends pulumi.CustomResource {
     public readonly region!: pulumi.Output<string | undefined>;
     public readonly resourceRecords!: pulumi.Output<string[] | undefined>;
     public readonly setIdentifier!: pulumi.Output<string | undefined>;
-    public readonly tTL!: pulumi.Output<string | undefined>;
+    public readonly ttl!: pulumi.Output<string | undefined>;
     public readonly type!: pulumi.Output<string>;
     public readonly weight!: pulumi.Output<number | undefined>;
 
@@ -86,7 +86,7 @@ export class RecordSet extends pulumi.CustomResource {
             resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceRecords"] = args ? args.resourceRecords : undefined;
             resourceInputs["setIdentifier"] = args ? args.setIdentifier : undefined;
-            resourceInputs["tTL"] = args ? args.tTL : undefined;
+            resourceInputs["ttl"] = args ? args.ttl : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["weight"] = args ? args.weight : undefined;
         } else {
@@ -103,7 +103,7 @@ export class RecordSet extends pulumi.CustomResource {
             resourceInputs["region"] = undefined /*out*/;
             resourceInputs["resourceRecords"] = undefined /*out*/;
             resourceInputs["setIdentifier"] = undefined /*out*/;
-            resourceInputs["tTL"] = undefined /*out*/;
+            resourceInputs["ttl"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["weight"] = undefined /*out*/;
         }
@@ -129,7 +129,7 @@ export interface RecordSetArgs {
     region?: pulumi.Input<string>;
     resourceRecords?: pulumi.Input<pulumi.Input<string>[]>;
     setIdentifier?: pulumi.Input<string>;
-    tTL?: pulumi.Input<string>;
+    ttl?: pulumi.Input<string>;
     type: pulumi.Input<string>;
     weight?: pulumi.Input<number>;
 }

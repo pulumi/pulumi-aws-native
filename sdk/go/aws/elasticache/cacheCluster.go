@@ -18,8 +18,8 @@ import (
 type CacheCluster struct {
 	pulumi.CustomResourceState
 
-	AZMode                       pulumi.StringPtrOutput                                 `pulumi:"aZMode"`
 	AutoMinorVersionUpgrade      pulumi.BoolPtrOutput                                   `pulumi:"autoMinorVersionUpgrade"`
+	AzMode                       pulumi.StringPtrOutput                                 `pulumi:"azMode"`
 	CacheNodeType                pulumi.StringOutput                                    `pulumi:"cacheNodeType"`
 	CacheParameterGroupName      pulumi.StringPtrOutput                                 `pulumi:"cacheParameterGroupName"`
 	CacheSecurityGroupNames      pulumi.StringArrayOutput                               `pulumi:"cacheSecurityGroupNames"`
@@ -98,8 +98,8 @@ func (CacheClusterState) ElementType() reflect.Type {
 }
 
 type cacheClusterArgs struct {
-	AZMode                       *string                                       `pulumi:"aZMode"`
 	AutoMinorVersionUpgrade      *bool                                         `pulumi:"autoMinorVersionUpgrade"`
+	AzMode                       *string                                       `pulumi:"azMode"`
 	CacheNodeType                string                                        `pulumi:"cacheNodeType"`
 	CacheParameterGroupName      *string                                       `pulumi:"cacheParameterGroupName"`
 	CacheSecurityGroupNames      []string                                      `pulumi:"cacheSecurityGroupNames"`
@@ -131,8 +131,8 @@ type cacheClusterArgs struct {
 
 // The set of arguments for constructing a CacheCluster resource.
 type CacheClusterArgs struct {
-	AZMode                       pulumi.StringPtrInput
 	AutoMinorVersionUpgrade      pulumi.BoolPtrInput
+	AzMode                       pulumi.StringPtrInput
 	CacheNodeType                pulumi.StringInput
 	CacheParameterGroupName      pulumi.StringPtrInput
 	CacheSecurityGroupNames      pulumi.StringArrayInput
@@ -199,12 +199,12 @@ func (o CacheClusterOutput) ToCacheClusterOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o CacheClusterOutput) AZMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CacheCluster) pulumi.StringPtrOutput { return v.AZMode }).(pulumi.StringPtrOutput)
-}
-
 func (o CacheClusterOutput) AutoMinorVersionUpgrade() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CacheCluster) pulumi.BoolPtrOutput { return v.AutoMinorVersionUpgrade }).(pulumi.BoolPtrOutput)
+}
+
+func (o CacheClusterOutput) AzMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheCluster) pulumi.StringPtrOutput { return v.AzMode }).(pulumi.StringPtrOutput)
 }
 
 func (o CacheClusterOutput) CacheNodeType() pulumi.StringOutput {

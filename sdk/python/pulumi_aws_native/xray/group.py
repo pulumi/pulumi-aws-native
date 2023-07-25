@@ -175,7 +175,7 @@ class Group(pulumi.CustomResource):
         return pulumi.get(self, "filter_expression")
 
     @property
-    @pulumi.getter(name="groupARN")
+    @pulumi.getter(name="groupArn")
     def group_arn(self) -> pulumi.Output[str]:
         """
         The ARN of the group that was generated on creation.

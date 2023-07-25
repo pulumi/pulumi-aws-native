@@ -13,21 +13,21 @@ namespace Pulumi.AwsNative.AppMesh.Outputs
     [OutputType]
     public sealed class VirtualGatewayTlsValidationContextTrust
     {
-        public readonly Outputs.VirtualGatewayTlsValidationContextAcmTrust? ACM;
+        public readonly Outputs.VirtualGatewayTlsValidationContextAcmTrust? Acm;
         public readonly Outputs.VirtualGatewayTlsValidationContextFileTrust? File;
-        public readonly Outputs.VirtualGatewayTlsValidationContextSdsTrust? SDS;
+        public readonly Outputs.VirtualGatewayTlsValidationContextSdsTrust? Sds;
 
         [OutputConstructor]
         private VirtualGatewayTlsValidationContextTrust(
-            Outputs.VirtualGatewayTlsValidationContextAcmTrust? aCM,
+            Outputs.VirtualGatewayTlsValidationContextAcmTrust? acm,
 
             Outputs.VirtualGatewayTlsValidationContextFileTrust? file,
 
-            Outputs.VirtualGatewayTlsValidationContextSdsTrust? sDS)
+            Outputs.VirtualGatewayTlsValidationContextSdsTrust? sds)
         {
-            ACM = aCM;
+            Acm = acm;
             File = file;
-            SDS = sDS;
+            Sds = sds;
         }
     }
 }

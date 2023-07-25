@@ -12,17 +12,17 @@ namespace Pulumi.AwsNative.RDS.Inputs
 
     public sealed class DBSecurityGroupIngressArgs : global::Pulumi.ResourceArgs
     {
-        [Input("cIDRIP")]
-        public Input<string>? CIDRIP { get; set; }
+        [Input("cidrip")]
+        public Input<string>? Cidrip { get; set; }
 
-        [Input("eC2SecurityGroupId")]
-        public Input<string>? EC2SecurityGroupId { get; set; }
+        [Input("ec2SecurityGroupId")]
+        public Input<string>? Ec2SecurityGroupId { get; set; }
 
-        [Input("eC2SecurityGroupName")]
-        public Input<string>? EC2SecurityGroupName { get; set; }
+        [Input("ec2SecurityGroupName")]
+        public Input<string>? Ec2SecurityGroupName { get; set; }
 
-        [Input("eC2SecurityGroupOwnerId")]
-        public Input<string>? EC2SecurityGroupOwnerId { get; set; }
+        [Input("ec2SecurityGroupOwnerId")]
+        public Input<string>? Ec2SecurityGroupOwnerId { get; set; }
 
         public DBSecurityGroupIngressArgs()
         {

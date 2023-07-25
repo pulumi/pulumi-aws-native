@@ -65,7 +65,7 @@ export class LoadBalancer extends pulumi.CustomResource {
     /**
      * Configuration option to adjust session stickiness cookie duration parameter.
      */
-    public readonly sessionStickinessLBCookieDurationSeconds!: pulumi.Output<string | undefined>;
+    public readonly sessionStickinessLbCookieDurationSeconds!: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
@@ -95,7 +95,7 @@ export class LoadBalancer extends pulumi.CustomResource {
             resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
             resourceInputs["loadBalancerName"] = args ? args.loadBalancerName : undefined;
             resourceInputs["sessionStickinessEnabled"] = args ? args.sessionStickinessEnabled : undefined;
-            resourceInputs["sessionStickinessLBCookieDurationSeconds"] = args ? args.sessionStickinessLBCookieDurationSeconds : undefined;
+            resourceInputs["sessionStickinessLbCookieDurationSeconds"] = args ? args.sessionStickinessLbCookieDurationSeconds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tlsPolicyName"] = args ? args.tlsPolicyName : undefined;
             resourceInputs["loadBalancerArn"] = undefined /*out*/;
@@ -107,7 +107,7 @@ export class LoadBalancer extends pulumi.CustomResource {
             resourceInputs["loadBalancerArn"] = undefined /*out*/;
             resourceInputs["loadBalancerName"] = undefined /*out*/;
             resourceInputs["sessionStickinessEnabled"] = undefined /*out*/;
-            resourceInputs["sessionStickinessLBCookieDurationSeconds"] = undefined /*out*/;
+            resourceInputs["sessionStickinessLbCookieDurationSeconds"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["tlsPolicyName"] = undefined /*out*/;
         }
@@ -147,7 +147,7 @@ export interface LoadBalancerArgs {
     /**
      * Configuration option to adjust session stickiness cookie duration parameter.
      */
-    sessionStickinessLBCookieDurationSeconds?: pulumi.Input<string>;
+    sessionStickinessLbCookieDurationSeconds?: pulumi.Input<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */

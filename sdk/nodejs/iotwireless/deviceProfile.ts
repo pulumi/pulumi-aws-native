@@ -44,7 +44,7 @@ export class DeviceProfile extends pulumi.CustomResource {
     /**
      * LoRaWANDeviceProfile supports all LoRa specific attributes for service profile for CreateDeviceProfile operation
      */
-    public readonly loRaWAN!: pulumi.Output<outputs.iotwireless.DeviceProfileLoRaWANDeviceProfile | undefined>;
+    public readonly loRaWan!: pulumi.Output<outputs.iotwireless.DeviceProfileLoRaWANDeviceProfile | undefined>;
     /**
      * Name of service profile
      */
@@ -65,13 +65,13 @@ export class DeviceProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["loRaWAN"] = args ? args.loRaWAN : undefined;
+            resourceInputs["loRaWan"] = args ? args.loRaWan : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
-            resourceInputs["loRaWAN"] = undefined /*out*/;
+            resourceInputs["loRaWan"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
@@ -87,7 +87,7 @@ export interface DeviceProfileArgs {
     /**
      * LoRaWANDeviceProfile supports all LoRa specific attributes for service profile for CreateDeviceProfile operation
      */
-    loRaWAN?: pulumi.Input<inputs.iotwireless.DeviceProfileLoRaWANDeviceProfileArgs>;
+    loRaWan?: pulumi.Input<inputs.iotwireless.DeviceProfileLoRaWANDeviceProfileArgs>;
     /**
      * Name of service profile
      */

@@ -57,8 +57,8 @@ namespace Pulumi.AwsNative.Lightsail
         /// <summary>
         /// Configuration option to adjust session stickiness cookie duration parameter.
         /// </summary>
-        [Output("sessionStickinessLBCookieDurationSeconds")]
-        public Output<string?> SessionStickinessLBCookieDurationSeconds { get; private set; } = null!;
+        [Output("sessionStickinessLbCookieDurationSeconds")]
+        public Output<string?> SessionStickinessLbCookieDurationSeconds { get; private set; } = null!;
 
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
@@ -162,8 +162,8 @@ namespace Pulumi.AwsNative.Lightsail
         /// <summary>
         /// Configuration option to adjust session stickiness cookie duration parameter.
         /// </summary>
-        [Input("sessionStickinessLBCookieDurationSeconds")]
-        public Input<string>? SessionStickinessLBCookieDurationSeconds { get; set; }
+        [Input("sessionStickinessLbCookieDurationSeconds")]
+        public Input<string>? SessionStickinessLbCookieDurationSeconds { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.LoadBalancerTagArgs>? _tags;

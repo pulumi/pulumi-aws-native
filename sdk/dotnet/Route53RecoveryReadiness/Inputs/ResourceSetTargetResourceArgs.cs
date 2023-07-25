@@ -15,8 +15,8 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness.Inputs
     /// </summary>
     public sealed class ResourceSetTargetResourceArgs : global::Pulumi.ResourceArgs
     {
-        [Input("nLBResource")]
-        public Input<Inputs.ResourceSetNLBResourceArgs>? NLBResource { get; set; }
+        [Input("nlbResource")]
+        public Input<Inputs.ResourceSetNLBResourceArgs>? NlbResource { get; set; }
 
         [Input("r53Resource")]
         public Input<Inputs.ResourceSetR53ResourceRecordArgs>? R53Resource { get; set; }

@@ -14,10 +14,10 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
     public sealed class DeliveryStreamSplunkDestinationConfiguration
     {
         public readonly Outputs.DeliveryStreamCloudWatchLoggingOptions? CloudWatchLoggingOptions;
-        public readonly int? HECAcknowledgmentTimeoutInSeconds;
-        public readonly string HECEndpoint;
-        public readonly Pulumi.AwsNative.KinesisFirehose.DeliveryStreamSplunkDestinationConfigurationHECEndpointType HECEndpointType;
-        public readonly string HECToken;
+        public readonly int? HecAcknowledgmentTimeoutInSeconds;
+        public readonly string HecEndpoint;
+        public readonly Pulumi.AwsNative.KinesisFirehose.DeliveryStreamSplunkDestinationConfigurationHECEndpointType HecEndpointType;
+        public readonly string HecToken;
         public readonly Outputs.DeliveryStreamProcessingConfiguration? ProcessingConfiguration;
         public readonly Outputs.DeliveryStreamSplunkRetryOptions? RetryOptions;
         public readonly string? S3BackupMode;
@@ -27,13 +27,13 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
         private DeliveryStreamSplunkDestinationConfiguration(
             Outputs.DeliveryStreamCloudWatchLoggingOptions? cloudWatchLoggingOptions,
 
-            int? hECAcknowledgmentTimeoutInSeconds,
+            int? hecAcknowledgmentTimeoutInSeconds,
 
-            string hECEndpoint,
+            string hecEndpoint,
 
-            Pulumi.AwsNative.KinesisFirehose.DeliveryStreamSplunkDestinationConfigurationHECEndpointType hECEndpointType,
+            Pulumi.AwsNative.KinesisFirehose.DeliveryStreamSplunkDestinationConfigurationHECEndpointType hecEndpointType,
 
-            string hECToken,
+            string hecToken,
 
             Outputs.DeliveryStreamProcessingConfiguration? processingConfiguration,
 
@@ -44,10 +44,10 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
             Outputs.DeliveryStreamS3DestinationConfiguration s3Configuration)
         {
             CloudWatchLoggingOptions = cloudWatchLoggingOptions;
-            HECAcknowledgmentTimeoutInSeconds = hECAcknowledgmentTimeoutInSeconds;
-            HECEndpoint = hECEndpoint;
-            HECEndpointType = hECEndpointType;
-            HECToken = hECToken;
+            HecAcknowledgmentTimeoutInSeconds = hecAcknowledgmentTimeoutInSeconds;
+            HecEndpoint = hecEndpoint;
+            HecEndpointType = hecEndpointType;
+            HecToken = hecToken;
             ProcessingConfiguration = processingConfiguration;
             RetryOptions = retryOptions;
             S3BackupMode = s3BackupMode;

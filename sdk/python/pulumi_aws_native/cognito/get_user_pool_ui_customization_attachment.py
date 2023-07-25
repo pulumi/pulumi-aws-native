@@ -18,18 +18,18 @@ __all__ = [
 
 @pulumi.output_type
 class GetUserPoolUICustomizationAttachmentResult:
-    def __init__(__self__, c_ss=None, id=None):
-        if c_ss and not isinstance(c_ss, str):
-            raise TypeError("Expected argument 'c_ss' to be a str")
-        pulumi.set(__self__, "c_ss", c_ss)
+    def __init__(__self__, css=None, id=None):
+        if css and not isinstance(css, str):
+            raise TypeError("Expected argument 'css' to be a str")
+        pulumi.set(__self__, "css", css)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
 
     @property
-    @pulumi.getter(name="cSS")
-    def c_ss(self) -> Optional[str]:
-        return pulumi.get(self, "c_ss")
+    @pulumi.getter
+    def css(self) -> Optional[str]:
+        return pulumi.get(self, "css")
 
     @property
     @pulumi.getter
@@ -43,7 +43,7 @@ class AwaitableGetUserPoolUICustomizationAttachmentResult(GetUserPoolUICustomiza
         if False:
             yield self
         return GetUserPoolUICustomizationAttachmentResult(
-            c_ss=self.c_ss,
+            css=self.css,
             id=self.id)
 
 
@@ -58,7 +58,7 @@ def get_user_pool_ui_customization_attachment(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cognito:getUserPoolUICustomizationAttachment', __args__, opts=opts, typ=GetUserPoolUICustomizationAttachmentResult).value
 
     return AwaitableGetUserPoolUICustomizationAttachmentResult(
-        c_ss=pulumi.get(__ret__, 'c_ss'),
+        css=pulumi.get(__ret__, 'css'),
         id=pulumi.get(__ret__, 'id'))
 
 

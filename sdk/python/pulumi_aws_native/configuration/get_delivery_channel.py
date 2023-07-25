@@ -65,7 +65,7 @@ class GetDeliveryChannelResult:
         return pulumi.get(self, "s3_kms_key_arn")
 
     @property
-    @pulumi.getter(name="snsTopicARN")
+    @pulumi.getter(name="snsTopicArn")
     def sns_topic_arn(self) -> Optional[str]:
         return pulumi.get(self, "sns_topic_arn")
 

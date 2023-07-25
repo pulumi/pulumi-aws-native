@@ -42,7 +42,7 @@ export class ResolverEndpoint extends pulumi.CustomResource {
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly direction!: pulumi.Output<string>;
-    public /*out*/ readonly hostVPCId!: pulumi.Output<string>;
+    public /*out*/ readonly hostVpcId!: pulumi.Output<string>;
     public /*out*/ readonly ipAddressCount!: pulumi.Output<string>;
     public readonly ipAddresses!: pulumi.Output<outputs.route53resolver.ResolverEndpointIpAddressRequest[]>;
     public readonly name!: pulumi.Output<string | undefined>;
@@ -84,13 +84,13 @@ export class ResolverEndpoint extends pulumi.CustomResource {
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
-            resourceInputs["hostVPCId"] = undefined /*out*/;
+            resourceInputs["hostVpcId"] = undefined /*out*/;
             resourceInputs["ipAddressCount"] = undefined /*out*/;
             resourceInputs["resolverEndpointId"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["direction"] = undefined /*out*/;
-            resourceInputs["hostVPCId"] = undefined /*out*/;
+            resourceInputs["hostVpcId"] = undefined /*out*/;
             resourceInputs["ipAddressCount"] = undefined /*out*/;
             resourceInputs["ipAddresses"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

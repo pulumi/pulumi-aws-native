@@ -21,8 +21,8 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
         [Input("portMapping", required: true)]
         public Input<Inputs.VirtualGatewayPortMappingArgs> PortMapping { get; set; } = null!;
 
-        [Input("tLS")]
-        public Input<Inputs.VirtualGatewayListenerTlsArgs>? TLS { get; set; }
+        [Input("tls")]
+        public Input<Inputs.VirtualGatewayListenerTlsArgs>? Tls { get; set; }
 
         public VirtualGatewayListenerArgs()
         {

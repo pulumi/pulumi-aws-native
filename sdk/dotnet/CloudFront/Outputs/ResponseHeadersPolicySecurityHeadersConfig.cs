@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         public readonly Outputs.ResponseHeadersPolicyFrameOptions? FrameOptions;
         public readonly Outputs.ResponseHeadersPolicyReferrerPolicy? ReferrerPolicy;
         public readonly Outputs.ResponseHeadersPolicyStrictTransportSecurity? StrictTransportSecurity;
-        public readonly Outputs.ResponseHeadersPolicyXSSProtection? XSSProtection;
+        public readonly Outputs.ResponseHeadersPolicyXSSProtection? XssProtection;
 
         [OutputConstructor]
         private ResponseHeadersPolicySecurityHeadersConfig(
@@ -32,14 +32,14 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
 
             Outputs.ResponseHeadersPolicyStrictTransportSecurity? strictTransportSecurity,
 
-            Outputs.ResponseHeadersPolicyXSSProtection? xSSProtection)
+            Outputs.ResponseHeadersPolicyXSSProtection? xssProtection)
         {
             ContentSecurityPolicy = contentSecurityPolicy;
             ContentTypeOptions = contentTypeOptions;
             FrameOptions = frameOptions;
             ReferrerPolicy = referrerPolicy;
             StrictTransportSecurity = strictTransportSecurity;
-            XSSProtection = xSSProtection;
+            XssProtection = xssProtection;
         }
     }
 }

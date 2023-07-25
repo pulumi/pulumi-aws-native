@@ -51,14 +51,14 @@ namespace Pulumi.AwsNative.Kinesis
     [OutputType]
     public sealed class GetStreamConsumerResult
     {
-        public readonly string? ConsumerARN;
+        public readonly string? ConsumerArn;
         public readonly string? ConsumerCreationTimestamp;
         public readonly string? ConsumerStatus;
         public readonly string? Id;
 
         [OutputConstructor]
         private GetStreamConsumerResult(
-            string? consumerARN,
+            string? consumerArn,
 
             string? consumerCreationTimestamp,
 
@@ -66,7 +66,7 @@ namespace Pulumi.AwsNative.Kinesis
 
             string? id)
         {
-            ConsumerARN = consumerARN;
+            ConsumerArn = consumerArn;
             ConsumerCreationTimestamp = consumerCreationTimestamp;
             ConsumerStatus = consumerStatus;
             Id = id;

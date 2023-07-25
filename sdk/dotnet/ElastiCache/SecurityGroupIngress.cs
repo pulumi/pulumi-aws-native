@@ -19,11 +19,11 @@ namespace Pulumi.AwsNative.ElastiCache
         [Output("cacheSecurityGroupName")]
         public Output<string> CacheSecurityGroupName { get; private set; } = null!;
 
-        [Output("eC2SecurityGroupName")]
-        public Output<string> EC2SecurityGroupName { get; private set; } = null!;
+        [Output("ec2SecurityGroupName")]
+        public Output<string> Ec2SecurityGroupName { get; private set; } = null!;
 
-        [Output("eC2SecurityGroupOwnerId")]
-        public Output<string?> EC2SecurityGroupOwnerId { get; private set; } = null!;
+        [Output("ec2SecurityGroupOwnerId")]
+        public Output<string?> Ec2SecurityGroupOwnerId { get; private set; } = null!;
 
 
         /// <summary>
@@ -73,11 +73,11 @@ namespace Pulumi.AwsNative.ElastiCache
         [Input("cacheSecurityGroupName", required: true)]
         public Input<string> CacheSecurityGroupName { get; set; } = null!;
 
-        [Input("eC2SecurityGroupName", required: true)]
-        public Input<string> EC2SecurityGroupName { get; set; } = null!;
+        [Input("ec2SecurityGroupName", required: true)]
+        public Input<string> Ec2SecurityGroupName { get; set; } = null!;
 
-        [Input("eC2SecurityGroupOwnerId")]
-        public Input<string>? EC2SecurityGroupOwnerId { get; set; }
+        [Input("ec2SecurityGroupOwnerId")]
+        public Input<string>? Ec2SecurityGroupOwnerId { get; set; }
 
         public SecurityGroupIngressArgs()
         {

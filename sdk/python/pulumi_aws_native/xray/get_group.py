@@ -45,7 +45,7 @@ class GetGroupResult:
         return pulumi.get(self, "filter_expression")
 
     @property
-    @pulumi.getter(name="groupARN")
+    @pulumi.getter(name="groupArn")
     def group_arn(self) -> Optional[str]:
         """
         The ARN of the group that was generated on creation.
@@ -93,7 +93,7 @@ def get_group(group_arn: Optional[str] = None,
     :param str group_arn: The ARN of the group that was generated on creation.
     """
     __args__ = dict()
-    __args__['groupARN'] = group_arn
+    __args__['groupArn'] = group_arn
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:xray:getGroup', __args__, opts=opts, typ=GetGroupResult).value
 

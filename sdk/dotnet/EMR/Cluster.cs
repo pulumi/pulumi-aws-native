@@ -58,14 +58,14 @@ namespace Pulumi.AwsNative.EMR
         [Output("managedScalingPolicy")]
         public Output<Outputs.ClusterManagedScalingPolicy?> ManagedScalingPolicy { get; private set; } = null!;
 
-        [Output("masterPublicDNS")]
-        public Output<string> MasterPublicDNS { get; private set; } = null!;
+        [Output("masterPublicDns")]
+        public Output<string> MasterPublicDns { get; private set; } = null!;
 
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        [Output("oSReleaseLabel")]
-        public Output<string?> OSReleaseLabel { get; private set; } = null!;
+        [Output("osReleaseLabel")]
+        public Output<string?> OsReleaseLabel { get; private set; } = null!;
 
         [Output("releaseLabel")]
         public Output<string?> ReleaseLabel { get; private set; } = null!;
@@ -196,8 +196,8 @@ namespace Pulumi.AwsNative.EMR
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("oSReleaseLabel")]
-        public Input<string>? OSReleaseLabel { get; set; }
+        [Input("osReleaseLabel")]
+        public Input<string>? OsReleaseLabel { get; set; }
 
         [Input("releaseLabel")]
         public Input<string>? ReleaseLabel { get; set; }

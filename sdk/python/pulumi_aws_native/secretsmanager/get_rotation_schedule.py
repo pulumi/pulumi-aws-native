@@ -52,7 +52,7 @@ class GetRotationScheduleResult:
         return pulumi.get(self, "rotate_immediately_on_update")
 
     @property
-    @pulumi.getter(name="rotationLambdaARN")
+    @pulumi.getter(name="rotationLambdaArn")
     def rotation_lambda_arn(self) -> Optional[str]:
         return pulumi.get(self, "rotation_lambda_arn")
 

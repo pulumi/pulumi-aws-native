@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.GlobalAccelerator.Outputs
         /// <summary>
         /// true if client ip should be preserved
         /// </summary>
-        public readonly bool? ClientIPPreservationEnabled;
+        public readonly bool? ClientIpPreservationEnabled;
         /// <summary>
         /// Id of the endpoint. For Network/Application Load Balancer this value is the ARN.  For EIP, this value is the allocation ID.  For EC2 instances, this is the EC2 instance ID
         /// </summary>
@@ -31,13 +31,13 @@ namespace Pulumi.AwsNative.GlobalAccelerator.Outputs
 
         [OutputConstructor]
         private EndpointGroupEndpointConfiguration(
-            bool? clientIPPreservationEnabled,
+            bool? clientIpPreservationEnabled,
 
             string endpointId,
 
             int? weight)
         {
-            ClientIPPreservationEnabled = clientIPPreservationEnabled;
+            ClientIpPreservationEnabled = clientIpPreservationEnabled;
             EndpointId = endpointId;
             Weight = weight;
         }

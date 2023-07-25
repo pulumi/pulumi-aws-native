@@ -739,7 +739,7 @@ func (o FleetIpPermissionArrayOutput) Index(i pulumi.IntInput) FleetIpPermission
 // Current resource capacity settings in a specified fleet or location. The location value might refer to a fleet's remote location or its home Region.
 type FleetLocationCapacity struct {
 	// The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits.
-	DesiredEC2Instances int `pulumi:"desiredEC2Instances"`
+	DesiredEc2Instances int `pulumi:"desiredEc2Instances"`
 	// The maximum value that is allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.
 	MaxSize int `pulumi:"maxSize"`
 	// The minimum value allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "0". After the fleet is active, you can change this value.
@@ -760,7 +760,7 @@ type FleetLocationCapacityInput interface {
 // Current resource capacity settings in a specified fleet or location. The location value might refer to a fleet's remote location or its home Region.
 type FleetLocationCapacityArgs struct {
 	// The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits.
-	DesiredEC2Instances pulumi.IntInput `pulumi:"desiredEC2Instances"`
+	DesiredEc2Instances pulumi.IntInput `pulumi:"desiredEc2Instances"`
 	// The maximum value that is allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.
 	MaxSize pulumi.IntInput `pulumi:"maxSize"`
 	// The minimum value allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "0". After the fleet is active, you can change this value.
@@ -846,8 +846,8 @@ func (o FleetLocationCapacityOutput) ToFleetLocationCapacityPtrOutputWithContext
 }
 
 // The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits.
-func (o FleetLocationCapacityOutput) DesiredEC2Instances() pulumi.IntOutput {
-	return o.ApplyT(func(v FleetLocationCapacity) int { return v.DesiredEC2Instances }).(pulumi.IntOutput)
+func (o FleetLocationCapacityOutput) DesiredEc2Instances() pulumi.IntOutput {
+	return o.ApplyT(func(v FleetLocationCapacity) int { return v.DesiredEc2Instances }).(pulumi.IntOutput)
 }
 
 // The maximum value that is allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.
@@ -885,12 +885,12 @@ func (o FleetLocationCapacityPtrOutput) Elem() FleetLocationCapacityOutput {
 }
 
 // The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits.
-func (o FleetLocationCapacityPtrOutput) DesiredEC2Instances() pulumi.IntPtrOutput {
+func (o FleetLocationCapacityPtrOutput) DesiredEc2Instances() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FleetLocationCapacity) *int {
 		if v == nil {
 			return nil
 		}
-		return &v.DesiredEC2Instances
+		return &v.DesiredEc2Instances
 	}).(pulumi.IntPtrOutput)
 }
 

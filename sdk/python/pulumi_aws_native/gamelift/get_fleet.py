@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetFleetResult:
-    def __init__(__self__, anywhere_configuration=None, description=None, desired_ec2_instances=None, e_c2_inbound_permissions=None, fleet_id=None, locations=None, max_size=None, metric_groups=None, min_size=None, name=None, new_game_session_protection_policy=None, resource_creation_limit_policy=None, runtime_configuration=None):
+    def __init__(__self__, anywhere_configuration=None, description=None, desired_ec2_instances=None, ec2_inbound_permissions=None, fleet_id=None, locations=None, max_size=None, metric_groups=None, min_size=None, name=None, new_game_session_protection_policy=None, resource_creation_limit_policy=None, runtime_configuration=None):
         if anywhere_configuration and not isinstance(anywhere_configuration, dict):
             raise TypeError("Expected argument 'anywhere_configuration' to be a dict")
         pulumi.set(__self__, "anywhere_configuration", anywhere_configuration)
@@ -30,9 +30,9 @@ class GetFleetResult:
         if desired_ec2_instances and not isinstance(desired_ec2_instances, int):
             raise TypeError("Expected argument 'desired_ec2_instances' to be a int")
         pulumi.set(__self__, "desired_ec2_instances", desired_ec2_instances)
-        if e_c2_inbound_permissions and not isinstance(e_c2_inbound_permissions, list):
-            raise TypeError("Expected argument 'e_c2_inbound_permissions' to be a list")
-        pulumi.set(__self__, "e_c2_inbound_permissions", e_c2_inbound_permissions)
+        if ec2_inbound_permissions and not isinstance(ec2_inbound_permissions, list):
+            raise TypeError("Expected argument 'ec2_inbound_permissions' to be a list")
+        pulumi.set(__self__, "ec2_inbound_permissions", ec2_inbound_permissions)
         if fleet_id and not isinstance(fleet_id, str):
             raise TypeError("Expected argument 'fleet_id' to be a str")
         pulumi.set(__self__, "fleet_id", fleet_id)
@@ -78,7 +78,7 @@ class GetFleetResult:
         return pulumi.get(self, "description")
 
     @property
-    @pulumi.getter(name="desiredEC2Instances")
+    @pulumi.getter(name="desiredEc2Instances")
     def desired_ec2_instances(self) -> Optional[int]:
         """
         [DEPRECATED] The number of EC2 instances that you want this fleet to host. When creating a new fleet, GameLift automatically sets this value to "1" and initiates a single instance. Once the fleet is active, update this value to trigger GameLift to add or remove instances from the fleet.
@@ -86,12 +86,12 @@ class GetFleetResult:
         return pulumi.get(self, "desired_ec2_instances")
 
     @property
-    @pulumi.getter(name="eC2InboundPermissions")
-    def e_c2_inbound_permissions(self) -> Optional[Sequence['outputs.FleetIpPermission']]:
+    @pulumi.getter(name="ec2InboundPermissions")
+    def ec2_inbound_permissions(self) -> Optional[Sequence['outputs.FleetIpPermission']]:
         """
         A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift server.
         """
-        return pulumi.get(self, "e_c2_inbound_permissions")
+        return pulumi.get(self, "ec2_inbound_permissions")
 
     @property
     @pulumi.getter(name="fleetId")
@@ -174,7 +174,7 @@ class AwaitableGetFleetResult(GetFleetResult):
             anywhere_configuration=self.anywhere_configuration,
             description=self.description,
             desired_ec2_instances=self.desired_ec2_instances,
-            e_c2_inbound_permissions=self.e_c2_inbound_permissions,
+            ec2_inbound_permissions=self.ec2_inbound_permissions,
             fleet_id=self.fleet_id,
             locations=self.locations,
             max_size=self.max_size,
@@ -203,7 +203,7 @@ def get_fleet(fleet_id: Optional[str] = None,
         anywhere_configuration=pulumi.get(__ret__, 'anywhere_configuration'),
         description=pulumi.get(__ret__, 'description'),
         desired_ec2_instances=pulumi.get(__ret__, 'desired_ec2_instances'),
-        e_c2_inbound_permissions=pulumi.get(__ret__, 'e_c2_inbound_permissions'),
+        ec2_inbound_permissions=pulumi.get(__ret__, 'ec2_inbound_permissions'),
         fleet_id=pulumi.get(__ret__, 'fleet_id'),
         locations=pulumi.get(__ret__, 'locations'),
         max_size=pulumi.get(__ret__, 'max_size'),

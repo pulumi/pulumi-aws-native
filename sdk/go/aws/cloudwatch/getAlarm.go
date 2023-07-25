@@ -42,7 +42,7 @@ type LookupAlarmResult struct {
 	MetricName                       *string                `pulumi:"metricName"`
 	Metrics                          []AlarmMetricDataQuery `pulumi:"metrics"`
 	Namespace                        *string                `pulumi:"namespace"`
-	OKActions                        []string               `pulumi:"oKActions"`
+	OkActions                        []string               `pulumi:"okActions"`
 	Period                           *int                   `pulumi:"period"`
 	Statistic                        *string                `pulumi:"statistic"`
 	Threshold                        *float64               `pulumi:"threshold"`
@@ -146,8 +146,8 @@ func (o LookupAlarmResultOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAlarmResult) *string { return v.Namespace }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupAlarmResultOutput) OKActions() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v LookupAlarmResult) []string { return v.OKActions }).(pulumi.StringArrayOutput)
+func (o LookupAlarmResultOutput) OkActions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupAlarmResult) []string { return v.OkActions }).(pulumi.StringArrayOutput)
 }
 
 func (o LookupAlarmResultOutput) Period() pulumi.IntPtrOutput {

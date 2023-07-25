@@ -13,17 +13,17 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
     [OutputType]
     public sealed class ContinuousDeploymentPolicySessionStickinessConfig
     {
-        public readonly int IdleTTL;
-        public readonly int MaximumTTL;
+        public readonly int IdleTtl;
+        public readonly int MaximumTtl;
 
         [OutputConstructor]
         private ContinuousDeploymentPolicySessionStickinessConfig(
-            int idleTTL,
+            int idleTtl,
 
-            int maximumTTL)
+            int maximumTtl)
         {
-            IdleTTL = idleTTL;
-            MaximumTTL = maximumTTL;
+            IdleTtl = idleTtl;
+            MaximumTtl = maximumTtl;
         }
     }
 }

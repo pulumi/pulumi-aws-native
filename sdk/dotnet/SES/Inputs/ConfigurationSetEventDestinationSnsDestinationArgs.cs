@@ -15,8 +15,8 @@ namespace Pulumi.AwsNative.SES.Inputs
     /// </summary>
     public sealed class ConfigurationSetEventDestinationSnsDestinationArgs : global::Pulumi.ResourceArgs
     {
-        [Input("topicARN", required: true)]
-        public Input<string> TopicARN { get; set; } = null!;
+        [Input("topicArn", required: true)]
+        public Input<string> TopicArn { get; set; } = null!;
 
         public ConfigurationSetEventDestinationSnsDestinationArgs()
         {

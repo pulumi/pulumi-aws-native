@@ -15,7 +15,7 @@ var _ = internal.GetEnvOrDefault
 
 type AlertAction struct {
 	LambdaConfiguration *AlertLambdaConfiguration `pulumi:"lambdaConfiguration"`
-	SNSConfiguration    *AlertSNSConfiguration    `pulumi:"sNSConfiguration"`
+	SnsConfiguration    *AlertSNSConfiguration    `pulumi:"snsConfiguration"`
 }
 
 // AlertActionInput is an input type that accepts AlertActionArgs and AlertActionOutput values.
@@ -31,7 +31,7 @@ type AlertActionInput interface {
 
 type AlertActionArgs struct {
 	LambdaConfiguration AlertLambdaConfigurationPtrInput `pulumi:"lambdaConfiguration"`
-	SNSConfiguration    AlertSNSConfigurationPtrInput    `pulumi:"sNSConfiguration"`
+	SnsConfiguration    AlertSNSConfigurationPtrInput    `pulumi:"snsConfiguration"`
 }
 
 func (AlertActionArgs) ElementType() reflect.Type {
@@ -64,8 +64,8 @@ func (o AlertActionOutput) LambdaConfiguration() AlertLambdaConfigurationPtrOutp
 	return o.ApplyT(func(v AlertAction) *AlertLambdaConfiguration { return v.LambdaConfiguration }).(AlertLambdaConfigurationPtrOutput)
 }
 
-func (o AlertActionOutput) SNSConfiguration() AlertSNSConfigurationPtrOutput {
-	return o.ApplyT(func(v AlertAction) *AlertSNSConfiguration { return v.SNSConfiguration }).(AlertSNSConfigurationPtrOutput)
+func (o AlertActionOutput) SnsConfiguration() AlertSNSConfigurationPtrOutput {
+	return o.ApplyT(func(v AlertAction) *AlertSNSConfiguration { return v.SnsConfiguration }).(AlertSNSConfigurationPtrOutput)
 }
 
 // Configuration options for a Lambda alert action.
@@ -1539,7 +1539,7 @@ func (o AnomalyDetectorMetricSetArrayOutput) Index(i pulumi.IntInput) AnomalyDet
 type AnomalyDetectorMetricSource struct {
 	AppFlowConfig        *AnomalyDetectorAppFlowConfig        `pulumi:"appFlowConfig"`
 	CloudwatchConfig     *AnomalyDetectorCloudwatchConfig     `pulumi:"cloudwatchConfig"`
-	RDSSourceConfig      *AnomalyDetectorRDSSourceConfig      `pulumi:"rDSSourceConfig"`
+	RdsSourceConfig      *AnomalyDetectorRDSSourceConfig      `pulumi:"rdsSourceConfig"`
 	RedshiftSourceConfig *AnomalyDetectorRedshiftSourceConfig `pulumi:"redshiftSourceConfig"`
 	S3SourceConfig       *AnomalyDetectorS3SourceConfig       `pulumi:"s3SourceConfig"`
 }
@@ -1558,7 +1558,7 @@ type AnomalyDetectorMetricSourceInput interface {
 type AnomalyDetectorMetricSourceArgs struct {
 	AppFlowConfig        AnomalyDetectorAppFlowConfigPtrInput        `pulumi:"appFlowConfig"`
 	CloudwatchConfig     AnomalyDetectorCloudwatchConfigPtrInput     `pulumi:"cloudwatchConfig"`
-	RDSSourceConfig      AnomalyDetectorRDSSourceConfigPtrInput      `pulumi:"rDSSourceConfig"`
+	RdsSourceConfig      AnomalyDetectorRDSSourceConfigPtrInput      `pulumi:"rdsSourceConfig"`
 	RedshiftSourceConfig AnomalyDetectorRedshiftSourceConfigPtrInput `pulumi:"redshiftSourceConfig"`
 	S3SourceConfig       AnomalyDetectorS3SourceConfigPtrInput       `pulumi:"s3SourceConfig"`
 }
@@ -1597,8 +1597,8 @@ func (o AnomalyDetectorMetricSourceOutput) CloudwatchConfig() AnomalyDetectorClo
 	return o.ApplyT(func(v AnomalyDetectorMetricSource) *AnomalyDetectorCloudwatchConfig { return v.CloudwatchConfig }).(AnomalyDetectorCloudwatchConfigPtrOutput)
 }
 
-func (o AnomalyDetectorMetricSourceOutput) RDSSourceConfig() AnomalyDetectorRDSSourceConfigPtrOutput {
-	return o.ApplyT(func(v AnomalyDetectorMetricSource) *AnomalyDetectorRDSSourceConfig { return v.RDSSourceConfig }).(AnomalyDetectorRDSSourceConfigPtrOutput)
+func (o AnomalyDetectorMetricSourceOutput) RdsSourceConfig() AnomalyDetectorRDSSourceConfigPtrOutput {
+	return o.ApplyT(func(v AnomalyDetectorMetricSource) *AnomalyDetectorRDSSourceConfig { return v.RdsSourceConfig }).(AnomalyDetectorRDSSourceConfigPtrOutput)
 }
 
 func (o AnomalyDetectorMetricSourceOutput) RedshiftSourceConfig() AnomalyDetectorRedshiftSourceConfigPtrOutput {
@@ -1612,10 +1612,10 @@ func (o AnomalyDetectorMetricSourceOutput) S3SourceConfig() AnomalyDetectorS3Sou
 }
 
 type AnomalyDetectorRDSSourceConfig struct {
-	DBInstanceIdentifier string                          `pulumi:"dBInstanceIdentifier"`
 	DatabaseHost         string                          `pulumi:"databaseHost"`
 	DatabaseName         string                          `pulumi:"databaseName"`
 	DatabasePort         int                             `pulumi:"databasePort"`
+	DbInstanceIdentifier string                          `pulumi:"dbInstanceIdentifier"`
 	RoleArn              string                          `pulumi:"roleArn"`
 	SecretManagerArn     string                          `pulumi:"secretManagerArn"`
 	TableName            string                          `pulumi:"tableName"`
@@ -1634,10 +1634,10 @@ type AnomalyDetectorRDSSourceConfigInput interface {
 }
 
 type AnomalyDetectorRDSSourceConfigArgs struct {
-	DBInstanceIdentifier pulumi.StringInput                   `pulumi:"dBInstanceIdentifier"`
 	DatabaseHost         pulumi.StringInput                   `pulumi:"databaseHost"`
 	DatabaseName         pulumi.StringInput                   `pulumi:"databaseName"`
 	DatabasePort         pulumi.IntInput                      `pulumi:"databasePort"`
+	DbInstanceIdentifier pulumi.StringInput                   `pulumi:"dbInstanceIdentifier"`
 	RoleArn              pulumi.StringInput                   `pulumi:"roleArn"`
 	SecretManagerArn     pulumi.StringInput                   `pulumi:"secretManagerArn"`
 	TableName            pulumi.StringInput                   `pulumi:"tableName"`
@@ -1721,10 +1721,6 @@ func (o AnomalyDetectorRDSSourceConfigOutput) ToAnomalyDetectorRDSSourceConfigPt
 	}).(AnomalyDetectorRDSSourceConfigPtrOutput)
 }
 
-func (o AnomalyDetectorRDSSourceConfigOutput) DBInstanceIdentifier() pulumi.StringOutput {
-	return o.ApplyT(func(v AnomalyDetectorRDSSourceConfig) string { return v.DBInstanceIdentifier }).(pulumi.StringOutput)
-}
-
 func (o AnomalyDetectorRDSSourceConfigOutput) DatabaseHost() pulumi.StringOutput {
 	return o.ApplyT(func(v AnomalyDetectorRDSSourceConfig) string { return v.DatabaseHost }).(pulumi.StringOutput)
 }
@@ -1735,6 +1731,10 @@ func (o AnomalyDetectorRDSSourceConfigOutput) DatabaseName() pulumi.StringOutput
 
 func (o AnomalyDetectorRDSSourceConfigOutput) DatabasePort() pulumi.IntOutput {
 	return o.ApplyT(func(v AnomalyDetectorRDSSourceConfig) int { return v.DatabasePort }).(pulumi.IntOutput)
+}
+
+func (o AnomalyDetectorRDSSourceConfigOutput) DbInstanceIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v AnomalyDetectorRDSSourceConfig) string { return v.DbInstanceIdentifier }).(pulumi.StringOutput)
 }
 
 func (o AnomalyDetectorRDSSourceConfigOutput) RoleArn() pulumi.StringOutput {
@@ -1777,15 +1777,6 @@ func (o AnomalyDetectorRDSSourceConfigPtrOutput) Elem() AnomalyDetectorRDSSource
 	}).(AnomalyDetectorRDSSourceConfigOutput)
 }
 
-func (o AnomalyDetectorRDSSourceConfigPtrOutput) DBInstanceIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AnomalyDetectorRDSSourceConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.DBInstanceIdentifier
-	}).(pulumi.StringPtrOutput)
-}
-
 func (o AnomalyDetectorRDSSourceConfigPtrOutput) DatabaseHost() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorRDSSourceConfig) *string {
 		if v == nil {
@@ -1811,6 +1802,15 @@ func (o AnomalyDetectorRDSSourceConfigPtrOutput) DatabasePort() pulumi.IntPtrOut
 		}
 		return &v.DatabasePort
 	}).(pulumi.IntPtrOutput)
+}
+
+func (o AnomalyDetectorRDSSourceConfigPtrOutput) DbInstanceIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnomalyDetectorRDSSourceConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DbInstanceIdentifier
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o AnomalyDetectorRDSSourceConfigPtrOutput) RoleArn() pulumi.StringPtrOutput {

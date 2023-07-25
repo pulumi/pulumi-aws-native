@@ -14,7 +14,7 @@ export function getDBInstance(args: GetDBInstanceArgs, opts?: pulumi.InvokeOptio
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:rds:getDBInstance", {
-        "dBInstanceIdentifier": args.dBInstanceIdentifier,
+        "dbInstanceIdentifier": args.dbInstanceIdentifier,
     }, opts);
 }
 
@@ -22,7 +22,7 @@ export interface GetDBInstanceArgs {
     /**
      * A name for the DB instance. If you specify a name, AWS CloudFormation converts it to lowercase. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the DB instance.
      */
-    dBInstanceIdentifier: string;
+    dbInstanceIdentifier: string;
 }
 
 export interface GetDBInstanceResult {
@@ -49,7 +49,7 @@ export interface GetDBInstanceResult {
     /**
      * The identifier of the CA certificate for this DB instance.
      */
-    readonly cACertificateIdentifier?: string;
+    readonly caCertificateIdentifier?: string;
     /**
      * Returns the details of the DB instance's server certificate.
      */
@@ -69,27 +69,27 @@ export interface GetDBInstanceResult {
      *  * Can't be the identifier of an Aurora DB cluster snapshot.
      *  * Can't be the identifier of an RDS for PostgreSQL Multi-AZ DB cluster snapshot.
      */
-    readonly dBClusterSnapshotIdentifier?: string;
+    readonly dbClusterSnapshotIdentifier?: string;
     /**
      * The Amazon Resource Name (ARN) for the DB instance.
      */
-    readonly dBInstanceArn?: string;
+    readonly dbInstanceArn?: string;
     /**
      * The compute and memory capacity of the DB instance, for example, db.m4.large. Not all DB instance classes are available in all AWS Regions, or for all database engines.
      */
-    readonly dBInstanceClass?: string;
+    readonly dbInstanceClass?: string;
     /**
      * The name of an existing DB parameter group or a reference to an AWS::RDS::DBParameterGroup resource created in the template.
      */
-    readonly dBParameterGroupName?: string;
+    readonly dbParameterGroupName?: string;
     /**
      * A list of the DB security groups to assign to the DB instance. The list can include both the name of existing DB security groups or references to AWS::RDS::DBSecurityGroup resources created in the template.
      */
-    readonly dBSecurityGroups?: string[];
+    readonly dbSecurityGroups?: string[];
     /**
      * The Oracle system ID (Oracle SID) for a container database (CDB). The Oracle SID is also the name of the CDB. This setting is valid for RDS Custom only.
      */
-    readonly dBSystemId?: string;
+    readonly dbSystemId?: string;
     /**
      * The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
      */
@@ -105,7 +105,7 @@ export interface GetDBInstanceResult {
     /**
      * Specify the name of the IAM role to be used when making API calls to the Directory Service.
      */
-    readonly domainIAMRoleName?: string;
+    readonly domainIamRoleName?: string;
     /**
      * The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used.
      */
@@ -113,7 +113,7 @@ export interface GetDBInstanceResult {
     /**
      * A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
      */
-    readonly enableIAMDatabaseAuthentication?: boolean;
+    readonly enableIamDatabaseAuthentication?: boolean;
     /**
      * A value that indicates whether to enable Performance Insights for the DB instance.
      */
@@ -161,7 +161,7 @@ export interface GetDBInstanceResult {
     /**
      * Specifies whether the database instance is a multiple Availability Zone deployment.
      */
-    readonly multiAZ?: boolean;
+    readonly multiAz?: boolean;
     /**
      * The network type of the DB cluster.
      */
@@ -173,7 +173,7 @@ export interface GetDBInstanceResult {
     /**
      * The AWS KMS key identifier for encryption of Performance Insights data. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.
      */
-    readonly performanceInsightsKMSKeyId?: string;
+    readonly performanceInsightsKmsKeyId?: string;
     /**
      * The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years).
      */
@@ -205,7 +205,7 @@ export interface GetDBInstanceResult {
     /**
      * The identifier of the Multi-AZ DB cluster that will act as the source for the read replica. Each DB cluster can have up to 15 read replicas.
      */
-    readonly sourceDBClusterIdentifier?: string;
+    readonly sourceDbClusterIdentifier?: string;
     /**
      * Specifies the storage throughput for the DB instance.
      */
@@ -225,7 +225,7 @@ export interface GetDBInstanceResult {
     /**
      * A list of the VPC security group IDs to assign to the DB instance. The list can include both the physical IDs of existing VPC security groups and references to AWS::EC2::SecurityGroup resources created in the template.
      */
-    readonly vPCSecurityGroups?: string[];
+    readonly vpcSecurityGroups?: string[];
 }
 /**
  * The AWS::RDS::DBInstance resource creates an Amazon RDS DB instance.
@@ -238,5 +238,5 @@ export interface GetDBInstanceOutputArgs {
     /**
      * A name for the DB instance. If you specify a name, AWS CloudFormation converts it to lowercase. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the DB instance.
      */
-    dBInstanceIdentifier: pulumi.Input<string>;
+    dbInstanceIdentifier: pulumi.Input<string>;
 }

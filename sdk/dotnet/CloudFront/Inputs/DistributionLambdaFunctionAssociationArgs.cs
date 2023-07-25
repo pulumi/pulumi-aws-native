@@ -18,8 +18,8 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         [Input("includeBody")]
         public Input<bool>? IncludeBody { get; set; }
 
-        [Input("lambdaFunctionARN")]
-        public Input<string>? LambdaFunctionARN { get; set; }
+        [Input("lambdaFunctionArn")]
+        public Input<string>? LambdaFunctionArn { get; set; }
 
         public DistributionLambdaFunctionAssociationArgs()
         {

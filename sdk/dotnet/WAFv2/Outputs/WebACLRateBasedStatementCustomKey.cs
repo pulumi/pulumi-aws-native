@@ -17,10 +17,10 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
     public sealed class WebACLRateBasedStatementCustomKey
     {
         public readonly Outputs.WebACLRateLimitCookie? Cookie;
-        public readonly Outputs.WebACLRateLimitForwardedIP? ForwardedIP;
-        public readonly Outputs.WebACLRateLimitHTTPMethod? HTTPMethod;
+        public readonly Outputs.WebACLRateLimitForwardedIP? ForwardedIp;
         public readonly Outputs.WebACLRateLimitHeader? Header;
-        public readonly Outputs.WebACLRateLimitIP? IP;
+        public readonly Outputs.WebACLRateLimitHTTPMethod? HttpMethod;
+        public readonly Outputs.WebACLRateLimitIP? Ip;
         public readonly Outputs.WebACLRateLimitLabelNamespace? LabelNamespace;
         public readonly Outputs.WebACLRateLimitQueryArgument? QueryArgument;
         public readonly Outputs.WebACLRateLimitQueryString? QueryString;
@@ -30,13 +30,13 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
         private WebACLRateBasedStatementCustomKey(
             Outputs.WebACLRateLimitCookie? cookie,
 
-            Outputs.WebACLRateLimitForwardedIP? forwardedIP,
-
-            Outputs.WebACLRateLimitHTTPMethod? hTTPMethod,
+            Outputs.WebACLRateLimitForwardedIP? forwardedIp,
 
             Outputs.WebACLRateLimitHeader? header,
 
-            Outputs.WebACLRateLimitIP? iP,
+            Outputs.WebACLRateLimitHTTPMethod? httpMethod,
+
+            Outputs.WebACLRateLimitIP? ip,
 
             Outputs.WebACLRateLimitLabelNamespace? labelNamespace,
 
@@ -47,10 +47,10 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
             Outputs.WebACLRateLimitUriPath? uriPath)
         {
             Cookie = cookie;
-            ForwardedIP = forwardedIP;
-            HTTPMethod = hTTPMethod;
+            ForwardedIp = forwardedIp;
             Header = header;
-            IP = iP;
+            HttpMethod = httpMethod;
+            Ip = ip;
             LabelNamespace = labelNamespace;
             QueryArgument = queryArgument;
             QueryString = queryString;

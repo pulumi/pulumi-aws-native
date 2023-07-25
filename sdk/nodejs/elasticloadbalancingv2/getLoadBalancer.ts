@@ -23,8 +23,8 @@ export interface GetLoadBalancerArgs {
 }
 
 export interface GetLoadBalancerResult {
-    readonly canonicalHostedZoneID?: string;
-    readonly dNSName?: string;
+    readonly canonicalHostedZoneId?: string;
+    readonly dnsName?: string;
     readonly id?: string;
     readonly ipAddressType?: string;
     readonly loadBalancerAttributes?: outputs.elasticloadbalancingv2.LoadBalancerAttribute[];

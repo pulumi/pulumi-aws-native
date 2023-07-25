@@ -16,16 +16,16 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
     [OutputType]
     public sealed class WebACLRequestInspectionACFP
     {
-        public readonly ImmutableArray<Outputs.WebACLAddressField> AddressFields;
+        public readonly ImmutableArray<Outputs.WebACLFieldIdentifier> AddressFields;
         public readonly Outputs.WebACLFieldIdentifier? EmailField;
         public readonly Outputs.WebACLFieldIdentifier? PasswordField;
         public readonly Pulumi.AwsNative.WAFv2.WebACLRequestInspectionACFPPayloadType PayloadType;
-        public readonly ImmutableArray<Outputs.WebACLPhoneNumberField> PhoneNumberFields;
+        public readonly ImmutableArray<Outputs.WebACLFieldIdentifier> PhoneNumberFields;
         public readonly Outputs.WebACLFieldIdentifier? UsernameField;
 
         [OutputConstructor]
         private WebACLRequestInspectionACFP(
-            ImmutableArray<Outputs.WebACLAddressField> addressFields,
+            ImmutableArray<Outputs.WebACLFieldIdentifier> addressFields,
 
             Outputs.WebACLFieldIdentifier? emailField,
 
@@ -33,7 +33,7 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 
             Pulumi.AwsNative.WAFv2.WebACLRequestInspectionACFPPayloadType payloadType,
 
-            ImmutableArray<Outputs.WebACLPhoneNumberField> phoneNumberFields,
+            ImmutableArray<Outputs.WebACLFieldIdentifier> phoneNumberFields,
 
             Outputs.WebACLFieldIdentifier? usernameField)
         {

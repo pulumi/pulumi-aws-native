@@ -82,7 +82,7 @@ class DataSourceArgs:
         pulumi.set(self, "description", value)
 
     @property
-    @pulumi.getter(name="dynamoDBConfig")
+    @pulumi.getter(name="dynamoDbConfig")
     def dynamo_db_config(self) -> Optional[pulumi.Input['DataSourceDynamoDBConfigArgs']]:
         return pulumi.get(self, "dynamo_db_config")
 
@@ -308,7 +308,7 @@ class DataSource(pulumi.CustomResource):
         return pulumi.get(self, "description")
 
     @property
-    @pulumi.getter(name="dynamoDBConfig")
+    @pulumi.getter(name="dynamoDbConfig")
     def dynamo_db_config(self) -> pulumi.Output[Optional['outputs.DataSourceDynamoDBConfig']]:
         return pulumi.get(self, "dynamo_db_config")
 

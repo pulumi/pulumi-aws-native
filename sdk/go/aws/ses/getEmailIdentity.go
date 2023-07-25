@@ -30,12 +30,12 @@ type LookupEmailIdentityArgs struct {
 type LookupEmailIdentityResult struct {
 	ConfigurationSetAttributes *EmailIdentityConfigurationSetAttributes `pulumi:"configurationSetAttributes"`
 	DkimAttributes             *EmailIdentityDkimAttributes             `pulumi:"dkimAttributes"`
-	DkimDNSTokenName1          *string                                  `pulumi:"dkimDNSTokenName1"`
-	DkimDNSTokenName2          *string                                  `pulumi:"dkimDNSTokenName2"`
-	DkimDNSTokenName3          *string                                  `pulumi:"dkimDNSTokenName3"`
-	DkimDNSTokenValue1         *string                                  `pulumi:"dkimDNSTokenValue1"`
-	DkimDNSTokenValue2         *string                                  `pulumi:"dkimDNSTokenValue2"`
-	DkimDNSTokenValue3         *string                                  `pulumi:"dkimDNSTokenValue3"`
+	DkimDnsTokenName1          *string                                  `pulumi:"dkimDnsTokenName1"`
+	DkimDnsTokenName2          *string                                  `pulumi:"dkimDnsTokenName2"`
+	DkimDnsTokenName3          *string                                  `pulumi:"dkimDnsTokenName3"`
+	DkimDnsTokenValue1         *string                                  `pulumi:"dkimDnsTokenValue1"`
+	DkimDnsTokenValue2         *string                                  `pulumi:"dkimDnsTokenValue2"`
+	DkimDnsTokenValue3         *string                                  `pulumi:"dkimDnsTokenValue3"`
 	DkimSigningAttributes      *EmailIdentityDkimSigningAttributes      `pulumi:"dkimSigningAttributes"`
 	FeedbackAttributes         *EmailIdentityFeedbackAttributes         `pulumi:"feedbackAttributes"`
 	MailFromAttributes         *EmailIdentityMailFromAttributes         `pulumi:"mailFromAttributes"`
@@ -87,28 +87,28 @@ func (o LookupEmailIdentityResultOutput) DkimAttributes() EmailIdentityDkimAttri
 	return o.ApplyT(func(v LookupEmailIdentityResult) *EmailIdentityDkimAttributes { return v.DkimAttributes }).(EmailIdentityDkimAttributesPtrOutput)
 }
 
-func (o LookupEmailIdentityResultOutput) DkimDNSTokenName1() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupEmailIdentityResult) *string { return v.DkimDNSTokenName1 }).(pulumi.StringPtrOutput)
+func (o LookupEmailIdentityResultOutput) DkimDnsTokenName1() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEmailIdentityResult) *string { return v.DkimDnsTokenName1 }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupEmailIdentityResultOutput) DkimDNSTokenName2() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupEmailIdentityResult) *string { return v.DkimDNSTokenName2 }).(pulumi.StringPtrOutput)
+func (o LookupEmailIdentityResultOutput) DkimDnsTokenName2() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEmailIdentityResult) *string { return v.DkimDnsTokenName2 }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupEmailIdentityResultOutput) DkimDNSTokenName3() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupEmailIdentityResult) *string { return v.DkimDNSTokenName3 }).(pulumi.StringPtrOutput)
+func (o LookupEmailIdentityResultOutput) DkimDnsTokenName3() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEmailIdentityResult) *string { return v.DkimDnsTokenName3 }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupEmailIdentityResultOutput) DkimDNSTokenValue1() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupEmailIdentityResult) *string { return v.DkimDNSTokenValue1 }).(pulumi.StringPtrOutput)
+func (o LookupEmailIdentityResultOutput) DkimDnsTokenValue1() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEmailIdentityResult) *string { return v.DkimDnsTokenValue1 }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupEmailIdentityResultOutput) DkimDNSTokenValue2() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupEmailIdentityResult) *string { return v.DkimDNSTokenValue2 }).(pulumi.StringPtrOutput)
+func (o LookupEmailIdentityResultOutput) DkimDnsTokenValue2() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEmailIdentityResult) *string { return v.DkimDnsTokenValue2 }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupEmailIdentityResultOutput) DkimDNSTokenValue3() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupEmailIdentityResult) *string { return v.DkimDNSTokenValue3 }).(pulumi.StringPtrOutput)
+func (o LookupEmailIdentityResultOutput) DkimDnsTokenValue3() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEmailIdentityResult) *string { return v.DkimDnsTokenValue3 }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupEmailIdentityResultOutput) DkimSigningAttributes() EmailIdentityDkimSigningAttributesPtrOutput {

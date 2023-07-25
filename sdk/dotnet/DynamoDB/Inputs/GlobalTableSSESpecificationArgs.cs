@@ -12,11 +12,11 @@ namespace Pulumi.AwsNative.DynamoDB.Inputs
 
     public sealed class GlobalTableSSESpecificationArgs : global::Pulumi.ResourceArgs
     {
-        [Input("sSEEnabled", required: true)]
-        public Input<bool> SSEEnabled { get; set; } = null!;
+        [Input("sseEnabled", required: true)]
+        public Input<bool> SseEnabled { get; set; } = null!;
 
-        [Input("sSEType")]
-        public Input<string>? SSEType { get; set; }
+        [Input("sseType")]
+        public Input<string>? SseType { get; set; }
 
         public GlobalTableSSESpecificationArgs()
         {

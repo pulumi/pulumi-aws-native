@@ -56,7 +56,7 @@ export class WirelessDevice extends pulumi.CustomResource {
     /**
      * The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Device.
      */
-    public readonly loRaWAN!: pulumi.Output<outputs.iotwireless.WirelessDeviceLoRaWANDevice | undefined>;
+    public readonly loRaWan!: pulumi.Output<outputs.iotwireless.WirelessDeviceLoRaWANDevice | undefined>;
     /**
      * Wireless device name
      */
@@ -98,7 +98,7 @@ export class WirelessDevice extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["destinationName"] = args ? args.destinationName : undefined;
             resourceInputs["lastUplinkReceivedAt"] = args ? args.lastUplinkReceivedAt : undefined;
-            resourceInputs["loRaWAN"] = args ? args.loRaWAN : undefined;
+            resourceInputs["loRaWan"] = args ? args.loRaWan : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["thingArn"] = args ? args.thingArn : undefined;
@@ -110,7 +110,7 @@ export class WirelessDevice extends pulumi.CustomResource {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["destinationName"] = undefined /*out*/;
             resourceInputs["lastUplinkReceivedAt"] = undefined /*out*/;
-            resourceInputs["loRaWAN"] = undefined /*out*/;
+            resourceInputs["loRaWan"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["thingArn"] = undefined /*out*/;
@@ -141,7 +141,7 @@ export interface WirelessDeviceArgs {
     /**
      * The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Device.
      */
-    loRaWAN?: pulumi.Input<inputs.iotwireless.WirelessDeviceLoRaWANDeviceArgs>;
+    loRaWan?: pulumi.Input<inputs.iotwireless.WirelessDeviceLoRaWANDeviceArgs>;
     /**
      * Wireless device name
      */

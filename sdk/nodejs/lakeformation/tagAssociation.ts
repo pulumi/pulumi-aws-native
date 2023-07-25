@@ -40,7 +40,7 @@ export class TagAssociation extends pulumi.CustomResource {
     /**
      * List of Lake Formation Tags to associate with the Lake Formation Resource
      */
-    public readonly lFTags!: pulumi.Output<outputs.lakeformation.TagAssociationLFTagPair[]>;
+    public readonly lfTags!: pulumi.Output<outputs.lakeformation.TagAssociationLFTagPair[]>;
     /**
      * Resource to tag with the Lake Formation Tags
      */
@@ -65,18 +65,18 @@ export class TagAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.lFTags === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'lFTags'");
+            if ((!args || args.lfTags === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'lfTags'");
             }
             if ((!args || args.resource === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resource'");
             }
-            resourceInputs["lFTags"] = args ? args.lFTags : undefined;
+            resourceInputs["lfTags"] = args ? args.lfTags : undefined;
             resourceInputs["resource"] = args ? args.resource : undefined;
             resourceInputs["resourceIdentifier"] = undefined /*out*/;
             resourceInputs["tagsIdentifier"] = undefined /*out*/;
         } else {
-            resourceInputs["lFTags"] = undefined /*out*/;
+            resourceInputs["lfTags"] = undefined /*out*/;
             resourceInputs["resource"] = undefined /*out*/;
             resourceInputs["resourceIdentifier"] = undefined /*out*/;
             resourceInputs["tagsIdentifier"] = undefined /*out*/;
@@ -93,7 +93,7 @@ export interface TagAssociationArgs {
     /**
      * List of Lake Formation Tags to associate with the Lake Formation Resource
      */
-    lFTags: pulumi.Input<pulumi.Input<inputs.lakeformation.TagAssociationLFTagPairArgs>[]>;
+    lfTags: pulumi.Input<pulumi.Input<inputs.lakeformation.TagAssociationLFTagPairArgs>[]>;
     /**
      * Resource to tag with the Lake Formation Tags
      */

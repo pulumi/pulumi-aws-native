@@ -2509,11 +2509,11 @@ func (o DistributionCacheBehaviorPerPathArrayOutput) Index(i pulumi.IntInput) Di
 // Describes the cache settings of an Amazon Lightsail content delivery network (CDN) distribution.
 type DistributionCacheSettings struct {
 	// The HTTP methods that are processed and forwarded to the distribution's origin.
-	AllowedHTTPMethods *string `pulumi:"allowedHTTPMethods"`
+	AllowedHttpMethods *string `pulumi:"allowedHttpMethods"`
 	// The HTTP method responses that are cached by your distribution.
-	CachedHTTPMethods *string `pulumi:"cachedHTTPMethods"`
+	CachedHttpMethods *string `pulumi:"cachedHttpMethods"`
 	// The default amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the content has been updated.
-	DefaultTTL *int `pulumi:"defaultTTL"`
+	DefaultTtl *int `pulumi:"defaultTtl"`
 	// An object that describes the cookies that are forwarded to the origin. Your content is cached based on the cookies that are forwarded.
 	ForwardedCookies *DistributionCookieObject `pulumi:"forwardedCookies"`
 	// An object that describes the headers that are forwarded to the origin. Your content is cached based on the headers that are forwarded.
@@ -2521,9 +2521,9 @@ type DistributionCacheSettings struct {
 	// An object that describes the query strings that are forwarded to the origin. Your content is cached based on the query strings that are forwarded.
 	ForwardedQueryStrings *DistributionQueryStringObject `pulumi:"forwardedQueryStrings"`
 	// The maximum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
-	MaximumTTL *int `pulumi:"maximumTTL"`
+	MaximumTtl *int `pulumi:"maximumTtl"`
 	// The minimum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
-	MinimumTTL *int `pulumi:"minimumTTL"`
+	MinimumTtl *int `pulumi:"minimumTtl"`
 }
 
 // DistributionCacheSettingsInput is an input type that accepts DistributionCacheSettingsArgs and DistributionCacheSettingsOutput values.
@@ -2540,11 +2540,11 @@ type DistributionCacheSettingsInput interface {
 // Describes the cache settings of an Amazon Lightsail content delivery network (CDN) distribution.
 type DistributionCacheSettingsArgs struct {
 	// The HTTP methods that are processed and forwarded to the distribution's origin.
-	AllowedHTTPMethods pulumi.StringPtrInput `pulumi:"allowedHTTPMethods"`
+	AllowedHttpMethods pulumi.StringPtrInput `pulumi:"allowedHttpMethods"`
 	// The HTTP method responses that are cached by your distribution.
-	CachedHTTPMethods pulumi.StringPtrInput `pulumi:"cachedHTTPMethods"`
+	CachedHttpMethods pulumi.StringPtrInput `pulumi:"cachedHttpMethods"`
 	// The default amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the content has been updated.
-	DefaultTTL pulumi.IntPtrInput `pulumi:"defaultTTL"`
+	DefaultTtl pulumi.IntPtrInput `pulumi:"defaultTtl"`
 	// An object that describes the cookies that are forwarded to the origin. Your content is cached based on the cookies that are forwarded.
 	ForwardedCookies DistributionCookieObjectPtrInput `pulumi:"forwardedCookies"`
 	// An object that describes the headers that are forwarded to the origin. Your content is cached based on the headers that are forwarded.
@@ -2552,9 +2552,9 @@ type DistributionCacheSettingsArgs struct {
 	// An object that describes the query strings that are forwarded to the origin. Your content is cached based on the query strings that are forwarded.
 	ForwardedQueryStrings DistributionQueryStringObjectPtrInput `pulumi:"forwardedQueryStrings"`
 	// The maximum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
-	MaximumTTL pulumi.IntPtrInput `pulumi:"maximumTTL"`
+	MaximumTtl pulumi.IntPtrInput `pulumi:"maximumTtl"`
 	// The minimum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
-	MinimumTTL pulumi.IntPtrInput `pulumi:"minimumTTL"`
+	MinimumTtl pulumi.IntPtrInput `pulumi:"minimumTtl"`
 }
 
 func (DistributionCacheSettingsArgs) ElementType() reflect.Type {
@@ -2636,18 +2636,18 @@ func (o DistributionCacheSettingsOutput) ToDistributionCacheSettingsPtrOutputWit
 }
 
 // The HTTP methods that are processed and forwarded to the distribution's origin.
-func (o DistributionCacheSettingsOutput) AllowedHTTPMethods() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DistributionCacheSettings) *string { return v.AllowedHTTPMethods }).(pulumi.StringPtrOutput)
+func (o DistributionCacheSettingsOutput) AllowedHttpMethods() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionCacheSettings) *string { return v.AllowedHttpMethods }).(pulumi.StringPtrOutput)
 }
 
 // The HTTP method responses that are cached by your distribution.
-func (o DistributionCacheSettingsOutput) CachedHTTPMethods() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DistributionCacheSettings) *string { return v.CachedHTTPMethods }).(pulumi.StringPtrOutput)
+func (o DistributionCacheSettingsOutput) CachedHttpMethods() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionCacheSettings) *string { return v.CachedHttpMethods }).(pulumi.StringPtrOutput)
 }
 
 // The default amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the content has been updated.
-func (o DistributionCacheSettingsOutput) DefaultTTL() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DistributionCacheSettings) *int { return v.DefaultTTL }).(pulumi.IntPtrOutput)
+func (o DistributionCacheSettingsOutput) DefaultTtl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DistributionCacheSettings) *int { return v.DefaultTtl }).(pulumi.IntPtrOutput)
 }
 
 // An object that describes the cookies that are forwarded to the origin. Your content is cached based on the cookies that are forwarded.
@@ -2666,13 +2666,13 @@ func (o DistributionCacheSettingsOutput) ForwardedQueryStrings() DistributionQue
 }
 
 // The maximum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
-func (o DistributionCacheSettingsOutput) MaximumTTL() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DistributionCacheSettings) *int { return v.MaximumTTL }).(pulumi.IntPtrOutput)
+func (o DistributionCacheSettingsOutput) MaximumTtl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DistributionCacheSettings) *int { return v.MaximumTtl }).(pulumi.IntPtrOutput)
 }
 
 // The minimum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
-func (o DistributionCacheSettingsOutput) MinimumTTL() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DistributionCacheSettings) *int { return v.MinimumTTL }).(pulumi.IntPtrOutput)
+func (o DistributionCacheSettingsOutput) MinimumTtl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DistributionCacheSettings) *int { return v.MinimumTtl }).(pulumi.IntPtrOutput)
 }
 
 type DistributionCacheSettingsPtrOutput struct{ *pulumi.OutputState }
@@ -2700,32 +2700,32 @@ func (o DistributionCacheSettingsPtrOutput) Elem() DistributionCacheSettingsOutp
 }
 
 // The HTTP methods that are processed and forwarded to the distribution's origin.
-func (o DistributionCacheSettingsPtrOutput) AllowedHTTPMethods() pulumi.StringPtrOutput {
+func (o DistributionCacheSettingsPtrOutput) AllowedHttpMethods() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionCacheSettings) *string {
 		if v == nil {
 			return nil
 		}
-		return v.AllowedHTTPMethods
+		return v.AllowedHttpMethods
 	}).(pulumi.StringPtrOutput)
 }
 
 // The HTTP method responses that are cached by your distribution.
-func (o DistributionCacheSettingsPtrOutput) CachedHTTPMethods() pulumi.StringPtrOutput {
+func (o DistributionCacheSettingsPtrOutput) CachedHttpMethods() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionCacheSettings) *string {
 		if v == nil {
 			return nil
 		}
-		return v.CachedHTTPMethods
+		return v.CachedHttpMethods
 	}).(pulumi.StringPtrOutput)
 }
 
 // The default amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the content has been updated.
-func (o DistributionCacheSettingsPtrOutput) DefaultTTL() pulumi.IntPtrOutput {
+func (o DistributionCacheSettingsPtrOutput) DefaultTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DistributionCacheSettings) *int {
 		if v == nil {
 			return nil
 		}
-		return v.DefaultTTL
+		return v.DefaultTtl
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -2760,22 +2760,22 @@ func (o DistributionCacheSettingsPtrOutput) ForwardedQueryStrings() Distribution
 }
 
 // The maximum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
-func (o DistributionCacheSettingsPtrOutput) MaximumTTL() pulumi.IntPtrOutput {
+func (o DistributionCacheSettingsPtrOutput) MaximumTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DistributionCacheSettings) *int {
 		if v == nil {
 			return nil
 		}
-		return v.MaximumTTL
+		return v.MaximumTtl
 	}).(pulumi.IntPtrOutput)
 }
 
 // The minimum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
-func (o DistributionCacheSettingsPtrOutput) MinimumTTL() pulumi.IntPtrOutput {
+func (o DistributionCacheSettingsPtrOutput) MinimumTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DistributionCacheSettings) *int {
 		if v == nil {
 			return nil
 		}
-		return v.MinimumTTL
+		return v.MinimumTtl
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -3756,7 +3756,7 @@ type InstanceDisk struct {
 	// The names to use for your new Lightsail disk.
 	DiskName string `pulumi:"diskName"`
 	// IOPS of disk.
-	IOPS *int `pulumi:"iOPS"`
+	Iops *int `pulumi:"iops"`
 	// Is the Attached disk is the system disk of the Instance.
 	IsSystemDisk *bool `pulumi:"isSystemDisk"`
 	// Path of the disk attached to the instance.
@@ -3785,7 +3785,7 @@ type InstanceDiskArgs struct {
 	// The names to use for your new Lightsail disk.
 	DiskName pulumi.StringInput `pulumi:"diskName"`
 	// IOPS of disk.
-	IOPS pulumi.IntPtrInput `pulumi:"iOPS"`
+	Iops pulumi.IntPtrInput `pulumi:"iops"`
 	// Is the Attached disk is the system disk of the Instance.
 	IsSystemDisk pulumi.BoolPtrInput `pulumi:"isSystemDisk"`
 	// Path of the disk attached to the instance.
@@ -3862,8 +3862,8 @@ func (o InstanceDiskOutput) DiskName() pulumi.StringOutput {
 }
 
 // IOPS of disk.
-func (o InstanceDiskOutput) IOPS() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v InstanceDisk) *int { return v.IOPS }).(pulumi.IntPtrOutput)
+func (o InstanceDiskOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstanceDisk) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
 // Is the Attached disk is the system disk of the Instance.

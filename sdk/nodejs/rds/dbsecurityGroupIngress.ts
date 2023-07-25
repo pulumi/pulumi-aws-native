@@ -37,11 +37,11 @@ export class DBSecurityGroupIngress extends pulumi.CustomResource {
         return obj['__pulumiType'] === DBSecurityGroupIngress.__pulumiType;
     }
 
-    public readonly cIDRIP!: pulumi.Output<string | undefined>;
-    public readonly dBSecurityGroupName!: pulumi.Output<string>;
-    public readonly eC2SecurityGroupId!: pulumi.Output<string | undefined>;
-    public readonly eC2SecurityGroupName!: pulumi.Output<string | undefined>;
-    public readonly eC2SecurityGroupOwnerId!: pulumi.Output<string | undefined>;
+    public readonly cidrip!: pulumi.Output<string | undefined>;
+    public readonly dbSecurityGroupName!: pulumi.Output<string>;
+    public readonly ec2SecurityGroupId!: pulumi.Output<string | undefined>;
+    public readonly ec2SecurityGroupName!: pulumi.Output<string | undefined>;
+    public readonly ec2SecurityGroupOwnerId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a DBSecurityGroupIngress resource with the given unique name, arguments, and options.
@@ -56,20 +56,20 @@ export class DBSecurityGroupIngress extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dBSecurityGroupName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'dBSecurityGroupName'");
+            if ((!args || args.dbSecurityGroupName === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'dbSecurityGroupName'");
             }
-            resourceInputs["cIDRIP"] = args ? args.cIDRIP : undefined;
-            resourceInputs["dBSecurityGroupName"] = args ? args.dBSecurityGroupName : undefined;
-            resourceInputs["eC2SecurityGroupId"] = args ? args.eC2SecurityGroupId : undefined;
-            resourceInputs["eC2SecurityGroupName"] = args ? args.eC2SecurityGroupName : undefined;
-            resourceInputs["eC2SecurityGroupOwnerId"] = args ? args.eC2SecurityGroupOwnerId : undefined;
+            resourceInputs["cidrip"] = args ? args.cidrip : undefined;
+            resourceInputs["dbSecurityGroupName"] = args ? args.dbSecurityGroupName : undefined;
+            resourceInputs["ec2SecurityGroupId"] = args ? args.ec2SecurityGroupId : undefined;
+            resourceInputs["ec2SecurityGroupName"] = args ? args.ec2SecurityGroupName : undefined;
+            resourceInputs["ec2SecurityGroupOwnerId"] = args ? args.ec2SecurityGroupOwnerId : undefined;
         } else {
-            resourceInputs["cIDRIP"] = undefined /*out*/;
-            resourceInputs["dBSecurityGroupName"] = undefined /*out*/;
-            resourceInputs["eC2SecurityGroupId"] = undefined /*out*/;
-            resourceInputs["eC2SecurityGroupName"] = undefined /*out*/;
-            resourceInputs["eC2SecurityGroupOwnerId"] = undefined /*out*/;
+            resourceInputs["cidrip"] = undefined /*out*/;
+            resourceInputs["dbSecurityGroupName"] = undefined /*out*/;
+            resourceInputs["ec2SecurityGroupId"] = undefined /*out*/;
+            resourceInputs["ec2SecurityGroupName"] = undefined /*out*/;
+            resourceInputs["ec2SecurityGroupOwnerId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DBSecurityGroupIngress.__pulumiType, name, resourceInputs, opts);
@@ -80,9 +80,9 @@ export class DBSecurityGroupIngress extends pulumi.CustomResource {
  * The set of arguments for constructing a DBSecurityGroupIngress resource.
  */
 export interface DBSecurityGroupIngressArgs {
-    cIDRIP?: pulumi.Input<string>;
-    dBSecurityGroupName: pulumi.Input<string>;
-    eC2SecurityGroupId?: pulumi.Input<string>;
-    eC2SecurityGroupName?: pulumi.Input<string>;
-    eC2SecurityGroupOwnerId?: pulumi.Input<string>;
+    cidrip?: pulumi.Input<string>;
+    dbSecurityGroupName: pulumi.Input<string>;
+    ec2SecurityGroupId?: pulumi.Input<string>;
+    ec2SecurityGroupName?: pulumi.Input<string>;
+    ec2SecurityGroupOwnerId?: pulumi.Input<string>;
 }

@@ -18,7 +18,7 @@ type CACertificate struct {
 
 	Arn                    pulumi.StringOutput                          `pulumi:"arn"`
 	AutoRegistrationStatus CACertificateAutoRegistrationStatusPtrOutput `pulumi:"autoRegistrationStatus"`
-	CACertificatePem       pulumi.StringOutput                          `pulumi:"cACertificatePem"`
+	CaCertificatePem       pulumi.StringOutput                          `pulumi:"caCertificatePem"`
 	CertificateMode        CACertificateCertificateModePtrOutput        `pulumi:"certificateMode"`
 	RegistrationConfig     CACertificateRegistrationConfigPtrOutput     `pulumi:"registrationConfig"`
 	RemoveAutoRegistration pulumi.BoolPtrOutput                         `pulumi:"removeAutoRegistration"`
@@ -36,8 +36,8 @@ func NewCACertificate(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.CACertificatePem == nil {
-		return nil, errors.New("invalid value for required argument 'CACertificatePem'")
+	if args.CaCertificatePem == nil {
+		return nil, errors.New("invalid value for required argument 'CaCertificatePem'")
 	}
 	if args.Status == nil {
 		return nil, errors.New("invalid value for required argument 'Status'")
@@ -76,7 +76,7 @@ func (CACertificateState) ElementType() reflect.Type {
 
 type cacertificateArgs struct {
 	AutoRegistrationStatus *CACertificateAutoRegistrationStatus `pulumi:"autoRegistrationStatus"`
-	CACertificatePem       string                               `pulumi:"cACertificatePem"`
+	CaCertificatePem       string                               `pulumi:"caCertificatePem"`
 	CertificateMode        *CACertificateCertificateMode        `pulumi:"certificateMode"`
 	RegistrationConfig     *CACertificateRegistrationConfig     `pulumi:"registrationConfig"`
 	RemoveAutoRegistration *bool                                `pulumi:"removeAutoRegistration"`
@@ -90,7 +90,7 @@ type cacertificateArgs struct {
 // The set of arguments for constructing a CACertificate resource.
 type CACertificateArgs struct {
 	AutoRegistrationStatus CACertificateAutoRegistrationStatusPtrInput
-	CACertificatePem       pulumi.StringInput
+	CaCertificatePem       pulumi.StringInput
 	CertificateMode        CACertificateCertificateModePtrInput
 	RegistrationConfig     CACertificateRegistrationConfigPtrInput
 	RemoveAutoRegistration pulumi.BoolPtrInput
@@ -146,8 +146,8 @@ func (o CACertificateOutput) AutoRegistrationStatus() CACertificateAutoRegistrat
 	return o.ApplyT(func(v *CACertificate) CACertificateAutoRegistrationStatusPtrOutput { return v.AutoRegistrationStatus }).(CACertificateAutoRegistrationStatusPtrOutput)
 }
 
-func (o CACertificateOutput) CACertificatePem() pulumi.StringOutput {
-	return o.ApplyT(func(v *CACertificate) pulumi.StringOutput { return v.CACertificatePem }).(pulumi.StringOutput)
+func (o CACertificateOutput) CaCertificatePem() pulumi.StringOutput {
+	return o.ApplyT(func(v *CACertificate) pulumi.StringOutput { return v.CaCertificatePem }).(pulumi.StringOutput)
 }
 
 func (o CACertificateOutput) CertificateMode() CACertificateCertificateModePtrOutput {

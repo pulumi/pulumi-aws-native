@@ -23,13 +23,13 @@ export interface GetPushTemplateArgs {
 }
 
 export interface GetPushTemplateResult {
-    readonly aDM?: outputs.pinpoint.PushTemplateAndroidPushNotificationTemplate;
-    readonly aPNS?: outputs.pinpoint.PushTemplateAPNSPushNotificationTemplate;
+    readonly adm?: outputs.pinpoint.PushTemplateAndroidPushNotificationTemplate;
+    readonly apns?: outputs.pinpoint.PushTemplateAPNSPushNotificationTemplate;
     readonly arn?: string;
     readonly baidu?: outputs.pinpoint.PushTemplateAndroidPushNotificationTemplate;
     readonly default?: outputs.pinpoint.PushTemplateDefaultPushNotificationTemplate;
     readonly defaultSubstitutions?: string;
-    readonly gCM?: outputs.pinpoint.PushTemplateAndroidPushNotificationTemplate;
+    readonly gcm?: outputs.pinpoint.PushTemplateAndroidPushNotificationTemplate;
     readonly id?: string;
     readonly tags?: any;
     readonly templateDescription?: string;

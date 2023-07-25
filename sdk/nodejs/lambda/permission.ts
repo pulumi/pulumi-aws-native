@@ -39,7 +39,7 @@ export class Permission extends pulumi.CustomResource {
     public readonly functionName!: pulumi.Output<string>;
     public readonly functionUrlAuthType!: pulumi.Output<string | undefined>;
     public readonly principal!: pulumi.Output<string>;
-    public readonly principalOrgID!: pulumi.Output<string | undefined>;
+    public readonly principalOrgId!: pulumi.Output<string | undefined>;
     public readonly sourceAccount!: pulumi.Output<string | undefined>;
     public readonly sourceArn!: pulumi.Output<string | undefined>;
 
@@ -68,7 +68,7 @@ export class Permission extends pulumi.CustomResource {
             resourceInputs["functionName"] = args ? args.functionName : undefined;
             resourceInputs["functionUrlAuthType"] = args ? args.functionUrlAuthType : undefined;
             resourceInputs["principal"] = args ? args.principal : undefined;
-            resourceInputs["principalOrgID"] = args ? args.principalOrgID : undefined;
+            resourceInputs["principalOrgId"] = args ? args.principalOrgId : undefined;
             resourceInputs["sourceAccount"] = args ? args.sourceAccount : undefined;
             resourceInputs["sourceArn"] = args ? args.sourceArn : undefined;
         } else {
@@ -77,7 +77,7 @@ export class Permission extends pulumi.CustomResource {
             resourceInputs["functionName"] = undefined /*out*/;
             resourceInputs["functionUrlAuthType"] = undefined /*out*/;
             resourceInputs["principal"] = undefined /*out*/;
-            resourceInputs["principalOrgID"] = undefined /*out*/;
+            resourceInputs["principalOrgId"] = undefined /*out*/;
             resourceInputs["sourceAccount"] = undefined /*out*/;
             resourceInputs["sourceArn"] = undefined /*out*/;
         }
@@ -95,7 +95,7 @@ export interface PermissionArgs {
     functionName: pulumi.Input<string>;
     functionUrlAuthType?: pulumi.Input<string>;
     principal: pulumi.Input<string>;
-    principalOrgID?: pulumi.Input<string>;
+    principalOrgId?: pulumi.Input<string>;
     sourceAccount?: pulumi.Input<string>;
     sourceArn?: pulumi.Input<string>;
 }

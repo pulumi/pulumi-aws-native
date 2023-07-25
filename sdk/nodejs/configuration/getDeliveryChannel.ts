@@ -28,7 +28,7 @@ export interface GetDeliveryChannelResult {
     readonly s3BucketName?: string;
     readonly s3KeyPrefix?: string;
     readonly s3KmsKeyArn?: string;
-    readonly snsTopicARN?: string;
+    readonly snsTopicArn?: string;
 }
 /**
  * Resource Type definition for AWS::Config::DeliveryChannel

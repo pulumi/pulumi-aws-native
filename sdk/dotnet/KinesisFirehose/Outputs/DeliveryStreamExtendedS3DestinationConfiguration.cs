@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
     [OutputType]
     public sealed class DeliveryStreamExtendedS3DestinationConfiguration
     {
-        public readonly string BucketARN;
+        public readonly string BucketArn;
         public readonly Outputs.DeliveryStreamBufferingHints? BufferingHints;
         public readonly Outputs.DeliveryStreamCloudWatchLoggingOptions? CloudWatchLoggingOptions;
         public readonly Pulumi.AwsNative.KinesisFirehose.DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat? CompressionFormat;
@@ -23,13 +23,13 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
         public readonly string? ErrorOutputPrefix;
         public readonly string? Prefix;
         public readonly Outputs.DeliveryStreamProcessingConfiguration? ProcessingConfiguration;
-        public readonly string RoleARN;
+        public readonly string RoleArn;
         public readonly Outputs.DeliveryStreamS3DestinationConfiguration? S3BackupConfiguration;
         public readonly Pulumi.AwsNative.KinesisFirehose.DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode? S3BackupMode;
 
         [OutputConstructor]
         private DeliveryStreamExtendedS3DestinationConfiguration(
-            string bucketARN,
+            string bucketArn,
 
             Outputs.DeliveryStreamBufferingHints? bufferingHints,
 
@@ -49,13 +49,13 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
 
             Outputs.DeliveryStreamProcessingConfiguration? processingConfiguration,
 
-            string roleARN,
+            string roleArn,
 
             Outputs.DeliveryStreamS3DestinationConfiguration? s3BackupConfiguration,
 
             Pulumi.AwsNative.KinesisFirehose.DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode? s3BackupMode)
         {
-            BucketARN = bucketARN;
+            BucketArn = bucketArn;
             BufferingHints = bufferingHints;
             CloudWatchLoggingOptions = cloudWatchLoggingOptions;
             CompressionFormat = compressionFormat;
@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
             ErrorOutputPrefix = errorOutputPrefix;
             Prefix = prefix;
             ProcessingConfiguration = processingConfiguration;
-            RoleARN = roleARN;
+            RoleArn = roleArn;
             S3BackupConfiguration = s3BackupConfiguration;
             S3BackupMode = s3BackupMode;
         }

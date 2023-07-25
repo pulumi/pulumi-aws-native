@@ -60,11 +60,11 @@ namespace Pulumi.AwsNative.MemoryDB
         /// <summary>
         /// The name of the Access Control List to associate with the cluster.
         /// </summary>
-        public readonly string? ACLName;
+        public readonly string? AclName;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the cluster.
         /// </summary>
-        public readonly string? ARN;
+        public readonly string? Arn;
         /// <summary>
         /// A flag that enables automatic minor version upgrade when set to true.
         /// 
@@ -138,9 +138,9 @@ namespace Pulumi.AwsNative.MemoryDB
 
         [OutputConstructor]
         private GetClusterResult(
-            string? aCLName,
+            string? aclName,
 
-            string? aRN,
+            string? arn,
 
             bool? autoMinorVersionUpgrade,
 
@@ -176,8 +176,8 @@ namespace Pulumi.AwsNative.MemoryDB
 
             ImmutableArray<Outputs.ClusterTag> tags)
         {
-            ACLName = aCLName;
-            ARN = aRN;
+            AclName = aclName;
+            Arn = arn;
             AutoMinorVersionUpgrade = autoMinorVersionUpgrade;
             ClusterEndpoint = clusterEndpoint;
             Description = description;

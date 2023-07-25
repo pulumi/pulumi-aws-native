@@ -19,15 +19,15 @@ namespace Pulumi.AwsNative.Lightsail.Outputs
         /// <summary>
         /// The HTTP methods that are processed and forwarded to the distribution's origin.
         /// </summary>
-        public readonly string? AllowedHTTPMethods;
+        public readonly string? AllowedHttpMethods;
         /// <summary>
         /// The HTTP method responses that are cached by your distribution.
         /// </summary>
-        public readonly string? CachedHTTPMethods;
+        public readonly string? CachedHttpMethods;
         /// <summary>
         /// The default amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the content has been updated.
         /// </summary>
-        public readonly int? DefaultTTL;
+        public readonly int? DefaultTtl;
         /// <summary>
         /// An object that describes the cookies that are forwarded to the origin. Your content is cached based on the cookies that are forwarded.
         /// </summary>
@@ -43,19 +43,19 @@ namespace Pulumi.AwsNative.Lightsail.Outputs
         /// <summary>
         /// The maximum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
         /// </summary>
-        public readonly int? MaximumTTL;
+        public readonly int? MaximumTtl;
         /// <summary>
         /// The minimum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
         /// </summary>
-        public readonly int? MinimumTTL;
+        public readonly int? MinimumTtl;
 
         [OutputConstructor]
         private DistributionCacheSettings(
-            string? allowedHTTPMethods,
+            string? allowedHttpMethods,
 
-            string? cachedHTTPMethods,
+            string? cachedHttpMethods,
 
-            int? defaultTTL,
+            int? defaultTtl,
 
             Outputs.DistributionCookieObject? forwardedCookies,
 
@@ -63,18 +63,18 @@ namespace Pulumi.AwsNative.Lightsail.Outputs
 
             Outputs.DistributionQueryStringObject? forwardedQueryStrings,
 
-            int? maximumTTL,
+            int? maximumTtl,
 
-            int? minimumTTL)
+            int? minimumTtl)
         {
-            AllowedHTTPMethods = allowedHTTPMethods;
-            CachedHTTPMethods = cachedHTTPMethods;
-            DefaultTTL = defaultTTL;
+            AllowedHttpMethods = allowedHttpMethods;
+            CachedHttpMethods = cachedHttpMethods;
+            DefaultTtl = defaultTtl;
             ForwardedCookies = forwardedCookies;
             ForwardedHeaders = forwardedHeaders;
             ForwardedQueryStrings = forwardedQueryStrings;
-            MaximumTTL = maximumTTL;
-            MinimumTTL = minimumTTL;
+            MaximumTtl = maximumTtl;
+            MinimumTtl = minimumTtl;
         }
     }
 }

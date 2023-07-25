@@ -14,12 +14,12 @@ export function getDBClusterParameterGroup(args: GetDBClusterParameterGroupArgs,
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:rds:getDBClusterParameterGroup", {
-        "dBClusterParameterGroupName": args.dBClusterParameterGroupName,
+        "dbClusterParameterGroupName": args.dbClusterParameterGroupName,
     }, opts);
 }
 
 export interface GetDBClusterParameterGroupArgs {
-    dBClusterParameterGroupName: string;
+    dbClusterParameterGroupName: string;
 }
 
 export interface GetDBClusterParameterGroupResult {
@@ -40,5 +40,5 @@ export function getDBClusterParameterGroupOutput(args: GetDBClusterParameterGrou
 }
 
 export interface GetDBClusterParameterGroupOutputArgs {
-    dBClusterParameterGroupName: pulumi.Input<string>;
+    dbClusterParameterGroupName: pulumi.Input<string>;
 }

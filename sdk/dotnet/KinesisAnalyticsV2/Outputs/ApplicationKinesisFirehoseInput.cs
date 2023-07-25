@@ -19,12 +19,12 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Outputs
         /// <summary>
         /// The Amazon Resource Name (ARN) of the delivery stream.
         /// </summary>
-        public readonly string ResourceARN;
+        public readonly string ResourceArn;
 
         [OutputConstructor]
-        private ApplicationKinesisFirehoseInput(string resourceARN)
+        private ApplicationKinesisFirehoseInput(string resourceArn)
         {
-            ResourceARN = resourceARN;
+            ResourceArn = resourceArn;
         }
     }
 }

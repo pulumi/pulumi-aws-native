@@ -60,9 +60,9 @@ namespace Pulumi.AwsNative.Cognito
         public readonly string? Id;
         public readonly string? IdentityPoolName;
         public readonly string? Name;
-        public readonly ImmutableArray<string> OpenIdConnectProviderARNs;
+        public readonly ImmutableArray<string> OpenIdConnectProviderArns;
         public readonly Outputs.IdentityPoolPushSync? PushSync;
-        public readonly ImmutableArray<string> SamlProviderARNs;
+        public readonly ImmutableArray<string> SamlProviderArns;
         public readonly object? SupportedLoginProviders;
 
         [OutputConstructor]
@@ -85,11 +85,11 @@ namespace Pulumi.AwsNative.Cognito
 
             string? name,
 
-            ImmutableArray<string> openIdConnectProviderARNs,
+            ImmutableArray<string> openIdConnectProviderArns,
 
             Outputs.IdentityPoolPushSync? pushSync,
 
-            ImmutableArray<string> samlProviderARNs,
+            ImmutableArray<string> samlProviderArns,
 
             object? supportedLoginProviders)
         {
@@ -102,9 +102,9 @@ namespace Pulumi.AwsNative.Cognito
             Id = id;
             IdentityPoolName = identityPoolName;
             Name = name;
-            OpenIdConnectProviderARNs = openIdConnectProviderARNs;
+            OpenIdConnectProviderArns = openIdConnectProviderArns;
             PushSync = pushSync;
-            SamlProviderARNs = samlProviderARNs;
+            SamlProviderArns = samlProviderArns;
             SupportedLoginProviders = supportedLoginProviders;
         }
     }

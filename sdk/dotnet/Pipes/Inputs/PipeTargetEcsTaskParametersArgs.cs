@@ -20,8 +20,8 @@ namespace Pulumi.AwsNative.Pipes.Inputs
             set => _capacityProviderStrategy = value;
         }
 
-        [Input("enableECSManagedTags")]
-        public Input<bool>? EnableECSManagedTags { get; set; }
+        [Input("enableEcsManagedTags")]
+        public Input<bool>? EnableEcsManagedTags { get; set; }
 
         [Input("enableExecuteCommand")]
         public Input<bool>? EnableExecuteCommand { get; set; }

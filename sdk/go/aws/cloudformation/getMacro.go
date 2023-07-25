@@ -31,7 +31,7 @@ type LookupMacroResult struct {
 	FunctionName *string `pulumi:"functionName"`
 	Id           *string `pulumi:"id"`
 	LogGroupName *string `pulumi:"logGroupName"`
-	LogRoleARN   *string `pulumi:"logRoleARN"`
+	LogRoleArn   *string `pulumi:"logRoleArn"`
 }
 
 func LookupMacroOutput(ctx *pulumi.Context, args LookupMacroOutputArgs, opts ...pulumi.InvokeOption) LookupMacroResultOutput {
@@ -85,8 +85,8 @@ func (o LookupMacroResultOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupMacroResult) *string { return v.LogGroupName }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupMacroResultOutput) LogRoleARN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupMacroResult) *string { return v.LogRoleARN }).(pulumi.StringPtrOutput)
+func (o LookupMacroResultOutput) LogRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupMacroResult) *string { return v.LogRoleArn }).(pulumi.StringPtrOutput)
 }
 
 func init() {

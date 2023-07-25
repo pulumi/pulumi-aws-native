@@ -23,8 +23,8 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         public readonly Outputs.ConnectorProfileMarketoConnectorProfileProperties? Marketo;
         public readonly Outputs.ConnectorProfilePardotConnectorProfileProperties? Pardot;
         public readonly Outputs.ConnectorProfileRedshiftConnectorProfileProperties? Redshift;
-        public readonly Outputs.ConnectorProfileSAPODataConnectorProfileProperties? SAPOData;
         public readonly Outputs.ConnectorProfileSalesforceConnectorProfileProperties? Salesforce;
+        public readonly Outputs.ConnectorProfileSAPODataConnectorProfileProperties? SapoData;
         public readonly Outputs.ConnectorProfileServiceNowConnectorProfileProperties? ServiceNow;
         public readonly Outputs.ConnectorProfileSlackConnectorProfileProperties? Slack;
         public readonly Outputs.ConnectorProfileSnowflakeConnectorProfileProperties? Snowflake;
@@ -47,9 +47,9 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
             Outputs.ConnectorProfileRedshiftConnectorProfileProperties? redshift,
 
-            Outputs.ConnectorProfileSAPODataConnectorProfileProperties? sAPOData,
-
             Outputs.ConnectorProfileSalesforceConnectorProfileProperties? salesforce,
+
+            Outputs.ConnectorProfileSAPODataConnectorProfileProperties? sapoData,
 
             Outputs.ConnectorProfileServiceNowConnectorProfileProperties? serviceNow,
 
@@ -68,8 +68,8 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
             Marketo = marketo;
             Pardot = pardot;
             Redshift = redshift;
-            SAPOData = sAPOData;
             Salesforce = salesforce;
+            SapoData = sapoData;
             ServiceNow = serviceNow;
             Slack = slack;
             Snowflake = snowflake;

@@ -57,7 +57,7 @@ namespace Pulumi.AwsNative.DMS
         public readonly string? AvailabilityZone;
         public readonly string? EngineVersion;
         public readonly string? Id;
-        public readonly bool? MultiAZ;
+        public readonly bool? MultiAz;
         public readonly string? PreferredMaintenanceWindow;
         public readonly string? ReplicationInstanceClass;
         public readonly string? ReplicationInstanceIdentifier;
@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.DMS
 
             string? id,
 
-            bool? multiAZ,
+            bool? multiAz,
 
             string? preferredMaintenanceWindow,
 
@@ -102,7 +102,7 @@ namespace Pulumi.AwsNative.DMS
             AvailabilityZone = availabilityZone;
             EngineVersion = engineVersion;
             Id = id;
-            MultiAZ = multiAZ;
+            MultiAz = multiAz;
             PreferredMaintenanceWindow = preferredMaintenanceWindow;
             ReplicationInstanceClass = replicationInstanceClass;
             ReplicationInstanceIdentifier = replicationInstanceIdentifier;

@@ -15,7 +15,7 @@ namespace Pulumi.AwsNative.Pinpoint.Outputs
     {
         public readonly Outputs.CampaignTemplate? EmailTemplate;
         public readonly Outputs.CampaignTemplate? PushTemplate;
-        public readonly Outputs.CampaignTemplate? SMSTemplate;
+        public readonly Outputs.CampaignTemplate? SmsTemplate;
         public readonly Outputs.CampaignTemplate? VoiceTemplate;
 
         [OutputConstructor]
@@ -24,13 +24,13 @@ namespace Pulumi.AwsNative.Pinpoint.Outputs
 
             Outputs.CampaignTemplate? pushTemplate,
 
-            Outputs.CampaignTemplate? sMSTemplate,
+            Outputs.CampaignTemplate? smsTemplate,
 
             Outputs.CampaignTemplate? voiceTemplate)
         {
             EmailTemplate = emailTemplate;
             PushTemplate = pushTemplate;
-            SMSTemplate = sMSTemplate;
+            SmsTemplate = smsTemplate;
             VoiceTemplate = voiceTemplate;
         }
     }

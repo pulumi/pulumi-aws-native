@@ -19,12 +19,12 @@ namespace Pulumi.AwsNative.S3.Outputs
         /// <summary>
         /// Specifies the ID (Key ARN or Alias ARN) of the customer managed customer master key (CMK) stored in AWS Key Management Service (KMS) for the destination bucket.
         /// </summary>
-        public readonly string ReplicaKmsKeyID;
+        public readonly string ReplicaKmsKeyId;
 
         [OutputConstructor]
-        private BucketEncryptionConfiguration(string replicaKmsKeyID)
+        private BucketEncryptionConfiguration(string replicaKmsKeyId)
         {
-            ReplicaKmsKeyID = replicaKmsKeyID;
+            ReplicaKmsKeyId = replicaKmsKeyId;
         }
     }
 }

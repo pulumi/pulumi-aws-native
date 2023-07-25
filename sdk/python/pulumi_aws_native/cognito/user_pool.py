@@ -562,7 +562,7 @@ class UserPool(pulumi.CustomResource):
         return pulumi.get(self, "provider_name")
 
     @property
-    @pulumi.getter(name="providerURL")
+    @pulumi.getter(name="providerUrl")
     def provider_url(self) -> pulumi.Output[str]:
         return pulumi.get(self, "provider_url")
 

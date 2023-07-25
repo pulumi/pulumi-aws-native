@@ -81,7 +81,7 @@ export class Trail extends pulumi.CustomResource {
     /**
      * Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
      */
-    public readonly kMSKeyId!: pulumi.Output<string | undefined>;
+    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Amazon S3 bucket designated for publishing log files. See Amazon S3 Bucket Naming Requirements.
      */
@@ -125,7 +125,7 @@ export class Trail extends pulumi.CustomResource {
             resourceInputs["isLogging"] = args ? args.isLogging : undefined;
             resourceInputs["isMultiRegionTrail"] = args ? args.isMultiRegionTrail : undefined;
             resourceInputs["isOrganizationTrail"] = args ? args.isOrganizationTrail : undefined;
-            resourceInputs["kMSKeyId"] = args ? args.kMSKeyId : undefined;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["s3BucketName"] = args ? args.s3BucketName : undefined;
             resourceInputs["s3KeyPrefix"] = args ? args.s3KeyPrefix : undefined;
             resourceInputs["snsTopicName"] = args ? args.snsTopicName : undefined;
@@ -145,7 +145,7 @@ export class Trail extends pulumi.CustomResource {
             resourceInputs["isLogging"] = undefined /*out*/;
             resourceInputs["isMultiRegionTrail"] = undefined /*out*/;
             resourceInputs["isOrganizationTrail"] = undefined /*out*/;
-            resourceInputs["kMSKeyId"] = undefined /*out*/;
+            resourceInputs["kmsKeyId"] = undefined /*out*/;
             resourceInputs["s3BucketName"] = undefined /*out*/;
             resourceInputs["s3KeyPrefix"] = undefined /*out*/;
             resourceInputs["snsTopicArn"] = undefined /*out*/;
@@ -205,7 +205,7 @@ export interface TrailArgs {
     /**
      * Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
      */
-    kMSKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string>;
     /**
      * Specifies the name of the Amazon S3 bucket designated for publishing log files. See Amazon S3 Bucket Naming Requirements.
      */

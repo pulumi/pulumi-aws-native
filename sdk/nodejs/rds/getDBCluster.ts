@@ -14,7 +14,7 @@ export function getDBCluster(args: GetDBClusterArgs, opts?: pulumi.InvokeOptions
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:rds:getDBCluster", {
-        "dBClusterIdentifier": args.dBClusterIdentifier,
+        "dbClusterIdentifier": args.dbClusterIdentifier,
     }, opts);
 }
 
@@ -22,7 +22,7 @@ export interface GetDBClusterArgs {
     /**
      * The DB cluster identifier. This parameter is stored as a lowercase string.
      */
-    dBClusterIdentifier: string;
+    dbClusterIdentifier: string;
 }
 
 export interface GetDBClusterResult {
@@ -53,19 +53,19 @@ export interface GetDBClusterResult {
     /**
      * The Amazon Resource Name (ARN) for the DB cluster.
      */
-    readonly dBClusterArn?: string;
+    readonly dbClusterArn?: string;
     /**
      * The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge.
      */
-    readonly dBClusterInstanceClass?: string;
+    readonly dbClusterInstanceClass?: string;
     /**
      * The name of the DB cluster parameter group to associate with this DB cluster.
      */
-    readonly dBClusterParameterGroupName?: string;
+    readonly dbClusterParameterGroupName?: string;
     /**
      * The AWS Region-unique, immutable identifier for the DB cluster.
      */
-    readonly dBClusterResourceId?: string;
+    readonly dbClusterResourceId?: string;
     /**
      * A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
      */
@@ -77,7 +77,7 @@ export interface GetDBClusterResult {
     /**
      * Specify the name of the IAM role to be used when making API calls to the Directory Service.
      */
-    readonly domainIAMRoleName?: string;
+    readonly domainIamRoleName?: string;
     /**
      * The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see Publishing Database Logs to Amazon CloudWatch Logs in the Amazon Aurora User Guide.
      */
@@ -89,7 +89,7 @@ export interface GetDBClusterResult {
     /**
      * A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
      */
-    readonly enableIAMDatabaseAuthentication?: boolean;
+    readonly enableIamDatabaseAuthentication?: boolean;
     readonly endpoint?: outputs.rds.DBClusterEndpoint;
     /**
      * The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora), and aurora-postgresql
@@ -194,5 +194,5 @@ export interface GetDBClusterOutputArgs {
     /**
      * The DB cluster identifier. This parameter is stored as a lowercase string.
      */
-    dBClusterIdentifier: pulumi.Input<string>;
+    dbClusterIdentifier: pulumi.Input<string>;
 }

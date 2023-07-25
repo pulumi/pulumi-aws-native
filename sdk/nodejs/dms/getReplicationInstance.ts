@@ -29,7 +29,7 @@ export interface GetReplicationInstanceResult {
     readonly availabilityZone?: string;
     readonly engineVersion?: string;
     readonly id?: string;
-    readonly multiAZ?: boolean;
+    readonly multiAz?: boolean;
     readonly preferredMaintenanceWindow?: string;
     readonly replicationInstanceClass?: string;
     readonly replicationInstanceIdentifier?: string;

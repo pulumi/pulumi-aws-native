@@ -29,9 +29,9 @@ type LookupClusterArgs struct {
 
 type LookupClusterResult struct {
 	// The name of the Access Control List to associate with the cluster.
-	ACLName *string `pulumi:"aCLName"`
+	AclName *string `pulumi:"aclName"`
 	// The Amazon Resource Name (ARN) of the cluster.
-	ARN *string `pulumi:"aRN"`
+	Arn *string `pulumi:"arn"`
 	// A flag that enables automatic minor version upgrade when set to true.
 	//
 	// You cannot modify the value of AutoMinorVersionUpgrade after the cluster is created. To enable AutoMinorVersionUpgrade on a cluster you must set AutoMinorVersionUpgrade to true when you create a cluster.
@@ -107,13 +107,13 @@ func (o LookupClusterResultOutput) ToLookupClusterResultOutputWithContext(ctx co
 }
 
 // The name of the Access Control List to associate with the cluster.
-func (o LookupClusterResultOutput) ACLName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupClusterResult) *string { return v.ACLName }).(pulumi.StringPtrOutput)
+func (o LookupClusterResultOutput) AclName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *string { return v.AclName }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the cluster.
-func (o LookupClusterResultOutput) ARN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupClusterResult) *string { return v.ARN }).(pulumi.StringPtrOutput)
+func (o LookupClusterResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // A flag that enables automatic minor version upgrade when set to true.

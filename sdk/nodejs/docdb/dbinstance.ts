@@ -42,9 +42,9 @@ export class DBInstance extends pulumi.CustomResource {
 
     public readonly autoMinorVersionUpgrade!: pulumi.Output<boolean | undefined>;
     public readonly availabilityZone!: pulumi.Output<string | undefined>;
-    public readonly dBClusterIdentifier!: pulumi.Output<string>;
-    public readonly dBInstanceClass!: pulumi.Output<string>;
-    public readonly dBInstanceIdentifier!: pulumi.Output<string | undefined>;
+    public readonly dbClusterIdentifier!: pulumi.Output<string>;
+    public readonly dbInstanceClass!: pulumi.Output<string>;
+    public readonly dbInstanceIdentifier!: pulumi.Output<string | undefined>;
     public readonly enablePerformanceInsights!: pulumi.Output<boolean | undefined>;
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
     public /*out*/ readonly port!: pulumi.Output<string>;
@@ -64,17 +64,17 @@ export class DBInstance extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dBClusterIdentifier === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'dBClusterIdentifier'");
+            if ((!args || args.dbClusterIdentifier === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'dbClusterIdentifier'");
             }
-            if ((!args || args.dBInstanceClass === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'dBInstanceClass'");
+            if ((!args || args.dbInstanceClass === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'dbInstanceClass'");
             }
             resourceInputs["autoMinorVersionUpgrade"] = args ? args.autoMinorVersionUpgrade : undefined;
             resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            resourceInputs["dBClusterIdentifier"] = args ? args.dBClusterIdentifier : undefined;
-            resourceInputs["dBInstanceClass"] = args ? args.dBInstanceClass : undefined;
-            resourceInputs["dBInstanceIdentifier"] = args ? args.dBInstanceIdentifier : undefined;
+            resourceInputs["dbClusterIdentifier"] = args ? args.dbClusterIdentifier : undefined;
+            resourceInputs["dbInstanceClass"] = args ? args.dbInstanceClass : undefined;
+            resourceInputs["dbInstanceIdentifier"] = args ? args.dbInstanceIdentifier : undefined;
             resourceInputs["enablePerformanceInsights"] = args ? args.enablePerformanceInsights : undefined;
             resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -83,9 +83,9 @@ export class DBInstance extends pulumi.CustomResource {
         } else {
             resourceInputs["autoMinorVersionUpgrade"] = undefined /*out*/;
             resourceInputs["availabilityZone"] = undefined /*out*/;
-            resourceInputs["dBClusterIdentifier"] = undefined /*out*/;
-            resourceInputs["dBInstanceClass"] = undefined /*out*/;
-            resourceInputs["dBInstanceIdentifier"] = undefined /*out*/;
+            resourceInputs["dbClusterIdentifier"] = undefined /*out*/;
+            resourceInputs["dbInstanceClass"] = undefined /*out*/;
+            resourceInputs["dbInstanceIdentifier"] = undefined /*out*/;
             resourceInputs["enablePerformanceInsights"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["port"] = undefined /*out*/;
@@ -103,9 +103,9 @@ export class DBInstance extends pulumi.CustomResource {
 export interface DBInstanceArgs {
     autoMinorVersionUpgrade?: pulumi.Input<boolean>;
     availabilityZone?: pulumi.Input<string>;
-    dBClusterIdentifier: pulumi.Input<string>;
-    dBInstanceClass: pulumi.Input<string>;
-    dBInstanceIdentifier?: pulumi.Input<string>;
+    dbClusterIdentifier: pulumi.Input<string>;
+    dbInstanceClass: pulumi.Input<string>;
+    dbInstanceIdentifier?: pulumi.Input<string>;
     enablePerformanceInsights?: pulumi.Input<boolean>;
     preferredMaintenanceWindow?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.docdb.DBInstanceTagArgs>[]>;

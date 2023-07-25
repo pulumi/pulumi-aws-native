@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
         public readonly string? CatalogId;
         public readonly string? DatabaseName;
         public readonly string? Region;
-        public readonly string? RoleARN;
+        public readonly string? RoleArn;
         public readonly string? TableName;
         public readonly string? VersionId;
 
@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
 
             string? region,
 
-            string? roleARN,
+            string? roleArn,
 
             string? tableName,
 
@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
             CatalogId = catalogId;
             DatabaseName = databaseName;
             Region = region;
-            RoleARN = roleARN;
+            RoleArn = roleArn;
             TableName = tableName;
             VersionId = versionId;
         }

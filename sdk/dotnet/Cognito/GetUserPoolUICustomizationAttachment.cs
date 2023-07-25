@@ -51,16 +51,16 @@ namespace Pulumi.AwsNative.Cognito
     [OutputType]
     public sealed class GetUserPoolUICustomizationAttachmentResult
     {
-        public readonly string? CSS;
+        public readonly string? Css;
         public readonly string? Id;
 
         [OutputConstructor]
         private GetUserPoolUICustomizationAttachmentResult(
-            string? cSS,
+            string? css,
 
             string? id)
         {
-            CSS = cSS;
+            Css = css;
             Id = id;
         }
     }

@@ -30,7 +30,7 @@ class AlarmArgs:
                  metric_name: Optional[pulumi.Input[str]] = None,
                  metrics: Optional[pulumi.Input[Sequence[pulumi.Input['AlarmMetricDataQueryArgs']]]] = None,
                  namespace: Optional[pulumi.Input[str]] = None,
-                 o_k_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 ok_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  period: Optional[pulumi.Input[int]] = None,
                  statistic: Optional[pulumi.Input[str]] = None,
                  threshold: Optional[pulumi.Input[float]] = None,
@@ -66,8 +66,8 @@ class AlarmArgs:
             pulumi.set(__self__, "metrics", metrics)
         if namespace is not None:
             pulumi.set(__self__, "namespace", namespace)
-        if o_k_actions is not None:
-            pulumi.set(__self__, "o_k_actions", o_k_actions)
+        if ok_actions is not None:
+            pulumi.set(__self__, "ok_actions", ok_actions)
         if period is not None:
             pulumi.set(__self__, "period", period)
         if statistic is not None:
@@ -208,13 +208,13 @@ class AlarmArgs:
         pulumi.set(self, "namespace", value)
 
     @property
-    @pulumi.getter(name="oKActions")
-    def o_k_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        return pulumi.get(self, "o_k_actions")
+    @pulumi.getter(name="okActions")
+    def ok_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "ok_actions")
 
-    @o_k_actions.setter
-    def o_k_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "o_k_actions", value)
+    @ok_actions.setter
+    def ok_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "ok_actions", value)
 
     @property
     @pulumi.getter
@@ -295,7 +295,7 @@ class Alarm(pulumi.CustomResource):
                  metric_name: Optional[pulumi.Input[str]] = None,
                  metrics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlarmMetricDataQueryArgs']]]]] = None,
                  namespace: Optional[pulumi.Input[str]] = None,
-                 o_k_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 ok_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  period: Optional[pulumi.Input[int]] = None,
                  statistic: Optional[pulumi.Input[str]] = None,
                  threshold: Optional[pulumi.Input[float]] = None,
@@ -347,7 +347,7 @@ class Alarm(pulumi.CustomResource):
                  metric_name: Optional[pulumi.Input[str]] = None,
                  metrics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlarmMetricDataQueryArgs']]]]] = None,
                  namespace: Optional[pulumi.Input[str]] = None,
-                 o_k_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 ok_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  period: Optional[pulumi.Input[int]] = None,
                  statistic: Optional[pulumi.Input[str]] = None,
                  threshold: Optional[pulumi.Input[float]] = None,
@@ -382,7 +382,7 @@ class Alarm(pulumi.CustomResource):
             __props__.__dict__["metric_name"] = metric_name
             __props__.__dict__["metrics"] = metrics
             __props__.__dict__["namespace"] = namespace
-            __props__.__dict__["o_k_actions"] = o_k_actions
+            __props__.__dict__["ok_actions"] = ok_actions
             __props__.__dict__["period"] = period
             __props__.__dict__["statistic"] = statistic
             __props__.__dict__["threshold"] = threshold
@@ -427,7 +427,7 @@ class Alarm(pulumi.CustomResource):
         __props__.__dict__["metric_name"] = None
         __props__.__dict__["metrics"] = None
         __props__.__dict__["namespace"] = None
-        __props__.__dict__["o_k_actions"] = None
+        __props__.__dict__["ok_actions"] = None
         __props__.__dict__["period"] = None
         __props__.__dict__["statistic"] = None
         __props__.__dict__["threshold"] = None
@@ -512,9 +512,9 @@ class Alarm(pulumi.CustomResource):
         return pulumi.get(self, "namespace")
 
     @property
-    @pulumi.getter(name="oKActions")
-    def o_k_actions(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        return pulumi.get(self, "o_k_actions")
+    @pulumi.getter(name="okActions")
+    def ok_actions(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        return pulumi.get(self, "ok_actions")
 
     @property
     @pulumi.getter

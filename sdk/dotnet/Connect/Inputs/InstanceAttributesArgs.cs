@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Connect.Inputs
         [Input("outboundCalls", required: true)]
         public Input<bool> OutboundCalls { get; set; } = null!;
 
-        [Input("useCustomTTSVoices")]
-        public Input<bool>? UseCustomTTSVoices { get; set; }
+        [Input("useCustomTtsVoices")]
+        public Input<bool>? UseCustomTtsVoices { get; set; }
 
         public InstanceAttributesArgs()
         {

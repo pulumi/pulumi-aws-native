@@ -54,14 +54,14 @@ namespace Pulumi.AwsNative.AutoScaling
         /// <summary>
         /// The Amazon Resource Name (ARN) of the notification target that Amazon EC2 Auto Scaling uses to notify you when an instance is in the transition state for the lifecycle hook. You can specify an Amazon SQS queue or an Amazon SNS topic. The notification message includes the following information: lifecycle action token, user account ID, Auto Scaling group name, lifecycle hook name, instance ID, lifecycle transition, and notification metadata.
         /// </summary>
-        [Output("notificationTargetARN")]
-        public Output<string?> NotificationTargetARN { get; private set; } = null!;
+        [Output("notificationTargetArn")]
+        public Output<string?> NotificationTargetArn { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target, for example, an Amazon SNS topic or an Amazon SQS queue.
         /// </summary>
-        [Output("roleARN")]
-        public Output<string?> RoleARN { get; private set; } = null!;
+        [Output("roleArn")]
+        public Output<string?> RoleArn { get; private set; } = null!;
 
 
         /// <summary>
@@ -147,14 +147,14 @@ namespace Pulumi.AwsNative.AutoScaling
         /// <summary>
         /// The Amazon Resource Name (ARN) of the notification target that Amazon EC2 Auto Scaling uses to notify you when an instance is in the transition state for the lifecycle hook. You can specify an Amazon SQS queue or an Amazon SNS topic. The notification message includes the following information: lifecycle action token, user account ID, Auto Scaling group name, lifecycle hook name, instance ID, lifecycle transition, and notification metadata.
         /// </summary>
-        [Input("notificationTargetARN")]
-        public Input<string>? NotificationTargetARN { get; set; }
+        [Input("notificationTargetArn")]
+        public Input<string>? NotificationTargetArn { get; set; }
 
         /// <summary>
         /// The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target, for example, an Amazon SNS topic or an Amazon SQS queue.
         /// </summary>
-        [Input("roleARN")]
-        public Input<string>? RoleARN { get; set; }
+        [Input("roleArn")]
+        public Input<string>? RoleArn { get; set; }
 
         public LifecycleHookArgs()
         {

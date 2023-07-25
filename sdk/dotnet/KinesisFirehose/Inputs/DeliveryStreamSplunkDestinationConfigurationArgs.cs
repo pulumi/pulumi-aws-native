@@ -15,17 +15,17 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         [Input("cloudWatchLoggingOptions")]
         public Input<Inputs.DeliveryStreamCloudWatchLoggingOptionsArgs>? CloudWatchLoggingOptions { get; set; }
 
-        [Input("hECAcknowledgmentTimeoutInSeconds")]
-        public Input<int>? HECAcknowledgmentTimeoutInSeconds { get; set; }
+        [Input("hecAcknowledgmentTimeoutInSeconds")]
+        public Input<int>? HecAcknowledgmentTimeoutInSeconds { get; set; }
 
-        [Input("hECEndpoint", required: true)]
-        public Input<string> HECEndpoint { get; set; } = null!;
+        [Input("hecEndpoint", required: true)]
+        public Input<string> HecEndpoint { get; set; } = null!;
 
-        [Input("hECEndpointType", required: true)]
-        public Input<Pulumi.AwsNative.KinesisFirehose.DeliveryStreamSplunkDestinationConfigurationHECEndpointType> HECEndpointType { get; set; } = null!;
+        [Input("hecEndpointType", required: true)]
+        public Input<Pulumi.AwsNative.KinesisFirehose.DeliveryStreamSplunkDestinationConfigurationHECEndpointType> HecEndpointType { get; set; } = null!;
 
-        [Input("hECToken", required: true)]
-        public Input<string> HECToken { get; set; } = null!;
+        [Input("hecToken", required: true)]
+        public Input<string> HecToken { get; set; } = null!;
 
         [Input("processingConfiguration")]
         public Input<Inputs.DeliveryStreamProcessingConfigurationArgs>? ProcessingConfiguration { get; set; }

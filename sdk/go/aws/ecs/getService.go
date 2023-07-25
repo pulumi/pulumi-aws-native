@@ -31,7 +31,7 @@ type LookupServiceResult struct {
 	CapacityProviderStrategy      []ServiceCapacityProviderStrategyItem `pulumi:"capacityProviderStrategy"`
 	DeploymentConfiguration       *ServiceDeploymentConfiguration       `pulumi:"deploymentConfiguration"`
 	DesiredCount                  *int                                  `pulumi:"desiredCount"`
-	EnableECSManagedTags          *bool                                 `pulumi:"enableECSManagedTags"`
+	EnableEcsManagedTags          *bool                                 `pulumi:"enableEcsManagedTags"`
 	EnableExecuteCommand          *bool                                 `pulumi:"enableExecuteCommand"`
 	HealthCheckGracePeriodSeconds *int                                  `pulumi:"healthCheckGracePeriodSeconds"`
 	LoadBalancers                 []ServiceLoadBalancer                 `pulumi:"loadBalancers"`
@@ -95,8 +95,8 @@ func (o LookupServiceResultOutput) DesiredCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupServiceResult) *int { return v.DesiredCount }).(pulumi.IntPtrOutput)
 }
 
-func (o LookupServiceResultOutput) EnableECSManagedTags() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LookupServiceResult) *bool { return v.EnableECSManagedTags }).(pulumi.BoolPtrOutput)
+func (o LookupServiceResultOutput) EnableEcsManagedTags() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupServiceResult) *bool { return v.EnableEcsManagedTags }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupServiceResultOutput) EnableExecuteCommand() pulumi.BoolPtrOutput {

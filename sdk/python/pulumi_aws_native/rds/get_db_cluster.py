@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDBClusterResult:
-    def __init__(__self__, allocated_storage=None, associated_roles=None, auto_minor_version_upgrade=None, backtrack_window=None, backup_retention_period=None, copy_tags_to_snapshot=None, d_b_cluster_arn=None, d_b_cluster_instance_class=None, d_b_cluster_parameter_group_name=None, d_b_cluster_resource_id=None, deletion_protection=None, domain=None, domain_iam_role_name=None, enable_cloudwatch_logs_exports=None, enable_http_endpoint=None, enable_iam_database_authentication=None, endpoint=None, engine=None, engine_version=None, global_cluster_identifier=None, iops=None, manage_master_user_password=None, master_user_secret=None, master_username=None, monitoring_interval=None, monitoring_role_arn=None, network_type=None, performance_insights_enabled=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, read_endpoint=None, replication_source_identifier=None, scaling_configuration=None, serverless_v2_scaling_configuration=None, storage_type=None, tags=None, vpc_security_group_ids=None):
+    def __init__(__self__, allocated_storage=None, associated_roles=None, auto_minor_version_upgrade=None, backtrack_window=None, backup_retention_period=None, copy_tags_to_snapshot=None, db_cluster_arn=None, db_cluster_instance_class=None, db_cluster_parameter_group_name=None, db_cluster_resource_id=None, deletion_protection=None, domain=None, domain_iam_role_name=None, enable_cloudwatch_logs_exports=None, enable_http_endpoint=None, enable_iam_database_authentication=None, endpoint=None, engine=None, engine_version=None, global_cluster_identifier=None, iops=None, manage_master_user_password=None, master_user_secret=None, master_username=None, monitoring_interval=None, monitoring_role_arn=None, network_type=None, performance_insights_enabled=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, read_endpoint=None, replication_source_identifier=None, scaling_configuration=None, serverless_v2_scaling_configuration=None, storage_type=None, tags=None, vpc_security_group_ids=None):
         if allocated_storage and not isinstance(allocated_storage, int):
             raise TypeError("Expected argument 'allocated_storage' to be a int")
         pulumi.set(__self__, "allocated_storage", allocated_storage)
@@ -38,18 +38,18 @@ class GetDBClusterResult:
         if copy_tags_to_snapshot and not isinstance(copy_tags_to_snapshot, bool):
             raise TypeError("Expected argument 'copy_tags_to_snapshot' to be a bool")
         pulumi.set(__self__, "copy_tags_to_snapshot", copy_tags_to_snapshot)
-        if d_b_cluster_arn and not isinstance(d_b_cluster_arn, str):
-            raise TypeError("Expected argument 'd_b_cluster_arn' to be a str")
-        pulumi.set(__self__, "d_b_cluster_arn", d_b_cluster_arn)
-        if d_b_cluster_instance_class and not isinstance(d_b_cluster_instance_class, str):
-            raise TypeError("Expected argument 'd_b_cluster_instance_class' to be a str")
-        pulumi.set(__self__, "d_b_cluster_instance_class", d_b_cluster_instance_class)
-        if d_b_cluster_parameter_group_name and not isinstance(d_b_cluster_parameter_group_name, str):
-            raise TypeError("Expected argument 'd_b_cluster_parameter_group_name' to be a str")
-        pulumi.set(__self__, "d_b_cluster_parameter_group_name", d_b_cluster_parameter_group_name)
-        if d_b_cluster_resource_id and not isinstance(d_b_cluster_resource_id, str):
-            raise TypeError("Expected argument 'd_b_cluster_resource_id' to be a str")
-        pulumi.set(__self__, "d_b_cluster_resource_id", d_b_cluster_resource_id)
+        if db_cluster_arn and not isinstance(db_cluster_arn, str):
+            raise TypeError("Expected argument 'db_cluster_arn' to be a str")
+        pulumi.set(__self__, "db_cluster_arn", db_cluster_arn)
+        if db_cluster_instance_class and not isinstance(db_cluster_instance_class, str):
+            raise TypeError("Expected argument 'db_cluster_instance_class' to be a str")
+        pulumi.set(__self__, "db_cluster_instance_class", db_cluster_instance_class)
+        if db_cluster_parameter_group_name and not isinstance(db_cluster_parameter_group_name, str):
+            raise TypeError("Expected argument 'db_cluster_parameter_group_name' to be a str")
+        pulumi.set(__self__, "db_cluster_parameter_group_name", db_cluster_parameter_group_name)
+        if db_cluster_resource_id and not isinstance(db_cluster_resource_id, str):
+            raise TypeError("Expected argument 'db_cluster_resource_id' to be a str")
+        pulumi.set(__self__, "db_cluster_resource_id", db_cluster_resource_id)
         if deletion_protection and not isinstance(deletion_protection, bool):
             raise TypeError("Expected argument 'deletion_protection' to be a bool")
         pulumi.set(__self__, "deletion_protection", deletion_protection)
@@ -190,36 +190,36 @@ class GetDBClusterResult:
         return pulumi.get(self, "copy_tags_to_snapshot")
 
     @property
-    @pulumi.getter(name="dBClusterArn")
-    def d_b_cluster_arn(self) -> Optional[str]:
+    @pulumi.getter(name="dbClusterArn")
+    def db_cluster_arn(self) -> Optional[str]:
         """
         The Amazon Resource Name (ARN) for the DB cluster.
         """
-        return pulumi.get(self, "d_b_cluster_arn")
+        return pulumi.get(self, "db_cluster_arn")
 
     @property
-    @pulumi.getter(name="dBClusterInstanceClass")
-    def d_b_cluster_instance_class(self) -> Optional[str]:
+    @pulumi.getter(name="dbClusterInstanceClass")
+    def db_cluster_instance_class(self) -> Optional[str]:
         """
         The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge.
         """
-        return pulumi.get(self, "d_b_cluster_instance_class")
+        return pulumi.get(self, "db_cluster_instance_class")
 
     @property
-    @pulumi.getter(name="dBClusterParameterGroupName")
-    def d_b_cluster_parameter_group_name(self) -> Optional[str]:
+    @pulumi.getter(name="dbClusterParameterGroupName")
+    def db_cluster_parameter_group_name(self) -> Optional[str]:
         """
         The name of the DB cluster parameter group to associate with this DB cluster.
         """
-        return pulumi.get(self, "d_b_cluster_parameter_group_name")
+        return pulumi.get(self, "db_cluster_parameter_group_name")
 
     @property
-    @pulumi.getter(name="dBClusterResourceId")
-    def d_b_cluster_resource_id(self) -> Optional[str]:
+    @pulumi.getter(name="dbClusterResourceId")
+    def db_cluster_resource_id(self) -> Optional[str]:
         """
         The AWS Region-unique, immutable identifier for the DB cluster.
         """
-        return pulumi.get(self, "d_b_cluster_resource_id")
+        return pulumi.get(self, "db_cluster_resource_id")
 
     @property
     @pulumi.getter(name="deletionProtection")
@@ -238,7 +238,7 @@ class GetDBClusterResult:
         return pulumi.get(self, "domain")
 
     @property
-    @pulumi.getter(name="domainIAMRoleName")
+    @pulumi.getter(name="domainIamRoleName")
     def domain_iam_role_name(self) -> Optional[str]:
         """
         Specify the name of the IAM role to be used when making API calls to the Directory Service.
@@ -262,7 +262,7 @@ class GetDBClusterResult:
         return pulumi.get(self, "enable_http_endpoint")
 
     @property
-    @pulumi.getter(name="enableIAMDatabaseAuthentication")
+    @pulumi.getter(name="enableIamDatabaseAuthentication")
     def enable_iam_database_authentication(self) -> Optional[bool]:
         """
         A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
@@ -470,10 +470,10 @@ class AwaitableGetDBClusterResult(GetDBClusterResult):
             backtrack_window=self.backtrack_window,
             backup_retention_period=self.backup_retention_period,
             copy_tags_to_snapshot=self.copy_tags_to_snapshot,
-            d_b_cluster_arn=self.d_b_cluster_arn,
-            d_b_cluster_instance_class=self.d_b_cluster_instance_class,
-            d_b_cluster_parameter_group_name=self.d_b_cluster_parameter_group_name,
-            d_b_cluster_resource_id=self.d_b_cluster_resource_id,
+            db_cluster_arn=self.db_cluster_arn,
+            db_cluster_instance_class=self.db_cluster_instance_class,
+            db_cluster_parameter_group_name=self.db_cluster_parameter_group_name,
+            db_cluster_resource_id=self.db_cluster_resource_id,
             deletion_protection=self.deletion_protection,
             domain=self.domain,
             domain_iam_role_name=self.domain_iam_role_name,
@@ -506,16 +506,16 @@ class AwaitableGetDBClusterResult(GetDBClusterResult):
             vpc_security_group_ids=self.vpc_security_group_ids)
 
 
-def get_db_cluster(d_b_cluster_identifier: Optional[str] = None,
+def get_db_cluster(db_cluster_identifier: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDBClusterResult:
     """
     The AWS::RDS::DBCluster resource creates an Amazon Aurora DB cluster.
 
 
-    :param str d_b_cluster_identifier: The DB cluster identifier. This parameter is stored as a lowercase string.
+    :param str db_cluster_identifier: The DB cluster identifier. This parameter is stored as a lowercase string.
     """
     __args__ = dict()
-    __args__['dBClusterIdentifier'] = d_b_cluster_identifier
+    __args__['dbClusterIdentifier'] = db_cluster_identifier
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:rds:getDBCluster', __args__, opts=opts, typ=GetDBClusterResult).value
 
@@ -526,10 +526,10 @@ def get_db_cluster(d_b_cluster_identifier: Optional[str] = None,
         backtrack_window=pulumi.get(__ret__, 'backtrack_window'),
         backup_retention_period=pulumi.get(__ret__, 'backup_retention_period'),
         copy_tags_to_snapshot=pulumi.get(__ret__, 'copy_tags_to_snapshot'),
-        d_b_cluster_arn=pulumi.get(__ret__, 'd_b_cluster_arn'),
-        d_b_cluster_instance_class=pulumi.get(__ret__, 'd_b_cluster_instance_class'),
-        d_b_cluster_parameter_group_name=pulumi.get(__ret__, 'd_b_cluster_parameter_group_name'),
-        d_b_cluster_resource_id=pulumi.get(__ret__, 'd_b_cluster_resource_id'),
+        db_cluster_arn=pulumi.get(__ret__, 'db_cluster_arn'),
+        db_cluster_instance_class=pulumi.get(__ret__, 'db_cluster_instance_class'),
+        db_cluster_parameter_group_name=pulumi.get(__ret__, 'db_cluster_parameter_group_name'),
+        db_cluster_resource_id=pulumi.get(__ret__, 'db_cluster_resource_id'),
         deletion_protection=pulumi.get(__ret__, 'deletion_protection'),
         domain=pulumi.get(__ret__, 'domain'),
         domain_iam_role_name=pulumi.get(__ret__, 'domain_iam_role_name'),
@@ -563,12 +563,12 @@ def get_db_cluster(d_b_cluster_identifier: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_db_cluster)
-def get_db_cluster_output(d_b_cluster_identifier: Optional[pulumi.Input[str]] = None,
+def get_db_cluster_output(db_cluster_identifier: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDBClusterResult]:
     """
     The AWS::RDS::DBCluster resource creates an Amazon Aurora DB cluster.
 
 
-    :param str d_b_cluster_identifier: The DB cluster identifier. This parameter is stored as a lowercase string.
+    :param str db_cluster_identifier: The DB cluster identifier. This parameter is stored as a lowercase string.
     """
     ...

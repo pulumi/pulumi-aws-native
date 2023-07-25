@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetClassifierResult:
-    def __init__(__self__, csv_classifier=None, grok_classifier=None, id=None, json_classifier=None, x_ml_classifier=None):
+    def __init__(__self__, csv_classifier=None, grok_classifier=None, id=None, json_classifier=None, xml_classifier=None):
         if csv_classifier and not isinstance(csv_classifier, dict):
             raise TypeError("Expected argument 'csv_classifier' to be a dict")
         pulumi.set(__self__, "csv_classifier", csv_classifier)
@@ -32,9 +32,9 @@ class GetClassifierResult:
         if json_classifier and not isinstance(json_classifier, dict):
             raise TypeError("Expected argument 'json_classifier' to be a dict")
         pulumi.set(__self__, "json_classifier", json_classifier)
-        if x_ml_classifier and not isinstance(x_ml_classifier, dict):
-            raise TypeError("Expected argument 'x_ml_classifier' to be a dict")
-        pulumi.set(__self__, "x_ml_classifier", x_ml_classifier)
+        if xml_classifier and not isinstance(xml_classifier, dict):
+            raise TypeError("Expected argument 'xml_classifier' to be a dict")
+        pulumi.set(__self__, "xml_classifier", xml_classifier)
 
     @property
     @pulumi.getter(name="csvClassifier")
@@ -57,9 +57,9 @@ class GetClassifierResult:
         return pulumi.get(self, "json_classifier")
 
     @property
-    @pulumi.getter(name="xMLClassifier")
-    def x_ml_classifier(self) -> Optional['outputs.ClassifierXMLClassifier']:
-        return pulumi.get(self, "x_ml_classifier")
+    @pulumi.getter(name="xmlClassifier")
+    def xml_classifier(self) -> Optional['outputs.ClassifierXMLClassifier']:
+        return pulumi.get(self, "xml_classifier")
 
 
 class AwaitableGetClassifierResult(GetClassifierResult):
@@ -72,7 +72,7 @@ class AwaitableGetClassifierResult(GetClassifierResult):
             grok_classifier=self.grok_classifier,
             id=self.id,
             json_classifier=self.json_classifier,
-            x_ml_classifier=self.x_ml_classifier)
+            xml_classifier=self.xml_classifier)
 
 
 def get_classifier(id: Optional[str] = None,
@@ -90,7 +90,7 @@ def get_classifier(id: Optional[str] = None,
         grok_classifier=pulumi.get(__ret__, 'grok_classifier'),
         id=pulumi.get(__ret__, 'id'),
         json_classifier=pulumi.get(__ret__, 'json_classifier'),
-        x_ml_classifier=pulumi.get(__ret__, 'x_ml_classifier'))
+        xml_classifier=pulumi.get(__ret__, 'xml_classifier'))
 
 
 @_utilities.lift_output_func(get_classifier)

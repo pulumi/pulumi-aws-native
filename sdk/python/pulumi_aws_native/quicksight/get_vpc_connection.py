@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetVPCConnectionResult:
-    def __init__(__self__, arn=None, availability_status=None, created_time=None, dns_resolvers=None, last_updated_time=None, name=None, network_interfaces=None, role_arn=None, security_group_ids=None, status=None, tags=None, v_pc_id=None):
+    def __init__(__self__, arn=None, availability_status=None, created_time=None, dns_resolvers=None, last_updated_time=None, name=None, network_interfaces=None, role_arn=None, security_group_ids=None, status=None, tags=None, vpc_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -54,9 +54,9 @@ class GetVPCConnectionResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
-        if v_pc_id and not isinstance(v_pc_id, str):
-            raise TypeError("Expected argument 'v_pc_id' to be a str")
-        pulumi.set(__self__, "v_pc_id", v_pc_id)
+        if vpc_id and not isinstance(vpc_id, str):
+            raise TypeError("Expected argument 'vpc_id' to be a str")
+        pulumi.set(__self__, "vpc_id", vpc_id)
 
     @property
     @pulumi.getter
@@ -114,9 +114,9 @@ class GetVPCConnectionResult:
         return pulumi.get(self, "tags")
 
     @property
-    @pulumi.getter(name="vPCId")
-    def v_pc_id(self) -> Optional[str]:
-        return pulumi.get(self, "v_pc_id")
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> Optional[str]:
+        return pulumi.get(self, "vpc_id")
 
 
 class AwaitableGetVPCConnectionResult(GetVPCConnectionResult):
@@ -136,18 +136,18 @@ class AwaitableGetVPCConnectionResult(GetVPCConnectionResult):
             security_group_ids=self.security_group_ids,
             status=self.status,
             tags=self.tags,
-            v_pc_id=self.v_pc_id)
+            vpc_id=self.vpc_id)
 
 
 def get_vpc_connection(aws_account_id: Optional[str] = None,
-                       v_pc_connection_id: Optional[str] = None,
+                       vpc_connection_id: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVPCConnectionResult:
     """
     Definition of the AWS::QuickSight::VPCConnection Resource Type.
     """
     __args__ = dict()
     __args__['awsAccountId'] = aws_account_id
-    __args__['vPCConnectionId'] = v_pc_connection_id
+    __args__['vpcConnectionId'] = vpc_connection_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:quicksight:getVPCConnection', __args__, opts=opts, typ=GetVPCConnectionResult).value
 
@@ -163,12 +163,12 @@ def get_vpc_connection(aws_account_id: Optional[str] = None,
         security_group_ids=pulumi.get(__ret__, 'security_group_ids'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
-        v_pc_id=pulumi.get(__ret__, 'v_pc_id'))
+        vpc_id=pulumi.get(__ret__, 'vpc_id'))
 
 
 @_utilities.lift_output_func(get_vpc_connection)
 def get_vpc_connection_output(aws_account_id: Optional[pulumi.Input[str]] = None,
-                              v_pc_connection_id: Optional[pulumi.Input[str]] = None,
+                              vpc_connection_id: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVPCConnectionResult]:
     """
     Definition of the AWS::QuickSight::VPCConnection Resource Type.

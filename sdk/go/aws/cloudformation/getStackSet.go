@@ -29,7 +29,7 @@ type LookupStackSetArgs struct {
 
 type LookupStackSetResult struct {
 	// The Amazon Resource Number (ARN) of the IAM role to use to create this stack set. Specify an IAM role only if you are using customized administrator roles to control which users or groups can manage specific stack sets within the same administrator account.
-	AdministrationRoleARN *string `pulumi:"administrationRoleARN"`
+	AdministrationRoleArn *string `pulumi:"administrationRoleArn"`
 	// Describes whether StackSets automatically deploys to AWS Organizations accounts that are added to the target organization or organizational unit (OU). Specify only if PermissionModel is SERVICE_MANAGED.
 	AutoDeployment *StackSetAutoDeployment `pulumi:"autoDeployment"`
 	// In some cases, you must explicitly acknowledge that your stack set template contains certain capabilities in order for AWS CloudFormation to create the stack set and related stack instances.
@@ -87,8 +87,8 @@ func (o LookupStackSetResultOutput) ToLookupStackSetResultOutputWithContext(ctx 
 }
 
 // The Amazon Resource Number (ARN) of the IAM role to use to create this stack set. Specify an IAM role only if you are using customized administrator roles to control which users or groups can manage specific stack sets within the same administrator account.
-func (o LookupStackSetResultOutput) AdministrationRoleARN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupStackSetResult) *string { return v.AdministrationRoleARN }).(pulumi.StringPtrOutput)
+func (o LookupStackSetResultOutput) AdministrationRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStackSetResult) *string { return v.AdministrationRoleArn }).(pulumi.StringPtrOutput)
 }
 
 // Describes whether StackSets automatically deploys to AWS Organizations accounts that are added to the target organization or organizational unit (OU). Specify only if PermissionModel is SERVICE_MANAGED.

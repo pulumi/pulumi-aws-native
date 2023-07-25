@@ -12,11 +12,11 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateCustomActionURLOperationArgs : global::Pulumi.ResourceArgs
     {
-        [Input("uRLTarget", required: true)]
-        public Input<Pulumi.AwsNative.QuickSight.TemplateURLTargetConfiguration> URLTarget { get; set; } = null!;
+        [Input("urlTarget", required: true)]
+        public Input<Pulumi.AwsNative.QuickSight.TemplateURLTargetConfiguration> UrlTarget { get; set; } = null!;
 
-        [Input("uRLTemplate", required: true)]
-        public Input<string> URLTemplate { get; set; } = null!;
+        [Input("urlTemplate", required: true)]
+        public Input<string> UrlTemplate { get; set; } = null!;
 
         public TemplateCustomActionURLOperationArgs()
         {

@@ -25,7 +25,7 @@ type ImageVersion struct {
 	ImageName       pulumi.StringOutput                 `pulumi:"imageName"`
 	ImageVersionArn pulumi.StringOutput                 `pulumi:"imageVersionArn"`
 	JobType         ImageVersionJobTypePtrOutput        `pulumi:"jobType"`
-	MLFramework     pulumi.StringPtrOutput              `pulumi:"mLFramework"`
+	MlFramework     pulumi.StringPtrOutput              `pulumi:"mlFramework"`
 	Processor       ImageVersionProcessorPtrOutput      `pulumi:"processor"`
 	ProgrammingLang pulumi.StringPtrOutput              `pulumi:"programmingLang"`
 	ReleaseNotes    pulumi.StringPtrOutput              `pulumi:"releaseNotes"`
@@ -85,7 +85,7 @@ type imageVersionArgs struct {
 	Horovod         *bool                       `pulumi:"horovod"`
 	ImageName       string                      `pulumi:"imageName"`
 	JobType         *ImageVersionJobType        `pulumi:"jobType"`
-	MLFramework     *string                     `pulumi:"mLFramework"`
+	MlFramework     *string                     `pulumi:"mlFramework"`
 	Processor       *ImageVersionProcessor      `pulumi:"processor"`
 	ProgrammingLang *string                     `pulumi:"programmingLang"`
 	ReleaseNotes    *string                     `pulumi:"releaseNotes"`
@@ -100,7 +100,7 @@ type ImageVersionArgs struct {
 	Horovod         pulumi.BoolPtrInput
 	ImageName       pulumi.StringInput
 	JobType         ImageVersionJobTypePtrInput
-	MLFramework     pulumi.StringPtrInput
+	MlFramework     pulumi.StringPtrInput
 	Processor       ImageVersionProcessorPtrInput
 	ProgrammingLang pulumi.StringPtrInput
 	ReleaseNotes    pulumi.StringPtrInput
@@ -180,8 +180,8 @@ func (o ImageVersionOutput) JobType() ImageVersionJobTypePtrOutput {
 	return o.ApplyT(func(v *ImageVersion) ImageVersionJobTypePtrOutput { return v.JobType }).(ImageVersionJobTypePtrOutput)
 }
 
-func (o ImageVersionOutput) MLFramework() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ImageVersion) pulumi.StringPtrOutput { return v.MLFramework }).(pulumi.StringPtrOutput)
+func (o ImageVersionOutput) MlFramework() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageVersion) pulumi.StringPtrOutput { return v.MlFramework }).(pulumi.StringPtrOutput)
 }
 
 func (o ImageVersionOutput) Processor() ImageVersionProcessorPtrOutput {

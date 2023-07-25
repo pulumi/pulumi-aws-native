@@ -54,7 +54,7 @@ namespace Pulumi.AwsNative.SecretsManager
         public readonly Outputs.RotationScheduleHostedRotationLambda? HostedRotationLambda;
         public readonly string? Id;
         public readonly bool? RotateImmediatelyOnUpdate;
-        public readonly string? RotationLambdaARN;
+        public readonly string? RotationLambdaArn;
         public readonly Outputs.RotationScheduleRotationRules? RotationRules;
 
         [OutputConstructor]
@@ -65,14 +65,14 @@ namespace Pulumi.AwsNative.SecretsManager
 
             bool? rotateImmediatelyOnUpdate,
 
-            string? rotationLambdaARN,
+            string? rotationLambdaArn,
 
             Outputs.RotationScheduleRotationRules? rotationRules)
         {
             HostedRotationLambda = hostedRotationLambda;
             Id = id;
             RotateImmediatelyOnUpdate = rotateImmediatelyOnUpdate;
-            RotationLambdaARN = rotationLambdaARN;
+            RotationLambdaArn = rotationLambdaArn;
             RotationRules = rotationRules;
         }
     }

@@ -17,25 +17,25 @@ __all__ = ['DBProxyEndpointArgs', 'DBProxyEndpoint']
 @pulumi.input_type
 class DBProxyEndpointArgs:
     def __init__(__self__, *,
-                 d_b_proxy_name: pulumi.Input[str],
+                 db_proxy_name: pulumi.Input[str],
                  vpc_subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 d_b_proxy_endpoint_name: Optional[pulumi.Input[str]] = None,
+                 db_proxy_endpoint_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DBProxyEndpointTagFormatArgs']]]] = None,
                  target_role: Optional[pulumi.Input['DBProxyEndpointTargetRole']] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a DBProxyEndpoint resource.
-        :param pulumi.Input[str] d_b_proxy_name: The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
+        :param pulumi.Input[str] db_proxy_name: The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_subnet_ids: VPC subnet IDs to associate with the new DB proxy endpoint.
-        :param pulumi.Input[str] d_b_proxy_endpoint_name: The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.
+        :param pulumi.Input[str] db_proxy_endpoint_name: The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.
         :param pulumi.Input[Sequence[pulumi.Input['DBProxyEndpointTagFormatArgs']]] tags: An optional set of key-value pairs to associate arbitrary data of your choosing with the DB proxy endpoint.
         :param pulumi.Input['DBProxyEndpointTargetRole'] target_role: A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: VPC security group IDs to associate with the new DB proxy endpoint.
         """
-        pulumi.set(__self__, "d_b_proxy_name", d_b_proxy_name)
+        pulumi.set(__self__, "db_proxy_name", db_proxy_name)
         pulumi.set(__self__, "vpc_subnet_ids", vpc_subnet_ids)
-        if d_b_proxy_endpoint_name is not None:
-            pulumi.set(__self__, "d_b_proxy_endpoint_name", d_b_proxy_endpoint_name)
+        if db_proxy_endpoint_name is not None:
+            pulumi.set(__self__, "db_proxy_endpoint_name", db_proxy_endpoint_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if target_role is not None:
@@ -44,16 +44,16 @@ class DBProxyEndpointArgs:
             pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
 
     @property
-    @pulumi.getter(name="dBProxyName")
-    def d_b_proxy_name(self) -> pulumi.Input[str]:
+    @pulumi.getter(name="dbProxyName")
+    def db_proxy_name(self) -> pulumi.Input[str]:
         """
         The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
         """
-        return pulumi.get(self, "d_b_proxy_name")
+        return pulumi.get(self, "db_proxy_name")
 
-    @d_b_proxy_name.setter
-    def d_b_proxy_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "d_b_proxy_name", value)
+    @db_proxy_name.setter
+    def db_proxy_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "db_proxy_name", value)
 
     @property
     @pulumi.getter(name="vpcSubnetIds")
@@ -68,16 +68,16 @@ class DBProxyEndpointArgs:
         pulumi.set(self, "vpc_subnet_ids", value)
 
     @property
-    @pulumi.getter(name="dBProxyEndpointName")
-    def d_b_proxy_endpoint_name(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="dbProxyEndpointName")
+    def db_proxy_endpoint_name(self) -> Optional[pulumi.Input[str]]:
         """
         The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.
         """
-        return pulumi.get(self, "d_b_proxy_endpoint_name")
+        return pulumi.get(self, "db_proxy_endpoint_name")
 
-    @d_b_proxy_endpoint_name.setter
-    def d_b_proxy_endpoint_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "d_b_proxy_endpoint_name", value)
+    @db_proxy_endpoint_name.setter
+    def db_proxy_endpoint_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "db_proxy_endpoint_name", value)
 
     @property
     @pulumi.getter
@@ -121,8 +121,8 @@ class DBProxyEndpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 d_b_proxy_endpoint_name: Optional[pulumi.Input[str]] = None,
-                 d_b_proxy_name: Optional[pulumi.Input[str]] = None,
+                 db_proxy_endpoint_name: Optional[pulumi.Input[str]] = None,
+                 db_proxy_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBProxyEndpointTagFormatArgs']]]]] = None,
                  target_role: Optional[pulumi.Input['DBProxyEndpointTargetRole']] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -133,8 +133,8 @@ class DBProxyEndpoint(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] d_b_proxy_endpoint_name: The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.
-        :param pulumi.Input[str] d_b_proxy_name: The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
+        :param pulumi.Input[str] db_proxy_endpoint_name: The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.
+        :param pulumi.Input[str] db_proxy_name: The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBProxyEndpointTagFormatArgs']]]] tags: An optional set of key-value pairs to associate arbitrary data of your choosing with the DB proxy endpoint.
         :param pulumi.Input['DBProxyEndpointTargetRole'] target_role: A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: VPC security group IDs to associate with the new DB proxy endpoint.
@@ -164,8 +164,8 @@ class DBProxyEndpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 d_b_proxy_endpoint_name: Optional[pulumi.Input[str]] = None,
-                 d_b_proxy_name: Optional[pulumi.Input[str]] = None,
+                 db_proxy_endpoint_name: Optional[pulumi.Input[str]] = None,
+                 db_proxy_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBProxyEndpointTagFormatArgs']]]]] = None,
                  target_role: Optional[pulumi.Input['DBProxyEndpointTargetRole']] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -179,17 +179,17 @@ class DBProxyEndpoint(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DBProxyEndpointArgs.__new__(DBProxyEndpointArgs)
 
-            __props__.__dict__["d_b_proxy_endpoint_name"] = d_b_proxy_endpoint_name
-            if d_b_proxy_name is None and not opts.urn:
-                raise TypeError("Missing required property 'd_b_proxy_name'")
-            __props__.__dict__["d_b_proxy_name"] = d_b_proxy_name
+            __props__.__dict__["db_proxy_endpoint_name"] = db_proxy_endpoint_name
+            if db_proxy_name is None and not opts.urn:
+                raise TypeError("Missing required property 'db_proxy_name'")
+            __props__.__dict__["db_proxy_name"] = db_proxy_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["target_role"] = target_role
             __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
             if vpc_subnet_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_subnet_ids'")
             __props__.__dict__["vpc_subnet_ids"] = vpc_subnet_ids
-            __props__.__dict__["d_b_proxy_endpoint_arn"] = None
+            __props__.__dict__["db_proxy_endpoint_arn"] = None
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["is_default"] = None
             __props__.__dict__["vpc_id"] = None
@@ -215,9 +215,9 @@ class DBProxyEndpoint(pulumi.CustomResource):
 
         __props__ = DBProxyEndpointArgs.__new__(DBProxyEndpointArgs)
 
-        __props__.__dict__["d_b_proxy_endpoint_arn"] = None
-        __props__.__dict__["d_b_proxy_endpoint_name"] = None
-        __props__.__dict__["d_b_proxy_name"] = None
+        __props__.__dict__["db_proxy_endpoint_arn"] = None
+        __props__.__dict__["db_proxy_endpoint_name"] = None
+        __props__.__dict__["db_proxy_name"] = None
         __props__.__dict__["endpoint"] = None
         __props__.__dict__["is_default"] = None
         __props__.__dict__["tags"] = None
@@ -228,28 +228,28 @@ class DBProxyEndpoint(pulumi.CustomResource):
         return DBProxyEndpoint(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="dBProxyEndpointArn")
-    def d_b_proxy_endpoint_arn(self) -> pulumi.Output[str]:
+    @pulumi.getter(name="dbProxyEndpointArn")
+    def db_proxy_endpoint_arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name (ARN) for the DB proxy endpoint.
         """
-        return pulumi.get(self, "d_b_proxy_endpoint_arn")
+        return pulumi.get(self, "db_proxy_endpoint_arn")
 
     @property
-    @pulumi.getter(name="dBProxyEndpointName")
-    def d_b_proxy_endpoint_name(self) -> pulumi.Output[str]:
+    @pulumi.getter(name="dbProxyEndpointName")
+    def db_proxy_endpoint_name(self) -> pulumi.Output[str]:
         """
         The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.
         """
-        return pulumi.get(self, "d_b_proxy_endpoint_name")
+        return pulumi.get(self, "db_proxy_endpoint_name")
 
     @property
-    @pulumi.getter(name="dBProxyName")
-    def d_b_proxy_name(self) -> pulumi.Output[str]:
+    @pulumi.getter(name="dbProxyName")
+    def db_proxy_name(self) -> pulumi.Output[str]:
         """
         The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
         """
-        return pulumi.get(self, "d_b_proxy_name")
+        return pulumi.get(self, "db_proxy_name")
 
     @property
     @pulumi.getter

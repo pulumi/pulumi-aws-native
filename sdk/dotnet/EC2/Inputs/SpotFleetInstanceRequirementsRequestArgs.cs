@@ -115,8 +115,8 @@ namespace Pulumi.AwsNative.EC2.Inputs
         [Input("spotMaxPricePercentageOverLowestPrice")]
         public Input<int>? SpotMaxPricePercentageOverLowestPrice { get; set; }
 
-        [Input("totalLocalStorageGB")]
-        public Input<Inputs.SpotFleetTotalLocalStorageGBRequestArgs>? TotalLocalStorageGB { get; set; }
+        [Input("totalLocalStorageGb")]
+        public Input<Inputs.SpotFleetTotalLocalStorageGBRequestArgs>? TotalLocalStorageGb { get; set; }
 
         [Input("vCpuCount")]
         public Input<Inputs.SpotFleetVCpuCountRangeRequestArgs>? VCpuCount { get; set; }

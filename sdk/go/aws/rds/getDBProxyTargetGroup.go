@@ -29,8 +29,8 @@ type LookupDBProxyTargetGroupArgs struct {
 
 type LookupDBProxyTargetGroupResult struct {
 	ConnectionPoolConfigurationInfo *DBProxyTargetGroupConnectionPoolConfigurationInfoFormat `pulumi:"connectionPoolConfigurationInfo"`
-	DBClusterIdentifiers            []string                                                 `pulumi:"dBClusterIdentifiers"`
-	DBInstanceIdentifiers           []string                                                 `pulumi:"dBInstanceIdentifiers"`
+	DbClusterIdentifiers            []string                                                 `pulumi:"dbClusterIdentifiers"`
+	DbInstanceIdentifiers           []string                                                 `pulumi:"dbInstanceIdentifiers"`
 	// The Amazon Resource Name (ARN) representing the target group.
 	TargetGroupArn *string `pulumi:"targetGroupArn"`
 }
@@ -77,12 +77,12 @@ func (o LookupDBProxyTargetGroupResultOutput) ConnectionPoolConfigurationInfo() 
 	}).(DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput)
 }
 
-func (o LookupDBProxyTargetGroupResultOutput) DBClusterIdentifiers() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v LookupDBProxyTargetGroupResult) []string { return v.DBClusterIdentifiers }).(pulumi.StringArrayOutput)
+func (o LookupDBProxyTargetGroupResultOutput) DbClusterIdentifiers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupDBProxyTargetGroupResult) []string { return v.DbClusterIdentifiers }).(pulumi.StringArrayOutput)
 }
 
-func (o LookupDBProxyTargetGroupResultOutput) DBInstanceIdentifiers() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v LookupDBProxyTargetGroupResult) []string { return v.DBInstanceIdentifiers }).(pulumi.StringArrayOutput)
+func (o LookupDBProxyTargetGroupResultOutput) DbInstanceIdentifiers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupDBProxyTargetGroupResult) []string { return v.DbInstanceIdentifiers }).(pulumi.StringArrayOutput)
 }
 
 // The Amazon Resource Name (ARN) representing the target group.

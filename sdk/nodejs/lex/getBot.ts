@@ -33,7 +33,7 @@ export interface GetBotResult {
     /**
      * IdleSessionTTLInSeconds of the resource
      */
-    readonly idleSessionTTLInSeconds?: number;
+    readonly idleSessionTtlInSeconds?: number;
     readonly name?: string;
     readonly roleArn?: string;
     readonly testBotAliasSettings?: outputs.lex.BotTestBotAliasSettings;

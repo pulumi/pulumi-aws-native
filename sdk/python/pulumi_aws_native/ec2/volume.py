@@ -80,7 +80,7 @@ class VolumeArgs:
         pulumi.set(self, "availability_zone", value)
 
     @property
-    @pulumi.getter(name="autoEnableIO")
+    @pulumi.getter(name="autoEnableIo")
     def auto_enable_io(self) -> Optional[pulumi.Input[bool]]:
         """
         The Availability Zone in which to create the volume.
@@ -346,7 +346,7 @@ class Volume(pulumi.CustomResource):
         return Volume(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="autoEnableIO")
+    @pulumi.getter(name="autoEnableIo")
     def auto_enable_io(self) -> pulumi.Output[Optional[bool]]:
         """
         The Availability Zone in which to create the volume.

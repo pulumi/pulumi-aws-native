@@ -15,8 +15,8 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         [Input("intervalInSeconds")]
         public Input<int>? IntervalInSeconds { get; set; }
 
-        [Input("sizeInMBs")]
-        public Input<int>? SizeInMBs { get; set; }
+        [Input("sizeInMbs")]
+        public Input<int>? SizeInMbs { get; set; }
 
         public DeliveryStreamElasticsearchBufferingHintsArgs()
         {

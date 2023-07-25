@@ -74,7 +74,7 @@ class DataIntegrationArgs:
         pulumi.set(self, "schedule_config", value)
 
     @property
-    @pulumi.getter(name="sourceURI")
+    @pulumi.getter(name="sourceUri")
     def source_uri(self) -> pulumi.Input[str]:
         """
         The URI of the data source.
@@ -320,7 +320,7 @@ class DataIntegration(pulumi.CustomResource):
         return pulumi.get(self, "schedule_config")
 
     @property
-    @pulumi.getter(name="sourceURI")
+    @pulumi.getter(name="sourceUri")
     def source_uri(self) -> pulumi.Output[str]:
         """
         The URI of the data source.

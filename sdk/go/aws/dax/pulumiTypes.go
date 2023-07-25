@@ -14,7 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ClusterSSESpecification struct {
-	SSEEnabled *bool `pulumi:"sSEEnabled"`
+	SseEnabled *bool `pulumi:"sseEnabled"`
 }
 
 // ClusterSSESpecificationInput is an input type that accepts ClusterSSESpecificationArgs and ClusterSSESpecificationOutput values.
@@ -29,7 +29,7 @@ type ClusterSSESpecificationInput interface {
 }
 
 type ClusterSSESpecificationArgs struct {
-	SSEEnabled pulumi.BoolPtrInput `pulumi:"sSEEnabled"`
+	SseEnabled pulumi.BoolPtrInput `pulumi:"sseEnabled"`
 }
 
 func (ClusterSSESpecificationArgs) ElementType() reflect.Type {
@@ -109,8 +109,8 @@ func (o ClusterSSESpecificationOutput) ToClusterSSESpecificationPtrOutputWithCon
 	}).(ClusterSSESpecificationPtrOutput)
 }
 
-func (o ClusterSSESpecificationOutput) SSEEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ClusterSSESpecification) *bool { return v.SSEEnabled }).(pulumi.BoolPtrOutput)
+func (o ClusterSSESpecificationOutput) SseEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClusterSSESpecification) *bool { return v.SseEnabled }).(pulumi.BoolPtrOutput)
 }
 
 type ClusterSSESpecificationPtrOutput struct{ *pulumi.OutputState }
@@ -137,12 +137,12 @@ func (o ClusterSSESpecificationPtrOutput) Elem() ClusterSSESpecificationOutput {
 	}).(ClusterSSESpecificationOutput)
 }
 
-func (o ClusterSSESpecificationPtrOutput) SSEEnabled() pulumi.BoolPtrOutput {
+func (o ClusterSSESpecificationPtrOutput) SseEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterSSESpecification) *bool {
 		if v == nil {
 			return nil
 		}
-		return v.SSEEnabled
+		return v.SseEnabled
 	}).(pulumi.BoolPtrOutput)
 }
 

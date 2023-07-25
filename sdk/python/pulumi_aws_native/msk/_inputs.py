@@ -129,7 +129,7 @@ class ClusterBrokerNodeGroupInfoArgs:
         pulumi.set(self, "instance_type", value)
 
     @property
-    @pulumi.getter(name="brokerAZDistribution")
+    @pulumi.getter(name="brokerAzDistribution")
     def broker_az_distribution(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "broker_az_distribution")
 
@@ -326,7 +326,7 @@ class ClusterEncryptionAtRestArgs:
         pulumi.set(__self__, "data_volume_kms_key_id", data_volume_kms_key_id)
 
     @property
-    @pulumi.getter(name="dataVolumeKMSKeyId")
+    @pulumi.getter(name="dataVolumeKmsKeyId")
     def data_volume_kms_key_id(self) -> pulumi.Input[str]:
         return pulumi.get(self, "data_volume_kms_key_id")
 
@@ -664,18 +664,18 @@ class ClusterScramArgs:
 @pulumi.input_type
 class ClusterStorageInfoArgs:
     def __init__(__self__, *,
-                 e_bs_storage_info: Optional[pulumi.Input['ClusterEBSStorageInfoArgs']] = None):
-        if e_bs_storage_info is not None:
-            pulumi.set(__self__, "e_bs_storage_info", e_bs_storage_info)
+                 ebs_storage_info: Optional[pulumi.Input['ClusterEBSStorageInfoArgs']] = None):
+        if ebs_storage_info is not None:
+            pulumi.set(__self__, "ebs_storage_info", ebs_storage_info)
 
     @property
-    @pulumi.getter(name="eBSStorageInfo")
-    def e_bs_storage_info(self) -> Optional[pulumi.Input['ClusterEBSStorageInfoArgs']]:
-        return pulumi.get(self, "e_bs_storage_info")
+    @pulumi.getter(name="ebsStorageInfo")
+    def ebs_storage_info(self) -> Optional[pulumi.Input['ClusterEBSStorageInfoArgs']]:
+        return pulumi.get(self, "ebs_storage_info")
 
-    @e_bs_storage_info.setter
-    def e_bs_storage_info(self, value: Optional[pulumi.Input['ClusterEBSStorageInfoArgs']]):
-        pulumi.set(self, "e_bs_storage_info", value)
+    @ebs_storage_info.setter
+    def ebs_storage_info(self, value: Optional[pulumi.Input['ClusterEBSStorageInfoArgs']]):
+        pulumi.set(self, "ebs_storage_info", value)
 
 
 @pulumi.input_type

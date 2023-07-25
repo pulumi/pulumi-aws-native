@@ -27,7 +27,7 @@ type LookupDBSecurityGroupArgs struct {
 }
 
 type LookupDBSecurityGroupResult struct {
-	DBSecurityGroupIngress []DBSecurityGroupIngressType `pulumi:"dBSecurityGroupIngress"`
+	DbSecurityGroupIngress []DBSecurityGroupIngressType `pulumi:"dbSecurityGroupIngress"`
 	Id                     *string                      `pulumi:"id"`
 	Tags                   []DBSecurityGroupTag         `pulumi:"tags"`
 }
@@ -67,8 +67,8 @@ func (o LookupDBSecurityGroupResultOutput) ToLookupDBSecurityGroupResultOutputWi
 	return o
 }
 
-func (o LookupDBSecurityGroupResultOutput) DBSecurityGroupIngress() DBSecurityGroupIngressTypeArrayOutput {
-	return o.ApplyT(func(v LookupDBSecurityGroupResult) []DBSecurityGroupIngressType { return v.DBSecurityGroupIngress }).(DBSecurityGroupIngressTypeArrayOutput)
+func (o LookupDBSecurityGroupResultOutput) DbSecurityGroupIngress() DBSecurityGroupIngressTypeArrayOutput {
+	return o.ApplyT(func(v LookupDBSecurityGroupResult) []DBSecurityGroupIngressType { return v.DbSecurityGroupIngress }).(DBSecurityGroupIngressTypeArrayOutput)
 }
 
 func (o LookupDBSecurityGroupResultOutput) Id() pulumi.StringPtrOutput {

@@ -33,7 +33,7 @@ type Alarm struct {
 	MetricName                       pulumi.StringPtrOutput          `pulumi:"metricName"`
 	Metrics                          AlarmMetricDataQueryArrayOutput `pulumi:"metrics"`
 	Namespace                        pulumi.StringPtrOutput          `pulumi:"namespace"`
-	OKActions                        pulumi.StringArrayOutput        `pulumi:"oKActions"`
+	OkActions                        pulumi.StringArrayOutput        `pulumi:"okActions"`
 	Period                           pulumi.IntPtrOutput             `pulumi:"period"`
 	Statistic                        pulumi.StringPtrOutput          `pulumi:"statistic"`
 	Threshold                        pulumi.Float64PtrOutput         `pulumi:"threshold"`
@@ -102,7 +102,7 @@ type alarmArgs struct {
 	MetricName                       *string                `pulumi:"metricName"`
 	Metrics                          []AlarmMetricDataQuery `pulumi:"metrics"`
 	Namespace                        *string                `pulumi:"namespace"`
-	OKActions                        []string               `pulumi:"oKActions"`
+	OkActions                        []string               `pulumi:"okActions"`
 	Period                           *int                   `pulumi:"period"`
 	Statistic                        *string                `pulumi:"statistic"`
 	Threshold                        *float64               `pulumi:"threshold"`
@@ -127,7 +127,7 @@ type AlarmArgs struct {
 	MetricName                       pulumi.StringPtrInput
 	Metrics                          AlarmMetricDataQueryArrayInput
 	Namespace                        pulumi.StringPtrInput
-	OKActions                        pulumi.StringArrayInput
+	OkActions                        pulumi.StringArrayInput
 	Period                           pulumi.IntPtrInput
 	Statistic                        pulumi.StringPtrInput
 	Threshold                        pulumi.Float64PtrInput
@@ -233,8 +233,8 @@ func (o AlarmOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Alarm) pulumi.StringPtrOutput { return v.Namespace }).(pulumi.StringPtrOutput)
 }
 
-func (o AlarmOutput) OKActions() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *Alarm) pulumi.StringArrayOutput { return v.OKActions }).(pulumi.StringArrayOutput)
+func (o AlarmOutput) OkActions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Alarm) pulumi.StringArrayOutput { return v.OkActions }).(pulumi.StringArrayOutput)
 }
 
 func (o AlarmOutput) Period() pulumi.IntPtrOutput {

@@ -64,7 +64,7 @@ export class License extends pulumi.CustomResource {
     /**
      * ProductSKU of the license.
      */
-    public readonly productSKU!: pulumi.Output<string | undefined>;
+    public readonly productSku!: pulumi.Output<string | undefined>;
     public readonly status!: pulumi.Output<string | undefined>;
     public readonly validity!: pulumi.Output<outputs.licensemanager.LicenseValidityDateFormat>;
     /**
@@ -109,7 +109,7 @@ export class License extends pulumi.CustomResource {
             resourceInputs["licenseMetadata"] = args ? args.licenseMetadata : undefined;
             resourceInputs["licenseName"] = args ? args.licenseName : undefined;
             resourceInputs["productName"] = args ? args.productName : undefined;
-            resourceInputs["productSKU"] = args ? args.productSKU : undefined;
+            resourceInputs["productSku"] = args ? args.productSku : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["validity"] = args ? args.validity : undefined;
             resourceInputs["licenseArn"] = undefined /*out*/;
@@ -124,7 +124,7 @@ export class License extends pulumi.CustomResource {
             resourceInputs["licenseMetadata"] = undefined /*out*/;
             resourceInputs["licenseName"] = undefined /*out*/;
             resourceInputs["productName"] = undefined /*out*/;
-            resourceInputs["productSKU"] = undefined /*out*/;
+            resourceInputs["productSku"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["validity"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
@@ -161,7 +161,7 @@ export interface LicenseArgs {
     /**
      * ProductSKU of the license.
      */
-    productSKU?: pulumi.Input<string>;
+    productSku?: pulumi.Input<string>;
     status?: pulumi.Input<string>;
     validity: pulumi.Input<inputs.licensemanager.LicenseValidityDateFormatArgs>;
 }

@@ -18,20 +18,20 @@ namespace Pulumi.AwsNative.Lightsail.Inputs
         /// <summary>
         /// The HTTP methods that are processed and forwarded to the distribution's origin.
         /// </summary>
-        [Input("allowedHTTPMethods")]
-        public Input<string>? AllowedHTTPMethods { get; set; }
+        [Input("allowedHttpMethods")]
+        public Input<string>? AllowedHttpMethods { get; set; }
 
         /// <summary>
         /// The HTTP method responses that are cached by your distribution.
         /// </summary>
-        [Input("cachedHTTPMethods")]
-        public Input<string>? CachedHTTPMethods { get; set; }
+        [Input("cachedHttpMethods")]
+        public Input<string>? CachedHttpMethods { get; set; }
 
         /// <summary>
         /// The default amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the content has been updated.
         /// </summary>
-        [Input("defaultTTL")]
-        public Input<int>? DefaultTTL { get; set; }
+        [Input("defaultTtl")]
+        public Input<int>? DefaultTtl { get; set; }
 
         /// <summary>
         /// An object that describes the cookies that are forwarded to the origin. Your content is cached based on the cookies that are forwarded.
@@ -54,14 +54,14 @@ namespace Pulumi.AwsNative.Lightsail.Inputs
         /// <summary>
         /// The maximum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
         /// </summary>
-        [Input("maximumTTL")]
-        public Input<int>? MaximumTTL { get; set; }
+        [Input("maximumTtl")]
+        public Input<int>? MaximumTtl { get; set; }
 
         /// <summary>
         /// The minimum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
         /// </summary>
-        [Input("minimumTTL")]
-        public Input<int>? MinimumTTL { get; set; }
+        [Input("minimumTtl")]
+        public Input<int>? MinimumTtl { get; set; }
 
         public DistributionCacheSettingsArgs()
         {

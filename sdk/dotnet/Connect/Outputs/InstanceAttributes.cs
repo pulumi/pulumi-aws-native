@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.Connect.Outputs
         public readonly bool? EarlyMedia;
         public readonly bool InboundCalls;
         public readonly bool OutboundCalls;
-        public readonly bool? UseCustomTTSVoices;
+        public readonly bool? UseCustomTtsVoices;
 
         [OutputConstructor]
         private InstanceAttributes(
@@ -35,7 +35,7 @@ namespace Pulumi.AwsNative.Connect.Outputs
 
             bool outboundCalls,
 
-            bool? useCustomTTSVoices)
+            bool? useCustomTtsVoices)
         {
             AutoResolveBestVoices = autoResolveBestVoices;
             ContactLens = contactLens;
@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.Connect.Outputs
             EarlyMedia = earlyMedia;
             InboundCalls = inboundCalls;
             OutboundCalls = outboundCalls;
-            UseCustomTTSVoices = useCustomTTSVoices;
+            UseCustomTtsVoices = useCustomTtsVoices;
         }
     }
 }

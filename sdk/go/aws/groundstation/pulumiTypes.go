@@ -793,7 +793,7 @@ func (o ConfigDataflowEndpointConfigPtrOutput) DataflowEndpointRegion() pulumi.S
 }
 
 type ConfigDecodeConfig struct {
-	UnvalidatedJSON *string `pulumi:"unvalidatedJSON"`
+	UnvalidatedJson *string `pulumi:"unvalidatedJson"`
 }
 
 // ConfigDecodeConfigInput is an input type that accepts ConfigDecodeConfigArgs and ConfigDecodeConfigOutput values.
@@ -808,7 +808,7 @@ type ConfigDecodeConfigInput interface {
 }
 
 type ConfigDecodeConfigArgs struct {
-	UnvalidatedJSON pulumi.StringPtrInput `pulumi:"unvalidatedJSON"`
+	UnvalidatedJson pulumi.StringPtrInput `pulumi:"unvalidatedJson"`
 }
 
 func (ConfigDecodeConfigArgs) ElementType() reflect.Type {
@@ -888,8 +888,8 @@ func (o ConfigDecodeConfigOutput) ToConfigDecodeConfigPtrOutputWithContext(ctx c
 	}).(ConfigDecodeConfigPtrOutput)
 }
 
-func (o ConfigDecodeConfigOutput) UnvalidatedJSON() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConfigDecodeConfig) *string { return v.UnvalidatedJSON }).(pulumi.StringPtrOutput)
+func (o ConfigDecodeConfigOutput) UnvalidatedJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigDecodeConfig) *string { return v.UnvalidatedJson }).(pulumi.StringPtrOutput)
 }
 
 type ConfigDecodeConfigPtrOutput struct{ *pulumi.OutputState }
@@ -916,17 +916,17 @@ func (o ConfigDecodeConfigPtrOutput) Elem() ConfigDecodeConfigOutput {
 	}).(ConfigDecodeConfigOutput)
 }
 
-func (o ConfigDecodeConfigPtrOutput) UnvalidatedJSON() pulumi.StringPtrOutput {
+func (o ConfigDecodeConfigPtrOutput) UnvalidatedJson() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigDecodeConfig) *string {
 		if v == nil {
 			return nil
 		}
-		return v.UnvalidatedJSON
+		return v.UnvalidatedJson
 	}).(pulumi.StringPtrOutput)
 }
 
 type ConfigDemodulationConfig struct {
-	UnvalidatedJSON *string `pulumi:"unvalidatedJSON"`
+	UnvalidatedJson *string `pulumi:"unvalidatedJson"`
 }
 
 // ConfigDemodulationConfigInput is an input type that accepts ConfigDemodulationConfigArgs and ConfigDemodulationConfigOutput values.
@@ -941,7 +941,7 @@ type ConfigDemodulationConfigInput interface {
 }
 
 type ConfigDemodulationConfigArgs struct {
-	UnvalidatedJSON pulumi.StringPtrInput `pulumi:"unvalidatedJSON"`
+	UnvalidatedJson pulumi.StringPtrInput `pulumi:"unvalidatedJson"`
 }
 
 func (ConfigDemodulationConfigArgs) ElementType() reflect.Type {
@@ -1021,8 +1021,8 @@ func (o ConfigDemodulationConfigOutput) ToConfigDemodulationConfigPtrOutputWithC
 	}).(ConfigDemodulationConfigPtrOutput)
 }
 
-func (o ConfigDemodulationConfigOutput) UnvalidatedJSON() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConfigDemodulationConfig) *string { return v.UnvalidatedJSON }).(pulumi.StringPtrOutput)
+func (o ConfigDemodulationConfigOutput) UnvalidatedJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigDemodulationConfig) *string { return v.UnvalidatedJson }).(pulumi.StringPtrOutput)
 }
 
 type ConfigDemodulationConfigPtrOutput struct{ *pulumi.OutputState }
@@ -1049,12 +1049,12 @@ func (o ConfigDemodulationConfigPtrOutput) Elem() ConfigDemodulationConfigOutput
 	}).(ConfigDemodulationConfigOutput)
 }
 
-func (o ConfigDemodulationConfigPtrOutput) UnvalidatedJSON() pulumi.StringPtrOutput {
+func (o ConfigDemodulationConfigPtrOutput) UnvalidatedJson() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigDemodulationConfig) *string {
 		if v == nil {
 			return nil
 		}
-		return v.UnvalidatedJSON
+		return v.UnvalidatedJson
 	}).(pulumi.StringPtrOutput)
 }
 

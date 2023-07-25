@@ -261,45 +261,26 @@ class LocationFSxONTAPProtocol(dict):
     """
     Configuration settings for NFS or SMB protocol.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "nFS":
-            suggest = "n_fs"
-        elif key == "sMB":
-            suggest = "s_mb"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in LocationFSxONTAPProtocol. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        LocationFSxONTAPProtocol.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        LocationFSxONTAPProtocol.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
-                 n_fs: Optional['outputs.LocationFSxONTAPNFS'] = None,
-                 s_mb: Optional['outputs.LocationFSxONTAPSMB'] = None):
+                 nfs: Optional['outputs.LocationFSxONTAPNFS'] = None,
+                 smb: Optional['outputs.LocationFSxONTAPSMB'] = None):
         """
         Configuration settings for NFS or SMB protocol.
         """
-        if n_fs is not None:
-            pulumi.set(__self__, "n_fs", n_fs)
-        if s_mb is not None:
-            pulumi.set(__self__, "s_mb", s_mb)
+        if nfs is not None:
+            pulumi.set(__self__, "nfs", nfs)
+        if smb is not None:
+            pulumi.set(__self__, "smb", smb)
 
     @property
-    @pulumi.getter(name="nFS")
-    def n_fs(self) -> Optional['outputs.LocationFSxONTAPNFS']:
-        return pulumi.get(self, "n_fs")
+    @pulumi.getter
+    def nfs(self) -> Optional['outputs.LocationFSxONTAPNFS']:
+        return pulumi.get(self, "nfs")
 
     @property
-    @pulumi.getter(name="sMB")
-    def s_mb(self) -> Optional['outputs.LocationFSxONTAPSMB']:
-        return pulumi.get(self, "s_mb")
+    @pulumi.getter
+    def smb(self) -> Optional['outputs.LocationFSxONTAPSMB']:
+        return pulumi.get(self, "smb")
 
 
 @pulumi.output_type
@@ -490,35 +471,18 @@ class LocationFSxOpenZFSProtocol(dict):
     """
     Configuration settings for an NFS or SMB protocol, currently only support NFS
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "nFS":
-            suggest = "n_fs"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in LocationFSxOpenZFSProtocol. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        LocationFSxOpenZFSProtocol.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        LocationFSxOpenZFSProtocol.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
-                 n_fs: Optional['outputs.LocationFSxOpenZFSNFS'] = None):
+                 nfs: Optional['outputs.LocationFSxOpenZFSNFS'] = None):
         """
         Configuration settings for an NFS or SMB protocol, currently only support NFS
         """
-        if n_fs is not None:
-            pulumi.set(__self__, "n_fs", n_fs)
+        if nfs is not None:
+            pulumi.set(__self__, "nfs", nfs)
 
     @property
-    @pulumi.getter(name="nFS")
-    def n_fs(self) -> Optional['outputs.LocationFSxOpenZFSNFS']:
-        return pulumi.get(self, "n_fs")
+    @pulumi.getter
+    def nfs(self) -> Optional['outputs.LocationFSxOpenZFSNFS']:
+        return pulumi.get(self, "nfs")
 
 
 @pulumi.output_type

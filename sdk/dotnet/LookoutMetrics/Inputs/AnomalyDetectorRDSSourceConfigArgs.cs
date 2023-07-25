@@ -12,9 +12,6 @@ namespace Pulumi.AwsNative.LookoutMetrics.Inputs
 
     public sealed class AnomalyDetectorRDSSourceConfigArgs : global::Pulumi.ResourceArgs
     {
-        [Input("dBInstanceIdentifier", required: true)]
-        public Input<string> DBInstanceIdentifier { get; set; } = null!;
-
         [Input("databaseHost", required: true)]
         public Input<string> DatabaseHost { get; set; } = null!;
 
@@ -23,6 +20,9 @@ namespace Pulumi.AwsNative.LookoutMetrics.Inputs
 
         [Input("databasePort", required: true)]
         public Input<int> DatabasePort { get; set; } = null!;
+
+        [Input("dbInstanceIdentifier", required: true)]
+        public Input<string> DbInstanceIdentifier { get; set; } = null!;
 
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;

@@ -118,7 +118,7 @@ class GetLicenseResult:
         return pulumi.get(self, "product_name")
 
     @property
-    @pulumi.getter(name="productSKU")
+    @pulumi.getter(name="productSku")
     def product_sku(self) -> Optional[str]:
         """
         ProductSKU of the license.

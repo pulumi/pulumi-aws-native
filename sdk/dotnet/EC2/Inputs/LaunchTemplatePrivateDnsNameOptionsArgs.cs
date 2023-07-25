@@ -16,16 +16,16 @@ namespace Pulumi.AwsNative.EC2.Inputs
     public sealed class LaunchTemplatePrivateDnsNameOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
-        /// </summary>
-        [Input("enableResourceNameDnsAAAARecord")]
-        public Input<bool>? EnableResourceNameDnsAAAARecord { get; set; }
-
-        /// <summary>
         /// Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
         /// </summary>
         [Input("enableResourceNameDnsARecord")]
         public Input<bool>? EnableResourceNameDnsARecord { get; set; }
+
+        /// <summary>
+        /// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
+        /// </summary>
+        [Input("enableResourceNameDnsAaaaRecord")]
+        public Input<bool>? EnableResourceNameDnsAaaaRecord { get; set; }
 
         /// <summary>
         /// The type of hostname for EC2 instances.

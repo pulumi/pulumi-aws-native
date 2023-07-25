@@ -13,12 +13,12 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
     [OutputType]
     public sealed class FunctionMetadata
     {
-        public readonly string? FunctionARN;
+        public readonly string? FunctionArn;
 
         [OutputConstructor]
-        private FunctionMetadata(string? functionARN)
+        private FunctionMetadata(string? functionArn)
         {
-            FunctionARN = functionARN;
+            FunctionArn = functionArn;
         }
     }
 }

@@ -17,7 +17,7 @@ type ParameterGroup struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) of the parameter group.
-	ARN pulumi.StringOutput `pulumi:"aRN"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A description of the parameter group.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the parameter group family that this parameter group is compatible with.
@@ -137,8 +137,8 @@ func (o ParameterGroupOutput) ToParameterGroupOutputWithContext(ctx context.Cont
 }
 
 // The Amazon Resource Name (ARN) of the parameter group.
-func (o ParameterGroupOutput) ARN() pulumi.StringOutput {
-	return o.ApplyT(func(v *ParameterGroup) pulumi.StringOutput { return v.ARN }).(pulumi.StringOutput)
+func (o ParameterGroupOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ParameterGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
 // A description of the parameter group.

@@ -1975,7 +1975,7 @@ func (o BucketEncryptionPtrOutput) ServerSideEncryptionConfiguration() BucketSer
 // Specifies encryption-related information for an Amazon S3 bucket that is a destination for replicated objects.
 type BucketEncryptionConfiguration struct {
 	// Specifies the ID (Key ARN or Alias ARN) of the customer managed customer master key (CMK) stored in AWS Key Management Service (KMS) for the destination bucket.
-	ReplicaKmsKeyID string `pulumi:"replicaKmsKeyID"`
+	ReplicaKmsKeyId string `pulumi:"replicaKmsKeyId"`
 }
 
 // BucketEncryptionConfigurationInput is an input type that accepts BucketEncryptionConfigurationArgs and BucketEncryptionConfigurationOutput values.
@@ -1992,7 +1992,7 @@ type BucketEncryptionConfigurationInput interface {
 // Specifies encryption-related information for an Amazon S3 bucket that is a destination for replicated objects.
 type BucketEncryptionConfigurationArgs struct {
 	// Specifies the ID (Key ARN or Alias ARN) of the customer managed customer master key (CMK) stored in AWS Key Management Service (KMS) for the destination bucket.
-	ReplicaKmsKeyID pulumi.StringInput `pulumi:"replicaKmsKeyID"`
+	ReplicaKmsKeyId pulumi.StringInput `pulumi:"replicaKmsKeyId"`
 }
 
 func (BucketEncryptionConfigurationArgs) ElementType() reflect.Type {
@@ -2074,8 +2074,8 @@ func (o BucketEncryptionConfigurationOutput) ToBucketEncryptionConfigurationPtrO
 }
 
 // Specifies the ID (Key ARN or Alias ARN) of the customer managed customer master key (CMK) stored in AWS Key Management Service (KMS) for the destination bucket.
-func (o BucketEncryptionConfigurationOutput) ReplicaKmsKeyID() pulumi.StringOutput {
-	return o.ApplyT(func(v BucketEncryptionConfiguration) string { return v.ReplicaKmsKeyID }).(pulumi.StringOutput)
+func (o BucketEncryptionConfigurationOutput) ReplicaKmsKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketEncryptionConfiguration) string { return v.ReplicaKmsKeyId }).(pulumi.StringOutput)
 }
 
 type BucketEncryptionConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -2103,12 +2103,12 @@ func (o BucketEncryptionConfigurationPtrOutput) Elem() BucketEncryptionConfigura
 }
 
 // Specifies the ID (Key ARN or Alias ARN) of the customer managed customer master key (CMK) stored in AWS Key Management Service (KMS) for the destination bucket.
-func (o BucketEncryptionConfigurationPtrOutput) ReplicaKmsKeyID() pulumi.StringPtrOutput {
+func (o BucketEncryptionConfigurationPtrOutput) ReplicaKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketEncryptionConfiguration) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.ReplicaKmsKeyID
+		return &v.ReplicaKmsKeyId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -6839,8 +6839,8 @@ func (o BucketS3KeyFilterPtrOutput) Rules() BucketFilterRuleArrayOutput {
 // Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied.
 type BucketServerSideEncryptionByDefault struct {
 	// "KMSMasterKeyID" can only be used when you set the value of SSEAlgorithm as aws:kms or aws:kms:dsse.
-	KMSMasterKeyID *string                                         `pulumi:"kMSMasterKeyID"`
-	SSEAlgorithm   BucketServerSideEncryptionByDefaultSSEAlgorithm `pulumi:"sSEAlgorithm"`
+	KmsMasterKeyId *string                                         `pulumi:"kmsMasterKeyId"`
+	SseAlgorithm   BucketServerSideEncryptionByDefaultSSEAlgorithm `pulumi:"sseAlgorithm"`
 }
 
 // BucketServerSideEncryptionByDefaultInput is an input type that accepts BucketServerSideEncryptionByDefaultArgs and BucketServerSideEncryptionByDefaultOutput values.
@@ -6857,8 +6857,8 @@ type BucketServerSideEncryptionByDefaultInput interface {
 // Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied.
 type BucketServerSideEncryptionByDefaultArgs struct {
 	// "KMSMasterKeyID" can only be used when you set the value of SSEAlgorithm as aws:kms or aws:kms:dsse.
-	KMSMasterKeyID pulumi.StringPtrInput                                `pulumi:"kMSMasterKeyID"`
-	SSEAlgorithm   BucketServerSideEncryptionByDefaultSSEAlgorithmInput `pulumi:"sSEAlgorithm"`
+	KmsMasterKeyId pulumi.StringPtrInput                                `pulumi:"kmsMasterKeyId"`
+	SseAlgorithm   BucketServerSideEncryptionByDefaultSSEAlgorithmInput `pulumi:"sseAlgorithm"`
 }
 
 func (BucketServerSideEncryptionByDefaultArgs) ElementType() reflect.Type {
@@ -6940,13 +6940,13 @@ func (o BucketServerSideEncryptionByDefaultOutput) ToBucketServerSideEncryptionB
 }
 
 // "KMSMasterKeyID" can only be used when you set the value of SSEAlgorithm as aws:kms or aws:kms:dsse.
-func (o BucketServerSideEncryptionByDefaultOutput) KMSMasterKeyID() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BucketServerSideEncryptionByDefault) *string { return v.KMSMasterKeyID }).(pulumi.StringPtrOutput)
+func (o BucketServerSideEncryptionByDefaultOutput) KmsMasterKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketServerSideEncryptionByDefault) *string { return v.KmsMasterKeyId }).(pulumi.StringPtrOutput)
 }
 
-func (o BucketServerSideEncryptionByDefaultOutput) SSEAlgorithm() BucketServerSideEncryptionByDefaultSSEAlgorithmOutput {
+func (o BucketServerSideEncryptionByDefaultOutput) SseAlgorithm() BucketServerSideEncryptionByDefaultSSEAlgorithmOutput {
 	return o.ApplyT(func(v BucketServerSideEncryptionByDefault) BucketServerSideEncryptionByDefaultSSEAlgorithm {
-		return v.SSEAlgorithm
+		return v.SseAlgorithm
 	}).(BucketServerSideEncryptionByDefaultSSEAlgorithmOutput)
 }
 
@@ -6975,21 +6975,21 @@ func (o BucketServerSideEncryptionByDefaultPtrOutput) Elem() BucketServerSideEnc
 }
 
 // "KMSMasterKeyID" can only be used when you set the value of SSEAlgorithm as aws:kms or aws:kms:dsse.
-func (o BucketServerSideEncryptionByDefaultPtrOutput) KMSMasterKeyID() pulumi.StringPtrOutput {
+func (o BucketServerSideEncryptionByDefaultPtrOutput) KmsMasterKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketServerSideEncryptionByDefault) *string {
 		if v == nil {
 			return nil
 		}
-		return v.KMSMasterKeyID
+		return v.KmsMasterKeyId
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o BucketServerSideEncryptionByDefaultPtrOutput) SSEAlgorithm() BucketServerSideEncryptionByDefaultSSEAlgorithmPtrOutput {
+func (o BucketServerSideEncryptionByDefaultPtrOutput) SseAlgorithm() BucketServerSideEncryptionByDefaultSSEAlgorithmPtrOutput {
 	return o.ApplyT(func(v *BucketServerSideEncryptionByDefault) *BucketServerSideEncryptionByDefaultSSEAlgorithm {
 		if v == nil {
 			return nil
 		}
-		return &v.SSEAlgorithm
+		return &v.SseAlgorithm
 	}).(BucketServerSideEncryptionByDefaultSSEAlgorithmPtrOutput)
 }
 

@@ -19,21 +19,21 @@ __all__ = [
 
 @pulumi.output_type
 class GetParameterGroupResult:
-    def __init__(__self__, a_rn=None, tags=None):
-        if a_rn and not isinstance(a_rn, str):
-            raise TypeError("Expected argument 'a_rn' to be a str")
-        pulumi.set(__self__, "a_rn", a_rn)
+    def __init__(__self__, arn=None, tags=None):
+        if arn and not isinstance(arn, str):
+            raise TypeError("Expected argument 'arn' to be a str")
+        pulumi.set(__self__, "arn", arn)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
 
     @property
-    @pulumi.getter(name="aRN")
-    def a_rn(self) -> Optional[str]:
+    @pulumi.getter
+    def arn(self) -> Optional[str]:
         """
         The Amazon Resource Name (ARN) of the parameter group.
         """
-        return pulumi.get(self, "a_rn")
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
@@ -50,7 +50,7 @@ class AwaitableGetParameterGroupResult(GetParameterGroupResult):
         if False:
             yield self
         return GetParameterGroupResult(
-            a_rn=self.a_rn,
+            arn=self.arn,
             tags=self.tags)
 
 
@@ -68,7 +68,7 @@ def get_parameter_group(parameter_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:memorydb:getParameterGroup', __args__, opts=opts, typ=GetParameterGroupResult).value
 
     return AwaitableGetParameterGroupResult(
-        a_rn=pulumi.get(__ret__, 'a_rn'),
+        arn=pulumi.get(__ret__, 'arn'),
         tags=pulumi.get(__ret__, 'tags'))
 
 

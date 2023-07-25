@@ -13,19 +13,19 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
     [OutputType]
     public sealed class DeliveryStreamVpcConfiguration
     {
-        public readonly string RoleARN;
+        public readonly string RoleArn;
         public readonly ImmutableArray<string> SecurityGroupIds;
         public readonly ImmutableArray<string> SubnetIds;
 
         [OutputConstructor]
         private DeliveryStreamVpcConfiguration(
-            string roleARN,
+            string roleArn,
 
             ImmutableArray<string> securityGroupIds,
 
             ImmutableArray<string> subnetIds)
         {
-            RoleARN = roleARN;
+            RoleArn = roleArn;
             SecurityGroupIds = securityGroupIds;
             SubnetIds = subnetIds;
         }

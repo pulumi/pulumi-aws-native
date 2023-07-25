@@ -15,8 +15,8 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
         [Input("computeType", required: true)]
         public Input<Pulumi.AwsNative.IoTAnalytics.DatasetResourceConfigurationComputeType> ComputeType { get; set; } = null!;
 
-        [Input("volumeSizeInGB", required: true)]
-        public Input<int> VolumeSizeInGB { get; set; } = null!;
+        [Input("volumeSizeInGb", required: true)]
+        public Input<int> VolumeSizeInGb { get; set; } = null!;
 
         public DatasetResourceConfigurationArgs()
         {

@@ -712,7 +712,7 @@ class DataQualityJobDefinitionClusterConfigArgs:
         pulumi.set(self, "instance_type", value)
 
     @property
-    @pulumi.getter(name="volumeSizeInGB")
+    @pulumi.getter(name="volumeSizeInGb")
     def volume_size_in_gb(self) -> pulumi.Input[int]:
         """
         The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
@@ -2636,7 +2636,7 @@ class EndpointConfigClarifyInferenceConfigArgs:
         pulumi.set(self, "label_index", value)
 
     @property
-    @pulumi.getter(name="maxPayloadInMB")
+    @pulumi.getter(name="maxPayloadInMb")
     def max_payload_in_mb(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "max_payload_in_mb")
 
@@ -2975,7 +2975,7 @@ class EndpointConfigProductionVariantArgs:
         pulumi.set(self, "container_startup_health_check_timeout_in_seconds", value)
 
     @property
-    @pulumi.getter(name="enableSSMAccess")
+    @pulumi.getter(name="enableSsmAccess")
     def enable_ssm_access(self) -> Optional[pulumi.Input[bool]]:
         return pulumi.get(self, "enable_ssm_access")
 
@@ -3020,7 +3020,7 @@ class EndpointConfigProductionVariantArgs:
         pulumi.set(self, "serverless_config", value)
 
     @property
-    @pulumi.getter(name="volumeSizeInGB")
+    @pulumi.getter(name="volumeSizeInGb")
     def volume_size_in_gb(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "volume_size_in_gb")
 
@@ -3050,7 +3050,7 @@ class EndpointConfigServerlessConfigArgs:
         pulumi.set(self, "max_concurrency", value)
 
     @property
-    @pulumi.getter(name="memorySizeInMB")
+    @pulumi.getter(name="memorySizeInMb")
     def memory_size_in_mb(self) -> pulumi.Input[int]:
         return pulumi.get(self, "memory_size_in_mb")
 
@@ -4045,7 +4045,7 @@ class ModelBiasJobDefinitionClusterConfigArgs:
         pulumi.set(self, "instance_type", value)
 
     @property
-    @pulumi.getter(name="volumeSizeInGB")
+    @pulumi.getter(name="volumeSizeInGb")
     def volume_size_in_gb(self) -> pulumi.Input[int]:
         """
         The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
@@ -6741,7 +6741,7 @@ class ModelExplainabilityJobDefinitionClusterConfigArgs:
         pulumi.set(self, "instance_type", value)
 
     @property
-    @pulumi.getter(name="volumeSizeInGB")
+    @pulumi.getter(name="volumeSizeInGb")
     def volume_size_in_gb(self) -> pulumi.Input[int]:
         """
         The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
@@ -7550,7 +7550,7 @@ class ModelPackageAdditionalInferenceSpecificationDefinitionArgs:
         pulumi.set(self, "supported_realtime_inference_instance_types", value)
 
     @property
-    @pulumi.getter(name="supportedResponseMIMETypes")
+    @pulumi.getter(name="supportedResponseMimeTypes")
     def supported_response_mime_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The supported MIME types for the output data.
@@ -8178,7 +8178,7 @@ class ModelPackageInferenceSpecificationArgs:
         pulumi.set(self, "supported_content_types", value)
 
     @property
-    @pulumi.getter(name="supportedResponseMIMETypes")
+    @pulumi.getter(name="supportedResponseMimeTypes")
     def supported_response_mime_types(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         The supported MIME types for the output data.
@@ -8828,7 +8828,7 @@ class ModelPackageTransformJobDefinitionArgs:
         pulumi.set(self, "max_concurrent_transforms", value)
 
     @property
-    @pulumi.getter(name="maxPayloadInMB")
+    @pulumi.getter(name="maxPayloadInMb")
     def max_payload_in_mb(self) -> Optional[pulumi.Input[int]]:
         """
         The maximum payload size allowed, in MB. A payload is the data portion of a record (without metadata).
@@ -9235,7 +9235,7 @@ class ModelQualityJobDefinitionClusterConfigArgs:
         pulumi.set(self, "instance_type", value)
 
     @property
-    @pulumi.getter(name="volumeSizeInGB")
+    @pulumi.getter(name="volumeSizeInGb")
     def volume_size_in_gb(self) -> pulumi.Input[int]:
         """
         The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
@@ -10239,7 +10239,7 @@ class MonitoringScheduleClusterConfigArgs:
         pulumi.set(self, "instance_type", value)
 
     @property
-    @pulumi.getter(name="volumeSizeInGB")
+    @pulumi.getter(name="volumeSizeInGb")
     def volume_size_in_gb(self) -> pulumi.Input[int]:
         """
         The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.

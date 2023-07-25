@@ -21,8 +21,8 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("setParametersOperation")]
         public Input<Inputs.DashboardCustomActionSetParametersOperationArgs>? SetParametersOperation { get; set; }
 
-        [Input("uRLOperation")]
-        public Input<Inputs.DashboardCustomActionURLOperationArgs>? URLOperation { get; set; }
+        [Input("urlOperation")]
+        public Input<Inputs.DashboardCustomActionURLOperationArgs>? UrlOperation { get; set; }
 
         public DashboardVisualCustomActionOperationArgs()
         {

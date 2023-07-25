@@ -121,7 +121,7 @@ class ConformancePackArgs:
         pulumi.set(self, "template_s3_uri", value)
 
     @property
-    @pulumi.getter(name="templateSSMDocumentDetails")
+    @pulumi.getter(name="templateSsmDocumentDetails")
     def template_ssm_document_details(self) -> Optional[pulumi.Input['TemplateSSMDocumentDetailsPropertiesArgs']]:
         """
         The TemplateSSMDocumentDetails object contains the name of the SSM document and the version of the SSM document.
@@ -286,7 +286,7 @@ class ConformancePack(pulumi.CustomResource):
         return pulumi.get(self, "template_s3_uri")
 
     @property
-    @pulumi.getter(name="templateSSMDocumentDetails")
+    @pulumi.getter(name="templateSsmDocumentDetails")
     def template_ssm_document_details(self) -> pulumi.Output[Optional['outputs.TemplateSSMDocumentDetailsProperties']]:
         """
         The TemplateSSMDocumentDetails object contains the name of the SSM document and the version of the SSM document.

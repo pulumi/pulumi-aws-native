@@ -25,17 +25,17 @@ namespace Pulumi.AwsNative.FSx
         [Output("ontapConfiguration")]
         public Output<Outputs.VolumeOntapConfiguration?> OntapConfiguration { get; private set; } = null!;
 
-        [Output("openZFSConfiguration")]
-        public Output<Outputs.VolumeOpenZFSConfiguration?> OpenZFSConfiguration { get; private set; } = null!;
+        [Output("openZfsConfiguration")]
+        public Output<Outputs.VolumeOpenZFSConfiguration?> OpenZfsConfiguration { get; private set; } = null!;
 
-        [Output("resourceARN")]
-        public Output<string> ResourceARN { get; private set; } = null!;
+        [Output("resourceArn")]
+        public Output<string> ResourceArn { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableArray<Outputs.VolumeTag>> Tags { get; private set; } = null!;
 
-        [Output("uUID")]
-        public Output<string> UUID { get; private set; } = null!;
+        [Output("uuid")]
+        public Output<string> Uuid { get; private set; } = null!;
 
         [Output("volumeId")]
         public Output<string> VolumeId { get; private set; } = null!;
@@ -97,8 +97,8 @@ namespace Pulumi.AwsNative.FSx
         [Input("ontapConfiguration")]
         public Input<Inputs.VolumeOntapConfigurationArgs>? OntapConfiguration { get; set; }
 
-        [Input("openZFSConfiguration")]
-        public Input<Inputs.VolumeOpenZFSConfigurationArgs>? OpenZFSConfiguration { get; set; }
+        [Input("openZfsConfiguration")]
+        public Input<Inputs.VolumeOpenZFSConfigurationArgs>? OpenZfsConfiguration { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.VolumeTagArgs>? _tags;

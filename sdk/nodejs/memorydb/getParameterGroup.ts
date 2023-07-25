@@ -29,7 +29,7 @@ export interface GetParameterGroupResult {
     /**
      * The Amazon Resource Name (ARN) of the parameter group.
      */
-    readonly aRN?: string;
+    readonly arn?: string;
     /**
      * An array of key-value pairs to apply to this parameter group.
      */

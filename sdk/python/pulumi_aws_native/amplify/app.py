@@ -26,7 +26,7 @@ class AppArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  enable_branch_auto_deletion: Optional[pulumi.Input[bool]] = None,
                  environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['AppEnvironmentVariableArgs']]]] = None,
-                 i_am_service_role: Optional[pulumi.Input[str]] = None,
+                 iam_service_role: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  oauth_token: Optional[pulumi.Input[str]] = None,
                  platform: Optional[pulumi.Input['AppPlatform']] = None,
@@ -53,8 +53,8 @@ class AppArgs:
             pulumi.set(__self__, "enable_branch_auto_deletion", enable_branch_auto_deletion)
         if environment_variables is not None:
             pulumi.set(__self__, "environment_variables", environment_variables)
-        if i_am_service_role is not None:
-            pulumi.set(__self__, "i_am_service_role", i_am_service_role)
+        if iam_service_role is not None:
+            pulumi.set(__self__, "iam_service_role", iam_service_role)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if oauth_token is not None:
@@ -148,13 +148,13 @@ class AppArgs:
         pulumi.set(self, "environment_variables", value)
 
     @property
-    @pulumi.getter(name="iAMServiceRole")
-    def i_am_service_role(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "i_am_service_role")
+    @pulumi.getter(name="iamServiceRole")
+    def iam_service_role(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "iam_service_role")
 
-    @i_am_service_role.setter
-    def i_am_service_role(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "i_am_service_role", value)
+    @iam_service_role.setter
+    def iam_service_role(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "iam_service_role", value)
 
     @property
     @pulumi.getter
@@ -216,7 +216,7 @@ class App(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  enable_branch_auto_deletion: Optional[pulumi.Input[bool]] = None,
                  environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppEnvironmentVariableArgs']]]]] = None,
-                 i_am_service_role: Optional[pulumi.Input[str]] = None,
+                 iam_service_role: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  oauth_token: Optional[pulumi.Input[str]] = None,
                  platform: Optional[pulumi.Input['AppPlatform']] = None,
@@ -262,7 +262,7 @@ class App(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  enable_branch_auto_deletion: Optional[pulumi.Input[bool]] = None,
                  environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppEnvironmentVariableArgs']]]]] = None,
-                 i_am_service_role: Optional[pulumi.Input[str]] = None,
+                 iam_service_role: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  oauth_token: Optional[pulumi.Input[str]] = None,
                  platform: Optional[pulumi.Input['AppPlatform']] = None,
@@ -286,7 +286,7 @@ class App(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["enable_branch_auto_deletion"] = enable_branch_auto_deletion
             __props__.__dict__["environment_variables"] = environment_variables
-            __props__.__dict__["i_am_service_role"] = i_am_service_role
+            __props__.__dict__["iam_service_role"] = iam_service_role
             __props__.__dict__["name"] = name
             __props__.__dict__["oauth_token"] = oauth_token
             __props__.__dict__["platform"] = platform
@@ -331,7 +331,7 @@ class App(pulumi.CustomResource):
         __props__.__dict__["description"] = None
         __props__.__dict__["enable_branch_auto_deletion"] = None
         __props__.__dict__["environment_variables"] = None
-        __props__.__dict__["i_am_service_role"] = None
+        __props__.__dict__["iam_service_role"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["oauth_token"] = None
         __props__.__dict__["platform"] = None
@@ -405,9 +405,9 @@ class App(pulumi.CustomResource):
         return pulumi.get(self, "environment_variables")
 
     @property
-    @pulumi.getter(name="iAMServiceRole")
-    def i_am_service_role(self) -> pulumi.Output[Optional[str]]:
-        return pulumi.get(self, "i_am_service_role")
+    @pulumi.getter(name="iamServiceRole")
+    def iam_service_role(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "iam_service_role")
 
     @property
     @pulumi.getter

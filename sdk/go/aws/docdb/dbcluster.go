@@ -21,9 +21,9 @@ type DBCluster struct {
 	BackupRetentionPeriod       pulumi.IntPtrOutput      `pulumi:"backupRetentionPeriod"`
 	ClusterResourceId           pulumi.StringOutput      `pulumi:"clusterResourceId"`
 	CopyTagsToSnapshot          pulumi.BoolPtrOutput     `pulumi:"copyTagsToSnapshot"`
-	DBClusterIdentifier         pulumi.StringPtrOutput   `pulumi:"dBClusterIdentifier"`
-	DBClusterParameterGroupName pulumi.StringPtrOutput   `pulumi:"dBClusterParameterGroupName"`
-	DBSubnetGroupName           pulumi.StringPtrOutput   `pulumi:"dBSubnetGroupName"`
+	DbClusterIdentifier         pulumi.StringPtrOutput   `pulumi:"dbClusterIdentifier"`
+	DbClusterParameterGroupName pulumi.StringPtrOutput   `pulumi:"dbClusterParameterGroupName"`
+	DbSubnetGroupName           pulumi.StringPtrOutput   `pulumi:"dbSubnetGroupName"`
 	DeletionProtection          pulumi.BoolPtrOutput     `pulumi:"deletionProtection"`
 	EnableCloudwatchLogsExports pulumi.StringArrayOutput `pulumi:"enableCloudwatchLogsExports"`
 	Endpoint                    pulumi.StringOutput      `pulumi:"endpoint"`
@@ -38,7 +38,7 @@ type DBCluster struct {
 	RestoreToTime               pulumi.StringPtrOutput   `pulumi:"restoreToTime"`
 	RestoreType                 pulumi.StringPtrOutput   `pulumi:"restoreType"`
 	SnapshotIdentifier          pulumi.StringPtrOutput   `pulumi:"snapshotIdentifier"`
-	SourceDBClusterIdentifier   pulumi.StringPtrOutput   `pulumi:"sourceDBClusterIdentifier"`
+	SourceDbClusterIdentifier   pulumi.StringPtrOutput   `pulumi:"sourceDbClusterIdentifier"`
 	StorageEncrypted            pulumi.BoolPtrOutput     `pulumi:"storageEncrypted"`
 	Tags                        DBClusterTagArrayOutput  `pulumi:"tags"`
 	UseLatestRestorableTime     pulumi.BoolPtrOutput     `pulumi:"useLatestRestorableTime"`
@@ -88,9 +88,9 @@ type dbclusterArgs struct {
 	AvailabilityZones           []string       `pulumi:"availabilityZones"`
 	BackupRetentionPeriod       *int           `pulumi:"backupRetentionPeriod"`
 	CopyTagsToSnapshot          *bool          `pulumi:"copyTagsToSnapshot"`
-	DBClusterIdentifier         *string        `pulumi:"dBClusterIdentifier"`
-	DBClusterParameterGroupName *string        `pulumi:"dBClusterParameterGroupName"`
-	DBSubnetGroupName           *string        `pulumi:"dBSubnetGroupName"`
+	DbClusterIdentifier         *string        `pulumi:"dbClusterIdentifier"`
+	DbClusterParameterGroupName *string        `pulumi:"dbClusterParameterGroupName"`
+	DbSubnetGroupName           *string        `pulumi:"dbSubnetGroupName"`
 	DeletionProtection          *bool          `pulumi:"deletionProtection"`
 	EnableCloudwatchLogsExports []string       `pulumi:"enableCloudwatchLogsExports"`
 	EngineVersion               *string        `pulumi:"engineVersion"`
@@ -103,7 +103,7 @@ type dbclusterArgs struct {
 	RestoreToTime               *string        `pulumi:"restoreToTime"`
 	RestoreType                 *string        `pulumi:"restoreType"`
 	SnapshotIdentifier          *string        `pulumi:"snapshotIdentifier"`
-	SourceDBClusterIdentifier   *string        `pulumi:"sourceDBClusterIdentifier"`
+	SourceDbClusterIdentifier   *string        `pulumi:"sourceDbClusterIdentifier"`
 	StorageEncrypted            *bool          `pulumi:"storageEncrypted"`
 	Tags                        []DBClusterTag `pulumi:"tags"`
 	UseLatestRestorableTime     *bool          `pulumi:"useLatestRestorableTime"`
@@ -115,9 +115,9 @@ type DBClusterArgs struct {
 	AvailabilityZones           pulumi.StringArrayInput
 	BackupRetentionPeriod       pulumi.IntPtrInput
 	CopyTagsToSnapshot          pulumi.BoolPtrInput
-	DBClusterIdentifier         pulumi.StringPtrInput
-	DBClusterParameterGroupName pulumi.StringPtrInput
-	DBSubnetGroupName           pulumi.StringPtrInput
+	DbClusterIdentifier         pulumi.StringPtrInput
+	DbClusterParameterGroupName pulumi.StringPtrInput
+	DbSubnetGroupName           pulumi.StringPtrInput
 	DeletionProtection          pulumi.BoolPtrInput
 	EnableCloudwatchLogsExports pulumi.StringArrayInput
 	EngineVersion               pulumi.StringPtrInput
@@ -130,7 +130,7 @@ type DBClusterArgs struct {
 	RestoreToTime               pulumi.StringPtrInput
 	RestoreType                 pulumi.StringPtrInput
 	SnapshotIdentifier          pulumi.StringPtrInput
-	SourceDBClusterIdentifier   pulumi.StringPtrInput
+	SourceDbClusterIdentifier   pulumi.StringPtrInput
 	StorageEncrypted            pulumi.BoolPtrInput
 	Tags                        DBClusterTagArrayInput
 	UseLatestRestorableTime     pulumi.BoolPtrInput
@@ -190,16 +190,16 @@ func (o DBClusterOutput) CopyTagsToSnapshot() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DBCluster) pulumi.BoolPtrOutput { return v.CopyTagsToSnapshot }).(pulumi.BoolPtrOutput)
 }
 
-func (o DBClusterOutput) DBClusterIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.DBClusterIdentifier }).(pulumi.StringPtrOutput)
+func (o DBClusterOutput) DbClusterIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.DbClusterIdentifier }).(pulumi.StringPtrOutput)
 }
 
-func (o DBClusterOutput) DBClusterParameterGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.DBClusterParameterGroupName }).(pulumi.StringPtrOutput)
+func (o DBClusterOutput) DbClusterParameterGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.DbClusterParameterGroupName }).(pulumi.StringPtrOutput)
 }
 
-func (o DBClusterOutput) DBSubnetGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.DBSubnetGroupName }).(pulumi.StringPtrOutput)
+func (o DBClusterOutput) DbSubnetGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.DbSubnetGroupName }).(pulumi.StringPtrOutput)
 }
 
 func (o DBClusterOutput) DeletionProtection() pulumi.BoolPtrOutput {
@@ -258,8 +258,8 @@ func (o DBClusterOutput) SnapshotIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.SnapshotIdentifier }).(pulumi.StringPtrOutput)
 }
 
-func (o DBClusterOutput) SourceDBClusterIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.SourceDBClusterIdentifier }).(pulumi.StringPtrOutput)
+func (o DBClusterOutput) SourceDbClusterIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.SourceDbClusterIdentifier }).(pulumi.StringPtrOutput)
 }
 
 func (o DBClusterOutput) StorageEncrypted() pulumi.BoolPtrOutput {

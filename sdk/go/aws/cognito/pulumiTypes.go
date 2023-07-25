@@ -1988,7 +1988,7 @@ func (o UserPoolEmailConfigurationPtrOutput) SourceArn() pulumi.StringPtrOutput 
 type UserPoolInviteMessageTemplate struct {
 	EmailMessage *string `pulumi:"emailMessage"`
 	EmailSubject *string `pulumi:"emailSubject"`
-	SMSMessage   *string `pulumi:"sMSMessage"`
+	SmsMessage   *string `pulumi:"smsMessage"`
 }
 
 // UserPoolInviteMessageTemplateInput is an input type that accepts UserPoolInviteMessageTemplateArgs and UserPoolInviteMessageTemplateOutput values.
@@ -2005,7 +2005,7 @@ type UserPoolInviteMessageTemplateInput interface {
 type UserPoolInviteMessageTemplateArgs struct {
 	EmailMessage pulumi.StringPtrInput `pulumi:"emailMessage"`
 	EmailSubject pulumi.StringPtrInput `pulumi:"emailSubject"`
-	SMSMessage   pulumi.StringPtrInput `pulumi:"sMSMessage"`
+	SmsMessage   pulumi.StringPtrInput `pulumi:"smsMessage"`
 }
 
 func (UserPoolInviteMessageTemplateArgs) ElementType() reflect.Type {
@@ -2093,8 +2093,8 @@ func (o UserPoolInviteMessageTemplateOutput) EmailSubject() pulumi.StringPtrOutp
 	return o.ApplyT(func(v UserPoolInviteMessageTemplate) *string { return v.EmailSubject }).(pulumi.StringPtrOutput)
 }
 
-func (o UserPoolInviteMessageTemplateOutput) SMSMessage() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserPoolInviteMessageTemplate) *string { return v.SMSMessage }).(pulumi.StringPtrOutput)
+func (o UserPoolInviteMessageTemplateOutput) SmsMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolInviteMessageTemplate) *string { return v.SmsMessage }).(pulumi.StringPtrOutput)
 }
 
 type UserPoolInviteMessageTemplatePtrOutput struct{ *pulumi.OutputState }
@@ -2139,12 +2139,12 @@ func (o UserPoolInviteMessageTemplatePtrOutput) EmailSubject() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o UserPoolInviteMessageTemplatePtrOutput) SMSMessage() pulumi.StringPtrOutput {
+func (o UserPoolInviteMessageTemplatePtrOutput) SmsMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolInviteMessageTemplate) *string {
 		if v == nil {
 			return nil
 		}
-		return v.SMSMessage
+		return v.SmsMessage
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2152,9 +2152,9 @@ type UserPoolLambdaConfig struct {
 	CreateAuthChallenge         *string                    `pulumi:"createAuthChallenge"`
 	CustomEmailSender           *UserPoolCustomEmailSender `pulumi:"customEmailSender"`
 	CustomMessage               *string                    `pulumi:"customMessage"`
-	CustomSMSSender             *UserPoolCustomSMSSender   `pulumi:"customSMSSender"`
+	CustomSmsSender             *UserPoolCustomSMSSender   `pulumi:"customSmsSender"`
 	DefineAuthChallenge         *string                    `pulumi:"defineAuthChallenge"`
-	KMSKeyID                    *string                    `pulumi:"kMSKeyID"`
+	KmsKeyId                    *string                    `pulumi:"kmsKeyId"`
 	PostAuthentication          *string                    `pulumi:"postAuthentication"`
 	PostConfirmation            *string                    `pulumi:"postConfirmation"`
 	PreAuthentication           *string                    `pulumi:"preAuthentication"`
@@ -2179,9 +2179,9 @@ type UserPoolLambdaConfigArgs struct {
 	CreateAuthChallenge         pulumi.StringPtrInput             `pulumi:"createAuthChallenge"`
 	CustomEmailSender           UserPoolCustomEmailSenderPtrInput `pulumi:"customEmailSender"`
 	CustomMessage               pulumi.StringPtrInput             `pulumi:"customMessage"`
-	CustomSMSSender             UserPoolCustomSMSSenderPtrInput   `pulumi:"customSMSSender"`
+	CustomSmsSender             UserPoolCustomSMSSenderPtrInput   `pulumi:"customSmsSender"`
 	DefineAuthChallenge         pulumi.StringPtrInput             `pulumi:"defineAuthChallenge"`
-	KMSKeyID                    pulumi.StringPtrInput             `pulumi:"kMSKeyID"`
+	KmsKeyId                    pulumi.StringPtrInput             `pulumi:"kmsKeyId"`
 	PostAuthentication          pulumi.StringPtrInput             `pulumi:"postAuthentication"`
 	PostConfirmation            pulumi.StringPtrInput             `pulumi:"postConfirmation"`
 	PreAuthentication           pulumi.StringPtrInput             `pulumi:"preAuthentication"`
@@ -2280,16 +2280,16 @@ func (o UserPoolLambdaConfigOutput) CustomMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolLambdaConfig) *string { return v.CustomMessage }).(pulumi.StringPtrOutput)
 }
 
-func (o UserPoolLambdaConfigOutput) CustomSMSSender() UserPoolCustomSMSSenderPtrOutput {
-	return o.ApplyT(func(v UserPoolLambdaConfig) *UserPoolCustomSMSSender { return v.CustomSMSSender }).(UserPoolCustomSMSSenderPtrOutput)
+func (o UserPoolLambdaConfigOutput) CustomSmsSender() UserPoolCustomSMSSenderPtrOutput {
+	return o.ApplyT(func(v UserPoolLambdaConfig) *UserPoolCustomSMSSender { return v.CustomSmsSender }).(UserPoolCustomSMSSenderPtrOutput)
 }
 
 func (o UserPoolLambdaConfigOutput) DefineAuthChallenge() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolLambdaConfig) *string { return v.DefineAuthChallenge }).(pulumi.StringPtrOutput)
 }
 
-func (o UserPoolLambdaConfigOutput) KMSKeyID() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserPoolLambdaConfig) *string { return v.KMSKeyID }).(pulumi.StringPtrOutput)
+func (o UserPoolLambdaConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolLambdaConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
 func (o UserPoolLambdaConfigOutput) PostAuthentication() pulumi.StringPtrOutput {
@@ -2371,12 +2371,12 @@ func (o UserPoolLambdaConfigPtrOutput) CustomMessage() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o UserPoolLambdaConfigPtrOutput) CustomSMSSender() UserPoolCustomSMSSenderPtrOutput {
+func (o UserPoolLambdaConfigPtrOutput) CustomSmsSender() UserPoolCustomSMSSenderPtrOutput {
 	return o.ApplyT(func(v *UserPoolLambdaConfig) *UserPoolCustomSMSSender {
 		if v == nil {
 			return nil
 		}
-		return v.CustomSMSSender
+		return v.CustomSmsSender
 	}).(UserPoolCustomSMSSenderPtrOutput)
 }
 
@@ -2389,12 +2389,12 @@ func (o UserPoolLambdaConfigPtrOutput) DefineAuthChallenge() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o UserPoolLambdaConfigPtrOutput) KMSKeyID() pulumi.StringPtrOutput {
+func (o UserPoolLambdaConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolLambdaConfig) *string {
 		if v == nil {
 			return nil
 		}
-		return v.KMSKeyID
+		return v.KmsKeyId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4284,8 +4284,8 @@ func (o UserPoolRiskConfigurationAttachmentNotifyEmailTypePtrOutput) TextBody() 
 }
 
 type UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType struct {
-	BlockedIPRangeList []string `pulumi:"blockedIPRangeList"`
-	SkippedIPRangeList []string `pulumi:"skippedIPRangeList"`
+	BlockedIpRangeList []string `pulumi:"blockedIpRangeList"`
+	SkippedIpRangeList []string `pulumi:"skippedIpRangeList"`
 }
 
 // UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeInput is an input type that accepts UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgs and UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeOutput values.
@@ -4300,8 +4300,8 @@ type UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeInput inte
 }
 
 type UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgs struct {
-	BlockedIPRangeList pulumi.StringArrayInput `pulumi:"blockedIPRangeList"`
-	SkippedIPRangeList pulumi.StringArrayInput `pulumi:"skippedIPRangeList"`
+	BlockedIpRangeList pulumi.StringArrayInput `pulumi:"blockedIpRangeList"`
+	SkippedIpRangeList pulumi.StringArrayInput `pulumi:"skippedIpRangeList"`
 }
 
 func (UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgs) ElementType() reflect.Type {
@@ -4381,15 +4381,15 @@ func (o UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeOutput)
 	}).(UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypePtrOutput)
 }
 
-func (o UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeOutput) BlockedIPRangeList() pulumi.StringArrayOutput {
+func (o UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeOutput) BlockedIpRangeList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType) []string {
-		return v.BlockedIPRangeList
+		return v.BlockedIpRangeList
 	}).(pulumi.StringArrayOutput)
 }
 
-func (o UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeOutput) SkippedIPRangeList() pulumi.StringArrayOutput {
+func (o UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeOutput) SkippedIpRangeList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType) []string {
-		return v.SkippedIPRangeList
+		return v.SkippedIpRangeList
 	}).(pulumi.StringArrayOutput)
 }
 
@@ -4417,21 +4417,21 @@ func (o UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypePtrOutp
 	}).(UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeOutput)
 }
 
-func (o UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypePtrOutput) BlockedIPRangeList() pulumi.StringArrayOutput {
+func (o UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypePtrOutput) BlockedIpRangeList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType) []string {
 		if v == nil {
 			return nil
 		}
-		return v.BlockedIPRangeList
+		return v.BlockedIpRangeList
 	}).(pulumi.StringArrayOutput)
 }
 
-func (o UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypePtrOutput) SkippedIPRangeList() pulumi.StringArrayOutput {
+func (o UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypePtrOutput) SkippedIpRangeList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType) []string {
 		if v == nil {
 			return nil
 		}
-		return v.SkippedIPRangeList
+		return v.SkippedIpRangeList
 	}).(pulumi.StringArrayOutput)
 }
 

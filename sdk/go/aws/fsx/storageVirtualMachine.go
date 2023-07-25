@@ -21,12 +21,12 @@ type StorageVirtualMachine struct {
 	ActiveDirectoryConfiguration StorageVirtualMachineActiveDirectoryConfigurationPtrOutput `pulumi:"activeDirectoryConfiguration"`
 	FileSystemId                 pulumi.StringOutput                                        `pulumi:"fileSystemId"`
 	Name                         pulumi.StringOutput                                        `pulumi:"name"`
-	ResourceARN                  pulumi.StringOutput                                        `pulumi:"resourceARN"`
+	ResourceArn                  pulumi.StringOutput                                        `pulumi:"resourceArn"`
 	RootVolumeSecurityStyle      pulumi.StringPtrOutput                                     `pulumi:"rootVolumeSecurityStyle"`
 	StorageVirtualMachineId      pulumi.StringOutput                                        `pulumi:"storageVirtualMachineId"`
 	SvmAdminPassword             pulumi.StringPtrOutput                                     `pulumi:"svmAdminPassword"`
 	Tags                         StorageVirtualMachineTagArrayOutput                        `pulumi:"tags"`
-	UUID                         pulumi.StringOutput                                        `pulumi:"uUID"`
+	Uuid                         pulumi.StringOutput                                        `pulumi:"uuid"`
 }
 
 // NewStorageVirtualMachine registers a new resource with the given unique name, arguments, and options.
@@ -141,8 +141,8 @@ func (o StorageVirtualMachineOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *StorageVirtualMachine) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o StorageVirtualMachineOutput) ResourceARN() pulumi.StringOutput {
-	return o.ApplyT(func(v *StorageVirtualMachine) pulumi.StringOutput { return v.ResourceARN }).(pulumi.StringOutput)
+func (o StorageVirtualMachineOutput) ResourceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageVirtualMachine) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
 }
 
 func (o StorageVirtualMachineOutput) RootVolumeSecurityStyle() pulumi.StringPtrOutput {
@@ -161,8 +161,8 @@ func (o StorageVirtualMachineOutput) Tags() StorageVirtualMachineTagArrayOutput 
 	return o.ApplyT(func(v *StorageVirtualMachine) StorageVirtualMachineTagArrayOutput { return v.Tags }).(StorageVirtualMachineTagArrayOutput)
 }
 
-func (o StorageVirtualMachineOutput) UUID() pulumi.StringOutput {
-	return o.ApplyT(func(v *StorageVirtualMachine) pulumi.StringOutput { return v.UUID }).(pulumi.StringOutput)
+func (o StorageVirtualMachineOutput) Uuid() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageVirtualMachine) pulumi.StringOutput { return v.Uuid }).(pulumi.StringOutput)
 }
 
 func init() {

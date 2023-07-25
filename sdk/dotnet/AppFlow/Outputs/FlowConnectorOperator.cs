@@ -25,8 +25,8 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         public readonly Pulumi.AwsNative.AppFlow.FlowMarketoConnectorOperator? Marketo;
         public readonly Pulumi.AwsNative.AppFlow.FlowPardotConnectorOperator? Pardot;
         public readonly Pulumi.AwsNative.AppFlow.FlowS3ConnectorOperator? S3;
-        public readonly Pulumi.AwsNative.AppFlow.FlowSAPODataConnectorOperator? SAPOData;
         public readonly Pulumi.AwsNative.AppFlow.FlowSalesforceConnectorOperator? Salesforce;
+        public readonly Pulumi.AwsNative.AppFlow.FlowSAPODataConnectorOperator? SapoData;
         public readonly Pulumi.AwsNative.AppFlow.FlowServiceNowConnectorOperator? ServiceNow;
         public readonly Pulumi.AwsNative.AppFlow.FlowSingularConnectorOperator? Singular;
         public readonly Pulumi.AwsNative.AppFlow.FlowSlackConnectorOperator? Slack;
@@ -54,9 +54,9 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
             Pulumi.AwsNative.AppFlow.FlowS3ConnectorOperator? s3,
 
-            Pulumi.AwsNative.AppFlow.FlowSAPODataConnectorOperator? sAPOData,
-
             Pulumi.AwsNative.AppFlow.FlowSalesforceConnectorOperator? salesforce,
+
+            Pulumi.AwsNative.AppFlow.FlowSAPODataConnectorOperator? sapoData,
 
             Pulumi.AwsNative.AppFlow.FlowServiceNowConnectorOperator? serviceNow,
 
@@ -79,8 +79,8 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
             Marketo = marketo;
             Pardot = pardot;
             S3 = s3;
-            SAPOData = sAPOData;
             Salesforce = salesforce;
+            SapoData = sapoData;
             ServiceNow = serviceNow;
             Singular = singular;
             Slack = slack;

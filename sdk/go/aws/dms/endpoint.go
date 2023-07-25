@@ -28,7 +28,7 @@ type Endpoint struct {
 	EngineName                 pulumi.StringOutput                         `pulumi:"engineName"`
 	ExternalId                 pulumi.StringOutput                         `pulumi:"externalId"`
 	ExtraConnectionAttributes  pulumi.StringPtrOutput                      `pulumi:"extraConnectionAttributes"`
-	GcpMySQLSettings           EndpointGcpMySQLSettingsPtrOutput           `pulumi:"gcpMySQLSettings"`
+	GcpMySqlSettings           EndpointGcpMySQLSettingsPtrOutput           `pulumi:"gcpMySqlSettings"`
 	IbmDb2Settings             EndpointIbmDb2SettingsPtrOutput             `pulumi:"ibmDb2Settings"`
 	KafkaSettings              EndpointKafkaSettingsPtrOutput              `pulumi:"kafkaSettings"`
 	KinesisSettings            EndpointKinesisSettingsPtrOutput            `pulumi:"kinesisSettings"`
@@ -107,7 +107,7 @@ type endpointArgs struct {
 	EndpointType               string                              `pulumi:"endpointType"`
 	EngineName                 string                              `pulumi:"engineName"`
 	ExtraConnectionAttributes  *string                             `pulumi:"extraConnectionAttributes"`
-	GcpMySQLSettings           *EndpointGcpMySQLSettings           `pulumi:"gcpMySQLSettings"`
+	GcpMySqlSettings           *EndpointGcpMySQLSettings           `pulumi:"gcpMySqlSettings"`
 	IbmDb2Settings             *EndpointIbmDb2Settings             `pulumi:"ibmDb2Settings"`
 	KafkaSettings              *EndpointKafkaSettings              `pulumi:"kafkaSettings"`
 	KinesisSettings            *EndpointKinesisSettings            `pulumi:"kinesisSettings"`
@@ -142,7 +142,7 @@ type EndpointArgs struct {
 	EndpointType               pulumi.StringInput
 	EngineName                 pulumi.StringInput
 	ExtraConnectionAttributes  pulumi.StringPtrInput
-	GcpMySQLSettings           EndpointGcpMySQLSettingsPtrInput
+	GcpMySqlSettings           EndpointGcpMySQLSettingsPtrInput
 	IbmDb2Settings             EndpointIbmDb2SettingsPtrInput
 	KafkaSettings              EndpointKafkaSettingsPtrInput
 	KinesisSettings            EndpointKinesisSettingsPtrInput
@@ -243,8 +243,8 @@ func (o EndpointOutput) ExtraConnectionAttributes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.ExtraConnectionAttributes }).(pulumi.StringPtrOutput)
 }
 
-func (o EndpointOutput) GcpMySQLSettings() EndpointGcpMySQLSettingsPtrOutput {
-	return o.ApplyT(func(v *Endpoint) EndpointGcpMySQLSettingsPtrOutput { return v.GcpMySQLSettings }).(EndpointGcpMySQLSettingsPtrOutput)
+func (o EndpointOutput) GcpMySqlSettings() EndpointGcpMySQLSettingsPtrOutput {
+	return o.ApplyT(func(v *Endpoint) EndpointGcpMySQLSettingsPtrOutput { return v.GcpMySqlSettings }).(EndpointGcpMySQLSettingsPtrOutput)
 }
 
 func (o EndpointOutput) IbmDb2Settings() EndpointIbmDb2SettingsPtrOutput {

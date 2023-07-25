@@ -43,14 +43,14 @@ namespace Pulumi.AwsNative.CodeDeploy
         [Output("deploymentStyle")]
         public Output<Outputs.DeploymentGroupDeploymentStyle?> DeploymentStyle { get; private set; } = null!;
 
-        [Output("eCSServices")]
-        public Output<ImmutableArray<Outputs.DeploymentGroupECSService>> ECSServices { get; private set; } = null!;
-
         [Output("ec2TagFilters")]
         public Output<ImmutableArray<Outputs.DeploymentGroupEC2TagFilter>> Ec2TagFilters { get; private set; } = null!;
 
         [Output("ec2TagSet")]
         public Output<Outputs.DeploymentGroupEC2TagSet?> Ec2TagSet { get; private set; } = null!;
+
+        [Output("ecsServices")]
+        public Output<ImmutableArray<Outputs.DeploymentGroupECSService>> EcsServices { get; private set; } = null!;
 
         [Output("loadBalancerInfo")]
         public Output<Outputs.DeploymentGroupLoadBalancerInfo?> LoadBalancerInfo { get; private set; } = null!;
@@ -150,14 +150,6 @@ namespace Pulumi.AwsNative.CodeDeploy
         [Input("deploymentStyle")]
         public Input<Inputs.DeploymentGroupDeploymentStyleArgs>? DeploymentStyle { get; set; }
 
-        [Input("eCSServices")]
-        private InputList<Inputs.DeploymentGroupECSServiceArgs>? _eCSServices;
-        public InputList<Inputs.DeploymentGroupECSServiceArgs> ECSServices
-        {
-            get => _eCSServices ?? (_eCSServices = new InputList<Inputs.DeploymentGroupECSServiceArgs>());
-            set => _eCSServices = value;
-        }
-
         [Input("ec2TagFilters")]
         private InputList<Inputs.DeploymentGroupEC2TagFilterArgs>? _ec2TagFilters;
         public InputList<Inputs.DeploymentGroupEC2TagFilterArgs> Ec2TagFilters
@@ -168,6 +160,14 @@ namespace Pulumi.AwsNative.CodeDeploy
 
         [Input("ec2TagSet")]
         public Input<Inputs.DeploymentGroupEC2TagSetArgs>? Ec2TagSet { get; set; }
+
+        [Input("ecsServices")]
+        private InputList<Inputs.DeploymentGroupECSServiceArgs>? _ecsServices;
+        public InputList<Inputs.DeploymentGroupECSServiceArgs> EcsServices
+        {
+            get => _ecsServices ?? (_ecsServices = new InputList<Inputs.DeploymentGroupECSServiceArgs>());
+            set => _ecsServices = value;
+        }
 
         [Input("loadBalancerInfo")]
         public Input<Inputs.DeploymentGroupLoadBalancerInfoArgs>? LoadBalancerInfo { get; set; }

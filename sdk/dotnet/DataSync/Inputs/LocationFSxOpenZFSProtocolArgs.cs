@@ -15,8 +15,8 @@ namespace Pulumi.AwsNative.DataSync.Inputs
     /// </summary>
     public sealed class LocationFSxOpenZFSProtocolArgs : global::Pulumi.ResourceArgs
     {
-        [Input("nFS")]
-        public Input<Inputs.LocationFSxOpenZFSNFSArgs>? NFS { get; set; }
+        [Input("nfs")]
+        public Input<Inputs.LocationFSxOpenZFSNFSArgs>? Nfs { get; set; }
 
         public LocationFSxOpenZFSProtocolArgs()
         {

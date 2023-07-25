@@ -64,7 +64,7 @@ class DomainArgs:
         pulumi.set(self, "auto_sub_domain_creation_patterns", value)
 
     @property
-    @pulumi.getter(name="autoSubDomainIAMRole")
+    @pulumi.getter(name="autoSubDomainIamRole")
     def auto_sub_domain_iam_role(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "auto_sub_domain_iam_role")
 
@@ -212,7 +212,7 @@ class Domain(pulumi.CustomResource):
         return pulumi.get(self, "auto_sub_domain_creation_patterns")
 
     @property
-    @pulumi.getter(name="autoSubDomainIAMRole")
+    @pulumi.getter(name="autoSubDomainIamRole")
     def auto_sub_domain_iam_role(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "auto_sub_domain_iam_role")
 

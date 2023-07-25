@@ -99,7 +99,7 @@ class GetStackResult:
         return pulumi.get(self, "embed_host_domains")
 
     @property
-    @pulumi.getter(name="feedbackURL")
+    @pulumi.getter(name="feedbackUrl")
     def feedback_url(self) -> Optional[str]:
         return pulumi.get(self, "feedback_url")
 
@@ -109,7 +109,7 @@ class GetStackResult:
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="redirectURL")
+    @pulumi.getter(name="redirectUrl")
     def redirect_url(self) -> Optional[str]:
         return pulumi.get(self, "redirect_url")
 

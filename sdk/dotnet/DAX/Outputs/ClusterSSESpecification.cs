@@ -13,12 +13,12 @@ namespace Pulumi.AwsNative.DAX.Outputs
     [OutputType]
     public sealed class ClusterSSESpecification
     {
-        public readonly bool? SSEEnabled;
+        public readonly bool? SseEnabled;
 
         [OutputConstructor]
-        private ClusterSSESpecification(bool? sSEEnabled)
+        private ClusterSSESpecification(bool? sseEnabled)
         {
-            SSEEnabled = sSEEnabled;
+            SseEnabled = sseEnabled;
         }
     }
 }

@@ -67,7 +67,7 @@ type LookupBucketResult struct {
 	VersioningConfiguration *BucketVersioningConfiguration `pulumi:"versioningConfiguration"`
 	WebsiteConfiguration    *BucketWebsiteConfiguration    `pulumi:"websiteConfiguration"`
 	// The Amazon S3 website endpoint for the specified bucket.
-	WebsiteURL *string `pulumi:"websiteURL"`
+	WebsiteUrl *string `pulumi:"websiteUrl"`
 }
 
 func LookupBucketOutput(ctx *pulumi.Context, args LookupBucketOutputArgs, opts ...pulumi.InvokeOption) LookupBucketResultOutput {
@@ -212,8 +212,8 @@ func (o LookupBucketResultOutput) WebsiteConfiguration() BucketWebsiteConfigurat
 }
 
 // The Amazon S3 website endpoint for the specified bucket.
-func (o LookupBucketResultOutput) WebsiteURL() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupBucketResult) *string { return v.WebsiteURL }).(pulumi.StringPtrOutput)
+func (o LookupBucketResultOutput) WebsiteUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBucketResult) *string { return v.WebsiteUrl }).(pulumi.StringPtrOutput)
 }
 
 func init() {

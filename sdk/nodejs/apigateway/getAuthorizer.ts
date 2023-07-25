@@ -57,7 +57,7 @@ export interface GetAuthorizerResult {
     /**
      * A list of the Amazon Cognito user pool ARNs for the COGNITO_USER_POOLS authorizer.
      */
-    readonly providerARNs?: string[];
+    readonly providerArns?: string[];
     /**
      * The authorizer type.
      */

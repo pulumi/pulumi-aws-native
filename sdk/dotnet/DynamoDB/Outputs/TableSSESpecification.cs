@@ -13,21 +13,21 @@ namespace Pulumi.AwsNative.DynamoDB.Outputs
     [OutputType]
     public sealed class TableSSESpecification
     {
-        public readonly string? KMSMasterKeyId;
-        public readonly bool SSEEnabled;
-        public readonly string? SSEType;
+        public readonly string? KmsMasterKeyId;
+        public readonly bool SseEnabled;
+        public readonly string? SseType;
 
         [OutputConstructor]
         private TableSSESpecification(
-            string? kMSMasterKeyId,
+            string? kmsMasterKeyId,
 
-            bool sSEEnabled,
+            bool sseEnabled,
 
-            string? sSEType)
+            string? sseType)
         {
-            KMSMasterKeyId = kMSMasterKeyId;
-            SSEEnabled = sSEEnabled;
-            SSEType = sSEType;
+            KmsMasterKeyId = kmsMasterKeyId;
+            SseEnabled = sseEnabled;
+            SseType = sseType;
         }
     }
 }

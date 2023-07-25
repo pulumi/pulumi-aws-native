@@ -38,8 +38,8 @@ class AlertAction(dict):
         suggest = None
         if key == "lambdaConfiguration":
             suggest = "lambda_configuration"
-        elif key == "sNSConfiguration":
-            suggest = "s_ns_configuration"
+        elif key == "snsConfiguration":
+            suggest = "sns_configuration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AlertAction. Access the value via the '{suggest}' property getter instead.")
@@ -54,11 +54,11 @@ class AlertAction(dict):
 
     def __init__(__self__, *,
                  lambda_configuration: Optional['outputs.AlertLambdaConfiguration'] = None,
-                 s_ns_configuration: Optional['outputs.AlertSNSConfiguration'] = None):
+                 sns_configuration: Optional['outputs.AlertSNSConfiguration'] = None):
         if lambda_configuration is not None:
             pulumi.set(__self__, "lambda_configuration", lambda_configuration)
-        if s_ns_configuration is not None:
-            pulumi.set(__self__, "s_ns_configuration", s_ns_configuration)
+        if sns_configuration is not None:
+            pulumi.set(__self__, "sns_configuration", sns_configuration)
 
     @property
     @pulumi.getter(name="lambdaConfiguration")
@@ -66,9 +66,9 @@ class AlertAction(dict):
         return pulumi.get(self, "lambda_configuration")
 
     @property
-    @pulumi.getter(name="sNSConfiguration")
-    def s_ns_configuration(self) -> Optional['outputs.AlertSNSConfiguration']:
-        return pulumi.get(self, "s_ns_configuration")
+    @pulumi.getter(name="snsConfiguration")
+    def sns_configuration(self) -> Optional['outputs.AlertSNSConfiguration']:
+        return pulumi.get(self, "sns_configuration")
 
 
 @pulumi.output_type
@@ -621,8 +621,8 @@ class AnomalyDetectorMetricSource(dict):
             suggest = "app_flow_config"
         elif key == "cloudwatchConfig":
             suggest = "cloudwatch_config"
-        elif key == "rDSSourceConfig":
-            suggest = "r_ds_source_config"
+        elif key == "rdsSourceConfig":
+            suggest = "rds_source_config"
         elif key == "redshiftSourceConfig":
             suggest = "redshift_source_config"
         elif key == "s3SourceConfig":
@@ -642,15 +642,15 @@ class AnomalyDetectorMetricSource(dict):
     def __init__(__self__, *,
                  app_flow_config: Optional['outputs.AnomalyDetectorAppFlowConfig'] = None,
                  cloudwatch_config: Optional['outputs.AnomalyDetectorCloudwatchConfig'] = None,
-                 r_ds_source_config: Optional['outputs.AnomalyDetectorRDSSourceConfig'] = None,
+                 rds_source_config: Optional['outputs.AnomalyDetectorRDSSourceConfig'] = None,
                  redshift_source_config: Optional['outputs.AnomalyDetectorRedshiftSourceConfig'] = None,
                  s3_source_config: Optional['outputs.AnomalyDetectorS3SourceConfig'] = None):
         if app_flow_config is not None:
             pulumi.set(__self__, "app_flow_config", app_flow_config)
         if cloudwatch_config is not None:
             pulumi.set(__self__, "cloudwatch_config", cloudwatch_config)
-        if r_ds_source_config is not None:
-            pulumi.set(__self__, "r_ds_source_config", r_ds_source_config)
+        if rds_source_config is not None:
+            pulumi.set(__self__, "rds_source_config", rds_source_config)
         if redshift_source_config is not None:
             pulumi.set(__self__, "redshift_source_config", redshift_source_config)
         if s3_source_config is not None:
@@ -667,9 +667,9 @@ class AnomalyDetectorMetricSource(dict):
         return pulumi.get(self, "cloudwatch_config")
 
     @property
-    @pulumi.getter(name="rDSSourceConfig")
-    def r_ds_source_config(self) -> Optional['outputs.AnomalyDetectorRDSSourceConfig']:
-        return pulumi.get(self, "r_ds_source_config")
+    @pulumi.getter(name="rdsSourceConfig")
+    def rds_source_config(self) -> Optional['outputs.AnomalyDetectorRDSSourceConfig']:
+        return pulumi.get(self, "rds_source_config")
 
     @property
     @pulumi.getter(name="redshiftSourceConfig")
@@ -687,14 +687,14 @@ class AnomalyDetectorRDSSourceConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dBInstanceIdentifier":
-            suggest = "d_b_instance_identifier"
-        elif key == "databaseHost":
+        if key == "databaseHost":
             suggest = "database_host"
         elif key == "databaseName":
             suggest = "database_name"
         elif key == "databasePort":
             suggest = "database_port"
+        elif key == "dbInstanceIdentifier":
+            suggest = "db_instance_identifier"
         elif key == "roleArn":
             suggest = "role_arn"
         elif key == "secretManagerArn":
@@ -716,27 +716,22 @@ class AnomalyDetectorRDSSourceConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 d_b_instance_identifier: str,
                  database_host: str,
                  database_name: str,
                  database_port: int,
+                 db_instance_identifier: str,
                  role_arn: str,
                  secret_manager_arn: str,
                  table_name: str,
                  vpc_configuration: 'outputs.AnomalyDetectorVpcConfiguration'):
-        pulumi.set(__self__, "d_b_instance_identifier", d_b_instance_identifier)
         pulumi.set(__self__, "database_host", database_host)
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "database_port", database_port)
+        pulumi.set(__self__, "db_instance_identifier", db_instance_identifier)
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "secret_manager_arn", secret_manager_arn)
         pulumi.set(__self__, "table_name", table_name)
         pulumi.set(__self__, "vpc_configuration", vpc_configuration)
-
-    @property
-    @pulumi.getter(name="dBInstanceIdentifier")
-    def d_b_instance_identifier(self) -> str:
-        return pulumi.get(self, "d_b_instance_identifier")
 
     @property
     @pulumi.getter(name="databaseHost")
@@ -752,6 +747,11 @@ class AnomalyDetectorRDSSourceConfig(dict):
     @pulumi.getter(name="databasePort")
     def database_port(self) -> int:
         return pulumi.get(self, "database_port")
+
+    @property
+    @pulumi.getter(name="dbInstanceIdentifier")
+    def db_instance_identifier(self) -> str:
+        return pulumi.get(self, "db_instance_identifier")
 
     @property
     @pulumi.getter(name="roleArn")

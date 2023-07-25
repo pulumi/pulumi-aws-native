@@ -34,7 +34,7 @@ export interface GetRecordSetResult {
     readonly region?: string;
     readonly resourceRecords?: string[];
     readonly setIdentifier?: string;
-    readonly tTL?: string;
+    readonly ttl?: string;
     readonly type?: string;
     readonly weight?: number;
 }

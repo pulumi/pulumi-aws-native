@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.EMR
         public readonly string? Id;
         public readonly Outputs.ClusterJobFlowInstancesConfig? Instances;
         public readonly Outputs.ClusterManagedScalingPolicy? ManagedScalingPolicy;
-        public readonly string? MasterPublicDNS;
+        public readonly string? MasterPublicDns;
         public readonly int? StepConcurrencyLevel;
         public readonly ImmutableArray<Outputs.ClusterTag> Tags;
         public readonly bool? VisibleToAllUsers;
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.EMR
 
             Outputs.ClusterManagedScalingPolicy? managedScalingPolicy,
 
-            string? masterPublicDNS,
+            string? masterPublicDns,
 
             int? stepConcurrencyLevel,
 
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.EMR
             Id = id;
             Instances = instances;
             ManagedScalingPolicy = managedScalingPolicy;
-            MasterPublicDNS = masterPublicDNS;
+            MasterPublicDns = masterPublicDns;
             StepConcurrencyLevel = stepConcurrencyLevel;
             Tags = tags;
             VisibleToAllUsers = visibleToAllUsers;

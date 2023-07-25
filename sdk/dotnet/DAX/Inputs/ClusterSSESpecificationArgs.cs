@@ -12,8 +12,8 @@ namespace Pulumi.AwsNative.DAX.Inputs
 
     public sealed class ClusterSSESpecificationArgs : global::Pulumi.ResourceArgs
     {
-        [Input("sSEEnabled")]
-        public Input<bool>? SSEEnabled { get; set; }
+        [Input("sseEnabled")]
+        public Input<bool>? SseEnabled { get; set; }
 
         public ClusterSSESpecificationArgs()
         {

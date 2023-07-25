@@ -23,7 +23,7 @@ func LookupDBClusterParameterGroup(ctx *pulumi.Context, args *LookupDBClusterPar
 }
 
 type LookupDBClusterParameterGroupArgs struct {
-	DBClusterParameterGroupName string `pulumi:"dBClusterParameterGroupName"`
+	DbClusterParameterGroupName string `pulumi:"dbClusterParameterGroupName"`
 }
 
 type LookupDBClusterParameterGroupResult struct {
@@ -47,7 +47,7 @@ func LookupDBClusterParameterGroupOutput(ctx *pulumi.Context, args LookupDBClust
 }
 
 type LookupDBClusterParameterGroupOutputArgs struct {
-	DBClusterParameterGroupName pulumi.StringInput `pulumi:"dBClusterParameterGroupName"`
+	DbClusterParameterGroupName pulumi.StringInput `pulumi:"dbClusterParameterGroupName"`
 }
 
 func (LookupDBClusterParameterGroupOutputArgs) ElementType() reflect.Type {

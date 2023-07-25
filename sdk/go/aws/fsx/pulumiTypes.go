@@ -4266,7 +4266,7 @@ func (o VolumeOpenZFSConfigurationPtrOutput) UserAndGroupQuotas() VolumeUserAndG
 
 type VolumeOriginSnapshot struct {
 	CopyStrategy string `pulumi:"copyStrategy"`
-	SnapshotARN  string `pulumi:"snapshotARN"`
+	SnapshotArn  string `pulumi:"snapshotArn"`
 }
 
 // VolumeOriginSnapshotInput is an input type that accepts VolumeOriginSnapshotArgs and VolumeOriginSnapshotOutput values.
@@ -4282,7 +4282,7 @@ type VolumeOriginSnapshotInput interface {
 
 type VolumeOriginSnapshotArgs struct {
 	CopyStrategy pulumi.StringInput `pulumi:"copyStrategy"`
-	SnapshotARN  pulumi.StringInput `pulumi:"snapshotARN"`
+	SnapshotArn  pulumi.StringInput `pulumi:"snapshotArn"`
 }
 
 func (VolumeOriginSnapshotArgs) ElementType() reflect.Type {
@@ -4366,8 +4366,8 @@ func (o VolumeOriginSnapshotOutput) CopyStrategy() pulumi.StringOutput {
 	return o.ApplyT(func(v VolumeOriginSnapshot) string { return v.CopyStrategy }).(pulumi.StringOutput)
 }
 
-func (o VolumeOriginSnapshotOutput) SnapshotARN() pulumi.StringOutput {
-	return o.ApplyT(func(v VolumeOriginSnapshot) string { return v.SnapshotARN }).(pulumi.StringOutput)
+func (o VolumeOriginSnapshotOutput) SnapshotArn() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeOriginSnapshot) string { return v.SnapshotArn }).(pulumi.StringOutput)
 }
 
 type VolumeOriginSnapshotPtrOutput struct{ *pulumi.OutputState }
@@ -4403,12 +4403,12 @@ func (o VolumeOriginSnapshotPtrOutput) CopyStrategy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o VolumeOriginSnapshotPtrOutput) SnapshotARN() pulumi.StringPtrOutput {
+func (o VolumeOriginSnapshotPtrOutput) SnapshotArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VolumeOriginSnapshot) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.SnapshotARN
+		return &v.SnapshotArn
 	}).(pulumi.StringPtrOutput)
 }
 

@@ -13,14 +13,14 @@ namespace Pulumi.AwsNative.Elasticsearch.Outputs
     [OutputType]
     public sealed class DomainEBSOptions
     {
-        public readonly bool? EBSEnabled;
+        public readonly bool? EbsEnabled;
         public readonly int? Iops;
         public readonly int? VolumeSize;
         public readonly string? VolumeType;
 
         [OutputConstructor]
         private DomainEBSOptions(
-            bool? eBSEnabled,
+            bool? ebsEnabled,
 
             int? iops,
 
@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.Elasticsearch.Outputs
 
             string? volumeType)
         {
-            EBSEnabled = eBSEnabled;
+            EbsEnabled = ebsEnabled;
             Iops = iops;
             VolumeSize = volumeSize;
             VolumeType = volumeType;

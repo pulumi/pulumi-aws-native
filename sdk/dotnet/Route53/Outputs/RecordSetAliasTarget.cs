@@ -13,19 +13,19 @@ namespace Pulumi.AwsNative.Route53.Outputs
     [OutputType]
     public sealed class RecordSetAliasTarget
     {
-        public readonly string DNSName;
+        public readonly string DnsName;
         public readonly bool? EvaluateTargetHealth;
         public readonly string HostedZoneId;
 
         [OutputConstructor]
         private RecordSetAliasTarget(
-            string dNSName,
+            string dnsName,
 
             bool? evaluateTargetHealth,
 
             string hostedZoneId)
         {
-            DNSName = dNSName;
+            DnsName = dnsName;
             EvaluateTargetHealth = evaluateTargetHealth;
             HostedZoneId = hostedZoneId;
         }

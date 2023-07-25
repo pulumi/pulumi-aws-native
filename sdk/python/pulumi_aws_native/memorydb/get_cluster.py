@@ -19,13 +19,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetClusterResult:
-    def __init__(__self__, a_cl_name=None, a_rn=None, auto_minor_version_upgrade=None, cluster_endpoint=None, description=None, engine_version=None, maintenance_window=None, node_type=None, num_replicas_per_shard=None, num_shards=None, parameter_group_name=None, parameter_group_status=None, security_group_ids=None, snapshot_retention_limit=None, snapshot_window=None, sns_topic_arn=None, sns_topic_status=None, status=None, tags=None):
-        if a_cl_name and not isinstance(a_cl_name, str):
-            raise TypeError("Expected argument 'a_cl_name' to be a str")
-        pulumi.set(__self__, "a_cl_name", a_cl_name)
-        if a_rn and not isinstance(a_rn, str):
-            raise TypeError("Expected argument 'a_rn' to be a str")
-        pulumi.set(__self__, "a_rn", a_rn)
+    def __init__(__self__, acl_name=None, arn=None, auto_minor_version_upgrade=None, cluster_endpoint=None, description=None, engine_version=None, maintenance_window=None, node_type=None, num_replicas_per_shard=None, num_shards=None, parameter_group_name=None, parameter_group_status=None, security_group_ids=None, snapshot_retention_limit=None, snapshot_window=None, sns_topic_arn=None, sns_topic_status=None, status=None, tags=None):
+        if acl_name and not isinstance(acl_name, str):
+            raise TypeError("Expected argument 'acl_name' to be a str")
+        pulumi.set(__self__, "acl_name", acl_name)
+        if arn and not isinstance(arn, str):
+            raise TypeError("Expected argument 'arn' to be a str")
+        pulumi.set(__self__, "arn", arn)
         if auto_minor_version_upgrade and not isinstance(auto_minor_version_upgrade, bool):
             raise TypeError("Expected argument 'auto_minor_version_upgrade' to be a bool")
         pulumi.set(__self__, "auto_minor_version_upgrade", auto_minor_version_upgrade)
@@ -79,20 +79,20 @@ class GetClusterResult:
         pulumi.set(__self__, "tags", tags)
 
     @property
-    @pulumi.getter(name="aCLName")
-    def a_cl_name(self) -> Optional[str]:
+    @pulumi.getter(name="aclName")
+    def acl_name(self) -> Optional[str]:
         """
         The name of the Access Control List to associate with the cluster.
         """
-        return pulumi.get(self, "a_cl_name")
+        return pulumi.get(self, "acl_name")
 
     @property
-    @pulumi.getter(name="aRN")
-    def a_rn(self) -> Optional[str]:
+    @pulumi.getter
+    def arn(self) -> Optional[str]:
         """
         The Amazon Resource Name (ARN) of the cluster.
         """
-        return pulumi.get(self, "a_rn")
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="autoMinorVersionUpgrade")
@@ -239,8 +239,8 @@ class AwaitableGetClusterResult(GetClusterResult):
         if False:
             yield self
         return GetClusterResult(
-            a_cl_name=self.a_cl_name,
-            a_rn=self.a_rn,
+            acl_name=self.acl_name,
+            arn=self.arn,
             auto_minor_version_upgrade=self.auto_minor_version_upgrade,
             cluster_endpoint=self.cluster_endpoint,
             description=self.description,
@@ -274,8 +274,8 @@ def get_cluster(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:memorydb:getCluster', __args__, opts=opts, typ=GetClusterResult).value
 
     return AwaitableGetClusterResult(
-        a_cl_name=pulumi.get(__ret__, 'a_cl_name'),
-        a_rn=pulumi.get(__ret__, 'a_rn'),
+        acl_name=pulumi.get(__ret__, 'acl_name'),
+        arn=pulumi.get(__ret__, 'arn'),
         auto_minor_version_upgrade=pulumi.get(__ret__, 'auto_minor_version_upgrade'),
         cluster_endpoint=pulumi.get(__ret__, 'cluster_endpoint'),
         description=pulumi.get(__ret__, 'description'),

@@ -20,7 +20,7 @@ type RotationSchedule struct {
 
 	HostedRotationLambda      RotationScheduleHostedRotationLambdaPtrOutput `pulumi:"hostedRotationLambda"`
 	RotateImmediatelyOnUpdate pulumi.BoolPtrOutput                          `pulumi:"rotateImmediatelyOnUpdate"`
-	RotationLambdaARN         pulumi.StringPtrOutput                        `pulumi:"rotationLambdaARN"`
+	RotationLambdaArn         pulumi.StringPtrOutput                        `pulumi:"rotationLambdaArn"`
 	RotationRules             RotationScheduleRotationRulesPtrOutput        `pulumi:"rotationRules"`
 	SecretId                  pulumi.StringOutput                           `pulumi:"secretId"`
 }
@@ -70,7 +70,7 @@ func (RotationScheduleState) ElementType() reflect.Type {
 type rotationScheduleArgs struct {
 	HostedRotationLambda      *RotationScheduleHostedRotationLambda `pulumi:"hostedRotationLambda"`
 	RotateImmediatelyOnUpdate *bool                                 `pulumi:"rotateImmediatelyOnUpdate"`
-	RotationLambdaARN         *string                               `pulumi:"rotationLambdaARN"`
+	RotationLambdaArn         *string                               `pulumi:"rotationLambdaArn"`
 	RotationRules             *RotationScheduleRotationRules        `pulumi:"rotationRules"`
 	SecretId                  string                                `pulumi:"secretId"`
 }
@@ -79,7 +79,7 @@ type rotationScheduleArgs struct {
 type RotationScheduleArgs struct {
 	HostedRotationLambda      RotationScheduleHostedRotationLambdaPtrInput
 	RotateImmediatelyOnUpdate pulumi.BoolPtrInput
-	RotationLambdaARN         pulumi.StringPtrInput
+	RotationLambdaArn         pulumi.StringPtrInput
 	RotationRules             RotationScheduleRotationRulesPtrInput
 	SecretId                  pulumi.StringInput
 }
@@ -129,8 +129,8 @@ func (o RotationScheduleOutput) RotateImmediatelyOnUpdate() pulumi.BoolPtrOutput
 	return o.ApplyT(func(v *RotationSchedule) pulumi.BoolPtrOutput { return v.RotateImmediatelyOnUpdate }).(pulumi.BoolPtrOutput)
 }
 
-func (o RotationScheduleOutput) RotationLambdaARN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RotationSchedule) pulumi.StringPtrOutput { return v.RotationLambdaARN }).(pulumi.StringPtrOutput)
+func (o RotationScheduleOutput) RotationLambdaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RotationSchedule) pulumi.StringPtrOutput { return v.RotationLambdaArn }).(pulumi.StringPtrOutput)
 }
 
 func (o RotationScheduleOutput) RotationRules() RotationScheduleRotationRulesPtrOutput {

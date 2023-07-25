@@ -27,13 +27,13 @@ type LookupFileSystemArgs struct {
 }
 
 type LookupFileSystemResult struct {
-	DNSName              *string                         `pulumi:"dNSName"`
+	DnsName              *string                         `pulumi:"dnsName"`
 	Id                   *string                         `pulumi:"id"`
 	LustreConfiguration  *FileSystemLustreConfiguration  `pulumi:"lustreConfiguration"`
 	LustreMountName      *string                         `pulumi:"lustreMountName"`
 	OntapConfiguration   *FileSystemOntapConfiguration   `pulumi:"ontapConfiguration"`
-	OpenZFSConfiguration *FileSystemOpenZFSConfiguration `pulumi:"openZFSConfiguration"`
-	ResourceARN          *string                         `pulumi:"resourceARN"`
+	OpenZfsConfiguration *FileSystemOpenZFSConfiguration `pulumi:"openZfsConfiguration"`
+	ResourceArn          *string                         `pulumi:"resourceArn"`
 	RootVolumeId         *string                         `pulumi:"rootVolumeId"`
 	StorageCapacity      *int                            `pulumi:"storageCapacity"`
 	Tags                 []FileSystemTag                 `pulumi:"tags"`
@@ -75,8 +75,8 @@ func (o LookupFileSystemResultOutput) ToLookupFileSystemResultOutputWithContext(
 	return o
 }
 
-func (o LookupFileSystemResultOutput) DNSName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupFileSystemResult) *string { return v.DNSName }).(pulumi.StringPtrOutput)
+func (o LookupFileSystemResultOutput) DnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFileSystemResult) *string { return v.DnsName }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupFileSystemResultOutput) Id() pulumi.StringPtrOutput {
@@ -95,12 +95,12 @@ func (o LookupFileSystemResultOutput) OntapConfiguration() FileSystemOntapConfig
 	return o.ApplyT(func(v LookupFileSystemResult) *FileSystemOntapConfiguration { return v.OntapConfiguration }).(FileSystemOntapConfigurationPtrOutput)
 }
 
-func (o LookupFileSystemResultOutput) OpenZFSConfiguration() FileSystemOpenZFSConfigurationPtrOutput {
-	return o.ApplyT(func(v LookupFileSystemResult) *FileSystemOpenZFSConfiguration { return v.OpenZFSConfiguration }).(FileSystemOpenZFSConfigurationPtrOutput)
+func (o LookupFileSystemResultOutput) OpenZfsConfiguration() FileSystemOpenZFSConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupFileSystemResult) *FileSystemOpenZFSConfiguration { return v.OpenZfsConfiguration }).(FileSystemOpenZFSConfigurationPtrOutput)
 }
 
-func (o LookupFileSystemResultOutput) ResourceARN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupFileSystemResult) *string { return v.ResourceARN }).(pulumi.StringPtrOutput)
+func (o LookupFileSystemResultOutput) ResourceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFileSystemResult) *string { return v.ResourceArn }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupFileSystemResultOutput) RootVolumeId() pulumi.StringPtrOutput {

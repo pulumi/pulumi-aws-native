@@ -1328,7 +1328,7 @@ func (o GlobalTableReplicaGlobalSecondaryIndexSpecificationArrayOutput) Index(i 
 }
 
 type GlobalTableReplicaSSESpecification struct {
-	KMSMasterKeyId string `pulumi:"kMSMasterKeyId"`
+	KmsMasterKeyId string `pulumi:"kmsMasterKeyId"`
 }
 
 // GlobalTableReplicaSSESpecificationInput is an input type that accepts GlobalTableReplicaSSESpecificationArgs and GlobalTableReplicaSSESpecificationOutput values.
@@ -1343,7 +1343,7 @@ type GlobalTableReplicaSSESpecificationInput interface {
 }
 
 type GlobalTableReplicaSSESpecificationArgs struct {
-	KMSMasterKeyId pulumi.StringInput `pulumi:"kMSMasterKeyId"`
+	KmsMasterKeyId pulumi.StringInput `pulumi:"kmsMasterKeyId"`
 }
 
 func (GlobalTableReplicaSSESpecificationArgs) ElementType() reflect.Type {
@@ -1423,8 +1423,8 @@ func (o GlobalTableReplicaSSESpecificationOutput) ToGlobalTableReplicaSSESpecifi
 	}).(GlobalTableReplicaSSESpecificationPtrOutput)
 }
 
-func (o GlobalTableReplicaSSESpecificationOutput) KMSMasterKeyId() pulumi.StringOutput {
-	return o.ApplyT(func(v GlobalTableReplicaSSESpecification) string { return v.KMSMasterKeyId }).(pulumi.StringOutput)
+func (o GlobalTableReplicaSSESpecificationOutput) KmsMasterKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v GlobalTableReplicaSSESpecification) string { return v.KmsMasterKeyId }).(pulumi.StringOutput)
 }
 
 type GlobalTableReplicaSSESpecificationPtrOutput struct{ *pulumi.OutputState }
@@ -1451,12 +1451,12 @@ func (o GlobalTableReplicaSSESpecificationPtrOutput) Elem() GlobalTableReplicaSS
 	}).(GlobalTableReplicaSSESpecificationOutput)
 }
 
-func (o GlobalTableReplicaSSESpecificationPtrOutput) KMSMasterKeyId() pulumi.StringPtrOutput {
+func (o GlobalTableReplicaSSESpecificationPtrOutput) KmsMasterKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GlobalTableReplicaSSESpecification) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.KMSMasterKeyId
+		return &v.KmsMasterKeyId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1468,7 +1468,7 @@ type GlobalTableReplicaSpecification struct {
 	PointInTimeRecoverySpecification  *GlobalTablePointInTimeRecoverySpecification          `pulumi:"pointInTimeRecoverySpecification"`
 	ReadProvisionedThroughputSettings *GlobalTableReadProvisionedThroughputSettings         `pulumi:"readProvisionedThroughputSettings"`
 	Region                            string                                                `pulumi:"region"`
-	SSESpecification                  *GlobalTableReplicaSSESpecification                   `pulumi:"sSESpecification"`
+	SseSpecification                  *GlobalTableReplicaSSESpecification                   `pulumi:"sseSpecification"`
 	TableClass                        *string                                               `pulumi:"tableClass"`
 	Tags                              []GlobalTableTag                                      `pulumi:"tags"`
 }
@@ -1492,7 +1492,7 @@ type GlobalTableReplicaSpecificationArgs struct {
 	PointInTimeRecoverySpecification  GlobalTablePointInTimeRecoverySpecificationPtrInput           `pulumi:"pointInTimeRecoverySpecification"`
 	ReadProvisionedThroughputSettings GlobalTableReadProvisionedThroughputSettingsPtrInput          `pulumi:"readProvisionedThroughputSettings"`
 	Region                            pulumi.StringInput                                            `pulumi:"region"`
-	SSESpecification                  GlobalTableReplicaSSESpecificationPtrInput                    `pulumi:"sSESpecification"`
+	SseSpecification                  GlobalTableReplicaSSESpecificationPtrInput                    `pulumi:"sseSpecification"`
 	TableClass                        pulumi.StringPtrInput                                         `pulumi:"tableClass"`
 	Tags                              GlobalTableTagArrayInput                                      `pulumi:"tags"`
 }
@@ -1586,8 +1586,8 @@ func (o GlobalTableReplicaSpecificationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GlobalTableReplicaSpecification) string { return v.Region }).(pulumi.StringOutput)
 }
 
-func (o GlobalTableReplicaSpecificationOutput) SSESpecification() GlobalTableReplicaSSESpecificationPtrOutput {
-	return o.ApplyT(func(v GlobalTableReplicaSpecification) *GlobalTableReplicaSSESpecification { return v.SSESpecification }).(GlobalTableReplicaSSESpecificationPtrOutput)
+func (o GlobalTableReplicaSpecificationOutput) SseSpecification() GlobalTableReplicaSSESpecificationPtrOutput {
+	return o.ApplyT(func(v GlobalTableReplicaSpecification) *GlobalTableReplicaSSESpecification { return v.SseSpecification }).(GlobalTableReplicaSSESpecificationPtrOutput)
 }
 
 func (o GlobalTableReplicaSpecificationOutput) TableClass() pulumi.StringPtrOutput {
@@ -1619,8 +1619,8 @@ func (o GlobalTableReplicaSpecificationArrayOutput) Index(i pulumi.IntInput) Glo
 }
 
 type GlobalTableSSESpecification struct {
-	SSEEnabled bool    `pulumi:"sSEEnabled"`
-	SSEType    *string `pulumi:"sSEType"`
+	SseEnabled bool    `pulumi:"sseEnabled"`
+	SseType    *string `pulumi:"sseType"`
 }
 
 // GlobalTableSSESpecificationInput is an input type that accepts GlobalTableSSESpecificationArgs and GlobalTableSSESpecificationOutput values.
@@ -1635,8 +1635,8 @@ type GlobalTableSSESpecificationInput interface {
 }
 
 type GlobalTableSSESpecificationArgs struct {
-	SSEEnabled pulumi.BoolInput      `pulumi:"sSEEnabled"`
-	SSEType    pulumi.StringPtrInput `pulumi:"sSEType"`
+	SseEnabled pulumi.BoolInput      `pulumi:"sseEnabled"`
+	SseType    pulumi.StringPtrInput `pulumi:"sseType"`
 }
 
 func (GlobalTableSSESpecificationArgs) ElementType() reflect.Type {
@@ -1716,12 +1716,12 @@ func (o GlobalTableSSESpecificationOutput) ToGlobalTableSSESpecificationPtrOutpu
 	}).(GlobalTableSSESpecificationPtrOutput)
 }
 
-func (o GlobalTableSSESpecificationOutput) SSEEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GlobalTableSSESpecification) bool { return v.SSEEnabled }).(pulumi.BoolOutput)
+func (o GlobalTableSSESpecificationOutput) SseEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GlobalTableSSESpecification) bool { return v.SseEnabled }).(pulumi.BoolOutput)
 }
 
-func (o GlobalTableSSESpecificationOutput) SSEType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GlobalTableSSESpecification) *string { return v.SSEType }).(pulumi.StringPtrOutput)
+func (o GlobalTableSSESpecificationOutput) SseType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GlobalTableSSESpecification) *string { return v.SseType }).(pulumi.StringPtrOutput)
 }
 
 type GlobalTableSSESpecificationPtrOutput struct{ *pulumi.OutputState }
@@ -1748,21 +1748,21 @@ func (o GlobalTableSSESpecificationPtrOutput) Elem() GlobalTableSSESpecification
 	}).(GlobalTableSSESpecificationOutput)
 }
 
-func (o GlobalTableSSESpecificationPtrOutput) SSEEnabled() pulumi.BoolPtrOutput {
+func (o GlobalTableSSESpecificationPtrOutput) SseEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GlobalTableSSESpecification) *bool {
 		if v == nil {
 			return nil
 		}
-		return &v.SSEEnabled
+		return &v.SseEnabled
 	}).(pulumi.BoolPtrOutput)
 }
 
-func (o GlobalTableSSESpecificationPtrOutput) SSEType() pulumi.StringPtrOutput {
+func (o GlobalTableSSESpecificationPtrOutput) SseType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GlobalTableSSESpecification) *string {
 		if v == nil {
 			return nil
 		}
-		return v.SSEType
+		return v.SseType
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4111,9 +4111,9 @@ func (o TableS3BucketSourcePtrOutput) S3KeyPrefix() pulumi.StringPtrOutput {
 }
 
 type TableSSESpecification struct {
-	KMSMasterKeyId *string `pulumi:"kMSMasterKeyId"`
-	SSEEnabled     bool    `pulumi:"sSEEnabled"`
-	SSEType        *string `pulumi:"sSEType"`
+	KmsMasterKeyId *string `pulumi:"kmsMasterKeyId"`
+	SseEnabled     bool    `pulumi:"sseEnabled"`
+	SseType        *string `pulumi:"sseType"`
 }
 
 // TableSSESpecificationInput is an input type that accepts TableSSESpecificationArgs and TableSSESpecificationOutput values.
@@ -4128,9 +4128,9 @@ type TableSSESpecificationInput interface {
 }
 
 type TableSSESpecificationArgs struct {
-	KMSMasterKeyId pulumi.StringPtrInput `pulumi:"kMSMasterKeyId"`
-	SSEEnabled     pulumi.BoolInput      `pulumi:"sSEEnabled"`
-	SSEType        pulumi.StringPtrInput `pulumi:"sSEType"`
+	KmsMasterKeyId pulumi.StringPtrInput `pulumi:"kmsMasterKeyId"`
+	SseEnabled     pulumi.BoolInput      `pulumi:"sseEnabled"`
+	SseType        pulumi.StringPtrInput `pulumi:"sseType"`
 }
 
 func (TableSSESpecificationArgs) ElementType() reflect.Type {
@@ -4210,16 +4210,16 @@ func (o TableSSESpecificationOutput) ToTableSSESpecificationPtrOutputWithContext
 	}).(TableSSESpecificationPtrOutput)
 }
 
-func (o TableSSESpecificationOutput) KMSMasterKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TableSSESpecification) *string { return v.KMSMasterKeyId }).(pulumi.StringPtrOutput)
+func (o TableSSESpecificationOutput) KmsMasterKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableSSESpecification) *string { return v.KmsMasterKeyId }).(pulumi.StringPtrOutput)
 }
 
-func (o TableSSESpecificationOutput) SSEEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v TableSSESpecification) bool { return v.SSEEnabled }).(pulumi.BoolOutput)
+func (o TableSSESpecificationOutput) SseEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v TableSSESpecification) bool { return v.SseEnabled }).(pulumi.BoolOutput)
 }
 
-func (o TableSSESpecificationOutput) SSEType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TableSSESpecification) *string { return v.SSEType }).(pulumi.StringPtrOutput)
+func (o TableSSESpecificationOutput) SseType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableSSESpecification) *string { return v.SseType }).(pulumi.StringPtrOutput)
 }
 
 type TableSSESpecificationPtrOutput struct{ *pulumi.OutputState }
@@ -4246,30 +4246,30 @@ func (o TableSSESpecificationPtrOutput) Elem() TableSSESpecificationOutput {
 	}).(TableSSESpecificationOutput)
 }
 
-func (o TableSSESpecificationPtrOutput) KMSMasterKeyId() pulumi.StringPtrOutput {
+func (o TableSSESpecificationPtrOutput) KmsMasterKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableSSESpecification) *string {
 		if v == nil {
 			return nil
 		}
-		return v.KMSMasterKeyId
+		return v.KmsMasterKeyId
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o TableSSESpecificationPtrOutput) SSEEnabled() pulumi.BoolPtrOutput {
+func (o TableSSESpecificationPtrOutput) SseEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TableSSESpecification) *bool {
 		if v == nil {
 			return nil
 		}
-		return &v.SSEEnabled
+		return &v.SseEnabled
 	}).(pulumi.BoolPtrOutput)
 }
 
-func (o TableSSESpecificationPtrOutput) SSEType() pulumi.StringPtrOutput {
+func (o TableSSESpecificationPtrOutput) SseType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableSSESpecification) *string {
 		if v == nil {
 			return nil
 		}
-		return v.SSEType
+		return v.SseType
 	}).(pulumi.StringPtrOutput)
 }
 

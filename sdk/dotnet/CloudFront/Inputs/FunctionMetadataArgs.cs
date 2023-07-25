@@ -12,8 +12,8 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
 
     public sealed class FunctionMetadataArgs : global::Pulumi.ResourceArgs
     {
-        [Input("functionARN")]
-        public Input<string>? FunctionARN { get; set; }
+        [Input("functionArn")]
+        public Input<string>? FunctionArn { get; set; }
 
         public FunctionMetadataArgs()
         {

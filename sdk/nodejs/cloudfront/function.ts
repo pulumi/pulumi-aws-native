@@ -38,7 +38,7 @@ export class Function extends pulumi.CustomResource {
     }
 
     public readonly autoPublish!: pulumi.Output<boolean | undefined>;
-    public /*out*/ readonly functionARN!: pulumi.Output<string>;
+    public /*out*/ readonly functionArn!: pulumi.Output<string>;
     public readonly functionCode!: pulumi.Output<string>;
     public readonly functionConfig!: pulumi.Output<outputs.cloudfront.FunctionConfig>;
     public readonly functionMetadata!: pulumi.Output<outputs.cloudfront.FunctionMetadata | undefined>;
@@ -67,11 +67,11 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["functionConfig"] = args ? args.functionConfig : undefined;
             resourceInputs["functionMetadata"] = args ? args.functionMetadata : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["functionARN"] = undefined /*out*/;
+            resourceInputs["functionArn"] = undefined /*out*/;
             resourceInputs["stage"] = undefined /*out*/;
         } else {
             resourceInputs["autoPublish"] = undefined /*out*/;
-            resourceInputs["functionARN"] = undefined /*out*/;
+            resourceInputs["functionArn"] = undefined /*out*/;
             resourceInputs["functionCode"] = undefined /*out*/;
             resourceInputs["functionConfig"] = undefined /*out*/;
             resourceInputs["functionMetadata"] = undefined /*out*/;

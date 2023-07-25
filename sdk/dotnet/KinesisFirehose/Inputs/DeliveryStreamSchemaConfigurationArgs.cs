@@ -21,8 +21,8 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        [Input("roleARN")]
-        public Input<string>? RoleARN { get; set; }
+        [Input("roleArn")]
+        public Input<string>? RoleArn { get; set; }
 
         [Input("tableName")]
         public Input<string>? TableName { get; set; }

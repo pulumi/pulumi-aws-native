@@ -18,8 +18,8 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
         /// <summary>
         /// The Amazon Resource Name (ARN) for the S3 bucket containing the application code.
         /// </summary>
-        [Input("bucketARN", required: true)]
-        public Input<string> BucketARN { get; set; } = null!;
+        [Input("bucketArn", required: true)]
+        public Input<string> BucketArn { get; set; } = null!;
 
         /// <summary>
         /// The file key for the object containing the application code.

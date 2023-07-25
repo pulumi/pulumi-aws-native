@@ -14,7 +14,7 @@ export function getDBProxyEndpoint(args: GetDBProxyEndpointArgs, opts?: pulumi.I
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:rds:getDBProxyEndpoint", {
-        "dBProxyEndpointName": args.dBProxyEndpointName,
+        "dbProxyEndpointName": args.dbProxyEndpointName,
     }, opts);
 }
 
@@ -22,14 +22,14 @@ export interface GetDBProxyEndpointArgs {
     /**
      * The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.
      */
-    dBProxyEndpointName: string;
+    dbProxyEndpointName: string;
 }
 
 export interface GetDBProxyEndpointResult {
     /**
      * The Amazon Resource Name (ARN) for the DB proxy endpoint.
      */
-    readonly dBProxyEndpointArn?: string;
+    readonly dbProxyEndpointArn?: string;
     /**
      * The endpoint that you can use to connect to the DB proxy. You include the endpoint value in the connection string for a database client application.
      */
@@ -66,5 +66,5 @@ export interface GetDBProxyEndpointOutputArgs {
     /**
      * The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.
      */
-    dBProxyEndpointName: pulumi.Input<string>;
+    dbProxyEndpointName: pulumi.Input<string>;
 }

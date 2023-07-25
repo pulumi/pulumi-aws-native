@@ -19,7 +19,7 @@ type Snapshot struct {
 	pulumi.CustomResourceState
 
 	Name        pulumi.StringOutput    `pulumi:"name"`
-	ResourceARN pulumi.StringOutput    `pulumi:"resourceARN"`
+	ResourceArn pulumi.StringOutput    `pulumi:"resourceArn"`
 	Tags        SnapshotTagArrayOutput `pulumi:"tags"`
 	VolumeId    pulumi.StringOutput    `pulumi:"volumeId"`
 }
@@ -120,8 +120,8 @@ func (o SnapshotOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o SnapshotOutput) ResourceARN() pulumi.StringOutput {
-	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.ResourceARN }).(pulumi.StringOutput)
+func (o SnapshotOutput) ResourceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
 }
 
 func (o SnapshotOutput) Tags() SnapshotTagArrayOutput {

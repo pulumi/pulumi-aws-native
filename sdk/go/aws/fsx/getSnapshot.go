@@ -29,7 +29,7 @@ type LookupSnapshotArgs struct {
 type LookupSnapshotResult struct {
 	Id          *string       `pulumi:"id"`
 	Name        *string       `pulumi:"name"`
-	ResourceARN *string       `pulumi:"resourceARN"`
+	ResourceArn *string       `pulumi:"resourceArn"`
 	Tags        []SnapshotTag `pulumi:"tags"`
 }
 
@@ -76,8 +76,8 @@ func (o LookupSnapshotResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupSnapshotResultOutput) ResourceARN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupSnapshotResult) *string { return v.ResourceARN }).(pulumi.StringPtrOutput)
+func (o LookupSnapshotResultOutput) ResourceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) *string { return v.ResourceArn }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupSnapshotResultOutput) Tags() SnapshotTagArrayOutput {

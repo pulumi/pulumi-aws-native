@@ -21,7 +21,7 @@ type VPCEndpointConnectionNotification struct {
 	ConnectionEvents          pulumi.StringArrayOutput `pulumi:"connectionEvents"`
 	ConnectionNotificationArn pulumi.StringOutput      `pulumi:"connectionNotificationArn"`
 	ServiceId                 pulumi.StringPtrOutput   `pulumi:"serviceId"`
-	VPCEndpointId             pulumi.StringPtrOutput   `pulumi:"vPCEndpointId"`
+	VpcEndpointId             pulumi.StringPtrOutput   `pulumi:"vpcEndpointId"`
 }
 
 // NewVPCEndpointConnectionNotification registers a new resource with the given unique name, arguments, and options.
@@ -73,7 +73,7 @@ type vpcendpointConnectionNotificationArgs struct {
 	ConnectionEvents          []string `pulumi:"connectionEvents"`
 	ConnectionNotificationArn string   `pulumi:"connectionNotificationArn"`
 	ServiceId                 *string  `pulumi:"serviceId"`
-	VPCEndpointId             *string  `pulumi:"vPCEndpointId"`
+	VpcEndpointId             *string  `pulumi:"vpcEndpointId"`
 }
 
 // The set of arguments for constructing a VPCEndpointConnectionNotification resource.
@@ -81,7 +81,7 @@ type VPCEndpointConnectionNotificationArgs struct {
 	ConnectionEvents          pulumi.StringArrayInput
 	ConnectionNotificationArn pulumi.StringInput
 	ServiceId                 pulumi.StringPtrInput
-	VPCEndpointId             pulumi.StringPtrInput
+	VpcEndpointId             pulumi.StringPtrInput
 }
 
 func (VPCEndpointConnectionNotificationArgs) ElementType() reflect.Type {
@@ -133,8 +133,8 @@ func (o VPCEndpointConnectionNotificationOutput) ServiceId() pulumi.StringPtrOut
 	return o.ApplyT(func(v *VPCEndpointConnectionNotification) pulumi.StringPtrOutput { return v.ServiceId }).(pulumi.StringPtrOutput)
 }
 
-func (o VPCEndpointConnectionNotificationOutput) VPCEndpointId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VPCEndpointConnectionNotification) pulumi.StringPtrOutput { return v.VPCEndpointId }).(pulumi.StringPtrOutput)
+func (o VPCEndpointConnectionNotificationOutput) VpcEndpointId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VPCEndpointConnectionNotification) pulumi.StringPtrOutput { return v.VpcEndpointId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

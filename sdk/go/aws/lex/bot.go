@@ -28,7 +28,7 @@ type Bot struct {
 	DataPrivacy DataPrivacyPropertiesOutput `pulumi:"dataPrivacy"`
 	Description pulumi.StringPtrOutput      `pulumi:"description"`
 	// IdleSessionTTLInSeconds of the resource
-	IdleSessionTTLInSeconds pulumi.IntOutput                 `pulumi:"idleSessionTTLInSeconds"`
+	IdleSessionTtlInSeconds pulumi.IntOutput                 `pulumi:"idleSessionTtlInSeconds"`
 	Name                    pulumi.StringOutput              `pulumi:"name"`
 	RoleArn                 pulumi.StringOutput              `pulumi:"roleArn"`
 	TestBotAliasSettings    BotTestBotAliasSettingsPtrOutput `pulumi:"testBotAliasSettings"`
@@ -46,8 +46,8 @@ func NewBot(ctx *pulumi.Context,
 	if args.DataPrivacy == nil {
 		return nil, errors.New("invalid value for required argument 'DataPrivacy'")
 	}
-	if args.IdleSessionTTLInSeconds == nil {
-		return nil, errors.New("invalid value for required argument 'IdleSessionTTLInSeconds'")
+	if args.IdleSessionTtlInSeconds == nil {
+		return nil, errors.New("invalid value for required argument 'IdleSessionTtlInSeconds'")
 	}
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
@@ -96,7 +96,7 @@ type botArgs struct {
 	DataPrivacy DataPrivacyProperties `pulumi:"dataPrivacy"`
 	Description *string               `pulumi:"description"`
 	// IdleSessionTTLInSeconds of the resource
-	IdleSessionTTLInSeconds int                      `pulumi:"idleSessionTTLInSeconds"`
+	IdleSessionTtlInSeconds int                      `pulumi:"idleSessionTtlInSeconds"`
 	Name                    *string                  `pulumi:"name"`
 	RoleArn                 string                   `pulumi:"roleArn"`
 	TestBotAliasSettings    *BotTestBotAliasSettings `pulumi:"testBotAliasSettings"`
@@ -117,7 +117,7 @@ type BotArgs struct {
 	DataPrivacy DataPrivacyPropertiesInput
 	Description pulumi.StringPtrInput
 	// IdleSessionTTLInSeconds of the resource
-	IdleSessionTTLInSeconds pulumi.IntInput
+	IdleSessionTtlInSeconds pulumi.IntInput
 	Name                    pulumi.StringPtrInput
 	RoleArn                 pulumi.StringInput
 	TestBotAliasSettings    BotTestBotAliasSettingsPtrInput
@@ -195,8 +195,8 @@ func (o BotOutput) Description() pulumi.StringPtrOutput {
 }
 
 // IdleSessionTTLInSeconds of the resource
-func (o BotOutput) IdleSessionTTLInSeconds() pulumi.IntOutput {
-	return o.ApplyT(func(v *Bot) pulumi.IntOutput { return v.IdleSessionTTLInSeconds }).(pulumi.IntOutput)
+func (o BotOutput) IdleSessionTtlInSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v *Bot) pulumi.IntOutput { return v.IdleSessionTtlInSeconds }).(pulumi.IntOutput)
 }
 
 func (o BotOutput) Name() pulumi.StringOutput {

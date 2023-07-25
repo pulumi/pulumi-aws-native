@@ -55,7 +55,7 @@ export class UserPool extends pulumi.CustomResource {
     public readonly mfaConfiguration!: pulumi.Output<string | undefined>;
     public readonly policies!: pulumi.Output<outputs.cognito.UserPoolPolicies | undefined>;
     public /*out*/ readonly providerName!: pulumi.Output<string>;
-    public /*out*/ readonly providerURL!: pulumi.Output<string>;
+    public /*out*/ readonly providerUrl!: pulumi.Output<string>;
     public readonly schema!: pulumi.Output<outputs.cognito.UserPoolSchemaAttribute[] | undefined>;
     public readonly smsAuthenticationMessage!: pulumi.Output<string | undefined>;
     public readonly smsConfiguration!: pulumi.Output<outputs.cognito.UserPoolSmsConfiguration | undefined>;
@@ -107,7 +107,7 @@ export class UserPool extends pulumi.CustomResource {
             resourceInputs["verificationMessageTemplate"] = args ? args.verificationMessageTemplate : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["providerName"] = undefined /*out*/;
-            resourceInputs["providerURL"] = undefined /*out*/;
+            resourceInputs["providerUrl"] = undefined /*out*/;
         } else {
             resourceInputs["accountRecoverySetting"] = undefined /*out*/;
             resourceInputs["adminCreateUserConfig"] = undefined /*out*/;
@@ -124,7 +124,7 @@ export class UserPool extends pulumi.CustomResource {
             resourceInputs["mfaConfiguration"] = undefined /*out*/;
             resourceInputs["policies"] = undefined /*out*/;
             resourceInputs["providerName"] = undefined /*out*/;
-            resourceInputs["providerURL"] = undefined /*out*/;
+            resourceInputs["providerUrl"] = undefined /*out*/;
             resourceInputs["schema"] = undefined /*out*/;
             resourceInputs["smsAuthenticationMessage"] = undefined /*out*/;
             resourceInputs["smsConfiguration"] = undefined /*out*/;

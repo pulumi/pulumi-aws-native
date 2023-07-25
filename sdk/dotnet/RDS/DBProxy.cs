@@ -24,14 +24,14 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// The Amazon Resource Name (ARN) for the proxy.
         /// </summary>
-        [Output("dBProxyArn")]
-        public Output<string> DBProxyArn { get; private set; } = null!;
+        [Output("dbProxyArn")]
+        public Output<string> DbProxyArn { get; private set; } = null!;
 
         /// <summary>
         /// The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
         /// </summary>
-        [Output("dBProxyName")]
-        public Output<string> DBProxyName { get; private set; } = null!;
+        [Output("dbProxyName")]
+        public Output<string> DbProxyName { get; private set; } = null!;
 
         /// <summary>
         /// Whether the proxy includes detailed information about SQL statements in its logs.
@@ -60,8 +60,8 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
         /// </summary>
-        [Output("requireTLS")]
-        public Output<bool?> RequireTLS { get; private set; } = null!;
+        [Output("requireTls")]
+        public Output<bool?> RequireTls { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
@@ -153,8 +153,8 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
         /// </summary>
-        [Input("dBProxyName")]
-        public Input<string>? DBProxyName { get; set; }
+        [Input("dbProxyName")]
+        public Input<string>? DbProxyName { get; set; }
 
         /// <summary>
         /// Whether the proxy includes detailed information about SQL statements in its logs.
@@ -177,8 +177,8 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
         /// </summary>
-        [Input("requireTLS")]
-        public Input<bool>? RequireTLS { get; set; }
+        [Input("requireTls")]
+        public Input<bool>? RequireTls { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.

@@ -18,12 +18,12 @@ type EmailIdentity struct {
 
 	ConfigurationSetAttributes EmailIdentityConfigurationSetAttributesPtrOutput `pulumi:"configurationSetAttributes"`
 	DkimAttributes             EmailIdentityDkimAttributesPtrOutput             `pulumi:"dkimAttributes"`
-	DkimDNSTokenName1          pulumi.StringOutput                              `pulumi:"dkimDNSTokenName1"`
-	DkimDNSTokenName2          pulumi.StringOutput                              `pulumi:"dkimDNSTokenName2"`
-	DkimDNSTokenName3          pulumi.StringOutput                              `pulumi:"dkimDNSTokenName3"`
-	DkimDNSTokenValue1         pulumi.StringOutput                              `pulumi:"dkimDNSTokenValue1"`
-	DkimDNSTokenValue2         pulumi.StringOutput                              `pulumi:"dkimDNSTokenValue2"`
-	DkimDNSTokenValue3         pulumi.StringOutput                              `pulumi:"dkimDNSTokenValue3"`
+	DkimDnsTokenName1          pulumi.StringOutput                              `pulumi:"dkimDnsTokenName1"`
+	DkimDnsTokenName2          pulumi.StringOutput                              `pulumi:"dkimDnsTokenName2"`
+	DkimDnsTokenName3          pulumi.StringOutput                              `pulumi:"dkimDnsTokenName3"`
+	DkimDnsTokenValue1         pulumi.StringOutput                              `pulumi:"dkimDnsTokenValue1"`
+	DkimDnsTokenValue2         pulumi.StringOutput                              `pulumi:"dkimDnsTokenValue2"`
+	DkimDnsTokenValue3         pulumi.StringOutput                              `pulumi:"dkimDnsTokenValue3"`
 	DkimSigningAttributes      EmailIdentityDkimSigningAttributesPtrOutput      `pulumi:"dkimSigningAttributes"`
 	// The email address or domain to verify.
 	EmailIdentity      pulumi.StringOutput                      `pulumi:"emailIdentity"`
@@ -141,28 +141,28 @@ func (o EmailIdentityOutput) DkimAttributes() EmailIdentityDkimAttributesPtrOutp
 	return o.ApplyT(func(v *EmailIdentity) EmailIdentityDkimAttributesPtrOutput { return v.DkimAttributes }).(EmailIdentityDkimAttributesPtrOutput)
 }
 
-func (o EmailIdentityOutput) DkimDNSTokenName1() pulumi.StringOutput {
-	return o.ApplyT(func(v *EmailIdentity) pulumi.StringOutput { return v.DkimDNSTokenName1 }).(pulumi.StringOutput)
+func (o EmailIdentityOutput) DkimDnsTokenName1() pulumi.StringOutput {
+	return o.ApplyT(func(v *EmailIdentity) pulumi.StringOutput { return v.DkimDnsTokenName1 }).(pulumi.StringOutput)
 }
 
-func (o EmailIdentityOutput) DkimDNSTokenName2() pulumi.StringOutput {
-	return o.ApplyT(func(v *EmailIdentity) pulumi.StringOutput { return v.DkimDNSTokenName2 }).(pulumi.StringOutput)
+func (o EmailIdentityOutput) DkimDnsTokenName2() pulumi.StringOutput {
+	return o.ApplyT(func(v *EmailIdentity) pulumi.StringOutput { return v.DkimDnsTokenName2 }).(pulumi.StringOutput)
 }
 
-func (o EmailIdentityOutput) DkimDNSTokenName3() pulumi.StringOutput {
-	return o.ApplyT(func(v *EmailIdentity) pulumi.StringOutput { return v.DkimDNSTokenName3 }).(pulumi.StringOutput)
+func (o EmailIdentityOutput) DkimDnsTokenName3() pulumi.StringOutput {
+	return o.ApplyT(func(v *EmailIdentity) pulumi.StringOutput { return v.DkimDnsTokenName3 }).(pulumi.StringOutput)
 }
 
-func (o EmailIdentityOutput) DkimDNSTokenValue1() pulumi.StringOutput {
-	return o.ApplyT(func(v *EmailIdentity) pulumi.StringOutput { return v.DkimDNSTokenValue1 }).(pulumi.StringOutput)
+func (o EmailIdentityOutput) DkimDnsTokenValue1() pulumi.StringOutput {
+	return o.ApplyT(func(v *EmailIdentity) pulumi.StringOutput { return v.DkimDnsTokenValue1 }).(pulumi.StringOutput)
 }
 
-func (o EmailIdentityOutput) DkimDNSTokenValue2() pulumi.StringOutput {
-	return o.ApplyT(func(v *EmailIdentity) pulumi.StringOutput { return v.DkimDNSTokenValue2 }).(pulumi.StringOutput)
+func (o EmailIdentityOutput) DkimDnsTokenValue2() pulumi.StringOutput {
+	return o.ApplyT(func(v *EmailIdentity) pulumi.StringOutput { return v.DkimDnsTokenValue2 }).(pulumi.StringOutput)
 }
 
-func (o EmailIdentityOutput) DkimDNSTokenValue3() pulumi.StringOutput {
-	return o.ApplyT(func(v *EmailIdentity) pulumi.StringOutput { return v.DkimDNSTokenValue3 }).(pulumi.StringOutput)
+func (o EmailIdentityOutput) DkimDnsTokenValue3() pulumi.StringOutput {
+	return o.ApplyT(func(v *EmailIdentity) pulumi.StringOutput { return v.DkimDnsTokenValue3 }).(pulumi.StringOutput)
 }
 
 func (o EmailIdentityOutput) DkimSigningAttributes() EmailIdentityDkimSigningAttributesPtrOutput {

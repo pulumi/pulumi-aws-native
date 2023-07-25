@@ -13,16 +13,16 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
     [OutputType]
     public sealed class DistributionLegacyS3Origin
     {
-        public readonly string DNSName;
+        public readonly string DnsName;
         public readonly string? OriginAccessIdentity;
 
         [OutputConstructor]
         private DistributionLegacyS3Origin(
-            string dNSName,
+            string dnsName,
 
             string? originAccessIdentity)
         {
-            DNSName = dNSName;
+            DnsName = dnsName;
             OriginAccessIdentity = originAccessIdentity;
         }
     }

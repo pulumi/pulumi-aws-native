@@ -15,8 +15,8 @@ var _ = internal.GetEnvOrDefault
 
 // An FMS includeMap or excludeMap.
 type PolicyIEMap struct {
-	ACCOUNT []string `pulumi:"aCCOUNT"`
-	ORGUNIT []string `pulumi:"oRGUNIT"`
+	Account []string `pulumi:"account"`
+	Orgunit []string `pulumi:"orgunit"`
 }
 
 // PolicyIEMapInput is an input type that accepts PolicyIEMap and PolicyIEMapOutput values.
@@ -32,8 +32,8 @@ type PolicyIEMapInput interface {
 
 // An FMS includeMap or excludeMap.
 type PolicyIEMapArgs struct {
-	ACCOUNT pulumi.StringArrayInput `pulumi:"aCCOUNT"`
-	ORGUNIT pulumi.StringArrayInput `pulumi:"oRGUNIT"`
+	Account pulumi.StringArrayInput `pulumi:"account"`
+	Orgunit pulumi.StringArrayInput `pulumi:"orgunit"`
 }
 
 func (PolicyIEMapArgs) ElementType() reflect.Type {
@@ -114,12 +114,12 @@ func (o PolicyIEMapOutput) ToPolicyIEMapPtrOutputWithContext(ctx context.Context
 	}).(PolicyIEMapPtrOutput)
 }
 
-func (o PolicyIEMapOutput) ACCOUNT() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v PolicyIEMap) []string { return v.ACCOUNT }).(pulumi.StringArrayOutput)
+func (o PolicyIEMapOutput) Account() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PolicyIEMap) []string { return v.Account }).(pulumi.StringArrayOutput)
 }
 
-func (o PolicyIEMapOutput) ORGUNIT() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v PolicyIEMap) []string { return v.ORGUNIT }).(pulumi.StringArrayOutput)
+func (o PolicyIEMapOutput) Orgunit() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PolicyIEMap) []string { return v.Orgunit }).(pulumi.StringArrayOutput)
 }
 
 type PolicyIEMapPtrOutput struct{ *pulumi.OutputState }
@@ -146,21 +146,21 @@ func (o PolicyIEMapPtrOutput) Elem() PolicyIEMapOutput {
 	}).(PolicyIEMapOutput)
 }
 
-func (o PolicyIEMapPtrOutput) ACCOUNT() pulumi.StringArrayOutput {
+func (o PolicyIEMapPtrOutput) Account() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PolicyIEMap) []string {
 		if v == nil {
 			return nil
 		}
-		return v.ACCOUNT
+		return v.Account
 	}).(pulumi.StringArrayOutput)
 }
 
-func (o PolicyIEMapPtrOutput) ORGUNIT() pulumi.StringArrayOutput {
+func (o PolicyIEMapPtrOutput) Orgunit() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PolicyIEMap) []string {
 		if v == nil {
 			return nil
 		}
-		return v.ORGUNIT
+		return v.Orgunit
 	}).(pulumi.StringArrayOutput)
 }
 

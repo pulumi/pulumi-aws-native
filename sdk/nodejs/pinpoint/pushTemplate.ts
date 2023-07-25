@@ -40,13 +40,13 @@ export class PushTemplate extends pulumi.CustomResource {
         return obj['__pulumiType'] === PushTemplate.__pulumiType;
     }
 
-    public readonly aDM!: pulumi.Output<outputs.pinpoint.PushTemplateAndroidPushNotificationTemplate | undefined>;
-    public readonly aPNS!: pulumi.Output<outputs.pinpoint.PushTemplateAPNSPushNotificationTemplate | undefined>;
+    public readonly adm!: pulumi.Output<outputs.pinpoint.PushTemplateAndroidPushNotificationTemplate | undefined>;
+    public readonly apns!: pulumi.Output<outputs.pinpoint.PushTemplateAPNSPushNotificationTemplate | undefined>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly baidu!: pulumi.Output<outputs.pinpoint.PushTemplateAndroidPushNotificationTemplate | undefined>;
     public readonly default!: pulumi.Output<outputs.pinpoint.PushTemplateDefaultPushNotificationTemplate | undefined>;
     public readonly defaultSubstitutions!: pulumi.Output<string | undefined>;
-    public readonly gCM!: pulumi.Output<outputs.pinpoint.PushTemplateAndroidPushNotificationTemplate | undefined>;
+    public readonly gcm!: pulumi.Output<outputs.pinpoint.PushTemplateAndroidPushNotificationTemplate | undefined>;
     public readonly tags!: pulumi.Output<any | undefined>;
     public readonly templateDescription!: pulumi.Output<string | undefined>;
     public readonly templateName!: pulumi.Output<string>;
@@ -67,24 +67,24 @@ export class PushTemplate extends pulumi.CustomResource {
             if ((!args || args.templateName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'templateName'");
             }
-            resourceInputs["aDM"] = args ? args.aDM : undefined;
-            resourceInputs["aPNS"] = args ? args.aPNS : undefined;
+            resourceInputs["adm"] = args ? args.adm : undefined;
+            resourceInputs["apns"] = args ? args.apns : undefined;
             resourceInputs["baidu"] = args ? args.baidu : undefined;
             resourceInputs["default"] = args ? args.default : undefined;
             resourceInputs["defaultSubstitutions"] = args ? args.defaultSubstitutions : undefined;
-            resourceInputs["gCM"] = args ? args.gCM : undefined;
+            resourceInputs["gcm"] = args ? args.gcm : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["templateDescription"] = args ? args.templateDescription : undefined;
             resourceInputs["templateName"] = args ? args.templateName : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
-            resourceInputs["aDM"] = undefined /*out*/;
-            resourceInputs["aPNS"] = undefined /*out*/;
+            resourceInputs["adm"] = undefined /*out*/;
+            resourceInputs["apns"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["baidu"] = undefined /*out*/;
             resourceInputs["default"] = undefined /*out*/;
             resourceInputs["defaultSubstitutions"] = undefined /*out*/;
-            resourceInputs["gCM"] = undefined /*out*/;
+            resourceInputs["gcm"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["templateDescription"] = undefined /*out*/;
             resourceInputs["templateName"] = undefined /*out*/;
@@ -98,12 +98,12 @@ export class PushTemplate extends pulumi.CustomResource {
  * The set of arguments for constructing a PushTemplate resource.
  */
 export interface PushTemplateArgs {
-    aDM?: pulumi.Input<inputs.pinpoint.PushTemplateAndroidPushNotificationTemplateArgs>;
-    aPNS?: pulumi.Input<inputs.pinpoint.PushTemplateAPNSPushNotificationTemplateArgs>;
+    adm?: pulumi.Input<inputs.pinpoint.PushTemplateAndroidPushNotificationTemplateArgs>;
+    apns?: pulumi.Input<inputs.pinpoint.PushTemplateAPNSPushNotificationTemplateArgs>;
     baidu?: pulumi.Input<inputs.pinpoint.PushTemplateAndroidPushNotificationTemplateArgs>;
     default?: pulumi.Input<inputs.pinpoint.PushTemplateDefaultPushNotificationTemplateArgs>;
     defaultSubstitutions?: pulumi.Input<string>;
-    gCM?: pulumi.Input<inputs.pinpoint.PushTemplateAndroidPushNotificationTemplateArgs>;
+    gcm?: pulumi.Input<inputs.pinpoint.PushTemplateAndroidPushNotificationTemplateArgs>;
     tags?: any;
     templateDescription?: pulumi.Input<string>;
     templateName: pulumi.Input<string>;

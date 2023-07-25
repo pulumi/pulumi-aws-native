@@ -19,20 +19,20 @@ namespace Pulumi.AwsNative.SES.Outputs
         /// <summary>
         /// The ARN of the Amazon Kinesis Firehose stream that email sending events should be published to.
         /// </summary>
-        public readonly string DeliveryStreamARN;
+        public readonly string DeliveryStreamArn;
         /// <summary>
         /// The ARN of the IAM role under which Amazon SES publishes email sending events to the Amazon Kinesis Firehose stream.
         /// </summary>
-        public readonly string IAMRoleARN;
+        public readonly string IamRoleArn;
 
         [OutputConstructor]
         private ConfigurationSetEventDestinationKinesisFirehoseDestination(
-            string deliveryStreamARN,
+            string deliveryStreamArn,
 
-            string iAMRoleARN)
+            string iamRoleArn)
         {
-            DeliveryStreamARN = deliveryStreamARN;
-            IAMRoleARN = iAMRoleARN;
+            DeliveryStreamArn = deliveryStreamArn;
+            IamRoleArn = iamRoleArn;
         }
     }
 }

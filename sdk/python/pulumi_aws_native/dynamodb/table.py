@@ -27,7 +27,7 @@ class TableArgs:
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['TableLocalSecondaryIndexArgs']]]] = None,
                  point_in_time_recovery_specification: Optional[pulumi.Input['TablePointInTimeRecoverySpecificationArgs']] = None,
                  provisioned_throughput: Optional[pulumi.Input['TableProvisionedThroughputArgs']] = None,
-                 s_se_specification: Optional[pulumi.Input['TableSSESpecificationArgs']] = None,
+                 sse_specification: Optional[pulumi.Input['TableSSESpecificationArgs']] = None,
                  stream_specification: Optional[pulumi.Input['TableStreamSpecificationArgs']] = None,
                  table_class: Optional[pulumi.Input[str]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
@@ -57,8 +57,8 @@ class TableArgs:
             pulumi.set(__self__, "point_in_time_recovery_specification", point_in_time_recovery_specification)
         if provisioned_throughput is not None:
             pulumi.set(__self__, "provisioned_throughput", provisioned_throughput)
-        if s_se_specification is not None:
-            pulumi.set(__self__, "s_se_specification", s_se_specification)
+        if sse_specification is not None:
+            pulumi.set(__self__, "sse_specification", sse_specification)
         if stream_specification is not None:
             pulumi.set(__self__, "stream_specification", stream_specification)
         if table_class is not None:
@@ -170,13 +170,13 @@ class TableArgs:
         pulumi.set(self, "provisioned_throughput", value)
 
     @property
-    @pulumi.getter(name="sSESpecification")
-    def s_se_specification(self) -> Optional[pulumi.Input['TableSSESpecificationArgs']]:
-        return pulumi.get(self, "s_se_specification")
+    @pulumi.getter(name="sseSpecification")
+    def sse_specification(self) -> Optional[pulumi.Input['TableSSESpecificationArgs']]:
+        return pulumi.get(self, "sse_specification")
 
-    @s_se_specification.setter
-    def s_se_specification(self, value: Optional[pulumi.Input['TableSSESpecificationArgs']]):
-        pulumi.set(self, "s_se_specification", value)
+    @sse_specification.setter
+    def sse_specification(self, value: Optional[pulumi.Input['TableSSESpecificationArgs']]):
+        pulumi.set(self, "sse_specification", value)
 
     @property
     @pulumi.getter(name="streamSpecification")
@@ -240,7 +240,7 @@ class Table(pulumi.CustomResource):
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableLocalSecondaryIndexArgs']]]]] = None,
                  point_in_time_recovery_specification: Optional[pulumi.Input[pulumi.InputType['TablePointInTimeRecoverySpecificationArgs']]] = None,
                  provisioned_throughput: Optional[pulumi.Input[pulumi.InputType['TableProvisionedThroughputArgs']]] = None,
-                 s_se_specification: Optional[pulumi.Input[pulumi.InputType['TableSSESpecificationArgs']]] = None,
+                 sse_specification: Optional[pulumi.Input[pulumi.InputType['TableSSESpecificationArgs']]] = None,
                  stream_specification: Optional[pulumi.Input[pulumi.InputType['TableStreamSpecificationArgs']]] = None,
                  table_class: Optional[pulumi.Input[str]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
@@ -288,7 +288,7 @@ class Table(pulumi.CustomResource):
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableLocalSecondaryIndexArgs']]]]] = None,
                  point_in_time_recovery_specification: Optional[pulumi.Input[pulumi.InputType['TablePointInTimeRecoverySpecificationArgs']]] = None,
                  provisioned_throughput: Optional[pulumi.Input[pulumi.InputType['TableProvisionedThroughputArgs']]] = None,
-                 s_se_specification: Optional[pulumi.Input[pulumi.InputType['TableSSESpecificationArgs']]] = None,
+                 sse_specification: Optional[pulumi.Input[pulumi.InputType['TableSSESpecificationArgs']]] = None,
                  stream_specification: Optional[pulumi.Input[pulumi.InputType['TableStreamSpecificationArgs']]] = None,
                  table_class: Optional[pulumi.Input[str]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
@@ -316,7 +316,7 @@ class Table(pulumi.CustomResource):
             __props__.__dict__["local_secondary_indexes"] = local_secondary_indexes
             __props__.__dict__["point_in_time_recovery_specification"] = point_in_time_recovery_specification
             __props__.__dict__["provisioned_throughput"] = provisioned_throughput
-            __props__.__dict__["s_se_specification"] = s_se_specification
+            __props__.__dict__["sse_specification"] = sse_specification
             __props__.__dict__["stream_specification"] = stream_specification
             __props__.__dict__["table_class"] = table_class
             __props__.__dict__["table_name"] = table_name
@@ -358,7 +358,7 @@ class Table(pulumi.CustomResource):
         __props__.__dict__["local_secondary_indexes"] = None
         __props__.__dict__["point_in_time_recovery_specification"] = None
         __props__.__dict__["provisioned_throughput"] = None
-        __props__.__dict__["s_se_specification"] = None
+        __props__.__dict__["sse_specification"] = None
         __props__.__dict__["stream_arn"] = None
         __props__.__dict__["stream_specification"] = None
         __props__.__dict__["table_class"] = None
@@ -428,9 +428,9 @@ class Table(pulumi.CustomResource):
         return pulumi.get(self, "provisioned_throughput")
 
     @property
-    @pulumi.getter(name="sSESpecification")
-    def s_se_specification(self) -> pulumi.Output[Optional['outputs.TableSSESpecification']]:
-        return pulumi.get(self, "s_se_specification")
+    @pulumi.getter(name="sseSpecification")
+    def sse_specification(self) -> pulumi.Output[Optional['outputs.TableSSESpecification']]:
+        return pulumi.get(self, "sse_specification")
 
     @property
     @pulumi.getter(name="streamArn")

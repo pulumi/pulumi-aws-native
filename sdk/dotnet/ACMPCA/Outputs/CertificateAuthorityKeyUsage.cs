@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.ACMPCA.Outputs
     [OutputType]
     public sealed class CertificateAuthorityKeyUsage
     {
-        public readonly bool? CRLSign;
+        public readonly bool? CrlSign;
         public readonly bool? DataEncipherment;
         public readonly bool? DecipherOnly;
         public readonly bool? DigitalSignature;
@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.ACMPCA.Outputs
 
         [OutputConstructor]
         private CertificateAuthorityKeyUsage(
-            bool? cRLSign,
+            bool? crlSign,
 
             bool? dataEncipherment,
 
@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.ACMPCA.Outputs
 
             bool? nonRepudiation)
         {
-            CRLSign = cRLSign;
+            CrlSign = crlSign;
             DataEncipherment = dataEncipherment;
             DecipherOnly = decipherOnly;
             DigitalSignature = digitalSignature;

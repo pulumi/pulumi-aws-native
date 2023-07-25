@@ -48,7 +48,7 @@ export class TaskDefinition extends pulumi.CustomResource {
     /**
      * The list of task definitions.
      */
-    public readonly loRaWANUpdateGatewayTaskEntry!: pulumi.Output<outputs.iotwireless.TaskDefinitionLoRaWANUpdateGatewayTaskEntry | undefined>;
+    public readonly loRaWanUpdateGatewayTaskEntry!: pulumi.Output<outputs.iotwireless.TaskDefinitionLoRaWANUpdateGatewayTaskEntry | undefined>;
     /**
      * The name of the new resource.
      */
@@ -81,7 +81,7 @@ export class TaskDefinition extends pulumi.CustomResource {
                 throw new Error("Missing required property 'autoCreateTasks'");
             }
             resourceInputs["autoCreateTasks"] = args ? args.autoCreateTasks : undefined;
-            resourceInputs["loRaWANUpdateGatewayTaskEntry"] = args ? args.loRaWANUpdateGatewayTaskEntry : undefined;
+            resourceInputs["loRaWanUpdateGatewayTaskEntry"] = args ? args.loRaWanUpdateGatewayTaskEntry : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["taskDefinitionType"] = args ? args.taskDefinitionType : undefined;
@@ -90,7 +90,7 @@ export class TaskDefinition extends pulumi.CustomResource {
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["autoCreateTasks"] = undefined /*out*/;
-            resourceInputs["loRaWANUpdateGatewayTaskEntry"] = undefined /*out*/;
+            resourceInputs["loRaWanUpdateGatewayTaskEntry"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["taskDefinitionType"] = undefined /*out*/;
@@ -112,7 +112,7 @@ export interface TaskDefinitionArgs {
     /**
      * The list of task definitions.
      */
-    loRaWANUpdateGatewayTaskEntry?: pulumi.Input<inputs.iotwireless.TaskDefinitionLoRaWANUpdateGatewayTaskEntryArgs>;
+    loRaWanUpdateGatewayTaskEntry?: pulumi.Input<inputs.iotwireless.TaskDefinitionLoRaWANUpdateGatewayTaskEntryArgs>;
     /**
      * The name of the new resource.
      */

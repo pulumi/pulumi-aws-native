@@ -16,24 +16,24 @@ __all__ = ['IPSetArgs', 'IPSet']
 @pulumi.input_type
 class IPSetArgs:
     def __init__(__self__, *,
-                 i_p_set_descriptors: Optional[pulumi.Input[Sequence[pulumi.Input['IPSetDescriptorArgs']]]] = None,
+                 ip_set_descriptors: Optional[pulumi.Input[Sequence[pulumi.Input['IPSetDescriptorArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a IPSet resource.
         """
-        if i_p_set_descriptors is not None:
-            pulumi.set(__self__, "i_p_set_descriptors", i_p_set_descriptors)
+        if ip_set_descriptors is not None:
+            pulumi.set(__self__, "ip_set_descriptors", ip_set_descriptors)
         if name is not None:
             pulumi.set(__self__, "name", name)
 
     @property
-    @pulumi.getter(name="iPSetDescriptors")
-    def i_p_set_descriptors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IPSetDescriptorArgs']]]]:
-        return pulumi.get(self, "i_p_set_descriptors")
+    @pulumi.getter(name="ipSetDescriptors")
+    def ip_set_descriptors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IPSetDescriptorArgs']]]]:
+        return pulumi.get(self, "ip_set_descriptors")
 
-    @i_p_set_descriptors.setter
-    def i_p_set_descriptors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IPSetDescriptorArgs']]]]):
-        pulumi.set(self, "i_p_set_descriptors", value)
+    @ip_set_descriptors.setter
+    def ip_set_descriptors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IPSetDescriptorArgs']]]]):
+        pulumi.set(self, "ip_set_descriptors", value)
 
     @property
     @pulumi.getter
@@ -55,7 +55,7 @@ class IPSet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 i_p_set_descriptors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IPSetDescriptorArgs']]]]] = None,
+                 ip_set_descriptors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IPSetDescriptorArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -88,7 +88,7 @@ class IPSet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 i_p_set_descriptors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IPSetDescriptorArgs']]]]] = None,
+                 ip_set_descriptors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IPSetDescriptorArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         pulumi.log.warn("""IPSet is deprecated: IPSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
@@ -100,7 +100,7 @@ class IPSet(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IPSetArgs.__new__(IPSetArgs)
 
-            __props__.__dict__["i_p_set_descriptors"] = i_p_set_descriptors
+            __props__.__dict__["ip_set_descriptors"] = ip_set_descriptors
             __props__.__dict__["name"] = name
         super(IPSet, __self__).__init__(
             'aws-native:wafregional:IPSet',
@@ -124,14 +124,14 @@ class IPSet(pulumi.CustomResource):
 
         __props__ = IPSetArgs.__new__(IPSetArgs)
 
-        __props__.__dict__["i_p_set_descriptors"] = None
+        __props__.__dict__["ip_set_descriptors"] = None
         __props__.__dict__["name"] = None
         return IPSet(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="iPSetDescriptors")
-    def i_p_set_descriptors(self) -> pulumi.Output[Optional[Sequence['outputs.IPSetDescriptor']]]:
-        return pulumi.get(self, "i_p_set_descriptors")
+    @pulumi.getter(name="ipSetDescriptors")
+    def ip_set_descriptors(self) -> pulumi.Output[Optional[Sequence['outputs.IPSetDescriptor']]]:
+        return pulumi.get(self, "ip_set_descriptors")
 
     @property
     @pulumi.getter

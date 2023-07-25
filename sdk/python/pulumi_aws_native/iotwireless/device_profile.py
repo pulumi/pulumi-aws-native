@@ -33,7 +33,7 @@ class DeviceProfileArgs:
             pulumi.set(__self__, "tags", tags)
 
     @property
-    @pulumi.getter(name="loRaWAN")
+    @pulumi.getter(name="loRaWan")
     def lo_ra_wan(self) -> Optional[pulumi.Input['DeviceProfileLoRaWANDeviceProfileArgs']]:
         """
         LoRaWANDeviceProfile supports all LoRa specific attributes for service profile for CreateDeviceProfile operation
@@ -164,7 +164,7 @@ class DeviceProfile(pulumi.CustomResource):
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="loRaWAN")
+    @pulumi.getter(name="loRaWan")
     def lo_ra_wan(self) -> pulumi.Output[Optional['outputs.DeviceProfileLoRaWANDeviceProfile']]:
         """
         LoRaWANDeviceProfile supports all LoRa specific attributes for service profile for CreateDeviceProfile operation

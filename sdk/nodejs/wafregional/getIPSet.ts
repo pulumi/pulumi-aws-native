@@ -23,8 +23,8 @@ export interface GetIPSetArgs {
 }
 
 export interface GetIPSetResult {
-    readonly iPSetDescriptors?: outputs.wafregional.IPSetDescriptor[];
     readonly id?: string;
+    readonly ipSetDescriptors?: outputs.wafregional.IPSetDescriptor[];
 }
 /**
  * Resource Type definition for AWS::WAFRegional::IPSet

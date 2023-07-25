@@ -17,7 +17,7 @@ type StackSet struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Number (ARN) of the IAM role to use to create this stack set. Specify an IAM role only if you are using customized administrator roles to control which users or groups can manage specific stack sets within the same administrator account.
-	AdministrationRoleARN pulumi.StringPtrOutput `pulumi:"administrationRoleARN"`
+	AdministrationRoleArn pulumi.StringPtrOutput `pulumi:"administrationRoleArn"`
 	// Describes whether StackSets automatically deploys to AWS Organizations accounts that are added to the target organization or organizational unit (OU). Specify only if PermissionModel is SERVICE_MANAGED.
 	AutoDeployment StackSetAutoDeploymentPtrOutput `pulumi:"autoDeployment"`
 	// Specifies the AWS account that you are acting from. By default, SELF is specified. For self-managed permissions, specify SELF; for service-managed permissions, if you are signed in to the organization's management account, specify SELF. If you are signed in to a delegated administrator account, specify DELEGATED_ADMIN.
@@ -46,7 +46,7 @@ type StackSet struct {
 	// The structure that contains the template body, with a minimum length of 1 byte and a maximum length of 51,200 bytes.
 	TemplateBody pulumi.StringPtrOutput `pulumi:"templateBody"`
 	// Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that is located in an Amazon S3 bucket.
-	TemplateURL pulumi.StringPtrOutput `pulumi:"templateURL"`
+	TemplateUrl pulumi.StringPtrOutput `pulumi:"templateUrl"`
 }
 
 // NewStackSet registers a new resource with the given unique name, arguments, and options.
@@ -93,7 +93,7 @@ func (StackSetState) ElementType() reflect.Type {
 
 type stackSetArgs struct {
 	// The Amazon Resource Number (ARN) of the IAM role to use to create this stack set. Specify an IAM role only if you are using customized administrator roles to control which users or groups can manage specific stack sets within the same administrator account.
-	AdministrationRoleARN *string `pulumi:"administrationRoleARN"`
+	AdministrationRoleArn *string `pulumi:"administrationRoleArn"`
 	// Describes whether StackSets automatically deploys to AWS Organizations accounts that are added to the target organization or organizational unit (OU). Specify only if PermissionModel is SERVICE_MANAGED.
 	AutoDeployment *StackSetAutoDeployment `pulumi:"autoDeployment"`
 	// Specifies the AWS account that you are acting from. By default, SELF is specified. For self-managed permissions, specify SELF; for service-managed permissions, if you are signed in to the organization's management account, specify SELF. If you are signed in to a delegated administrator account, specify DELEGATED_ADMIN.
@@ -120,13 +120,13 @@ type stackSetArgs struct {
 	// The structure that contains the template body, with a minimum length of 1 byte and a maximum length of 51,200 bytes.
 	TemplateBody *string `pulumi:"templateBody"`
 	// Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that is located in an Amazon S3 bucket.
-	TemplateURL *string `pulumi:"templateURL"`
+	TemplateUrl *string `pulumi:"templateUrl"`
 }
 
 // The set of arguments for constructing a StackSet resource.
 type StackSetArgs struct {
 	// The Amazon Resource Number (ARN) of the IAM role to use to create this stack set. Specify an IAM role only if you are using customized administrator roles to control which users or groups can manage specific stack sets within the same administrator account.
-	AdministrationRoleARN pulumi.StringPtrInput
+	AdministrationRoleArn pulumi.StringPtrInput
 	// Describes whether StackSets automatically deploys to AWS Organizations accounts that are added to the target organization or organizational unit (OU). Specify only if PermissionModel is SERVICE_MANAGED.
 	AutoDeployment StackSetAutoDeploymentPtrInput
 	// Specifies the AWS account that you are acting from. By default, SELF is specified. For self-managed permissions, specify SELF; for service-managed permissions, if you are signed in to the organization's management account, specify SELF. If you are signed in to a delegated administrator account, specify DELEGATED_ADMIN.
@@ -153,7 +153,7 @@ type StackSetArgs struct {
 	// The structure that contains the template body, with a minimum length of 1 byte and a maximum length of 51,200 bytes.
 	TemplateBody pulumi.StringPtrInput
 	// Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that is located in an Amazon S3 bucket.
-	TemplateURL pulumi.StringPtrInput
+	TemplateUrl pulumi.StringPtrInput
 }
 
 func (StackSetArgs) ElementType() reflect.Type {
@@ -194,8 +194,8 @@ func (o StackSetOutput) ToStackSetOutputWithContext(ctx context.Context) StackSe
 }
 
 // The Amazon Resource Number (ARN) of the IAM role to use to create this stack set. Specify an IAM role only if you are using customized administrator roles to control which users or groups can manage specific stack sets within the same administrator account.
-func (o StackSetOutput) AdministrationRoleARN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StackSet) pulumi.StringPtrOutput { return v.AdministrationRoleARN }).(pulumi.StringPtrOutput)
+func (o StackSetOutput) AdministrationRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StackSet) pulumi.StringPtrOutput { return v.AdministrationRoleArn }).(pulumi.StringPtrOutput)
 }
 
 // Describes whether StackSets automatically deploys to AWS Organizations accounts that are added to the target organization or organizational unit (OU). Specify only if PermissionModel is SERVICE_MANAGED.
@@ -268,8 +268,8 @@ func (o StackSetOutput) TemplateBody() pulumi.StringPtrOutput {
 }
 
 // Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that is located in an Amazon S3 bucket.
-func (o StackSetOutput) TemplateURL() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StackSet) pulumi.StringPtrOutput { return v.TemplateURL }).(pulumi.StringPtrOutput)
+func (o StackSetOutput) TemplateUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StackSet) pulumi.StringPtrOutput { return v.TemplateUrl }).(pulumi.StringPtrOutput)
 }
 
 func init() {

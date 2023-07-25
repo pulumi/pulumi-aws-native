@@ -121,7 +121,7 @@ class GetUserPoolClientResult:
         return pulumi.get(self, "auth_session_validity")
 
     @property
-    @pulumi.getter(name="callbackURLs")
+    @pulumi.getter(name="callbackUrls")
     def callback_urls(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "callback_urls")
 
@@ -136,7 +136,7 @@ class GetUserPoolClientResult:
         return pulumi.get(self, "client_secret")
 
     @property
-    @pulumi.getter(name="defaultRedirectURI")
+    @pulumi.getter(name="defaultRedirectUri")
     def default_redirect_uri(self) -> Optional[str]:
         return pulumi.get(self, "default_redirect_uri")
 
@@ -166,7 +166,7 @@ class GetUserPoolClientResult:
         return pulumi.get(self, "id_token_validity")
 
     @property
-    @pulumi.getter(name="logoutURLs")
+    @pulumi.getter(name="logoutUrls")
     def logout_urls(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "logout_urls")
 

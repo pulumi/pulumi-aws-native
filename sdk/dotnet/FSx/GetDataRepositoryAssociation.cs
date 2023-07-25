@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.FSx
         /// <summary>
         /// The Amazon Resource Name (ARN) for a given resource. ARNs uniquely identify Amazon Web Services resources. We require an ARN when you need to specify a resource unambiguously across all of Amazon Web Services. For more information, see Amazon Resource Names (ARNs) in the Amazon Web Services General Reference.
         /// </summary>
-        public readonly string? ResourceARN;
+        public readonly string? ResourceArn;
         /// <summary>
         /// The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AwsNative.FSx
 
             int? importedFileChunkSize,
 
-            string? resourceARN,
+            string? resourceArn,
 
             Outputs.DataRepositoryAssociationS3? s3,
 
@@ -92,7 +92,7 @@ namespace Pulumi.AwsNative.FSx
         {
             AssociationId = associationId;
             ImportedFileChunkSize = importedFileChunkSize;
-            ResourceARN = resourceARN;
+            ResourceArn = resourceArn;
             S3 = s3;
             Tags = tags;
         }

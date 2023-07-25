@@ -2429,7 +2429,7 @@ type EventSourceMappingSourceAccessConfiguration struct {
 	// The type of source access configuration.
 	Type *EventSourceMappingSourceAccessConfigurationType `pulumi:"type"`
 	// The URI for the source access configuration resource.
-	URI *string `pulumi:"uRI"`
+	Uri *string `pulumi:"uri"`
 }
 
 // EventSourceMappingSourceAccessConfigurationInput is an input type that accepts EventSourceMappingSourceAccessConfigurationArgs and EventSourceMappingSourceAccessConfigurationOutput values.
@@ -2448,7 +2448,7 @@ type EventSourceMappingSourceAccessConfigurationArgs struct {
 	// The type of source access configuration.
 	Type EventSourceMappingSourceAccessConfigurationTypePtrInput `pulumi:"type"`
 	// The URI for the source access configuration resource.
-	URI pulumi.StringPtrInput `pulumi:"uRI"`
+	Uri pulumi.StringPtrInput `pulumi:"uri"`
 }
 
 func (EventSourceMappingSourceAccessConfigurationArgs) ElementType() reflect.Type {
@@ -2511,8 +2511,8 @@ func (o EventSourceMappingSourceAccessConfigurationOutput) Type() EventSourceMap
 }
 
 // The URI for the source access configuration resource.
-func (o EventSourceMappingSourceAccessConfigurationOutput) URI() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EventSourceMappingSourceAccessConfiguration) *string { return v.URI }).(pulumi.StringPtrOutput)
+func (o EventSourceMappingSourceAccessConfigurationOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventSourceMappingSourceAccessConfiguration) *string { return v.Uri }).(pulumi.StringPtrOutput)
 }
 
 type EventSourceMappingSourceAccessConfigurationArrayOutput struct{ *pulumi.OutputState }

@@ -173,7 +173,7 @@ class SamplingRule(pulumi.CustomResource):
         return SamplingRule(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="ruleARN")
+    @pulumi.getter(name="ruleArn")
     def rule_arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "rule_arn")
 

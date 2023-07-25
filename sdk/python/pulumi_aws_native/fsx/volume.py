@@ -66,7 +66,7 @@ class VolumeArgs:
         pulumi.set(self, "ontap_configuration", value)
 
     @property
-    @pulumi.getter(name="openZFSConfiguration")
+    @pulumi.getter(name="openZfsConfiguration")
     def open_zfs_configuration(self) -> Optional[pulumi.Input['VolumeOpenZFSConfigurationArgs']]:
         return pulumi.get(self, "open_zfs_configuration")
 
@@ -163,7 +163,7 @@ class Volume(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["volume_type"] = volume_type
             __props__.__dict__["resource_arn"] = None
-            __props__.__dict__["u_uid"] = None
+            __props__.__dict__["uuid"] = None
             __props__.__dict__["volume_id"] = None
         super(Volume, __self__).__init__(
             'aws-native:fsx:Volume',
@@ -193,7 +193,7 @@ class Volume(pulumi.CustomResource):
         __props__.__dict__["open_zfs_configuration"] = None
         __props__.__dict__["resource_arn"] = None
         __props__.__dict__["tags"] = None
-        __props__.__dict__["u_uid"] = None
+        __props__.__dict__["uuid"] = None
         __props__.__dict__["volume_id"] = None
         __props__.__dict__["volume_type"] = None
         return Volume(resource_name, opts=opts, __props__=__props__)
@@ -214,12 +214,12 @@ class Volume(pulumi.CustomResource):
         return pulumi.get(self, "ontap_configuration")
 
     @property
-    @pulumi.getter(name="openZFSConfiguration")
+    @pulumi.getter(name="openZfsConfiguration")
     def open_zfs_configuration(self) -> pulumi.Output[Optional['outputs.VolumeOpenZFSConfiguration']]:
         return pulumi.get(self, "open_zfs_configuration")
 
     @property
-    @pulumi.getter(name="resourceARN")
+    @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "resource_arn")
 
@@ -229,9 +229,9 @@ class Volume(pulumi.CustomResource):
         return pulumi.get(self, "tags")
 
     @property
-    @pulumi.getter(name="uUID")
-    def u_uid(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "u_uid")
+    @pulumi.getter
+    def uuid(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "uuid")
 
     @property
     @pulumi.getter(name="volumeId")

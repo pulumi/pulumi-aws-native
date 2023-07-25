@@ -23,11 +23,11 @@ func LookupDBSubnetGroup(ctx *pulumi.Context, args *LookupDBSubnetGroupArgs, opt
 }
 
 type LookupDBSubnetGroupArgs struct {
-	DBSubnetGroupName string `pulumi:"dBSubnetGroupName"`
+	DbSubnetGroupName string `pulumi:"dbSubnetGroupName"`
 }
 
 type LookupDBSubnetGroupResult struct {
-	DBSubnetGroupDescription *string `pulumi:"dBSubnetGroupDescription"`
+	DbSubnetGroupDescription *string `pulumi:"dbSubnetGroupDescription"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []DBSubnetGroupTag `pulumi:"tags"`
 }
@@ -46,7 +46,7 @@ func LookupDBSubnetGroupOutput(ctx *pulumi.Context, args LookupDBSubnetGroupOutp
 }
 
 type LookupDBSubnetGroupOutputArgs struct {
-	DBSubnetGroupName pulumi.StringInput `pulumi:"dBSubnetGroupName"`
+	DbSubnetGroupName pulumi.StringInput `pulumi:"dbSubnetGroupName"`
 }
 
 func (LookupDBSubnetGroupOutputArgs) ElementType() reflect.Type {
@@ -67,8 +67,8 @@ func (o LookupDBSubnetGroupResultOutput) ToLookupDBSubnetGroupResultOutputWithCo
 	return o
 }
 
-func (o LookupDBSubnetGroupResultOutput) DBSubnetGroupDescription() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupDBSubnetGroupResult) *string { return v.DBSubnetGroupDescription }).(pulumi.StringPtrOutput)
+func (o LookupDBSubnetGroupResultOutput) DbSubnetGroupDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDBSubnetGroupResult) *string { return v.DbSubnetGroupDescription }).(pulumi.StringPtrOutput)
 }
 
 // An array of key-value pairs to apply to this resource.

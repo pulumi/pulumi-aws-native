@@ -18,8 +18,8 @@ namespace Pulumi.AwsNative.Pinpoint.Inputs
         [Input("defaultConfig")]
         public Input<Inputs.CampaignDefaultButtonConfigurationArgs>? DefaultConfig { get; set; }
 
-        [Input("iOS")]
-        public Input<Inputs.CampaignOverrideButtonConfigurationArgs>? IOS { get; set; }
+        [Input("ios")]
+        public Input<Inputs.CampaignOverrideButtonConfigurationArgs>? Ios { get; set; }
 
         [Input("web")]
         public Input<Inputs.CampaignOverrideButtonConfigurationArgs>? Web { get; set; }

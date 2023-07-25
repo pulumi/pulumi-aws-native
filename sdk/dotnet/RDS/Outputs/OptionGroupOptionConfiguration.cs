@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.RDS.Outputs
         /// <summary>
         /// A list of DBSecurityGroupMembership name strings used for this option.
         /// </summary>
-        public readonly ImmutableArray<string> DBSecurityGroupMemberships;
+        public readonly ImmutableArray<string> DbSecurityGroupMemberships;
         /// <summary>
         /// The configuration of options to include in a group.
         /// </summary>
@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.RDS.Outputs
 
         [OutputConstructor]
         private OptionGroupOptionConfiguration(
-            ImmutableArray<string> dBSecurityGroupMemberships,
+            ImmutableArray<string> dbSecurityGroupMemberships,
 
             string optionName,
 
@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.RDS.Outputs
 
             ImmutableArray<string> vpcSecurityGroupMemberships)
         {
-            DBSecurityGroupMemberships = dBSecurityGroupMemberships;
+            DbSecurityGroupMemberships = dbSecurityGroupMemberships;
             OptionName = optionName;
             OptionSettings = optionSettings;
             OptionVersion = optionVersion;

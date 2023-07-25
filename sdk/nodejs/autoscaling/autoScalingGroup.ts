@@ -64,11 +64,11 @@ export class AutoScalingGroup extends pulumi.CustomResource {
     public readonly newInstancesProtectedFromScaleIn!: pulumi.Output<boolean | undefined>;
     public readonly notificationConfigurations!: pulumi.Output<outputs.autoscaling.AutoScalingGroupNotificationConfiguration[] | undefined>;
     public readonly placementGroup!: pulumi.Output<string | undefined>;
-    public readonly serviceLinkedRoleARN!: pulumi.Output<string | undefined>;
+    public readonly serviceLinkedRoleArn!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<outputs.autoscaling.AutoScalingGroupTagProperty[] | undefined>;
-    public readonly targetGroupARNs!: pulumi.Output<string[] | undefined>;
+    public readonly targetGroupArns!: pulumi.Output<string[] | undefined>;
     public readonly terminationPolicies!: pulumi.Output<string[] | undefined>;
-    public readonly vPCZoneIdentifier!: pulumi.Output<string[] | undefined>;
+    public readonly vpcZoneIdentifier!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a AutoScalingGroup resource with the given unique name, arguments, and options.
@@ -112,11 +112,11 @@ export class AutoScalingGroup extends pulumi.CustomResource {
             resourceInputs["newInstancesProtectedFromScaleIn"] = args ? args.newInstancesProtectedFromScaleIn : undefined;
             resourceInputs["notificationConfigurations"] = args ? args.notificationConfigurations : undefined;
             resourceInputs["placementGroup"] = args ? args.placementGroup : undefined;
-            resourceInputs["serviceLinkedRoleARN"] = args ? args.serviceLinkedRoleARN : undefined;
+            resourceInputs["serviceLinkedRoleArn"] = args ? args.serviceLinkedRoleArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetGroupARNs"] = args ? args.targetGroupARNs : undefined;
+            resourceInputs["targetGroupArns"] = args ? args.targetGroupArns : undefined;
             resourceInputs["terminationPolicies"] = args ? args.terminationPolicies : undefined;
-            resourceInputs["vPCZoneIdentifier"] = args ? args.vPCZoneIdentifier : undefined;
+            resourceInputs["vpcZoneIdentifier"] = args ? args.vpcZoneIdentifier : undefined;
             resourceInputs["launchTemplateSpecification"] = undefined /*out*/;
         } else {
             resourceInputs["autoScalingGroupName"] = undefined /*out*/;
@@ -143,11 +143,11 @@ export class AutoScalingGroup extends pulumi.CustomResource {
             resourceInputs["newInstancesProtectedFromScaleIn"] = undefined /*out*/;
             resourceInputs["notificationConfigurations"] = undefined /*out*/;
             resourceInputs["placementGroup"] = undefined /*out*/;
-            resourceInputs["serviceLinkedRoleARN"] = undefined /*out*/;
+            resourceInputs["serviceLinkedRoleArn"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
-            resourceInputs["targetGroupARNs"] = undefined /*out*/;
+            resourceInputs["targetGroupArns"] = undefined /*out*/;
             resourceInputs["terminationPolicies"] = undefined /*out*/;
-            resourceInputs["vPCZoneIdentifier"] = undefined /*out*/;
+            resourceInputs["vpcZoneIdentifier"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AutoScalingGroup.__pulumiType, name, resourceInputs, opts);
@@ -181,9 +181,9 @@ export interface AutoScalingGroupArgs {
     newInstancesProtectedFromScaleIn?: pulumi.Input<boolean>;
     notificationConfigurations?: pulumi.Input<pulumi.Input<inputs.autoscaling.AutoScalingGroupNotificationConfigurationArgs>[]>;
     placementGroup?: pulumi.Input<string>;
-    serviceLinkedRoleARN?: pulumi.Input<string>;
+    serviceLinkedRoleArn?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.autoscaling.AutoScalingGroupTagPropertyArgs>[]>;
-    targetGroupARNs?: pulumi.Input<pulumi.Input<string>[]>;
+    targetGroupArns?: pulumi.Input<pulumi.Input<string>[]>;
     terminationPolicies?: pulumi.Input<pulumi.Input<string>[]>;
-    vPCZoneIdentifier?: pulumi.Input<pulumi.Input<string>[]>;
+    vpcZoneIdentifier?: pulumi.Input<pulumi.Input<string>[]>;
 }

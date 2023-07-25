@@ -72,7 +72,7 @@ class GetLoadBalancerResult:
         return pulumi.get(self, "session_stickiness_enabled")
 
     @property
-    @pulumi.getter(name="sessionStickinessLBCookieDurationSeconds")
+    @pulumi.getter(name="sessionStickinessLbCookieDurationSeconds")
     def session_stickiness_lb_cookie_duration_seconds(self) -> Optional[str]:
         """
         Configuration option to adjust session stickiness cookie duration parameter.

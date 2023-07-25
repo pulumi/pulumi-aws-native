@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.
         /// </summary>
-        [Input("dBProxyEndpointName", required: true)]
-        public string DBProxyEndpointName { get; set; } = null!;
+        [Input("dbProxyEndpointName", required: true)]
+        public string DbProxyEndpointName { get; set; } = null!;
 
         public GetDBProxyEndpointArgs()
         {
@@ -44,8 +44,8 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.
         /// </summary>
-        [Input("dBProxyEndpointName", required: true)]
-        public Input<string> DBProxyEndpointName { get; set; } = null!;
+        [Input("dbProxyEndpointName", required: true)]
+        public Input<string> DbProxyEndpointName { get; set; } = null!;
 
         public GetDBProxyEndpointInvokeArgs()
         {
@@ -60,7 +60,7 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// The Amazon Resource Name (ARN) for the DB proxy endpoint.
         /// </summary>
-        public readonly string? DBProxyEndpointArn;
+        public readonly string? DbProxyEndpointArn;
         /// <summary>
         /// The endpoint that you can use to connect to the DB proxy. You include the endpoint value in the connection string for a database client application.
         /// </summary>
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.RDS
 
         [OutputConstructor]
         private GetDBProxyEndpointResult(
-            string? dBProxyEndpointArn,
+            string? dbProxyEndpointArn,
 
             string? endpoint,
 
@@ -102,7 +102,7 @@ namespace Pulumi.AwsNative.RDS
 
             ImmutableArray<string> vpcSecurityGroupIds)
         {
-            DBProxyEndpointArn = dBProxyEndpointArn;
+            DbProxyEndpointArn = dbProxyEndpointArn;
             Endpoint = endpoint;
             IsDefault = isDefault;
             Tags = tags;

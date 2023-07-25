@@ -36,8 +36,8 @@ namespace Pulumi.AwsNative.Lightsail.Inputs
         /// <summary>
         /// IOPS of disk.
         /// </summary>
-        [Input("iOPS")]
-        public Input<int>? IOPS { get; set; }
+        [Input("iops")]
+        public Input<int>? Iops { get; set; }
 
         /// <summary>
         /// Is the Attached disk is the system disk of the Instance.

@@ -23,21 +23,21 @@ class DBInstanceArgs:
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  backup_retention_period: Optional[pulumi.Input[int]] = None,
-                 c_a_certificate_identifier: Optional[pulumi.Input[str]] = None,
+                 ca_certificate_identifier: Optional[pulumi.Input[str]] = None,
                  certificate_details: Optional[pulumi.Input['DBInstanceCertificateDetailsArgs']] = None,
                  certificate_rotation_restart: Optional[pulumi.Input[bool]] = None,
                  character_set_name: Optional[pulumi.Input[str]] = None,
                  copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
                  custom_iam_instance_profile: Optional[pulumi.Input[str]] = None,
-                 d_b_cluster_identifier: Optional[pulumi.Input[str]] = None,
-                 d_b_cluster_snapshot_identifier: Optional[pulumi.Input[str]] = None,
-                 d_b_instance_class: Optional[pulumi.Input[str]] = None,
-                 d_b_instance_identifier: Optional[pulumi.Input[str]] = None,
-                 d_b_name: Optional[pulumi.Input[str]] = None,
-                 d_b_parameter_group_name: Optional[pulumi.Input[str]] = None,
-                 d_b_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 d_b_snapshot_identifier: Optional[pulumi.Input[str]] = None,
-                 d_b_subnet_group_name: Optional[pulumi.Input[str]] = None,
+                 db_cluster_identifier: Optional[pulumi.Input[str]] = None,
+                 db_cluster_snapshot_identifier: Optional[pulumi.Input[str]] = None,
+                 db_instance_class: Optional[pulumi.Input[str]] = None,
+                 db_instance_identifier: Optional[pulumi.Input[str]] = None,
+                 db_name: Optional[pulumi.Input[str]] = None,
+                 db_parameter_group_name: Optional[pulumi.Input[str]] = None,
+                 db_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 db_snapshot_identifier: Optional[pulumi.Input[str]] = None,
+                 db_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  delete_automated_backups: Optional[pulumi.Input[bool]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
@@ -86,7 +86,7 @@ class DBInstanceArgs:
                  timezone: Optional[pulumi.Input[str]] = None,
                  use_default_processor_features: Optional[pulumi.Input[bool]] = None,
                  use_latest_restorable_time: Optional[pulumi.Input[bool]] = None,
-                 v_pc_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 vpc_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a DBInstance resource.
         :param pulumi.Input[str] allocated_storage: The amount of storage (in gigabytes) to be initially allocated for the database instance.
@@ -95,7 +95,7 @@ class DBInstanceArgs:
         :param pulumi.Input[bool] auto_minor_version_upgrade: A value that indicates whether minor engine upgrades are applied automatically to the DB instance during the maintenance window. By default, minor engine upgrades are applied automatically.
         :param pulumi.Input[str] availability_zone: The Availability Zone (AZ) where the database will be created. For information on AWS Regions and Availability Zones.
         :param pulumi.Input[int] backup_retention_period: The number of days for which automated backups are retained. Setting this parameter to a positive number enables backups. Setting this parameter to 0 disables automated backups.
-        :param pulumi.Input[str] c_a_certificate_identifier: The identifier of the CA certificate for this DB instance.
+        :param pulumi.Input[str] ca_certificate_identifier: The identifier of the CA certificate for this DB instance.
         :param pulumi.Input['DBInstanceCertificateDetailsArgs'] certificate_details: Returns the details of the DB instance's server certificate.
         :param pulumi.Input[bool] certificate_rotation_restart: A value that indicates whether the DB instance is restarted when you rotate your SSL/TLS certificate.
                By default, the DB instance is restarted when you rotate your SSL/TLS certificate. The certificate is not updated until the DB instance is restarted.
@@ -110,8 +110,8 @@ class DBInstanceArgs:
                For the list of permissions required for the IAM role, see Configure IAM and your VPC in the Amazon RDS User Guide .
                
                This setting is required for RDS Custom.
-        :param pulumi.Input[str] d_b_cluster_identifier: The identifier of the DB cluster that the instance will belong to.
-        :param pulumi.Input[str] d_b_cluster_snapshot_identifier: The identifier for the RDS for MySQL Multi-AZ DB cluster snapshot to restore from. For more information on Multi-AZ DB clusters, see Multi-AZ deployments with two readable standby DB instances in the Amazon RDS User Guide .
+        :param pulumi.Input[str] db_cluster_identifier: The identifier of the DB cluster that the instance will belong to.
+        :param pulumi.Input[str] db_cluster_snapshot_identifier: The identifier for the RDS for MySQL Multi-AZ DB cluster snapshot to restore from. For more information on Multi-AZ DB clusters, see Multi-AZ deployments with two readable standby DB instances in the Amazon RDS User Guide .
                
                Constraints:
                 * Must match the identifier of an existing Multi-AZ DB cluster snapshot.
@@ -120,13 +120,13 @@ class DBInstanceArgs:
                 * If you are restoring from a shared manual Multi-AZ DB cluster snapshot, the DBClusterSnapshotIdentifier must be the ARN of the shared snapshot.
                 * Can't be the identifier of an Aurora DB cluster snapshot.
                 * Can't be the identifier of an RDS for PostgreSQL Multi-AZ DB cluster snapshot.
-        :param pulumi.Input[str] d_b_instance_class: The compute and memory capacity of the DB instance, for example, db.m4.large. Not all DB instance classes are available in all AWS Regions, or for all database engines.
-        :param pulumi.Input[str] d_b_instance_identifier: A name for the DB instance. If you specify a name, AWS CloudFormation converts it to lowercase. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the DB instance.
-        :param pulumi.Input[str] d_b_name: The meaning of this parameter differs according to the database engine you use.
-        :param pulumi.Input[str] d_b_parameter_group_name: The name of an existing DB parameter group or a reference to an AWS::RDS::DBParameterGroup resource created in the template.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] d_b_security_groups: A list of the DB security groups to assign to the DB instance. The list can include both the name of existing DB security groups or references to AWS::RDS::DBSecurityGroup resources created in the template.
-        :param pulumi.Input[str] d_b_snapshot_identifier: The name or Amazon Resource Name (ARN) of the DB snapshot that's used to restore the DB instance. If you're restoring from a shared manual DB snapshot, you must specify the ARN of the snapshot.
-        :param pulumi.Input[str] d_b_subnet_group_name: A DB subnet group to associate with the DB instance. If you update this value, the new subnet group must be a subnet group in a new VPC.
+        :param pulumi.Input[str] db_instance_class: The compute and memory capacity of the DB instance, for example, db.m4.large. Not all DB instance classes are available in all AWS Regions, or for all database engines.
+        :param pulumi.Input[str] db_instance_identifier: A name for the DB instance. If you specify a name, AWS CloudFormation converts it to lowercase. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the DB instance.
+        :param pulumi.Input[str] db_name: The meaning of this parameter differs according to the database engine you use.
+        :param pulumi.Input[str] db_parameter_group_name: The name of an existing DB parameter group or a reference to an AWS::RDS::DBParameterGroup resource created in the template.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] db_security_groups: A list of the DB security groups to assign to the DB instance. The list can include both the name of existing DB security groups or references to AWS::RDS::DBSecurityGroup resources created in the template.
+        :param pulumi.Input[str] db_snapshot_identifier: The name or Amazon Resource Name (ARN) of the DB snapshot that's used to restore the DB instance. If you're restoring from a shared manual DB snapshot, you must specify the ARN of the snapshot.
+        :param pulumi.Input[str] db_subnet_group_name: A DB subnet group to associate with the DB instance. If you update this value, the new subnet group must be a subnet group in a new VPC.
         :param pulumi.Input[bool] delete_automated_backups: A value that indicates whether to remove automated backups immediately after the DB instance is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB instance is deleted.
         :param pulumi.Input[bool] deletion_protection: A value that indicates whether the DB instance has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
         :param pulumi.Input[str] domain: The Active Directory directory ID to create the DB instance in. Currently, only MySQL, Microsoft SQL Server, Oracle, and PostgreSQL DB instances can be created in an Active Directory Domain.
@@ -175,7 +175,7 @@ class DBInstanceArgs:
         :param pulumi.Input[str] timezone: The time zone of the DB instance. The time zone parameter is currently supported only by Microsoft SQL Server.
         :param pulumi.Input[bool] use_default_processor_features: A value that indicates whether the DB instance class of the DB instance uses its default processor features.
         :param pulumi.Input[bool] use_latest_restorable_time: A value that indicates whether the DB instance is restored from the latest backup time. By default, the DB instance isn't restored from the latest backup time.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] v_pc_security_groups: A list of the VPC security group IDs to assign to the DB instance. The list can include both the physical IDs of existing VPC security groups and references to AWS::EC2::SecurityGroup resources created in the template.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_groups: A list of the VPC security group IDs to assign to the DB instance. The list can include both the physical IDs of existing VPC security groups and references to AWS::EC2::SecurityGroup resources created in the template.
         """
         if allocated_storage is not None:
             pulumi.set(__self__, "allocated_storage", allocated_storage)
@@ -189,8 +189,8 @@ class DBInstanceArgs:
             pulumi.set(__self__, "availability_zone", availability_zone)
         if backup_retention_period is not None:
             pulumi.set(__self__, "backup_retention_period", backup_retention_period)
-        if c_a_certificate_identifier is not None:
-            pulumi.set(__self__, "c_a_certificate_identifier", c_a_certificate_identifier)
+        if ca_certificate_identifier is not None:
+            pulumi.set(__self__, "ca_certificate_identifier", ca_certificate_identifier)
         if certificate_details is not None:
             pulumi.set(__self__, "certificate_details", certificate_details)
         if certificate_rotation_restart is not None:
@@ -201,24 +201,24 @@ class DBInstanceArgs:
             pulumi.set(__self__, "copy_tags_to_snapshot", copy_tags_to_snapshot)
         if custom_iam_instance_profile is not None:
             pulumi.set(__self__, "custom_iam_instance_profile", custom_iam_instance_profile)
-        if d_b_cluster_identifier is not None:
-            pulumi.set(__self__, "d_b_cluster_identifier", d_b_cluster_identifier)
-        if d_b_cluster_snapshot_identifier is not None:
-            pulumi.set(__self__, "d_b_cluster_snapshot_identifier", d_b_cluster_snapshot_identifier)
-        if d_b_instance_class is not None:
-            pulumi.set(__self__, "d_b_instance_class", d_b_instance_class)
-        if d_b_instance_identifier is not None:
-            pulumi.set(__self__, "d_b_instance_identifier", d_b_instance_identifier)
-        if d_b_name is not None:
-            pulumi.set(__self__, "d_b_name", d_b_name)
-        if d_b_parameter_group_name is not None:
-            pulumi.set(__self__, "d_b_parameter_group_name", d_b_parameter_group_name)
-        if d_b_security_groups is not None:
-            pulumi.set(__self__, "d_b_security_groups", d_b_security_groups)
-        if d_b_snapshot_identifier is not None:
-            pulumi.set(__self__, "d_b_snapshot_identifier", d_b_snapshot_identifier)
-        if d_b_subnet_group_name is not None:
-            pulumi.set(__self__, "d_b_subnet_group_name", d_b_subnet_group_name)
+        if db_cluster_identifier is not None:
+            pulumi.set(__self__, "db_cluster_identifier", db_cluster_identifier)
+        if db_cluster_snapshot_identifier is not None:
+            pulumi.set(__self__, "db_cluster_snapshot_identifier", db_cluster_snapshot_identifier)
+        if db_instance_class is not None:
+            pulumi.set(__self__, "db_instance_class", db_instance_class)
+        if db_instance_identifier is not None:
+            pulumi.set(__self__, "db_instance_identifier", db_instance_identifier)
+        if db_name is not None:
+            pulumi.set(__self__, "db_name", db_name)
+        if db_parameter_group_name is not None:
+            pulumi.set(__self__, "db_parameter_group_name", db_parameter_group_name)
+        if db_security_groups is not None:
+            pulumi.set(__self__, "db_security_groups", db_security_groups)
+        if db_snapshot_identifier is not None:
+            pulumi.set(__self__, "db_snapshot_identifier", db_snapshot_identifier)
+        if db_subnet_group_name is not None:
+            pulumi.set(__self__, "db_subnet_group_name", db_subnet_group_name)
         if delete_automated_backups is not None:
             pulumi.set(__self__, "delete_automated_backups", delete_automated_backups)
         if deletion_protection is not None:
@@ -315,8 +315,8 @@ class DBInstanceArgs:
             pulumi.set(__self__, "use_default_processor_features", use_default_processor_features)
         if use_latest_restorable_time is not None:
             pulumi.set(__self__, "use_latest_restorable_time", use_latest_restorable_time)
-        if v_pc_security_groups is not None:
-            pulumi.set(__self__, "v_pc_security_groups", v_pc_security_groups)
+        if vpc_security_groups is not None:
+            pulumi.set(__self__, "vpc_security_groups", vpc_security_groups)
 
     @property
     @pulumi.getter(name="allocatedStorage")
@@ -391,16 +391,16 @@ class DBInstanceArgs:
         pulumi.set(self, "backup_retention_period", value)
 
     @property
-    @pulumi.getter(name="cACertificateIdentifier")
-    def c_a_certificate_identifier(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="caCertificateIdentifier")
+    def ca_certificate_identifier(self) -> Optional[pulumi.Input[str]]:
         """
         The identifier of the CA certificate for this DB instance.
         """
-        return pulumi.get(self, "c_a_certificate_identifier")
+        return pulumi.get(self, "ca_certificate_identifier")
 
-    @c_a_certificate_identifier.setter
-    def c_a_certificate_identifier(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "c_a_certificate_identifier", value)
+    @ca_certificate_identifier.setter
+    def ca_certificate_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ca_certificate_identifier", value)
 
     @property
     @pulumi.getter(name="certificateDetails")
@@ -454,7 +454,7 @@ class DBInstanceArgs:
         pulumi.set(self, "copy_tags_to_snapshot", value)
 
     @property
-    @pulumi.getter(name="customIAMInstanceProfile")
+    @pulumi.getter(name="customIamInstanceProfile")
     def custom_iam_instance_profile(self) -> Optional[pulumi.Input[str]]:
         """
         The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance. The instance profile must meet the following requirements:
@@ -472,20 +472,20 @@ class DBInstanceArgs:
         pulumi.set(self, "custom_iam_instance_profile", value)
 
     @property
-    @pulumi.getter(name="dBClusterIdentifier")
-    def d_b_cluster_identifier(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="dbClusterIdentifier")
+    def db_cluster_identifier(self) -> Optional[pulumi.Input[str]]:
         """
         The identifier of the DB cluster that the instance will belong to.
         """
-        return pulumi.get(self, "d_b_cluster_identifier")
+        return pulumi.get(self, "db_cluster_identifier")
 
-    @d_b_cluster_identifier.setter
-    def d_b_cluster_identifier(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "d_b_cluster_identifier", value)
+    @db_cluster_identifier.setter
+    def db_cluster_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "db_cluster_identifier", value)
 
     @property
-    @pulumi.getter(name="dBClusterSnapshotIdentifier")
-    def d_b_cluster_snapshot_identifier(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="dbClusterSnapshotIdentifier")
+    def db_cluster_snapshot_identifier(self) -> Optional[pulumi.Input[str]]:
         """
         The identifier for the RDS for MySQL Multi-AZ DB cluster snapshot to restore from. For more information on Multi-AZ DB clusters, see Multi-AZ deployments with two readable standby DB instances in the Amazon RDS User Guide .
 
@@ -497,95 +497,95 @@ class DBInstanceArgs:
          * Can't be the identifier of an Aurora DB cluster snapshot.
          * Can't be the identifier of an RDS for PostgreSQL Multi-AZ DB cluster snapshot.
         """
-        return pulumi.get(self, "d_b_cluster_snapshot_identifier")
+        return pulumi.get(self, "db_cluster_snapshot_identifier")
 
-    @d_b_cluster_snapshot_identifier.setter
-    def d_b_cluster_snapshot_identifier(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "d_b_cluster_snapshot_identifier", value)
+    @db_cluster_snapshot_identifier.setter
+    def db_cluster_snapshot_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "db_cluster_snapshot_identifier", value)
 
     @property
-    @pulumi.getter(name="dBInstanceClass")
-    def d_b_instance_class(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="dbInstanceClass")
+    def db_instance_class(self) -> Optional[pulumi.Input[str]]:
         """
         The compute and memory capacity of the DB instance, for example, db.m4.large. Not all DB instance classes are available in all AWS Regions, or for all database engines.
         """
-        return pulumi.get(self, "d_b_instance_class")
+        return pulumi.get(self, "db_instance_class")
 
-    @d_b_instance_class.setter
-    def d_b_instance_class(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "d_b_instance_class", value)
+    @db_instance_class.setter
+    def db_instance_class(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "db_instance_class", value)
 
     @property
-    @pulumi.getter(name="dBInstanceIdentifier")
-    def d_b_instance_identifier(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="dbInstanceIdentifier")
+    def db_instance_identifier(self) -> Optional[pulumi.Input[str]]:
         """
         A name for the DB instance. If you specify a name, AWS CloudFormation converts it to lowercase. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the DB instance.
         """
-        return pulumi.get(self, "d_b_instance_identifier")
+        return pulumi.get(self, "db_instance_identifier")
 
-    @d_b_instance_identifier.setter
-    def d_b_instance_identifier(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "d_b_instance_identifier", value)
+    @db_instance_identifier.setter
+    def db_instance_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "db_instance_identifier", value)
 
     @property
-    @pulumi.getter(name="dBName")
-    def d_b_name(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="dbName")
+    def db_name(self) -> Optional[pulumi.Input[str]]:
         """
         The meaning of this parameter differs according to the database engine you use.
         """
-        return pulumi.get(self, "d_b_name")
+        return pulumi.get(self, "db_name")
 
-    @d_b_name.setter
-    def d_b_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "d_b_name", value)
+    @db_name.setter
+    def db_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "db_name", value)
 
     @property
-    @pulumi.getter(name="dBParameterGroupName")
-    def d_b_parameter_group_name(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="dbParameterGroupName")
+    def db_parameter_group_name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of an existing DB parameter group or a reference to an AWS::RDS::DBParameterGroup resource created in the template.
         """
-        return pulumi.get(self, "d_b_parameter_group_name")
+        return pulumi.get(self, "db_parameter_group_name")
 
-    @d_b_parameter_group_name.setter
-    def d_b_parameter_group_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "d_b_parameter_group_name", value)
+    @db_parameter_group_name.setter
+    def db_parameter_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "db_parameter_group_name", value)
 
     @property
-    @pulumi.getter(name="dBSecurityGroups")
-    def d_b_security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    @pulumi.getter(name="dbSecurityGroups")
+    def db_security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of the DB security groups to assign to the DB instance. The list can include both the name of existing DB security groups or references to AWS::RDS::DBSecurityGroup resources created in the template.
         """
-        return pulumi.get(self, "d_b_security_groups")
+        return pulumi.get(self, "db_security_groups")
 
-    @d_b_security_groups.setter
-    def d_b_security_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "d_b_security_groups", value)
+    @db_security_groups.setter
+    def db_security_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "db_security_groups", value)
 
     @property
-    @pulumi.getter(name="dBSnapshotIdentifier")
-    def d_b_snapshot_identifier(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="dbSnapshotIdentifier")
+    def db_snapshot_identifier(self) -> Optional[pulumi.Input[str]]:
         """
         The name or Amazon Resource Name (ARN) of the DB snapshot that's used to restore the DB instance. If you're restoring from a shared manual DB snapshot, you must specify the ARN of the snapshot.
         """
-        return pulumi.get(self, "d_b_snapshot_identifier")
+        return pulumi.get(self, "db_snapshot_identifier")
 
-    @d_b_snapshot_identifier.setter
-    def d_b_snapshot_identifier(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "d_b_snapshot_identifier", value)
+    @db_snapshot_identifier.setter
+    def db_snapshot_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "db_snapshot_identifier", value)
 
     @property
-    @pulumi.getter(name="dBSubnetGroupName")
-    def d_b_subnet_group_name(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="dbSubnetGroupName")
+    def db_subnet_group_name(self) -> Optional[pulumi.Input[str]]:
         """
         A DB subnet group to associate with the DB instance. If you update this value, the new subnet group must be a subnet group in a new VPC.
         """
-        return pulumi.get(self, "d_b_subnet_group_name")
+        return pulumi.get(self, "db_subnet_group_name")
 
-    @d_b_subnet_group_name.setter
-    def d_b_subnet_group_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "d_b_subnet_group_name", value)
+    @db_subnet_group_name.setter
+    def db_subnet_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "db_subnet_group_name", value)
 
     @property
     @pulumi.getter(name="deleteAutomatedBackups")
@@ -624,7 +624,7 @@ class DBInstanceArgs:
         pulumi.set(self, "domain", value)
 
     @property
-    @pulumi.getter(name="domainIAMRoleName")
+    @pulumi.getter(name="domainIamRoleName")
     def domain_iam_role_name(self) -> Optional[pulumi.Input[str]]:
         """
         Specify the name of the IAM role to be used when making API calls to the Directory Service.
@@ -648,7 +648,7 @@ class DBInstanceArgs:
         pulumi.set(self, "enable_cloudwatch_logs_exports", value)
 
     @property
-    @pulumi.getter(name="enableIAMDatabaseAuthentication")
+    @pulumi.getter(name="enableIamDatabaseAuthentication")
     def enable_iam_database_authentication(self) -> Optional[pulumi.Input[bool]]:
         """
         A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
@@ -828,7 +828,7 @@ class DBInstanceArgs:
         pulumi.set(self, "monitoring_role_arn", value)
 
     @property
-    @pulumi.getter(name="multiAZ")
+    @pulumi.getter(name="multiAz")
     def multi_az(self) -> Optional[pulumi.Input[bool]]:
         """
         Specifies whether the database instance is a multiple Availability Zone deployment.
@@ -876,7 +876,7 @@ class DBInstanceArgs:
         pulumi.set(self, "option_group_name", value)
 
     @property
-    @pulumi.getter(name="performanceInsightsKMSKeyId")
+    @pulumi.getter(name="performanceInsightsKmsKeyId")
     def performance_insights_kms_key_id(self) -> Optional[pulumi.Input[str]]:
         """
         The AWS KMS key identifier for encryption of Performance Insights data. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.
@@ -996,7 +996,7 @@ class DBInstanceArgs:
         pulumi.set(self, "restore_time", value)
 
     @property
-    @pulumi.getter(name="sourceDBClusterIdentifier")
+    @pulumi.getter(name="sourceDbClusterIdentifier")
     def source_db_cluster_identifier(self) -> Optional[pulumi.Input[str]]:
         """
         The identifier of the Multi-AZ DB cluster that will act as the source for the read replica. Each DB cluster can have up to 15 read replicas.
@@ -1008,7 +1008,7 @@ class DBInstanceArgs:
         pulumi.set(self, "source_db_cluster_identifier", value)
 
     @property
-    @pulumi.getter(name="sourceDBInstanceAutomatedBackupsArn")
+    @pulumi.getter(name="sourceDbInstanceAutomatedBackupsArn")
     def source_db_instance_automated_backups_arn(self) -> Optional[pulumi.Input[str]]:
         """
         The Amazon Resource Name (ARN) of the replicated automated backups from which to restore.
@@ -1020,7 +1020,7 @@ class DBInstanceArgs:
         pulumi.set(self, "source_db_instance_automated_backups_arn", value)
 
     @property
-    @pulumi.getter(name="sourceDBInstanceIdentifier")
+    @pulumi.getter(name="sourceDbInstanceIdentifier")
     def source_db_instance_identifier(self) -> Optional[pulumi.Input[str]]:
         """
         If you want to create a Read Replica DB instance, specify the ID of the source DB instance. Each DB instance can have a limited number of Read Replicas.
@@ -1164,16 +1164,16 @@ class DBInstanceArgs:
         pulumi.set(self, "use_latest_restorable_time", value)
 
     @property
-    @pulumi.getter(name="vPCSecurityGroups")
-    def v_pc_security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    @pulumi.getter(name="vpcSecurityGroups")
+    def vpc_security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of the VPC security group IDs to assign to the DB instance. The list can include both the physical IDs of existing VPC security groups and references to AWS::EC2::SecurityGroup resources created in the template.
         """
-        return pulumi.get(self, "v_pc_security_groups")
+        return pulumi.get(self, "vpc_security_groups")
 
-    @v_pc_security_groups.setter
-    def v_pc_security_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "v_pc_security_groups", value)
+    @vpc_security_groups.setter
+    def vpc_security_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "vpc_security_groups", value)
 
 
 class DBInstance(pulumi.CustomResource):
@@ -1187,21 +1187,21 @@ class DBInstance(pulumi.CustomResource):
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  backup_retention_period: Optional[pulumi.Input[int]] = None,
-                 c_a_certificate_identifier: Optional[pulumi.Input[str]] = None,
+                 ca_certificate_identifier: Optional[pulumi.Input[str]] = None,
                  certificate_details: Optional[pulumi.Input[pulumi.InputType['DBInstanceCertificateDetailsArgs']]] = None,
                  certificate_rotation_restart: Optional[pulumi.Input[bool]] = None,
                  character_set_name: Optional[pulumi.Input[str]] = None,
                  copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
                  custom_iam_instance_profile: Optional[pulumi.Input[str]] = None,
-                 d_b_cluster_identifier: Optional[pulumi.Input[str]] = None,
-                 d_b_cluster_snapshot_identifier: Optional[pulumi.Input[str]] = None,
-                 d_b_instance_class: Optional[pulumi.Input[str]] = None,
-                 d_b_instance_identifier: Optional[pulumi.Input[str]] = None,
-                 d_b_name: Optional[pulumi.Input[str]] = None,
-                 d_b_parameter_group_name: Optional[pulumi.Input[str]] = None,
-                 d_b_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 d_b_snapshot_identifier: Optional[pulumi.Input[str]] = None,
-                 d_b_subnet_group_name: Optional[pulumi.Input[str]] = None,
+                 db_cluster_identifier: Optional[pulumi.Input[str]] = None,
+                 db_cluster_snapshot_identifier: Optional[pulumi.Input[str]] = None,
+                 db_instance_class: Optional[pulumi.Input[str]] = None,
+                 db_instance_identifier: Optional[pulumi.Input[str]] = None,
+                 db_name: Optional[pulumi.Input[str]] = None,
+                 db_parameter_group_name: Optional[pulumi.Input[str]] = None,
+                 db_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 db_snapshot_identifier: Optional[pulumi.Input[str]] = None,
+                 db_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  delete_automated_backups: Optional[pulumi.Input[bool]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
@@ -1250,7 +1250,7 @@ class DBInstance(pulumi.CustomResource):
                  timezone: Optional[pulumi.Input[str]] = None,
                  use_default_processor_features: Optional[pulumi.Input[bool]] = None,
                  use_latest_restorable_time: Optional[pulumi.Input[bool]] = None,
-                 v_pc_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 vpc_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         The AWS::RDS::DBInstance resource creates an Amazon RDS DB instance.
@@ -1263,7 +1263,7 @@ class DBInstance(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_minor_version_upgrade: A value that indicates whether minor engine upgrades are applied automatically to the DB instance during the maintenance window. By default, minor engine upgrades are applied automatically.
         :param pulumi.Input[str] availability_zone: The Availability Zone (AZ) where the database will be created. For information on AWS Regions and Availability Zones.
         :param pulumi.Input[int] backup_retention_period: The number of days for which automated backups are retained. Setting this parameter to a positive number enables backups. Setting this parameter to 0 disables automated backups.
-        :param pulumi.Input[str] c_a_certificate_identifier: The identifier of the CA certificate for this DB instance.
+        :param pulumi.Input[str] ca_certificate_identifier: The identifier of the CA certificate for this DB instance.
         :param pulumi.Input[pulumi.InputType['DBInstanceCertificateDetailsArgs']] certificate_details: Returns the details of the DB instance's server certificate.
         :param pulumi.Input[bool] certificate_rotation_restart: A value that indicates whether the DB instance is restarted when you rotate your SSL/TLS certificate.
                By default, the DB instance is restarted when you rotate your SSL/TLS certificate. The certificate is not updated until the DB instance is restarted.
@@ -1278,8 +1278,8 @@ class DBInstance(pulumi.CustomResource):
                For the list of permissions required for the IAM role, see Configure IAM and your VPC in the Amazon RDS User Guide .
                
                This setting is required for RDS Custom.
-        :param pulumi.Input[str] d_b_cluster_identifier: The identifier of the DB cluster that the instance will belong to.
-        :param pulumi.Input[str] d_b_cluster_snapshot_identifier: The identifier for the RDS for MySQL Multi-AZ DB cluster snapshot to restore from. For more information on Multi-AZ DB clusters, see Multi-AZ deployments with two readable standby DB instances in the Amazon RDS User Guide .
+        :param pulumi.Input[str] db_cluster_identifier: The identifier of the DB cluster that the instance will belong to.
+        :param pulumi.Input[str] db_cluster_snapshot_identifier: The identifier for the RDS for MySQL Multi-AZ DB cluster snapshot to restore from. For more information on Multi-AZ DB clusters, see Multi-AZ deployments with two readable standby DB instances in the Amazon RDS User Guide .
                
                Constraints:
                 * Must match the identifier of an existing Multi-AZ DB cluster snapshot.
@@ -1288,13 +1288,13 @@ class DBInstance(pulumi.CustomResource):
                 * If you are restoring from a shared manual Multi-AZ DB cluster snapshot, the DBClusterSnapshotIdentifier must be the ARN of the shared snapshot.
                 * Can't be the identifier of an Aurora DB cluster snapshot.
                 * Can't be the identifier of an RDS for PostgreSQL Multi-AZ DB cluster snapshot.
-        :param pulumi.Input[str] d_b_instance_class: The compute and memory capacity of the DB instance, for example, db.m4.large. Not all DB instance classes are available in all AWS Regions, or for all database engines.
-        :param pulumi.Input[str] d_b_instance_identifier: A name for the DB instance. If you specify a name, AWS CloudFormation converts it to lowercase. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the DB instance.
-        :param pulumi.Input[str] d_b_name: The meaning of this parameter differs according to the database engine you use.
-        :param pulumi.Input[str] d_b_parameter_group_name: The name of an existing DB parameter group or a reference to an AWS::RDS::DBParameterGroup resource created in the template.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] d_b_security_groups: A list of the DB security groups to assign to the DB instance. The list can include both the name of existing DB security groups or references to AWS::RDS::DBSecurityGroup resources created in the template.
-        :param pulumi.Input[str] d_b_snapshot_identifier: The name or Amazon Resource Name (ARN) of the DB snapshot that's used to restore the DB instance. If you're restoring from a shared manual DB snapshot, you must specify the ARN of the snapshot.
-        :param pulumi.Input[str] d_b_subnet_group_name: A DB subnet group to associate with the DB instance. If you update this value, the new subnet group must be a subnet group in a new VPC.
+        :param pulumi.Input[str] db_instance_class: The compute and memory capacity of the DB instance, for example, db.m4.large. Not all DB instance classes are available in all AWS Regions, or for all database engines.
+        :param pulumi.Input[str] db_instance_identifier: A name for the DB instance. If you specify a name, AWS CloudFormation converts it to lowercase. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the DB instance.
+        :param pulumi.Input[str] db_name: The meaning of this parameter differs according to the database engine you use.
+        :param pulumi.Input[str] db_parameter_group_name: The name of an existing DB parameter group or a reference to an AWS::RDS::DBParameterGroup resource created in the template.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] db_security_groups: A list of the DB security groups to assign to the DB instance. The list can include both the name of existing DB security groups or references to AWS::RDS::DBSecurityGroup resources created in the template.
+        :param pulumi.Input[str] db_snapshot_identifier: The name or Amazon Resource Name (ARN) of the DB snapshot that's used to restore the DB instance. If you're restoring from a shared manual DB snapshot, you must specify the ARN of the snapshot.
+        :param pulumi.Input[str] db_subnet_group_name: A DB subnet group to associate with the DB instance. If you update this value, the new subnet group must be a subnet group in a new VPC.
         :param pulumi.Input[bool] delete_automated_backups: A value that indicates whether to remove automated backups immediately after the DB instance is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB instance is deleted.
         :param pulumi.Input[bool] deletion_protection: A value that indicates whether the DB instance has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
         :param pulumi.Input[str] domain: The Active Directory directory ID to create the DB instance in. Currently, only MySQL, Microsoft SQL Server, Oracle, and PostgreSQL DB instances can be created in an Active Directory Domain.
@@ -1343,7 +1343,7 @@ class DBInstance(pulumi.CustomResource):
         :param pulumi.Input[str] timezone: The time zone of the DB instance. The time zone parameter is currently supported only by Microsoft SQL Server.
         :param pulumi.Input[bool] use_default_processor_features: A value that indicates whether the DB instance class of the DB instance uses its default processor features.
         :param pulumi.Input[bool] use_latest_restorable_time: A value that indicates whether the DB instance is restored from the latest backup time. By default, the DB instance isn't restored from the latest backup time.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] v_pc_security_groups: A list of the VPC security group IDs to assign to the DB instance. The list can include both the physical IDs of existing VPC security groups and references to AWS::EC2::SecurityGroup resources created in the template.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_groups: A list of the VPC security group IDs to assign to the DB instance. The list can include both the physical IDs of existing VPC security groups and references to AWS::EC2::SecurityGroup resources created in the template.
         """
         ...
     @overload
@@ -1375,21 +1375,21 @@ class DBInstance(pulumi.CustomResource):
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  backup_retention_period: Optional[pulumi.Input[int]] = None,
-                 c_a_certificate_identifier: Optional[pulumi.Input[str]] = None,
+                 ca_certificate_identifier: Optional[pulumi.Input[str]] = None,
                  certificate_details: Optional[pulumi.Input[pulumi.InputType['DBInstanceCertificateDetailsArgs']]] = None,
                  certificate_rotation_restart: Optional[pulumi.Input[bool]] = None,
                  character_set_name: Optional[pulumi.Input[str]] = None,
                  copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
                  custom_iam_instance_profile: Optional[pulumi.Input[str]] = None,
-                 d_b_cluster_identifier: Optional[pulumi.Input[str]] = None,
-                 d_b_cluster_snapshot_identifier: Optional[pulumi.Input[str]] = None,
-                 d_b_instance_class: Optional[pulumi.Input[str]] = None,
-                 d_b_instance_identifier: Optional[pulumi.Input[str]] = None,
-                 d_b_name: Optional[pulumi.Input[str]] = None,
-                 d_b_parameter_group_name: Optional[pulumi.Input[str]] = None,
-                 d_b_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 d_b_snapshot_identifier: Optional[pulumi.Input[str]] = None,
-                 d_b_subnet_group_name: Optional[pulumi.Input[str]] = None,
+                 db_cluster_identifier: Optional[pulumi.Input[str]] = None,
+                 db_cluster_snapshot_identifier: Optional[pulumi.Input[str]] = None,
+                 db_instance_class: Optional[pulumi.Input[str]] = None,
+                 db_instance_identifier: Optional[pulumi.Input[str]] = None,
+                 db_name: Optional[pulumi.Input[str]] = None,
+                 db_parameter_group_name: Optional[pulumi.Input[str]] = None,
+                 db_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 db_snapshot_identifier: Optional[pulumi.Input[str]] = None,
+                 db_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  delete_automated_backups: Optional[pulumi.Input[bool]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
@@ -1438,7 +1438,7 @@ class DBInstance(pulumi.CustomResource):
                  timezone: Optional[pulumi.Input[str]] = None,
                  use_default_processor_features: Optional[pulumi.Input[bool]] = None,
                  use_latest_restorable_time: Optional[pulumi.Input[bool]] = None,
-                 v_pc_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 vpc_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1454,21 +1454,21 @@ class DBInstance(pulumi.CustomResource):
             __props__.__dict__["auto_minor_version_upgrade"] = auto_minor_version_upgrade
             __props__.__dict__["availability_zone"] = availability_zone
             __props__.__dict__["backup_retention_period"] = backup_retention_period
-            __props__.__dict__["c_a_certificate_identifier"] = c_a_certificate_identifier
+            __props__.__dict__["ca_certificate_identifier"] = ca_certificate_identifier
             __props__.__dict__["certificate_details"] = certificate_details
             __props__.__dict__["certificate_rotation_restart"] = certificate_rotation_restart
             __props__.__dict__["character_set_name"] = character_set_name
             __props__.__dict__["copy_tags_to_snapshot"] = copy_tags_to_snapshot
             __props__.__dict__["custom_iam_instance_profile"] = custom_iam_instance_profile
-            __props__.__dict__["d_b_cluster_identifier"] = d_b_cluster_identifier
-            __props__.__dict__["d_b_cluster_snapshot_identifier"] = d_b_cluster_snapshot_identifier
-            __props__.__dict__["d_b_instance_class"] = d_b_instance_class
-            __props__.__dict__["d_b_instance_identifier"] = d_b_instance_identifier
-            __props__.__dict__["d_b_name"] = d_b_name
-            __props__.__dict__["d_b_parameter_group_name"] = d_b_parameter_group_name
-            __props__.__dict__["d_b_security_groups"] = d_b_security_groups
-            __props__.__dict__["d_b_snapshot_identifier"] = d_b_snapshot_identifier
-            __props__.__dict__["d_b_subnet_group_name"] = d_b_subnet_group_name
+            __props__.__dict__["db_cluster_identifier"] = db_cluster_identifier
+            __props__.__dict__["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
+            __props__.__dict__["db_instance_class"] = db_instance_class
+            __props__.__dict__["db_instance_identifier"] = db_instance_identifier
+            __props__.__dict__["db_name"] = db_name
+            __props__.__dict__["db_parameter_group_name"] = db_parameter_group_name
+            __props__.__dict__["db_security_groups"] = db_security_groups
+            __props__.__dict__["db_snapshot_identifier"] = db_snapshot_identifier
+            __props__.__dict__["db_subnet_group_name"] = db_subnet_group_name
             __props__.__dict__["delete_automated_backups"] = delete_automated_backups
             __props__.__dict__["deletion_protection"] = deletion_protection
             __props__.__dict__["domain"] = domain
@@ -1517,9 +1517,9 @@ class DBInstance(pulumi.CustomResource):
             __props__.__dict__["timezone"] = timezone
             __props__.__dict__["use_default_processor_features"] = use_default_processor_features
             __props__.__dict__["use_latest_restorable_time"] = use_latest_restorable_time
-            __props__.__dict__["v_pc_security_groups"] = v_pc_security_groups
-            __props__.__dict__["d_b_instance_arn"] = None
-            __props__.__dict__["d_b_system_id"] = None
+            __props__.__dict__["vpc_security_groups"] = vpc_security_groups
+            __props__.__dict__["db_instance_arn"] = None
+            __props__.__dict__["db_system_id"] = None
             __props__.__dict__["dbi_resource_id"] = None
         super(DBInstance, __self__).__init__(
             'aws-native:rds:DBInstance',
@@ -1549,23 +1549,23 @@ class DBInstance(pulumi.CustomResource):
         __props__.__dict__["auto_minor_version_upgrade"] = None
         __props__.__dict__["availability_zone"] = None
         __props__.__dict__["backup_retention_period"] = None
-        __props__.__dict__["c_a_certificate_identifier"] = None
+        __props__.__dict__["ca_certificate_identifier"] = None
         __props__.__dict__["certificate_details"] = None
         __props__.__dict__["certificate_rotation_restart"] = None
         __props__.__dict__["character_set_name"] = None
         __props__.__dict__["copy_tags_to_snapshot"] = None
         __props__.__dict__["custom_iam_instance_profile"] = None
-        __props__.__dict__["d_b_cluster_identifier"] = None
-        __props__.__dict__["d_b_cluster_snapshot_identifier"] = None
-        __props__.__dict__["d_b_instance_arn"] = None
-        __props__.__dict__["d_b_instance_class"] = None
-        __props__.__dict__["d_b_instance_identifier"] = None
-        __props__.__dict__["d_b_name"] = None
-        __props__.__dict__["d_b_parameter_group_name"] = None
-        __props__.__dict__["d_b_security_groups"] = None
-        __props__.__dict__["d_b_snapshot_identifier"] = None
-        __props__.__dict__["d_b_subnet_group_name"] = None
-        __props__.__dict__["d_b_system_id"] = None
+        __props__.__dict__["db_cluster_identifier"] = None
+        __props__.__dict__["db_cluster_snapshot_identifier"] = None
+        __props__.__dict__["db_instance_arn"] = None
+        __props__.__dict__["db_instance_class"] = None
+        __props__.__dict__["db_instance_identifier"] = None
+        __props__.__dict__["db_name"] = None
+        __props__.__dict__["db_parameter_group_name"] = None
+        __props__.__dict__["db_security_groups"] = None
+        __props__.__dict__["db_snapshot_identifier"] = None
+        __props__.__dict__["db_subnet_group_name"] = None
+        __props__.__dict__["db_system_id"] = None
         __props__.__dict__["dbi_resource_id"] = None
         __props__.__dict__["delete_automated_backups"] = None
         __props__.__dict__["deletion_protection"] = None
@@ -1615,7 +1615,7 @@ class DBInstance(pulumi.CustomResource):
         __props__.__dict__["timezone"] = None
         __props__.__dict__["use_default_processor_features"] = None
         __props__.__dict__["use_latest_restorable_time"] = None
-        __props__.__dict__["v_pc_security_groups"] = None
+        __props__.__dict__["vpc_security_groups"] = None
         return DBInstance(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -1667,12 +1667,12 @@ class DBInstance(pulumi.CustomResource):
         return pulumi.get(self, "backup_retention_period")
 
     @property
-    @pulumi.getter(name="cACertificateIdentifier")
-    def c_a_certificate_identifier(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="caCertificateIdentifier")
+    def ca_certificate_identifier(self) -> pulumi.Output[Optional[str]]:
         """
         The identifier of the CA certificate for this DB instance.
         """
-        return pulumi.get(self, "c_a_certificate_identifier")
+        return pulumi.get(self, "ca_certificate_identifier")
 
     @property
     @pulumi.getter(name="certificateDetails")
@@ -1710,7 +1710,7 @@ class DBInstance(pulumi.CustomResource):
         return pulumi.get(self, "copy_tags_to_snapshot")
 
     @property
-    @pulumi.getter(name="customIAMInstanceProfile")
+    @pulumi.getter(name="customIamInstanceProfile")
     def custom_iam_instance_profile(self) -> pulumi.Output[Optional[str]]:
         """
         The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance. The instance profile must meet the following requirements:
@@ -1724,16 +1724,16 @@ class DBInstance(pulumi.CustomResource):
         return pulumi.get(self, "custom_iam_instance_profile")
 
     @property
-    @pulumi.getter(name="dBClusterIdentifier")
-    def d_b_cluster_identifier(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="dbClusterIdentifier")
+    def db_cluster_identifier(self) -> pulumi.Output[Optional[str]]:
         """
         The identifier of the DB cluster that the instance will belong to.
         """
-        return pulumi.get(self, "d_b_cluster_identifier")
+        return pulumi.get(self, "db_cluster_identifier")
 
     @property
-    @pulumi.getter(name="dBClusterSnapshotIdentifier")
-    def d_b_cluster_snapshot_identifier(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="dbClusterSnapshotIdentifier")
+    def db_cluster_snapshot_identifier(self) -> pulumi.Output[Optional[str]]:
         """
         The identifier for the RDS for MySQL Multi-AZ DB cluster snapshot to restore from. For more information on Multi-AZ DB clusters, see Multi-AZ deployments with two readable standby DB instances in the Amazon RDS User Guide .
 
@@ -1745,79 +1745,79 @@ class DBInstance(pulumi.CustomResource):
          * Can't be the identifier of an Aurora DB cluster snapshot.
          * Can't be the identifier of an RDS for PostgreSQL Multi-AZ DB cluster snapshot.
         """
-        return pulumi.get(self, "d_b_cluster_snapshot_identifier")
+        return pulumi.get(self, "db_cluster_snapshot_identifier")
 
     @property
-    @pulumi.getter(name="dBInstanceArn")
-    def d_b_instance_arn(self) -> pulumi.Output[str]:
+    @pulumi.getter(name="dbInstanceArn")
+    def db_instance_arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name (ARN) for the DB instance.
         """
-        return pulumi.get(self, "d_b_instance_arn")
+        return pulumi.get(self, "db_instance_arn")
 
     @property
-    @pulumi.getter(name="dBInstanceClass")
-    def d_b_instance_class(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="dbInstanceClass")
+    def db_instance_class(self) -> pulumi.Output[Optional[str]]:
         """
         The compute and memory capacity of the DB instance, for example, db.m4.large. Not all DB instance classes are available in all AWS Regions, or for all database engines.
         """
-        return pulumi.get(self, "d_b_instance_class")
+        return pulumi.get(self, "db_instance_class")
 
     @property
-    @pulumi.getter(name="dBInstanceIdentifier")
-    def d_b_instance_identifier(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="dbInstanceIdentifier")
+    def db_instance_identifier(self) -> pulumi.Output[Optional[str]]:
         """
         A name for the DB instance. If you specify a name, AWS CloudFormation converts it to lowercase. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the DB instance.
         """
-        return pulumi.get(self, "d_b_instance_identifier")
+        return pulumi.get(self, "db_instance_identifier")
 
     @property
-    @pulumi.getter(name="dBName")
-    def d_b_name(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="dbName")
+    def db_name(self) -> pulumi.Output[Optional[str]]:
         """
         The meaning of this parameter differs according to the database engine you use.
         """
-        return pulumi.get(self, "d_b_name")
+        return pulumi.get(self, "db_name")
 
     @property
-    @pulumi.getter(name="dBParameterGroupName")
-    def d_b_parameter_group_name(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="dbParameterGroupName")
+    def db_parameter_group_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of an existing DB parameter group or a reference to an AWS::RDS::DBParameterGroup resource created in the template.
         """
-        return pulumi.get(self, "d_b_parameter_group_name")
+        return pulumi.get(self, "db_parameter_group_name")
 
     @property
-    @pulumi.getter(name="dBSecurityGroups")
-    def d_b_security_groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    @pulumi.getter(name="dbSecurityGroups")
+    def db_security_groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of the DB security groups to assign to the DB instance. The list can include both the name of existing DB security groups or references to AWS::RDS::DBSecurityGroup resources created in the template.
         """
-        return pulumi.get(self, "d_b_security_groups")
+        return pulumi.get(self, "db_security_groups")
 
     @property
-    @pulumi.getter(name="dBSnapshotIdentifier")
-    def d_b_snapshot_identifier(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="dbSnapshotIdentifier")
+    def db_snapshot_identifier(self) -> pulumi.Output[Optional[str]]:
         """
         The name or Amazon Resource Name (ARN) of the DB snapshot that's used to restore the DB instance. If you're restoring from a shared manual DB snapshot, you must specify the ARN of the snapshot.
         """
-        return pulumi.get(self, "d_b_snapshot_identifier")
+        return pulumi.get(self, "db_snapshot_identifier")
 
     @property
-    @pulumi.getter(name="dBSubnetGroupName")
-    def d_b_subnet_group_name(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="dbSubnetGroupName")
+    def db_subnet_group_name(self) -> pulumi.Output[Optional[str]]:
         """
         A DB subnet group to associate with the DB instance. If you update this value, the new subnet group must be a subnet group in a new VPC.
         """
-        return pulumi.get(self, "d_b_subnet_group_name")
+        return pulumi.get(self, "db_subnet_group_name")
 
     @property
-    @pulumi.getter(name="dBSystemId")
-    def d_b_system_id(self) -> pulumi.Output[str]:
+    @pulumi.getter(name="dbSystemId")
+    def db_system_id(self) -> pulumi.Output[str]:
         """
         The Oracle system ID (Oracle SID) for a container database (CDB). The Oracle SID is also the name of the CDB. This setting is valid for RDS Custom only.
         """
-        return pulumi.get(self, "d_b_system_id")
+        return pulumi.get(self, "db_system_id")
 
     @property
     @pulumi.getter(name="dbiResourceId")
@@ -1852,7 +1852,7 @@ class DBInstance(pulumi.CustomResource):
         return pulumi.get(self, "domain")
 
     @property
-    @pulumi.getter(name="domainIAMRoleName")
+    @pulumi.getter(name="domainIamRoleName")
     def domain_iam_role_name(self) -> pulumi.Output[Optional[str]]:
         """
         Specify the name of the IAM role to be used when making API calls to the Directory Service.
@@ -1868,7 +1868,7 @@ class DBInstance(pulumi.CustomResource):
         return pulumi.get(self, "enable_cloudwatch_logs_exports")
 
     @property
-    @pulumi.getter(name="enableIAMDatabaseAuthentication")
+    @pulumi.getter(name="enableIamDatabaseAuthentication")
     def enable_iam_database_authentication(self) -> pulumi.Output[Optional[bool]]:
         """
         A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
@@ -1988,7 +1988,7 @@ class DBInstance(pulumi.CustomResource):
         return pulumi.get(self, "monitoring_role_arn")
 
     @property
-    @pulumi.getter(name="multiAZ")
+    @pulumi.getter(name="multiAz")
     def multi_az(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies whether the database instance is a multiple Availability Zone deployment.
@@ -2020,7 +2020,7 @@ class DBInstance(pulumi.CustomResource):
         return pulumi.get(self, "option_group_name")
 
     @property
-    @pulumi.getter(name="performanceInsightsKMSKeyId")
+    @pulumi.getter(name="performanceInsightsKmsKeyId")
     def performance_insights_kms_key_id(self) -> pulumi.Output[Optional[str]]:
         """
         The AWS KMS key identifier for encryption of Performance Insights data. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.
@@ -2100,7 +2100,7 @@ class DBInstance(pulumi.CustomResource):
         return pulumi.get(self, "restore_time")
 
     @property
-    @pulumi.getter(name="sourceDBClusterIdentifier")
+    @pulumi.getter(name="sourceDbClusterIdentifier")
     def source_db_cluster_identifier(self) -> pulumi.Output[Optional[str]]:
         """
         The identifier of the Multi-AZ DB cluster that will act as the source for the read replica. Each DB cluster can have up to 15 read replicas.
@@ -2108,7 +2108,7 @@ class DBInstance(pulumi.CustomResource):
         return pulumi.get(self, "source_db_cluster_identifier")
 
     @property
-    @pulumi.getter(name="sourceDBInstanceAutomatedBackupsArn")
+    @pulumi.getter(name="sourceDbInstanceAutomatedBackupsArn")
     def source_db_instance_automated_backups_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) of the replicated automated backups from which to restore.
@@ -2116,7 +2116,7 @@ class DBInstance(pulumi.CustomResource):
         return pulumi.get(self, "source_db_instance_automated_backups_arn")
 
     @property
-    @pulumi.getter(name="sourceDBInstanceIdentifier")
+    @pulumi.getter(name="sourceDbInstanceIdentifier")
     def source_db_instance_identifier(self) -> pulumi.Output[Optional[str]]:
         """
         If you want to create a Read Replica DB instance, specify the ID of the source DB instance. Each DB instance can have a limited number of Read Replicas.
@@ -2212,10 +2212,10 @@ class DBInstance(pulumi.CustomResource):
         return pulumi.get(self, "use_latest_restorable_time")
 
     @property
-    @pulumi.getter(name="vPCSecurityGroups")
-    def v_pc_security_groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    @pulumi.getter(name="vpcSecurityGroups")
+    def vpc_security_groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of the VPC security group IDs to assign to the DB instance. The list can include both the physical IDs of existing VPC security groups and references to AWS::EC2::SecurityGroup resources created in the template.
         """
-        return pulumi.get(self, "v_pc_security_groups")
+        return pulumi.get(self, "vpc_security_groups")
 

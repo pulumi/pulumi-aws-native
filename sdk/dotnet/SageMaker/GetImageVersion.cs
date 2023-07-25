@@ -56,7 +56,7 @@ namespace Pulumi.AwsNative.SageMaker
         public readonly string? ImageArn;
         public readonly string? ImageVersionArn;
         public readonly Pulumi.AwsNative.SageMaker.ImageVersionJobType? JobType;
-        public readonly string? MLFramework;
+        public readonly string? MlFramework;
         public readonly Pulumi.AwsNative.SageMaker.ImageVersionProcessor? Processor;
         public readonly string? ProgrammingLang;
         public readonly string? ReleaseNotes;
@@ -75,7 +75,7 @@ namespace Pulumi.AwsNative.SageMaker
 
             Pulumi.AwsNative.SageMaker.ImageVersionJobType? jobType,
 
-            string? mLFramework,
+            string? mlFramework,
 
             Pulumi.AwsNative.SageMaker.ImageVersionProcessor? processor,
 
@@ -92,7 +92,7 @@ namespace Pulumi.AwsNative.SageMaker
             ImageArn = imageArn;
             ImageVersionArn = imageVersionArn;
             JobType = jobType;
-            MLFramework = mLFramework;
+            MlFramework = mlFramework;
             Processor = processor;
             ProgrammingLang = programmingLang;
             ReleaseNotes = releaseNotes;

@@ -72,7 +72,7 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// The ARN of the custom engine version.
         /// </summary>
-        public readonly string? DBEngineVersionArn;
+        public readonly string? DbEngineVersionArn;
         /// <summary>
         /// An optional description of your CEV.
         /// </summary>
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.RDS
 
         [OutputConstructor]
         private GetCustomDBEngineVersionResult(
-            string? dBEngineVersionArn,
+            string? dbEngineVersionArn,
 
             string? description,
 
@@ -96,7 +96,7 @@ namespace Pulumi.AwsNative.RDS
 
             ImmutableArray<Outputs.CustomDBEngineVersionTag> tags)
         {
-            DBEngineVersionArn = dBEngineVersionArn;
+            DbEngineVersionArn = dbEngineVersionArn;
             Description = description;
             Status = status;
             Tags = tags;

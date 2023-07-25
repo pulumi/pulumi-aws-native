@@ -43,18 +43,18 @@ export class Cluster extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly availabilityZones!: pulumi.Output<string[] | undefined>;
     public /*out*/ readonly clusterDiscoveryEndpoint!: pulumi.Output<string>;
-    public /*out*/ readonly clusterDiscoveryEndpointURL!: pulumi.Output<string>;
+    public /*out*/ readonly clusterDiscoveryEndpointUrl!: pulumi.Output<string>;
     public readonly clusterEndpointEncryptionType!: pulumi.Output<string | undefined>;
     public readonly clusterName!: pulumi.Output<string | undefined>;
     public readonly description!: pulumi.Output<string | undefined>;
-    public readonly iAMRoleARN!: pulumi.Output<string>;
+    public readonly iamRoleArn!: pulumi.Output<string>;
     public readonly nodeType!: pulumi.Output<string>;
-    public readonly notificationTopicARN!: pulumi.Output<string | undefined>;
+    public readonly notificationTopicArn!: pulumi.Output<string | undefined>;
     public readonly parameterGroupName!: pulumi.Output<string | undefined>;
     public readonly preferredMaintenanceWindow!: pulumi.Output<string | undefined>;
     public readonly replicationFactor!: pulumi.Output<number>;
-    public readonly sSESpecification!: pulumi.Output<outputs.dax.ClusterSSESpecification | undefined>;
     public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
+    public readonly sseSpecification!: pulumi.Output<outputs.dax.ClusterSSESpecification | undefined>;
     public readonly subnetGroupName!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<any | undefined>;
 
@@ -71,8 +71,8 @@ export class Cluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.iAMRoleARN === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'iAMRoleARN'");
+            if ((!args || args.iamRoleArn === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'iamRoleArn'");
             }
             if ((!args || args.nodeType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'nodeType'");
@@ -84,35 +84,35 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["clusterEndpointEncryptionType"] = args ? args.clusterEndpointEncryptionType : undefined;
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["iAMRoleARN"] = args ? args.iAMRoleARN : undefined;
+            resourceInputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
             resourceInputs["nodeType"] = args ? args.nodeType : undefined;
-            resourceInputs["notificationTopicARN"] = args ? args.notificationTopicARN : undefined;
+            resourceInputs["notificationTopicArn"] = args ? args.notificationTopicArn : undefined;
             resourceInputs["parameterGroupName"] = args ? args.parameterGroupName : undefined;
             resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
             resourceInputs["replicationFactor"] = args ? args.replicationFactor : undefined;
-            resourceInputs["sSESpecification"] = args ? args.sSESpecification : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
+            resourceInputs["sseSpecification"] = args ? args.sseSpecification : undefined;
             resourceInputs["subnetGroupName"] = args ? args.subnetGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["clusterDiscoveryEndpoint"] = undefined /*out*/;
-            resourceInputs["clusterDiscoveryEndpointURL"] = undefined /*out*/;
+            resourceInputs["clusterDiscoveryEndpointUrl"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["availabilityZones"] = undefined /*out*/;
             resourceInputs["clusterDiscoveryEndpoint"] = undefined /*out*/;
-            resourceInputs["clusterDiscoveryEndpointURL"] = undefined /*out*/;
+            resourceInputs["clusterDiscoveryEndpointUrl"] = undefined /*out*/;
             resourceInputs["clusterEndpointEncryptionType"] = undefined /*out*/;
             resourceInputs["clusterName"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
-            resourceInputs["iAMRoleARN"] = undefined /*out*/;
+            resourceInputs["iamRoleArn"] = undefined /*out*/;
             resourceInputs["nodeType"] = undefined /*out*/;
-            resourceInputs["notificationTopicARN"] = undefined /*out*/;
+            resourceInputs["notificationTopicArn"] = undefined /*out*/;
             resourceInputs["parameterGroupName"] = undefined /*out*/;
             resourceInputs["preferredMaintenanceWindow"] = undefined /*out*/;
             resourceInputs["replicationFactor"] = undefined /*out*/;
-            resourceInputs["sSESpecification"] = undefined /*out*/;
             resourceInputs["securityGroupIds"] = undefined /*out*/;
+            resourceInputs["sseSpecification"] = undefined /*out*/;
             resourceInputs["subnetGroupName"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
@@ -129,14 +129,14 @@ export interface ClusterArgs {
     clusterEndpointEncryptionType?: pulumi.Input<string>;
     clusterName?: pulumi.Input<string>;
     description?: pulumi.Input<string>;
-    iAMRoleARN: pulumi.Input<string>;
+    iamRoleArn: pulumi.Input<string>;
     nodeType: pulumi.Input<string>;
-    notificationTopicARN?: pulumi.Input<string>;
+    notificationTopicArn?: pulumi.Input<string>;
     parameterGroupName?: pulumi.Input<string>;
     preferredMaintenanceWindow?: pulumi.Input<string>;
     replicationFactor: pulumi.Input<number>;
-    sSESpecification?: pulumi.Input<inputs.dax.ClusterSSESpecificationArgs>;
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    sseSpecification?: pulumi.Input<inputs.dax.ClusterSSESpecificationArgs>;
     subnetGroupName?: pulumi.Input<string>;
     tags?: any;
 }

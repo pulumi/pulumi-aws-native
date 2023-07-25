@@ -24,8 +24,8 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
         /// <summary>
         /// The Amazon Resource Name (ARN) of the S3 bucket.
         /// </summary>
-        [Input("bucketARN", required: true)]
-        public Input<string> BucketARN { get; set; } = null!;
+        [Input("bucketArn", required: true)]
+        public Input<string> BucketArn { get; set; } = null!;
 
         public ApplicationS3ContentBaseLocationArgs()
         {

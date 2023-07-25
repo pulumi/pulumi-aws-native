@@ -13,21 +13,21 @@ namespace Pulumi.AwsNative.KinesisAnalytics.Outputs
     [OutputType]
     public sealed class ApplicationReferenceDataSourceS3ReferenceDataSource
     {
-        public readonly string BucketARN;
+        public readonly string BucketArn;
         public readonly string FileKey;
-        public readonly string ReferenceRoleARN;
+        public readonly string ReferenceRoleArn;
 
         [OutputConstructor]
         private ApplicationReferenceDataSourceS3ReferenceDataSource(
-            string bucketARN,
+            string bucketArn,
 
             string fileKey,
 
-            string referenceRoleARN)
+            string referenceRoleArn)
         {
-            BucketARN = bucketARN;
+            BucketArn = bucketArn;
             FileKey = fileKey;
-            ReferenceRoleARN = referenceRoleARN;
+            ReferenceRoleArn = referenceRoleArn;
         }
     }
 }

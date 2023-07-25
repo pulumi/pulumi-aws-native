@@ -16,10 +16,10 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
     public sealed class WebACLRequestInspectionACFPArgs : global::Pulumi.ResourceArgs
     {
         [Input("addressFields")]
-        private InputList<Inputs.WebACLAddressFieldArgs>? _addressFields;
-        public InputList<Inputs.WebACLAddressFieldArgs> AddressFields
+        private InputList<Inputs.WebACLFieldIdentifierArgs>? _addressFields;
+        public InputList<Inputs.WebACLFieldIdentifierArgs> AddressFields
         {
-            get => _addressFields ?? (_addressFields = new InputList<Inputs.WebACLAddressFieldArgs>());
+            get => _addressFields ?? (_addressFields = new InputList<Inputs.WebACLFieldIdentifierArgs>());
             set => _addressFields = value;
         }
 
@@ -33,10 +33,10 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public Input<Pulumi.AwsNative.WAFv2.WebACLRequestInspectionACFPPayloadType> PayloadType { get; set; } = null!;
 
         [Input("phoneNumberFields")]
-        private InputList<Inputs.WebACLPhoneNumberFieldArgs>? _phoneNumberFields;
-        public InputList<Inputs.WebACLPhoneNumberFieldArgs> PhoneNumberFields
+        private InputList<Inputs.WebACLFieldIdentifierArgs>? _phoneNumberFields;
+        public InputList<Inputs.WebACLFieldIdentifierArgs> PhoneNumberFields
         {
-            get => _phoneNumberFields ?? (_phoneNumberFields = new InputList<Inputs.WebACLPhoneNumberFieldArgs>());
+            get => _phoneNumberFields ?? (_phoneNumberFields = new InputList<Inputs.WebACLFieldIdentifierArgs>());
             set => _phoneNumberFields = value;
         }
 

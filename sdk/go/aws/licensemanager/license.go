@@ -31,7 +31,7 @@ type License struct {
 	// Product name for the created license.
 	ProductName pulumi.StringOutput `pulumi:"productName"`
 	// ProductSKU of the license.
-	ProductSKU pulumi.StringPtrOutput          `pulumi:"productSKU"`
+	ProductSku pulumi.StringPtrOutput          `pulumi:"productSku"`
 	Status     pulumi.StringPtrOutput          `pulumi:"status"`
 	Validity   LicenseValidityDateFormatOutput `pulumi:"validity"`
 	// The version of the license.
@@ -109,7 +109,7 @@ type licenseArgs struct {
 	// Product name for the created license.
 	ProductName string `pulumi:"productName"`
 	// ProductSKU of the license.
-	ProductSKU *string                   `pulumi:"productSKU"`
+	ProductSku *string                   `pulumi:"productSku"`
 	Status     *string                   `pulumi:"status"`
 	Validity   LicenseValidityDateFormat `pulumi:"validity"`
 }
@@ -129,7 +129,7 @@ type LicenseArgs struct {
 	// Product name for the created license.
 	ProductName pulumi.StringInput
 	// ProductSKU of the license.
-	ProductSKU pulumi.StringPtrInput
+	ProductSku pulumi.StringPtrInput
 	Status     pulumi.StringPtrInput
 	Validity   LicenseValidityDateFormatInput
 }
@@ -213,8 +213,8 @@ func (o LicenseOutput) ProductName() pulumi.StringOutput {
 }
 
 // ProductSKU of the license.
-func (o LicenseOutput) ProductSKU() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *License) pulumi.StringPtrOutput { return v.ProductSKU }).(pulumi.StringPtrOutput)
+func (o LicenseOutput) ProductSku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *License) pulumi.StringPtrOutput { return v.ProductSku }).(pulumi.StringPtrOutput)
 }
 
 func (o LicenseOutput) Status() pulumi.StringPtrOutput {

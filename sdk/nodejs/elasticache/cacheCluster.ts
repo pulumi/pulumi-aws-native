@@ -40,8 +40,8 @@ export class CacheCluster extends pulumi.CustomResource {
         return obj['__pulumiType'] === CacheCluster.__pulumiType;
     }
 
-    public readonly aZMode!: pulumi.Output<string | undefined>;
     public readonly autoMinorVersionUpgrade!: pulumi.Output<boolean | undefined>;
+    public readonly azMode!: pulumi.Output<string | undefined>;
     public readonly cacheNodeType!: pulumi.Output<string>;
     public readonly cacheParameterGroupName!: pulumi.Output<string | undefined>;
     public readonly cacheSecurityGroupNames!: pulumi.Output<string[] | undefined>;
@@ -92,8 +92,8 @@ export class CacheCluster extends pulumi.CustomResource {
             if ((!args || args.numCacheNodes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'numCacheNodes'");
             }
-            resourceInputs["aZMode"] = args ? args.aZMode : undefined;
             resourceInputs["autoMinorVersionUpgrade"] = args ? args.autoMinorVersionUpgrade : undefined;
+            resourceInputs["azMode"] = args ? args.azMode : undefined;
             resourceInputs["cacheNodeType"] = args ? args.cacheNodeType : undefined;
             resourceInputs["cacheParameterGroupName"] = args ? args.cacheParameterGroupName : undefined;
             resourceInputs["cacheSecurityGroupNames"] = args ? args.cacheSecurityGroupNames : undefined;
@@ -122,8 +122,8 @@ export class CacheCluster extends pulumi.CustomResource {
             resourceInputs["transitEncryptionEnabled"] = args ? args.transitEncryptionEnabled : undefined;
             resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
         } else {
-            resourceInputs["aZMode"] = undefined /*out*/;
             resourceInputs["autoMinorVersionUpgrade"] = undefined /*out*/;
+            resourceInputs["azMode"] = undefined /*out*/;
             resourceInputs["cacheNodeType"] = undefined /*out*/;
             resourceInputs["cacheParameterGroupName"] = undefined /*out*/;
             resourceInputs["cacheSecurityGroupNames"] = undefined /*out*/;
@@ -161,8 +161,8 @@ export class CacheCluster extends pulumi.CustomResource {
  * The set of arguments for constructing a CacheCluster resource.
  */
 export interface CacheClusterArgs {
-    aZMode?: pulumi.Input<string>;
     autoMinorVersionUpgrade?: pulumi.Input<boolean>;
+    azMode?: pulumi.Input<string>;
     cacheNodeType: pulumi.Input<string>;
     cacheParameterGroupName?: pulumi.Input<string>;
     cacheSecurityGroupNames?: pulumi.Input<pulumi.Input<string>[]>;

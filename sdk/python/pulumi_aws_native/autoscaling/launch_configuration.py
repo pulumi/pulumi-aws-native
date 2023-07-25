@@ -143,7 +143,7 @@ class LaunchConfigurationArgs:
         pulumi.set(self, "block_device_mappings", value)
 
     @property
-    @pulumi.getter(name="classicLinkVPCId")
+    @pulumi.getter(name="classicLinkVpcId")
     def classic_link_vpc_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to.
@@ -155,7 +155,7 @@ class LaunchConfigurationArgs:
         pulumi.set(self, "classic_link_vpc_id", value)
 
     @property
-    @pulumi.getter(name="classicLinkVPCSecurityGroups")
+    @pulumi.getter(name="classicLinkVpcSecurityGroups")
     def classic_link_vpc_security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The IDs of one or more security groups for the VPC that you specified in the ClassicLinkVPCId property.
@@ -508,7 +508,7 @@ class LaunchConfiguration(pulumi.CustomResource):
         return pulumi.get(self, "block_device_mappings")
 
     @property
-    @pulumi.getter(name="classicLinkVPCId")
+    @pulumi.getter(name="classicLinkVpcId")
     def classic_link_vpc_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to.
@@ -516,7 +516,7 @@ class LaunchConfiguration(pulumi.CustomResource):
         return pulumi.get(self, "classic_link_vpc_id")
 
     @property
-    @pulumi.getter(name="classicLinkVPCSecurityGroups")
+    @pulumi.getter(name="classicLinkVpcSecurityGroups")
     def classic_link_vpc_security_groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The IDs of one or more security groups for the VPC that you specified in the ClassicLinkVPCId property.

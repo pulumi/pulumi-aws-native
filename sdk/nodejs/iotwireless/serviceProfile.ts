@@ -44,7 +44,7 @@ export class ServiceProfile extends pulumi.CustomResource {
     /**
      * LoRaWAN supports all LoRa specific attributes for service profile for CreateServiceProfile operation
      */
-    public readonly loRaWAN!: pulumi.Output<outputs.iotwireless.ServiceProfileLoRaWANServiceProfile | undefined>;
+    public readonly loRaWan!: pulumi.Output<outputs.iotwireless.ServiceProfileLoRaWANServiceProfile | undefined>;
     /**
      * Name of service profile
      */
@@ -65,13 +65,13 @@ export class ServiceProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["loRaWAN"] = args ? args.loRaWAN : undefined;
+            resourceInputs["loRaWan"] = args ? args.loRaWan : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
-            resourceInputs["loRaWAN"] = undefined /*out*/;
+            resourceInputs["loRaWan"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
@@ -87,7 +87,7 @@ export interface ServiceProfileArgs {
     /**
      * LoRaWAN supports all LoRa specific attributes for service profile for CreateServiceProfile operation
      */
-    loRaWAN?: pulumi.Input<inputs.iotwireless.ServiceProfileLoRaWANServiceProfileArgs>;
+    loRaWan?: pulumi.Input<inputs.iotwireless.ServiceProfileLoRaWANServiceProfileArgs>;
     /**
      * Name of service profile
      */

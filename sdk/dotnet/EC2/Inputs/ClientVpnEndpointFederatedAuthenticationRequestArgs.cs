@@ -12,11 +12,11 @@ namespace Pulumi.AwsNative.EC2.Inputs
 
     public sealed class ClientVpnEndpointFederatedAuthenticationRequestArgs : global::Pulumi.ResourceArgs
     {
-        [Input("sAMLProviderArn", required: true)]
-        public Input<string> SAMLProviderArn { get; set; } = null!;
+        [Input("samlProviderArn", required: true)]
+        public Input<string> SamlProviderArn { get; set; } = null!;
 
-        [Input("selfServiceSAMLProviderArn")]
-        public Input<string>? SelfServiceSAMLProviderArn { get; set; }
+        [Input("selfServiceSamlProviderArn")]
+        public Input<string>? SelfServiceSamlProviderArn { get; set; }
 
         public ClientVpnEndpointFederatedAuthenticationRequestArgs()
         {

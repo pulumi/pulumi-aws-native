@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.EC2.Outputs
         /// The price protection threshold for Spot Instances.
         /// </summary>
         public readonly int? SpotMaxPricePercentageOverLowestPrice;
-        public readonly Outputs.LaunchTemplateTotalLocalStorageGB? TotalLocalStorageGB;
+        public readonly Outputs.LaunchTemplateTotalLocalStorageGB? TotalLocalStorageGb;
         public readonly Outputs.LaunchTemplateVCpuCount? VCpuCount;
 
         [OutputConstructor]
@@ -123,7 +123,7 @@ namespace Pulumi.AwsNative.EC2.Outputs
 
             int? spotMaxPricePercentageOverLowestPrice,
 
-            Outputs.LaunchTemplateTotalLocalStorageGB? totalLocalStorageGB,
+            Outputs.LaunchTemplateTotalLocalStorageGB? totalLocalStorageGb,
 
             Outputs.LaunchTemplateVCpuCount? vCpuCount)
         {
@@ -148,7 +148,7 @@ namespace Pulumi.AwsNative.EC2.Outputs
             OnDemandMaxPricePercentageOverLowestPrice = onDemandMaxPricePercentageOverLowestPrice;
             RequireHibernateSupport = requireHibernateSupport;
             SpotMaxPricePercentageOverLowestPrice = spotMaxPricePercentageOverLowestPrice;
-            TotalLocalStorageGB = totalLocalStorageGB;
+            TotalLocalStorageGb = totalLocalStorageGb;
             VCpuCount = vCpuCount;
         }
     }

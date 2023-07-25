@@ -86,7 +86,7 @@ class ComponentVersionLambdaContainerParamsArgs:
         pulumi.set(self, "devices", value)
 
     @property
-    @pulumi.getter(name="memorySizeInKB")
+    @pulumi.getter(name="memorySizeInKb")
     def memory_size_in_kb(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "memory_size_in_kb")
 
@@ -95,7 +95,7 @@ class ComponentVersionLambdaContainerParamsArgs:
         pulumi.set(self, "memory_size_in_kb", value)
 
     @property
-    @pulumi.getter(name="mountROSysfs")
+    @pulumi.getter(name="mountRoSysfs")
     def mount_ro_sysfs(self) -> Optional[pulumi.Input[bool]]:
         return pulumi.get(self, "mount_ro_sysfs")
 

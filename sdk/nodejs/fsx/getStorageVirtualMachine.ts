@@ -24,11 +24,11 @@ export interface GetStorageVirtualMachineArgs {
 
 export interface GetStorageVirtualMachineResult {
     readonly activeDirectoryConfiguration?: outputs.fsx.StorageVirtualMachineActiveDirectoryConfiguration;
-    readonly resourceARN?: string;
+    readonly resourceArn?: string;
     readonly storageVirtualMachineId?: string;
     readonly svmAdminPassword?: string;
     readonly tags?: outputs.fsx.StorageVirtualMachineTag[];
-    readonly uUID?: string;
+    readonly uuid?: string;
 }
 /**
  * Resource Type definition for AWS::FSx::StorageVirtualMachine

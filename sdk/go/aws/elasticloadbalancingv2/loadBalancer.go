@@ -17,8 +17,8 @@ import (
 type LoadBalancer struct {
 	pulumi.CustomResourceState
 
-	CanonicalHostedZoneID  pulumi.StringOutput                  `pulumi:"canonicalHostedZoneID"`
-	DNSName                pulumi.StringOutput                  `pulumi:"dNSName"`
+	CanonicalHostedZoneId  pulumi.StringOutput                  `pulumi:"canonicalHostedZoneId"`
+	DnsName                pulumi.StringOutput                  `pulumi:"dnsName"`
 	IpAddressType          pulumi.StringPtrOutput               `pulumi:"ipAddressType"`
 	LoadBalancerAttributes LoadBalancerAttributeArrayOutput     `pulumi:"loadBalancerAttributes"`
 	LoadBalancerFullName   pulumi.StringOutput                  `pulumi:"loadBalancerFullName"`
@@ -133,12 +133,12 @@ func (o LoadBalancerOutput) ToLoadBalancerOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o LoadBalancerOutput) CanonicalHostedZoneID() pulumi.StringOutput {
-	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.CanonicalHostedZoneID }).(pulumi.StringOutput)
+func (o LoadBalancerOutput) CanonicalHostedZoneId() pulumi.StringOutput {
+	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.CanonicalHostedZoneId }).(pulumi.StringOutput)
 }
 
-func (o LoadBalancerOutput) DNSName() pulumi.StringOutput {
-	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.DNSName }).(pulumi.StringOutput)
+func (o LoadBalancerOutput) DnsName() pulumi.StringOutput {
+	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.DnsName }).(pulumi.StringOutput)
 }
 
 func (o LoadBalancerOutput) IpAddressType() pulumi.StringPtrOutput {

@@ -19,10 +19,10 @@ type Environment struct {
 	// The name of the application that is associated with this environment.
 	ApplicationName pulumi.StringOutput `pulumi:"applicationName"`
 	// If specified, the environment attempts to use this value as the prefix for the CNAME in your Elastic Beanstalk environment URL. If not specified, the CNAME is generated automatically by appending a random alphanumeric string to the environment name.
-	CNAMEPrefix pulumi.StringPtrOutput `pulumi:"cNAMEPrefix"`
+	CnamePrefix pulumi.StringPtrOutput `pulumi:"cnamePrefix"`
 	// Your description for this environment.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	EndpointURL pulumi.StringOutput    `pulumi:"endpointURL"`
+	EndpointUrl pulumi.StringOutput    `pulumi:"endpointUrl"`
 	// A unique name for the environment.
 	EnvironmentName pulumi.StringPtrOutput `pulumi:"environmentName"`
 	// The Amazon Resource Name (ARN) of an existing IAM role to be used as the environment's operations role.
@@ -89,7 +89,7 @@ type environmentArgs struct {
 	// The name of the application that is associated with this environment.
 	ApplicationName string `pulumi:"applicationName"`
 	// If specified, the environment attempts to use this value as the prefix for the CNAME in your Elastic Beanstalk environment URL. If not specified, the CNAME is generated automatically by appending a random alphanumeric string to the environment name.
-	CNAMEPrefix *string `pulumi:"cNAMEPrefix"`
+	CnamePrefix *string `pulumi:"cnamePrefix"`
 	// Your description for this environment.
 	Description *string `pulumi:"description"`
 	// A unique name for the environment.
@@ -117,7 +117,7 @@ type EnvironmentArgs struct {
 	// The name of the application that is associated with this environment.
 	ApplicationName pulumi.StringInput
 	// If specified, the environment attempts to use this value as the prefix for the CNAME in your Elastic Beanstalk environment URL. If not specified, the CNAME is generated automatically by appending a random alphanumeric string to the environment name.
-	CNAMEPrefix pulumi.StringPtrInput
+	CnamePrefix pulumi.StringPtrInput
 	// Your description for this environment.
 	Description pulumi.StringPtrInput
 	// A unique name for the environment.
@@ -183,8 +183,8 @@ func (o EnvironmentOutput) ApplicationName() pulumi.StringOutput {
 }
 
 // If specified, the environment attempts to use this value as the prefix for the CNAME in your Elastic Beanstalk environment URL. If not specified, the CNAME is generated automatically by appending a random alphanumeric string to the environment name.
-func (o EnvironmentOutput) CNAMEPrefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.CNAMEPrefix }).(pulumi.StringPtrOutput)
+func (o EnvironmentOutput) CnamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.CnamePrefix }).(pulumi.StringPtrOutput)
 }
 
 // Your description for this environment.
@@ -192,8 +192,8 @@ func (o EnvironmentOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o EnvironmentOutput) EndpointURL() pulumi.StringOutput {
-	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.EndpointURL }).(pulumi.StringOutput)
+func (o EnvironmentOutput) EndpointUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.EndpointUrl }).(pulumi.StringOutput)
 }
 
 // A unique name for the environment.

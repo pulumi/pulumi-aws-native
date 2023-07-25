@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetTrailResult:
-    def __init__(__self__, advanced_event_selectors=None, arn=None, cloud_watch_logs_log_group_arn=None, cloud_watch_logs_role_arn=None, enable_log_file_validation=None, event_selectors=None, include_global_service_events=None, insight_selectors=None, is_logging=None, is_multi_region_trail=None, is_organization_trail=None, k_ms_key_id=None, s3_bucket_name=None, s3_key_prefix=None, sns_topic_arn=None, sns_topic_name=None, tags=None):
+    def __init__(__self__, advanced_event_selectors=None, arn=None, cloud_watch_logs_log_group_arn=None, cloud_watch_logs_role_arn=None, enable_log_file_validation=None, event_selectors=None, include_global_service_events=None, insight_selectors=None, is_logging=None, is_multi_region_trail=None, is_organization_trail=None, kms_key_id=None, s3_bucket_name=None, s3_key_prefix=None, sns_topic_arn=None, sns_topic_name=None, tags=None):
         if advanced_event_selectors and not isinstance(advanced_event_selectors, list):
             raise TypeError("Expected argument 'advanced_event_selectors' to be a list")
         pulumi.set(__self__, "advanced_event_selectors", advanced_event_selectors)
@@ -54,9 +54,9 @@ class GetTrailResult:
         if is_organization_trail and not isinstance(is_organization_trail, bool):
             raise TypeError("Expected argument 'is_organization_trail' to be a bool")
         pulumi.set(__self__, "is_organization_trail", is_organization_trail)
-        if k_ms_key_id and not isinstance(k_ms_key_id, str):
-            raise TypeError("Expected argument 'k_ms_key_id' to be a str")
-        pulumi.set(__self__, "k_ms_key_id", k_ms_key_id)
+        if kms_key_id and not isinstance(kms_key_id, str):
+            raise TypeError("Expected argument 'kms_key_id' to be a str")
+        pulumi.set(__self__, "kms_key_id", kms_key_id)
         if s3_bucket_name and not isinstance(s3_bucket_name, str):
             raise TypeError("Expected argument 's3_bucket_name' to be a str")
         pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
@@ -159,12 +159,12 @@ class GetTrailResult:
         return pulumi.get(self, "is_organization_trail")
 
     @property
-    @pulumi.getter(name="kMSKeyId")
-    def k_ms_key_id(self) -> Optional[str]:
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[str]:
         """
         Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
         """
-        return pulumi.get(self, "k_ms_key_id")
+        return pulumi.get(self, "kms_key_id")
 
     @property
     @pulumi.getter(name="s3BucketName")
@@ -218,7 +218,7 @@ class AwaitableGetTrailResult(GetTrailResult):
             is_logging=self.is_logging,
             is_multi_region_trail=self.is_multi_region_trail,
             is_organization_trail=self.is_organization_trail,
-            k_ms_key_id=self.k_ms_key_id,
+            kms_key_id=self.kms_key_id,
             s3_bucket_name=self.s3_bucket_name,
             s3_key_prefix=self.s3_key_prefix,
             sns_topic_arn=self.sns_topic_arn,
@@ -248,7 +248,7 @@ def get_trail(trail_name: Optional[str] = None,
         is_logging=pulumi.get(__ret__, 'is_logging'),
         is_multi_region_trail=pulumi.get(__ret__, 'is_multi_region_trail'),
         is_organization_trail=pulumi.get(__ret__, 'is_organization_trail'),
-        k_ms_key_id=pulumi.get(__ret__, 'k_ms_key_id'),
+        kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
         s3_bucket_name=pulumi.get(__ret__, 's3_bucket_name'),
         s3_key_prefix=pulumi.get(__ret__, 's3_key_prefix'),
         sns_topic_arn=pulumi.get(__ret__, 'sns_topic_arn'),

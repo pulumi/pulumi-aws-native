@@ -19,8 +19,8 @@ namespace Pulumi.AwsNative.FSx
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        [Output("resourceARN")]
-        public Output<string> ResourceARN { get; private set; } = null!;
+        [Output("resourceArn")]
+        public Output<string> ResourceArn { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableArray<Outputs.SnapshotTag>> Tags { get; private set; } = null!;

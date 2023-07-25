@@ -26,7 +26,7 @@ export interface GetDBClusterResult {
     readonly backupRetentionPeriod?: number;
     readonly clusterResourceId?: string;
     readonly copyTagsToSnapshot?: boolean;
-    readonly dBClusterParameterGroupName?: string;
+    readonly dbClusterParameterGroupName?: string;
     readonly deletionProtection?: boolean;
     readonly enableCloudwatchLogsExports?: string[];
     readonly endpoint?: string;

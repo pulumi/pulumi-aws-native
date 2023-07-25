@@ -18,14 +18,14 @@ namespace Pulumi.AwsNative.Route53.Inputs
         /// <summary>
         /// The ID of an Amazon VPC.
         /// </summary>
-        [Input("vPCId", required: true)]
-        public Input<string> VPCId { get; set; } = null!;
+        [Input("vpcId", required: true)]
+        public Input<string> VpcId { get; set; } = null!;
 
         /// <summary>
         /// The region that an Amazon VPC was created in. See https://docs.aws.amazon.com/general/latest/gr/rande.html for a list of up to date regions.
         /// </summary>
-        [Input("vPCRegion", required: true)]
-        public Input<string> VPCRegion { get; set; } = null!;
+        [Input("vpcRegion", required: true)]
+        public Input<string> VpcRegion { get; set; } = null!;
 
         public HostedZoneVPCArgs()
         {

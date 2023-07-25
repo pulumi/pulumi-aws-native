@@ -17,7 +17,7 @@ type Certificate struct {
 	pulumi.CustomResourceState
 
 	Arn                       pulumi.StringOutput      `pulumi:"arn"`
-	CACertificatePem          pulumi.StringPtrOutput   `pulumi:"cACertificatePem"`
+	CaCertificatePem          pulumi.StringPtrOutput   `pulumi:"caCertificatePem"`
 	CertificateMode           CertificateModePtrOutput `pulumi:"certificateMode"`
 	CertificatePem            pulumi.StringPtrOutput   `pulumi:"certificatePem"`
 	CertificateSigningRequest pulumi.StringPtrOutput   `pulumi:"certificateSigningRequest"`
@@ -67,7 +67,7 @@ func (CertificateState) ElementType() reflect.Type {
 }
 
 type certificateArgs struct {
-	CACertificatePem          *string           `pulumi:"cACertificatePem"`
+	CaCertificatePem          *string           `pulumi:"caCertificatePem"`
 	CertificateMode           *CertificateMode  `pulumi:"certificateMode"`
 	CertificatePem            *string           `pulumi:"certificatePem"`
 	CertificateSigningRequest *string           `pulumi:"certificateSigningRequest"`
@@ -76,7 +76,7 @@ type certificateArgs struct {
 
 // The set of arguments for constructing a Certificate resource.
 type CertificateArgs struct {
-	CACertificatePem          pulumi.StringPtrInput
+	CaCertificatePem          pulumi.StringPtrInput
 	CertificateMode           CertificateModePtrInput
 	CertificatePem            pulumi.StringPtrInput
 	CertificateSigningRequest pulumi.StringPtrInput
@@ -124,8 +124,8 @@ func (o CertificateOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-func (o CertificateOutput) CACertificatePem() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.CACertificatePem }).(pulumi.StringPtrOutput)
+func (o CertificateOutput) CaCertificatePem() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.CaCertificatePem }).(pulumi.StringPtrOutput)
 }
 
 func (o CertificateOutput) CertificateMode() CertificateModePtrOutput {

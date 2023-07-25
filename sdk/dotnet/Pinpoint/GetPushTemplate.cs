@@ -51,22 +51,22 @@ namespace Pulumi.AwsNative.Pinpoint
     [OutputType]
     public sealed class GetPushTemplateResult
     {
-        public readonly Outputs.PushTemplateAndroidPushNotificationTemplate? ADM;
-        public readonly Outputs.PushTemplateAPNSPushNotificationTemplate? APNS;
+        public readonly Outputs.PushTemplateAndroidPushNotificationTemplate? Adm;
+        public readonly Outputs.PushTemplateAPNSPushNotificationTemplate? Apns;
         public readonly string? Arn;
         public readonly Outputs.PushTemplateAndroidPushNotificationTemplate? Baidu;
         public readonly Outputs.PushTemplateDefaultPushNotificationTemplate? Default;
         public readonly string? DefaultSubstitutions;
-        public readonly Outputs.PushTemplateAndroidPushNotificationTemplate? GCM;
+        public readonly Outputs.PushTemplateAndroidPushNotificationTemplate? Gcm;
         public readonly string? Id;
         public readonly object? Tags;
         public readonly string? TemplateDescription;
 
         [OutputConstructor]
         private GetPushTemplateResult(
-            Outputs.PushTemplateAndroidPushNotificationTemplate? aDM,
+            Outputs.PushTemplateAndroidPushNotificationTemplate? adm,
 
-            Outputs.PushTemplateAPNSPushNotificationTemplate? aPNS,
+            Outputs.PushTemplateAPNSPushNotificationTemplate? apns,
 
             string? arn,
 
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.Pinpoint
 
             string? defaultSubstitutions,
 
-            Outputs.PushTemplateAndroidPushNotificationTemplate? gCM,
+            Outputs.PushTemplateAndroidPushNotificationTemplate? gcm,
 
             string? id,
 
@@ -84,13 +84,13 @@ namespace Pulumi.AwsNative.Pinpoint
 
             string? templateDescription)
         {
-            ADM = aDM;
-            APNS = aPNS;
+            Adm = adm;
+            Apns = apns;
             Arn = arn;
             Baidu = baidu;
             Default = @default;
             DefaultSubstitutions = defaultSubstitutions;
-            GCM = gCM;
+            Gcm = gcm;
             Id = id;
             Tags = tags;
             TemplateDescription = templateDescription;

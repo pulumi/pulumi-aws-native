@@ -53,7 +53,7 @@ namespace Pulumi.AwsNative.FSx
     {
         public readonly string? Id;
         public readonly string? Name;
-        public readonly string? ResourceARN;
+        public readonly string? ResourceArn;
         public readonly ImmutableArray<Outputs.SnapshotTag> Tags;
 
         [OutputConstructor]
@@ -62,13 +62,13 @@ namespace Pulumi.AwsNative.FSx
 
             string? name,
 
-            string? resourceARN,
+            string? resourceArn,
 
             ImmutableArray<Outputs.SnapshotTag> tags)
         {
             Id = id;
             Name = name;
-            ResourceARN = resourceARN;
+            ResourceArn = resourceArn;
             Tags = tags;
         }
     }

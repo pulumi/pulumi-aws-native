@@ -20,13 +20,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetDBProxyResult:
-    def __init__(__self__, auth=None, d_b_proxy_arn=None, debug_logging=None, endpoint=None, idle_client_timeout=None, require_tls=None, role_arn=None, tags=None, vpc_id=None, vpc_security_group_ids=None):
+    def __init__(__self__, auth=None, db_proxy_arn=None, debug_logging=None, endpoint=None, idle_client_timeout=None, require_tls=None, role_arn=None, tags=None, vpc_id=None, vpc_security_group_ids=None):
         if auth and not isinstance(auth, list):
             raise TypeError("Expected argument 'auth' to be a list")
         pulumi.set(__self__, "auth", auth)
-        if d_b_proxy_arn and not isinstance(d_b_proxy_arn, str):
-            raise TypeError("Expected argument 'd_b_proxy_arn' to be a str")
-        pulumi.set(__self__, "d_b_proxy_arn", d_b_proxy_arn)
+        if db_proxy_arn and not isinstance(db_proxy_arn, str):
+            raise TypeError("Expected argument 'db_proxy_arn' to be a str")
+        pulumi.set(__self__, "db_proxy_arn", db_proxy_arn)
         if debug_logging and not isinstance(debug_logging, bool):
             raise TypeError("Expected argument 'debug_logging' to be a bool")
         pulumi.set(__self__, "debug_logging", debug_logging)
@@ -61,12 +61,12 @@ class GetDBProxyResult:
         return pulumi.get(self, "auth")
 
     @property
-    @pulumi.getter(name="dBProxyArn")
-    def d_b_proxy_arn(self) -> Optional[str]:
+    @pulumi.getter(name="dbProxyArn")
+    def db_proxy_arn(self) -> Optional[str]:
         """
         The Amazon Resource Name (ARN) for the proxy.
         """
-        return pulumi.get(self, "d_b_proxy_arn")
+        return pulumi.get(self, "db_proxy_arn")
 
     @property
     @pulumi.getter(name="debugLogging")
@@ -93,7 +93,7 @@ class GetDBProxyResult:
         return pulumi.get(self, "idle_client_timeout")
 
     @property
-    @pulumi.getter(name="requireTLS")
+    @pulumi.getter(name="requireTls")
     def require_tls(self) -> Optional[bool]:
         """
         A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
@@ -140,7 +140,7 @@ class AwaitableGetDBProxyResult(GetDBProxyResult):
             yield self
         return GetDBProxyResult(
             auth=self.auth,
-            d_b_proxy_arn=self.d_b_proxy_arn,
+            db_proxy_arn=self.db_proxy_arn,
             debug_logging=self.debug_logging,
             endpoint=self.endpoint,
             idle_client_timeout=self.idle_client_timeout,
@@ -151,22 +151,22 @@ class AwaitableGetDBProxyResult(GetDBProxyResult):
             vpc_security_group_ids=self.vpc_security_group_ids)
 
 
-def get_db_proxy(d_b_proxy_name: Optional[str] = None,
+def get_db_proxy(db_proxy_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDBProxyResult:
     """
     Resource schema for AWS::RDS::DBProxy
 
 
-    :param str d_b_proxy_name: The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
+    :param str db_proxy_name: The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
     """
     __args__ = dict()
-    __args__['dBProxyName'] = d_b_proxy_name
+    __args__['dbProxyName'] = db_proxy_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:rds:getDBProxy', __args__, opts=opts, typ=GetDBProxyResult).value
 
     return AwaitableGetDBProxyResult(
         auth=pulumi.get(__ret__, 'auth'),
-        d_b_proxy_arn=pulumi.get(__ret__, 'd_b_proxy_arn'),
+        db_proxy_arn=pulumi.get(__ret__, 'db_proxy_arn'),
         debug_logging=pulumi.get(__ret__, 'debug_logging'),
         endpoint=pulumi.get(__ret__, 'endpoint'),
         idle_client_timeout=pulumi.get(__ret__, 'idle_client_timeout'),
@@ -178,12 +178,12 @@ def get_db_proxy(d_b_proxy_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_db_proxy)
-def get_db_proxy_output(d_b_proxy_name: Optional[pulumi.Input[str]] = None,
+def get_db_proxy_output(db_proxy_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDBProxyResult]:
     """
     Resource schema for AWS::RDS::DBProxy
 
 
-    :param str d_b_proxy_name: The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
+    :param str db_proxy_name: The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
     """
     ...

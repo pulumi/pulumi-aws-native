@@ -36,8 +36,8 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// <summary>
         /// The ID of the VPC that you associated the Resolver rule with.
         /// </summary>
-        [Output("vPCId")]
-        public Output<string> VPCId { get; private set; } = null!;
+        [Output("vpcId")]
+        public Output<string> VpcId { get; private set; } = null!;
 
 
         /// <summary>
@@ -99,8 +99,8 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// <summary>
         /// The ID of the VPC that you associated the Resolver rule with.
         /// </summary>
-        [Input("vPCId", required: true)]
-        public Input<string> VPCId { get; set; } = null!;
+        [Input("vpcId", required: true)]
+        public Input<string> VpcId { get; set; } = null!;
 
         public ResolverRuleAssociationArgs()
         {

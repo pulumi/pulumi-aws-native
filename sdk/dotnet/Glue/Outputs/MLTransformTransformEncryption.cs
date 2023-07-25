@@ -13,16 +13,16 @@ namespace Pulumi.AwsNative.Glue.Outputs
     [OutputType]
     public sealed class MLTransformTransformEncryption
     {
-        public readonly Outputs.MLTransformMLUserDataEncryption? MLUserDataEncryption;
+        public readonly Outputs.MLTransformMLUserDataEncryption? MlUserDataEncryption;
         public readonly string? TaskRunSecurityConfigurationName;
 
         [OutputConstructor]
         private MLTransformTransformEncryption(
-            Outputs.MLTransformMLUserDataEncryption? mLUserDataEncryption,
+            Outputs.MLTransformMLUserDataEncryption? mlUserDataEncryption,
 
             string? taskRunSecurityConfigurationName)
         {
-            MLUserDataEncryption = mLUserDataEncryption;
+            MlUserDataEncryption = mlUserDataEncryption;
             TaskRunSecurityConfigurationName = taskRunSecurityConfigurationName;
         }
     }

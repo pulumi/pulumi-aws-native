@@ -12,8 +12,8 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
 
     public sealed class ApplicationOutputResourceKinesisStreamsOutputArgs : global::Pulumi.ResourceArgs
     {
-        [Input("resourceARN", required: true)]
-        public Input<string> ResourceARN { get; set; } = null!;
+        [Input("resourceArn", required: true)]
+        public Input<string> ResourceArn { get; set; } = null!;
 
         public ApplicationOutputResourceKinesisStreamsOutputArgs()
         {

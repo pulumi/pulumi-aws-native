@@ -15,7 +15,7 @@ __all__ = ['EIPAssociationArgs', 'EIPAssociation']
 class EIPAssociationArgs:
     def __init__(__self__, *,
                  allocation_id: Optional[pulumi.Input[str]] = None,
-                 e_ip: Optional[pulumi.Input[str]] = None,
+                 eip: Optional[pulumi.Input[str]] = None,
                  instance_id: Optional[pulumi.Input[str]] = None,
                  network_interface_id: Optional[pulumi.Input[str]] = None,
                  private_ip_address: Optional[pulumi.Input[str]] = None):
@@ -24,8 +24,8 @@ class EIPAssociationArgs:
         """
         if allocation_id is not None:
             pulumi.set(__self__, "allocation_id", allocation_id)
-        if e_ip is not None:
-            pulumi.set(__self__, "e_ip", e_ip)
+        if eip is not None:
+            pulumi.set(__self__, "eip", eip)
         if instance_id is not None:
             pulumi.set(__self__, "instance_id", instance_id)
         if network_interface_id is not None:
@@ -43,13 +43,13 @@ class EIPAssociationArgs:
         pulumi.set(self, "allocation_id", value)
 
     @property
-    @pulumi.getter(name="eIP")
-    def e_ip(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "e_ip")
+    @pulumi.getter
+    def eip(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "eip")
 
-    @e_ip.setter
-    def e_ip(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "e_ip", value)
+    @eip.setter
+    def eip(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "eip", value)
 
     @property
     @pulumi.getter(name="instanceId")
@@ -85,7 +85,7 @@ class EIPAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allocation_id: Optional[pulumi.Input[str]] = None,
-                 e_ip: Optional[pulumi.Input[str]] = None,
+                 eip: Optional[pulumi.Input[str]] = None,
                  instance_id: Optional[pulumi.Input[str]] = None,
                  network_interface_id: Optional[pulumi.Input[str]] = None,
                  private_ip_address: Optional[pulumi.Input[str]] = None,
@@ -121,7 +121,7 @@ class EIPAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allocation_id: Optional[pulumi.Input[str]] = None,
-                 e_ip: Optional[pulumi.Input[str]] = None,
+                 eip: Optional[pulumi.Input[str]] = None,
                  instance_id: Optional[pulumi.Input[str]] = None,
                  network_interface_id: Optional[pulumi.Input[str]] = None,
                  private_ip_address: Optional[pulumi.Input[str]] = None,
@@ -135,7 +135,7 @@ class EIPAssociation(pulumi.CustomResource):
             __props__ = EIPAssociationArgs.__new__(EIPAssociationArgs)
 
             __props__.__dict__["allocation_id"] = allocation_id
-            __props__.__dict__["e_ip"] = e_ip
+            __props__.__dict__["eip"] = eip
             __props__.__dict__["instance_id"] = instance_id
             __props__.__dict__["network_interface_id"] = network_interface_id
             __props__.__dict__["private_ip_address"] = private_ip_address
@@ -162,7 +162,7 @@ class EIPAssociation(pulumi.CustomResource):
         __props__ = EIPAssociationArgs.__new__(EIPAssociationArgs)
 
         __props__.__dict__["allocation_id"] = None
-        __props__.__dict__["e_ip"] = None
+        __props__.__dict__["eip"] = None
         __props__.__dict__["instance_id"] = None
         __props__.__dict__["network_interface_id"] = None
         __props__.__dict__["private_ip_address"] = None
@@ -174,9 +174,9 @@ class EIPAssociation(pulumi.CustomResource):
         return pulumi.get(self, "allocation_id")
 
     @property
-    @pulumi.getter(name="eIP")
-    def e_ip(self) -> pulumi.Output[Optional[str]]:
-        return pulumi.get(self, "e_ip")
+    @pulumi.getter
+    def eip(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "eip")
 
     @property
     @pulumi.getter(name="instanceId")

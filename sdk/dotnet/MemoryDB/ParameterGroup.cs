@@ -18,8 +18,8 @@ namespace Pulumi.AwsNative.MemoryDB
         /// <summary>
         /// The Amazon Resource Name (ARN) of the parameter group.
         /// </summary>
-        [Output("aRN")]
-        public Output<string> ARN { get; private set; } = null!;
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
         /// A description of the parameter group.

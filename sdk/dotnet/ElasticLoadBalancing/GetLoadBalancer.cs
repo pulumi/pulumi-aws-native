@@ -55,15 +55,15 @@ namespace Pulumi.AwsNative.ElasticLoadBalancing
         public readonly ImmutableArray<Outputs.LoadBalancerAppCookieStickinessPolicy> AppCookieStickinessPolicy;
         public readonly ImmutableArray<string> AvailabilityZones;
         public readonly string? CanonicalHostedZoneName;
-        public readonly string? CanonicalHostedZoneNameID;
+        public readonly string? CanonicalHostedZoneNameId;
         public readonly Outputs.LoadBalancerConnectionDrainingPolicy? ConnectionDrainingPolicy;
         public readonly Outputs.LoadBalancerConnectionSettings? ConnectionSettings;
         public readonly bool? CrossZone;
-        public readonly string? DNSName;
+        public readonly string? DnsName;
         public readonly Outputs.LoadBalancerHealthCheck? HealthCheck;
         public readonly string? Id;
         public readonly ImmutableArray<string> Instances;
-        public readonly ImmutableArray<Outputs.LoadBalancerLBCookieStickinessPolicy> LBCookieStickinessPolicy;
+        public readonly ImmutableArray<Outputs.LoadBalancerLBCookieStickinessPolicy> LbCookieStickinessPolicy;
         public readonly ImmutableArray<Outputs.LoadBalancerListeners> Listeners;
         public readonly ImmutableArray<Outputs.LoadBalancerPolicies> Policies;
         public readonly ImmutableArray<string> SecurityGroups;
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancing
 
             string? canonicalHostedZoneName,
 
-            string? canonicalHostedZoneNameID,
+            string? canonicalHostedZoneNameId,
 
             Outputs.LoadBalancerConnectionDrainingPolicy? connectionDrainingPolicy,
 
@@ -90,7 +90,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancing
 
             bool? crossZone,
 
-            string? dNSName,
+            string? dnsName,
 
             Outputs.LoadBalancerHealthCheck? healthCheck,
 
@@ -98,7 +98,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancing
 
             ImmutableArray<string> instances,
 
-            ImmutableArray<Outputs.LoadBalancerLBCookieStickinessPolicy> lBCookieStickinessPolicy,
+            ImmutableArray<Outputs.LoadBalancerLBCookieStickinessPolicy> lbCookieStickinessPolicy,
 
             ImmutableArray<Outputs.LoadBalancerListeners> listeners,
 
@@ -118,15 +118,15 @@ namespace Pulumi.AwsNative.ElasticLoadBalancing
             AppCookieStickinessPolicy = appCookieStickinessPolicy;
             AvailabilityZones = availabilityZones;
             CanonicalHostedZoneName = canonicalHostedZoneName;
-            CanonicalHostedZoneNameID = canonicalHostedZoneNameID;
+            CanonicalHostedZoneNameId = canonicalHostedZoneNameId;
             ConnectionDrainingPolicy = connectionDrainingPolicy;
             ConnectionSettings = connectionSettings;
             CrossZone = crossZone;
-            DNSName = dNSName;
+            DnsName = dnsName;
             HealthCheck = healthCheck;
             Id = id;
             Instances = instances;
-            LBCookieStickinessPolicy = lBCookieStickinessPolicy;
+            LbCookieStickinessPolicy = lbCookieStickinessPolicy;
             Listeners = listeners;
             Policies = policies;
             SecurityGroups = securityGroups;

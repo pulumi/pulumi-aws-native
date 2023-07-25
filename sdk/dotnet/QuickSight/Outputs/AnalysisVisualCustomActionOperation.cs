@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         public readonly Outputs.AnalysisCustomActionFilterOperation? FilterOperation;
         public readonly Outputs.AnalysisCustomActionNavigationOperation? NavigationOperation;
         public readonly Outputs.AnalysisCustomActionSetParametersOperation? SetParametersOperation;
-        public readonly Outputs.AnalysisCustomActionURLOperation? URLOperation;
+        public readonly Outputs.AnalysisCustomActionURLOperation? UrlOperation;
 
         [OutputConstructor]
         private AnalysisVisualCustomActionOperation(
@@ -26,12 +26,12 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.AnalysisCustomActionSetParametersOperation? setParametersOperation,
 
-            Outputs.AnalysisCustomActionURLOperation? uRLOperation)
+            Outputs.AnalysisCustomActionURLOperation? urlOperation)
         {
             FilterOperation = filterOperation;
             NavigationOperation = navigationOperation;
             SetParametersOperation = setParametersOperation;
-            URLOperation = uRLOperation;
+            UrlOperation = urlOperation;
         }
     }
 }

@@ -16,11 +16,11 @@ namespace Pulumi.AwsNative.Neptune
     [AwsNativeResourceType("aws-native:neptune:DBSubnetGroup")]
     public partial class DBSubnetGroup : global::Pulumi.CustomResource
     {
-        [Output("dBSubnetGroupDescription")]
-        public Output<string> DBSubnetGroupDescription { get; private set; } = null!;
+        [Output("dbSubnetGroupDescription")]
+        public Output<string> DbSubnetGroupDescription { get; private set; } = null!;
 
-        [Output("dBSubnetGroupName")]
-        public Output<string?> DBSubnetGroupName { get; private set; } = null!;
+        [Output("dbSubnetGroupName")]
+        public Output<string?> DbSubnetGroupName { get; private set; } = null!;
 
         [Output("subnetIds")]
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
@@ -73,11 +73,11 @@ namespace Pulumi.AwsNative.Neptune
 
     public sealed class DBSubnetGroupArgs : global::Pulumi.ResourceArgs
     {
-        [Input("dBSubnetGroupDescription", required: true)]
-        public Input<string> DBSubnetGroupDescription { get; set; } = null!;
+        [Input("dbSubnetGroupDescription", required: true)]
+        public Input<string> DbSubnetGroupDescription { get; set; } = null!;
 
-        [Input("dBSubnetGroupName")]
-        public Input<string>? DBSubnetGroupName { get; set; }
+        [Input("dbSubnetGroupName")]
+        public Input<string>? DbSubnetGroupName { get; set; }
 
         [Input("subnetIds", required: true)]
         private InputList<string>? _subnetIds;

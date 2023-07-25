@@ -245,7 +245,7 @@ class GetBucketResult:
         return pulumi.get(self, "website_configuration")
 
     @property
-    @pulumi.getter(name="websiteURL")
+    @pulumi.getter(name="websiteUrl")
     def website_url(self) -> Optional[str]:
         """
         The Amazon S3 website endpoint for the specified bucket.

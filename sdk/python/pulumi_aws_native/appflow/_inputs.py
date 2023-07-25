@@ -316,8 +316,8 @@ class ConnectorProfileCredentialsArgs:
                  marketo: Optional[pulumi.Input['ConnectorProfileMarketoConnectorProfileCredentialsArgs']] = None,
                  pardot: Optional[pulumi.Input['ConnectorProfilePardotConnectorProfileCredentialsArgs']] = None,
                  redshift: Optional[pulumi.Input['ConnectorProfileRedshiftConnectorProfileCredentialsArgs']] = None,
-                 s_apo_data: Optional[pulumi.Input['ConnectorProfileSAPODataConnectorProfileCredentialsArgs']] = None,
                  salesforce: Optional[pulumi.Input['ConnectorProfileSalesforceConnectorProfileCredentialsArgs']] = None,
+                 sapo_data: Optional[pulumi.Input['ConnectorProfileSAPODataConnectorProfileCredentialsArgs']] = None,
                  service_now: Optional[pulumi.Input['ConnectorProfileServiceNowConnectorProfileCredentialsArgs']] = None,
                  singular: Optional[pulumi.Input['ConnectorProfileSingularConnectorProfileCredentialsArgs']] = None,
                  slack: Optional[pulumi.Input['ConnectorProfileSlackConnectorProfileCredentialsArgs']] = None,
@@ -346,10 +346,10 @@ class ConnectorProfileCredentialsArgs:
             pulumi.set(__self__, "pardot", pardot)
         if redshift is not None:
             pulumi.set(__self__, "redshift", redshift)
-        if s_apo_data is not None:
-            pulumi.set(__self__, "s_apo_data", s_apo_data)
         if salesforce is not None:
             pulumi.set(__self__, "salesforce", salesforce)
+        if sapo_data is not None:
+            pulumi.set(__self__, "sapo_data", sapo_data)
         if service_now is not None:
             pulumi.set(__self__, "service_now", service_now)
         if singular is not None:
@@ -447,15 +447,6 @@ class ConnectorProfileCredentialsArgs:
         pulumi.set(self, "redshift", value)
 
     @property
-    @pulumi.getter(name="sAPOData")
-    def s_apo_data(self) -> Optional[pulumi.Input['ConnectorProfileSAPODataConnectorProfileCredentialsArgs']]:
-        return pulumi.get(self, "s_apo_data")
-
-    @s_apo_data.setter
-    def s_apo_data(self, value: Optional[pulumi.Input['ConnectorProfileSAPODataConnectorProfileCredentialsArgs']]):
-        pulumi.set(self, "s_apo_data", value)
-
-    @property
     @pulumi.getter
     def salesforce(self) -> Optional[pulumi.Input['ConnectorProfileSalesforceConnectorProfileCredentialsArgs']]:
         return pulumi.get(self, "salesforce")
@@ -463,6 +454,15 @@ class ConnectorProfileCredentialsArgs:
     @salesforce.setter
     def salesforce(self, value: Optional[pulumi.Input['ConnectorProfileSalesforceConnectorProfileCredentialsArgs']]):
         pulumi.set(self, "salesforce", value)
+
+    @property
+    @pulumi.getter(name="sapoData")
+    def sapo_data(self) -> Optional[pulumi.Input['ConnectorProfileSAPODataConnectorProfileCredentialsArgs']]:
+        return pulumi.get(self, "sapo_data")
+
+    @sapo_data.setter
+    def sapo_data(self, value: Optional[pulumi.Input['ConnectorProfileSAPODataConnectorProfileCredentialsArgs']]):
+        pulumi.set(self, "sapo_data", value)
 
     @property
     @pulumi.getter(name="serviceNow")
@@ -1308,8 +1308,8 @@ class ConnectorProfilePropertiesArgs:
                  marketo: Optional[pulumi.Input['ConnectorProfileMarketoConnectorProfilePropertiesArgs']] = None,
                  pardot: Optional[pulumi.Input['ConnectorProfilePardotConnectorProfilePropertiesArgs']] = None,
                  redshift: Optional[pulumi.Input['ConnectorProfileRedshiftConnectorProfilePropertiesArgs']] = None,
-                 s_apo_data: Optional[pulumi.Input['ConnectorProfileSAPODataConnectorProfilePropertiesArgs']] = None,
                  salesforce: Optional[pulumi.Input['ConnectorProfileSalesforceConnectorProfilePropertiesArgs']] = None,
+                 sapo_data: Optional[pulumi.Input['ConnectorProfileSAPODataConnectorProfilePropertiesArgs']] = None,
                  service_now: Optional[pulumi.Input['ConnectorProfileServiceNowConnectorProfilePropertiesArgs']] = None,
                  slack: Optional[pulumi.Input['ConnectorProfileSlackConnectorProfilePropertiesArgs']] = None,
                  snowflake: Optional[pulumi.Input['ConnectorProfileSnowflakeConnectorProfilePropertiesArgs']] = None,
@@ -1332,10 +1332,10 @@ class ConnectorProfilePropertiesArgs:
             pulumi.set(__self__, "pardot", pardot)
         if redshift is not None:
             pulumi.set(__self__, "redshift", redshift)
-        if s_apo_data is not None:
-            pulumi.set(__self__, "s_apo_data", s_apo_data)
         if salesforce is not None:
             pulumi.set(__self__, "salesforce", salesforce)
+        if sapo_data is not None:
+            pulumi.set(__self__, "sapo_data", sapo_data)
         if service_now is not None:
             pulumi.set(__self__, "service_now", service_now)
         if slack is not None:
@@ -1411,15 +1411,6 @@ class ConnectorProfilePropertiesArgs:
         pulumi.set(self, "redshift", value)
 
     @property
-    @pulumi.getter(name="sAPOData")
-    def s_apo_data(self) -> Optional[pulumi.Input['ConnectorProfileSAPODataConnectorProfilePropertiesArgs']]:
-        return pulumi.get(self, "s_apo_data")
-
-    @s_apo_data.setter
-    def s_apo_data(self, value: Optional[pulumi.Input['ConnectorProfileSAPODataConnectorProfilePropertiesArgs']]):
-        pulumi.set(self, "s_apo_data", value)
-
-    @property
     @pulumi.getter
     def salesforce(self) -> Optional[pulumi.Input['ConnectorProfileSalesforceConnectorProfilePropertiesArgs']]:
         return pulumi.get(self, "salesforce")
@@ -1427,6 +1418,15 @@ class ConnectorProfilePropertiesArgs:
     @salesforce.setter
     def salesforce(self, value: Optional[pulumi.Input['ConnectorProfileSalesforceConnectorProfilePropertiesArgs']]):
         pulumi.set(self, "salesforce", value)
+
+    @property
+    @pulumi.getter(name="sapoData")
+    def sapo_data(self) -> Optional[pulumi.Input['ConnectorProfileSAPODataConnectorProfilePropertiesArgs']]:
+        return pulumi.get(self, "sapo_data")
+
+    @sapo_data.setter
+    def sapo_data(self, value: Optional[pulumi.Input['ConnectorProfileSAPODataConnectorProfilePropertiesArgs']]):
+        pulumi.set(self, "sapo_data", value)
 
     @property
     @pulumi.getter(name="serviceNow")
@@ -2592,8 +2592,8 @@ class FlowConnectorOperatorArgs:
                  marketo: Optional[pulumi.Input['FlowMarketoConnectorOperator']] = None,
                  pardot: Optional[pulumi.Input['FlowPardotConnectorOperator']] = None,
                  s3: Optional[pulumi.Input['FlowS3ConnectorOperator']] = None,
-                 s_apo_data: Optional[pulumi.Input['FlowSAPODataConnectorOperator']] = None,
                  salesforce: Optional[pulumi.Input['FlowSalesforceConnectorOperator']] = None,
+                 sapo_data: Optional[pulumi.Input['FlowSAPODataConnectorOperator']] = None,
                  service_now: Optional[pulumi.Input['FlowServiceNowConnectorOperator']] = None,
                  singular: Optional[pulumi.Input['FlowSingularConnectorOperator']] = None,
                  slack: Optional[pulumi.Input['FlowSlackConnectorOperator']] = None,
@@ -2621,10 +2621,10 @@ class FlowConnectorOperatorArgs:
             pulumi.set(__self__, "pardot", pardot)
         if s3 is not None:
             pulumi.set(__self__, "s3", s3)
-        if s_apo_data is not None:
-            pulumi.set(__self__, "s_apo_data", s_apo_data)
         if salesforce is not None:
             pulumi.set(__self__, "salesforce", salesforce)
+        if sapo_data is not None:
+            pulumi.set(__self__, "sapo_data", sapo_data)
         if service_now is not None:
             pulumi.set(__self__, "service_now", service_now)
         if singular is not None:
@@ -2720,15 +2720,6 @@ class FlowConnectorOperatorArgs:
         pulumi.set(self, "s3", value)
 
     @property
-    @pulumi.getter(name="sAPOData")
-    def s_apo_data(self) -> Optional[pulumi.Input['FlowSAPODataConnectorOperator']]:
-        return pulumi.get(self, "s_apo_data")
-
-    @s_apo_data.setter
-    def s_apo_data(self, value: Optional[pulumi.Input['FlowSAPODataConnectorOperator']]):
-        pulumi.set(self, "s_apo_data", value)
-
-    @property
     @pulumi.getter
     def salesforce(self) -> Optional[pulumi.Input['FlowSalesforceConnectorOperator']]:
         return pulumi.get(self, "salesforce")
@@ -2736,6 +2727,15 @@ class FlowConnectorOperatorArgs:
     @salesforce.setter
     def salesforce(self, value: Optional[pulumi.Input['FlowSalesforceConnectorOperator']]):
         pulumi.set(self, "salesforce", value)
+
+    @property
+    @pulumi.getter(name="sapoData")
+    def sapo_data(self) -> Optional[pulumi.Input['FlowSAPODataConnectorOperator']]:
+        return pulumi.get(self, "sapo_data")
+
+    @sapo_data.setter
+    def sapo_data(self, value: Optional[pulumi.Input['FlowSAPODataConnectorOperator']]):
+        pulumi.set(self, "sapo_data", value)
 
     @property
     @pulumi.getter(name="serviceNow")
@@ -2963,8 +2963,8 @@ class FlowDestinationConnectorPropertiesArgs:
                  marketo: Optional[pulumi.Input['FlowMarketoDestinationPropertiesArgs']] = None,
                  redshift: Optional[pulumi.Input['FlowRedshiftDestinationPropertiesArgs']] = None,
                  s3: Optional[pulumi.Input['FlowS3DestinationPropertiesArgs']] = None,
-                 s_apo_data: Optional[pulumi.Input['FlowSAPODataDestinationPropertiesArgs']] = None,
                  salesforce: Optional[pulumi.Input['FlowSalesforceDestinationPropertiesArgs']] = None,
+                 sapo_data: Optional[pulumi.Input['FlowSAPODataDestinationPropertiesArgs']] = None,
                  snowflake: Optional[pulumi.Input['FlowSnowflakeDestinationPropertiesArgs']] = None,
                  upsolver: Optional[pulumi.Input['FlowUpsolverDestinationPropertiesArgs']] = None,
                  zendesk: Optional[pulumi.Input['FlowZendeskDestinationPropertiesArgs']] = None):
@@ -2983,10 +2983,10 @@ class FlowDestinationConnectorPropertiesArgs:
             pulumi.set(__self__, "redshift", redshift)
         if s3 is not None:
             pulumi.set(__self__, "s3", s3)
-        if s_apo_data is not None:
-            pulumi.set(__self__, "s_apo_data", s_apo_data)
         if salesforce is not None:
             pulumi.set(__self__, "salesforce", salesforce)
+        if sapo_data is not None:
+            pulumi.set(__self__, "sapo_data", sapo_data)
         if snowflake is not None:
             pulumi.set(__self__, "snowflake", snowflake)
         if upsolver is not None:
@@ -3049,15 +3049,6 @@ class FlowDestinationConnectorPropertiesArgs:
         pulumi.set(self, "s3", value)
 
     @property
-    @pulumi.getter(name="sAPOData")
-    def s_apo_data(self) -> Optional[pulumi.Input['FlowSAPODataDestinationPropertiesArgs']]:
-        return pulumi.get(self, "s_apo_data")
-
-    @s_apo_data.setter
-    def s_apo_data(self, value: Optional[pulumi.Input['FlowSAPODataDestinationPropertiesArgs']]):
-        pulumi.set(self, "s_apo_data", value)
-
-    @property
     @pulumi.getter
     def salesforce(self) -> Optional[pulumi.Input['FlowSalesforceDestinationPropertiesArgs']]:
         return pulumi.get(self, "salesforce")
@@ -3065,6 +3056,15 @@ class FlowDestinationConnectorPropertiesArgs:
     @salesforce.setter
     def salesforce(self, value: Optional[pulumi.Input['FlowSalesforceDestinationPropertiesArgs']]):
         pulumi.set(self, "salesforce", value)
+
+    @property
+    @pulumi.getter(name="sapoData")
+    def sapo_data(self) -> Optional[pulumi.Input['FlowSAPODataDestinationPropertiesArgs']]:
+        return pulumi.get(self, "sapo_data")
+
+    @sapo_data.setter
+    def sapo_data(self, value: Optional[pulumi.Input['FlowSAPODataDestinationPropertiesArgs']]):
+        pulumi.set(self, "sapo_data", value)
 
     @property
     @pulumi.getter
@@ -4118,8 +4118,8 @@ class FlowSourceConnectorPropertiesArgs:
                  marketo: Optional[pulumi.Input['FlowMarketoSourcePropertiesArgs']] = None,
                  pardot: Optional[pulumi.Input['FlowPardotSourcePropertiesArgs']] = None,
                  s3: Optional[pulumi.Input['FlowS3SourcePropertiesArgs']] = None,
-                 s_apo_data: Optional[pulumi.Input['FlowSAPODataSourcePropertiesArgs']] = None,
                  salesforce: Optional[pulumi.Input['FlowSalesforceSourcePropertiesArgs']] = None,
+                 sapo_data: Optional[pulumi.Input['FlowSAPODataSourcePropertiesArgs']] = None,
                  service_now: Optional[pulumi.Input['FlowServiceNowSourcePropertiesArgs']] = None,
                  singular: Optional[pulumi.Input['FlowSingularSourcePropertiesArgs']] = None,
                  slack: Optional[pulumi.Input['FlowSlackSourcePropertiesArgs']] = None,
@@ -4147,10 +4147,10 @@ class FlowSourceConnectorPropertiesArgs:
             pulumi.set(__self__, "pardot", pardot)
         if s3 is not None:
             pulumi.set(__self__, "s3", s3)
-        if s_apo_data is not None:
-            pulumi.set(__self__, "s_apo_data", s_apo_data)
         if salesforce is not None:
             pulumi.set(__self__, "salesforce", salesforce)
+        if sapo_data is not None:
+            pulumi.set(__self__, "sapo_data", sapo_data)
         if service_now is not None:
             pulumi.set(__self__, "service_now", service_now)
         if singular is not None:
@@ -4246,15 +4246,6 @@ class FlowSourceConnectorPropertiesArgs:
         pulumi.set(self, "s3", value)
 
     @property
-    @pulumi.getter(name="sAPOData")
-    def s_apo_data(self) -> Optional[pulumi.Input['FlowSAPODataSourcePropertiesArgs']]:
-        return pulumi.get(self, "s_apo_data")
-
-    @s_apo_data.setter
-    def s_apo_data(self, value: Optional[pulumi.Input['FlowSAPODataSourcePropertiesArgs']]):
-        pulumi.set(self, "s_apo_data", value)
-
-    @property
     @pulumi.getter
     def salesforce(self) -> Optional[pulumi.Input['FlowSalesforceSourcePropertiesArgs']]:
         return pulumi.get(self, "salesforce")
@@ -4262,6 +4253,15 @@ class FlowSourceConnectorPropertiesArgs:
     @salesforce.setter
     def salesforce(self, value: Optional[pulumi.Input['FlowSalesforceSourcePropertiesArgs']]):
         pulumi.set(self, "salesforce", value)
+
+    @property
+    @pulumi.getter(name="sapoData")
+    def sapo_data(self) -> Optional[pulumi.Input['FlowSAPODataSourcePropertiesArgs']]:
+        return pulumi.get(self, "sapo_data")
+
+    @sapo_data.setter
+    def sapo_data(self, value: Optional[pulumi.Input['FlowSAPODataSourcePropertiesArgs']]):
+        pulumi.set(self, "sapo_data", value)
 
     @property
     @pulumi.getter(name="serviceNow")

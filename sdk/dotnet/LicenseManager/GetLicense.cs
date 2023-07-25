@@ -84,7 +84,7 @@ namespace Pulumi.AwsNative.LicenseManager
         /// <summary>
         /// ProductSKU of the license.
         /// </summary>
-        public readonly string? ProductSKU;
+        public readonly string? ProductSku;
         public readonly Outputs.LicenseValidityDateFormat? Validity;
         /// <summary>
         /// The version of the license.
@@ -111,7 +111,7 @@ namespace Pulumi.AwsNative.LicenseManager
 
             string? productName,
 
-            string? productSKU,
+            string? productSku,
 
             Outputs.LicenseValidityDateFormat? validity,
 
@@ -126,7 +126,7 @@ namespace Pulumi.AwsNative.LicenseManager
             LicenseMetadata = licenseMetadata;
             LicenseName = licenseName;
             ProductName = productName;
-            ProductSKU = productSKU;
+            ProductSku = productSku;
             Validity = validity;
             Version = version;
         }

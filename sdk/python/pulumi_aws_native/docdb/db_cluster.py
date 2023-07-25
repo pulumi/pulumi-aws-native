@@ -19,9 +19,9 @@ class DBClusterArgs:
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  backup_retention_period: Optional[pulumi.Input[int]] = None,
                  copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
-                 d_b_cluster_identifier: Optional[pulumi.Input[str]] = None,
-                 d_b_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
-                 d_b_subnet_group_name: Optional[pulumi.Input[str]] = None,
+                 db_cluster_identifier: Optional[pulumi.Input[str]] = None,
+                 db_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
+                 db_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
                  enable_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
@@ -48,12 +48,12 @@ class DBClusterArgs:
             pulumi.set(__self__, "backup_retention_period", backup_retention_period)
         if copy_tags_to_snapshot is not None:
             pulumi.set(__self__, "copy_tags_to_snapshot", copy_tags_to_snapshot)
-        if d_b_cluster_identifier is not None:
-            pulumi.set(__self__, "d_b_cluster_identifier", d_b_cluster_identifier)
-        if d_b_cluster_parameter_group_name is not None:
-            pulumi.set(__self__, "d_b_cluster_parameter_group_name", d_b_cluster_parameter_group_name)
-        if d_b_subnet_group_name is not None:
-            pulumi.set(__self__, "d_b_subnet_group_name", d_b_subnet_group_name)
+        if db_cluster_identifier is not None:
+            pulumi.set(__self__, "db_cluster_identifier", db_cluster_identifier)
+        if db_cluster_parameter_group_name is not None:
+            pulumi.set(__self__, "db_cluster_parameter_group_name", db_cluster_parameter_group_name)
+        if db_subnet_group_name is not None:
+            pulumi.set(__self__, "db_subnet_group_name", db_subnet_group_name)
         if deletion_protection is not None:
             pulumi.set(__self__, "deletion_protection", deletion_protection)
         if enable_cloudwatch_logs_exports is not None:
@@ -117,31 +117,31 @@ class DBClusterArgs:
         pulumi.set(self, "copy_tags_to_snapshot", value)
 
     @property
-    @pulumi.getter(name="dBClusterIdentifier")
-    def d_b_cluster_identifier(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "d_b_cluster_identifier")
+    @pulumi.getter(name="dbClusterIdentifier")
+    def db_cluster_identifier(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "db_cluster_identifier")
 
-    @d_b_cluster_identifier.setter
-    def d_b_cluster_identifier(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "d_b_cluster_identifier", value)
-
-    @property
-    @pulumi.getter(name="dBClusterParameterGroupName")
-    def d_b_cluster_parameter_group_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "d_b_cluster_parameter_group_name")
-
-    @d_b_cluster_parameter_group_name.setter
-    def d_b_cluster_parameter_group_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "d_b_cluster_parameter_group_name", value)
+    @db_cluster_identifier.setter
+    def db_cluster_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "db_cluster_identifier", value)
 
     @property
-    @pulumi.getter(name="dBSubnetGroupName")
-    def d_b_subnet_group_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "d_b_subnet_group_name")
+    @pulumi.getter(name="dbClusterParameterGroupName")
+    def db_cluster_parameter_group_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "db_cluster_parameter_group_name")
 
-    @d_b_subnet_group_name.setter
-    def d_b_subnet_group_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "d_b_subnet_group_name", value)
+    @db_cluster_parameter_group_name.setter
+    def db_cluster_parameter_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "db_cluster_parameter_group_name", value)
+
+    @property
+    @pulumi.getter(name="dbSubnetGroupName")
+    def db_subnet_group_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "db_subnet_group_name")
+
+    @db_subnet_group_name.setter
+    def db_subnet_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "db_subnet_group_name", value)
 
     @property
     @pulumi.getter(name="deletionProtection")
@@ -252,7 +252,7 @@ class DBClusterArgs:
         pulumi.set(self, "snapshot_identifier", value)
 
     @property
-    @pulumi.getter(name="sourceDBClusterIdentifier")
+    @pulumi.getter(name="sourceDbClusterIdentifier")
     def source_db_cluster_identifier(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "source_db_cluster_identifier")
 
@@ -310,9 +310,9 @@ class DBCluster(pulumi.CustomResource):
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  backup_retention_period: Optional[pulumi.Input[int]] = None,
                  copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
-                 d_b_cluster_identifier: Optional[pulumi.Input[str]] = None,
-                 d_b_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
-                 d_b_subnet_group_name: Optional[pulumi.Input[str]] = None,
+                 db_cluster_identifier: Optional[pulumi.Input[str]] = None,
+                 db_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
+                 db_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
                  enable_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
@@ -364,9 +364,9 @@ class DBCluster(pulumi.CustomResource):
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  backup_retention_period: Optional[pulumi.Input[int]] = None,
                  copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
-                 d_b_cluster_identifier: Optional[pulumi.Input[str]] = None,
-                 d_b_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
-                 d_b_subnet_group_name: Optional[pulumi.Input[str]] = None,
+                 db_cluster_identifier: Optional[pulumi.Input[str]] = None,
+                 db_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
+                 db_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
                  enable_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
@@ -397,9 +397,9 @@ class DBCluster(pulumi.CustomResource):
             __props__.__dict__["availability_zones"] = availability_zones
             __props__.__dict__["backup_retention_period"] = backup_retention_period
             __props__.__dict__["copy_tags_to_snapshot"] = copy_tags_to_snapshot
-            __props__.__dict__["d_b_cluster_identifier"] = d_b_cluster_identifier
-            __props__.__dict__["d_b_cluster_parameter_group_name"] = d_b_cluster_parameter_group_name
-            __props__.__dict__["d_b_subnet_group_name"] = d_b_subnet_group_name
+            __props__.__dict__["db_cluster_identifier"] = db_cluster_identifier
+            __props__.__dict__["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
+            __props__.__dict__["db_subnet_group_name"] = db_subnet_group_name
             __props__.__dict__["deletion_protection"] = deletion_protection
             __props__.__dict__["enable_cloudwatch_logs_exports"] = enable_cloudwatch_logs_exports
             __props__.__dict__["engine_version"] = engine_version
@@ -446,9 +446,9 @@ class DBCluster(pulumi.CustomResource):
         __props__.__dict__["backup_retention_period"] = None
         __props__.__dict__["cluster_resource_id"] = None
         __props__.__dict__["copy_tags_to_snapshot"] = None
-        __props__.__dict__["d_b_cluster_identifier"] = None
-        __props__.__dict__["d_b_cluster_parameter_group_name"] = None
-        __props__.__dict__["d_b_subnet_group_name"] = None
+        __props__.__dict__["db_cluster_identifier"] = None
+        __props__.__dict__["db_cluster_parameter_group_name"] = None
+        __props__.__dict__["db_subnet_group_name"] = None
         __props__.__dict__["deletion_protection"] = None
         __props__.__dict__["enable_cloudwatch_logs_exports"] = None
         __props__.__dict__["endpoint"] = None
@@ -491,19 +491,19 @@ class DBCluster(pulumi.CustomResource):
         return pulumi.get(self, "copy_tags_to_snapshot")
 
     @property
-    @pulumi.getter(name="dBClusterIdentifier")
-    def d_b_cluster_identifier(self) -> pulumi.Output[Optional[str]]:
-        return pulumi.get(self, "d_b_cluster_identifier")
+    @pulumi.getter(name="dbClusterIdentifier")
+    def db_cluster_identifier(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "db_cluster_identifier")
 
     @property
-    @pulumi.getter(name="dBClusterParameterGroupName")
-    def d_b_cluster_parameter_group_name(self) -> pulumi.Output[Optional[str]]:
-        return pulumi.get(self, "d_b_cluster_parameter_group_name")
+    @pulumi.getter(name="dbClusterParameterGroupName")
+    def db_cluster_parameter_group_name(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "db_cluster_parameter_group_name")
 
     @property
-    @pulumi.getter(name="dBSubnetGroupName")
-    def d_b_subnet_group_name(self) -> pulumi.Output[Optional[str]]:
-        return pulumi.get(self, "d_b_subnet_group_name")
+    @pulumi.getter(name="dbSubnetGroupName")
+    def db_subnet_group_name(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "db_subnet_group_name")
 
     @property
     @pulumi.getter(name="deletionProtection")
@@ -576,7 +576,7 @@ class DBCluster(pulumi.CustomResource):
         return pulumi.get(self, "snapshot_identifier")
 
     @property
-    @pulumi.getter(name="sourceDBClusterIdentifier")
+    @pulumi.getter(name="sourceDbClusterIdentifier")
     def source_db_cluster_identifier(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "source_db_cluster_identifier")
 

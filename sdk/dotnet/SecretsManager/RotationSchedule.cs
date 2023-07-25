@@ -22,8 +22,8 @@ namespace Pulumi.AwsNative.SecretsManager
         [Output("rotateImmediatelyOnUpdate")]
         public Output<bool?> RotateImmediatelyOnUpdate { get; private set; } = null!;
 
-        [Output("rotationLambdaARN")]
-        public Output<string?> RotationLambdaARN { get; private set; } = null!;
+        [Output("rotationLambdaArn")]
+        public Output<string?> RotationLambdaArn { get; private set; } = null!;
 
         [Output("rotationRules")]
         public Output<Outputs.RotationScheduleRotationRules?> RotationRules { get; private set; } = null!;
@@ -82,8 +82,8 @@ namespace Pulumi.AwsNative.SecretsManager
         [Input("rotateImmediatelyOnUpdate")]
         public Input<bool>? RotateImmediatelyOnUpdate { get; set; }
 
-        [Input("rotationLambdaARN")]
-        public Input<string>? RotationLambdaARN { get; set; }
+        [Input("rotationLambdaArn")]
+        public Input<string>? RotationLambdaArn { get; set; }
 
         [Input("rotationRules")]
         public Input<Inputs.RotationScheduleRotationRulesArgs>? RotationRules { get; set; }

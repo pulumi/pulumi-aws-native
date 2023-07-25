@@ -15,8 +15,8 @@ namespace Pulumi.AwsNative.Glue.Inputs
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
-        [Input("mLUserDataEncryptionMode", required: true)]
-        public Input<string> MLUserDataEncryptionMode { get; set; } = null!;
+        [Input("mlUserDataEncryptionMode", required: true)]
+        public Input<string> MlUserDataEncryptionMode { get; set; } = null!;
 
         public MLTransformMLUserDataEncryptionArgs()
         {

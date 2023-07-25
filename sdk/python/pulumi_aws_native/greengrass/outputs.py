@@ -1592,9 +1592,7 @@ class ResourceDefinitionSecretsManagerSecretResourceData(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "aRN":
-            suggest = "a_rn"
-        elif key == "additionalStagingLabelsToDownload":
+        if key == "additionalStagingLabelsToDownload":
             suggest = "additional_staging_labels_to_download"
 
         if suggest:
@@ -1609,16 +1607,16 @@ class ResourceDefinitionSecretsManagerSecretResourceData(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 a_rn: str,
+                 arn: str,
                  additional_staging_labels_to_download: Optional[Sequence[str]] = None):
-        pulumi.set(__self__, "a_rn", a_rn)
+        pulumi.set(__self__, "arn", arn)
         if additional_staging_labels_to_download is not None:
             pulumi.set(__self__, "additional_staging_labels_to_download", additional_staging_labels_to_download)
 
     @property
-    @pulumi.getter(name="aRN")
-    def a_rn(self) -> str:
-        return pulumi.get(self, "a_rn")
+    @pulumi.getter
+    def arn(self) -> str:
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="additionalStagingLabelsToDownload")
@@ -2016,9 +2014,7 @@ class ResourceDefinitionVersionSecretsManagerSecretResourceData(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "aRN":
-            suggest = "a_rn"
-        elif key == "additionalStagingLabelsToDownload":
+        if key == "additionalStagingLabelsToDownload":
             suggest = "additional_staging_labels_to_download"
 
         if suggest:
@@ -2033,16 +2029,16 @@ class ResourceDefinitionVersionSecretsManagerSecretResourceData(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 a_rn: str,
+                 arn: str,
                  additional_staging_labels_to_download: Optional[Sequence[str]] = None):
-        pulumi.set(__self__, "a_rn", a_rn)
+        pulumi.set(__self__, "arn", arn)
         if additional_staging_labels_to_download is not None:
             pulumi.set(__self__, "additional_staging_labels_to_download", additional_staging_labels_to_download)
 
     @property
-    @pulumi.getter(name="aRN")
-    def a_rn(self) -> str:
-        return pulumi.get(self, "a_rn")
+    @pulumi.getter
+    def arn(self) -> str:
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="additionalStagingLabelsToDownload")

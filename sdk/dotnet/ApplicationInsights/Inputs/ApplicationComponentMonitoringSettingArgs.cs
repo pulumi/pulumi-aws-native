@@ -18,8 +18,8 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
         /// <summary>
         /// The ARN of the compnonent.
         /// </summary>
-        [Input("componentARN")]
-        public Input<string>? ComponentARN { get; set; }
+        [Input("componentArn")]
+        public Input<string>? ComponentArn { get; set; }
 
         /// <summary>
         /// The component monitoring configuration mode.

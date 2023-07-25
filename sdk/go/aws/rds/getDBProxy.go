@@ -24,14 +24,14 @@ func LookupDBProxy(ctx *pulumi.Context, args *LookupDBProxyArgs, opts ...pulumi.
 
 type LookupDBProxyArgs struct {
 	// The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
-	DBProxyName string `pulumi:"dBProxyName"`
+	DbProxyName string `pulumi:"dbProxyName"`
 }
 
 type LookupDBProxyResult struct {
 	// The authorization mechanism that the proxy uses.
 	Auth []DBProxyAuthFormat `pulumi:"auth"`
 	// The Amazon Resource Name (ARN) for the proxy.
-	DBProxyArn *string `pulumi:"dBProxyArn"`
+	DbProxyArn *string `pulumi:"dbProxyArn"`
 	// Whether the proxy includes detailed information about SQL statements in its logs.
 	DebugLogging *bool `pulumi:"debugLogging"`
 	// The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
@@ -39,7 +39,7 @@ type LookupDBProxyResult struct {
 	// The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it.
 	IdleClientTimeout *int `pulumi:"idleClientTimeout"`
 	// A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
-	RequireTLS *bool `pulumi:"requireTLS"`
+	RequireTls *bool `pulumi:"requireTls"`
 	// The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
 	RoleArn *string `pulumi:"roleArn"`
 	// An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
@@ -65,7 +65,7 @@ func LookupDBProxyOutput(ctx *pulumi.Context, args LookupDBProxyOutputArgs, opts
 
 type LookupDBProxyOutputArgs struct {
 	// The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
-	DBProxyName pulumi.StringInput `pulumi:"dBProxyName"`
+	DbProxyName pulumi.StringInput `pulumi:"dbProxyName"`
 }
 
 func (LookupDBProxyOutputArgs) ElementType() reflect.Type {
@@ -92,8 +92,8 @@ func (o LookupDBProxyResultOutput) Auth() DBProxyAuthFormatArrayOutput {
 }
 
 // The Amazon Resource Name (ARN) for the proxy.
-func (o LookupDBProxyResultOutput) DBProxyArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupDBProxyResult) *string { return v.DBProxyArn }).(pulumi.StringPtrOutput)
+func (o LookupDBProxyResultOutput) DbProxyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDBProxyResult) *string { return v.DbProxyArn }).(pulumi.StringPtrOutput)
 }
 
 // Whether the proxy includes detailed information about SQL statements in its logs.
@@ -112,8 +112,8 @@ func (o LookupDBProxyResultOutput) IdleClientTimeout() pulumi.IntPtrOutput {
 }
 
 // A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
-func (o LookupDBProxyResultOutput) RequireTLS() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LookupDBProxyResult) *bool { return v.RequireTLS }).(pulumi.BoolPtrOutput)
+func (o LookupDBProxyResultOutput) RequireTls() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupDBProxyResult) *bool { return v.RequireTls }).(pulumi.BoolPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.

@@ -31,9 +31,9 @@ type LookupEndpointAuthorizationArgs struct {
 
 type LookupEndpointAuthorizationResult struct {
 	// Indicates whether all VPCs in the grantee account are allowed access to the cluster.
-	AllowedAllVPCs *bool `pulumi:"allowedAllVPCs"`
+	AllowedAllVpcs *bool `pulumi:"allowedAllVpcs"`
 	// The VPCs allowed access to the cluster.
-	AllowedVPCs []string `pulumi:"allowedVPCs"`
+	AllowedVpcs []string `pulumi:"allowedVpcs"`
 	// The time (UTC) when the authorization was created.
 	AuthorizeTime *string `pulumi:"authorizeTime"`
 	// The status of the cluster.
@@ -89,13 +89,13 @@ func (o LookupEndpointAuthorizationResultOutput) ToLookupEndpointAuthorizationRe
 }
 
 // Indicates whether all VPCs in the grantee account are allowed access to the cluster.
-func (o LookupEndpointAuthorizationResultOutput) AllowedAllVPCs() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LookupEndpointAuthorizationResult) *bool { return v.AllowedAllVPCs }).(pulumi.BoolPtrOutput)
+func (o LookupEndpointAuthorizationResultOutput) AllowedAllVpcs() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupEndpointAuthorizationResult) *bool { return v.AllowedAllVpcs }).(pulumi.BoolPtrOutput)
 }
 
 // The VPCs allowed access to the cluster.
-func (o LookupEndpointAuthorizationResultOutput) AllowedVPCs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v LookupEndpointAuthorizationResult) []string { return v.AllowedVPCs }).(pulumi.StringArrayOutput)
+func (o LookupEndpointAuthorizationResultOutput) AllowedVpcs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupEndpointAuthorizationResult) []string { return v.AllowedVpcs }).(pulumi.StringArrayOutput)
 }
 
 // The time (UTC) when the authorization was created.

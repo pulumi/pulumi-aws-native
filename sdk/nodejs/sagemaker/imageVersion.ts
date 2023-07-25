@@ -46,7 +46,7 @@ export class ImageVersion extends pulumi.CustomResource {
     public readonly imageName!: pulumi.Output<string>;
     public /*out*/ readonly imageVersionArn!: pulumi.Output<string>;
     public readonly jobType!: pulumi.Output<enums.sagemaker.ImageVersionJobType | undefined>;
-    public readonly mLFramework!: pulumi.Output<string | undefined>;
+    public readonly mlFramework!: pulumi.Output<string | undefined>;
     public readonly processor!: pulumi.Output<enums.sagemaker.ImageVersionProcessor | undefined>;
     public readonly programmingLang!: pulumi.Output<string | undefined>;
     public readonly releaseNotes!: pulumi.Output<string | undefined>;
@@ -76,7 +76,7 @@ export class ImageVersion extends pulumi.CustomResource {
             resourceInputs["horovod"] = args ? args.horovod : undefined;
             resourceInputs["imageName"] = args ? args.imageName : undefined;
             resourceInputs["jobType"] = args ? args.jobType : undefined;
-            resourceInputs["mLFramework"] = args ? args.mLFramework : undefined;
+            resourceInputs["mlFramework"] = args ? args.mlFramework : undefined;
             resourceInputs["processor"] = args ? args.processor : undefined;
             resourceInputs["programmingLang"] = args ? args.programmingLang : undefined;
             resourceInputs["releaseNotes"] = args ? args.releaseNotes : undefined;
@@ -95,7 +95,7 @@ export class ImageVersion extends pulumi.CustomResource {
             resourceInputs["imageName"] = undefined /*out*/;
             resourceInputs["imageVersionArn"] = undefined /*out*/;
             resourceInputs["jobType"] = undefined /*out*/;
-            resourceInputs["mLFramework"] = undefined /*out*/;
+            resourceInputs["mlFramework"] = undefined /*out*/;
             resourceInputs["processor"] = undefined /*out*/;
             resourceInputs["programmingLang"] = undefined /*out*/;
             resourceInputs["releaseNotes"] = undefined /*out*/;
@@ -117,7 +117,7 @@ export interface ImageVersionArgs {
     horovod?: pulumi.Input<boolean>;
     imageName: pulumi.Input<string>;
     jobType?: pulumi.Input<enums.sagemaker.ImageVersionJobType>;
-    mLFramework?: pulumi.Input<string>;
+    mlFramework?: pulumi.Input<string>;
     processor?: pulumi.Input<enums.sagemaker.ImageVersionProcessor>;
     programmingLang?: pulumi.Input<string>;
     releaseNotes?: pulumi.Input<string>;

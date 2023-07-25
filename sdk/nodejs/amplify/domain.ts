@@ -40,7 +40,7 @@ export class Domain extends pulumi.CustomResource {
     public readonly appId!: pulumi.Output<string>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly autoSubDomainCreationPatterns!: pulumi.Output<string[] | undefined>;
-    public readonly autoSubDomainIAMRole!: pulumi.Output<string | undefined>;
+    public readonly autoSubDomainIamRole!: pulumi.Output<string | undefined>;
     public /*out*/ readonly certificateRecord!: pulumi.Output<string>;
     public readonly domainName!: pulumi.Output<string>;
     public /*out*/ readonly domainStatus!: pulumi.Output<string>;
@@ -67,7 +67,7 @@ export class Domain extends pulumi.CustomResource {
             }
             resourceInputs["appId"] = args ? args.appId : undefined;
             resourceInputs["autoSubDomainCreationPatterns"] = args ? args.autoSubDomainCreationPatterns : undefined;
-            resourceInputs["autoSubDomainIAMRole"] = args ? args.autoSubDomainIAMRole : undefined;
+            resourceInputs["autoSubDomainIamRole"] = args ? args.autoSubDomainIamRole : undefined;
             resourceInputs["domainName"] = args ? args.domainName : undefined;
             resourceInputs["enableAutoSubDomain"] = args ? args.enableAutoSubDomain : undefined;
             resourceInputs["subDomainSettings"] = args ? args.subDomainSettings : undefined;
@@ -79,7 +79,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["appId"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["autoSubDomainCreationPatterns"] = undefined /*out*/;
-            resourceInputs["autoSubDomainIAMRole"] = undefined /*out*/;
+            resourceInputs["autoSubDomainIamRole"] = undefined /*out*/;
             resourceInputs["certificateRecord"] = undefined /*out*/;
             resourceInputs["domainName"] = undefined /*out*/;
             resourceInputs["domainStatus"] = undefined /*out*/;
@@ -98,7 +98,7 @@ export class Domain extends pulumi.CustomResource {
 export interface DomainArgs {
     appId: pulumi.Input<string>;
     autoSubDomainCreationPatterns?: pulumi.Input<pulumi.Input<string>[]>;
-    autoSubDomainIAMRole?: pulumi.Input<string>;
+    autoSubDomainIamRole?: pulumi.Input<string>;
     domainName?: pulumi.Input<string>;
     enableAutoSubDomain?: pulumi.Input<boolean>;
     subDomainSettings: pulumi.Input<pulumi.Input<inputs.amplify.DomainSubDomainSettingArgs>[]>;

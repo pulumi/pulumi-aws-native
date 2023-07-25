@@ -15,8 +15,8 @@ namespace Pulumi.AwsNative.RDS.Inputs
         /// <summary>
         /// The CA identifier of the CA certificate used for the DB instance's server certificate.
         /// </summary>
-        [Input("cAIdentifier")]
-        public Input<string>? CAIdentifier { get; set; }
+        [Input("caIdentifier")]
+        public Input<string>? CaIdentifier { get; set; }
 
         /// <summary>
         /// The expiration date of the DB instance’s server certificate.

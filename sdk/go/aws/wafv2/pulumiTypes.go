@@ -4507,7 +4507,7 @@ func (o RuleGroupForwardedIPConfigurationPtrOutput) HeaderName() pulumi.StringPt
 
 type RuleGroupGeoMatchStatement struct {
 	CountryCodes      []string                           `pulumi:"countryCodes"`
-	ForwardedIPConfig *RuleGroupForwardedIPConfiguration `pulumi:"forwardedIPConfig"`
+	ForwardedIpConfig *RuleGroupForwardedIPConfiguration `pulumi:"forwardedIpConfig"`
 }
 
 // RuleGroupGeoMatchStatementInput is an input type that accepts RuleGroupGeoMatchStatementArgs and RuleGroupGeoMatchStatementOutput values.
@@ -4523,7 +4523,7 @@ type RuleGroupGeoMatchStatementInput interface {
 
 type RuleGroupGeoMatchStatementArgs struct {
 	CountryCodes      pulumi.StringArrayInput                   `pulumi:"countryCodes"`
-	ForwardedIPConfig RuleGroupForwardedIPConfigurationPtrInput `pulumi:"forwardedIPConfig"`
+	ForwardedIpConfig RuleGroupForwardedIPConfigurationPtrInput `pulumi:"forwardedIpConfig"`
 }
 
 func (RuleGroupGeoMatchStatementArgs) ElementType() reflect.Type {
@@ -4607,8 +4607,8 @@ func (o RuleGroupGeoMatchStatementOutput) CountryCodes() pulumi.StringArrayOutpu
 	return o.ApplyT(func(v RuleGroupGeoMatchStatement) []string { return v.CountryCodes }).(pulumi.StringArrayOutput)
 }
 
-func (o RuleGroupGeoMatchStatementOutput) ForwardedIPConfig() RuleGroupForwardedIPConfigurationPtrOutput {
-	return o.ApplyT(func(v RuleGroupGeoMatchStatement) *RuleGroupForwardedIPConfiguration { return v.ForwardedIPConfig }).(RuleGroupForwardedIPConfigurationPtrOutput)
+func (o RuleGroupGeoMatchStatementOutput) ForwardedIpConfig() RuleGroupForwardedIPConfigurationPtrOutput {
+	return o.ApplyT(func(v RuleGroupGeoMatchStatement) *RuleGroupForwardedIPConfiguration { return v.ForwardedIpConfig }).(RuleGroupForwardedIPConfigurationPtrOutput)
 }
 
 type RuleGroupGeoMatchStatementPtrOutput struct{ *pulumi.OutputState }
@@ -4644,12 +4644,12 @@ func (o RuleGroupGeoMatchStatementPtrOutput) CountryCodes() pulumi.StringArrayOu
 	}).(pulumi.StringArrayOutput)
 }
 
-func (o RuleGroupGeoMatchStatementPtrOutput) ForwardedIPConfig() RuleGroupForwardedIPConfigurationPtrOutput {
+func (o RuleGroupGeoMatchStatementPtrOutput) ForwardedIpConfig() RuleGroupForwardedIPConfigurationPtrOutput {
 	return o.ApplyT(func(v *RuleGroupGeoMatchStatement) *RuleGroupForwardedIPConfiguration {
 		if v == nil {
 			return nil
 		}
-		return v.ForwardedIPConfig
+		return v.ForwardedIpConfig
 	}).(RuleGroupForwardedIPConfigurationPtrOutput)
 }
 
@@ -5158,7 +5158,7 @@ func (o RuleGroupIPSetForwardedIPConfigurationPtrOutput) Position() RuleGroupIPS
 
 type RuleGroupIPSetReferenceStatement struct {
 	Arn                    string                                  `pulumi:"arn"`
-	IPSetForwardedIPConfig *RuleGroupIPSetForwardedIPConfiguration `pulumi:"iPSetForwardedIPConfig"`
+	IpSetForwardedIpConfig *RuleGroupIPSetForwardedIPConfiguration `pulumi:"ipSetForwardedIpConfig"`
 }
 
 // RuleGroupIPSetReferenceStatementInput is an input type that accepts RuleGroupIPSetReferenceStatementArgs and RuleGroupIPSetReferenceStatementOutput values.
@@ -5174,7 +5174,7 @@ type RuleGroupIPSetReferenceStatementInput interface {
 
 type RuleGroupIPSetReferenceStatementArgs struct {
 	Arn                    pulumi.StringInput                             `pulumi:"arn"`
-	IPSetForwardedIPConfig RuleGroupIPSetForwardedIPConfigurationPtrInput `pulumi:"iPSetForwardedIPConfig"`
+	IpSetForwardedIpConfig RuleGroupIPSetForwardedIPConfigurationPtrInput `pulumi:"ipSetForwardedIpConfig"`
 }
 
 func (RuleGroupIPSetReferenceStatementArgs) ElementType() reflect.Type {
@@ -5258,9 +5258,9 @@ func (o RuleGroupIPSetReferenceStatementOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupIPSetReferenceStatement) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-func (o RuleGroupIPSetReferenceStatementOutput) IPSetForwardedIPConfig() RuleGroupIPSetForwardedIPConfigurationPtrOutput {
+func (o RuleGroupIPSetReferenceStatementOutput) IpSetForwardedIpConfig() RuleGroupIPSetForwardedIPConfigurationPtrOutput {
 	return o.ApplyT(func(v RuleGroupIPSetReferenceStatement) *RuleGroupIPSetForwardedIPConfiguration {
-		return v.IPSetForwardedIPConfig
+		return v.IpSetForwardedIpConfig
 	}).(RuleGroupIPSetForwardedIPConfigurationPtrOutput)
 }
 
@@ -5297,12 +5297,12 @@ func (o RuleGroupIPSetReferenceStatementPtrOutput) Arn() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o RuleGroupIPSetReferenceStatementPtrOutput) IPSetForwardedIPConfig() RuleGroupIPSetForwardedIPConfigurationPtrOutput {
+func (o RuleGroupIPSetReferenceStatementPtrOutput) IpSetForwardedIpConfig() RuleGroupIPSetForwardedIPConfigurationPtrOutput {
 	return o.ApplyT(func(v *RuleGroupIPSetReferenceStatement) *RuleGroupIPSetForwardedIPConfiguration {
 		if v == nil {
 			return nil
 		}
-		return v.IPSetForwardedIPConfig
+		return v.IpSetForwardedIpConfig
 	}).(RuleGroupIPSetForwardedIPConfigurationPtrOutput)
 }
 
@@ -6381,7 +6381,7 @@ type RuleGroupRateBasedStatement struct {
 	AggregateKeyType RuleGroupRateBasedStatementAggregateKeyType `pulumi:"aggregateKeyType"`
 	// Specifies the aggregate keys to use in a rate-base rule.
 	CustomKeys         []RuleGroupRateBasedStatementCustomKey `pulumi:"customKeys"`
-	ForwardedIPConfig  *RuleGroupForwardedIPConfiguration     `pulumi:"forwardedIPConfig"`
+	ForwardedIpConfig  *RuleGroupForwardedIPConfiguration     `pulumi:"forwardedIpConfig"`
 	Limit              int                                    `pulumi:"limit"`
 	ScopeDownStatement *RuleGroupStatement                    `pulumi:"scopeDownStatement"`
 }
@@ -6401,7 +6401,7 @@ type RuleGroupRateBasedStatementArgs struct {
 	AggregateKeyType RuleGroupRateBasedStatementAggregateKeyTypeInput `pulumi:"aggregateKeyType"`
 	// Specifies the aggregate keys to use in a rate-base rule.
 	CustomKeys         RuleGroupRateBasedStatementCustomKeyArrayInput `pulumi:"customKeys"`
-	ForwardedIPConfig  RuleGroupForwardedIPConfigurationPtrInput      `pulumi:"forwardedIPConfig"`
+	ForwardedIpConfig  RuleGroupForwardedIPConfigurationPtrInput      `pulumi:"forwardedIpConfig"`
 	Limit              pulumi.IntInput                                `pulumi:"limit"`
 	ScopeDownStatement RuleGroupStatementPtrInput                     `pulumi:"scopeDownStatement"`
 }
@@ -6494,8 +6494,8 @@ func (o RuleGroupRateBasedStatementOutput) CustomKeys() RuleGroupRateBasedStatem
 	return o.ApplyT(func(v RuleGroupRateBasedStatement) []RuleGroupRateBasedStatementCustomKey { return v.CustomKeys }).(RuleGroupRateBasedStatementCustomKeyArrayOutput)
 }
 
-func (o RuleGroupRateBasedStatementOutput) ForwardedIPConfig() RuleGroupForwardedIPConfigurationPtrOutput {
-	return o.ApplyT(func(v RuleGroupRateBasedStatement) *RuleGroupForwardedIPConfiguration { return v.ForwardedIPConfig }).(RuleGroupForwardedIPConfigurationPtrOutput)
+func (o RuleGroupRateBasedStatementOutput) ForwardedIpConfig() RuleGroupForwardedIPConfigurationPtrOutput {
+	return o.ApplyT(func(v RuleGroupRateBasedStatement) *RuleGroupForwardedIPConfiguration { return v.ForwardedIpConfig }).(RuleGroupForwardedIPConfigurationPtrOutput)
 }
 
 func (o RuleGroupRateBasedStatementOutput) Limit() pulumi.IntOutput {
@@ -6549,12 +6549,12 @@ func (o RuleGroupRateBasedStatementPtrOutput) CustomKeys() RuleGroupRateBasedSta
 	}).(RuleGroupRateBasedStatementCustomKeyArrayOutput)
 }
 
-func (o RuleGroupRateBasedStatementPtrOutput) ForwardedIPConfig() RuleGroupForwardedIPConfigurationPtrOutput {
+func (o RuleGroupRateBasedStatementPtrOutput) ForwardedIpConfig() RuleGroupForwardedIPConfigurationPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRateBasedStatement) *RuleGroupForwardedIPConfiguration {
 		if v == nil {
 			return nil
 		}
-		return v.ForwardedIPConfig
+		return v.ForwardedIpConfig
 	}).(RuleGroupForwardedIPConfigurationPtrOutput)
 }
 
@@ -6579,10 +6579,10 @@ func (o RuleGroupRateBasedStatementPtrOutput) ScopeDownStatement() RuleGroupStat
 // Specifies a single custom aggregate key for a rate-base rule.
 type RuleGroupRateBasedStatementCustomKey struct {
 	Cookie         *RuleGroupRateLimitCookie         `pulumi:"cookie"`
-	ForwardedIP    *RuleGroupRateLimitForwardedIP    `pulumi:"forwardedIP"`
-	HTTPMethod     *RuleGroupRateLimitHTTPMethod     `pulumi:"hTTPMethod"`
+	ForwardedIp    *RuleGroupRateLimitForwardedIP    `pulumi:"forwardedIp"`
 	Header         *RuleGroupRateLimitHeader         `pulumi:"header"`
-	IP             *RuleGroupRateLimitIP             `pulumi:"iP"`
+	HttpMethod     *RuleGroupRateLimitHTTPMethod     `pulumi:"httpMethod"`
+	Ip             *RuleGroupRateLimitIP             `pulumi:"ip"`
 	LabelNamespace *RuleGroupRateLimitLabelNamespace `pulumi:"labelNamespace"`
 	QueryArgument  *RuleGroupRateLimitQueryArgument  `pulumi:"queryArgument"`
 	QueryString    *RuleGroupRateLimitQueryString    `pulumi:"queryString"`
@@ -6603,10 +6603,10 @@ type RuleGroupRateBasedStatementCustomKeyInput interface {
 // Specifies a single custom aggregate key for a rate-base rule.
 type RuleGroupRateBasedStatementCustomKeyArgs struct {
 	Cookie         RuleGroupRateLimitCookiePtrInput         `pulumi:"cookie"`
-	ForwardedIP    RuleGroupRateLimitForwardedIPPtrInput    `pulumi:"forwardedIP"`
-	HTTPMethod     RuleGroupRateLimitHTTPMethodPtrInput     `pulumi:"hTTPMethod"`
+	ForwardedIp    RuleGroupRateLimitForwardedIPPtrInput    `pulumi:"forwardedIp"`
 	Header         RuleGroupRateLimitHeaderPtrInput         `pulumi:"header"`
-	IP             RuleGroupRateLimitIPPtrInput             `pulumi:"iP"`
+	HttpMethod     RuleGroupRateLimitHTTPMethodPtrInput     `pulumi:"httpMethod"`
+	Ip             RuleGroupRateLimitIPPtrInput             `pulumi:"ip"`
 	LabelNamespace RuleGroupRateLimitLabelNamespacePtrInput `pulumi:"labelNamespace"`
 	QueryArgument  RuleGroupRateLimitQueryArgumentPtrInput  `pulumi:"queryArgument"`
 	QueryString    RuleGroupRateLimitQueryStringPtrInput    `pulumi:"queryString"`
@@ -6669,20 +6669,20 @@ func (o RuleGroupRateBasedStatementCustomKeyOutput) Cookie() RuleGroupRateLimitC
 	return o.ApplyT(func(v RuleGroupRateBasedStatementCustomKey) *RuleGroupRateLimitCookie { return v.Cookie }).(RuleGroupRateLimitCookiePtrOutput)
 }
 
-func (o RuleGroupRateBasedStatementCustomKeyOutput) ForwardedIP() RuleGroupRateLimitForwardedIPPtrOutput {
-	return o.ApplyT(func(v RuleGroupRateBasedStatementCustomKey) *RuleGroupRateLimitForwardedIP { return v.ForwardedIP }).(RuleGroupRateLimitForwardedIPPtrOutput)
-}
-
-func (o RuleGroupRateBasedStatementCustomKeyOutput) HTTPMethod() RuleGroupRateLimitHTTPMethodPtrOutput {
-	return o.ApplyT(func(v RuleGroupRateBasedStatementCustomKey) *RuleGroupRateLimitHTTPMethod { return v.HTTPMethod }).(RuleGroupRateLimitHTTPMethodPtrOutput)
+func (o RuleGroupRateBasedStatementCustomKeyOutput) ForwardedIp() RuleGroupRateLimitForwardedIPPtrOutput {
+	return o.ApplyT(func(v RuleGroupRateBasedStatementCustomKey) *RuleGroupRateLimitForwardedIP { return v.ForwardedIp }).(RuleGroupRateLimitForwardedIPPtrOutput)
 }
 
 func (o RuleGroupRateBasedStatementCustomKeyOutput) Header() RuleGroupRateLimitHeaderPtrOutput {
 	return o.ApplyT(func(v RuleGroupRateBasedStatementCustomKey) *RuleGroupRateLimitHeader { return v.Header }).(RuleGroupRateLimitHeaderPtrOutput)
 }
 
-func (o RuleGroupRateBasedStatementCustomKeyOutput) IP() RuleGroupRateLimitIPPtrOutput {
-	return o.ApplyT(func(v RuleGroupRateBasedStatementCustomKey) *RuleGroupRateLimitIP { return v.IP }).(RuleGroupRateLimitIPPtrOutput)
+func (o RuleGroupRateBasedStatementCustomKeyOutput) HttpMethod() RuleGroupRateLimitHTTPMethodPtrOutput {
+	return o.ApplyT(func(v RuleGroupRateBasedStatementCustomKey) *RuleGroupRateLimitHTTPMethod { return v.HttpMethod }).(RuleGroupRateLimitHTTPMethodPtrOutput)
+}
+
+func (o RuleGroupRateBasedStatementCustomKeyOutput) Ip() RuleGroupRateLimitIPPtrOutput {
+	return o.ApplyT(func(v RuleGroupRateBasedStatementCustomKey) *RuleGroupRateLimitIP { return v.Ip }).(RuleGroupRateLimitIPPtrOutput)
 }
 
 func (o RuleGroupRateBasedStatementCustomKeyOutput) LabelNamespace() RuleGroupRateLimitLabelNamespacePtrOutput {
@@ -8983,7 +8983,7 @@ type RuleGroupStatement struct {
 	AndStatement                      *RuleGroupAndStatement                      `pulumi:"andStatement"`
 	ByteMatchStatement                *RuleGroupByteMatchStatement                `pulumi:"byteMatchStatement"`
 	GeoMatchStatement                 *RuleGroupGeoMatchStatement                 `pulumi:"geoMatchStatement"`
-	IPSetReferenceStatement           *RuleGroupIPSetReferenceStatement           `pulumi:"iPSetReferenceStatement"`
+	IpSetReferenceStatement           *RuleGroupIPSetReferenceStatement           `pulumi:"ipSetReferenceStatement"`
 	LabelMatchStatement               *RuleGroupLabelMatchStatement               `pulumi:"labelMatchStatement"`
 	NotStatement                      *RuleGroupNotStatement                      `pulumi:"notStatement"`
 	OrStatement                       *RuleGroupOrStatement                       `pulumi:"orStatement"`
@@ -9011,7 +9011,7 @@ type RuleGroupStatementArgs struct {
 	AndStatement                      RuleGroupAndStatementPtrInput                      `pulumi:"andStatement"`
 	ByteMatchStatement                RuleGroupByteMatchStatementPtrInput                `pulumi:"byteMatchStatement"`
 	GeoMatchStatement                 RuleGroupGeoMatchStatementPtrInput                 `pulumi:"geoMatchStatement"`
-	IPSetReferenceStatement           RuleGroupIPSetReferenceStatementPtrInput           `pulumi:"iPSetReferenceStatement"`
+	IpSetReferenceStatement           RuleGroupIPSetReferenceStatementPtrInput           `pulumi:"ipSetReferenceStatement"`
 	LabelMatchStatement               RuleGroupLabelMatchStatementPtrInput               `pulumi:"labelMatchStatement"`
 	NotStatement                      RuleGroupNotStatementPtrInput                      `pulumi:"notStatement"`
 	OrStatement                       RuleGroupOrStatementPtrInput                       `pulumi:"orStatement"`
@@ -9138,8 +9138,8 @@ func (o RuleGroupStatementOutput) GeoMatchStatement() RuleGroupGeoMatchStatement
 	return o.ApplyT(func(v RuleGroupStatement) *RuleGroupGeoMatchStatement { return v.GeoMatchStatement }).(RuleGroupGeoMatchStatementPtrOutput)
 }
 
-func (o RuleGroupStatementOutput) IPSetReferenceStatement() RuleGroupIPSetReferenceStatementPtrOutput {
-	return o.ApplyT(func(v RuleGroupStatement) *RuleGroupIPSetReferenceStatement { return v.IPSetReferenceStatement }).(RuleGroupIPSetReferenceStatementPtrOutput)
+func (o RuleGroupStatementOutput) IpSetReferenceStatement() RuleGroupIPSetReferenceStatementPtrOutput {
+	return o.ApplyT(func(v RuleGroupStatement) *RuleGroupIPSetReferenceStatement { return v.IpSetReferenceStatement }).(RuleGroupIPSetReferenceStatementPtrOutput)
 }
 
 func (o RuleGroupStatementOutput) LabelMatchStatement() RuleGroupLabelMatchStatementPtrOutput {
@@ -9231,12 +9231,12 @@ func (o RuleGroupStatementPtrOutput) GeoMatchStatement() RuleGroupGeoMatchStatem
 	}).(RuleGroupGeoMatchStatementPtrOutput)
 }
 
-func (o RuleGroupStatementPtrOutput) IPSetReferenceStatement() RuleGroupIPSetReferenceStatementPtrOutput {
+func (o RuleGroupStatementPtrOutput) IpSetReferenceStatement() RuleGroupIPSetReferenceStatementPtrOutput {
 	return o.ApplyT(func(v *RuleGroupStatement) *RuleGroupIPSetReferenceStatement {
 		if v == nil {
 			return nil
 		}
-		return v.IPSetReferenceStatement
+		return v.IpSetReferenceStatement
 	}).(RuleGroupIPSetReferenceStatementPtrOutput)
 }
 
@@ -10323,94 +10323,6 @@ func (o WebACLAWSManagedRulesBotControlRuleSetPtrOutput) InspectionLevel() WebAC
 		}
 		return &v.InspectionLevel
 	}).(WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput)
-}
-
-type WebACLAddressField struct {
-}
-
-// WebACLAddressFieldInput is an input type that accepts WebACLAddressFieldArgs and WebACLAddressFieldOutput values.
-// You can construct a concrete instance of `WebACLAddressFieldInput` via:
-//
-//	WebACLAddressFieldArgs{...}
-type WebACLAddressFieldInput interface {
-	pulumi.Input
-
-	ToWebACLAddressFieldOutput() WebACLAddressFieldOutput
-	ToWebACLAddressFieldOutputWithContext(context.Context) WebACLAddressFieldOutput
-}
-
-type WebACLAddressFieldArgs struct {
-}
-
-func (WebACLAddressFieldArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLAddressField)(nil)).Elem()
-}
-
-func (i WebACLAddressFieldArgs) ToWebACLAddressFieldOutput() WebACLAddressFieldOutput {
-	return i.ToWebACLAddressFieldOutputWithContext(context.Background())
-}
-
-func (i WebACLAddressFieldArgs) ToWebACLAddressFieldOutputWithContext(ctx context.Context) WebACLAddressFieldOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebACLAddressFieldOutput)
-}
-
-// WebACLAddressFieldArrayInput is an input type that accepts WebACLAddressFieldArray and WebACLAddressFieldArrayOutput values.
-// You can construct a concrete instance of `WebACLAddressFieldArrayInput` via:
-//
-//	WebACLAddressFieldArray{ WebACLAddressFieldArgs{...} }
-type WebACLAddressFieldArrayInput interface {
-	pulumi.Input
-
-	ToWebACLAddressFieldArrayOutput() WebACLAddressFieldArrayOutput
-	ToWebACLAddressFieldArrayOutputWithContext(context.Context) WebACLAddressFieldArrayOutput
-}
-
-type WebACLAddressFieldArray []WebACLAddressFieldInput
-
-func (WebACLAddressFieldArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WebACLAddressField)(nil)).Elem()
-}
-
-func (i WebACLAddressFieldArray) ToWebACLAddressFieldArrayOutput() WebACLAddressFieldArrayOutput {
-	return i.ToWebACLAddressFieldArrayOutputWithContext(context.Background())
-}
-
-func (i WebACLAddressFieldArray) ToWebACLAddressFieldArrayOutputWithContext(ctx context.Context) WebACLAddressFieldArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebACLAddressFieldArrayOutput)
-}
-
-type WebACLAddressFieldOutput struct{ *pulumi.OutputState }
-
-func (WebACLAddressFieldOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLAddressField)(nil)).Elem()
-}
-
-func (o WebACLAddressFieldOutput) ToWebACLAddressFieldOutput() WebACLAddressFieldOutput {
-	return o
-}
-
-func (o WebACLAddressFieldOutput) ToWebACLAddressFieldOutputWithContext(ctx context.Context) WebACLAddressFieldOutput {
-	return o
-}
-
-type WebACLAddressFieldArrayOutput struct{ *pulumi.OutputState }
-
-func (WebACLAddressFieldArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WebACLAddressField)(nil)).Elem()
-}
-
-func (o WebACLAddressFieldArrayOutput) ToWebACLAddressFieldArrayOutput() WebACLAddressFieldArrayOutput {
-	return o
-}
-
-func (o WebACLAddressFieldArrayOutput) ToWebACLAddressFieldArrayOutputWithContext(ctx context.Context) WebACLAddressFieldArrayOutput {
-	return o
-}
-
-func (o WebACLAddressFieldArrayOutput) Index(i pulumi.IntInput) WebACLAddressFieldOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebACLAddressField {
-		return vs[0].([]WebACLAddressField)[vs[1].(int)]
-	}).(WebACLAddressFieldOutput)
 }
 
 // Allow traffic towards application.
@@ -13103,6 +13015,31 @@ func (i *webACLFieldIdentifierPtrType) ToWebACLFieldIdentifierPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(WebACLFieldIdentifierPtrOutput)
 }
 
+// WebACLFieldIdentifierArrayInput is an input type that accepts WebACLFieldIdentifierArray and WebACLFieldIdentifierArrayOutput values.
+// You can construct a concrete instance of `WebACLFieldIdentifierArrayInput` via:
+//
+//	WebACLFieldIdentifierArray{ WebACLFieldIdentifierArgs{...} }
+type WebACLFieldIdentifierArrayInput interface {
+	pulumi.Input
+
+	ToWebACLFieldIdentifierArrayOutput() WebACLFieldIdentifierArrayOutput
+	ToWebACLFieldIdentifierArrayOutputWithContext(context.Context) WebACLFieldIdentifierArrayOutput
+}
+
+type WebACLFieldIdentifierArray []WebACLFieldIdentifierInput
+
+func (WebACLFieldIdentifierArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebACLFieldIdentifier)(nil)).Elem()
+}
+
+func (i WebACLFieldIdentifierArray) ToWebACLFieldIdentifierArrayOutput() WebACLFieldIdentifierArrayOutput {
+	return i.ToWebACLFieldIdentifierArrayOutputWithContext(context.Background())
+}
+
+func (i WebACLFieldIdentifierArray) ToWebACLFieldIdentifierArrayOutputWithContext(ctx context.Context) WebACLFieldIdentifierArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLFieldIdentifierArrayOutput)
+}
+
 type WebACLFieldIdentifierOutput struct{ *pulumi.OutputState }
 
 func (WebACLFieldIdentifierOutput) ElementType() reflect.Type {
@@ -13162,6 +13099,26 @@ func (o WebACLFieldIdentifierPtrOutput) Identifier() pulumi.StringPtrOutput {
 		}
 		return &v.Identifier
 	}).(pulumi.StringPtrOutput)
+}
+
+type WebACLFieldIdentifierArrayOutput struct{ *pulumi.OutputState }
+
+func (WebACLFieldIdentifierArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebACLFieldIdentifier)(nil)).Elem()
+}
+
+func (o WebACLFieldIdentifierArrayOutput) ToWebACLFieldIdentifierArrayOutput() WebACLFieldIdentifierArrayOutput {
+	return o
+}
+
+func (o WebACLFieldIdentifierArrayOutput) ToWebACLFieldIdentifierArrayOutputWithContext(ctx context.Context) WebACLFieldIdentifierArrayOutput {
+	return o
+}
+
+func (o WebACLFieldIdentifierArrayOutput) Index(i pulumi.IntInput) WebACLFieldIdentifierOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebACLFieldIdentifier {
+		return vs[0].([]WebACLFieldIdentifier)[vs[1].(int)]
+	}).(WebACLFieldIdentifierOutput)
 }
 
 // Field of the request to match.
@@ -13878,7 +13835,7 @@ func (o WebACLForwardedIPConfigurationPtrOutput) HeaderName() pulumi.StringPtrOu
 
 type WebACLGeoMatchStatement struct {
 	CountryCodes      []string                        `pulumi:"countryCodes"`
-	ForwardedIPConfig *WebACLForwardedIPConfiguration `pulumi:"forwardedIPConfig"`
+	ForwardedIpConfig *WebACLForwardedIPConfiguration `pulumi:"forwardedIpConfig"`
 }
 
 // WebACLGeoMatchStatementInput is an input type that accepts WebACLGeoMatchStatementArgs and WebACLGeoMatchStatementOutput values.
@@ -13894,7 +13851,7 @@ type WebACLGeoMatchStatementInput interface {
 
 type WebACLGeoMatchStatementArgs struct {
 	CountryCodes      pulumi.StringArrayInput                `pulumi:"countryCodes"`
-	ForwardedIPConfig WebACLForwardedIPConfigurationPtrInput `pulumi:"forwardedIPConfig"`
+	ForwardedIpConfig WebACLForwardedIPConfigurationPtrInput `pulumi:"forwardedIpConfig"`
 }
 
 func (WebACLGeoMatchStatementArgs) ElementType() reflect.Type {
@@ -13978,8 +13935,8 @@ func (o WebACLGeoMatchStatementOutput) CountryCodes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WebACLGeoMatchStatement) []string { return v.CountryCodes }).(pulumi.StringArrayOutput)
 }
 
-func (o WebACLGeoMatchStatementOutput) ForwardedIPConfig() WebACLForwardedIPConfigurationPtrOutput {
-	return o.ApplyT(func(v WebACLGeoMatchStatement) *WebACLForwardedIPConfiguration { return v.ForwardedIPConfig }).(WebACLForwardedIPConfigurationPtrOutput)
+func (o WebACLGeoMatchStatementOutput) ForwardedIpConfig() WebACLForwardedIPConfigurationPtrOutput {
+	return o.ApplyT(func(v WebACLGeoMatchStatement) *WebACLForwardedIPConfiguration { return v.ForwardedIpConfig }).(WebACLForwardedIPConfigurationPtrOutput)
 }
 
 type WebACLGeoMatchStatementPtrOutput struct{ *pulumi.OutputState }
@@ -14015,12 +13972,12 @@ func (o WebACLGeoMatchStatementPtrOutput) CountryCodes() pulumi.StringArrayOutpu
 	}).(pulumi.StringArrayOutput)
 }
 
-func (o WebACLGeoMatchStatementPtrOutput) ForwardedIPConfig() WebACLForwardedIPConfigurationPtrOutput {
+func (o WebACLGeoMatchStatementPtrOutput) ForwardedIpConfig() WebACLForwardedIPConfigurationPtrOutput {
 	return o.ApplyT(func(v *WebACLGeoMatchStatement) *WebACLForwardedIPConfiguration {
 		if v == nil {
 			return nil
 		}
-		return v.ForwardedIPConfig
+		return v.ForwardedIpConfig
 	}).(WebACLForwardedIPConfigurationPtrOutput)
 }
 
@@ -14529,7 +14486,7 @@ func (o WebACLIPSetForwardedIPConfigurationPtrOutput) Position() WebACLIPSetForw
 
 type WebACLIPSetReferenceStatement struct {
 	Arn                    string                               `pulumi:"arn"`
-	IPSetForwardedIPConfig *WebACLIPSetForwardedIPConfiguration `pulumi:"iPSetForwardedIPConfig"`
+	IpSetForwardedIpConfig *WebACLIPSetForwardedIPConfiguration `pulumi:"ipSetForwardedIpConfig"`
 }
 
 // WebACLIPSetReferenceStatementInput is an input type that accepts WebACLIPSetReferenceStatementArgs and WebACLIPSetReferenceStatementOutput values.
@@ -14545,7 +14502,7 @@ type WebACLIPSetReferenceStatementInput interface {
 
 type WebACLIPSetReferenceStatementArgs struct {
 	Arn                    pulumi.StringInput                          `pulumi:"arn"`
-	IPSetForwardedIPConfig WebACLIPSetForwardedIPConfigurationPtrInput `pulumi:"iPSetForwardedIPConfig"`
+	IpSetForwardedIpConfig WebACLIPSetForwardedIPConfigurationPtrInput `pulumi:"ipSetForwardedIpConfig"`
 }
 
 func (WebACLIPSetReferenceStatementArgs) ElementType() reflect.Type {
@@ -14629,9 +14586,9 @@ func (o WebACLIPSetReferenceStatementOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v WebACLIPSetReferenceStatement) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-func (o WebACLIPSetReferenceStatementOutput) IPSetForwardedIPConfig() WebACLIPSetForwardedIPConfigurationPtrOutput {
+func (o WebACLIPSetReferenceStatementOutput) IpSetForwardedIpConfig() WebACLIPSetForwardedIPConfigurationPtrOutput {
 	return o.ApplyT(func(v WebACLIPSetReferenceStatement) *WebACLIPSetForwardedIPConfiguration {
-		return v.IPSetForwardedIPConfig
+		return v.IpSetForwardedIpConfig
 	}).(WebACLIPSetForwardedIPConfigurationPtrOutput)
 }
 
@@ -14668,12 +14625,12 @@ func (o WebACLIPSetReferenceStatementPtrOutput) Arn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o WebACLIPSetReferenceStatementPtrOutput) IPSetForwardedIPConfig() WebACLIPSetForwardedIPConfigurationPtrOutput {
+func (o WebACLIPSetReferenceStatementPtrOutput) IpSetForwardedIpConfig() WebACLIPSetForwardedIPConfigurationPtrOutput {
 	return o.ApplyT(func(v *WebACLIPSetReferenceStatement) *WebACLIPSetForwardedIPConfiguration {
 		if v == nil {
 			return nil
 		}
-		return v.IPSetForwardedIPConfig
+		return v.IpSetForwardedIpConfig
 	}).(WebACLIPSetForwardedIPConfigurationPtrOutput)
 }
 
@@ -15390,9 +15347,9 @@ func (o WebACLLabelMatchStatementPtrOutput) Scope() WebACLLabelMatchScopePtrOutp
 
 // ManagedRuleGroupConfig.
 type WebACLManagedRuleGroupConfig struct {
-	AWSManagedRulesACFPRuleSet       *WebACLAWSManagedRulesACFPRuleSet        `pulumi:"aWSManagedRulesACFPRuleSet"`
-	AWSManagedRulesATPRuleSet        *WebACLAWSManagedRulesATPRuleSet         `pulumi:"aWSManagedRulesATPRuleSet"`
-	AWSManagedRulesBotControlRuleSet *WebACLAWSManagedRulesBotControlRuleSet  `pulumi:"aWSManagedRulesBotControlRuleSet"`
+	AwsManagedRulesAcfpRuleSet       *WebACLAWSManagedRulesACFPRuleSet        `pulumi:"awsManagedRulesAcfpRuleSet"`
+	AwsManagedRulesAtpRuleSet        *WebACLAWSManagedRulesATPRuleSet         `pulumi:"awsManagedRulesAtpRuleSet"`
+	AwsManagedRulesBotControlRuleSet *WebACLAWSManagedRulesBotControlRuleSet  `pulumi:"awsManagedRulesBotControlRuleSet"`
 	LoginPath                        *string                                  `pulumi:"loginPath"`
 	PasswordField                    *WebACLFieldIdentifier                   `pulumi:"passwordField"`
 	PayloadType                      *WebACLManagedRuleGroupConfigPayloadType `pulumi:"payloadType"`
@@ -15412,9 +15369,9 @@ type WebACLManagedRuleGroupConfigInput interface {
 
 // ManagedRuleGroupConfig.
 type WebACLManagedRuleGroupConfigArgs struct {
-	AWSManagedRulesACFPRuleSet       WebACLAWSManagedRulesACFPRuleSetPtrInput        `pulumi:"aWSManagedRulesACFPRuleSet"`
-	AWSManagedRulesATPRuleSet        WebACLAWSManagedRulesATPRuleSetPtrInput         `pulumi:"aWSManagedRulesATPRuleSet"`
-	AWSManagedRulesBotControlRuleSet WebACLAWSManagedRulesBotControlRuleSetPtrInput  `pulumi:"aWSManagedRulesBotControlRuleSet"`
+	AwsManagedRulesAcfpRuleSet       WebACLAWSManagedRulesACFPRuleSetPtrInput        `pulumi:"awsManagedRulesAcfpRuleSet"`
+	AwsManagedRulesAtpRuleSet        WebACLAWSManagedRulesATPRuleSetPtrInput         `pulumi:"awsManagedRulesAtpRuleSet"`
+	AwsManagedRulesBotControlRuleSet WebACLAWSManagedRulesBotControlRuleSetPtrInput  `pulumi:"awsManagedRulesBotControlRuleSet"`
 	LoginPath                        pulumi.StringPtrInput                           `pulumi:"loginPath"`
 	PasswordField                    WebACLFieldIdentifierPtrInput                   `pulumi:"passwordField"`
 	PayloadType                      WebACLManagedRuleGroupConfigPayloadTypePtrInput `pulumi:"payloadType"`
@@ -15473,21 +15430,21 @@ func (o WebACLManagedRuleGroupConfigOutput) ToWebACLManagedRuleGroupConfigOutput
 	return o
 }
 
-func (o WebACLManagedRuleGroupConfigOutput) AWSManagedRulesACFPRuleSet() WebACLAWSManagedRulesACFPRuleSetPtrOutput {
+func (o WebACLManagedRuleGroupConfigOutput) AwsManagedRulesAcfpRuleSet() WebACLAWSManagedRulesACFPRuleSetPtrOutput {
 	return o.ApplyT(func(v WebACLManagedRuleGroupConfig) *WebACLAWSManagedRulesACFPRuleSet {
-		return v.AWSManagedRulesACFPRuleSet
+		return v.AwsManagedRulesAcfpRuleSet
 	}).(WebACLAWSManagedRulesACFPRuleSetPtrOutput)
 }
 
-func (o WebACLManagedRuleGroupConfigOutput) AWSManagedRulesATPRuleSet() WebACLAWSManagedRulesATPRuleSetPtrOutput {
+func (o WebACLManagedRuleGroupConfigOutput) AwsManagedRulesAtpRuleSet() WebACLAWSManagedRulesATPRuleSetPtrOutput {
 	return o.ApplyT(func(v WebACLManagedRuleGroupConfig) *WebACLAWSManagedRulesATPRuleSet {
-		return v.AWSManagedRulesATPRuleSet
+		return v.AwsManagedRulesAtpRuleSet
 	}).(WebACLAWSManagedRulesATPRuleSetPtrOutput)
 }
 
-func (o WebACLManagedRuleGroupConfigOutput) AWSManagedRulesBotControlRuleSet() WebACLAWSManagedRulesBotControlRuleSetPtrOutput {
+func (o WebACLManagedRuleGroupConfigOutput) AwsManagedRulesBotControlRuleSet() WebACLAWSManagedRulesBotControlRuleSetPtrOutput {
 	return o.ApplyT(func(v WebACLManagedRuleGroupConfig) *WebACLAWSManagedRulesBotControlRuleSet {
-		return v.AWSManagedRulesBotControlRuleSet
+		return v.AwsManagedRulesBotControlRuleSet
 	}).(WebACLAWSManagedRulesBotControlRuleSetPtrOutput)
 }
 
@@ -16185,99 +16142,11 @@ func (o WebACLOverrideActionPtrOutput) None() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-type WebACLPhoneNumberField struct {
-}
-
-// WebACLPhoneNumberFieldInput is an input type that accepts WebACLPhoneNumberFieldArgs and WebACLPhoneNumberFieldOutput values.
-// You can construct a concrete instance of `WebACLPhoneNumberFieldInput` via:
-//
-//	WebACLPhoneNumberFieldArgs{...}
-type WebACLPhoneNumberFieldInput interface {
-	pulumi.Input
-
-	ToWebACLPhoneNumberFieldOutput() WebACLPhoneNumberFieldOutput
-	ToWebACLPhoneNumberFieldOutputWithContext(context.Context) WebACLPhoneNumberFieldOutput
-}
-
-type WebACLPhoneNumberFieldArgs struct {
-}
-
-func (WebACLPhoneNumberFieldArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLPhoneNumberField)(nil)).Elem()
-}
-
-func (i WebACLPhoneNumberFieldArgs) ToWebACLPhoneNumberFieldOutput() WebACLPhoneNumberFieldOutput {
-	return i.ToWebACLPhoneNumberFieldOutputWithContext(context.Background())
-}
-
-func (i WebACLPhoneNumberFieldArgs) ToWebACLPhoneNumberFieldOutputWithContext(ctx context.Context) WebACLPhoneNumberFieldOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebACLPhoneNumberFieldOutput)
-}
-
-// WebACLPhoneNumberFieldArrayInput is an input type that accepts WebACLPhoneNumberFieldArray and WebACLPhoneNumberFieldArrayOutput values.
-// You can construct a concrete instance of `WebACLPhoneNumberFieldArrayInput` via:
-//
-//	WebACLPhoneNumberFieldArray{ WebACLPhoneNumberFieldArgs{...} }
-type WebACLPhoneNumberFieldArrayInput interface {
-	pulumi.Input
-
-	ToWebACLPhoneNumberFieldArrayOutput() WebACLPhoneNumberFieldArrayOutput
-	ToWebACLPhoneNumberFieldArrayOutputWithContext(context.Context) WebACLPhoneNumberFieldArrayOutput
-}
-
-type WebACLPhoneNumberFieldArray []WebACLPhoneNumberFieldInput
-
-func (WebACLPhoneNumberFieldArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WebACLPhoneNumberField)(nil)).Elem()
-}
-
-func (i WebACLPhoneNumberFieldArray) ToWebACLPhoneNumberFieldArrayOutput() WebACLPhoneNumberFieldArrayOutput {
-	return i.ToWebACLPhoneNumberFieldArrayOutputWithContext(context.Background())
-}
-
-func (i WebACLPhoneNumberFieldArray) ToWebACLPhoneNumberFieldArrayOutputWithContext(ctx context.Context) WebACLPhoneNumberFieldArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebACLPhoneNumberFieldArrayOutput)
-}
-
-type WebACLPhoneNumberFieldOutput struct{ *pulumi.OutputState }
-
-func (WebACLPhoneNumberFieldOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLPhoneNumberField)(nil)).Elem()
-}
-
-func (o WebACLPhoneNumberFieldOutput) ToWebACLPhoneNumberFieldOutput() WebACLPhoneNumberFieldOutput {
-	return o
-}
-
-func (o WebACLPhoneNumberFieldOutput) ToWebACLPhoneNumberFieldOutputWithContext(ctx context.Context) WebACLPhoneNumberFieldOutput {
-	return o
-}
-
-type WebACLPhoneNumberFieldArrayOutput struct{ *pulumi.OutputState }
-
-func (WebACLPhoneNumberFieldArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WebACLPhoneNumberField)(nil)).Elem()
-}
-
-func (o WebACLPhoneNumberFieldArrayOutput) ToWebACLPhoneNumberFieldArrayOutput() WebACLPhoneNumberFieldArrayOutput {
-	return o
-}
-
-func (o WebACLPhoneNumberFieldArrayOutput) ToWebACLPhoneNumberFieldArrayOutputWithContext(ctx context.Context) WebACLPhoneNumberFieldArrayOutput {
-	return o
-}
-
-func (o WebACLPhoneNumberFieldArrayOutput) Index(i pulumi.IntInput) WebACLPhoneNumberFieldOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebACLPhoneNumberField {
-		return vs[0].([]WebACLPhoneNumberField)[vs[1].(int)]
-	}).(WebACLPhoneNumberFieldOutput)
-}
-
 type WebACLRateBasedStatement struct {
 	AggregateKeyType WebACLRateBasedStatementAggregateKeyType `pulumi:"aggregateKeyType"`
 	// Specifies the aggregate keys to use in a rate-base rule.
 	CustomKeys         []WebACLRateBasedStatementCustomKey `pulumi:"customKeys"`
-	ForwardedIPConfig  *WebACLForwardedIPConfiguration     `pulumi:"forwardedIPConfig"`
+	ForwardedIpConfig  *WebACLForwardedIPConfiguration     `pulumi:"forwardedIpConfig"`
 	Limit              int                                 `pulumi:"limit"`
 	ScopeDownStatement *WebACLStatement                    `pulumi:"scopeDownStatement"`
 }
@@ -16297,7 +16166,7 @@ type WebACLRateBasedStatementArgs struct {
 	AggregateKeyType WebACLRateBasedStatementAggregateKeyTypeInput `pulumi:"aggregateKeyType"`
 	// Specifies the aggregate keys to use in a rate-base rule.
 	CustomKeys         WebACLRateBasedStatementCustomKeyArrayInput `pulumi:"customKeys"`
-	ForwardedIPConfig  WebACLForwardedIPConfigurationPtrInput      `pulumi:"forwardedIPConfig"`
+	ForwardedIpConfig  WebACLForwardedIPConfigurationPtrInput      `pulumi:"forwardedIpConfig"`
 	Limit              pulumi.IntInput                             `pulumi:"limit"`
 	ScopeDownStatement WebACLStatementPtrInput                     `pulumi:"scopeDownStatement"`
 }
@@ -16388,8 +16257,8 @@ func (o WebACLRateBasedStatementOutput) CustomKeys() WebACLRateBasedStatementCus
 	return o.ApplyT(func(v WebACLRateBasedStatement) []WebACLRateBasedStatementCustomKey { return v.CustomKeys }).(WebACLRateBasedStatementCustomKeyArrayOutput)
 }
 
-func (o WebACLRateBasedStatementOutput) ForwardedIPConfig() WebACLForwardedIPConfigurationPtrOutput {
-	return o.ApplyT(func(v WebACLRateBasedStatement) *WebACLForwardedIPConfiguration { return v.ForwardedIPConfig }).(WebACLForwardedIPConfigurationPtrOutput)
+func (o WebACLRateBasedStatementOutput) ForwardedIpConfig() WebACLForwardedIPConfigurationPtrOutput {
+	return o.ApplyT(func(v WebACLRateBasedStatement) *WebACLForwardedIPConfiguration { return v.ForwardedIpConfig }).(WebACLForwardedIPConfigurationPtrOutput)
 }
 
 func (o WebACLRateBasedStatementOutput) Limit() pulumi.IntOutput {
@@ -16443,12 +16312,12 @@ func (o WebACLRateBasedStatementPtrOutput) CustomKeys() WebACLRateBasedStatement
 	}).(WebACLRateBasedStatementCustomKeyArrayOutput)
 }
 
-func (o WebACLRateBasedStatementPtrOutput) ForwardedIPConfig() WebACLForwardedIPConfigurationPtrOutput {
+func (o WebACLRateBasedStatementPtrOutput) ForwardedIpConfig() WebACLForwardedIPConfigurationPtrOutput {
 	return o.ApplyT(func(v *WebACLRateBasedStatement) *WebACLForwardedIPConfiguration {
 		if v == nil {
 			return nil
 		}
-		return v.ForwardedIPConfig
+		return v.ForwardedIpConfig
 	}).(WebACLForwardedIPConfigurationPtrOutput)
 }
 
@@ -16473,10 +16342,10 @@ func (o WebACLRateBasedStatementPtrOutput) ScopeDownStatement() WebACLStatementP
 // Specifies a single custom aggregate key for a rate-base rule.
 type WebACLRateBasedStatementCustomKey struct {
 	Cookie         *WebACLRateLimitCookie         `pulumi:"cookie"`
-	ForwardedIP    *WebACLRateLimitForwardedIP    `pulumi:"forwardedIP"`
-	HTTPMethod     *WebACLRateLimitHTTPMethod     `pulumi:"hTTPMethod"`
+	ForwardedIp    *WebACLRateLimitForwardedIP    `pulumi:"forwardedIp"`
 	Header         *WebACLRateLimitHeader         `pulumi:"header"`
-	IP             *WebACLRateLimitIP             `pulumi:"iP"`
+	HttpMethod     *WebACLRateLimitHTTPMethod     `pulumi:"httpMethod"`
+	Ip             *WebACLRateLimitIP             `pulumi:"ip"`
 	LabelNamespace *WebACLRateLimitLabelNamespace `pulumi:"labelNamespace"`
 	QueryArgument  *WebACLRateLimitQueryArgument  `pulumi:"queryArgument"`
 	QueryString    *WebACLRateLimitQueryString    `pulumi:"queryString"`
@@ -16497,10 +16366,10 @@ type WebACLRateBasedStatementCustomKeyInput interface {
 // Specifies a single custom aggregate key for a rate-base rule.
 type WebACLRateBasedStatementCustomKeyArgs struct {
 	Cookie         WebACLRateLimitCookiePtrInput         `pulumi:"cookie"`
-	ForwardedIP    WebACLRateLimitForwardedIPPtrInput    `pulumi:"forwardedIP"`
-	HTTPMethod     WebACLRateLimitHTTPMethodPtrInput     `pulumi:"hTTPMethod"`
+	ForwardedIp    WebACLRateLimitForwardedIPPtrInput    `pulumi:"forwardedIp"`
 	Header         WebACLRateLimitHeaderPtrInput         `pulumi:"header"`
-	IP             WebACLRateLimitIPPtrInput             `pulumi:"iP"`
+	HttpMethod     WebACLRateLimitHTTPMethodPtrInput     `pulumi:"httpMethod"`
+	Ip             WebACLRateLimitIPPtrInput             `pulumi:"ip"`
 	LabelNamespace WebACLRateLimitLabelNamespacePtrInput `pulumi:"labelNamespace"`
 	QueryArgument  WebACLRateLimitQueryArgumentPtrInput  `pulumi:"queryArgument"`
 	QueryString    WebACLRateLimitQueryStringPtrInput    `pulumi:"queryString"`
@@ -16563,20 +16432,20 @@ func (o WebACLRateBasedStatementCustomKeyOutput) Cookie() WebACLRateLimitCookieP
 	return o.ApplyT(func(v WebACLRateBasedStatementCustomKey) *WebACLRateLimitCookie { return v.Cookie }).(WebACLRateLimitCookiePtrOutput)
 }
 
-func (o WebACLRateBasedStatementCustomKeyOutput) ForwardedIP() WebACLRateLimitForwardedIPPtrOutput {
-	return o.ApplyT(func(v WebACLRateBasedStatementCustomKey) *WebACLRateLimitForwardedIP { return v.ForwardedIP }).(WebACLRateLimitForwardedIPPtrOutput)
-}
-
-func (o WebACLRateBasedStatementCustomKeyOutput) HTTPMethod() WebACLRateLimitHTTPMethodPtrOutput {
-	return o.ApplyT(func(v WebACLRateBasedStatementCustomKey) *WebACLRateLimitHTTPMethod { return v.HTTPMethod }).(WebACLRateLimitHTTPMethodPtrOutput)
+func (o WebACLRateBasedStatementCustomKeyOutput) ForwardedIp() WebACLRateLimitForwardedIPPtrOutput {
+	return o.ApplyT(func(v WebACLRateBasedStatementCustomKey) *WebACLRateLimitForwardedIP { return v.ForwardedIp }).(WebACLRateLimitForwardedIPPtrOutput)
 }
 
 func (o WebACLRateBasedStatementCustomKeyOutput) Header() WebACLRateLimitHeaderPtrOutput {
 	return o.ApplyT(func(v WebACLRateBasedStatementCustomKey) *WebACLRateLimitHeader { return v.Header }).(WebACLRateLimitHeaderPtrOutput)
 }
 
-func (o WebACLRateBasedStatementCustomKeyOutput) IP() WebACLRateLimitIPPtrOutput {
-	return o.ApplyT(func(v WebACLRateBasedStatementCustomKey) *WebACLRateLimitIP { return v.IP }).(WebACLRateLimitIPPtrOutput)
+func (o WebACLRateBasedStatementCustomKeyOutput) HttpMethod() WebACLRateLimitHTTPMethodPtrOutput {
+	return o.ApplyT(func(v WebACLRateBasedStatementCustomKey) *WebACLRateLimitHTTPMethod { return v.HttpMethod }).(WebACLRateLimitHTTPMethodPtrOutput)
+}
+
+func (o WebACLRateBasedStatementCustomKeyOutput) Ip() WebACLRateLimitIPPtrOutput {
+	return o.ApplyT(func(v WebACLRateBasedStatementCustomKey) *WebACLRateLimitIP { return v.Ip }).(WebACLRateLimitIPPtrOutput)
 }
 
 func (o WebACLRateBasedStatementCustomKeyOutput) LabelNamespace() WebACLRateLimitLabelNamespacePtrOutput {
@@ -18472,11 +18341,11 @@ func (o WebACLRequestInspectionPtrOutput) UsernameField() WebACLFieldIdentifierP
 
 // Configures the inspection of sign-up requests
 type WebACLRequestInspectionACFP struct {
-	AddressFields     []WebACLAddressField                   `pulumi:"addressFields"`
+	AddressFields     []WebACLFieldIdentifier                `pulumi:"addressFields"`
 	EmailField        *WebACLFieldIdentifier                 `pulumi:"emailField"`
 	PasswordField     *WebACLFieldIdentifier                 `pulumi:"passwordField"`
 	PayloadType       WebACLRequestInspectionACFPPayloadType `pulumi:"payloadType"`
-	PhoneNumberFields []WebACLPhoneNumberField               `pulumi:"phoneNumberFields"`
+	PhoneNumberFields []WebACLFieldIdentifier                `pulumi:"phoneNumberFields"`
 	UsernameField     *WebACLFieldIdentifier                 `pulumi:"usernameField"`
 }
 
@@ -18493,11 +18362,11 @@ type WebACLRequestInspectionACFPInput interface {
 
 // Configures the inspection of sign-up requests
 type WebACLRequestInspectionACFPArgs struct {
-	AddressFields     WebACLAddressFieldArrayInput                `pulumi:"addressFields"`
+	AddressFields     WebACLFieldIdentifierArrayInput             `pulumi:"addressFields"`
 	EmailField        WebACLFieldIdentifierPtrInput               `pulumi:"emailField"`
 	PasswordField     WebACLFieldIdentifierPtrInput               `pulumi:"passwordField"`
 	PayloadType       WebACLRequestInspectionACFPPayloadTypeInput `pulumi:"payloadType"`
-	PhoneNumberFields WebACLPhoneNumberFieldArrayInput            `pulumi:"phoneNumberFields"`
+	PhoneNumberFields WebACLFieldIdentifierArrayInput             `pulumi:"phoneNumberFields"`
 	UsernameField     WebACLFieldIdentifierPtrInput               `pulumi:"usernameField"`
 }
 
@@ -18579,8 +18448,8 @@ func (o WebACLRequestInspectionACFPOutput) ToWebACLRequestInspectionACFPPtrOutpu
 	}).(WebACLRequestInspectionACFPPtrOutput)
 }
 
-func (o WebACLRequestInspectionACFPOutput) AddressFields() WebACLAddressFieldArrayOutput {
-	return o.ApplyT(func(v WebACLRequestInspectionACFP) []WebACLAddressField { return v.AddressFields }).(WebACLAddressFieldArrayOutput)
+func (o WebACLRequestInspectionACFPOutput) AddressFields() WebACLFieldIdentifierArrayOutput {
+	return o.ApplyT(func(v WebACLRequestInspectionACFP) []WebACLFieldIdentifier { return v.AddressFields }).(WebACLFieldIdentifierArrayOutput)
 }
 
 func (o WebACLRequestInspectionACFPOutput) EmailField() WebACLFieldIdentifierPtrOutput {
@@ -18595,8 +18464,8 @@ func (o WebACLRequestInspectionACFPOutput) PayloadType() WebACLRequestInspection
 	return o.ApplyT(func(v WebACLRequestInspectionACFP) WebACLRequestInspectionACFPPayloadType { return v.PayloadType }).(WebACLRequestInspectionACFPPayloadTypeOutput)
 }
 
-func (o WebACLRequestInspectionACFPOutput) PhoneNumberFields() WebACLPhoneNumberFieldArrayOutput {
-	return o.ApplyT(func(v WebACLRequestInspectionACFP) []WebACLPhoneNumberField { return v.PhoneNumberFields }).(WebACLPhoneNumberFieldArrayOutput)
+func (o WebACLRequestInspectionACFPOutput) PhoneNumberFields() WebACLFieldIdentifierArrayOutput {
+	return o.ApplyT(func(v WebACLRequestInspectionACFP) []WebACLFieldIdentifier { return v.PhoneNumberFields }).(WebACLFieldIdentifierArrayOutput)
 }
 
 func (o WebACLRequestInspectionACFPOutput) UsernameField() WebACLFieldIdentifierPtrOutput {
@@ -18627,13 +18496,13 @@ func (o WebACLRequestInspectionACFPPtrOutput) Elem() WebACLRequestInspectionACFP
 	}).(WebACLRequestInspectionACFPOutput)
 }
 
-func (o WebACLRequestInspectionACFPPtrOutput) AddressFields() WebACLAddressFieldArrayOutput {
-	return o.ApplyT(func(v *WebACLRequestInspectionACFP) []WebACLAddressField {
+func (o WebACLRequestInspectionACFPPtrOutput) AddressFields() WebACLFieldIdentifierArrayOutput {
+	return o.ApplyT(func(v *WebACLRequestInspectionACFP) []WebACLFieldIdentifier {
 		if v == nil {
 			return nil
 		}
 		return v.AddressFields
-	}).(WebACLAddressFieldArrayOutput)
+	}).(WebACLFieldIdentifierArrayOutput)
 }
 
 func (o WebACLRequestInspectionACFPPtrOutput) EmailField() WebACLFieldIdentifierPtrOutput {
@@ -18663,13 +18532,13 @@ func (o WebACLRequestInspectionACFPPtrOutput) PayloadType() WebACLRequestInspect
 	}).(WebACLRequestInspectionACFPPayloadTypePtrOutput)
 }
 
-func (o WebACLRequestInspectionACFPPtrOutput) PhoneNumberFields() WebACLPhoneNumberFieldArrayOutput {
-	return o.ApplyT(func(v *WebACLRequestInspectionACFP) []WebACLPhoneNumberField {
+func (o WebACLRequestInspectionACFPPtrOutput) PhoneNumberFields() WebACLFieldIdentifierArrayOutput {
+	return o.ApplyT(func(v *WebACLRequestInspectionACFP) []WebACLFieldIdentifier {
 		if v == nil {
 			return nil
 		}
 		return v.PhoneNumberFields
-	}).(WebACLPhoneNumberFieldArrayOutput)
+	}).(WebACLFieldIdentifierArrayOutput)
 }
 
 func (o WebACLRequestInspectionACFPPtrOutput) UsernameField() WebACLFieldIdentifierPtrOutput {
@@ -20464,7 +20333,7 @@ type WebACLStatement struct {
 	AndStatement                      *WebACLAndStatement                      `pulumi:"andStatement"`
 	ByteMatchStatement                *WebACLByteMatchStatement                `pulumi:"byteMatchStatement"`
 	GeoMatchStatement                 *WebACLGeoMatchStatement                 `pulumi:"geoMatchStatement"`
-	IPSetReferenceStatement           *WebACLIPSetReferenceStatement           `pulumi:"iPSetReferenceStatement"`
+	IpSetReferenceStatement           *WebACLIPSetReferenceStatement           `pulumi:"ipSetReferenceStatement"`
 	LabelMatchStatement               *WebACLLabelMatchStatement               `pulumi:"labelMatchStatement"`
 	ManagedRuleGroupStatement         *WebACLManagedRuleGroupStatement         `pulumi:"managedRuleGroupStatement"`
 	NotStatement                      *WebACLNotStatement                      `pulumi:"notStatement"`
@@ -20494,7 +20363,7 @@ type WebACLStatementArgs struct {
 	AndStatement                      WebACLAndStatementPtrInput                      `pulumi:"andStatement"`
 	ByteMatchStatement                WebACLByteMatchStatementPtrInput                `pulumi:"byteMatchStatement"`
 	GeoMatchStatement                 WebACLGeoMatchStatementPtrInput                 `pulumi:"geoMatchStatement"`
-	IPSetReferenceStatement           WebACLIPSetReferenceStatementPtrInput           `pulumi:"iPSetReferenceStatement"`
+	IpSetReferenceStatement           WebACLIPSetReferenceStatementPtrInput           `pulumi:"ipSetReferenceStatement"`
 	LabelMatchStatement               WebACLLabelMatchStatementPtrInput               `pulumi:"labelMatchStatement"`
 	ManagedRuleGroupStatement         WebACLManagedRuleGroupStatementPtrInput         `pulumi:"managedRuleGroupStatement"`
 	NotStatement                      WebACLNotStatementPtrInput                      `pulumi:"notStatement"`
@@ -20623,8 +20492,8 @@ func (o WebACLStatementOutput) GeoMatchStatement() WebACLGeoMatchStatementPtrOut
 	return o.ApplyT(func(v WebACLStatement) *WebACLGeoMatchStatement { return v.GeoMatchStatement }).(WebACLGeoMatchStatementPtrOutput)
 }
 
-func (o WebACLStatementOutput) IPSetReferenceStatement() WebACLIPSetReferenceStatementPtrOutput {
-	return o.ApplyT(func(v WebACLStatement) *WebACLIPSetReferenceStatement { return v.IPSetReferenceStatement }).(WebACLIPSetReferenceStatementPtrOutput)
+func (o WebACLStatementOutput) IpSetReferenceStatement() WebACLIPSetReferenceStatementPtrOutput {
+	return o.ApplyT(func(v WebACLStatement) *WebACLIPSetReferenceStatement { return v.IpSetReferenceStatement }).(WebACLIPSetReferenceStatementPtrOutput)
 }
 
 func (o WebACLStatementOutput) LabelMatchStatement() WebACLLabelMatchStatementPtrOutput {
@@ -20724,12 +20593,12 @@ func (o WebACLStatementPtrOutput) GeoMatchStatement() WebACLGeoMatchStatementPtr
 	}).(WebACLGeoMatchStatementPtrOutput)
 }
 
-func (o WebACLStatementPtrOutput) IPSetReferenceStatement() WebACLIPSetReferenceStatementPtrOutput {
+func (o WebACLStatementPtrOutput) IpSetReferenceStatement() WebACLIPSetReferenceStatementPtrOutput {
 	return o.ApplyT(func(v *WebACLStatement) *WebACLIPSetReferenceStatement {
 		if v == nil {
 			return nil
 		}
-		return v.IPSetReferenceStatement
+		return v.IpSetReferenceStatement
 	}).(WebACLIPSetReferenceStatementPtrOutput)
 }
 
@@ -21460,8 +21329,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLAWSManagedRulesATPRuleSetPtrInput)(nil)).Elem(), WebACLAWSManagedRulesATPRuleSetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLAWSManagedRulesBotControlRuleSetInput)(nil)).Elem(), WebACLAWSManagedRulesBotControlRuleSetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLAWSManagedRulesBotControlRuleSetPtrInput)(nil)).Elem(), WebACLAWSManagedRulesBotControlRuleSetArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebACLAddressFieldInput)(nil)).Elem(), WebACLAddressFieldArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebACLAddressFieldArrayInput)(nil)).Elem(), WebACLAddressFieldArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLAllowActionInput)(nil)).Elem(), WebACLAllowActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLAllowActionPtrInput)(nil)).Elem(), WebACLAllowActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLAndStatementInput)(nil)).Elem(), WebACLAndStatementArgs{})
@@ -21501,6 +21368,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLExcludedRuleArrayInput)(nil)).Elem(), WebACLExcludedRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLFieldIdentifierInput)(nil)).Elem(), WebACLFieldIdentifierArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLFieldIdentifierPtrInput)(nil)).Elem(), WebACLFieldIdentifierArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLFieldIdentifierArrayInput)(nil)).Elem(), WebACLFieldIdentifierArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLFieldToMatchInput)(nil)).Elem(), WebACLFieldToMatchArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLFieldToMatchPtrInput)(nil)).Elem(), WebACLFieldToMatchArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLFieldToMatchSingleHeaderPropertiesInput)(nil)).Elem(), WebACLFieldToMatchSingleHeaderPropertiesArgs{})
@@ -21539,8 +21407,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLOrStatementPtrInput)(nil)).Elem(), WebACLOrStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLOverrideActionInput)(nil)).Elem(), WebACLOverrideActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLOverrideActionPtrInput)(nil)).Elem(), WebACLOverrideActionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebACLPhoneNumberFieldInput)(nil)).Elem(), WebACLPhoneNumberFieldArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebACLPhoneNumberFieldArrayInput)(nil)).Elem(), WebACLPhoneNumberFieldArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRateBasedStatementInput)(nil)).Elem(), WebACLRateBasedStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRateBasedStatementPtrInput)(nil)).Elem(), WebACLRateBasedStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRateBasedStatementCustomKeyInput)(nil)).Elem(), WebACLRateBasedStatementCustomKeyArgs{})
@@ -21744,8 +21610,6 @@ func init() {
 	pulumi.RegisterOutputType(WebACLAWSManagedRulesATPRuleSetPtrOutput{})
 	pulumi.RegisterOutputType(WebACLAWSManagedRulesBotControlRuleSetOutput{})
 	pulumi.RegisterOutputType(WebACLAWSManagedRulesBotControlRuleSetPtrOutput{})
-	pulumi.RegisterOutputType(WebACLAddressFieldOutput{})
-	pulumi.RegisterOutputType(WebACLAddressFieldArrayOutput{})
 	pulumi.RegisterOutputType(WebACLAllowActionOutput{})
 	pulumi.RegisterOutputType(WebACLAllowActionPtrOutput{})
 	pulumi.RegisterOutputType(WebACLAndStatementOutput{})
@@ -21786,6 +21650,7 @@ func init() {
 	pulumi.RegisterOutputType(WebACLExcludedRuleArrayOutput{})
 	pulumi.RegisterOutputType(WebACLFieldIdentifierOutput{})
 	pulumi.RegisterOutputType(WebACLFieldIdentifierPtrOutput{})
+	pulumi.RegisterOutputType(WebACLFieldIdentifierArrayOutput{})
 	pulumi.RegisterOutputType(WebACLFieldToMatchOutput{})
 	pulumi.RegisterOutputType(WebACLFieldToMatchPtrOutput{})
 	pulumi.RegisterOutputType(WebACLFieldToMatchSingleHeaderPropertiesOutput{})
@@ -21824,8 +21689,6 @@ func init() {
 	pulumi.RegisterOutputType(WebACLOrStatementPtrOutput{})
 	pulumi.RegisterOutputType(WebACLOverrideActionOutput{})
 	pulumi.RegisterOutputType(WebACLOverrideActionPtrOutput{})
-	pulumi.RegisterOutputType(WebACLPhoneNumberFieldOutput{})
-	pulumi.RegisterOutputType(WebACLPhoneNumberFieldArrayOutput{})
 	pulumi.RegisterOutputType(WebACLRateBasedStatementOutput{})
 	pulumi.RegisterOutputType(WebACLRateBasedStatementPtrOutput{})
 	pulumi.RegisterOutputType(WebACLRateBasedStatementCustomKeyOutput{})

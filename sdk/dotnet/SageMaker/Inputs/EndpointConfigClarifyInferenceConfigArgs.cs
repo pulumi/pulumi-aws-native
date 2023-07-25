@@ -48,8 +48,8 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("labelIndex")]
         public Input<int>? LabelIndex { get; set; }
 
-        [Input("maxPayloadInMB")]
-        public Input<int>? MaxPayloadInMB { get; set; }
+        [Input("maxPayloadInMb")]
+        public Input<int>? MaxPayloadInMb { get; set; }
 
         [Input("maxRecordCount")]
         public Input<int>? MaxRecordCount { get; set; }

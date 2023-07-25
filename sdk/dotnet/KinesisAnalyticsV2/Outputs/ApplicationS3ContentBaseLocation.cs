@@ -23,16 +23,16 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Outputs
         /// <summary>
         /// The Amazon Resource Name (ARN) of the S3 bucket.
         /// </summary>
-        public readonly string BucketARN;
+        public readonly string BucketArn;
 
         [OutputConstructor]
         private ApplicationS3ContentBaseLocation(
             string? basePath,
 
-            string bucketARN)
+            string bucketArn)
         {
             BasePath = basePath;
-            BucketARN = bucketARN;
+            BucketArn = bucketArn;
         }
     }
 }

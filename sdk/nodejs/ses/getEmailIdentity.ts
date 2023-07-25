@@ -28,12 +28,12 @@ export interface GetEmailIdentityArgs {
 export interface GetEmailIdentityResult {
     readonly configurationSetAttributes?: outputs.ses.EmailIdentityConfigurationSetAttributes;
     readonly dkimAttributes?: outputs.ses.EmailIdentityDkimAttributes;
-    readonly dkimDNSTokenName1?: string;
-    readonly dkimDNSTokenName2?: string;
-    readonly dkimDNSTokenName3?: string;
-    readonly dkimDNSTokenValue1?: string;
-    readonly dkimDNSTokenValue2?: string;
-    readonly dkimDNSTokenValue3?: string;
+    readonly dkimDnsTokenName1?: string;
+    readonly dkimDnsTokenName2?: string;
+    readonly dkimDnsTokenName3?: string;
+    readonly dkimDnsTokenValue1?: string;
+    readonly dkimDnsTokenValue2?: string;
+    readonly dkimDnsTokenValue3?: string;
     readonly dkimSigningAttributes?: outputs.ses.EmailIdentityDkimSigningAttributes;
     readonly feedbackAttributes?: outputs.ses.EmailIdentityFeedbackAttributes;
     readonly mailFromAttributes?: outputs.ses.EmailIdentityMailFromAttributes;

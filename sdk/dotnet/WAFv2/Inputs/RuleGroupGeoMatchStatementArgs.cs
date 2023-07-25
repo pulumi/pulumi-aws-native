@@ -20,8 +20,8 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
             set => _countryCodes = value;
         }
 
-        [Input("forwardedIPConfig")]
-        public Input<Inputs.RuleGroupForwardedIPConfigurationArgs>? ForwardedIPConfig { get; set; }
+        [Input("forwardedIpConfig")]
+        public Input<Inputs.RuleGroupForwardedIPConfigurationArgs>? ForwardedIpConfig { get; set; }
 
         public RuleGroupGeoMatchStatementArgs()
         {

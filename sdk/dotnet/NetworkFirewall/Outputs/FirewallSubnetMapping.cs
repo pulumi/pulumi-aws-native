@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
         /// <summary>
         /// A IPAddressType
         /// </summary>
-        public readonly string? IPAddressType;
+        public readonly string? IpAddressType;
         /// <summary>
         /// A SubnetId.
         /// </summary>
@@ -24,11 +24,11 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
 
         [OutputConstructor]
         private FirewallSubnetMapping(
-            string? iPAddressType,
+            string? ipAddressType,
 
             string subnetId)
         {
-            IPAddressType = iPAddressType;
+            IpAddressType = ipAddressType;
             SubnetId = subnetId;
         }
     }

@@ -68,7 +68,7 @@ export class DataIntegration extends pulumi.CustomResource {
     /**
      * The URI of the data source.
      */
-    public readonly sourceURI!: pulumi.Output<string>;
+    public readonly sourceUri!: pulumi.Output<string>;
     /**
      * The tags (keys and values) associated with the data integration.
      */
@@ -91,8 +91,8 @@ export class DataIntegration extends pulumi.CustomResource {
             if ((!args || args.scheduleConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scheduleConfig'");
             }
-            if ((!args || args.sourceURI === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'sourceURI'");
+            if ((!args || args.sourceUri === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'sourceUri'");
             }
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["fileConfiguration"] = args ? args.fileConfiguration : undefined;
@@ -100,7 +100,7 @@ export class DataIntegration extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["objectConfiguration"] = args ? args.objectConfiguration : undefined;
             resourceInputs["scheduleConfig"] = args ? args.scheduleConfig : undefined;
-            resourceInputs["sourceURI"] = args ? args.sourceURI : undefined;
+            resourceInputs["sourceUri"] = args ? args.sourceUri : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["dataIntegrationArn"] = undefined /*out*/;
         } else {
@@ -111,7 +111,7 @@ export class DataIntegration extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["objectConfiguration"] = undefined /*out*/;
             resourceInputs["scheduleConfig"] = undefined /*out*/;
-            resourceInputs["sourceURI"] = undefined /*out*/;
+            resourceInputs["sourceUri"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -150,7 +150,7 @@ export interface DataIntegrationArgs {
     /**
      * The URI of the data source.
      */
-    sourceURI: pulumi.Input<string>;
+    sourceUri: pulumi.Input<string>;
     /**
      * The tags (keys and values) associated with the data integration.
      */

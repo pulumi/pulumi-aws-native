@@ -12,11 +12,11 @@ namespace Pulumi.AwsNative.EMR.Inputs
 
     public sealed class ClusterKerberosAttributesArgs : global::Pulumi.ResourceArgs
     {
-        [Input("aDDomainJoinPassword")]
-        public Input<string>? ADDomainJoinPassword { get; set; }
+        [Input("adDomainJoinPassword")]
+        public Input<string>? AdDomainJoinPassword { get; set; }
 
-        [Input("aDDomainJoinUser")]
-        public Input<string>? ADDomainJoinUser { get; set; }
+        [Input("adDomainJoinUser")]
+        public Input<string>? AdDomainJoinUser { get; set; }
 
         [Input("crossRealmTrustPrincipalPassword")]
         public Input<string>? CrossRealmTrustPrincipalPassword { get; set; }

@@ -30,9 +30,9 @@ export interface GetDeploymentGroupResult {
     readonly deployment?: outputs.codedeploy.DeploymentGroupDeployment;
     readonly deploymentConfigName?: string;
     readonly deploymentStyle?: outputs.codedeploy.DeploymentGroupDeploymentStyle;
-    readonly eCSServices?: outputs.codedeploy.DeploymentGroupECSService[];
     readonly ec2TagFilters?: outputs.codedeploy.DeploymentGroupEC2TagFilter[];
     readonly ec2TagSet?: outputs.codedeploy.DeploymentGroupEC2TagSet;
+    readonly ecsServices?: outputs.codedeploy.DeploymentGroupECSService[];
     readonly id?: string;
     readonly loadBalancerInfo?: outputs.codedeploy.DeploymentGroupLoadBalancerInfo;
     readonly onPremisesInstanceTagFilters?: outputs.codedeploy.DeploymentGroupTagFilter[];

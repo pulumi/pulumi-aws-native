@@ -6471,7 +6471,7 @@ type BotMessage struct {
 	CustomPayload     *BotCustomPayload     `pulumi:"customPayload"`
 	ImageResponseCard *BotImageResponseCard `pulumi:"imageResponseCard"`
 	PlainTextMessage  *BotPlainTextMessage  `pulumi:"plainTextMessage"`
-	SSMLMessage       *BotSSMLMessage       `pulumi:"sSMLMessage"`
+	SsmlMessage       *BotSSMLMessage       `pulumi:"ssmlMessage"`
 }
 
 // BotMessageInput is an input type that accepts BotMessageArgs and BotMessageOutput values.
@@ -6490,7 +6490,7 @@ type BotMessageArgs struct {
 	CustomPayload     BotCustomPayloadPtrInput     `pulumi:"customPayload"`
 	ImageResponseCard BotImageResponseCardPtrInput `pulumi:"imageResponseCard"`
 	PlainTextMessage  BotPlainTextMessagePtrInput  `pulumi:"plainTextMessage"`
-	SSMLMessage       BotSSMLMessagePtrInput       `pulumi:"sSMLMessage"`
+	SsmlMessage       BotSSMLMessagePtrInput       `pulumi:"ssmlMessage"`
 }
 
 func (BotMessageArgs) ElementType() reflect.Type {
@@ -6557,8 +6557,8 @@ func (o BotMessageOutput) PlainTextMessage() BotPlainTextMessagePtrOutput {
 	return o.ApplyT(func(v BotMessage) *BotPlainTextMessage { return v.PlainTextMessage }).(BotPlainTextMessagePtrOutput)
 }
 
-func (o BotMessageOutput) SSMLMessage() BotSSMLMessagePtrOutput {
-	return o.ApplyT(func(v BotMessage) *BotSSMLMessage { return v.SSMLMessage }).(BotSSMLMessagePtrOutput)
+func (o BotMessageOutput) SsmlMessage() BotSSMLMessagePtrOutput {
+	return o.ApplyT(func(v BotMessage) *BotSSMLMessage { return v.SsmlMessage }).(BotSSMLMessagePtrOutput)
 }
 
 type BotMessageArrayOutput struct{ *pulumi.OutputState }

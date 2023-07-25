@@ -27,7 +27,7 @@ class ScalingPlanApplicationSource(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "cloudFormationStackARN":
+        if key == "cloudFormationStackArn":
             suggest = "cloud_formation_stack_arn"
         elif key == "tagFilters":
             suggest = "tag_filters"
@@ -52,7 +52,7 @@ class ScalingPlanApplicationSource(dict):
             pulumi.set(__self__, "tag_filters", tag_filters)
 
     @property
-    @pulumi.getter(name="cloudFormationStackARN")
+    @pulumi.getter(name="cloudFormationStackArn")
     def cloud_formation_stack_arn(self) -> Optional[str]:
         return pulumi.get(self, "cloud_formation_stack_arn")
 

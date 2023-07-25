@@ -29,10 +29,10 @@ type LookupVolumeArgs struct {
 type LookupVolumeResult struct {
 	Name                 *string                     `pulumi:"name"`
 	OntapConfiguration   *VolumeOntapConfiguration   `pulumi:"ontapConfiguration"`
-	OpenZFSConfiguration *VolumeOpenZFSConfiguration `pulumi:"openZFSConfiguration"`
-	ResourceARN          *string                     `pulumi:"resourceARN"`
+	OpenZfsConfiguration *VolumeOpenZFSConfiguration `pulumi:"openZfsConfiguration"`
+	ResourceArn          *string                     `pulumi:"resourceArn"`
 	Tags                 []VolumeTag                 `pulumi:"tags"`
-	UUID                 *string                     `pulumi:"uUID"`
+	Uuid                 *string                     `pulumi:"uuid"`
 	VolumeId             *string                     `pulumi:"volumeId"`
 }
 
@@ -79,20 +79,20 @@ func (o LookupVolumeResultOutput) OntapConfiguration() VolumeOntapConfigurationP
 	return o.ApplyT(func(v LookupVolumeResult) *VolumeOntapConfiguration { return v.OntapConfiguration }).(VolumeOntapConfigurationPtrOutput)
 }
 
-func (o LookupVolumeResultOutput) OpenZFSConfiguration() VolumeOpenZFSConfigurationPtrOutput {
-	return o.ApplyT(func(v LookupVolumeResult) *VolumeOpenZFSConfiguration { return v.OpenZFSConfiguration }).(VolumeOpenZFSConfigurationPtrOutput)
+func (o LookupVolumeResultOutput) OpenZfsConfiguration() VolumeOpenZFSConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupVolumeResult) *VolumeOpenZFSConfiguration { return v.OpenZfsConfiguration }).(VolumeOpenZFSConfigurationPtrOutput)
 }
 
-func (o LookupVolumeResultOutput) ResourceARN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupVolumeResult) *string { return v.ResourceARN }).(pulumi.StringPtrOutput)
+func (o LookupVolumeResultOutput) ResourceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVolumeResult) *string { return v.ResourceArn }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupVolumeResultOutput) Tags() VolumeTagArrayOutput {
 	return o.ApplyT(func(v LookupVolumeResult) []VolumeTag { return v.Tags }).(VolumeTagArrayOutput)
 }
 
-func (o LookupVolumeResultOutput) UUID() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupVolumeResult) *string { return v.UUID }).(pulumi.StringPtrOutput)
+func (o LookupVolumeResultOutput) Uuid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVolumeResult) *string { return v.Uuid }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupVolumeResultOutput) VolumeId() pulumi.StringPtrOutput {

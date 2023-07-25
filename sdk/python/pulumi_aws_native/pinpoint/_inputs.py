@@ -513,14 +513,14 @@ class CampaignInAppMessageButtonArgs:
     def __init__(__self__, *,
                  android: Optional[pulumi.Input['CampaignOverrideButtonConfigurationArgs']] = None,
                  default_config: Optional[pulumi.Input['CampaignDefaultButtonConfigurationArgs']] = None,
-                 i_os: Optional[pulumi.Input['CampaignOverrideButtonConfigurationArgs']] = None,
+                 ios: Optional[pulumi.Input['CampaignOverrideButtonConfigurationArgs']] = None,
                  web: Optional[pulumi.Input['CampaignOverrideButtonConfigurationArgs']] = None):
         if android is not None:
             pulumi.set(__self__, "android", android)
         if default_config is not None:
             pulumi.set(__self__, "default_config", default_config)
-        if i_os is not None:
-            pulumi.set(__self__, "i_os", i_os)
+        if ios is not None:
+            pulumi.set(__self__, "ios", ios)
         if web is not None:
             pulumi.set(__self__, "web", web)
 
@@ -543,13 +543,13 @@ class CampaignInAppMessageButtonArgs:
         pulumi.set(self, "default_config", value)
 
     @property
-    @pulumi.getter(name="iOS")
-    def i_os(self) -> Optional[pulumi.Input['CampaignOverrideButtonConfigurationArgs']]:
-        return pulumi.get(self, "i_os")
+    @pulumi.getter
+    def ios(self) -> Optional[pulumi.Input['CampaignOverrideButtonConfigurationArgs']]:
+        return pulumi.get(self, "ios")
 
-    @i_os.setter
-    def i_os(self, value: Optional[pulumi.Input['CampaignOverrideButtonConfigurationArgs']]):
-        pulumi.set(self, "i_os", value)
+    @ios.setter
+    def ios(self, value: Optional[pulumi.Input['CampaignOverrideButtonConfigurationArgs']]):
+        pulumi.set(self, "ios", value)
 
     @property
     @pulumi.getter
@@ -788,19 +788,19 @@ class CampaignLimitsArgs:
 @pulumi.input_type
 class CampaignMessageConfigurationArgs:
     def __init__(__self__, *,
-                 a_dm_message: Optional[pulumi.Input['CampaignMessageArgs']] = None,
-                 a_pns_message: Optional[pulumi.Input['CampaignMessageArgs']] = None,
+                 adm_message: Optional[pulumi.Input['CampaignMessageArgs']] = None,
+                 apns_message: Optional[pulumi.Input['CampaignMessageArgs']] = None,
                  baidu_message: Optional[pulumi.Input['CampaignMessageArgs']] = None,
                  custom_message: Optional[pulumi.Input['CampaignCustomMessageArgs']] = None,
                  default_message: Optional[pulumi.Input['CampaignMessageArgs']] = None,
                  email_message: Optional[pulumi.Input['CampaignEmailMessageArgs']] = None,
-                 g_cm_message: Optional[pulumi.Input['CampaignMessageArgs']] = None,
+                 gcm_message: Optional[pulumi.Input['CampaignMessageArgs']] = None,
                  in_app_message: Optional[pulumi.Input['CampaignInAppMessageArgs']] = None,
-                 s_ms_message: Optional[pulumi.Input['CampaignSmsMessageArgs']] = None):
-        if a_dm_message is not None:
-            pulumi.set(__self__, "a_dm_message", a_dm_message)
-        if a_pns_message is not None:
-            pulumi.set(__self__, "a_pns_message", a_pns_message)
+                 sms_message: Optional[pulumi.Input['CampaignSmsMessageArgs']] = None):
+        if adm_message is not None:
+            pulumi.set(__self__, "adm_message", adm_message)
+        if apns_message is not None:
+            pulumi.set(__self__, "apns_message", apns_message)
         if baidu_message is not None:
             pulumi.set(__self__, "baidu_message", baidu_message)
         if custom_message is not None:
@@ -809,30 +809,30 @@ class CampaignMessageConfigurationArgs:
             pulumi.set(__self__, "default_message", default_message)
         if email_message is not None:
             pulumi.set(__self__, "email_message", email_message)
-        if g_cm_message is not None:
-            pulumi.set(__self__, "g_cm_message", g_cm_message)
+        if gcm_message is not None:
+            pulumi.set(__self__, "gcm_message", gcm_message)
         if in_app_message is not None:
             pulumi.set(__self__, "in_app_message", in_app_message)
-        if s_ms_message is not None:
-            pulumi.set(__self__, "s_ms_message", s_ms_message)
+        if sms_message is not None:
+            pulumi.set(__self__, "sms_message", sms_message)
 
     @property
-    @pulumi.getter(name="aDMMessage")
-    def a_dm_message(self) -> Optional[pulumi.Input['CampaignMessageArgs']]:
-        return pulumi.get(self, "a_dm_message")
+    @pulumi.getter(name="admMessage")
+    def adm_message(self) -> Optional[pulumi.Input['CampaignMessageArgs']]:
+        return pulumi.get(self, "adm_message")
 
-    @a_dm_message.setter
-    def a_dm_message(self, value: Optional[pulumi.Input['CampaignMessageArgs']]):
-        pulumi.set(self, "a_dm_message", value)
+    @adm_message.setter
+    def adm_message(self, value: Optional[pulumi.Input['CampaignMessageArgs']]):
+        pulumi.set(self, "adm_message", value)
 
     @property
-    @pulumi.getter(name="aPNSMessage")
-    def a_pns_message(self) -> Optional[pulumi.Input['CampaignMessageArgs']]:
-        return pulumi.get(self, "a_pns_message")
+    @pulumi.getter(name="apnsMessage")
+    def apns_message(self) -> Optional[pulumi.Input['CampaignMessageArgs']]:
+        return pulumi.get(self, "apns_message")
 
-    @a_pns_message.setter
-    def a_pns_message(self, value: Optional[pulumi.Input['CampaignMessageArgs']]):
-        pulumi.set(self, "a_pns_message", value)
+    @apns_message.setter
+    def apns_message(self, value: Optional[pulumi.Input['CampaignMessageArgs']]):
+        pulumi.set(self, "apns_message", value)
 
     @property
     @pulumi.getter(name="baiduMessage")
@@ -871,13 +871,13 @@ class CampaignMessageConfigurationArgs:
         pulumi.set(self, "email_message", value)
 
     @property
-    @pulumi.getter(name="gCMMessage")
-    def g_cm_message(self) -> Optional[pulumi.Input['CampaignMessageArgs']]:
-        return pulumi.get(self, "g_cm_message")
+    @pulumi.getter(name="gcmMessage")
+    def gcm_message(self) -> Optional[pulumi.Input['CampaignMessageArgs']]:
+        return pulumi.get(self, "gcm_message")
 
-    @g_cm_message.setter
-    def g_cm_message(self, value: Optional[pulumi.Input['CampaignMessageArgs']]):
-        pulumi.set(self, "g_cm_message", value)
+    @gcm_message.setter
+    def gcm_message(self, value: Optional[pulumi.Input['CampaignMessageArgs']]):
+        pulumi.set(self, "gcm_message", value)
 
     @property
     @pulumi.getter(name="inAppMessage")
@@ -889,13 +889,13 @@ class CampaignMessageConfigurationArgs:
         pulumi.set(self, "in_app_message", value)
 
     @property
-    @pulumi.getter(name="sMSMessage")
-    def s_ms_message(self) -> Optional[pulumi.Input['CampaignSmsMessageArgs']]:
-        return pulumi.get(self, "s_ms_message")
+    @pulumi.getter(name="smsMessage")
+    def sms_message(self) -> Optional[pulumi.Input['CampaignSmsMessageArgs']]:
+        return pulumi.get(self, "sms_message")
 
-    @s_ms_message.setter
-    def s_ms_message(self, value: Optional[pulumi.Input['CampaignSmsMessageArgs']]):
-        pulumi.set(self, "s_ms_message", value)
+    @sms_message.setter
+    def sms_message(self, value: Optional[pulumi.Input['CampaignSmsMessageArgs']]):
+        pulumi.set(self, "sms_message", value)
 
 
 @pulumi.input_type
@@ -1303,14 +1303,14 @@ class CampaignTemplateConfigurationArgs:
     def __init__(__self__, *,
                  email_template: Optional[pulumi.Input['CampaignTemplateArgs']] = None,
                  push_template: Optional[pulumi.Input['CampaignTemplateArgs']] = None,
-                 s_ms_template: Optional[pulumi.Input['CampaignTemplateArgs']] = None,
+                 sms_template: Optional[pulumi.Input['CampaignTemplateArgs']] = None,
                  voice_template: Optional[pulumi.Input['CampaignTemplateArgs']] = None):
         if email_template is not None:
             pulumi.set(__self__, "email_template", email_template)
         if push_template is not None:
             pulumi.set(__self__, "push_template", push_template)
-        if s_ms_template is not None:
-            pulumi.set(__self__, "s_ms_template", s_ms_template)
+        if sms_template is not None:
+            pulumi.set(__self__, "sms_template", sms_template)
         if voice_template is not None:
             pulumi.set(__self__, "voice_template", voice_template)
 
@@ -1333,13 +1333,13 @@ class CampaignTemplateConfigurationArgs:
         pulumi.set(self, "push_template", value)
 
     @property
-    @pulumi.getter(name="sMSTemplate")
-    def s_ms_template(self) -> Optional[pulumi.Input['CampaignTemplateArgs']]:
-        return pulumi.get(self, "s_ms_template")
+    @pulumi.getter(name="smsTemplate")
+    def sms_template(self) -> Optional[pulumi.Input['CampaignTemplateArgs']]:
+        return pulumi.get(self, "sms_template")
 
-    @s_ms_template.setter
-    def s_ms_template(self, value: Optional[pulumi.Input['CampaignTemplateArgs']]):
-        pulumi.set(self, "s_ms_template", value)
+    @sms_template.setter
+    def sms_template(self, value: Optional[pulumi.Input['CampaignTemplateArgs']]):
+        pulumi.set(self, "sms_template", value)
 
     @property
     @pulumi.getter(name="voiceTemplate")
@@ -1568,14 +1568,14 @@ class InAppTemplateButtonConfigArgs:
     def __init__(__self__, *,
                  android: Optional[pulumi.Input['InAppTemplateOverrideButtonConfigurationArgs']] = None,
                  default_config: Optional[pulumi.Input['InAppTemplateDefaultButtonConfigurationArgs']] = None,
-                 i_os: Optional[pulumi.Input['InAppTemplateOverrideButtonConfigurationArgs']] = None,
+                 ios: Optional[pulumi.Input['InAppTemplateOverrideButtonConfigurationArgs']] = None,
                  web: Optional[pulumi.Input['InAppTemplateOverrideButtonConfigurationArgs']] = None):
         if android is not None:
             pulumi.set(__self__, "android", android)
         if default_config is not None:
             pulumi.set(__self__, "default_config", default_config)
-        if i_os is not None:
-            pulumi.set(__self__, "i_os", i_os)
+        if ios is not None:
+            pulumi.set(__self__, "ios", ios)
         if web is not None:
             pulumi.set(__self__, "web", web)
 
@@ -1598,13 +1598,13 @@ class InAppTemplateButtonConfigArgs:
         pulumi.set(self, "default_config", value)
 
     @property
-    @pulumi.getter(name="iOS")
-    def i_os(self) -> Optional[pulumi.Input['InAppTemplateOverrideButtonConfigurationArgs']]:
-        return pulumi.get(self, "i_os")
+    @pulumi.getter
+    def ios(self) -> Optional[pulumi.Input['InAppTemplateOverrideButtonConfigurationArgs']]:
+        return pulumi.get(self, "ios")
 
-    @i_os.setter
-    def i_os(self, value: Optional[pulumi.Input['InAppTemplateOverrideButtonConfigurationArgs']]):
-        pulumi.set(self, "i_os", value)
+    @ios.setter
+    def ios(self, value: Optional[pulumi.Input['InAppTemplateOverrideButtonConfigurationArgs']]):
+        pulumi.set(self, "ios", value)
 
     @property
     @pulumi.getter
@@ -2341,11 +2341,11 @@ class SegmentGroupsArgs:
 class SegmentLocationArgs:
     def __init__(__self__, *,
                  country: Optional[pulumi.Input['SegmentSetDimensionArgs']] = None,
-                 g_ps_point: Optional[pulumi.Input['SegmentGPSPointArgs']] = None):
+                 gps_point: Optional[pulumi.Input['SegmentGPSPointArgs']] = None):
         if country is not None:
             pulumi.set(__self__, "country", country)
-        if g_ps_point is not None:
-            pulumi.set(__self__, "g_ps_point", g_ps_point)
+        if gps_point is not None:
+            pulumi.set(__self__, "gps_point", gps_point)
 
     @property
     @pulumi.getter
@@ -2357,13 +2357,13 @@ class SegmentLocationArgs:
         pulumi.set(self, "country", value)
 
     @property
-    @pulumi.getter(name="gPSPoint")
-    def g_ps_point(self) -> Optional[pulumi.Input['SegmentGPSPointArgs']]:
-        return pulumi.get(self, "g_ps_point")
+    @pulumi.getter(name="gpsPoint")
+    def gps_point(self) -> Optional[pulumi.Input['SegmentGPSPointArgs']]:
+        return pulumi.get(self, "gps_point")
 
-    @g_ps_point.setter
-    def g_ps_point(self, value: Optional[pulumi.Input['SegmentGPSPointArgs']]):
-        pulumi.set(self, "g_ps_point", value)
+    @gps_point.setter
+    def gps_point(self, value: Optional[pulumi.Input['SegmentGPSPointArgs']]):
+        pulumi.set(self, "gps_point", value)
 
 
 @pulumi.input_type

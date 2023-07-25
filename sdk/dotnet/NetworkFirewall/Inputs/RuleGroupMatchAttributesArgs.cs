@@ -52,12 +52,12 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
             set => _sources = value;
         }
 
-        [Input("tCPFlags")]
-        private InputList<Inputs.RuleGroupTCPFlagFieldArgs>? _tCPFlags;
-        public InputList<Inputs.RuleGroupTCPFlagFieldArgs> TCPFlags
+        [Input("tcpFlags")]
+        private InputList<Inputs.RuleGroupTCPFlagFieldArgs>? _tcpFlags;
+        public InputList<Inputs.RuleGroupTCPFlagFieldArgs> TcpFlags
         {
-            get => _tCPFlags ?? (_tCPFlags = new InputList<Inputs.RuleGroupTCPFlagFieldArgs>());
-            set => _tCPFlags = value;
+            get => _tcpFlags ?? (_tcpFlags = new InputList<Inputs.RuleGroupTCPFlagFieldArgs>());
+            set => _tcpFlags = value;
         }
 
         public RuleGroupMatchAttributesArgs()

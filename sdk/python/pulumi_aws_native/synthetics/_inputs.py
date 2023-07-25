@@ -206,7 +206,7 @@ class CanaryRunConfigArgs:
         pulumi.set(self, "environment_variables", value)
 
     @property
-    @pulumi.getter(name="memoryInMB")
+    @pulumi.getter(name="memoryInMb")
     def memory_in_mb(self) -> Optional[pulumi.Input[int]]:
         """
         Provide maximum memory available for canary in MB

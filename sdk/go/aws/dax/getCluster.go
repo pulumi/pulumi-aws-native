@@ -30,10 +30,10 @@ type LookupClusterResult struct {
 	Arn                         *string     `pulumi:"arn"`
 	AvailabilityZones           []string    `pulumi:"availabilityZones"`
 	ClusterDiscoveryEndpoint    *string     `pulumi:"clusterDiscoveryEndpoint"`
-	ClusterDiscoveryEndpointURL *string     `pulumi:"clusterDiscoveryEndpointURL"`
+	ClusterDiscoveryEndpointUrl *string     `pulumi:"clusterDiscoveryEndpointUrl"`
 	Description                 *string     `pulumi:"description"`
 	Id                          *string     `pulumi:"id"`
-	NotificationTopicARN        *string     `pulumi:"notificationTopicARN"`
+	NotificationTopicArn        *string     `pulumi:"notificationTopicArn"`
 	ParameterGroupName          *string     `pulumi:"parameterGroupName"`
 	PreferredMaintenanceWindow  *string     `pulumi:"preferredMaintenanceWindow"`
 	ReplicationFactor           *int        `pulumi:"replicationFactor"`
@@ -88,8 +88,8 @@ func (o LookupClusterResultOutput) ClusterDiscoveryEndpoint() pulumi.StringPtrOu
 	return o.ApplyT(func(v LookupClusterResult) *string { return v.ClusterDiscoveryEndpoint }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupClusterResultOutput) ClusterDiscoveryEndpointURL() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupClusterResult) *string { return v.ClusterDiscoveryEndpointURL }).(pulumi.StringPtrOutput)
+func (o LookupClusterResultOutput) ClusterDiscoveryEndpointUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *string { return v.ClusterDiscoveryEndpointUrl }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupClusterResultOutput) Description() pulumi.StringPtrOutput {
@@ -100,8 +100,8 @@ func (o LookupClusterResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupClusterResultOutput) NotificationTopicARN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupClusterResult) *string { return v.NotificationTopicARN }).(pulumi.StringPtrOutput)
+func (o LookupClusterResultOutput) NotificationTopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *string { return v.NotificationTopicArn }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupClusterResultOutput) ParameterGroupName() pulumi.StringPtrOutput {

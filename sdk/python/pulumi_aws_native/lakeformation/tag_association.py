@@ -16,27 +16,27 @@ __all__ = ['TagAssociationArgs', 'TagAssociation']
 @pulumi.input_type
 class TagAssociationArgs:
     def __init__(__self__, *,
-                 l_f_tags: pulumi.Input[Sequence[pulumi.Input['TagAssociationLFTagPairArgs']]],
+                 lf_tags: pulumi.Input[Sequence[pulumi.Input['TagAssociationLFTagPairArgs']]],
                  resource: pulumi.Input['TagAssociationResourceArgs']):
         """
         The set of arguments for constructing a TagAssociation resource.
-        :param pulumi.Input[Sequence[pulumi.Input['TagAssociationLFTagPairArgs']]] l_f_tags: List of Lake Formation Tags to associate with the Lake Formation Resource
+        :param pulumi.Input[Sequence[pulumi.Input['TagAssociationLFTagPairArgs']]] lf_tags: List of Lake Formation Tags to associate with the Lake Formation Resource
         :param pulumi.Input['TagAssociationResourceArgs'] resource: Resource to tag with the Lake Formation Tags
         """
-        pulumi.set(__self__, "l_f_tags", l_f_tags)
+        pulumi.set(__self__, "lf_tags", lf_tags)
         pulumi.set(__self__, "resource", resource)
 
     @property
-    @pulumi.getter(name="lFTags")
-    def l_f_tags(self) -> pulumi.Input[Sequence[pulumi.Input['TagAssociationLFTagPairArgs']]]:
+    @pulumi.getter(name="lfTags")
+    def lf_tags(self) -> pulumi.Input[Sequence[pulumi.Input['TagAssociationLFTagPairArgs']]]:
         """
         List of Lake Formation Tags to associate with the Lake Formation Resource
         """
-        return pulumi.get(self, "l_f_tags")
+        return pulumi.get(self, "lf_tags")
 
-    @l_f_tags.setter
-    def l_f_tags(self, value: pulumi.Input[Sequence[pulumi.Input['TagAssociationLFTagPairArgs']]]):
-        pulumi.set(self, "l_f_tags", value)
+    @lf_tags.setter
+    def lf_tags(self, value: pulumi.Input[Sequence[pulumi.Input['TagAssociationLFTagPairArgs']]]):
+        pulumi.set(self, "lf_tags", value)
 
     @property
     @pulumi.getter
@@ -56,7 +56,7 @@ class TagAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 l_f_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TagAssociationLFTagPairArgs']]]]] = None,
+                 lf_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TagAssociationLFTagPairArgs']]]]] = None,
                  resource: Optional[pulumi.Input[pulumi.InputType['TagAssociationResourceArgs']]] = None,
                  __props__=None):
         """
@@ -64,7 +64,7 @@ class TagAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TagAssociationLFTagPairArgs']]]] l_f_tags: List of Lake Formation Tags to associate with the Lake Formation Resource
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TagAssociationLFTagPairArgs']]]] lf_tags: List of Lake Formation Tags to associate with the Lake Formation Resource
         :param pulumi.Input[pulumi.InputType['TagAssociationResourceArgs']] resource: Resource to tag with the Lake Formation Tags
         """
         ...
@@ -91,7 +91,7 @@ class TagAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 l_f_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TagAssociationLFTagPairArgs']]]]] = None,
+                 lf_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TagAssociationLFTagPairArgs']]]]] = None,
                  resource: Optional[pulumi.Input[pulumi.InputType['TagAssociationResourceArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -102,9 +102,9 @@ class TagAssociation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TagAssociationArgs.__new__(TagAssociationArgs)
 
-            if l_f_tags is None and not opts.urn:
-                raise TypeError("Missing required property 'l_f_tags'")
-            __props__.__dict__["l_f_tags"] = l_f_tags
+            if lf_tags is None and not opts.urn:
+                raise TypeError("Missing required property 'lf_tags'")
+            __props__.__dict__["lf_tags"] = lf_tags
             if resource is None and not opts.urn:
                 raise TypeError("Missing required property 'resource'")
             __props__.__dict__["resource"] = resource
@@ -132,19 +132,19 @@ class TagAssociation(pulumi.CustomResource):
 
         __props__ = TagAssociationArgs.__new__(TagAssociationArgs)
 
-        __props__.__dict__["l_f_tags"] = None
+        __props__.__dict__["lf_tags"] = None
         __props__.__dict__["resource"] = None
         __props__.__dict__["resource_identifier"] = None
         __props__.__dict__["tags_identifier"] = None
         return TagAssociation(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="lFTags")
-    def l_f_tags(self) -> pulumi.Output[Sequence['outputs.TagAssociationLFTagPair']]:
+    @pulumi.getter(name="lfTags")
+    def lf_tags(self) -> pulumi.Output[Sequence['outputs.TagAssociationLFTagPair']]:
         """
         List of Lake Formation Tags to associate with the Lake Formation Resource
         """
-        return pulumi.get(self, "l_f_tags")
+        return pulumi.get(self, "lf_tags")
 
     @property
     @pulumi.getter

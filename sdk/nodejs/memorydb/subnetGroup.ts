@@ -40,7 +40,7 @@ export class SubnetGroup extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the subnet group.
      */
-    public /*out*/ readonly aRN!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * An optional description of the subnet group.
      */
@@ -76,9 +76,9 @@ export class SubnetGroup extends pulumi.CustomResource {
             resourceInputs["subnetGroupName"] = args ? args.subnetGroupName : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["aRN"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            resourceInputs["aRN"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["subnetGroupName"] = undefined /*out*/;
             resourceInputs["subnetIds"] = undefined /*out*/;

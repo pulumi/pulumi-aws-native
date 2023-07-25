@@ -54,12 +54,12 @@ namespace Pulumi.AwsNative.PinpointEmail
         public readonly bool? DkimSigningEnabled;
         public readonly bool? FeedbackForwardingEnabled;
         public readonly string? Id;
-        public readonly string? IdentityDNSRecordName1;
-        public readonly string? IdentityDNSRecordName2;
-        public readonly string? IdentityDNSRecordName3;
-        public readonly string? IdentityDNSRecordValue1;
-        public readonly string? IdentityDNSRecordValue2;
-        public readonly string? IdentityDNSRecordValue3;
+        public readonly string? IdentityDnsRecordName1;
+        public readonly string? IdentityDnsRecordName2;
+        public readonly string? IdentityDnsRecordName3;
+        public readonly string? IdentityDnsRecordValue1;
+        public readonly string? IdentityDnsRecordValue2;
+        public readonly string? IdentityDnsRecordValue3;
         public readonly Outputs.IdentityMailFromAttributes? MailFromAttributes;
         public readonly ImmutableArray<Outputs.IdentityTags> Tags;
 
@@ -71,17 +71,17 @@ namespace Pulumi.AwsNative.PinpointEmail
 
             string? id,
 
-            string? identityDNSRecordName1,
+            string? identityDnsRecordName1,
 
-            string? identityDNSRecordName2,
+            string? identityDnsRecordName2,
 
-            string? identityDNSRecordName3,
+            string? identityDnsRecordName3,
 
-            string? identityDNSRecordValue1,
+            string? identityDnsRecordValue1,
 
-            string? identityDNSRecordValue2,
+            string? identityDnsRecordValue2,
 
-            string? identityDNSRecordValue3,
+            string? identityDnsRecordValue3,
 
             Outputs.IdentityMailFromAttributes? mailFromAttributes,
 
@@ -90,12 +90,12 @@ namespace Pulumi.AwsNative.PinpointEmail
             DkimSigningEnabled = dkimSigningEnabled;
             FeedbackForwardingEnabled = feedbackForwardingEnabled;
             Id = id;
-            IdentityDNSRecordName1 = identityDNSRecordName1;
-            IdentityDNSRecordName2 = identityDNSRecordName2;
-            IdentityDNSRecordName3 = identityDNSRecordName3;
-            IdentityDNSRecordValue1 = identityDNSRecordValue1;
-            IdentityDNSRecordValue2 = identityDNSRecordValue2;
-            IdentityDNSRecordValue3 = identityDNSRecordValue3;
+            IdentityDnsRecordName1 = identityDnsRecordName1;
+            IdentityDnsRecordName2 = identityDnsRecordName2;
+            IdentityDnsRecordName3 = identityDnsRecordName3;
+            IdentityDnsRecordValue1 = identityDnsRecordValue1;
+            IdentityDnsRecordValue2 = identityDnsRecordValue2;
+            IdentityDnsRecordValue3 = identityDnsRecordValue3;
             MailFromAttributes = mailFromAttributes;
             Tags = tags;
         }

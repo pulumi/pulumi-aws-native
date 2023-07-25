@@ -450,7 +450,7 @@ type ScheduleEcsParameters struct {
 	// The capacity provider strategy to use for the task.
 	CapacityProviderStrategy []ScheduleCapacityProviderStrategyItem `pulumi:"capacityProviderStrategy"`
 	// Specifies whether to enable Amazon ECS managed tags for the task. For more information, see Tagging Your Amazon ECS Resources in the Amazon Elastic Container Service Developer Guide.
-	EnableECSManagedTags *bool `pulumi:"enableECSManagedTags"`
+	EnableEcsManagedTags *bool `pulumi:"enableEcsManagedTags"`
 	// Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task.
 	EnableExecuteCommand *bool `pulumi:"enableExecuteCommand"`
 	// Specifies an ECS task group for the task. The maximum length is 255 characters.
@@ -490,7 +490,7 @@ type ScheduleEcsParametersArgs struct {
 	// The capacity provider strategy to use for the task.
 	CapacityProviderStrategy ScheduleCapacityProviderStrategyItemArrayInput `pulumi:"capacityProviderStrategy"`
 	// Specifies whether to enable Amazon ECS managed tags for the task. For more information, see Tagging Your Amazon ECS Resources in the Amazon Elastic Container Service Developer Guide.
-	EnableECSManagedTags pulumi.BoolPtrInput `pulumi:"enableECSManagedTags"`
+	EnableEcsManagedTags pulumi.BoolPtrInput `pulumi:"enableEcsManagedTags"`
 	// Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task.
 	EnableExecuteCommand pulumi.BoolPtrInput `pulumi:"enableExecuteCommand"`
 	// Specifies an ECS task group for the task. The maximum length is 255 characters.
@@ -600,8 +600,8 @@ func (o ScheduleEcsParametersOutput) CapacityProviderStrategy() ScheduleCapacity
 }
 
 // Specifies whether to enable Amazon ECS managed tags for the task. For more information, see Tagging Your Amazon ECS Resources in the Amazon Elastic Container Service Developer Guide.
-func (o ScheduleEcsParametersOutput) EnableECSManagedTags() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ScheduleEcsParameters) *bool { return v.EnableECSManagedTags }).(pulumi.BoolPtrOutput)
+func (o ScheduleEcsParametersOutput) EnableEcsManagedTags() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ScheduleEcsParameters) *bool { return v.EnableEcsManagedTags }).(pulumi.BoolPtrOutput)
 }
 
 // Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task.
@@ -696,12 +696,12 @@ func (o ScheduleEcsParametersPtrOutput) CapacityProviderStrategy() ScheduleCapac
 }
 
 // Specifies whether to enable Amazon ECS managed tags for the task. For more information, see Tagging Your Amazon ECS Resources in the Amazon Elastic Container Service Developer Guide.
-func (o ScheduleEcsParametersPtrOutput) EnableECSManagedTags() pulumi.BoolPtrOutput {
+func (o ScheduleEcsParametersPtrOutput) EnableEcsManagedTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ScheduleEcsParameters) *bool {
 		if v == nil {
 			return nil
 		}
-		return v.EnableECSManagedTags
+		return v.EnableEcsManagedTags
 	}).(pulumi.BoolPtrOutput)
 }
 

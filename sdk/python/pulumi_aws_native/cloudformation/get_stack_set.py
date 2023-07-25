@@ -53,7 +53,7 @@ class GetStackSetResult:
         pulumi.set(__self__, "template_body", template_body)
 
     @property
-    @pulumi.getter(name="administrationRoleARN")
+    @pulumi.getter(name="administrationRoleArn")
     def administration_role_arn(self) -> Optional[str]:
         """
         The Amazon Resource Number (ARN) of the IAM role to use to create this stack set. Specify an IAM role only if you are using customized administrator roles to control which users or groups can manage specific stack sets within the same administrator account.

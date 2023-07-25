@@ -14,7 +14,7 @@ export function getDBProxy(args: GetDBProxyArgs, opts?: pulumi.InvokeOptions): P
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:rds:getDBProxy", {
-        "dBProxyName": args.dBProxyName,
+        "dbProxyName": args.dbProxyName,
     }, opts);
 }
 
@@ -22,7 +22,7 @@ export interface GetDBProxyArgs {
     /**
      * The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
      */
-    dBProxyName: string;
+    dbProxyName: string;
 }
 
 export interface GetDBProxyResult {
@@ -33,7 +33,7 @@ export interface GetDBProxyResult {
     /**
      * The Amazon Resource Name (ARN) for the proxy.
      */
-    readonly dBProxyArn?: string;
+    readonly dbProxyArn?: string;
     /**
      * Whether the proxy includes detailed information about SQL statements in its logs.
      */
@@ -49,7 +49,7 @@ export interface GetDBProxyResult {
     /**
      * A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
      */
-    readonly requireTLS?: boolean;
+    readonly requireTls?: boolean;
     /**
      * The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
      */
@@ -78,5 +78,5 @@ export interface GetDBProxyOutputArgs {
     /**
      * The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
      */
-    dBProxyName: pulumi.Input<string>;
+    dbProxyName: pulumi.Input<string>;
 }

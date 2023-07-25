@@ -59,12 +59,12 @@ namespace Pulumi.AwsNative.SES
     {
         public readonly Outputs.EmailIdentityConfigurationSetAttributes? ConfigurationSetAttributes;
         public readonly Outputs.EmailIdentityDkimAttributes? DkimAttributes;
-        public readonly string? DkimDNSTokenName1;
-        public readonly string? DkimDNSTokenName2;
-        public readonly string? DkimDNSTokenName3;
-        public readonly string? DkimDNSTokenValue1;
-        public readonly string? DkimDNSTokenValue2;
-        public readonly string? DkimDNSTokenValue3;
+        public readonly string? DkimDnsTokenName1;
+        public readonly string? DkimDnsTokenName2;
+        public readonly string? DkimDnsTokenName3;
+        public readonly string? DkimDnsTokenValue1;
+        public readonly string? DkimDnsTokenValue2;
+        public readonly string? DkimDnsTokenValue3;
         public readonly Outputs.EmailIdentityDkimSigningAttributes? DkimSigningAttributes;
         public readonly Outputs.EmailIdentityFeedbackAttributes? FeedbackAttributes;
         public readonly Outputs.EmailIdentityMailFromAttributes? MailFromAttributes;
@@ -75,17 +75,17 @@ namespace Pulumi.AwsNative.SES
 
             Outputs.EmailIdentityDkimAttributes? dkimAttributes,
 
-            string? dkimDNSTokenName1,
+            string? dkimDnsTokenName1,
 
-            string? dkimDNSTokenName2,
+            string? dkimDnsTokenName2,
 
-            string? dkimDNSTokenName3,
+            string? dkimDnsTokenName3,
 
-            string? dkimDNSTokenValue1,
+            string? dkimDnsTokenValue1,
 
-            string? dkimDNSTokenValue2,
+            string? dkimDnsTokenValue2,
 
-            string? dkimDNSTokenValue3,
+            string? dkimDnsTokenValue3,
 
             Outputs.EmailIdentityDkimSigningAttributes? dkimSigningAttributes,
 
@@ -95,12 +95,12 @@ namespace Pulumi.AwsNative.SES
         {
             ConfigurationSetAttributes = configurationSetAttributes;
             DkimAttributes = dkimAttributes;
-            DkimDNSTokenName1 = dkimDNSTokenName1;
-            DkimDNSTokenName2 = dkimDNSTokenName2;
-            DkimDNSTokenName3 = dkimDNSTokenName3;
-            DkimDNSTokenValue1 = dkimDNSTokenValue1;
-            DkimDNSTokenValue2 = dkimDNSTokenValue2;
-            DkimDNSTokenValue3 = dkimDNSTokenValue3;
+            DkimDnsTokenName1 = dkimDnsTokenName1;
+            DkimDnsTokenName2 = dkimDnsTokenName2;
+            DkimDnsTokenName3 = dkimDnsTokenName3;
+            DkimDnsTokenValue1 = dkimDnsTokenValue1;
+            DkimDnsTokenValue2 = dkimDnsTokenValue2;
+            DkimDnsTokenValue3 = dkimDnsTokenValue3;
             DkimSigningAttributes = dkimSigningAttributes;
             FeedbackAttributes = feedbackAttributes;
             MailFromAttributes = mailFromAttributes;

@@ -61,8 +61,8 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("tags")]
         public Output<ImmutableArray<Outputs.NotebookInstanceTag>> Tags { get; private set; } = null!;
 
-        [Output("volumeSizeInGB")]
-        public Output<int?> VolumeSizeInGB { get; private set; } = null!;
+        [Output("volumeSizeInGb")]
+        public Output<int?> VolumeSizeInGb { get; private set; } = null!;
 
 
         /// <summary>
@@ -174,8 +174,8 @@ namespace Pulumi.AwsNative.SageMaker
             set => _tags = value;
         }
 
-        [Input("volumeSizeInGB")]
-        public Input<int>? VolumeSizeInGB { get; set; }
+        [Input("volumeSizeInGb")]
+        public Input<int>? VolumeSizeInGb { get; set; }
 
         public NotebookInstanceArgs()
         {

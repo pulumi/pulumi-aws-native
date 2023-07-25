@@ -20,10 +20,10 @@ class DBClusterArgs:
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  backup_retention_period: Optional[pulumi.Input[int]] = None,
                  copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
-                 d_b_cluster_identifier: Optional[pulumi.Input[str]] = None,
-                 d_b_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
-                 d_b_instance_parameter_group_name: Optional[pulumi.Input[str]] = None,
-                 d_b_subnet_group_name: Optional[pulumi.Input[str]] = None,
+                 db_cluster_identifier: Optional[pulumi.Input[str]] = None,
+                 db_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
+                 db_instance_parameter_group_name: Optional[pulumi.Input[str]] = None,
+                 db_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
                  enable_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
@@ -46,10 +46,10 @@ class DBClusterArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: Provides the list of EC2 Availability Zones that instances in the DB cluster can be created in.
         :param pulumi.Input[int] backup_retention_period: Specifies the number of days for which automatic DB snapshots are retained.
         :param pulumi.Input[bool] copy_tags_to_snapshot: A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default behaviour is not to copy them.
-        :param pulumi.Input[str] d_b_cluster_identifier: The DB cluster identifier. Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster stored as a lowercase string.
-        :param pulumi.Input[str] d_b_cluster_parameter_group_name: Provides the name of the DB cluster parameter group.
-        :param pulumi.Input[str] d_b_instance_parameter_group_name: The name of the DB parameter group to apply to all instances of the DB cluster. Used only in case of a major EngineVersion upgrade request.
-        :param pulumi.Input[str] d_b_subnet_group_name: Specifies information on the subnet group associated with the DB cluster, including the name, description, and subnets in the subnet group.
+        :param pulumi.Input[str] db_cluster_identifier: The DB cluster identifier. Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster stored as a lowercase string.
+        :param pulumi.Input[str] db_cluster_parameter_group_name: Provides the name of the DB cluster parameter group.
+        :param pulumi.Input[str] db_instance_parameter_group_name: The name of the DB parameter group to apply to all instances of the DB cluster. Used only in case of a major EngineVersion upgrade request.
+        :param pulumi.Input[str] db_subnet_group_name: Specifies information on the subnet group associated with the DB cluster, including the name, description, and subnets in the subnet group.
         :param pulumi.Input[bool] deletion_protection: Indicates whether or not the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enable_cloudwatch_logs_exports: Specifies a list of log types that are enabled for export to CloudWatch Logs.
         :param pulumi.Input[str] engine_version: Indicates the database engine version.
@@ -99,14 +99,14 @@ class DBClusterArgs:
             pulumi.set(__self__, "backup_retention_period", backup_retention_period)
         if copy_tags_to_snapshot is not None:
             pulumi.set(__self__, "copy_tags_to_snapshot", copy_tags_to_snapshot)
-        if d_b_cluster_identifier is not None:
-            pulumi.set(__self__, "d_b_cluster_identifier", d_b_cluster_identifier)
-        if d_b_cluster_parameter_group_name is not None:
-            pulumi.set(__self__, "d_b_cluster_parameter_group_name", d_b_cluster_parameter_group_name)
-        if d_b_instance_parameter_group_name is not None:
-            pulumi.set(__self__, "d_b_instance_parameter_group_name", d_b_instance_parameter_group_name)
-        if d_b_subnet_group_name is not None:
-            pulumi.set(__self__, "d_b_subnet_group_name", d_b_subnet_group_name)
+        if db_cluster_identifier is not None:
+            pulumi.set(__self__, "db_cluster_identifier", db_cluster_identifier)
+        if db_cluster_parameter_group_name is not None:
+            pulumi.set(__self__, "db_cluster_parameter_group_name", db_cluster_parameter_group_name)
+        if db_instance_parameter_group_name is not None:
+            pulumi.set(__self__, "db_instance_parameter_group_name", db_instance_parameter_group_name)
+        if db_subnet_group_name is not None:
+            pulumi.set(__self__, "db_subnet_group_name", db_subnet_group_name)
         if deletion_protection is not None:
             pulumi.set(__self__, "deletion_protection", deletion_protection)
         if enable_cloudwatch_logs_exports is not None:
@@ -189,52 +189,52 @@ class DBClusterArgs:
         pulumi.set(self, "copy_tags_to_snapshot", value)
 
     @property
-    @pulumi.getter(name="dBClusterIdentifier")
-    def d_b_cluster_identifier(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="dbClusterIdentifier")
+    def db_cluster_identifier(self) -> Optional[pulumi.Input[str]]:
         """
         The DB cluster identifier. Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster stored as a lowercase string.
         """
-        return pulumi.get(self, "d_b_cluster_identifier")
+        return pulumi.get(self, "db_cluster_identifier")
 
-    @d_b_cluster_identifier.setter
-    def d_b_cluster_identifier(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "d_b_cluster_identifier", value)
+    @db_cluster_identifier.setter
+    def db_cluster_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "db_cluster_identifier", value)
 
     @property
-    @pulumi.getter(name="dBClusterParameterGroupName")
-    def d_b_cluster_parameter_group_name(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="dbClusterParameterGroupName")
+    def db_cluster_parameter_group_name(self) -> Optional[pulumi.Input[str]]:
         """
         Provides the name of the DB cluster parameter group.
         """
-        return pulumi.get(self, "d_b_cluster_parameter_group_name")
+        return pulumi.get(self, "db_cluster_parameter_group_name")
 
-    @d_b_cluster_parameter_group_name.setter
-    def d_b_cluster_parameter_group_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "d_b_cluster_parameter_group_name", value)
+    @db_cluster_parameter_group_name.setter
+    def db_cluster_parameter_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "db_cluster_parameter_group_name", value)
 
     @property
-    @pulumi.getter(name="dBInstanceParameterGroupName")
-    def d_b_instance_parameter_group_name(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="dbInstanceParameterGroupName")
+    def db_instance_parameter_group_name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the DB parameter group to apply to all instances of the DB cluster. Used only in case of a major EngineVersion upgrade request.
         """
-        return pulumi.get(self, "d_b_instance_parameter_group_name")
+        return pulumi.get(self, "db_instance_parameter_group_name")
 
-    @d_b_instance_parameter_group_name.setter
-    def d_b_instance_parameter_group_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "d_b_instance_parameter_group_name", value)
+    @db_instance_parameter_group_name.setter
+    def db_instance_parameter_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "db_instance_parameter_group_name", value)
 
     @property
-    @pulumi.getter(name="dBSubnetGroupName")
-    def d_b_subnet_group_name(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="dbSubnetGroupName")
+    def db_subnet_group_name(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies information on the subnet group associated with the DB cluster, including the name, description, and subnets in the subnet group.
         """
-        return pulumi.get(self, "d_b_subnet_group_name")
+        return pulumi.get(self, "db_subnet_group_name")
 
-    @d_b_subnet_group_name.setter
-    def d_b_subnet_group_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "d_b_subnet_group_name", value)
+    @db_subnet_group_name.setter
+    def db_subnet_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "db_subnet_group_name", value)
 
     @property
     @pulumi.getter(name="deletionProtection")
@@ -381,7 +381,7 @@ class DBClusterArgs:
         pulumi.set(self, "snapshot_identifier", value)
 
     @property
-    @pulumi.getter(name="sourceDBClusterIdentifier")
+    @pulumi.getter(name="sourceDbClusterIdentifier")
     def source_db_cluster_identifier(self) -> Optional[pulumi.Input[str]]:
         """
         Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
@@ -462,10 +462,10 @@ class DBCluster(pulumi.CustomResource):
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  backup_retention_period: Optional[pulumi.Input[int]] = None,
                  copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
-                 d_b_cluster_identifier: Optional[pulumi.Input[str]] = None,
-                 d_b_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
-                 d_b_instance_parameter_group_name: Optional[pulumi.Input[str]] = None,
-                 d_b_subnet_group_name: Optional[pulumi.Input[str]] = None,
+                 db_cluster_identifier: Optional[pulumi.Input[str]] = None,
+                 db_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
+                 db_instance_parameter_group_name: Optional[pulumi.Input[str]] = None,
+                 db_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
                  enable_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
@@ -492,10 +492,10 @@ class DBCluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: Provides the list of EC2 Availability Zones that instances in the DB cluster can be created in.
         :param pulumi.Input[int] backup_retention_period: Specifies the number of days for which automatic DB snapshots are retained.
         :param pulumi.Input[bool] copy_tags_to_snapshot: A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default behaviour is not to copy them.
-        :param pulumi.Input[str] d_b_cluster_identifier: The DB cluster identifier. Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster stored as a lowercase string.
-        :param pulumi.Input[str] d_b_cluster_parameter_group_name: Provides the name of the DB cluster parameter group.
-        :param pulumi.Input[str] d_b_instance_parameter_group_name: The name of the DB parameter group to apply to all instances of the DB cluster. Used only in case of a major EngineVersion upgrade request.
-        :param pulumi.Input[str] d_b_subnet_group_name: Specifies information on the subnet group associated with the DB cluster, including the name, description, and subnets in the subnet group.
+        :param pulumi.Input[str] db_cluster_identifier: The DB cluster identifier. Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster stored as a lowercase string.
+        :param pulumi.Input[str] db_cluster_parameter_group_name: Provides the name of the DB cluster parameter group.
+        :param pulumi.Input[str] db_instance_parameter_group_name: The name of the DB parameter group to apply to all instances of the DB cluster. Used only in case of a major EngineVersion upgrade request.
+        :param pulumi.Input[str] db_subnet_group_name: Specifies information on the subnet group associated with the DB cluster, including the name, description, and subnets in the subnet group.
         :param pulumi.Input[bool] deletion_protection: Indicates whether or not the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enable_cloudwatch_logs_exports: Specifies a list of log types that are enabled for export to CloudWatch Logs.
         :param pulumi.Input[str] engine_version: Indicates the database engine version.
@@ -565,10 +565,10 @@ class DBCluster(pulumi.CustomResource):
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  backup_retention_period: Optional[pulumi.Input[int]] = None,
                  copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
-                 d_b_cluster_identifier: Optional[pulumi.Input[str]] = None,
-                 d_b_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
-                 d_b_instance_parameter_group_name: Optional[pulumi.Input[str]] = None,
-                 d_b_subnet_group_name: Optional[pulumi.Input[str]] = None,
+                 db_cluster_identifier: Optional[pulumi.Input[str]] = None,
+                 db_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
+                 db_instance_parameter_group_name: Optional[pulumi.Input[str]] = None,
+                 db_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
                  enable_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
@@ -598,10 +598,10 @@ class DBCluster(pulumi.CustomResource):
             __props__.__dict__["availability_zones"] = availability_zones
             __props__.__dict__["backup_retention_period"] = backup_retention_period
             __props__.__dict__["copy_tags_to_snapshot"] = copy_tags_to_snapshot
-            __props__.__dict__["d_b_cluster_identifier"] = d_b_cluster_identifier
-            __props__.__dict__["d_b_cluster_parameter_group_name"] = d_b_cluster_parameter_group_name
-            __props__.__dict__["d_b_instance_parameter_group_name"] = d_b_instance_parameter_group_name
-            __props__.__dict__["d_b_subnet_group_name"] = d_b_subnet_group_name
+            __props__.__dict__["db_cluster_identifier"] = db_cluster_identifier
+            __props__.__dict__["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
+            __props__.__dict__["db_instance_parameter_group_name"] = db_instance_parameter_group_name
+            __props__.__dict__["db_subnet_group_name"] = db_subnet_group_name
             __props__.__dict__["deletion_protection"] = deletion_protection
             __props__.__dict__["enable_cloudwatch_logs_exports"] = enable_cloudwatch_logs_exports
             __props__.__dict__["engine_version"] = engine_version
@@ -649,10 +649,10 @@ class DBCluster(pulumi.CustomResource):
         __props__.__dict__["backup_retention_period"] = None
         __props__.__dict__["cluster_resource_id"] = None
         __props__.__dict__["copy_tags_to_snapshot"] = None
-        __props__.__dict__["d_b_cluster_identifier"] = None
-        __props__.__dict__["d_b_cluster_parameter_group_name"] = None
-        __props__.__dict__["d_b_instance_parameter_group_name"] = None
-        __props__.__dict__["d_b_subnet_group_name"] = None
+        __props__.__dict__["db_cluster_identifier"] = None
+        __props__.__dict__["db_cluster_parameter_group_name"] = None
+        __props__.__dict__["db_instance_parameter_group_name"] = None
+        __props__.__dict__["db_subnet_group_name"] = None
         __props__.__dict__["deletion_protection"] = None
         __props__.__dict__["enable_cloudwatch_logs_exports"] = None
         __props__.__dict__["endpoint"] = None
@@ -715,36 +715,36 @@ class DBCluster(pulumi.CustomResource):
         return pulumi.get(self, "copy_tags_to_snapshot")
 
     @property
-    @pulumi.getter(name="dBClusterIdentifier")
-    def d_b_cluster_identifier(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="dbClusterIdentifier")
+    def db_cluster_identifier(self) -> pulumi.Output[Optional[str]]:
         """
         The DB cluster identifier. Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster stored as a lowercase string.
         """
-        return pulumi.get(self, "d_b_cluster_identifier")
+        return pulumi.get(self, "db_cluster_identifier")
 
     @property
-    @pulumi.getter(name="dBClusterParameterGroupName")
-    def d_b_cluster_parameter_group_name(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="dbClusterParameterGroupName")
+    def db_cluster_parameter_group_name(self) -> pulumi.Output[Optional[str]]:
         """
         Provides the name of the DB cluster parameter group.
         """
-        return pulumi.get(self, "d_b_cluster_parameter_group_name")
+        return pulumi.get(self, "db_cluster_parameter_group_name")
 
     @property
-    @pulumi.getter(name="dBInstanceParameterGroupName")
-    def d_b_instance_parameter_group_name(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="dbInstanceParameterGroupName")
+    def db_instance_parameter_group_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the DB parameter group to apply to all instances of the DB cluster. Used only in case of a major EngineVersion upgrade request.
         """
-        return pulumi.get(self, "d_b_instance_parameter_group_name")
+        return pulumi.get(self, "db_instance_parameter_group_name")
 
     @property
-    @pulumi.getter(name="dBSubnetGroupName")
-    def d_b_subnet_group_name(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="dbSubnetGroupName")
+    def db_subnet_group_name(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies information on the subnet group associated with the DB cluster, including the name, description, and subnets in the subnet group.
         """
-        return pulumi.get(self, "d_b_subnet_group_name")
+        return pulumi.get(self, "db_subnet_group_name")
 
     @property
     @pulumi.getter(name="deletionProtection")
@@ -871,7 +871,7 @@ class DBCluster(pulumi.CustomResource):
         return pulumi.get(self, "snapshot_identifier")
 
     @property
-    @pulumi.getter(name="sourceDBClusterIdentifier")
+    @pulumi.getter(name="sourceDbClusterIdentifier")
     def source_db_cluster_identifier(self) -> pulumi.Output[Optional[str]]:
         """
         Creates a new DB cluster from a DB snapshot or DB cluster snapshot.

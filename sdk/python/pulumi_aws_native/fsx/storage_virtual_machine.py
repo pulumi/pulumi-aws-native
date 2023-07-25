@@ -165,7 +165,7 @@ class StorageVirtualMachine(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["resource_arn"] = None
             __props__.__dict__["storage_virtual_machine_id"] = None
-            __props__.__dict__["u_uid"] = None
+            __props__.__dict__["uuid"] = None
         super(StorageVirtualMachine, __self__).__init__(
             'aws-native:fsx:StorageVirtualMachine',
             resource_name,
@@ -196,7 +196,7 @@ class StorageVirtualMachine(pulumi.CustomResource):
         __props__.__dict__["storage_virtual_machine_id"] = None
         __props__.__dict__["svm_admin_password"] = None
         __props__.__dict__["tags"] = None
-        __props__.__dict__["u_uid"] = None
+        __props__.__dict__["uuid"] = None
         return StorageVirtualMachine(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -215,7 +215,7 @@ class StorageVirtualMachine(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="resourceARN")
+    @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "resource_arn")
 
@@ -240,7 +240,7 @@ class StorageVirtualMachine(pulumi.CustomResource):
         return pulumi.get(self, "tags")
 
     @property
-    @pulumi.getter(name="uUID")
-    def u_uid(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "u_uid")
+    @pulumi.getter
+    def uuid(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "uuid")
 

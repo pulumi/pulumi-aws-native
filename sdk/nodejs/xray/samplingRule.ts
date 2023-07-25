@@ -37,7 +37,7 @@ export class SamplingRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === SamplingRule.__pulumiType;
     }
 
-    public /*out*/ readonly ruleARN!: pulumi.Output<string>;
+    public /*out*/ readonly ruleArn!: pulumi.Output<string>;
     public readonly ruleName!: pulumi.Output<string | undefined>;
     public readonly samplingRule!: pulumi.Output<outputs.xray.SamplingRule | undefined>;
     public readonly samplingRuleRecord!: pulumi.Output<outputs.xray.SamplingRuleRecord | undefined>;
@@ -60,9 +60,9 @@ export class SamplingRule extends pulumi.CustomResource {
             resourceInputs["samplingRuleRecord"] = args ? args.samplingRuleRecord : undefined;
             resourceInputs["samplingRuleUpdate"] = args ? args.samplingRuleUpdate : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["ruleARN"] = undefined /*out*/;
+            resourceInputs["ruleArn"] = undefined /*out*/;
         } else {
-            resourceInputs["ruleARN"] = undefined /*out*/;
+            resourceInputs["ruleArn"] = undefined /*out*/;
             resourceInputs["ruleName"] = undefined /*out*/;
             resourceInputs["samplingRule"] = undefined /*out*/;
             resourceInputs["samplingRuleRecord"] = undefined /*out*/;

@@ -146,7 +146,7 @@ class LicenseArgs:
         pulumi.set(self, "license_name", value)
 
     @property
-    @pulumi.getter(name="productSKU")
+    @pulumi.getter(name="productSku")
     def product_sku(self) -> Optional[pulumi.Input[str]]:
         """
         ProductSKU of the license.
@@ -362,7 +362,7 @@ class License(pulumi.CustomResource):
         return pulumi.get(self, "product_name")
 
     @property
-    @pulumi.getter(name="productSKU")
+    @pulumi.getter(name="productSku")
     def product_sku(self) -> pulumi.Output[Optional[str]]:
         """
         ProductSKU of the license.

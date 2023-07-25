@@ -12,14 +12,14 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
 
     public sealed class VirtualNodeListenerTlsCertificateArgs : global::Pulumi.ResourceArgs
     {
-        [Input("aCM")]
-        public Input<Inputs.VirtualNodeListenerTlsAcmCertificateArgs>? ACM { get; set; }
+        [Input("acm")]
+        public Input<Inputs.VirtualNodeListenerTlsAcmCertificateArgs>? Acm { get; set; }
 
         [Input("file")]
         public Input<Inputs.VirtualNodeListenerTlsFileCertificateArgs>? File { get; set; }
 
-        [Input("sDS")]
-        public Input<Inputs.VirtualNodeListenerTlsSdsCertificateArgs>? SDS { get; set; }
+        [Input("sds")]
+        public Input<Inputs.VirtualNodeListenerTlsSdsCertificateArgs>? Sds { get; set; }
 
         public VirtualNodeListenerTlsCertificateArgs()
         {

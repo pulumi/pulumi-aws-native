@@ -17,36 +17,36 @@ __all__ = ['DBProxyTargetGroupArgs', 'DBProxyTargetGroup']
 @pulumi.input_type
 class DBProxyTargetGroupArgs:
     def __init__(__self__, *,
-                 d_b_proxy_name: pulumi.Input[str],
+                 db_proxy_name: pulumi.Input[str],
                  target_group_name: pulumi.Input['DBProxyTargetGroupTargetGroupName'],
                  connection_pool_configuration_info: Optional[pulumi.Input['DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs']] = None,
-                 d_b_cluster_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 d_b_instance_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 db_cluster_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 db_instance_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a DBProxyTargetGroup resource.
-        :param pulumi.Input[str] d_b_proxy_name: The identifier for the proxy.
+        :param pulumi.Input[str] db_proxy_name: The identifier for the proxy.
         :param pulumi.Input['DBProxyTargetGroupTargetGroupName'] target_group_name: The identifier for the DBProxyTargetGroup
         """
-        pulumi.set(__self__, "d_b_proxy_name", d_b_proxy_name)
+        pulumi.set(__self__, "db_proxy_name", db_proxy_name)
         pulumi.set(__self__, "target_group_name", target_group_name)
         if connection_pool_configuration_info is not None:
             pulumi.set(__self__, "connection_pool_configuration_info", connection_pool_configuration_info)
-        if d_b_cluster_identifiers is not None:
-            pulumi.set(__self__, "d_b_cluster_identifiers", d_b_cluster_identifiers)
-        if d_b_instance_identifiers is not None:
-            pulumi.set(__self__, "d_b_instance_identifiers", d_b_instance_identifiers)
+        if db_cluster_identifiers is not None:
+            pulumi.set(__self__, "db_cluster_identifiers", db_cluster_identifiers)
+        if db_instance_identifiers is not None:
+            pulumi.set(__self__, "db_instance_identifiers", db_instance_identifiers)
 
     @property
-    @pulumi.getter(name="dBProxyName")
-    def d_b_proxy_name(self) -> pulumi.Input[str]:
+    @pulumi.getter(name="dbProxyName")
+    def db_proxy_name(self) -> pulumi.Input[str]:
         """
         The identifier for the proxy.
         """
-        return pulumi.get(self, "d_b_proxy_name")
+        return pulumi.get(self, "db_proxy_name")
 
-    @d_b_proxy_name.setter
-    def d_b_proxy_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "d_b_proxy_name", value)
+    @db_proxy_name.setter
+    def db_proxy_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "db_proxy_name", value)
 
     @property
     @pulumi.getter(name="targetGroupName")
@@ -70,22 +70,22 @@ class DBProxyTargetGroupArgs:
         pulumi.set(self, "connection_pool_configuration_info", value)
 
     @property
-    @pulumi.getter(name="dBClusterIdentifiers")
-    def d_b_cluster_identifiers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        return pulumi.get(self, "d_b_cluster_identifiers")
+    @pulumi.getter(name="dbClusterIdentifiers")
+    def db_cluster_identifiers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "db_cluster_identifiers")
 
-    @d_b_cluster_identifiers.setter
-    def d_b_cluster_identifiers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "d_b_cluster_identifiers", value)
+    @db_cluster_identifiers.setter
+    def db_cluster_identifiers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "db_cluster_identifiers", value)
 
     @property
-    @pulumi.getter(name="dBInstanceIdentifiers")
-    def d_b_instance_identifiers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        return pulumi.get(self, "d_b_instance_identifiers")
+    @pulumi.getter(name="dbInstanceIdentifiers")
+    def db_instance_identifiers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "db_instance_identifiers")
 
-    @d_b_instance_identifiers.setter
-    def d_b_instance_identifiers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "d_b_instance_identifiers", value)
+    @db_instance_identifiers.setter
+    def db_instance_identifiers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "db_instance_identifiers", value)
 
 
 class DBProxyTargetGroup(pulumi.CustomResource):
@@ -94,9 +94,9 @@ class DBProxyTargetGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_pool_configuration_info: Optional[pulumi.Input[pulumi.InputType['DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs']]] = None,
-                 d_b_cluster_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 d_b_instance_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 d_b_proxy_name: Optional[pulumi.Input[str]] = None,
+                 db_cluster_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 db_instance_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 db_proxy_name: Optional[pulumi.Input[str]] = None,
                  target_group_name: Optional[pulumi.Input['DBProxyTargetGroupTargetGroupName']] = None,
                  __props__=None):
         """
@@ -104,7 +104,7 @@ class DBProxyTargetGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] d_b_proxy_name: The identifier for the proxy.
+        :param pulumi.Input[str] db_proxy_name: The identifier for the proxy.
         :param pulumi.Input['DBProxyTargetGroupTargetGroupName'] target_group_name: The identifier for the DBProxyTargetGroup
         """
         ...
@@ -132,9 +132,9 @@ class DBProxyTargetGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_pool_configuration_info: Optional[pulumi.Input[pulumi.InputType['DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs']]] = None,
-                 d_b_cluster_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 d_b_instance_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 d_b_proxy_name: Optional[pulumi.Input[str]] = None,
+                 db_cluster_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 db_instance_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 db_proxy_name: Optional[pulumi.Input[str]] = None,
                  target_group_name: Optional[pulumi.Input['DBProxyTargetGroupTargetGroupName']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -146,11 +146,11 @@ class DBProxyTargetGroup(pulumi.CustomResource):
             __props__ = DBProxyTargetGroupArgs.__new__(DBProxyTargetGroupArgs)
 
             __props__.__dict__["connection_pool_configuration_info"] = connection_pool_configuration_info
-            __props__.__dict__["d_b_cluster_identifiers"] = d_b_cluster_identifiers
-            __props__.__dict__["d_b_instance_identifiers"] = d_b_instance_identifiers
-            if d_b_proxy_name is None and not opts.urn:
-                raise TypeError("Missing required property 'd_b_proxy_name'")
-            __props__.__dict__["d_b_proxy_name"] = d_b_proxy_name
+            __props__.__dict__["db_cluster_identifiers"] = db_cluster_identifiers
+            __props__.__dict__["db_instance_identifiers"] = db_instance_identifiers
+            if db_proxy_name is None and not opts.urn:
+                raise TypeError("Missing required property 'db_proxy_name'")
+            __props__.__dict__["db_proxy_name"] = db_proxy_name
             if target_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'target_group_name'")
             __props__.__dict__["target_group_name"] = target_group_name
@@ -178,9 +178,9 @@ class DBProxyTargetGroup(pulumi.CustomResource):
         __props__ = DBProxyTargetGroupArgs.__new__(DBProxyTargetGroupArgs)
 
         __props__.__dict__["connection_pool_configuration_info"] = None
-        __props__.__dict__["d_b_cluster_identifiers"] = None
-        __props__.__dict__["d_b_instance_identifiers"] = None
-        __props__.__dict__["d_b_proxy_name"] = None
+        __props__.__dict__["db_cluster_identifiers"] = None
+        __props__.__dict__["db_instance_identifiers"] = None
+        __props__.__dict__["db_proxy_name"] = None
         __props__.__dict__["target_group_arn"] = None
         __props__.__dict__["target_group_name"] = None
         return DBProxyTargetGroup(resource_name, opts=opts, __props__=__props__)
@@ -191,22 +191,22 @@ class DBProxyTargetGroup(pulumi.CustomResource):
         return pulumi.get(self, "connection_pool_configuration_info")
 
     @property
-    @pulumi.getter(name="dBClusterIdentifiers")
-    def d_b_cluster_identifiers(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        return pulumi.get(self, "d_b_cluster_identifiers")
+    @pulumi.getter(name="dbClusterIdentifiers")
+    def db_cluster_identifiers(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        return pulumi.get(self, "db_cluster_identifiers")
 
     @property
-    @pulumi.getter(name="dBInstanceIdentifiers")
-    def d_b_instance_identifiers(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        return pulumi.get(self, "d_b_instance_identifiers")
+    @pulumi.getter(name="dbInstanceIdentifiers")
+    def db_instance_identifiers(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        return pulumi.get(self, "db_instance_identifiers")
 
     @property
-    @pulumi.getter(name="dBProxyName")
-    def d_b_proxy_name(self) -> pulumi.Output[str]:
+    @pulumi.getter(name="dbProxyName")
+    def db_proxy_name(self) -> pulumi.Output[str]:
         """
         The identifier for the proxy.
         """
-        return pulumi.get(self, "d_b_proxy_name")
+        return pulumi.get(self, "db_proxy_name")
 
     @property
     @pulumi.getter(name="targetGroupArn")

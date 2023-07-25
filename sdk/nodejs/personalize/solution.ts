@@ -52,11 +52,11 @@ export class Solution extends pulumi.CustomResource {
     /**
      * Whether to perform automated machine learning (AutoML). The default is false. For this case, you must specify recipeArn.
      */
-    public readonly performAutoML!: pulumi.Output<boolean | undefined>;
+    public readonly performAutoMl!: pulumi.Output<boolean | undefined>;
     /**
      * Whether to perform hyperparameter optimization (HPO) on the specified or selected recipe. The default is false. When performing AutoML, this parameter is always true and you should not set it to false.
      */
-    public readonly performHPO!: pulumi.Output<boolean | undefined>;
+    public readonly performHpo!: pulumi.Output<boolean | undefined>;
     /**
      * The ARN of the recipe to use for model training. Only specified when performAutoML is false.
      */
@@ -81,8 +81,8 @@ export class Solution extends pulumi.CustomResource {
             resourceInputs["datasetGroupArn"] = args ? args.datasetGroupArn : undefined;
             resourceInputs["eventType"] = args ? args.eventType : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["performAutoML"] = args ? args.performAutoML : undefined;
-            resourceInputs["performHPO"] = args ? args.performHPO : undefined;
+            resourceInputs["performAutoMl"] = args ? args.performAutoMl : undefined;
+            resourceInputs["performHpo"] = args ? args.performHpo : undefined;
             resourceInputs["recipeArn"] = args ? args.recipeArn : undefined;
             resourceInputs["solutionConfig"] = args ? args.solutionConfig : undefined;
             resourceInputs["solutionArn"] = undefined /*out*/;
@@ -90,8 +90,8 @@ export class Solution extends pulumi.CustomResource {
             resourceInputs["datasetGroupArn"] = undefined /*out*/;
             resourceInputs["eventType"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["performAutoML"] = undefined /*out*/;
-            resourceInputs["performHPO"] = undefined /*out*/;
+            resourceInputs["performAutoMl"] = undefined /*out*/;
+            resourceInputs["performHpo"] = undefined /*out*/;
             resourceInputs["recipeArn"] = undefined /*out*/;
             resourceInputs["solutionArn"] = undefined /*out*/;
             resourceInputs["solutionConfig"] = undefined /*out*/;
@@ -120,11 +120,11 @@ export interface SolutionArgs {
     /**
      * Whether to perform automated machine learning (AutoML). The default is false. For this case, you must specify recipeArn.
      */
-    performAutoML?: pulumi.Input<boolean>;
+    performAutoMl?: pulumi.Input<boolean>;
     /**
      * Whether to perform hyperparameter optimization (HPO) on the specified or selected recipe. The default is false. When performing AutoML, this parameter is always true and you should not set it to false.
      */
-    performHPO?: pulumi.Input<boolean>;
+    performHpo?: pulumi.Input<boolean>;
     /**
      * The ARN of the recipe to use for model training. Only specified when performAutoML is false.
      */

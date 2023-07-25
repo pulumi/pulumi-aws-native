@@ -56,7 +56,7 @@ export class MulticastGroup extends pulumi.CustomResource {
     /**
      * Multicast group LoRaWAN
      */
-    public readonly loRaWAN!: pulumi.Output<outputs.iotwireless.MulticastGroupLoRaWAN>;
+    public readonly loRaWan!: pulumi.Output<outputs.iotwireless.MulticastGroupLoRaWAN>;
     /**
      * Name of Multicast group
      */
@@ -81,13 +81,13 @@ export class MulticastGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.loRaWAN === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'loRaWAN'");
+            if ((!args || args.loRaWan === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'loRaWan'");
             }
             resourceInputs["associateWirelessDevice"] = args ? args.associateWirelessDevice : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["disassociateWirelessDevice"] = args ? args.disassociateWirelessDevice : undefined;
-            resourceInputs["loRaWAN"] = args ? args.loRaWAN : undefined;
+            resourceInputs["loRaWan"] = args ? args.loRaWan : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -97,7 +97,7 @@ export class MulticastGroup extends pulumi.CustomResource {
             resourceInputs["associateWirelessDevice"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["disassociateWirelessDevice"] = undefined /*out*/;
-            resourceInputs["loRaWAN"] = undefined /*out*/;
+            resourceInputs["loRaWan"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -126,7 +126,7 @@ export interface MulticastGroupArgs {
     /**
      * Multicast group LoRaWAN
      */
-    loRaWAN: pulumi.Input<inputs.iotwireless.MulticastGroupLoRaWANArgs>;
+    loRaWan: pulumi.Input<inputs.iotwireless.MulticastGroupLoRaWANArgs>;
     /**
      * Name of Multicast group
      */

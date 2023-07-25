@@ -23,7 +23,7 @@ type ScalableTarget struct {
 	// The identifier of the resource associated with the scalable target
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
 	// Specify the Amazon Resource Name (ARN) of an Identity and Access Management (IAM) role that allows Application Auto Scaling to modify the scalable target on your behalf.
-	RoleARN pulumi.StringPtrOutput `pulumi:"roleARN"`
+	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
 	// The scalable dimension associated with the scalable target. This string consists of the service namespace, resource type, and scaling property
 	ScalableDimension pulumi.StringOutput `pulumi:"scalableDimension"`
 	// The scheduled actions for the scalable target. Duplicates aren't allowed.
@@ -96,7 +96,7 @@ type scalableTargetArgs struct {
 	// The identifier of the resource associated with the scalable target
 	ResourceId string `pulumi:"resourceId"`
 	// Specify the Amazon Resource Name (ARN) of an Identity and Access Management (IAM) role that allows Application Auto Scaling to modify the scalable target on your behalf.
-	RoleARN *string `pulumi:"roleARN"`
+	RoleArn *string `pulumi:"roleArn"`
 	// The scalable dimension associated with the scalable target. This string consists of the service namespace, resource type, and scaling property
 	ScalableDimension string `pulumi:"scalableDimension"`
 	// The scheduled actions for the scalable target. Duplicates aren't allowed.
@@ -116,7 +116,7 @@ type ScalableTargetArgs struct {
 	// The identifier of the resource associated with the scalable target
 	ResourceId pulumi.StringInput
 	// Specify the Amazon Resource Name (ARN) of an Identity and Access Management (IAM) role that allows Application Auto Scaling to modify the scalable target on your behalf.
-	RoleARN pulumi.StringPtrInput
+	RoleArn pulumi.StringPtrInput
 	// The scalable dimension associated with the scalable target. This string consists of the service namespace, resource type, and scaling property
 	ScalableDimension pulumi.StringInput
 	// The scheduled actions for the scalable target. Duplicates aren't allowed.
@@ -180,8 +180,8 @@ func (o ScalableTargetOutput) ResourceId() pulumi.StringOutput {
 }
 
 // Specify the Amazon Resource Name (ARN) of an Identity and Access Management (IAM) role that allows Application Auto Scaling to modify the scalable target on your behalf.
-func (o ScalableTargetOutput) RoleARN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ScalableTarget) pulumi.StringPtrOutput { return v.RoleARN }).(pulumi.StringPtrOutput)
+func (o ScalableTargetOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScalableTarget) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
 // The scalable dimension associated with the scalable target. This string consists of the service namespace, resource type, and scaling property

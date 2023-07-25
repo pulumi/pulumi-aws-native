@@ -52,7 +52,7 @@ type LookupCanaryResult struct {
 	SuccessRetentionPeriod *int        `pulumi:"successRetentionPeriod"`
 	Tags                   []CanaryTag `pulumi:"tags"`
 	// Provide VPC Configuration if enabled.
-	VPCConfig *CanaryVPCConfig `pulumi:"vPCConfig"`
+	VpcConfig *CanaryVPCConfig `pulumi:"vpcConfig"`
 }
 
 func LookupCanaryOutput(ctx *pulumi.Context, args LookupCanaryOutputArgs, opts ...pulumi.InvokeOption) LookupCanaryResultOutput {
@@ -151,8 +151,8 @@ func (o LookupCanaryResultOutput) Tags() CanaryTagArrayOutput {
 }
 
 // Provide VPC Configuration if enabled.
-func (o LookupCanaryResultOutput) VPCConfig() CanaryVPCConfigPtrOutput {
-	return o.ApplyT(func(v LookupCanaryResult) *CanaryVPCConfig { return v.VPCConfig }).(CanaryVPCConfigPtrOutput)
+func (o LookupCanaryResultOutput) VpcConfig() CanaryVPCConfigPtrOutput {
+	return o.ApplyT(func(v LookupCanaryResult) *CanaryVPCConfig { return v.VpcConfig }).(CanaryVPCConfigPtrOutput)
 }
 
 func init() {

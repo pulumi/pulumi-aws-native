@@ -37,7 +37,7 @@ type LookupNotebookInstanceResult struct {
 	RoleArn                              *string                                               `pulumi:"roleArn"`
 	RootAccess                           *string                                               `pulumi:"rootAccess"`
 	Tags                                 []NotebookInstanceTag                                 `pulumi:"tags"`
-	VolumeSizeInGB                       *int                                                  `pulumi:"volumeSizeInGB"`
+	VolumeSizeInGb                       *int                                                  `pulumi:"volumeSizeInGb"`
 }
 
 func LookupNotebookInstanceOutput(ctx *pulumi.Context, args LookupNotebookInstanceOutputArgs, opts ...pulumi.InvokeOption) LookupNotebookInstanceResultOutput {
@@ -117,8 +117,8 @@ func (o LookupNotebookInstanceResultOutput) Tags() NotebookInstanceTagArrayOutpu
 	return o.ApplyT(func(v LookupNotebookInstanceResult) []NotebookInstanceTag { return v.Tags }).(NotebookInstanceTagArrayOutput)
 }
 
-func (o LookupNotebookInstanceResultOutput) VolumeSizeInGB() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v LookupNotebookInstanceResult) *int { return v.VolumeSizeInGB }).(pulumi.IntPtrOutput)
+func (o LookupNotebookInstanceResultOutput) VolumeSizeInGb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupNotebookInstanceResult) *int { return v.VolumeSizeInGb }).(pulumi.IntPtrOutput)
 }
 
 func init() {

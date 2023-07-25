@@ -17,7 +17,7 @@ __all__ = ['EnvironmentArgs', 'Environment']
 class EnvironmentArgs:
     def __init__(__self__, *,
                  application_name: pulumi.Input[str],
-                 c_name_prefix: Optional[pulumi.Input[str]] = None,
+                 cname_prefix: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  environment_name: Optional[pulumi.Input[str]] = None,
                  operations_role: Optional[pulumi.Input[str]] = None,
@@ -31,7 +31,7 @@ class EnvironmentArgs:
         """
         The set of arguments for constructing a Environment resource.
         :param pulumi.Input[str] application_name: The name of the application that is associated with this environment.
-        :param pulumi.Input[str] c_name_prefix: If specified, the environment attempts to use this value as the prefix for the CNAME in your Elastic Beanstalk environment URL. If not specified, the CNAME is generated automatically by appending a random alphanumeric string to the environment name.
+        :param pulumi.Input[str] cname_prefix: If specified, the environment attempts to use this value as the prefix for the CNAME in your Elastic Beanstalk environment URL. If not specified, the CNAME is generated automatically by appending a random alphanumeric string to the environment name.
         :param pulumi.Input[str] description: Your description for this environment.
         :param pulumi.Input[str] environment_name: A unique name for the environment.
         :param pulumi.Input[str] operations_role: The Amazon Resource Name (ARN) of an existing IAM role to be used as the environment's operations role.
@@ -44,8 +44,8 @@ class EnvironmentArgs:
         :param pulumi.Input[str] version_label: The name of the application version to deploy.
         """
         pulumi.set(__self__, "application_name", application_name)
-        if c_name_prefix is not None:
-            pulumi.set(__self__, "c_name_prefix", c_name_prefix)
+        if cname_prefix is not None:
+            pulumi.set(__self__, "cname_prefix", cname_prefix)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if environment_name is not None:
@@ -80,16 +80,16 @@ class EnvironmentArgs:
         pulumi.set(self, "application_name", value)
 
     @property
-    @pulumi.getter(name="cNAMEPrefix")
-    def c_name_prefix(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="cnamePrefix")
+    def cname_prefix(self) -> Optional[pulumi.Input[str]]:
         """
         If specified, the environment attempts to use this value as the prefix for the CNAME in your Elastic Beanstalk environment URL. If not specified, the CNAME is generated automatically by appending a random alphanumeric string to the environment name.
         """
-        return pulumi.get(self, "c_name_prefix")
+        return pulumi.get(self, "cname_prefix")
 
-    @c_name_prefix.setter
-    def c_name_prefix(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "c_name_prefix", value)
+    @cname_prefix.setter
+    def cname_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cname_prefix", value)
 
     @property
     @pulumi.getter
@@ -218,7 +218,7 @@ class Environment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_name: Optional[pulumi.Input[str]] = None,
-                 c_name_prefix: Optional[pulumi.Input[str]] = None,
+                 cname_prefix: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  environment_name: Optional[pulumi.Input[str]] = None,
                  operations_role: Optional[pulumi.Input[str]] = None,
@@ -236,7 +236,7 @@ class Environment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_name: The name of the application that is associated with this environment.
-        :param pulumi.Input[str] c_name_prefix: If specified, the environment attempts to use this value as the prefix for the CNAME in your Elastic Beanstalk environment URL. If not specified, the CNAME is generated automatically by appending a random alphanumeric string to the environment name.
+        :param pulumi.Input[str] cname_prefix: If specified, the environment attempts to use this value as the prefix for the CNAME in your Elastic Beanstalk environment URL. If not specified, the CNAME is generated automatically by appending a random alphanumeric string to the environment name.
         :param pulumi.Input[str] description: Your description for this environment.
         :param pulumi.Input[str] environment_name: A unique name for the environment.
         :param pulumi.Input[str] operations_role: The Amazon Resource Name (ARN) of an existing IAM role to be used as the environment's operations role.
@@ -273,7 +273,7 @@ class Environment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_name: Optional[pulumi.Input[str]] = None,
-                 c_name_prefix: Optional[pulumi.Input[str]] = None,
+                 cname_prefix: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  environment_name: Optional[pulumi.Input[str]] = None,
                  operations_role: Optional[pulumi.Input[str]] = None,
@@ -296,7 +296,7 @@ class Environment(pulumi.CustomResource):
             if application_name is None and not opts.urn:
                 raise TypeError("Missing required property 'application_name'")
             __props__.__dict__["application_name"] = application_name
-            __props__.__dict__["c_name_prefix"] = c_name_prefix
+            __props__.__dict__["cname_prefix"] = cname_prefix
             __props__.__dict__["description"] = description
             __props__.__dict__["environment_name"] = environment_name
             __props__.__dict__["operations_role"] = operations_role
@@ -331,7 +331,7 @@ class Environment(pulumi.CustomResource):
         __props__ = EnvironmentArgs.__new__(EnvironmentArgs)
 
         __props__.__dict__["application_name"] = None
-        __props__.__dict__["c_name_prefix"] = None
+        __props__.__dict__["cname_prefix"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["endpoint_url"] = None
         __props__.__dict__["environment_name"] = None
@@ -354,12 +354,12 @@ class Environment(pulumi.CustomResource):
         return pulumi.get(self, "application_name")
 
     @property
-    @pulumi.getter(name="cNAMEPrefix")
-    def c_name_prefix(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="cnamePrefix")
+    def cname_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         If specified, the environment attempts to use this value as the prefix for the CNAME in your Elastic Beanstalk environment URL. If not specified, the CNAME is generated automatically by appending a random alphanumeric string to the environment name.
         """
-        return pulumi.get(self, "c_name_prefix")
+        return pulumi.get(self, "cname_prefix")
 
     @property
     @pulumi.getter
@@ -370,7 +370,7 @@ class Environment(pulumi.CustomResource):
         return pulumi.get(self, "description")
 
     @property
-    @pulumi.getter(name="endpointURL")
+    @pulumi.getter(name="endpointUrl")
     def endpoint_url(self) -> pulumi.Output[str]:
         return pulumi.get(self, "endpoint_url")
 

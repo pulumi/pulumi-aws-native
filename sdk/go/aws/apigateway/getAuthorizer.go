@@ -45,7 +45,7 @@ type LookupAuthorizerResult struct {
 	// The name of the authorizer.
 	Name *string `pulumi:"name"`
 	// A list of the Amazon Cognito user pool ARNs for the COGNITO_USER_POOLS authorizer.
-	ProviderARNs []string `pulumi:"providerARNs"`
+	ProviderArns []string `pulumi:"providerArns"`
 	// The authorizer type.
 	Type *string `pulumi:"type"`
 }
@@ -127,8 +127,8 @@ func (o LookupAuthorizerResultOutput) Name() pulumi.StringPtrOutput {
 }
 
 // A list of the Amazon Cognito user pool ARNs for the COGNITO_USER_POOLS authorizer.
-func (o LookupAuthorizerResultOutput) ProviderARNs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v LookupAuthorizerResult) []string { return v.ProviderARNs }).(pulumi.StringArrayOutput)
+func (o LookupAuthorizerResultOutput) ProviderArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupAuthorizerResult) []string { return v.ProviderArns }).(pulumi.StringArrayOutput)
 }
 
 // The authorizer type.

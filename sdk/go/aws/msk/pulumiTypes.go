@@ -177,7 +177,7 @@ func (o ClusterBrokerLogsPtrOutput) S3() ClusterS3PtrOutput {
 }
 
 type ClusterBrokerNodeGroupInfo struct {
-	BrokerAZDistribution *string                  `pulumi:"brokerAZDistribution"`
+	BrokerAzDistribution *string                  `pulumi:"brokerAzDistribution"`
 	ClientSubnets        []string                 `pulumi:"clientSubnets"`
 	ConnectivityInfo     *ClusterConnectivityInfo `pulumi:"connectivityInfo"`
 	InstanceType         string                   `pulumi:"instanceType"`
@@ -197,7 +197,7 @@ type ClusterBrokerNodeGroupInfoInput interface {
 }
 
 type ClusterBrokerNodeGroupInfoArgs struct {
-	BrokerAZDistribution pulumi.StringPtrInput           `pulumi:"brokerAZDistribution"`
+	BrokerAzDistribution pulumi.StringPtrInput           `pulumi:"brokerAzDistribution"`
 	ClientSubnets        pulumi.StringArrayInput         `pulumi:"clientSubnets"`
 	ConnectivityInfo     ClusterConnectivityInfoPtrInput `pulumi:"connectivityInfo"`
 	InstanceType         pulumi.StringInput              `pulumi:"instanceType"`
@@ -231,8 +231,8 @@ func (o ClusterBrokerNodeGroupInfoOutput) ToClusterBrokerNodeGroupInfoOutputWith
 	return o
 }
 
-func (o ClusterBrokerNodeGroupInfoOutput) BrokerAZDistribution() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterBrokerNodeGroupInfo) *string { return v.BrokerAZDistribution }).(pulumi.StringPtrOutput)
+func (o ClusterBrokerNodeGroupInfoOutput) BrokerAzDistribution() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterBrokerNodeGroupInfo) *string { return v.BrokerAzDistribution }).(pulumi.StringPtrOutput)
 }
 
 func (o ClusterBrokerNodeGroupInfoOutput) ClientSubnets() pulumi.StringArrayOutput {
@@ -279,12 +279,12 @@ func (o ClusterBrokerNodeGroupInfoPtrOutput) Elem() ClusterBrokerNodeGroupInfoOu
 	}).(ClusterBrokerNodeGroupInfoOutput)
 }
 
-func (o ClusterBrokerNodeGroupInfoPtrOutput) BrokerAZDistribution() pulumi.StringPtrOutput {
+func (o ClusterBrokerNodeGroupInfoPtrOutput) BrokerAzDistribution() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfo) *string {
 		if v == nil {
 			return nil
 		}
-		return v.BrokerAZDistribution
+		return v.BrokerAzDistribution
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1089,7 +1089,7 @@ func (o ClusterEBSStorageInfoPtrOutput) VolumeSize() pulumi.IntPtrOutput {
 }
 
 type ClusterEncryptionAtRest struct {
-	DataVolumeKMSKeyId string `pulumi:"dataVolumeKMSKeyId"`
+	DataVolumeKmsKeyId string `pulumi:"dataVolumeKmsKeyId"`
 }
 
 // ClusterEncryptionAtRestInput is an input type that accepts ClusterEncryptionAtRestArgs and ClusterEncryptionAtRestOutput values.
@@ -1104,7 +1104,7 @@ type ClusterEncryptionAtRestInput interface {
 }
 
 type ClusterEncryptionAtRestArgs struct {
-	DataVolumeKMSKeyId pulumi.StringInput `pulumi:"dataVolumeKMSKeyId"`
+	DataVolumeKmsKeyId pulumi.StringInput `pulumi:"dataVolumeKmsKeyId"`
 }
 
 func (ClusterEncryptionAtRestArgs) ElementType() reflect.Type {
@@ -1184,8 +1184,8 @@ func (o ClusterEncryptionAtRestOutput) ToClusterEncryptionAtRestPtrOutputWithCon
 	}).(ClusterEncryptionAtRestPtrOutput)
 }
 
-func (o ClusterEncryptionAtRestOutput) DataVolumeKMSKeyId() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterEncryptionAtRest) string { return v.DataVolumeKMSKeyId }).(pulumi.StringOutput)
+func (o ClusterEncryptionAtRestOutput) DataVolumeKmsKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterEncryptionAtRest) string { return v.DataVolumeKmsKeyId }).(pulumi.StringOutput)
 }
 
 type ClusterEncryptionAtRestPtrOutput struct{ *pulumi.OutputState }
@@ -1212,12 +1212,12 @@ func (o ClusterEncryptionAtRestPtrOutput) Elem() ClusterEncryptionAtRestOutput {
 	}).(ClusterEncryptionAtRestOutput)
 }
 
-func (o ClusterEncryptionAtRestPtrOutput) DataVolumeKMSKeyId() pulumi.StringPtrOutput {
+func (o ClusterEncryptionAtRestPtrOutput) DataVolumeKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterEncryptionAtRest) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.DataVolumeKMSKeyId
+		return &v.DataVolumeKmsKeyId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3204,7 +3204,7 @@ func (o ClusterScramPtrOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 type ClusterStorageInfo struct {
-	EBSStorageInfo *ClusterEBSStorageInfo `pulumi:"eBSStorageInfo"`
+	EbsStorageInfo *ClusterEBSStorageInfo `pulumi:"ebsStorageInfo"`
 }
 
 // ClusterStorageInfoInput is an input type that accepts ClusterStorageInfoArgs and ClusterStorageInfoOutput values.
@@ -3219,7 +3219,7 @@ type ClusterStorageInfoInput interface {
 }
 
 type ClusterStorageInfoArgs struct {
-	EBSStorageInfo ClusterEBSStorageInfoPtrInput `pulumi:"eBSStorageInfo"`
+	EbsStorageInfo ClusterEBSStorageInfoPtrInput `pulumi:"ebsStorageInfo"`
 }
 
 func (ClusterStorageInfoArgs) ElementType() reflect.Type {
@@ -3299,8 +3299,8 @@ func (o ClusterStorageInfoOutput) ToClusterStorageInfoPtrOutputWithContext(ctx c
 	}).(ClusterStorageInfoPtrOutput)
 }
 
-func (o ClusterStorageInfoOutput) EBSStorageInfo() ClusterEBSStorageInfoPtrOutput {
-	return o.ApplyT(func(v ClusterStorageInfo) *ClusterEBSStorageInfo { return v.EBSStorageInfo }).(ClusterEBSStorageInfoPtrOutput)
+func (o ClusterStorageInfoOutput) EbsStorageInfo() ClusterEBSStorageInfoPtrOutput {
+	return o.ApplyT(func(v ClusterStorageInfo) *ClusterEBSStorageInfo { return v.EbsStorageInfo }).(ClusterEBSStorageInfoPtrOutput)
 }
 
 type ClusterStorageInfoPtrOutput struct{ *pulumi.OutputState }
@@ -3327,12 +3327,12 @@ func (o ClusterStorageInfoPtrOutput) Elem() ClusterStorageInfoOutput {
 	}).(ClusterStorageInfoOutput)
 }
 
-func (o ClusterStorageInfoPtrOutput) EBSStorageInfo() ClusterEBSStorageInfoPtrOutput {
+func (o ClusterStorageInfoPtrOutput) EbsStorageInfo() ClusterEBSStorageInfoPtrOutput {
 	return o.ApplyT(func(v *ClusterStorageInfo) *ClusterEBSStorageInfo {
 		if v == nil {
 			return nil
 		}
-		return v.EBSStorageInfo
+		return v.EbsStorageInfo
 	}).(ClusterEBSStorageInfoPtrOutput)
 }
 

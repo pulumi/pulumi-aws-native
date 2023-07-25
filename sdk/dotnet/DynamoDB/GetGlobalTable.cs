@@ -56,7 +56,7 @@ namespace Pulumi.AwsNative.DynamoDB
         public readonly string? BillingMode;
         public readonly ImmutableArray<Outputs.GlobalTableGlobalSecondaryIndex> GlobalSecondaryIndexes;
         public readonly ImmutableArray<Outputs.GlobalTableReplicaSpecification> Replicas;
-        public readonly Outputs.GlobalTableSSESpecification? SSESpecification;
+        public readonly Outputs.GlobalTableSSESpecification? SseSpecification;
         public readonly string? StreamArn;
         public readonly Outputs.GlobalTableStreamSpecification? StreamSpecification;
         public readonly string? TableId;
@@ -75,7 +75,7 @@ namespace Pulumi.AwsNative.DynamoDB
 
             ImmutableArray<Outputs.GlobalTableReplicaSpecification> replicas,
 
-            Outputs.GlobalTableSSESpecification? sSESpecification,
+            Outputs.GlobalTableSSESpecification? sseSpecification,
 
             string? streamArn,
 
@@ -92,7 +92,7 @@ namespace Pulumi.AwsNative.DynamoDB
             BillingMode = billingMode;
             GlobalSecondaryIndexes = globalSecondaryIndexes;
             Replicas = replicas;
-            SSESpecification = sSESpecification;
+            SseSpecification = sseSpecification;
             StreamArn = streamArn;
             StreamSpecification = streamSpecification;
             TableId = tableId;

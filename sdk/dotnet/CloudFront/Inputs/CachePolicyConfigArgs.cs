@@ -15,14 +15,14 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
-        [Input("defaultTTL", required: true)]
-        public Input<double> DefaultTTL { get; set; } = null!;
+        [Input("defaultTtl", required: true)]
+        public Input<double> DefaultTtl { get; set; } = null!;
 
-        [Input("maxTTL", required: true)]
-        public Input<double> MaxTTL { get; set; } = null!;
+        [Input("maxTtl", required: true)]
+        public Input<double> MaxTtl { get; set; } = null!;
 
-        [Input("minTTL", required: true)]
-        public Input<double> MinTTL { get; set; } = null!;
+        [Input("minTtl", required: true)]
+        public Input<double> MinTtl { get; set; } = null!;
 
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

@@ -19,13 +19,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetCacheClusterResult:
-    def __init__(__self__, a_z_mode=None, auto_minor_version_upgrade=None, cache_node_type=None, cache_parameter_group_name=None, cache_security_group_names=None, configuration_endpoint_address=None, configuration_endpoint_port=None, engine_version=None, id=None, ip_discovery=None, log_delivery_configurations=None, notification_topic_arn=None, num_cache_nodes=None, preferred_availability_zone=None, preferred_availability_zones=None, preferred_maintenance_window=None, redis_endpoint_address=None, redis_endpoint_port=None, snapshot_retention_limit=None, snapshot_window=None, tags=None, transit_encryption_enabled=None, vpc_security_group_ids=None):
-        if a_z_mode and not isinstance(a_z_mode, str):
-            raise TypeError("Expected argument 'a_z_mode' to be a str")
-        pulumi.set(__self__, "a_z_mode", a_z_mode)
+    def __init__(__self__, auto_minor_version_upgrade=None, az_mode=None, cache_node_type=None, cache_parameter_group_name=None, cache_security_group_names=None, configuration_endpoint_address=None, configuration_endpoint_port=None, engine_version=None, id=None, ip_discovery=None, log_delivery_configurations=None, notification_topic_arn=None, num_cache_nodes=None, preferred_availability_zone=None, preferred_availability_zones=None, preferred_maintenance_window=None, redis_endpoint_address=None, redis_endpoint_port=None, snapshot_retention_limit=None, snapshot_window=None, tags=None, transit_encryption_enabled=None, vpc_security_group_ids=None):
         if auto_minor_version_upgrade and not isinstance(auto_minor_version_upgrade, bool):
             raise TypeError("Expected argument 'auto_minor_version_upgrade' to be a bool")
         pulumi.set(__self__, "auto_minor_version_upgrade", auto_minor_version_upgrade)
+        if az_mode and not isinstance(az_mode, str):
+            raise TypeError("Expected argument 'az_mode' to be a str")
+        pulumi.set(__self__, "az_mode", az_mode)
         if cache_node_type and not isinstance(cache_node_type, str):
             raise TypeError("Expected argument 'cache_node_type' to be a str")
         pulumi.set(__self__, "cache_node_type", cache_node_type)
@@ -91,14 +91,14 @@ class GetCacheClusterResult:
         pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
 
     @property
-    @pulumi.getter(name="aZMode")
-    def a_z_mode(self) -> Optional[str]:
-        return pulumi.get(self, "a_z_mode")
-
-    @property
     @pulumi.getter(name="autoMinorVersionUpgrade")
     def auto_minor_version_upgrade(self) -> Optional[bool]:
         return pulumi.get(self, "auto_minor_version_upgrade")
+
+    @property
+    @pulumi.getter(name="azMode")
+    def az_mode(self) -> Optional[str]:
+        return pulumi.get(self, "az_mode")
 
     @property
     @pulumi.getter(name="cacheNodeType")
@@ -212,8 +212,8 @@ class AwaitableGetCacheClusterResult(GetCacheClusterResult):
         if False:
             yield self
         return GetCacheClusterResult(
-            a_z_mode=self.a_z_mode,
             auto_minor_version_upgrade=self.auto_minor_version_upgrade,
+            az_mode=self.az_mode,
             cache_node_type=self.cache_node_type,
             cache_parameter_group_name=self.cache_parameter_group_name,
             cache_security_group_names=self.cache_security_group_names,
@@ -248,8 +248,8 @@ def get_cache_cluster(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:elasticache:getCacheCluster', __args__, opts=opts, typ=GetCacheClusterResult).value
 
     return AwaitableGetCacheClusterResult(
-        a_z_mode=pulumi.get(__ret__, 'a_z_mode'),
         auto_minor_version_upgrade=pulumi.get(__ret__, 'auto_minor_version_upgrade'),
+        az_mode=pulumi.get(__ret__, 'az_mode'),
         cache_node_type=pulumi.get(__ret__, 'cache_node_type'),
         cache_parameter_group_name=pulumi.get(__ret__, 'cache_parameter_group_name'),
         cache_security_group_names=pulumi.get(__ret__, 'cache_security_group_names'),

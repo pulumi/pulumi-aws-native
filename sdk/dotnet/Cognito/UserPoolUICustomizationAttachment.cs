@@ -16,11 +16,11 @@ namespace Pulumi.AwsNative.Cognito
     [AwsNativeResourceType("aws-native:cognito:UserPoolUICustomizationAttachment")]
     public partial class UserPoolUICustomizationAttachment : global::Pulumi.CustomResource
     {
-        [Output("cSS")]
-        public Output<string?> CSS { get; private set; } = null!;
-
         [Output("clientId")]
         public Output<string> ClientId { get; private set; } = null!;
+
+        [Output("css")]
+        public Output<string?> Css { get; private set; } = null!;
 
         [Output("userPoolId")]
         public Output<string> UserPoolId { get; private set; } = null!;
@@ -70,11 +70,11 @@ namespace Pulumi.AwsNative.Cognito
 
     public sealed class UserPoolUICustomizationAttachmentArgs : global::Pulumi.ResourceArgs
     {
-        [Input("cSS")]
-        public Input<string>? CSS { get; set; }
-
         [Input("clientId", required: true)]
         public Input<string> ClientId { get; set; } = null!;
+
+        [Input("css")]
+        public Input<string>? Css { get; set; }
 
         [Input("userPoolId", required: true)]
         public Input<string> UserPoolId { get; set; } = null!;

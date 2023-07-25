@@ -17,7 +17,7 @@ type Volume struct {
 	pulumi.CustomResourceState
 
 	// The Availability Zone in which to create the volume.
-	AutoEnableIO pulumi.BoolPtrOutput `pulumi:"autoEnableIO"`
+	AutoEnableIo pulumi.BoolPtrOutput `pulumi:"autoEnableIo"`
 	// The Availability Zone in which to create the volume.
 	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
 	// Specifies whether the volume should be encrypted. The effect of setting the encryption state to true depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see Encryption by default in the Amazon Elastic Compute Cloud User Guide. Encrypted Amazon EBS volumes must be attached to instances that support Amazon EBS encryption. For more information, see Supported instance types.
@@ -87,7 +87,7 @@ func (VolumeState) ElementType() reflect.Type {
 
 type volumeArgs struct {
 	// The Availability Zone in which to create the volume.
-	AutoEnableIO *bool `pulumi:"autoEnableIO"`
+	AutoEnableIo *bool `pulumi:"autoEnableIo"`
 	// The Availability Zone in which to create the volume.
 	AvailabilityZone string `pulumi:"availabilityZone"`
 	// Specifies whether the volume should be encrypted. The effect of setting the encryption state to true depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see Encryption by default in the Amazon Elastic Compute Cloud User Guide. Encrypted Amazon EBS volumes must be attached to instances that support Amazon EBS encryption. For more information, see Supported instance types.
@@ -115,7 +115,7 @@ type volumeArgs struct {
 // The set of arguments for constructing a Volume resource.
 type VolumeArgs struct {
 	// The Availability Zone in which to create the volume.
-	AutoEnableIO pulumi.BoolPtrInput
+	AutoEnableIo pulumi.BoolPtrInput
 	// The Availability Zone in which to create the volume.
 	AvailabilityZone pulumi.StringInput
 	// Specifies whether the volume should be encrypted. The effect of setting the encryption state to true depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see Encryption by default in the Amazon Elastic Compute Cloud User Guide. Encrypted Amazon EBS volumes must be attached to instances that support Amazon EBS encryption. For more information, see Supported instance types.
@@ -178,8 +178,8 @@ func (o VolumeOutput) ToVolumeOutputWithContext(ctx context.Context) VolumeOutpu
 }
 
 // The Availability Zone in which to create the volume.
-func (o VolumeOutput) AutoEnableIO() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Volume) pulumi.BoolPtrOutput { return v.AutoEnableIO }).(pulumi.BoolPtrOutput)
+func (o VolumeOutput) AutoEnableIo() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Volume) pulumi.BoolPtrOutput { return v.AutoEnableIo }).(pulumi.BoolPtrOutput)
 }
 
 // The Availability Zone in which to create the volume.

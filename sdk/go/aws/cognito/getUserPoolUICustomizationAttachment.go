@@ -27,7 +27,7 @@ type LookupUserPoolUICustomizationAttachmentArgs struct {
 }
 
 type LookupUserPoolUICustomizationAttachmentResult struct {
-	CSS *string `pulumi:"cSS"`
+	Css *string `pulumi:"css"`
 	Id  *string `pulumi:"id"`
 }
 
@@ -66,8 +66,8 @@ func (o LookupUserPoolUICustomizationAttachmentResultOutput) ToLookupUserPoolUIC
 	return o
 }
 
-func (o LookupUserPoolUICustomizationAttachmentResultOutput) CSS() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupUserPoolUICustomizationAttachmentResult) *string { return v.CSS }).(pulumi.StringPtrOutput)
+func (o LookupUserPoolUICustomizationAttachmentResultOutput) Css() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserPoolUICustomizationAttachmentResult) *string { return v.Css }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupUserPoolUICustomizationAttachmentResultOutput) Id() pulumi.StringPtrOutput {

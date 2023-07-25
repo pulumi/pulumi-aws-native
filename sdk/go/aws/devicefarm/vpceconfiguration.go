@@ -34,9 +34,6 @@ func NewVPCEConfiguration(ctx *pulumi.Context,
 	if args.ServiceDnsName == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceDnsName'")
 	}
-	if args.VpceConfigurationName == nil {
-		return nil, errors.New("invalid value for required argument 'VpceConfigurationName'")
-	}
 	if args.VpceServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'VpceServiceName'")
 	}
@@ -76,7 +73,7 @@ type vpceconfigurationArgs struct {
 	ServiceDnsName               string                 `pulumi:"serviceDnsName"`
 	Tags                         []VPCEConfigurationTag `pulumi:"tags"`
 	VpceConfigurationDescription *string                `pulumi:"vpceConfigurationDescription"`
-	VpceConfigurationName        string                 `pulumi:"vpceConfigurationName"`
+	VpceConfigurationName        *string                `pulumi:"vpceConfigurationName"`
 	VpceServiceName              string                 `pulumi:"vpceServiceName"`
 }
 
@@ -85,7 +82,7 @@ type VPCEConfigurationArgs struct {
 	ServiceDnsName               pulumi.StringInput
 	Tags                         VPCEConfigurationTagArrayInput
 	VpceConfigurationDescription pulumi.StringPtrInput
-	VpceConfigurationName        pulumi.StringInput
+	VpceConfigurationName        pulumi.StringPtrInput
 	VpceServiceName              pulumi.StringInput
 }
 

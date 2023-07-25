@@ -13,14 +13,14 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
     [OutputType]
     public sealed class DistributionCustomErrorResponse
     {
-        public readonly double? ErrorCachingMinTTL;
+        public readonly double? ErrorCachingMinTtl;
         public readonly int ErrorCode;
         public readonly int? ResponseCode;
         public readonly string? ResponsePagePath;
 
         [OutputConstructor]
         private DistributionCustomErrorResponse(
-            double? errorCachingMinTTL,
+            double? errorCachingMinTtl,
 
             int errorCode,
 
@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
 
             string? responsePagePath)
         {
-            ErrorCachingMinTTL = errorCachingMinTTL;
+            ErrorCachingMinTtl = errorCachingMinTtl;
             ErrorCode = errorCode;
             ResponseCode = responseCode;
             ResponsePagePath = responsePagePath;

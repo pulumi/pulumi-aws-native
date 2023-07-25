@@ -21,7 +21,7 @@ class DBProxyArgs:
                  engine_family: pulumi.Input['DBProxyEngineFamily'],
                  role_arn: pulumi.Input[str],
                  vpc_subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 d_b_proxy_name: Optional[pulumi.Input[str]] = None,
+                 db_proxy_name: Optional[pulumi.Input[str]] = None,
                  debug_logging: Optional[pulumi.Input[bool]] = None,
                  idle_client_timeout: Optional[pulumi.Input[int]] = None,
                  require_tls: Optional[pulumi.Input[bool]] = None,
@@ -33,7 +33,7 @@ class DBProxyArgs:
         :param pulumi.Input['DBProxyEngineFamily'] engine_family: The kinds of databases that the proxy can connect to.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_subnet_ids: VPC subnet IDs to associate with the new proxy.
-        :param pulumi.Input[str] d_b_proxy_name: The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
+        :param pulumi.Input[str] db_proxy_name: The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
         :param pulumi.Input[bool] debug_logging: Whether the proxy includes detailed information about SQL statements in its logs.
         :param pulumi.Input[int] idle_client_timeout: The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it.
         :param pulumi.Input[bool] require_tls: A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
@@ -44,8 +44,8 @@ class DBProxyArgs:
         pulumi.set(__self__, "engine_family", engine_family)
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "vpc_subnet_ids", vpc_subnet_ids)
-        if d_b_proxy_name is not None:
-            pulumi.set(__self__, "d_b_proxy_name", d_b_proxy_name)
+        if db_proxy_name is not None:
+            pulumi.set(__self__, "db_proxy_name", db_proxy_name)
         if debug_logging is not None:
             pulumi.set(__self__, "debug_logging", debug_logging)
         if idle_client_timeout is not None:
@@ -106,16 +106,16 @@ class DBProxyArgs:
         pulumi.set(self, "vpc_subnet_ids", value)
 
     @property
-    @pulumi.getter(name="dBProxyName")
-    def d_b_proxy_name(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="dbProxyName")
+    def db_proxy_name(self) -> Optional[pulumi.Input[str]]:
         """
         The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
         """
-        return pulumi.get(self, "d_b_proxy_name")
+        return pulumi.get(self, "db_proxy_name")
 
-    @d_b_proxy_name.setter
-    def d_b_proxy_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "d_b_proxy_name", value)
+    @db_proxy_name.setter
+    def db_proxy_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "db_proxy_name", value)
 
     @property
     @pulumi.getter(name="debugLogging")
@@ -142,7 +142,7 @@ class DBProxyArgs:
         pulumi.set(self, "idle_client_timeout", value)
 
     @property
-    @pulumi.getter(name="requireTLS")
+    @pulumi.getter(name="requireTls")
     def require_tls(self) -> Optional[pulumi.Input[bool]]:
         """
         A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
@@ -184,7 +184,7 @@ class DBProxy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auth: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBProxyAuthFormatArgs']]]]] = None,
-                 d_b_proxy_name: Optional[pulumi.Input[str]] = None,
+                 db_proxy_name: Optional[pulumi.Input[str]] = None,
                  debug_logging: Optional[pulumi.Input[bool]] = None,
                  engine_family: Optional[pulumi.Input['DBProxyEngineFamily']] = None,
                  idle_client_timeout: Optional[pulumi.Input[int]] = None,
@@ -200,7 +200,7 @@ class DBProxy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBProxyAuthFormatArgs']]]] auth: The authorization mechanism that the proxy uses.
-        :param pulumi.Input[str] d_b_proxy_name: The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
+        :param pulumi.Input[str] db_proxy_name: The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
         :param pulumi.Input[bool] debug_logging: Whether the proxy includes detailed information about SQL statements in its logs.
         :param pulumi.Input['DBProxyEngineFamily'] engine_family: The kinds of databases that the proxy can connect to.
         :param pulumi.Input[int] idle_client_timeout: The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it.
@@ -235,7 +235,7 @@ class DBProxy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auth: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBProxyAuthFormatArgs']]]]] = None,
-                 d_b_proxy_name: Optional[pulumi.Input[str]] = None,
+                 db_proxy_name: Optional[pulumi.Input[str]] = None,
                  debug_logging: Optional[pulumi.Input[bool]] = None,
                  engine_family: Optional[pulumi.Input['DBProxyEngineFamily']] = None,
                  idle_client_timeout: Optional[pulumi.Input[int]] = None,
@@ -256,7 +256,7 @@ class DBProxy(pulumi.CustomResource):
             if auth is None and not opts.urn:
                 raise TypeError("Missing required property 'auth'")
             __props__.__dict__["auth"] = auth
-            __props__.__dict__["d_b_proxy_name"] = d_b_proxy_name
+            __props__.__dict__["db_proxy_name"] = db_proxy_name
             __props__.__dict__["debug_logging"] = debug_logging
             if engine_family is None and not opts.urn:
                 raise TypeError("Missing required property 'engine_family'")
@@ -271,7 +271,7 @@ class DBProxy(pulumi.CustomResource):
             if vpc_subnet_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_subnet_ids'")
             __props__.__dict__["vpc_subnet_ids"] = vpc_subnet_ids
-            __props__.__dict__["d_b_proxy_arn"] = None
+            __props__.__dict__["db_proxy_arn"] = None
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["vpc_id"] = None
         super(DBProxy, __self__).__init__(
@@ -297,8 +297,8 @@ class DBProxy(pulumi.CustomResource):
         __props__ = DBProxyArgs.__new__(DBProxyArgs)
 
         __props__.__dict__["auth"] = None
-        __props__.__dict__["d_b_proxy_arn"] = None
-        __props__.__dict__["d_b_proxy_name"] = None
+        __props__.__dict__["db_proxy_arn"] = None
+        __props__.__dict__["db_proxy_name"] = None
         __props__.__dict__["debug_logging"] = None
         __props__.__dict__["endpoint"] = None
         __props__.__dict__["engine_family"] = None
@@ -320,20 +320,20 @@ class DBProxy(pulumi.CustomResource):
         return pulumi.get(self, "auth")
 
     @property
-    @pulumi.getter(name="dBProxyArn")
-    def d_b_proxy_arn(self) -> pulumi.Output[str]:
+    @pulumi.getter(name="dbProxyArn")
+    def db_proxy_arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name (ARN) for the proxy.
         """
-        return pulumi.get(self, "d_b_proxy_arn")
+        return pulumi.get(self, "db_proxy_arn")
 
     @property
-    @pulumi.getter(name="dBProxyName")
-    def d_b_proxy_name(self) -> pulumi.Output[str]:
+    @pulumi.getter(name="dbProxyName")
+    def db_proxy_name(self) -> pulumi.Output[str]:
         """
         The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
         """
-        return pulumi.get(self, "d_b_proxy_name")
+        return pulumi.get(self, "db_proxy_name")
 
     @property
     @pulumi.getter(name="debugLogging")
@@ -368,7 +368,7 @@ class DBProxy(pulumi.CustomResource):
         return pulumi.get(self, "idle_client_timeout")
 
     @property
-    @pulumi.getter(name="requireTLS")
+    @pulumi.getter(name="requireTls")
     def require_tls(self) -> pulumi.Output[Optional[bool]]:
         """
         A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy.

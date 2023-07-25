@@ -426,28 +426,28 @@ class DBClusterTagArgs:
 @pulumi.input_type
 class DBInstanceCertificateDetailsArgs:
     def __init__(__self__, *,
-                 c_a_identifier: Optional[pulumi.Input[str]] = None,
+                 ca_identifier: Optional[pulumi.Input[str]] = None,
                  valid_till: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] c_a_identifier: The CA identifier of the CA certificate used for the DB instance's server certificate.
+        :param pulumi.Input[str] ca_identifier: The CA identifier of the CA certificate used for the DB instance's server certificate.
         :param pulumi.Input[str] valid_till: The expiration date of the DB instance’s server certificate.
         """
-        if c_a_identifier is not None:
-            pulumi.set(__self__, "c_a_identifier", c_a_identifier)
+        if ca_identifier is not None:
+            pulumi.set(__self__, "ca_identifier", ca_identifier)
         if valid_till is not None:
             pulumi.set(__self__, "valid_till", valid_till)
 
     @property
-    @pulumi.getter(name="cAIdentifier")
-    def c_a_identifier(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="caIdentifier")
+    def ca_identifier(self) -> Optional[pulumi.Input[str]]:
         """
         The CA identifier of the CA certificate used for the DB instance's server certificate.
         """
-        return pulumi.get(self, "c_a_identifier")
+        return pulumi.get(self, "ca_identifier")
 
-    @c_a_identifier.setter
-    def c_a_identifier(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "c_a_identifier", value)
+    @ca_identifier.setter
+    def ca_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ca_identifier", value)
 
     @property
     @pulumi.getter(name="validTill")
@@ -716,13 +716,13 @@ class DBProxyAuthFormatArgs:
                  auth_scheme: Optional[pulumi.Input['DBProxyAuthFormatAuthScheme']] = None,
                  client_password_auth_type: Optional[pulumi.Input['DBProxyAuthFormatClientPasswordAuthType']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 i_am_auth: Optional[pulumi.Input['DBProxyAuthFormatIAMAuth']] = None,
+                 iam_auth: Optional[pulumi.Input['DBProxyAuthFormatIAMAuth']] = None,
                  secret_arn: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input['DBProxyAuthFormatAuthScheme'] auth_scheme: The type of authentication that the proxy uses for connections from the proxy to the underlying database. 
         :param pulumi.Input['DBProxyAuthFormatClientPasswordAuthType'] client_password_auth_type: The type of authentication the proxy uses for connections from clients.
         :param pulumi.Input[str] description: A user-specified description about the authentication used by a proxy to log in as a specific database user. 
-        :param pulumi.Input['DBProxyAuthFormatIAMAuth'] i_am_auth: Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy. The ENABLED value is valid only for proxies with RDS for Microsoft SQL Server.
+        :param pulumi.Input['DBProxyAuthFormatIAMAuth'] iam_auth: Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy. The ENABLED value is valid only for proxies with RDS for Microsoft SQL Server.
         :param pulumi.Input[str] secret_arn: The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager. 
         """
         if auth_scheme is not None:
@@ -731,8 +731,8 @@ class DBProxyAuthFormatArgs:
             pulumi.set(__self__, "client_password_auth_type", client_password_auth_type)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if i_am_auth is not None:
-            pulumi.set(__self__, "i_am_auth", i_am_auth)
+        if iam_auth is not None:
+            pulumi.set(__self__, "iam_auth", iam_auth)
         if secret_arn is not None:
             pulumi.set(__self__, "secret_arn", secret_arn)
 
@@ -773,16 +773,16 @@ class DBProxyAuthFormatArgs:
         pulumi.set(self, "description", value)
 
     @property
-    @pulumi.getter(name="iAMAuth")
-    def i_am_auth(self) -> Optional[pulumi.Input['DBProxyAuthFormatIAMAuth']]:
+    @pulumi.getter(name="iamAuth")
+    def iam_auth(self) -> Optional[pulumi.Input['DBProxyAuthFormatIAMAuth']]:
         """
         Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy. The ENABLED value is valid only for proxies with RDS for Microsoft SQL Server.
         """
-        return pulumi.get(self, "i_am_auth")
+        return pulumi.get(self, "iam_auth")
 
-    @i_am_auth.setter
-    def i_am_auth(self, value: Optional[pulumi.Input['DBProxyAuthFormatIAMAuth']]):
-        pulumi.set(self, "i_am_auth", value)
+    @iam_auth.setter
+    def iam_auth(self, value: Optional[pulumi.Input['DBProxyAuthFormatIAMAuth']]):
+        pulumi.set(self, "iam_auth", value)
 
     @property
     @pulumi.getter(name="secretArn")
@@ -945,54 +945,54 @@ class DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs:
 @pulumi.input_type
 class DBSecurityGroupIngressArgs:
     def __init__(__self__, *,
-                 c_idrip: Optional[pulumi.Input[str]] = None,
-                 e_c2_security_group_id: Optional[pulumi.Input[str]] = None,
-                 e_c2_security_group_name: Optional[pulumi.Input[str]] = None,
-                 e_c2_security_group_owner_id: Optional[pulumi.Input[str]] = None):
-        if c_idrip is not None:
-            pulumi.set(__self__, "c_idrip", c_idrip)
-        if e_c2_security_group_id is not None:
-            pulumi.set(__self__, "e_c2_security_group_id", e_c2_security_group_id)
-        if e_c2_security_group_name is not None:
-            pulumi.set(__self__, "e_c2_security_group_name", e_c2_security_group_name)
-        if e_c2_security_group_owner_id is not None:
-            pulumi.set(__self__, "e_c2_security_group_owner_id", e_c2_security_group_owner_id)
+                 cidrip: Optional[pulumi.Input[str]] = None,
+                 ec2_security_group_id: Optional[pulumi.Input[str]] = None,
+                 ec2_security_group_name: Optional[pulumi.Input[str]] = None,
+                 ec2_security_group_owner_id: Optional[pulumi.Input[str]] = None):
+        if cidrip is not None:
+            pulumi.set(__self__, "cidrip", cidrip)
+        if ec2_security_group_id is not None:
+            pulumi.set(__self__, "ec2_security_group_id", ec2_security_group_id)
+        if ec2_security_group_name is not None:
+            pulumi.set(__self__, "ec2_security_group_name", ec2_security_group_name)
+        if ec2_security_group_owner_id is not None:
+            pulumi.set(__self__, "ec2_security_group_owner_id", ec2_security_group_owner_id)
 
     @property
-    @pulumi.getter(name="cIDRIP")
-    def c_idrip(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "c_idrip")
+    @pulumi.getter
+    def cidrip(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "cidrip")
 
-    @c_idrip.setter
-    def c_idrip(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "c_idrip", value)
-
-    @property
-    @pulumi.getter(name="eC2SecurityGroupId")
-    def e_c2_security_group_id(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "e_c2_security_group_id")
-
-    @e_c2_security_group_id.setter
-    def e_c2_security_group_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "e_c2_security_group_id", value)
+    @cidrip.setter
+    def cidrip(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cidrip", value)
 
     @property
-    @pulumi.getter(name="eC2SecurityGroupName")
-    def e_c2_security_group_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "e_c2_security_group_name")
+    @pulumi.getter(name="ec2SecurityGroupId")
+    def ec2_security_group_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ec2_security_group_id")
 
-    @e_c2_security_group_name.setter
-    def e_c2_security_group_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "e_c2_security_group_name", value)
+    @ec2_security_group_id.setter
+    def ec2_security_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ec2_security_group_id", value)
 
     @property
-    @pulumi.getter(name="eC2SecurityGroupOwnerId")
-    def e_c2_security_group_owner_id(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "e_c2_security_group_owner_id")
+    @pulumi.getter(name="ec2SecurityGroupName")
+    def ec2_security_group_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ec2_security_group_name")
 
-    @e_c2_security_group_owner_id.setter
-    def e_c2_security_group_owner_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "e_c2_security_group_owner_id", value)
+    @ec2_security_group_name.setter
+    def ec2_security_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ec2_security_group_name", value)
+
+    @property
+    @pulumi.getter(name="ec2SecurityGroupOwnerId")
+    def ec2_security_group_owner_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ec2_security_group_owner_id")
+
+    @ec2_security_group_owner_id.setter
+    def ec2_security_group_owner_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ec2_security_group_owner_id", value)
 
 
 @pulumi.input_type
@@ -1104,7 +1104,7 @@ class EventSubscriptionTagArgs:
 class OptionGroupOptionConfigurationArgs:
     def __init__(__self__, *,
                  option_name: pulumi.Input[str],
-                 d_b_security_group_memberships: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 db_security_group_memberships: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  option_settings: Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionSettingArgs']]]] = None,
                  option_version: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
@@ -1112,15 +1112,15 @@ class OptionGroupOptionConfigurationArgs:
         """
         The OptionConfiguration property type specifies an individual option, and its settings, within an AWS::RDS::OptionGroup resource.
         :param pulumi.Input[str] option_name: The configuration of options to include in a group.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] d_b_security_group_memberships: A list of DBSecurityGroupMembership name strings used for this option.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] db_security_group_memberships: A list of DBSecurityGroupMembership name strings used for this option.
         :param pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionSettingArgs']]] option_settings: The option settings to include in an option group.
         :param pulumi.Input[str] option_version: The version for the option.
         :param pulumi.Input[int] port: The optional port for the option.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_memberships: A list of VpcSecurityGroupMembership name strings used for this option.
         """
         pulumi.set(__self__, "option_name", option_name)
-        if d_b_security_group_memberships is not None:
-            pulumi.set(__self__, "d_b_security_group_memberships", d_b_security_group_memberships)
+        if db_security_group_memberships is not None:
+            pulumi.set(__self__, "db_security_group_memberships", db_security_group_memberships)
         if option_settings is not None:
             pulumi.set(__self__, "option_settings", option_settings)
         if option_version is not None:
@@ -1143,16 +1143,16 @@ class OptionGroupOptionConfigurationArgs:
         pulumi.set(self, "option_name", value)
 
     @property
-    @pulumi.getter(name="dBSecurityGroupMemberships")
-    def d_b_security_group_memberships(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    @pulumi.getter(name="dbSecurityGroupMemberships")
+    def db_security_group_memberships(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of DBSecurityGroupMembership name strings used for this option.
         """
-        return pulumi.get(self, "d_b_security_group_memberships")
+        return pulumi.get(self, "db_security_group_memberships")
 
-    @d_b_security_group_memberships.setter
-    def d_b_security_group_memberships(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "d_b_security_group_memberships", value)
+    @db_security_group_memberships.setter
+    def db_security_group_memberships(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "db_security_group_memberships", value)
 
     @property
     @pulumi.getter(name="optionSettings")

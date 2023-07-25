@@ -38,7 +38,7 @@ export class WebACLAssociation extends pulumi.CustomResource {
     }
 
     public readonly resourceArn!: pulumi.Output<string>;
-    public readonly webACLId!: pulumi.Output<string>;
+    public readonly webAclId!: pulumi.Output<string>;
 
     /**
      * Create a WebACLAssociation resource with the given unique name, arguments, and options.
@@ -56,14 +56,14 @@ export class WebACLAssociation extends pulumi.CustomResource {
             if ((!args || args.resourceArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceArn'");
             }
-            if ((!args || args.webACLId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'webACLId'");
+            if ((!args || args.webAclId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'webAclId'");
             }
             resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
-            resourceInputs["webACLId"] = args ? args.webACLId : undefined;
+            resourceInputs["webAclId"] = args ? args.webAclId : undefined;
         } else {
             resourceInputs["resourceArn"] = undefined /*out*/;
-            resourceInputs["webACLId"] = undefined /*out*/;
+            resourceInputs["webAclId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(WebACLAssociation.__pulumiType, name, resourceInputs, opts);
@@ -75,5 +75,5 @@ export class WebACLAssociation extends pulumi.CustomResource {
  */
 export interface WebACLAssociationArgs {
     resourceArn: pulumi.Input<string>;
-    webACLId: pulumi.Input<string>;
+    webAclId: pulumi.Input<string>;
 }

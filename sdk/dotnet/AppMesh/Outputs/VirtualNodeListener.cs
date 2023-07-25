@@ -17,8 +17,8 @@ namespace Pulumi.AwsNative.AppMesh.Outputs
         public readonly Outputs.VirtualNodeHealthCheck? HealthCheck;
         public readonly Outputs.VirtualNodeOutlierDetection? OutlierDetection;
         public readonly Outputs.VirtualNodePortMapping PortMapping;
-        public readonly Outputs.VirtualNodeListenerTls? TLS;
         public readonly Outputs.VirtualNodeListenerTimeout? Timeout;
+        public readonly Outputs.VirtualNodeListenerTls? Tls;
 
         [OutputConstructor]
         private VirtualNodeListener(
@@ -30,16 +30,16 @@ namespace Pulumi.AwsNative.AppMesh.Outputs
 
             Outputs.VirtualNodePortMapping portMapping,
 
-            Outputs.VirtualNodeListenerTls? tLS,
+            Outputs.VirtualNodeListenerTimeout? timeout,
 
-            Outputs.VirtualNodeListenerTimeout? timeout)
+            Outputs.VirtualNodeListenerTls? tls)
         {
             ConnectionPool = connectionPool;
             HealthCheck = healthCheck;
             OutlierDetection = outlierDetection;
             PortMapping = portMapping;
-            TLS = tLS;
             Timeout = timeout;
+            Tls = tls;
         }
     }
 }

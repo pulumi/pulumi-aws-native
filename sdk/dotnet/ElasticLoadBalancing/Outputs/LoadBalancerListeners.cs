@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancing.Outputs
         public readonly string LoadBalancerPort;
         public readonly ImmutableArray<string> PolicyNames;
         public readonly string Protocol;
-        public readonly string? SSLCertificateId;
+        public readonly string? SslCertificateId;
 
         [OutputConstructor]
         private LoadBalancerListeners(
@@ -32,14 +32,14 @@ namespace Pulumi.AwsNative.ElasticLoadBalancing.Outputs
 
             string protocol,
 
-            string? sSLCertificateId)
+            string? sslCertificateId)
         {
             InstancePort = instancePort;
             InstanceProtocol = instanceProtocol;
             LoadBalancerPort = loadBalancerPort;
             PolicyNames = policyNames;
             Protocol = protocol;
-            SSLCertificateId = sSLCertificateId;
+            SslCertificateId = sslCertificateId;
         }
     }
 }

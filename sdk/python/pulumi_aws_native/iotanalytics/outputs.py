@@ -742,7 +742,7 @@ class DatasetResourceConfiguration(dict):
         suggest = None
         if key == "computeType":
             suggest = "compute_type"
-        elif key == "volumeSizeInGB":
+        elif key == "volumeSizeInGb":
             suggest = "volume_size_in_gb"
 
         if suggest:
@@ -768,7 +768,7 @@ class DatasetResourceConfiguration(dict):
         return pulumi.get(self, "compute_type")
 
     @property
-    @pulumi.getter(name="volumeSizeInGB")
+    @pulumi.getter(name="volumeSizeInGb")
     def volume_size_in_gb(self) -> int:
         return pulumi.get(self, "volume_size_in_gb")
 

@@ -21,7 +21,7 @@ type Macro struct {
 	Description  pulumi.StringPtrOutput `pulumi:"description"`
 	FunctionName pulumi.StringOutput    `pulumi:"functionName"`
 	LogGroupName pulumi.StringPtrOutput `pulumi:"logGroupName"`
-	LogRoleARN   pulumi.StringPtrOutput `pulumi:"logRoleARN"`
+	LogRoleArn   pulumi.StringPtrOutput `pulumi:"logRoleArn"`
 	Name         pulumi.StringOutput    `pulumi:"name"`
 }
 
@@ -71,7 +71,7 @@ type macroArgs struct {
 	Description  *string `pulumi:"description"`
 	FunctionName string  `pulumi:"functionName"`
 	LogGroupName *string `pulumi:"logGroupName"`
-	LogRoleARN   *string `pulumi:"logRoleARN"`
+	LogRoleArn   *string `pulumi:"logRoleArn"`
 	Name         *string `pulumi:"name"`
 }
 
@@ -80,7 +80,7 @@ type MacroArgs struct {
 	Description  pulumi.StringPtrInput
 	FunctionName pulumi.StringInput
 	LogGroupName pulumi.StringPtrInput
-	LogRoleARN   pulumi.StringPtrInput
+	LogRoleArn   pulumi.StringPtrInput
 	Name         pulumi.StringPtrInput
 }
 
@@ -133,8 +133,8 @@ func (o MacroOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Macro) pulumi.StringPtrOutput { return v.LogGroupName }).(pulumi.StringPtrOutput)
 }
 
-func (o MacroOutput) LogRoleARN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Macro) pulumi.StringPtrOutput { return v.LogRoleARN }).(pulumi.StringPtrOutput)
+func (o MacroOutput) LogRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Macro) pulumi.StringPtrOutput { return v.LogRoleArn }).(pulumi.StringPtrOutput)
 }
 
 func (o MacroOutput) Name() pulumi.StringOutput {

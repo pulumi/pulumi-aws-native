@@ -44,7 +44,7 @@ class GetSnapshotResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="resourceARN")
+    @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> Optional[str]:
         return pulumi.get(self, "resource_arn")
 

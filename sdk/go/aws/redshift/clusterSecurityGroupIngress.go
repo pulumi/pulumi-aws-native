@@ -18,10 +18,10 @@ import (
 type ClusterSecurityGroupIngress struct {
 	pulumi.CustomResourceState
 
-	CIDRIP                   pulumi.StringPtrOutput `pulumi:"cIDRIP"`
+	Cidrip                   pulumi.StringPtrOutput `pulumi:"cidrip"`
 	ClusterSecurityGroupName pulumi.StringOutput    `pulumi:"clusterSecurityGroupName"`
-	EC2SecurityGroupName     pulumi.StringPtrOutput `pulumi:"eC2SecurityGroupName"`
-	EC2SecurityGroupOwnerId  pulumi.StringPtrOutput `pulumi:"eC2SecurityGroupOwnerId"`
+	Ec2SecurityGroupName     pulumi.StringPtrOutput `pulumi:"ec2SecurityGroupName"`
+	Ec2SecurityGroupOwnerId  pulumi.StringPtrOutput `pulumi:"ec2SecurityGroupOwnerId"`
 }
 
 // NewClusterSecurityGroupIngress registers a new resource with the given unique name, arguments, and options.
@@ -67,18 +67,18 @@ func (ClusterSecurityGroupIngressState) ElementType() reflect.Type {
 }
 
 type clusterSecurityGroupIngressArgs struct {
-	CIDRIP                   *string `pulumi:"cIDRIP"`
+	Cidrip                   *string `pulumi:"cidrip"`
 	ClusterSecurityGroupName string  `pulumi:"clusterSecurityGroupName"`
-	EC2SecurityGroupName     *string `pulumi:"eC2SecurityGroupName"`
-	EC2SecurityGroupOwnerId  *string `pulumi:"eC2SecurityGroupOwnerId"`
+	Ec2SecurityGroupName     *string `pulumi:"ec2SecurityGroupName"`
+	Ec2SecurityGroupOwnerId  *string `pulumi:"ec2SecurityGroupOwnerId"`
 }
 
 // The set of arguments for constructing a ClusterSecurityGroupIngress resource.
 type ClusterSecurityGroupIngressArgs struct {
-	CIDRIP                   pulumi.StringPtrInput
+	Cidrip                   pulumi.StringPtrInput
 	ClusterSecurityGroupName pulumi.StringInput
-	EC2SecurityGroupName     pulumi.StringPtrInput
-	EC2SecurityGroupOwnerId  pulumi.StringPtrInput
+	Ec2SecurityGroupName     pulumi.StringPtrInput
+	Ec2SecurityGroupOwnerId  pulumi.StringPtrInput
 }
 
 func (ClusterSecurityGroupIngressArgs) ElementType() reflect.Type {
@@ -118,20 +118,20 @@ func (o ClusterSecurityGroupIngressOutput) ToClusterSecurityGroupIngressOutputWi
 	return o
 }
 
-func (o ClusterSecurityGroupIngressOutput) CIDRIP() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterSecurityGroupIngress) pulumi.StringPtrOutput { return v.CIDRIP }).(pulumi.StringPtrOutput)
+func (o ClusterSecurityGroupIngressOutput) Cidrip() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterSecurityGroupIngress) pulumi.StringPtrOutput { return v.Cidrip }).(pulumi.StringPtrOutput)
 }
 
 func (o ClusterSecurityGroupIngressOutput) ClusterSecurityGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterSecurityGroupIngress) pulumi.StringOutput { return v.ClusterSecurityGroupName }).(pulumi.StringOutput)
 }
 
-func (o ClusterSecurityGroupIngressOutput) EC2SecurityGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterSecurityGroupIngress) pulumi.StringPtrOutput { return v.EC2SecurityGroupName }).(pulumi.StringPtrOutput)
+func (o ClusterSecurityGroupIngressOutput) Ec2SecurityGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterSecurityGroupIngress) pulumi.StringPtrOutput { return v.Ec2SecurityGroupName }).(pulumi.StringPtrOutput)
 }
 
-func (o ClusterSecurityGroupIngressOutput) EC2SecurityGroupOwnerId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterSecurityGroupIngress) pulumi.StringPtrOutput { return v.EC2SecurityGroupOwnerId }).(pulumi.StringPtrOutput)
+func (o ClusterSecurityGroupIngressOutput) Ec2SecurityGroupOwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterSecurityGroupIngress) pulumi.StringPtrOutput { return v.Ec2SecurityGroupOwnerId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

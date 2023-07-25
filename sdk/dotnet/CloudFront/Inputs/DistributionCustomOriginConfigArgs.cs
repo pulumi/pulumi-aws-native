@@ -12,11 +12,11 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
 
     public sealed class DistributionCustomOriginConfigArgs : global::Pulumi.ResourceArgs
     {
-        [Input("hTTPPort")]
-        public Input<int>? HTTPPort { get; set; }
+        [Input("httpPort")]
+        public Input<int>? HttpPort { get; set; }
 
-        [Input("hTTPSPort")]
-        public Input<int>? HTTPSPort { get; set; }
+        [Input("httpsPort")]
+        public Input<int>? HttpsPort { get; set; }
 
         [Input("originKeepaliveTimeout")]
         public Input<int>? OriginKeepaliveTimeout { get; set; }
@@ -27,12 +27,12 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         [Input("originReadTimeout")]
         public Input<int>? OriginReadTimeout { get; set; }
 
-        [Input("originSSLProtocols")]
-        private InputList<string>? _originSSLProtocols;
-        public InputList<string> OriginSSLProtocols
+        [Input("originSslProtocols")]
+        private InputList<string>? _originSslProtocols;
+        public InputList<string> OriginSslProtocols
         {
-            get => _originSSLProtocols ?? (_originSSLProtocols = new InputList<string>());
-            set => _originSSLProtocols = value;
+            get => _originSslProtocols ?? (_originSslProtocols = new InputList<string>());
+            set => _originSslProtocols = value;
         }
 
         public DistributionCustomOriginConfigArgs()

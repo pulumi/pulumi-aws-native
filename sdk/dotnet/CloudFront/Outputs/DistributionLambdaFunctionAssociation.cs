@@ -15,7 +15,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
     {
         public readonly string? EventType;
         public readonly bool? IncludeBody;
-        public readonly string? LambdaFunctionARN;
+        public readonly string? LambdaFunctionArn;
 
         [OutputConstructor]
         private DistributionLambdaFunctionAssociation(
@@ -23,11 +23,11 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
 
             bool? includeBody,
 
-            string? lambdaFunctionARN)
+            string? lambdaFunctionArn)
         {
             EventType = eventType;
             IncludeBody = includeBody;
-            LambdaFunctionARN = lambdaFunctionARN;
+            LambdaFunctionArn = lambdaFunctionArn;
         }
     }
 }

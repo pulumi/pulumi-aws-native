@@ -86,7 +86,7 @@ class EndpointGroupEndpointConfigurationArgs:
         pulumi.set(self, "endpoint_id", value)
 
     @property
-    @pulumi.getter(name="clientIPPreservationEnabled")
+    @pulumi.getter(name="clientIpPreservationEnabled")
     def client_ip_preservation_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         true if client ip should be preserved

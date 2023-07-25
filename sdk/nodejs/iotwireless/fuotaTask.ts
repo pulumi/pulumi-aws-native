@@ -76,7 +76,7 @@ export class FuotaTask extends pulumi.CustomResource {
     /**
      * FUOTA task LoRaWAN
      */
-    public readonly loRaWAN!: pulumi.Output<outputs.iotwireless.FuotaTaskLoRaWAN>;
+    public readonly loRaWan!: pulumi.Output<outputs.iotwireless.FuotaTaskLoRaWAN>;
     /**
      * Name of FUOTA task
      */
@@ -103,8 +103,8 @@ export class FuotaTask extends pulumi.CustomResource {
             if ((!args || args.firmwareUpdateRole === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'firmwareUpdateRole'");
             }
-            if ((!args || args.loRaWAN === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'loRaWAN'");
+            if ((!args || args.loRaWan === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'loRaWan'");
             }
             resourceInputs["associateMulticastGroup"] = args ? args.associateMulticastGroup : undefined;
             resourceInputs["associateWirelessDevice"] = args ? args.associateWirelessDevice : undefined;
@@ -113,7 +113,7 @@ export class FuotaTask extends pulumi.CustomResource {
             resourceInputs["disassociateWirelessDevice"] = args ? args.disassociateWirelessDevice : undefined;
             resourceInputs["firmwareUpdateImage"] = args ? args.firmwareUpdateImage : undefined;
             resourceInputs["firmwareUpdateRole"] = args ? args.firmwareUpdateRole : undefined;
-            resourceInputs["loRaWAN"] = args ? args.loRaWAN : undefined;
+            resourceInputs["loRaWan"] = args ? args.loRaWan : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -128,7 +128,7 @@ export class FuotaTask extends pulumi.CustomResource {
             resourceInputs["firmwareUpdateImage"] = undefined /*out*/;
             resourceInputs["firmwareUpdateRole"] = undefined /*out*/;
             resourceInputs["fuotaTaskStatus"] = undefined /*out*/;
-            resourceInputs["loRaWAN"] = undefined /*out*/;
+            resourceInputs["loRaWan"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
@@ -172,7 +172,7 @@ export interface FuotaTaskArgs {
     /**
      * FUOTA task LoRaWAN
      */
-    loRaWAN: pulumi.Input<inputs.iotwireless.FuotaTaskLoRaWANArgs>;
+    loRaWan: pulumi.Input<inputs.iotwireless.FuotaTaskLoRaWANArgs>;
     /**
      * Name of FUOTA task
      */

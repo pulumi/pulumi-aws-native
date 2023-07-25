@@ -19,8 +19,8 @@ class CacheClusterArgs:
                  cache_node_type: pulumi.Input[str],
                  engine: pulumi.Input[str],
                  num_cache_nodes: pulumi.Input[int],
-                 a_z_mode: Optional[pulumi.Input[str]] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
+                 az_mode: Optional[pulumi.Input[str]] = None,
                  cache_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  cache_security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cache_subnet_group_name: Optional[pulumi.Input[str]] = None,
@@ -51,10 +51,10 @@ class CacheClusterArgs:
         pulumi.set(__self__, "cache_node_type", cache_node_type)
         pulumi.set(__self__, "engine", engine)
         pulumi.set(__self__, "num_cache_nodes", num_cache_nodes)
-        if a_z_mode is not None:
-            pulumi.set(__self__, "a_z_mode", a_z_mode)
         if auto_minor_version_upgrade is not None:
             pulumi.set(__self__, "auto_minor_version_upgrade", auto_minor_version_upgrade)
+        if az_mode is not None:
+            pulumi.set(__self__, "az_mode", az_mode)
         if cache_parameter_group_name is not None:
             pulumi.set(__self__, "cache_parameter_group_name", cache_parameter_group_name)
         if cache_security_group_names is not None:
@@ -132,15 +132,6 @@ class CacheClusterArgs:
         pulumi.set(self, "num_cache_nodes", value)
 
     @property
-    @pulumi.getter(name="aZMode")
-    def a_z_mode(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "a_z_mode")
-
-    @a_z_mode.setter
-    def a_z_mode(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "a_z_mode", value)
-
-    @property
     @pulumi.getter(name="autoMinorVersionUpgrade")
     def auto_minor_version_upgrade(self) -> Optional[pulumi.Input[bool]]:
         return pulumi.get(self, "auto_minor_version_upgrade")
@@ -148,6 +139,15 @@ class CacheClusterArgs:
     @auto_minor_version_upgrade.setter
     def auto_minor_version_upgrade(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "auto_minor_version_upgrade", value)
+
+    @property
+    @pulumi.getter(name="azMode")
+    def az_mode(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "az_mode")
+
+    @az_mode.setter
+    def az_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "az_mode", value)
 
     @property
     @pulumi.getter(name="cacheParameterGroupName")
@@ -376,8 +376,8 @@ class CacheCluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 a_z_mode: Optional[pulumi.Input[str]] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
+                 az_mode: Optional[pulumi.Input[str]] = None,
                  cache_node_type: Optional[pulumi.Input[str]] = None,
                  cache_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  cache_security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -436,8 +436,8 @@ class CacheCluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 a_z_mode: Optional[pulumi.Input[str]] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
+                 az_mode: Optional[pulumi.Input[str]] = None,
                  cache_node_type: Optional[pulumi.Input[str]] = None,
                  cache_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  cache_security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -475,8 +475,8 @@ class CacheCluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CacheClusterArgs.__new__(CacheClusterArgs)
 
-            __props__.__dict__["a_z_mode"] = a_z_mode
             __props__.__dict__["auto_minor_version_upgrade"] = auto_minor_version_upgrade
+            __props__.__dict__["az_mode"] = az_mode
             if cache_node_type is None and not opts.urn:
                 raise TypeError("Missing required property 'cache_node_type'")
             __props__.__dict__["cache_node_type"] = cache_node_type
@@ -532,8 +532,8 @@ class CacheCluster(pulumi.CustomResource):
 
         __props__ = CacheClusterArgs.__new__(CacheClusterArgs)
 
-        __props__.__dict__["a_z_mode"] = None
         __props__.__dict__["auto_minor_version_upgrade"] = None
+        __props__.__dict__["az_mode"] = None
         __props__.__dict__["cache_node_type"] = None
         __props__.__dict__["cache_parameter_group_name"] = None
         __props__.__dict__["cache_security_group_names"] = None
@@ -564,14 +564,14 @@ class CacheCluster(pulumi.CustomResource):
         return CacheCluster(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="aZMode")
-    def a_z_mode(self) -> pulumi.Output[Optional[str]]:
-        return pulumi.get(self, "a_z_mode")
-
-    @property
     @pulumi.getter(name="autoMinorVersionUpgrade")
     def auto_minor_version_upgrade(self) -> pulumi.Output[Optional[bool]]:
         return pulumi.get(self, "auto_minor_version_upgrade")
+
+    @property
+    @pulumi.getter(name="azMode")
+    def az_mode(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "az_mode")
 
     @property
     @pulumi.getter(name="cacheNodeType")

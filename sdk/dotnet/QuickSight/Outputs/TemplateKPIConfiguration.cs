@@ -14,19 +14,19 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class TemplateKPIConfiguration
     {
         public readonly Outputs.TemplateKPIFieldWells? FieldWells;
-        public readonly Outputs.TemplateKPIOptions? KPIOptions;
+        public readonly Outputs.TemplateKPIOptions? KpiOptions;
         public readonly Outputs.TemplateKPISortConfiguration? SortConfiguration;
 
         [OutputConstructor]
         private TemplateKPIConfiguration(
             Outputs.TemplateKPIFieldWells? fieldWells,
 
-            Outputs.TemplateKPIOptions? kPIOptions,
+            Outputs.TemplateKPIOptions? kpiOptions,
 
             Outputs.TemplateKPISortConfiguration? sortConfiguration)
         {
             FieldWells = fieldWells;
-            KPIOptions = kPIOptions;
+            KpiOptions = kpiOptions;
             SortConfiguration = sortConfiguration;
         }
     }

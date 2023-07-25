@@ -18,7 +18,7 @@ type Group struct {
 	// The filter expression defining criteria by which to group traces.
 	FilterExpression pulumi.StringPtrOutput `pulumi:"filterExpression"`
 	// The ARN of the group that was generated on creation.
-	GroupARN pulumi.StringOutput `pulumi:"groupARN"`
+	GroupArn pulumi.StringOutput `pulumi:"groupArn"`
 	// The case-sensitive name of the new group. Names must be unique.
 	GroupName             pulumi.StringOutput                 `pulumi:"groupName"`
 	InsightsConfiguration GroupInsightsConfigurationPtrOutput `pulumi:"insightsConfiguration"`
@@ -126,8 +126,8 @@ func (o GroupOutput) FilterExpression() pulumi.StringPtrOutput {
 }
 
 // The ARN of the group that was generated on creation.
-func (o GroupOutput) GroupARN() pulumi.StringOutput {
-	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.GroupARN }).(pulumi.StringOutput)
+func (o GroupOutput) GroupArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.GroupArn }).(pulumi.StringOutput)
 }
 
 // The case-sensitive name of the new group. Names must be unique.

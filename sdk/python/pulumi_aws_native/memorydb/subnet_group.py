@@ -147,7 +147,7 @@ class SubnetGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'subnet_ids'")
             __props__.__dict__["subnet_ids"] = subnet_ids
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["a_rn"] = None
+            __props__.__dict__["arn"] = None
         super(SubnetGroup, __self__).__init__(
             'aws-native:memorydb:SubnetGroup',
             resource_name,
@@ -170,7 +170,7 @@ class SubnetGroup(pulumi.CustomResource):
 
         __props__ = SubnetGroupArgs.__new__(SubnetGroupArgs)
 
-        __props__.__dict__["a_rn"] = None
+        __props__.__dict__["arn"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["subnet_group_name"] = None
         __props__.__dict__["subnet_ids"] = None
@@ -178,12 +178,12 @@ class SubnetGroup(pulumi.CustomResource):
         return SubnetGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="aRN")
-    def a_rn(self) -> pulumi.Output[str]:
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name (ARN) of the subnet group.
         """
-        return pulumi.get(self, "a_rn")
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter

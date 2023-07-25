@@ -14,16 +14,16 @@ export function getDBSubnetGroup(args: GetDBSubnetGroupArgs, opts?: pulumi.Invok
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:rds:getDBSubnetGroup", {
-        "dBSubnetGroupName": args.dBSubnetGroupName,
+        "dbSubnetGroupName": args.dbSubnetGroupName,
     }, opts);
 }
 
 export interface GetDBSubnetGroupArgs {
-    dBSubnetGroupName: string;
+    dbSubnetGroupName: string;
 }
 
 export interface GetDBSubnetGroupResult {
-    readonly dBSubnetGroupDescription?: string;
+    readonly dbSubnetGroupDescription?: string;
     /**
      * An array of key-value pairs to apply to this resource.
      */
@@ -37,5 +37,5 @@ export function getDBSubnetGroupOutput(args: GetDBSubnetGroupOutputArgs, opts?: 
 }
 
 export interface GetDBSubnetGroupOutputArgs {
-    dBSubnetGroupName: pulumi.Input<string>;
+    dbSubnetGroupName: pulumi.Input<string>;
 }

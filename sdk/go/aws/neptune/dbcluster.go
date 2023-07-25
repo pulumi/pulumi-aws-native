@@ -26,13 +26,13 @@ type DBCluster struct {
 	// A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default behaviour is not to copy them.
 	CopyTagsToSnapshot pulumi.BoolPtrOutput `pulumi:"copyTagsToSnapshot"`
 	// The DB cluster identifier. Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster stored as a lowercase string.
-	DBClusterIdentifier pulumi.StringPtrOutput `pulumi:"dBClusterIdentifier"`
+	DbClusterIdentifier pulumi.StringPtrOutput `pulumi:"dbClusterIdentifier"`
 	// Provides the name of the DB cluster parameter group.
-	DBClusterParameterGroupName pulumi.StringPtrOutput `pulumi:"dBClusterParameterGroupName"`
+	DbClusterParameterGroupName pulumi.StringPtrOutput `pulumi:"dbClusterParameterGroupName"`
 	// The name of the DB parameter group to apply to all instances of the DB cluster. Used only in case of a major EngineVersion upgrade request.
-	DBInstanceParameterGroupName pulumi.StringPtrOutput `pulumi:"dBInstanceParameterGroupName"`
+	DbInstanceParameterGroupName pulumi.StringPtrOutput `pulumi:"dbInstanceParameterGroupName"`
 	// Specifies information on the subnet group associated with the DB cluster, including the name, description, and subnets in the subnet group.
-	DBSubnetGroupName pulumi.StringPtrOutput `pulumi:"dBSubnetGroupName"`
+	DbSubnetGroupName pulumi.StringPtrOutput `pulumi:"dbSubnetGroupName"`
 	// Indicates whether or not the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled.
 	DeletionProtection pulumi.BoolPtrOutput `pulumi:"deletionProtection"`
 	// Specifies a list of log types that are enabled for export to CloudWatch Logs.
@@ -78,7 +78,7 @@ type DBCluster struct {
 	// If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
 	//
 	// If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
-	SourceDBClusterIdentifier pulumi.StringPtrOutput `pulumi:"sourceDBClusterIdentifier"`
+	SourceDbClusterIdentifier pulumi.StringPtrOutput `pulumi:"sourceDbClusterIdentifier"`
 	// Indicates whether the DB cluster is encrypted.
 	//
 	// If you specify the `DBClusterIdentifier`, `DBSnapshotIdentifier`, or `SourceDBInstanceIdentifier` property, don't specify this property. The value is inherited from the cluster, snapshot, or source DB instance. If you specify the KmsKeyId property, you must enable encryption.
@@ -146,13 +146,13 @@ type dbclusterArgs struct {
 	// A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default behaviour is not to copy them.
 	CopyTagsToSnapshot *bool `pulumi:"copyTagsToSnapshot"`
 	// The DB cluster identifier. Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster stored as a lowercase string.
-	DBClusterIdentifier *string `pulumi:"dBClusterIdentifier"`
+	DbClusterIdentifier *string `pulumi:"dbClusterIdentifier"`
 	// Provides the name of the DB cluster parameter group.
-	DBClusterParameterGroupName *string `pulumi:"dBClusterParameterGroupName"`
+	DbClusterParameterGroupName *string `pulumi:"dbClusterParameterGroupName"`
 	// The name of the DB parameter group to apply to all instances of the DB cluster. Used only in case of a major EngineVersion upgrade request.
-	DBInstanceParameterGroupName *string `pulumi:"dBInstanceParameterGroupName"`
+	DbInstanceParameterGroupName *string `pulumi:"dbInstanceParameterGroupName"`
 	// Specifies information on the subnet group associated with the DB cluster, including the name, description, and subnets in the subnet group.
-	DBSubnetGroupName *string `pulumi:"dBSubnetGroupName"`
+	DbSubnetGroupName *string `pulumi:"dbSubnetGroupName"`
 	// Indicates whether or not the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled.
 	DeletionProtection *bool `pulumi:"deletionProtection"`
 	// Specifies a list of log types that are enabled for export to CloudWatch Logs.
@@ -192,7 +192,7 @@ type dbclusterArgs struct {
 	// If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
 	//
 	// If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
-	SourceDBClusterIdentifier *string `pulumi:"sourceDBClusterIdentifier"`
+	SourceDbClusterIdentifier *string `pulumi:"sourceDbClusterIdentifier"`
 	// Indicates whether the DB cluster is encrypted.
 	//
 	// If you specify the `DBClusterIdentifier`, `DBSnapshotIdentifier`, or `SourceDBInstanceIdentifier` property, don't specify this property. The value is inherited from the cluster, snapshot, or source DB instance. If you specify the KmsKeyId property, you must enable encryption.
@@ -222,13 +222,13 @@ type DBClusterArgs struct {
 	// A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default behaviour is not to copy them.
 	CopyTagsToSnapshot pulumi.BoolPtrInput
 	// The DB cluster identifier. Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster stored as a lowercase string.
-	DBClusterIdentifier pulumi.StringPtrInput
+	DbClusterIdentifier pulumi.StringPtrInput
 	// Provides the name of the DB cluster parameter group.
-	DBClusterParameterGroupName pulumi.StringPtrInput
+	DbClusterParameterGroupName pulumi.StringPtrInput
 	// The name of the DB parameter group to apply to all instances of the DB cluster. Used only in case of a major EngineVersion upgrade request.
-	DBInstanceParameterGroupName pulumi.StringPtrInput
+	DbInstanceParameterGroupName pulumi.StringPtrInput
 	// Specifies information on the subnet group associated with the DB cluster, including the name, description, and subnets in the subnet group.
-	DBSubnetGroupName pulumi.StringPtrInput
+	DbSubnetGroupName pulumi.StringPtrInput
 	// Indicates whether or not the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled.
 	DeletionProtection pulumi.BoolPtrInput
 	// Specifies a list of log types that are enabled for export to CloudWatch Logs.
@@ -268,7 +268,7 @@ type DBClusterArgs struct {
 	// If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
 	//
 	// If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
-	SourceDBClusterIdentifier pulumi.StringPtrInput
+	SourceDbClusterIdentifier pulumi.StringPtrInput
 	// Indicates whether the DB cluster is encrypted.
 	//
 	// If you specify the `DBClusterIdentifier`, `DBSnapshotIdentifier`, or `SourceDBInstanceIdentifier` property, don't specify this property. The value is inherited from the cluster, snapshot, or source DB instance. If you specify the KmsKeyId property, you must enable encryption.
@@ -350,23 +350,23 @@ func (o DBClusterOutput) CopyTagsToSnapshot() pulumi.BoolPtrOutput {
 }
 
 // The DB cluster identifier. Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster stored as a lowercase string.
-func (o DBClusterOutput) DBClusterIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.DBClusterIdentifier }).(pulumi.StringPtrOutput)
+func (o DBClusterOutput) DbClusterIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.DbClusterIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // Provides the name of the DB cluster parameter group.
-func (o DBClusterOutput) DBClusterParameterGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.DBClusterParameterGroupName }).(pulumi.StringPtrOutput)
+func (o DBClusterOutput) DbClusterParameterGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.DbClusterParameterGroupName }).(pulumi.StringPtrOutput)
 }
 
 // The name of the DB parameter group to apply to all instances of the DB cluster. Used only in case of a major EngineVersion upgrade request.
-func (o DBClusterOutput) DBInstanceParameterGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.DBInstanceParameterGroupName }).(pulumi.StringPtrOutput)
+func (o DBClusterOutput) DbInstanceParameterGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.DbInstanceParameterGroupName }).(pulumi.StringPtrOutput)
 }
 
 // Specifies information on the subnet group associated with the DB cluster, including the name, description, and subnets in the subnet group.
-func (o DBClusterOutput) DBSubnetGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.DBSubnetGroupName }).(pulumi.StringPtrOutput)
+func (o DBClusterOutput) DbSubnetGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.DbSubnetGroupName }).(pulumi.StringPtrOutput)
 }
 
 // Indicates whether or not the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled.
@@ -458,8 +458,8 @@ func (o DBClusterOutput) SnapshotIdentifier() pulumi.StringPtrOutput {
 // If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
 //
 // If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
-func (o DBClusterOutput) SourceDBClusterIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.SourceDBClusterIdentifier }).(pulumi.StringPtrOutput)
+func (o DBClusterOutput) SourceDbClusterIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.SourceDbClusterIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // Indicates whether the DB cluster is encrypted.

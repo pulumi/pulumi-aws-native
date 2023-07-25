@@ -34,7 +34,7 @@ export interface GetTableResult {
     readonly localSecondaryIndexes?: outputs.dynamodb.TableLocalSecondaryIndex[];
     readonly pointInTimeRecoverySpecification?: outputs.dynamodb.TablePointInTimeRecoverySpecification;
     readonly provisionedThroughput?: outputs.dynamodb.TableProvisionedThroughput;
-    readonly sSESpecification?: outputs.dynamodb.TableSSESpecification;
+    readonly sseSpecification?: outputs.dynamodb.TableSSESpecification;
     readonly streamArn?: string;
     readonly streamSpecification?: outputs.dynamodb.TableStreamSpecification;
     readonly tableClass?: string;

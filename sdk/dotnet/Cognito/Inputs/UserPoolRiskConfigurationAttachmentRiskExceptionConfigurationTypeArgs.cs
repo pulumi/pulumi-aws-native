@@ -12,20 +12,20 @@ namespace Pulumi.AwsNative.Cognito.Inputs
 
     public sealed class UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgs : global::Pulumi.ResourceArgs
     {
-        [Input("blockedIPRangeList")]
-        private InputList<string>? _blockedIPRangeList;
-        public InputList<string> BlockedIPRangeList
+        [Input("blockedIpRangeList")]
+        private InputList<string>? _blockedIpRangeList;
+        public InputList<string> BlockedIpRangeList
         {
-            get => _blockedIPRangeList ?? (_blockedIPRangeList = new InputList<string>());
-            set => _blockedIPRangeList = value;
+            get => _blockedIpRangeList ?? (_blockedIpRangeList = new InputList<string>());
+            set => _blockedIpRangeList = value;
         }
 
-        [Input("skippedIPRangeList")]
-        private InputList<string>? _skippedIPRangeList;
-        public InputList<string> SkippedIPRangeList
+        [Input("skippedIpRangeList")]
+        private InputList<string>? _skippedIpRangeList;
+        public InputList<string> SkippedIpRangeList
         {
-            get => _skippedIPRangeList ?? (_skippedIPRangeList = new InputList<string>());
-            set => _skippedIPRangeList = value;
+            get => _skippedIpRangeList ?? (_skippedIpRangeList = new InputList<string>());
+            set => _skippedIpRangeList = value;
         }
 
         public UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgs()

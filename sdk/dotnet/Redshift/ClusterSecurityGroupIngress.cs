@@ -16,17 +16,17 @@ namespace Pulumi.AwsNative.Redshift
     [AwsNativeResourceType("aws-native:redshift:ClusterSecurityGroupIngress")]
     public partial class ClusterSecurityGroupIngress : global::Pulumi.CustomResource
     {
-        [Output("cIDRIP")]
-        public Output<string?> CIDRIP { get; private set; } = null!;
+        [Output("cidrip")]
+        public Output<string?> Cidrip { get; private set; } = null!;
 
         [Output("clusterSecurityGroupName")]
         public Output<string> ClusterSecurityGroupName { get; private set; } = null!;
 
-        [Output("eC2SecurityGroupName")]
-        public Output<string?> EC2SecurityGroupName { get; private set; } = null!;
+        [Output("ec2SecurityGroupName")]
+        public Output<string?> Ec2SecurityGroupName { get; private set; } = null!;
 
-        [Output("eC2SecurityGroupOwnerId")]
-        public Output<string?> EC2SecurityGroupOwnerId { get; private set; } = null!;
+        [Output("ec2SecurityGroupOwnerId")]
+        public Output<string?> Ec2SecurityGroupOwnerId { get; private set; } = null!;
 
 
         /// <summary>
@@ -73,17 +73,17 @@ namespace Pulumi.AwsNative.Redshift
 
     public sealed class ClusterSecurityGroupIngressArgs : global::Pulumi.ResourceArgs
     {
-        [Input("cIDRIP")]
-        public Input<string>? CIDRIP { get; set; }
+        [Input("cidrip")]
+        public Input<string>? Cidrip { get; set; }
 
         [Input("clusterSecurityGroupName", required: true)]
         public Input<string> ClusterSecurityGroupName { get; set; } = null!;
 
-        [Input("eC2SecurityGroupName")]
-        public Input<string>? EC2SecurityGroupName { get; set; }
+        [Input("ec2SecurityGroupName")]
+        public Input<string>? Ec2SecurityGroupName { get; set; }
 
-        [Input("eC2SecurityGroupOwnerId")]
-        public Input<string>? EC2SecurityGroupOwnerId { get; set; }
+        [Input("ec2SecurityGroupOwnerId")]
+        public Input<string>? Ec2SecurityGroupOwnerId { get; set; }
 
         public ClusterSecurityGroupIngressArgs()
         {

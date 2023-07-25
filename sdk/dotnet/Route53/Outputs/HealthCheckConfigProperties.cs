@@ -18,13 +18,13 @@ namespace Pulumi.AwsNative.Route53.Outputs
     {
         public readonly Outputs.HealthCheckAlarmIdentifier? AlarmIdentifier;
         public readonly ImmutableArray<string> ChildHealthChecks;
-        public readonly bool? EnableSNI;
+        public readonly bool? EnableSni;
         public readonly int? FailureThreshold;
         public readonly string? FullyQualifiedDomainName;
         public readonly int? HealthThreshold;
-        public readonly string? IPAddress;
         public readonly Pulumi.AwsNative.Route53.HealthCheckConfigPropertiesInsufficientDataHealthStatus? InsufficientDataHealthStatus;
         public readonly bool? Inverted;
+        public readonly string? IpAddress;
         public readonly bool? MeasureLatency;
         public readonly int? Port;
         public readonly ImmutableArray<string> Regions;
@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.Route53.Outputs
 
             ImmutableArray<string> childHealthChecks,
 
-            bool? enableSNI,
+            bool? enableSni,
 
             int? failureThreshold,
 
@@ -48,11 +48,11 @@ namespace Pulumi.AwsNative.Route53.Outputs
 
             int? healthThreshold,
 
-            string? iPAddress,
-
             Pulumi.AwsNative.Route53.HealthCheckConfigPropertiesInsufficientDataHealthStatus? insufficientDataHealthStatus,
 
             bool? inverted,
+
+            string? ipAddress,
 
             bool? measureLatency,
 
@@ -72,13 +72,13 @@ namespace Pulumi.AwsNative.Route53.Outputs
         {
             AlarmIdentifier = alarmIdentifier;
             ChildHealthChecks = childHealthChecks;
-            EnableSNI = enableSNI;
+            EnableSni = enableSni;
             FailureThreshold = failureThreshold;
             FullyQualifiedDomainName = fullyQualifiedDomainName;
             HealthThreshold = healthThreshold;
-            IPAddress = iPAddress;
             InsufficientDataHealthStatus = insufficientDataHealthStatus;
             Inverted = inverted;
+            IpAddress = ipAddress;
             MeasureLatency = measureLatency;
             Port = port;
             Regions = regions;

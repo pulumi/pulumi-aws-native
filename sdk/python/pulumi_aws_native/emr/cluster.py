@@ -32,7 +32,7 @@ class ClusterArgs:
                  log_uri: Optional[pulumi.Input[str]] = None,
                  managed_scaling_policy: Optional[pulumi.Input['ClusterManagedScalingPolicyArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 o_s_release_label: Optional[pulumi.Input[str]] = None,
+                 os_release_label: Optional[pulumi.Input[str]] = None,
                  release_label: Optional[pulumi.Input[str]] = None,
                  scale_down_behavior: Optional[pulumi.Input[str]] = None,
                  security_configuration: Optional[pulumi.Input[str]] = None,
@@ -72,8 +72,8 @@ class ClusterArgs:
             pulumi.set(__self__, "managed_scaling_policy", managed_scaling_policy)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if o_s_release_label is not None:
-            pulumi.set(__self__, "o_s_release_label", o_s_release_label)
+        if os_release_label is not None:
+            pulumi.set(__self__, "os_release_label", os_release_label)
         if release_label is not None:
             pulumi.set(__self__, "release_label", release_label)
         if scale_down_behavior is not None:
@@ -234,13 +234,13 @@ class ClusterArgs:
         pulumi.set(self, "name", value)
 
     @property
-    @pulumi.getter(name="oSReleaseLabel")
-    def o_s_release_label(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "o_s_release_label")
+    @pulumi.getter(name="osReleaseLabel")
+    def os_release_label(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "os_release_label")
 
-    @o_s_release_label.setter
-    def o_s_release_label(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "o_s_release_label", value)
+    @os_release_label.setter
+    def os_release_label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "os_release_label", value)
 
     @property
     @pulumi.getter(name="releaseLabel")
@@ -331,7 +331,7 @@ class Cluster(pulumi.CustomResource):
                  log_uri: Optional[pulumi.Input[str]] = None,
                  managed_scaling_policy: Optional[pulumi.Input[pulumi.InputType['ClusterManagedScalingPolicyArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 o_s_release_label: Optional[pulumi.Input[str]] = None,
+                 os_release_label: Optional[pulumi.Input[str]] = None,
                  release_label: Optional[pulumi.Input[str]] = None,
                  scale_down_behavior: Optional[pulumi.Input[str]] = None,
                  security_configuration: Optional[pulumi.Input[str]] = None,
@@ -386,7 +386,7 @@ class Cluster(pulumi.CustomResource):
                  log_uri: Optional[pulumi.Input[str]] = None,
                  managed_scaling_policy: Optional[pulumi.Input[pulumi.InputType['ClusterManagedScalingPolicyArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 o_s_release_label: Optional[pulumi.Input[str]] = None,
+                 os_release_label: Optional[pulumi.Input[str]] = None,
                  release_label: Optional[pulumi.Input[str]] = None,
                  scale_down_behavior: Optional[pulumi.Input[str]] = None,
                  security_configuration: Optional[pulumi.Input[str]] = None,
@@ -424,7 +424,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["log_uri"] = log_uri
             __props__.__dict__["managed_scaling_policy"] = managed_scaling_policy
             __props__.__dict__["name"] = name
-            __props__.__dict__["o_s_release_label"] = o_s_release_label
+            __props__.__dict__["os_release_label"] = os_release_label
             __props__.__dict__["release_label"] = release_label
             __props__.__dict__["scale_down_behavior"] = scale_down_behavior
             __props__.__dict__["security_configuration"] = security_configuration
@@ -474,7 +474,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["managed_scaling_policy"] = None
         __props__.__dict__["master_public_dns"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["o_s_release_label"] = None
+        __props__.__dict__["os_release_label"] = None
         __props__.__dict__["release_label"] = None
         __props__.__dict__["scale_down_behavior"] = None
         __props__.__dict__["security_configuration"] = None
@@ -556,7 +556,7 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "managed_scaling_policy")
 
     @property
-    @pulumi.getter(name="masterPublicDNS")
+    @pulumi.getter(name="masterPublicDns")
     def master_public_dns(self) -> pulumi.Output[str]:
         return pulumi.get(self, "master_public_dns")
 
@@ -566,9 +566,9 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="oSReleaseLabel")
-    def o_s_release_label(self) -> pulumi.Output[Optional[str]]:
-        return pulumi.get(self, "o_s_release_label")
+    @pulumi.getter(name="osReleaseLabel")
+    def os_release_label(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "os_release_label")
 
     @property
     @pulumi.getter(name="releaseLabel")

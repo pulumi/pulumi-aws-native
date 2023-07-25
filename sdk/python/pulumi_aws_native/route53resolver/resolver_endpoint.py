@@ -246,7 +246,7 @@ class ResolverEndpoint(pulumi.CustomResource):
         return pulumi.get(self, "direction")
 
     @property
-    @pulumi.getter(name="hostVPCId")
+    @pulumi.getter(name="hostVpcId")
     def host_vpc_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "host_vpc_id")
 

@@ -90,8 +90,8 @@ class AlarmModelAcknowledgeFlowArgs:
 @pulumi.input_type
 class AlarmModelAlarmActionArgs:
     def __init__(__self__, *,
-                 dynamo_db: Optional[pulumi.Input['AlarmModelDynamoDBArgs']] = None,
                  dynamo_d_bv2: Optional[pulumi.Input['AlarmModelDynamoDBv2Args']] = None,
+                 dynamo_db: Optional[pulumi.Input['AlarmModelDynamoDBArgs']] = None,
                  firehose: Optional[pulumi.Input['AlarmModelFirehoseArgs']] = None,
                  iot_events: Optional[pulumi.Input['AlarmModelIotEventsArgs']] = None,
                  iot_site_wise: Optional[pulumi.Input['AlarmModelIotSiteWiseArgs']] = None,
@@ -102,10 +102,10 @@ class AlarmModelAlarmActionArgs:
         """
         The actions to be performed.
         """
-        if dynamo_db is not None:
-            pulumi.set(__self__, "dynamo_db", dynamo_db)
         if dynamo_d_bv2 is not None:
             pulumi.set(__self__, "dynamo_d_bv2", dynamo_d_bv2)
+        if dynamo_db is not None:
+            pulumi.set(__self__, "dynamo_db", dynamo_db)
         if firehose is not None:
             pulumi.set(__self__, "firehose", firehose)
         if iot_events is not None:
@@ -122,15 +122,6 @@ class AlarmModelAlarmActionArgs:
             pulumi.set(__self__, "sqs", sqs)
 
     @property
-    @pulumi.getter(name="dynamoDB")
-    def dynamo_db(self) -> Optional[pulumi.Input['AlarmModelDynamoDBArgs']]:
-        return pulumi.get(self, "dynamo_db")
-
-    @dynamo_db.setter
-    def dynamo_db(self, value: Optional[pulumi.Input['AlarmModelDynamoDBArgs']]):
-        pulumi.set(self, "dynamo_db", value)
-
-    @property
     @pulumi.getter(name="dynamoDBv2")
     def dynamo_d_bv2(self) -> Optional[pulumi.Input['AlarmModelDynamoDBv2Args']]:
         return pulumi.get(self, "dynamo_d_bv2")
@@ -138,6 +129,15 @@ class AlarmModelAlarmActionArgs:
     @dynamo_d_bv2.setter
     def dynamo_d_bv2(self, value: Optional[pulumi.Input['AlarmModelDynamoDBv2Args']]):
         pulumi.set(self, "dynamo_d_bv2", value)
+
+    @property
+    @pulumi.getter(name="dynamoDb")
+    def dynamo_db(self) -> Optional[pulumi.Input['AlarmModelDynamoDBArgs']]:
+        return pulumi.get(self, "dynamo_db")
+
+    @dynamo_db.setter
+    def dynamo_db(self, value: Optional[pulumi.Input['AlarmModelDynamoDBArgs']]):
+        pulumi.set(self, "dynamo_db", value)
 
     @property
     @pulumi.getter
@@ -1157,8 +1157,8 @@ class AlarmModelTagArgs:
 class DetectorModelActionArgs:
     def __init__(__self__, *,
                  clear_timer: Optional[pulumi.Input['DetectorModelClearTimerArgs']] = None,
-                 dynamo_db: Optional[pulumi.Input['DetectorModelDynamoDBArgs']] = None,
                  dynamo_d_bv2: Optional[pulumi.Input['DetectorModelDynamoDBv2Args']] = None,
+                 dynamo_db: Optional[pulumi.Input['DetectorModelDynamoDBArgs']] = None,
                  firehose: Optional[pulumi.Input['DetectorModelFirehoseArgs']] = None,
                  iot_events: Optional[pulumi.Input['DetectorModelIotEventsArgs']] = None,
                  iot_site_wise: Optional[pulumi.Input['DetectorModelIotSiteWiseArgs']] = None,
@@ -1174,10 +1174,10 @@ class DetectorModelActionArgs:
         """
         if clear_timer is not None:
             pulumi.set(__self__, "clear_timer", clear_timer)
-        if dynamo_db is not None:
-            pulumi.set(__self__, "dynamo_db", dynamo_db)
         if dynamo_d_bv2 is not None:
             pulumi.set(__self__, "dynamo_d_bv2", dynamo_d_bv2)
+        if dynamo_db is not None:
+            pulumi.set(__self__, "dynamo_db", dynamo_db)
         if firehose is not None:
             pulumi.set(__self__, "firehose", firehose)
         if iot_events is not None:
@@ -1209,15 +1209,6 @@ class DetectorModelActionArgs:
         pulumi.set(self, "clear_timer", value)
 
     @property
-    @pulumi.getter(name="dynamoDB")
-    def dynamo_db(self) -> Optional[pulumi.Input['DetectorModelDynamoDBArgs']]:
-        return pulumi.get(self, "dynamo_db")
-
-    @dynamo_db.setter
-    def dynamo_db(self, value: Optional[pulumi.Input['DetectorModelDynamoDBArgs']]):
-        pulumi.set(self, "dynamo_db", value)
-
-    @property
     @pulumi.getter(name="dynamoDBv2")
     def dynamo_d_bv2(self) -> Optional[pulumi.Input['DetectorModelDynamoDBv2Args']]:
         return pulumi.get(self, "dynamo_d_bv2")
@@ -1225,6 +1216,15 @@ class DetectorModelActionArgs:
     @dynamo_d_bv2.setter
     def dynamo_d_bv2(self, value: Optional[pulumi.Input['DetectorModelDynamoDBv2Args']]):
         pulumi.set(self, "dynamo_d_bv2", value)
+
+    @property
+    @pulumi.getter(name="dynamoDb")
+    def dynamo_db(self) -> Optional[pulumi.Input['DetectorModelDynamoDBArgs']]:
+        return pulumi.get(self, "dynamo_db")
+
+    @dynamo_db.setter
+    def dynamo_db(self, value: Optional[pulumi.Input['DetectorModelDynamoDBArgs']]):
+        pulumi.set(self, "dynamo_db", value)
 
     @property
     @pulumi.getter

@@ -49,7 +49,7 @@ export class ResolverRuleAssociation extends pulumi.CustomResource {
     /**
      * The ID of the VPC that you associated the Resolver rule with.
      */
-    public readonly vPCId!: pulumi.Output<string>;
+    public readonly vpcId!: pulumi.Output<string>;
 
     /**
      * Create a ResolverRuleAssociation resource with the given unique name, arguments, and options.
@@ -65,18 +65,18 @@ export class ResolverRuleAssociation extends pulumi.CustomResource {
             if ((!args || args.resolverRuleId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resolverRuleId'");
             }
-            if ((!args || args.vPCId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'vPCId'");
+            if ((!args || args.vpcId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'vpcId'");
             }
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resolverRuleId"] = args ? args.resolverRuleId : undefined;
-            resourceInputs["vPCId"] = args ? args.vPCId : undefined;
+            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
             resourceInputs["resolverRuleAssociationId"] = undefined /*out*/;
         } else {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["resolverRuleAssociationId"] = undefined /*out*/;
             resourceInputs["resolverRuleId"] = undefined /*out*/;
-            resourceInputs["vPCId"] = undefined /*out*/;
+            resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ResolverRuleAssociation.__pulumiType, name, resourceInputs, opts);
@@ -98,5 +98,5 @@ export interface ResolverRuleAssociationArgs {
     /**
      * The ID of the VPC that you associated the Resolver rule with.
      */
-    vPCId: pulumi.Input<string>;
+    vpcId: pulumi.Input<string>;
 }

@@ -40,7 +40,7 @@ export class Device extends pulumi.CustomResource {
     /**
      * The Amazon Web Services location of the device, if applicable.
      */
-    public readonly aWSLocation!: pulumi.Output<outputs.networkmanager.DeviceAWSLocation | undefined>;
+    public readonly awsLocation!: pulumi.Output<outputs.networkmanager.DeviceAWSLocation | undefined>;
     /**
      * The date and time that the device was created.
      */
@@ -104,7 +104,7 @@ export class Device extends pulumi.CustomResource {
             if ((!args || args.globalNetworkId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'globalNetworkId'");
             }
-            resourceInputs["aWSLocation"] = args ? args.aWSLocation : undefined;
+            resourceInputs["awsLocation"] = args ? args.awsLocation : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["globalNetworkId"] = args ? args.globalNetworkId : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -118,7 +118,7 @@ export class Device extends pulumi.CustomResource {
             resourceInputs["deviceArn"] = undefined /*out*/;
             resourceInputs["deviceId"] = undefined /*out*/;
         } else {
-            resourceInputs["aWSLocation"] = undefined /*out*/;
+            resourceInputs["awsLocation"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["deviceArn"] = undefined /*out*/;
@@ -144,7 +144,7 @@ export interface DeviceArgs {
     /**
      * The Amazon Web Services location of the device, if applicable.
      */
-    aWSLocation?: pulumi.Input<inputs.networkmanager.DeviceAWSLocationArgs>;
+    awsLocation?: pulumi.Input<inputs.networkmanager.DeviceAWSLocationArgs>;
     /**
      * The description of the device.
      */

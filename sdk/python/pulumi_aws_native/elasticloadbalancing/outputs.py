@@ -276,8 +276,8 @@ class LoadBalancerListeners(dict):
             suggest = "instance_protocol"
         elif key == "policyNames":
             suggest = "policy_names"
-        elif key == "sSLCertificateId":
-            suggest = "s_sl_certificate_id"
+        elif key == "sslCertificateId":
+            suggest = "ssl_certificate_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in LoadBalancerListeners. Access the value via the '{suggest}' property getter instead.")
@@ -296,7 +296,7 @@ class LoadBalancerListeners(dict):
                  protocol: str,
                  instance_protocol: Optional[str] = None,
                  policy_names: Optional[Sequence[str]] = None,
-                 s_sl_certificate_id: Optional[str] = None):
+                 ssl_certificate_id: Optional[str] = None):
         pulumi.set(__self__, "instance_port", instance_port)
         pulumi.set(__self__, "load_balancer_port", load_balancer_port)
         pulumi.set(__self__, "protocol", protocol)
@@ -304,8 +304,8 @@ class LoadBalancerListeners(dict):
             pulumi.set(__self__, "instance_protocol", instance_protocol)
         if policy_names is not None:
             pulumi.set(__self__, "policy_names", policy_names)
-        if s_sl_certificate_id is not None:
-            pulumi.set(__self__, "s_sl_certificate_id", s_sl_certificate_id)
+        if ssl_certificate_id is not None:
+            pulumi.set(__self__, "ssl_certificate_id", ssl_certificate_id)
 
     @property
     @pulumi.getter(name="instancePort")
@@ -333,9 +333,9 @@ class LoadBalancerListeners(dict):
         return pulumi.get(self, "policy_names")
 
     @property
-    @pulumi.getter(name="sSLCertificateId")
-    def s_sl_certificate_id(self) -> Optional[str]:
-        return pulumi.get(self, "s_sl_certificate_id")
+    @pulumi.getter(name="sslCertificateId")
+    def ssl_certificate_id(self) -> Optional[str]:
+        return pulumi.get(self, "ssl_certificate_id")
 
 
 @pulumi.output_type

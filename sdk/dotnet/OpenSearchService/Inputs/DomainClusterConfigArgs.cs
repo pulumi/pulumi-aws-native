@@ -27,8 +27,8 @@ namespace Pulumi.AwsNative.OpenSearchService.Inputs
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }
 
-        [Input("multiAZWithStandbyEnabled")]
-        public Input<bool>? MultiAZWithStandbyEnabled { get; set; }
+        [Input("multiAzWithStandbyEnabled")]
+        public Input<bool>? MultiAzWithStandbyEnabled { get; set; }
 
         [Input("warmCount")]
         public Input<int>? WarmCount { get; set; }

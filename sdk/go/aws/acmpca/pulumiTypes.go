@@ -1024,7 +1024,7 @@ func (o CertificateAuthorityGeneralNameOutput) UniformResourceIdentifier() pulum
 
 // Structure that contains X.509 KeyUsage information.
 type CertificateAuthorityKeyUsage struct {
-	CRLSign          *bool `pulumi:"cRLSign"`
+	CrlSign          *bool `pulumi:"crlSign"`
 	DataEncipherment *bool `pulumi:"dataEncipherment"`
 	DecipherOnly     *bool `pulumi:"decipherOnly"`
 	DigitalSignature *bool `pulumi:"digitalSignature"`
@@ -1048,7 +1048,7 @@ type CertificateAuthorityKeyUsageInput interface {
 
 // Structure that contains X.509 KeyUsage information.
 type CertificateAuthorityKeyUsageArgs struct {
-	CRLSign          pulumi.BoolPtrInput `pulumi:"cRLSign"`
+	CrlSign          pulumi.BoolPtrInput `pulumi:"crlSign"`
 	DataEncipherment pulumi.BoolPtrInput `pulumi:"dataEncipherment"`
 	DecipherOnly     pulumi.BoolPtrInput `pulumi:"decipherOnly"`
 	DigitalSignature pulumi.BoolPtrInput `pulumi:"digitalSignature"`
@@ -1137,8 +1137,8 @@ func (o CertificateAuthorityKeyUsageOutput) ToCertificateAuthorityKeyUsagePtrOut
 	}).(CertificateAuthorityKeyUsagePtrOutput)
 }
 
-func (o CertificateAuthorityKeyUsageOutput) CRLSign() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v CertificateAuthorityKeyUsage) *bool { return v.CRLSign }).(pulumi.BoolPtrOutput)
+func (o CertificateAuthorityKeyUsageOutput) CrlSign() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CertificateAuthorityKeyUsage) *bool { return v.CrlSign }).(pulumi.BoolPtrOutput)
 }
 
 func (o CertificateAuthorityKeyUsageOutput) DataEncipherment() pulumi.BoolPtrOutput {
@@ -1197,12 +1197,12 @@ func (o CertificateAuthorityKeyUsagePtrOutput) Elem() CertificateAuthorityKeyUsa
 	}).(CertificateAuthorityKeyUsageOutput)
 }
 
-func (o CertificateAuthorityKeyUsagePtrOutput) CRLSign() pulumi.BoolPtrOutput {
+func (o CertificateAuthorityKeyUsagePtrOutput) CrlSign() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CertificateAuthorityKeyUsage) *bool {
 		if v == nil {
 			return nil
 		}
-		return v.CRLSign
+		return v.CrlSign
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -2984,7 +2984,7 @@ func (o CertificateGeneralNameArrayOutput) Index(i pulumi.IntInput) CertificateG
 
 // Structure that contains X.509 KeyUsage information.
 type CertificateKeyUsage struct {
-	CRLSign          *bool `pulumi:"cRLSign"`
+	CrlSign          *bool `pulumi:"crlSign"`
 	DataEncipherment *bool `pulumi:"dataEncipherment"`
 	DecipherOnly     *bool `pulumi:"decipherOnly"`
 	DigitalSignature *bool `pulumi:"digitalSignature"`
@@ -3008,7 +3008,7 @@ type CertificateKeyUsageInput interface {
 
 // Structure that contains X.509 KeyUsage information.
 type CertificateKeyUsageArgs struct {
-	CRLSign          pulumi.BoolPtrInput `pulumi:"cRLSign"`
+	CrlSign          pulumi.BoolPtrInput `pulumi:"crlSign"`
 	DataEncipherment pulumi.BoolPtrInput `pulumi:"dataEncipherment"`
 	DecipherOnly     pulumi.BoolPtrInput `pulumi:"decipherOnly"`
 	DigitalSignature pulumi.BoolPtrInput `pulumi:"digitalSignature"`
@@ -3097,8 +3097,8 @@ func (o CertificateKeyUsageOutput) ToCertificateKeyUsagePtrOutputWithContext(ctx
 	}).(CertificateKeyUsagePtrOutput)
 }
 
-func (o CertificateKeyUsageOutput) CRLSign() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v CertificateKeyUsage) *bool { return v.CRLSign }).(pulumi.BoolPtrOutput)
+func (o CertificateKeyUsageOutput) CrlSign() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CertificateKeyUsage) *bool { return v.CrlSign }).(pulumi.BoolPtrOutput)
 }
 
 func (o CertificateKeyUsageOutput) DataEncipherment() pulumi.BoolPtrOutput {
@@ -3157,12 +3157,12 @@ func (o CertificateKeyUsagePtrOutput) Elem() CertificateKeyUsageOutput {
 	}).(CertificateKeyUsageOutput)
 }
 
-func (o CertificateKeyUsagePtrOutput) CRLSign() pulumi.BoolPtrOutput {
+func (o CertificateKeyUsagePtrOutput) CrlSign() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CertificateKeyUsage) *bool {
 		if v == nil {
 			return nil
 		}
-		return v.CRLSign
+		return v.CrlSign
 	}).(pulumi.BoolPtrOutput)
 }
 

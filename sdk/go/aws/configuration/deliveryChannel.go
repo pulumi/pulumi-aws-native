@@ -23,7 +23,7 @@ type DeliveryChannel struct {
 	S3BucketName                     pulumi.StringOutput                                      `pulumi:"s3BucketName"`
 	S3KeyPrefix                      pulumi.StringPtrOutput                                   `pulumi:"s3KeyPrefix"`
 	S3KmsKeyArn                      pulumi.StringPtrOutput                                   `pulumi:"s3KmsKeyArn"`
-	SnsTopicARN                      pulumi.StringPtrOutput                                   `pulumi:"snsTopicARN"`
+	SnsTopicArn                      pulumi.StringPtrOutput                                   `pulumi:"snsTopicArn"`
 }
 
 // NewDeliveryChannel registers a new resource with the given unique name, arguments, and options.
@@ -74,7 +74,7 @@ type deliveryChannelArgs struct {
 	S3BucketName                     string                                           `pulumi:"s3BucketName"`
 	S3KeyPrefix                      *string                                          `pulumi:"s3KeyPrefix"`
 	S3KmsKeyArn                      *string                                          `pulumi:"s3KmsKeyArn"`
-	SnsTopicARN                      *string                                          `pulumi:"snsTopicARN"`
+	SnsTopicArn                      *string                                          `pulumi:"snsTopicArn"`
 }
 
 // The set of arguments for constructing a DeliveryChannel resource.
@@ -84,7 +84,7 @@ type DeliveryChannelArgs struct {
 	S3BucketName                     pulumi.StringInput
 	S3KeyPrefix                      pulumi.StringPtrInput
 	S3KmsKeyArn                      pulumi.StringPtrInput
-	SnsTopicARN                      pulumi.StringPtrInput
+	SnsTopicArn                      pulumi.StringPtrInput
 }
 
 func (DeliveryChannelArgs) ElementType() reflect.Type {
@@ -146,8 +146,8 @@ func (o DeliveryChannelOutput) S3KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeliveryChannel) pulumi.StringPtrOutput { return v.S3KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
-func (o DeliveryChannelOutput) SnsTopicARN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeliveryChannel) pulumi.StringPtrOutput { return v.SnsTopicARN }).(pulumi.StringPtrOutput)
+func (o DeliveryChannelOutput) SnsTopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeliveryChannel) pulumi.StringPtrOutput { return v.SnsTopicArn }).(pulumi.StringPtrOutput)
 }
 
 func init() {

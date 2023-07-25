@@ -24,7 +24,7 @@ func LookupDBParameterGroup(ctx *pulumi.Context, args *LookupDBParameterGroupArg
 
 type LookupDBParameterGroupArgs struct {
 	// Specifies the name of the DB parameter group
-	DBParameterGroupName string `pulumi:"dBParameterGroupName"`
+	DbParameterGroupName string `pulumi:"dbParameterGroupName"`
 }
 
 type LookupDBParameterGroupResult struct {
@@ -49,7 +49,7 @@ func LookupDBParameterGroupOutput(ctx *pulumi.Context, args LookupDBParameterGro
 
 type LookupDBParameterGroupOutputArgs struct {
 	// Specifies the name of the DB parameter group
-	DBParameterGroupName pulumi.StringInput `pulumi:"dBParameterGroupName"`
+	DbParameterGroupName pulumi.StringInput `pulumi:"dbParameterGroupName"`
 }
 
 func (LookupDBParameterGroupOutputArgs) ElementType() reflect.Type {

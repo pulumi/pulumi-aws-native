@@ -18,8 +18,8 @@ namespace Pulumi.AwsNative.CloudFront
         [Output("autoPublish")]
         public Output<bool?> AutoPublish { get; private set; } = null!;
 
-        [Output("functionARN")]
-        public Output<string> FunctionARN { get; private set; } = null!;
+        [Output("functionArn")]
+        public Output<string> FunctionArn { get; private set; } = null!;
 
         [Output("functionCode")]
         public Output<string> FunctionCode { get; private set; } = null!;

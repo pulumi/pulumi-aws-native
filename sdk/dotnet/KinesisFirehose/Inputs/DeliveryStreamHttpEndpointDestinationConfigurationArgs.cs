@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         [Input("retryOptions")]
         public Input<Inputs.DeliveryStreamRetryOptionsArgs>? RetryOptions { get; set; }
 
-        [Input("roleARN")]
-        public Input<string>? RoleARN { get; set; }
+        [Input("roleArn")]
+        public Input<string>? RoleArn { get; set; }
 
         [Input("s3BackupMode")]
         public Input<string>? S3BackupMode { get; set; }

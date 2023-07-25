@@ -25,7 +25,7 @@ type EventSourceMapping struct {
 	// (Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.
 	DestinationConfig EventSourceMappingDestinationConfigPtrOutput `pulumi:"destinationConfig"`
 	// Document db event source config.
-	DocumentDBEventSourceConfig EventSourceMappingDocumentDBEventSourceConfigPtrOutput `pulumi:"documentDBEventSourceConfig"`
+	DocumentDbEventSourceConfig EventSourceMappingDocumentDBEventSourceConfigPtrOutput `pulumi:"documentDbEventSourceConfig"`
 	// Disables the event source mapping to pause polling and invocation.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The Amazon Resource Name (ARN) of the event source.
@@ -116,7 +116,7 @@ type eventSourceMappingArgs struct {
 	// (Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.
 	DestinationConfig *EventSourceMappingDestinationConfig `pulumi:"destinationConfig"`
 	// Document db event source config.
-	DocumentDBEventSourceConfig *EventSourceMappingDocumentDBEventSourceConfig `pulumi:"documentDBEventSourceConfig"`
+	DocumentDbEventSourceConfig *EventSourceMappingDocumentDBEventSourceConfig `pulumi:"documentDbEventSourceConfig"`
 	// Disables the event source mapping to pause polling and invocation.
 	Enabled *bool `pulumi:"enabled"`
 	// The Amazon Resource Name (ARN) of the event source.
@@ -166,7 +166,7 @@ type EventSourceMappingArgs struct {
 	// (Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.
 	DestinationConfig EventSourceMappingDestinationConfigPtrInput
 	// Document db event source config.
-	DocumentDBEventSourceConfig EventSourceMappingDocumentDBEventSourceConfigPtrInput
+	DocumentDbEventSourceConfig EventSourceMappingDocumentDBEventSourceConfigPtrInput
 	// Disables the event source mapping to pause polling and invocation.
 	Enabled pulumi.BoolPtrInput
 	// The Amazon Resource Name (ARN) of the event source.
@@ -265,9 +265,9 @@ func (o EventSourceMappingOutput) DestinationConfig() EventSourceMappingDestinat
 }
 
 // Document db event source config.
-func (o EventSourceMappingOutput) DocumentDBEventSourceConfig() EventSourceMappingDocumentDBEventSourceConfigPtrOutput {
+func (o EventSourceMappingOutput) DocumentDbEventSourceConfig() EventSourceMappingDocumentDBEventSourceConfigPtrOutput {
 	return o.ApplyT(func(v *EventSourceMapping) EventSourceMappingDocumentDBEventSourceConfigPtrOutput {
-		return v.DocumentDBEventSourceConfig
+		return v.DocumentDbEventSourceConfig
 	}).(EventSourceMappingDocumentDBEventSourceConfigPtrOutput)
 }
 

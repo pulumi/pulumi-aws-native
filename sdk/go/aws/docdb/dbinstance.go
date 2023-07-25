@@ -20,9 +20,9 @@ type DBInstance struct {
 
 	AutoMinorVersionUpgrade    pulumi.BoolPtrOutput     `pulumi:"autoMinorVersionUpgrade"`
 	AvailabilityZone           pulumi.StringPtrOutput   `pulumi:"availabilityZone"`
-	DBClusterIdentifier        pulumi.StringOutput      `pulumi:"dBClusterIdentifier"`
-	DBInstanceClass            pulumi.StringOutput      `pulumi:"dBInstanceClass"`
-	DBInstanceIdentifier       pulumi.StringPtrOutput   `pulumi:"dBInstanceIdentifier"`
+	DbClusterIdentifier        pulumi.StringOutput      `pulumi:"dbClusterIdentifier"`
+	DbInstanceClass            pulumi.StringOutput      `pulumi:"dbInstanceClass"`
+	DbInstanceIdentifier       pulumi.StringPtrOutput   `pulumi:"dbInstanceIdentifier"`
 	EnablePerformanceInsights  pulumi.BoolPtrOutput     `pulumi:"enablePerformanceInsights"`
 	Endpoint                   pulumi.StringOutput      `pulumi:"endpoint"`
 	Port                       pulumi.StringOutput      `pulumi:"port"`
@@ -37,11 +37,11 @@ func NewDBInstance(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DBClusterIdentifier == nil {
-		return nil, errors.New("invalid value for required argument 'DBClusterIdentifier'")
+	if args.DbClusterIdentifier == nil {
+		return nil, errors.New("invalid value for required argument 'DbClusterIdentifier'")
 	}
-	if args.DBInstanceClass == nil {
-		return nil, errors.New("invalid value for required argument 'DBInstanceClass'")
+	if args.DbInstanceClass == nil {
+		return nil, errors.New("invalid value for required argument 'DbInstanceClass'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DBInstance
@@ -78,9 +78,9 @@ func (DBInstanceState) ElementType() reflect.Type {
 type dbinstanceArgs struct {
 	AutoMinorVersionUpgrade    *bool           `pulumi:"autoMinorVersionUpgrade"`
 	AvailabilityZone           *string         `pulumi:"availabilityZone"`
-	DBClusterIdentifier        string          `pulumi:"dBClusterIdentifier"`
-	DBInstanceClass            string          `pulumi:"dBInstanceClass"`
-	DBInstanceIdentifier       *string         `pulumi:"dBInstanceIdentifier"`
+	DbClusterIdentifier        string          `pulumi:"dbClusterIdentifier"`
+	DbInstanceClass            string          `pulumi:"dbInstanceClass"`
+	DbInstanceIdentifier       *string         `pulumi:"dbInstanceIdentifier"`
 	EnablePerformanceInsights  *bool           `pulumi:"enablePerformanceInsights"`
 	PreferredMaintenanceWindow *string         `pulumi:"preferredMaintenanceWindow"`
 	Tags                       []DBInstanceTag `pulumi:"tags"`
@@ -90,9 +90,9 @@ type dbinstanceArgs struct {
 type DBInstanceArgs struct {
 	AutoMinorVersionUpgrade    pulumi.BoolPtrInput
 	AvailabilityZone           pulumi.StringPtrInput
-	DBClusterIdentifier        pulumi.StringInput
-	DBInstanceClass            pulumi.StringInput
-	DBInstanceIdentifier       pulumi.StringPtrInput
+	DbClusterIdentifier        pulumi.StringInput
+	DbInstanceClass            pulumi.StringInput
+	DbInstanceIdentifier       pulumi.StringPtrInput
 	EnablePerformanceInsights  pulumi.BoolPtrInput
 	PreferredMaintenanceWindow pulumi.StringPtrInput
 	Tags                       DBInstanceTagArrayInput
@@ -143,16 +143,16 @@ func (o DBInstanceOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
-func (o DBInstanceOutput) DBClusterIdentifier() pulumi.StringOutput {
-	return o.ApplyT(func(v *DBInstance) pulumi.StringOutput { return v.DBClusterIdentifier }).(pulumi.StringOutput)
+func (o DBInstanceOutput) DbClusterIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v *DBInstance) pulumi.StringOutput { return v.DbClusterIdentifier }).(pulumi.StringOutput)
 }
 
-func (o DBInstanceOutput) DBInstanceClass() pulumi.StringOutput {
-	return o.ApplyT(func(v *DBInstance) pulumi.StringOutput { return v.DBInstanceClass }).(pulumi.StringOutput)
+func (o DBInstanceOutput) DbInstanceClass() pulumi.StringOutput {
+	return o.ApplyT(func(v *DBInstance) pulumi.StringOutput { return v.DbInstanceClass }).(pulumi.StringOutput)
 }
 
-func (o DBInstanceOutput) DBInstanceIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.DBInstanceIdentifier }).(pulumi.StringPtrOutput)
+func (o DBInstanceOutput) DbInstanceIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.DbInstanceIdentifier }).(pulumi.StringPtrOutput)
 }
 
 func (o DBInstanceOutput) EnablePerformanceInsights() pulumi.BoolPtrOutput {

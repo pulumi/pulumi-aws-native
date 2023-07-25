@@ -513,13 +513,13 @@ class UserPoolInviteMessageTemplateArgs:
     def __init__(__self__, *,
                  email_message: Optional[pulumi.Input[str]] = None,
                  email_subject: Optional[pulumi.Input[str]] = None,
-                 s_ms_message: Optional[pulumi.Input[str]] = None):
+                 sms_message: Optional[pulumi.Input[str]] = None):
         if email_message is not None:
             pulumi.set(__self__, "email_message", email_message)
         if email_subject is not None:
             pulumi.set(__self__, "email_subject", email_subject)
-        if s_ms_message is not None:
-            pulumi.set(__self__, "s_ms_message", s_ms_message)
+        if sms_message is not None:
+            pulumi.set(__self__, "sms_message", sms_message)
 
     @property
     @pulumi.getter(name="emailMessage")
@@ -540,13 +540,13 @@ class UserPoolInviteMessageTemplateArgs:
         pulumi.set(self, "email_subject", value)
 
     @property
-    @pulumi.getter(name="sMSMessage")
-    def s_ms_message(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "s_ms_message")
+    @pulumi.getter(name="smsMessage")
+    def sms_message(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "sms_message")
 
-    @s_ms_message.setter
-    def s_ms_message(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "s_ms_message", value)
+    @sms_message.setter
+    def sms_message(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sms_message", value)
 
 
 @pulumi.input_type
@@ -557,7 +557,7 @@ class UserPoolLambdaConfigArgs:
                  custom_message: Optional[pulumi.Input[str]] = None,
                  custom_sms_sender: Optional[pulumi.Input['UserPoolCustomSMSSenderArgs']] = None,
                  define_auth_challenge: Optional[pulumi.Input[str]] = None,
-                 k_ms_key_id: Optional[pulumi.Input[str]] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
                  post_authentication: Optional[pulumi.Input[str]] = None,
                  post_confirmation: Optional[pulumi.Input[str]] = None,
                  pre_authentication: Optional[pulumi.Input[str]] = None,
@@ -575,8 +575,8 @@ class UserPoolLambdaConfigArgs:
             pulumi.set(__self__, "custom_sms_sender", custom_sms_sender)
         if define_auth_challenge is not None:
             pulumi.set(__self__, "define_auth_challenge", define_auth_challenge)
-        if k_ms_key_id is not None:
-            pulumi.set(__self__, "k_ms_key_id", k_ms_key_id)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if post_authentication is not None:
             pulumi.set(__self__, "post_authentication", post_authentication)
         if post_confirmation is not None:
@@ -620,7 +620,7 @@ class UserPoolLambdaConfigArgs:
         pulumi.set(self, "custom_message", value)
 
     @property
-    @pulumi.getter(name="customSMSSender")
+    @pulumi.getter(name="customSmsSender")
     def custom_sms_sender(self) -> Optional[pulumi.Input['UserPoolCustomSMSSenderArgs']]:
         return pulumi.get(self, "custom_sms_sender")
 
@@ -638,13 +638,13 @@ class UserPoolLambdaConfigArgs:
         pulumi.set(self, "define_auth_challenge", value)
 
     @property
-    @pulumi.getter(name="kMSKeyID")
-    def k_ms_key_id(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "k_ms_key_id")
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "kms_key_id")
 
-    @k_ms_key_id.setter
-    def k_ms_key_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "k_ms_key_id", value)
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_id", value)
 
     @property
     @pulumi.getter(name="postAuthentication")
@@ -1156,7 +1156,7 @@ class UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgs:
             pulumi.set(__self__, "skipped_ip_range_list", skipped_ip_range_list)
 
     @property
-    @pulumi.getter(name="blockedIPRangeList")
+    @pulumi.getter(name="blockedIpRangeList")
     def blocked_ip_range_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         return pulumi.get(self, "blocked_ip_range_list")
 
@@ -1165,7 +1165,7 @@ class UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgs:
         pulumi.set(self, "blocked_ip_range_list", value)
 
     @property
-    @pulumi.getter(name="skippedIPRangeList")
+    @pulumi.getter(name="skippedIpRangeList")
     def skipped_ip_range_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         return pulumi.get(self, "skipped_ip_range_list")
 

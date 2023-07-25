@@ -21,12 +21,12 @@ type DBInstance struct {
 	AllowMajorVersionUpgrade   pulumi.BoolPtrOutput     `pulumi:"allowMajorVersionUpgrade"`
 	AutoMinorVersionUpgrade    pulumi.BoolPtrOutput     `pulumi:"autoMinorVersionUpgrade"`
 	AvailabilityZone           pulumi.StringPtrOutput   `pulumi:"availabilityZone"`
-	DBClusterIdentifier        pulumi.StringPtrOutput   `pulumi:"dBClusterIdentifier"`
-	DBInstanceClass            pulumi.StringOutput      `pulumi:"dBInstanceClass"`
-	DBInstanceIdentifier       pulumi.StringPtrOutput   `pulumi:"dBInstanceIdentifier"`
-	DBParameterGroupName       pulumi.StringPtrOutput   `pulumi:"dBParameterGroupName"`
-	DBSnapshotIdentifier       pulumi.StringPtrOutput   `pulumi:"dBSnapshotIdentifier"`
-	DBSubnetGroupName          pulumi.StringPtrOutput   `pulumi:"dBSubnetGroupName"`
+	DbClusterIdentifier        pulumi.StringPtrOutput   `pulumi:"dbClusterIdentifier"`
+	DbInstanceClass            pulumi.StringOutput      `pulumi:"dbInstanceClass"`
+	DbInstanceIdentifier       pulumi.StringPtrOutput   `pulumi:"dbInstanceIdentifier"`
+	DbParameterGroupName       pulumi.StringPtrOutput   `pulumi:"dbParameterGroupName"`
+	DbSnapshotIdentifier       pulumi.StringPtrOutput   `pulumi:"dbSnapshotIdentifier"`
+	DbSubnetGroupName          pulumi.StringPtrOutput   `pulumi:"dbSubnetGroupName"`
 	Endpoint                   pulumi.StringOutput      `pulumi:"endpoint"`
 	Port                       pulumi.StringOutput      `pulumi:"port"`
 	PreferredMaintenanceWindow pulumi.StringPtrOutput   `pulumi:"preferredMaintenanceWindow"`
@@ -40,8 +40,8 @@ func NewDBInstance(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DBInstanceClass == nil {
-		return nil, errors.New("invalid value for required argument 'DBInstanceClass'")
+	if args.DbInstanceClass == nil {
+		return nil, errors.New("invalid value for required argument 'DbInstanceClass'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DBInstance
@@ -79,12 +79,12 @@ type dbinstanceArgs struct {
 	AllowMajorVersionUpgrade   *bool           `pulumi:"allowMajorVersionUpgrade"`
 	AutoMinorVersionUpgrade    *bool           `pulumi:"autoMinorVersionUpgrade"`
 	AvailabilityZone           *string         `pulumi:"availabilityZone"`
-	DBClusterIdentifier        *string         `pulumi:"dBClusterIdentifier"`
-	DBInstanceClass            string          `pulumi:"dBInstanceClass"`
-	DBInstanceIdentifier       *string         `pulumi:"dBInstanceIdentifier"`
-	DBParameterGroupName       *string         `pulumi:"dBParameterGroupName"`
-	DBSnapshotIdentifier       *string         `pulumi:"dBSnapshotIdentifier"`
-	DBSubnetGroupName          *string         `pulumi:"dBSubnetGroupName"`
+	DbClusterIdentifier        *string         `pulumi:"dbClusterIdentifier"`
+	DbInstanceClass            string          `pulumi:"dbInstanceClass"`
+	DbInstanceIdentifier       *string         `pulumi:"dbInstanceIdentifier"`
+	DbParameterGroupName       *string         `pulumi:"dbParameterGroupName"`
+	DbSnapshotIdentifier       *string         `pulumi:"dbSnapshotIdentifier"`
+	DbSubnetGroupName          *string         `pulumi:"dbSubnetGroupName"`
 	PreferredMaintenanceWindow *string         `pulumi:"preferredMaintenanceWindow"`
 	Tags                       []DBInstanceTag `pulumi:"tags"`
 }
@@ -94,12 +94,12 @@ type DBInstanceArgs struct {
 	AllowMajorVersionUpgrade   pulumi.BoolPtrInput
 	AutoMinorVersionUpgrade    pulumi.BoolPtrInput
 	AvailabilityZone           pulumi.StringPtrInput
-	DBClusterIdentifier        pulumi.StringPtrInput
-	DBInstanceClass            pulumi.StringInput
-	DBInstanceIdentifier       pulumi.StringPtrInput
-	DBParameterGroupName       pulumi.StringPtrInput
-	DBSnapshotIdentifier       pulumi.StringPtrInput
-	DBSubnetGroupName          pulumi.StringPtrInput
+	DbClusterIdentifier        pulumi.StringPtrInput
+	DbInstanceClass            pulumi.StringInput
+	DbInstanceIdentifier       pulumi.StringPtrInput
+	DbParameterGroupName       pulumi.StringPtrInput
+	DbSnapshotIdentifier       pulumi.StringPtrInput
+	DbSubnetGroupName          pulumi.StringPtrInput
 	PreferredMaintenanceWindow pulumi.StringPtrInput
 	Tags                       DBInstanceTagArrayInput
 }
@@ -153,28 +153,28 @@ func (o DBInstanceOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
-func (o DBInstanceOutput) DBClusterIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.DBClusterIdentifier }).(pulumi.StringPtrOutput)
+func (o DBInstanceOutput) DbClusterIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.DbClusterIdentifier }).(pulumi.StringPtrOutput)
 }
 
-func (o DBInstanceOutput) DBInstanceClass() pulumi.StringOutput {
-	return o.ApplyT(func(v *DBInstance) pulumi.StringOutput { return v.DBInstanceClass }).(pulumi.StringOutput)
+func (o DBInstanceOutput) DbInstanceClass() pulumi.StringOutput {
+	return o.ApplyT(func(v *DBInstance) pulumi.StringOutput { return v.DbInstanceClass }).(pulumi.StringOutput)
 }
 
-func (o DBInstanceOutput) DBInstanceIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.DBInstanceIdentifier }).(pulumi.StringPtrOutput)
+func (o DBInstanceOutput) DbInstanceIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.DbInstanceIdentifier }).(pulumi.StringPtrOutput)
 }
 
-func (o DBInstanceOutput) DBParameterGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.DBParameterGroupName }).(pulumi.StringPtrOutput)
+func (o DBInstanceOutput) DbParameterGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.DbParameterGroupName }).(pulumi.StringPtrOutput)
 }
 
-func (o DBInstanceOutput) DBSnapshotIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.DBSnapshotIdentifier }).(pulumi.StringPtrOutput)
+func (o DBInstanceOutput) DbSnapshotIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.DbSnapshotIdentifier }).(pulumi.StringPtrOutput)
 }
 
-func (o DBInstanceOutput) DBSubnetGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.DBSubnetGroupName }).(pulumi.StringPtrOutput)
+func (o DBInstanceOutput) DbSubnetGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.DbSubnetGroupName }).(pulumi.StringPtrOutput)
 }
 
 func (o DBInstanceOutput) Endpoint() pulumi.StringOutput {

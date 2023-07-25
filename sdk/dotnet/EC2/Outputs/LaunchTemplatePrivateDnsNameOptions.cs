@@ -17,13 +17,13 @@ namespace Pulumi.AwsNative.EC2.Outputs
     public sealed class LaunchTemplatePrivateDnsNameOptions
     {
         /// <summary>
-        /// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
-        /// </summary>
-        public readonly bool? EnableResourceNameDnsAAAARecord;
-        /// <summary>
         /// Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
         /// </summary>
         public readonly bool? EnableResourceNameDnsARecord;
+        /// <summary>
+        /// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
+        /// </summary>
+        public readonly bool? EnableResourceNameDnsAaaaRecord;
         /// <summary>
         /// The type of hostname for EC2 instances.
         /// </summary>
@@ -31,14 +31,14 @@ namespace Pulumi.AwsNative.EC2.Outputs
 
         [OutputConstructor]
         private LaunchTemplatePrivateDnsNameOptions(
-            bool? enableResourceNameDnsAAAARecord,
-
             bool? enableResourceNameDnsARecord,
+
+            bool? enableResourceNameDnsAaaaRecord,
 
             string? hostnameType)
         {
-            EnableResourceNameDnsAAAARecord = enableResourceNameDnsAAAARecord;
             EnableResourceNameDnsARecord = enableResourceNameDnsARecord;
+            EnableResourceNameDnsAaaaRecord = enableResourceNameDnsAaaaRecord;
             HostnameType = hostnameType;
         }
     }

@@ -12,11 +12,11 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardCustomActionURLOperationArgs : global::Pulumi.ResourceArgs
     {
-        [Input("uRLTarget", required: true)]
-        public Input<Pulumi.AwsNative.QuickSight.DashboardURLTargetConfiguration> URLTarget { get; set; } = null!;
+        [Input("urlTarget", required: true)]
+        public Input<Pulumi.AwsNative.QuickSight.DashboardURLTargetConfiguration> UrlTarget { get; set; } = null!;
 
-        [Input("uRLTemplate", required: true)]
-        public Input<string> URLTemplate { get; set; } = null!;
+        [Input("urlTemplate", required: true)]
+        public Input<string> UrlTemplate { get; set; } = null!;
 
         public DashboardCustomActionURLOperationArgs()
         {

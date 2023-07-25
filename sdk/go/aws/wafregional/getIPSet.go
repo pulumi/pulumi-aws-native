@@ -27,8 +27,8 @@ type LookupIPSetArgs struct {
 }
 
 type LookupIPSetResult struct {
-	IPSetDescriptors []IPSetDescriptor `pulumi:"iPSetDescriptors"`
 	Id               *string           `pulumi:"id"`
+	IpSetDescriptors []IPSetDescriptor `pulumi:"ipSetDescriptors"`
 }
 
 func LookupIPSetOutput(ctx *pulumi.Context, args LookupIPSetOutputArgs, opts ...pulumi.InvokeOption) LookupIPSetResultOutput {
@@ -66,12 +66,12 @@ func (o LookupIPSetResultOutput) ToLookupIPSetResultOutputWithContext(ctx contex
 	return o
 }
 
-func (o LookupIPSetResultOutput) IPSetDescriptors() IPSetDescriptorArrayOutput {
-	return o.ApplyT(func(v LookupIPSetResult) []IPSetDescriptor { return v.IPSetDescriptors }).(IPSetDescriptorArrayOutput)
-}
-
 func (o LookupIPSetResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIPSetResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupIPSetResultOutput) IpSetDescriptors() IPSetDescriptorArrayOutput {
+	return o.ApplyT(func(v LookupIPSetResult) []IPSetDescriptor { return v.IpSetDescriptors }).(IPSetDescriptorArrayOutput)
 }
 
 func init() {

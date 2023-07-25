@@ -60,7 +60,7 @@ class MacroArgs:
         pulumi.set(self, "log_group_name", value)
 
     @property
-    @pulumi.getter(name="logRoleARN")
+    @pulumi.getter(name="logRoleArn")
     def log_role_arn(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "log_role_arn")
 
@@ -191,7 +191,7 @@ class Macro(pulumi.CustomResource):
         return pulumi.get(self, "log_group_name")
 
     @property
-    @pulumi.getter(name="logRoleARN")
+    @pulumi.getter(name="logRoleArn")
     def log_role_arn(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "log_role_arn")
 

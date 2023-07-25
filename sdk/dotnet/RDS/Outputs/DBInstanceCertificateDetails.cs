@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.RDS.Outputs
         /// <summary>
         /// The CA identifier of the CA certificate used for the DB instance's server certificate.
         /// </summary>
-        public readonly string? CAIdentifier;
+        public readonly string? CaIdentifier;
         /// <summary>
         /// The expiration date of the DB instance’s server certificate.
         /// </summary>
@@ -24,11 +24,11 @@ namespace Pulumi.AwsNative.RDS.Outputs
 
         [OutputConstructor]
         private DBInstanceCertificateDetails(
-            string? cAIdentifier,
+            string? caIdentifier,
 
             string? validTill)
         {
-            CAIdentifier = cAIdentifier;
+            CaIdentifier = caIdentifier;
             ValidTill = validTill;
         }
     }

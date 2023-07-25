@@ -47,7 +47,7 @@ type LookupCompositeAlarmResult struct {
 	// The actions to execute when this alarm transitions to the INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 	InsufficientDataActions []string `pulumi:"insufficientDataActions"`
 	// The actions to execute when this alarm transitions to the OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
-	OKActions []string `pulumi:"oKActions"`
+	OkActions []string `pulumi:"okActions"`
 }
 
 func LookupCompositeAlarmOutput(ctx *pulumi.Context, args LookupCompositeAlarmOutputArgs, opts ...pulumi.InvokeOption) LookupCompositeAlarmResultOutput {
@@ -132,8 +132,8 @@ func (o LookupCompositeAlarmResultOutput) InsufficientDataActions() pulumi.Strin
 }
 
 // The actions to execute when this alarm transitions to the OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
-func (o LookupCompositeAlarmResultOutput) OKActions() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v LookupCompositeAlarmResult) []string { return v.OKActions }).(pulumi.StringArrayOutput)
+func (o LookupCompositeAlarmResultOutput) OkActions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupCompositeAlarmResult) []string { return v.OkActions }).(pulumi.StringArrayOutput)
 }
 
 func init() {

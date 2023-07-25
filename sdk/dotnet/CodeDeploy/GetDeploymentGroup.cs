@@ -58,9 +58,9 @@ namespace Pulumi.AwsNative.CodeDeploy
         public readonly Outputs.DeploymentGroupDeployment? Deployment;
         public readonly string? DeploymentConfigName;
         public readonly Outputs.DeploymentGroupDeploymentStyle? DeploymentStyle;
-        public readonly ImmutableArray<Outputs.DeploymentGroupECSService> ECSServices;
         public readonly ImmutableArray<Outputs.DeploymentGroupEC2TagFilter> Ec2TagFilters;
         public readonly Outputs.DeploymentGroupEC2TagSet? Ec2TagSet;
+        public readonly ImmutableArray<Outputs.DeploymentGroupECSService> EcsServices;
         public readonly string? Id;
         public readonly Outputs.DeploymentGroupLoadBalancerInfo? LoadBalancerInfo;
         public readonly ImmutableArray<Outputs.DeploymentGroupTagFilter> OnPremisesInstanceTagFilters;
@@ -86,11 +86,11 @@ namespace Pulumi.AwsNative.CodeDeploy
 
             Outputs.DeploymentGroupDeploymentStyle? deploymentStyle,
 
-            ImmutableArray<Outputs.DeploymentGroupECSService> eCSServices,
-
             ImmutableArray<Outputs.DeploymentGroupEC2TagFilter> ec2TagFilters,
 
             Outputs.DeploymentGroupEC2TagSet? ec2TagSet,
+
+            ImmutableArray<Outputs.DeploymentGroupECSService> ecsServices,
 
             string? id,
 
@@ -115,9 +115,9 @@ namespace Pulumi.AwsNative.CodeDeploy
             Deployment = deployment;
             DeploymentConfigName = deploymentConfigName;
             DeploymentStyle = deploymentStyle;
-            ECSServices = eCSServices;
             Ec2TagFilters = ec2TagFilters;
             Ec2TagSet = ec2TagSet;
+            EcsServices = ecsServices;
             Id = id;
             LoadBalancerInfo = loadBalancerInfo;
             OnPremisesInstanceTagFilters = onPremisesInstanceTagFilters;

@@ -24,7 +24,7 @@ type ReplicationInstance struct {
 	AvailabilityZone                      pulumi.StringPtrOutput            `pulumi:"availabilityZone"`
 	EngineVersion                         pulumi.StringPtrOutput            `pulumi:"engineVersion"`
 	KmsKeyId                              pulumi.StringPtrOutput            `pulumi:"kmsKeyId"`
-	MultiAZ                               pulumi.BoolPtrOutput              `pulumi:"multiAZ"`
+	MultiAz                               pulumi.BoolPtrOutput              `pulumi:"multiAz"`
 	PreferredMaintenanceWindow            pulumi.StringPtrOutput            `pulumi:"preferredMaintenanceWindow"`
 	PubliclyAccessible                    pulumi.BoolPtrOutput              `pulumi:"publiclyAccessible"`
 	ReplicationInstanceClass              pulumi.StringOutput               `pulumi:"replicationInstanceClass"`
@@ -86,7 +86,7 @@ type replicationInstanceArgs struct {
 	AvailabilityZone                 *string                  `pulumi:"availabilityZone"`
 	EngineVersion                    *string                  `pulumi:"engineVersion"`
 	KmsKeyId                         *string                  `pulumi:"kmsKeyId"`
-	MultiAZ                          *bool                    `pulumi:"multiAZ"`
+	MultiAz                          *bool                    `pulumi:"multiAz"`
 	PreferredMaintenanceWindow       *string                  `pulumi:"preferredMaintenanceWindow"`
 	PubliclyAccessible               *bool                    `pulumi:"publiclyAccessible"`
 	ReplicationInstanceClass         string                   `pulumi:"replicationInstanceClass"`
@@ -105,7 +105,7 @@ type ReplicationInstanceArgs struct {
 	AvailabilityZone                 pulumi.StringPtrInput
 	EngineVersion                    pulumi.StringPtrInput
 	KmsKeyId                         pulumi.StringPtrInput
-	MultiAZ                          pulumi.BoolPtrInput
+	MultiAz                          pulumi.BoolPtrInput
 	PreferredMaintenanceWindow       pulumi.StringPtrInput
 	PubliclyAccessible               pulumi.BoolPtrInput
 	ReplicationInstanceClass         pulumi.StringInput
@@ -177,8 +177,8 @@ func (o ReplicationInstanceOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationInstance) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-func (o ReplicationInstanceOutput) MultiAZ() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ReplicationInstance) pulumi.BoolPtrOutput { return v.MultiAZ }).(pulumi.BoolPtrOutput)
+func (o ReplicationInstanceOutput) MultiAz() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ReplicationInstance) pulumi.BoolPtrOutput { return v.MultiAz }).(pulumi.BoolPtrOutput)
 }
 
 func (o ReplicationInstanceOutput) PreferredMaintenanceWindow() pulumi.StringPtrOutput {

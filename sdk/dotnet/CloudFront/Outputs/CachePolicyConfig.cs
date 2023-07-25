@@ -14,9 +14,9 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
     public sealed class CachePolicyConfig
     {
         public readonly string? Comment;
-        public readonly double DefaultTTL;
-        public readonly double MaxTTL;
-        public readonly double MinTTL;
+        public readonly double DefaultTtl;
+        public readonly double MaxTtl;
+        public readonly double MinTtl;
         public readonly string Name;
         public readonly Outputs.CachePolicyParametersInCacheKeyAndForwardedToOrigin ParametersInCacheKeyAndForwardedToOrigin;
 
@@ -24,20 +24,20 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         private CachePolicyConfig(
             string? comment,
 
-            double defaultTTL,
+            double defaultTtl,
 
-            double maxTTL,
+            double maxTtl,
 
-            double minTTL,
+            double minTtl,
 
             string name,
 
             Outputs.CachePolicyParametersInCacheKeyAndForwardedToOrigin parametersInCacheKeyAndForwardedToOrigin)
         {
             Comment = comment;
-            DefaultTTL = defaultTTL;
-            MaxTTL = maxTTL;
-            MinTTL = minTTL;
+            DefaultTtl = defaultTtl;
+            MaxTtl = maxTtl;
+            MinTtl = minTtl;
             Name = name;
             ParametersInCacheKeyAndForwardedToOrigin = parametersInCacheKeyAndForwardedToOrigin;
         }

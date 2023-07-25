@@ -43,10 +43,10 @@ export class Volume extends pulumi.CustomResource {
     public readonly backupId!: pulumi.Output<string | undefined>;
     public readonly name!: pulumi.Output<string>;
     public readonly ontapConfiguration!: pulumi.Output<outputs.fsx.VolumeOntapConfiguration | undefined>;
-    public readonly openZFSConfiguration!: pulumi.Output<outputs.fsx.VolumeOpenZFSConfiguration | undefined>;
-    public /*out*/ readonly resourceARN!: pulumi.Output<string>;
+    public readonly openZfsConfiguration!: pulumi.Output<outputs.fsx.VolumeOpenZFSConfiguration | undefined>;
+    public /*out*/ readonly resourceArn!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<outputs.fsx.VolumeTag[] | undefined>;
-    public /*out*/ readonly uUID!: pulumi.Output<string>;
+    public /*out*/ readonly uuid!: pulumi.Output<string>;
     public /*out*/ readonly volumeId!: pulumi.Output<string>;
     public readonly volumeType!: pulumi.Output<string | undefined>;
 
@@ -66,20 +66,20 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["backupId"] = args ? args.backupId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["ontapConfiguration"] = args ? args.ontapConfiguration : undefined;
-            resourceInputs["openZFSConfiguration"] = args ? args.openZFSConfiguration : undefined;
+            resourceInputs["openZfsConfiguration"] = args ? args.openZfsConfiguration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["volumeType"] = args ? args.volumeType : undefined;
-            resourceInputs["resourceARN"] = undefined /*out*/;
-            resourceInputs["uUID"] = undefined /*out*/;
+            resourceInputs["resourceArn"] = undefined /*out*/;
+            resourceInputs["uuid"] = undefined /*out*/;
             resourceInputs["volumeId"] = undefined /*out*/;
         } else {
             resourceInputs["backupId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["ontapConfiguration"] = undefined /*out*/;
-            resourceInputs["openZFSConfiguration"] = undefined /*out*/;
-            resourceInputs["resourceARN"] = undefined /*out*/;
+            resourceInputs["openZfsConfiguration"] = undefined /*out*/;
+            resourceInputs["resourceArn"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
-            resourceInputs["uUID"] = undefined /*out*/;
+            resourceInputs["uuid"] = undefined /*out*/;
             resourceInputs["volumeId"] = undefined /*out*/;
             resourceInputs["volumeType"] = undefined /*out*/;
         }
@@ -95,7 +95,7 @@ export interface VolumeArgs {
     backupId?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     ontapConfiguration?: pulumi.Input<inputs.fsx.VolumeOntapConfigurationArgs>;
-    openZFSConfiguration?: pulumi.Input<inputs.fsx.VolumeOpenZFSConfigurationArgs>;
+    openZfsConfiguration?: pulumi.Input<inputs.fsx.VolumeOpenZFSConfigurationArgs>;
     tags?: pulumi.Input<pulumi.Input<inputs.fsx.VolumeTagArgs>[]>;
     volumeType?: pulumi.Input<string>;
 }

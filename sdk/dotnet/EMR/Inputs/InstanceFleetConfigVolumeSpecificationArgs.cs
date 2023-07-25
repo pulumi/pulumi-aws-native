@@ -15,8 +15,8 @@ namespace Pulumi.AwsNative.EMR.Inputs
         [Input("iops")]
         public Input<int>? Iops { get; set; }
 
-        [Input("sizeInGB", required: true)]
-        public Input<int> SizeInGB { get; set; } = null!;
+        [Input("sizeInGb", required: true)]
+        public Input<int> SizeInGb { get; set; } = null!;
 
         [Input("volumeType", required: true)]
         public Input<string> VolumeType { get; set; } = null!;

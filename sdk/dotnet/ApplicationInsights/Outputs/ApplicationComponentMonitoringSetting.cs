@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.ApplicationInsights.Outputs
         /// <summary>
         /// The ARN of the compnonent.
         /// </summary>
-        public readonly string? ComponentARN;
+        public readonly string? ComponentArn;
         /// <summary>
         /// The component monitoring configuration mode.
         /// </summary>
@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.ApplicationInsights.Outputs
 
         [OutputConstructor]
         private ApplicationComponentMonitoringSetting(
-            string? componentARN,
+            string? componentArn,
 
             Pulumi.AwsNative.ApplicationInsights.ApplicationComponentMonitoringSettingComponentConfigurationMode componentConfigurationMode,
 
@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.ApplicationInsights.Outputs
 
             string tier)
         {
-            ComponentARN = componentARN;
+            ComponentArn = componentArn;
             ComponentConfigurationMode = componentConfigurationMode;
             ComponentName = componentName;
             CustomComponentConfiguration = customComponentConfiguration;

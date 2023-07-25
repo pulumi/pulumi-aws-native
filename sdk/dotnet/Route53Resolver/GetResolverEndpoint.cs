@@ -52,7 +52,7 @@ namespace Pulumi.AwsNative.Route53Resolver
     public sealed class GetResolverEndpointResult
     {
         public readonly string? Arn;
-        public readonly string? HostVPCId;
+        public readonly string? HostVpcId;
         public readonly string? IpAddressCount;
         public readonly ImmutableArray<Outputs.ResolverEndpointIpAddressRequest> IpAddresses;
         public readonly string? Name;
@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.Route53Resolver
         private GetResolverEndpointResult(
             string? arn,
 
-            string? hostVPCId,
+            string? hostVpcId,
 
             string? ipAddressCount,
 
@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.Route53Resolver
             ImmutableArray<Outputs.ResolverEndpointTag> tags)
         {
             Arn = arn;
-            HostVPCId = hostVPCId;
+            HostVpcId = hostVpcId;
             IpAddressCount = ipAddressCount;
             IpAddresses = ipAddresses;
             Name = name;

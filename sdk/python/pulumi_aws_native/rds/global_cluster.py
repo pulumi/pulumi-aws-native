@@ -95,7 +95,7 @@ class GlobalClusterArgs:
         pulumi.set(self, "global_cluster_identifier", value)
 
     @property
-    @pulumi.getter(name="sourceDBClusterIdentifier")
+    @pulumi.getter(name="sourceDbClusterIdentifier")
     def source_db_cluster_identifier(self) -> Optional[pulumi.Input[str]]:
         """
         The Amazon Resource Name (ARN) to use as the primary cluster of the global database. This parameter is optional. This parameter is stored as a lowercase string.
@@ -255,7 +255,7 @@ class GlobalCluster(pulumi.CustomResource):
         return pulumi.get(self, "global_cluster_identifier")
 
     @property
-    @pulumi.getter(name="sourceDBClusterIdentifier")
+    @pulumi.getter(name="sourceDbClusterIdentifier")
     def source_db_cluster_identifier(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) to use as the primary cluster of the global database. This parameter is optional. This parameter is stored as a lowercase string.

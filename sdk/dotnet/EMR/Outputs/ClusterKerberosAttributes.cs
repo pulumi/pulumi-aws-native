@@ -13,17 +13,17 @@ namespace Pulumi.AwsNative.EMR.Outputs
     [OutputType]
     public sealed class ClusterKerberosAttributes
     {
-        public readonly string? ADDomainJoinPassword;
-        public readonly string? ADDomainJoinUser;
+        public readonly string? AdDomainJoinPassword;
+        public readonly string? AdDomainJoinUser;
         public readonly string? CrossRealmTrustPrincipalPassword;
         public readonly string KdcAdminPassword;
         public readonly string Realm;
 
         [OutputConstructor]
         private ClusterKerberosAttributes(
-            string? aDDomainJoinPassword,
+            string? adDomainJoinPassword,
 
-            string? aDDomainJoinUser,
+            string? adDomainJoinUser,
 
             string? crossRealmTrustPrincipalPassword,
 
@@ -31,8 +31,8 @@ namespace Pulumi.AwsNative.EMR.Outputs
 
             string realm)
         {
-            ADDomainJoinPassword = aDDomainJoinPassword;
-            ADDomainJoinUser = aDDomainJoinUser;
+            AdDomainJoinPassword = adDomainJoinPassword;
+            AdDomainJoinUser = adDomainJoinUser;
             CrossRealmTrustPrincipalPassword = crossRealmTrustPrincipalPassword;
             KdcAdminPassword = kdcAdminPassword;
             Realm = realm;

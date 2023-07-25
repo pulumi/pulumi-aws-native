@@ -100,7 +100,7 @@ class WirelessDeviceArgs:
         pulumi.set(self, "last_uplink_received_at", value)
 
     @property
-    @pulumi.getter(name="loRaWAN")
+    @pulumi.getter(name="loRaWan")
     def lo_ra_wan(self) -> Optional[pulumi.Input['WirelessDeviceLoRaWANDeviceArgs']]:
         """
         The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Device.
@@ -298,7 +298,7 @@ class WirelessDevice(pulumi.CustomResource):
         return pulumi.get(self, "last_uplink_received_at")
 
     @property
-    @pulumi.getter(name="loRaWAN")
+    @pulumi.getter(name="loRaWan")
     def lo_ra_wan(self) -> pulumi.Output[Optional['outputs.WirelessDeviceLoRaWANDevice']]:
         """
         The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Device.

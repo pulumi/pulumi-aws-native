@@ -12,8 +12,8 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
 
     public sealed class VirtualNodeClientPolicyArgs : global::Pulumi.ResourceArgs
     {
-        [Input("tLS")]
-        public Input<Inputs.VirtualNodeClientPolicyTlsArgs>? TLS { get; set; }
+        [Input("tls")]
+        public Input<Inputs.VirtualNodeClientPolicyTlsArgs>? Tls { get; set; }
 
         public VirtualNodeClientPolicyArgs()
         {

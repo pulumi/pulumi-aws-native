@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.ApplicationInsights
         /// <summary>
         /// The ARN of the ApplicationInsights application.
         /// </summary>
-        [Input("applicationARN", required: true)]
-        public string ApplicationARN { get; set; } = null!;
+        [Input("applicationArn", required: true)]
+        public string ApplicationArn { get; set; } = null!;
 
         public GetApplicationArgs()
         {
@@ -44,8 +44,8 @@ namespace Pulumi.AwsNative.ApplicationInsights
         /// <summary>
         /// The ARN of the ApplicationInsights application.
         /// </summary>
-        [Input("applicationARN", required: true)]
-        public Input<string> ApplicationARN { get; set; } = null!;
+        [Input("applicationArn", required: true)]
+        public Input<string> ApplicationArn { get; set; } = null!;
 
         public GetApplicationInvokeArgs()
         {
@@ -60,7 +60,7 @@ namespace Pulumi.AwsNative.ApplicationInsights
         /// <summary>
         /// The ARN of the ApplicationInsights application.
         /// </summary>
-        public readonly string? ApplicationARN;
+        public readonly string? ApplicationArn;
         /// <summary>
         /// If set to true, application will be configured with recommended monitoring configuration.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.ApplicationInsights
         /// <summary>
         /// Indicates whether Application Insights can listen to CloudWatch events for the application resources.
         /// </summary>
-        public readonly bool? CWEMonitorEnabled;
+        public readonly bool? CweMonitorEnabled;
         /// <summary>
         /// When set to true, creates opsItems for any problems detected on an application.
         /// </summary>
@@ -80,19 +80,19 @@ namespace Pulumi.AwsNative.ApplicationInsights
 
         [OutputConstructor]
         private GetApplicationResult(
-            string? applicationARN,
+            string? applicationArn,
 
             bool? autoConfigurationEnabled,
 
-            bool? cWEMonitorEnabled,
+            bool? cweMonitorEnabled,
 
             bool? opsCenterEnabled,
 
             ImmutableArray<Outputs.ApplicationTag> tags)
         {
-            ApplicationARN = applicationARN;
+            ApplicationArn = applicationArn;
             AutoConfigurationEnabled = autoConfigurationEnabled;
-            CWEMonitorEnabled = cWEMonitorEnabled;
+            CweMonitorEnabled = cweMonitorEnabled;
             OpsCenterEnabled = opsCenterEnabled;
             Tags = tags;
         }

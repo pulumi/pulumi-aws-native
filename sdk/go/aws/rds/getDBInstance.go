@@ -24,7 +24,7 @@ func LookupDBInstance(ctx *pulumi.Context, args *LookupDBInstanceArgs, opts ...p
 
 type LookupDBInstanceArgs struct {
 	// A name for the DB instance. If you specify a name, AWS CloudFormation converts it to lowercase. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the DB instance.
-	DBInstanceIdentifier string `pulumi:"dBInstanceIdentifier"`
+	DbInstanceIdentifier string `pulumi:"dbInstanceIdentifier"`
 }
 
 type LookupDBInstanceResult struct {
@@ -39,7 +39,7 @@ type LookupDBInstanceResult struct {
 	// The number of days for which automated backups are retained. Setting this parameter to a positive number enables backups. Setting this parameter to 0 disables automated backups.
 	BackupRetentionPeriod *int `pulumi:"backupRetentionPeriod"`
 	// The identifier of the CA certificate for this DB instance.
-	CACertificateIdentifier *string `pulumi:"cACertificateIdentifier"`
+	CaCertificateIdentifier *string `pulumi:"caCertificateIdentifier"`
 	// Returns the details of the DB instance's server certificate.
 	CertificateDetails *DBInstanceCertificateDetails `pulumi:"certificateDetails"`
 	// A value that indicates whether to copy tags from the DB instance to snapshots of the DB instance. By default, tags are not copied.
@@ -53,17 +53,17 @@ type LookupDBInstanceResult struct {
 	//  * If you are restoring from a shared manual Multi-AZ DB cluster snapshot, the DBClusterSnapshotIdentifier must be the ARN of the shared snapshot.
 	//  * Can't be the identifier of an Aurora DB cluster snapshot.
 	//  * Can't be the identifier of an RDS for PostgreSQL Multi-AZ DB cluster snapshot.
-	DBClusterSnapshotIdentifier *string `pulumi:"dBClusterSnapshotIdentifier"`
+	DbClusterSnapshotIdentifier *string `pulumi:"dbClusterSnapshotIdentifier"`
 	// The Amazon Resource Name (ARN) for the DB instance.
-	DBInstanceArn *string `pulumi:"dBInstanceArn"`
+	DbInstanceArn *string `pulumi:"dbInstanceArn"`
 	// The compute and memory capacity of the DB instance, for example, db.m4.large. Not all DB instance classes are available in all AWS Regions, or for all database engines.
-	DBInstanceClass *string `pulumi:"dBInstanceClass"`
+	DbInstanceClass *string `pulumi:"dbInstanceClass"`
 	// The name of an existing DB parameter group or a reference to an AWS::RDS::DBParameterGroup resource created in the template.
-	DBParameterGroupName *string `pulumi:"dBParameterGroupName"`
+	DbParameterGroupName *string `pulumi:"dbParameterGroupName"`
 	// A list of the DB security groups to assign to the DB instance. The list can include both the name of existing DB security groups or references to AWS::RDS::DBSecurityGroup resources created in the template.
-	DBSecurityGroups []string `pulumi:"dBSecurityGroups"`
+	DbSecurityGroups []string `pulumi:"dbSecurityGroups"`
 	// The Oracle system ID (Oracle SID) for a container database (CDB). The Oracle SID is also the name of the CDB. This setting is valid for RDS Custom only.
-	DBSystemId *string `pulumi:"dBSystemId"`
+	DbSystemId *string `pulumi:"dbSystemId"`
 	// The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
 	DbiResourceId *string `pulumi:"dbiResourceId"`
 	// A value that indicates whether the DB instance has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
@@ -71,11 +71,11 @@ type LookupDBInstanceResult struct {
 	// The Active Directory directory ID to create the DB instance in. Currently, only MySQL, Microsoft SQL Server, Oracle, and PostgreSQL DB instances can be created in an Active Directory Domain.
 	Domain *string `pulumi:"domain"`
 	// Specify the name of the IAM role to be used when making API calls to the Directory Service.
-	DomainIAMRoleName *string `pulumi:"domainIAMRoleName"`
+	DomainIamRoleName *string `pulumi:"domainIamRoleName"`
 	// The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used.
 	EnableCloudwatchLogsExports []string `pulumi:"enableCloudwatchLogsExports"`
 	// A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
-	EnableIAMDatabaseAuthentication *bool `pulumi:"enableIAMDatabaseAuthentication"`
+	EnableIamDatabaseAuthentication *bool `pulumi:"enableIamDatabaseAuthentication"`
 	// A value that indicates whether to enable Performance Insights for the DB instance.
 	EnablePerformanceInsights *bool `pulumi:"enablePerformanceInsights"`
 	// Specifies the connection endpoint.
@@ -99,13 +99,13 @@ type LookupDBInstanceResult struct {
 	// The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to Amazon CloudWatch Logs.
 	MonitoringRoleArn *string `pulumi:"monitoringRoleArn"`
 	// Specifies whether the database instance is a multiple Availability Zone deployment.
-	MultiAZ *bool `pulumi:"multiAZ"`
+	MultiAz *bool `pulumi:"multiAz"`
 	// The network type of the DB cluster.
 	NetworkType *string `pulumi:"networkType"`
 	// Indicates that the DB instance should be associated with the specified option group.
 	OptionGroupName *string `pulumi:"optionGroupName"`
 	// The AWS KMS key identifier for encryption of Performance Insights data. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.
-	PerformanceInsightsKMSKeyId *string `pulumi:"performanceInsightsKMSKeyId"`
+	PerformanceInsightsKmsKeyId *string `pulumi:"performanceInsightsKmsKeyId"`
 	// The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years).
 	PerformanceInsightsRetentionPeriod *int `pulumi:"performanceInsightsRetentionPeriod"`
 	// The daily time range during which automated backups are created if automated backups are enabled, using the BackupRetentionPeriod parameter.
@@ -121,7 +121,7 @@ type LookupDBInstanceResult struct {
 	// The open mode of an Oracle read replica. The default is open-read-only.
 	ReplicaMode *string `pulumi:"replicaMode"`
 	// The identifier of the Multi-AZ DB cluster that will act as the source for the read replica. Each DB cluster can have up to 15 read replicas.
-	SourceDBClusterIdentifier *string `pulumi:"sourceDBClusterIdentifier"`
+	SourceDbClusterIdentifier *string `pulumi:"sourceDbClusterIdentifier"`
 	// Specifies the storage throughput for the DB instance.
 	StorageThroughput *int `pulumi:"storageThroughput"`
 	// Specifies the storage type to be associated with the DB instance.
@@ -131,7 +131,7 @@ type LookupDBInstanceResult struct {
 	// The ARN from the key store with which to associate the instance for TDE encryption.
 	TdeCredentialArn *string `pulumi:"tdeCredentialArn"`
 	// A list of the VPC security group IDs to assign to the DB instance. The list can include both the physical IDs of existing VPC security groups and references to AWS::EC2::SecurityGroup resources created in the template.
-	VPCSecurityGroups []string `pulumi:"vPCSecurityGroups"`
+	VpcSecurityGroups []string `pulumi:"vpcSecurityGroups"`
 }
 
 func LookupDBInstanceOutput(ctx *pulumi.Context, args LookupDBInstanceOutputArgs, opts ...pulumi.InvokeOption) LookupDBInstanceResultOutput {
@@ -149,7 +149,7 @@ func LookupDBInstanceOutput(ctx *pulumi.Context, args LookupDBInstanceOutputArgs
 
 type LookupDBInstanceOutputArgs struct {
 	// A name for the DB instance. If you specify a name, AWS CloudFormation converts it to lowercase. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the DB instance.
-	DBInstanceIdentifier pulumi.StringInput `pulumi:"dBInstanceIdentifier"`
+	DbInstanceIdentifier pulumi.StringInput `pulumi:"dbInstanceIdentifier"`
 }
 
 func (LookupDBInstanceOutputArgs) ElementType() reflect.Type {
@@ -196,8 +196,8 @@ func (o LookupDBInstanceResultOutput) BackupRetentionPeriod() pulumi.IntPtrOutpu
 }
 
 // The identifier of the CA certificate for this DB instance.
-func (o LookupDBInstanceResultOutput) CACertificateIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupDBInstanceResult) *string { return v.CACertificateIdentifier }).(pulumi.StringPtrOutput)
+func (o LookupDBInstanceResultOutput) CaCertificateIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDBInstanceResult) *string { return v.CaCertificateIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // Returns the details of the DB instance's server certificate.
@@ -219,33 +219,33 @@ func (o LookupDBInstanceResultOutput) CopyTagsToSnapshot() pulumi.BoolPtrOutput 
 //   - If you are restoring from a shared manual Multi-AZ DB cluster snapshot, the DBClusterSnapshotIdentifier must be the ARN of the shared snapshot.
 //   - Can't be the identifier of an Aurora DB cluster snapshot.
 //   - Can't be the identifier of an RDS for PostgreSQL Multi-AZ DB cluster snapshot.
-func (o LookupDBInstanceResultOutput) DBClusterSnapshotIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupDBInstanceResult) *string { return v.DBClusterSnapshotIdentifier }).(pulumi.StringPtrOutput)
+func (o LookupDBInstanceResultOutput) DbClusterSnapshotIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDBInstanceResult) *string { return v.DbClusterSnapshotIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) for the DB instance.
-func (o LookupDBInstanceResultOutput) DBInstanceArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupDBInstanceResult) *string { return v.DBInstanceArn }).(pulumi.StringPtrOutput)
+func (o LookupDBInstanceResultOutput) DbInstanceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDBInstanceResult) *string { return v.DbInstanceArn }).(pulumi.StringPtrOutput)
 }
 
 // The compute and memory capacity of the DB instance, for example, db.m4.large. Not all DB instance classes are available in all AWS Regions, or for all database engines.
-func (o LookupDBInstanceResultOutput) DBInstanceClass() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupDBInstanceResult) *string { return v.DBInstanceClass }).(pulumi.StringPtrOutput)
+func (o LookupDBInstanceResultOutput) DbInstanceClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDBInstanceResult) *string { return v.DbInstanceClass }).(pulumi.StringPtrOutput)
 }
 
 // The name of an existing DB parameter group or a reference to an AWS::RDS::DBParameterGroup resource created in the template.
-func (o LookupDBInstanceResultOutput) DBParameterGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupDBInstanceResult) *string { return v.DBParameterGroupName }).(pulumi.StringPtrOutput)
+func (o LookupDBInstanceResultOutput) DbParameterGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDBInstanceResult) *string { return v.DbParameterGroupName }).(pulumi.StringPtrOutput)
 }
 
 // A list of the DB security groups to assign to the DB instance. The list can include both the name of existing DB security groups or references to AWS::RDS::DBSecurityGroup resources created in the template.
-func (o LookupDBInstanceResultOutput) DBSecurityGroups() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v LookupDBInstanceResult) []string { return v.DBSecurityGroups }).(pulumi.StringArrayOutput)
+func (o LookupDBInstanceResultOutput) DbSecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupDBInstanceResult) []string { return v.DbSecurityGroups }).(pulumi.StringArrayOutput)
 }
 
 // The Oracle system ID (Oracle SID) for a container database (CDB). The Oracle SID is also the name of the CDB. This setting is valid for RDS Custom only.
-func (o LookupDBInstanceResultOutput) DBSystemId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupDBInstanceResult) *string { return v.DBSystemId }).(pulumi.StringPtrOutput)
+func (o LookupDBInstanceResultOutput) DbSystemId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDBInstanceResult) *string { return v.DbSystemId }).(pulumi.StringPtrOutput)
 }
 
 // The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
@@ -264,8 +264,8 @@ func (o LookupDBInstanceResultOutput) Domain() pulumi.StringPtrOutput {
 }
 
 // Specify the name of the IAM role to be used when making API calls to the Directory Service.
-func (o LookupDBInstanceResultOutput) DomainIAMRoleName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupDBInstanceResult) *string { return v.DomainIAMRoleName }).(pulumi.StringPtrOutput)
+func (o LookupDBInstanceResultOutput) DomainIamRoleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDBInstanceResult) *string { return v.DomainIamRoleName }).(pulumi.StringPtrOutput)
 }
 
 // The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used.
@@ -274,8 +274,8 @@ func (o LookupDBInstanceResultOutput) EnableCloudwatchLogsExports() pulumi.Strin
 }
 
 // A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
-func (o LookupDBInstanceResultOutput) EnableIAMDatabaseAuthentication() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LookupDBInstanceResult) *bool { return v.EnableIAMDatabaseAuthentication }).(pulumi.BoolPtrOutput)
+func (o LookupDBInstanceResultOutput) EnableIamDatabaseAuthentication() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupDBInstanceResult) *bool { return v.EnableIamDatabaseAuthentication }).(pulumi.BoolPtrOutput)
 }
 
 // A value that indicates whether to enable Performance Insights for the DB instance.
@@ -334,8 +334,8 @@ func (o LookupDBInstanceResultOutput) MonitoringRoleArn() pulumi.StringPtrOutput
 }
 
 // Specifies whether the database instance is a multiple Availability Zone deployment.
-func (o LookupDBInstanceResultOutput) MultiAZ() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LookupDBInstanceResult) *bool { return v.MultiAZ }).(pulumi.BoolPtrOutput)
+func (o LookupDBInstanceResultOutput) MultiAz() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupDBInstanceResult) *bool { return v.MultiAz }).(pulumi.BoolPtrOutput)
 }
 
 // The network type of the DB cluster.
@@ -349,8 +349,8 @@ func (o LookupDBInstanceResultOutput) OptionGroupName() pulumi.StringPtrOutput {
 }
 
 // The AWS KMS key identifier for encryption of Performance Insights data. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.
-func (o LookupDBInstanceResultOutput) PerformanceInsightsKMSKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupDBInstanceResult) *string { return v.PerformanceInsightsKMSKeyId }).(pulumi.StringPtrOutput)
+func (o LookupDBInstanceResultOutput) PerformanceInsightsKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDBInstanceResult) *string { return v.PerformanceInsightsKmsKeyId }).(pulumi.StringPtrOutput)
 }
 
 // The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years).
@@ -389,8 +389,8 @@ func (o LookupDBInstanceResultOutput) ReplicaMode() pulumi.StringPtrOutput {
 }
 
 // The identifier of the Multi-AZ DB cluster that will act as the source for the read replica. Each DB cluster can have up to 15 read replicas.
-func (o LookupDBInstanceResultOutput) SourceDBClusterIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupDBInstanceResult) *string { return v.SourceDBClusterIdentifier }).(pulumi.StringPtrOutput)
+func (o LookupDBInstanceResultOutput) SourceDbClusterIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDBInstanceResult) *string { return v.SourceDbClusterIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the storage throughput for the DB instance.
@@ -414,8 +414,8 @@ func (o LookupDBInstanceResultOutput) TdeCredentialArn() pulumi.StringPtrOutput 
 }
 
 // A list of the VPC security group IDs to assign to the DB instance. The list can include both the physical IDs of existing VPC security groups and references to AWS::EC2::SecurityGroup resources created in the template.
-func (o LookupDBInstanceResultOutput) VPCSecurityGroups() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v LookupDBInstanceResult) []string { return v.VPCSecurityGroups }).(pulumi.StringArrayOutput)
+func (o LookupDBInstanceResultOutput) VpcSecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupDBInstanceResult) []string { return v.VpcSecurityGroups }).(pulumi.StringArrayOutput)
 }
 
 func init() {

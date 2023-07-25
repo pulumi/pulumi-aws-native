@@ -51,8 +51,8 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
     [OutputType]
     public sealed class GetLoadBalancerResult
     {
-        public readonly string? CanonicalHostedZoneID;
-        public readonly string? DNSName;
+        public readonly string? CanonicalHostedZoneId;
+        public readonly string? DnsName;
         public readonly string? Id;
         public readonly string? IpAddressType;
         public readonly ImmutableArray<Outputs.LoadBalancerAttribute> LoadBalancerAttributes;
@@ -65,9 +65,9 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
 
         [OutputConstructor]
         private GetLoadBalancerResult(
-            string? canonicalHostedZoneID,
+            string? canonicalHostedZoneId,
 
-            string? dNSName,
+            string? dnsName,
 
             string? id,
 
@@ -87,8 +87,8 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
 
             ImmutableArray<Outputs.LoadBalancerTag> tags)
         {
-            CanonicalHostedZoneID = canonicalHostedZoneID;
-            DNSName = dNSName;
+            CanonicalHostedZoneId = canonicalHostedZoneId;
+            DnsName = dnsName;
             Id = id;
             IpAddressType = ipAddressType;
             LoadBalancerAttributes = loadBalancerAttributes;

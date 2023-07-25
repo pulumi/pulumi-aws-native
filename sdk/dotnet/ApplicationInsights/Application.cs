@@ -18,20 +18,14 @@ namespace Pulumi.AwsNative.ApplicationInsights
         /// <summary>
         /// The ARN of the ApplicationInsights application.
         /// </summary>
-        [Output("applicationARN")]
-        public Output<string> ApplicationARN { get; private set; } = null!;
+        [Output("applicationArn")]
+        public Output<string> ApplicationArn { get; private set; } = null!;
 
         /// <summary>
         /// If set to true, application will be configured with recommended monitoring configuration.
         /// </summary>
         [Output("autoConfigurationEnabled")]
         public Output<bool?> AutoConfigurationEnabled { get; private set; } = null!;
-
-        /// <summary>
-        /// Indicates whether Application Insights can listen to CloudWatch events for the application resources.
-        /// </summary>
-        [Output("cWEMonitorEnabled")]
-        public Output<bool?> CWEMonitorEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The monitoring settings of the components.
@@ -44,6 +38,12 @@ namespace Pulumi.AwsNative.ApplicationInsights
         /// </summary>
         [Output("customComponents")]
         public Output<ImmutableArray<Outputs.ApplicationCustomComponent>> CustomComponents { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates whether Application Insights can listen to CloudWatch events for the application resources.
+        /// </summary>
+        [Output("cweMonitorEnabled")]
+        public Output<bool?> CweMonitorEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The grouping type of the application
@@ -66,8 +66,8 @@ namespace Pulumi.AwsNative.ApplicationInsights
         /// <summary>
         /// The SNS topic provided to Application Insights that is associated to the created opsItem.
         /// </summary>
-        [Output("opsItemSNSTopicArn")]
-        public Output<string?> OpsItemSNSTopicArn { get; private set; } = null!;
+        [Output("opsItemSnsTopicArn")]
+        public Output<string?> OpsItemSnsTopicArn { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource group.
@@ -132,12 +132,6 @@ namespace Pulumi.AwsNative.ApplicationInsights
         [Input("autoConfigurationEnabled")]
         public Input<bool>? AutoConfigurationEnabled { get; set; }
 
-        /// <summary>
-        /// Indicates whether Application Insights can listen to CloudWatch events for the application resources.
-        /// </summary>
-        [Input("cWEMonitorEnabled")]
-        public Input<bool>? CWEMonitorEnabled { get; set; }
-
         [Input("componentMonitoringSettings")]
         private InputList<Inputs.ApplicationComponentMonitoringSettingArgs>? _componentMonitoringSettings;
 
@@ -161,6 +155,12 @@ namespace Pulumi.AwsNative.ApplicationInsights
             get => _customComponents ?? (_customComponents = new InputList<Inputs.ApplicationCustomComponentArgs>());
             set => _customComponents = value;
         }
+
+        /// <summary>
+        /// Indicates whether Application Insights can listen to CloudWatch events for the application resources.
+        /// </summary>
+        [Input("cweMonitorEnabled")]
+        public Input<bool>? CweMonitorEnabled { get; set; }
 
         /// <summary>
         /// The grouping type of the application
@@ -189,8 +189,8 @@ namespace Pulumi.AwsNative.ApplicationInsights
         /// <summary>
         /// The SNS topic provided to Application Insights that is associated to the created opsItem.
         /// </summary>
-        [Input("opsItemSNSTopicArn")]
-        public Input<string>? OpsItemSNSTopicArn { get; set; }
+        [Input("opsItemSnsTopicArn")]
+        public Input<string>? OpsItemSnsTopicArn { get; set; }
 
         /// <summary>
         /// The name of the resource group.

@@ -246,7 +246,7 @@ class FileSystemLifecyclePolicyArgs:
             pulumi.set(__self__, "transition_to_primary_storage_class", transition_to_primary_storage_class)
 
     @property
-    @pulumi.getter(name="transitionToIA")
+    @pulumi.getter(name="transitionToIa")
     def transition_to_ia(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "transition_to_ia")
 

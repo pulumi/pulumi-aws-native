@@ -43,7 +43,7 @@ type LookupLicenseResult struct {
 	// Product name for the created license.
 	ProductName *string `pulumi:"productName"`
 	// ProductSKU of the license.
-	ProductSKU *string                    `pulumi:"productSKU"`
+	ProductSku *string                    `pulumi:"productSku"`
 	Validity   *LicenseValidityDateFormat `pulumi:"validity"`
 	// The version of the license.
 	Version *string `pulumi:"version"`
@@ -127,8 +127,8 @@ func (o LookupLicenseResultOutput) ProductName() pulumi.StringPtrOutput {
 }
 
 // ProductSKU of the license.
-func (o LookupLicenseResultOutput) ProductSKU() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupLicenseResult) *string { return v.ProductSKU }).(pulumi.StringPtrOutput)
+func (o LookupLicenseResultOutput) ProductSku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLicenseResult) *string { return v.ProductSku }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupLicenseResultOutput) Validity() LicenseValidityDateFormatPtrOutput {

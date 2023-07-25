@@ -15,8 +15,8 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("fieldWells")]
         public Input<Inputs.AnalysisKPIFieldWellsArgs>? FieldWells { get; set; }
 
-        [Input("kPIOptions")]
-        public Input<Inputs.AnalysisKPIOptionsArgs>? KPIOptions { get; set; }
+        [Input("kpiOptions")]
+        public Input<Inputs.AnalysisKPIOptionsArgs>? KpiOptions { get; set; }
 
         [Input("sortConfiguration")]
         public Input<Inputs.AnalysisKPISortConfigurationArgs>? SortConfiguration { get; set; }

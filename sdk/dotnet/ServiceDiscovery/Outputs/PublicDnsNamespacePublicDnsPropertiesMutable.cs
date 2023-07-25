@@ -13,12 +13,12 @@ namespace Pulumi.AwsNative.ServiceDiscovery.Outputs
     [OutputType]
     public sealed class PublicDnsNamespacePublicDnsPropertiesMutable
     {
-        public readonly Outputs.PublicDnsNamespaceSOA? SOA;
+        public readonly Outputs.PublicDnsNamespaceSOA? Soa;
 
         [OutputConstructor]
-        private PublicDnsNamespacePublicDnsPropertiesMutable(Outputs.PublicDnsNamespaceSOA? sOA)
+        private PublicDnsNamespacePublicDnsPropertiesMutable(Outputs.PublicDnsNamespaceSOA? soa)
         {
-            SOA = sOA;
+            Soa = soa;
         }
     }
 }

@@ -37,8 +37,8 @@ export class DBSubnetGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === DBSubnetGroup.__pulumiType;
     }
 
-    public readonly dBSubnetGroupDescription!: pulumi.Output<string>;
-    public readonly dBSubnetGroupName!: pulumi.Output<string | undefined>;
+    public readonly dbSubnetGroupDescription!: pulumi.Output<string>;
+    public readonly dbSubnetGroupName!: pulumi.Output<string | undefined>;
     public readonly subnetIds!: pulumi.Output<string[]>;
     /**
      * An array of key-value pairs to apply to this resource.
@@ -56,19 +56,19 @@ export class DBSubnetGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dBSubnetGroupDescription === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'dBSubnetGroupDescription'");
+            if ((!args || args.dbSubnetGroupDescription === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'dbSubnetGroupDescription'");
             }
             if ((!args || args.subnetIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetIds'");
             }
-            resourceInputs["dBSubnetGroupDescription"] = args ? args.dBSubnetGroupDescription : undefined;
-            resourceInputs["dBSubnetGroupName"] = args ? args.dBSubnetGroupName : undefined;
+            resourceInputs["dbSubnetGroupDescription"] = args ? args.dbSubnetGroupDescription : undefined;
+            resourceInputs["dbSubnetGroupName"] = args ? args.dbSubnetGroupName : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
         } else {
-            resourceInputs["dBSubnetGroupDescription"] = undefined /*out*/;
-            resourceInputs["dBSubnetGroupName"] = undefined /*out*/;
+            resourceInputs["dbSubnetGroupDescription"] = undefined /*out*/;
+            resourceInputs["dbSubnetGroupName"] = undefined /*out*/;
             resourceInputs["subnetIds"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
@@ -81,8 +81,8 @@ export class DBSubnetGroup extends pulumi.CustomResource {
  * The set of arguments for constructing a DBSubnetGroup resource.
  */
 export interface DBSubnetGroupArgs {
-    dBSubnetGroupDescription: pulumi.Input<string>;
-    dBSubnetGroupName?: pulumi.Input<string>;
+    dbSubnetGroupDescription: pulumi.Input<string>;
+    dbSubnetGroupName?: pulumi.Input<string>;
     subnetIds: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * An array of key-value pairs to apply to this resource.

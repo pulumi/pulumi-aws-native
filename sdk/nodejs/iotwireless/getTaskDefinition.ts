@@ -41,7 +41,7 @@ export interface GetTaskDefinitionResult {
     /**
      * The list of task definitions.
      */
-    readonly loRaWANUpdateGatewayTaskEntry?: outputs.iotwireless.TaskDefinitionLoRaWANUpdateGatewayTaskEntry;
+    readonly loRaWanUpdateGatewayTaskEntry?: outputs.iotwireless.TaskDefinitionLoRaWANUpdateGatewayTaskEntry;
     /**
      * The name of the new resource.
      */

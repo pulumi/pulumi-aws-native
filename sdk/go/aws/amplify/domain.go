@@ -19,7 +19,7 @@ type Domain struct {
 	AppId                         pulumi.StringOutput               `pulumi:"appId"`
 	Arn                           pulumi.StringOutput               `pulumi:"arn"`
 	AutoSubDomainCreationPatterns pulumi.StringArrayOutput          `pulumi:"autoSubDomainCreationPatterns"`
-	AutoSubDomainIAMRole          pulumi.StringPtrOutput            `pulumi:"autoSubDomainIAMRole"`
+	AutoSubDomainIamRole          pulumi.StringPtrOutput            `pulumi:"autoSubDomainIamRole"`
 	CertificateRecord             pulumi.StringOutput               `pulumi:"certificateRecord"`
 	DomainName                    pulumi.StringOutput               `pulumi:"domainName"`
 	DomainStatus                  pulumi.StringOutput               `pulumi:"domainStatus"`
@@ -76,7 +76,7 @@ func (DomainState) ElementType() reflect.Type {
 type domainArgs struct {
 	AppId                         string                   `pulumi:"appId"`
 	AutoSubDomainCreationPatterns []string                 `pulumi:"autoSubDomainCreationPatterns"`
-	AutoSubDomainIAMRole          *string                  `pulumi:"autoSubDomainIAMRole"`
+	AutoSubDomainIamRole          *string                  `pulumi:"autoSubDomainIamRole"`
 	DomainName                    *string                  `pulumi:"domainName"`
 	EnableAutoSubDomain           *bool                    `pulumi:"enableAutoSubDomain"`
 	SubDomainSettings             []DomainSubDomainSetting `pulumi:"subDomainSettings"`
@@ -86,7 +86,7 @@ type domainArgs struct {
 type DomainArgs struct {
 	AppId                         pulumi.StringInput
 	AutoSubDomainCreationPatterns pulumi.StringArrayInput
-	AutoSubDomainIAMRole          pulumi.StringPtrInput
+	AutoSubDomainIamRole          pulumi.StringPtrInput
 	DomainName                    pulumi.StringPtrInput
 	EnableAutoSubDomain           pulumi.BoolPtrInput
 	SubDomainSettings             DomainSubDomainSettingArrayInput
@@ -141,8 +141,8 @@ func (o DomainOutput) AutoSubDomainCreationPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringArrayOutput { return v.AutoSubDomainCreationPatterns }).(pulumi.StringArrayOutput)
 }
 
-func (o DomainOutput) AutoSubDomainIAMRole() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.AutoSubDomainIAMRole }).(pulumi.StringPtrOutput)
+func (o DomainOutput) AutoSubDomainIamRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.AutoSubDomainIamRole }).(pulumi.StringPtrOutput)
 }
 
 func (o DomainOutput) CertificateRecord() pulumi.StringOutput {

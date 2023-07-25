@@ -23,16 +23,16 @@ namespace Pulumi.AwsNative.Lambda.Outputs
         /// <summary>
         /// The URI for the source access configuration resource.
         /// </summary>
-        public readonly string? URI;
+        public readonly string? Uri;
 
         [OutputConstructor]
         private EventSourceMappingSourceAccessConfiguration(
             Pulumi.AwsNative.Lambda.EventSourceMappingSourceAccessConfigurationType? type,
 
-            string? uRI)
+            string? uri)
         {
             Type = type;
-            URI = uRI;
+            Uri = uri;
         }
     }
 }

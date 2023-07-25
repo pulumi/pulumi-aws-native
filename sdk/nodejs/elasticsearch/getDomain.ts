@@ -31,7 +31,7 @@ export interface GetDomainResult {
     readonly domainArn?: string;
     readonly domainEndpoint?: string;
     readonly domainEndpointOptions?: outputs.elasticsearch.DomainEndpointOptions;
-    readonly eBSOptions?: outputs.elasticsearch.DomainEBSOptions;
+    readonly ebsOptions?: outputs.elasticsearch.DomainEBSOptions;
     readonly elasticsearchClusterConfig?: outputs.elasticsearch.DomainElasticsearchClusterConfig;
     readonly elasticsearchVersion?: string;
     readonly encryptionAtRestOptions?: outputs.elasticsearch.DomainEncryptionAtRestOptions;
@@ -40,7 +40,7 @@ export interface GetDomainResult {
     readonly nodeToNodeEncryptionOptions?: outputs.elasticsearch.DomainNodeToNodeEncryptionOptions;
     readonly snapshotOptions?: outputs.elasticsearch.DomainSnapshotOptions;
     readonly tags?: outputs.elasticsearch.DomainTag[];
-    readonly vPCOptions?: outputs.elasticsearch.DomainVPCOptions;
+    readonly vpcOptions?: outputs.elasticsearch.DomainVPCOptions;
 }
 /**
  * Resource Type definition for AWS::Elasticsearch::Domain

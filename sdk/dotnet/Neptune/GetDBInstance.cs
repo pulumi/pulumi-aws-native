@@ -53,8 +53,8 @@ namespace Pulumi.AwsNative.Neptune
     {
         public readonly bool? AllowMajorVersionUpgrade;
         public readonly bool? AutoMinorVersionUpgrade;
-        public readonly string? DBInstanceClass;
-        public readonly string? DBParameterGroupName;
+        public readonly string? DbInstanceClass;
+        public readonly string? DbParameterGroupName;
         public readonly string? Endpoint;
         public readonly string? Id;
         public readonly string? Port;
@@ -67,9 +67,9 @@ namespace Pulumi.AwsNative.Neptune
 
             bool? autoMinorVersionUpgrade,
 
-            string? dBInstanceClass,
+            string? dbInstanceClass,
 
-            string? dBParameterGroupName,
+            string? dbParameterGroupName,
 
             string? endpoint,
 
@@ -83,8 +83,8 @@ namespace Pulumi.AwsNative.Neptune
         {
             AllowMajorVersionUpgrade = allowMajorVersionUpgrade;
             AutoMinorVersionUpgrade = autoMinorVersionUpgrade;
-            DBInstanceClass = dBInstanceClass;
-            DBParameterGroupName = dBParameterGroupName;
+            DbInstanceClass = dbInstanceClass;
+            DbParameterGroupName = dbParameterGroupName;
             Endpoint = endpoint;
             Id = id;
             Port = port;

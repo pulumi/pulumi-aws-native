@@ -28,7 +28,7 @@ type LookupResolverEndpointArgs struct {
 
 type LookupResolverEndpointResult struct {
 	Arn                  *string                            `pulumi:"arn"`
-	HostVPCId            *string                            `pulumi:"hostVPCId"`
+	HostVpcId            *string                            `pulumi:"hostVpcId"`
 	IpAddressCount       *string                            `pulumi:"ipAddressCount"`
 	IpAddresses          []ResolverEndpointIpAddressRequest `pulumi:"ipAddresses"`
 	Name                 *string                            `pulumi:"name"`
@@ -76,8 +76,8 @@ func (o LookupResolverEndpointResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupResolverEndpointResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupResolverEndpointResultOutput) HostVPCId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupResolverEndpointResult) *string { return v.HostVPCId }).(pulumi.StringPtrOutput)
+func (o LookupResolverEndpointResultOutput) HostVpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResolverEndpointResult) *string { return v.HostVpcId }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupResolverEndpointResultOutput) IpAddressCount() pulumi.StringPtrOutput {

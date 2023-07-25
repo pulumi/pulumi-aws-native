@@ -17,13 +17,13 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         public readonly string? CachePolicyId;
         public readonly ImmutableArray<string> CachedMethods;
         public readonly bool? Compress;
-        public readonly double? DefaultTTL;
+        public readonly double? DefaultTtl;
         public readonly string? FieldLevelEncryptionId;
         public readonly Outputs.DistributionForwardedValues? ForwardedValues;
         public readonly ImmutableArray<Outputs.DistributionFunctionAssociation> FunctionAssociations;
         public readonly ImmutableArray<Outputs.DistributionLambdaFunctionAssociation> LambdaFunctionAssociations;
-        public readonly double? MaxTTL;
-        public readonly double? MinTTL;
+        public readonly double? MaxTtl;
+        public readonly double? MinTtl;
         public readonly string? OriginRequestPolicyId;
         public readonly string? RealtimeLogConfigArn;
         public readonly string? ResponseHeadersPolicyId;
@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
 
             bool? compress,
 
-            double? defaultTTL,
+            double? defaultTtl,
 
             string? fieldLevelEncryptionId,
 
@@ -53,9 +53,9 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
 
             ImmutableArray<Outputs.DistributionLambdaFunctionAssociation> lambdaFunctionAssociations,
 
-            double? maxTTL,
+            double? maxTtl,
 
-            double? minTTL,
+            double? minTtl,
 
             string? originRequestPolicyId,
 
@@ -77,13 +77,13 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
             CachePolicyId = cachePolicyId;
             CachedMethods = cachedMethods;
             Compress = compress;
-            DefaultTTL = defaultTTL;
+            DefaultTtl = defaultTtl;
             FieldLevelEncryptionId = fieldLevelEncryptionId;
             ForwardedValues = forwardedValues;
             FunctionAssociations = functionAssociations;
             LambdaFunctionAssociations = lambdaFunctionAssociations;
-            MaxTTL = maxTTL;
-            MinTTL = minTTL;
+            MaxTtl = maxTtl;
+            MinTtl = minTtl;
             OriginRequestPolicyId = originRequestPolicyId;
             RealtimeLogConfigArn = realtimeLogConfigArn;
             ResponseHeadersPolicyId = responseHeadersPolicyId;

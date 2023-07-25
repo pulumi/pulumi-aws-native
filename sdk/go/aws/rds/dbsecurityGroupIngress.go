@@ -18,11 +18,11 @@ import (
 type DBSecurityGroupIngress struct {
 	pulumi.CustomResourceState
 
-	CIDRIP                  pulumi.StringPtrOutput `pulumi:"cIDRIP"`
-	DBSecurityGroupName     pulumi.StringOutput    `pulumi:"dBSecurityGroupName"`
-	EC2SecurityGroupId      pulumi.StringPtrOutput `pulumi:"eC2SecurityGroupId"`
-	EC2SecurityGroupName    pulumi.StringPtrOutput `pulumi:"eC2SecurityGroupName"`
-	EC2SecurityGroupOwnerId pulumi.StringPtrOutput `pulumi:"eC2SecurityGroupOwnerId"`
+	Cidrip                  pulumi.StringPtrOutput `pulumi:"cidrip"`
+	DbSecurityGroupName     pulumi.StringOutput    `pulumi:"dbSecurityGroupName"`
+	Ec2SecurityGroupId      pulumi.StringPtrOutput `pulumi:"ec2SecurityGroupId"`
+	Ec2SecurityGroupName    pulumi.StringPtrOutput `pulumi:"ec2SecurityGroupName"`
+	Ec2SecurityGroupOwnerId pulumi.StringPtrOutput `pulumi:"ec2SecurityGroupOwnerId"`
 }
 
 // NewDBSecurityGroupIngress registers a new resource with the given unique name, arguments, and options.
@@ -32,8 +32,8 @@ func NewDBSecurityGroupIngress(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DBSecurityGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'DBSecurityGroupName'")
+	if args.DbSecurityGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'DbSecurityGroupName'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DBSecurityGroupIngress
@@ -68,20 +68,20 @@ func (DBSecurityGroupIngressState) ElementType() reflect.Type {
 }
 
 type dbsecurityGroupIngressArgs struct {
-	CIDRIP                  *string `pulumi:"cIDRIP"`
-	DBSecurityGroupName     string  `pulumi:"dBSecurityGroupName"`
-	EC2SecurityGroupId      *string `pulumi:"eC2SecurityGroupId"`
-	EC2SecurityGroupName    *string `pulumi:"eC2SecurityGroupName"`
-	EC2SecurityGroupOwnerId *string `pulumi:"eC2SecurityGroupOwnerId"`
+	Cidrip                  *string `pulumi:"cidrip"`
+	DbSecurityGroupName     string  `pulumi:"dbSecurityGroupName"`
+	Ec2SecurityGroupId      *string `pulumi:"ec2SecurityGroupId"`
+	Ec2SecurityGroupName    *string `pulumi:"ec2SecurityGroupName"`
+	Ec2SecurityGroupOwnerId *string `pulumi:"ec2SecurityGroupOwnerId"`
 }
 
 // The set of arguments for constructing a DBSecurityGroupIngress resource.
 type DBSecurityGroupIngressArgs struct {
-	CIDRIP                  pulumi.StringPtrInput
-	DBSecurityGroupName     pulumi.StringInput
-	EC2SecurityGroupId      pulumi.StringPtrInput
-	EC2SecurityGroupName    pulumi.StringPtrInput
-	EC2SecurityGroupOwnerId pulumi.StringPtrInput
+	Cidrip                  pulumi.StringPtrInput
+	DbSecurityGroupName     pulumi.StringInput
+	Ec2SecurityGroupId      pulumi.StringPtrInput
+	Ec2SecurityGroupName    pulumi.StringPtrInput
+	Ec2SecurityGroupOwnerId pulumi.StringPtrInput
 }
 
 func (DBSecurityGroupIngressArgs) ElementType() reflect.Type {
@@ -121,24 +121,24 @@ func (o DBSecurityGroupIngressOutput) ToDBSecurityGroupIngressOutputWithContext(
 	return o
 }
 
-func (o DBSecurityGroupIngressOutput) CIDRIP() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBSecurityGroupIngress) pulumi.StringPtrOutput { return v.CIDRIP }).(pulumi.StringPtrOutput)
+func (o DBSecurityGroupIngressOutput) Cidrip() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBSecurityGroupIngress) pulumi.StringPtrOutput { return v.Cidrip }).(pulumi.StringPtrOutput)
 }
 
-func (o DBSecurityGroupIngressOutput) DBSecurityGroupName() pulumi.StringOutput {
-	return o.ApplyT(func(v *DBSecurityGroupIngress) pulumi.StringOutput { return v.DBSecurityGroupName }).(pulumi.StringOutput)
+func (o DBSecurityGroupIngressOutput) DbSecurityGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v *DBSecurityGroupIngress) pulumi.StringOutput { return v.DbSecurityGroupName }).(pulumi.StringOutput)
 }
 
-func (o DBSecurityGroupIngressOutput) EC2SecurityGroupId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBSecurityGroupIngress) pulumi.StringPtrOutput { return v.EC2SecurityGroupId }).(pulumi.StringPtrOutput)
+func (o DBSecurityGroupIngressOutput) Ec2SecurityGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBSecurityGroupIngress) pulumi.StringPtrOutput { return v.Ec2SecurityGroupId }).(pulumi.StringPtrOutput)
 }
 
-func (o DBSecurityGroupIngressOutput) EC2SecurityGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBSecurityGroupIngress) pulumi.StringPtrOutput { return v.EC2SecurityGroupName }).(pulumi.StringPtrOutput)
+func (o DBSecurityGroupIngressOutput) Ec2SecurityGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBSecurityGroupIngress) pulumi.StringPtrOutput { return v.Ec2SecurityGroupName }).(pulumi.StringPtrOutput)
 }
 
-func (o DBSecurityGroupIngressOutput) EC2SecurityGroupOwnerId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBSecurityGroupIngress) pulumi.StringPtrOutput { return v.EC2SecurityGroupOwnerId }).(pulumi.StringPtrOutput)
+func (o DBSecurityGroupIngressOutput) Ec2SecurityGroupOwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBSecurityGroupIngress) pulumi.StringPtrOutput { return v.Ec2SecurityGroupOwnerId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

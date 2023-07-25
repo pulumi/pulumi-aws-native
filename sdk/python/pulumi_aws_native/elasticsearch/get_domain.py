@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDomainResult:
-    def __init__(__self__, access_policies=None, advanced_options=None, advanced_security_options=None, arn=None, cognito_options=None, domain_arn=None, domain_endpoint=None, domain_endpoint_options=None, e_bs_options=None, elasticsearch_cluster_config=None, elasticsearch_version=None, encryption_at_rest_options=None, id=None, log_publishing_options=None, node_to_node_encryption_options=None, snapshot_options=None, tags=None, v_pc_options=None):
+    def __init__(__self__, access_policies=None, advanced_options=None, advanced_security_options=None, arn=None, cognito_options=None, domain_arn=None, domain_endpoint=None, domain_endpoint_options=None, ebs_options=None, elasticsearch_cluster_config=None, elasticsearch_version=None, encryption_at_rest_options=None, id=None, log_publishing_options=None, node_to_node_encryption_options=None, snapshot_options=None, tags=None, vpc_options=None):
         if access_policies and not isinstance(access_policies, dict):
             raise TypeError("Expected argument 'access_policies' to be a dict")
         pulumi.set(__self__, "access_policies", access_policies)
@@ -44,9 +44,9 @@ class GetDomainResult:
         if domain_endpoint_options and not isinstance(domain_endpoint_options, dict):
             raise TypeError("Expected argument 'domain_endpoint_options' to be a dict")
         pulumi.set(__self__, "domain_endpoint_options", domain_endpoint_options)
-        if e_bs_options and not isinstance(e_bs_options, dict):
-            raise TypeError("Expected argument 'e_bs_options' to be a dict")
-        pulumi.set(__self__, "e_bs_options", e_bs_options)
+        if ebs_options and not isinstance(ebs_options, dict):
+            raise TypeError("Expected argument 'ebs_options' to be a dict")
+        pulumi.set(__self__, "ebs_options", ebs_options)
         if elasticsearch_cluster_config and not isinstance(elasticsearch_cluster_config, dict):
             raise TypeError("Expected argument 'elasticsearch_cluster_config' to be a dict")
         pulumi.set(__self__, "elasticsearch_cluster_config", elasticsearch_cluster_config)
@@ -71,9 +71,9 @@ class GetDomainResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
-        if v_pc_options and not isinstance(v_pc_options, dict):
-            raise TypeError("Expected argument 'v_pc_options' to be a dict")
-        pulumi.set(__self__, "v_pc_options", v_pc_options)
+        if vpc_options and not isinstance(vpc_options, dict):
+            raise TypeError("Expected argument 'vpc_options' to be a dict")
+        pulumi.set(__self__, "vpc_options", vpc_options)
 
     @property
     @pulumi.getter(name="accessPolicies")
@@ -116,9 +116,9 @@ class GetDomainResult:
         return pulumi.get(self, "domain_endpoint_options")
 
     @property
-    @pulumi.getter(name="eBSOptions")
-    def e_bs_options(self) -> Optional['outputs.DomainEBSOptions']:
-        return pulumi.get(self, "e_bs_options")
+    @pulumi.getter(name="ebsOptions")
+    def ebs_options(self) -> Optional['outputs.DomainEBSOptions']:
+        return pulumi.get(self, "ebs_options")
 
     @property
     @pulumi.getter(name="elasticsearchClusterConfig")
@@ -161,9 +161,9 @@ class GetDomainResult:
         return pulumi.get(self, "tags")
 
     @property
-    @pulumi.getter(name="vPCOptions")
-    def v_pc_options(self) -> Optional['outputs.DomainVPCOptions']:
-        return pulumi.get(self, "v_pc_options")
+    @pulumi.getter(name="vpcOptions")
+    def vpc_options(self) -> Optional['outputs.DomainVPCOptions']:
+        return pulumi.get(self, "vpc_options")
 
 
 class AwaitableGetDomainResult(GetDomainResult):
@@ -180,7 +180,7 @@ class AwaitableGetDomainResult(GetDomainResult):
             domain_arn=self.domain_arn,
             domain_endpoint=self.domain_endpoint,
             domain_endpoint_options=self.domain_endpoint_options,
-            e_bs_options=self.e_bs_options,
+            ebs_options=self.ebs_options,
             elasticsearch_cluster_config=self.elasticsearch_cluster_config,
             elasticsearch_version=self.elasticsearch_version,
             encryption_at_rest_options=self.encryption_at_rest_options,
@@ -189,7 +189,7 @@ class AwaitableGetDomainResult(GetDomainResult):
             node_to_node_encryption_options=self.node_to_node_encryption_options,
             snapshot_options=self.snapshot_options,
             tags=self.tags,
-            v_pc_options=self.v_pc_options)
+            vpc_options=self.vpc_options)
 
 
 def get_domain(id: Optional[str] = None,
@@ -211,7 +211,7 @@ def get_domain(id: Optional[str] = None,
         domain_arn=pulumi.get(__ret__, 'domain_arn'),
         domain_endpoint=pulumi.get(__ret__, 'domain_endpoint'),
         domain_endpoint_options=pulumi.get(__ret__, 'domain_endpoint_options'),
-        e_bs_options=pulumi.get(__ret__, 'e_bs_options'),
+        ebs_options=pulumi.get(__ret__, 'ebs_options'),
         elasticsearch_cluster_config=pulumi.get(__ret__, 'elasticsearch_cluster_config'),
         elasticsearch_version=pulumi.get(__ret__, 'elasticsearch_version'),
         encryption_at_rest_options=pulumi.get(__ret__, 'encryption_at_rest_options'),
@@ -220,7 +220,7 @@ def get_domain(id: Optional[str] = None,
         node_to_node_encryption_options=pulumi.get(__ret__, 'node_to_node_encryption_options'),
         snapshot_options=pulumi.get(__ret__, 'snapshot_options'),
         tags=pulumi.get(__ret__, 'tags'),
-        v_pc_options=pulumi.get(__ret__, 'v_pc_options'))
+        vpc_options=pulumi.get(__ret__, 'vpc_options'))
 
 
 @_utilities.lift_output_func(get_domain)

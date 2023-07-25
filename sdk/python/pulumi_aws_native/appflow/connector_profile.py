@@ -22,7 +22,7 @@ class ConnectorProfileArgs:
                  connector_label: Optional[pulumi.Input[str]] = None,
                  connector_profile_config: Optional[pulumi.Input['ConnectorProfileConfigArgs']] = None,
                  connector_profile_name: Optional[pulumi.Input[str]] = None,
-                 k_ms_arn: Optional[pulumi.Input[str]] = None):
+                 kms_arn: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ConnectorProfile resource.
         :param pulumi.Input['ConnectorProfileConnectionMode'] connection_mode: Mode in which data transfer should be enabled. Private connection mode is currently enabled for Salesforce, Snowflake, Trendmicro and Singular
@@ -30,7 +30,7 @@ class ConnectorProfileArgs:
         :param pulumi.Input[str] connector_label: The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for CUSTOMCONNECTOR connector type/.
         :param pulumi.Input['ConnectorProfileConfigArgs'] connector_profile_config: Connector specific configurations needed to create connector profile
         :param pulumi.Input[str] connector_profile_name: The maximum number of items to retrieve in a single batch.
-        :param pulumi.Input[str] k_ms_arn: The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
+        :param pulumi.Input[str] kms_arn: The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
         """
         pulumi.set(__self__, "connection_mode", connection_mode)
         pulumi.set(__self__, "connector_type", connector_type)
@@ -40,8 +40,8 @@ class ConnectorProfileArgs:
             pulumi.set(__self__, "connector_profile_config", connector_profile_config)
         if connector_profile_name is not None:
             pulumi.set(__self__, "connector_profile_name", connector_profile_name)
-        if k_ms_arn is not None:
-            pulumi.set(__self__, "k_ms_arn", k_ms_arn)
+        if kms_arn is not None:
+            pulumi.set(__self__, "kms_arn", kms_arn)
 
     @property
     @pulumi.getter(name="connectionMode")
@@ -104,16 +104,16 @@ class ConnectorProfileArgs:
         pulumi.set(self, "connector_profile_name", value)
 
     @property
-    @pulumi.getter(name="kMSArn")
-    def k_ms_arn(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="kmsArn")
+    def kms_arn(self) -> Optional[pulumi.Input[str]]:
         """
         The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
         """
-        return pulumi.get(self, "k_ms_arn")
+        return pulumi.get(self, "kms_arn")
 
-    @k_ms_arn.setter
-    def k_ms_arn(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "k_ms_arn", value)
+    @kms_arn.setter
+    def kms_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_arn", value)
 
 
 class ConnectorProfile(pulumi.CustomResource):
@@ -126,7 +126,7 @@ class ConnectorProfile(pulumi.CustomResource):
                  connector_profile_config: Optional[pulumi.Input[pulumi.InputType['ConnectorProfileConfigArgs']]] = None,
                  connector_profile_name: Optional[pulumi.Input[str]] = None,
                  connector_type: Optional[pulumi.Input['ConnectorProfileConnectorType']] = None,
-                 k_ms_arn: Optional[pulumi.Input[str]] = None,
+                 kms_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::AppFlow::ConnectorProfile
@@ -138,7 +138,7 @@ class ConnectorProfile(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ConnectorProfileConfigArgs']] connector_profile_config: Connector specific configurations needed to create connector profile
         :param pulumi.Input[str] connector_profile_name: The maximum number of items to retrieve in a single batch.
         :param pulumi.Input['ConnectorProfileConnectorType'] connector_type: List of Saas providers that need connector profile to be created
-        :param pulumi.Input[str] k_ms_arn: The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
+        :param pulumi.Input[str] kms_arn: The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
         """
         ...
     @overload
@@ -169,7 +169,7 @@ class ConnectorProfile(pulumi.CustomResource):
                  connector_profile_config: Optional[pulumi.Input[pulumi.InputType['ConnectorProfileConfigArgs']]] = None,
                  connector_profile_name: Optional[pulumi.Input[str]] = None,
                  connector_type: Optional[pulumi.Input['ConnectorProfileConnectorType']] = None,
-                 k_ms_arn: Optional[pulumi.Input[str]] = None,
+                 kms_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -188,7 +188,7 @@ class ConnectorProfile(pulumi.CustomResource):
             if connector_type is None and not opts.urn:
                 raise TypeError("Missing required property 'connector_type'")
             __props__.__dict__["connector_type"] = connector_type
-            __props__.__dict__["k_ms_arn"] = k_ms_arn
+            __props__.__dict__["kms_arn"] = kms_arn
             __props__.__dict__["connector_profile_arn"] = None
             __props__.__dict__["credentials_arn"] = None
         super(ConnectorProfile, __self__).__init__(
@@ -220,7 +220,7 @@ class ConnectorProfile(pulumi.CustomResource):
         __props__.__dict__["connector_profile_name"] = None
         __props__.__dict__["connector_type"] = None
         __props__.__dict__["credentials_arn"] = None
-        __props__.__dict__["k_ms_arn"] = None
+        __props__.__dict__["kms_arn"] = None
         return ConnectorProfile(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -280,10 +280,10 @@ class ConnectorProfile(pulumi.CustomResource):
         return pulumi.get(self, "credentials_arn")
 
     @property
-    @pulumi.getter(name="kMSArn")
-    def k_ms_arn(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="kmsArn")
+    def kms_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
         """
-        return pulumi.get(self, "k_ms_arn")
+        return pulumi.get(self, "kms_arn")
 

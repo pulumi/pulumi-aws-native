@@ -56,7 +56,7 @@ class GetDomainResult:
         return pulumi.get(self, "auto_sub_domain_creation_patterns")
 
     @property
-    @pulumi.getter(name="autoSubDomainIAMRole")
+    @pulumi.getter(name="autoSubDomainIamRole")
     def auto_sub_domain_iam_role(self) -> Optional[str]:
         return pulumi.get(self, "auto_sub_domain_iam_role")
 

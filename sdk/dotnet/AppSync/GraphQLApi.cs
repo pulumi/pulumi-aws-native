@@ -31,11 +31,11 @@ namespace Pulumi.AwsNative.AppSync
         [Output("authenticationType")]
         public Output<string> AuthenticationType { get; private set; } = null!;
 
-        [Output("graphQLDns")]
-        public Output<string> GraphQLDns { get; private set; } = null!;
+        [Output("graphQlDns")]
+        public Output<string> GraphQlDns { get; private set; } = null!;
 
-        [Output("graphQLUrl")]
-        public Output<string> GraphQLUrl { get; private set; } = null!;
+        [Output("graphQlUrl")]
+        public Output<string> GraphQlUrl { get; private set; } = null!;
 
         [Output("lambdaAuthorizerConfig")]
         public Output<Outputs.GraphQLApiLambdaAuthorizerConfig?> LambdaAuthorizerConfig { get; private set; } = null!;
@@ -49,8 +49,8 @@ namespace Pulumi.AwsNative.AppSync
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        [Output("openIDConnectConfig")]
-        public Output<Outputs.GraphQLApiOpenIDConnectConfig?> OpenIDConnectConfig { get; private set; } = null!;
+        [Output("openIdConnectConfig")]
+        public Output<Outputs.GraphQLApiOpenIDConnectConfig?> OpenIdConnectConfig { get; private set; } = null!;
 
         [Output("ownerContact")]
         public Output<string?> OwnerContact { get; private set; } = null!;
@@ -144,8 +144,8 @@ namespace Pulumi.AwsNative.AppSync
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("openIDConnectConfig")]
-        public Input<Inputs.GraphQLApiOpenIDConnectConfigArgs>? OpenIDConnectConfig { get; set; }
+        [Input("openIdConnectConfig")]
+        public Input<Inputs.GraphQLApiOpenIDConnectConfigArgs>? OpenIdConnectConfig { get; set; }
 
         [Input("ownerContact")]
         public Input<string>? OwnerContact { get; set; }

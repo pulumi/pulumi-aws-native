@@ -288,8 +288,8 @@ func (o ApplicationInputTypeArrayOutput) Index(i pulumi.IntInput) ApplicationInp
 }
 
 type ApplicationInputLambdaProcessor struct {
-	ResourceARN string `pulumi:"resourceARN"`
-	RoleARN     string `pulumi:"roleARN"`
+	ResourceArn string `pulumi:"resourceArn"`
+	RoleArn     string `pulumi:"roleArn"`
 }
 
 // ApplicationInputLambdaProcessorInput is an input type that accepts ApplicationInputLambdaProcessorArgs and ApplicationInputLambdaProcessorOutput values.
@@ -304,8 +304,8 @@ type ApplicationInputLambdaProcessorInput interface {
 }
 
 type ApplicationInputLambdaProcessorArgs struct {
-	ResourceARN pulumi.StringInput `pulumi:"resourceARN"`
-	RoleARN     pulumi.StringInput `pulumi:"roleARN"`
+	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
+	RoleArn     pulumi.StringInput `pulumi:"roleArn"`
 }
 
 func (ApplicationInputLambdaProcessorArgs) ElementType() reflect.Type {
@@ -385,12 +385,12 @@ func (o ApplicationInputLambdaProcessorOutput) ToApplicationInputLambdaProcessor
 	}).(ApplicationInputLambdaProcessorPtrOutput)
 }
 
-func (o ApplicationInputLambdaProcessorOutput) ResourceARN() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationInputLambdaProcessor) string { return v.ResourceARN }).(pulumi.StringOutput)
+func (o ApplicationInputLambdaProcessorOutput) ResourceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationInputLambdaProcessor) string { return v.ResourceArn }).(pulumi.StringOutput)
 }
 
-func (o ApplicationInputLambdaProcessorOutput) RoleARN() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationInputLambdaProcessor) string { return v.RoleARN }).(pulumi.StringOutput)
+func (o ApplicationInputLambdaProcessorOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationInputLambdaProcessor) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
 type ApplicationInputLambdaProcessorPtrOutput struct{ *pulumi.OutputState }
@@ -417,21 +417,21 @@ func (o ApplicationInputLambdaProcessorPtrOutput) Elem() ApplicationInputLambdaP
 	}).(ApplicationInputLambdaProcessorOutput)
 }
 
-func (o ApplicationInputLambdaProcessorPtrOutput) ResourceARN() pulumi.StringPtrOutput {
+func (o ApplicationInputLambdaProcessorPtrOutput) ResourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationInputLambdaProcessor) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.ResourceARN
+		return &v.ResourceArn
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o ApplicationInputLambdaProcessorPtrOutput) RoleARN() pulumi.StringPtrOutput {
+func (o ApplicationInputLambdaProcessorPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationInputLambdaProcessor) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.RoleARN
+		return &v.RoleArn
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -898,8 +898,8 @@ func (o ApplicationJSONMappingParametersPtrOutput) RecordRowPath() pulumi.String
 }
 
 type ApplicationKinesisFirehoseInput struct {
-	ResourceARN string `pulumi:"resourceARN"`
-	RoleARN     string `pulumi:"roleARN"`
+	ResourceArn string `pulumi:"resourceArn"`
+	RoleArn     string `pulumi:"roleArn"`
 }
 
 // ApplicationKinesisFirehoseInputInput is an input type that accepts ApplicationKinesisFirehoseInputArgs and ApplicationKinesisFirehoseInputOutput values.
@@ -914,8 +914,8 @@ type ApplicationKinesisFirehoseInputInput interface {
 }
 
 type ApplicationKinesisFirehoseInputArgs struct {
-	ResourceARN pulumi.StringInput `pulumi:"resourceARN"`
-	RoleARN     pulumi.StringInput `pulumi:"roleARN"`
+	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
+	RoleArn     pulumi.StringInput `pulumi:"roleArn"`
 }
 
 func (ApplicationKinesisFirehoseInputArgs) ElementType() reflect.Type {
@@ -995,12 +995,12 @@ func (o ApplicationKinesisFirehoseInputOutput) ToApplicationKinesisFirehoseInput
 	}).(ApplicationKinesisFirehoseInputPtrOutput)
 }
 
-func (o ApplicationKinesisFirehoseInputOutput) ResourceARN() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationKinesisFirehoseInput) string { return v.ResourceARN }).(pulumi.StringOutput)
+func (o ApplicationKinesisFirehoseInputOutput) ResourceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationKinesisFirehoseInput) string { return v.ResourceArn }).(pulumi.StringOutput)
 }
 
-func (o ApplicationKinesisFirehoseInputOutput) RoleARN() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationKinesisFirehoseInput) string { return v.RoleARN }).(pulumi.StringOutput)
+func (o ApplicationKinesisFirehoseInputOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationKinesisFirehoseInput) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
 type ApplicationKinesisFirehoseInputPtrOutput struct{ *pulumi.OutputState }
@@ -1027,27 +1027,27 @@ func (o ApplicationKinesisFirehoseInputPtrOutput) Elem() ApplicationKinesisFireh
 	}).(ApplicationKinesisFirehoseInputOutput)
 }
 
-func (o ApplicationKinesisFirehoseInputPtrOutput) ResourceARN() pulumi.StringPtrOutput {
+func (o ApplicationKinesisFirehoseInputPtrOutput) ResourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationKinesisFirehoseInput) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.ResourceARN
+		return &v.ResourceArn
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o ApplicationKinesisFirehoseInputPtrOutput) RoleARN() pulumi.StringPtrOutput {
+func (o ApplicationKinesisFirehoseInputPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationKinesisFirehoseInput) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.RoleARN
+		return &v.RoleArn
 	}).(pulumi.StringPtrOutput)
 }
 
 type ApplicationKinesisStreamsInput struct {
-	ResourceARN string `pulumi:"resourceARN"`
-	RoleARN     string `pulumi:"roleARN"`
+	ResourceArn string `pulumi:"resourceArn"`
+	RoleArn     string `pulumi:"roleArn"`
 }
 
 // ApplicationKinesisStreamsInputInput is an input type that accepts ApplicationKinesisStreamsInputArgs and ApplicationKinesisStreamsInputOutput values.
@@ -1062,8 +1062,8 @@ type ApplicationKinesisStreamsInputInput interface {
 }
 
 type ApplicationKinesisStreamsInputArgs struct {
-	ResourceARN pulumi.StringInput `pulumi:"resourceARN"`
-	RoleARN     pulumi.StringInput `pulumi:"roleARN"`
+	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
+	RoleArn     pulumi.StringInput `pulumi:"roleArn"`
 }
 
 func (ApplicationKinesisStreamsInputArgs) ElementType() reflect.Type {
@@ -1143,12 +1143,12 @@ func (o ApplicationKinesisStreamsInputOutput) ToApplicationKinesisStreamsInputPt
 	}).(ApplicationKinesisStreamsInputPtrOutput)
 }
 
-func (o ApplicationKinesisStreamsInputOutput) ResourceARN() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationKinesisStreamsInput) string { return v.ResourceARN }).(pulumi.StringOutput)
+func (o ApplicationKinesisStreamsInputOutput) ResourceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationKinesisStreamsInput) string { return v.ResourceArn }).(pulumi.StringOutput)
 }
 
-func (o ApplicationKinesisStreamsInputOutput) RoleARN() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationKinesisStreamsInput) string { return v.RoleARN }).(pulumi.StringOutput)
+func (o ApplicationKinesisStreamsInputOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationKinesisStreamsInput) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
 type ApplicationKinesisStreamsInputPtrOutput struct{ *pulumi.OutputState }
@@ -1175,27 +1175,27 @@ func (o ApplicationKinesisStreamsInputPtrOutput) Elem() ApplicationKinesisStream
 	}).(ApplicationKinesisStreamsInputOutput)
 }
 
-func (o ApplicationKinesisStreamsInputPtrOutput) ResourceARN() pulumi.StringPtrOutput {
+func (o ApplicationKinesisStreamsInputPtrOutput) ResourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationKinesisStreamsInput) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.ResourceARN
+		return &v.ResourceArn
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o ApplicationKinesisStreamsInputPtrOutput) RoleARN() pulumi.StringPtrOutput {
+func (o ApplicationKinesisStreamsInputPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationKinesisStreamsInput) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.RoleARN
+		return &v.RoleArn
 	}).(pulumi.StringPtrOutput)
 }
 
 type ApplicationMappingParameters struct {
-	CSVMappingParameters  *ApplicationCSVMappingParameters  `pulumi:"cSVMappingParameters"`
-	JSONMappingParameters *ApplicationJSONMappingParameters `pulumi:"jSONMappingParameters"`
+	CsvMappingParameters  *ApplicationCSVMappingParameters  `pulumi:"csvMappingParameters"`
+	JsonMappingParameters *ApplicationJSONMappingParameters `pulumi:"jsonMappingParameters"`
 }
 
 // ApplicationMappingParametersInput is an input type that accepts ApplicationMappingParametersArgs and ApplicationMappingParametersOutput values.
@@ -1210,8 +1210,8 @@ type ApplicationMappingParametersInput interface {
 }
 
 type ApplicationMappingParametersArgs struct {
-	CSVMappingParameters  ApplicationCSVMappingParametersPtrInput  `pulumi:"cSVMappingParameters"`
-	JSONMappingParameters ApplicationJSONMappingParametersPtrInput `pulumi:"jSONMappingParameters"`
+	CsvMappingParameters  ApplicationCSVMappingParametersPtrInput  `pulumi:"csvMappingParameters"`
+	JsonMappingParameters ApplicationJSONMappingParametersPtrInput `pulumi:"jsonMappingParameters"`
 }
 
 func (ApplicationMappingParametersArgs) ElementType() reflect.Type {
@@ -1291,12 +1291,12 @@ func (o ApplicationMappingParametersOutput) ToApplicationMappingParametersPtrOut
 	}).(ApplicationMappingParametersPtrOutput)
 }
 
-func (o ApplicationMappingParametersOutput) CSVMappingParameters() ApplicationCSVMappingParametersPtrOutput {
-	return o.ApplyT(func(v ApplicationMappingParameters) *ApplicationCSVMappingParameters { return v.CSVMappingParameters }).(ApplicationCSVMappingParametersPtrOutput)
+func (o ApplicationMappingParametersOutput) CsvMappingParameters() ApplicationCSVMappingParametersPtrOutput {
+	return o.ApplyT(func(v ApplicationMappingParameters) *ApplicationCSVMappingParameters { return v.CsvMappingParameters }).(ApplicationCSVMappingParametersPtrOutput)
 }
 
-func (o ApplicationMappingParametersOutput) JSONMappingParameters() ApplicationJSONMappingParametersPtrOutput {
-	return o.ApplyT(func(v ApplicationMappingParameters) *ApplicationJSONMappingParameters { return v.JSONMappingParameters }).(ApplicationJSONMappingParametersPtrOutput)
+func (o ApplicationMappingParametersOutput) JsonMappingParameters() ApplicationJSONMappingParametersPtrOutput {
+	return o.ApplyT(func(v ApplicationMappingParameters) *ApplicationJSONMappingParameters { return v.JsonMappingParameters }).(ApplicationJSONMappingParametersPtrOutput)
 }
 
 type ApplicationMappingParametersPtrOutput struct{ *pulumi.OutputState }
@@ -1323,21 +1323,21 @@ func (o ApplicationMappingParametersPtrOutput) Elem() ApplicationMappingParamete
 	}).(ApplicationMappingParametersOutput)
 }
 
-func (o ApplicationMappingParametersPtrOutput) CSVMappingParameters() ApplicationCSVMappingParametersPtrOutput {
+func (o ApplicationMappingParametersPtrOutput) CsvMappingParameters() ApplicationCSVMappingParametersPtrOutput {
 	return o.ApplyT(func(v *ApplicationMappingParameters) *ApplicationCSVMappingParameters {
 		if v == nil {
 			return nil
 		}
-		return v.CSVMappingParameters
+		return v.CsvMappingParameters
 	}).(ApplicationCSVMappingParametersPtrOutput)
 }
 
-func (o ApplicationMappingParametersPtrOutput) JSONMappingParameters() ApplicationJSONMappingParametersPtrOutput {
+func (o ApplicationMappingParametersPtrOutput) JsonMappingParameters() ApplicationJSONMappingParametersPtrOutput {
 	return o.ApplyT(func(v *ApplicationMappingParameters) *ApplicationJSONMappingParameters {
 		if v == nil {
 			return nil
 		}
-		return v.JSONMappingParameters
+		return v.JsonMappingParameters
 	}).(ApplicationJSONMappingParametersPtrOutput)
 }
 
@@ -1424,8 +1424,8 @@ func (o ApplicationOutputResourceDestinationSchemaPtrOutput) RecordFormatType() 
 }
 
 type ApplicationOutputResourceKinesisFirehoseOutput struct {
-	ResourceARN string `pulumi:"resourceARN"`
-	RoleARN     string `pulumi:"roleARN"`
+	ResourceArn string `pulumi:"resourceArn"`
+	RoleArn     string `pulumi:"roleArn"`
 }
 
 // ApplicationOutputResourceKinesisFirehoseOutputInput is an input type that accepts ApplicationOutputResourceKinesisFirehoseOutputArgs and ApplicationOutputResourceKinesisFirehoseOutputOutput values.
@@ -1440,8 +1440,8 @@ type ApplicationOutputResourceKinesisFirehoseOutputInput interface {
 }
 
 type ApplicationOutputResourceKinesisFirehoseOutputArgs struct {
-	ResourceARN pulumi.StringInput `pulumi:"resourceARN"`
-	RoleARN     pulumi.StringInput `pulumi:"roleARN"`
+	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
+	RoleArn     pulumi.StringInput `pulumi:"roleArn"`
 }
 
 func (ApplicationOutputResourceKinesisFirehoseOutputArgs) ElementType() reflect.Type {
@@ -1521,12 +1521,12 @@ func (o ApplicationOutputResourceKinesisFirehoseOutputOutput) ToApplicationOutpu
 	}).(ApplicationOutputResourceKinesisFirehoseOutputPtrOutput)
 }
 
-func (o ApplicationOutputResourceKinesisFirehoseOutputOutput) ResourceARN() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationOutputResourceKinesisFirehoseOutput) string { return v.ResourceARN }).(pulumi.StringOutput)
+func (o ApplicationOutputResourceKinesisFirehoseOutputOutput) ResourceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationOutputResourceKinesisFirehoseOutput) string { return v.ResourceArn }).(pulumi.StringOutput)
 }
 
-func (o ApplicationOutputResourceKinesisFirehoseOutputOutput) RoleARN() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationOutputResourceKinesisFirehoseOutput) string { return v.RoleARN }).(pulumi.StringOutput)
+func (o ApplicationOutputResourceKinesisFirehoseOutputOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationOutputResourceKinesisFirehoseOutput) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
 type ApplicationOutputResourceKinesisFirehoseOutputPtrOutput struct{ *pulumi.OutputState }
@@ -1553,27 +1553,27 @@ func (o ApplicationOutputResourceKinesisFirehoseOutputPtrOutput) Elem() Applicat
 	}).(ApplicationOutputResourceKinesisFirehoseOutputOutput)
 }
 
-func (o ApplicationOutputResourceKinesisFirehoseOutputPtrOutput) ResourceARN() pulumi.StringPtrOutput {
+func (o ApplicationOutputResourceKinesisFirehoseOutputPtrOutput) ResourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationOutputResourceKinesisFirehoseOutput) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.ResourceARN
+		return &v.ResourceArn
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o ApplicationOutputResourceKinesisFirehoseOutputPtrOutput) RoleARN() pulumi.StringPtrOutput {
+func (o ApplicationOutputResourceKinesisFirehoseOutputPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationOutputResourceKinesisFirehoseOutput) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.RoleARN
+		return &v.RoleArn
 	}).(pulumi.StringPtrOutput)
 }
 
 type ApplicationOutputResourceKinesisStreamsOutput struct {
-	ResourceARN string `pulumi:"resourceARN"`
-	RoleARN     string `pulumi:"roleARN"`
+	ResourceArn string `pulumi:"resourceArn"`
+	RoleArn     string `pulumi:"roleArn"`
 }
 
 // ApplicationOutputResourceKinesisStreamsOutputInput is an input type that accepts ApplicationOutputResourceKinesisStreamsOutputArgs and ApplicationOutputResourceKinesisStreamsOutputOutput values.
@@ -1588,8 +1588,8 @@ type ApplicationOutputResourceKinesisStreamsOutputInput interface {
 }
 
 type ApplicationOutputResourceKinesisStreamsOutputArgs struct {
-	ResourceARN pulumi.StringInput `pulumi:"resourceARN"`
-	RoleARN     pulumi.StringInput `pulumi:"roleARN"`
+	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
+	RoleArn     pulumi.StringInput `pulumi:"roleArn"`
 }
 
 func (ApplicationOutputResourceKinesisStreamsOutputArgs) ElementType() reflect.Type {
@@ -1669,12 +1669,12 @@ func (o ApplicationOutputResourceKinesisStreamsOutputOutput) ToApplicationOutput
 	}).(ApplicationOutputResourceKinesisStreamsOutputPtrOutput)
 }
 
-func (o ApplicationOutputResourceKinesisStreamsOutputOutput) ResourceARN() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationOutputResourceKinesisStreamsOutput) string { return v.ResourceARN }).(pulumi.StringOutput)
+func (o ApplicationOutputResourceKinesisStreamsOutputOutput) ResourceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationOutputResourceKinesisStreamsOutput) string { return v.ResourceArn }).(pulumi.StringOutput)
 }
 
-func (o ApplicationOutputResourceKinesisStreamsOutputOutput) RoleARN() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationOutputResourceKinesisStreamsOutput) string { return v.RoleARN }).(pulumi.StringOutput)
+func (o ApplicationOutputResourceKinesisStreamsOutputOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationOutputResourceKinesisStreamsOutput) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
 type ApplicationOutputResourceKinesisStreamsOutputPtrOutput struct{ *pulumi.OutputState }
@@ -1701,27 +1701,27 @@ func (o ApplicationOutputResourceKinesisStreamsOutputPtrOutput) Elem() Applicati
 	}).(ApplicationOutputResourceKinesisStreamsOutputOutput)
 }
 
-func (o ApplicationOutputResourceKinesisStreamsOutputPtrOutput) ResourceARN() pulumi.StringPtrOutput {
+func (o ApplicationOutputResourceKinesisStreamsOutputPtrOutput) ResourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationOutputResourceKinesisStreamsOutput) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.ResourceARN
+		return &v.ResourceArn
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o ApplicationOutputResourceKinesisStreamsOutputPtrOutput) RoleARN() pulumi.StringPtrOutput {
+func (o ApplicationOutputResourceKinesisStreamsOutputPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationOutputResourceKinesisStreamsOutput) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.RoleARN
+		return &v.RoleArn
 	}).(pulumi.StringPtrOutput)
 }
 
 type ApplicationOutputResourceLambdaOutput struct {
-	ResourceARN string `pulumi:"resourceARN"`
-	RoleARN     string `pulumi:"roleARN"`
+	ResourceArn string `pulumi:"resourceArn"`
+	RoleArn     string `pulumi:"roleArn"`
 }
 
 // ApplicationOutputResourceLambdaOutputInput is an input type that accepts ApplicationOutputResourceLambdaOutputArgs and ApplicationOutputResourceLambdaOutputOutput values.
@@ -1736,8 +1736,8 @@ type ApplicationOutputResourceLambdaOutputInput interface {
 }
 
 type ApplicationOutputResourceLambdaOutputArgs struct {
-	ResourceARN pulumi.StringInput `pulumi:"resourceARN"`
-	RoleARN     pulumi.StringInput `pulumi:"roleARN"`
+	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
+	RoleArn     pulumi.StringInput `pulumi:"roleArn"`
 }
 
 func (ApplicationOutputResourceLambdaOutputArgs) ElementType() reflect.Type {
@@ -1817,12 +1817,12 @@ func (o ApplicationOutputResourceLambdaOutputOutput) ToApplicationOutputResource
 	}).(ApplicationOutputResourceLambdaOutputPtrOutput)
 }
 
-func (o ApplicationOutputResourceLambdaOutputOutput) ResourceARN() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationOutputResourceLambdaOutput) string { return v.ResourceARN }).(pulumi.StringOutput)
+func (o ApplicationOutputResourceLambdaOutputOutput) ResourceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationOutputResourceLambdaOutput) string { return v.ResourceArn }).(pulumi.StringOutput)
 }
 
-func (o ApplicationOutputResourceLambdaOutputOutput) RoleARN() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationOutputResourceLambdaOutput) string { return v.RoleARN }).(pulumi.StringOutput)
+func (o ApplicationOutputResourceLambdaOutputOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationOutputResourceLambdaOutput) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
 type ApplicationOutputResourceLambdaOutputPtrOutput struct{ *pulumi.OutputState }
@@ -1849,21 +1849,21 @@ func (o ApplicationOutputResourceLambdaOutputPtrOutput) Elem() ApplicationOutput
 	}).(ApplicationOutputResourceLambdaOutputOutput)
 }
 
-func (o ApplicationOutputResourceLambdaOutputPtrOutput) ResourceARN() pulumi.StringPtrOutput {
+func (o ApplicationOutputResourceLambdaOutputPtrOutput) ResourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationOutputResourceLambdaOutput) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.ResourceARN
+		return &v.ResourceArn
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o ApplicationOutputResourceLambdaOutputPtrOutput) RoleARN() pulumi.StringPtrOutput {
+func (o ApplicationOutputResourceLambdaOutputPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationOutputResourceLambdaOutput) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.RoleARN
+		return &v.RoleArn
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2460,8 +2460,8 @@ func (o ApplicationReferenceDataSourceJSONMappingParametersPtrOutput) RecordRowP
 }
 
 type ApplicationReferenceDataSourceMappingParameters struct {
-	CSVMappingParameters  *ApplicationReferenceDataSourceCSVMappingParameters  `pulumi:"cSVMappingParameters"`
-	JSONMappingParameters *ApplicationReferenceDataSourceJSONMappingParameters `pulumi:"jSONMappingParameters"`
+	CsvMappingParameters  *ApplicationReferenceDataSourceCSVMappingParameters  `pulumi:"csvMappingParameters"`
+	JsonMappingParameters *ApplicationReferenceDataSourceJSONMappingParameters `pulumi:"jsonMappingParameters"`
 }
 
 // ApplicationReferenceDataSourceMappingParametersInput is an input type that accepts ApplicationReferenceDataSourceMappingParametersArgs and ApplicationReferenceDataSourceMappingParametersOutput values.
@@ -2476,8 +2476,8 @@ type ApplicationReferenceDataSourceMappingParametersInput interface {
 }
 
 type ApplicationReferenceDataSourceMappingParametersArgs struct {
-	CSVMappingParameters  ApplicationReferenceDataSourceCSVMappingParametersPtrInput  `pulumi:"cSVMappingParameters"`
-	JSONMappingParameters ApplicationReferenceDataSourceJSONMappingParametersPtrInput `pulumi:"jSONMappingParameters"`
+	CsvMappingParameters  ApplicationReferenceDataSourceCSVMappingParametersPtrInput  `pulumi:"csvMappingParameters"`
+	JsonMappingParameters ApplicationReferenceDataSourceJSONMappingParametersPtrInput `pulumi:"jsonMappingParameters"`
 }
 
 func (ApplicationReferenceDataSourceMappingParametersArgs) ElementType() reflect.Type {
@@ -2557,15 +2557,15 @@ func (o ApplicationReferenceDataSourceMappingParametersOutput) ToApplicationRefe
 	}).(ApplicationReferenceDataSourceMappingParametersPtrOutput)
 }
 
-func (o ApplicationReferenceDataSourceMappingParametersOutput) CSVMappingParameters() ApplicationReferenceDataSourceCSVMappingParametersPtrOutput {
+func (o ApplicationReferenceDataSourceMappingParametersOutput) CsvMappingParameters() ApplicationReferenceDataSourceCSVMappingParametersPtrOutput {
 	return o.ApplyT(func(v ApplicationReferenceDataSourceMappingParameters) *ApplicationReferenceDataSourceCSVMappingParameters {
-		return v.CSVMappingParameters
+		return v.CsvMappingParameters
 	}).(ApplicationReferenceDataSourceCSVMappingParametersPtrOutput)
 }
 
-func (o ApplicationReferenceDataSourceMappingParametersOutput) JSONMappingParameters() ApplicationReferenceDataSourceJSONMappingParametersPtrOutput {
+func (o ApplicationReferenceDataSourceMappingParametersOutput) JsonMappingParameters() ApplicationReferenceDataSourceJSONMappingParametersPtrOutput {
 	return o.ApplyT(func(v ApplicationReferenceDataSourceMappingParameters) *ApplicationReferenceDataSourceJSONMappingParameters {
-		return v.JSONMappingParameters
+		return v.JsonMappingParameters
 	}).(ApplicationReferenceDataSourceJSONMappingParametersPtrOutput)
 }
 
@@ -2593,21 +2593,21 @@ func (o ApplicationReferenceDataSourceMappingParametersPtrOutput) Elem() Applica
 	}).(ApplicationReferenceDataSourceMappingParametersOutput)
 }
 
-func (o ApplicationReferenceDataSourceMappingParametersPtrOutput) CSVMappingParameters() ApplicationReferenceDataSourceCSVMappingParametersPtrOutput {
+func (o ApplicationReferenceDataSourceMappingParametersPtrOutput) CsvMappingParameters() ApplicationReferenceDataSourceCSVMappingParametersPtrOutput {
 	return o.ApplyT(func(v *ApplicationReferenceDataSourceMappingParameters) *ApplicationReferenceDataSourceCSVMappingParameters {
 		if v == nil {
 			return nil
 		}
-		return v.CSVMappingParameters
+		return v.CsvMappingParameters
 	}).(ApplicationReferenceDataSourceCSVMappingParametersPtrOutput)
 }
 
-func (o ApplicationReferenceDataSourceMappingParametersPtrOutput) JSONMappingParameters() ApplicationReferenceDataSourceJSONMappingParametersPtrOutput {
+func (o ApplicationReferenceDataSourceMappingParametersPtrOutput) JsonMappingParameters() ApplicationReferenceDataSourceJSONMappingParametersPtrOutput {
 	return o.ApplyT(func(v *ApplicationReferenceDataSourceMappingParameters) *ApplicationReferenceDataSourceJSONMappingParameters {
 		if v == nil {
 			return nil
 		}
-		return v.JSONMappingParameters
+		return v.JsonMappingParameters
 	}).(ApplicationReferenceDataSourceJSONMappingParametersPtrOutput)
 }
 
@@ -3049,9 +3049,9 @@ func (o ApplicationReferenceDataSourceReferenceSchemaPtrOutput) RecordFormat() A
 }
 
 type ApplicationReferenceDataSourceS3ReferenceDataSource struct {
-	BucketARN        string `pulumi:"bucketARN"`
+	BucketArn        string `pulumi:"bucketArn"`
 	FileKey          string `pulumi:"fileKey"`
-	ReferenceRoleARN string `pulumi:"referenceRoleARN"`
+	ReferenceRoleArn string `pulumi:"referenceRoleArn"`
 }
 
 // ApplicationReferenceDataSourceS3ReferenceDataSourceInput is an input type that accepts ApplicationReferenceDataSourceS3ReferenceDataSourceArgs and ApplicationReferenceDataSourceS3ReferenceDataSourceOutput values.
@@ -3066,9 +3066,9 @@ type ApplicationReferenceDataSourceS3ReferenceDataSourceInput interface {
 }
 
 type ApplicationReferenceDataSourceS3ReferenceDataSourceArgs struct {
-	BucketARN        pulumi.StringInput `pulumi:"bucketARN"`
+	BucketArn        pulumi.StringInput `pulumi:"bucketArn"`
 	FileKey          pulumi.StringInput `pulumi:"fileKey"`
-	ReferenceRoleARN pulumi.StringInput `pulumi:"referenceRoleARN"`
+	ReferenceRoleArn pulumi.StringInput `pulumi:"referenceRoleArn"`
 }
 
 func (ApplicationReferenceDataSourceS3ReferenceDataSourceArgs) ElementType() reflect.Type {
@@ -3148,16 +3148,16 @@ func (o ApplicationReferenceDataSourceS3ReferenceDataSourceOutput) ToApplication
 	}).(ApplicationReferenceDataSourceS3ReferenceDataSourcePtrOutput)
 }
 
-func (o ApplicationReferenceDataSourceS3ReferenceDataSourceOutput) BucketARN() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationReferenceDataSourceS3ReferenceDataSource) string { return v.BucketARN }).(pulumi.StringOutput)
+func (o ApplicationReferenceDataSourceS3ReferenceDataSourceOutput) BucketArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationReferenceDataSourceS3ReferenceDataSource) string { return v.BucketArn }).(pulumi.StringOutput)
 }
 
 func (o ApplicationReferenceDataSourceS3ReferenceDataSourceOutput) FileKey() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationReferenceDataSourceS3ReferenceDataSource) string { return v.FileKey }).(pulumi.StringOutput)
 }
 
-func (o ApplicationReferenceDataSourceS3ReferenceDataSourceOutput) ReferenceRoleARN() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationReferenceDataSourceS3ReferenceDataSource) string { return v.ReferenceRoleARN }).(pulumi.StringOutput)
+func (o ApplicationReferenceDataSourceS3ReferenceDataSourceOutput) ReferenceRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationReferenceDataSourceS3ReferenceDataSource) string { return v.ReferenceRoleArn }).(pulumi.StringOutput)
 }
 
 type ApplicationReferenceDataSourceS3ReferenceDataSourcePtrOutput struct{ *pulumi.OutputState }
@@ -3184,12 +3184,12 @@ func (o ApplicationReferenceDataSourceS3ReferenceDataSourcePtrOutput) Elem() App
 	}).(ApplicationReferenceDataSourceS3ReferenceDataSourceOutput)
 }
 
-func (o ApplicationReferenceDataSourceS3ReferenceDataSourcePtrOutput) BucketARN() pulumi.StringPtrOutput {
+func (o ApplicationReferenceDataSourceS3ReferenceDataSourcePtrOutput) BucketArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationReferenceDataSourceS3ReferenceDataSource) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.BucketARN
+		return &v.BucketArn
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3202,12 +3202,12 @@ func (o ApplicationReferenceDataSourceS3ReferenceDataSourcePtrOutput) FileKey() 
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o ApplicationReferenceDataSourceS3ReferenceDataSourcePtrOutput) ReferenceRoleARN() pulumi.StringPtrOutput {
+func (o ApplicationReferenceDataSourceS3ReferenceDataSourcePtrOutput) ReferenceRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationReferenceDataSourceS3ReferenceDataSource) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.ReferenceRoleARN
+		return &v.ReferenceRoleArn
 	}).(pulumi.StringPtrOutput)
 }
 

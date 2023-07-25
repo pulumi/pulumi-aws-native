@@ -13,12 +13,12 @@ namespace Pulumi.AwsNative.MSK.Outputs
     [OutputType]
     public sealed class ClusterStorageInfo
     {
-        public readonly Outputs.ClusterEBSStorageInfo? EBSStorageInfo;
+        public readonly Outputs.ClusterEBSStorageInfo? EbsStorageInfo;
 
         [OutputConstructor]
-        private ClusterStorageInfo(Outputs.ClusterEBSStorageInfo? eBSStorageInfo)
+        private ClusterStorageInfo(Outputs.ClusterEBSStorageInfo? ebsStorageInfo)
         {
-            EBSStorageInfo = eBSStorageInfo;
+            EbsStorageInfo = ebsStorageInfo;
         }
     }
 }

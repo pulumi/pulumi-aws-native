@@ -12,8 +12,8 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
 
     public sealed class DistributionLegacyS3OriginArgs : global::Pulumi.ResourceArgs
     {
-        [Input("dNSName", required: true)]
-        public Input<string> DNSName { get; set; } = null!;
+        [Input("dnsName", required: true)]
+        public Input<string> DnsName { get; set; } = null!;
 
         [Input("originAccessIdentity")]
         public Input<string>? OriginAccessIdentity { get; set; }

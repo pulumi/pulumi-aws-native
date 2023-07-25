@@ -2933,7 +2933,7 @@ func (o TaskDefinitionTagArrayOutput) Index(i pulumi.IntInput) TaskDefinitionTag
 }
 
 type TaskDefinitionUpdateWirelessGatewayTaskCreate struct {
-	LoRaWAN          *TaskDefinitionLoRaWANUpdateGatewayTaskCreate `pulumi:"loRaWAN"`
+	LoRaWan          *TaskDefinitionLoRaWANUpdateGatewayTaskCreate `pulumi:"loRaWan"`
 	UpdateDataRole   *string                                       `pulumi:"updateDataRole"`
 	UpdateDataSource *string                                       `pulumi:"updateDataSource"`
 }
@@ -2950,7 +2950,7 @@ type TaskDefinitionUpdateWirelessGatewayTaskCreateInput interface {
 }
 
 type TaskDefinitionUpdateWirelessGatewayTaskCreateArgs struct {
-	LoRaWAN          TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrInput `pulumi:"loRaWAN"`
+	LoRaWan          TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrInput `pulumi:"loRaWan"`
 	UpdateDataRole   pulumi.StringPtrInput                                `pulumi:"updateDataRole"`
 	UpdateDataSource pulumi.StringPtrInput                                `pulumi:"updateDataSource"`
 }
@@ -3032,9 +3032,9 @@ func (o TaskDefinitionUpdateWirelessGatewayTaskCreateOutput) ToTaskDefinitionUpd
 	}).(TaskDefinitionUpdateWirelessGatewayTaskCreatePtrOutput)
 }
 
-func (o TaskDefinitionUpdateWirelessGatewayTaskCreateOutput) LoRaWAN() TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput {
+func (o TaskDefinitionUpdateWirelessGatewayTaskCreateOutput) LoRaWan() TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput {
 	return o.ApplyT(func(v TaskDefinitionUpdateWirelessGatewayTaskCreate) *TaskDefinitionLoRaWANUpdateGatewayTaskCreate {
-		return v.LoRaWAN
+		return v.LoRaWan
 	}).(TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput)
 }
 
@@ -3070,12 +3070,12 @@ func (o TaskDefinitionUpdateWirelessGatewayTaskCreatePtrOutput) Elem() TaskDefin
 	}).(TaskDefinitionUpdateWirelessGatewayTaskCreateOutput)
 }
 
-func (o TaskDefinitionUpdateWirelessGatewayTaskCreatePtrOutput) LoRaWAN() TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput {
+func (o TaskDefinitionUpdateWirelessGatewayTaskCreatePtrOutput) LoRaWan() TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionUpdateWirelessGatewayTaskCreate) *TaskDefinitionLoRaWANUpdateGatewayTaskCreate {
 		if v == nil {
 			return nil
 		}
-		return v.LoRaWAN
+		return v.LoRaWan
 	}).(TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput)
 }
 

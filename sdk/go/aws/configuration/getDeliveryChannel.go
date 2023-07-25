@@ -32,7 +32,7 @@ type LookupDeliveryChannelResult struct {
 	S3BucketName                     *string                                          `pulumi:"s3BucketName"`
 	S3KeyPrefix                      *string                                          `pulumi:"s3KeyPrefix"`
 	S3KmsKeyArn                      *string                                          `pulumi:"s3KmsKeyArn"`
-	SnsTopicARN                      *string                                          `pulumi:"snsTopicARN"`
+	SnsTopicArn                      *string                                          `pulumi:"snsTopicArn"`
 }
 
 func LookupDeliveryChannelOutput(ctx *pulumi.Context, args LookupDeliveryChannelOutputArgs, opts ...pulumi.InvokeOption) LookupDeliveryChannelResultOutput {
@@ -92,8 +92,8 @@ func (o LookupDeliveryChannelResultOutput) S3KmsKeyArn() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v LookupDeliveryChannelResult) *string { return v.S3KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupDeliveryChannelResultOutput) SnsTopicARN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupDeliveryChannelResult) *string { return v.SnsTopicARN }).(pulumi.StringPtrOutput)
+func (o LookupDeliveryChannelResultOutput) SnsTopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDeliveryChannelResult) *string { return v.SnsTopicArn }).(pulumi.StringPtrOutput)
 }
 
 func init() {

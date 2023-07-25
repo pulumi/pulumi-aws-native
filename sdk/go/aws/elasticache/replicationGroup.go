@@ -36,14 +36,14 @@ type ReplicationGroup struct {
 	IpDiscovery                  pulumi.StringPtrOutput                                     `pulumi:"ipDiscovery"`
 	KmsKeyId                     pulumi.StringPtrOutput                                     `pulumi:"kmsKeyId"`
 	LogDeliveryConfigurations    ReplicationGroupLogDeliveryConfigurationRequestArrayOutput `pulumi:"logDeliveryConfigurations"`
-	MultiAZEnabled               pulumi.BoolPtrOutput                                       `pulumi:"multiAZEnabled"`
+	MultiAzEnabled               pulumi.BoolPtrOutput                                       `pulumi:"multiAzEnabled"`
 	NetworkType                  pulumi.StringPtrOutput                                     `pulumi:"networkType"`
 	NodeGroupConfiguration       ReplicationGroupNodeGroupConfigurationArrayOutput          `pulumi:"nodeGroupConfiguration"`
 	NotificationTopicArn         pulumi.StringPtrOutput                                     `pulumi:"notificationTopicArn"`
 	NumCacheClusters             pulumi.IntPtrOutput                                        `pulumi:"numCacheClusters"`
 	NumNodeGroups                pulumi.IntPtrOutput                                        `pulumi:"numNodeGroups"`
 	Port                         pulumi.IntPtrOutput                                        `pulumi:"port"`
-	PreferredCacheClusterAZs     pulumi.StringArrayOutput                                   `pulumi:"preferredCacheClusterAZs"`
+	PreferredCacheClusterAzs     pulumi.StringArrayOutput                                   `pulumi:"preferredCacheClusterAzs"`
 	PreferredMaintenanceWindow   pulumi.StringPtrOutput                                     `pulumi:"preferredMaintenanceWindow"`
 	PrimaryClusterId             pulumi.StringPtrOutput                                     `pulumi:"primaryClusterId"`
 	PrimaryEndPointAddress       pulumi.StringPtrOutput                                     `pulumi:"primaryEndPointAddress"`
@@ -130,14 +130,14 @@ type replicationGroupArgs struct {
 	IpDiscovery                  *string                                           `pulumi:"ipDiscovery"`
 	KmsKeyId                     *string                                           `pulumi:"kmsKeyId"`
 	LogDeliveryConfigurations    []ReplicationGroupLogDeliveryConfigurationRequest `pulumi:"logDeliveryConfigurations"`
-	MultiAZEnabled               *bool                                             `pulumi:"multiAZEnabled"`
+	MultiAzEnabled               *bool                                             `pulumi:"multiAzEnabled"`
 	NetworkType                  *string                                           `pulumi:"networkType"`
 	NodeGroupConfiguration       []ReplicationGroupNodeGroupConfiguration          `pulumi:"nodeGroupConfiguration"`
 	NotificationTopicArn         *string                                           `pulumi:"notificationTopicArn"`
 	NumCacheClusters             *int                                              `pulumi:"numCacheClusters"`
 	NumNodeGroups                *int                                              `pulumi:"numNodeGroups"`
 	Port                         *int                                              `pulumi:"port"`
-	PreferredCacheClusterAZs     []string                                          `pulumi:"preferredCacheClusterAZs"`
+	PreferredCacheClusterAzs     []string                                          `pulumi:"preferredCacheClusterAzs"`
 	PreferredMaintenanceWindow   *string                                           `pulumi:"preferredMaintenanceWindow"`
 	PrimaryClusterId             *string                                           `pulumi:"primaryClusterId"`
 	PrimaryEndPointAddress       *string                                           `pulumi:"primaryEndPointAddress"`
@@ -183,14 +183,14 @@ type ReplicationGroupArgs struct {
 	IpDiscovery                  pulumi.StringPtrInput
 	KmsKeyId                     pulumi.StringPtrInput
 	LogDeliveryConfigurations    ReplicationGroupLogDeliveryConfigurationRequestArrayInput
-	MultiAZEnabled               pulumi.BoolPtrInput
+	MultiAzEnabled               pulumi.BoolPtrInput
 	NetworkType                  pulumi.StringPtrInput
 	NodeGroupConfiguration       ReplicationGroupNodeGroupConfigurationArrayInput
 	NotificationTopicArn         pulumi.StringPtrInput
 	NumCacheClusters             pulumi.IntPtrInput
 	NumNodeGroups                pulumi.IntPtrInput
 	Port                         pulumi.IntPtrInput
-	PreferredCacheClusterAZs     pulumi.StringArrayInput
+	PreferredCacheClusterAzs     pulumi.StringArrayInput
 	PreferredMaintenanceWindow   pulumi.StringPtrInput
 	PrimaryClusterId             pulumi.StringPtrInput
 	PrimaryEndPointAddress       pulumi.StringPtrInput
@@ -327,8 +327,8 @@ func (o ReplicationGroupOutput) LogDeliveryConfigurations() ReplicationGroupLogD
 	}).(ReplicationGroupLogDeliveryConfigurationRequestArrayOutput)
 }
 
-func (o ReplicationGroupOutput) MultiAZEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ReplicationGroup) pulumi.BoolPtrOutput { return v.MultiAZEnabled }).(pulumi.BoolPtrOutput)
+func (o ReplicationGroupOutput) MultiAzEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.BoolPtrOutput { return v.MultiAzEnabled }).(pulumi.BoolPtrOutput)
 }
 
 func (o ReplicationGroupOutput) NetworkType() pulumi.StringPtrOutput {
@@ -357,8 +357,8 @@ func (o ReplicationGroupOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ReplicationGroup) pulumi.IntPtrOutput { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-func (o ReplicationGroupOutput) PreferredCacheClusterAZs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringArrayOutput { return v.PreferredCacheClusterAZs }).(pulumi.StringArrayOutput)
+func (o ReplicationGroupOutput) PreferredCacheClusterAzs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringArrayOutput { return v.PreferredCacheClusterAzs }).(pulumi.StringArrayOutput)
 }
 
 func (o ReplicationGroupOutput) PreferredMaintenanceWindow() pulumi.StringPtrOutput {

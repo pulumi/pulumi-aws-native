@@ -38,10 +38,6 @@ export class CustomDBEngineVersion extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the custom engine version.
-     */
-    public /*out*/ readonly dBEngineVersionArn!: pulumi.Output<string>;
-    /**
      * The name of an Amazon S3 bucket that contains database installation files for your CEV. For example, a valid bucket name is `my-custom-installation-files`.
      */
     public readonly databaseInstallationFilesS3BucketName!: pulumi.Output<string>;
@@ -49,6 +45,10 @@ export class CustomDBEngineVersion extends pulumi.CustomResource {
      * The Amazon S3 directory that contains the database installation files for your CEV. For example, a valid bucket name is `123456789012/cev1`. If this setting isn't specified, no prefix is assumed.
      */
     public readonly databaseInstallationFilesS3Prefix!: pulumi.Output<string | undefined>;
+    /**
+     * The ARN of the custom engine version.
+     */
+    public /*out*/ readonly dbEngineVersionArn!: pulumi.Output<string>;
     /**
      * An optional description of your CEV.
      */
@@ -64,7 +64,7 @@ export class CustomDBEngineVersion extends pulumi.CustomResource {
     /**
      * The AWS KMS key identifier for an encrypted CEV. A symmetric KMS key is required for RDS Custom, but optional for Amazon RDS.
      */
-    public readonly kMSKeyId!: pulumi.Output<string | undefined>;
+    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
      * The CEV manifest, which is a JSON document that describes the installation .zip files stored in Amazon S3. Specify the name/value pairs in a file or a quoted string. RDS Custom applies the patches in the order in which they are listed.
      */
@@ -103,19 +103,19 @@ export class CustomDBEngineVersion extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["engine"] = args ? args.engine : undefined;
             resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
-            resourceInputs["kMSKeyId"] = args ? args.kMSKeyId : undefined;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["manifest"] = args ? args.manifest : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["dBEngineVersionArn"] = undefined /*out*/;
+            resourceInputs["dbEngineVersionArn"] = undefined /*out*/;
         } else {
-            resourceInputs["dBEngineVersionArn"] = undefined /*out*/;
             resourceInputs["databaseInstallationFilesS3BucketName"] = undefined /*out*/;
             resourceInputs["databaseInstallationFilesS3Prefix"] = undefined /*out*/;
+            resourceInputs["dbEngineVersionArn"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["engine"] = undefined /*out*/;
             resourceInputs["engineVersion"] = undefined /*out*/;
-            resourceInputs["kMSKeyId"] = undefined /*out*/;
+            resourceInputs["kmsKeyId"] = undefined /*out*/;
             resourceInputs["manifest"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -152,7 +152,7 @@ export interface CustomDBEngineVersionArgs {
     /**
      * The AWS KMS key identifier for an encrypted CEV. A symmetric KMS key is required for RDS Custom, but optional for Amazon RDS.
      */
-    kMSKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string>;
     /**
      * The CEV manifest, which is a JSON document that describes the installation .zip files stored in Amazon S3. Specify the name/value pairs in a file or a quoted string. RDS Custom applies the patches in the order in which they are listed.
      */

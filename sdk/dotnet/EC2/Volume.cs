@@ -18,8 +18,8 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// The Availability Zone in which to create the volume.
         /// </summary>
-        [Output("autoEnableIO")]
-        public Output<bool?> AutoEnableIO { get; private set; } = null!;
+        [Output("autoEnableIo")]
+        public Output<bool?> AutoEnableIo { get; private set; } = null!;
 
         /// <summary>
         /// The Availability Zone in which to create the volume.
@@ -138,8 +138,8 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// The Availability Zone in which to create the volume.
         /// </summary>
-        [Input("autoEnableIO")]
-        public Input<bool>? AutoEnableIO { get; set; }
+        [Input("autoEnableIo")]
+        public Input<bool>? AutoEnableIo { get; set; }
 
         /// <summary>
         /// The Availability Zone in which to create the volume.

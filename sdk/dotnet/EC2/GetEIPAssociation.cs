@@ -52,7 +52,7 @@ namespace Pulumi.AwsNative.EC2
     public sealed class GetEIPAssociationResult
     {
         public readonly string? AllocationId;
-        public readonly string? EIP;
+        public readonly string? Eip;
         public readonly string? Id;
         public readonly string? InstanceId;
         public readonly string? NetworkInterfaceId;
@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.EC2
         private GetEIPAssociationResult(
             string? allocationId,
 
-            string? eIP,
+            string? eip,
 
             string? id,
 
@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.EC2
             string? privateIpAddress)
         {
             AllocationId = allocationId;
-            EIP = eIP;
+            Eip = eip;
             Id = id;
             InstanceId = instanceId;
             NetworkInterfaceId = networkInterfaceId;

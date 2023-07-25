@@ -12,24 +12,24 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
 
     public sealed class DistributionLegacyCustomOriginArgs : global::Pulumi.ResourceArgs
     {
-        [Input("dNSName", required: true)]
-        public Input<string> DNSName { get; set; } = null!;
+        [Input("dnsName", required: true)]
+        public Input<string> DnsName { get; set; } = null!;
 
-        [Input("hTTPPort")]
-        public Input<int>? HTTPPort { get; set; }
+        [Input("httpPort")]
+        public Input<int>? HttpPort { get; set; }
 
-        [Input("hTTPSPort")]
-        public Input<int>? HTTPSPort { get; set; }
+        [Input("httpsPort")]
+        public Input<int>? HttpsPort { get; set; }
 
         [Input("originProtocolPolicy", required: true)]
         public Input<string> OriginProtocolPolicy { get; set; } = null!;
 
-        [Input("originSSLProtocols", required: true)]
-        private InputList<string>? _originSSLProtocols;
-        public InputList<string> OriginSSLProtocols
+        [Input("originSslProtocols", required: true)]
+        private InputList<string>? _originSslProtocols;
+        public InputList<string> OriginSslProtocols
         {
-            get => _originSSLProtocols ?? (_originSSLProtocols = new InputList<string>());
-            set => _originSSLProtocols = value;
+            get => _originSslProtocols ?? (_originSslProtocols = new InputList<string>());
+            set => _originSslProtocols = value;
         }
 
         public DistributionLegacyCustomOriginArgs()

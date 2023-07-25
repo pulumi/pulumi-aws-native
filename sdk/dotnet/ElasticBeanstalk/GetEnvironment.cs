@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
         /// Your description for this environment.
         /// </summary>
         public readonly string? Description;
-        public readonly string? EndpointURL;
+        public readonly string? EndpointUrl;
         /// <summary>
         /// The Amazon Resource Name (ARN) of an existing IAM role to be used as the environment's operations role.
         /// </summary>
@@ -87,7 +87,7 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
         private GetEnvironmentResult(
             string? description,
 
-            string? endpointURL,
+            string? endpointUrl,
 
             string? operationsRole,
 
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
             string? versionLabel)
         {
             Description = description;
-            EndpointURL = endpointURL;
+            EndpointUrl = endpointUrl;
             OperationsRole = operationsRole;
             PlatformArn = platformArn;
             Tags = tags;

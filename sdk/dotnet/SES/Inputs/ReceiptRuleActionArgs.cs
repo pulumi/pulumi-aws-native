@@ -24,8 +24,8 @@ namespace Pulumi.AwsNative.SES.Inputs
         [Input("s3Action")]
         public Input<Inputs.ReceiptRuleS3ActionArgs>? S3Action { get; set; }
 
-        [Input("sNSAction")]
-        public Input<Inputs.ReceiptRuleSNSActionArgs>? SNSAction { get; set; }
+        [Input("snsAction")]
+        public Input<Inputs.ReceiptRuleSNSActionArgs>? SnsAction { get; set; }
 
         [Input("stopAction")]
         public Input<Inputs.ReceiptRuleStopActionArgs>? StopAction { get; set; }

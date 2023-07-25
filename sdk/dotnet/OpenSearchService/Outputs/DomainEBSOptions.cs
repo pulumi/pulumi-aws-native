@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.OpenSearchService.Outputs
     [OutputType]
     public sealed class DomainEBSOptions
     {
-        public readonly bool? EBSEnabled;
+        public readonly bool? EbsEnabled;
         public readonly int? Iops;
         public readonly int? Throughput;
         public readonly int? VolumeSize;
@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.OpenSearchService.Outputs
 
         [OutputConstructor]
         private DomainEBSOptions(
-            bool? eBSEnabled,
+            bool? ebsEnabled,
 
             int? iops,
 
@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.OpenSearchService.Outputs
 
             string? volumeType)
         {
-            EBSEnabled = eBSEnabled;
+            EbsEnabled = ebsEnabled;
             Iops = iops;
             Throughput = throughput;
             VolumeSize = volumeSize;

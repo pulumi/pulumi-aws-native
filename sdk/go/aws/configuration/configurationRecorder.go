@@ -20,7 +20,7 @@ type ConfigurationRecorder struct {
 
 	Name           pulumi.StringPtrOutput                       `pulumi:"name"`
 	RecordingGroup ConfigurationRecorderRecordingGroupPtrOutput `pulumi:"recordingGroup"`
-	RoleARN        pulumi.StringOutput                          `pulumi:"roleARN"`
+	RoleArn        pulumi.StringOutput                          `pulumi:"roleArn"`
 }
 
 // NewConfigurationRecorder registers a new resource with the given unique name, arguments, and options.
@@ -30,8 +30,8 @@ func NewConfigurationRecorder(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.RoleARN == nil {
-		return nil, errors.New("invalid value for required argument 'RoleARN'")
+	if args.RoleArn == nil {
+		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ConfigurationRecorder
@@ -68,14 +68,14 @@ func (ConfigurationRecorderState) ElementType() reflect.Type {
 type configurationRecorderArgs struct {
 	Name           *string                              `pulumi:"name"`
 	RecordingGroup *ConfigurationRecorderRecordingGroup `pulumi:"recordingGroup"`
-	RoleARN        string                               `pulumi:"roleARN"`
+	RoleArn        string                               `pulumi:"roleArn"`
 }
 
 // The set of arguments for constructing a ConfigurationRecorder resource.
 type ConfigurationRecorderArgs struct {
 	Name           pulumi.StringPtrInput
 	RecordingGroup ConfigurationRecorderRecordingGroupPtrInput
-	RoleARN        pulumi.StringInput
+	RoleArn        pulumi.StringInput
 }
 
 func (ConfigurationRecorderArgs) ElementType() reflect.Type {
@@ -123,8 +123,8 @@ func (o ConfigurationRecorderOutput) RecordingGroup() ConfigurationRecorderRecor
 	return o.ApplyT(func(v *ConfigurationRecorder) ConfigurationRecorderRecordingGroupPtrOutput { return v.RecordingGroup }).(ConfigurationRecorderRecordingGroupPtrOutput)
 }
 
-func (o ConfigurationRecorderOutput) RoleARN() pulumi.StringOutput {
-	return o.ApplyT(func(v *ConfigurationRecorder) pulumi.StringOutput { return v.RoleARN }).(pulumi.StringOutput)
+func (o ConfigurationRecorderOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConfigurationRecorder) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
 func init() {

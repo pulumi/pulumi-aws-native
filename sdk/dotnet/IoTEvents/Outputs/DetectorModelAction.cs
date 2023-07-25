@@ -17,8 +17,8 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
     public sealed class DetectorModelAction
     {
         public readonly Outputs.DetectorModelClearTimer? ClearTimer;
-        public readonly Outputs.DetectorModelDynamoDB? DynamoDB;
         public readonly Outputs.DetectorModelDynamoDBv2? DynamoDBv2;
+        public readonly Outputs.DetectorModelDynamoDB? DynamoDb;
         public readonly Outputs.DetectorModelFirehose? Firehose;
         public readonly Outputs.DetectorModelIotEvents? IotEvents;
         public readonly Outputs.DetectorModelIotSiteWise? IotSiteWise;
@@ -34,9 +34,9 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
         private DetectorModelAction(
             Outputs.DetectorModelClearTimer? clearTimer,
 
-            Outputs.DetectorModelDynamoDB? dynamoDB,
-
             Outputs.DetectorModelDynamoDBv2? dynamoDBv2,
+
+            Outputs.DetectorModelDynamoDB? dynamoDb,
 
             Outputs.DetectorModelFirehose? firehose,
 
@@ -59,8 +59,8 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
             Outputs.DetectorModelSqs? sqs)
         {
             ClearTimer = clearTimer;
-            DynamoDB = dynamoDB;
             DynamoDBv2 = dynamoDBv2;
+            DynamoDb = dynamoDb;
             Firehose = firehose;
             IotEvents = iotEvents;
             IotSiteWise = iotSiteWise;

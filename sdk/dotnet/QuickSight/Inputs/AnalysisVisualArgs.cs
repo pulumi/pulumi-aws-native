@@ -48,8 +48,8 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("insightVisual")]
         public Input<Inputs.AnalysisInsightVisualArgs>? InsightVisual { get; set; }
 
-        [Input("kPIVisual")]
-        public Input<Inputs.AnalysisKPIVisualArgs>? KPIVisual { get; set; }
+        [Input("kpiVisual")]
+        public Input<Inputs.AnalysisKPIVisualArgs>? KpiVisual { get; set; }
 
         [Input("lineChartVisual")]
         public Input<Inputs.AnalysisLineChartVisualArgs>? LineChartVisual { get; set; }

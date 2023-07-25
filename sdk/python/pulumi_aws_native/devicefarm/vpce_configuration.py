@@ -17,20 +17,21 @@ __all__ = ['VPCEConfigurationArgs', 'VPCEConfiguration']
 class VPCEConfigurationArgs:
     def __init__(__self__, *,
                  service_dns_name: pulumi.Input[str],
-                 vpce_configuration_name: pulumi.Input[str],
                  vpce_service_name: pulumi.Input[str],
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['VPCEConfigurationTagArgs']]]] = None,
-                 vpce_configuration_description: Optional[pulumi.Input[str]] = None):
+                 vpce_configuration_description: Optional[pulumi.Input[str]] = None,
+                 vpce_configuration_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a VPCEConfiguration resource.
         """
         pulumi.set(__self__, "service_dns_name", service_dns_name)
-        pulumi.set(__self__, "vpce_configuration_name", vpce_configuration_name)
         pulumi.set(__self__, "vpce_service_name", vpce_service_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if vpce_configuration_description is not None:
             pulumi.set(__self__, "vpce_configuration_description", vpce_configuration_description)
+        if vpce_configuration_name is not None:
+            pulumi.set(__self__, "vpce_configuration_name", vpce_configuration_name)
 
     @property
     @pulumi.getter(name="serviceDnsName")
@@ -40,15 +41,6 @@ class VPCEConfigurationArgs:
     @service_dns_name.setter
     def service_dns_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "service_dns_name", value)
-
-    @property
-    @pulumi.getter(name="vpceConfigurationName")
-    def vpce_configuration_name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "vpce_configuration_name")
-
-    @vpce_configuration_name.setter
-    def vpce_configuration_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "vpce_configuration_name", value)
 
     @property
     @pulumi.getter(name="vpceServiceName")
@@ -76,6 +68,15 @@ class VPCEConfigurationArgs:
     @vpce_configuration_description.setter
     def vpce_configuration_description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vpce_configuration_description", value)
+
+    @property
+    @pulumi.getter(name="vpceConfigurationName")
+    def vpce_configuration_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "vpce_configuration_name")
+
+    @vpce_configuration_name.setter
+    def vpce_configuration_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vpce_configuration_name", value)
 
 
 class VPCEConfiguration(pulumi.CustomResource):
@@ -138,8 +139,6 @@ class VPCEConfiguration(pulumi.CustomResource):
             __props__.__dict__["service_dns_name"] = service_dns_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["vpce_configuration_description"] = vpce_configuration_description
-            if vpce_configuration_name is None and not opts.urn:
-                raise TypeError("Missing required property 'vpce_configuration_name'")
             __props__.__dict__["vpce_configuration_name"] = vpce_configuration_name
             if vpce_service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vpce_service_name'")

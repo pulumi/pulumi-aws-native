@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.RDS.Outputs
         /// <summary>
         /// Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy. The ENABLED value is valid only for proxies with RDS for Microsoft SQL Server.
         /// </summary>
-        public readonly Pulumi.AwsNative.RDS.DBProxyAuthFormatIAMAuth? IAMAuth;
+        public readonly Pulumi.AwsNative.RDS.DBProxyAuthFormatIAMAuth? IamAuth;
         /// <summary>
         /// The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager. 
         /// </summary>
@@ -42,14 +42,14 @@ namespace Pulumi.AwsNative.RDS.Outputs
 
             string? description,
 
-            Pulumi.AwsNative.RDS.DBProxyAuthFormatIAMAuth? iAMAuth,
+            Pulumi.AwsNative.RDS.DBProxyAuthFormatIAMAuth? iamAuth,
 
             string? secretArn)
         {
             AuthScheme = authScheme;
             ClientPasswordAuthType = clientPasswordAuthType;
             Description = description;
-            IAMAuth = iAMAuth;
+            IamAuth = iamAuth;
             SecretArn = secretArn;
         }
     }

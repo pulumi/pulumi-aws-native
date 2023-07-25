@@ -12,14 +12,14 @@ namespace Pulumi.AwsNative.AppSync.Inputs
 
     public sealed class GraphQLApiOpenIDConnectConfigArgs : global::Pulumi.ResourceArgs
     {
-        [Input("authTTL")]
-        public Input<double>? AuthTTL { get; set; }
+        [Input("authTtl")]
+        public Input<double>? AuthTtl { get; set; }
 
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }
 
-        [Input("iatTTL")]
-        public Input<double>? IatTTL { get; set; }
+        [Input("iatTtl")]
+        public Input<double>? IatTtl { get; set; }
 
         [Input("issuer")]
         public Input<string>? Issuer { get; set; }

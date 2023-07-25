@@ -19,12 +19,12 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Outputs
         /// <summary>
         /// The ARN of the input Kinesis data stream to read.
         /// </summary>
-        public readonly string ResourceARN;
+        public readonly string ResourceArn;
 
         [OutputConstructor]
-        private ApplicationKinesisStreamsInput(string resourceARN)
+        private ApplicationKinesisStreamsInput(string resourceArn)
         {
-            ResourceARN = resourceARN;
+            ResourceArn = resourceArn;
         }
     }
 }

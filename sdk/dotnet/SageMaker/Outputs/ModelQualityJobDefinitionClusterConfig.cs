@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// <summary>
         /// The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
         /// </summary>
-        public readonly int VolumeSizeInGB;
+        public readonly int VolumeSizeInGb;
 
         [OutputConstructor]
         private ModelQualityJobDefinitionClusterConfig(
@@ -41,12 +41,12 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
             string? volumeKmsKeyId,
 
-            int volumeSizeInGB)
+            int volumeSizeInGb)
         {
             InstanceCount = instanceCount;
             InstanceType = instanceType;
             VolumeKmsKeyId = volumeKmsKeyId;
-            VolumeSizeInGB = volumeSizeInGB;
+            VolumeSizeInGb = volumeSizeInGb;
         }
     }
 }

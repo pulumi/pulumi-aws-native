@@ -19,19 +19,19 @@ __all__ = [
 
 @pulumi.output_type
 class GetDBInstanceResult:
-    def __init__(__self__, allow_major_version_upgrade=None, auto_minor_version_upgrade=None, d_b_instance_class=None, d_b_parameter_group_name=None, endpoint=None, id=None, port=None, preferred_maintenance_window=None, tags=None):
+    def __init__(__self__, allow_major_version_upgrade=None, auto_minor_version_upgrade=None, db_instance_class=None, db_parameter_group_name=None, endpoint=None, id=None, port=None, preferred_maintenance_window=None, tags=None):
         if allow_major_version_upgrade and not isinstance(allow_major_version_upgrade, bool):
             raise TypeError("Expected argument 'allow_major_version_upgrade' to be a bool")
         pulumi.set(__self__, "allow_major_version_upgrade", allow_major_version_upgrade)
         if auto_minor_version_upgrade and not isinstance(auto_minor_version_upgrade, bool):
             raise TypeError("Expected argument 'auto_minor_version_upgrade' to be a bool")
         pulumi.set(__self__, "auto_minor_version_upgrade", auto_minor_version_upgrade)
-        if d_b_instance_class and not isinstance(d_b_instance_class, str):
-            raise TypeError("Expected argument 'd_b_instance_class' to be a str")
-        pulumi.set(__self__, "d_b_instance_class", d_b_instance_class)
-        if d_b_parameter_group_name and not isinstance(d_b_parameter_group_name, str):
-            raise TypeError("Expected argument 'd_b_parameter_group_name' to be a str")
-        pulumi.set(__self__, "d_b_parameter_group_name", d_b_parameter_group_name)
+        if db_instance_class and not isinstance(db_instance_class, str):
+            raise TypeError("Expected argument 'db_instance_class' to be a str")
+        pulumi.set(__self__, "db_instance_class", db_instance_class)
+        if db_parameter_group_name and not isinstance(db_parameter_group_name, str):
+            raise TypeError("Expected argument 'db_parameter_group_name' to be a str")
+        pulumi.set(__self__, "db_parameter_group_name", db_parameter_group_name)
         if endpoint and not isinstance(endpoint, str):
             raise TypeError("Expected argument 'endpoint' to be a str")
         pulumi.set(__self__, "endpoint", endpoint)
@@ -59,14 +59,14 @@ class GetDBInstanceResult:
         return pulumi.get(self, "auto_minor_version_upgrade")
 
     @property
-    @pulumi.getter(name="dBInstanceClass")
-    def d_b_instance_class(self) -> Optional[str]:
-        return pulumi.get(self, "d_b_instance_class")
+    @pulumi.getter(name="dbInstanceClass")
+    def db_instance_class(self) -> Optional[str]:
+        return pulumi.get(self, "db_instance_class")
 
     @property
-    @pulumi.getter(name="dBParameterGroupName")
-    def d_b_parameter_group_name(self) -> Optional[str]:
-        return pulumi.get(self, "d_b_parameter_group_name")
+    @pulumi.getter(name="dbParameterGroupName")
+    def db_parameter_group_name(self) -> Optional[str]:
+        return pulumi.get(self, "db_parameter_group_name")
 
     @property
     @pulumi.getter
@@ -102,8 +102,8 @@ class AwaitableGetDBInstanceResult(GetDBInstanceResult):
         return GetDBInstanceResult(
             allow_major_version_upgrade=self.allow_major_version_upgrade,
             auto_minor_version_upgrade=self.auto_minor_version_upgrade,
-            d_b_instance_class=self.d_b_instance_class,
-            d_b_parameter_group_name=self.d_b_parameter_group_name,
+            db_instance_class=self.db_instance_class,
+            db_parameter_group_name=self.db_parameter_group_name,
             endpoint=self.endpoint,
             id=self.id,
             port=self.port,
@@ -124,8 +124,8 @@ def get_db_instance(id: Optional[str] = None,
     return AwaitableGetDBInstanceResult(
         allow_major_version_upgrade=pulumi.get(__ret__, 'allow_major_version_upgrade'),
         auto_minor_version_upgrade=pulumi.get(__ret__, 'auto_minor_version_upgrade'),
-        d_b_instance_class=pulumi.get(__ret__, 'd_b_instance_class'),
-        d_b_parameter_group_name=pulumi.get(__ret__, 'd_b_parameter_group_name'),
+        db_instance_class=pulumi.get(__ret__, 'db_instance_class'),
+        db_parameter_group_name=pulumi.get(__ret__, 'db_parameter_group_name'),
         endpoint=pulumi.get(__ret__, 'endpoint'),
         id=pulumi.get(__ret__, 'id'),
         port=pulumi.get(__ret__, 'port'),

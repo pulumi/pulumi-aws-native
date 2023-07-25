@@ -20,7 +20,7 @@ export interface GetUserPoolUICustomizationAttachmentArgs {
 }
 
 export interface GetUserPoolUICustomizationAttachmentResult {
-    readonly cSS?: string;
+    readonly css?: string;
     readonly id?: string;
 }
 /**

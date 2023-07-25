@@ -13,16 +13,16 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
     [OutputType]
     public sealed class DeliveryStreamEncryptionConfigurationInput
     {
-        public readonly string? KeyARN;
+        public readonly string? KeyArn;
         public readonly Pulumi.AwsNative.KinesisFirehose.DeliveryStreamEncryptionConfigurationInputKeyType KeyType;
 
         [OutputConstructor]
         private DeliveryStreamEncryptionConfigurationInput(
-            string? keyARN,
+            string? keyArn,
 
             Pulumi.AwsNative.KinesisFirehose.DeliveryStreamEncryptionConfigurationInputKeyType keyType)
         {
-            KeyARN = keyARN;
+            KeyArn = keyArn;
             KeyType = keyType;
         }
     }

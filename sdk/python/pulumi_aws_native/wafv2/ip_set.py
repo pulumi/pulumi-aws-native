@@ -18,7 +18,7 @@ __all__ = ['IPSetArgs', 'IPSet']
 class IPSetArgs:
     def __init__(__self__, *,
                  addresses: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 i_p_address_version: pulumi.Input['IPSetIPAddressVersion'],
+                 ip_address_version: pulumi.Input['IPSetIPAddressVersion'],
                  scope: pulumi.Input['IPSetScope'],
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -28,7 +28,7 @@ class IPSetArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] addresses: List of IPAddresses.
         """
         pulumi.set(__self__, "addresses", addresses)
-        pulumi.set(__self__, "i_p_address_version", i_p_address_version)
+        pulumi.set(__self__, "ip_address_version", ip_address_version)
         pulumi.set(__self__, "scope", scope)
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -50,13 +50,13 @@ class IPSetArgs:
         pulumi.set(self, "addresses", value)
 
     @property
-    @pulumi.getter(name="iPAddressVersion")
-    def i_p_address_version(self) -> pulumi.Input['IPSetIPAddressVersion']:
-        return pulumi.get(self, "i_p_address_version")
+    @pulumi.getter(name="ipAddressVersion")
+    def ip_address_version(self) -> pulumi.Input['IPSetIPAddressVersion']:
+        return pulumi.get(self, "ip_address_version")
 
-    @i_p_address_version.setter
-    def i_p_address_version(self, value: pulumi.Input['IPSetIPAddressVersion']):
-        pulumi.set(self, "i_p_address_version", value)
+    @ip_address_version.setter
+    def ip_address_version(self, value: pulumi.Input['IPSetIPAddressVersion']):
+        pulumi.set(self, "ip_address_version", value)
 
     @property
     @pulumi.getter
@@ -102,7 +102,7 @@ class IPSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 i_p_address_version: Optional[pulumi.Input['IPSetIPAddressVersion']] = None,
+                 ip_address_version: Optional[pulumi.Input['IPSetIPAddressVersion']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input['IPSetScope']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IPSetTagArgs']]]]] = None,
@@ -140,7 +140,7 @@ class IPSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 i_p_address_version: Optional[pulumi.Input['IPSetIPAddressVersion']] = None,
+                 ip_address_version: Optional[pulumi.Input['IPSetIPAddressVersion']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input['IPSetScope']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IPSetTagArgs']]]]] = None,
@@ -157,9 +157,9 @@ class IPSet(pulumi.CustomResource):
                 raise TypeError("Missing required property 'addresses'")
             __props__.__dict__["addresses"] = addresses
             __props__.__dict__["description"] = description
-            if i_p_address_version is None and not opts.urn:
-                raise TypeError("Missing required property 'i_p_address_version'")
-            __props__.__dict__["i_p_address_version"] = i_p_address_version
+            if ip_address_version is None and not opts.urn:
+                raise TypeError("Missing required property 'ip_address_version'")
+            __props__.__dict__["ip_address_version"] = ip_address_version
             __props__.__dict__["name"] = name
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
@@ -191,7 +191,7 @@ class IPSet(pulumi.CustomResource):
         __props__.__dict__["addresses"] = None
         __props__.__dict__["arn"] = None
         __props__.__dict__["description"] = None
-        __props__.__dict__["i_p_address_version"] = None
+        __props__.__dict__["ip_address_version"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["scope"] = None
         __props__.__dict__["tags"] = None
@@ -216,9 +216,9 @@ class IPSet(pulumi.CustomResource):
         return pulumi.get(self, "description")
 
     @property
-    @pulumi.getter(name="iPAddressVersion")
-    def i_p_address_version(self) -> pulumi.Output['IPSetIPAddressVersion']:
-        return pulumi.get(self, "i_p_address_version")
+    @pulumi.getter(name="ipAddressVersion")
+    def ip_address_version(self) -> pulumi.Output['IPSetIPAddressVersion']:
+        return pulumi.get(self, "ip_address_version")
 
     @property
     @pulumi.getter

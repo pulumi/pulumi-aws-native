@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.DMS.Outputs
         public readonly string? KmsKeyId;
         public readonly int MaxCapacityUnits;
         public readonly int? MinCapacityUnits;
-        public readonly bool? MultiAZ;
+        public readonly bool? MultiAz;
         public readonly string? PreferredMaintenanceWindow;
         public readonly string? ReplicationSubnetGroupId;
         public readonly ImmutableArray<string> VpcSecurityGroupIds;
@@ -38,7 +38,7 @@ namespace Pulumi.AwsNative.DMS.Outputs
 
             int? minCapacityUnits,
 
-            bool? multiAZ,
+            bool? multiAz,
 
             string? preferredMaintenanceWindow,
 
@@ -51,7 +51,7 @@ namespace Pulumi.AwsNative.DMS.Outputs
             KmsKeyId = kmsKeyId;
             MaxCapacityUnits = maxCapacityUnits;
             MinCapacityUnits = minCapacityUnits;
-            MultiAZ = multiAZ;
+            MultiAz = multiAz;
             PreferredMaintenanceWindow = preferredMaintenanceWindow;
             ReplicationSubnetGroupId = replicationSubnetGroupId;
             VpcSecurityGroupIds = vpcSecurityGroupIds;

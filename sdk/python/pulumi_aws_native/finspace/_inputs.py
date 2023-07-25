@@ -88,7 +88,7 @@ class EnvironmentFederationParametersArgs:
             pulumi.set(__self__, "saml_metadata_url", saml_metadata_url)
 
     @property
-    @pulumi.getter(name="applicationCallBackURL")
+    @pulumi.getter(name="applicationCallBackUrl")
     def application_call_back_url(self) -> Optional[pulumi.Input[str]]:
         """
         SAML metadata URL to link with the Environment
@@ -124,7 +124,7 @@ class EnvironmentFederationParametersArgs:
         pulumi.set(self, "federation_provider_name", value)
 
     @property
-    @pulumi.getter(name="federationURN")
+    @pulumi.getter(name="federationUrn")
     def federation_urn(self) -> Optional[pulumi.Input[str]]:
         """
         SAML metadata URL to link with the Environment
@@ -148,7 +148,7 @@ class EnvironmentFederationParametersArgs:
         pulumi.set(self, "saml_metadata_document", value)
 
     @property
-    @pulumi.getter(name="samlMetadataURL")
+    @pulumi.getter(name="samlMetadataUrl")
     def saml_metadata_url(self) -> Optional[pulumi.Input[str]]:
         """
         SAML metadata URL to link with the Environment

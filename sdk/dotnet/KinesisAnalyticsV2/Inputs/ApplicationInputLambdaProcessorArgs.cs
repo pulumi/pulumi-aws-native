@@ -18,8 +18,8 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
         /// <summary>
         /// The ARN of the Amazon Lambda function that operates on records in the stream.
         /// </summary>
-        [Input("resourceARN", required: true)]
-        public Input<string> ResourceARN { get; set; } = null!;
+        [Input("resourceArn", required: true)]
+        public Input<string> ResourceArn { get; set; } = null!;
 
         public ApplicationInputLambdaProcessorArgs()
         {

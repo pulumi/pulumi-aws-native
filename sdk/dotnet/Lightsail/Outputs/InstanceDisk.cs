@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.Lightsail.Outputs
         /// <summary>
         /// IOPS of disk.
         /// </summary>
-        public readonly int? IOPS;
+        public readonly int? Iops;
         /// <summary>
         /// Is the Attached disk is the system disk of the Instance.
         /// </summary>
@@ -53,7 +53,7 @@ namespace Pulumi.AwsNative.Lightsail.Outputs
 
             string diskName,
 
-            int? iOPS,
+            int? iops,
 
             bool? isSystemDisk,
 
@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.Lightsail.Outputs
             AttachedTo = attachedTo;
             AttachmentState = attachmentState;
             DiskName = diskName;
-            IOPS = iOPS;
+            Iops = iops;
             IsSystemDisk = isSystemDisk;
             Path = path;
             SizeInGb = sizeInGb;

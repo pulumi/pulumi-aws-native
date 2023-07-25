@@ -18,14 +18,14 @@ namespace Pulumi.AwsNative.MemoryDB
         /// <summary>
         /// The name of the Access Control List to associate with the cluster.
         /// </summary>
-        [Output("aCLName")]
-        public Output<string> ACLName { get; private set; } = null!;
+        [Output("aclName")]
+        public Output<string> AclName { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the cluster.
         /// </summary>
-        [Output("aRN")]
-        public Output<string> ARN { get; private set; } = null!;
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
         /// A flag that enables automatic minor version upgrade when set to true.
@@ -174,18 +174,18 @@ namespace Pulumi.AwsNative.MemoryDB
         public Output<string?> SubnetGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A flag that enables in-transit encryption when set to true.
-        /// 
-        /// You cannot modify the value of TransitEncryptionEnabled after the cluster is created. To enable in-transit encryption on a cluster you must set TransitEncryptionEnabled to true when you create a cluster.
-        /// </summary>
-        [Output("tLSEnabled")]
-        public Output<bool?> TLSEnabled { get; private set; } = null!;
-
-        /// <summary>
         /// An array of key-value pairs to apply to this cluster.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Outputs.ClusterTag>> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// A flag that enables in-transit encryption when set to true.
+        /// 
+        /// You cannot modify the value of TransitEncryptionEnabled after the cluster is created. To enable in-transit encryption on a cluster you must set TransitEncryptionEnabled to true when you create a cluster.
+        /// </summary>
+        [Output("tlsEnabled")]
+        public Output<bool?> TlsEnabled { get; private set; } = null!;
 
 
         /// <summary>
@@ -235,8 +235,8 @@ namespace Pulumi.AwsNative.MemoryDB
         /// <summary>
         /// The name of the Access Control List to associate with the cluster.
         /// </summary>
-        [Input("aCLName", required: true)]
-        public Input<string> ACLName { get; set; } = null!;
+        [Input("aclName", required: true)]
+        public Input<string> AclName { get; set; } = null!;
 
         /// <summary>
         /// A flag that enables automatic minor version upgrade when set to true.
@@ -384,14 +384,6 @@ namespace Pulumi.AwsNative.MemoryDB
         [Input("subnetGroupName")]
         public Input<string>? SubnetGroupName { get; set; }
 
-        /// <summary>
-        /// A flag that enables in-transit encryption when set to true.
-        /// 
-        /// You cannot modify the value of TransitEncryptionEnabled after the cluster is created. To enable in-transit encryption on a cluster you must set TransitEncryptionEnabled to true when you create a cluster.
-        /// </summary>
-        [Input("tLSEnabled")]
-        public Input<bool>? TLSEnabled { get; set; }
-
         [Input("tags")]
         private InputList<Inputs.ClusterTagArgs>? _tags;
 
@@ -403,6 +395,14 @@ namespace Pulumi.AwsNative.MemoryDB
             get => _tags ?? (_tags = new InputList<Inputs.ClusterTagArgs>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// A flag that enables in-transit encryption when set to true.
+        /// 
+        /// You cannot modify the value of TransitEncryptionEnabled after the cluster is created. To enable in-transit encryption on a cluster you must set TransitEncryptionEnabled to true when you create a cluster.
+        /// </summary>
+        [Input("tlsEnabled")]
+        public Input<bool>? TlsEnabled { get; set; }
 
         public ClusterArgs()
         {

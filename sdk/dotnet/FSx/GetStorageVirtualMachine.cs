@@ -52,17 +52,17 @@ namespace Pulumi.AwsNative.FSx
     public sealed class GetStorageVirtualMachineResult
     {
         public readonly Outputs.StorageVirtualMachineActiveDirectoryConfiguration? ActiveDirectoryConfiguration;
-        public readonly string? ResourceARN;
+        public readonly string? ResourceArn;
         public readonly string? StorageVirtualMachineId;
         public readonly string? SvmAdminPassword;
         public readonly ImmutableArray<Outputs.StorageVirtualMachineTag> Tags;
-        public readonly string? UUID;
+        public readonly string? Uuid;
 
         [OutputConstructor]
         private GetStorageVirtualMachineResult(
             Outputs.StorageVirtualMachineActiveDirectoryConfiguration? activeDirectoryConfiguration,
 
-            string? resourceARN,
+            string? resourceArn,
 
             string? storageVirtualMachineId,
 
@@ -70,14 +70,14 @@ namespace Pulumi.AwsNative.FSx
 
             ImmutableArray<Outputs.StorageVirtualMachineTag> tags,
 
-            string? uUID)
+            string? uuid)
         {
             ActiveDirectoryConfiguration = activeDirectoryConfiguration;
-            ResourceARN = resourceARN;
+            ResourceArn = resourceArn;
             StorageVirtualMachineId = storageVirtualMachineId;
             SvmAdminPassword = svmAdminPassword;
             Tags = tags;
-            UUID = uUID;
+            Uuid = uuid;
         }
     }
 }

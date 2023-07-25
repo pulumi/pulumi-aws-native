@@ -19,12 +19,12 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Outputs
         /// <summary>
         /// The ARN of the Amazon Lambda function that operates on records in the stream.
         /// </summary>
-        public readonly string ResourceARN;
+        public readonly string ResourceArn;
 
         [OutputConstructor]
-        private ApplicationInputLambdaProcessor(string resourceARN)
+        private ApplicationInputLambdaProcessor(string resourceArn)
         {
-            ResourceARN = resourceARN;
+            ResourceArn = resourceArn;
         }
     }
 }

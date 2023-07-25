@@ -28,7 +28,7 @@ type ConformancePack struct {
 	// Location of file containing the template body which points to the conformance pack template that is located in an Amazon S3 bucket. You can only specify one of the template body or template S3Uri fields.
 	TemplateS3Uri pulumi.StringPtrOutput `pulumi:"templateS3Uri"`
 	// The TemplateSSMDocumentDetails object contains the name of the SSM document and the version of the SSM document.
-	TemplateSSMDocumentDetails TemplateSSMDocumentDetailsPropertiesPtrOutput `pulumi:"templateSSMDocumentDetails"`
+	TemplateSsmDocumentDetails TemplateSSMDocumentDetailsPropertiesPtrOutput `pulumi:"templateSsmDocumentDetails"`
 }
 
 // NewConformancePack registers a new resource with the given unique name, arguments, and options.
@@ -84,7 +84,7 @@ type conformancePackArgs struct {
 	// Location of file containing the template body which points to the conformance pack template that is located in an Amazon S3 bucket. You can only specify one of the template body or template S3Uri fields.
 	TemplateS3Uri *string `pulumi:"templateS3Uri"`
 	// The TemplateSSMDocumentDetails object contains the name of the SSM document and the version of the SSM document.
-	TemplateSSMDocumentDetails *TemplateSSMDocumentDetailsProperties `pulumi:"templateSSMDocumentDetails"`
+	TemplateSsmDocumentDetails *TemplateSSMDocumentDetailsProperties `pulumi:"templateSsmDocumentDetails"`
 }
 
 // The set of arguments for constructing a ConformancePack resource.
@@ -102,7 +102,7 @@ type ConformancePackArgs struct {
 	// Location of file containing the template body which points to the conformance pack template that is located in an Amazon S3 bucket. You can only specify one of the template body or template S3Uri fields.
 	TemplateS3Uri pulumi.StringPtrInput
 	// The TemplateSSMDocumentDetails object contains the name of the SSM document and the version of the SSM document.
-	TemplateSSMDocumentDetails TemplateSSMDocumentDetailsPropertiesPtrInput
+	TemplateSsmDocumentDetails TemplateSSMDocumentDetailsPropertiesPtrInput
 }
 
 func (ConformancePackArgs) ElementType() reflect.Type {
@@ -175,9 +175,9 @@ func (o ConformancePackOutput) TemplateS3Uri() pulumi.StringPtrOutput {
 }
 
 // The TemplateSSMDocumentDetails object contains the name of the SSM document and the version of the SSM document.
-func (o ConformancePackOutput) TemplateSSMDocumentDetails() TemplateSSMDocumentDetailsPropertiesPtrOutput {
+func (o ConformancePackOutput) TemplateSsmDocumentDetails() TemplateSSMDocumentDetailsPropertiesPtrOutput {
 	return o.ApplyT(func(v *ConformancePack) TemplateSSMDocumentDetailsPropertiesPtrOutput {
-		return v.TemplateSSMDocumentDetails
+		return v.TemplateSsmDocumentDetails
 	}).(TemplateSSMDocumentDetailsPropertiesPtrOutput)
 }
 

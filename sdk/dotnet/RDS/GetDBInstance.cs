@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// A name for the DB instance. If you specify a name, AWS CloudFormation converts it to lowercase. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the DB instance.
         /// </summary>
-        [Input("dBInstanceIdentifier", required: true)]
-        public string DBInstanceIdentifier { get; set; } = null!;
+        [Input("dbInstanceIdentifier", required: true)]
+        public string DbInstanceIdentifier { get; set; } = null!;
 
         public GetDBInstanceArgs()
         {
@@ -44,8 +44,8 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// A name for the DB instance. If you specify a name, AWS CloudFormation converts it to lowercase. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the DB instance.
         /// </summary>
-        [Input("dBInstanceIdentifier", required: true)]
-        public Input<string> DBInstanceIdentifier { get; set; } = null!;
+        [Input("dbInstanceIdentifier", required: true)]
+        public Input<string> DbInstanceIdentifier { get; set; } = null!;
 
         public GetDBInstanceInvokeArgs()
         {
@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// The identifier of the CA certificate for this DB instance.
         /// </summary>
-        public readonly string? CACertificateIdentifier;
+        public readonly string? CaCertificateIdentifier;
         /// <summary>
         /// Returns the details of the DB instance's server certificate.
         /// </summary>
@@ -100,27 +100,27 @@ namespace Pulumi.AwsNative.RDS
         ///  * Can't be the identifier of an Aurora DB cluster snapshot.
         ///  * Can't be the identifier of an RDS for PostgreSQL Multi-AZ DB cluster snapshot.
         /// </summary>
-        public readonly string? DBClusterSnapshotIdentifier;
+        public readonly string? DbClusterSnapshotIdentifier;
         /// <summary>
         /// The Amazon Resource Name (ARN) for the DB instance.
         /// </summary>
-        public readonly string? DBInstanceArn;
+        public readonly string? DbInstanceArn;
         /// <summary>
         /// The compute and memory capacity of the DB instance, for example, db.m4.large. Not all DB instance classes are available in all AWS Regions, or for all database engines.
         /// </summary>
-        public readonly string? DBInstanceClass;
+        public readonly string? DbInstanceClass;
         /// <summary>
         /// The name of an existing DB parameter group or a reference to an AWS::RDS::DBParameterGroup resource created in the template.
         /// </summary>
-        public readonly string? DBParameterGroupName;
+        public readonly string? DbParameterGroupName;
         /// <summary>
         /// A list of the DB security groups to assign to the DB instance. The list can include both the name of existing DB security groups or references to AWS::RDS::DBSecurityGroup resources created in the template.
         /// </summary>
-        public readonly ImmutableArray<string> DBSecurityGroups;
+        public readonly ImmutableArray<string> DbSecurityGroups;
         /// <summary>
         /// The Oracle system ID (Oracle SID) for a container database (CDB). The Oracle SID is also the name of the CDB. This setting is valid for RDS Custom only.
         /// </summary>
-        public readonly string? DBSystemId;
+        public readonly string? DbSystemId;
         /// <summary>
         /// The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
         /// </summary>
@@ -136,7 +136,7 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// Specify the name of the IAM role to be used when making API calls to the Directory Service.
         /// </summary>
-        public readonly string? DomainIAMRoleName;
+        public readonly string? DomainIamRoleName;
         /// <summary>
         /// The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used.
         /// </summary>
@@ -144,7 +144,7 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
         /// </summary>
-        public readonly bool? EnableIAMDatabaseAuthentication;
+        public readonly bool? EnableIamDatabaseAuthentication;
         /// <summary>
         /// A value that indicates whether to enable Performance Insights for the DB instance.
         /// </summary>
@@ -192,7 +192,7 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// Specifies whether the database instance is a multiple Availability Zone deployment.
         /// </summary>
-        public readonly bool? MultiAZ;
+        public readonly bool? MultiAz;
         /// <summary>
         /// The network type of the DB cluster.
         /// </summary>
@@ -204,7 +204,7 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// The AWS KMS key identifier for encryption of Performance Insights data. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.
         /// </summary>
-        public readonly string? PerformanceInsightsKMSKeyId;
+        public readonly string? PerformanceInsightsKmsKeyId;
         /// <summary>
         /// The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years).
         /// </summary>
@@ -236,7 +236,7 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// The identifier of the Multi-AZ DB cluster that will act as the source for the read replica. Each DB cluster can have up to 15 read replicas.
         /// </summary>
-        public readonly string? SourceDBClusterIdentifier;
+        public readonly string? SourceDbClusterIdentifier;
         /// <summary>
         /// Specifies the storage throughput for the DB instance.
         /// </summary>
@@ -256,7 +256,7 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// A list of the VPC security group IDs to assign to the DB instance. The list can include both the physical IDs of existing VPC security groups and references to AWS::EC2::SecurityGroup resources created in the template.
         /// </summary>
-        public readonly ImmutableArray<string> VPCSecurityGroups;
+        public readonly ImmutableArray<string> VpcSecurityGroups;
 
         [OutputConstructor]
         private GetDBInstanceResult(
@@ -270,23 +270,23 @@ namespace Pulumi.AwsNative.RDS
 
             int? backupRetentionPeriod,
 
-            string? cACertificateIdentifier,
+            string? caCertificateIdentifier,
 
             Outputs.DBInstanceCertificateDetails? certificateDetails,
 
             bool? copyTagsToSnapshot,
 
-            string? dBClusterSnapshotIdentifier,
+            string? dbClusterSnapshotIdentifier,
 
-            string? dBInstanceArn,
+            string? dbInstanceArn,
 
-            string? dBInstanceClass,
+            string? dbInstanceClass,
 
-            string? dBParameterGroupName,
+            string? dbParameterGroupName,
 
-            ImmutableArray<string> dBSecurityGroups,
+            ImmutableArray<string> dbSecurityGroups,
 
-            string? dBSystemId,
+            string? dbSystemId,
 
             string? dbiResourceId,
 
@@ -294,11 +294,11 @@ namespace Pulumi.AwsNative.RDS
 
             string? domain,
 
-            string? domainIAMRoleName,
+            string? domainIamRoleName,
 
             ImmutableArray<string> enableCloudwatchLogsExports,
 
-            bool? enableIAMDatabaseAuthentication,
+            bool? enableIamDatabaseAuthentication,
 
             bool? enablePerformanceInsights,
 
@@ -322,13 +322,13 @@ namespace Pulumi.AwsNative.RDS
 
             string? monitoringRoleArn,
 
-            bool? multiAZ,
+            bool? multiAz,
 
             string? networkType,
 
             string? optionGroupName,
 
-            string? performanceInsightsKMSKeyId,
+            string? performanceInsightsKmsKeyId,
 
             int? performanceInsightsRetentionPeriod,
 
@@ -344,7 +344,7 @@ namespace Pulumi.AwsNative.RDS
 
             string? replicaMode,
 
-            string? sourceDBClusterIdentifier,
+            string? sourceDbClusterIdentifier,
 
             int? storageThroughput,
 
@@ -354,28 +354,28 @@ namespace Pulumi.AwsNative.RDS
 
             string? tdeCredentialArn,
 
-            ImmutableArray<string> vPCSecurityGroups)
+            ImmutableArray<string> vpcSecurityGroups)
         {
             AllocatedStorage = allocatedStorage;
             AssociatedRoles = associatedRoles;
             AutoMinorVersionUpgrade = autoMinorVersionUpgrade;
             AvailabilityZone = availabilityZone;
             BackupRetentionPeriod = backupRetentionPeriod;
-            CACertificateIdentifier = cACertificateIdentifier;
+            CaCertificateIdentifier = caCertificateIdentifier;
             CertificateDetails = certificateDetails;
             CopyTagsToSnapshot = copyTagsToSnapshot;
-            DBClusterSnapshotIdentifier = dBClusterSnapshotIdentifier;
-            DBInstanceArn = dBInstanceArn;
-            DBInstanceClass = dBInstanceClass;
-            DBParameterGroupName = dBParameterGroupName;
-            DBSecurityGroups = dBSecurityGroups;
-            DBSystemId = dBSystemId;
+            DbClusterSnapshotIdentifier = dbClusterSnapshotIdentifier;
+            DbInstanceArn = dbInstanceArn;
+            DbInstanceClass = dbInstanceClass;
+            DbParameterGroupName = dbParameterGroupName;
+            DbSecurityGroups = dbSecurityGroups;
+            DbSystemId = dbSystemId;
             DbiResourceId = dbiResourceId;
             DeletionProtection = deletionProtection;
             Domain = domain;
-            DomainIAMRoleName = domainIAMRoleName;
+            DomainIamRoleName = domainIamRoleName;
             EnableCloudwatchLogsExports = enableCloudwatchLogsExports;
-            EnableIAMDatabaseAuthentication = enableIAMDatabaseAuthentication;
+            EnableIamDatabaseAuthentication = enableIamDatabaseAuthentication;
             EnablePerformanceInsights = enablePerformanceInsights;
             Endpoint = endpoint;
             Engine = engine;
@@ -387,10 +387,10 @@ namespace Pulumi.AwsNative.RDS
             MaxAllocatedStorage = maxAllocatedStorage;
             MonitoringInterval = monitoringInterval;
             MonitoringRoleArn = monitoringRoleArn;
-            MultiAZ = multiAZ;
+            MultiAz = multiAz;
             NetworkType = networkType;
             OptionGroupName = optionGroupName;
-            PerformanceInsightsKMSKeyId = performanceInsightsKMSKeyId;
+            PerformanceInsightsKmsKeyId = performanceInsightsKmsKeyId;
             PerformanceInsightsRetentionPeriod = performanceInsightsRetentionPeriod;
             PreferredBackupWindow = preferredBackupWindow;
             PreferredMaintenanceWindow = preferredMaintenanceWindow;
@@ -398,12 +398,12 @@ namespace Pulumi.AwsNative.RDS
             PromotionTier = promotionTier;
             PubliclyAccessible = publiclyAccessible;
             ReplicaMode = replicaMode;
-            SourceDBClusterIdentifier = sourceDBClusterIdentifier;
+            SourceDbClusterIdentifier = sourceDbClusterIdentifier;
             StorageThroughput = storageThroughput;
             StorageType = storageType;
             Tags = tags;
             TdeCredentialArn = tdeCredentialArn;
-            VPCSecurityGroups = vPCSecurityGroups;
+            VpcSecurityGroups = vpcSecurityGroups;
         }
     }
 }

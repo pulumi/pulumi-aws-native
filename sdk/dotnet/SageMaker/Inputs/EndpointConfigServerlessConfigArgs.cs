@@ -15,8 +15,8 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("maxConcurrency", required: true)]
         public Input<int> MaxConcurrency { get; set; } = null!;
 
-        [Input("memorySizeInMB", required: true)]
-        public Input<int> MemorySizeInMB { get; set; } = null!;
+        [Input("memorySizeInMb", required: true)]
+        public Input<int> MemorySizeInMb { get; set; } = null!;
 
         [Input("provisionedConcurrency")]
         public Input<int>? ProvisionedConcurrency { get; set; }

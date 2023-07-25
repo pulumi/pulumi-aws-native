@@ -81,8 +81,8 @@ namespace Pulumi.AwsNative.CloudTrail
         /// <summary>
         /// Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
         /// </summary>
-        [Output("kMSKeyId")]
-        public Output<string?> KMSKeyId { get; private set; } = null!;
+        [Output("kmsKeyId")]
+        public Output<string?> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of the Amazon S3 bucket designated for publishing log files. See Amazon S3 Bucket Naming Requirements.
@@ -237,8 +237,8 @@ namespace Pulumi.AwsNative.CloudTrail
         /// <summary>
         /// Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
         /// </summary>
-        [Input("kMSKeyId")]
-        public Input<string>? KMSKeyId { get; set; }
+        [Input("kmsKeyId")]
+        public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
         /// Specifies the name of the Amazon S3 bucket designated for publishing log files. See Amazon S3 Bucket Naming Requirements.

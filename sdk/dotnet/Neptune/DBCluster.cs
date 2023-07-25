@@ -48,26 +48,26 @@ namespace Pulumi.AwsNative.Neptune
         /// <summary>
         /// The DB cluster identifier. Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster stored as a lowercase string.
         /// </summary>
-        [Output("dBClusterIdentifier")]
-        public Output<string?> DBClusterIdentifier { get; private set; } = null!;
+        [Output("dbClusterIdentifier")]
+        public Output<string?> DbClusterIdentifier { get; private set; } = null!;
 
         /// <summary>
         /// Provides the name of the DB cluster parameter group.
         /// </summary>
-        [Output("dBClusterParameterGroupName")]
-        public Output<string?> DBClusterParameterGroupName { get; private set; } = null!;
+        [Output("dbClusterParameterGroupName")]
+        public Output<string?> DbClusterParameterGroupName { get; private set; } = null!;
 
         /// <summary>
         /// The name of the DB parameter group to apply to all instances of the DB cluster. Used only in case of a major EngineVersion upgrade request.
         /// </summary>
-        [Output("dBInstanceParameterGroupName")]
-        public Output<string?> DBInstanceParameterGroupName { get; private set; } = null!;
+        [Output("dbInstanceParameterGroupName")]
+        public Output<string?> DbInstanceParameterGroupName { get; private set; } = null!;
 
         /// <summary>
         /// Specifies information on the subnet group associated with the DB cluster, including the name, description, and subnets in the subnet group.
         /// </summary>
-        [Output("dBSubnetGroupName")]
-        public Output<string?> DBSubnetGroupName { get; private set; } = null!;
+        [Output("dbSubnetGroupName")]
+        public Output<string?> DbSubnetGroupName { get; private set; } = null!;
 
         /// <summary>
         /// Indicates whether or not the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled.
@@ -172,8 +172,8 @@ namespace Pulumi.AwsNative.Neptune
         /// 
         /// If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
         /// </summary>
-        [Output("sourceDBClusterIdentifier")]
-        public Output<string?> SourceDBClusterIdentifier { get; private set; } = null!;
+        [Output("sourceDbClusterIdentifier")]
+        public Output<string?> SourceDbClusterIdentifier { get; private set; } = null!;
 
         /// <summary>
         /// Indicates whether the DB cluster is encrypted.
@@ -291,26 +291,26 @@ namespace Pulumi.AwsNative.Neptune
         /// <summary>
         /// The DB cluster identifier. Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster stored as a lowercase string.
         /// </summary>
-        [Input("dBClusterIdentifier")]
-        public Input<string>? DBClusterIdentifier { get; set; }
+        [Input("dbClusterIdentifier")]
+        public Input<string>? DbClusterIdentifier { get; set; }
 
         /// <summary>
         /// Provides the name of the DB cluster parameter group.
         /// </summary>
-        [Input("dBClusterParameterGroupName")]
-        public Input<string>? DBClusterParameterGroupName { get; set; }
+        [Input("dbClusterParameterGroupName")]
+        public Input<string>? DbClusterParameterGroupName { get; set; }
 
         /// <summary>
         /// The name of the DB parameter group to apply to all instances of the DB cluster. Used only in case of a major EngineVersion upgrade request.
         /// </summary>
-        [Input("dBInstanceParameterGroupName")]
-        public Input<string>? DBInstanceParameterGroupName { get; set; }
+        [Input("dbInstanceParameterGroupName")]
+        public Input<string>? DbInstanceParameterGroupName { get; set; }
 
         /// <summary>
         /// Specifies information on the subnet group associated with the DB cluster, including the name, description, and subnets in the subnet group.
         /// </summary>
-        [Input("dBSubnetGroupName")]
-        public Input<string>? DBSubnetGroupName { get; set; }
+        [Input("dbSubnetGroupName")]
+        public Input<string>? DbSubnetGroupName { get; set; }
 
         /// <summary>
         /// Indicates whether or not the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled.
@@ -403,8 +403,8 @@ namespace Pulumi.AwsNative.Neptune
         /// 
         /// If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
         /// </summary>
-        [Input("sourceDBClusterIdentifier")]
-        public Input<string>? SourceDBClusterIdentifier { get; set; }
+        [Input("sourceDbClusterIdentifier")]
+        public Input<string>? SourceDbClusterIdentifier { get; set; }
 
         /// <summary>
         /// Indicates whether the DB cluster is encrypted.

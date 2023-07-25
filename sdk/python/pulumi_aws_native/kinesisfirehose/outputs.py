@@ -65,7 +65,7 @@ class DeliveryStreamAmazonOpenSearchServerlessBufferingHints(dict):
         suggest = None
         if key == "intervalInSeconds":
             suggest = "interval_in_seconds"
-        elif key == "sizeInMBs":
+        elif key == "sizeInMbs":
             suggest = "size_in_mbs"
 
         if suggest:
@@ -93,7 +93,7 @@ class DeliveryStreamAmazonOpenSearchServerlessBufferingHints(dict):
         return pulumi.get(self, "interval_in_seconds")
 
     @property
-    @pulumi.getter(name="sizeInMBs")
+    @pulumi.getter(name="sizeInMbs")
     def size_in_mbs(self) -> Optional[int]:
         return pulumi.get(self, "size_in_mbs")
 
@@ -105,7 +105,7 @@ class DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration(dict):
         suggest = None
         if key == "indexName":
             suggest = "index_name"
-        elif key == "roleARN":
+        elif key == "roleArn":
             suggest = "role_arn"
         elif key == "s3Configuration":
             suggest = "s3_configuration"
@@ -170,7 +170,7 @@ class DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration(dict):
         return pulumi.get(self, "index_name")
 
     @property
-    @pulumi.getter(name="roleARN")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
         return pulumi.get(self, "role_arn")
 
@@ -252,7 +252,7 @@ class DeliveryStreamAmazonopensearchserviceBufferingHints(dict):
         suggest = None
         if key == "intervalInSeconds":
             suggest = "interval_in_seconds"
-        elif key == "sizeInMBs":
+        elif key == "sizeInMbs":
             suggest = "size_in_mbs"
 
         if suggest:
@@ -280,7 +280,7 @@ class DeliveryStreamAmazonopensearchserviceBufferingHints(dict):
         return pulumi.get(self, "interval_in_seconds")
 
     @property
-    @pulumi.getter(name="sizeInMBs")
+    @pulumi.getter(name="sizeInMbs")
     def size_in_mbs(self) -> Optional[int]:
         return pulumi.get(self, "size_in_mbs")
 
@@ -292,7 +292,7 @@ class DeliveryStreamAmazonopensearchserviceDestinationConfiguration(dict):
         suggest = None
         if key == "indexName":
             suggest = "index_name"
-        elif key == "roleARN":
+        elif key == "roleArn":
             suggest = "role_arn"
         elif key == "s3Configuration":
             suggest = "s3_configuration"
@@ -304,7 +304,7 @@ class DeliveryStreamAmazonopensearchserviceDestinationConfiguration(dict):
             suggest = "cluster_endpoint"
         elif key == "documentIdOptions":
             suggest = "document_id_options"
-        elif key == "domainARN":
+        elif key == "domainArn":
             suggest = "domain_arn"
         elif key == "indexRotationPeriod":
             suggest = "index_rotation_period"
@@ -377,7 +377,7 @@ class DeliveryStreamAmazonopensearchserviceDestinationConfiguration(dict):
         return pulumi.get(self, "index_name")
 
     @property
-    @pulumi.getter(name="roleARN")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
         return pulumi.get(self, "role_arn")
 
@@ -407,7 +407,7 @@ class DeliveryStreamAmazonopensearchserviceDestinationConfiguration(dict):
         return pulumi.get(self, "document_id_options")
 
     @property
-    @pulumi.getter(name="domainARN")
+    @pulumi.getter(name="domainArn")
     def domain_arn(self) -> Optional[str]:
         return pulumi.get(self, "domain_arn")
 
@@ -479,7 +479,7 @@ class DeliveryStreamBufferingHints(dict):
         suggest = None
         if key == "intervalInSeconds":
             suggest = "interval_in_seconds"
-        elif key == "sizeInMBs":
+        elif key == "sizeInMbs":
             suggest = "size_in_mbs"
 
         if suggest:
@@ -507,7 +507,7 @@ class DeliveryStreamBufferingHints(dict):
         return pulumi.get(self, "interval_in_seconds")
 
     @property
-    @pulumi.getter(name="sizeInMBs")
+    @pulumi.getter(name="sizeInMbs")
     def size_in_mbs(self) -> Optional[int]:
         return pulumi.get(self, "size_in_mbs")
 
@@ -781,7 +781,7 @@ class DeliveryStreamElasticsearchBufferingHints(dict):
         suggest = None
         if key == "intervalInSeconds":
             suggest = "interval_in_seconds"
-        elif key == "sizeInMBs":
+        elif key == "sizeInMbs":
             suggest = "size_in_mbs"
 
         if suggest:
@@ -809,7 +809,7 @@ class DeliveryStreamElasticsearchBufferingHints(dict):
         return pulumi.get(self, "interval_in_seconds")
 
     @property
-    @pulumi.getter(name="sizeInMBs")
+    @pulumi.getter(name="sizeInMbs")
     def size_in_mbs(self) -> Optional[int]:
         return pulumi.get(self, "size_in_mbs")
 
@@ -821,7 +821,7 @@ class DeliveryStreamElasticsearchDestinationConfiguration(dict):
         suggest = None
         if key == "indexName":
             suggest = "index_name"
-        elif key == "roleARN":
+        elif key == "roleArn":
             suggest = "role_arn"
         elif key == "s3Configuration":
             suggest = "s3_configuration"
@@ -833,7 +833,7 @@ class DeliveryStreamElasticsearchDestinationConfiguration(dict):
             suggest = "cluster_endpoint"
         elif key == "documentIdOptions":
             suggest = "document_id_options"
-        elif key == "domainARN":
+        elif key == "domainArn":
             suggest = "domain_arn"
         elif key == "indexRotationPeriod":
             suggest = "index_rotation_period"
@@ -906,7 +906,7 @@ class DeliveryStreamElasticsearchDestinationConfiguration(dict):
         return pulumi.get(self, "index_name")
 
     @property
-    @pulumi.getter(name="roleARN")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
         return pulumi.get(self, "role_arn")
 
@@ -936,7 +936,7 @@ class DeliveryStreamElasticsearchDestinationConfiguration(dict):
         return pulumi.get(self, "document_id_options")
 
     @property
-    @pulumi.getter(name="domainARN")
+    @pulumi.getter(name="domainArn")
     def domain_arn(self) -> Optional[str]:
         return pulumi.get(self, "domain_arn")
 
@@ -1006,8 +1006,8 @@ class DeliveryStreamEncryptionConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "kMSEncryptionConfig":
-            suggest = "k_ms_encryption_config"
+        if key == "kmsEncryptionConfig":
+            suggest = "kms_encryption_config"
         elif key == "noEncryptionConfig":
             suggest = "no_encryption_config"
 
@@ -1023,17 +1023,17 @@ class DeliveryStreamEncryptionConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 k_ms_encryption_config: Optional['outputs.DeliveryStreamKMSEncryptionConfig'] = None,
+                 kms_encryption_config: Optional['outputs.DeliveryStreamKMSEncryptionConfig'] = None,
                  no_encryption_config: Optional['DeliveryStreamEncryptionConfigurationNoEncryptionConfig'] = None):
-        if k_ms_encryption_config is not None:
-            pulumi.set(__self__, "k_ms_encryption_config", k_ms_encryption_config)
+        if kms_encryption_config is not None:
+            pulumi.set(__self__, "kms_encryption_config", kms_encryption_config)
         if no_encryption_config is not None:
             pulumi.set(__self__, "no_encryption_config", no_encryption_config)
 
     @property
-    @pulumi.getter(name="kMSEncryptionConfig")
-    def k_ms_encryption_config(self) -> Optional['outputs.DeliveryStreamKMSEncryptionConfig']:
-        return pulumi.get(self, "k_ms_encryption_config")
+    @pulumi.getter(name="kmsEncryptionConfig")
+    def kms_encryption_config(self) -> Optional['outputs.DeliveryStreamKMSEncryptionConfig']:
+        return pulumi.get(self, "kms_encryption_config")
 
     @property
     @pulumi.getter(name="noEncryptionConfig")
@@ -1048,7 +1048,7 @@ class DeliveryStreamEncryptionConfigurationInput(dict):
         suggest = None
         if key == "keyType":
             suggest = "key_type"
-        elif key == "keyARN":
+        elif key == "keyArn":
             suggest = "key_arn"
 
         if suggest:
@@ -1075,7 +1075,7 @@ class DeliveryStreamEncryptionConfigurationInput(dict):
         return pulumi.get(self, "key_type")
 
     @property
-    @pulumi.getter(name="keyARN")
+    @pulumi.getter(name="keyArn")
     def key_arn(self) -> Optional[str]:
         return pulumi.get(self, "key_arn")
 
@@ -1085,9 +1085,9 @@ class DeliveryStreamExtendedS3DestinationConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "bucketARN":
+        if key == "bucketArn":
             suggest = "bucket_arn"
-        elif key == "roleARN":
+        elif key == "roleArn":
             suggest = "role_arn"
         elif key == "bufferingHints":
             suggest = "buffering_hints"
@@ -1161,12 +1161,12 @@ class DeliveryStreamExtendedS3DestinationConfiguration(dict):
             pulumi.set(__self__, "s3_backup_mode", s3_backup_mode)
 
     @property
-    @pulumi.getter(name="bucketARN")
+    @pulumi.getter(name="bucketArn")
     def bucket_arn(self) -> str:
         return pulumi.get(self, "bucket_arn")
 
     @property
-    @pulumi.getter(name="roleARN")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
         return pulumi.get(self, "role_arn")
 
@@ -1358,7 +1358,7 @@ class DeliveryStreamHttpEndpointDestinationConfiguration(dict):
             suggest = "request_configuration"
         elif key == "retryOptions":
             suggest = "retry_options"
-        elif key == "roleARN":
+        elif key == "roleArn":
             suggest = "role_arn"
         elif key == "s3BackupMode":
             suggest = "s3_backup_mode"
@@ -1437,7 +1437,7 @@ class DeliveryStreamHttpEndpointDestinationConfiguration(dict):
         return pulumi.get(self, "retry_options")
 
     @property
-    @pulumi.getter(name="roleARN")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[str]:
         return pulumi.get(self, "role_arn")
 
@@ -1505,8 +1505,8 @@ class DeliveryStreamKMSEncryptionConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "aWSKMSKeyARN":
-            suggest = "a_wskms_key_arn"
+        if key == "awskmsKeyArn":
+            suggest = "awskms_key_arn"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DeliveryStreamKMSEncryptionConfig. Access the value via the '{suggest}' property getter instead.")
@@ -1520,13 +1520,13 @@ class DeliveryStreamKMSEncryptionConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 a_wskms_key_arn: str):
-        pulumi.set(__self__, "a_wskms_key_arn", a_wskms_key_arn)
+                 awskms_key_arn: str):
+        pulumi.set(__self__, "awskms_key_arn", awskms_key_arn)
 
     @property
-    @pulumi.getter(name="aWSKMSKeyARN")
-    def a_wskms_key_arn(self) -> str:
-        return pulumi.get(self, "a_wskms_key_arn")
+    @pulumi.getter(name="awskmsKeyArn")
+    def awskms_key_arn(self) -> str:
+        return pulumi.get(self, "awskms_key_arn")
 
 
 @pulumi.output_type
@@ -1534,9 +1534,9 @@ class DeliveryStreamKinesisStreamSourceConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "kinesisStreamARN":
+        if key == "kinesisStreamArn":
             suggest = "kinesis_stream_arn"
-        elif key == "roleARN":
+        elif key == "roleArn":
             suggest = "role_arn"
 
         if suggest:
@@ -1557,12 +1557,12 @@ class DeliveryStreamKinesisStreamSourceConfiguration(dict):
         pulumi.set(__self__, "role_arn", role_arn)
 
     @property
-    @pulumi.getter(name="kinesisStreamARN")
+    @pulumi.getter(name="kinesisStreamArn")
     def kinesis_stream_arn(self) -> str:
         return pulumi.get(self, "kinesis_stream_arn")
 
     @property
-    @pulumi.getter(name="roleARN")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
         return pulumi.get(self, "role_arn")
 
@@ -1910,11 +1910,11 @@ class DeliveryStreamRedshiftDestinationConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "clusterJDBCURL":
+        if key == "clusterJdbcurl":
             suggest = "cluster_jdbcurl"
         elif key == "copyCommand":
             suggest = "copy_command"
-        elif key == "roleARN":
+        elif key == "roleArn":
             suggest = "role_arn"
         elif key == "s3Configuration":
             suggest = "s3_configuration"
@@ -1970,7 +1970,7 @@ class DeliveryStreamRedshiftDestinationConfiguration(dict):
             pulumi.set(__self__, "s3_backup_mode", s3_backup_mode)
 
     @property
-    @pulumi.getter(name="clusterJDBCURL")
+    @pulumi.getter(name="clusterJdbcurl")
     def cluster_jdbcurl(self) -> str:
         return pulumi.get(self, "cluster_jdbcurl")
 
@@ -1985,7 +1985,7 @@ class DeliveryStreamRedshiftDestinationConfiguration(dict):
         return pulumi.get(self, "password")
 
     @property
-    @pulumi.getter(name="roleARN")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
         return pulumi.get(self, "role_arn")
 
@@ -2090,9 +2090,9 @@ class DeliveryStreamS3DestinationConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "bucketARN":
+        if key == "bucketArn":
             suggest = "bucket_arn"
-        elif key == "roleARN":
+        elif key == "roleArn":
             suggest = "role_arn"
         elif key == "bufferingHints":
             suggest = "buffering_hints"
@@ -2141,12 +2141,12 @@ class DeliveryStreamS3DestinationConfiguration(dict):
             pulumi.set(__self__, "prefix", prefix)
 
     @property
-    @pulumi.getter(name="bucketARN")
+    @pulumi.getter(name="bucketArn")
     def bucket_arn(self) -> str:
         return pulumi.get(self, "bucket_arn")
 
     @property
-    @pulumi.getter(name="roleARN")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
         return pulumi.get(self, "role_arn")
 
@@ -2190,7 +2190,7 @@ class DeliveryStreamSchemaConfiguration(dict):
             suggest = "catalog_id"
         elif key == "databaseName":
             suggest = "database_name"
-        elif key == "roleARN":
+        elif key == "roleArn":
             suggest = "role_arn"
         elif key == "tableName":
             suggest = "table_name"
@@ -2244,7 +2244,7 @@ class DeliveryStreamSchemaConfiguration(dict):
         return pulumi.get(self, "region")
 
     @property
-    @pulumi.getter(name="roleARN")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[str]:
         return pulumi.get(self, "role_arn")
 
@@ -2304,18 +2304,18 @@ class DeliveryStreamSplunkDestinationConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "hECEndpoint":
-            suggest = "h_ec_endpoint"
-        elif key == "hECEndpointType":
-            suggest = "h_ec_endpoint_type"
-        elif key == "hECToken":
-            suggest = "h_ec_token"
+        if key == "hecEndpoint":
+            suggest = "hec_endpoint"
+        elif key == "hecEndpointType":
+            suggest = "hec_endpoint_type"
+        elif key == "hecToken":
+            suggest = "hec_token"
         elif key == "s3Configuration":
             suggest = "s3_configuration"
         elif key == "cloudWatchLoggingOptions":
             suggest = "cloud_watch_logging_options"
-        elif key == "hECAcknowledgmentTimeoutInSeconds":
-            suggest = "h_ec_acknowledgment_timeout_in_seconds"
+        elif key == "hecAcknowledgmentTimeoutInSeconds":
+            suggest = "hec_acknowledgment_timeout_in_seconds"
         elif key == "processingConfiguration":
             suggest = "processing_configuration"
         elif key == "retryOptions":
@@ -2335,23 +2335,23 @@ class DeliveryStreamSplunkDestinationConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 h_ec_endpoint: str,
-                 h_ec_endpoint_type: 'DeliveryStreamSplunkDestinationConfigurationHECEndpointType',
-                 h_ec_token: str,
+                 hec_endpoint: str,
+                 hec_endpoint_type: 'DeliveryStreamSplunkDestinationConfigurationHECEndpointType',
+                 hec_token: str,
                  s3_configuration: 'outputs.DeliveryStreamS3DestinationConfiguration',
                  cloud_watch_logging_options: Optional['outputs.DeliveryStreamCloudWatchLoggingOptions'] = None,
-                 h_ec_acknowledgment_timeout_in_seconds: Optional[int] = None,
+                 hec_acknowledgment_timeout_in_seconds: Optional[int] = None,
                  processing_configuration: Optional['outputs.DeliveryStreamProcessingConfiguration'] = None,
                  retry_options: Optional['outputs.DeliveryStreamSplunkRetryOptions'] = None,
                  s3_backup_mode: Optional[str] = None):
-        pulumi.set(__self__, "h_ec_endpoint", h_ec_endpoint)
-        pulumi.set(__self__, "h_ec_endpoint_type", h_ec_endpoint_type)
-        pulumi.set(__self__, "h_ec_token", h_ec_token)
+        pulumi.set(__self__, "hec_endpoint", hec_endpoint)
+        pulumi.set(__self__, "hec_endpoint_type", hec_endpoint_type)
+        pulumi.set(__self__, "hec_token", hec_token)
         pulumi.set(__self__, "s3_configuration", s3_configuration)
         if cloud_watch_logging_options is not None:
             pulumi.set(__self__, "cloud_watch_logging_options", cloud_watch_logging_options)
-        if h_ec_acknowledgment_timeout_in_seconds is not None:
-            pulumi.set(__self__, "h_ec_acknowledgment_timeout_in_seconds", h_ec_acknowledgment_timeout_in_seconds)
+        if hec_acknowledgment_timeout_in_seconds is not None:
+            pulumi.set(__self__, "hec_acknowledgment_timeout_in_seconds", hec_acknowledgment_timeout_in_seconds)
         if processing_configuration is not None:
             pulumi.set(__self__, "processing_configuration", processing_configuration)
         if retry_options is not None:
@@ -2360,19 +2360,19 @@ class DeliveryStreamSplunkDestinationConfiguration(dict):
             pulumi.set(__self__, "s3_backup_mode", s3_backup_mode)
 
     @property
-    @pulumi.getter(name="hECEndpoint")
-    def h_ec_endpoint(self) -> str:
-        return pulumi.get(self, "h_ec_endpoint")
+    @pulumi.getter(name="hecEndpoint")
+    def hec_endpoint(self) -> str:
+        return pulumi.get(self, "hec_endpoint")
 
     @property
-    @pulumi.getter(name="hECEndpointType")
-    def h_ec_endpoint_type(self) -> 'DeliveryStreamSplunkDestinationConfigurationHECEndpointType':
-        return pulumi.get(self, "h_ec_endpoint_type")
+    @pulumi.getter(name="hecEndpointType")
+    def hec_endpoint_type(self) -> 'DeliveryStreamSplunkDestinationConfigurationHECEndpointType':
+        return pulumi.get(self, "hec_endpoint_type")
 
     @property
-    @pulumi.getter(name="hECToken")
-    def h_ec_token(self) -> str:
-        return pulumi.get(self, "h_ec_token")
+    @pulumi.getter(name="hecToken")
+    def hec_token(self) -> str:
+        return pulumi.get(self, "hec_token")
 
     @property
     @pulumi.getter(name="s3Configuration")
@@ -2385,9 +2385,9 @@ class DeliveryStreamSplunkDestinationConfiguration(dict):
         return pulumi.get(self, "cloud_watch_logging_options")
 
     @property
-    @pulumi.getter(name="hECAcknowledgmentTimeoutInSeconds")
-    def h_ec_acknowledgment_timeout_in_seconds(self) -> Optional[int]:
-        return pulumi.get(self, "h_ec_acknowledgment_timeout_in_seconds")
+    @pulumi.getter(name="hecAcknowledgmentTimeoutInSeconds")
+    def hec_acknowledgment_timeout_in_seconds(self) -> Optional[int]:
+        return pulumi.get(self, "hec_acknowledgment_timeout_in_seconds")
 
     @property
     @pulumi.getter(name="processingConfiguration")
@@ -2460,7 +2460,7 @@ class DeliveryStreamVpcConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "roleARN":
+        if key == "roleArn":
             suggest = "role_arn"
         elif key == "securityGroupIds":
             suggest = "security_group_ids"
@@ -2487,7 +2487,7 @@ class DeliveryStreamVpcConfiguration(dict):
         pulumi.set(__self__, "subnet_ids", subnet_ids)
 
     @property
-    @pulumi.getter(name="roleARN")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
         return pulumi.get(self, "role_arn")
 

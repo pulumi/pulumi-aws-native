@@ -13,17 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardCustomActionURLOperation
     {
-        public readonly Pulumi.AwsNative.QuickSight.DashboardURLTargetConfiguration URLTarget;
-        public readonly string URLTemplate;
+        public readonly Pulumi.AwsNative.QuickSight.DashboardURLTargetConfiguration UrlTarget;
+        public readonly string UrlTemplate;
 
         [OutputConstructor]
         private DashboardCustomActionURLOperation(
-            Pulumi.AwsNative.QuickSight.DashboardURLTargetConfiguration uRLTarget,
+            Pulumi.AwsNative.QuickSight.DashboardURLTargetConfiguration urlTarget,
 
-            string uRLTemplate)
+            string urlTemplate)
         {
-            URLTarget = uRLTarget;
-            URLTemplate = uRLTemplate;
+            UrlTarget = urlTarget;
+            UrlTemplate = urlTemplate;
         }
     }
 }

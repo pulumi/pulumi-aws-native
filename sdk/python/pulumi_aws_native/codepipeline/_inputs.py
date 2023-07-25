@@ -698,7 +698,7 @@ class WebhookAuthConfigurationArgs:
             pulumi.set(__self__, "secret_token", secret_token)
 
     @property
-    @pulumi.getter(name="allowedIPRange")
+    @pulumi.getter(name="allowedIpRange")
     def allowed_ip_range(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "allowed_ip_range")
 

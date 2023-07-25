@@ -40,15 +40,15 @@ export class DBProxyEndpoint extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) for the DB proxy endpoint.
      */
-    public /*out*/ readonly dBProxyEndpointArn!: pulumi.Output<string>;
+    public /*out*/ readonly dbProxyEndpointArn!: pulumi.Output<string>;
     /**
      * The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.
      */
-    public readonly dBProxyEndpointName!: pulumi.Output<string>;
+    public readonly dbProxyEndpointName!: pulumi.Output<string>;
     /**
      * The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
      */
-    public readonly dBProxyName!: pulumi.Output<string>;
+    public readonly dbProxyName!: pulumi.Output<string>;
     /**
      * The endpoint that you can use to connect to the DB proxy. You include the endpoint value in the connection string for a database client application.
      */
@@ -89,26 +89,26 @@ export class DBProxyEndpoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dBProxyName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'dBProxyName'");
+            if ((!args || args.dbProxyName === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'dbProxyName'");
             }
             if ((!args || args.vpcSubnetIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcSubnetIds'");
             }
-            resourceInputs["dBProxyEndpointName"] = args ? args.dBProxyEndpointName : undefined;
-            resourceInputs["dBProxyName"] = args ? args.dBProxyName : undefined;
+            resourceInputs["dbProxyEndpointName"] = args ? args.dbProxyEndpointName : undefined;
+            resourceInputs["dbProxyName"] = args ? args.dbProxyName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["targetRole"] = args ? args.targetRole : undefined;
             resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
             resourceInputs["vpcSubnetIds"] = args ? args.vpcSubnetIds : undefined;
-            resourceInputs["dBProxyEndpointArn"] = undefined /*out*/;
+            resourceInputs["dbProxyEndpointArn"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["isDefault"] = undefined /*out*/;
             resourceInputs["vpcId"] = undefined /*out*/;
         } else {
-            resourceInputs["dBProxyEndpointArn"] = undefined /*out*/;
-            resourceInputs["dBProxyEndpointName"] = undefined /*out*/;
-            resourceInputs["dBProxyName"] = undefined /*out*/;
+            resourceInputs["dbProxyEndpointArn"] = undefined /*out*/;
+            resourceInputs["dbProxyEndpointName"] = undefined /*out*/;
+            resourceInputs["dbProxyName"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["isDefault"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -129,11 +129,11 @@ export interface DBProxyEndpointArgs {
     /**
      * The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.
      */
-    dBProxyEndpointName?: pulumi.Input<string>;
+    dbProxyEndpointName?: pulumi.Input<string>;
     /**
      * The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
      */
-    dBProxyName: pulumi.Input<string>;
+    dbProxyName: pulumi.Input<string>;
     /**
      * An optional set of key-value pairs to associate arbitrary data of your choosing with the DB proxy endpoint.
      */

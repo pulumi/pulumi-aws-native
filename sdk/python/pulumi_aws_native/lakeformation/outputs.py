@@ -831,10 +831,10 @@ class PrincipalPermissionsResource(dict):
             suggest = "data_cells_filter"
         elif key == "dataLocation":
             suggest = "data_location"
-        elif key == "lFTag":
-            suggest = "l_f_tag"
-        elif key == "lFTagPolicy":
-            suggest = "l_f_tag_policy"
+        elif key == "lfTag":
+            suggest = "lf_tag"
+        elif key == "lfTagPolicy":
+            suggest = "lf_tag_policy"
         elif key == "tableWithColumns":
             suggest = "table_with_columns"
 
@@ -854,8 +854,8 @@ class PrincipalPermissionsResource(dict):
                  data_cells_filter: Optional['outputs.PrincipalPermissionsDataCellsFilterResource'] = None,
                  data_location: Optional['outputs.PrincipalPermissionsDataLocationResource'] = None,
                  database: Optional['outputs.PrincipalPermissionsDatabaseResource'] = None,
-                 l_f_tag: Optional['outputs.PrincipalPermissionsLFTagKeyResource'] = None,
-                 l_f_tag_policy: Optional['outputs.PrincipalPermissionsLFTagPolicyResource'] = None,
+                 lf_tag: Optional['outputs.PrincipalPermissionsLFTagKeyResource'] = None,
+                 lf_tag_policy: Optional['outputs.PrincipalPermissionsLFTagPolicyResource'] = None,
                  table: Optional['outputs.PrincipalPermissionsTableResource'] = None,
                  table_with_columns: Optional['outputs.PrincipalPermissionsTableWithColumnsResource'] = None):
         if catalog is not None:
@@ -866,10 +866,10 @@ class PrincipalPermissionsResource(dict):
             pulumi.set(__self__, "data_location", data_location)
         if database is not None:
             pulumi.set(__self__, "database", database)
-        if l_f_tag is not None:
-            pulumi.set(__self__, "l_f_tag", l_f_tag)
-        if l_f_tag_policy is not None:
-            pulumi.set(__self__, "l_f_tag_policy", l_f_tag_policy)
+        if lf_tag is not None:
+            pulumi.set(__self__, "lf_tag", lf_tag)
+        if lf_tag_policy is not None:
+            pulumi.set(__self__, "lf_tag_policy", lf_tag_policy)
         if table is not None:
             pulumi.set(__self__, "table", table)
         if table_with_columns is not None:
@@ -896,14 +896,14 @@ class PrincipalPermissionsResource(dict):
         return pulumi.get(self, "database")
 
     @property
-    @pulumi.getter(name="lFTag")
-    def l_f_tag(self) -> Optional['outputs.PrincipalPermissionsLFTagKeyResource']:
-        return pulumi.get(self, "l_f_tag")
+    @pulumi.getter(name="lfTag")
+    def lf_tag(self) -> Optional['outputs.PrincipalPermissionsLFTagKeyResource']:
+        return pulumi.get(self, "lf_tag")
 
     @property
-    @pulumi.getter(name="lFTagPolicy")
-    def l_f_tag_policy(self) -> Optional['outputs.PrincipalPermissionsLFTagPolicyResource']:
-        return pulumi.get(self, "l_f_tag_policy")
+    @pulumi.getter(name="lfTagPolicy")
+    def lf_tag_policy(self) -> Optional['outputs.PrincipalPermissionsLFTagPolicyResource']:
+        return pulumi.get(self, "lf_tag_policy")
 
     @property
     @pulumi.getter

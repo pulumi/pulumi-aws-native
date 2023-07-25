@@ -19,9 +19,9 @@ class ApplicationArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  auto_configuration_enabled: Optional[pulumi.Input[bool]] = None,
-                 c_we_monitor_enabled: Optional[pulumi.Input[bool]] = None,
                  component_monitoring_settings: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationComponentMonitoringSettingArgs']]]] = None,
                  custom_components: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationCustomComponentArgs']]]] = None,
+                 cwe_monitor_enabled: Optional[pulumi.Input[bool]] = None,
                  grouping_type: Optional[pulumi.Input['ApplicationGroupingType']] = None,
                  log_pattern_sets: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationLogPatternSetArgs']]]] = None,
                  ops_center_enabled: Optional[pulumi.Input[bool]] = None,
@@ -31,9 +31,9 @@ class ApplicationArgs:
         The set of arguments for constructing a Application resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[bool] auto_configuration_enabled: If set to true, application will be configured with recommended monitoring configuration.
-        :param pulumi.Input[bool] c_we_monitor_enabled: Indicates whether Application Insights can listen to CloudWatch events for the application resources.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationComponentMonitoringSettingArgs']]] component_monitoring_settings: The monitoring settings of the components.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationCustomComponentArgs']]] custom_components: The custom grouped components.
+        :param pulumi.Input[bool] cwe_monitor_enabled: Indicates whether Application Insights can listen to CloudWatch events for the application resources.
         :param pulumi.Input['ApplicationGroupingType'] grouping_type: The grouping type of the application
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationLogPatternSetArgs']]] log_pattern_sets: The log pattern sets.
         :param pulumi.Input[bool] ops_center_enabled: When set to true, creates opsItems for any problems detected on an application.
@@ -43,12 +43,12 @@ class ApplicationArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if auto_configuration_enabled is not None:
             pulumi.set(__self__, "auto_configuration_enabled", auto_configuration_enabled)
-        if c_we_monitor_enabled is not None:
-            pulumi.set(__self__, "c_we_monitor_enabled", c_we_monitor_enabled)
         if component_monitoring_settings is not None:
             pulumi.set(__self__, "component_monitoring_settings", component_monitoring_settings)
         if custom_components is not None:
             pulumi.set(__self__, "custom_components", custom_components)
+        if cwe_monitor_enabled is not None:
+            pulumi.set(__self__, "cwe_monitor_enabled", cwe_monitor_enabled)
         if grouping_type is not None:
             pulumi.set(__self__, "grouping_type", grouping_type)
         if log_pattern_sets is not None:
@@ -85,18 +85,6 @@ class ApplicationArgs:
         pulumi.set(self, "auto_configuration_enabled", value)
 
     @property
-    @pulumi.getter(name="cWEMonitorEnabled")
-    def c_we_monitor_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether Application Insights can listen to CloudWatch events for the application resources.
-        """
-        return pulumi.get(self, "c_we_monitor_enabled")
-
-    @c_we_monitor_enabled.setter
-    def c_we_monitor_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "c_we_monitor_enabled", value)
-
-    @property
     @pulumi.getter(name="componentMonitoringSettings")
     def component_monitoring_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationComponentMonitoringSettingArgs']]]]:
         """
@@ -119,6 +107,18 @@ class ApplicationArgs:
     @custom_components.setter
     def custom_components(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationCustomComponentArgs']]]]):
         pulumi.set(self, "custom_components", value)
+
+    @property
+    @pulumi.getter(name="cweMonitorEnabled")
+    def cwe_monitor_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether Application Insights can listen to CloudWatch events for the application resources.
+        """
+        return pulumi.get(self, "cwe_monitor_enabled")
+
+    @cwe_monitor_enabled.setter
+    def cwe_monitor_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cwe_monitor_enabled", value)
 
     @property
     @pulumi.getter(name="groupingType")
@@ -157,7 +157,7 @@ class ApplicationArgs:
         pulumi.set(self, "ops_center_enabled", value)
 
     @property
-    @pulumi.getter(name="opsItemSNSTopicArn")
+    @pulumi.getter(name="opsItemSnsTopicArn")
     def ops_item_sns_topic_arn(self) -> Optional[pulumi.Input[str]]:
         """
         The SNS topic provided to Application Insights that is associated to the created opsItem.
@@ -187,9 +187,9 @@ class Application(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_configuration_enabled: Optional[pulumi.Input[bool]] = None,
-                 c_we_monitor_enabled: Optional[pulumi.Input[bool]] = None,
                  component_monitoring_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationComponentMonitoringSettingArgs']]]]] = None,
                  custom_components: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationCustomComponentArgs']]]]] = None,
+                 cwe_monitor_enabled: Optional[pulumi.Input[bool]] = None,
                  grouping_type: Optional[pulumi.Input['ApplicationGroupingType']] = None,
                  log_pattern_sets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationLogPatternSetArgs']]]]] = None,
                  ops_center_enabled: Optional[pulumi.Input[bool]] = None,
@@ -203,9 +203,9 @@ class Application(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_configuration_enabled: If set to true, application will be configured with recommended monitoring configuration.
-        :param pulumi.Input[bool] c_we_monitor_enabled: Indicates whether Application Insights can listen to CloudWatch events for the application resources.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationComponentMonitoringSettingArgs']]]] component_monitoring_settings: The monitoring settings of the components.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationCustomComponentArgs']]]] custom_components: The custom grouped components.
+        :param pulumi.Input[bool] cwe_monitor_enabled: Indicates whether Application Insights can listen to CloudWatch events for the application resources.
         :param pulumi.Input['ApplicationGroupingType'] grouping_type: The grouping type of the application
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationLogPatternSetArgs']]]] log_pattern_sets: The log pattern sets.
         :param pulumi.Input[bool] ops_center_enabled: When set to true, creates opsItems for any problems detected on an application.
@@ -238,9 +238,9 @@ class Application(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_configuration_enabled: Optional[pulumi.Input[bool]] = None,
-                 c_we_monitor_enabled: Optional[pulumi.Input[bool]] = None,
                  component_monitoring_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationComponentMonitoringSettingArgs']]]]] = None,
                  custom_components: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationCustomComponentArgs']]]]] = None,
+                 cwe_monitor_enabled: Optional[pulumi.Input[bool]] = None,
                  grouping_type: Optional[pulumi.Input['ApplicationGroupingType']] = None,
                  log_pattern_sets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationLogPatternSetArgs']]]]] = None,
                  ops_center_enabled: Optional[pulumi.Input[bool]] = None,
@@ -257,9 +257,9 @@ class Application(pulumi.CustomResource):
             __props__ = ApplicationArgs.__new__(ApplicationArgs)
 
             __props__.__dict__["auto_configuration_enabled"] = auto_configuration_enabled
-            __props__.__dict__["c_we_monitor_enabled"] = c_we_monitor_enabled
             __props__.__dict__["component_monitoring_settings"] = component_monitoring_settings
             __props__.__dict__["custom_components"] = custom_components
+            __props__.__dict__["cwe_monitor_enabled"] = cwe_monitor_enabled
             __props__.__dict__["grouping_type"] = grouping_type
             __props__.__dict__["log_pattern_sets"] = log_pattern_sets
             __props__.__dict__["ops_center_enabled"] = ops_center_enabled
@@ -293,9 +293,9 @@ class Application(pulumi.CustomResource):
 
         __props__.__dict__["application_arn"] = None
         __props__.__dict__["auto_configuration_enabled"] = None
-        __props__.__dict__["c_we_monitor_enabled"] = None
         __props__.__dict__["component_monitoring_settings"] = None
         __props__.__dict__["custom_components"] = None
+        __props__.__dict__["cwe_monitor_enabled"] = None
         __props__.__dict__["grouping_type"] = None
         __props__.__dict__["log_pattern_sets"] = None
         __props__.__dict__["ops_center_enabled"] = None
@@ -305,7 +305,7 @@ class Application(pulumi.CustomResource):
         return Application(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="applicationARN")
+    @pulumi.getter(name="applicationArn")
     def application_arn(self) -> pulumi.Output[str]:
         """
         The ARN of the ApplicationInsights application.
@@ -319,14 +319,6 @@ class Application(pulumi.CustomResource):
         If set to true, application will be configured with recommended monitoring configuration.
         """
         return pulumi.get(self, "auto_configuration_enabled")
-
-    @property
-    @pulumi.getter(name="cWEMonitorEnabled")
-    def c_we_monitor_enabled(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Indicates whether Application Insights can listen to CloudWatch events for the application resources.
-        """
-        return pulumi.get(self, "c_we_monitor_enabled")
 
     @property
     @pulumi.getter(name="componentMonitoringSettings")
@@ -343,6 +335,14 @@ class Application(pulumi.CustomResource):
         The custom grouped components.
         """
         return pulumi.get(self, "custom_components")
+
+    @property
+    @pulumi.getter(name="cweMonitorEnabled")
+    def cwe_monitor_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicates whether Application Insights can listen to CloudWatch events for the application resources.
+        """
+        return pulumi.get(self, "cwe_monitor_enabled")
 
     @property
     @pulumi.getter(name="groupingType")
@@ -369,7 +369,7 @@ class Application(pulumi.CustomResource):
         return pulumi.get(self, "ops_center_enabled")
 
     @property
-    @pulumi.getter(name="opsItemSNSTopicArn")
+    @pulumi.getter(name="opsItemSnsTopicArn")
     def ops_item_sns_topic_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The SNS topic provided to Application Insights that is associated to the created opsItem.

@@ -27,7 +27,7 @@ type LookupDBSubnetGroupArgs struct {
 }
 
 type LookupDBSubnetGroupResult struct {
-	DBSubnetGroupDescription *string            `pulumi:"dBSubnetGroupDescription"`
+	DbSubnetGroupDescription *string            `pulumi:"dbSubnetGroupDescription"`
 	Id                       *string            `pulumi:"id"`
 	SubnetIds                []string           `pulumi:"subnetIds"`
 	Tags                     []DBSubnetGroupTag `pulumi:"tags"`
@@ -68,8 +68,8 @@ func (o LookupDBSubnetGroupResultOutput) ToLookupDBSubnetGroupResultOutputWithCo
 	return o
 }
 
-func (o LookupDBSubnetGroupResultOutput) DBSubnetGroupDescription() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupDBSubnetGroupResult) *string { return v.DBSubnetGroupDescription }).(pulumi.StringPtrOutput)
+func (o LookupDBSubnetGroupResultOutput) DbSubnetGroupDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDBSubnetGroupResult) *string { return v.DbSubnetGroupDescription }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupDBSubnetGroupResultOutput) Id() pulumi.StringPtrOutput {

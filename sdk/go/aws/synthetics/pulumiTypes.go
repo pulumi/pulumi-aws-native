@@ -419,7 +419,7 @@ type CanaryRunConfig struct {
 	// Environment variable key-value pairs.
 	EnvironmentVariables interface{} `pulumi:"environmentVariables"`
 	// Provide maximum memory available for canary in MB
-	MemoryInMB *int `pulumi:"memoryInMB"`
+	MemoryInMb *int `pulumi:"memoryInMb"`
 	// Provide maximum canary timeout per run in seconds
 	TimeoutInSeconds *int `pulumi:"timeoutInSeconds"`
 }
@@ -441,7 +441,7 @@ type CanaryRunConfigArgs struct {
 	// Environment variable key-value pairs.
 	EnvironmentVariables pulumi.Input `pulumi:"environmentVariables"`
 	// Provide maximum memory available for canary in MB
-	MemoryInMB pulumi.IntPtrInput `pulumi:"memoryInMB"`
+	MemoryInMb pulumi.IntPtrInput `pulumi:"memoryInMb"`
 	// Provide maximum canary timeout per run in seconds
 	TimeoutInSeconds pulumi.IntPtrInput `pulumi:"timeoutInSeconds"`
 }
@@ -534,8 +534,8 @@ func (o CanaryRunConfigOutput) EnvironmentVariables() pulumi.AnyOutput {
 }
 
 // Provide maximum memory available for canary in MB
-func (o CanaryRunConfigOutput) MemoryInMB() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v CanaryRunConfig) *int { return v.MemoryInMB }).(pulumi.IntPtrOutput)
+func (o CanaryRunConfigOutput) MemoryInMb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CanaryRunConfig) *int { return v.MemoryInMb }).(pulumi.IntPtrOutput)
 }
 
 // Provide maximum canary timeout per run in seconds
@@ -588,12 +588,12 @@ func (o CanaryRunConfigPtrOutput) EnvironmentVariables() pulumi.AnyOutput {
 }
 
 // Provide maximum memory available for canary in MB
-func (o CanaryRunConfigPtrOutput) MemoryInMB() pulumi.IntPtrOutput {
+func (o CanaryRunConfigPtrOutput) MemoryInMb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CanaryRunConfig) *int {
 		if v == nil {
 			return nil
 		}
-		return v.MemoryInMB
+		return v.MemoryInMb
 	}).(pulumi.IntPtrOutput)
 }
 

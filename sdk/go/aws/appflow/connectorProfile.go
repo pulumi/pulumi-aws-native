@@ -31,7 +31,7 @@ type ConnectorProfile struct {
 	// A unique Arn for Connector-Profile resource
 	CredentialsArn pulumi.StringOutput `pulumi:"credentialsArn"`
 	// The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
-	KMSArn pulumi.StringPtrOutput `pulumi:"kMSArn"`
+	KmsArn pulumi.StringPtrOutput `pulumi:"kmsArn"`
 }
 
 // NewConnectorProfile registers a new resource with the given unique name, arguments, and options.
@@ -91,7 +91,7 @@ type connectorProfileArgs struct {
 	// List of Saas providers that need connector profile to be created
 	ConnectorType ConnectorProfileConnectorType `pulumi:"connectorType"`
 	// The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
-	KMSArn *string `pulumi:"kMSArn"`
+	KmsArn *string `pulumi:"kmsArn"`
 }
 
 // The set of arguments for constructing a ConnectorProfile resource.
@@ -107,7 +107,7 @@ type ConnectorProfileArgs struct {
 	// List of Saas providers that need connector profile to be created
 	ConnectorType ConnectorProfileConnectorTypeInput
 	// The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
-	KMSArn pulumi.StringPtrInput
+	KmsArn pulumi.StringPtrInput
 }
 
 func (ConnectorProfileArgs) ElementType() reflect.Type {
@@ -183,8 +183,8 @@ func (o ConnectorProfileOutput) CredentialsArn() pulumi.StringOutput {
 }
 
 // The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
-func (o ConnectorProfileOutput) KMSArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectorProfile) pulumi.StringPtrOutput { return v.KMSArn }).(pulumi.StringPtrOutput)
+func (o ConnectorProfileOutput) KmsArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfile) pulumi.StringPtrOutput { return v.KmsArn }).(pulumi.StringPtrOutput)
 }
 
 func init() {

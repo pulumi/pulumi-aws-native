@@ -27,8 +27,8 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
             set => _customKeys = value;
         }
 
-        [Input("forwardedIPConfig")]
-        public Input<Inputs.WebACLForwardedIPConfigurationArgs>? ForwardedIPConfig { get; set; }
+        [Input("forwardedIpConfig")]
+        public Input<Inputs.WebACLForwardedIPConfigurationArgs>? ForwardedIpConfig { get; set; }
 
         [Input("limit", required: true)]
         public Input<int> Limit { get; set; } = null!;

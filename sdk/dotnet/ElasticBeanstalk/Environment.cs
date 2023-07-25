@@ -24,8 +24,8 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
         /// <summary>
         /// If specified, the environment attempts to use this value as the prefix for the CNAME in your Elastic Beanstalk environment URL. If not specified, the CNAME is generated automatically by appending a random alphanumeric string to the environment name.
         /// </summary>
-        [Output("cNAMEPrefix")]
-        public Output<string?> CNAMEPrefix { get; private set; } = null!;
+        [Output("cnamePrefix")]
+        public Output<string?> CnamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// Your description for this environment.
@@ -33,8 +33,8 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        [Output("endpointURL")]
-        public Output<string> EndpointURL { get; private set; } = null!;
+        [Output("endpointUrl")]
+        public Output<string> EndpointUrl { get; private set; } = null!;
 
         /// <summary>
         /// A unique name for the environment.
@@ -144,8 +144,8 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
         /// <summary>
         /// If specified, the environment attempts to use this value as the prefix for the CNAME in your Elastic Beanstalk environment URL. If not specified, the CNAME is generated automatically by appending a random alphanumeric string to the environment name.
         /// </summary>
-        [Input("cNAMEPrefix")]
-        public Input<string>? CNAMEPrefix { get; set; }
+        [Input("cnamePrefix")]
+        public Input<string>? CnamePrefix { get; set; }
 
         /// <summary>
         /// Your description for this environment.

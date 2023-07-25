@@ -36,8 +36,8 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         /// <summary>
         /// The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
         /// </summary>
-        [Input("volumeSizeInGB", required: true)]
-        public Input<int> VolumeSizeInGB { get; set; } = null!;
+        [Input("volumeSizeInGb", required: true)]
+        public Input<int> VolumeSizeInGb { get; set; } = null!;
 
         public MonitoringScheduleClusterConfigArgs()
         {

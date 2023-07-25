@@ -1050,7 +1050,7 @@ func (o ResourceSetTagArrayOutput) Index(i pulumi.IntInput) ResourceSetTagOutput
 
 // The target resource that the Route 53 record points to.
 type ResourceSetTargetResource struct {
-	NLBResource *ResourceSetNLBResource       `pulumi:"nLBResource"`
+	NlbResource *ResourceSetNLBResource       `pulumi:"nlbResource"`
 	R53Resource *ResourceSetR53ResourceRecord `pulumi:"r53Resource"`
 }
 
@@ -1067,7 +1067,7 @@ type ResourceSetTargetResourceInput interface {
 
 // The target resource that the Route 53 record points to.
 type ResourceSetTargetResourceArgs struct {
-	NLBResource ResourceSetNLBResourcePtrInput       `pulumi:"nLBResource"`
+	NlbResource ResourceSetNLBResourcePtrInput       `pulumi:"nlbResource"`
 	R53Resource ResourceSetR53ResourceRecordPtrInput `pulumi:"r53Resource"`
 }
 
@@ -1149,8 +1149,8 @@ func (o ResourceSetTargetResourceOutput) ToResourceSetTargetResourcePtrOutputWit
 	}).(ResourceSetTargetResourcePtrOutput)
 }
 
-func (o ResourceSetTargetResourceOutput) NLBResource() ResourceSetNLBResourcePtrOutput {
-	return o.ApplyT(func(v ResourceSetTargetResource) *ResourceSetNLBResource { return v.NLBResource }).(ResourceSetNLBResourcePtrOutput)
+func (o ResourceSetTargetResourceOutput) NlbResource() ResourceSetNLBResourcePtrOutput {
+	return o.ApplyT(func(v ResourceSetTargetResource) *ResourceSetNLBResource { return v.NlbResource }).(ResourceSetNLBResourcePtrOutput)
 }
 
 func (o ResourceSetTargetResourceOutput) R53Resource() ResourceSetR53ResourceRecordPtrOutput {
@@ -1181,12 +1181,12 @@ func (o ResourceSetTargetResourcePtrOutput) Elem() ResourceSetTargetResourceOutp
 	}).(ResourceSetTargetResourceOutput)
 }
 
-func (o ResourceSetTargetResourcePtrOutput) NLBResource() ResourceSetNLBResourcePtrOutput {
+func (o ResourceSetTargetResourcePtrOutput) NlbResource() ResourceSetNLBResourcePtrOutput {
 	return o.ApplyT(func(v *ResourceSetTargetResource) *ResourceSetNLBResource {
 		if v == nil {
 			return nil
 		}
-		return v.NLBResource
+		return v.NlbResource
 	}).(ResourceSetNLBResourcePtrOutput)
 }
 

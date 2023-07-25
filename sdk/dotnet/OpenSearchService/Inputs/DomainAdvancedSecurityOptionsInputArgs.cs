@@ -27,8 +27,8 @@ namespace Pulumi.AwsNative.OpenSearchService.Inputs
         [Input("masterUserOptions")]
         public Input<Inputs.DomainMasterUserOptionsArgs>? MasterUserOptions { get; set; }
 
-        [Input("sAMLOptions")]
-        public Input<Inputs.DomainSAMLOptionsArgs>? SAMLOptions { get; set; }
+        [Input("samlOptions")]
+        public Input<Inputs.DomainSAMLOptionsArgs>? SamlOptions { get; set; }
 
         public DomainAdvancedSecurityOptionsInputArgs()
         {

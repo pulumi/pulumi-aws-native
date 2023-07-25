@@ -40,8 +40,8 @@ export class LoadBalancer extends pulumi.CustomResource {
         return obj['__pulumiType'] === LoadBalancer.__pulumiType;
     }
 
-    public /*out*/ readonly canonicalHostedZoneID!: pulumi.Output<string>;
-    public /*out*/ readonly dNSName!: pulumi.Output<string>;
+    public /*out*/ readonly canonicalHostedZoneId!: pulumi.Output<string>;
+    public /*out*/ readonly dnsName!: pulumi.Output<string>;
     public readonly ipAddressType!: pulumi.Output<string | undefined>;
     public readonly loadBalancerAttributes!: pulumi.Output<outputs.elasticloadbalancingv2.LoadBalancerAttribute[] | undefined>;
     public /*out*/ readonly loadBalancerFullName!: pulumi.Output<string>;
@@ -76,13 +76,13 @@ export class LoadBalancer extends pulumi.CustomResource {
             resourceInputs["subnets"] = args ? args.subnets : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["canonicalHostedZoneID"] = undefined /*out*/;
-            resourceInputs["dNSName"] = undefined /*out*/;
+            resourceInputs["canonicalHostedZoneId"] = undefined /*out*/;
+            resourceInputs["dnsName"] = undefined /*out*/;
             resourceInputs["loadBalancerFullName"] = undefined /*out*/;
             resourceInputs["loadBalancerName"] = undefined /*out*/;
         } else {
-            resourceInputs["canonicalHostedZoneID"] = undefined /*out*/;
-            resourceInputs["dNSName"] = undefined /*out*/;
+            resourceInputs["canonicalHostedZoneId"] = undefined /*out*/;
+            resourceInputs["dnsName"] = undefined /*out*/;
             resourceInputs["ipAddressType"] = undefined /*out*/;
             resourceInputs["loadBalancerAttributes"] = undefined /*out*/;
             resourceInputs["loadBalancerFullName"] = undefined /*out*/;

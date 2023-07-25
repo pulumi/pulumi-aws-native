@@ -28,8 +28,8 @@ type VPCConnection struct {
 	Status             VPCConnectionResourceStatusOutput        `pulumi:"status"`
 	SubnetIds          pulumi.StringArrayOutput                 `pulumi:"subnetIds"`
 	Tags               VPCConnectionTagArrayOutput              `pulumi:"tags"`
-	VPCConnectionId    pulumi.StringPtrOutput                   `pulumi:"vPCConnectionId"`
-	VPCId              pulumi.StringOutput                      `pulumi:"vPCId"`
+	VpcConnectionId    pulumi.StringPtrOutput                   `pulumi:"vpcConnectionId"`
+	VpcId              pulumi.StringOutput                      `pulumi:"vpcId"`
 }
 
 // NewVPCConnection registers a new resource with the given unique name, arguments, and options.
@@ -80,7 +80,7 @@ type vpcconnectionArgs struct {
 	SecurityGroupIds   []string                         `pulumi:"securityGroupIds"`
 	SubnetIds          []string                         `pulumi:"subnetIds"`
 	Tags               []VPCConnectionTag               `pulumi:"tags"`
-	VPCConnectionId    *string                          `pulumi:"vPCConnectionId"`
+	VpcConnectionId    *string                          `pulumi:"vpcConnectionId"`
 }
 
 // The set of arguments for constructing a VPCConnection resource.
@@ -93,7 +93,7 @@ type VPCConnectionArgs struct {
 	SecurityGroupIds   pulumi.StringArrayInput
 	SubnetIds          pulumi.StringArrayInput
 	Tags               VPCConnectionTagArrayInput
-	VPCConnectionId    pulumi.StringPtrInput
+	VpcConnectionId    pulumi.StringPtrInput
 }
 
 func (VPCConnectionArgs) ElementType() reflect.Type {
@@ -185,12 +185,12 @@ func (o VPCConnectionOutput) Tags() VPCConnectionTagArrayOutput {
 	return o.ApplyT(func(v *VPCConnection) VPCConnectionTagArrayOutput { return v.Tags }).(VPCConnectionTagArrayOutput)
 }
 
-func (o VPCConnectionOutput) VPCConnectionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VPCConnection) pulumi.StringPtrOutput { return v.VPCConnectionId }).(pulumi.StringPtrOutput)
+func (o VPCConnectionOutput) VpcConnectionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VPCConnection) pulumi.StringPtrOutput { return v.VpcConnectionId }).(pulumi.StringPtrOutput)
 }
 
-func (o VPCConnectionOutput) VPCId() pulumi.StringOutput {
-	return o.ApplyT(func(v *VPCConnection) pulumi.StringOutput { return v.VPCId }).(pulumi.StringOutput)
+func (o VPCConnectionOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v *VPCConnection) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }
 
 func init() {

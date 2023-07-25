@@ -151,12 +151,12 @@ class DomainColdStorageOptionsArgs:
 @pulumi.input_type
 class DomainEBSOptionsArgs:
     def __init__(__self__, *,
-                 e_bs_enabled: Optional[pulumi.Input[bool]] = None,
+                 ebs_enabled: Optional[pulumi.Input[bool]] = None,
                  iops: Optional[pulumi.Input[int]] = None,
                  volume_size: Optional[pulumi.Input[int]] = None,
                  volume_type: Optional[pulumi.Input[str]] = None):
-        if e_bs_enabled is not None:
-            pulumi.set(__self__, "e_bs_enabled", e_bs_enabled)
+        if ebs_enabled is not None:
+            pulumi.set(__self__, "ebs_enabled", ebs_enabled)
         if iops is not None:
             pulumi.set(__self__, "iops", iops)
         if volume_size is not None:
@@ -165,13 +165,13 @@ class DomainEBSOptionsArgs:
             pulumi.set(__self__, "volume_type", volume_type)
 
     @property
-    @pulumi.getter(name="eBSEnabled")
-    def e_bs_enabled(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "e_bs_enabled")
+    @pulumi.getter(name="ebsEnabled")
+    def ebs_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "ebs_enabled")
 
-    @e_bs_enabled.setter
-    def e_bs_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "e_bs_enabled", value)
+    @ebs_enabled.setter
+    def ebs_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ebs_enabled", value)
 
     @property
     @pulumi.getter
@@ -374,7 +374,7 @@ class DomainEndpointOptionsArgs:
                  custom_endpoint_certificate_arn: Optional[pulumi.Input[str]] = None,
                  custom_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
                  enforce_https: Optional[pulumi.Input[bool]] = None,
-                 t_ls_security_policy: Optional[pulumi.Input[str]] = None):
+                 tls_security_policy: Optional[pulumi.Input[str]] = None):
         if custom_endpoint is not None:
             pulumi.set(__self__, "custom_endpoint", custom_endpoint)
         if custom_endpoint_certificate_arn is not None:
@@ -383,8 +383,8 @@ class DomainEndpointOptionsArgs:
             pulumi.set(__self__, "custom_endpoint_enabled", custom_endpoint_enabled)
         if enforce_https is not None:
             pulumi.set(__self__, "enforce_https", enforce_https)
-        if t_ls_security_policy is not None:
-            pulumi.set(__self__, "t_ls_security_policy", t_ls_security_policy)
+        if tls_security_policy is not None:
+            pulumi.set(__self__, "tls_security_policy", tls_security_policy)
 
     @property
     @pulumi.getter(name="customEndpoint")
@@ -414,7 +414,7 @@ class DomainEndpointOptionsArgs:
         pulumi.set(self, "custom_endpoint_enabled", value)
 
     @property
-    @pulumi.getter(name="enforceHTTPS")
+    @pulumi.getter(name="enforceHttps")
     def enforce_https(self) -> Optional[pulumi.Input[bool]]:
         return pulumi.get(self, "enforce_https")
 
@@ -423,13 +423,13 @@ class DomainEndpointOptionsArgs:
         pulumi.set(self, "enforce_https", value)
 
     @property
-    @pulumi.getter(name="tLSSecurityPolicy")
-    def t_ls_security_policy(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "t_ls_security_policy")
+    @pulumi.getter(name="tlsSecurityPolicy")
+    def tls_security_policy(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "tls_security_policy")
 
-    @t_ls_security_policy.setter
-    def t_ls_security_policy(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "t_ls_security_policy", value)
+    @tls_security_policy.setter
+    def tls_security_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tls_security_policy", value)
 
 
 @pulumi.input_type
@@ -446,7 +446,7 @@ class DomainMasterUserOptionsArgs:
             pulumi.set(__self__, "master_user_password", master_user_password)
 
     @property
-    @pulumi.getter(name="masterUserARN")
+    @pulumi.getter(name="masterUserArn")
     def master_user_arn(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "master_user_arn")
 

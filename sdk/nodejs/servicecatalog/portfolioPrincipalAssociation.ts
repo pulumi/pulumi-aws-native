@@ -39,7 +39,7 @@ export class PortfolioPrincipalAssociation extends pulumi.CustomResource {
 
     public readonly acceptLanguage!: pulumi.Output<string | undefined>;
     public readonly portfolioId!: pulumi.Output<string>;
-    public readonly principalARN!: pulumi.Output<string>;
+    public readonly principalArn!: pulumi.Output<string>;
     public readonly principalType!: pulumi.Output<string>;
 
     /**
@@ -58,20 +58,20 @@ export class PortfolioPrincipalAssociation extends pulumi.CustomResource {
             if ((!args || args.portfolioId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'portfolioId'");
             }
-            if ((!args || args.principalARN === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'principalARN'");
+            if ((!args || args.principalArn === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'principalArn'");
             }
             if ((!args || args.principalType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'principalType'");
             }
             resourceInputs["acceptLanguage"] = args ? args.acceptLanguage : undefined;
             resourceInputs["portfolioId"] = args ? args.portfolioId : undefined;
-            resourceInputs["principalARN"] = args ? args.principalARN : undefined;
+            resourceInputs["principalArn"] = args ? args.principalArn : undefined;
             resourceInputs["principalType"] = args ? args.principalType : undefined;
         } else {
             resourceInputs["acceptLanguage"] = undefined /*out*/;
             resourceInputs["portfolioId"] = undefined /*out*/;
-            resourceInputs["principalARN"] = undefined /*out*/;
+            resourceInputs["principalArn"] = undefined /*out*/;
             resourceInputs["principalType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -85,6 +85,6 @@ export class PortfolioPrincipalAssociation extends pulumi.CustomResource {
 export interface PortfolioPrincipalAssociationArgs {
     acceptLanguage?: pulumi.Input<string>;
     portfolioId: pulumi.Input<string>;
-    principalARN: pulumi.Input<string>;
+    principalArn: pulumi.Input<string>;
     principalType: pulumi.Input<string>;
 }

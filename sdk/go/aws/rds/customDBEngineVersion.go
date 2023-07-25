@@ -16,12 +16,12 @@ import (
 type CustomDBEngineVersion struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the custom engine version.
-	DBEngineVersionArn pulumi.StringOutput `pulumi:"dBEngineVersionArn"`
 	// The name of an Amazon S3 bucket that contains database installation files for your CEV. For example, a valid bucket name is `my-custom-installation-files`.
 	DatabaseInstallationFilesS3BucketName pulumi.StringOutput `pulumi:"databaseInstallationFilesS3BucketName"`
 	// The Amazon S3 directory that contains the database installation files for your CEV. For example, a valid bucket name is `123456789012/cev1`. If this setting isn't specified, no prefix is assumed.
 	DatabaseInstallationFilesS3Prefix pulumi.StringPtrOutput `pulumi:"databaseInstallationFilesS3Prefix"`
+	// The ARN of the custom engine version.
+	DbEngineVersionArn pulumi.StringOutput `pulumi:"dbEngineVersionArn"`
 	// An optional description of your CEV.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The database engine to use for your custom engine version (CEV). The only supported value is `custom-oracle-ee`.
@@ -29,7 +29,7 @@ type CustomDBEngineVersion struct {
 	// The name of your CEV. The name format is 19.customized_string . For example, a valid name is 19.my_cev1. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of Engine and EngineVersion is unique per customer per Region.
 	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
 	// The AWS KMS key identifier for an encrypted CEV. A symmetric KMS key is required for RDS Custom, but optional for Amazon RDS.
-	KMSKeyId pulumi.StringPtrOutput `pulumi:"kMSKeyId"`
+	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// The CEV manifest, which is a JSON document that describes the installation .zip files stored in Amazon S3. Specify the name/value pairs in a file or a quoted string. RDS Custom applies the patches in the order in which they are listed.
 	Manifest pulumi.StringPtrOutput `pulumi:"manifest"`
 	// The availability status to be assigned to the CEV.
@@ -98,7 +98,7 @@ type customDBEngineVersionArgs struct {
 	// The name of your CEV. The name format is 19.customized_string . For example, a valid name is 19.my_cev1. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of Engine and EngineVersion is unique per customer per Region.
 	EngineVersion string `pulumi:"engineVersion"`
 	// The AWS KMS key identifier for an encrypted CEV. A symmetric KMS key is required for RDS Custom, but optional for Amazon RDS.
-	KMSKeyId *string `pulumi:"kMSKeyId"`
+	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The CEV manifest, which is a JSON document that describes the installation .zip files stored in Amazon S3. Specify the name/value pairs in a file or a quoted string. RDS Custom applies the patches in the order in which they are listed.
 	Manifest *string `pulumi:"manifest"`
 	// The availability status to be assigned to the CEV.
@@ -120,7 +120,7 @@ type CustomDBEngineVersionArgs struct {
 	// The name of your CEV. The name format is 19.customized_string . For example, a valid name is 19.my_cev1. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of Engine and EngineVersion is unique per customer per Region.
 	EngineVersion pulumi.StringInput
 	// The AWS KMS key identifier for an encrypted CEV. A symmetric KMS key is required for RDS Custom, but optional for Amazon RDS.
-	KMSKeyId pulumi.StringPtrInput
+	KmsKeyId pulumi.StringPtrInput
 	// The CEV manifest, which is a JSON document that describes the installation .zip files stored in Amazon S3. Specify the name/value pairs in a file or a quoted string. RDS Custom applies the patches in the order in which they are listed.
 	Manifest pulumi.StringPtrInput
 	// The availability status to be assigned to the CEV.
@@ -166,11 +166,6 @@ func (o CustomDBEngineVersionOutput) ToCustomDBEngineVersionOutputWithContext(ct
 	return o
 }
 
-// The ARN of the custom engine version.
-func (o CustomDBEngineVersionOutput) DBEngineVersionArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *CustomDBEngineVersion) pulumi.StringOutput { return v.DBEngineVersionArn }).(pulumi.StringOutput)
-}
-
 // The name of an Amazon S3 bucket that contains database installation files for your CEV. For example, a valid bucket name is `my-custom-installation-files`.
 func (o CustomDBEngineVersionOutput) DatabaseInstallationFilesS3BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomDBEngineVersion) pulumi.StringOutput { return v.DatabaseInstallationFilesS3BucketName }).(pulumi.StringOutput)
@@ -179,6 +174,11 @@ func (o CustomDBEngineVersionOutput) DatabaseInstallationFilesS3BucketName() pul
 // The Amazon S3 directory that contains the database installation files for your CEV. For example, a valid bucket name is `123456789012/cev1`. If this setting isn't specified, no prefix is assumed.
 func (o CustomDBEngineVersionOutput) DatabaseInstallationFilesS3Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomDBEngineVersion) pulumi.StringPtrOutput { return v.DatabaseInstallationFilesS3Prefix }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the custom engine version.
+func (o CustomDBEngineVersionOutput) DbEngineVersionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomDBEngineVersion) pulumi.StringOutput { return v.DbEngineVersionArn }).(pulumi.StringOutput)
 }
 
 // An optional description of your CEV.
@@ -197,8 +197,8 @@ func (o CustomDBEngineVersionOutput) EngineVersion() pulumi.StringOutput {
 }
 
 // The AWS KMS key identifier for an encrypted CEV. A symmetric KMS key is required for RDS Custom, but optional for Amazon RDS.
-func (o CustomDBEngineVersionOutput) KMSKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CustomDBEngineVersion) pulumi.StringPtrOutput { return v.KMSKeyId }).(pulumi.StringPtrOutput)
+func (o CustomDBEngineVersionOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomDBEngineVersion) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
 // The CEV manifest, which is a JSON document that describes the installation .zip files stored in Amazon S3. Specify the name/value pairs in a file or a quoted string. RDS Custom applies the patches in the order in which they are listed.

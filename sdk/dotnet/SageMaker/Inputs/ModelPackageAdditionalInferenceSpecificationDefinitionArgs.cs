@@ -63,16 +63,16 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
             set => _supportedRealtimeInferenceInstanceTypes = value;
         }
 
-        [Input("supportedResponseMIMETypes")]
-        private InputList<string>? _supportedResponseMIMETypes;
+        [Input("supportedResponseMimeTypes")]
+        private InputList<string>? _supportedResponseMimeTypes;
 
         /// <summary>
         /// The supported MIME types for the output data.
         /// </summary>
-        public InputList<string> SupportedResponseMIMETypes
+        public InputList<string> SupportedResponseMimeTypes
         {
-            get => _supportedResponseMIMETypes ?? (_supportedResponseMIMETypes = new InputList<string>());
-            set => _supportedResponseMIMETypes = value;
+            get => _supportedResponseMimeTypes ?? (_supportedResponseMimeTypes = new InputList<string>());
+            set => _supportedResponseMimeTypes = value;
         }
 
         [Input("supportedTransformInstanceTypes")]

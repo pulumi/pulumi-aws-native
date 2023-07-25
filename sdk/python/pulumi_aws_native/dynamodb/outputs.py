@@ -487,8 +487,8 @@ class GlobalTableReplicaSSESpecification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "kMSMasterKeyId":
-            suggest = "k_ms_master_key_id"
+        if key == "kmsMasterKeyId":
+            suggest = "kms_master_key_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in GlobalTableReplicaSSESpecification. Access the value via the '{suggest}' property getter instead.")
@@ -502,13 +502,13 @@ class GlobalTableReplicaSSESpecification(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 k_ms_master_key_id: str):
-        pulumi.set(__self__, "k_ms_master_key_id", k_ms_master_key_id)
+                 kms_master_key_id: str):
+        pulumi.set(__self__, "kms_master_key_id", kms_master_key_id)
 
     @property
-    @pulumi.getter(name="kMSMasterKeyId")
-    def k_ms_master_key_id(self) -> str:
-        return pulumi.get(self, "k_ms_master_key_id")
+    @pulumi.getter(name="kmsMasterKeyId")
+    def kms_master_key_id(self) -> str:
+        return pulumi.get(self, "kms_master_key_id")
 
 
 @pulumi.output_type
@@ -528,8 +528,8 @@ class GlobalTableReplicaSpecification(dict):
             suggest = "point_in_time_recovery_specification"
         elif key == "readProvisionedThroughputSettings":
             suggest = "read_provisioned_throughput_settings"
-        elif key == "sSESpecification":
-            suggest = "s_se_specification"
+        elif key == "sseSpecification":
+            suggest = "sse_specification"
         elif key == "tableClass":
             suggest = "table_class"
 
@@ -552,7 +552,7 @@ class GlobalTableReplicaSpecification(dict):
                  kinesis_stream_specification: Optional['outputs.GlobalTableKinesisStreamSpecification'] = None,
                  point_in_time_recovery_specification: Optional['outputs.GlobalTablePointInTimeRecoverySpecification'] = None,
                  read_provisioned_throughput_settings: Optional['outputs.GlobalTableReadProvisionedThroughputSettings'] = None,
-                 s_se_specification: Optional['outputs.GlobalTableReplicaSSESpecification'] = None,
+                 sse_specification: Optional['outputs.GlobalTableReplicaSSESpecification'] = None,
                  table_class: Optional[str] = None,
                  tags: Optional[Sequence['outputs.GlobalTableTag']] = None):
         pulumi.set(__self__, "region", region)
@@ -568,8 +568,8 @@ class GlobalTableReplicaSpecification(dict):
             pulumi.set(__self__, "point_in_time_recovery_specification", point_in_time_recovery_specification)
         if read_provisioned_throughput_settings is not None:
             pulumi.set(__self__, "read_provisioned_throughput_settings", read_provisioned_throughput_settings)
-        if s_se_specification is not None:
-            pulumi.set(__self__, "s_se_specification", s_se_specification)
+        if sse_specification is not None:
+            pulumi.set(__self__, "sse_specification", sse_specification)
         if table_class is not None:
             pulumi.set(__self__, "table_class", table_class)
         if tags is not None:
@@ -611,9 +611,9 @@ class GlobalTableReplicaSpecification(dict):
         return pulumi.get(self, "read_provisioned_throughput_settings")
 
     @property
-    @pulumi.getter(name="sSESpecification")
-    def s_se_specification(self) -> Optional['outputs.GlobalTableReplicaSSESpecification']:
-        return pulumi.get(self, "s_se_specification")
+    @pulumi.getter(name="sseSpecification")
+    def sse_specification(self) -> Optional['outputs.GlobalTableReplicaSSESpecification']:
+        return pulumi.get(self, "sse_specification")
 
     @property
     @pulumi.getter(name="tableClass")
@@ -631,10 +631,10 @@ class GlobalTableSSESpecification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "sSEEnabled":
-            suggest = "s_se_enabled"
-        elif key == "sSEType":
-            suggest = "s_se_type"
+        if key == "sseEnabled":
+            suggest = "sse_enabled"
+        elif key == "sseType":
+            suggest = "sse_type"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in GlobalTableSSESpecification. Access the value via the '{suggest}' property getter instead.")
@@ -648,21 +648,21 @@ class GlobalTableSSESpecification(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 s_se_enabled: bool,
-                 s_se_type: Optional[str] = None):
-        pulumi.set(__self__, "s_se_enabled", s_se_enabled)
-        if s_se_type is not None:
-            pulumi.set(__self__, "s_se_type", s_se_type)
+                 sse_enabled: bool,
+                 sse_type: Optional[str] = None):
+        pulumi.set(__self__, "sse_enabled", sse_enabled)
+        if sse_type is not None:
+            pulumi.set(__self__, "sse_type", sse_type)
 
     @property
-    @pulumi.getter(name="sSEEnabled")
-    def s_se_enabled(self) -> bool:
-        return pulumi.get(self, "s_se_enabled")
+    @pulumi.getter(name="sseEnabled")
+    def sse_enabled(self) -> bool:
+        return pulumi.get(self, "sse_enabled")
 
     @property
-    @pulumi.getter(name="sSEType")
-    def s_se_type(self) -> Optional[str]:
-        return pulumi.get(self, "s_se_type")
+    @pulumi.getter(name="sseType")
+    def sse_type(self) -> Optional[str]:
+        return pulumi.get(self, "sse_type")
 
 
 @pulumi.output_type
@@ -1337,12 +1337,12 @@ class TableSSESpecification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "sSEEnabled":
-            suggest = "s_se_enabled"
-        elif key == "kMSMasterKeyId":
-            suggest = "k_ms_master_key_id"
-        elif key == "sSEType":
-            suggest = "s_se_type"
+        if key == "sseEnabled":
+            suggest = "sse_enabled"
+        elif key == "kmsMasterKeyId":
+            suggest = "kms_master_key_id"
+        elif key == "sseType":
+            suggest = "sse_type"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in TableSSESpecification. Access the value via the '{suggest}' property getter instead.")
@@ -1356,29 +1356,29 @@ class TableSSESpecification(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 s_se_enabled: bool,
-                 k_ms_master_key_id: Optional[str] = None,
-                 s_se_type: Optional[str] = None):
-        pulumi.set(__self__, "s_se_enabled", s_se_enabled)
-        if k_ms_master_key_id is not None:
-            pulumi.set(__self__, "k_ms_master_key_id", k_ms_master_key_id)
-        if s_se_type is not None:
-            pulumi.set(__self__, "s_se_type", s_se_type)
+                 sse_enabled: bool,
+                 kms_master_key_id: Optional[str] = None,
+                 sse_type: Optional[str] = None):
+        pulumi.set(__self__, "sse_enabled", sse_enabled)
+        if kms_master_key_id is not None:
+            pulumi.set(__self__, "kms_master_key_id", kms_master_key_id)
+        if sse_type is not None:
+            pulumi.set(__self__, "sse_type", sse_type)
 
     @property
-    @pulumi.getter(name="sSEEnabled")
-    def s_se_enabled(self) -> bool:
-        return pulumi.get(self, "s_se_enabled")
+    @pulumi.getter(name="sseEnabled")
+    def sse_enabled(self) -> bool:
+        return pulumi.get(self, "sse_enabled")
 
     @property
-    @pulumi.getter(name="kMSMasterKeyId")
-    def k_ms_master_key_id(self) -> Optional[str]:
-        return pulumi.get(self, "k_ms_master_key_id")
+    @pulumi.getter(name="kmsMasterKeyId")
+    def kms_master_key_id(self) -> Optional[str]:
+        return pulumi.get(self, "kms_master_key_id")
 
     @property
-    @pulumi.getter(name="sSEType")
-    def s_se_type(self) -> Optional[str]:
-        return pulumi.get(self, "s_se_type")
+    @pulumi.getter(name="sseType")
+    def sse_type(self) -> Optional[str]:
+        return pulumi.get(self, "sse_type")
 
 
 @pulumi.output_type

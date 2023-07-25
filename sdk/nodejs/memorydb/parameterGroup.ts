@@ -40,7 +40,7 @@ export class ParameterGroup extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the parameter group.
      */
-    public /*out*/ readonly aRN!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * A description of the parameter group.
      */
@@ -81,9 +81,9 @@ export class ParameterGroup extends pulumi.CustomResource {
             resourceInputs["parameterGroupName"] = args ? args.parameterGroupName : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["aRN"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
-            resourceInputs["aRN"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["family"] = undefined /*out*/;
             resourceInputs["parameterGroupName"] = undefined /*out*/;

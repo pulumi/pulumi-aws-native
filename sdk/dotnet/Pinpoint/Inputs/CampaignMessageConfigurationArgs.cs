@@ -12,11 +12,11 @@ namespace Pulumi.AwsNative.Pinpoint.Inputs
 
     public sealed class CampaignMessageConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        [Input("aDMMessage")]
-        public Input<Inputs.CampaignMessageArgs>? ADMMessage { get; set; }
+        [Input("admMessage")]
+        public Input<Inputs.CampaignMessageArgs>? AdmMessage { get; set; }
 
-        [Input("aPNSMessage")]
-        public Input<Inputs.CampaignMessageArgs>? APNSMessage { get; set; }
+        [Input("apnsMessage")]
+        public Input<Inputs.CampaignMessageArgs>? ApnsMessage { get; set; }
 
         [Input("baiduMessage")]
         public Input<Inputs.CampaignMessageArgs>? BaiduMessage { get; set; }
@@ -30,14 +30,14 @@ namespace Pulumi.AwsNative.Pinpoint.Inputs
         [Input("emailMessage")]
         public Input<Inputs.CampaignEmailMessageArgs>? EmailMessage { get; set; }
 
-        [Input("gCMMessage")]
-        public Input<Inputs.CampaignMessageArgs>? GCMMessage { get; set; }
+        [Input("gcmMessage")]
+        public Input<Inputs.CampaignMessageArgs>? GcmMessage { get; set; }
 
         [Input("inAppMessage")]
         public Input<Inputs.CampaignInAppMessageArgs>? InAppMessage { get; set; }
 
-        [Input("sMSMessage")]
-        public Input<Inputs.CampaignSmsMessageArgs>? SMSMessage { get; set; }
+        [Input("smsMessage")]
+        public Input<Inputs.CampaignSmsMessageArgs>? SmsMessage { get; set; }
 
         public CampaignMessageConfigurationArgs()
         {

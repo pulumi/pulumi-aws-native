@@ -21,11 +21,11 @@ namespace Pulumi.AwsNative.Elasticsearch.Inputs
         [Input("customEndpointEnabled")]
         public Input<bool>? CustomEndpointEnabled { get; set; }
 
-        [Input("enforceHTTPS")]
-        public Input<bool>? EnforceHTTPS { get; set; }
+        [Input("enforceHttps")]
+        public Input<bool>? EnforceHttps { get; set; }
 
-        [Input("tLSSecurityPolicy")]
-        public Input<string>? TLSSecurityPolicy { get; set; }
+        [Input("tlsSecurityPolicy")]
+        public Input<string>? TlsSecurityPolicy { get; set; }
 
         public DomainEndpointOptionsArgs()
         {

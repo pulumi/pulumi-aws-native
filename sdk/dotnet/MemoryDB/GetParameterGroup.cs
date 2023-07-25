@@ -60,7 +60,7 @@ namespace Pulumi.AwsNative.MemoryDB
         /// <summary>
         /// The Amazon Resource Name (ARN) of the parameter group.
         /// </summary>
-        public readonly string? ARN;
+        public readonly string? Arn;
         /// <summary>
         /// An array of key-value pairs to apply to this parameter group.
         /// </summary>
@@ -68,11 +68,11 @@ namespace Pulumi.AwsNative.MemoryDB
 
         [OutputConstructor]
         private GetParameterGroupResult(
-            string? aRN,
+            string? arn,
 
             ImmutableArray<Outputs.ParameterGroupTag> tags)
         {
-            ARN = aRN;
+            Arn = arn;
             Tags = tags;
         }
     }

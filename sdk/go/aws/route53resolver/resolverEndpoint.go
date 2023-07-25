@@ -20,7 +20,7 @@ type ResolverEndpoint struct {
 
 	Arn                   pulumi.StringOutput                         `pulumi:"arn"`
 	Direction             pulumi.StringOutput                         `pulumi:"direction"`
-	HostVPCId             pulumi.StringOutput                         `pulumi:"hostVPCId"`
+	HostVpcId             pulumi.StringOutput                         `pulumi:"hostVpcId"`
 	IpAddressCount        pulumi.StringOutput                         `pulumi:"ipAddressCount"`
 	IpAddresses           ResolverEndpointIpAddressRequestArrayOutput `pulumi:"ipAddresses"`
 	Name                  pulumi.StringPtrOutput                      `pulumi:"name"`
@@ -148,8 +148,8 @@ func (o ResolverEndpointOutput) Direction() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverEndpoint) pulumi.StringOutput { return v.Direction }).(pulumi.StringOutput)
 }
 
-func (o ResolverEndpointOutput) HostVPCId() pulumi.StringOutput {
-	return o.ApplyT(func(v *ResolverEndpoint) pulumi.StringOutput { return v.HostVPCId }).(pulumi.StringOutput)
+func (o ResolverEndpointOutput) HostVpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResolverEndpoint) pulumi.StringOutput { return v.HostVpcId }).(pulumi.StringOutput)
 }
 
 func (o ResolverEndpointOutput) IpAddressCount() pulumi.StringOutput {

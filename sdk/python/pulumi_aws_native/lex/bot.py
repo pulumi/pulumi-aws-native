@@ -70,7 +70,7 @@ class BotArgs:
         pulumi.set(self, "data_privacy", value)
 
     @property
-    @pulumi.getter(name="idleSessionTTLInSeconds")
+    @pulumi.getter(name="idleSessionTtlInSeconds")
     def idle_session_ttl_in_seconds(self) -> pulumi.Input[int]:
         """
         IdleSessionTTLInSeconds of the resource
@@ -350,7 +350,7 @@ class Bot(pulumi.CustomResource):
         return pulumi.get(self, "description")
 
     @property
-    @pulumi.getter(name="idleSessionTTLInSeconds")
+    @pulumi.getter(name="idleSessionTtlInSeconds")
     def idle_session_ttl_in_seconds(self) -> pulumi.Output[int]:
         """
         IdleSessionTTLInSeconds of the resource

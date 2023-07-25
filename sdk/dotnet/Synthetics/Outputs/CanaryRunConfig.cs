@@ -24,7 +24,7 @@ namespace Pulumi.AwsNative.Synthetics.Outputs
         /// <summary>
         /// Provide maximum memory available for canary in MB
         /// </summary>
-        public readonly int? MemoryInMB;
+        public readonly int? MemoryInMb;
         /// <summary>
         /// Provide maximum canary timeout per run in seconds
         /// </summary>
@@ -36,13 +36,13 @@ namespace Pulumi.AwsNative.Synthetics.Outputs
 
             object? environmentVariables,
 
-            int? memoryInMB,
+            int? memoryInMb,
 
             int? timeoutInSeconds)
         {
             ActiveTracing = activeTracing;
             EnvironmentVariables = environmentVariables;
-            MemoryInMB = memoryInMB;
+            MemoryInMb = memoryInMb;
             TimeoutInSeconds = timeoutInSeconds;
         }
     }

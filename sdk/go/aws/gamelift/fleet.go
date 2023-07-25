@@ -26,17 +26,17 @@ type Fleet struct {
 	// A human-readable description of a fleet.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// [DEPRECATED] The number of EC2 instances that you want this fleet to host. When creating a new fleet, GameLift automatically sets this value to "1" and initiates a single instance. Once the fleet is active, update this value to trigger GameLift to add or remove instances from the fleet.
-	DesiredEC2Instances pulumi.IntPtrOutput `pulumi:"desiredEC2Instances"`
+	DesiredEc2Instances pulumi.IntPtrOutput `pulumi:"desiredEc2Instances"`
 	// A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift server.
-	EC2InboundPermissions FleetIpPermissionArrayOutput `pulumi:"eC2InboundPermissions"`
+	Ec2InboundPermissions FleetIpPermissionArrayOutput `pulumi:"ec2InboundPermissions"`
 	// The name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See Amazon EC2 Instance Types for detailed descriptions.
-	EC2InstanceType pulumi.StringPtrOutput `pulumi:"eC2InstanceType"`
+	Ec2InstanceType pulumi.StringPtrOutput `pulumi:"ec2InstanceType"`
 	// Unique fleet ID
 	FleetId pulumi.StringOutput `pulumi:"fleetId"`
 	// Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
 	FleetType FleetTypePtrOutput `pulumi:"fleetType"`
 	// A unique identifier for an AWS IAM role that manages access to your AWS services. With an instance role ARN set, any application that runs on an instance in this fleet can assume the role, including install scripts, server processes, and daemons (background processes). Create a role or look up a role's ARN from the IAM dashboard in the AWS Management Console.
-	InstanceRoleARN pulumi.StringPtrOutput                `pulumi:"instanceRoleARN"`
+	InstanceRoleArn pulumi.StringPtrOutput                `pulumi:"instanceRoleArn"`
 	Locations       FleetLocationConfigurationArrayOutput `pulumi:"locations"`
 	// This parameter is no longer used. When hosting a custom game build, specify where Amazon GameLift should store log files using the Amazon GameLift server API call ProcessReady()
 	LogPaths pulumi.StringArrayOutput `pulumi:"logPaths"`
@@ -121,15 +121,15 @@ type fleetArgs struct {
 	// A human-readable description of a fleet.
 	Description *string `pulumi:"description"`
 	// [DEPRECATED] The number of EC2 instances that you want this fleet to host. When creating a new fleet, GameLift automatically sets this value to "1" and initiates a single instance. Once the fleet is active, update this value to trigger GameLift to add or remove instances from the fleet.
-	DesiredEC2Instances *int `pulumi:"desiredEC2Instances"`
+	DesiredEc2Instances *int `pulumi:"desiredEc2Instances"`
 	// A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift server.
-	EC2InboundPermissions []FleetIpPermission `pulumi:"eC2InboundPermissions"`
+	Ec2InboundPermissions []FleetIpPermission `pulumi:"ec2InboundPermissions"`
 	// The name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See Amazon EC2 Instance Types for detailed descriptions.
-	EC2InstanceType *string `pulumi:"eC2InstanceType"`
+	Ec2InstanceType *string `pulumi:"ec2InstanceType"`
 	// Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
 	FleetType *FleetType `pulumi:"fleetType"`
 	// A unique identifier for an AWS IAM role that manages access to your AWS services. With an instance role ARN set, any application that runs on an instance in this fleet can assume the role, including install scripts, server processes, and daemons (background processes). Create a role or look up a role's ARN from the IAM dashboard in the AWS Management Console.
-	InstanceRoleARN *string                      `pulumi:"instanceRoleARN"`
+	InstanceRoleArn *string                      `pulumi:"instanceRoleArn"`
 	Locations       []FleetLocationConfiguration `pulumi:"locations"`
 	// This parameter is no longer used. When hosting a custom game build, specify where Amazon GameLift should store log files using the Amazon GameLift server API call ProcessReady()
 	LogPaths []string `pulumi:"logPaths"`
@@ -176,15 +176,15 @@ type FleetArgs struct {
 	// A human-readable description of a fleet.
 	Description pulumi.StringPtrInput
 	// [DEPRECATED] The number of EC2 instances that you want this fleet to host. When creating a new fleet, GameLift automatically sets this value to "1" and initiates a single instance. Once the fleet is active, update this value to trigger GameLift to add or remove instances from the fleet.
-	DesiredEC2Instances pulumi.IntPtrInput
+	DesiredEc2Instances pulumi.IntPtrInput
 	// A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift server.
-	EC2InboundPermissions FleetIpPermissionArrayInput
+	Ec2InboundPermissions FleetIpPermissionArrayInput
 	// The name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See Amazon EC2 Instance Types for detailed descriptions.
-	EC2InstanceType pulumi.StringPtrInput
+	Ec2InstanceType pulumi.StringPtrInput
 	// Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
 	FleetType FleetTypePtrInput
 	// A unique identifier for an AWS IAM role that manages access to your AWS services. With an instance role ARN set, any application that runs on an instance in this fleet can assume the role, including install scripts, server processes, and daemons (background processes). Create a role or look up a role's ARN from the IAM dashboard in the AWS Management Console.
-	InstanceRoleARN pulumi.StringPtrInput
+	InstanceRoleArn pulumi.StringPtrInput
 	Locations       FleetLocationConfigurationArrayInput
 	// This parameter is no longer used. When hosting a custom game build, specify where Amazon GameLift should store log files using the Amazon GameLift server API call ProcessReady()
 	LogPaths pulumi.StringArrayInput
@@ -281,18 +281,18 @@ func (o FleetOutput) Description() pulumi.StringPtrOutput {
 }
 
 // [DEPRECATED] The number of EC2 instances that you want this fleet to host. When creating a new fleet, GameLift automatically sets this value to "1" and initiates a single instance. Once the fleet is active, update this value to trigger GameLift to add or remove instances from the fleet.
-func (o FleetOutput) DesiredEC2Instances() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Fleet) pulumi.IntPtrOutput { return v.DesiredEC2Instances }).(pulumi.IntPtrOutput)
+func (o FleetOutput) DesiredEc2Instances() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.IntPtrOutput { return v.DesiredEc2Instances }).(pulumi.IntPtrOutput)
 }
 
 // A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift server.
-func (o FleetOutput) EC2InboundPermissions() FleetIpPermissionArrayOutput {
-	return o.ApplyT(func(v *Fleet) FleetIpPermissionArrayOutput { return v.EC2InboundPermissions }).(FleetIpPermissionArrayOutput)
+func (o FleetOutput) Ec2InboundPermissions() FleetIpPermissionArrayOutput {
+	return o.ApplyT(func(v *Fleet) FleetIpPermissionArrayOutput { return v.Ec2InboundPermissions }).(FleetIpPermissionArrayOutput)
 }
 
 // The name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See Amazon EC2 Instance Types for detailed descriptions.
-func (o FleetOutput) EC2InstanceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.EC2InstanceType }).(pulumi.StringPtrOutput)
+func (o FleetOutput) Ec2InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.Ec2InstanceType }).(pulumi.StringPtrOutput)
 }
 
 // Unique fleet ID
@@ -306,8 +306,8 @@ func (o FleetOutput) FleetType() FleetTypePtrOutput {
 }
 
 // A unique identifier for an AWS IAM role that manages access to your AWS services. With an instance role ARN set, any application that runs on an instance in this fleet can assume the role, including install scripts, server processes, and daemons (background processes). Create a role or look up a role's ARN from the IAM dashboard in the AWS Management Console.
-func (o FleetOutput) InstanceRoleARN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.InstanceRoleARN }).(pulumi.StringPtrOutput)
+func (o FleetOutput) InstanceRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.InstanceRoleArn }).(pulumi.StringPtrOutput)
 }
 
 func (o FleetOutput) Locations() FleetLocationConfigurationArrayOutput {

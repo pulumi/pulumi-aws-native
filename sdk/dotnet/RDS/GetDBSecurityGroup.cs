@@ -51,19 +51,19 @@ namespace Pulumi.AwsNative.RDS
     [OutputType]
     public sealed class GetDBSecurityGroupResult
     {
-        public readonly ImmutableArray<Outputs.DBSecurityGroupIngress> DBSecurityGroupIngress;
+        public readonly ImmutableArray<Outputs.DBSecurityGroupIngress> DbSecurityGroupIngress;
         public readonly string? Id;
         public readonly ImmutableArray<Outputs.DBSecurityGroupTag> Tags;
 
         [OutputConstructor]
         private GetDBSecurityGroupResult(
-            ImmutableArray<Outputs.DBSecurityGroupIngress> dBSecurityGroupIngress,
+            ImmutableArray<Outputs.DBSecurityGroupIngress> dbSecurityGroupIngress,
 
             string? id,
 
             ImmutableArray<Outputs.DBSecurityGroupTag> tags)
         {
-            DBSecurityGroupIngress = dBSecurityGroupIngress;
+            DbSecurityGroupIngress = dbSecurityGroupIngress;
             Id = id;
             Tags = tags;
         }

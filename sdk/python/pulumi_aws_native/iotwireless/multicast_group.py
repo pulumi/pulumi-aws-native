@@ -44,7 +44,7 @@ class MulticastGroupArgs:
             pulumi.set(__self__, "tags", tags)
 
     @property
-    @pulumi.getter(name="loRaWAN")
+    @pulumi.getter(name="loRaWan")
     def lo_ra_wan(self) -> pulumi.Input['MulticastGroupLoRaWANArgs']:
         """
         Multicast group LoRaWAN
@@ -254,7 +254,7 @@ class MulticastGroup(pulumi.CustomResource):
         return pulumi.get(self, "disassociate_wireless_device")
 
     @property
-    @pulumi.getter(name="loRaWAN")
+    @pulumi.getter(name="loRaWan")
     def lo_ra_wan(self) -> pulumi.Output['outputs.MulticastGroupLoRaWAN']:
         """
         Multicast group LoRaWAN

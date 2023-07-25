@@ -68,11 +68,11 @@ namespace Pulumi.AwsNative.GameLift
         /// <summary>
         /// [DEPRECATED] The number of EC2 instances that you want this fleet to host. When creating a new fleet, GameLift automatically sets this value to "1" and initiates a single instance. Once the fleet is active, update this value to trigger GameLift to add or remove instances from the fleet.
         /// </summary>
-        public readonly int? DesiredEC2Instances;
+        public readonly int? DesiredEc2Instances;
         /// <summary>
         /// A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift server.
         /// </summary>
-        public readonly ImmutableArray<Outputs.FleetIpPermission> EC2InboundPermissions;
+        public readonly ImmutableArray<Outputs.FleetIpPermission> Ec2InboundPermissions;
         /// <summary>
         /// Unique fleet ID
         /// </summary>
@@ -115,9 +115,9 @@ namespace Pulumi.AwsNative.GameLift
 
             string? description,
 
-            int? desiredEC2Instances,
+            int? desiredEc2Instances,
 
-            ImmutableArray<Outputs.FleetIpPermission> eC2InboundPermissions,
+            ImmutableArray<Outputs.FleetIpPermission> ec2InboundPermissions,
 
             string? fleetId,
 
@@ -139,8 +139,8 @@ namespace Pulumi.AwsNative.GameLift
         {
             AnywhereConfiguration = anywhereConfiguration;
             Description = description;
-            DesiredEC2Instances = desiredEC2Instances;
-            EC2InboundPermissions = eC2InboundPermissions;
+            DesiredEc2Instances = desiredEc2Instances;
+            Ec2InboundPermissions = ec2InboundPermissions;
             FleetId = fleetId;
             Locations = locations;
             MaxSize = maxSize;

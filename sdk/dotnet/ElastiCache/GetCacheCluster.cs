@@ -51,8 +51,8 @@ namespace Pulumi.AwsNative.ElastiCache
     [OutputType]
     public sealed class GetCacheClusterResult
     {
-        public readonly string? AZMode;
         public readonly bool? AutoMinorVersionUpgrade;
+        public readonly string? AzMode;
         public readonly string? CacheNodeType;
         public readonly string? CacheParameterGroupName;
         public readonly ImmutableArray<string> CacheSecurityGroupNames;
@@ -77,9 +77,9 @@ namespace Pulumi.AwsNative.ElastiCache
 
         [OutputConstructor]
         private GetCacheClusterResult(
-            string? aZMode,
-
             bool? autoMinorVersionUpgrade,
+
+            string? azMode,
 
             string? cacheNodeType,
 
@@ -123,8 +123,8 @@ namespace Pulumi.AwsNative.ElastiCache
 
             ImmutableArray<string> vpcSecurityGroupIds)
         {
-            AZMode = aZMode;
             AutoMinorVersionUpgrade = autoMinorVersionUpgrade;
+            AzMode = azMode;
             CacheNodeType = cacheNodeType;
             CacheParameterGroupName = cacheParameterGroupName;
             CacheSecurityGroupNames = cacheSecurityGroupNames;

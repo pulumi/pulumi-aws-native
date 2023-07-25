@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetVolumeResult:
-    def __init__(__self__, name=None, ontap_configuration=None, open_zfs_configuration=None, resource_arn=None, tags=None, u_uid=None, volume_id=None):
+    def __init__(__self__, name=None, ontap_configuration=None, open_zfs_configuration=None, resource_arn=None, tags=None, uuid=None, volume_id=None):
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -35,9 +35,9 @@ class GetVolumeResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
-        if u_uid and not isinstance(u_uid, str):
-            raise TypeError("Expected argument 'u_uid' to be a str")
-        pulumi.set(__self__, "u_uid", u_uid)
+        if uuid and not isinstance(uuid, str):
+            raise TypeError("Expected argument 'uuid' to be a str")
+        pulumi.set(__self__, "uuid", uuid)
         if volume_id and not isinstance(volume_id, str):
             raise TypeError("Expected argument 'volume_id' to be a str")
         pulumi.set(__self__, "volume_id", volume_id)
@@ -53,12 +53,12 @@ class GetVolumeResult:
         return pulumi.get(self, "ontap_configuration")
 
     @property
-    @pulumi.getter(name="openZFSConfiguration")
+    @pulumi.getter(name="openZfsConfiguration")
     def open_zfs_configuration(self) -> Optional['outputs.VolumeOpenZFSConfiguration']:
         return pulumi.get(self, "open_zfs_configuration")
 
     @property
-    @pulumi.getter(name="resourceARN")
+    @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> Optional[str]:
         return pulumi.get(self, "resource_arn")
 
@@ -68,9 +68,9 @@ class GetVolumeResult:
         return pulumi.get(self, "tags")
 
     @property
-    @pulumi.getter(name="uUID")
-    def u_uid(self) -> Optional[str]:
-        return pulumi.get(self, "u_uid")
+    @pulumi.getter
+    def uuid(self) -> Optional[str]:
+        return pulumi.get(self, "uuid")
 
     @property
     @pulumi.getter(name="volumeId")
@@ -89,7 +89,7 @@ class AwaitableGetVolumeResult(GetVolumeResult):
             open_zfs_configuration=self.open_zfs_configuration,
             resource_arn=self.resource_arn,
             tags=self.tags,
-            u_uid=self.u_uid,
+            uuid=self.uuid,
             volume_id=self.volume_id)
 
 
@@ -109,7 +109,7 @@ def get_volume(volume_id: Optional[str] = None,
         open_zfs_configuration=pulumi.get(__ret__, 'open_zfs_configuration'),
         resource_arn=pulumi.get(__ret__, 'resource_arn'),
         tags=pulumi.get(__ret__, 'tags'),
-        u_uid=pulumi.get(__ret__, 'u_uid'),
+        uuid=pulumi.get(__ret__, 'uuid'),
         volume_id=pulumi.get(__ret__, 'volume_id'))
 
 

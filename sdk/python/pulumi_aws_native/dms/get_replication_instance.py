@@ -94,7 +94,7 @@ class GetReplicationInstanceResult:
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="multiAZ")
+    @pulumi.getter(name="multiAz")
     def multi_az(self) -> Optional[bool]:
         return pulumi.get(self, "multi_az")
 

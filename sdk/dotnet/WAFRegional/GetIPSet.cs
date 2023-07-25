@@ -51,17 +51,17 @@ namespace Pulumi.AwsNative.WAFRegional
     [OutputType]
     public sealed class GetIPSetResult
     {
-        public readonly ImmutableArray<Outputs.IPSetDescriptor> IPSetDescriptors;
         public readonly string? Id;
+        public readonly ImmutableArray<Outputs.IPSetDescriptor> IpSetDescriptors;
 
         [OutputConstructor]
         private GetIPSetResult(
-            ImmutableArray<Outputs.IPSetDescriptor> iPSetDescriptors,
+            string? id,
 
-            string? id)
+            ImmutableArray<Outputs.IPSetDescriptor> ipSetDescriptors)
         {
-            IPSetDescriptors = iPSetDescriptors;
             Id = id;
+            IpSetDescriptors = ipSetDescriptors;
         }
     }
 }

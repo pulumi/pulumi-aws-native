@@ -57,7 +57,7 @@ class TaskDefinitionArgs:
         pulumi.set(self, "auto_create_tasks", value)
 
     @property
-    @pulumi.getter(name="loRaWANUpdateGatewayTaskEntry")
+    @pulumi.getter(name="loRaWanUpdateGatewayTaskEntry")
     def lo_ra_wan_update_gateway_task_entry(self) -> Optional[pulumi.Input['TaskDefinitionLoRaWANUpdateGatewayTaskEntryArgs']]:
         """
         The list of task definitions.
@@ -237,7 +237,7 @@ class TaskDefinition(pulumi.CustomResource):
         return pulumi.get(self, "auto_create_tasks")
 
     @property
-    @pulumi.getter(name="loRaWANUpdateGatewayTaskEntry")
+    @pulumi.getter(name="loRaWanUpdateGatewayTaskEntry")
     def lo_ra_wan_update_gateway_task_entry(self) -> pulumi.Output[Optional['outputs.TaskDefinitionLoRaWANUpdateGatewayTaskEntry']]:
         """
         The list of task definitions.

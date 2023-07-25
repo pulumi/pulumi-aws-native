@@ -51,8 +51,8 @@ namespace Pulumi.AwsNative.Lex
         /// <summary>
         /// IdleSessionTTLInSeconds of the resource
         /// </summary>
-        [Output("idleSessionTTLInSeconds")]
-        public Output<int> IdleSessionTTLInSeconds { get; private set; } = null!;
+        [Output("idleSessionTtlInSeconds")]
+        public Output<int> IdleSessionTtlInSeconds { get; private set; } = null!;
 
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -159,8 +159,8 @@ namespace Pulumi.AwsNative.Lex
         /// <summary>
         /// IdleSessionTTLInSeconds of the resource
         /// </summary>
-        [Input("idleSessionTTLInSeconds", required: true)]
-        public Input<int> IdleSessionTTLInSeconds { get; set; } = null!;
+        [Input("idleSessionTtlInSeconds", required: true)]
+        public Input<int> IdleSessionTtlInSeconds { get; set; } = null!;
 
         [Input("name")]
         public Input<string>? Name { get; set; }

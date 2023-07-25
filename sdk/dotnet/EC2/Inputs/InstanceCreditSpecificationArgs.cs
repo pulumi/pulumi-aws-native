@@ -12,8 +12,8 @@ namespace Pulumi.AwsNative.EC2.Inputs
 
     public sealed class InstanceCreditSpecificationArgs : global::Pulumi.ResourceArgs
     {
-        [Input("cPUCredits")]
-        public Input<string>? CPUCredits { get; set; }
+        [Input("cpuCredits")]
+        public Input<string>? CpuCredits { get; set; }
 
         public InstanceCreditSpecificationArgs()
         {

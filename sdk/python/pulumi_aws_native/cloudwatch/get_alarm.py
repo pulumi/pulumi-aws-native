@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAlarmResult:
-    def __init__(__self__, actions_enabled=None, alarm_actions=None, alarm_description=None, arn=None, comparison_operator=None, datapoints_to_alarm=None, dimensions=None, evaluate_low_sample_count_percentile=None, evaluation_periods=None, extended_statistic=None, id=None, insufficient_data_actions=None, metric_name=None, metrics=None, namespace=None, o_k_actions=None, period=None, statistic=None, threshold=None, threshold_metric_id=None, treat_missing_data=None, unit=None):
+    def __init__(__self__, actions_enabled=None, alarm_actions=None, alarm_description=None, arn=None, comparison_operator=None, datapoints_to_alarm=None, dimensions=None, evaluate_low_sample_count_percentile=None, evaluation_periods=None, extended_statistic=None, id=None, insufficient_data_actions=None, metric_name=None, metrics=None, namespace=None, ok_actions=None, period=None, statistic=None, threshold=None, threshold_metric_id=None, treat_missing_data=None, unit=None):
         if actions_enabled and not isinstance(actions_enabled, bool):
             raise TypeError("Expected argument 'actions_enabled' to be a bool")
         pulumi.set(__self__, "actions_enabled", actions_enabled)
@@ -65,9 +65,9 @@ class GetAlarmResult:
         if namespace and not isinstance(namespace, str):
             raise TypeError("Expected argument 'namespace' to be a str")
         pulumi.set(__self__, "namespace", namespace)
-        if o_k_actions and not isinstance(o_k_actions, list):
-            raise TypeError("Expected argument 'o_k_actions' to be a list")
-        pulumi.set(__self__, "o_k_actions", o_k_actions)
+        if ok_actions and not isinstance(ok_actions, list):
+            raise TypeError("Expected argument 'ok_actions' to be a list")
+        pulumi.set(__self__, "ok_actions", ok_actions)
         if period and not isinstance(period, int):
             raise TypeError("Expected argument 'period' to be a int")
         pulumi.set(__self__, "period", period)
@@ -163,9 +163,9 @@ class GetAlarmResult:
         return pulumi.get(self, "namespace")
 
     @property
-    @pulumi.getter(name="oKActions")
-    def o_k_actions(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "o_k_actions")
+    @pulumi.getter(name="okActions")
+    def ok_actions(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "ok_actions")
 
     @property
     @pulumi.getter
@@ -219,7 +219,7 @@ class AwaitableGetAlarmResult(GetAlarmResult):
             metric_name=self.metric_name,
             metrics=self.metrics,
             namespace=self.namespace,
-            o_k_actions=self.o_k_actions,
+            ok_actions=self.ok_actions,
             period=self.period,
             statistic=self.statistic,
             threshold=self.threshold,
@@ -254,7 +254,7 @@ def get_alarm(id: Optional[str] = None,
         metric_name=pulumi.get(__ret__, 'metric_name'),
         metrics=pulumi.get(__ret__, 'metrics'),
         namespace=pulumi.get(__ret__, 'namespace'),
-        o_k_actions=pulumi.get(__ret__, 'o_k_actions'),
+        ok_actions=pulumi.get(__ret__, 'ok_actions'),
         period=pulumi.get(__ret__, 'period'),
         statistic=pulumi.get(__ret__, 'statistic'),
         threshold=pulumi.get(__ret__, 'threshold'),

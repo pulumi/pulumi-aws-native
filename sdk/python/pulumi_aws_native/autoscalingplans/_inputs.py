@@ -32,7 +32,7 @@ class ScalingPlanApplicationSourceArgs:
             pulumi.set(__self__, "tag_filters", tag_filters)
 
     @property
-    @pulumi.getter(name="cloudFormationStackARN")
+    @pulumi.getter(name="cloudFormationStackArn")
     def cloud_formation_stack_arn(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "cloud_formation_stack_arn")
 

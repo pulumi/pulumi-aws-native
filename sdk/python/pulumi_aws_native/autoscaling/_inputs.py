@@ -401,7 +401,7 @@ class AutoScalingGroupInstanceRequirementsArgs:
         pulumi.set(self, "spot_max_price_percentage_over_lowest_price", value)
 
     @property
-    @pulumi.getter(name="totalLocalStorageGB")
+    @pulumi.getter(name="totalLocalStorageGb")
     def total_local_storage_gb(self) -> Optional[pulumi.Input['AutoScalingGroupTotalLocalStorageGBRequestArgs']]:
         return pulumi.get(self, "total_local_storage_gb")
 
@@ -686,7 +686,7 @@ class AutoScalingGroupLifecycleHookSpecificationArgs:
         pulumi.set(self, "notification_metadata", value)
 
     @property
-    @pulumi.getter(name="notificationTargetARN")
+    @pulumi.getter(name="notificationTargetArn")
     def notification_target_arn(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "notification_target_arn")
 
@@ -695,7 +695,7 @@ class AutoScalingGroupLifecycleHookSpecificationArgs:
         pulumi.set(self, "notification_target_arn", value)
 
     @property
-    @pulumi.getter(name="roleARN")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "role_arn")
 
@@ -886,7 +886,7 @@ class AutoScalingGroupNotificationConfigurationArgs:
             pulumi.set(__self__, "notification_types", notification_types)
 
     @property
-    @pulumi.getter(name="topicARN")
+    @pulumi.getter(name="topicArn")
     def topic_arn(self) -> pulumi.Input[str]:
         return pulumi.get(self, "topic_arn")
 

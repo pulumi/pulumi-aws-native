@@ -18,8 +18,8 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("fieldId", required: true)]
         public Input<string> FieldId { get; set; } = null!;
 
-        [Input("uRLStyling")]
-        public Input<Inputs.DashboardTableFieldURLConfigurationArgs>? URLStyling { get; set; }
+        [Input("urlStyling")]
+        public Input<Inputs.DashboardTableFieldURLConfigurationArgs>? UrlStyling { get; set; }
 
         [Input("visibility")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardVisibility>? Visibility { get; set; }

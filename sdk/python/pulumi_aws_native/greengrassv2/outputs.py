@@ -58,9 +58,9 @@ class ComponentVersionLambdaContainerParams(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "memorySizeInKB":
+        if key == "memorySizeInKb":
             suggest = "memory_size_in_kb"
-        elif key == "mountROSysfs":
+        elif key == "mountRoSysfs":
             suggest = "mount_ro_sysfs"
 
         if suggest:
@@ -94,12 +94,12 @@ class ComponentVersionLambdaContainerParams(dict):
         return pulumi.get(self, "devices")
 
     @property
-    @pulumi.getter(name="memorySizeInKB")
+    @pulumi.getter(name="memorySizeInKb")
     def memory_size_in_kb(self) -> Optional[int]:
         return pulumi.get(self, "memory_size_in_kb")
 
     @property
-    @pulumi.getter(name="mountROSysfs")
+    @pulumi.getter(name="mountRoSysfs")
     def mount_ro_sysfs(self) -> Optional[bool]:
         return pulumi.get(self, "mount_ro_sysfs")
 

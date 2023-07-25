@@ -14,16 +14,16 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
     public sealed class RuleGroupGeoMatchStatement
     {
         public readonly ImmutableArray<string> CountryCodes;
-        public readonly Outputs.RuleGroupForwardedIPConfiguration? ForwardedIPConfig;
+        public readonly Outputs.RuleGroupForwardedIPConfiguration? ForwardedIpConfig;
 
         [OutputConstructor]
         private RuleGroupGeoMatchStatement(
             ImmutableArray<string> countryCodes,
 
-            Outputs.RuleGroupForwardedIPConfiguration? forwardedIPConfig)
+            Outputs.RuleGroupForwardedIPConfiguration? forwardedIpConfig)
         {
             CountryCodes = countryCodes;
-            ForwardedIPConfig = forwardedIPConfig;
+            ForwardedIpConfig = forwardedIpConfig;
         }
     }
 }

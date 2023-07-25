@@ -27,15 +27,15 @@ namespace Pulumi.AwsNative.ApplicationInsights.Outputs
         /// <summary>
         /// The HA cluster Prometheus Exporter settings.
         /// </summary>
-        public readonly Outputs.ApplicationHAClusterPrometheusExporter? HAClusterPrometheusExporter;
+        public readonly Outputs.ApplicationHAClusterPrometheusExporter? HaClusterPrometheusExporter;
         /// <summary>
         /// The HANA DB Prometheus Exporter settings.
         /// </summary>
-        public readonly Outputs.ApplicationHANAPrometheusExporter? HANAPrometheusExporter;
+        public readonly Outputs.ApplicationHANAPrometheusExporter? HanaPrometheusExporter;
         /// <summary>
         /// The JMX Prometheus Exporter settings.
         /// </summary>
-        public readonly Outputs.ApplicationJMXPrometheusExporter? JMXPrometheusExporter;
+        public readonly Outputs.ApplicationJMXPrometheusExporter? JmxPrometheusExporter;
         /// <summary>
         /// A list of logs to monitor for the component.
         /// </summary>
@@ -51,11 +51,11 @@ namespace Pulumi.AwsNative.ApplicationInsights.Outputs
 
             ImmutableArray<Outputs.ApplicationAlarm> alarms,
 
-            Outputs.ApplicationHAClusterPrometheusExporter? hAClusterPrometheusExporter,
+            Outputs.ApplicationHAClusterPrometheusExporter? haClusterPrometheusExporter,
 
-            Outputs.ApplicationHANAPrometheusExporter? hANAPrometheusExporter,
+            Outputs.ApplicationHANAPrometheusExporter? hanaPrometheusExporter,
 
-            Outputs.ApplicationJMXPrometheusExporter? jMXPrometheusExporter,
+            Outputs.ApplicationJMXPrometheusExporter? jmxPrometheusExporter,
 
             ImmutableArray<Outputs.ApplicationLog> logs,
 
@@ -63,9 +63,9 @@ namespace Pulumi.AwsNative.ApplicationInsights.Outputs
         {
             AlarmMetrics = alarmMetrics;
             Alarms = alarms;
-            HAClusterPrometheusExporter = hAClusterPrometheusExporter;
-            HANAPrometheusExporter = hANAPrometheusExporter;
-            JMXPrometheusExporter = jMXPrometheusExporter;
+            HaClusterPrometheusExporter = haClusterPrometheusExporter;
+            HanaPrometheusExporter = hanaPrometheusExporter;
+            JmxPrometheusExporter = jmxPrometheusExporter;
             Logs = logs;
             WindowsEvents = windowsEvents;
         }

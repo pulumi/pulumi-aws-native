@@ -1483,7 +1483,7 @@ class VolumeOriginSnapshot(dict):
         suggest = None
         if key == "copyStrategy":
             suggest = "copy_strategy"
-        elif key == "snapshotARN":
+        elif key == "snapshotArn":
             suggest = "snapshot_arn"
 
         if suggest:
@@ -1509,7 +1509,7 @@ class VolumeOriginSnapshot(dict):
         return pulumi.get(self, "copy_strategy")
 
     @property
-    @pulumi.getter(name="snapshotARN")
+    @pulumi.getter(name="snapshotArn")
     def snapshot_arn(self) -> str:
         return pulumi.get(self, "snapshot_arn")
 

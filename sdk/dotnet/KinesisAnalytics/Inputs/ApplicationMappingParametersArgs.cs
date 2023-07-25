@@ -12,11 +12,11 @@ namespace Pulumi.AwsNative.KinesisAnalytics.Inputs
 
     public sealed class ApplicationMappingParametersArgs : global::Pulumi.ResourceArgs
     {
-        [Input("cSVMappingParameters")]
-        public Input<Inputs.ApplicationCSVMappingParametersArgs>? CSVMappingParameters { get; set; }
+        [Input("csvMappingParameters")]
+        public Input<Inputs.ApplicationCSVMappingParametersArgs>? CsvMappingParameters { get; set; }
 
-        [Input("jSONMappingParameters")]
-        public Input<Inputs.ApplicationJSONMappingParametersArgs>? JSONMappingParameters { get; set; }
+        [Input("jsonMappingParameters")]
+        public Input<Inputs.ApplicationJSONMappingParametersArgs>? JsonMappingParameters { get; set; }
 
         public ApplicationMappingParametersArgs()
         {

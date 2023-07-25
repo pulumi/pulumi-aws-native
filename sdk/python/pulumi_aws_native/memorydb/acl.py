@@ -16,33 +16,33 @@ __all__ = ['ACLArgs', 'ACL']
 @pulumi.input_type
 class ACLArgs:
     def __init__(__self__, *,
-                 a_cl_name: Optional[pulumi.Input[str]] = None,
+                 acl_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ACLTagArgs']]]] = None,
                  user_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ACL resource.
-        :param pulumi.Input[str] a_cl_name: The name of the acl.
+        :param pulumi.Input[str] acl_name: The name of the acl.
         :param pulumi.Input[Sequence[pulumi.Input['ACLTagArgs']]] tags: An array of key-value pairs to apply to this cluster.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_names: List of users associated to this acl.
         """
-        if a_cl_name is not None:
-            pulumi.set(__self__, "a_cl_name", a_cl_name)
+        if acl_name is not None:
+            pulumi.set(__self__, "acl_name", acl_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if user_names is not None:
             pulumi.set(__self__, "user_names", user_names)
 
     @property
-    @pulumi.getter(name="aCLName")
-    def a_cl_name(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="aclName")
+    def acl_name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the acl.
         """
-        return pulumi.get(self, "a_cl_name")
+        return pulumi.get(self, "acl_name")
 
-    @a_cl_name.setter
-    def a_cl_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "a_cl_name", value)
+    @acl_name.setter
+    def acl_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "acl_name", value)
 
     @property
     @pulumi.getter
@@ -74,7 +74,7 @@ class ACL(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 a_cl_name: Optional[pulumi.Input[str]] = None,
+                 acl_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ACLTagArgs']]]]] = None,
                  user_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -83,7 +83,7 @@ class ACL(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] a_cl_name: The name of the acl.
+        :param pulumi.Input[str] acl_name: The name of the acl.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ACLTagArgs']]]] tags: An array of key-value pairs to apply to this cluster.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_names: List of users associated to this acl.
         """
@@ -111,7 +111,7 @@ class ACL(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 a_cl_name: Optional[pulumi.Input[str]] = None,
+                 acl_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ACLTagArgs']]]]] = None,
                  user_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -123,7 +123,7 @@ class ACL(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ACLArgs.__new__(ACLArgs)
 
-            __props__.__dict__["a_cl_name"] = a_cl_name
+            __props__.__dict__["acl_name"] = acl_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["user_names"] = user_names
             __props__.__dict__["arn"] = None
@@ -150,7 +150,7 @@ class ACL(pulumi.CustomResource):
 
         __props__ = ACLArgs.__new__(ACLArgs)
 
-        __props__.__dict__["a_cl_name"] = None
+        __props__.__dict__["acl_name"] = None
         __props__.__dict__["arn"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["tags"] = None
@@ -158,12 +158,12 @@ class ACL(pulumi.CustomResource):
         return ACL(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="aCLName")
-    def a_cl_name(self) -> pulumi.Output[str]:
+    @pulumi.getter(name="aclName")
+    def acl_name(self) -> pulumi.Output[str]:
         """
         The name of the acl.
         """
-        return pulumi.get(self, "a_cl_name")
+        return pulumi.get(self, "acl_name")
 
     @property
     @pulumi.getter

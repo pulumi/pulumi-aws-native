@@ -16,12 +16,6 @@ namespace Pulumi.AwsNative.RDS
     public partial class CustomDBEngineVersion : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the custom engine version.
-        /// </summary>
-        [Output("dBEngineVersionArn")]
-        public Output<string> DBEngineVersionArn { get; private set; } = null!;
-
-        /// <summary>
         /// The name of an Amazon S3 bucket that contains database installation files for your CEV. For example, a valid bucket name is `my-custom-installation-files`.
         /// </summary>
         [Output("databaseInstallationFilesS3BucketName")]
@@ -32,6 +26,12 @@ namespace Pulumi.AwsNative.RDS
         /// </summary>
         [Output("databaseInstallationFilesS3Prefix")]
         public Output<string?> DatabaseInstallationFilesS3Prefix { get; private set; } = null!;
+
+        /// <summary>
+        /// The ARN of the custom engine version.
+        /// </summary>
+        [Output("dbEngineVersionArn")]
+        public Output<string> DbEngineVersionArn { get; private set; } = null!;
 
         /// <summary>
         /// An optional description of your CEV.
@@ -54,8 +54,8 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// The AWS KMS key identifier for an encrypted CEV. A symmetric KMS key is required for RDS Custom, but optional for Amazon RDS.
         /// </summary>
-        [Output("kMSKeyId")]
-        public Output<string?> KMSKeyId { get; private set; } = null!;
+        [Output("kmsKeyId")]
+        public Output<string?> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
         /// The CEV manifest, which is a JSON document that describes the installation .zip files stored in Amazon S3. Specify the name/value pairs in a file or a quoted string. RDS Custom applies the patches in the order in which they are listed.
@@ -153,8 +153,8 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// The AWS KMS key identifier for an encrypted CEV. A symmetric KMS key is required for RDS Custom, but optional for Amazon RDS.
         /// </summary>
-        [Input("kMSKeyId")]
-        public Input<string>? KMSKeyId { get; set; }
+        [Input("kmsKeyId")]
+        public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
         /// The CEV manifest, which is a JSON document that describes the installation .zip files stored in Amazon S3. Specify the name/value pairs in a file or a quoted string. RDS Custom applies the patches in the order in which they are listed.

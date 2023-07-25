@@ -66,7 +66,7 @@ class GetClusterResult:
         return pulumi.get(self, "managed_scaling_policy")
 
     @property
-    @pulumi.getter(name="masterPublicDNS")
+    @pulumi.getter(name="masterPublicDns")
     def master_public_dns(self) -> Optional[str]:
         return pulumi.get(self, "master_public_dns")
 

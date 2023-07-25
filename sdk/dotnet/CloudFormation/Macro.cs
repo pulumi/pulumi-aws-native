@@ -25,8 +25,8 @@ namespace Pulumi.AwsNative.CloudFormation
         [Output("logGroupName")]
         public Output<string?> LogGroupName { get; private set; } = null!;
 
-        [Output("logRoleARN")]
-        public Output<string?> LogRoleARN { get; private set; } = null!;
+        [Output("logRoleArn")]
+        public Output<string?> LogRoleArn { get; private set; } = null!;
 
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -85,8 +85,8 @@ namespace Pulumi.AwsNative.CloudFormation
         [Input("logGroupName")]
         public Input<string>? LogGroupName { get; set; }
 
-        [Input("logRoleARN")]
-        public Input<string>? LogRoleARN { get; set; }
+        [Input("logRoleArn")]
+        public Input<string>? LogRoleArn { get; set; }
 
         [Input("name")]
         public Input<string>? Name { get; set; }

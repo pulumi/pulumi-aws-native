@@ -20,8 +20,8 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
             set => _notificationTypes = value;
         }
 
-        [Input("topicARN", required: true)]
-        public Input<string> TopicARN { get; set; } = null!;
+        [Input("topicArn", required: true)]
+        public Input<string> TopicArn { get; set; } = null!;
 
         public AutoScalingGroupNotificationConfigurationArgs()
         {

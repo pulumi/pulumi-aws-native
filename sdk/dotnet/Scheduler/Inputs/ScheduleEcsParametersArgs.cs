@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Scheduler.Inputs
         /// <summary>
         /// Specifies whether to enable Amazon ECS managed tags for the task. For more information, see Tagging Your Amazon ECS Resources in the Amazon Elastic Container Service Developer Guide.
         /// </summary>
-        [Input("enableECSManagedTags")]
-        public Input<bool>? EnableECSManagedTags { get; set; }
+        [Input("enableEcsManagedTags")]
+        public Input<bool>? EnableEcsManagedTags { get; set; }
 
         /// <summary>
         /// Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task.

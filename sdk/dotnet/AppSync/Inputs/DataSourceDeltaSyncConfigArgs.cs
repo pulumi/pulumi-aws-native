@@ -12,14 +12,14 @@ namespace Pulumi.AwsNative.AppSync.Inputs
 
     public sealed class DataSourceDeltaSyncConfigArgs : global::Pulumi.ResourceArgs
     {
-        [Input("baseTableTTL", required: true)]
-        public Input<string> BaseTableTTL { get; set; } = null!;
+        [Input("baseTableTtl", required: true)]
+        public Input<string> BaseTableTtl { get; set; } = null!;
 
         [Input("deltaSyncTableName", required: true)]
         public Input<string> DeltaSyncTableName { get; set; } = null!;
 
-        [Input("deltaSyncTableTTL", required: true)]
-        public Input<string> DeltaSyncTableTTL { get; set; } = null!;
+        [Input("deltaSyncTableTtl", required: true)]
+        public Input<string> DeltaSyncTableTtl { get; set; } = null!;
 
         public DataSourceDeltaSyncConfigArgs()
         {

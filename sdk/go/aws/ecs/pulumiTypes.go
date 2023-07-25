@@ -3691,7 +3691,7 @@ func (o ServiceTagArrayOutput) Index(i pulumi.IntInput) ServiceTagOutput {
 
 type TaskDefinitionAuthorizationConfig struct {
 	AccessPointId *string                               `pulumi:"accessPointId"`
-	IAM           *TaskDefinitionAuthorizationConfigIAM `pulumi:"iAM"`
+	Iam           *TaskDefinitionAuthorizationConfigIAM `pulumi:"iam"`
 }
 
 // TaskDefinitionAuthorizationConfigInput is an input type that accepts TaskDefinitionAuthorizationConfigArgs and TaskDefinitionAuthorizationConfigOutput values.
@@ -3707,7 +3707,7 @@ type TaskDefinitionAuthorizationConfigInput interface {
 
 type TaskDefinitionAuthorizationConfigArgs struct {
 	AccessPointId pulumi.StringPtrInput                        `pulumi:"accessPointId"`
-	IAM           TaskDefinitionAuthorizationConfigIAMPtrInput `pulumi:"iAM"`
+	Iam           TaskDefinitionAuthorizationConfigIAMPtrInput `pulumi:"iam"`
 }
 
 func (TaskDefinitionAuthorizationConfigArgs) ElementType() reflect.Type {
@@ -3791,8 +3791,8 @@ func (o TaskDefinitionAuthorizationConfigOutput) AccessPointId() pulumi.StringPt
 	return o.ApplyT(func(v TaskDefinitionAuthorizationConfig) *string { return v.AccessPointId }).(pulumi.StringPtrOutput)
 }
 
-func (o TaskDefinitionAuthorizationConfigOutput) IAM() TaskDefinitionAuthorizationConfigIAMPtrOutput {
-	return o.ApplyT(func(v TaskDefinitionAuthorizationConfig) *TaskDefinitionAuthorizationConfigIAM { return v.IAM }).(TaskDefinitionAuthorizationConfigIAMPtrOutput)
+func (o TaskDefinitionAuthorizationConfigOutput) Iam() TaskDefinitionAuthorizationConfigIAMPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionAuthorizationConfig) *TaskDefinitionAuthorizationConfigIAM { return v.Iam }).(TaskDefinitionAuthorizationConfigIAMPtrOutput)
 }
 
 type TaskDefinitionAuthorizationConfigPtrOutput struct{ *pulumi.OutputState }
@@ -3828,12 +3828,12 @@ func (o TaskDefinitionAuthorizationConfigPtrOutput) AccessPointId() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o TaskDefinitionAuthorizationConfigPtrOutput) IAM() TaskDefinitionAuthorizationConfigIAMPtrOutput {
+func (o TaskDefinitionAuthorizationConfigPtrOutput) Iam() TaskDefinitionAuthorizationConfigIAMPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionAuthorizationConfig) *TaskDefinitionAuthorizationConfigIAM {
 		if v == nil {
 			return nil
 		}
-		return v.IAM
+		return v.Iam
 	}).(TaskDefinitionAuthorizationConfigIAMPtrOutput)
 }
 
@@ -7736,7 +7736,7 @@ func (o TaskDefinitionUlimitArrayOutput) Index(i pulumi.IntInput) TaskDefinition
 
 type TaskDefinitionVolume struct {
 	DockerVolumeConfiguration *TaskDefinitionDockerVolumeConfiguration `pulumi:"dockerVolumeConfiguration"`
-	EFSVolumeConfiguration    *TaskDefinitionEFSVolumeConfiguration    `pulumi:"eFSVolumeConfiguration"`
+	EfsVolumeConfiguration    *TaskDefinitionEFSVolumeConfiguration    `pulumi:"efsVolumeConfiguration"`
 	Host                      *TaskDefinitionHostVolumeProperties      `pulumi:"host"`
 	Name                      *string                                  `pulumi:"name"`
 }
@@ -7754,7 +7754,7 @@ type TaskDefinitionVolumeInput interface {
 
 type TaskDefinitionVolumeArgs struct {
 	DockerVolumeConfiguration TaskDefinitionDockerVolumeConfigurationPtrInput `pulumi:"dockerVolumeConfiguration"`
-	EFSVolumeConfiguration    TaskDefinitionEFSVolumeConfigurationPtrInput    `pulumi:"eFSVolumeConfiguration"`
+	EfsVolumeConfiguration    TaskDefinitionEFSVolumeConfigurationPtrInput    `pulumi:"efsVolumeConfiguration"`
 	Host                      TaskDefinitionHostVolumePropertiesPtrInput      `pulumi:"host"`
 	Name                      pulumi.StringPtrInput                           `pulumi:"name"`
 }
@@ -7816,8 +7816,8 @@ func (o TaskDefinitionVolumeOutput) DockerVolumeConfiguration() TaskDefinitionDo
 	}).(TaskDefinitionDockerVolumeConfigurationPtrOutput)
 }
 
-func (o TaskDefinitionVolumeOutput) EFSVolumeConfiguration() TaskDefinitionEFSVolumeConfigurationPtrOutput {
-	return o.ApplyT(func(v TaskDefinitionVolume) *TaskDefinitionEFSVolumeConfiguration { return v.EFSVolumeConfiguration }).(TaskDefinitionEFSVolumeConfigurationPtrOutput)
+func (o TaskDefinitionVolumeOutput) EfsVolumeConfiguration() TaskDefinitionEFSVolumeConfigurationPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionVolume) *TaskDefinitionEFSVolumeConfiguration { return v.EfsVolumeConfiguration }).(TaskDefinitionEFSVolumeConfigurationPtrOutput)
 }
 
 func (o TaskDefinitionVolumeOutput) Host() TaskDefinitionHostVolumePropertiesPtrOutput {

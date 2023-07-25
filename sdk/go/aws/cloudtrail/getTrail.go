@@ -49,7 +49,7 @@ type LookupTrailResult struct {
 	// Specifies whether the trail is created for all accounts in an organization in AWS Organizations, or only for the current AWS account. The default is false, and cannot be true unless the call is made on behalf of an AWS account that is the master account for an organization in AWS Organizations.
 	IsOrganizationTrail *bool `pulumi:"isOrganizationTrail"`
 	// Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
-	KMSKeyId *string `pulumi:"kMSKeyId"`
+	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Specifies the name of the Amazon S3 bucket designated for publishing log files. See Amazon S3 Bucket Naming Requirements.
 	S3BucketName *string `pulumi:"s3BucketName"`
 	// Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated for log file delivery. For more information, see Finding Your CloudTrail Log Files. The maximum length is 200 characters.
@@ -150,8 +150,8 @@ func (o LookupTrailResultOutput) IsOrganizationTrail() pulumi.BoolPtrOutput {
 }
 
 // Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
-func (o LookupTrailResultOutput) KMSKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupTrailResult) *string { return v.KMSKeyId }).(pulumi.StringPtrOutput)
+func (o LookupTrailResultOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTrailResult) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the name of the Amazon S3 bucket designated for publishing log files. See Amazon S3 Bucket Naming Requirements.

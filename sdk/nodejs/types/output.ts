@@ -120,7 +120,7 @@ export namespace acmpca {
      * Structure that contains X.509 KeyUsage information.
      */
     export interface CertificateAuthorityKeyUsage {
-        cRLSign?: boolean;
+        crlSign?: boolean;
         dataEncipherment?: boolean;
         decipherOnly?: boolean;
         digitalSignature?: boolean;
@@ -243,7 +243,7 @@ export namespace acmpca {
      * Structure that contains X.509 KeyUsage information.
      */
     export interface CertificateKeyUsage {
-        cRLSign?: boolean;
+        crlSign?: boolean;
         dataEncipherment?: boolean;
         decipherOnly?: boolean;
         digitalSignature?: boolean;
@@ -1270,8 +1270,8 @@ export namespace appflow {
         marketo?: outputs.appflow.ConnectorProfileMarketoConnectorProfileCredentials;
         pardot?: outputs.appflow.ConnectorProfilePardotConnectorProfileCredentials;
         redshift?: outputs.appflow.ConnectorProfileRedshiftConnectorProfileCredentials;
-        sAPOData?: outputs.appflow.ConnectorProfileSAPODataConnectorProfileCredentials;
         salesforce?: outputs.appflow.ConnectorProfileSalesforceConnectorProfileCredentials;
+        sapoData?: outputs.appflow.ConnectorProfileSAPODataConnectorProfileCredentials;
         serviceNow?: outputs.appflow.ConnectorProfileServiceNowConnectorProfileCredentials;
         singular?: outputs.appflow.ConnectorProfileSingularConnectorProfileCredentials;
         slack?: outputs.appflow.ConnectorProfileSlackConnectorProfileCredentials;
@@ -1483,8 +1483,8 @@ export namespace appflow {
         marketo?: outputs.appflow.ConnectorProfileMarketoConnectorProfileProperties;
         pardot?: outputs.appflow.ConnectorProfilePardotConnectorProfileProperties;
         redshift?: outputs.appflow.ConnectorProfileRedshiftConnectorProfileProperties;
-        sAPOData?: outputs.appflow.ConnectorProfileSAPODataConnectorProfileProperties;
         salesforce?: outputs.appflow.ConnectorProfileSalesforceConnectorProfileProperties;
+        sapoData?: outputs.appflow.ConnectorProfileSAPODataConnectorProfileProperties;
         serviceNow?: outputs.appflow.ConnectorProfileServiceNowConnectorProfileProperties;
         slack?: outputs.appflow.ConnectorProfileSlackConnectorProfileProperties;
         snowflake?: outputs.appflow.ConnectorProfileSnowflakeConnectorProfileProperties;
@@ -1790,8 +1790,8 @@ export namespace appflow {
         marketo?: enums.appflow.FlowMarketoConnectorOperator;
         pardot?: enums.appflow.FlowPardotConnectorOperator;
         s3?: enums.appflow.FlowS3ConnectorOperator;
-        sAPOData?: enums.appflow.FlowSAPODataConnectorOperator;
         salesforce?: enums.appflow.FlowSalesforceConnectorOperator;
+        sapoData?: enums.appflow.FlowSAPODataConnectorOperator;
         serviceNow?: enums.appflow.FlowServiceNowConnectorOperator;
         singular?: enums.appflow.FlowSingularConnectorOperator;
         slack?: enums.appflow.FlowSlackConnectorOperator;
@@ -1842,8 +1842,8 @@ export namespace appflow {
         marketo?: outputs.appflow.FlowMarketoDestinationProperties;
         redshift?: outputs.appflow.FlowRedshiftDestinationProperties;
         s3?: outputs.appflow.FlowS3DestinationProperties;
-        sAPOData?: outputs.appflow.FlowSAPODataDestinationProperties;
         salesforce?: outputs.appflow.FlowSalesforceDestinationProperties;
+        sapoData?: outputs.appflow.FlowSAPODataDestinationProperties;
         snowflake?: outputs.appflow.FlowSnowflakeDestinationProperties;
         upsolver?: outputs.appflow.FlowUpsolverDestinationProperties;
         zendesk?: outputs.appflow.FlowZendeskDestinationProperties;
@@ -2061,8 +2061,8 @@ export namespace appflow {
         marketo?: outputs.appflow.FlowMarketoSourceProperties;
         pardot?: outputs.appflow.FlowPardotSourceProperties;
         s3?: outputs.appflow.FlowS3SourceProperties;
-        sAPOData?: outputs.appflow.FlowSAPODataSourceProperties;
         salesforce?: outputs.appflow.FlowSalesforceSourceProperties;
+        sapoData?: outputs.appflow.FlowSAPODataSourceProperties;
         serviceNow?: outputs.appflow.FlowServiceNowSourceProperties;
         singular?: outputs.appflow.FlowSingularSourceProperties;
         slack?: outputs.appflow.FlowSlackSourceProperties;
@@ -2390,7 +2390,7 @@ export namespace applicationinsights {
         /**
          * The ARN of the compnonent.
          */
-        componentARN?: string;
+        componentArn?: string;
         /**
          * The component monitoring configuration mode.
          */
@@ -2428,15 +2428,15 @@ export namespace applicationinsights {
         /**
          * The HA cluster Prometheus Exporter settings.
          */
-        hAClusterPrometheusExporter?: outputs.applicationinsights.ApplicationHAClusterPrometheusExporter;
+        haClusterPrometheusExporter?: outputs.applicationinsights.ApplicationHAClusterPrometheusExporter;
         /**
          * The HANA DB Prometheus Exporter settings.
          */
-        hANAPrometheusExporter?: outputs.applicationinsights.ApplicationHANAPrometheusExporter;
+        hanaPrometheusExporter?: outputs.applicationinsights.ApplicationHANAPrometheusExporter;
         /**
          * The JMX Prometheus Exporter settings.
          */
-        jMXPrometheusExporter?: outputs.applicationinsights.ApplicationJMXPrometheusExporter;
+        jmxPrometheusExporter?: outputs.applicationinsights.ApplicationJMXPrometheusExporter;
         /**
          * A list of logs to monitor for the component.
          */
@@ -2478,22 +2478,22 @@ export namespace applicationinsights {
         /**
          * A flag which indicates agreeing to install SAP HANA DB client.
          */
-        agreeToInstallHANADBClient: boolean;
+        agreeToInstallHanadbClient: boolean;
         /**
          * The HANA DB port.
          */
-        hANAPort: string;
-        /**
-         * HANA DB SID.
-         */
-        hANASID: string;
+        hanaPort: string;
         /**
          * The secret name which manages the HANA DB credentials e.g. {
          *   "username": "<>",
          *   "password": "<>"
          * }.
          */
-        hANASecretName: string;
+        hanaSecretName: string;
+        /**
+         * HANA DB SID.
+         */
+        hanasid: string;
         /**
          * Prometheus exporter port.
          */
@@ -2511,7 +2511,7 @@ export namespace applicationinsights {
         /**
          * JMX service URL.
          */
-        jMXURL?: string;
+        jmxurl?: string;
         /**
          * Prometheus exporter port.
          */
@@ -2960,7 +2960,7 @@ export namespace appmesh {
     }
 
     export interface VirtualGatewayClientPolicy {
-        tLS?: outputs.appmesh.VirtualGatewayClientPolicyTls;
+        tls?: outputs.appmesh.VirtualGatewayClientPolicyTls;
     }
 
     export interface VirtualGatewayClientPolicyTls {
@@ -2972,13 +2972,13 @@ export namespace appmesh {
 
     export interface VirtualGatewayClientTlsCertificate {
         file?: outputs.appmesh.VirtualGatewayListenerTlsFileCertificate;
-        sDS?: outputs.appmesh.VirtualGatewayListenerTlsSdsCertificate;
+        sds?: outputs.appmesh.VirtualGatewayListenerTlsSdsCertificate;
     }
 
     export interface VirtualGatewayConnectionPool {
-        gRPC?: outputs.appmesh.VirtualGatewayGrpcConnectionPool;
-        hTTP?: outputs.appmesh.VirtualGatewayHttpConnectionPool;
-        hTTP2?: outputs.appmesh.VirtualGatewayHttp2ConnectionPool;
+        grpc?: outputs.appmesh.VirtualGatewayGrpcConnectionPool;
+        http?: outputs.appmesh.VirtualGatewayHttpConnectionPool;
+        http2?: outputs.appmesh.VirtualGatewayHttp2ConnectionPool;
     }
 
     export interface VirtualGatewayFileAccessLog {
@@ -3018,7 +3018,7 @@ export namespace appmesh {
         connectionPool?: outputs.appmesh.VirtualGatewayConnectionPool;
         healthCheck?: outputs.appmesh.VirtualGatewayHealthCheckPolicy;
         portMapping: outputs.appmesh.VirtualGatewayPortMapping;
-        tLS?: outputs.appmesh.VirtualGatewayListenerTls;
+        tls?: outputs.appmesh.VirtualGatewayListenerTls;
     }
 
     export interface VirtualGatewayListenerTls {
@@ -3032,9 +3032,9 @@ export namespace appmesh {
     }
 
     export interface VirtualGatewayListenerTlsCertificate {
-        aCM?: outputs.appmesh.VirtualGatewayListenerTlsAcmCertificate;
+        acm?: outputs.appmesh.VirtualGatewayListenerTlsAcmCertificate;
         file?: outputs.appmesh.VirtualGatewayListenerTlsFileCertificate;
-        sDS?: outputs.appmesh.VirtualGatewayListenerTlsSdsCertificate;
+        sds?: outputs.appmesh.VirtualGatewayListenerTlsSdsCertificate;
     }
 
     export interface VirtualGatewayListenerTlsFileCertificate {
@@ -3053,7 +3053,7 @@ export namespace appmesh {
 
     export interface VirtualGatewayListenerTlsValidationContextTrust {
         file?: outputs.appmesh.VirtualGatewayTlsValidationContextFileTrust;
-        sDS?: outputs.appmesh.VirtualGatewayTlsValidationContextSdsTrust;
+        sds?: outputs.appmesh.VirtualGatewayTlsValidationContextSdsTrust;
     }
 
     export interface VirtualGatewayLogging {
@@ -3107,9 +3107,9 @@ export namespace appmesh {
     }
 
     export interface VirtualGatewayTlsValidationContextTrust {
-        aCM?: outputs.appmesh.VirtualGatewayTlsValidationContextAcmTrust;
+        acm?: outputs.appmesh.VirtualGatewayTlsValidationContextAcmTrust;
         file?: outputs.appmesh.VirtualGatewayTlsValidationContextFileTrust;
-        sDS?: outputs.appmesh.VirtualGatewayTlsValidationContextSdsTrust;
+        sds?: outputs.appmesh.VirtualGatewayTlsValidationContextSdsTrust;
     }
 
     export interface VirtualNodeAccessLog {
@@ -3137,7 +3137,7 @@ export namespace appmesh {
     }
 
     export interface VirtualNodeClientPolicy {
-        tLS?: outputs.appmesh.VirtualNodeClientPolicyTls;
+        tls?: outputs.appmesh.VirtualNodeClientPolicyTls;
     }
 
     export interface VirtualNodeClientPolicyTls {
@@ -3149,14 +3149,14 @@ export namespace appmesh {
 
     export interface VirtualNodeClientTlsCertificate {
         file?: outputs.appmesh.VirtualNodeListenerTlsFileCertificate;
-        sDS?: outputs.appmesh.VirtualNodeListenerTlsSdsCertificate;
+        sds?: outputs.appmesh.VirtualNodeListenerTlsSdsCertificate;
     }
 
     export interface VirtualNodeConnectionPool {
-        gRPC?: outputs.appmesh.VirtualNodeGrpcConnectionPool;
-        hTTP?: outputs.appmesh.VirtualNodeHttpConnectionPool;
-        hTTP2?: outputs.appmesh.VirtualNodeHttp2ConnectionPool;
-        tCP?: outputs.appmesh.VirtualNodeTcpConnectionPool;
+        grpc?: outputs.appmesh.VirtualNodeGrpcConnectionPool;
+        http?: outputs.appmesh.VirtualNodeHttpConnectionPool;
+        http2?: outputs.appmesh.VirtualNodeHttp2ConnectionPool;
+        tcp?: outputs.appmesh.VirtualNodeTcpConnectionPool;
     }
 
     export interface VirtualNodeDnsServiceDiscovery {
@@ -3218,15 +3218,15 @@ export namespace appmesh {
         healthCheck?: outputs.appmesh.VirtualNodeHealthCheck;
         outlierDetection?: outputs.appmesh.VirtualNodeOutlierDetection;
         portMapping: outputs.appmesh.VirtualNodePortMapping;
-        tLS?: outputs.appmesh.VirtualNodeListenerTls;
         timeout?: outputs.appmesh.VirtualNodeListenerTimeout;
+        tls?: outputs.appmesh.VirtualNodeListenerTls;
     }
 
     export interface VirtualNodeListenerTimeout {
-        gRPC?: outputs.appmesh.VirtualNodeGrpcTimeout;
-        hTTP?: outputs.appmesh.VirtualNodeHttpTimeout;
-        hTTP2?: outputs.appmesh.VirtualNodeHttpTimeout;
-        tCP?: outputs.appmesh.VirtualNodeTcpTimeout;
+        grpc?: outputs.appmesh.VirtualNodeGrpcTimeout;
+        http?: outputs.appmesh.VirtualNodeHttpTimeout;
+        http2?: outputs.appmesh.VirtualNodeHttpTimeout;
+        tcp?: outputs.appmesh.VirtualNodeTcpTimeout;
     }
 
     export interface VirtualNodeListenerTls {
@@ -3240,9 +3240,9 @@ export namespace appmesh {
     }
 
     export interface VirtualNodeListenerTlsCertificate {
-        aCM?: outputs.appmesh.VirtualNodeListenerTlsAcmCertificate;
+        acm?: outputs.appmesh.VirtualNodeListenerTlsAcmCertificate;
         file?: outputs.appmesh.VirtualNodeListenerTlsFileCertificate;
-        sDS?: outputs.appmesh.VirtualNodeListenerTlsSdsCertificate;
+        sds?: outputs.appmesh.VirtualNodeListenerTlsSdsCertificate;
     }
 
     export interface VirtualNodeListenerTlsFileCertificate {
@@ -3261,7 +3261,7 @@ export namespace appmesh {
 
     export interface VirtualNodeListenerTlsValidationContextTrust {
         file?: outputs.appmesh.VirtualNodeTlsValidationContextFileTrust;
-        sDS?: outputs.appmesh.VirtualNodeTlsValidationContextSdsTrust;
+        sds?: outputs.appmesh.VirtualNodeTlsValidationContextSdsTrust;
     }
 
     export interface VirtualNodeLogging {
@@ -3286,8 +3286,8 @@ export namespace appmesh {
     }
 
     export interface VirtualNodeServiceDiscovery {
-        aWSCloudMap?: outputs.appmesh.VirtualNodeAwsCloudMapServiceDiscovery;
-        dNS?: outputs.appmesh.VirtualNodeDnsServiceDiscovery;
+        awsCloudMap?: outputs.appmesh.VirtualNodeAwsCloudMapServiceDiscovery;
+        dns?: outputs.appmesh.VirtualNodeDnsServiceDiscovery;
     }
 
     export interface VirtualNodeSpec {
@@ -3337,9 +3337,9 @@ export namespace appmesh {
     }
 
     export interface VirtualNodeTlsValidationContextTrust {
-        aCM?: outputs.appmesh.VirtualNodeTlsValidationContextAcmTrust;
+        acm?: outputs.appmesh.VirtualNodeTlsValidationContextAcmTrust;
         file?: outputs.appmesh.VirtualNodeTlsValidationContextFileTrust;
-        sDS?: outputs.appmesh.VirtualNodeTlsValidationContextSdsTrust;
+        sds?: outputs.appmesh.VirtualNodeTlsValidationContextSdsTrust;
     }
 
     export interface VirtualNodeVirtualServiceBackend {
@@ -3821,9 +3821,9 @@ export namespace appsync {
     }
 
     export interface DataSourceDeltaSyncConfig {
-        baseTableTTL: string;
+        baseTableTtl: string;
         deltaSyncTableName: string;
-        deltaSyncTableTTL: string;
+        deltaSyncTableTtl: string;
     }
 
     export interface DataSourceDynamoDBConfig {
@@ -3888,7 +3888,7 @@ export namespace appsync {
     export interface GraphQLApiAdditionalAuthenticationProvider {
         authenticationType: string;
         lambdaAuthorizerConfig?: outputs.appsync.GraphQLApiLambdaAuthorizerConfig;
-        openIDConnectConfig?: outputs.appsync.GraphQLApiOpenIDConnectConfig;
+        openIdConnectConfig?: outputs.appsync.GraphQLApiOpenIDConnectConfig;
         userPoolConfig?: outputs.appsync.GraphQLApiCognitoUserPoolConfig;
     }
 
@@ -3911,9 +3911,9 @@ export namespace appsync {
     }
 
     export interface GraphQLApiOpenIDConnectConfig {
-        authTTL?: number;
+        authTtl?: number;
         clientId?: string;
-        iatTTL?: number;
+        iatTtl?: number;
         issuer?: string;
     }
 
@@ -4254,7 +4254,7 @@ export namespace autoscaling {
         onDemandMaxPricePercentageOverLowestPrice?: number;
         requireHibernateSupport?: boolean;
         spotMaxPricePercentageOverLowestPrice?: number;
-        totalLocalStorageGB?: outputs.autoscaling.AutoScalingGroupTotalLocalStorageGBRequest;
+        totalLocalStorageGb?: outputs.autoscaling.AutoScalingGroupTotalLocalStorageGBRequest;
         vCpuCount?: outputs.autoscaling.AutoScalingGroupVCpuCountRequest;
     }
 
@@ -4291,8 +4291,8 @@ export namespace autoscaling {
         lifecycleHookName: string;
         lifecycleTransition: string;
         notificationMetadata?: string;
-        notificationTargetARN?: string;
-        roleARN?: string;
+        notificationTargetArn?: string;
+        roleArn?: string;
     }
 
     export interface AutoScalingGroupMemoryGiBPerVCpuRequest {
@@ -4327,7 +4327,7 @@ export namespace autoscaling {
 
     export interface AutoScalingGroupNotificationConfiguration {
         notificationTypes?: string[];
-        topicARN: string;
+        topicArn: string;
     }
 
     export interface AutoScalingGroupTagProperty {
@@ -4524,7 +4524,7 @@ export namespace autoscaling {
 
 export namespace autoscalingplans {
     export interface ScalingPlanApplicationSource {
-        cloudFormationStackARN?: string;
+        cloudFormationStackArn?: string;
         tagFilters?: outputs.autoscalingplans.ScalingPlanTagFilter[];
     }
 
@@ -4662,7 +4662,7 @@ export namespace backup {
 
     export interface BackupVaultNotificationObjectType {
         backupVaultEvents: string[];
-        sNSTopicArn: string;
+        snsTopicArn: string;
     }
 
     export interface FrameworkControl {
@@ -5585,9 +5585,9 @@ export namespace cloudformation {
 export namespace cloudfront {
     export interface CachePolicyConfig {
         comment?: string;
-        defaultTTL: number;
-        maxTTL: number;
-        minTTL: number;
+        defaultTtl: number;
+        maxTtl: number;
+        minTtl: number;
         name: string;
         parametersInCacheKeyAndForwardedToOrigin: outputs.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOrigin;
     }
@@ -5626,8 +5626,8 @@ export namespace cloudfront {
     }
 
     export interface ContinuousDeploymentPolicySessionStickinessConfig {
-        idleTTL: number;
-        maximumTTL: number;
+        idleTtl: number;
+        maximumTtl: number;
     }
 
     export interface ContinuousDeploymentPolicySingleHeaderConfig {
@@ -5651,13 +5651,13 @@ export namespace cloudfront {
         cachePolicyId?: string;
         cachedMethods?: string[];
         compress?: boolean;
-        defaultTTL?: number;
+        defaultTtl?: number;
         fieldLevelEncryptionId?: string;
         forwardedValues?: outputs.cloudfront.DistributionForwardedValues;
         functionAssociations?: outputs.cloudfront.DistributionFunctionAssociation[];
         lambdaFunctionAssociations?: outputs.cloudfront.DistributionLambdaFunctionAssociation[];
-        maxTTL?: number;
-        minTTL?: number;
+        maxTtl?: number;
+        minTtl?: number;
         originRequestPolicyId?: string;
         pathPattern: string;
         realtimeLogConfigArn?: string;
@@ -5671,8 +5671,8 @@ export namespace cloudfront {
 
     export interface DistributionConfig {
         aliases?: string[];
-        cNAMEs?: string[];
         cacheBehaviors?: outputs.cloudfront.DistributionCacheBehavior[];
+        cnames?: string[];
         comment?: string;
         continuousDeploymentPolicyId?: string;
         customErrorResponses?: outputs.cloudfront.DistributionCustomErrorResponse[];
@@ -5681,7 +5681,7 @@ export namespace cloudfront {
         defaultRootObject?: string;
         enabled: boolean;
         httpVersion?: string;
-        iPV6Enabled?: boolean;
+        ipv6Enabled?: boolean;
         logging?: outputs.cloudfront.DistributionLogging;
         originGroups?: outputs.cloudfront.DistributionOriginGroups;
         origins?: outputs.cloudfront.DistributionOrigin[];
@@ -5690,7 +5690,7 @@ export namespace cloudfront {
         s3Origin?: outputs.cloudfront.DistributionLegacyS3Origin;
         staging?: boolean;
         viewerCertificate?: outputs.cloudfront.DistributionViewerCertificate;
-        webACLId?: string;
+        webAclId?: string;
     }
 
     export interface DistributionCookies {
@@ -5699,19 +5699,19 @@ export namespace cloudfront {
     }
 
     export interface DistributionCustomErrorResponse {
-        errorCachingMinTTL?: number;
+        errorCachingMinTtl?: number;
         errorCode: number;
         responseCode?: number;
         responsePagePath?: string;
     }
 
     export interface DistributionCustomOriginConfig {
-        hTTPPort?: number;
-        hTTPSPort?: number;
+        httpPort?: number;
+        httpsPort?: number;
         originKeepaliveTimeout?: number;
         originProtocolPolicy: string;
         originReadTimeout?: number;
-        originSSLProtocols?: string[];
+        originSslProtocols?: string[];
     }
 
     export interface DistributionDefaultCacheBehavior {
@@ -5719,13 +5719,13 @@ export namespace cloudfront {
         cachePolicyId?: string;
         cachedMethods?: string[];
         compress?: boolean;
-        defaultTTL?: number;
+        defaultTtl?: number;
         fieldLevelEncryptionId?: string;
         forwardedValues?: outputs.cloudfront.DistributionForwardedValues;
         functionAssociations?: outputs.cloudfront.DistributionFunctionAssociation[];
         lambdaFunctionAssociations?: outputs.cloudfront.DistributionLambdaFunctionAssociation[];
-        maxTTL?: number;
-        minTTL?: number;
+        maxTtl?: number;
+        minTtl?: number;
         originRequestPolicyId?: string;
         realtimeLogConfigArn?: string;
         responseHeadersPolicyId?: string;
@@ -5745,7 +5745,7 @@ export namespace cloudfront {
 
     export interface DistributionFunctionAssociation {
         eventType?: string;
-        functionARN?: string;
+        functionArn?: string;
     }
 
     export interface DistributionGeoRestriction {
@@ -5756,19 +5756,19 @@ export namespace cloudfront {
     export interface DistributionLambdaFunctionAssociation {
         eventType?: string;
         includeBody?: boolean;
-        lambdaFunctionARN?: string;
+        lambdaFunctionArn?: string;
     }
 
     export interface DistributionLegacyCustomOrigin {
-        dNSName: string;
-        hTTPPort?: number;
-        hTTPSPort?: number;
+        dnsName: string;
+        httpPort?: number;
+        httpsPort?: number;
         originProtocolPolicy: string;
-        originSSLProtocols: string[];
+        originSslProtocols: string[];
     }
 
     export interface DistributionLegacyS3Origin {
-        dNSName: string;
+        dnsName: string;
         originAccessIdentity?: string;
     }
 
@@ -5857,7 +5857,7 @@ export namespace cloudfront {
     }
 
     export interface FunctionMetadata {
-        functionARN?: string;
+        functionArn?: string;
     }
 
     export interface KeyGroupConfig {
@@ -6001,7 +6001,7 @@ export namespace cloudfront {
         frameOptions?: outputs.cloudfront.ResponseHeadersPolicyFrameOptions;
         referrerPolicy?: outputs.cloudfront.ResponseHeadersPolicyReferrerPolicy;
         strictTransportSecurity?: outputs.cloudfront.ResponseHeadersPolicyStrictTransportSecurity;
-        xSSProtection?: outputs.cloudfront.ResponseHeadersPolicyXSSProtection;
+        xssProtection?: outputs.cloudfront.ResponseHeadersPolicyXSSProtection;
     }
 
     export interface ResponseHeadersPolicyServerTimingHeadersConfig {
@@ -6958,7 +6958,7 @@ export namespace codepipeline {
     }
 
     export interface WebhookAuthConfiguration {
-        allowedIPRange?: string;
+        allowedIpRange?: string;
         secretToken?: string;
     }
 
@@ -7083,16 +7083,16 @@ export namespace cognito {
     export interface UserPoolInviteMessageTemplate {
         emailMessage?: string;
         emailSubject?: string;
-        sMSMessage?: string;
+        smsMessage?: string;
     }
 
     export interface UserPoolLambdaConfig {
         createAuthChallenge?: string;
         customEmailSender?: outputs.cognito.UserPoolCustomEmailSender;
         customMessage?: string;
-        customSMSSender?: outputs.cognito.UserPoolCustomSMSSender;
+        customSmsSender?: outputs.cognito.UserPoolCustomSMSSender;
         defineAuthChallenge?: string;
-        kMSKeyID?: string;
+        kmsKeyId?: string;
         postAuthentication?: string;
         postConfirmation?: string;
         preAuthentication?: string;
@@ -7171,8 +7171,8 @@ export namespace cognito {
     }
 
     export interface UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType {
-        blockedIPRangeList?: string[];
-        skippedIPRangeList?: string[];
+        blockedIpRangeList?: string[];
+        skippedIpRangeList?: string[];
     }
 
     export interface UserPoolSchemaAttribute {
@@ -8609,7 +8609,7 @@ export namespace connect {
         earlyMedia?: boolean;
         inboundCalls: boolean;
         outboundCalls: boolean;
-        useCustomTTSVoices?: boolean;
+        useCustomTtsVoices?: boolean;
     }
 
     export interface InstanceStorageConfigEncryptionConfig {
@@ -10059,8 +10059,8 @@ export namespace datasync {
      * Configuration settings for NFS or SMB protocol.
      */
     export interface LocationFSxONTAPProtocol {
-        nFS?: outputs.datasync.LocationFSxONTAPNFS;
-        sMB?: outputs.datasync.LocationFSxONTAPSMB;
+        nfs?: outputs.datasync.LocationFSxONTAPNFS;
+        smb?: outputs.datasync.LocationFSxONTAPSMB;
     }
 
     /**
@@ -10127,7 +10127,7 @@ export namespace datasync {
      * Configuration settings for an NFS or SMB protocol, currently only support NFS
      */
     export interface LocationFSxOpenZFSProtocol {
-        nFS?: outputs.datasync.LocationFSxOpenZFSNFS;
+        nfs?: outputs.datasync.LocationFSxOpenZFSNFS;
     }
 
     /**
@@ -10446,7 +10446,7 @@ export namespace datasync {
 
 export namespace dax {
     export interface ClusterSSESpecification {
-        sSEEnabled?: boolean;
+        sseEnabled?: boolean;
     }
 
 }
@@ -11049,7 +11049,7 @@ export namespace dms {
         kmsKeyId?: string;
         maxCapacityUnits: number;
         minCapacityUnits?: number;
-        multiAZ?: boolean;
+        multiAz?: boolean;
         preferredMaintenanceWindow?: string;
         replicationSubnetGroupId?: string;
         vpcSecurityGroupIds?: string[];
@@ -11178,7 +11178,7 @@ export namespace dynamodb {
     }
 
     export interface GlobalTableReplicaSSESpecification {
-        kMSMasterKeyId: string;
+        kmsMasterKeyId: string;
     }
 
     export interface GlobalTableReplicaSpecification {
@@ -11189,14 +11189,14 @@ export namespace dynamodb {
         pointInTimeRecoverySpecification?: outputs.dynamodb.GlobalTablePointInTimeRecoverySpecification;
         readProvisionedThroughputSettings?: outputs.dynamodb.GlobalTableReadProvisionedThroughputSettings;
         region: string;
-        sSESpecification?: outputs.dynamodb.GlobalTableReplicaSSESpecification;
+        sseSpecification?: outputs.dynamodb.GlobalTableReplicaSSESpecification;
         tableClass?: string;
         tags?: outputs.dynamodb.GlobalTableTag[];
     }
 
     export interface GlobalTableSSESpecification {
-        sSEEnabled: boolean;
-        sSEType?: string;
+        sseEnabled: boolean;
+        sseType?: string;
     }
 
     export interface GlobalTableStreamSpecification {
@@ -11293,9 +11293,9 @@ export namespace dynamodb {
     }
 
     export interface TableSSESpecification {
-        kMSMasterKeyId?: string;
-        sSEEnabled: boolean;
-        sSEType?: string;
+        kmsMasterKeyId?: string;
+        sseEnabled: boolean;
+        sseType?: string;
     }
 
     export interface TableStreamSpecification {
@@ -11382,8 +11382,8 @@ export namespace ec2 {
     }
 
     export interface ClientVpnEndpointFederatedAuthenticationRequest {
-        sAMLProviderArn: string;
-        selfServiceSAMLProviderArn?: string;
+        samlProviderArn: string;
+        selfServiceSamlProviderArn?: string;
     }
 
     export interface ClientVpnEndpointTag {
@@ -11480,7 +11480,7 @@ export namespace ec2 {
         onDemandMaxPricePercentageOverLowestPrice?: number;
         requireHibernateSupport?: boolean;
         spotMaxPricePercentageOverLowestPrice?: number;
-        totalLocalStorageGB?: outputs.ec2.EC2FleetTotalLocalStorageGBRequest;
+        totalLocalStorageGb?: outputs.ec2.EC2FleetTotalLocalStorageGBRequest;
         vCpuCount?: outputs.ec2.EC2FleetVCpuCountRangeRequest;
     }
 
@@ -11692,7 +11692,7 @@ export namespace ec2 {
     }
 
     export interface InstanceCreditSpecification {
-        cPUCredits?: string;
+        cpuCredits?: string;
     }
 
     export interface InstanceEbs {
@@ -11756,8 +11756,8 @@ export namespace ec2 {
     }
 
     export interface InstancePrivateDnsNameOptions {
-        enableResourceNameDnsAAAARecord?: boolean;
         enableResourceNameDnsARecord?: boolean;
+        enableResourceNameDnsAaaaRecord?: boolean;
         hostnameType?: string;
     }
 
@@ -12170,7 +12170,7 @@ export namespace ec2 {
          * The price protection threshold for Spot Instances.
          */
         spotMaxPricePercentageOverLowestPrice?: number;
-        totalLocalStorageGB?: outputs.ec2.LaunchTemplateTotalLocalStorageGB;
+        totalLocalStorageGb?: outputs.ec2.LaunchTemplateTotalLocalStorageGB;
         vCpuCount?: outputs.ec2.LaunchTemplateVCpuCount;
     }
 
@@ -12433,13 +12433,13 @@ export namespace ec2 {
      */
     export interface LaunchTemplatePrivateDnsNameOptions {
         /**
-         * Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
-         */
-        enableResourceNameDnsAAAARecord?: boolean;
-        /**
          * Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
          */
         enableResourceNameDnsARecord?: boolean;
+        /**
+         * Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
+         */
+        enableResourceNameDnsAaaaRecord?: boolean;
         /**
          * The type of hostname for EC2 instances.
          */
@@ -12842,8 +12842,8 @@ export namespace ec2 {
     }
 
     export interface PrivateDnsNameOptionsOnLaunchProperties {
-        enableResourceNameDnsAAAARecord?: boolean;
         enableResourceNameDnsARecord?: boolean;
+        enableResourceNameDnsAaaaRecord?: boolean;
         hostnameType?: string;
     }
 
@@ -12974,7 +12974,7 @@ export namespace ec2 {
         onDemandMaxPricePercentageOverLowestPrice?: number;
         requireHibernateSupport?: boolean;
         spotMaxPricePercentageOverLowestPrice?: number;
-        totalLocalStorageGB?: outputs.ec2.SpotFleetTotalLocalStorageGBRequest;
+        totalLocalStorageGb?: outputs.ec2.SpotFleetTotalLocalStorageGBRequest;
         vCpuCount?: outputs.ec2.SpotFleetVCpuCountRangeRequest;
     }
 
@@ -13815,7 +13815,7 @@ export namespace ecs {
 
     export interface TaskDefinitionAuthorizationConfig {
         accessPointId?: string;
-        iAM?: enums.ecs.TaskDefinitionAuthorizationConfigIAM;
+        iam?: enums.ecs.TaskDefinitionAuthorizationConfigIAM;
     }
 
     /**
@@ -14057,7 +14057,7 @@ export namespace ecs {
 
     export interface TaskDefinitionVolume {
         dockerVolumeConfiguration?: outputs.ecs.TaskDefinitionDockerVolumeConfiguration;
-        eFSVolumeConfiguration?: outputs.ecs.TaskDefinitionEFSVolumeConfiguration;
+        efsVolumeConfiguration?: outputs.ecs.TaskDefinitionEFSVolumeConfiguration;
         host?: outputs.ecs.TaskDefinitionHostVolumeProperties;
         name?: string;
     }
@@ -14199,7 +14199,7 @@ export namespace efs {
     }
 
     export interface FileSystemLifecyclePolicy {
-        transitionToIA?: string;
+        transitionToIa?: string;
         transitionToPrimaryStorageClass?: string;
     }
 
@@ -14838,7 +14838,7 @@ export namespace elasticloadbalancing {
         loadBalancerPort: string;
         policyNames?: string[];
         protocol: string;
-        sSLCertificateId?: string;
+        sslCertificateId?: string;
     }
 
     export interface LoadBalancerPolicies {
@@ -15127,7 +15127,7 @@ export namespace elasticsearch {
     }
 
     export interface DomainEBSOptions {
-        eBSEnabled?: boolean;
+        ebsEnabled?: boolean;
         iops?: number;
         volumeSize?: number;
         volumeType?: string;
@@ -15156,12 +15156,12 @@ export namespace elasticsearch {
         customEndpoint?: string;
         customEndpointCertificateArn?: string;
         customEndpointEnabled?: boolean;
-        enforceHTTPS?: boolean;
-        tLSSecurityPolicy?: string;
+        enforceHttps?: boolean;
+        tlsSecurityPolicy?: string;
     }
 
     export interface DomainMasterUserOptions {
-        masterUserARN?: string;
+        masterUserArn?: string;
         masterUserName?: string;
         masterUserPassword?: string;
     }
@@ -15312,8 +15312,8 @@ export namespace emr {
     }
 
     export interface ClusterKerberosAttributes {
-        aDDomainJoinPassword?: string;
-        aDDomainJoinUser?: string;
+        adDomainJoinPassword?: string;
+        adDomainJoinUser?: string;
         crossRealmTrustPrincipalPassword?: string;
         kdcAdminPassword: string;
         realm: string;
@@ -15393,7 +15393,7 @@ export namespace emr {
 
     export interface ClusterVolumeSpecification {
         iops?: number;
-        sizeInGB: number;
+        sizeInGb: number;
         volumeType: string;
     }
 
@@ -15441,7 +15441,7 @@ export namespace emr {
 
     export interface InstanceFleetConfigVolumeSpecification {
         iops?: number;
-        sizeInGB: number;
+        sizeInGb: number;
         volumeType: string;
     }
 
@@ -15512,7 +15512,7 @@ export namespace emr {
 
     export interface InstanceGroupConfigVolumeSpecification {
         iops?: number;
-        sizeInGB: number;
+        sizeInGb: number;
         volumeType: string;
     }
 
@@ -15711,7 +15711,7 @@ export namespace events {
     }
 
     export interface ConnectionClientParameters {
-        clientID: string;
+        clientId: string;
         clientSecret: string;
     }
 
@@ -15803,7 +15803,7 @@ export namespace events {
 
     export interface RuleEcsParameters {
         capacityProviderStrategy?: outputs.events.RuleCapacityProviderStrategyItem[];
-        enableECSManagedTags?: boolean;
+        enableEcsManagedTags?: boolean;
         enableExecuteCommand?: boolean;
         group?: string;
         launchType?: string;
@@ -16149,7 +16149,7 @@ export namespace finspace {
         /**
          * SAML metadata URL to link with the Environment
          */
-        applicationCallBackURL?: string;
+        applicationCallBackUrl?: string;
         /**
          * Attribute map for SAML configuration
          */
@@ -16161,7 +16161,7 @@ export namespace finspace {
         /**
          * SAML metadata URL to link with the Environment
          */
-        federationURN?: string;
+        federationUrn?: string;
         /**
          * SAML metadata document to link the federation provider to the Environment
          */
@@ -16169,7 +16169,7 @@ export namespace finspace {
         /**
          * SAML metadata URL to link with the Environment
          */
-        samlMetadataURL?: string;
+        samlMetadataUrl?: string;
     }
 
     export interface EnvironmentFederationParametersAttributeMapItemProperties {
@@ -16257,8 +16257,8 @@ export namespace fms {
      * An FMS includeMap or excludeMap.
      */
     export interface PolicyIEMap {
-        aCCOUNT?: string[];
-        oRGUNIT?: string[];
+        account?: string[];
+        orgunit?: string[];
     }
 
     /**
@@ -16844,7 +16844,7 @@ export namespace fsx {
 
     export interface VolumeOriginSnapshot {
         copyStrategy: string;
-        snapshotARN: string;
+        snapshotArn: string;
     }
 
     export interface VolumeRetentionPeriod {
@@ -16966,7 +16966,7 @@ export namespace gamelift {
         /**
          * The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits.
          */
-        desiredEC2Instances: number;
+        desiredEc2Instances: number;
         /**
          * The maximum value that is allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.
          */
@@ -17176,7 +17176,7 @@ export namespace globalaccelerator {
         /**
          * true if client ip should be preserved
          */
-        clientIPPreservationEnabled?: boolean;
+        clientIpPreservationEnabled?: boolean;
         /**
          * Id of the endpoint. For Network/Application Load Balancer this value is the ARN.  For EIP, this value is the allocation ID.  For EC2 instances, this is the EC2 instance ID
          */
@@ -17304,9 +17304,9 @@ export namespace glue {
     export interface CrawlerTargets {
         catalogTargets?: outputs.glue.CrawlerCatalogTarget[];
         deltaTargets?: outputs.glue.CrawlerDeltaTarget[];
-        dynamoDBTargets?: outputs.glue.CrawlerDynamoDBTarget[];
+        dynamoDbTargets?: outputs.glue.CrawlerDynamoDBTarget[];
         jdbcTargets?: outputs.glue.CrawlerJdbcTarget[];
-        mongoDBTargets?: outputs.glue.CrawlerMongoDBTarget[];
+        mongoDbTargets?: outputs.glue.CrawlerMongoDBTarget[];
         s3Targets?: outputs.glue.CrawlerS3Target[];
     }
 
@@ -17398,11 +17398,11 @@ export namespace glue {
 
     export interface MLTransformMLUserDataEncryption {
         kmsKeyId?: string;
-        mLUserDataEncryptionMode: string;
+        mlUserDataEncryptionMode: string;
     }
 
     export interface MLTransformTransformEncryption {
-        mLUserDataEncryption?: outputs.glue.MLTransformMLUserDataEncryption;
+        mlUserDataEncryption?: outputs.glue.MLTransformMLUserDataEncryption;
         taskRunSecurityConfigurationName?: string;
     }
 
@@ -17985,8 +17985,8 @@ export namespace greengrass {
     }
 
     export interface ResourceDefinitionSecretsManagerSecretResourceData {
-        aRN: string;
         additionalStagingLabelsToDownload?: string[];
+        arn: string;
     }
 
     export interface ResourceDefinitionVersion {
@@ -18041,8 +18041,8 @@ export namespace greengrass {
     }
 
     export interface ResourceDefinitionVersionSecretsManagerSecretResourceData {
-        aRN: string;
         additionalStagingLabelsToDownload?: string[];
+        arn: string;
     }
 
     export interface SubscriptionDefinitionSubscription {
@@ -18073,8 +18073,8 @@ export namespace greengrassv2 {
 
     export interface ComponentVersionLambdaContainerParams {
         devices?: outputs.greengrassv2.ComponentVersionLambdaDeviceMount[];
-        memorySizeInKB?: number;
-        mountROSysfs?: boolean;
+        memorySizeInKb?: number;
+        mountRoSysfs?: boolean;
         volumes?: outputs.greengrassv2.ComponentVersionLambdaVolumeMount[];
     }
 
@@ -18209,11 +18209,11 @@ export namespace groundstation {
     }
 
     export interface ConfigDecodeConfig {
-        unvalidatedJSON?: string;
+        unvalidatedJson?: string;
     }
 
     export interface ConfigDemodulationConfig {
-        unvalidatedJSON?: string;
+        unvalidatedJson?: string;
     }
 
     export interface ConfigEirp {
@@ -19586,7 +19586,7 @@ export namespace iot {
         enableIoTLoggingParams?: outputs.iot.MitigationActionEnableIoTLoggingParams;
         publishFindingToSnsParams?: outputs.iot.MitigationActionPublishFindingToSnsParams;
         replaceDefaultPolicyVersionParams?: outputs.iot.MitigationActionReplaceDefaultPolicyVersionParams;
-        updateCACertificateParams?: outputs.iot.MitigationActionUpdateCACertificateParams;
+        updateCaCertificateParams?: outputs.iot.MitigationActionUpdateCACertificateParams;
         updateDeviceCertificateParams?: outputs.iot.MitigationActionUpdateDeviceCertificateParams;
     }
 
@@ -19900,8 +19900,8 @@ export namespace iot {
         cloudwatchAlarm?: outputs.iot.TopicRuleCloudwatchAlarmAction;
         cloudwatchLogs?: outputs.iot.TopicRuleCloudwatchLogsAction;
         cloudwatchMetric?: outputs.iot.TopicRuleCloudwatchMetricAction;
-        dynamoDB?: outputs.iot.TopicRuleDynamoDBAction;
         dynamoDBv2?: outputs.iot.TopicRuleDynamoDBv2Action;
+        dynamoDb?: outputs.iot.TopicRuleDynamoDBAction;
         elasticsearch?: outputs.iot.TopicRuleElasticsearchAction;
         firehose?: outputs.iot.TopicRuleFirehoseAction;
         http?: outputs.iot.TopicRuleHttpAction;
@@ -20279,7 +20279,7 @@ export namespace iotanalytics {
 
     export interface DatasetResourceConfiguration {
         computeType: enums.iotanalytics.DatasetResourceConfigurationComputeType;
-        volumeSizeInGB: number;
+        volumeSizeInGb: number;
     }
 
     export interface DatasetRetentionPeriod {
@@ -20528,8 +20528,8 @@ export namespace iotevents {
      * The actions to be performed.
      */
     export interface AlarmModelAlarmAction {
-        dynamoDB?: outputs.iotevents.AlarmModelDynamoDB;
         dynamoDBv2?: outputs.iotevents.AlarmModelDynamoDBv2;
+        dynamoDb?: outputs.iotevents.AlarmModelDynamoDB;
         firehose?: outputs.iotevents.AlarmModelFirehose;
         iotEvents?: outputs.iotevents.AlarmModelIotEvents;
         iotSiteWise?: outputs.iotevents.AlarmModelIotSiteWise;
@@ -20841,8 +20841,8 @@ export namespace iotevents {
      */
     export interface DetectorModelAction {
         clearTimer?: outputs.iotevents.DetectorModelClearTimer;
-        dynamoDB?: outputs.iotevents.DetectorModelDynamoDB;
         dynamoDBv2?: outputs.iotevents.DetectorModelDynamoDBv2;
+        dynamoDb?: outputs.iotevents.DetectorModelDynamoDB;
         firehose?: outputs.iotevents.DetectorModelFirehose;
         iotEvents?: outputs.iotevents.DetectorModelIotEvents;
         iotSiteWise?: outputs.iotevents.DetectorModelIotSiteWise;
@@ -22064,7 +22064,7 @@ export namespace iotwireless {
     }
 
     export interface TaskDefinitionUpdateWirelessGatewayTaskCreate {
-        loRaWAN?: outputs.iotwireless.TaskDefinitionLoRaWANUpdateGatewayTaskCreate;
+        loRaWan?: outputs.iotwireless.TaskDefinitionLoRaWANUpdateGatewayTaskCreate;
         updateDataRole?: string;
         updateDataSource?: string;
     }
@@ -22901,7 +22901,7 @@ export namespace kendra {
         issuer?: string;
         keyLocation: enums.kendra.IndexKeyLocation;
         secretManagerArn?: string;
-        uRL?: string;
+        url?: string;
         userNameAttributeField?: string;
     }
 
@@ -23028,8 +23028,8 @@ export namespace kinesisanalytics {
     }
 
     export interface ApplicationInputLambdaProcessor {
-        resourceARN: string;
-        roleARN: string;
+        resourceArn: string;
+        roleArn: string;
     }
 
     export interface ApplicationInputParallelism {
@@ -23051,18 +23051,18 @@ export namespace kinesisanalytics {
     }
 
     export interface ApplicationKinesisFirehoseInput {
-        resourceARN: string;
-        roleARN: string;
+        resourceArn: string;
+        roleArn: string;
     }
 
     export interface ApplicationKinesisStreamsInput {
-        resourceARN: string;
-        roleARN: string;
+        resourceArn: string;
+        roleArn: string;
     }
 
     export interface ApplicationMappingParameters {
-        cSVMappingParameters?: outputs.kinesisanalytics.ApplicationCSVMappingParameters;
-        jSONMappingParameters?: outputs.kinesisanalytics.ApplicationJSONMappingParameters;
+        csvMappingParameters?: outputs.kinesisanalytics.ApplicationCSVMappingParameters;
+        jsonMappingParameters?: outputs.kinesisanalytics.ApplicationJSONMappingParameters;
     }
 
     export interface ApplicationOutputResourceDestinationSchema {
@@ -23070,18 +23070,18 @@ export namespace kinesisanalytics {
     }
 
     export interface ApplicationOutputResourceKinesisFirehoseOutput {
-        resourceARN: string;
-        roleARN: string;
+        resourceArn: string;
+        roleArn: string;
     }
 
     export interface ApplicationOutputResourceKinesisStreamsOutput {
-        resourceARN: string;
-        roleARN: string;
+        resourceArn: string;
+        roleArn: string;
     }
 
     export interface ApplicationOutputResourceLambdaOutput {
-        resourceARN: string;
-        roleARN: string;
+        resourceArn: string;
+        roleArn: string;
     }
 
     export interface ApplicationOutputResourceOutput {
@@ -23113,8 +23113,8 @@ export namespace kinesisanalytics {
     }
 
     export interface ApplicationReferenceDataSourceMappingParameters {
-        cSVMappingParameters?: outputs.kinesisanalytics.ApplicationReferenceDataSourceCSVMappingParameters;
-        jSONMappingParameters?: outputs.kinesisanalytics.ApplicationReferenceDataSourceJSONMappingParameters;
+        csvMappingParameters?: outputs.kinesisanalytics.ApplicationReferenceDataSourceCSVMappingParameters;
+        jsonMappingParameters?: outputs.kinesisanalytics.ApplicationReferenceDataSourceJSONMappingParameters;
     }
 
     export interface ApplicationReferenceDataSourceRecordColumn {
@@ -23141,9 +23141,9 @@ export namespace kinesisanalytics {
     }
 
     export interface ApplicationReferenceDataSourceS3ReferenceDataSource {
-        bucketARN: string;
+        bucketArn: string;
         fileKey: string;
-        referenceRoleARN: string;
+        referenceRoleArn: string;
     }
 
 }
@@ -23198,7 +23198,7 @@ export namespace kinesisanalyticsv2 {
     }
 
     export interface ApplicationCloudWatchLoggingOptionCloudWatchLoggingOption {
-        logStreamARN: string;
+        logStreamArn: string;
     }
 
     /**
@@ -23340,7 +23340,7 @@ export namespace kinesisanalyticsv2 {
         /**
          * The Amazon Resource Name (ARN) of the database.
          */
-        databaseARN?: string;
+        databaseArn?: string;
     }
 
     /**
@@ -23380,7 +23380,7 @@ export namespace kinesisanalyticsv2 {
         /**
          * The ARN of the Amazon Lambda function that operates on records in the stream.
          */
-        resourceARN: string;
+        resourceArn: string;
     }
 
     /**
@@ -23438,7 +23438,7 @@ export namespace kinesisanalyticsv2 {
         /**
          * The Amazon Resource Name (ARN) of the delivery stream.
          */
-        resourceARN: string;
+        resourceArn: string;
     }
 
     /**
@@ -23448,7 +23448,7 @@ export namespace kinesisanalyticsv2 {
         /**
          * The ARN of the input Kinesis data stream to read.
          */
-        resourceARN: string;
+        resourceArn: string;
     }
 
     /**
@@ -23468,11 +23468,11 @@ export namespace kinesisanalyticsv2 {
         /**
          * Provides additional mapping information when the record format uses delimiters (for example, CSV).
          */
-        cSVMappingParameters?: outputs.kinesisanalyticsv2.ApplicationCSVMappingParameters;
+        csvMappingParameters?: outputs.kinesisanalyticsv2.ApplicationCSVMappingParameters;
         /**
          * Provides additional mapping information when JSON is the record format on the streaming source.
          */
-        jSONMappingParameters?: outputs.kinesisanalyticsv2.ApplicationJSONMappingParameters;
+        jsonMappingParameters?: outputs.kinesisanalyticsv2.ApplicationJSONMappingParameters;
     }
 
     /**
@@ -23516,15 +23516,15 @@ export namespace kinesisanalyticsv2 {
     }
 
     export interface ApplicationOutputResourceKinesisFirehoseOutput {
-        resourceARN: string;
+        resourceArn: string;
     }
 
     export interface ApplicationOutputResourceKinesisStreamsOutput {
-        resourceARN: string;
+        resourceArn: string;
     }
 
     export interface ApplicationOutputResourceLambdaOutput {
-        resourceARN: string;
+        resourceArn: string;
     }
 
     export interface ApplicationOutputResourceOutput {
@@ -23554,7 +23554,7 @@ export namespace kinesisanalyticsv2 {
         /**
          * Describes the number of parallel tasks that a Java-based Kinesis Data Analytics application can perform per Kinesis Processing Unit (KPU) used by the application. For more information about KPUs, see Amazon Kinesis Data Analytics Pricing.
          */
-        parallelismPerKPU?: number;
+        parallelismPerKpu?: number;
     }
 
     /**
@@ -23614,8 +23614,8 @@ export namespace kinesisanalyticsv2 {
     }
 
     export interface ApplicationReferenceDataSourceMappingParameters {
-        cSVMappingParameters?: outputs.kinesisanalyticsv2.ApplicationReferenceDataSourceCSVMappingParameters;
-        jSONMappingParameters?: outputs.kinesisanalyticsv2.ApplicationReferenceDataSourceJSONMappingParameters;
+        csvMappingParameters?: outputs.kinesisanalyticsv2.ApplicationReferenceDataSourceCSVMappingParameters;
+        jsonMappingParameters?: outputs.kinesisanalyticsv2.ApplicationReferenceDataSourceJSONMappingParameters;
     }
 
     export interface ApplicationReferenceDataSourceRecordColumn {
@@ -23642,7 +23642,7 @@ export namespace kinesisanalyticsv2 {
     }
 
     export interface ApplicationReferenceDataSourceS3ReferenceDataSource {
-        bucketARN: string;
+        bucketArn: string;
         fileKey: string;
     }
 
@@ -23685,7 +23685,7 @@ export namespace kinesisanalyticsv2 {
         /**
          * The Amazon Resource Name (ARN) of the S3 bucket.
          */
-        bucketARN: string;
+        bucketArn: string;
     }
 
     /**
@@ -23695,7 +23695,7 @@ export namespace kinesisanalyticsv2 {
         /**
          * The Amazon Resource Name (ARN) for the S3 bucket containing the application code.
          */
-        bucketARN: string;
+        bucketArn: string;
         /**
          * The file key for the object containing the application code.
          */
@@ -23791,7 +23791,7 @@ export namespace kinesisanalyticsv2 {
 export namespace kinesisfirehose {
     export interface DeliveryStreamAmazonOpenSearchServerlessBufferingHints {
         intervalInSeconds?: number;
-        sizeInMBs?: number;
+        sizeInMbs?: number;
     }
 
     export interface DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration {
@@ -23801,7 +23801,7 @@ export namespace kinesisfirehose {
         indexName: string;
         processingConfiguration?: outputs.kinesisfirehose.DeliveryStreamProcessingConfiguration;
         retryOptions?: outputs.kinesisfirehose.DeliveryStreamAmazonOpenSearchServerlessRetryOptions;
-        roleARN: string;
+        roleArn: string;
         s3BackupMode?: enums.kinesisfirehose.DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode;
         s3Configuration: outputs.kinesisfirehose.DeliveryStreamS3DestinationConfiguration;
         vpcConfiguration?: outputs.kinesisfirehose.DeliveryStreamVpcConfiguration;
@@ -23813,7 +23813,7 @@ export namespace kinesisfirehose {
 
     export interface DeliveryStreamAmazonopensearchserviceBufferingHints {
         intervalInSeconds?: number;
-        sizeInMBs?: number;
+        sizeInMbs?: number;
     }
 
     export interface DeliveryStreamAmazonopensearchserviceDestinationConfiguration {
@@ -23821,12 +23821,12 @@ export namespace kinesisfirehose {
         cloudWatchLoggingOptions?: outputs.kinesisfirehose.DeliveryStreamCloudWatchLoggingOptions;
         clusterEndpoint?: string;
         documentIdOptions?: outputs.kinesisfirehose.DeliveryStreamDocumentIdOptions;
-        domainARN?: string;
+        domainArn?: string;
         indexName: string;
         indexRotationPeriod?: enums.kinesisfirehose.DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod;
         processingConfiguration?: outputs.kinesisfirehose.DeliveryStreamProcessingConfiguration;
         retryOptions?: outputs.kinesisfirehose.DeliveryStreamAmazonopensearchserviceRetryOptions;
-        roleARN: string;
+        roleArn: string;
         s3BackupMode?: enums.kinesisfirehose.DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode;
         s3Configuration: outputs.kinesisfirehose.DeliveryStreamS3DestinationConfiguration;
         typeName?: string;
@@ -23839,7 +23839,7 @@ export namespace kinesisfirehose {
 
     export interface DeliveryStreamBufferingHints {
         intervalInSeconds?: number;
-        sizeInMBs?: number;
+        sizeInMbs?: number;
     }
 
     export interface DeliveryStreamCloudWatchLoggingOptions {
@@ -23877,7 +23877,7 @@ export namespace kinesisfirehose {
 
     export interface DeliveryStreamElasticsearchBufferingHints {
         intervalInSeconds?: number;
-        sizeInMBs?: number;
+        sizeInMbs?: number;
     }
 
     export interface DeliveryStreamElasticsearchDestinationConfiguration {
@@ -23885,12 +23885,12 @@ export namespace kinesisfirehose {
         cloudWatchLoggingOptions?: outputs.kinesisfirehose.DeliveryStreamCloudWatchLoggingOptions;
         clusterEndpoint?: string;
         documentIdOptions?: outputs.kinesisfirehose.DeliveryStreamDocumentIdOptions;
-        domainARN?: string;
+        domainArn?: string;
         indexName: string;
         indexRotationPeriod?: enums.kinesisfirehose.DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod;
         processingConfiguration?: outputs.kinesisfirehose.DeliveryStreamProcessingConfiguration;
         retryOptions?: outputs.kinesisfirehose.DeliveryStreamElasticsearchRetryOptions;
-        roleARN: string;
+        roleArn: string;
         s3BackupMode?: enums.kinesisfirehose.DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode;
         s3Configuration: outputs.kinesisfirehose.DeliveryStreamS3DestinationConfiguration;
         typeName?: string;
@@ -23902,17 +23902,17 @@ export namespace kinesisfirehose {
     }
 
     export interface DeliveryStreamEncryptionConfiguration {
-        kMSEncryptionConfig?: outputs.kinesisfirehose.DeliveryStreamKMSEncryptionConfig;
+        kmsEncryptionConfig?: outputs.kinesisfirehose.DeliveryStreamKMSEncryptionConfig;
         noEncryptionConfig?: enums.kinesisfirehose.DeliveryStreamEncryptionConfigurationNoEncryptionConfig;
     }
 
     export interface DeliveryStreamEncryptionConfigurationInput {
-        keyARN?: string;
+        keyArn?: string;
         keyType: enums.kinesisfirehose.DeliveryStreamEncryptionConfigurationInputKeyType;
     }
 
     export interface DeliveryStreamExtendedS3DestinationConfiguration {
-        bucketARN: string;
+        bucketArn: string;
         bufferingHints?: outputs.kinesisfirehose.DeliveryStreamBufferingHints;
         cloudWatchLoggingOptions?: outputs.kinesisfirehose.DeliveryStreamCloudWatchLoggingOptions;
         compressionFormat?: enums.kinesisfirehose.DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat;
@@ -23922,7 +23922,7 @@ export namespace kinesisfirehose {
         errorOutputPrefix?: string;
         prefix?: string;
         processingConfiguration?: outputs.kinesisfirehose.DeliveryStreamProcessingConfiguration;
-        roleARN: string;
+        roleArn: string;
         s3BackupConfiguration?: outputs.kinesisfirehose.DeliveryStreamS3DestinationConfiguration;
         s3BackupMode?: enums.kinesisfirehose.DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode;
     }
@@ -23949,7 +23949,7 @@ export namespace kinesisfirehose {
         processingConfiguration?: outputs.kinesisfirehose.DeliveryStreamProcessingConfiguration;
         requestConfiguration?: outputs.kinesisfirehose.DeliveryStreamHttpEndpointRequestConfiguration;
         retryOptions?: outputs.kinesisfirehose.DeliveryStreamRetryOptions;
-        roleARN?: string;
+        roleArn?: string;
         s3BackupMode?: string;
         s3Configuration: outputs.kinesisfirehose.DeliveryStreamS3DestinationConfiguration;
     }
@@ -23964,12 +23964,12 @@ export namespace kinesisfirehose {
     }
 
     export interface DeliveryStreamKMSEncryptionConfig {
-        aWSKMSKeyARN: string;
+        awskmsKeyArn: string;
     }
 
     export interface DeliveryStreamKinesisStreamSourceConfiguration {
-        kinesisStreamARN: string;
-        roleARN: string;
+        kinesisStreamArn: string;
+        roleArn: string;
     }
 
     export interface DeliveryStreamOpenXJsonSerDe {
@@ -24021,12 +24021,12 @@ export namespace kinesisfirehose {
 
     export interface DeliveryStreamRedshiftDestinationConfiguration {
         cloudWatchLoggingOptions?: outputs.kinesisfirehose.DeliveryStreamCloudWatchLoggingOptions;
-        clusterJDBCURL: string;
+        clusterJdbcurl: string;
         copyCommand: outputs.kinesisfirehose.DeliveryStreamCopyCommand;
         password: string;
         processingConfiguration?: outputs.kinesisfirehose.DeliveryStreamProcessingConfiguration;
         retryOptions?: outputs.kinesisfirehose.DeliveryStreamRedshiftRetryOptions;
-        roleARN: string;
+        roleArn: string;
         s3BackupConfiguration?: outputs.kinesisfirehose.DeliveryStreamS3DestinationConfiguration;
         s3BackupMode?: enums.kinesisfirehose.DeliveryStreamRedshiftDestinationConfigurationS3BackupMode;
         s3Configuration: outputs.kinesisfirehose.DeliveryStreamS3DestinationConfiguration;
@@ -24042,21 +24042,21 @@ export namespace kinesisfirehose {
     }
 
     export interface DeliveryStreamS3DestinationConfiguration {
-        bucketARN: string;
+        bucketArn: string;
         bufferingHints?: outputs.kinesisfirehose.DeliveryStreamBufferingHints;
         cloudWatchLoggingOptions?: outputs.kinesisfirehose.DeliveryStreamCloudWatchLoggingOptions;
         compressionFormat?: enums.kinesisfirehose.DeliveryStreamS3DestinationConfigurationCompressionFormat;
         encryptionConfiguration?: outputs.kinesisfirehose.DeliveryStreamEncryptionConfiguration;
         errorOutputPrefix?: string;
         prefix?: string;
-        roleARN: string;
+        roleArn: string;
     }
 
     export interface DeliveryStreamSchemaConfiguration {
         catalogId?: string;
         databaseName?: string;
         region?: string;
-        roleARN?: string;
+        roleArn?: string;
         tableName?: string;
         versionId?: string;
     }
@@ -24068,10 +24068,10 @@ export namespace kinesisfirehose {
 
     export interface DeliveryStreamSplunkDestinationConfiguration {
         cloudWatchLoggingOptions?: outputs.kinesisfirehose.DeliveryStreamCloudWatchLoggingOptions;
-        hECAcknowledgmentTimeoutInSeconds?: number;
-        hECEndpoint: string;
-        hECEndpointType: enums.kinesisfirehose.DeliveryStreamSplunkDestinationConfigurationHECEndpointType;
-        hECToken: string;
+        hecAcknowledgmentTimeoutInSeconds?: number;
+        hecEndpoint: string;
+        hecEndpointType: enums.kinesisfirehose.DeliveryStreamSplunkDestinationConfigurationHECEndpointType;
+        hecToken: string;
         processingConfiguration?: outputs.kinesisfirehose.DeliveryStreamProcessingConfiguration;
         retryOptions?: outputs.kinesisfirehose.DeliveryStreamSplunkRetryOptions;
         s3BackupMode?: string;
@@ -24088,7 +24088,7 @@ export namespace kinesisfirehose {
     }
 
     export interface DeliveryStreamVpcConfiguration {
-        roleARN: string;
+        roleArn: string;
         securityGroupIds: string[];
         subnetIds: string[];
     }
@@ -24287,8 +24287,8 @@ export namespace lakeformation {
         dataCellsFilter?: outputs.lakeformation.PrincipalPermissionsDataCellsFilterResource;
         dataLocation?: outputs.lakeformation.PrincipalPermissionsDataLocationResource;
         database?: outputs.lakeformation.PrincipalPermissionsDatabaseResource;
-        lFTag?: outputs.lakeformation.PrincipalPermissionsLFTagKeyResource;
-        lFTagPolicy?: outputs.lakeformation.PrincipalPermissionsLFTagPolicyResource;
+        lfTag?: outputs.lakeformation.PrincipalPermissionsLFTagKeyResource;
+        lfTagPolicy?: outputs.lakeformation.PrincipalPermissionsLFTagPolicyResource;
         table?: outputs.lakeformation.PrincipalPermissionsTableResource;
         tableWithColumns?: outputs.lakeformation.PrincipalPermissionsTableWithColumnsResource;
     }
@@ -24517,7 +24517,7 @@ export namespace lambda {
         /**
          * The URI for the source access configuration resource.
          */
-        uRI?: string;
+        uri?: string;
     }
 
     export interface FunctionCode {
@@ -25384,7 +25384,7 @@ export namespace lex {
         customPayload?: outputs.lex.BotCustomPayload;
         imageResponseCard?: outputs.lex.BotImageResponseCard;
         plainTextMessage?: outputs.lex.BotPlainTextMessage;
-        sSMLMessage?: outputs.lex.BotSSMLMessage;
+        ssmlMessage?: outputs.lex.BotSSMLMessage;
     }
 
     /**
@@ -26291,15 +26291,15 @@ export namespace lightsail {
         /**
          * The HTTP methods that are processed and forwarded to the distribution's origin.
          */
-        allowedHTTPMethods?: string;
+        allowedHttpMethods?: string;
         /**
          * The HTTP method responses that are cached by your distribution.
          */
-        cachedHTTPMethods?: string;
+        cachedHttpMethods?: string;
         /**
          * The default amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the content has been updated.
          */
-        defaultTTL?: number;
+        defaultTtl?: number;
         /**
          * An object that describes the cookies that are forwarded to the origin. Your content is cached based on the cookies that are forwarded.
          */
@@ -26315,11 +26315,11 @@ export namespace lightsail {
         /**
          * The maximum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
          */
-        maximumTTL?: number;
+        maximumTtl?: number;
         /**
          * The minimum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
          */
-        minimumTTL?: number;
+        minimumTtl?: number;
     }
 
     /**
@@ -26440,7 +26440,7 @@ export namespace lightsail {
         /**
          * IOPS of disk.
          */
-        iOPS?: number;
+        iops?: number;
         /**
          * Is the Attached disk is the system disk of the Instance.
          */
@@ -26731,7 +26731,7 @@ export namespace lookoutequipment {
 export namespace lookoutmetrics {
     export interface AlertAction {
         lambdaConfiguration?: outputs.lookoutmetrics.AlertLambdaConfiguration;
-        sNSConfiguration?: outputs.lookoutmetrics.AlertSNSConfiguration;
+        snsConfiguration?: outputs.lookoutmetrics.AlertSNSConfiguration;
     }
 
     /**
@@ -26839,16 +26839,16 @@ export namespace lookoutmetrics {
     export interface AnomalyDetectorMetricSource {
         appFlowConfig?: outputs.lookoutmetrics.AnomalyDetectorAppFlowConfig;
         cloudwatchConfig?: outputs.lookoutmetrics.AnomalyDetectorCloudwatchConfig;
-        rDSSourceConfig?: outputs.lookoutmetrics.AnomalyDetectorRDSSourceConfig;
+        rdsSourceConfig?: outputs.lookoutmetrics.AnomalyDetectorRDSSourceConfig;
         redshiftSourceConfig?: outputs.lookoutmetrics.AnomalyDetectorRedshiftSourceConfig;
         s3SourceConfig?: outputs.lookoutmetrics.AnomalyDetectorS3SourceConfig;
     }
 
     export interface AnomalyDetectorRDSSourceConfig {
-        dBInstanceIdentifier: string;
         databaseHost: string;
         databaseName: string;
         databasePort: number;
+        dbInstanceIdentifier: string;
         roleArn: string;
         secretManagerArn: string;
         tableName: string;
@@ -29633,7 +29633,7 @@ export namespace msk {
     }
 
     export interface ClusterBrokerNodeGroupInfo {
-        brokerAZDistribution?: string;
+        brokerAzDistribution?: string;
         clientSubnets: string[];
         connectivityInfo?: outputs.msk.ClusterConnectivityInfo;
         instanceType: string;
@@ -29668,7 +29668,7 @@ export namespace msk {
     }
 
     export interface ClusterEncryptionAtRest {
-        dataVolumeKMSKeyId: string;
+        dataVolumeKmsKeyId: string;
     }
 
     export interface ClusterEncryptionInTransit {
@@ -29736,7 +29736,7 @@ export namespace msk {
     }
 
     export interface ClusterStorageInfo {
-        eBSStorageInfo?: outputs.msk.ClusterEBSStorageInfo;
+        ebsStorageInfo?: outputs.msk.ClusterEBSStorageInfo;
     }
 
     export interface ClusterTls {
@@ -29966,7 +29966,7 @@ export namespace networkfirewall {
         /**
          * A IPAddressType
          */
-        iPAddressType?: string;
+        ipAddressType?: string;
         /**
          * A SubnetId.
          */
@@ -30030,7 +30030,7 @@ export namespace networkfirewall {
         protocols?: number[];
         sourcePorts?: outputs.networkfirewall.RuleGroupPortRange[];
         sources?: outputs.networkfirewall.RuleGroupAddress[];
-        tCPFlags?: outputs.networkfirewall.RuleGroupTCPFlagField[];
+        tcpFlags?: outputs.networkfirewall.RuleGroupTCPFlagField[];
     }
 
     export interface RuleGroupPortRange {
@@ -30043,7 +30043,7 @@ export namespace networkfirewall {
     }
 
     export interface RuleGroupReferenceSets {
-        iPSetReferences?: any;
+        ipSetReferences?: any;
     }
 
     export interface RuleGroupRuleDefinition {
@@ -30057,7 +30057,7 @@ export namespace networkfirewall {
     }
 
     export interface RuleGroupRuleVariables {
-        iPSets?: any;
+        ipSets?: any;
         portSets?: any;
     }
 
@@ -30910,7 +30910,7 @@ export namespace opensearchservice {
         enabled?: boolean;
         internalUserDatabaseEnabled?: boolean;
         masterUserOptions?: outputs.opensearchservice.DomainMasterUserOptions;
-        sAMLOptions?: outputs.opensearchservice.DomainSAMLOptions;
+        samlOptions?: outputs.opensearchservice.DomainSAMLOptions;
     }
 
     export interface DomainClusterConfig {
@@ -30919,7 +30919,7 @@ export namespace opensearchservice {
         dedicatedMasterType?: string;
         instanceCount?: number;
         instanceType?: string;
-        multiAZWithStandbyEnabled?: boolean;
+        multiAzWithStandbyEnabled?: boolean;
         warmCount?: number;
         warmEnabled?: boolean;
         warmType?: string;
@@ -30935,7 +30935,7 @@ export namespace opensearchservice {
     }
 
     export interface DomainEBSOptions {
-        eBSEnabled?: boolean;
+        ebsEnabled?: boolean;
         iops?: number;
         throughput?: number;
         volumeSize?: number;
@@ -30951,8 +30951,8 @@ export namespace opensearchservice {
         customEndpoint?: string;
         customEndpointCertificateArn?: string;
         customEndpointEnabled?: boolean;
-        enforceHTTPS?: boolean;
-        tLSSecurityPolicy?: string;
+        enforceHttps?: boolean;
+        tlsSecurityPolicy?: string;
     }
 
     export interface DomainIdp {
@@ -30961,7 +30961,7 @@ export namespace opensearchservice {
     }
 
     export interface DomainMasterUserOptions {
-        masterUserARN?: string;
+        masterUserArn?: string;
         masterUserName?: string;
         masterUserPassword?: string;
     }
@@ -31408,7 +31408,7 @@ export namespace personalize {
         /**
          * The AutoMLConfig object containing a list of recipes to search when AutoML is performed.
          */
-        autoMLConfig?: outputs.personalize.SolutionConfigAutoMLConfigProperties;
+        autoMlConfig?: outputs.personalize.SolutionConfigAutoMLConfigProperties;
         /**
          * Only events with a value greater than or equal to this threshold are used for training a model.
          */
@@ -31619,7 +31619,7 @@ export namespace pinpoint {
     export interface CampaignInAppMessageButton {
         android?: outputs.pinpoint.CampaignOverrideButtonConfiguration;
         defaultConfig?: outputs.pinpoint.CampaignDefaultButtonConfiguration;
-        iOS?: outputs.pinpoint.CampaignOverrideButtonConfiguration;
+        ios?: outputs.pinpoint.CampaignOverrideButtonConfiguration;
         web?: outputs.pinpoint.CampaignOverrideButtonConfiguration;
     }
 
@@ -31662,15 +31662,15 @@ export namespace pinpoint {
     }
 
     export interface CampaignMessageConfiguration {
-        aDMMessage?: outputs.pinpoint.CampaignMessage;
-        aPNSMessage?: outputs.pinpoint.CampaignMessage;
+        admMessage?: outputs.pinpoint.CampaignMessage;
+        apnsMessage?: outputs.pinpoint.CampaignMessage;
         baiduMessage?: outputs.pinpoint.CampaignMessage;
         customMessage?: outputs.pinpoint.CampaignCustomMessage;
         defaultMessage?: outputs.pinpoint.CampaignMessage;
         emailMessage?: outputs.pinpoint.CampaignEmailMessage;
-        gCMMessage?: outputs.pinpoint.CampaignMessage;
+        gcmMessage?: outputs.pinpoint.CampaignMessage;
         inAppMessage?: outputs.pinpoint.CampaignInAppMessage;
-        sMSMessage?: outputs.pinpoint.CampaignSmsMessage;
+        smsMessage?: outputs.pinpoint.CampaignSmsMessage;
     }
 
     export interface CampaignOverrideButtonConfiguration {
@@ -31715,7 +31715,7 @@ export namespace pinpoint {
     export interface CampaignTemplateConfiguration {
         emailTemplate?: outputs.pinpoint.CampaignTemplate;
         pushTemplate?: outputs.pinpoint.CampaignTemplate;
-        sMSTemplate?: outputs.pinpoint.CampaignTemplate;
+        smsTemplate?: outputs.pinpoint.CampaignTemplate;
         voiceTemplate?: outputs.pinpoint.CampaignTemplate;
     }
 
@@ -31745,7 +31745,7 @@ export namespace pinpoint {
     export interface InAppTemplateButtonConfig {
         android?: outputs.pinpoint.InAppTemplateOverrideButtonConfiguration;
         defaultConfig?: outputs.pinpoint.InAppTemplateDefaultButtonConfiguration;
-        iOS?: outputs.pinpoint.InAppTemplateOverrideButtonConfiguration;
+        ios?: outputs.pinpoint.InAppTemplateOverrideButtonConfiguration;
         web?: outputs.pinpoint.InAppTemplateOverrideButtonConfiguration;
     }
 
@@ -31845,7 +31845,7 @@ export namespace pinpoint {
 
     export interface SegmentLocation {
         country?: outputs.pinpoint.SegmentSetDimension;
-        gPSPoint?: outputs.pinpoint.SegmentGPSPoint;
+        gpsPoint?: outputs.pinpoint.SegmentGPSPoint;
     }
 
     export interface SegmentRecency {
@@ -32139,7 +32139,7 @@ export namespace pipes {
 
     export interface PipeSourceManagedStreamingKafkaParameters {
         batchSize?: number;
-        consumerGroupID?: string;
+        consumerGroupId?: string;
         credentials?: outputs.pipes.MSKAccessCredentials0Properties | outputs.pipes.MSKAccessCredentials1Properties;
         maximumBatchingWindowInSeconds?: number;
         startingPosition?: enums.pipes.PipeMSKStartPosition;
@@ -32147,12 +32147,12 @@ export namespace pipes {
     }
 
     export interface PipeSourceParameters {
-        activeMQBrokerParameters?: outputs.pipes.PipeSourceActiveMQBrokerParameters;
-        dynamoDBStreamParameters?: outputs.pipes.PipeSourceDynamoDBStreamParameters;
+        activeMqBrokerParameters?: outputs.pipes.PipeSourceActiveMQBrokerParameters;
+        dynamoDbStreamParameters?: outputs.pipes.PipeSourceDynamoDBStreamParameters;
         filterCriteria?: outputs.pipes.PipeFilterCriteria;
         kinesisStreamParameters?: outputs.pipes.PipeSourceKinesisStreamParameters;
         managedStreamingKafkaParameters?: outputs.pipes.PipeSourceManagedStreamingKafkaParameters;
-        rabbitMQBrokerParameters?: outputs.pipes.PipeSourceRabbitMQBrokerParameters;
+        rabbitMqBrokerParameters?: outputs.pipes.PipeSourceRabbitMQBrokerParameters;
         selfManagedKafkaParameters?: outputs.pipes.PipeSourceSelfManagedKafkaParameters;
         sqsQueueParameters?: outputs.pipes.PipeSourceSqsQueueParameters;
     }
@@ -32168,7 +32168,7 @@ export namespace pipes {
     export interface PipeSourceSelfManagedKafkaParameters {
         additionalBootstrapServers?: string[];
         batchSize?: number;
-        consumerGroupID?: string;
+        consumerGroupId?: string;
         credentials?: outputs.pipes.SelfManagedKafkaAccessConfigurationCredentials0Properties | outputs.pipes.SelfManagedKafkaAccessConfigurationCredentials1Properties | outputs.pipes.SelfManagedKafkaAccessConfigurationCredentials2Properties | outputs.pipes.SelfManagedKafkaAccessConfigurationCredentials3Properties;
         maximumBatchingWindowInSeconds?: number;
         /**
@@ -32210,7 +32210,7 @@ export namespace pipes {
 
     export interface PipeTargetEcsTaskParameters {
         capacityProviderStrategy?: outputs.pipes.PipeCapacityProviderStrategyItem[];
-        enableECSManagedTags?: boolean;
+        enableEcsManagedTags?: boolean;
         enableExecuteCommand?: boolean;
         group?: string;
         launchType?: enums.pipes.PipeLaunchType;
@@ -32860,8 +32860,8 @@ export namespace quicksight {
     }
 
     export interface AnalysisCustomActionURLOperation {
-        uRLTarget: enums.quicksight.AnalysisURLTargetConfiguration;
-        uRLTemplate: string;
+        urlTarget: enums.quicksight.AnalysisURLTargetConfiguration;
+        urlTemplate: string;
     }
 
     export interface AnalysisCustomColor {
@@ -33809,7 +33809,7 @@ export namespace quicksight {
 
     export interface AnalysisKPIConfiguration {
         fieldWells?: outputs.quicksight.AnalysisKPIFieldWells;
-        kPIOptions?: outputs.quicksight.AnalysisKPIOptions;
+        kpiOptions?: outputs.quicksight.AnalysisKPIOptions;
         sortConfiguration?: outputs.quicksight.AnalysisKPISortConfiguration;
     }
 
@@ -34933,7 +34933,7 @@ export namespace quicksight {
     export interface AnalysisTableFieldOption {
         customLabel?: string;
         fieldId: string;
-        uRLStyling?: outputs.quicksight.AnalysisTableFieldURLConfiguration;
+        urlStyling?: outputs.quicksight.AnalysisTableFieldURLConfiguration;
         visibility?: enums.quicksight.AnalysisVisibility;
         /**
          * String based length that is composed of value and unit in px
@@ -35199,7 +35199,7 @@ export namespace quicksight {
         heatMapVisual?: outputs.quicksight.AnalysisHeatMapVisual;
         histogramVisual?: outputs.quicksight.AnalysisHistogramVisual;
         insightVisual?: outputs.quicksight.AnalysisInsightVisual;
-        kPIVisual?: outputs.quicksight.AnalysisKPIVisual;
+        kpiVisual?: outputs.quicksight.AnalysisKPIVisual;
         lineChartVisual?: outputs.quicksight.AnalysisLineChartVisual;
         pieChartVisual?: outputs.quicksight.AnalysisPieChartVisual;
         pivotTableVisual?: outputs.quicksight.AnalysisPivotTableVisual;
@@ -35224,7 +35224,7 @@ export namespace quicksight {
         filterOperation?: outputs.quicksight.AnalysisCustomActionFilterOperation;
         navigationOperation?: outputs.quicksight.AnalysisCustomActionNavigationOperation;
         setParametersOperation?: outputs.quicksight.AnalysisCustomActionSetParametersOperation;
-        uRLOperation?: outputs.quicksight.AnalysisCustomActionURLOperation;
+        urlOperation?: outputs.quicksight.AnalysisCustomActionURLOperation;
     }
 
     export interface AnalysisVisualPalette {
@@ -35798,8 +35798,8 @@ export namespace quicksight {
     }
 
     export interface DashboardCustomActionURLOperation {
-        uRLTarget: enums.quicksight.DashboardURLTargetConfiguration;
-        uRLTemplate: string;
+        urlTarget: enums.quicksight.DashboardURLTargetConfiguration;
+        urlTemplate: string;
     }
 
     export interface DashboardCustomColor {
@@ -36757,7 +36757,7 @@ export namespace quicksight {
 
     export interface DashboardKPIConfiguration {
         fieldWells?: outputs.quicksight.DashboardKPIFieldWells;
-        kPIOptions?: outputs.quicksight.DashboardKPIOptions;
+        kpiOptions?: outputs.quicksight.DashboardKPIOptions;
         sortConfiguration?: outputs.quicksight.DashboardKPISortConfiguration;
     }
 
@@ -37401,7 +37401,7 @@ export namespace quicksight {
         dataPointDrillUpDownOption?: outputs.quicksight.DashboardDataPointDrillUpDownOption;
         dataPointMenuLabelOption?: outputs.quicksight.DashboardDataPointMenuLabelOption;
         dataPointTooltipOption?: outputs.quicksight.DashboardDataPointTooltipOption;
-        exportToCSVOption?: outputs.quicksight.DashboardExportToCSVOption;
+        exportToCsvOption?: outputs.quicksight.DashboardExportToCSVOption;
         exportWithHiddenFieldsOption?: outputs.quicksight.DashboardExportWithHiddenFieldsOption;
         sheetControlsOption?: outputs.quicksight.DashboardSheetControlsOption;
         sheetLayoutElementMaximizationOption?: outputs.quicksight.DashboardSheetLayoutElementMaximizationOption;
@@ -37903,7 +37903,7 @@ export namespace quicksight {
     export interface DashboardTableFieldOption {
         customLabel?: string;
         fieldId: string;
-        uRLStyling?: outputs.quicksight.DashboardTableFieldURLConfiguration;
+        urlStyling?: outputs.quicksight.DashboardTableFieldURLConfiguration;
         visibility?: enums.quicksight.DashboardVisibility;
         /**
          * String based length that is composed of value and unit in px
@@ -38192,7 +38192,7 @@ export namespace quicksight {
         heatMapVisual?: outputs.quicksight.DashboardHeatMapVisual;
         histogramVisual?: outputs.quicksight.DashboardHistogramVisual;
         insightVisual?: outputs.quicksight.DashboardInsightVisual;
-        kPIVisual?: outputs.quicksight.DashboardKPIVisual;
+        kpiVisual?: outputs.quicksight.DashboardKPIVisual;
         lineChartVisual?: outputs.quicksight.DashboardLineChartVisual;
         pieChartVisual?: outputs.quicksight.DashboardPieChartVisual;
         pivotTableVisual?: outputs.quicksight.DashboardPivotTableVisual;
@@ -38221,7 +38221,7 @@ export namespace quicksight {
         filterOperation?: outputs.quicksight.DashboardCustomActionFilterOperation;
         navigationOperation?: outputs.quicksight.DashboardCustomActionNavigationOperation;
         setParametersOperation?: outputs.quicksight.DashboardCustomActionSetParametersOperation;
-        uRLOperation?: outputs.quicksight.DashboardCustomActionURLOperation;
+        urlOperation?: outputs.quicksight.DashboardCustomActionURLOperation;
     }
 
     export interface DashboardVisualMenuOption {
@@ -39602,8 +39602,8 @@ export namespace quicksight {
     }
 
     export interface TemplateCustomActionURLOperation {
-        uRLTarget: enums.quicksight.TemplateURLTargetConfiguration;
-        uRLTemplate: string;
+        urlTarget: enums.quicksight.TemplateURLTargetConfiguration;
+        urlTemplate: string;
     }
 
     export interface TemplateCustomColor {
@@ -40527,7 +40527,7 @@ export namespace quicksight {
 
     export interface TemplateKPIConfiguration {
         fieldWells?: outputs.quicksight.TemplateKPIFieldWells;
-        kPIOptions?: outputs.quicksight.TemplateKPIOptions;
+        kpiOptions?: outputs.quicksight.TemplateKPIOptions;
         sortConfiguration?: outputs.quicksight.TemplateKPISortConfiguration;
     }
 
@@ -41644,7 +41644,7 @@ export namespace quicksight {
     export interface TemplateTableFieldOption {
         customLabel?: string;
         fieldId: string;
-        uRLStyling?: outputs.quicksight.TemplateTableFieldURLConfiguration;
+        urlStyling?: outputs.quicksight.TemplateTableFieldURLConfiguration;
         visibility?: enums.quicksight.TemplateVisibility;
         /**
          * String based length that is composed of value and unit in px
@@ -41932,7 +41932,7 @@ export namespace quicksight {
         heatMapVisual?: outputs.quicksight.TemplateHeatMapVisual;
         histogramVisual?: outputs.quicksight.TemplateHistogramVisual;
         insightVisual?: outputs.quicksight.TemplateInsightVisual;
-        kPIVisual?: outputs.quicksight.TemplateKPIVisual;
+        kpiVisual?: outputs.quicksight.TemplateKPIVisual;
         lineChartVisual?: outputs.quicksight.TemplateLineChartVisual;
         pieChartVisual?: outputs.quicksight.TemplatePieChartVisual;
         pivotTableVisual?: outputs.quicksight.TemplatePivotTableVisual;
@@ -41957,7 +41957,7 @@ export namespace quicksight {
         filterOperation?: outputs.quicksight.TemplateCustomActionFilterOperation;
         navigationOperation?: outputs.quicksight.TemplateCustomActionNavigationOperation;
         setParametersOperation?: outputs.quicksight.TemplateCustomActionSetParametersOperation;
-        uRLOperation?: outputs.quicksight.TemplateCustomActionURLOperation;
+        urlOperation?: outputs.quicksight.TemplateCustomActionURLOperation;
     }
 
     export interface TemplateVisualPalette {
@@ -42074,7 +42074,7 @@ export namespace quicksight {
         dataColorPalette?: outputs.quicksight.ThemeDataColorPalette;
         sheet?: outputs.quicksight.ThemeSheetStyle;
         typography?: outputs.quicksight.ThemeTypography;
-        uIColorPalette?: outputs.quicksight.ThemeUIColorPalette;
+        uiColorPalette?: outputs.quicksight.ThemeUIColorPalette;
     }
 
     export interface ThemeDataColorPalette {
@@ -42537,7 +42537,7 @@ export namespace rds {
         /**
          * The CA identifier of the CA certificate used for the DB instance's server certificate.
          */
-        cAIdentifier?: string;
+        caIdentifier?: string;
         /**
          * The expiration date of the DB instance’s server certificate.
          */
@@ -42636,7 +42636,7 @@ export namespace rds {
         /**
          * Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy. The ENABLED value is valid only for proxies with RDS for Microsoft SQL Server.
          */
-        iAMAuth?: enums.rds.DBProxyAuthFormatIAMAuth;
+        iamAuth?: enums.rds.DBProxyAuthFormatIAMAuth;
         /**
          * The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager. 
          */
@@ -42677,10 +42677,10 @@ export namespace rds {
     }
 
     export interface DBSecurityGroupIngress {
-        cIDRIP?: string;
-        eC2SecurityGroupId?: string;
-        eC2SecurityGroupName?: string;
-        eC2SecurityGroupOwnerId?: string;
+        cidrip?: string;
+        ec2SecurityGroupId?: string;
+        ec2SecurityGroupName?: string;
+        ec2SecurityGroupOwnerId?: string;
     }
 
     export interface DBSecurityGroupTag {
@@ -42723,7 +42723,7 @@ export namespace rds {
         /**
          * A list of DBSecurityGroupMembership name strings used for this option.
          */
-        dBSecurityGroupMemberships?: string[];
+        dbSecurityGroupMemberships?: string[];
         /**
          * The configuration of options to include in a group.
          */
@@ -43465,13 +43465,13 @@ export namespace route53 {
     export interface HealthCheckConfigProperties {
         alarmIdentifier?: outputs.route53.HealthCheckAlarmIdentifier;
         childHealthChecks?: string[];
-        enableSNI?: boolean;
+        enableSni?: boolean;
         failureThreshold?: number;
         fullyQualifiedDomainName?: string;
         healthThreshold?: number;
-        iPAddress?: string;
         insufficientDataHealthStatus?: enums.route53.HealthCheckConfigPropertiesInsufficientDataHealthStatus;
         inverted?: boolean;
+        ipAddress?: string;
         measureLatency?: boolean;
         port?: number;
         regions?: string[];
@@ -43539,15 +43539,15 @@ export namespace route53 {
         /**
          * The ID of an Amazon VPC.
          */
-        vPCId: string;
+        vpcId: string;
         /**
          * The region that an Amazon VPC was created in. See https://docs.aws.amazon.com/general/latest/gr/rande.html for a list of up to date regions.
          */
-        vPCRegion: string;
+        vpcRegion: string;
     }
 
     export interface RecordSetAliasTarget {
-        dNSName: string;
+        dnsName: string;
         evaluateTargetHealth?: boolean;
         hostedZoneId: string;
     }
@@ -43564,7 +43564,7 @@ export namespace route53 {
     }
 
     export interface RecordSetGroupAliasTarget {
-        dNSName: string;
+        dnsName: string;
         evaluateTargetHealth?: boolean;
         hostedZoneId: string;
     }
@@ -43593,7 +43593,7 @@ export namespace route53 {
         region?: string;
         resourceRecords?: string[];
         setIdentifier?: string;
-        tTL?: string;
+        ttl?: string;
         type: string;
         weight?: number;
     }
@@ -43762,7 +43762,7 @@ export namespace route53recoveryreadiness {
      * The target resource that the Route 53 record points to.
      */
     export interface ResourceSetTargetResource {
-        nLBResource?: outputs.route53recoveryreadiness.ResourceSetNLBResource;
+        nlbResource?: outputs.route53recoveryreadiness.ResourceSetNLBResource;
         r53Resource?: outputs.route53recoveryreadiness.ResourceSetR53ResourceRecord;
     }
 
@@ -44237,7 +44237,7 @@ export namespace s3 {
         /**
          * Specifies the ID (Key ARN or Alias ARN) of the customer managed customer master key (CMK) stored in AWS Key Management Service (KMS) for the destination bucket.
          */
-        replicaKmsKeyID: string;
+        replicaKmsKeyId: string;
     }
 
     /**
@@ -44653,8 +44653,8 @@ export namespace s3 {
         /**
          * "KMSMasterKeyID" can only be used when you set the value of SSEAlgorithm as aws:kms or aws:kms:dsse.
          */
-        kMSMasterKeyID?: string;
-        sSEAlgorithm: enums.s3.BucketServerSideEncryptionByDefaultSSEAlgorithm;
+        kmsMasterKeyId?: string;
+        sseAlgorithm: enums.s3.BucketServerSideEncryptionByDefaultSSEAlgorithm;
     }
 
     /**
@@ -45314,7 +45314,7 @@ export namespace sagemaker {
         /**
          * The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
          */
-        volumeSizeInGB: number;
+        volumeSizeInGb: number;
     }
 
     /**
@@ -45841,7 +45841,7 @@ export namespace sagemaker {
         labelAttribute?: string;
         labelHeaders?: outputs.sagemaker.EndpointConfigClarifyHeader[];
         labelIndex?: number;
-        maxPayloadInMB?: number;
+        maxPayloadInMb?: number;
         maxRecordCount?: number;
         probabilityAttribute?: string;
         probabilityIndex?: number;
@@ -45882,7 +45882,7 @@ export namespace sagemaker {
     export interface EndpointConfigProductionVariant {
         acceleratorType?: string;
         containerStartupHealthCheckTimeoutInSeconds?: number;
-        enableSSMAccess?: boolean;
+        enableSsmAccess?: boolean;
         initialInstanceCount?: number;
         initialVariantWeight: number;
         instanceType?: string;
@@ -45890,12 +45890,12 @@ export namespace sagemaker {
         modelName: string;
         serverlessConfig?: outputs.sagemaker.EndpointConfigServerlessConfig;
         variantName: string;
-        volumeSizeInGB?: number;
+        volumeSizeInGb?: number;
     }
 
     export interface EndpointConfigServerlessConfig {
         maxConcurrency: number;
-        memorySizeInMB: number;
+        memorySizeInMb: number;
         provisionedConcurrency?: number;
     }
 
@@ -46178,7 +46178,7 @@ export namespace sagemaker {
         /**
          * The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
          */
-        volumeSizeInGB: number;
+        volumeSizeInGb: number;
     }
 
     /**
@@ -46863,7 +46863,7 @@ export namespace sagemaker {
         /**
          * The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
          */
-        volumeSizeInGB: number;
+        volumeSizeInGb: number;
     }
 
     /**
@@ -47109,7 +47109,7 @@ export namespace sagemaker {
         /**
          * The supported MIME types for the output data.
          */
-        supportedResponseMIMETypes?: string[];
+        supportedResponseMimeTypes?: string[];
         /**
          * A list of the instance types on which a transformation job can be run or on which an endpoint can be deployed.
          */
@@ -47288,7 +47288,7 @@ export namespace sagemaker {
         /**
          * The supported MIME types for the output data.
          */
-        supportedResponseMIMETypes: string[];
+        supportedResponseMimeTypes: string[];
         /**
          * A list of the instance types on which a transformation job can be run or on which an endpoint can be deployed.
          */
@@ -47473,7 +47473,7 @@ export namespace sagemaker {
         /**
          * The maximum payload size allowed, in MB. A payload is the data portion of a record (without metadata).
          */
-        maxPayloadInMB?: number;
+        maxPayloadInMb?: number;
         transformInput: outputs.sagemaker.ModelPackageTransformInput;
         transformOutput: outputs.sagemaker.ModelPackageTransformOutput;
         transformResources: outputs.sagemaker.ModelPackageTransformResources;
@@ -47600,7 +47600,7 @@ export namespace sagemaker {
         /**
          * The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
          */
-        volumeSizeInGB: number;
+        volumeSizeInGb: number;
     }
 
     /**
@@ -47899,7 +47899,7 @@ export namespace sagemaker {
         /**
          * The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
          */
-        volumeSizeInGB: number;
+        volumeSizeInGb: number;
     }
 
     /**
@@ -48567,7 +48567,7 @@ export namespace scheduler {
         /**
          * Specifies whether to enable Amazon ECS managed tags for the task. For more information, see Tagging Your Amazon ECS Resources in the Amazon Elastic Container Service Developer Guide.
          */
-        enableECSManagedTags?: boolean;
+        enableEcsManagedTags?: boolean;
         /**
          * Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task.
          */
@@ -49075,7 +49075,7 @@ export namespace servicediscovery {
     }
 
     export interface PrivateDnsNamespacePrivateDnsPropertiesMutable {
-        sOA?: outputs.servicediscovery.PrivateDnsNamespaceSOA;
+        soa?: outputs.servicediscovery.PrivateDnsNamespaceSOA;
     }
 
     export interface PrivateDnsNamespaceProperties {
@@ -49083,7 +49083,7 @@ export namespace servicediscovery {
     }
 
     export interface PrivateDnsNamespaceSOA {
-        tTL?: number;
+        ttl?: number;
     }
 
     export interface PrivateDnsNamespaceTag {
@@ -49096,11 +49096,11 @@ export namespace servicediscovery {
     }
 
     export interface PublicDnsNamespacePublicDnsPropertiesMutable {
-        sOA?: outputs.servicediscovery.PublicDnsNamespaceSOA;
+        soa?: outputs.servicediscovery.PublicDnsNamespaceSOA;
     }
 
     export interface PublicDnsNamespaceSOA {
-        tTL?: number;
+        ttl?: number;
     }
 
     export interface PublicDnsNamespaceTag {
@@ -49115,7 +49115,7 @@ export namespace servicediscovery {
     }
 
     export interface ServiceDnsRecord {
-        tTL: number;
+        ttl: number;
         type: string;
     }
 
@@ -49223,18 +49223,18 @@ export namespace ses {
         /**
          * The ARN of the Amazon Kinesis Firehose stream that email sending events should be published to.
          */
-        deliveryStreamARN: string;
+        deliveryStreamArn: string;
         /**
          * The ARN of the IAM role under which Amazon SES publishes email sending events to the Amazon Kinesis Firehose stream.
          */
-        iAMRoleARN: string;
+        iamRoleArn: string;
     }
 
     /**
      * An object that contains SNS topic ARN associated event destination.
      */
     export interface ConfigurationSetEventDestinationSnsDestination {
-        topicARN: string;
+        topicArn: string;
     }
 
     /**
@@ -49390,7 +49390,7 @@ export namespace ses {
         bounceAction?: outputs.ses.ReceiptRuleBounceAction;
         lambdaAction?: outputs.ses.ReceiptRuleLambdaAction;
         s3Action?: outputs.ses.ReceiptRuleS3Action;
-        sNSAction?: outputs.ses.ReceiptRuleSNSAction;
+        snsAction?: outputs.ses.ReceiptRuleSNSAction;
         stopAction?: outputs.ses.ReceiptRuleStopAction;
         workmailAction?: outputs.ses.ReceiptRuleWorkmailAction;
     }
@@ -49800,7 +49800,7 @@ export namespace ssm {
         bucketName: string;
         bucketPrefix?: string;
         bucketRegion: string;
-        kMSKeyArn?: string;
+        kmsKeyArn?: string;
         syncFormat: string;
     }
 
@@ -50323,7 +50323,7 @@ export namespace synthetics {
         /**
          * Provide maximum memory available for canary in MB
          */
-        memoryInMB?: number;
+        memoryInMb?: number;
         /**
          * Provide maximum canary timeout per run in seconds
          */
@@ -51646,7 +51646,7 @@ export namespace wafv2 {
 
     export interface RuleGroupGeoMatchStatement {
         countryCodes?: string[];
-        forwardedIPConfig?: outputs.wafv2.RuleGroupForwardedIPConfiguration;
+        forwardedIpConfig?: outputs.wafv2.RuleGroupForwardedIPConfiguration;
     }
 
     /**
@@ -51678,7 +51678,7 @@ export namespace wafv2 {
 
     export interface RuleGroupIPSetReferenceStatement {
         arn: string;
-        iPSetForwardedIPConfig?: outputs.wafv2.RuleGroupIPSetForwardedIPConfiguration;
+        ipSetForwardedIpConfig?: outputs.wafv2.RuleGroupIPSetForwardedIPConfiguration;
     }
 
     export interface RuleGroupImmunityTimeProperty {
@@ -51733,7 +51733,7 @@ export namespace wafv2 {
          * Specifies the aggregate keys to use in a rate-base rule.
          */
         customKeys?: outputs.wafv2.RuleGroupRateBasedStatementCustomKey[];
-        forwardedIPConfig?: outputs.wafv2.RuleGroupForwardedIPConfiguration;
+        forwardedIpConfig?: outputs.wafv2.RuleGroupForwardedIPConfiguration;
         limit: number;
         scopeDownStatement?: outputs.wafv2.RuleGroupStatement;
     }
@@ -51743,10 +51743,10 @@ export namespace wafv2 {
      */
     export interface RuleGroupRateBasedStatementCustomKey {
         cookie?: outputs.wafv2.RuleGroupRateLimitCookie;
-        forwardedIP?: outputs.wafv2.RuleGroupRateLimitForwardedIP;
-        hTTPMethod?: outputs.wafv2.RuleGroupRateLimitHTTPMethod;
+        forwardedIp?: outputs.wafv2.RuleGroupRateLimitForwardedIP;
         header?: outputs.wafv2.RuleGroupRateLimitHeader;
-        iP?: outputs.wafv2.RuleGroupRateLimitIP;
+        httpMethod?: outputs.wafv2.RuleGroupRateLimitHTTPMethod;
+        ip?: outputs.wafv2.RuleGroupRateLimitIP;
         labelNamespace?: outputs.wafv2.RuleGroupRateLimitLabelNamespace;
         queryArgument?: outputs.wafv2.RuleGroupRateLimitQueryArgument;
         queryString?: outputs.wafv2.RuleGroupRateLimitQueryString;
@@ -51894,7 +51894,7 @@ export namespace wafv2 {
         andStatement?: outputs.wafv2.RuleGroupAndStatement;
         byteMatchStatement?: outputs.wafv2.RuleGroupByteMatchStatement;
         geoMatchStatement?: outputs.wafv2.RuleGroupGeoMatchStatement;
-        iPSetReferenceStatement?: outputs.wafv2.RuleGroupIPSetReferenceStatement;
+        ipSetReferenceStatement?: outputs.wafv2.RuleGroupIPSetReferenceStatement;
         labelMatchStatement?: outputs.wafv2.RuleGroupLabelMatchStatement;
         notStatement?: outputs.wafv2.RuleGroupNotStatement;
         orStatement?: outputs.wafv2.RuleGroupOrStatement;
@@ -51962,9 +51962,6 @@ export namespace wafv2 {
      */
     export interface WebACLAWSManagedRulesBotControlRuleSet {
         inspectionLevel: enums.wafv2.WebACLAWSManagedRulesBotControlRuleSetInspectionLevel;
-    }
-
-    export interface WebACLAddressField {
     }
 
     /**
@@ -52167,7 +52164,7 @@ export namespace wafv2 {
 
     export interface WebACLGeoMatchStatement {
         countryCodes?: string[];
-        forwardedIPConfig?: outputs.wafv2.WebACLForwardedIPConfiguration;
+        forwardedIpConfig?: outputs.wafv2.WebACLForwardedIPConfiguration;
     }
 
     /**
@@ -52199,7 +52196,7 @@ export namespace wafv2 {
 
     export interface WebACLIPSetReferenceStatement {
         arn: string;
-        iPSetForwardedIPConfig?: outputs.wafv2.WebACLIPSetForwardedIPConfiguration;
+        ipSetForwardedIpConfig?: outputs.wafv2.WebACLIPSetForwardedIPConfiguration;
     }
 
     export interface WebACLImmunityTimeProperty {
@@ -52240,9 +52237,9 @@ export namespace wafv2 {
      * ManagedRuleGroupConfig.
      */
     export interface WebACLManagedRuleGroupConfig {
-        aWSManagedRulesACFPRuleSet?: outputs.wafv2.WebACLAWSManagedRulesACFPRuleSet;
-        aWSManagedRulesATPRuleSet?: outputs.wafv2.WebACLAWSManagedRulesATPRuleSet;
-        aWSManagedRulesBotControlRuleSet?: outputs.wafv2.WebACLAWSManagedRulesBotControlRuleSet;
+        awsManagedRulesAcfpRuleSet?: outputs.wafv2.WebACLAWSManagedRulesACFPRuleSet;
+        awsManagedRulesAtpRuleSet?: outputs.wafv2.WebACLAWSManagedRulesATPRuleSet;
+        awsManagedRulesBotControlRuleSet?: outputs.wafv2.WebACLAWSManagedRulesBotControlRuleSet;
         loginPath?: string;
         passwordField?: outputs.wafv2.WebACLFieldIdentifier;
         payloadType?: enums.wafv2.WebACLManagedRuleGroupConfigPayloadType;
@@ -52287,16 +52284,13 @@ export namespace wafv2 {
         none?: any;
     }
 
-    export interface WebACLPhoneNumberField {
-    }
-
     export interface WebACLRateBasedStatement {
         aggregateKeyType: enums.wafv2.WebACLRateBasedStatementAggregateKeyType;
         /**
          * Specifies the aggregate keys to use in a rate-base rule.
          */
         customKeys?: outputs.wafv2.WebACLRateBasedStatementCustomKey[];
-        forwardedIPConfig?: outputs.wafv2.WebACLForwardedIPConfiguration;
+        forwardedIpConfig?: outputs.wafv2.WebACLForwardedIPConfiguration;
         limit: number;
         scopeDownStatement?: outputs.wafv2.WebACLStatement;
     }
@@ -52306,10 +52300,10 @@ export namespace wafv2 {
      */
     export interface WebACLRateBasedStatementCustomKey {
         cookie?: outputs.wafv2.WebACLRateLimitCookie;
-        forwardedIP?: outputs.wafv2.WebACLRateLimitForwardedIP;
-        hTTPMethod?: outputs.wafv2.WebACLRateLimitHTTPMethod;
+        forwardedIp?: outputs.wafv2.WebACLRateLimitForwardedIP;
         header?: outputs.wafv2.WebACLRateLimitHeader;
-        iP?: outputs.wafv2.WebACLRateLimitIP;
+        httpMethod?: outputs.wafv2.WebACLRateLimitHTTPMethod;
+        ip?: outputs.wafv2.WebACLRateLimitIP;
         labelNamespace?: outputs.wafv2.WebACLRateLimitLabelNamespace;
         queryArgument?: outputs.wafv2.WebACLRateLimitQueryArgument;
         queryString?: outputs.wafv2.WebACLRateLimitQueryString;
@@ -52422,11 +52416,11 @@ export namespace wafv2 {
      * Configures the inspection of sign-up requests
      */
     export interface WebACLRequestInspectionACFP {
-        addressFields?: outputs.wafv2.WebACLAddressField[];
+        addressFields?: outputs.wafv2.WebACLFieldIdentifier[];
         emailField?: outputs.wafv2.WebACLFieldIdentifier;
         passwordField?: outputs.wafv2.WebACLFieldIdentifier;
         payloadType: enums.wafv2.WebACLRequestInspectionACFPPayloadType;
-        phoneNumberFields?: outputs.wafv2.WebACLPhoneNumberField[];
+        phoneNumberFields?: outputs.wafv2.WebACLFieldIdentifier[];
         usernameField?: outputs.wafv2.WebACLFieldIdentifier;
     }
 
@@ -52546,7 +52540,7 @@ export namespace wafv2 {
         andStatement?: outputs.wafv2.WebACLAndStatement;
         byteMatchStatement?: outputs.wafv2.WebACLByteMatchStatement;
         geoMatchStatement?: outputs.wafv2.WebACLGeoMatchStatement;
-        iPSetReferenceStatement?: outputs.wafv2.WebACLIPSetReferenceStatement;
+        ipSetReferenceStatement?: outputs.wafv2.WebACLIPSetReferenceStatement;
         labelMatchStatement?: outputs.wafv2.WebACLLabelMatchStatement;
         managedRuleGroupStatement?: outputs.wafv2.WebACLManagedRuleGroupStatement;
         notStatement?: outputs.wafv2.WebACLNotStatement;
@@ -52696,13 +52690,13 @@ export namespace xray {
          */
         fixedRate: number;
         /**
-         * Matches the HTTP method from a request URL.
-         */
-        hTTPMethod: string;
-        /**
          * Matches the hostname from a request URL.
          */
         host: string;
+        /**
+         * Matches the HTTP method from a request URL.
+         */
+        httpMethod: string;
         /**
          * The priority of the sampling rule.
          */
@@ -52714,8 +52708,8 @@ export namespace xray {
         /**
          * Matches the ARN of the AWS resource on which the service runs.
          */
-        resourceARN: string;
-        ruleARN?: string;
+        resourceArn: string;
+        ruleArn?: string;
         ruleName?: string;
         /**
          * Matches the name that the service uses to identify itself in segments.
@@ -52728,7 +52722,7 @@ export namespace xray {
         /**
          * Matches the path from a request URL.
          */
-        uRLPath: string;
+        urlPath: string;
         /**
          * The version of the sampling rule format (1)
          */
@@ -52768,13 +52762,13 @@ export namespace xray {
          */
         fixedRate?: number;
         /**
-         * Matches the HTTP method from a request URL.
-         */
-        hTTPMethod?: string;
-        /**
          * Matches the hostname from a request URL.
          */
         host?: string;
+        /**
+         * Matches the HTTP method from a request URL.
+         */
+        httpMethod?: string;
         /**
          * The priority of the sampling rule.
          */
@@ -52786,8 +52780,8 @@ export namespace xray {
         /**
          * Matches the ARN of the AWS resource on which the service runs.
          */
-        resourceARN?: string;
-        ruleARN?: string;
+        resourceArn?: string;
+        ruleArn?: string;
         ruleName?: string;
         /**
          * Matches the name that the service uses to identify itself in segments.
@@ -52800,7 +52794,7 @@ export namespace xray {
         /**
          * Matches the path from a request URL.
          */
-        uRLPath?: string;
+        urlPath?: string;
     }
 
 }

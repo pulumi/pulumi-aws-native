@@ -25,8 +25,8 @@ namespace Pulumi.AwsNative.FSx
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        [Output("resourceARN")]
-        public Output<string> ResourceARN { get; private set; } = null!;
+        [Output("resourceArn")]
+        public Output<string> ResourceArn { get; private set; } = null!;
 
         [Output("rootVolumeSecurityStyle")]
         public Output<string?> RootVolumeSecurityStyle { get; private set; } = null!;
@@ -40,8 +40,8 @@ namespace Pulumi.AwsNative.FSx
         [Output("tags")]
         public Output<ImmutableArray<Outputs.StorageVirtualMachineTag>> Tags { get; private set; } = null!;
 
-        [Output("uUID")]
-        public Output<string> UUID { get; private set; } = null!;
+        [Output("uuid")]
+        public Output<string> Uuid { get; private set; } = null!;
 
 
         /// <summary>

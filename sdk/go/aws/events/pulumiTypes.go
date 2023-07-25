@@ -377,7 +377,7 @@ func (o ConnectionBasicAuthParametersPtrOutput) Username() pulumi.StringPtrOutpu
 }
 
 type ConnectionClientParameters struct {
-	ClientID     string `pulumi:"clientID"`
+	ClientId     string `pulumi:"clientId"`
 	ClientSecret string `pulumi:"clientSecret"`
 }
 
@@ -393,7 +393,7 @@ type ConnectionClientParametersInput interface {
 }
 
 type ConnectionClientParametersArgs struct {
-	ClientID     pulumi.StringInput `pulumi:"clientID"`
+	ClientId     pulumi.StringInput `pulumi:"clientId"`
 	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
 }
 
@@ -474,8 +474,8 @@ func (o ConnectionClientParametersOutput) ToConnectionClientParametersPtrOutputW
 	}).(ConnectionClientParametersPtrOutput)
 }
 
-func (o ConnectionClientParametersOutput) ClientID() pulumi.StringOutput {
-	return o.ApplyT(func(v ConnectionClientParameters) string { return v.ClientID }).(pulumi.StringOutput)
+func (o ConnectionClientParametersOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectionClientParameters) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
 func (o ConnectionClientParametersOutput) ClientSecret() pulumi.StringOutput {
@@ -506,12 +506,12 @@ func (o ConnectionClientParametersPtrOutput) Elem() ConnectionClientParametersOu
 	}).(ConnectionClientParametersOutput)
 }
 
-func (o ConnectionClientParametersPtrOutput) ClientID() pulumi.StringPtrOutput {
+func (o ConnectionClientParametersPtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionClientParameters) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.ClientID
+		return &v.ClientId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2652,7 +2652,7 @@ func (o RuleDeadLetterConfigPtrOutput) Arn() pulumi.StringPtrOutput {
 
 type RuleEcsParameters struct {
 	CapacityProviderStrategy []RuleCapacityProviderStrategyItem `pulumi:"capacityProviderStrategy"`
-	EnableECSManagedTags     *bool                              `pulumi:"enableECSManagedTags"`
+	EnableEcsManagedTags     *bool                              `pulumi:"enableEcsManagedTags"`
 	EnableExecuteCommand     *bool                              `pulumi:"enableExecuteCommand"`
 	Group                    *string                            `pulumi:"group"`
 	LaunchType               *string                            `pulumi:"launchType"`
@@ -2680,7 +2680,7 @@ type RuleEcsParametersInput interface {
 
 type RuleEcsParametersArgs struct {
 	CapacityProviderStrategy RuleCapacityProviderStrategyItemArrayInput `pulumi:"capacityProviderStrategy"`
-	EnableECSManagedTags     pulumi.BoolPtrInput                        `pulumi:"enableECSManagedTags"`
+	EnableEcsManagedTags     pulumi.BoolPtrInput                        `pulumi:"enableEcsManagedTags"`
 	EnableExecuteCommand     pulumi.BoolPtrInput                        `pulumi:"enableExecuteCommand"`
 	Group                    pulumi.StringPtrInput                      `pulumi:"group"`
 	LaunchType               pulumi.StringPtrInput                      `pulumi:"launchType"`
@@ -2776,8 +2776,8 @@ func (o RuleEcsParametersOutput) CapacityProviderStrategy() RuleCapacityProvider
 	return o.ApplyT(func(v RuleEcsParameters) []RuleCapacityProviderStrategyItem { return v.CapacityProviderStrategy }).(RuleCapacityProviderStrategyItemArrayOutput)
 }
 
-func (o RuleEcsParametersOutput) EnableECSManagedTags() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v RuleEcsParameters) *bool { return v.EnableECSManagedTags }).(pulumi.BoolPtrOutput)
+func (o RuleEcsParametersOutput) EnableEcsManagedTags() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RuleEcsParameters) *bool { return v.EnableEcsManagedTags }).(pulumi.BoolPtrOutput)
 }
 
 func (o RuleEcsParametersOutput) EnableExecuteCommand() pulumi.BoolPtrOutput {
@@ -2861,12 +2861,12 @@ func (o RuleEcsParametersPtrOutput) CapacityProviderStrategy() RuleCapacityProvi
 	}).(RuleCapacityProviderStrategyItemArrayOutput)
 }
 
-func (o RuleEcsParametersPtrOutput) EnableECSManagedTags() pulumi.BoolPtrOutput {
+func (o RuleEcsParametersPtrOutput) EnableEcsManagedTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RuleEcsParameters) *bool {
 		if v == nil {
 			return nil
 		}
-		return v.EnableECSManagedTags
+		return v.EnableEcsManagedTags
 	}).(pulumi.BoolPtrOutput)
 }
 

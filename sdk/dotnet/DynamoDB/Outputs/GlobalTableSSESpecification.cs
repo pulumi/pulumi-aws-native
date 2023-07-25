@@ -13,17 +13,17 @@ namespace Pulumi.AwsNative.DynamoDB.Outputs
     [OutputType]
     public sealed class GlobalTableSSESpecification
     {
-        public readonly bool SSEEnabled;
-        public readonly string? SSEType;
+        public readonly bool SseEnabled;
+        public readonly string? SseType;
 
         [OutputConstructor]
         private GlobalTableSSESpecification(
-            bool sSEEnabled,
+            bool sseEnabled,
 
-            string? sSEType)
+            string? sseType)
         {
-            SSEEnabled = sSEEnabled;
-            SSEType = sSEType;
+            SseEnabled = sseEnabled;
+            SseType = sseType;
         }
     }
 }

@@ -34,11 +34,11 @@ __all__ = [
 class AlertActionArgs:
     def __init__(__self__, *,
                  lambda_configuration: Optional[pulumi.Input['AlertLambdaConfigurationArgs']] = None,
-                 s_ns_configuration: Optional[pulumi.Input['AlertSNSConfigurationArgs']] = None):
+                 sns_configuration: Optional[pulumi.Input['AlertSNSConfigurationArgs']] = None):
         if lambda_configuration is not None:
             pulumi.set(__self__, "lambda_configuration", lambda_configuration)
-        if s_ns_configuration is not None:
-            pulumi.set(__self__, "s_ns_configuration", s_ns_configuration)
+        if sns_configuration is not None:
+            pulumi.set(__self__, "sns_configuration", sns_configuration)
 
     @property
     @pulumi.getter(name="lambdaConfiguration")
@@ -50,13 +50,13 @@ class AlertActionArgs:
         pulumi.set(self, "lambda_configuration", value)
 
     @property
-    @pulumi.getter(name="sNSConfiguration")
-    def s_ns_configuration(self) -> Optional[pulumi.Input['AlertSNSConfigurationArgs']]:
-        return pulumi.get(self, "s_ns_configuration")
+    @pulumi.getter(name="snsConfiguration")
+    def sns_configuration(self) -> Optional[pulumi.Input['AlertSNSConfigurationArgs']]:
+        return pulumi.get(self, "sns_configuration")
 
-    @s_ns_configuration.setter
-    def s_ns_configuration(self, value: Optional[pulumi.Input['AlertSNSConfigurationArgs']]):
-        pulumi.set(self, "s_ns_configuration", value)
+    @sns_configuration.setter
+    def sns_configuration(self, value: Optional[pulumi.Input['AlertSNSConfigurationArgs']]):
+        pulumi.set(self, "sns_configuration", value)
 
 
 @pulumi.input_type
@@ -476,15 +476,15 @@ class AnomalyDetectorMetricSourceArgs:
     def __init__(__self__, *,
                  app_flow_config: Optional[pulumi.Input['AnomalyDetectorAppFlowConfigArgs']] = None,
                  cloudwatch_config: Optional[pulumi.Input['AnomalyDetectorCloudwatchConfigArgs']] = None,
-                 r_ds_source_config: Optional[pulumi.Input['AnomalyDetectorRDSSourceConfigArgs']] = None,
+                 rds_source_config: Optional[pulumi.Input['AnomalyDetectorRDSSourceConfigArgs']] = None,
                  redshift_source_config: Optional[pulumi.Input['AnomalyDetectorRedshiftSourceConfigArgs']] = None,
                  s3_source_config: Optional[pulumi.Input['AnomalyDetectorS3SourceConfigArgs']] = None):
         if app_flow_config is not None:
             pulumi.set(__self__, "app_flow_config", app_flow_config)
         if cloudwatch_config is not None:
             pulumi.set(__self__, "cloudwatch_config", cloudwatch_config)
-        if r_ds_source_config is not None:
-            pulumi.set(__self__, "r_ds_source_config", r_ds_source_config)
+        if rds_source_config is not None:
+            pulumi.set(__self__, "rds_source_config", rds_source_config)
         if redshift_source_config is not None:
             pulumi.set(__self__, "redshift_source_config", redshift_source_config)
         if s3_source_config is not None:
@@ -509,13 +509,13 @@ class AnomalyDetectorMetricSourceArgs:
         pulumi.set(self, "cloudwatch_config", value)
 
     @property
-    @pulumi.getter(name="rDSSourceConfig")
-    def r_ds_source_config(self) -> Optional[pulumi.Input['AnomalyDetectorRDSSourceConfigArgs']]:
-        return pulumi.get(self, "r_ds_source_config")
+    @pulumi.getter(name="rdsSourceConfig")
+    def rds_source_config(self) -> Optional[pulumi.Input['AnomalyDetectorRDSSourceConfigArgs']]:
+        return pulumi.get(self, "rds_source_config")
 
-    @r_ds_source_config.setter
-    def r_ds_source_config(self, value: Optional[pulumi.Input['AnomalyDetectorRDSSourceConfigArgs']]):
-        pulumi.set(self, "r_ds_source_config", value)
+    @rds_source_config.setter
+    def rds_source_config(self, value: Optional[pulumi.Input['AnomalyDetectorRDSSourceConfigArgs']]):
+        pulumi.set(self, "rds_source_config", value)
 
     @property
     @pulumi.getter(name="redshiftSourceConfig")
@@ -584,31 +584,22 @@ class AnomalyDetectorMetricArgs:
 @pulumi.input_type
 class AnomalyDetectorRDSSourceConfigArgs:
     def __init__(__self__, *,
-                 d_b_instance_identifier: pulumi.Input[str],
                  database_host: pulumi.Input[str],
                  database_name: pulumi.Input[str],
                  database_port: pulumi.Input[int],
+                 db_instance_identifier: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
                  secret_manager_arn: pulumi.Input[str],
                  table_name: pulumi.Input[str],
                  vpc_configuration: pulumi.Input['AnomalyDetectorVpcConfigurationArgs']):
-        pulumi.set(__self__, "d_b_instance_identifier", d_b_instance_identifier)
         pulumi.set(__self__, "database_host", database_host)
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "database_port", database_port)
+        pulumi.set(__self__, "db_instance_identifier", db_instance_identifier)
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "secret_manager_arn", secret_manager_arn)
         pulumi.set(__self__, "table_name", table_name)
         pulumi.set(__self__, "vpc_configuration", vpc_configuration)
-
-    @property
-    @pulumi.getter(name="dBInstanceIdentifier")
-    def d_b_instance_identifier(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "d_b_instance_identifier")
-
-    @d_b_instance_identifier.setter
-    def d_b_instance_identifier(self, value: pulumi.Input[str]):
-        pulumi.set(self, "d_b_instance_identifier", value)
 
     @property
     @pulumi.getter(name="databaseHost")
@@ -636,6 +627,15 @@ class AnomalyDetectorRDSSourceConfigArgs:
     @database_port.setter
     def database_port(self, value: pulumi.Input[int]):
         pulumi.set(self, "database_port", value)
+
+    @property
+    @pulumi.getter(name="dbInstanceIdentifier")
+    def db_instance_identifier(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "db_instance_identifier")
+
+    @db_instance_identifier.setter
+    def db_instance_identifier(self, value: pulumi.Input[str]):
+        pulumi.set(self, "db_instance_identifier", value)
 
     @property
     @pulumi.getter(name="roleArn")

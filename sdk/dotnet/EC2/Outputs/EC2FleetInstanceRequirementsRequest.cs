@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.EC2.Outputs
         public readonly int? OnDemandMaxPricePercentageOverLowestPrice;
         public readonly bool? RequireHibernateSupport;
         public readonly int? SpotMaxPricePercentageOverLowestPrice;
-        public readonly Outputs.EC2FleetTotalLocalStorageGBRequest? TotalLocalStorageGB;
+        public readonly Outputs.EC2FleetTotalLocalStorageGBRequest? TotalLocalStorageGb;
         public readonly Outputs.EC2FleetVCpuCountRangeRequest? VCpuCount;
 
         [OutputConstructor]
@@ -81,7 +81,7 @@ namespace Pulumi.AwsNative.EC2.Outputs
 
             int? spotMaxPricePercentageOverLowestPrice,
 
-            Outputs.EC2FleetTotalLocalStorageGBRequest? totalLocalStorageGB,
+            Outputs.EC2FleetTotalLocalStorageGBRequest? totalLocalStorageGb,
 
             Outputs.EC2FleetVCpuCountRangeRequest? vCpuCount)
         {
@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.EC2.Outputs
             OnDemandMaxPricePercentageOverLowestPrice = onDemandMaxPricePercentageOverLowestPrice;
             RequireHibernateSupport = requireHibernateSupport;
             SpotMaxPricePercentageOverLowestPrice = spotMaxPricePercentageOverLowestPrice;
-            TotalLocalStorageGB = totalLocalStorageGB;
+            TotalLocalStorageGb = totalLocalStorageGb;
             VCpuCount = vCpuCount;
         }
     }

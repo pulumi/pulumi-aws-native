@@ -37,11 +37,11 @@ export interface GetFleetResult {
     /**
      * [DEPRECATED] The number of EC2 instances that you want this fleet to host. When creating a new fleet, GameLift automatically sets this value to "1" and initiates a single instance. Once the fleet is active, update this value to trigger GameLift to add or remove instances from the fleet.
      */
-    readonly desiredEC2Instances?: number;
+    readonly desiredEc2Instances?: number;
     /**
      * A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift server.
      */
-    readonly eC2InboundPermissions?: outputs.gamelift.FleetIpPermission[];
+    readonly ec2InboundPermissions?: outputs.gamelift.FleetIpPermission[];
     /**
      * Unique fleet ID
      */

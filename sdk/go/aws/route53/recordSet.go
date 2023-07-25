@@ -31,7 +31,7 @@ type RecordSet struct {
 	Region            pulumi.StringPtrOutput              `pulumi:"region"`
 	ResourceRecords   pulumi.StringArrayOutput            `pulumi:"resourceRecords"`
 	SetIdentifier     pulumi.StringPtrOutput              `pulumi:"setIdentifier"`
-	TTL               pulumi.StringPtrOutput              `pulumi:"tTL"`
+	Ttl               pulumi.StringPtrOutput              `pulumi:"ttl"`
 	Type              pulumi.StringOutput                 `pulumi:"type"`
 	Weight            pulumi.IntPtrOutput                 `pulumi:"weight"`
 }
@@ -92,7 +92,7 @@ type recordSetArgs struct {
 	Region            *string                     `pulumi:"region"`
 	ResourceRecords   []string                    `pulumi:"resourceRecords"`
 	SetIdentifier     *string                     `pulumi:"setIdentifier"`
-	TTL               *string                     `pulumi:"tTL"`
+	Ttl               *string                     `pulumi:"ttl"`
 	Type              string                      `pulumi:"type"`
 	Weight            *int                        `pulumi:"weight"`
 }
@@ -112,7 +112,7 @@ type RecordSetArgs struct {
 	Region            pulumi.StringPtrInput
 	ResourceRecords   pulumi.StringArrayInput
 	SetIdentifier     pulumi.StringPtrInput
-	TTL               pulumi.StringPtrInput
+	Ttl               pulumi.StringPtrInput
 	Type              pulumi.StringInput
 	Weight            pulumi.IntPtrInput
 }
@@ -206,8 +206,8 @@ func (o RecordSetOutput) SetIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RecordSet) pulumi.StringPtrOutput { return v.SetIdentifier }).(pulumi.StringPtrOutput)
 }
 
-func (o RecordSetOutput) TTL() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RecordSet) pulumi.StringPtrOutput { return v.TTL }).(pulumi.StringPtrOutput)
+func (o RecordSetOutput) Ttl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordSet) pulumi.StringPtrOutput { return v.Ttl }).(pulumi.StringPtrOutput)
 }
 
 func (o RecordSetOutput) Type() pulumi.StringOutput {

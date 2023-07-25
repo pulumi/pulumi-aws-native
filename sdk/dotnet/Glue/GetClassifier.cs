@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.Glue
         public readonly Outputs.ClassifierGrokClassifier? GrokClassifier;
         public readonly string? Id;
         public readonly Outputs.ClassifierJsonClassifier? JsonClassifier;
-        public readonly Outputs.ClassifierXMLClassifier? XMLClassifier;
+        public readonly Outputs.ClassifierXMLClassifier? XmlClassifier;
 
         [OutputConstructor]
         private GetClassifierResult(
@@ -67,13 +67,13 @@ namespace Pulumi.AwsNative.Glue
 
             Outputs.ClassifierJsonClassifier? jsonClassifier,
 
-            Outputs.ClassifierXMLClassifier? xMLClassifier)
+            Outputs.ClassifierXMLClassifier? xmlClassifier)
         {
             CsvClassifier = csvClassifier;
             GrokClassifier = grokClassifier;
             Id = id;
             JsonClassifier = jsonClassifier;
-            XMLClassifier = xMLClassifier;
+            XmlClassifier = xmlClassifier;
         }
     }
 }

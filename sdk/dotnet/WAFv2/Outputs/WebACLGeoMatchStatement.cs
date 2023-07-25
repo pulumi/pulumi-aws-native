@@ -14,16 +14,16 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
     public sealed class WebACLGeoMatchStatement
     {
         public readonly ImmutableArray<string> CountryCodes;
-        public readonly Outputs.WebACLForwardedIPConfiguration? ForwardedIPConfig;
+        public readonly Outputs.WebACLForwardedIPConfiguration? ForwardedIpConfig;
 
         [OutputConstructor]
         private WebACLGeoMatchStatement(
             ImmutableArray<string> countryCodes,
 
-            Outputs.WebACLForwardedIPConfiguration? forwardedIPConfig)
+            Outputs.WebACLForwardedIPConfiguration? forwardedIpConfig)
         {
             CountryCodes = countryCodes;
-            ForwardedIPConfig = forwardedIPConfig;
+            ForwardedIpConfig = forwardedIpConfig;
         }
     }
 }

@@ -23,10 +23,10 @@ export interface GetClusterResult {
     readonly arn?: string;
     readonly availabilityZones?: string[];
     readonly clusterDiscoveryEndpoint?: string;
-    readonly clusterDiscoveryEndpointURL?: string;
+    readonly clusterDiscoveryEndpointUrl?: string;
     readonly description?: string;
     readonly id?: string;
-    readonly notificationTopicARN?: string;
+    readonly notificationTopicArn?: string;
     readonly parameterGroupName?: string;
     readonly preferredMaintenanceWindow?: string;
     readonly replicationFactor?: number;

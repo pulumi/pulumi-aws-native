@@ -36,7 +36,7 @@ type LookupLoadBalancerResult struct {
 	// Configuration option to enable session stickiness.
 	SessionStickinessEnabled *bool `pulumi:"sessionStickinessEnabled"`
 	// Configuration option to adjust session stickiness cookie duration parameter.
-	SessionStickinessLBCookieDurationSeconds *string `pulumi:"sessionStickinessLBCookieDurationSeconds"`
+	SessionStickinessLbCookieDurationSeconds *string `pulumi:"sessionStickinessLbCookieDurationSeconds"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []LoadBalancerTag `pulumi:"tags"`
 	// The name of the TLS policy to apply to the load balancer.
@@ -99,8 +99,8 @@ func (o LookupLoadBalancerResultOutput) SessionStickinessEnabled() pulumi.BoolPt
 }
 
 // Configuration option to adjust session stickiness cookie duration parameter.
-func (o LookupLoadBalancerResultOutput) SessionStickinessLBCookieDurationSeconds() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupLoadBalancerResult) *string { return v.SessionStickinessLBCookieDurationSeconds }).(pulumi.StringPtrOutput)
+func (o LookupLoadBalancerResultOutput) SessionStickinessLbCookieDurationSeconds() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) *string { return v.SessionStickinessLbCookieDurationSeconds }).(pulumi.StringPtrOutput)
 }
 
 // An array of key-value pairs to apply to this resource.

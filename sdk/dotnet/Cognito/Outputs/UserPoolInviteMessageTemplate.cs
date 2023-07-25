@@ -15,7 +15,7 @@ namespace Pulumi.AwsNative.Cognito.Outputs
     {
         public readonly string? EmailMessage;
         public readonly string? EmailSubject;
-        public readonly string? SMSMessage;
+        public readonly string? SmsMessage;
 
         [OutputConstructor]
         private UserPoolInviteMessageTemplate(
@@ -23,11 +23,11 @@ namespace Pulumi.AwsNative.Cognito.Outputs
 
             string? emailSubject,
 
-            string? sMSMessage)
+            string? smsMessage)
         {
             EmailMessage = emailMessage;
             EmailSubject = emailSubject;
-            SMSMessage = sMSMessage;
+            SmsMessage = smsMessage;
         }
     }
 }

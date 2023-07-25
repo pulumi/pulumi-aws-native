@@ -1181,7 +1181,7 @@ class MitigationActionActionParamsArgs:
         pulumi.set(self, "replace_default_policy_version_params", value)
 
     @property
-    @pulumi.getter(name="updateCACertificateParams")
+    @pulumi.getter(name="updateCaCertificateParams")
     def update_ca_certificate_params(self) -> Optional[pulumi.Input['MitigationActionUpdateCACertificateParamsArgs']]:
         return pulumi.get(self, "update_ca_certificate_params")
 
@@ -2201,8 +2201,8 @@ class TopicRuleActionArgs:
                  cloudwatch_alarm: Optional[pulumi.Input['TopicRuleCloudwatchAlarmActionArgs']] = None,
                  cloudwatch_logs: Optional[pulumi.Input['TopicRuleCloudwatchLogsActionArgs']] = None,
                  cloudwatch_metric: Optional[pulumi.Input['TopicRuleCloudwatchMetricActionArgs']] = None,
-                 dynamo_db: Optional[pulumi.Input['TopicRuleDynamoDBActionArgs']] = None,
                  dynamo_d_bv2: Optional[pulumi.Input['TopicRuleDynamoDBv2ActionArgs']] = None,
+                 dynamo_db: Optional[pulumi.Input['TopicRuleDynamoDBActionArgs']] = None,
                  elasticsearch: Optional[pulumi.Input['TopicRuleElasticsearchActionArgs']] = None,
                  firehose: Optional[pulumi.Input['TopicRuleFirehoseActionArgs']] = None,
                  http: Optional[pulumi.Input['TopicRuleHttpActionArgs']] = None,
@@ -2226,10 +2226,10 @@ class TopicRuleActionArgs:
             pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
         if cloudwatch_metric is not None:
             pulumi.set(__self__, "cloudwatch_metric", cloudwatch_metric)
-        if dynamo_db is not None:
-            pulumi.set(__self__, "dynamo_db", dynamo_db)
         if dynamo_d_bv2 is not None:
             pulumi.set(__self__, "dynamo_d_bv2", dynamo_d_bv2)
+        if dynamo_db is not None:
+            pulumi.set(__self__, "dynamo_db", dynamo_db)
         if elasticsearch is not None:
             pulumi.set(__self__, "elasticsearch", elasticsearch)
         if firehose is not None:
@@ -2293,15 +2293,6 @@ class TopicRuleActionArgs:
         pulumi.set(self, "cloudwatch_metric", value)
 
     @property
-    @pulumi.getter(name="dynamoDB")
-    def dynamo_db(self) -> Optional[pulumi.Input['TopicRuleDynamoDBActionArgs']]:
-        return pulumi.get(self, "dynamo_db")
-
-    @dynamo_db.setter
-    def dynamo_db(self, value: Optional[pulumi.Input['TopicRuleDynamoDBActionArgs']]):
-        pulumi.set(self, "dynamo_db", value)
-
-    @property
     @pulumi.getter(name="dynamoDBv2")
     def dynamo_d_bv2(self) -> Optional[pulumi.Input['TopicRuleDynamoDBv2ActionArgs']]:
         return pulumi.get(self, "dynamo_d_bv2")
@@ -2309,6 +2300,15 @@ class TopicRuleActionArgs:
     @dynamo_d_bv2.setter
     def dynamo_d_bv2(self, value: Optional[pulumi.Input['TopicRuleDynamoDBv2ActionArgs']]):
         pulumi.set(self, "dynamo_d_bv2", value)
+
+    @property
+    @pulumi.getter(name="dynamoDb")
+    def dynamo_db(self) -> Optional[pulumi.Input['TopicRuleDynamoDBActionArgs']]:
+        return pulumi.get(self, "dynamo_db")
+
+    @dynamo_db.setter
+    def dynamo_db(self, value: Optional[pulumi.Input['TopicRuleDynamoDBActionArgs']]):
+        pulumi.set(self, "dynamo_db", value)
 
     @property
     @pulumi.getter

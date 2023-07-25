@@ -14,12 +14,12 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
     public sealed class DeliveryStreamRedshiftDestinationConfiguration
     {
         public readonly Outputs.DeliveryStreamCloudWatchLoggingOptions? CloudWatchLoggingOptions;
-        public readonly string ClusterJDBCURL;
+        public readonly string ClusterJdbcurl;
         public readonly Outputs.DeliveryStreamCopyCommand CopyCommand;
         public readonly string Password;
         public readonly Outputs.DeliveryStreamProcessingConfiguration? ProcessingConfiguration;
         public readonly Outputs.DeliveryStreamRedshiftRetryOptions? RetryOptions;
-        public readonly string RoleARN;
+        public readonly string RoleArn;
         public readonly Outputs.DeliveryStreamS3DestinationConfiguration? S3BackupConfiguration;
         public readonly Pulumi.AwsNative.KinesisFirehose.DeliveryStreamRedshiftDestinationConfigurationS3BackupMode? S3BackupMode;
         public readonly Outputs.DeliveryStreamS3DestinationConfiguration S3Configuration;
@@ -29,7 +29,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
         private DeliveryStreamRedshiftDestinationConfiguration(
             Outputs.DeliveryStreamCloudWatchLoggingOptions? cloudWatchLoggingOptions,
 
-            string clusterJDBCURL,
+            string clusterJdbcurl,
 
             Outputs.DeliveryStreamCopyCommand copyCommand,
 
@@ -39,7 +39,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
 
             Outputs.DeliveryStreamRedshiftRetryOptions? retryOptions,
 
-            string roleARN,
+            string roleArn,
 
             Outputs.DeliveryStreamS3DestinationConfiguration? s3BackupConfiguration,
 
@@ -50,12 +50,12 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
             string username)
         {
             CloudWatchLoggingOptions = cloudWatchLoggingOptions;
-            ClusterJDBCURL = clusterJDBCURL;
+            ClusterJdbcurl = clusterJdbcurl;
             CopyCommand = copyCommand;
             Password = password;
             ProcessingConfiguration = processingConfiguration;
             RetryOptions = retryOptions;
-            RoleARN = roleARN;
+            RoleArn = roleArn;
             S3BackupConfiguration = s3BackupConfiguration;
             S3BackupMode = s3BackupMode;
             S3Configuration = s3Configuration;

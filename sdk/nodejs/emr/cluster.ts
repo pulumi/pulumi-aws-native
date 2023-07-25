@@ -54,9 +54,9 @@ export class Cluster extends pulumi.CustomResource {
     public readonly logEncryptionKmsKeyId!: pulumi.Output<string | undefined>;
     public readonly logUri!: pulumi.Output<string | undefined>;
     public readonly managedScalingPolicy!: pulumi.Output<outputs.emr.ClusterManagedScalingPolicy | undefined>;
-    public /*out*/ readonly masterPublicDNS!: pulumi.Output<string>;
+    public /*out*/ readonly masterPublicDns!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string>;
-    public readonly oSReleaseLabel!: pulumi.Output<string | undefined>;
+    public readonly osReleaseLabel!: pulumi.Output<string | undefined>;
     public readonly releaseLabel!: pulumi.Output<string | undefined>;
     public readonly scaleDownBehavior!: pulumi.Output<string | undefined>;
     public readonly securityConfiguration!: pulumi.Output<string | undefined>;
@@ -103,7 +103,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["logUri"] = args ? args.logUri : undefined;
             resourceInputs["managedScalingPolicy"] = args ? args.managedScalingPolicy : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["oSReleaseLabel"] = args ? args.oSReleaseLabel : undefined;
+            resourceInputs["osReleaseLabel"] = args ? args.osReleaseLabel : undefined;
             resourceInputs["releaseLabel"] = args ? args.releaseLabel : undefined;
             resourceInputs["scaleDownBehavior"] = args ? args.scaleDownBehavior : undefined;
             resourceInputs["securityConfiguration"] = args ? args.securityConfiguration : undefined;
@@ -112,7 +112,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["steps"] = args ? args.steps : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["visibleToAllUsers"] = args ? args.visibleToAllUsers : undefined;
-            resourceInputs["masterPublicDNS"] = undefined /*out*/;
+            resourceInputs["masterPublicDns"] = undefined /*out*/;
         } else {
             resourceInputs["additionalInfo"] = undefined /*out*/;
             resourceInputs["applications"] = undefined /*out*/;
@@ -128,9 +128,9 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["logEncryptionKmsKeyId"] = undefined /*out*/;
             resourceInputs["logUri"] = undefined /*out*/;
             resourceInputs["managedScalingPolicy"] = undefined /*out*/;
-            resourceInputs["masterPublicDNS"] = undefined /*out*/;
+            resourceInputs["masterPublicDns"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["oSReleaseLabel"] = undefined /*out*/;
+            resourceInputs["osReleaseLabel"] = undefined /*out*/;
             resourceInputs["releaseLabel"] = undefined /*out*/;
             resourceInputs["scaleDownBehavior"] = undefined /*out*/;
             resourceInputs["securityConfiguration"] = undefined /*out*/;
@@ -164,7 +164,7 @@ export interface ClusterArgs {
     logUri?: pulumi.Input<string>;
     managedScalingPolicy?: pulumi.Input<inputs.emr.ClusterManagedScalingPolicyArgs>;
     name?: pulumi.Input<string>;
-    oSReleaseLabel?: pulumi.Input<string>;
+    osReleaseLabel?: pulumi.Input<string>;
     releaseLabel?: pulumi.Input<string>;
     scaleDownBehavior?: pulumi.Input<string>;
     securityConfiguration?: pulumi.Input<string>;

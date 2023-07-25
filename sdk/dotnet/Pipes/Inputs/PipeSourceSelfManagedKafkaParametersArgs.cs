@@ -23,8 +23,8 @@ namespace Pulumi.AwsNative.Pipes.Inputs
         [Input("batchSize")]
         public Input<int>? BatchSize { get; set; }
 
-        [Input("consumerGroupID")]
-        public Input<string>? ConsumerGroupID { get; set; }
+        [Input("consumerGroupId")]
+        public Input<string>? ConsumerGroupId { get; set; }
 
         [Input("credentials")]
         public object? Credentials { get; set; }

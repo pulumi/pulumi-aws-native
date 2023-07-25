@@ -43,7 +43,7 @@ export class DataSource extends pulumi.CustomResource {
     public readonly apiId!: pulumi.Output<string>;
     public /*out*/ readonly dataSourceArn!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
-    public readonly dynamoDBConfig!: pulumi.Output<outputs.appsync.DataSourceDynamoDBConfig | undefined>;
+    public readonly dynamoDbConfig!: pulumi.Output<outputs.appsync.DataSourceDynamoDBConfig | undefined>;
     public readonly elasticsearchConfig!: pulumi.Output<outputs.appsync.DataSourceElasticsearchConfig | undefined>;
     public readonly eventBridgeConfig!: pulumi.Output<outputs.appsync.DataSourceEventBridgeConfig | undefined>;
     public readonly httpConfig!: pulumi.Output<outputs.appsync.DataSourceHttpConfig | undefined>;
@@ -75,7 +75,7 @@ export class DataSource extends pulumi.CustomResource {
             }
             resourceInputs["apiId"] = args ? args.apiId : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["dynamoDBConfig"] = args ? args.dynamoDBConfig : undefined;
+            resourceInputs["dynamoDbConfig"] = args ? args.dynamoDbConfig : undefined;
             resourceInputs["elasticsearchConfig"] = args ? args.elasticsearchConfig : undefined;
             resourceInputs["eventBridgeConfig"] = args ? args.eventBridgeConfig : undefined;
             resourceInputs["httpConfig"] = args ? args.httpConfig : undefined;
@@ -90,7 +90,7 @@ export class DataSource extends pulumi.CustomResource {
             resourceInputs["apiId"] = undefined /*out*/;
             resourceInputs["dataSourceArn"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
-            resourceInputs["dynamoDBConfig"] = undefined /*out*/;
+            resourceInputs["dynamoDbConfig"] = undefined /*out*/;
             resourceInputs["elasticsearchConfig"] = undefined /*out*/;
             resourceInputs["eventBridgeConfig"] = undefined /*out*/;
             resourceInputs["httpConfig"] = undefined /*out*/;
@@ -112,7 +112,7 @@ export class DataSource extends pulumi.CustomResource {
 export interface DataSourceArgs {
     apiId: pulumi.Input<string>;
     description?: pulumi.Input<string>;
-    dynamoDBConfig?: pulumi.Input<inputs.appsync.DataSourceDynamoDBConfigArgs>;
+    dynamoDbConfig?: pulumi.Input<inputs.appsync.DataSourceDynamoDBConfigArgs>;
     elasticsearchConfig?: pulumi.Input<inputs.appsync.DataSourceElasticsearchConfigArgs>;
     eventBridgeConfig?: pulumi.Input<inputs.appsync.DataSourceEventBridgeConfigArgs>;
     httpConfig?: pulumi.Input<inputs.appsync.DataSourceHttpConfigArgs>;

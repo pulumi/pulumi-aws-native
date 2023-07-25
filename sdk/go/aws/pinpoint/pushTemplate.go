@@ -18,13 +18,13 @@ import (
 type PushTemplate struct {
 	pulumi.CustomResourceState
 
-	ADM                  PushTemplateAndroidPushNotificationTemplatePtrOutput `pulumi:"aDM"`
-	APNS                 PushTemplateAPNSPushNotificationTemplatePtrOutput    `pulumi:"aPNS"`
+	Adm                  PushTemplateAndroidPushNotificationTemplatePtrOutput `pulumi:"adm"`
+	Apns                 PushTemplateAPNSPushNotificationTemplatePtrOutput    `pulumi:"apns"`
 	Arn                  pulumi.StringOutput                                  `pulumi:"arn"`
 	Baidu                PushTemplateAndroidPushNotificationTemplatePtrOutput `pulumi:"baidu"`
 	Default              PushTemplateDefaultPushNotificationTemplatePtrOutput `pulumi:"default"`
 	DefaultSubstitutions pulumi.StringPtrOutput                               `pulumi:"defaultSubstitutions"`
-	GCM                  PushTemplateAndroidPushNotificationTemplatePtrOutput `pulumi:"gCM"`
+	Gcm                  PushTemplateAndroidPushNotificationTemplatePtrOutput `pulumi:"gcm"`
 	Tags                 pulumi.AnyOutput                                     `pulumi:"tags"`
 	TemplateDescription  pulumi.StringPtrOutput                               `pulumi:"templateDescription"`
 	TemplateName         pulumi.StringOutput                                  `pulumi:"templateName"`
@@ -73,12 +73,12 @@ func (PushTemplateState) ElementType() reflect.Type {
 }
 
 type pushTemplateArgs struct {
-	ADM                  *PushTemplateAndroidPushNotificationTemplate `pulumi:"aDM"`
-	APNS                 *PushTemplateAPNSPushNotificationTemplate    `pulumi:"aPNS"`
+	Adm                  *PushTemplateAndroidPushNotificationTemplate `pulumi:"adm"`
+	Apns                 *PushTemplateAPNSPushNotificationTemplate    `pulumi:"apns"`
 	Baidu                *PushTemplateAndroidPushNotificationTemplate `pulumi:"baidu"`
 	Default              *PushTemplateDefaultPushNotificationTemplate `pulumi:"default"`
 	DefaultSubstitutions *string                                      `pulumi:"defaultSubstitutions"`
-	GCM                  *PushTemplateAndroidPushNotificationTemplate `pulumi:"gCM"`
+	Gcm                  *PushTemplateAndroidPushNotificationTemplate `pulumi:"gcm"`
 	Tags                 interface{}                                  `pulumi:"tags"`
 	TemplateDescription  *string                                      `pulumi:"templateDescription"`
 	TemplateName         string                                       `pulumi:"templateName"`
@@ -86,12 +86,12 @@ type pushTemplateArgs struct {
 
 // The set of arguments for constructing a PushTemplate resource.
 type PushTemplateArgs struct {
-	ADM                  PushTemplateAndroidPushNotificationTemplatePtrInput
-	APNS                 PushTemplateAPNSPushNotificationTemplatePtrInput
+	Adm                  PushTemplateAndroidPushNotificationTemplatePtrInput
+	Apns                 PushTemplateAPNSPushNotificationTemplatePtrInput
 	Baidu                PushTemplateAndroidPushNotificationTemplatePtrInput
 	Default              PushTemplateDefaultPushNotificationTemplatePtrInput
 	DefaultSubstitutions pulumi.StringPtrInput
-	GCM                  PushTemplateAndroidPushNotificationTemplatePtrInput
+	Gcm                  PushTemplateAndroidPushNotificationTemplatePtrInput
 	Tags                 pulumi.Input
 	TemplateDescription  pulumi.StringPtrInput
 	TemplateName         pulumi.StringInput
@@ -134,12 +134,12 @@ func (o PushTemplateOutput) ToPushTemplateOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o PushTemplateOutput) ADM() PushTemplateAndroidPushNotificationTemplatePtrOutput {
-	return o.ApplyT(func(v *PushTemplate) PushTemplateAndroidPushNotificationTemplatePtrOutput { return v.ADM }).(PushTemplateAndroidPushNotificationTemplatePtrOutput)
+func (o PushTemplateOutput) Adm() PushTemplateAndroidPushNotificationTemplatePtrOutput {
+	return o.ApplyT(func(v *PushTemplate) PushTemplateAndroidPushNotificationTemplatePtrOutput { return v.Adm }).(PushTemplateAndroidPushNotificationTemplatePtrOutput)
 }
 
-func (o PushTemplateOutput) APNS() PushTemplateAPNSPushNotificationTemplatePtrOutput {
-	return o.ApplyT(func(v *PushTemplate) PushTemplateAPNSPushNotificationTemplatePtrOutput { return v.APNS }).(PushTemplateAPNSPushNotificationTemplatePtrOutput)
+func (o PushTemplateOutput) Apns() PushTemplateAPNSPushNotificationTemplatePtrOutput {
+	return o.ApplyT(func(v *PushTemplate) PushTemplateAPNSPushNotificationTemplatePtrOutput { return v.Apns }).(PushTemplateAPNSPushNotificationTemplatePtrOutput)
 }
 
 func (o PushTemplateOutput) Arn() pulumi.StringOutput {
@@ -158,8 +158,8 @@ func (o PushTemplateOutput) DefaultSubstitutions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PushTemplate) pulumi.StringPtrOutput { return v.DefaultSubstitutions }).(pulumi.StringPtrOutput)
 }
 
-func (o PushTemplateOutput) GCM() PushTemplateAndroidPushNotificationTemplatePtrOutput {
-	return o.ApplyT(func(v *PushTemplate) PushTemplateAndroidPushNotificationTemplatePtrOutput { return v.GCM }).(PushTemplateAndroidPushNotificationTemplatePtrOutput)
+func (o PushTemplateOutput) Gcm() PushTemplateAndroidPushNotificationTemplatePtrOutput {
+	return o.ApplyT(func(v *PushTemplate) PushTemplateAndroidPushNotificationTemplatePtrOutput { return v.Gcm }).(PushTemplateAndroidPushNotificationTemplatePtrOutput)
 }
 
 func (o PushTemplateOutput) Tags() pulumi.AnyOutput {

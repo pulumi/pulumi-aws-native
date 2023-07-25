@@ -43,7 +43,7 @@ type LookupUserPoolResult struct {
 	MfaConfiguration            *string                              `pulumi:"mfaConfiguration"`
 	Policies                    *UserPoolPolicies                    `pulumi:"policies"`
 	ProviderName                *string                              `pulumi:"providerName"`
-	ProviderURL                 *string                              `pulumi:"providerURL"`
+	ProviderUrl                 *string                              `pulumi:"providerUrl"`
 	Schema                      []UserPoolSchemaAttribute            `pulumi:"schema"`
 	SmsAuthenticationMessage    *string                              `pulumi:"smsAuthenticationMessage"`
 	SmsConfiguration            *UserPoolSmsConfiguration            `pulumi:"smsConfiguration"`
@@ -156,8 +156,8 @@ func (o LookupUserPoolResultOutput) ProviderName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupUserPoolResult) *string { return v.ProviderName }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupUserPoolResultOutput) ProviderURL() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupUserPoolResult) *string { return v.ProviderURL }).(pulumi.StringPtrOutput)
+func (o LookupUserPoolResultOutput) ProviderUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserPoolResult) *string { return v.ProviderUrl }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupUserPoolResultOutput) Schema() UserPoolSchemaAttributeArrayOutput {

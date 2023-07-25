@@ -21,11 +21,11 @@ namespace Pulumi.AwsNative.IoT.Inputs
         [Input("cloudwatchMetric")]
         public Input<Inputs.TopicRuleCloudwatchMetricActionArgs>? CloudwatchMetric { get; set; }
 
-        [Input("dynamoDB")]
-        public Input<Inputs.TopicRuleDynamoDBActionArgs>? DynamoDB { get; set; }
-
         [Input("dynamoDBv2")]
         public Input<Inputs.TopicRuleDynamoDBv2ActionArgs>? DynamoDBv2 { get; set; }
+
+        [Input("dynamoDb")]
+        public Input<Inputs.TopicRuleDynamoDBActionArgs>? DynamoDb { get; set; }
 
         [Input("elasticsearch")]
         public Input<Inputs.TopicRuleElasticsearchActionArgs>? Elasticsearch { get; set; }

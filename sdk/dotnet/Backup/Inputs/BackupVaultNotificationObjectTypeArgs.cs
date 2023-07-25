@@ -20,8 +20,8 @@ namespace Pulumi.AwsNative.Backup.Inputs
             set => _backupVaultEvents = value;
         }
 
-        [Input("sNSTopicArn", required: true)]
-        public Input<string> SNSTopicArn { get; set; } = null!;
+        [Input("snsTopicArn", required: true)]
+        public Input<string> SnsTopicArn { get; set; } = null!;
 
         public BackupVaultNotificationObjectTypeArgs()
         {

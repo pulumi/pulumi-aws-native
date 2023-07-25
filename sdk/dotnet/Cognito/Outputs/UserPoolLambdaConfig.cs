@@ -16,9 +16,9 @@ namespace Pulumi.AwsNative.Cognito.Outputs
         public readonly string? CreateAuthChallenge;
         public readonly Outputs.UserPoolCustomEmailSender? CustomEmailSender;
         public readonly string? CustomMessage;
-        public readonly Outputs.UserPoolCustomSMSSender? CustomSMSSender;
+        public readonly Outputs.UserPoolCustomSMSSender? CustomSmsSender;
         public readonly string? DefineAuthChallenge;
-        public readonly string? KMSKeyID;
+        public readonly string? KmsKeyId;
         public readonly string? PostAuthentication;
         public readonly string? PostConfirmation;
         public readonly string? PreAuthentication;
@@ -35,11 +35,11 @@ namespace Pulumi.AwsNative.Cognito.Outputs
 
             string? customMessage,
 
-            Outputs.UserPoolCustomSMSSender? customSMSSender,
+            Outputs.UserPoolCustomSMSSender? customSmsSender,
 
             string? defineAuthChallenge,
 
-            string? kMSKeyID,
+            string? kmsKeyId,
 
             string? postAuthentication,
 
@@ -58,9 +58,9 @@ namespace Pulumi.AwsNative.Cognito.Outputs
             CreateAuthChallenge = createAuthChallenge;
             CustomEmailSender = customEmailSender;
             CustomMessage = customMessage;
-            CustomSMSSender = customSMSSender;
+            CustomSmsSender = customSmsSender;
             DefineAuthChallenge = defineAuthChallenge;
-            KMSKeyID = kMSKeyID;
+            KmsKeyId = kmsKeyId;
             PostAuthentication = postAuthentication;
             PostConfirmation = postConfirmation;
             PreAuthentication = preAuthentication;

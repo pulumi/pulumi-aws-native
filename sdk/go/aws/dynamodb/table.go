@@ -28,7 +28,7 @@ type Table struct {
 	LocalSecondaryIndexes            TableLocalSecondaryIndexArrayOutput            `pulumi:"localSecondaryIndexes"`
 	PointInTimeRecoverySpecification TablePointInTimeRecoverySpecificationPtrOutput `pulumi:"pointInTimeRecoverySpecification"`
 	ProvisionedThroughput            TableProvisionedThroughputPtrOutput            `pulumi:"provisionedThroughput"`
-	SSESpecification                 TableSSESpecificationPtrOutput                 `pulumi:"sSESpecification"`
+	SseSpecification                 TableSSESpecificationPtrOutput                 `pulumi:"sseSpecification"`
 	StreamArn                        pulumi.StringOutput                            `pulumi:"streamArn"`
 	StreamSpecification              TableStreamSpecificationPtrOutput              `pulumi:"streamSpecification"`
 	TableClass                       pulumi.StringPtrOutput                         `pulumi:"tableClass"`
@@ -91,7 +91,7 @@ type tableArgs struct {
 	LocalSecondaryIndexes            []TableLocalSecondaryIndex             `pulumi:"localSecondaryIndexes"`
 	PointInTimeRecoverySpecification *TablePointInTimeRecoverySpecification `pulumi:"pointInTimeRecoverySpecification"`
 	ProvisionedThroughput            *TableProvisionedThroughput            `pulumi:"provisionedThroughput"`
-	SSESpecification                 *TableSSESpecification                 `pulumi:"sSESpecification"`
+	SseSpecification                 *TableSSESpecification                 `pulumi:"sseSpecification"`
 	StreamSpecification              *TableStreamSpecification              `pulumi:"streamSpecification"`
 	TableClass                       *string                                `pulumi:"tableClass"`
 	TableName                        *string                                `pulumi:"tableName"`
@@ -112,7 +112,7 @@ type TableArgs struct {
 	LocalSecondaryIndexes            TableLocalSecondaryIndexArrayInput
 	PointInTimeRecoverySpecification TablePointInTimeRecoverySpecificationPtrInput
 	ProvisionedThroughput            TableProvisionedThroughputPtrInput
-	SSESpecification                 TableSSESpecificationPtrInput
+	SseSpecification                 TableSSESpecificationPtrInput
 	StreamSpecification              TableStreamSpecificationPtrInput
 	TableClass                       pulumi.StringPtrInput
 	TableName                        pulumi.StringPtrInput
@@ -209,8 +209,8 @@ func (o TableOutput) ProvisionedThroughput() TableProvisionedThroughputPtrOutput
 	return o.ApplyT(func(v *Table) TableProvisionedThroughputPtrOutput { return v.ProvisionedThroughput }).(TableProvisionedThroughputPtrOutput)
 }
 
-func (o TableOutput) SSESpecification() TableSSESpecificationPtrOutput {
-	return o.ApplyT(func(v *Table) TableSSESpecificationPtrOutput { return v.SSESpecification }).(TableSSESpecificationPtrOutput)
+func (o TableOutput) SseSpecification() TableSSESpecificationPtrOutput {
+	return o.ApplyT(func(v *Table) TableSSESpecificationPtrOutput { return v.SseSpecification }).(TableSSESpecificationPtrOutput)
 }
 
 func (o TableOutput) StreamArn() pulumi.StringOutput {

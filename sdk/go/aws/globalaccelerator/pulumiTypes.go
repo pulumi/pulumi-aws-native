@@ -125,7 +125,7 @@ func (o AcceleratorTagArrayOutput) Index(i pulumi.IntInput) AcceleratorTagOutput
 // The configuration for a given endpoint
 type EndpointGroupEndpointConfiguration struct {
 	// true if client ip should be preserved
-	ClientIPPreservationEnabled *bool `pulumi:"clientIPPreservationEnabled"`
+	ClientIpPreservationEnabled *bool `pulumi:"clientIpPreservationEnabled"`
 	// Id of the endpoint. For Network/Application Load Balancer this value is the ARN.  For EIP, this value is the allocation ID.  For EC2 instances, this is the EC2 instance ID
 	EndpointId string `pulumi:"endpointId"`
 	// The weight for the endpoint.
@@ -146,7 +146,7 @@ type EndpointGroupEndpointConfigurationInput interface {
 // The configuration for a given endpoint
 type EndpointGroupEndpointConfigurationArgs struct {
 	// true if client ip should be preserved
-	ClientIPPreservationEnabled pulumi.BoolPtrInput `pulumi:"clientIPPreservationEnabled"`
+	ClientIpPreservationEnabled pulumi.BoolPtrInput `pulumi:"clientIpPreservationEnabled"`
 	// Id of the endpoint. For Network/Application Load Balancer this value is the ARN.  For EIP, this value is the allocation ID.  For EC2 instances, this is the EC2 instance ID
 	EndpointId pulumi.StringInput `pulumi:"endpointId"`
 	// The weight for the endpoint.
@@ -206,8 +206,8 @@ func (o EndpointGroupEndpointConfigurationOutput) ToEndpointGroupEndpointConfigu
 }
 
 // true if client ip should be preserved
-func (o EndpointGroupEndpointConfigurationOutput) ClientIPPreservationEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v EndpointGroupEndpointConfiguration) *bool { return v.ClientIPPreservationEnabled }).(pulumi.BoolPtrOutput)
+func (o EndpointGroupEndpointConfigurationOutput) ClientIpPreservationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointGroupEndpointConfiguration) *bool { return v.ClientIpPreservationEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Id of the endpoint. For Network/Application Load Balancer this value is the ARN.  For EIP, this value is the allocation ID.  For EC2 instances, this is the EC2 instance ID

@@ -9030,7 +9030,7 @@ type IndexJwtTokenTypeConfiguration struct {
 	Issuer                 *string          `pulumi:"issuer"`
 	KeyLocation            IndexKeyLocation `pulumi:"keyLocation"`
 	SecretManagerArn       *string          `pulumi:"secretManagerArn"`
-	URL                    *string          `pulumi:"uRL"`
+	Url                    *string          `pulumi:"url"`
 	UserNameAttributeField *string          `pulumi:"userNameAttributeField"`
 }
 
@@ -9051,7 +9051,7 @@ type IndexJwtTokenTypeConfigurationArgs struct {
 	Issuer                 pulumi.StringPtrInput `pulumi:"issuer"`
 	KeyLocation            IndexKeyLocationInput `pulumi:"keyLocation"`
 	SecretManagerArn       pulumi.StringPtrInput `pulumi:"secretManagerArn"`
-	URL                    pulumi.StringPtrInput `pulumi:"uRL"`
+	Url                    pulumi.StringPtrInput `pulumi:"url"`
 	UserNameAttributeField pulumi.StringPtrInput `pulumi:"userNameAttributeField"`
 }
 
@@ -9152,8 +9152,8 @@ func (o IndexJwtTokenTypeConfigurationOutput) SecretManagerArn() pulumi.StringPt
 	return o.ApplyT(func(v IndexJwtTokenTypeConfiguration) *string { return v.SecretManagerArn }).(pulumi.StringPtrOutput)
 }
 
-func (o IndexJwtTokenTypeConfigurationOutput) URL() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IndexJwtTokenTypeConfiguration) *string { return v.URL }).(pulumi.StringPtrOutput)
+func (o IndexJwtTokenTypeConfigurationOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IndexJwtTokenTypeConfiguration) *string { return v.Url }).(pulumi.StringPtrOutput)
 }
 
 func (o IndexJwtTokenTypeConfigurationOutput) UserNameAttributeField() pulumi.StringPtrOutput {
@@ -9229,12 +9229,12 @@ func (o IndexJwtTokenTypeConfigurationPtrOutput) SecretManagerArn() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o IndexJwtTokenTypeConfigurationPtrOutput) URL() pulumi.StringPtrOutput {
+func (o IndexJwtTokenTypeConfigurationPtrOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IndexJwtTokenTypeConfiguration) *string {
 		if v == nil {
 			return nil
 		}
-		return v.URL
+		return v.Url
 	}).(pulumi.StringPtrOutput)
 }
 

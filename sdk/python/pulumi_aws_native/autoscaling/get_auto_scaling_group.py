@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAutoScalingGroupResult:
-    def __init__(__self__, availability_zones=None, capacity_rebalance=None, context=None, cooldown=None, default_instance_warmup=None, desired_capacity=None, desired_capacity_type=None, health_check_grace_period=None, health_check_type=None, id=None, launch_configuration_name=None, launch_template=None, launch_template_specification=None, lifecycle_hook_specification_list=None, load_balancer_names=None, max_instance_lifetime=None, max_size=None, metrics_collection=None, min_size=None, mixed_instances_policy=None, new_instances_protected_from_scale_in=None, notification_configurations=None, placement_group=None, service_linked_role_arn=None, tags=None, target_group_arns=None, termination_policies=None, v_pc_zone_identifier=None):
+    def __init__(__self__, availability_zones=None, capacity_rebalance=None, context=None, cooldown=None, default_instance_warmup=None, desired_capacity=None, desired_capacity_type=None, health_check_grace_period=None, health_check_type=None, id=None, launch_configuration_name=None, launch_template=None, launch_template_specification=None, lifecycle_hook_specification_list=None, load_balancer_names=None, max_instance_lifetime=None, max_size=None, metrics_collection=None, min_size=None, mixed_instances_policy=None, new_instances_protected_from_scale_in=None, notification_configurations=None, placement_group=None, service_linked_role_arn=None, tags=None, target_group_arns=None, termination_policies=None, vpc_zone_identifier=None):
         if availability_zones and not isinstance(availability_zones, list):
             raise TypeError("Expected argument 'availability_zones' to be a list")
         pulumi.set(__self__, "availability_zones", availability_zones)
@@ -101,9 +101,9 @@ class GetAutoScalingGroupResult:
         if termination_policies and not isinstance(termination_policies, list):
             raise TypeError("Expected argument 'termination_policies' to be a list")
         pulumi.set(__self__, "termination_policies", termination_policies)
-        if v_pc_zone_identifier and not isinstance(v_pc_zone_identifier, list):
-            raise TypeError("Expected argument 'v_pc_zone_identifier' to be a list")
-        pulumi.set(__self__, "v_pc_zone_identifier", v_pc_zone_identifier)
+        if vpc_zone_identifier and not isinstance(vpc_zone_identifier, list):
+            raise TypeError("Expected argument 'vpc_zone_identifier' to be a list")
+        pulumi.set(__self__, "vpc_zone_identifier", vpc_zone_identifier)
 
     @property
     @pulumi.getter(name="availabilityZones")
@@ -221,7 +221,7 @@ class GetAutoScalingGroupResult:
         return pulumi.get(self, "placement_group")
 
     @property
-    @pulumi.getter(name="serviceLinkedRoleARN")
+    @pulumi.getter(name="serviceLinkedRoleArn")
     def service_linked_role_arn(self) -> Optional[str]:
         return pulumi.get(self, "service_linked_role_arn")
 
@@ -231,7 +231,7 @@ class GetAutoScalingGroupResult:
         return pulumi.get(self, "tags")
 
     @property
-    @pulumi.getter(name="targetGroupARNs")
+    @pulumi.getter(name="targetGroupArns")
     def target_group_arns(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "target_group_arns")
 
@@ -241,9 +241,9 @@ class GetAutoScalingGroupResult:
         return pulumi.get(self, "termination_policies")
 
     @property
-    @pulumi.getter(name="vPCZoneIdentifier")
-    def v_pc_zone_identifier(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "v_pc_zone_identifier")
+    @pulumi.getter(name="vpcZoneIdentifier")
+    def vpc_zone_identifier(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "vpc_zone_identifier")
 
 
 class AwaitableGetAutoScalingGroupResult(GetAutoScalingGroupResult):
@@ -279,7 +279,7 @@ class AwaitableGetAutoScalingGroupResult(GetAutoScalingGroupResult):
             tags=self.tags,
             target_group_arns=self.target_group_arns,
             termination_policies=self.termination_policies,
-            v_pc_zone_identifier=self.v_pc_zone_identifier)
+            vpc_zone_identifier=self.vpc_zone_identifier)
 
 
 def get_auto_scaling_group(id: Optional[str] = None,
@@ -320,7 +320,7 @@ def get_auto_scaling_group(id: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         target_group_arns=pulumi.get(__ret__, 'target_group_arns'),
         termination_policies=pulumi.get(__ret__, 'termination_policies'),
-        v_pc_zone_identifier=pulumi.get(__ret__, 'v_pc_zone_identifier'))
+        vpc_zone_identifier=pulumi.get(__ret__, 'vpc_zone_identifier'))
 
 
 @_utilities.lift_output_func(get_auto_scaling_group)

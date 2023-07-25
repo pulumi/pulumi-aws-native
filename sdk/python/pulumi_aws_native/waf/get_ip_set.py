@@ -19,23 +19,23 @@ __all__ = [
 
 @pulumi.output_type
 class GetIPSetResult:
-    def __init__(__self__, i_p_set_descriptors=None, id=None):
-        if i_p_set_descriptors and not isinstance(i_p_set_descriptors, list):
-            raise TypeError("Expected argument 'i_p_set_descriptors' to be a list")
-        pulumi.set(__self__, "i_p_set_descriptors", i_p_set_descriptors)
+    def __init__(__self__, id=None, ip_set_descriptors=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter(name="iPSetDescriptors")
-    def i_p_set_descriptors(self) -> Optional[Sequence['outputs.IPSetDescriptor']]:
-        return pulumi.get(self, "i_p_set_descriptors")
+        if ip_set_descriptors and not isinstance(ip_set_descriptors, list):
+            raise TypeError("Expected argument 'ip_set_descriptors' to be a list")
+        pulumi.set(__self__, "ip_set_descriptors", ip_set_descriptors)
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="ipSetDescriptors")
+    def ip_set_descriptors(self) -> Optional[Sequence['outputs.IPSetDescriptor']]:
+        return pulumi.get(self, "ip_set_descriptors")
 
 
 class AwaitableGetIPSetResult(GetIPSetResult):
@@ -44,8 +44,8 @@ class AwaitableGetIPSetResult(GetIPSetResult):
         if False:
             yield self
         return GetIPSetResult(
-            i_p_set_descriptors=self.i_p_set_descriptors,
-            id=self.id)
+            id=self.id,
+            ip_set_descriptors=self.ip_set_descriptors)
 
 
 def get_ip_set(id: Optional[str] = None,
@@ -59,8 +59,8 @@ def get_ip_set(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:waf:getIPSet', __args__, opts=opts, typ=GetIPSetResult).value
 
     return AwaitableGetIPSetResult(
-        i_p_set_descriptors=pulumi.get(__ret__, 'i_p_set_descriptors'),
-        id=pulumi.get(__ret__, 'id'))
+        id=pulumi.get(__ret__, 'id'),
+        ip_set_descriptors=pulumi.get(__ret__, 'ip_set_descriptors'))
 
 
 @_utilities.lift_output_func(get_ip_set)

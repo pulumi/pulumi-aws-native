@@ -60,8 +60,8 @@ namespace Pulumi.AwsNative.LicenseManager
         /// <summary>
         /// ProductSKU of the license.
         /// </summary>
-        [Output("productSKU")]
-        public Output<string?> ProductSKU { get; private set; } = null!;
+        [Output("productSku")]
+        public Output<string?> ProductSku { get; private set; } = null!;
 
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
@@ -169,8 +169,8 @@ namespace Pulumi.AwsNative.LicenseManager
         /// <summary>
         /// ProductSKU of the license.
         /// </summary>
-        [Input("productSKU")]
-        public Input<string>? ProductSKU { get; set; }
+        [Input("productSku")]
+        public Input<string>? ProductSku { get; set; }
 
         [Input("status")]
         public Input<string>? Status { get; set; }

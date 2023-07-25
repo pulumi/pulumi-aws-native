@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetImageVersionResult:
-    def __init__(__self__, container_image=None, horovod=None, image_arn=None, image_version_arn=None, job_type=None, m_l_framework=None, processor=None, programming_lang=None, release_notes=None, vendor_guidance=None, version=None):
+    def __init__(__self__, container_image=None, horovod=None, image_arn=None, image_version_arn=None, job_type=None, ml_framework=None, processor=None, programming_lang=None, release_notes=None, vendor_guidance=None, version=None):
         if container_image and not isinstance(container_image, str):
             raise TypeError("Expected argument 'container_image' to be a str")
         pulumi.set(__self__, "container_image", container_image)
@@ -35,9 +35,9 @@ class GetImageVersionResult:
         if job_type and not isinstance(job_type, str):
             raise TypeError("Expected argument 'job_type' to be a str")
         pulumi.set(__self__, "job_type", job_type)
-        if m_l_framework and not isinstance(m_l_framework, str):
-            raise TypeError("Expected argument 'm_l_framework' to be a str")
-        pulumi.set(__self__, "m_l_framework", m_l_framework)
+        if ml_framework and not isinstance(ml_framework, str):
+            raise TypeError("Expected argument 'ml_framework' to be a str")
+        pulumi.set(__self__, "ml_framework", ml_framework)
         if processor and not isinstance(processor, str):
             raise TypeError("Expected argument 'processor' to be a str")
         pulumi.set(__self__, "processor", processor)
@@ -80,9 +80,9 @@ class GetImageVersionResult:
         return pulumi.get(self, "job_type")
 
     @property
-    @pulumi.getter(name="mLFramework")
-    def m_l_framework(self) -> Optional[str]:
-        return pulumi.get(self, "m_l_framework")
+    @pulumi.getter(name="mlFramework")
+    def ml_framework(self) -> Optional[str]:
+        return pulumi.get(self, "ml_framework")
 
     @property
     @pulumi.getter
@@ -121,7 +121,7 @@ class AwaitableGetImageVersionResult(GetImageVersionResult):
             image_arn=self.image_arn,
             image_version_arn=self.image_version_arn,
             job_type=self.job_type,
-            m_l_framework=self.m_l_framework,
+            ml_framework=self.ml_framework,
             processor=self.processor,
             programming_lang=self.programming_lang,
             release_notes=self.release_notes,
@@ -145,7 +145,7 @@ def get_image_version(image_version_arn: Optional[str] = None,
         image_arn=pulumi.get(__ret__, 'image_arn'),
         image_version_arn=pulumi.get(__ret__, 'image_version_arn'),
         job_type=pulumi.get(__ret__, 'job_type'),
-        m_l_framework=pulumi.get(__ret__, 'm_l_framework'),
+        ml_framework=pulumi.get(__ret__, 'ml_framework'),
         processor=pulumi.get(__ret__, 'processor'),
         programming_lang=pulumi.get(__ret__, 'programming_lang'),
         release_notes=pulumi.get(__ret__, 'release_notes'),

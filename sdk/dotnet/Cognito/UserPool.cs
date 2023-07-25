@@ -61,8 +61,8 @@ namespace Pulumi.AwsNative.Cognito
         [Output("providerName")]
         public Output<string> ProviderName { get; private set; } = null!;
 
-        [Output("providerURL")]
-        public Output<string> ProviderURL { get; private set; } = null!;
+        [Output("providerUrl")]
+        public Output<string> ProviderUrl { get; private set; } = null!;
 
         [Output("schema")]
         public Output<ImmutableArray<Outputs.UserPoolSchemaAttribute>> Schema { get; private set; } = null!;

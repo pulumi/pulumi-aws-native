@@ -21,7 +21,7 @@ type Permission struct {
 	FunctionName        pulumi.StringOutput    `pulumi:"functionName"`
 	FunctionUrlAuthType pulumi.StringPtrOutput `pulumi:"functionUrlAuthType"`
 	Principal           pulumi.StringOutput    `pulumi:"principal"`
-	PrincipalOrgID      pulumi.StringPtrOutput `pulumi:"principalOrgID"`
+	PrincipalOrgId      pulumi.StringPtrOutput `pulumi:"principalOrgId"`
 	SourceAccount       pulumi.StringPtrOutput `pulumi:"sourceAccount"`
 	SourceArn           pulumi.StringPtrOutput `pulumi:"sourceArn"`
 }
@@ -80,7 +80,7 @@ type permissionArgs struct {
 	FunctionName        string  `pulumi:"functionName"`
 	FunctionUrlAuthType *string `pulumi:"functionUrlAuthType"`
 	Principal           string  `pulumi:"principal"`
-	PrincipalOrgID      *string `pulumi:"principalOrgID"`
+	PrincipalOrgId      *string `pulumi:"principalOrgId"`
 	SourceAccount       *string `pulumi:"sourceAccount"`
 	SourceArn           *string `pulumi:"sourceArn"`
 }
@@ -92,7 +92,7 @@ type PermissionArgs struct {
 	FunctionName        pulumi.StringInput
 	FunctionUrlAuthType pulumi.StringPtrInput
 	Principal           pulumi.StringInput
-	PrincipalOrgID      pulumi.StringPtrInput
+	PrincipalOrgId      pulumi.StringPtrInput
 	SourceAccount       pulumi.StringPtrInput
 	SourceArn           pulumi.StringPtrInput
 }
@@ -154,8 +154,8 @@ func (o PermissionOutput) Principal() pulumi.StringOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringOutput { return v.Principal }).(pulumi.StringOutput)
 }
 
-func (o PermissionOutput) PrincipalOrgID() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Permission) pulumi.StringPtrOutput { return v.PrincipalOrgID }).(pulumi.StringPtrOutput)
+func (o PermissionOutput) PrincipalOrgId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Permission) pulumi.StringPtrOutput { return v.PrincipalOrgId }).(pulumi.StringPtrOutput)
 }
 
 func (o PermissionOutput) SourceAccount() pulumi.StringPtrOutput {

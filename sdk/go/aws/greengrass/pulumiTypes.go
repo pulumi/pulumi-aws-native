@@ -4751,8 +4751,8 @@ func (o ResourceDefinitionSageMakerMachineLearningModelResourceDataPtrOutput) Sa
 }
 
 type ResourceDefinitionSecretsManagerSecretResourceData struct {
-	ARN                               string   `pulumi:"aRN"`
 	AdditionalStagingLabelsToDownload []string `pulumi:"additionalStagingLabelsToDownload"`
+	Arn                               string   `pulumi:"arn"`
 }
 
 // ResourceDefinitionSecretsManagerSecretResourceDataInput is an input type that accepts ResourceDefinitionSecretsManagerSecretResourceDataArgs and ResourceDefinitionSecretsManagerSecretResourceDataOutput values.
@@ -4767,8 +4767,8 @@ type ResourceDefinitionSecretsManagerSecretResourceDataInput interface {
 }
 
 type ResourceDefinitionSecretsManagerSecretResourceDataArgs struct {
-	ARN                               pulumi.StringInput      `pulumi:"aRN"`
 	AdditionalStagingLabelsToDownload pulumi.StringArrayInput `pulumi:"additionalStagingLabelsToDownload"`
+	Arn                               pulumi.StringInput      `pulumi:"arn"`
 }
 
 func (ResourceDefinitionSecretsManagerSecretResourceDataArgs) ElementType() reflect.Type {
@@ -4848,14 +4848,14 @@ func (o ResourceDefinitionSecretsManagerSecretResourceDataOutput) ToResourceDefi
 	}).(ResourceDefinitionSecretsManagerSecretResourceDataPtrOutput)
 }
 
-func (o ResourceDefinitionSecretsManagerSecretResourceDataOutput) ARN() pulumi.StringOutput {
-	return o.ApplyT(func(v ResourceDefinitionSecretsManagerSecretResourceData) string { return v.ARN }).(pulumi.StringOutput)
-}
-
 func (o ResourceDefinitionSecretsManagerSecretResourceDataOutput) AdditionalStagingLabelsToDownload() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResourceDefinitionSecretsManagerSecretResourceData) []string {
 		return v.AdditionalStagingLabelsToDownload
 	}).(pulumi.StringArrayOutput)
+}
+
+func (o ResourceDefinitionSecretsManagerSecretResourceDataOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceDefinitionSecretsManagerSecretResourceData) string { return v.Arn }).(pulumi.StringOutput)
 }
 
 type ResourceDefinitionSecretsManagerSecretResourceDataPtrOutput struct{ *pulumi.OutputState }
@@ -4882,15 +4882,6 @@ func (o ResourceDefinitionSecretsManagerSecretResourceDataPtrOutput) Elem() Reso
 	}).(ResourceDefinitionSecretsManagerSecretResourceDataOutput)
 }
 
-func (o ResourceDefinitionSecretsManagerSecretResourceDataPtrOutput) ARN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ResourceDefinitionSecretsManagerSecretResourceData) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ARN
-	}).(pulumi.StringPtrOutput)
-}
-
 func (o ResourceDefinitionSecretsManagerSecretResourceDataPtrOutput) AdditionalStagingLabelsToDownload() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResourceDefinitionSecretsManagerSecretResourceData) []string {
 		if v == nil {
@@ -4898,6 +4889,15 @@ func (o ResourceDefinitionSecretsManagerSecretResourceDataPtrOutput) AdditionalS
 		}
 		return v.AdditionalStagingLabelsToDownload
 	}).(pulumi.StringArrayOutput)
+}
+
+func (o ResourceDefinitionSecretsManagerSecretResourceDataPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceDefinitionSecretsManagerSecretResourceData) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Arn
+	}).(pulumi.StringPtrOutput)
 }
 
 type ResourceDefinitionVersionType struct {
@@ -6170,8 +6170,8 @@ func (o ResourceDefinitionVersionSageMakerMachineLearningModelResourceDataPtrOut
 }
 
 type ResourceDefinitionVersionSecretsManagerSecretResourceData struct {
-	ARN                               string   `pulumi:"aRN"`
 	AdditionalStagingLabelsToDownload []string `pulumi:"additionalStagingLabelsToDownload"`
+	Arn                               string   `pulumi:"arn"`
 }
 
 // ResourceDefinitionVersionSecretsManagerSecretResourceDataInput is an input type that accepts ResourceDefinitionVersionSecretsManagerSecretResourceDataArgs and ResourceDefinitionVersionSecretsManagerSecretResourceDataOutput values.
@@ -6186,8 +6186,8 @@ type ResourceDefinitionVersionSecretsManagerSecretResourceDataInput interface {
 }
 
 type ResourceDefinitionVersionSecretsManagerSecretResourceDataArgs struct {
-	ARN                               pulumi.StringInput      `pulumi:"aRN"`
 	AdditionalStagingLabelsToDownload pulumi.StringArrayInput `pulumi:"additionalStagingLabelsToDownload"`
+	Arn                               pulumi.StringInput      `pulumi:"arn"`
 }
 
 func (ResourceDefinitionVersionSecretsManagerSecretResourceDataArgs) ElementType() reflect.Type {
@@ -6267,14 +6267,14 @@ func (o ResourceDefinitionVersionSecretsManagerSecretResourceDataOutput) ToResou
 	}).(ResourceDefinitionVersionSecretsManagerSecretResourceDataPtrOutput)
 }
 
-func (o ResourceDefinitionVersionSecretsManagerSecretResourceDataOutput) ARN() pulumi.StringOutput {
-	return o.ApplyT(func(v ResourceDefinitionVersionSecretsManagerSecretResourceData) string { return v.ARN }).(pulumi.StringOutput)
-}
-
 func (o ResourceDefinitionVersionSecretsManagerSecretResourceDataOutput) AdditionalStagingLabelsToDownload() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResourceDefinitionVersionSecretsManagerSecretResourceData) []string {
 		return v.AdditionalStagingLabelsToDownload
 	}).(pulumi.StringArrayOutput)
+}
+
+func (o ResourceDefinitionVersionSecretsManagerSecretResourceDataOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceDefinitionVersionSecretsManagerSecretResourceData) string { return v.Arn }).(pulumi.StringOutput)
 }
 
 type ResourceDefinitionVersionSecretsManagerSecretResourceDataPtrOutput struct{ *pulumi.OutputState }
@@ -6301,15 +6301,6 @@ func (o ResourceDefinitionVersionSecretsManagerSecretResourceDataPtrOutput) Elem
 	}).(ResourceDefinitionVersionSecretsManagerSecretResourceDataOutput)
 }
 
-func (o ResourceDefinitionVersionSecretsManagerSecretResourceDataPtrOutput) ARN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ResourceDefinitionVersionSecretsManagerSecretResourceData) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ARN
-	}).(pulumi.StringPtrOutput)
-}
-
 func (o ResourceDefinitionVersionSecretsManagerSecretResourceDataPtrOutput) AdditionalStagingLabelsToDownload() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResourceDefinitionVersionSecretsManagerSecretResourceData) []string {
 		if v == nil {
@@ -6317,6 +6308,15 @@ func (o ResourceDefinitionVersionSecretsManagerSecretResourceDataPtrOutput) Addi
 		}
 		return v.AdditionalStagingLabelsToDownload
 	}).(pulumi.StringArrayOutput)
+}
+
+func (o ResourceDefinitionVersionSecretsManagerSecretResourceDataPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceDefinitionVersionSecretsManagerSecretResourceData) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Arn
+	}).(pulumi.StringPtrOutput)
 }
 
 type SubscriptionDefinitionSubscription struct {

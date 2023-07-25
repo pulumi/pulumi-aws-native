@@ -694,9 +694,9 @@ class ClientVpnEndpointFederatedAuthenticationRequest(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "sAMLProviderArn":
-            suggest = "s_aml_provider_arn"
-        elif key == "selfServiceSAMLProviderArn":
+        if key == "samlProviderArn":
+            suggest = "saml_provider_arn"
+        elif key == "selfServiceSamlProviderArn":
             suggest = "self_service_saml_provider_arn"
 
         if suggest:
@@ -711,19 +711,19 @@ class ClientVpnEndpointFederatedAuthenticationRequest(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 s_aml_provider_arn: str,
+                 saml_provider_arn: str,
                  self_service_saml_provider_arn: Optional[str] = None):
-        pulumi.set(__self__, "s_aml_provider_arn", s_aml_provider_arn)
+        pulumi.set(__self__, "saml_provider_arn", saml_provider_arn)
         if self_service_saml_provider_arn is not None:
             pulumi.set(__self__, "self_service_saml_provider_arn", self_service_saml_provider_arn)
 
     @property
-    @pulumi.getter(name="sAMLProviderArn")
-    def s_aml_provider_arn(self) -> str:
-        return pulumi.get(self, "s_aml_provider_arn")
+    @pulumi.getter(name="samlProviderArn")
+    def saml_provider_arn(self) -> str:
+        return pulumi.get(self, "saml_provider_arn")
 
     @property
-    @pulumi.getter(name="selfServiceSAMLProviderArn")
+    @pulumi.getter(name="selfServiceSamlProviderArn")
     def self_service_saml_provider_arn(self) -> Optional[str]:
         return pulumi.get(self, "self_service_saml_provider_arn")
 
@@ -1229,7 +1229,7 @@ class EC2FleetInstanceRequirementsRequest(dict):
             suggest = "require_hibernate_support"
         elif key == "spotMaxPricePercentageOverLowestPrice":
             suggest = "spot_max_price_percentage_over_lowest_price"
-        elif key == "totalLocalStorageGB":
+        elif key == "totalLocalStorageGb":
             suggest = "total_local_storage_gb"
         elif key == "vCpuCount":
             suggest = "v_cpu_count"
@@ -1422,7 +1422,7 @@ class EC2FleetInstanceRequirementsRequest(dict):
         return pulumi.get(self, "spot_max_price_percentage_over_lowest_price")
 
     @property
-    @pulumi.getter(name="totalLocalStorageGB")
+    @pulumi.getter(name="totalLocalStorageGb")
     def total_local_storage_gb(self) -> Optional['outputs.EC2FleetTotalLocalStorageGBRequest']:
         return pulumi.get(self, "total_local_storage_gb")
 
@@ -2410,8 +2410,8 @@ class InstanceCreditSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "cPUCredits":
-            suggest = "c_pu_credits"
+        if key == "cpuCredits":
+            suggest = "cpu_credits"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in InstanceCreditSpecification. Access the value via the '{suggest}' property getter instead.")
@@ -2425,14 +2425,14 @@ class InstanceCreditSpecification(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 c_pu_credits: Optional[str] = None):
-        if c_pu_credits is not None:
-            pulumi.set(__self__, "c_pu_credits", c_pu_credits)
+                 cpu_credits: Optional[str] = None):
+        if cpu_credits is not None:
+            pulumi.set(__self__, "cpu_credits", cpu_credits)
 
     @property
-    @pulumi.getter(name="cPUCredits")
-    def c_pu_credits(self) -> Optional[str]:
-        return pulumi.get(self, "c_pu_credits")
+    @pulumi.getter(name="cpuCredits")
+    def cpu_credits(self) -> Optional[str]:
+        return pulumi.get(self, "cpu_credits")
 
 
 @pulumi.output_type
@@ -2842,10 +2842,10 @@ class InstancePrivateDnsNameOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "enableResourceNameDnsAAAARecord":
-            suggest = "enable_resource_name_dns_aaaa_record"
-        elif key == "enableResourceNameDnsARecord":
+        if key == "enableResourceNameDnsARecord":
             suggest = "enable_resource_name_dns_a_record"
+        elif key == "enableResourceNameDnsAaaaRecord":
+            suggest = "enable_resource_name_dns_aaaa_record"
         elif key == "hostnameType":
             suggest = "hostname_type"
 
@@ -2861,25 +2861,25 @@ class InstancePrivateDnsNameOptions(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 enable_resource_name_dns_aaaa_record: Optional[bool] = None,
                  enable_resource_name_dns_a_record: Optional[bool] = None,
+                 enable_resource_name_dns_aaaa_record: Optional[bool] = None,
                  hostname_type: Optional[str] = None):
-        if enable_resource_name_dns_aaaa_record is not None:
-            pulumi.set(__self__, "enable_resource_name_dns_aaaa_record", enable_resource_name_dns_aaaa_record)
         if enable_resource_name_dns_a_record is not None:
             pulumi.set(__self__, "enable_resource_name_dns_a_record", enable_resource_name_dns_a_record)
+        if enable_resource_name_dns_aaaa_record is not None:
+            pulumi.set(__self__, "enable_resource_name_dns_aaaa_record", enable_resource_name_dns_aaaa_record)
         if hostname_type is not None:
             pulumi.set(__self__, "hostname_type", hostname_type)
-
-    @property
-    @pulumi.getter(name="enableResourceNameDnsAAAARecord")
-    def enable_resource_name_dns_aaaa_record(self) -> Optional[bool]:
-        return pulumi.get(self, "enable_resource_name_dns_aaaa_record")
 
     @property
     @pulumi.getter(name="enableResourceNameDnsARecord")
     def enable_resource_name_dns_a_record(self) -> Optional[bool]:
         return pulumi.get(self, "enable_resource_name_dns_a_record")
+
+    @property
+    @pulumi.getter(name="enableResourceNameDnsAaaaRecord")
+    def enable_resource_name_dns_aaaa_record(self) -> Optional[bool]:
+        return pulumi.get(self, "enable_resource_name_dns_aaaa_record")
 
     @property
     @pulumi.getter(name="hostnameType")
@@ -4229,7 +4229,7 @@ class LaunchTemplateInstanceRequirements(dict):
             suggest = "require_hibernate_support"
         elif key == "spotMaxPricePercentageOverLowestPrice":
             suggest = "spot_max_price_percentage_over_lowest_price"
-        elif key == "totalLocalStorageGB":
+        elif key == "totalLocalStorageGb":
             suggest = "total_local_storage_gb"
         elif key == "vCpuCount":
             suggest = "v_cpu_count"
@@ -4477,7 +4477,7 @@ class LaunchTemplateInstanceRequirements(dict):
         return pulumi.get(self, "spot_max_price_percentage_over_lowest_price")
 
     @property
-    @pulumi.getter(name="totalLocalStorageGB")
+    @pulumi.getter(name="totalLocalStorageGb")
     def total_local_storage_gb(self) -> Optional['outputs.LaunchTemplateTotalLocalStorageGB']:
         return pulumi.get(self, "total_local_storage_gb")
 
@@ -5374,10 +5374,10 @@ class LaunchTemplatePrivateDnsNameOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "enableResourceNameDnsAAAARecord":
-            suggest = "enable_resource_name_dns_aaaa_record"
-        elif key == "enableResourceNameDnsARecord":
+        if key == "enableResourceNameDnsARecord":
             suggest = "enable_resource_name_dns_a_record"
+        elif key == "enableResourceNameDnsAaaaRecord":
+            suggest = "enable_resource_name_dns_aaaa_record"
         elif key == "hostnameType":
             suggest = "hostname_type"
 
@@ -5393,29 +5393,21 @@ class LaunchTemplatePrivateDnsNameOptions(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 enable_resource_name_dns_aaaa_record: Optional[bool] = None,
                  enable_resource_name_dns_a_record: Optional[bool] = None,
+                 enable_resource_name_dns_aaaa_record: Optional[bool] = None,
                  hostname_type: Optional[str] = None):
         """
         Describes the options for instance hostnames.
-        :param bool enable_resource_name_dns_aaaa_record: Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
         :param bool enable_resource_name_dns_a_record: Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
+        :param bool enable_resource_name_dns_aaaa_record: Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
         :param str hostname_type: The type of hostname for EC2 instances.
         """
-        if enable_resource_name_dns_aaaa_record is not None:
-            pulumi.set(__self__, "enable_resource_name_dns_aaaa_record", enable_resource_name_dns_aaaa_record)
         if enable_resource_name_dns_a_record is not None:
             pulumi.set(__self__, "enable_resource_name_dns_a_record", enable_resource_name_dns_a_record)
+        if enable_resource_name_dns_aaaa_record is not None:
+            pulumi.set(__self__, "enable_resource_name_dns_aaaa_record", enable_resource_name_dns_aaaa_record)
         if hostname_type is not None:
             pulumi.set(__self__, "hostname_type", hostname_type)
-
-    @property
-    @pulumi.getter(name="enableResourceNameDnsAAAARecord")
-    def enable_resource_name_dns_aaaa_record(self) -> Optional[bool]:
-        """
-        Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
-        """
-        return pulumi.get(self, "enable_resource_name_dns_aaaa_record")
 
     @property
     @pulumi.getter(name="enableResourceNameDnsARecord")
@@ -5424,6 +5416,14 @@ class LaunchTemplatePrivateDnsNameOptions(dict):
         Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
         """
         return pulumi.get(self, "enable_resource_name_dns_a_record")
+
+    @property
+    @pulumi.getter(name="enableResourceNameDnsAaaaRecord")
+    def enable_resource_name_dns_aaaa_record(self) -> Optional[bool]:
+        """
+        Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
+        """
+        return pulumi.get(self, "enable_resource_name_dns_aaaa_record")
 
     @property
     @pulumi.getter(name="hostnameType")
@@ -7902,10 +7902,10 @@ class PrivateDnsNameOptionsOnLaunchProperties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "enableResourceNameDnsAAAARecord":
-            suggest = "enable_resource_name_dns_aaaa_record"
-        elif key == "enableResourceNameDnsARecord":
+        if key == "enableResourceNameDnsARecord":
             suggest = "enable_resource_name_dns_a_record"
+        elif key == "enableResourceNameDnsAaaaRecord":
+            suggest = "enable_resource_name_dns_aaaa_record"
         elif key == "hostnameType":
             suggest = "hostname_type"
 
@@ -7921,25 +7921,25 @@ class PrivateDnsNameOptionsOnLaunchProperties(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 enable_resource_name_dns_aaaa_record: Optional[bool] = None,
                  enable_resource_name_dns_a_record: Optional[bool] = None,
+                 enable_resource_name_dns_aaaa_record: Optional[bool] = None,
                  hostname_type: Optional[str] = None):
-        if enable_resource_name_dns_aaaa_record is not None:
-            pulumi.set(__self__, "enable_resource_name_dns_aaaa_record", enable_resource_name_dns_aaaa_record)
         if enable_resource_name_dns_a_record is not None:
             pulumi.set(__self__, "enable_resource_name_dns_a_record", enable_resource_name_dns_a_record)
+        if enable_resource_name_dns_aaaa_record is not None:
+            pulumi.set(__self__, "enable_resource_name_dns_aaaa_record", enable_resource_name_dns_aaaa_record)
         if hostname_type is not None:
             pulumi.set(__self__, "hostname_type", hostname_type)
-
-    @property
-    @pulumi.getter(name="enableResourceNameDnsAAAARecord")
-    def enable_resource_name_dns_aaaa_record(self) -> Optional[bool]:
-        return pulumi.get(self, "enable_resource_name_dns_aaaa_record")
 
     @property
     @pulumi.getter(name="enableResourceNameDnsARecord")
     def enable_resource_name_dns_a_record(self) -> Optional[bool]:
         return pulumi.get(self, "enable_resource_name_dns_a_record")
+
+    @property
+    @pulumi.getter(name="enableResourceNameDnsAaaaRecord")
+    def enable_resource_name_dns_aaaa_record(self) -> Optional[bool]:
+        return pulumi.get(self, "enable_resource_name_dns_aaaa_record")
 
     @property
     @pulumi.getter(name="hostnameType")
@@ -8727,7 +8727,7 @@ class SpotFleetInstanceRequirementsRequest(dict):
             suggest = "require_hibernate_support"
         elif key == "spotMaxPricePercentageOverLowestPrice":
             suggest = "spot_max_price_percentage_over_lowest_price"
-        elif key == "totalLocalStorageGB":
+        elif key == "totalLocalStorageGb":
             suggest = "total_local_storage_gb"
         elif key == "vCpuCount":
             suggest = "v_cpu_count"
@@ -8920,7 +8920,7 @@ class SpotFleetInstanceRequirementsRequest(dict):
         return pulumi.get(self, "spot_max_price_percentage_over_lowest_price")
 
     @property
-    @pulumi.getter(name="totalLocalStorageGB")
+    @pulumi.getter(name="totalLocalStorageGb")
     def total_local_storage_gb(self) -> Optional['outputs.SpotFleetTotalLocalStorageGBRequest']:
         return pulumi.get(self, "total_local_storage_gb")
 

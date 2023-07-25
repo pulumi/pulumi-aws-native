@@ -1126,7 +1126,7 @@ class TaskDefinitionUpdateWirelessGatewayTaskCreateArgs:
             pulumi.set(__self__, "update_data_source", update_data_source)
 
     @property
-    @pulumi.getter(name="loRaWAN")
+    @pulumi.getter(name="loRaWan")
     def lo_ra_wan(self) -> Optional[pulumi.Input['TaskDefinitionLoRaWANUpdateGatewayTaskCreateArgs']]:
         return pulumi.get(self, "lo_ra_wan")
 

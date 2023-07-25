@@ -38,7 +38,7 @@ export class Certificate extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    public readonly cACertificatePem!: pulumi.Output<string | undefined>;
+    public readonly caCertificatePem!: pulumi.Output<string | undefined>;
     public readonly certificateMode!: pulumi.Output<enums.iot.CertificateMode | undefined>;
     public readonly certificatePem!: pulumi.Output<string | undefined>;
     public readonly certificateSigningRequest!: pulumi.Output<string | undefined>;
@@ -58,7 +58,7 @@ export class Certificate extends pulumi.CustomResource {
             if ((!args || args.status === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'status'");
             }
-            resourceInputs["cACertificatePem"] = args ? args.cACertificatePem : undefined;
+            resourceInputs["caCertificatePem"] = args ? args.caCertificatePem : undefined;
             resourceInputs["certificateMode"] = args ? args.certificateMode : undefined;
             resourceInputs["certificatePem"] = args ? args.certificatePem : undefined;
             resourceInputs["certificateSigningRequest"] = args ? args.certificateSigningRequest : undefined;
@@ -66,7 +66,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
-            resourceInputs["cACertificatePem"] = undefined /*out*/;
+            resourceInputs["caCertificatePem"] = undefined /*out*/;
             resourceInputs["certificateMode"] = undefined /*out*/;
             resourceInputs["certificatePem"] = undefined /*out*/;
             resourceInputs["certificateSigningRequest"] = undefined /*out*/;
@@ -81,7 +81,7 @@ export class Certificate extends pulumi.CustomResource {
  * The set of arguments for constructing a Certificate resource.
  */
 export interface CertificateArgs {
-    cACertificatePem?: pulumi.Input<string>;
+    caCertificatePem?: pulumi.Input<string>;
     certificateMode?: pulumi.Input<enums.iot.CertificateMode>;
     certificatePem?: pulumi.Input<string>;
     certificateSigningRequest?: pulumi.Input<string>;

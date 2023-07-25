@@ -29,7 +29,7 @@ type LookupDomainArgs struct {
 type LookupDomainResult struct {
 	Arn                           *string                  `pulumi:"arn"`
 	AutoSubDomainCreationPatterns []string                 `pulumi:"autoSubDomainCreationPatterns"`
-	AutoSubDomainIAMRole          *string                  `pulumi:"autoSubDomainIAMRole"`
+	AutoSubDomainIamRole          *string                  `pulumi:"autoSubDomainIamRole"`
 	CertificateRecord             *string                  `pulumi:"certificateRecord"`
 	DomainStatus                  *string                  `pulumi:"domainStatus"`
 	EnableAutoSubDomain           *bool                    `pulumi:"enableAutoSubDomain"`
@@ -80,8 +80,8 @@ func (o LookupDomainResultOutput) AutoSubDomainCreationPatterns() pulumi.StringA
 	return o.ApplyT(func(v LookupDomainResult) []string { return v.AutoSubDomainCreationPatterns }).(pulumi.StringArrayOutput)
 }
 
-func (o LookupDomainResultOutput) AutoSubDomainIAMRole() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupDomainResult) *string { return v.AutoSubDomainIAMRole }).(pulumi.StringPtrOutput)
+func (o LookupDomainResultOutput) AutoSubDomainIamRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDomainResult) *string { return v.AutoSubDomainIamRole }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupDomainResultOutput) CertificateRecord() pulumi.StringPtrOutput {

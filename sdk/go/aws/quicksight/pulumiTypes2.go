@@ -9964,8 +9964,8 @@ func (o TemplateCustomActionSetParametersOperationPtrOutput) ParameterValueConfi
 }
 
 type TemplateCustomActionURLOperation struct {
-	URLTarget   TemplateURLTargetConfiguration `pulumi:"uRLTarget"`
-	URLTemplate string                         `pulumi:"uRLTemplate"`
+	UrlTarget   TemplateURLTargetConfiguration `pulumi:"urlTarget"`
+	UrlTemplate string                         `pulumi:"urlTemplate"`
 }
 
 // TemplateCustomActionURLOperationInput is an input type that accepts TemplateCustomActionURLOperationArgs and TemplateCustomActionURLOperationOutput values.
@@ -9980,8 +9980,8 @@ type TemplateCustomActionURLOperationInput interface {
 }
 
 type TemplateCustomActionURLOperationArgs struct {
-	URLTarget   TemplateURLTargetConfigurationInput `pulumi:"uRLTarget"`
-	URLTemplate pulumi.StringInput                  `pulumi:"uRLTemplate"`
+	UrlTarget   TemplateURLTargetConfigurationInput `pulumi:"urlTarget"`
+	UrlTemplate pulumi.StringInput                  `pulumi:"urlTemplate"`
 }
 
 func (TemplateCustomActionURLOperationArgs) ElementType() reflect.Type {
@@ -10061,12 +10061,12 @@ func (o TemplateCustomActionURLOperationOutput) ToTemplateCustomActionURLOperati
 	}).(TemplateCustomActionURLOperationPtrOutput)
 }
 
-func (o TemplateCustomActionURLOperationOutput) URLTarget() TemplateURLTargetConfigurationOutput {
-	return o.ApplyT(func(v TemplateCustomActionURLOperation) TemplateURLTargetConfiguration { return v.URLTarget }).(TemplateURLTargetConfigurationOutput)
+func (o TemplateCustomActionURLOperationOutput) UrlTarget() TemplateURLTargetConfigurationOutput {
+	return o.ApplyT(func(v TemplateCustomActionURLOperation) TemplateURLTargetConfiguration { return v.UrlTarget }).(TemplateURLTargetConfigurationOutput)
 }
 
-func (o TemplateCustomActionURLOperationOutput) URLTemplate() pulumi.StringOutput {
-	return o.ApplyT(func(v TemplateCustomActionURLOperation) string { return v.URLTemplate }).(pulumi.StringOutput)
+func (o TemplateCustomActionURLOperationOutput) UrlTemplate() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateCustomActionURLOperation) string { return v.UrlTemplate }).(pulumi.StringOutput)
 }
 
 type TemplateCustomActionURLOperationPtrOutput struct{ *pulumi.OutputState }
@@ -10093,21 +10093,21 @@ func (o TemplateCustomActionURLOperationPtrOutput) Elem() TemplateCustomActionUR
 	}).(TemplateCustomActionURLOperationOutput)
 }
 
-func (o TemplateCustomActionURLOperationPtrOutput) URLTarget() TemplateURLTargetConfigurationPtrOutput {
+func (o TemplateCustomActionURLOperationPtrOutput) UrlTarget() TemplateURLTargetConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateCustomActionURLOperation) *TemplateURLTargetConfiguration {
 		if v == nil {
 			return nil
 		}
-		return &v.URLTarget
+		return &v.UrlTarget
 	}).(TemplateURLTargetConfigurationPtrOutput)
 }
 
-func (o TemplateCustomActionURLOperationPtrOutput) URLTemplate() pulumi.StringPtrOutput {
+func (o TemplateCustomActionURLOperationPtrOutput) UrlTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateCustomActionURLOperation) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.URLTemplate
+		return &v.UrlTemplate
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -32789,7 +32789,7 @@ func (o TemplateKPIConditionalFormattingOptionArrayOutput) Index(i pulumi.IntInp
 
 type TemplateKPIConfiguration struct {
 	FieldWells        *TemplateKPIFieldWells        `pulumi:"fieldWells"`
-	KPIOptions        *TemplateKPIOptions           `pulumi:"kPIOptions"`
+	KpiOptions        *TemplateKPIOptions           `pulumi:"kpiOptions"`
 	SortConfiguration *TemplateKPISortConfiguration `pulumi:"sortConfiguration"`
 }
 
@@ -32806,7 +32806,7 @@ type TemplateKPIConfigurationInput interface {
 
 type TemplateKPIConfigurationArgs struct {
 	FieldWells        TemplateKPIFieldWellsPtrInput        `pulumi:"fieldWells"`
-	KPIOptions        TemplateKPIOptionsPtrInput           `pulumi:"kPIOptions"`
+	KpiOptions        TemplateKPIOptionsPtrInput           `pulumi:"kpiOptions"`
 	SortConfiguration TemplateKPISortConfigurationPtrInput `pulumi:"sortConfiguration"`
 }
 
@@ -32891,8 +32891,8 @@ func (o TemplateKPIConfigurationOutput) FieldWells() TemplateKPIFieldWellsPtrOut
 	return o.ApplyT(func(v TemplateKPIConfiguration) *TemplateKPIFieldWells { return v.FieldWells }).(TemplateKPIFieldWellsPtrOutput)
 }
 
-func (o TemplateKPIConfigurationOutput) KPIOptions() TemplateKPIOptionsPtrOutput {
-	return o.ApplyT(func(v TemplateKPIConfiguration) *TemplateKPIOptions { return v.KPIOptions }).(TemplateKPIOptionsPtrOutput)
+func (o TemplateKPIConfigurationOutput) KpiOptions() TemplateKPIOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateKPIConfiguration) *TemplateKPIOptions { return v.KpiOptions }).(TemplateKPIOptionsPtrOutput)
 }
 
 func (o TemplateKPIConfigurationOutput) SortConfiguration() TemplateKPISortConfigurationPtrOutput {
@@ -32932,12 +32932,12 @@ func (o TemplateKPIConfigurationPtrOutput) FieldWells() TemplateKPIFieldWellsPtr
 	}).(TemplateKPIFieldWellsPtrOutput)
 }
 
-func (o TemplateKPIConfigurationPtrOutput) KPIOptions() TemplateKPIOptionsPtrOutput {
+func (o TemplateKPIConfigurationPtrOutput) KpiOptions() TemplateKPIOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateKPIConfiguration) *TemplateKPIOptions {
 		if v == nil {
 			return nil
 		}
-		return v.KPIOptions
+		return v.KpiOptions
 	}).(TemplateKPIOptionsPtrOutput)
 }
 
@@ -60106,7 +60106,7 @@ func (o TemplateTableFieldLinkContentConfigurationPtrOutput) CustomTextContent()
 type TemplateTableFieldOption struct {
 	CustomLabel *string                             `pulumi:"customLabel"`
 	FieldId     string                              `pulumi:"fieldId"`
-	URLStyling  *TemplateTableFieldURLConfiguration `pulumi:"uRLStyling"`
+	UrlStyling  *TemplateTableFieldURLConfiguration `pulumi:"urlStyling"`
 	Visibility  *TemplateVisibility                 `pulumi:"visibility"`
 	// String based length that is composed of value and unit in px
 	Width *string `pulumi:"width"`
@@ -60126,7 +60126,7 @@ type TemplateTableFieldOptionInput interface {
 type TemplateTableFieldOptionArgs struct {
 	CustomLabel pulumi.StringPtrInput                      `pulumi:"customLabel"`
 	FieldId     pulumi.StringInput                         `pulumi:"fieldId"`
-	URLStyling  TemplateTableFieldURLConfigurationPtrInput `pulumi:"uRLStyling"`
+	UrlStyling  TemplateTableFieldURLConfigurationPtrInput `pulumi:"urlStyling"`
 	Visibility  TemplateVisibilityPtrInput                 `pulumi:"visibility"`
 	// String based length that is composed of value and unit in px
 	Width pulumi.StringPtrInput `pulumi:"width"`
@@ -60191,8 +60191,8 @@ func (o TemplateTableFieldOptionOutput) FieldId() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateTableFieldOption) string { return v.FieldId }).(pulumi.StringOutput)
 }
 
-func (o TemplateTableFieldOptionOutput) URLStyling() TemplateTableFieldURLConfigurationPtrOutput {
-	return o.ApplyT(func(v TemplateTableFieldOption) *TemplateTableFieldURLConfiguration { return v.URLStyling }).(TemplateTableFieldURLConfigurationPtrOutput)
+func (o TemplateTableFieldOptionOutput) UrlStyling() TemplateTableFieldURLConfigurationPtrOutput {
+	return o.ApplyT(func(v TemplateTableFieldOption) *TemplateTableFieldURLConfiguration { return v.UrlStyling }).(TemplateTableFieldURLConfigurationPtrOutput)
 }
 
 func (o TemplateTableFieldOptionOutput) Visibility() TemplateVisibilityPtrOutput {
@@ -66803,7 +66803,7 @@ type TemplateVisual struct {
 	HeatMapVisual       *TemplateHeatMapVisual       `pulumi:"heatMapVisual"`
 	HistogramVisual     *TemplateHistogramVisual     `pulumi:"histogramVisual"`
 	InsightVisual       *TemplateInsightVisual       `pulumi:"insightVisual"`
-	KPIVisual           *TemplateKPIVisual           `pulumi:"kPIVisual"`
+	KpiVisual           *TemplateKPIVisual           `pulumi:"kpiVisual"`
 	LineChartVisual     *TemplateLineChartVisual     `pulumi:"lineChartVisual"`
 	PieChartVisual      *TemplatePieChartVisual      `pulumi:"pieChartVisual"`
 	PivotTableVisual    *TemplatePivotTableVisual    `pulumi:"pivotTableVisual"`
@@ -66840,7 +66840,7 @@ type TemplateVisualArgs struct {
 	HeatMapVisual       TemplateHeatMapVisualPtrInput       `pulumi:"heatMapVisual"`
 	HistogramVisual     TemplateHistogramVisualPtrInput     `pulumi:"histogramVisual"`
 	InsightVisual       TemplateInsightVisualPtrInput       `pulumi:"insightVisual"`
-	KPIVisual           TemplateKPIVisualPtrInput           `pulumi:"kPIVisual"`
+	KpiVisual           TemplateKPIVisualPtrInput           `pulumi:"kpiVisual"`
 	LineChartVisual     TemplateLineChartVisualPtrInput     `pulumi:"lineChartVisual"`
 	PieChartVisual      TemplatePieChartVisualPtrInput      `pulumi:"pieChartVisual"`
 	PivotTableVisual    TemplatePivotTableVisualPtrInput    `pulumi:"pivotTableVisual"`
@@ -66952,8 +66952,8 @@ func (o TemplateVisualOutput) InsightVisual() TemplateInsightVisualPtrOutput {
 	return o.ApplyT(func(v TemplateVisual) *TemplateInsightVisual { return v.InsightVisual }).(TemplateInsightVisualPtrOutput)
 }
 
-func (o TemplateVisualOutput) KPIVisual() TemplateKPIVisualPtrOutput {
-	return o.ApplyT(func(v TemplateVisual) *TemplateKPIVisual { return v.KPIVisual }).(TemplateKPIVisualPtrOutput)
+func (o TemplateVisualOutput) KpiVisual() TemplateKPIVisualPtrOutput {
+	return o.ApplyT(func(v TemplateVisual) *TemplateKPIVisual { return v.KpiVisual }).(TemplateKPIVisualPtrOutput)
 }
 
 func (o TemplateVisualOutput) LineChartVisual() TemplateLineChartVisualPtrOutput {
@@ -67138,7 +67138,7 @@ type TemplateVisualCustomActionOperation struct {
 	FilterOperation        *TemplateCustomActionFilterOperation        `pulumi:"filterOperation"`
 	NavigationOperation    *TemplateCustomActionNavigationOperation    `pulumi:"navigationOperation"`
 	SetParametersOperation *TemplateCustomActionSetParametersOperation `pulumi:"setParametersOperation"`
-	URLOperation           *TemplateCustomActionURLOperation           `pulumi:"uRLOperation"`
+	UrlOperation           *TemplateCustomActionURLOperation           `pulumi:"urlOperation"`
 }
 
 // TemplateVisualCustomActionOperationInput is an input type that accepts TemplateVisualCustomActionOperationArgs and TemplateVisualCustomActionOperationOutput values.
@@ -67156,7 +67156,7 @@ type TemplateVisualCustomActionOperationArgs struct {
 	FilterOperation        TemplateCustomActionFilterOperationPtrInput        `pulumi:"filterOperation"`
 	NavigationOperation    TemplateCustomActionNavigationOperationPtrInput    `pulumi:"navigationOperation"`
 	SetParametersOperation TemplateCustomActionSetParametersOperationPtrInput `pulumi:"setParametersOperation"`
-	URLOperation           TemplateCustomActionURLOperationPtrInput           `pulumi:"uRLOperation"`
+	UrlOperation           TemplateCustomActionURLOperationPtrInput           `pulumi:"urlOperation"`
 }
 
 func (TemplateVisualCustomActionOperationArgs) ElementType() reflect.Type {
@@ -67228,8 +67228,8 @@ func (o TemplateVisualCustomActionOperationOutput) SetParametersOperation() Temp
 	}).(TemplateCustomActionSetParametersOperationPtrOutput)
 }
 
-func (o TemplateVisualCustomActionOperationOutput) URLOperation() TemplateCustomActionURLOperationPtrOutput {
-	return o.ApplyT(func(v TemplateVisualCustomActionOperation) *TemplateCustomActionURLOperation { return v.URLOperation }).(TemplateCustomActionURLOperationPtrOutput)
+func (o TemplateVisualCustomActionOperationOutput) UrlOperation() TemplateCustomActionURLOperationPtrOutput {
+	return o.ApplyT(func(v TemplateVisualCustomActionOperation) *TemplateCustomActionURLOperation { return v.UrlOperation }).(TemplateCustomActionURLOperationPtrOutput)
 }
 
 type TemplateVisualCustomActionOperationArrayOutput struct{ *pulumi.OutputState }
@@ -70244,7 +70244,7 @@ type ThemeConfiguration struct {
 	DataColorPalette *ThemeDataColorPalette `pulumi:"dataColorPalette"`
 	Sheet            *ThemeSheetStyle       `pulumi:"sheet"`
 	Typography       *ThemeTypography       `pulumi:"typography"`
-	UIColorPalette   *ThemeUIColorPalette   `pulumi:"uIColorPalette"`
+	UiColorPalette   *ThemeUIColorPalette   `pulumi:"uiColorPalette"`
 }
 
 // ThemeConfigurationInput is an input type that accepts ThemeConfigurationArgs and ThemeConfigurationOutput values.
@@ -70262,7 +70262,7 @@ type ThemeConfigurationArgs struct {
 	DataColorPalette ThemeDataColorPalettePtrInput `pulumi:"dataColorPalette"`
 	Sheet            ThemeSheetStylePtrInput       `pulumi:"sheet"`
 	Typography       ThemeTypographyPtrInput       `pulumi:"typography"`
-	UIColorPalette   ThemeUIColorPalettePtrInput   `pulumi:"uIColorPalette"`
+	UiColorPalette   ThemeUIColorPalettePtrInput   `pulumi:"uiColorPalette"`
 }
 
 func (ThemeConfigurationArgs) ElementType() reflect.Type {
@@ -70303,8 +70303,8 @@ func (o ThemeConfigurationOutput) Typography() ThemeTypographyPtrOutput {
 	return o.ApplyT(func(v ThemeConfiguration) *ThemeTypography { return v.Typography }).(ThemeTypographyPtrOutput)
 }
 
-func (o ThemeConfigurationOutput) UIColorPalette() ThemeUIColorPalettePtrOutput {
-	return o.ApplyT(func(v ThemeConfiguration) *ThemeUIColorPalette { return v.UIColorPalette }).(ThemeUIColorPalettePtrOutput)
+func (o ThemeConfigurationOutput) UiColorPalette() ThemeUIColorPalettePtrOutput {
+	return o.ApplyT(func(v ThemeConfiguration) *ThemeUIColorPalette { return v.UiColorPalette }).(ThemeUIColorPalettePtrOutput)
 }
 
 type ThemeConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -70358,12 +70358,12 @@ func (o ThemeConfigurationPtrOutput) Typography() ThemeTypographyPtrOutput {
 	}).(ThemeTypographyPtrOutput)
 }
 
-func (o ThemeConfigurationPtrOutput) UIColorPalette() ThemeUIColorPalettePtrOutput {
+func (o ThemeConfigurationPtrOutput) UiColorPalette() ThemeUIColorPalettePtrOutput {
 	return o.ApplyT(func(v *ThemeConfiguration) *ThemeUIColorPalette {
 		if v == nil {
 			return nil
 		}
-		return v.UIColorPalette
+		return v.UiColorPalette
 	}).(ThemeUIColorPalettePtrOutput)
 }
 

@@ -12,14 +12,14 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
 
     public sealed class VirtualGatewayTlsValidationContextTrustArgs : global::Pulumi.ResourceArgs
     {
-        [Input("aCM")]
-        public Input<Inputs.VirtualGatewayTlsValidationContextAcmTrustArgs>? ACM { get; set; }
+        [Input("acm")]
+        public Input<Inputs.VirtualGatewayTlsValidationContextAcmTrustArgs>? Acm { get; set; }
 
         [Input("file")]
         public Input<Inputs.VirtualGatewayTlsValidationContextFileTrustArgs>? File { get; set; }
 
-        [Input("sDS")]
-        public Input<Inputs.VirtualGatewayTlsValidationContextSdsTrustArgs>? SDS { get; set; }
+        [Input("sds")]
+        public Input<Inputs.VirtualGatewayTlsValidationContextSdsTrustArgs>? Sds { get; set; }
 
         public VirtualGatewayTlsValidationContextTrustArgs()
         {

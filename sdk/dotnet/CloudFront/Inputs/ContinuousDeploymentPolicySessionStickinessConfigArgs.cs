@@ -12,11 +12,11 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
 
     public sealed class ContinuousDeploymentPolicySessionStickinessConfigArgs : global::Pulumi.ResourceArgs
     {
-        [Input("idleTTL", required: true)]
-        public Input<int> IdleTTL { get; set; } = null!;
+        [Input("idleTtl", required: true)]
+        public Input<int> IdleTtl { get; set; } = null!;
 
-        [Input("maximumTTL", required: true)]
-        public Input<int> MaximumTTL { get; set; } = null!;
+        [Input("maximumTtl", required: true)]
+        public Input<int> MaximumTtl { get; set; } = null!;
 
         public ContinuousDeploymentPolicySessionStickinessConfigArgs()
         {

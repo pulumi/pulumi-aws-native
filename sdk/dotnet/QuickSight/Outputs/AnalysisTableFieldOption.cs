@@ -15,7 +15,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     {
         public readonly string? CustomLabel;
         public readonly string FieldId;
-        public readonly Outputs.AnalysisTableFieldURLConfiguration? URLStyling;
+        public readonly Outputs.AnalysisTableFieldURLConfiguration? UrlStyling;
         public readonly Pulumi.AwsNative.QuickSight.AnalysisVisibility? Visibility;
         /// <summary>
         /// String based length that is composed of value and unit in px
@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             string fieldId,
 
-            Outputs.AnalysisTableFieldURLConfiguration? uRLStyling,
+            Outputs.AnalysisTableFieldURLConfiguration? urlStyling,
 
             Pulumi.AwsNative.QuickSight.AnalysisVisibility? visibility,
 
@@ -36,7 +36,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         {
             CustomLabel = customLabel;
             FieldId = fieldId;
-            URLStyling = uRLStyling;
+            UrlStyling = urlStyling;
             Visibility = visibility;
             Width = width;
         }
