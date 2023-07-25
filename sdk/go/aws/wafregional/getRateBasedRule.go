@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::WAFRegional::RateBasedRule
@@ -65,6 +66,12 @@ func (o LookupRateBasedRuleResultOutput) ToLookupRateBasedRuleResultOutput() Loo
 
 func (o LookupRateBasedRuleResultOutput) ToLookupRateBasedRuleResultOutputWithContext(ctx context.Context) LookupRateBasedRuleResultOutput {
 	return o
+}
+
+func (o LookupRateBasedRuleResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRateBasedRuleResult] {
+	return pulumix.Output[LookupRateBasedRuleResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupRateBasedRuleResultOutput) Id() pulumi.StringPtrOutput {

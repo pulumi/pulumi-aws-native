@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -42,6 +43,12 @@ func (i AnnotationStoreReferenceItemArgs) ToAnnotationStoreReferenceItemOutput()
 
 func (i AnnotationStoreReferenceItemArgs) ToAnnotationStoreReferenceItemOutputWithContext(ctx context.Context) AnnotationStoreReferenceItemOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AnnotationStoreReferenceItemOutput)
+}
+
+func (i AnnotationStoreReferenceItemArgs) ToOutput(ctx context.Context) pulumix.Output[AnnotationStoreReferenceItem] {
+	return pulumix.Output[AnnotationStoreReferenceItem]{
+		OutputState: i.ToAnnotationStoreReferenceItemOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i AnnotationStoreReferenceItemArgs) ToAnnotationStoreReferenceItemPtrOutput() AnnotationStoreReferenceItemPtrOutput {
@@ -85,6 +92,12 @@ func (i *annotationStoreReferenceItemPtrType) ToAnnotationStoreReferenceItemPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(AnnotationStoreReferenceItemPtrOutput)
 }
 
+func (i *annotationStoreReferenceItemPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnnotationStoreReferenceItem] {
+	return pulumix.Output[*AnnotationStoreReferenceItem]{
+		OutputState: i.ToAnnotationStoreReferenceItemPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnnotationStoreReferenceItemOutput struct{ *pulumi.OutputState }
 
 func (AnnotationStoreReferenceItemOutput) ElementType() reflect.Type {
@@ -109,6 +122,12 @@ func (o AnnotationStoreReferenceItemOutput) ToAnnotationStoreReferenceItemPtrOut
 	}).(AnnotationStoreReferenceItemPtrOutput)
 }
 
+func (o AnnotationStoreReferenceItemOutput) ToOutput(ctx context.Context) pulumix.Output[AnnotationStoreReferenceItem] {
+	return pulumix.Output[AnnotationStoreReferenceItem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AnnotationStoreReferenceItemOutput) ReferenceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AnnotationStoreReferenceItem) string { return v.ReferenceArn }).(pulumi.StringOutput)
 }
@@ -125,6 +144,12 @@ func (o AnnotationStoreReferenceItemPtrOutput) ToAnnotationStoreReferenceItemPtr
 
 func (o AnnotationStoreReferenceItemPtrOutput) ToAnnotationStoreReferenceItemPtrOutputWithContext(ctx context.Context) AnnotationStoreReferenceItemPtrOutput {
 	return o
+}
+
+func (o AnnotationStoreReferenceItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnnotationStoreReferenceItem] {
+	return pulumix.Output[*AnnotationStoreReferenceItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnnotationStoreReferenceItemPtrOutput) Elem() AnnotationStoreReferenceItemOutput {
@@ -179,6 +204,12 @@ func (i AnnotationStoreSseConfigArgs) ToAnnotationStoreSseConfigOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(AnnotationStoreSseConfigOutput)
 }
 
+func (i AnnotationStoreSseConfigArgs) ToOutput(ctx context.Context) pulumix.Output[AnnotationStoreSseConfig] {
+	return pulumix.Output[AnnotationStoreSseConfig]{
+		OutputState: i.ToAnnotationStoreSseConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AnnotationStoreSseConfigArgs) ToAnnotationStoreSseConfigPtrOutput() AnnotationStoreSseConfigPtrOutput {
 	return i.ToAnnotationStoreSseConfigPtrOutputWithContext(context.Background())
 }
@@ -220,6 +251,12 @@ func (i *annotationStoreSseConfigPtrType) ToAnnotationStoreSseConfigPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(AnnotationStoreSseConfigPtrOutput)
 }
 
+func (i *annotationStoreSseConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnnotationStoreSseConfig] {
+	return pulumix.Output[*AnnotationStoreSseConfig]{
+		OutputState: i.ToAnnotationStoreSseConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnnotationStoreSseConfigOutput struct{ *pulumi.OutputState }
 
 func (AnnotationStoreSseConfigOutput) ElementType() reflect.Type {
@@ -244,6 +281,12 @@ func (o AnnotationStoreSseConfigOutput) ToAnnotationStoreSseConfigPtrOutputWithC
 	}).(AnnotationStoreSseConfigPtrOutput)
 }
 
+func (o AnnotationStoreSseConfigOutput) ToOutput(ctx context.Context) pulumix.Output[AnnotationStoreSseConfig] {
+	return pulumix.Output[AnnotationStoreSseConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AnnotationStoreSseConfigOutput) KeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnnotationStoreSseConfig) *string { return v.KeyArn }).(pulumi.StringPtrOutput)
 }
@@ -264,6 +307,12 @@ func (o AnnotationStoreSseConfigPtrOutput) ToAnnotationStoreSseConfigPtrOutput()
 
 func (o AnnotationStoreSseConfigPtrOutput) ToAnnotationStoreSseConfigPtrOutputWithContext(ctx context.Context) AnnotationStoreSseConfigPtrOutput {
 	return o
+}
+
+func (o AnnotationStoreSseConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnnotationStoreSseConfig] {
+	return pulumix.Output[*AnnotationStoreSseConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnnotationStoreSseConfigPtrOutput) Elem() AnnotationStoreSseConfigOutput {
@@ -323,6 +372,12 @@ func (i AnnotationStoreStoreOptionsArgs) ToAnnotationStoreStoreOptionsOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(AnnotationStoreStoreOptionsOutput)
 }
 
+func (i AnnotationStoreStoreOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[AnnotationStoreStoreOptions] {
+	return pulumix.Output[AnnotationStoreStoreOptions]{
+		OutputState: i.ToAnnotationStoreStoreOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AnnotationStoreStoreOptionsArgs) ToAnnotationStoreStoreOptionsPtrOutput() AnnotationStoreStoreOptionsPtrOutput {
 	return i.ToAnnotationStoreStoreOptionsPtrOutputWithContext(context.Background())
 }
@@ -364,6 +419,12 @@ func (i *annotationStoreStoreOptionsPtrType) ToAnnotationStoreStoreOptionsPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(AnnotationStoreStoreOptionsPtrOutput)
 }
 
+func (i *annotationStoreStoreOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnnotationStoreStoreOptions] {
+	return pulumix.Output[*AnnotationStoreStoreOptions]{
+		OutputState: i.ToAnnotationStoreStoreOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnnotationStoreStoreOptionsOutput struct{ *pulumi.OutputState }
 
 func (AnnotationStoreStoreOptionsOutput) ElementType() reflect.Type {
@@ -388,6 +449,12 @@ func (o AnnotationStoreStoreOptionsOutput) ToAnnotationStoreStoreOptionsPtrOutpu
 	}).(AnnotationStoreStoreOptionsPtrOutput)
 }
 
+func (o AnnotationStoreStoreOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[AnnotationStoreStoreOptions] {
+	return pulumix.Output[AnnotationStoreStoreOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
 type AnnotationStoreStoreOptionsPtrOutput struct{ *pulumi.OutputState }
 
 func (AnnotationStoreStoreOptionsPtrOutput) ElementType() reflect.Type {
@@ -400,6 +467,12 @@ func (o AnnotationStoreStoreOptionsPtrOutput) ToAnnotationStoreStoreOptionsPtrOu
 
 func (o AnnotationStoreStoreOptionsPtrOutput) ToAnnotationStoreStoreOptionsPtrOutputWithContext(ctx context.Context) AnnotationStoreStoreOptionsPtrOutput {
 	return o
+}
+
+func (o AnnotationStoreStoreOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnnotationStoreStoreOptions] {
+	return pulumix.Output[*AnnotationStoreStoreOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnnotationStoreStoreOptionsPtrOutput) Elem() AnnotationStoreStoreOptionsOutput {
@@ -439,6 +512,12 @@ func (i AnnotationStoreTagMapArgs) ToAnnotationStoreTagMapOutput() AnnotationSto
 
 func (i AnnotationStoreTagMapArgs) ToAnnotationStoreTagMapOutputWithContext(ctx context.Context) AnnotationStoreTagMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AnnotationStoreTagMapOutput)
+}
+
+func (i AnnotationStoreTagMapArgs) ToOutput(ctx context.Context) pulumix.Output[AnnotationStoreTagMap] {
+	return pulumix.Output[AnnotationStoreTagMap]{
+		OutputState: i.ToAnnotationStoreTagMapOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i AnnotationStoreTagMapArgs) ToAnnotationStoreTagMapPtrOutput() AnnotationStoreTagMapPtrOutput {
@@ -482,6 +561,12 @@ func (i *annotationStoreTagMapPtrType) ToAnnotationStoreTagMapPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(AnnotationStoreTagMapPtrOutput)
 }
 
+func (i *annotationStoreTagMapPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnnotationStoreTagMap] {
+	return pulumix.Output[*AnnotationStoreTagMap]{
+		OutputState: i.ToAnnotationStoreTagMapPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnnotationStoreTagMapOutput struct{ *pulumi.OutputState }
 
 func (AnnotationStoreTagMapOutput) ElementType() reflect.Type {
@@ -506,6 +591,12 @@ func (o AnnotationStoreTagMapOutput) ToAnnotationStoreTagMapPtrOutputWithContext
 	}).(AnnotationStoreTagMapPtrOutput)
 }
 
+func (o AnnotationStoreTagMapOutput) ToOutput(ctx context.Context) pulumix.Output[AnnotationStoreTagMap] {
+	return pulumix.Output[AnnotationStoreTagMap]{
+		OutputState: o.OutputState,
+	}
+}
+
 type AnnotationStoreTagMapPtrOutput struct{ *pulumi.OutputState }
 
 func (AnnotationStoreTagMapPtrOutput) ElementType() reflect.Type {
@@ -518,6 +609,12 @@ func (o AnnotationStoreTagMapPtrOutput) ToAnnotationStoreTagMapPtrOutput() Annot
 
 func (o AnnotationStoreTagMapPtrOutput) ToAnnotationStoreTagMapPtrOutputWithContext(ctx context.Context) AnnotationStoreTagMapPtrOutput {
 	return o
+}
+
+func (o AnnotationStoreTagMapPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnnotationStoreTagMap] {
+	return pulumix.Output[*AnnotationStoreTagMap]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnnotationStoreTagMapPtrOutput) Elem() AnnotationStoreTagMapOutput {
@@ -567,6 +664,12 @@ func (i ReferenceStoreSseConfigArgs) ToReferenceStoreSseConfigOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ReferenceStoreSseConfigOutput)
 }
 
+func (i ReferenceStoreSseConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ReferenceStoreSseConfig] {
+	return pulumix.Output[ReferenceStoreSseConfig]{
+		OutputState: i.ToReferenceStoreSseConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ReferenceStoreSseConfigArgs) ToReferenceStoreSseConfigPtrOutput() ReferenceStoreSseConfigPtrOutput {
 	return i.ToReferenceStoreSseConfigPtrOutputWithContext(context.Background())
 }
@@ -608,6 +711,12 @@ func (i *referenceStoreSseConfigPtrType) ToReferenceStoreSseConfigPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ReferenceStoreSseConfigPtrOutput)
 }
 
+func (i *referenceStoreSseConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ReferenceStoreSseConfig] {
+	return pulumix.Output[*ReferenceStoreSseConfig]{
+		OutputState: i.ToReferenceStoreSseConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Server-side encryption (SSE) settings for a store.
 type ReferenceStoreSseConfigOutput struct{ *pulumi.OutputState }
 
@@ -633,6 +742,12 @@ func (o ReferenceStoreSseConfigOutput) ToReferenceStoreSseConfigPtrOutputWithCon
 	}).(ReferenceStoreSseConfigPtrOutput)
 }
 
+func (o ReferenceStoreSseConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ReferenceStoreSseConfig] {
+	return pulumix.Output[ReferenceStoreSseConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 // An encryption key ARN.
 func (o ReferenceStoreSseConfigOutput) KeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReferenceStoreSseConfig) *string { return v.KeyArn }).(pulumi.StringPtrOutput)
@@ -654,6 +769,12 @@ func (o ReferenceStoreSseConfigPtrOutput) ToReferenceStoreSseConfigPtrOutput() R
 
 func (o ReferenceStoreSseConfigPtrOutput) ToReferenceStoreSseConfigPtrOutputWithContext(ctx context.Context) ReferenceStoreSseConfigPtrOutput {
 	return o
+}
+
+func (o ReferenceStoreSseConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ReferenceStoreSseConfig] {
+	return pulumix.Output[*ReferenceStoreSseConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ReferenceStoreSseConfigPtrOutput) Elem() ReferenceStoreSseConfigOutput {
@@ -714,6 +835,12 @@ func (i ReferenceStoreTagMapArgs) ToReferenceStoreTagMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ReferenceStoreTagMapOutput)
 }
 
+func (i ReferenceStoreTagMapArgs) ToOutput(ctx context.Context) pulumix.Output[ReferenceStoreTagMap] {
+	return pulumix.Output[ReferenceStoreTagMap]{
+		OutputState: i.ToReferenceStoreTagMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ReferenceStoreTagMapArgs) ToReferenceStoreTagMapPtrOutput() ReferenceStoreTagMapPtrOutput {
 	return i.ToReferenceStoreTagMapPtrOutputWithContext(context.Background())
 }
@@ -755,6 +882,12 @@ func (i *referenceStoreTagMapPtrType) ToReferenceStoreTagMapPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ReferenceStoreTagMapPtrOutput)
 }
 
+func (i *referenceStoreTagMapPtrType) ToOutput(ctx context.Context) pulumix.Output[*ReferenceStoreTagMap] {
+	return pulumix.Output[*ReferenceStoreTagMap]{
+		OutputState: i.ToReferenceStoreTagMapPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ReferenceStoreTagMapOutput struct{ *pulumi.OutputState }
 
 func (ReferenceStoreTagMapOutput) ElementType() reflect.Type {
@@ -779,6 +912,12 @@ func (o ReferenceStoreTagMapOutput) ToReferenceStoreTagMapPtrOutputWithContext(c
 	}).(ReferenceStoreTagMapPtrOutput)
 }
 
+func (o ReferenceStoreTagMapOutput) ToOutput(ctx context.Context) pulumix.Output[ReferenceStoreTagMap] {
+	return pulumix.Output[ReferenceStoreTagMap]{
+		OutputState: o.OutputState,
+	}
+}
+
 type ReferenceStoreTagMapPtrOutput struct{ *pulumi.OutputState }
 
 func (ReferenceStoreTagMapPtrOutput) ElementType() reflect.Type {
@@ -791,6 +930,12 @@ func (o ReferenceStoreTagMapPtrOutput) ToReferenceStoreTagMapPtrOutput() Referen
 
 func (o ReferenceStoreTagMapPtrOutput) ToReferenceStoreTagMapPtrOutputWithContext(ctx context.Context) ReferenceStoreTagMapPtrOutput {
 	return o
+}
+
+func (o ReferenceStoreTagMapPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ReferenceStoreTagMap] {
+	return pulumix.Output[*ReferenceStoreTagMap]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ReferenceStoreTagMapPtrOutput) Elem() ReferenceStoreTagMapOutput {
@@ -834,6 +979,12 @@ func (i RunGroupTagMapArgs) ToRunGroupTagMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(RunGroupTagMapOutput)
 }
 
+func (i RunGroupTagMapArgs) ToOutput(ctx context.Context) pulumix.Output[RunGroupTagMap] {
+	return pulumix.Output[RunGroupTagMap]{
+		OutputState: i.ToRunGroupTagMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RunGroupTagMapArgs) ToRunGroupTagMapPtrOutput() RunGroupTagMapPtrOutput {
 	return i.ToRunGroupTagMapPtrOutputWithContext(context.Background())
 }
@@ -875,6 +1026,12 @@ func (i *runGroupTagMapPtrType) ToRunGroupTagMapPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(RunGroupTagMapPtrOutput)
 }
 
+func (i *runGroupTagMapPtrType) ToOutput(ctx context.Context) pulumix.Output[*RunGroupTagMap] {
+	return pulumix.Output[*RunGroupTagMap]{
+		OutputState: i.ToRunGroupTagMapPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A map of resource tags
 type RunGroupTagMapOutput struct{ *pulumi.OutputState }
 
@@ -900,6 +1057,12 @@ func (o RunGroupTagMapOutput) ToRunGroupTagMapPtrOutputWithContext(ctx context.C
 	}).(RunGroupTagMapPtrOutput)
 }
 
+func (o RunGroupTagMapOutput) ToOutput(ctx context.Context) pulumix.Output[RunGroupTagMap] {
+	return pulumix.Output[RunGroupTagMap]{
+		OutputState: o.OutputState,
+	}
+}
+
 type RunGroupTagMapPtrOutput struct{ *pulumi.OutputState }
 
 func (RunGroupTagMapPtrOutput) ElementType() reflect.Type {
@@ -912,6 +1075,12 @@ func (o RunGroupTagMapPtrOutput) ToRunGroupTagMapPtrOutput() RunGroupTagMapPtrOu
 
 func (o RunGroupTagMapPtrOutput) ToRunGroupTagMapPtrOutputWithContext(ctx context.Context) RunGroupTagMapPtrOutput {
 	return o
+}
+
+func (o RunGroupTagMapPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RunGroupTagMap] {
+	return pulumix.Output[*RunGroupTagMap]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RunGroupTagMapPtrOutput) Elem() RunGroupTagMapOutput {
@@ -961,6 +1130,12 @@ func (i SequenceStoreSseConfigArgs) ToSequenceStoreSseConfigOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(SequenceStoreSseConfigOutput)
 }
 
+func (i SequenceStoreSseConfigArgs) ToOutput(ctx context.Context) pulumix.Output[SequenceStoreSseConfig] {
+	return pulumix.Output[SequenceStoreSseConfig]{
+		OutputState: i.ToSequenceStoreSseConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SequenceStoreSseConfigArgs) ToSequenceStoreSseConfigPtrOutput() SequenceStoreSseConfigPtrOutput {
 	return i.ToSequenceStoreSseConfigPtrOutputWithContext(context.Background())
 }
@@ -1002,6 +1177,12 @@ func (i *sequenceStoreSseConfigPtrType) ToSequenceStoreSseConfigPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(SequenceStoreSseConfigPtrOutput)
 }
 
+func (i *sequenceStoreSseConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*SequenceStoreSseConfig] {
+	return pulumix.Output[*SequenceStoreSseConfig]{
+		OutputState: i.ToSequenceStoreSseConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Server-side encryption (SSE) settings for a store.
 type SequenceStoreSseConfigOutput struct{ *pulumi.OutputState }
 
@@ -1027,6 +1208,12 @@ func (o SequenceStoreSseConfigOutput) ToSequenceStoreSseConfigPtrOutputWithConte
 	}).(SequenceStoreSseConfigPtrOutput)
 }
 
+func (o SequenceStoreSseConfigOutput) ToOutput(ctx context.Context) pulumix.Output[SequenceStoreSseConfig] {
+	return pulumix.Output[SequenceStoreSseConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 // An encryption key ARN.
 func (o SequenceStoreSseConfigOutput) KeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SequenceStoreSseConfig) *string { return v.KeyArn }).(pulumi.StringPtrOutput)
@@ -1048,6 +1235,12 @@ func (o SequenceStoreSseConfigPtrOutput) ToSequenceStoreSseConfigPtrOutput() Seq
 
 func (o SequenceStoreSseConfigPtrOutput) ToSequenceStoreSseConfigPtrOutputWithContext(ctx context.Context) SequenceStoreSseConfigPtrOutput {
 	return o
+}
+
+func (o SequenceStoreSseConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SequenceStoreSseConfig] {
+	return pulumix.Output[*SequenceStoreSseConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SequenceStoreSseConfigPtrOutput) Elem() SequenceStoreSseConfigOutput {
@@ -1108,6 +1301,12 @@ func (i SequenceStoreTagMapArgs) ToSequenceStoreTagMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(SequenceStoreTagMapOutput)
 }
 
+func (i SequenceStoreTagMapArgs) ToOutput(ctx context.Context) pulumix.Output[SequenceStoreTagMap] {
+	return pulumix.Output[SequenceStoreTagMap]{
+		OutputState: i.ToSequenceStoreTagMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SequenceStoreTagMapArgs) ToSequenceStoreTagMapPtrOutput() SequenceStoreTagMapPtrOutput {
 	return i.ToSequenceStoreTagMapPtrOutputWithContext(context.Background())
 }
@@ -1149,6 +1348,12 @@ func (i *sequenceStoreTagMapPtrType) ToSequenceStoreTagMapPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(SequenceStoreTagMapPtrOutput)
 }
 
+func (i *sequenceStoreTagMapPtrType) ToOutput(ctx context.Context) pulumix.Output[*SequenceStoreTagMap] {
+	return pulumix.Output[*SequenceStoreTagMap]{
+		OutputState: i.ToSequenceStoreTagMapPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SequenceStoreTagMapOutput struct{ *pulumi.OutputState }
 
 func (SequenceStoreTagMapOutput) ElementType() reflect.Type {
@@ -1173,6 +1378,12 @@ func (o SequenceStoreTagMapOutput) ToSequenceStoreTagMapPtrOutputWithContext(ctx
 	}).(SequenceStoreTagMapPtrOutput)
 }
 
+func (o SequenceStoreTagMapOutput) ToOutput(ctx context.Context) pulumix.Output[SequenceStoreTagMap] {
+	return pulumix.Output[SequenceStoreTagMap]{
+		OutputState: o.OutputState,
+	}
+}
+
 type SequenceStoreTagMapPtrOutput struct{ *pulumi.OutputState }
 
 func (SequenceStoreTagMapPtrOutput) ElementType() reflect.Type {
@@ -1185,6 +1396,12 @@ func (o SequenceStoreTagMapPtrOutput) ToSequenceStoreTagMapPtrOutput() SequenceS
 
 func (o SequenceStoreTagMapPtrOutput) ToSequenceStoreTagMapPtrOutputWithContext(ctx context.Context) SequenceStoreTagMapPtrOutput {
 	return o
+}
+
+func (o SequenceStoreTagMapPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SequenceStoreTagMap] {
+	return pulumix.Output[*SequenceStoreTagMap]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SequenceStoreTagMapPtrOutput) Elem() SequenceStoreTagMapOutput {
@@ -1228,6 +1445,12 @@ func (i VariantStoreReferenceItemArgs) ToVariantStoreReferenceItemOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(VariantStoreReferenceItemOutput)
 }
 
+func (i VariantStoreReferenceItemArgs) ToOutput(ctx context.Context) pulumix.Output[VariantStoreReferenceItem] {
+	return pulumix.Output[VariantStoreReferenceItem]{
+		OutputState: i.ToVariantStoreReferenceItemOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VariantStoreReferenceItemOutput struct{ *pulumi.OutputState }
 
 func (VariantStoreReferenceItemOutput) ElementType() reflect.Type {
@@ -1240,6 +1463,12 @@ func (o VariantStoreReferenceItemOutput) ToVariantStoreReferenceItemOutput() Var
 
 func (o VariantStoreReferenceItemOutput) ToVariantStoreReferenceItemOutputWithContext(ctx context.Context) VariantStoreReferenceItemOutput {
 	return o
+}
+
+func (o VariantStoreReferenceItemOutput) ToOutput(ctx context.Context) pulumix.Output[VariantStoreReferenceItem] {
+	return pulumix.Output[VariantStoreReferenceItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VariantStoreReferenceItemOutput) ReferenceArn() pulumi.StringOutput {
@@ -1277,6 +1506,12 @@ func (i VariantStoreSseConfigArgs) ToVariantStoreSseConfigOutput() VariantStoreS
 
 func (i VariantStoreSseConfigArgs) ToVariantStoreSseConfigOutputWithContext(ctx context.Context) VariantStoreSseConfigOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VariantStoreSseConfigOutput)
+}
+
+func (i VariantStoreSseConfigArgs) ToOutput(ctx context.Context) pulumix.Output[VariantStoreSseConfig] {
+	return pulumix.Output[VariantStoreSseConfig]{
+		OutputState: i.ToVariantStoreSseConfigOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i VariantStoreSseConfigArgs) ToVariantStoreSseConfigPtrOutput() VariantStoreSseConfigPtrOutput {
@@ -1320,6 +1555,12 @@ func (i *variantStoreSseConfigPtrType) ToVariantStoreSseConfigPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(VariantStoreSseConfigPtrOutput)
 }
 
+func (i *variantStoreSseConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*VariantStoreSseConfig] {
+	return pulumix.Output[*VariantStoreSseConfig]{
+		OutputState: i.ToVariantStoreSseConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VariantStoreSseConfigOutput struct{ *pulumi.OutputState }
 
 func (VariantStoreSseConfigOutput) ElementType() reflect.Type {
@@ -1344,6 +1585,12 @@ func (o VariantStoreSseConfigOutput) ToVariantStoreSseConfigPtrOutputWithContext
 	}).(VariantStoreSseConfigPtrOutput)
 }
 
+func (o VariantStoreSseConfigOutput) ToOutput(ctx context.Context) pulumix.Output[VariantStoreSseConfig] {
+	return pulumix.Output[VariantStoreSseConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VariantStoreSseConfigOutput) KeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VariantStoreSseConfig) *string { return v.KeyArn }).(pulumi.StringPtrOutput)
 }
@@ -1364,6 +1611,12 @@ func (o VariantStoreSseConfigPtrOutput) ToVariantStoreSseConfigPtrOutput() Varia
 
 func (o VariantStoreSseConfigPtrOutput) ToVariantStoreSseConfigPtrOutputWithContext(ctx context.Context) VariantStoreSseConfigPtrOutput {
 	return o
+}
+
+func (o VariantStoreSseConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VariantStoreSseConfig] {
+	return pulumix.Output[*VariantStoreSseConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VariantStoreSseConfigPtrOutput) Elem() VariantStoreSseConfigOutput {
@@ -1423,6 +1676,12 @@ func (i VariantStoreTagMapArgs) ToVariantStoreTagMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(VariantStoreTagMapOutput)
 }
 
+func (i VariantStoreTagMapArgs) ToOutput(ctx context.Context) pulumix.Output[VariantStoreTagMap] {
+	return pulumix.Output[VariantStoreTagMap]{
+		OutputState: i.ToVariantStoreTagMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VariantStoreTagMapArgs) ToVariantStoreTagMapPtrOutput() VariantStoreTagMapPtrOutput {
 	return i.ToVariantStoreTagMapPtrOutputWithContext(context.Background())
 }
@@ -1464,6 +1723,12 @@ func (i *variantStoreTagMapPtrType) ToVariantStoreTagMapPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(VariantStoreTagMapPtrOutput)
 }
 
+func (i *variantStoreTagMapPtrType) ToOutput(ctx context.Context) pulumix.Output[*VariantStoreTagMap] {
+	return pulumix.Output[*VariantStoreTagMap]{
+		OutputState: i.ToVariantStoreTagMapPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VariantStoreTagMapOutput struct{ *pulumi.OutputState }
 
 func (VariantStoreTagMapOutput) ElementType() reflect.Type {
@@ -1488,6 +1753,12 @@ func (o VariantStoreTagMapOutput) ToVariantStoreTagMapPtrOutputWithContext(ctx c
 	}).(VariantStoreTagMapPtrOutput)
 }
 
+func (o VariantStoreTagMapOutput) ToOutput(ctx context.Context) pulumix.Output[VariantStoreTagMap] {
+	return pulumix.Output[VariantStoreTagMap]{
+		OutputState: o.OutputState,
+	}
+}
+
 type VariantStoreTagMapPtrOutput struct{ *pulumi.OutputState }
 
 func (VariantStoreTagMapPtrOutput) ElementType() reflect.Type {
@@ -1500,6 +1771,12 @@ func (o VariantStoreTagMapPtrOutput) ToVariantStoreTagMapPtrOutput() VariantStor
 
 func (o VariantStoreTagMapPtrOutput) ToVariantStoreTagMapPtrOutputWithContext(ctx context.Context) VariantStoreTagMapPtrOutput {
 	return o
+}
+
+func (o VariantStoreTagMapPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VariantStoreTagMap] {
+	return pulumix.Output[*VariantStoreTagMap]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VariantStoreTagMapPtrOutput) Elem() VariantStoreTagMapOutput {
@@ -1539,6 +1816,12 @@ func (i WorkflowParameterTemplateArgs) ToWorkflowParameterTemplateOutput() Workf
 
 func (i WorkflowParameterTemplateArgs) ToWorkflowParameterTemplateOutputWithContext(ctx context.Context) WorkflowParameterTemplateOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowParameterTemplateOutput)
+}
+
+func (i WorkflowParameterTemplateArgs) ToOutput(ctx context.Context) pulumix.Output[WorkflowParameterTemplate] {
+	return pulumix.Output[WorkflowParameterTemplate]{
+		OutputState: i.ToWorkflowParameterTemplateOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i WorkflowParameterTemplateArgs) ToWorkflowParameterTemplatePtrOutput() WorkflowParameterTemplatePtrOutput {
@@ -1582,6 +1865,12 @@ func (i *workflowParameterTemplatePtrType) ToWorkflowParameterTemplatePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowParameterTemplatePtrOutput)
 }
 
+func (i *workflowParameterTemplatePtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkflowParameterTemplate] {
+	return pulumix.Output[*WorkflowParameterTemplate]{
+		OutputState: i.ToWorkflowParameterTemplatePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkflowParameterTemplateOutput struct{ *pulumi.OutputState }
 
 func (WorkflowParameterTemplateOutput) ElementType() reflect.Type {
@@ -1606,6 +1895,12 @@ func (o WorkflowParameterTemplateOutput) ToWorkflowParameterTemplatePtrOutputWit
 	}).(WorkflowParameterTemplatePtrOutput)
 }
 
+func (o WorkflowParameterTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowParameterTemplate] {
+	return pulumix.Output[WorkflowParameterTemplate]{
+		OutputState: o.OutputState,
+	}
+}
+
 type WorkflowParameterTemplatePtrOutput struct{ *pulumi.OutputState }
 
 func (WorkflowParameterTemplatePtrOutput) ElementType() reflect.Type {
@@ -1618,6 +1913,12 @@ func (o WorkflowParameterTemplatePtrOutput) ToWorkflowParameterTemplatePtrOutput
 
 func (o WorkflowParameterTemplatePtrOutput) ToWorkflowParameterTemplatePtrOutputWithContext(ctx context.Context) WorkflowParameterTemplatePtrOutput {
 	return o
+}
+
+func (o WorkflowParameterTemplatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkflowParameterTemplate] {
+	return pulumix.Output[*WorkflowParameterTemplate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkflowParameterTemplatePtrOutput) Elem() WorkflowParameterTemplateOutput {
@@ -1661,6 +1962,12 @@ func (i WorkflowTagMapArgs) ToWorkflowTagMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowTagMapOutput)
 }
 
+func (i WorkflowTagMapArgs) ToOutput(ctx context.Context) pulumix.Output[WorkflowTagMap] {
+	return pulumix.Output[WorkflowTagMap]{
+		OutputState: i.ToWorkflowTagMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i WorkflowTagMapArgs) ToWorkflowTagMapPtrOutput() WorkflowTagMapPtrOutput {
 	return i.ToWorkflowTagMapPtrOutputWithContext(context.Background())
 }
@@ -1702,6 +2009,12 @@ func (i *workflowTagMapPtrType) ToWorkflowTagMapPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowTagMapPtrOutput)
 }
 
+func (i *workflowTagMapPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkflowTagMap] {
+	return pulumix.Output[*WorkflowTagMap]{
+		OutputState: i.ToWorkflowTagMapPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A map of resource tags
 type WorkflowTagMapOutput struct{ *pulumi.OutputState }
 
@@ -1727,6 +2040,12 @@ func (o WorkflowTagMapOutput) ToWorkflowTagMapPtrOutputWithContext(ctx context.C
 	}).(WorkflowTagMapPtrOutput)
 }
 
+func (o WorkflowTagMapOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowTagMap] {
+	return pulumix.Output[WorkflowTagMap]{
+		OutputState: o.OutputState,
+	}
+}
+
 type WorkflowTagMapPtrOutput struct{ *pulumi.OutputState }
 
 func (WorkflowTagMapPtrOutput) ElementType() reflect.Type {
@@ -1739,6 +2058,12 @@ func (o WorkflowTagMapPtrOutput) ToWorkflowTagMapPtrOutput() WorkflowTagMapPtrOu
 
 func (o WorkflowTagMapPtrOutput) ToWorkflowTagMapPtrOutputWithContext(ctx context.Context) WorkflowTagMapPtrOutput {
 	return o
+}
+
+func (o WorkflowTagMapPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkflowTagMap] {
+	return pulumix.Output[*WorkflowTagMap]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkflowTagMapPtrOutput) Elem() WorkflowTagMapOutput {

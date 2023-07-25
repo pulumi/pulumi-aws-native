@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::AutoScaling::ScheduledAction resource specifies an Amazon EC2 Auto Scaling scheduled action so that the Auto Scaling group can change the number of instances available for your application in response to predictable load changes.
@@ -84,6 +85,12 @@ func (o LookupScheduledActionResultOutput) ToLookupScheduledActionResultOutput()
 
 func (o LookupScheduledActionResultOutput) ToLookupScheduledActionResultOutputWithContext(ctx context.Context) LookupScheduledActionResultOutput {
 	return o
+}
+
+func (o LookupScheduledActionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupScheduledActionResult] {
+	return pulumix.Output[LookupScheduledActionResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The desired capacity is the initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain.

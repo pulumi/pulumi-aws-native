@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::SSM::Document resource is an SSM document in AWS Systems Manager that defines the actions that Systems Manager performs, which can be used to set up and run commands on your instances.
@@ -76,6 +77,12 @@ func (o LookupDocumentResultOutput) ToLookupDocumentResultOutput() LookupDocumen
 
 func (o LookupDocumentResultOutput) ToLookupDocumentResultOutputWithContext(ctx context.Context) LookupDocumentResultOutput {
 	return o
+}
+
+func (o LookupDocumentResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDocumentResult] {
+	return pulumix.Output[LookupDocumentResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The content for the Systems Manager document in JSON, YAML or String format.

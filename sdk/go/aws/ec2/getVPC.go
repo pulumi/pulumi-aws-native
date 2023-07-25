@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::VPC
@@ -88,6 +89,12 @@ func (o LookupVPCResultOutput) ToLookupVPCResultOutput() LookupVPCResultOutput {
 
 func (o LookupVPCResultOutput) ToLookupVPCResultOutputWithContext(ctx context.Context) LookupVPCResultOutput {
 	return o
+}
+
+func (o LookupVPCResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVPCResult] {
+	return pulumix.Output[LookupVPCResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of IPv4 CIDR block association IDs for the VPC.

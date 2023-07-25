@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::Proton::ServiceTemplate Resource Type
@@ -74,6 +75,12 @@ func (o LookupServiceTemplateResultOutput) ToLookupServiceTemplateResultOutput()
 
 func (o LookupServiceTemplateResultOutput) ToLookupServiceTemplateResultOutputWithContext(ctx context.Context) LookupServiceTemplateResultOutput {
 	return o
+}
+
+func (o LookupServiceTemplateResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupServiceTemplateResult] {
+	return pulumix.Output[LookupServiceTemplateResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // <p>The Amazon Resource Name (ARN) of the service template.</p>

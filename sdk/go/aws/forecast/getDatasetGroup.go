@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Represents a dataset group that holds a collection of related datasets
@@ -72,6 +73,12 @@ func (o LookupDatasetGroupResultOutput) ToLookupDatasetGroupResultOutput() Looku
 
 func (o LookupDatasetGroupResultOutput) ToLookupDatasetGroupResultOutputWithContext(ctx context.Context) LookupDatasetGroupResultOutput {
 	return o
+}
+
+func (o LookupDatasetGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDatasetGroupResult] {
+	return pulumix.Output[LookupDatasetGroupResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // An array of Amazon Resource Names (ARNs) of the datasets that you want to include in the dataset group.

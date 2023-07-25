@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Contains a list of IP addresses. This can be either IPV4 or IPV6. The list will be mutually
@@ -118,6 +119,12 @@ func (i *IPSet) ToIPSetOutputWithContext(ctx context.Context) IPSetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IPSetOutput)
 }
 
+func (i *IPSet) ToOutput(ctx context.Context) pulumix.Output[*IPSet] {
+	return pulumix.Output[*IPSet]{
+		OutputState: i.ToIPSetOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IPSetOutput struct{ *pulumi.OutputState }
 
 func (IPSetOutput) ElementType() reflect.Type {
@@ -130,6 +137,12 @@ func (o IPSetOutput) ToIPSetOutput() IPSetOutput {
 
 func (o IPSetOutput) ToIPSetOutputWithContext(ctx context.Context) IPSetOutput {
 	return o
+}
+
+func (o IPSetOutput) ToOutput(ctx context.Context) pulumix.Output[*IPSet] {
+	return pulumix.Output[*IPSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 // List of IPAddresses.

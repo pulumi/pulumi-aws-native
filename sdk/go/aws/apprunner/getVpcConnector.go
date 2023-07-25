@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::AppRunner::VpcConnector resource specifies an App Runner VpcConnector.
@@ -68,6 +69,12 @@ func (o LookupVpcConnectorResultOutput) ToLookupVpcConnectorResultOutput() Looku
 
 func (o LookupVpcConnectorResultOutput) ToLookupVpcConnectorResultOutputWithContext(ctx context.Context) LookupVpcConnectorResultOutput {
 	return o
+}
+
+func (o LookupVpcConnectorResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVpcConnectorResult] {
+	return pulumix.Output[LookupVpcConnectorResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of this VPC connector.

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::RDS::GlobalCluster
@@ -68,6 +69,12 @@ func (o LookupGlobalClusterResultOutput) ToLookupGlobalClusterResultOutput() Loo
 
 func (o LookupGlobalClusterResultOutput) ToLookupGlobalClusterResultOutputWithContext(ctx context.Context) LookupGlobalClusterResultOutput {
 	return o
+}
+
+func (o LookupGlobalClusterResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupGlobalClusterResult] {
+	return pulumix.Output[LookupGlobalClusterResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The deletion protection setting for the new global database. The global database can't be deleted when deletion protection is enabled.

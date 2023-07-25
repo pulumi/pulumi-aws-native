@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Transfer::Agreement
@@ -86,6 +87,12 @@ func (o LookupAgreementResultOutput) ToLookupAgreementResultOutput() LookupAgree
 
 func (o LookupAgreementResultOutput) ToLookupAgreementResultOutputWithContext(ctx context.Context) LookupAgreementResultOutput {
 	return o
+}
+
+func (o LookupAgreementResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAgreementResult] {
+	return pulumix.Output[LookupAgreementResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the access role for the agreement.

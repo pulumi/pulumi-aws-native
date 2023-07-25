@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::WorkSpaces::ConnectionAlias
@@ -65,6 +66,12 @@ func (o LookupConnectionAliasResultOutput) ToLookupConnectionAliasResultOutput()
 
 func (o LookupConnectionAliasResultOutput) ToLookupConnectionAliasResultOutputWithContext(ctx context.Context) LookupConnectionAliasResultOutput {
 	return o
+}
+
+func (o LookupConnectionAliasResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupConnectionAliasResult] {
+	return pulumix.Output[LookupConnectionAliasResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupConnectionAliasResultOutput) AliasId() pulumi.StringPtrOutput {

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SQS::QueuePolicy
@@ -65,6 +66,12 @@ func (o LookupQueuePolicyResultOutput) ToLookupQueuePolicyResultOutput() LookupQ
 
 func (o LookupQueuePolicyResultOutput) ToLookupQueuePolicyResultOutputWithContext(ctx context.Context) LookupQueuePolicyResultOutput {
 	return o
+}
+
+func (o LookupQueuePolicyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupQueuePolicyResult] {
+	return pulumix.Output[LookupQueuePolicyResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupQueuePolicyResultOutput) Id() pulumi.StringPtrOutput {

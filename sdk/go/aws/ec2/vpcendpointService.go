@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::VPCEndpointService
@@ -102,6 +103,12 @@ func (i *VPCEndpointService) ToVPCEndpointServiceOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(VPCEndpointServiceOutput)
 }
 
+func (i *VPCEndpointService) ToOutput(ctx context.Context) pulumix.Output[*VPCEndpointService] {
+	return pulumix.Output[*VPCEndpointService]{
+		OutputState: i.ToVPCEndpointServiceOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VPCEndpointServiceOutput struct{ *pulumi.OutputState }
 
 func (VPCEndpointServiceOutput) ElementType() reflect.Type {
@@ -114,6 +121,12 @@ func (o VPCEndpointServiceOutput) ToVPCEndpointServiceOutput() VPCEndpointServic
 
 func (o VPCEndpointServiceOutput) ToVPCEndpointServiceOutputWithContext(ctx context.Context) VPCEndpointServiceOutput {
 	return o
+}
+
+func (o VPCEndpointServiceOutput) ToOutput(ctx context.Context) pulumix.Output[*VPCEndpointService] {
+	return pulumix.Output[*VPCEndpointService]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VPCEndpointServiceOutput) AcceptanceRequired() pulumi.BoolPtrOutput {

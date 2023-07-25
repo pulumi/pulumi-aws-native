@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type EnvironmentLoggingLevel string
@@ -80,6 +81,12 @@ func (o EnvironmentLoggingLevelOutput) ToEnvironmentLoggingLevelPtrOutputWithCon
 	}).(EnvironmentLoggingLevelPtrOutput)
 }
 
+func (o EnvironmentLoggingLevelOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentLoggingLevel] {
+	return pulumix.Output[EnvironmentLoggingLevel]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EnvironmentLoggingLevelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -113,6 +120,12 @@ func (o EnvironmentLoggingLevelPtrOutput) ToEnvironmentLoggingLevelPtrOutput() E
 
 func (o EnvironmentLoggingLevelPtrOutput) ToEnvironmentLoggingLevelPtrOutputWithContext(ctx context.Context) EnvironmentLoggingLevelPtrOutput {
 	return o
+}
+
+func (o EnvironmentLoggingLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentLoggingLevel] {
+	return pulumix.Output[*EnvironmentLoggingLevel]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EnvironmentLoggingLevelPtrOutput) Elem() EnvironmentLoggingLevelOutput {
@@ -175,6 +188,12 @@ func (in *environmentLoggingLevelPtr) ToEnvironmentLoggingLevelPtrOutput() Envir
 
 func (in *environmentLoggingLevelPtr) ToEnvironmentLoggingLevelPtrOutputWithContext(ctx context.Context) EnvironmentLoggingLevelPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EnvironmentLoggingLevelPtrOutput)
+}
+
+func (in *environmentLoggingLevelPtr) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentLoggingLevel] {
+	return pulumix.Output[*EnvironmentLoggingLevel]{
+		OutputState: in.ToEnvironmentLoggingLevelPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Choice for mode of webserver access including over public internet or via private VPC endpoint.
@@ -245,6 +264,12 @@ func (o EnvironmentWebserverAccessModeOutput) ToEnvironmentWebserverAccessModePt
 	}).(EnvironmentWebserverAccessModePtrOutput)
 }
 
+func (o EnvironmentWebserverAccessModeOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentWebserverAccessMode] {
+	return pulumix.Output[EnvironmentWebserverAccessMode]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EnvironmentWebserverAccessModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -278,6 +303,12 @@ func (o EnvironmentWebserverAccessModePtrOutput) ToEnvironmentWebserverAccessMod
 
 func (o EnvironmentWebserverAccessModePtrOutput) ToEnvironmentWebserverAccessModePtrOutputWithContext(ctx context.Context) EnvironmentWebserverAccessModePtrOutput {
 	return o
+}
+
+func (o EnvironmentWebserverAccessModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentWebserverAccessMode] {
+	return pulumix.Output[*EnvironmentWebserverAccessMode]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EnvironmentWebserverAccessModePtrOutput) Elem() EnvironmentWebserverAccessModeOutput {
@@ -340,6 +371,12 @@ func (in *environmentWebserverAccessModePtr) ToEnvironmentWebserverAccessModePtr
 
 func (in *environmentWebserverAccessModePtr) ToEnvironmentWebserverAccessModePtrOutputWithContext(ctx context.Context) EnvironmentWebserverAccessModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EnvironmentWebserverAccessModePtrOutput)
+}
+
+func (in *environmentWebserverAccessModePtr) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentWebserverAccessMode] {
+	return pulumix.Output[*EnvironmentWebserverAccessMode]{
+		OutputState: in.ToEnvironmentWebserverAccessModePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::VPCEndpointServicePermissions
@@ -63,6 +64,12 @@ func (o LookupVPCEndpointServicePermissionsResultOutput) ToLookupVPCEndpointServ
 
 func (o LookupVPCEndpointServicePermissionsResultOutput) ToLookupVPCEndpointServicePermissionsResultOutputWithContext(ctx context.Context) LookupVPCEndpointServicePermissionsResultOutput {
 	return o
+}
+
+func (o LookupVPCEndpointServicePermissionsResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVPCEndpointServicePermissionsResult] {
+	return pulumix.Output[LookupVPCEndpointServicePermissionsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupVPCEndpointServicePermissionsResultOutput) AllowedPrincipals() pulumi.StringArrayOutput {

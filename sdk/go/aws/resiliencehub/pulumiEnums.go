@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Assessment execution schedule.
@@ -78,6 +79,12 @@ func (o AppAssessmentScheduleOutput) ToAppAssessmentSchedulePtrOutputWithContext
 	}).(AppAssessmentSchedulePtrOutput)
 }
 
+func (o AppAssessmentScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[AppAssessmentSchedule] {
+	return pulumix.Output[AppAssessmentSchedule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AppAssessmentScheduleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -111,6 +118,12 @@ func (o AppAssessmentSchedulePtrOutput) ToAppAssessmentSchedulePtrOutput() AppAs
 
 func (o AppAssessmentSchedulePtrOutput) ToAppAssessmentSchedulePtrOutputWithContext(ctx context.Context) AppAssessmentSchedulePtrOutput {
 	return o
+}
+
+func (o AppAssessmentSchedulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AppAssessmentSchedule] {
+	return pulumix.Output[*AppAssessmentSchedule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AppAssessmentSchedulePtrOutput) Elem() AppAssessmentScheduleOutput {
@@ -173,6 +186,12 @@ func (in *appAssessmentSchedulePtr) ToAppAssessmentSchedulePtrOutput() AppAssess
 
 func (in *appAssessmentSchedulePtr) ToAppAssessmentSchedulePtrOutputWithContext(ctx context.Context) AppAssessmentSchedulePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AppAssessmentSchedulePtrOutput)
+}
+
+func (in *appAssessmentSchedulePtr) ToOutput(ctx context.Context) pulumix.Output[*AppAssessmentSchedule] {
+	return pulumix.Output[*AppAssessmentSchedule]{
+		OutputState: in.ToAppAssessmentSchedulePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Data Location Constraint of the Policy.
@@ -244,6 +263,12 @@ func (o ResiliencyPolicyDataLocationConstraintOutput) ToResiliencyPolicyDataLoca
 	}).(ResiliencyPolicyDataLocationConstraintPtrOutput)
 }
 
+func (o ResiliencyPolicyDataLocationConstraintOutput) ToOutput(ctx context.Context) pulumix.Output[ResiliencyPolicyDataLocationConstraint] {
+	return pulumix.Output[ResiliencyPolicyDataLocationConstraint]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ResiliencyPolicyDataLocationConstraintOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -277,6 +302,12 @@ func (o ResiliencyPolicyDataLocationConstraintPtrOutput) ToResiliencyPolicyDataL
 
 func (o ResiliencyPolicyDataLocationConstraintPtrOutput) ToResiliencyPolicyDataLocationConstraintPtrOutputWithContext(ctx context.Context) ResiliencyPolicyDataLocationConstraintPtrOutput {
 	return o
+}
+
+func (o ResiliencyPolicyDataLocationConstraintPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResiliencyPolicyDataLocationConstraint] {
+	return pulumix.Output[*ResiliencyPolicyDataLocationConstraint]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResiliencyPolicyDataLocationConstraintPtrOutput) Elem() ResiliencyPolicyDataLocationConstraintOutput {
@@ -339,6 +370,12 @@ func (in *resiliencyPolicyDataLocationConstraintPtr) ToResiliencyPolicyDataLocat
 
 func (in *resiliencyPolicyDataLocationConstraintPtr) ToResiliencyPolicyDataLocationConstraintPtrOutputWithContext(ctx context.Context) ResiliencyPolicyDataLocationConstraintPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ResiliencyPolicyDataLocationConstraintPtrOutput)
+}
+
+func (in *resiliencyPolicyDataLocationConstraintPtr) ToOutput(ctx context.Context) pulumix.Output[*ResiliencyPolicyDataLocationConstraint] {
+	return pulumix.Output[*ResiliencyPolicyDataLocationConstraint]{
+		OutputState: in.ToResiliencyPolicyDataLocationConstraintPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Resiliency Policy Tier.
@@ -412,6 +449,12 @@ func (o ResiliencyPolicyTierOutput) ToResiliencyPolicyTierPtrOutputWithContext(c
 	}).(ResiliencyPolicyTierPtrOutput)
 }
 
+func (o ResiliencyPolicyTierOutput) ToOutput(ctx context.Context) pulumix.Output[ResiliencyPolicyTier] {
+	return pulumix.Output[ResiliencyPolicyTier]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ResiliencyPolicyTierOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -445,6 +488,12 @@ func (o ResiliencyPolicyTierPtrOutput) ToResiliencyPolicyTierPtrOutput() Resilie
 
 func (o ResiliencyPolicyTierPtrOutput) ToResiliencyPolicyTierPtrOutputWithContext(ctx context.Context) ResiliencyPolicyTierPtrOutput {
 	return o
+}
+
+func (o ResiliencyPolicyTierPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResiliencyPolicyTier] {
+	return pulumix.Output[*ResiliencyPolicyTier]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResiliencyPolicyTierPtrOutput) Elem() ResiliencyPolicyTierOutput {
@@ -507,6 +556,12 @@ func (in *resiliencyPolicyTierPtr) ToResiliencyPolicyTierPtrOutput() ResiliencyP
 
 func (in *resiliencyPolicyTierPtr) ToResiliencyPolicyTierPtrOutputWithContext(ctx context.Context) ResiliencyPolicyTierPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ResiliencyPolicyTierPtrOutput)
+}
+
+func (in *resiliencyPolicyTierPtr) ToOutput(ctx context.Context) pulumix.Output[*ResiliencyPolicyTier] {
+	return pulumix.Output[*ResiliencyPolicyTier]{
+		OutputState: in.ToResiliencyPolicyTierPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

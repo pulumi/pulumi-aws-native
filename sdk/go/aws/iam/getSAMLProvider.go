@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::IAM::SAMLProvider
@@ -68,6 +69,12 @@ func (o LookupSAMLProviderResultOutput) ToLookupSAMLProviderResultOutput() Looku
 
 func (o LookupSAMLProviderResultOutput) ToLookupSAMLProviderResultOutputWithContext(ctx context.Context) LookupSAMLProviderResultOutput {
 	return o
+}
+
+func (o LookupSAMLProviderResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSAMLProviderResult] {
+	return pulumix.Output[LookupSAMLProviderResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name (ARN) of the SAML provider

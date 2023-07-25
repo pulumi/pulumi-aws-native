@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::ElastiCache::GlobalReplicationGroup resource creates an Amazon ElastiCache Global Replication Group.
@@ -72,6 +73,12 @@ func (o LookupGlobalReplicationGroupResultOutput) ToLookupGlobalReplicationGroup
 
 func (o LookupGlobalReplicationGroupResultOutput) ToLookupGlobalReplicationGroupResultOutputWithContext(ctx context.Context) LookupGlobalReplicationGroupResultOutput {
 	return o
+}
+
+func (o LookupGlobalReplicationGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupGlobalReplicationGroupResult] {
+	return pulumix.Output[LookupGlobalReplicationGroupResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Cache parameter group name to use for the new engine version. This parameter cannot be modified independently.

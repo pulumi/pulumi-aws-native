@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type HealthCheckConfigPropertiesInsufficientDataHealthStatus string
@@ -78,6 +79,12 @@ func (o HealthCheckConfigPropertiesInsufficientDataHealthStatusOutput) ToHealthC
 	}).(HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutput)
 }
 
+func (o HealthCheckConfigPropertiesInsufficientDataHealthStatusOutput) ToOutput(ctx context.Context) pulumix.Output[HealthCheckConfigPropertiesInsufficientDataHealthStatus] {
+	return pulumix.Output[HealthCheckConfigPropertiesInsufficientDataHealthStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o HealthCheckConfigPropertiesInsufficientDataHealthStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -111,6 +118,12 @@ func (o HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutput) ToHeal
 
 func (o HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutput) ToHealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutputWithContext(ctx context.Context) HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutput {
 	return o
+}
+
+func (o HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HealthCheckConfigPropertiesInsufficientDataHealthStatus] {
+	return pulumix.Output[*HealthCheckConfigPropertiesInsufficientDataHealthStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutput) Elem() HealthCheckConfigPropertiesInsufficientDataHealthStatusOutput {
@@ -173,6 +186,12 @@ func (in *healthCheckConfigPropertiesInsufficientDataHealthStatusPtr) ToHealthCh
 
 func (in *healthCheckConfigPropertiesInsufficientDataHealthStatusPtr) ToHealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutputWithContext(ctx context.Context) HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutput)
+}
+
+func (in *healthCheckConfigPropertiesInsufficientDataHealthStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*HealthCheckConfigPropertiesInsufficientDataHealthStatus] {
+	return pulumix.Output[*HealthCheckConfigPropertiesInsufficientDataHealthStatus]{
+		OutputState: in.ToHealthCheckConfigPropertiesInsufficientDataHealthStatusPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type HealthCheckConfigPropertiesType string
@@ -248,6 +267,12 @@ func (o HealthCheckConfigPropertiesTypeOutput) ToHealthCheckConfigPropertiesType
 	}).(HealthCheckConfigPropertiesTypePtrOutput)
 }
 
+func (o HealthCheckConfigPropertiesTypeOutput) ToOutput(ctx context.Context) pulumix.Output[HealthCheckConfigPropertiesType] {
+	return pulumix.Output[HealthCheckConfigPropertiesType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o HealthCheckConfigPropertiesTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -281,6 +306,12 @@ func (o HealthCheckConfigPropertiesTypePtrOutput) ToHealthCheckConfigPropertiesT
 
 func (o HealthCheckConfigPropertiesTypePtrOutput) ToHealthCheckConfigPropertiesTypePtrOutputWithContext(ctx context.Context) HealthCheckConfigPropertiesTypePtrOutput {
 	return o
+}
+
+func (o HealthCheckConfigPropertiesTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HealthCheckConfigPropertiesType] {
+	return pulumix.Output[*HealthCheckConfigPropertiesType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o HealthCheckConfigPropertiesTypePtrOutput) Elem() HealthCheckConfigPropertiesTypeOutput {
@@ -343,6 +374,12 @@ func (in *healthCheckConfigPropertiesTypePtr) ToHealthCheckConfigPropertiesTypeP
 
 func (in *healthCheckConfigPropertiesTypePtr) ToHealthCheckConfigPropertiesTypePtrOutputWithContext(ctx context.Context) HealthCheckConfigPropertiesTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(HealthCheckConfigPropertiesTypePtrOutput)
+}
+
+func (in *healthCheckConfigPropertiesTypePtr) ToOutput(ctx context.Context) pulumix.Output[*HealthCheckConfigPropertiesType] {
+	return pulumix.Output[*HealthCheckConfigPropertiesType]{
+		OutputState: in.ToHealthCheckConfigPropertiesTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // A string specifying the initial status of the key signing key (KSK). You can set the value to ACTIVE or INACTIVE.
@@ -413,6 +450,12 @@ func (o KeySigningKeyStatusOutput) ToKeySigningKeyStatusPtrOutputWithContext(ctx
 	}).(KeySigningKeyStatusPtrOutput)
 }
 
+func (o KeySigningKeyStatusOutput) ToOutput(ctx context.Context) pulumix.Output[KeySigningKeyStatus] {
+	return pulumix.Output[KeySigningKeyStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o KeySigningKeyStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -446,6 +489,12 @@ func (o KeySigningKeyStatusPtrOutput) ToKeySigningKeyStatusPtrOutput() KeySignin
 
 func (o KeySigningKeyStatusPtrOutput) ToKeySigningKeyStatusPtrOutputWithContext(ctx context.Context) KeySigningKeyStatusPtrOutput {
 	return o
+}
+
+func (o KeySigningKeyStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KeySigningKeyStatus] {
+	return pulumix.Output[*KeySigningKeyStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KeySigningKeyStatusPtrOutput) Elem() KeySigningKeyStatusOutput {
@@ -508,6 +557,12 @@ func (in *keySigningKeyStatusPtr) ToKeySigningKeyStatusPtrOutput() KeySigningKey
 
 func (in *keySigningKeyStatusPtr) ToKeySigningKeyStatusPtrOutputWithContext(ctx context.Context) KeySigningKeyStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(KeySigningKeyStatusPtrOutput)
+}
+
+func (in *keySigningKeyStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*KeySigningKeyStatus] {
+	return pulumix.Output[*KeySigningKeyStatus]{
+		OutputState: in.ToKeySigningKeyStatusPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

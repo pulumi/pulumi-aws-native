@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::DirectoryService::MicrosoftAD
@@ -66,6 +67,12 @@ func (o LookupMicrosoftADResultOutput) ToLookupMicrosoftADResultOutput() LookupM
 
 func (o LookupMicrosoftADResultOutput) ToLookupMicrosoftADResultOutputWithContext(ctx context.Context) LookupMicrosoftADResultOutput {
 	return o
+}
+
+func (o LookupMicrosoftADResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupMicrosoftADResult] {
+	return pulumix.Output[LookupMicrosoftADResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupMicrosoftADResultOutput) Alias() pulumi.StringPtrOutput {

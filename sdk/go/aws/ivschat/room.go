@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource type definition for AWS::IVSChat::Room.
@@ -121,6 +122,12 @@ func (i *Room) ToRoomOutputWithContext(ctx context.Context) RoomOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RoomOutput)
 }
 
+func (i *Room) ToOutput(ctx context.Context) pulumix.Output[*Room] {
+	return pulumix.Output[*Room]{
+		OutputState: i.ToRoomOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RoomOutput struct{ *pulumi.OutputState }
 
 func (RoomOutput) ElementType() reflect.Type {
@@ -133,6 +140,12 @@ func (o RoomOutput) ToRoomOutput() RoomOutput {
 
 func (o RoomOutput) ToRoomOutputWithContext(ctx context.Context) RoomOutput {
 	return o
+}
+
+func (o RoomOutput) ToOutput(ctx context.Context) pulumix.Output[*Room] {
+	return pulumix.Output[*Room]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Room ARN is automatically generated on creation and assigned as the unique identifier.

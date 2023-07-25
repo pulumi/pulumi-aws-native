@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::VPCEndpointServicePermissions
@@ -96,6 +97,12 @@ func (i *VPCEndpointServicePermissions) ToVPCEndpointServicePermissionsOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(VPCEndpointServicePermissionsOutput)
 }
 
+func (i *VPCEndpointServicePermissions) ToOutput(ctx context.Context) pulumix.Output[*VPCEndpointServicePermissions] {
+	return pulumix.Output[*VPCEndpointServicePermissions]{
+		OutputState: i.ToVPCEndpointServicePermissionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VPCEndpointServicePermissionsOutput struct{ *pulumi.OutputState }
 
 func (VPCEndpointServicePermissionsOutput) ElementType() reflect.Type {
@@ -108,6 +115,12 @@ func (o VPCEndpointServicePermissionsOutput) ToVPCEndpointServicePermissionsOutp
 
 func (o VPCEndpointServicePermissionsOutput) ToVPCEndpointServicePermissionsOutputWithContext(ctx context.Context) VPCEndpointServicePermissionsOutput {
 	return o
+}
+
+func (o VPCEndpointServicePermissionsOutput) ToOutput(ctx context.Context) pulumix.Output[*VPCEndpointServicePermissions] {
+	return pulumix.Output[*VPCEndpointServicePermissions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VPCEndpointServicePermissionsOutput) AllowedPrincipals() pulumi.StringArrayOutput {

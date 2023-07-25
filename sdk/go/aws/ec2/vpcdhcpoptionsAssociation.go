@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Associates a set of DHCP options with a VPC, or associates no DHCP options with the VPC.
@@ -105,6 +106,12 @@ func (i *VPCDHCPOptionsAssociation) ToVPCDHCPOptionsAssociationOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(VPCDHCPOptionsAssociationOutput)
 }
 
+func (i *VPCDHCPOptionsAssociation) ToOutput(ctx context.Context) pulumix.Output[*VPCDHCPOptionsAssociation] {
+	return pulumix.Output[*VPCDHCPOptionsAssociation]{
+		OutputState: i.ToVPCDHCPOptionsAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VPCDHCPOptionsAssociationOutput struct{ *pulumi.OutputState }
 
 func (VPCDHCPOptionsAssociationOutput) ElementType() reflect.Type {
@@ -117,6 +124,12 @@ func (o VPCDHCPOptionsAssociationOutput) ToVPCDHCPOptionsAssociationOutput() VPC
 
 func (o VPCDHCPOptionsAssociationOutput) ToVPCDHCPOptionsAssociationOutputWithContext(ctx context.Context) VPCDHCPOptionsAssociationOutput {
 	return o
+}
+
+func (o VPCDHCPOptionsAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*VPCDHCPOptionsAssociation] {
+	return pulumix.Output[*VPCDHCPOptionsAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the DHCP options set, or default to associate no DHCP options with the VPC.

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Evidently::Launch.
@@ -72,6 +73,12 @@ func (o LookupLaunchResultOutput) ToLookupLaunchResultOutput() LookupLaunchResul
 
 func (o LookupLaunchResultOutput) ToLookupLaunchResultOutputWithContext(ctx context.Context) LookupLaunchResultOutput {
 	return o
+}
+
+func (o LookupLaunchResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupLaunchResult] {
+	return pulumix.Output[LookupLaunchResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupLaunchResultOutput) Arn() pulumi.StringPtrOutput {

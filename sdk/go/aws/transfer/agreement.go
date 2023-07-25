@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Transfer::Agreement
@@ -154,6 +155,12 @@ func (i *Agreement) ToAgreementOutputWithContext(ctx context.Context) AgreementO
 	return pulumi.ToOutputWithContext(ctx, i).(AgreementOutput)
 }
 
+func (i *Agreement) ToOutput(ctx context.Context) pulumix.Output[*Agreement] {
+	return pulumix.Output[*Agreement]{
+		OutputState: i.ToAgreementOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AgreementOutput struct{ *pulumi.OutputState }
 
 func (AgreementOutput) ElementType() reflect.Type {
@@ -166,6 +173,12 @@ func (o AgreementOutput) ToAgreementOutput() AgreementOutput {
 
 func (o AgreementOutput) ToAgreementOutputWithContext(ctx context.Context) AgreementOutput {
 	return o
+}
+
+func (o AgreementOutput) ToOutput(ctx context.Context) pulumix.Output[*Agreement] {
+	return pulumix.Output[*Agreement]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the access role for the agreement.

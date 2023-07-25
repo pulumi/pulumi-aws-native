@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Lightsail::LoadBalancerTlsCertificate
@@ -75,6 +76,12 @@ func (o LookupLoadBalancerTlsCertificateResultOutput) ToLookupLoadBalancerTlsCer
 
 func (o LookupLoadBalancerTlsCertificateResultOutput) ToLookupLoadBalancerTlsCertificateResultOutputWithContext(ctx context.Context) LookupLoadBalancerTlsCertificateResultOutput {
 	return o
+}
+
+func (o LookupLoadBalancerTlsCertificateResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupLoadBalancerTlsCertificateResult] {
+	return pulumix.Output[LookupLoadBalancerTlsCertificateResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A Boolean value that indicates whether HTTPS redirection is enabled for the load balancer.

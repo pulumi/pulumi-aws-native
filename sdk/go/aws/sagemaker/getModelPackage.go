@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SageMaker::ModelPackage
@@ -76,6 +77,12 @@ func (o LookupModelPackageResultOutput) ToLookupModelPackageResultOutput() Looku
 
 func (o LookupModelPackageResultOutput) ToLookupModelPackageResultOutputWithContext(ctx context.Context) LookupModelPackageResultOutput {
 	return o
+}
+
+func (o LookupModelPackageResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupModelPackageResult] {
+	return pulumix.Output[LookupModelPackageResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupModelPackageResultOutput) AdditionalInferenceSpecifications() ModelPackageAdditionalInferenceSpecificationDefinitionArrayOutput {

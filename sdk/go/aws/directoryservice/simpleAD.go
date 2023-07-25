@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::DirectoryService::SimpleAD
@@ -147,6 +148,12 @@ func (i *SimpleAD) ToSimpleADOutputWithContext(ctx context.Context) SimpleADOutp
 	return pulumi.ToOutputWithContext(ctx, i).(SimpleADOutput)
 }
 
+func (i *SimpleAD) ToOutput(ctx context.Context) pulumix.Output[*SimpleAD] {
+	return pulumix.Output[*SimpleAD]{
+		OutputState: i.ToSimpleADOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SimpleADOutput struct{ *pulumi.OutputState }
 
 func (SimpleADOutput) ElementType() reflect.Type {
@@ -159,6 +166,12 @@ func (o SimpleADOutput) ToSimpleADOutput() SimpleADOutput {
 
 func (o SimpleADOutput) ToSimpleADOutputWithContext(ctx context.Context) SimpleADOutput {
 	return o
+}
+
+func (o SimpleADOutput) ToOutput(ctx context.Context) pulumix.Output[*SimpleAD] {
+	return pulumix.Output[*SimpleAD]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The alias for a directory.

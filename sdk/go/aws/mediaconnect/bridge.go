@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::MediaConnect::Bridge
@@ -129,6 +130,12 @@ func (i *Bridge) ToBridgeOutputWithContext(ctx context.Context) BridgeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BridgeOutput)
 }
 
+func (i *Bridge) ToOutput(ctx context.Context) pulumix.Output[*Bridge] {
+	return pulumix.Output[*Bridge]{
+		OutputState: i.ToBridgeOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BridgeOutput struct{ *pulumi.OutputState }
 
 func (BridgeOutput) ElementType() reflect.Type {
@@ -141,6 +148,12 @@ func (o BridgeOutput) ToBridgeOutput() BridgeOutput {
 
 func (o BridgeOutput) ToBridgeOutputWithContext(ctx context.Context) BridgeOutput {
 	return o
+}
+
+func (o BridgeOutput) ToOutput(ctx context.Context) pulumix.Output[*Bridge] {
+	return pulumix.Output[*Bridge]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Number (ARN) of the bridge.

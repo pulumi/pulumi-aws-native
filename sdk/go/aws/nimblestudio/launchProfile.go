@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Represents a launch profile which delegates access to a collection of studio components to studio users
@@ -154,6 +155,12 @@ func (i *LaunchProfile) ToLaunchProfileOutputWithContext(ctx context.Context) La
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchProfileOutput)
 }
 
+func (i *LaunchProfile) ToOutput(ctx context.Context) pulumix.Output[*LaunchProfile] {
+	return pulumix.Output[*LaunchProfile]{
+		OutputState: i.ToLaunchProfileOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LaunchProfileOutput struct{ *pulumi.OutputState }
 
 func (LaunchProfileOutput) ElementType() reflect.Type {
@@ -166,6 +173,12 @@ func (o LaunchProfileOutput) ToLaunchProfileOutput() LaunchProfileOutput {
 
 func (o LaunchProfileOutput) ToLaunchProfileOutputWithContext(ctx context.Context) LaunchProfileOutput {
 	return o
+}
+
+func (o LaunchProfileOutput) ToOutput(ctx context.Context) pulumix.Output[*LaunchProfile] {
+	return pulumix.Output[*LaunchProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 // <p>The description.</p>

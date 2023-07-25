@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::TransitGatewayRouteTablePropagation
@@ -63,6 +64,12 @@ func (o LookupTransitGatewayRouteTablePropagationResultOutput) ToLookupTransitGa
 
 func (o LookupTransitGatewayRouteTablePropagationResultOutput) ToLookupTransitGatewayRouteTablePropagationResultOutputWithContext(ctx context.Context) LookupTransitGatewayRouteTablePropagationResultOutput {
 	return o
+}
+
+func (o LookupTransitGatewayRouteTablePropagationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTransitGatewayRouteTablePropagationResult] {
+	return pulumix.Output[LookupTransitGatewayRouteTablePropagationResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupTransitGatewayRouteTablePropagationResultOutput) Id() pulumi.StringPtrOutput {

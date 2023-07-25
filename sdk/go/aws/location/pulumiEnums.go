@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type GeofenceCollectionPricingPlan string
@@ -76,6 +77,12 @@ func (o GeofenceCollectionPricingPlanOutput) ToGeofenceCollectionPricingPlanPtrO
 	}).(GeofenceCollectionPricingPlanPtrOutput)
 }
 
+func (o GeofenceCollectionPricingPlanOutput) ToOutput(ctx context.Context) pulumix.Output[GeofenceCollectionPricingPlan] {
+	return pulumix.Output[GeofenceCollectionPricingPlan]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GeofenceCollectionPricingPlanOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -109,6 +116,12 @@ func (o GeofenceCollectionPricingPlanPtrOutput) ToGeofenceCollectionPricingPlanP
 
 func (o GeofenceCollectionPricingPlanPtrOutput) ToGeofenceCollectionPricingPlanPtrOutputWithContext(ctx context.Context) GeofenceCollectionPricingPlanPtrOutput {
 	return o
+}
+
+func (o GeofenceCollectionPricingPlanPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GeofenceCollectionPricingPlan] {
+	return pulumix.Output[*GeofenceCollectionPricingPlan]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GeofenceCollectionPricingPlanPtrOutput) Elem() GeofenceCollectionPricingPlanOutput {
@@ -171,6 +184,12 @@ func (in *geofenceCollectionPricingPlanPtr) ToGeofenceCollectionPricingPlanPtrOu
 
 func (in *geofenceCollectionPricingPlanPtr) ToGeofenceCollectionPricingPlanPtrOutputWithContext(ctx context.Context) GeofenceCollectionPricingPlanPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GeofenceCollectionPricingPlanPtrOutput)
+}
+
+func (in *geofenceCollectionPricingPlanPtr) ToOutput(ctx context.Context) pulumix.Output[*GeofenceCollectionPricingPlan] {
+	return pulumix.Output[*GeofenceCollectionPricingPlan]{
+		OutputState: in.ToGeofenceCollectionPricingPlanPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type MapPricingPlan string
@@ -239,6 +258,12 @@ func (o MapPricingPlanOutput) ToMapPricingPlanPtrOutputWithContext(ctx context.C
 	}).(MapPricingPlanPtrOutput)
 }
 
+func (o MapPricingPlanOutput) ToOutput(ctx context.Context) pulumix.Output[MapPricingPlan] {
+	return pulumix.Output[MapPricingPlan]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MapPricingPlanOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -272,6 +297,12 @@ func (o MapPricingPlanPtrOutput) ToMapPricingPlanPtrOutput() MapPricingPlanPtrOu
 
 func (o MapPricingPlanPtrOutput) ToMapPricingPlanPtrOutputWithContext(ctx context.Context) MapPricingPlanPtrOutput {
 	return o
+}
+
+func (o MapPricingPlanPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MapPricingPlan] {
+	return pulumix.Output[*MapPricingPlan]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MapPricingPlanPtrOutput) Elem() MapPricingPlanOutput {
@@ -334,6 +365,12 @@ func (in *mapPricingPlanPtr) ToMapPricingPlanPtrOutput() MapPricingPlanPtrOutput
 
 func (in *mapPricingPlanPtr) ToMapPricingPlanPtrOutputWithContext(ctx context.Context) MapPricingPlanPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MapPricingPlanPtrOutput)
+}
+
+func (in *mapPricingPlanPtr) ToOutput(ctx context.Context) pulumix.Output[*MapPricingPlan] {
+	return pulumix.Output[*MapPricingPlan]{
+		OutputState: in.ToMapPricingPlanPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type PlaceIndexIntendedUse string
@@ -403,6 +440,12 @@ func (o PlaceIndexIntendedUseOutput) ToPlaceIndexIntendedUsePtrOutputWithContext
 	}).(PlaceIndexIntendedUsePtrOutput)
 }
 
+func (o PlaceIndexIntendedUseOutput) ToOutput(ctx context.Context) pulumix.Output[PlaceIndexIntendedUse] {
+	return pulumix.Output[PlaceIndexIntendedUse]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PlaceIndexIntendedUseOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -436,6 +479,12 @@ func (o PlaceIndexIntendedUsePtrOutput) ToPlaceIndexIntendedUsePtrOutput() Place
 
 func (o PlaceIndexIntendedUsePtrOutput) ToPlaceIndexIntendedUsePtrOutputWithContext(ctx context.Context) PlaceIndexIntendedUsePtrOutput {
 	return o
+}
+
+func (o PlaceIndexIntendedUsePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PlaceIndexIntendedUse] {
+	return pulumix.Output[*PlaceIndexIntendedUse]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PlaceIndexIntendedUsePtrOutput) Elem() PlaceIndexIntendedUseOutput {
@@ -498,6 +547,12 @@ func (in *placeIndexIntendedUsePtr) ToPlaceIndexIntendedUsePtrOutput() PlaceInde
 
 func (in *placeIndexIntendedUsePtr) ToPlaceIndexIntendedUsePtrOutputWithContext(ctx context.Context) PlaceIndexIntendedUsePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PlaceIndexIntendedUsePtrOutput)
+}
+
+func (in *placeIndexIntendedUsePtr) ToOutput(ctx context.Context) pulumix.Output[*PlaceIndexIntendedUse] {
+	return pulumix.Output[*PlaceIndexIntendedUse]{
+		OutputState: in.ToPlaceIndexIntendedUsePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type PlaceIndexPricingPlan string
@@ -566,6 +621,12 @@ func (o PlaceIndexPricingPlanOutput) ToPlaceIndexPricingPlanPtrOutputWithContext
 	}).(PlaceIndexPricingPlanPtrOutput)
 }
 
+func (o PlaceIndexPricingPlanOutput) ToOutput(ctx context.Context) pulumix.Output[PlaceIndexPricingPlan] {
+	return pulumix.Output[PlaceIndexPricingPlan]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PlaceIndexPricingPlanOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -599,6 +660,12 @@ func (o PlaceIndexPricingPlanPtrOutput) ToPlaceIndexPricingPlanPtrOutput() Place
 
 func (o PlaceIndexPricingPlanPtrOutput) ToPlaceIndexPricingPlanPtrOutputWithContext(ctx context.Context) PlaceIndexPricingPlanPtrOutput {
 	return o
+}
+
+func (o PlaceIndexPricingPlanPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PlaceIndexPricingPlan] {
+	return pulumix.Output[*PlaceIndexPricingPlan]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PlaceIndexPricingPlanPtrOutput) Elem() PlaceIndexPricingPlanOutput {
@@ -661,6 +728,12 @@ func (in *placeIndexPricingPlanPtr) ToPlaceIndexPricingPlanPtrOutput() PlaceInde
 
 func (in *placeIndexPricingPlanPtr) ToPlaceIndexPricingPlanPtrOutputWithContext(ctx context.Context) PlaceIndexPricingPlanPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PlaceIndexPricingPlanPtrOutput)
+}
+
+func (in *placeIndexPricingPlanPtr) ToOutput(ctx context.Context) pulumix.Output[*PlaceIndexPricingPlan] {
+	return pulumix.Output[*PlaceIndexPricingPlan]{
+		OutputState: in.ToPlaceIndexPricingPlanPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type RouteCalculatorPricingPlan string
@@ -729,6 +802,12 @@ func (o RouteCalculatorPricingPlanOutput) ToRouteCalculatorPricingPlanPtrOutputW
 	}).(RouteCalculatorPricingPlanPtrOutput)
 }
 
+func (o RouteCalculatorPricingPlanOutput) ToOutput(ctx context.Context) pulumix.Output[RouteCalculatorPricingPlan] {
+	return pulumix.Output[RouteCalculatorPricingPlan]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RouteCalculatorPricingPlanOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -762,6 +841,12 @@ func (o RouteCalculatorPricingPlanPtrOutput) ToRouteCalculatorPricingPlanPtrOutp
 
 func (o RouteCalculatorPricingPlanPtrOutput) ToRouteCalculatorPricingPlanPtrOutputWithContext(ctx context.Context) RouteCalculatorPricingPlanPtrOutput {
 	return o
+}
+
+func (o RouteCalculatorPricingPlanPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RouteCalculatorPricingPlan] {
+	return pulumix.Output[*RouteCalculatorPricingPlan]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteCalculatorPricingPlanPtrOutput) Elem() RouteCalculatorPricingPlanOutput {
@@ -824,6 +909,12 @@ func (in *routeCalculatorPricingPlanPtr) ToRouteCalculatorPricingPlanPtrOutput()
 
 func (in *routeCalculatorPricingPlanPtr) ToRouteCalculatorPricingPlanPtrOutputWithContext(ctx context.Context) RouteCalculatorPricingPlanPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RouteCalculatorPricingPlanPtrOutput)
+}
+
+func (in *routeCalculatorPricingPlanPtr) ToOutput(ctx context.Context) pulumix.Output[*RouteCalculatorPricingPlan] {
+	return pulumix.Output[*RouteCalculatorPricingPlan]{
+		OutputState: in.ToRouteCalculatorPricingPlanPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type TrackerPositionFiltering string
@@ -894,6 +985,12 @@ func (o TrackerPositionFilteringOutput) ToTrackerPositionFilteringPtrOutputWithC
 	}).(TrackerPositionFilteringPtrOutput)
 }
 
+func (o TrackerPositionFilteringOutput) ToOutput(ctx context.Context) pulumix.Output[TrackerPositionFiltering] {
+	return pulumix.Output[TrackerPositionFiltering]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TrackerPositionFilteringOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -927,6 +1024,12 @@ func (o TrackerPositionFilteringPtrOutput) ToTrackerPositionFilteringPtrOutput()
 
 func (o TrackerPositionFilteringPtrOutput) ToTrackerPositionFilteringPtrOutputWithContext(ctx context.Context) TrackerPositionFilteringPtrOutput {
 	return o
+}
+
+func (o TrackerPositionFilteringPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TrackerPositionFiltering] {
+	return pulumix.Output[*TrackerPositionFiltering]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TrackerPositionFilteringPtrOutput) Elem() TrackerPositionFilteringOutput {
@@ -989,6 +1092,12 @@ func (in *trackerPositionFilteringPtr) ToTrackerPositionFilteringPtrOutput() Tra
 
 func (in *trackerPositionFilteringPtr) ToTrackerPositionFilteringPtrOutputWithContext(ctx context.Context) TrackerPositionFilteringPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TrackerPositionFilteringPtrOutput)
+}
+
+func (in *trackerPositionFilteringPtr) ToOutput(ctx context.Context) pulumix.Output[*TrackerPositionFiltering] {
+	return pulumix.Output[*TrackerPositionFiltering]{
+		OutputState: in.ToTrackerPositionFilteringPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type TrackerPricingPlan string
@@ -1057,6 +1166,12 @@ func (o TrackerPricingPlanOutput) ToTrackerPricingPlanPtrOutputWithContext(ctx c
 	}).(TrackerPricingPlanPtrOutput)
 }
 
+func (o TrackerPricingPlanOutput) ToOutput(ctx context.Context) pulumix.Output[TrackerPricingPlan] {
+	return pulumix.Output[TrackerPricingPlan]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TrackerPricingPlanOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1090,6 +1205,12 @@ func (o TrackerPricingPlanPtrOutput) ToTrackerPricingPlanPtrOutput() TrackerPric
 
 func (o TrackerPricingPlanPtrOutput) ToTrackerPricingPlanPtrOutputWithContext(ctx context.Context) TrackerPricingPlanPtrOutput {
 	return o
+}
+
+func (o TrackerPricingPlanPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TrackerPricingPlan] {
+	return pulumix.Output[*TrackerPricingPlan]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TrackerPricingPlanPtrOutput) Elem() TrackerPricingPlanOutput {
@@ -1152,6 +1273,12 @@ func (in *trackerPricingPlanPtr) ToTrackerPricingPlanPtrOutput() TrackerPricingP
 
 func (in *trackerPricingPlanPtr) ToTrackerPricingPlanPtrOutputWithContext(ctx context.Context) TrackerPricingPlanPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TrackerPricingPlanPtrOutput)
+}
+
+func (in *trackerPricingPlanPtr) ToOutput(ctx context.Context) pulumix.Output[*TrackerPricingPlan] {
+	return pulumix.Output[*TrackerPricingPlan]{
+		OutputState: in.ToTrackerPricingPlanPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

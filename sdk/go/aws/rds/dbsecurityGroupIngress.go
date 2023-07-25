@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::RDS::DBSecurityGroupIngress
@@ -107,6 +108,12 @@ func (i *DBSecurityGroupIngress) ToDBSecurityGroupIngressOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(DBSecurityGroupIngressOutput)
 }
 
+func (i *DBSecurityGroupIngress) ToOutput(ctx context.Context) pulumix.Output[*DBSecurityGroupIngress] {
+	return pulumix.Output[*DBSecurityGroupIngress]{
+		OutputState: i.ToDBSecurityGroupIngressOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DBSecurityGroupIngressOutput struct{ *pulumi.OutputState }
 
 func (DBSecurityGroupIngressOutput) ElementType() reflect.Type {
@@ -119,6 +126,12 @@ func (o DBSecurityGroupIngressOutput) ToDBSecurityGroupIngressOutput() DBSecurit
 
 func (o DBSecurityGroupIngressOutput) ToDBSecurityGroupIngressOutputWithContext(ctx context.Context) DBSecurityGroupIngressOutput {
 	return o
+}
+
+func (o DBSecurityGroupIngressOutput) ToOutput(ctx context.Context) pulumix.Output[*DBSecurityGroupIngress] {
+	return pulumix.Output[*DBSecurityGroupIngress]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DBSecurityGroupIngressOutput) CIDRIP() pulumi.StringPtrOutput {

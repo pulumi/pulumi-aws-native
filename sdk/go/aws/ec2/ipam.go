@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Schema of AWS::EC2::IPAM Type
@@ -117,6 +118,12 @@ func (i *IPAM) ToIPAMOutputWithContext(ctx context.Context) IPAMOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IPAMOutput)
 }
 
+func (i *IPAM) ToOutput(ctx context.Context) pulumix.Output[*IPAM] {
+	return pulumix.Output[*IPAM]{
+		OutputState: i.ToIPAMOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IPAMOutput struct{ *pulumi.OutputState }
 
 func (IPAMOutput) ElementType() reflect.Type {
@@ -129,6 +136,12 @@ func (o IPAMOutput) ToIPAMOutput() IPAMOutput {
 
 func (o IPAMOutput) ToIPAMOutputWithContext(ctx context.Context) IPAMOutput {
 	return o
+}
+
+func (o IPAMOutput) ToOutput(ctx context.Context) pulumix.Output[*IPAM] {
+	return pulumix.Output[*IPAM]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the IPAM.

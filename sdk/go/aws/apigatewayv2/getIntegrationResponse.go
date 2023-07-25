@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Schema for ApiGatewayV2 Integration Response
@@ -84,6 +85,12 @@ func (o LookupIntegrationResponseResultOutput) ToLookupIntegrationResponseResult
 
 func (o LookupIntegrationResponseResultOutput) ToLookupIntegrationResponseResultOutputWithContext(ctx context.Context) LookupIntegrationResponseResultOutput {
 	return o
+}
+
+func (o LookupIntegrationResponseResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupIntegrationResponseResult] {
+	return pulumix.Output[LookupIntegrationResponseResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies how to handle response payload content type conversions

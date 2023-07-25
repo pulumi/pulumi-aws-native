@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // HealthLake FHIR Datastore
@@ -113,6 +114,12 @@ func (i *FHIRDatastore) ToFHIRDatastoreOutputWithContext(ctx context.Context) FH
 	return pulumi.ToOutputWithContext(ctx, i).(FHIRDatastoreOutput)
 }
 
+func (i *FHIRDatastore) ToOutput(ctx context.Context) pulumix.Output[*FHIRDatastore] {
+	return pulumix.Output[*FHIRDatastore]{
+		OutputState: i.ToFHIRDatastoreOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FHIRDatastoreOutput struct{ *pulumi.OutputState }
 
 func (FHIRDatastoreOutput) ElementType() reflect.Type {
@@ -125,6 +132,12 @@ func (o FHIRDatastoreOutput) ToFHIRDatastoreOutput() FHIRDatastoreOutput {
 
 func (o FHIRDatastoreOutput) ToFHIRDatastoreOutputWithContext(ctx context.Context) FHIRDatastoreOutput {
 	return o
+}
+
+func (o FHIRDatastoreOutput) ToOutput(ctx context.Context) pulumix.Output[*FHIRDatastore] {
+	return pulumix.Output[*FHIRDatastore]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FHIRDatastoreOutput) CreatedAt() FHIRDatastoreCreatedAtOutput {

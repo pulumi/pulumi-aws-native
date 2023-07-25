@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::MediaConnect::BridgeSource
@@ -70,6 +71,12 @@ func (o LookupBridgeSourceResultOutput) ToLookupBridgeSourceResultOutput() Looku
 
 func (o LookupBridgeSourceResultOutput) ToLookupBridgeSourceResultOutputWithContext(ctx context.Context) LookupBridgeSourceResultOutput {
 	return o
+}
+
+func (o LookupBridgeSourceResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupBridgeSourceResult] {
+	return pulumix.Output[LookupBridgeSourceResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupBridgeSourceResultOutput) FlowSource() BridgeSourceBridgeFlowSourcePtrOutput {

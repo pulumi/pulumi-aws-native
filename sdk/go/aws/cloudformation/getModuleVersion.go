@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A module that has been registered in the CloudFormation registry.
@@ -84,6 +85,12 @@ func (o LookupModuleVersionResultOutput) ToLookupModuleVersionResultOutput() Loo
 
 func (o LookupModuleVersionResultOutput) ToLookupModuleVersionResultOutputWithContext(ctx context.Context) LookupModuleVersionResultOutput {
 	return o
+}
+
+func (o LookupModuleVersionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupModuleVersionResult] {
+	return pulumix.Output[LookupModuleVersionResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the module.

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::VPCEndpoint
@@ -76,6 +77,12 @@ func (o LookupVPCEndpointResultOutput) ToLookupVPCEndpointResultOutput() LookupV
 
 func (o LookupVPCEndpointResultOutput) ToLookupVPCEndpointResultOutputWithContext(ctx context.Context) LookupVPCEndpointResultOutput {
 	return o
+}
+
+func (o LookupVPCEndpointResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVPCEndpointResult] {
+	return pulumix.Output[LookupVPCEndpointResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupVPCEndpointResultOutput) CreationTimestamp() pulumi.StringPtrOutput {

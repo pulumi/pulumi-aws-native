@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Backup::BackupVault
@@ -67,6 +68,12 @@ func (o LookupBackupVaultResultOutput) ToLookupBackupVaultResultOutput() LookupB
 
 func (o LookupBackupVaultResultOutput) ToLookupBackupVaultResultOutputWithContext(ctx context.Context) LookupBackupVaultResultOutput {
 	return o
+}
+
+func (o LookupBackupVaultResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupBackupVaultResult] {
+	return pulumix.Output[LookupBackupVaultResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupBackupVaultResultOutput) AccessPolicy() pulumi.AnyOutput {

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Represents a collaboration between AWS accounts that allows for secure data collaboration
@@ -68,6 +69,12 @@ func (o LookupCollaborationResultOutput) ToLookupCollaborationResultOutput() Loo
 
 func (o LookupCollaborationResultOutput) ToLookupCollaborationResultOutputWithContext(ctx context.Context) LookupCollaborationResultOutput {
 	return o
+}
+
+func (o LookupCollaborationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupCollaborationResult] {
+	return pulumix.Output[LookupCollaborationResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupCollaborationResultOutput) Arn() pulumi.StringPtrOutput {

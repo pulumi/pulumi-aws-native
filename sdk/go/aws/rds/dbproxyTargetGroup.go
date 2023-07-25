@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::RDS::DBProxyTargetGroup
@@ -116,6 +117,12 @@ func (i *DBProxyTargetGroup) ToDBProxyTargetGroupOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(DBProxyTargetGroupOutput)
 }
 
+func (i *DBProxyTargetGroup) ToOutput(ctx context.Context) pulumix.Output[*DBProxyTargetGroup] {
+	return pulumix.Output[*DBProxyTargetGroup]{
+		OutputState: i.ToDBProxyTargetGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DBProxyTargetGroupOutput struct{ *pulumi.OutputState }
 
 func (DBProxyTargetGroupOutput) ElementType() reflect.Type {
@@ -128,6 +135,12 @@ func (o DBProxyTargetGroupOutput) ToDBProxyTargetGroupOutput() DBProxyTargetGrou
 
 func (o DBProxyTargetGroupOutput) ToDBProxyTargetGroupOutputWithContext(ctx context.Context) DBProxyTargetGroupOutput {
 	return o
+}
+
+func (o DBProxyTargetGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*DBProxyTargetGroup] {
+	return pulumix.Output[*DBProxyTargetGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DBProxyTargetGroupOutput) ConnectionPoolConfigurationInfo() DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput {

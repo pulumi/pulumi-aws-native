@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AppSync::GraphQLSchema
@@ -65,6 +66,12 @@ func (o LookupGraphQLSchemaResultOutput) ToLookupGraphQLSchemaResultOutput() Loo
 
 func (o LookupGraphQLSchemaResultOutput) ToLookupGraphQLSchemaResultOutputWithContext(ctx context.Context) LookupGraphQLSchemaResultOutput {
 	return o
+}
+
+func (o LookupGraphQLSchemaResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupGraphQLSchemaResult] {
+	return pulumix.Output[LookupGraphQLSchemaResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupGraphQLSchemaResultOutput) Definition() pulumi.StringPtrOutput {

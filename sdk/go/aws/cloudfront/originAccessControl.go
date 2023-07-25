@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::CloudFront::OriginAccessControl
@@ -93,6 +94,12 @@ func (i *OriginAccessControl) ToOriginAccessControlOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(OriginAccessControlOutput)
 }
 
+func (i *OriginAccessControl) ToOutput(ctx context.Context) pulumix.Output[*OriginAccessControl] {
+	return pulumix.Output[*OriginAccessControl]{
+		OutputState: i.ToOriginAccessControlOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OriginAccessControlOutput struct{ *pulumi.OutputState }
 
 func (OriginAccessControlOutput) ElementType() reflect.Type {
@@ -105,6 +112,12 @@ func (o OriginAccessControlOutput) ToOriginAccessControlOutput() OriginAccessCon
 
 func (o OriginAccessControlOutput) ToOriginAccessControlOutputWithContext(ctx context.Context) OriginAccessControlOutput {
 	return o
+}
+
+func (o OriginAccessControlOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginAccessControl] {
+	return pulumix.Output[*OriginAccessControl]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OriginAccessControlOutput) OriginAccessControlConfig() OriginAccessControlConfigOutput {

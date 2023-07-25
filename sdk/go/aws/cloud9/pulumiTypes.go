@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -46,6 +47,12 @@ func (i EnvironmentEC2RepositoryArgs) ToEnvironmentEC2RepositoryOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentEC2RepositoryOutput)
 }
 
+func (i EnvironmentEC2RepositoryArgs) ToOutput(ctx context.Context) pulumix.Output[EnvironmentEC2Repository] {
+	return pulumix.Output[EnvironmentEC2Repository]{
+		OutputState: i.ToEnvironmentEC2RepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EnvironmentEC2RepositoryArrayInput is an input type that accepts EnvironmentEC2RepositoryArray and EnvironmentEC2RepositoryArrayOutput values.
 // You can construct a concrete instance of `EnvironmentEC2RepositoryArrayInput` via:
 //
@@ -71,6 +78,12 @@ func (i EnvironmentEC2RepositoryArray) ToEnvironmentEC2RepositoryArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentEC2RepositoryArrayOutput)
 }
 
+func (i EnvironmentEC2RepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]EnvironmentEC2Repository] {
+	return pulumix.Output[[]EnvironmentEC2Repository]{
+		OutputState: i.ToEnvironmentEC2RepositoryArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EnvironmentEC2RepositoryOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentEC2RepositoryOutput) ElementType() reflect.Type {
@@ -83,6 +96,12 @@ func (o EnvironmentEC2RepositoryOutput) ToEnvironmentEC2RepositoryOutput() Envir
 
 func (o EnvironmentEC2RepositoryOutput) ToEnvironmentEC2RepositoryOutputWithContext(ctx context.Context) EnvironmentEC2RepositoryOutput {
 	return o
+}
+
+func (o EnvironmentEC2RepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentEC2Repository] {
+	return pulumix.Output[EnvironmentEC2Repository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EnvironmentEC2RepositoryOutput) PathComponent() pulumi.StringOutput {
@@ -105,6 +124,12 @@ func (o EnvironmentEC2RepositoryArrayOutput) ToEnvironmentEC2RepositoryArrayOutp
 
 func (o EnvironmentEC2RepositoryArrayOutput) ToEnvironmentEC2RepositoryArrayOutputWithContext(ctx context.Context) EnvironmentEC2RepositoryArrayOutput {
 	return o
+}
+
+func (o EnvironmentEC2RepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EnvironmentEC2Repository] {
+	return pulumix.Output[[]EnvironmentEC2Repository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EnvironmentEC2RepositoryArrayOutput) Index(i pulumi.IntInput) EnvironmentEC2RepositoryOutput {
@@ -146,6 +171,12 @@ func (i EnvironmentEC2TagArgs) ToEnvironmentEC2TagOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentEC2TagOutput)
 }
 
+func (i EnvironmentEC2TagArgs) ToOutput(ctx context.Context) pulumix.Output[EnvironmentEC2Tag] {
+	return pulumix.Output[EnvironmentEC2Tag]{
+		OutputState: i.ToEnvironmentEC2TagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EnvironmentEC2TagArrayInput is an input type that accepts EnvironmentEC2TagArray and EnvironmentEC2TagArrayOutput values.
 // You can construct a concrete instance of `EnvironmentEC2TagArrayInput` via:
 //
@@ -171,6 +202,12 @@ func (i EnvironmentEC2TagArray) ToEnvironmentEC2TagArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentEC2TagArrayOutput)
 }
 
+func (i EnvironmentEC2TagArray) ToOutput(ctx context.Context) pulumix.Output[[]EnvironmentEC2Tag] {
+	return pulumix.Output[[]EnvironmentEC2Tag]{
+		OutputState: i.ToEnvironmentEC2TagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EnvironmentEC2TagOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentEC2TagOutput) ElementType() reflect.Type {
@@ -183,6 +220,12 @@ func (o EnvironmentEC2TagOutput) ToEnvironmentEC2TagOutput() EnvironmentEC2TagOu
 
 func (o EnvironmentEC2TagOutput) ToEnvironmentEC2TagOutputWithContext(ctx context.Context) EnvironmentEC2TagOutput {
 	return o
+}
+
+func (o EnvironmentEC2TagOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentEC2Tag] {
+	return pulumix.Output[EnvironmentEC2Tag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EnvironmentEC2TagOutput) Key() pulumi.StringOutput {
@@ -205,6 +248,12 @@ func (o EnvironmentEC2TagArrayOutput) ToEnvironmentEC2TagArrayOutput() Environme
 
 func (o EnvironmentEC2TagArrayOutput) ToEnvironmentEC2TagArrayOutputWithContext(ctx context.Context) EnvironmentEC2TagArrayOutput {
 	return o
+}
+
+func (o EnvironmentEC2TagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EnvironmentEC2Tag] {
+	return pulumix.Output[[]EnvironmentEC2Tag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EnvironmentEC2TagArrayOutput) Index(i pulumi.IntInput) EnvironmentEC2TagOutput {

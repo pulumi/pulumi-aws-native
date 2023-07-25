@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AppSync::DomainName
@@ -65,6 +66,12 @@ func (o LookupDomainNameResultOutput) ToLookupDomainNameResultOutput() LookupDom
 
 func (o LookupDomainNameResultOutput) ToLookupDomainNameResultOutputWithContext(ctx context.Context) LookupDomainNameResultOutput {
 	return o
+}
+
+func (o LookupDomainNameResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDomainNameResult] {
+	return pulumix.Output[LookupDomainNameResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupDomainNameResultOutput) AppSyncDomainName() pulumi.StringPtrOutput {

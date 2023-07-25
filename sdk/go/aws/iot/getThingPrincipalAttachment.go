@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::IoT::ThingPrincipalAttachment
@@ -63,6 +64,12 @@ func (o LookupThingPrincipalAttachmentResultOutput) ToLookupThingPrincipalAttach
 
 func (o LookupThingPrincipalAttachmentResultOutput) ToLookupThingPrincipalAttachmentResultOutputWithContext(ctx context.Context) LookupThingPrincipalAttachmentResultOutput {
 	return o
+}
+
+func (o LookupThingPrincipalAttachmentResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupThingPrincipalAttachmentResult] {
+	return pulumix.Output[LookupThingPrincipalAttachmentResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupThingPrincipalAttachmentResultOutput) Id() pulumi.StringPtrOutput {

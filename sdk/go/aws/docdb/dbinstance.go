@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::DocDB::DBInstance
@@ -121,6 +122,12 @@ func (i *DBInstance) ToDBInstanceOutputWithContext(ctx context.Context) DBInstan
 	return pulumi.ToOutputWithContext(ctx, i).(DBInstanceOutput)
 }
 
+func (i *DBInstance) ToOutput(ctx context.Context) pulumix.Output[*DBInstance] {
+	return pulumix.Output[*DBInstance]{
+		OutputState: i.ToDBInstanceOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DBInstanceOutput struct{ *pulumi.OutputState }
 
 func (DBInstanceOutput) ElementType() reflect.Type {
@@ -133,6 +140,12 @@ func (o DBInstanceOutput) ToDBInstanceOutput() DBInstanceOutput {
 
 func (o DBInstanceOutput) ToDBInstanceOutputWithContext(ctx context.Context) DBInstanceOutput {
 	return o
+}
+
+func (o DBInstanceOutput) ToOutput(ctx context.Context) pulumix.Output[*DBInstance] {
+	return pulumix.Output[*DBInstance]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DBInstanceOutput) AutoMinorVersionUpgrade() pulumi.BoolPtrOutput {

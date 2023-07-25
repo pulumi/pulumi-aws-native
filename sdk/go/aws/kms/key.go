@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::KMS::Key resource specifies an AWS KMS key in AWS Key Management Service (AWS KMS). Authorized users can use the AWS KMS key to encrypt and decrypt small amounts of data (up to 4096 bytes), but they are more commonly used to generate data keys. You can also use AWS KMS keys to encrypt data stored in AWS services that are integrated with AWS KMS or within their applications.
@@ -152,6 +153,12 @@ func (i *Key) ToKeyOutputWithContext(ctx context.Context) KeyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(KeyOutput)
 }
 
+func (i *Key) ToOutput(ctx context.Context) pulumix.Output[*Key] {
+	return pulumix.Output[*Key]{
+		OutputState: i.ToKeyOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KeyOutput struct{ *pulumi.OutputState }
 
 func (KeyOutput) ElementType() reflect.Type {
@@ -164,6 +171,12 @@ func (o KeyOutput) ToKeyOutput() KeyOutput {
 
 func (o KeyOutput) ToKeyOutputWithContext(ctx context.Context) KeyOutput {
 	return o
+}
+
+func (o KeyOutput) ToOutput(ctx context.Context) pulumix.Output[*Key] {
+	return pulumix.Output[*Key]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KeyOutput) Arn() pulumi.StringOutput {

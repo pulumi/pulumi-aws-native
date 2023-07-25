@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::DMS::ReplicationSubnetGroup
@@ -107,6 +108,12 @@ func (i *ReplicationSubnetGroup) ToReplicationSubnetGroupOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationSubnetGroupOutput)
 }
 
+func (i *ReplicationSubnetGroup) ToOutput(ctx context.Context) pulumix.Output[*ReplicationSubnetGroup] {
+	return pulumix.Output[*ReplicationSubnetGroup]{
+		OutputState: i.ToReplicationSubnetGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ReplicationSubnetGroupOutput struct{ *pulumi.OutputState }
 
 func (ReplicationSubnetGroupOutput) ElementType() reflect.Type {
@@ -119,6 +126,12 @@ func (o ReplicationSubnetGroupOutput) ToReplicationSubnetGroupOutput() Replicati
 
 func (o ReplicationSubnetGroupOutput) ToReplicationSubnetGroupOutputWithContext(ctx context.Context) ReplicationSubnetGroupOutput {
 	return o
+}
+
+func (o ReplicationSubnetGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*ReplicationSubnetGroup] {
+	return pulumix.Output[*ReplicationSubnetGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ReplicationSubnetGroupOutput) ReplicationSubnetGroupDescription() pulumi.StringOutput {

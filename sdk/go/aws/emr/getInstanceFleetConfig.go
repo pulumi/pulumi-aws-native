@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EMR::InstanceFleetConfig
@@ -65,6 +66,12 @@ func (o LookupInstanceFleetConfigResultOutput) ToLookupInstanceFleetConfigResult
 
 func (o LookupInstanceFleetConfigResultOutput) ToLookupInstanceFleetConfigResultOutputWithContext(ctx context.Context) LookupInstanceFleetConfigResultOutput {
 	return o
+}
+
+func (o LookupInstanceFleetConfigResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupInstanceFleetConfigResult] {
+	return pulumix.Output[LookupInstanceFleetConfigResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupInstanceFleetConfigResultOutput) Id() pulumi.StringPtrOutput {

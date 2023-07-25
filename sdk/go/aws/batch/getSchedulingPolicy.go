@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type schema for AWS::Batch::SchedulingPolicy
@@ -64,6 +65,12 @@ func (o LookupSchedulingPolicyResultOutput) ToLookupSchedulingPolicyResultOutput
 
 func (o LookupSchedulingPolicyResultOutput) ToLookupSchedulingPolicyResultOutputWithContext(ctx context.Context) LookupSchedulingPolicyResultOutput {
 	return o
+}
+
+func (o LookupSchedulingPolicyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSchedulingPolicyResult] {
+	return pulumix.Output[LookupSchedulingPolicyResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupSchedulingPolicyResultOutput) Arn() pulumi.StringPtrOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Registers a CA Certificate in IoT.
@@ -124,6 +125,12 @@ func (i *CACertificate) ToCACertificateOutputWithContext(ctx context.Context) CA
 	return pulumi.ToOutputWithContext(ctx, i).(CACertificateOutput)
 }
 
+func (i *CACertificate) ToOutput(ctx context.Context) pulumix.Output[*CACertificate] {
+	return pulumix.Output[*CACertificate]{
+		OutputState: i.ToCACertificateOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CACertificateOutput struct{ *pulumi.OutputState }
 
 func (CACertificateOutput) ElementType() reflect.Type {
@@ -136,6 +143,12 @@ func (o CACertificateOutput) ToCACertificateOutput() CACertificateOutput {
 
 func (o CACertificateOutput) ToCACertificateOutputWithContext(ctx context.Context) CACertificateOutput {
 	return o
+}
+
+func (o CACertificateOutput) ToOutput(ctx context.Context) pulumix.Output[*CACertificate] {
+	return pulumix.Output[*CACertificate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CACertificateOutput) Arn() pulumi.StringOutput {

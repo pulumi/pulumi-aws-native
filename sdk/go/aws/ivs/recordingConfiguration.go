@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::IVS::RecordingConfiguration
@@ -118,6 +119,12 @@ func (i *RecordingConfiguration) ToRecordingConfigurationOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(RecordingConfigurationOutput)
 }
 
+func (i *RecordingConfiguration) ToOutput(ctx context.Context) pulumix.Output[*RecordingConfiguration] {
+	return pulumix.Output[*RecordingConfiguration]{
+		OutputState: i.ToRecordingConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RecordingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (RecordingConfigurationOutput) ElementType() reflect.Type {
@@ -130,6 +137,12 @@ func (o RecordingConfigurationOutput) ToRecordingConfigurationOutput() Recording
 
 func (o RecordingConfigurationOutput) ToRecordingConfigurationOutputWithContext(ctx context.Context) RecordingConfigurationOutput {
 	return o
+}
+
+func (o RecordingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*RecordingConfiguration] {
+	return pulumix.Output[*RecordingConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Recording Configuration ARN is automatically generated on creation and assigned as the unique identifier.

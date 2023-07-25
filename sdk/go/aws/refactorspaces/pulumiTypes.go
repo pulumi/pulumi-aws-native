@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -44,6 +45,12 @@ func (i ApplicationApiGatewayProxyInputArgs) ToApplicationApiGatewayProxyInputOu
 
 func (i ApplicationApiGatewayProxyInputArgs) ToApplicationApiGatewayProxyInputOutputWithContext(ctx context.Context) ApplicationApiGatewayProxyInputOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApiGatewayProxyInputOutput)
+}
+
+func (i ApplicationApiGatewayProxyInputArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationApiGatewayProxyInput] {
+	return pulumix.Output[ApplicationApiGatewayProxyInput]{
+		OutputState: i.ToApplicationApiGatewayProxyInputOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i ApplicationApiGatewayProxyInputArgs) ToApplicationApiGatewayProxyInputPtrOutput() ApplicationApiGatewayProxyInputPtrOutput {
@@ -87,6 +94,12 @@ func (i *applicationApiGatewayProxyInputPtrType) ToApplicationApiGatewayProxyInp
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApiGatewayProxyInputPtrOutput)
 }
 
+func (i *applicationApiGatewayProxyInputPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApiGatewayProxyInput] {
+	return pulumix.Output[*ApplicationApiGatewayProxyInput]{
+		OutputState: i.ToApplicationApiGatewayProxyInputPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationApiGatewayProxyInputOutput struct{ *pulumi.OutputState }
 
 func (ApplicationApiGatewayProxyInputOutput) ElementType() reflect.Type {
@@ -111,6 +124,12 @@ func (o ApplicationApiGatewayProxyInputOutput) ToApplicationApiGatewayProxyInput
 	}).(ApplicationApiGatewayProxyInputPtrOutput)
 }
 
+func (o ApplicationApiGatewayProxyInputOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationApiGatewayProxyInput] {
+	return pulumix.Output[ApplicationApiGatewayProxyInput]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApplicationApiGatewayProxyInputOutput) EndpointType() ApplicationApiGatewayEndpointTypePtrOutput {
 	return o.ApplyT(func(v ApplicationApiGatewayProxyInput) *ApplicationApiGatewayEndpointType { return v.EndpointType }).(ApplicationApiGatewayEndpointTypePtrOutput)
 }
@@ -131,6 +150,12 @@ func (o ApplicationApiGatewayProxyInputPtrOutput) ToApplicationApiGatewayProxyIn
 
 func (o ApplicationApiGatewayProxyInputPtrOutput) ToApplicationApiGatewayProxyInputPtrOutputWithContext(ctx context.Context) ApplicationApiGatewayProxyInputPtrOutput {
 	return o
+}
+
+func (o ApplicationApiGatewayProxyInputPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApiGatewayProxyInput] {
+	return pulumix.Output[*ApplicationApiGatewayProxyInput]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationApiGatewayProxyInputPtrOutput) Elem() ApplicationApiGatewayProxyInputOutput {
@@ -200,6 +225,12 @@ func (i ApplicationTagArgs) ToApplicationTagOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTagOutput)
 }
 
+func (i ApplicationTagArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationTag] {
+	return pulumix.Output[ApplicationTag]{
+		OutputState: i.ToApplicationTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApplicationTagArrayInput is an input type that accepts ApplicationTagArray and ApplicationTagArrayOutput values.
 // You can construct a concrete instance of `ApplicationTagArrayInput` via:
 //
@@ -225,6 +256,12 @@ func (i ApplicationTagArray) ToApplicationTagArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTagArrayOutput)
 }
 
+func (i ApplicationTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationTag] {
+	return pulumix.Output[[]ApplicationTag]{
+		OutputState: i.ToApplicationTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A label for tagging Environment resource
 type ApplicationTagOutput struct{ *pulumi.OutputState }
 
@@ -238,6 +275,12 @@ func (o ApplicationTagOutput) ToApplicationTagOutput() ApplicationTagOutput {
 
 func (o ApplicationTagOutput) ToApplicationTagOutputWithContext(ctx context.Context) ApplicationTagOutput {
 	return o
+}
+
+func (o ApplicationTagOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationTag] {
+	return pulumix.Output[ApplicationTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A string used to identify this tag
@@ -262,6 +305,12 @@ func (o ApplicationTagArrayOutput) ToApplicationTagArrayOutput() ApplicationTagA
 
 func (o ApplicationTagArrayOutput) ToApplicationTagArrayOutputWithContext(ctx context.Context) ApplicationTagArrayOutput {
 	return o
+}
+
+func (o ApplicationTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationTag] {
+	return pulumix.Output[[]ApplicationTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationTagArrayOutput) Index(i pulumi.IntInput) ApplicationTagOutput {
@@ -309,6 +358,12 @@ func (i EnvironmentTagArgs) ToEnvironmentTagOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentTagOutput)
 }
 
+func (i EnvironmentTagArgs) ToOutput(ctx context.Context) pulumix.Output[EnvironmentTag] {
+	return pulumix.Output[EnvironmentTag]{
+		OutputState: i.ToEnvironmentTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EnvironmentTagArrayInput is an input type that accepts EnvironmentTagArray and EnvironmentTagArrayOutput values.
 // You can construct a concrete instance of `EnvironmentTagArrayInput` via:
 //
@@ -334,6 +389,12 @@ func (i EnvironmentTagArray) ToEnvironmentTagArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentTagArrayOutput)
 }
 
+func (i EnvironmentTagArray) ToOutput(ctx context.Context) pulumix.Output[[]EnvironmentTag] {
+	return pulumix.Output[[]EnvironmentTag]{
+		OutputState: i.ToEnvironmentTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A label for tagging Environment resource
 type EnvironmentTagOutput struct{ *pulumi.OutputState }
 
@@ -347,6 +408,12 @@ func (o EnvironmentTagOutput) ToEnvironmentTagOutput() EnvironmentTagOutput {
 
 func (o EnvironmentTagOutput) ToEnvironmentTagOutputWithContext(ctx context.Context) EnvironmentTagOutput {
 	return o
+}
+
+func (o EnvironmentTagOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentTag] {
+	return pulumix.Output[EnvironmentTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A string used to identify this tag
@@ -371,6 +438,12 @@ func (o EnvironmentTagArrayOutput) ToEnvironmentTagArrayOutput() EnvironmentTagA
 
 func (o EnvironmentTagArrayOutput) ToEnvironmentTagArrayOutputWithContext(ctx context.Context) EnvironmentTagArrayOutput {
 	return o
+}
+
+func (o EnvironmentTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EnvironmentTag] {
+	return pulumix.Output[[]EnvironmentTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EnvironmentTagArrayOutput) Index(i pulumi.IntInput) EnvironmentTagOutput {
@@ -408,6 +481,12 @@ func (i RouteDefaultRouteInputArgs) ToRouteDefaultRouteInputOutput() RouteDefaul
 
 func (i RouteDefaultRouteInputArgs) ToRouteDefaultRouteInputOutputWithContext(ctx context.Context) RouteDefaultRouteInputOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RouteDefaultRouteInputOutput)
+}
+
+func (i RouteDefaultRouteInputArgs) ToOutput(ctx context.Context) pulumix.Output[RouteDefaultRouteInput] {
+	return pulumix.Output[RouteDefaultRouteInput]{
+		OutputState: i.ToRouteDefaultRouteInputOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i RouteDefaultRouteInputArgs) ToRouteDefaultRouteInputPtrOutput() RouteDefaultRouteInputPtrOutput {
@@ -451,6 +530,12 @@ func (i *routeDefaultRouteInputPtrType) ToRouteDefaultRouteInputPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(RouteDefaultRouteInputPtrOutput)
 }
 
+func (i *routeDefaultRouteInputPtrType) ToOutput(ctx context.Context) pulumix.Output[*RouteDefaultRouteInput] {
+	return pulumix.Output[*RouteDefaultRouteInput]{
+		OutputState: i.ToRouteDefaultRouteInputPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RouteDefaultRouteInputOutput struct{ *pulumi.OutputState }
 
 func (RouteDefaultRouteInputOutput) ElementType() reflect.Type {
@@ -475,6 +560,12 @@ func (o RouteDefaultRouteInputOutput) ToRouteDefaultRouteInputPtrOutputWithConte
 	}).(RouteDefaultRouteInputPtrOutput)
 }
 
+func (o RouteDefaultRouteInputOutput) ToOutput(ctx context.Context) pulumix.Output[RouteDefaultRouteInput] {
+	return pulumix.Output[RouteDefaultRouteInput]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RouteDefaultRouteInputOutput) ActivationState() RouteActivationStateOutput {
 	return o.ApplyT(func(v RouteDefaultRouteInput) RouteActivationState { return v.ActivationState }).(RouteActivationStateOutput)
 }
@@ -491,6 +582,12 @@ func (o RouteDefaultRouteInputPtrOutput) ToRouteDefaultRouteInputPtrOutput() Rou
 
 func (o RouteDefaultRouteInputPtrOutput) ToRouteDefaultRouteInputPtrOutputWithContext(ctx context.Context) RouteDefaultRouteInputPtrOutput {
 	return o
+}
+
+func (o RouteDefaultRouteInputPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RouteDefaultRouteInput] {
+	return pulumix.Output[*RouteDefaultRouteInput]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteDefaultRouteInputPtrOutput) Elem() RouteDefaultRouteInputOutput {
@@ -551,6 +648,12 @@ func (i RouteTagArgs) ToRouteTagOutputWithContext(ctx context.Context) RouteTagO
 	return pulumi.ToOutputWithContext(ctx, i).(RouteTagOutput)
 }
 
+func (i RouteTagArgs) ToOutput(ctx context.Context) pulumix.Output[RouteTag] {
+	return pulumix.Output[RouteTag]{
+		OutputState: i.ToRouteTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RouteTagArrayInput is an input type that accepts RouteTagArray and RouteTagArrayOutput values.
 // You can construct a concrete instance of `RouteTagArrayInput` via:
 //
@@ -576,6 +679,12 @@ func (i RouteTagArray) ToRouteTagArrayOutputWithContext(ctx context.Context) Rou
 	return pulumi.ToOutputWithContext(ctx, i).(RouteTagArrayOutput)
 }
 
+func (i RouteTagArray) ToOutput(ctx context.Context) pulumix.Output[[]RouteTag] {
+	return pulumix.Output[[]RouteTag]{
+		OutputState: i.ToRouteTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A label for tagging Environment resource
 type RouteTagOutput struct{ *pulumi.OutputState }
 
@@ -589,6 +698,12 @@ func (o RouteTagOutput) ToRouteTagOutput() RouteTagOutput {
 
 func (o RouteTagOutput) ToRouteTagOutputWithContext(ctx context.Context) RouteTagOutput {
 	return o
+}
+
+func (o RouteTagOutput) ToOutput(ctx context.Context) pulumix.Output[RouteTag] {
+	return pulumix.Output[RouteTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A string used to identify this tag
@@ -613,6 +728,12 @@ func (o RouteTagArrayOutput) ToRouteTagArrayOutput() RouteTagArrayOutput {
 
 func (o RouteTagArrayOutput) ToRouteTagArrayOutputWithContext(ctx context.Context) RouteTagArrayOutput {
 	return o
+}
+
+func (o RouteTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RouteTag] {
+	return pulumix.Output[[]RouteTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteTagArrayOutput) Index(i pulumi.IntInput) RouteTagOutput {
@@ -660,6 +781,12 @@ func (i RouteUriPathRouteInputArgs) ToRouteUriPathRouteInputOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(RouteUriPathRouteInputOutput)
 }
 
+func (i RouteUriPathRouteInputArgs) ToOutput(ctx context.Context) pulumix.Output[RouteUriPathRouteInput] {
+	return pulumix.Output[RouteUriPathRouteInput]{
+		OutputState: i.ToRouteUriPathRouteInputOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RouteUriPathRouteInputArgs) ToRouteUriPathRouteInputPtrOutput() RouteUriPathRouteInputPtrOutput {
 	return i.ToRouteUriPathRouteInputPtrOutputWithContext(context.Background())
 }
@@ -701,6 +828,12 @@ func (i *routeUriPathRouteInputPtrType) ToRouteUriPathRouteInputPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(RouteUriPathRouteInputPtrOutput)
 }
 
+func (i *routeUriPathRouteInputPtrType) ToOutput(ctx context.Context) pulumix.Output[*RouteUriPathRouteInput] {
+	return pulumix.Output[*RouteUriPathRouteInput]{
+		OutputState: i.ToRouteUriPathRouteInputPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RouteUriPathRouteInputOutput struct{ *pulumi.OutputState }
 
 func (RouteUriPathRouteInputOutput) ElementType() reflect.Type {
@@ -723,6 +856,12 @@ func (o RouteUriPathRouteInputOutput) ToRouteUriPathRouteInputPtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteUriPathRouteInput) *RouteUriPathRouteInput {
 		return &v
 	}).(RouteUriPathRouteInputPtrOutput)
+}
+
+func (o RouteUriPathRouteInputOutput) ToOutput(ctx context.Context) pulumix.Output[RouteUriPathRouteInput] {
+	return pulumix.Output[RouteUriPathRouteInput]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteUriPathRouteInputOutput) ActivationState() RouteActivationStateOutput {
@@ -757,6 +896,12 @@ func (o RouteUriPathRouteInputPtrOutput) ToRouteUriPathRouteInputPtrOutput() Rou
 
 func (o RouteUriPathRouteInputPtrOutput) ToRouteUriPathRouteInputPtrOutputWithContext(ctx context.Context) RouteUriPathRouteInputPtrOutput {
 	return o
+}
+
+func (o RouteUriPathRouteInputPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RouteUriPathRouteInput] {
+	return pulumix.Output[*RouteUriPathRouteInput]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteUriPathRouteInputPtrOutput) Elem() RouteUriPathRouteInputOutput {
@@ -845,6 +990,12 @@ func (i ServiceLambdaEndpointInputArgs) ToServiceLambdaEndpointInputOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceLambdaEndpointInputOutput)
 }
 
+func (i ServiceLambdaEndpointInputArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceLambdaEndpointInput] {
+	return pulumix.Output[ServiceLambdaEndpointInput]{
+		OutputState: i.ToServiceLambdaEndpointInputOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ServiceLambdaEndpointInputArgs) ToServiceLambdaEndpointInputPtrOutput() ServiceLambdaEndpointInputPtrOutput {
 	return i.ToServiceLambdaEndpointInputPtrOutputWithContext(context.Background())
 }
@@ -886,6 +1037,12 @@ func (i *serviceLambdaEndpointInputPtrType) ToServiceLambdaEndpointInputPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceLambdaEndpointInputPtrOutput)
 }
 
+func (i *serviceLambdaEndpointInputPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceLambdaEndpointInput] {
+	return pulumix.Output[*ServiceLambdaEndpointInput]{
+		OutputState: i.ToServiceLambdaEndpointInputPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceLambdaEndpointInputOutput struct{ *pulumi.OutputState }
 
 func (ServiceLambdaEndpointInputOutput) ElementType() reflect.Type {
@@ -910,6 +1067,12 @@ func (o ServiceLambdaEndpointInputOutput) ToServiceLambdaEndpointInputPtrOutputW
 	}).(ServiceLambdaEndpointInputPtrOutput)
 }
 
+func (o ServiceLambdaEndpointInputOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceLambdaEndpointInput] {
+	return pulumix.Output[ServiceLambdaEndpointInput]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServiceLambdaEndpointInputOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceLambdaEndpointInput) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -926,6 +1089,12 @@ func (o ServiceLambdaEndpointInputPtrOutput) ToServiceLambdaEndpointInputPtrOutp
 
 func (o ServiceLambdaEndpointInputPtrOutput) ToServiceLambdaEndpointInputPtrOutputWithContext(ctx context.Context) ServiceLambdaEndpointInputPtrOutput {
 	return o
+}
+
+func (o ServiceLambdaEndpointInputPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceLambdaEndpointInput] {
+	return pulumix.Output[*ServiceLambdaEndpointInput]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceLambdaEndpointInputPtrOutput) Elem() ServiceLambdaEndpointInputOutput {
@@ -986,6 +1155,12 @@ func (i ServiceTagArgs) ToServiceTagOutputWithContext(ctx context.Context) Servi
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceTagOutput)
 }
 
+func (i ServiceTagArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceTag] {
+	return pulumix.Output[ServiceTag]{
+		OutputState: i.ToServiceTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceTagArrayInput is an input type that accepts ServiceTagArray and ServiceTagArrayOutput values.
 // You can construct a concrete instance of `ServiceTagArrayInput` via:
 //
@@ -1011,6 +1186,12 @@ func (i ServiceTagArray) ToServiceTagArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceTagArrayOutput)
 }
 
+func (i ServiceTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ServiceTag] {
+	return pulumix.Output[[]ServiceTag]{
+		OutputState: i.ToServiceTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A label for tagging Environment resource
 type ServiceTagOutput struct{ *pulumi.OutputState }
 
@@ -1024,6 +1205,12 @@ func (o ServiceTagOutput) ToServiceTagOutput() ServiceTagOutput {
 
 func (o ServiceTagOutput) ToServiceTagOutputWithContext(ctx context.Context) ServiceTagOutput {
 	return o
+}
+
+func (o ServiceTagOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceTag] {
+	return pulumix.Output[ServiceTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A string used to identify this tag
@@ -1048,6 +1235,12 @@ func (o ServiceTagArrayOutput) ToServiceTagArrayOutput() ServiceTagArrayOutput {
 
 func (o ServiceTagArrayOutput) ToServiceTagArrayOutputWithContext(ctx context.Context) ServiceTagArrayOutput {
 	return o
+}
+
+func (o ServiceTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServiceTag] {
+	return pulumix.Output[[]ServiceTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceTagArrayOutput) Index(i pulumi.IntInput) ServiceTagOutput {
@@ -1087,6 +1280,12 @@ func (i ServiceUrlEndpointInputArgs) ToServiceUrlEndpointInputOutput() ServiceUr
 
 func (i ServiceUrlEndpointInputArgs) ToServiceUrlEndpointInputOutputWithContext(ctx context.Context) ServiceUrlEndpointInputOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceUrlEndpointInputOutput)
+}
+
+func (i ServiceUrlEndpointInputArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceUrlEndpointInput] {
+	return pulumix.Output[ServiceUrlEndpointInput]{
+		OutputState: i.ToServiceUrlEndpointInputOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i ServiceUrlEndpointInputArgs) ToServiceUrlEndpointInputPtrOutput() ServiceUrlEndpointInputPtrOutput {
@@ -1130,6 +1329,12 @@ func (i *serviceUrlEndpointInputPtrType) ToServiceUrlEndpointInputPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceUrlEndpointInputPtrOutput)
 }
 
+func (i *serviceUrlEndpointInputPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceUrlEndpointInput] {
+	return pulumix.Output[*ServiceUrlEndpointInput]{
+		OutputState: i.ToServiceUrlEndpointInputPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceUrlEndpointInputOutput struct{ *pulumi.OutputState }
 
 func (ServiceUrlEndpointInputOutput) ElementType() reflect.Type {
@@ -1154,6 +1359,12 @@ func (o ServiceUrlEndpointInputOutput) ToServiceUrlEndpointInputPtrOutputWithCon
 	}).(ServiceUrlEndpointInputPtrOutput)
 }
 
+func (o ServiceUrlEndpointInputOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceUrlEndpointInput] {
+	return pulumix.Output[ServiceUrlEndpointInput]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServiceUrlEndpointInputOutput) HealthUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceUrlEndpointInput) *string { return v.HealthUrl }).(pulumi.StringPtrOutput)
 }
@@ -1174,6 +1385,12 @@ func (o ServiceUrlEndpointInputPtrOutput) ToServiceUrlEndpointInputPtrOutput() S
 
 func (o ServiceUrlEndpointInputPtrOutput) ToServiceUrlEndpointInputPtrOutputWithContext(ctx context.Context) ServiceUrlEndpointInputPtrOutput {
 	return o
+}
+
+func (o ServiceUrlEndpointInputPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceUrlEndpointInput] {
+	return pulumix.Output[*ServiceUrlEndpointInput]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceUrlEndpointInputPtrOutput) Elem() ServiceUrlEndpointInputOutput {

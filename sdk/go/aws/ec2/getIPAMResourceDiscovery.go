@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Schema of AWS::EC2::IPAMResourceDiscovery Type
@@ -81,6 +82,12 @@ func (o LookupIPAMResourceDiscoveryResultOutput) ToLookupIPAMResourceDiscoveryRe
 
 func (o LookupIPAMResourceDiscoveryResultOutput) ToLookupIPAMResourceDiscoveryResultOutputWithContext(ctx context.Context) LookupIPAMResourceDiscoveryResultOutput {
 	return o
+}
+
+func (o LookupIPAMResourceDiscoveryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupIPAMResourceDiscoveryResult] {
+	return pulumix.Output[LookupIPAMResourceDiscoveryResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupIPAMResourceDiscoveryResultOutput) Description() pulumi.StringPtrOutput {

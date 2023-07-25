@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -44,6 +45,12 @@ func (i CapacityReservationCapacityAssignmentArgs) ToCapacityReservationCapacity
 	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationCapacityAssignmentOutput)
 }
 
+func (i CapacityReservationCapacityAssignmentArgs) ToOutput(ctx context.Context) pulumix.Output[CapacityReservationCapacityAssignment] {
+	return pulumix.Output[CapacityReservationCapacityAssignment]{
+		OutputState: i.ToCapacityReservationCapacityAssignmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CapacityReservationCapacityAssignmentArrayInput is an input type that accepts CapacityReservationCapacityAssignmentArray and CapacityReservationCapacityAssignmentArrayOutput values.
 // You can construct a concrete instance of `CapacityReservationCapacityAssignmentArrayInput` via:
 //
@@ -69,6 +76,12 @@ func (i CapacityReservationCapacityAssignmentArray) ToCapacityReservationCapacit
 	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationCapacityAssignmentArrayOutput)
 }
 
+func (i CapacityReservationCapacityAssignmentArray) ToOutput(ctx context.Context) pulumix.Output[[]CapacityReservationCapacityAssignment] {
+	return pulumix.Output[[]CapacityReservationCapacityAssignment]{
+		OutputState: i.ToCapacityReservationCapacityAssignmentArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CapacityReservationCapacityAssignmentOutput struct{ *pulumi.OutputState }
 
 func (CapacityReservationCapacityAssignmentOutput) ElementType() reflect.Type {
@@ -81,6 +94,12 @@ func (o CapacityReservationCapacityAssignmentOutput) ToCapacityReservationCapaci
 
 func (o CapacityReservationCapacityAssignmentOutput) ToCapacityReservationCapacityAssignmentOutputWithContext(ctx context.Context) CapacityReservationCapacityAssignmentOutput {
 	return o
+}
+
+func (o CapacityReservationCapacityAssignmentOutput) ToOutput(ctx context.Context) pulumix.Output[CapacityReservationCapacityAssignment] {
+	return pulumix.Output[CapacityReservationCapacityAssignment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CapacityReservationCapacityAssignmentOutput) WorkgroupNames() pulumi.StringArrayOutput {
@@ -99,6 +118,12 @@ func (o CapacityReservationCapacityAssignmentArrayOutput) ToCapacityReservationC
 
 func (o CapacityReservationCapacityAssignmentArrayOutput) ToCapacityReservationCapacityAssignmentArrayOutputWithContext(ctx context.Context) CapacityReservationCapacityAssignmentArrayOutput {
 	return o
+}
+
+func (o CapacityReservationCapacityAssignmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CapacityReservationCapacityAssignment] {
+	return pulumix.Output[[]CapacityReservationCapacityAssignment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CapacityReservationCapacityAssignmentArrayOutput) Index(i pulumi.IntInput) CapacityReservationCapacityAssignmentOutput {
@@ -138,6 +163,12 @@ func (i CapacityReservationCapacityAssignmentConfigurationArgs) ToCapacityReserv
 
 func (i CapacityReservationCapacityAssignmentConfigurationArgs) ToCapacityReservationCapacityAssignmentConfigurationOutputWithContext(ctx context.Context) CapacityReservationCapacityAssignmentConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationCapacityAssignmentConfigurationOutput)
+}
+
+func (i CapacityReservationCapacityAssignmentConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[CapacityReservationCapacityAssignmentConfiguration] {
+	return pulumix.Output[CapacityReservationCapacityAssignmentConfiguration]{
+		OutputState: i.ToCapacityReservationCapacityAssignmentConfigurationOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i CapacityReservationCapacityAssignmentConfigurationArgs) ToCapacityReservationCapacityAssignmentConfigurationPtrOutput() CapacityReservationCapacityAssignmentConfigurationPtrOutput {
@@ -181,6 +212,12 @@ func (i *capacityReservationCapacityAssignmentConfigurationPtrType) ToCapacityRe
 	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationCapacityAssignmentConfigurationPtrOutput)
 }
 
+func (i *capacityReservationCapacityAssignmentConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*CapacityReservationCapacityAssignmentConfiguration] {
+	return pulumix.Output[*CapacityReservationCapacityAssignmentConfiguration]{
+		OutputState: i.ToCapacityReservationCapacityAssignmentConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Assignment configuration to assign workgroups to a reservation
 type CapacityReservationCapacityAssignmentConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -206,6 +243,12 @@ func (o CapacityReservationCapacityAssignmentConfigurationOutput) ToCapacityRese
 	}).(CapacityReservationCapacityAssignmentConfigurationPtrOutput)
 }
 
+func (o CapacityReservationCapacityAssignmentConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[CapacityReservationCapacityAssignmentConfiguration] {
+	return pulumix.Output[CapacityReservationCapacityAssignmentConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CapacityReservationCapacityAssignmentConfigurationOutput) CapacityAssignments() CapacityReservationCapacityAssignmentArrayOutput {
 	return o.ApplyT(func(v CapacityReservationCapacityAssignmentConfiguration) []CapacityReservationCapacityAssignment {
 		return v.CapacityAssignments
@@ -224,6 +267,12 @@ func (o CapacityReservationCapacityAssignmentConfigurationPtrOutput) ToCapacityR
 
 func (o CapacityReservationCapacityAssignmentConfigurationPtrOutput) ToCapacityReservationCapacityAssignmentConfigurationPtrOutputWithContext(ctx context.Context) CapacityReservationCapacityAssignmentConfigurationPtrOutput {
 	return o
+}
+
+func (o CapacityReservationCapacityAssignmentConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CapacityReservationCapacityAssignmentConfiguration] {
+	return pulumix.Output[*CapacityReservationCapacityAssignmentConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CapacityReservationCapacityAssignmentConfigurationPtrOutput) Elem() CapacityReservationCapacityAssignmentConfigurationOutput {
@@ -278,6 +327,12 @@ func (i CapacityReservationTagArgs) ToCapacityReservationTagOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationTagOutput)
 }
 
+func (i CapacityReservationTagArgs) ToOutput(ctx context.Context) pulumix.Output[CapacityReservationTag] {
+	return pulumix.Output[CapacityReservationTag]{
+		OutputState: i.ToCapacityReservationTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CapacityReservationTagArrayInput is an input type that accepts CapacityReservationTagArray and CapacityReservationTagArrayOutput values.
 // You can construct a concrete instance of `CapacityReservationTagArrayInput` via:
 //
@@ -303,6 +358,12 @@ func (i CapacityReservationTagArray) ToCapacityReservationTagArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationTagArrayOutput)
 }
 
+func (i CapacityReservationTagArray) ToOutput(ctx context.Context) pulumix.Output[[]CapacityReservationTag] {
+	return pulumix.Output[[]CapacityReservationTag]{
+		OutputState: i.ToCapacityReservationTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CapacityReservationTagOutput struct{ *pulumi.OutputState }
 
 func (CapacityReservationTagOutput) ElementType() reflect.Type {
@@ -315,6 +376,12 @@ func (o CapacityReservationTagOutput) ToCapacityReservationTagOutput() CapacityR
 
 func (o CapacityReservationTagOutput) ToCapacityReservationTagOutputWithContext(ctx context.Context) CapacityReservationTagOutput {
 	return o
+}
+
+func (o CapacityReservationTagOutput) ToOutput(ctx context.Context) pulumix.Output[CapacityReservationTag] {
+	return pulumix.Output[CapacityReservationTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CapacityReservationTagOutput) Key() pulumi.StringOutput {
@@ -337,6 +404,12 @@ func (o CapacityReservationTagArrayOutput) ToCapacityReservationTagArrayOutput()
 
 func (o CapacityReservationTagArrayOutput) ToCapacityReservationTagArrayOutputWithContext(ctx context.Context) CapacityReservationTagArrayOutput {
 	return o
+}
+
+func (o CapacityReservationTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CapacityReservationTag] {
+	return pulumix.Output[[]CapacityReservationTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CapacityReservationTagArrayOutput) Index(i pulumi.IntInput) CapacityReservationTagOutput {
@@ -378,6 +451,12 @@ func (i DataCatalogTagArgs) ToDataCatalogTagOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogTagOutput)
 }
 
+func (i DataCatalogTagArgs) ToOutput(ctx context.Context) pulumix.Output[DataCatalogTag] {
+	return pulumix.Output[DataCatalogTag]{
+		OutputState: i.ToDataCatalogTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DataCatalogTagArrayInput is an input type that accepts DataCatalogTagArray and DataCatalogTagArrayOutput values.
 // You can construct a concrete instance of `DataCatalogTagArrayInput` via:
 //
@@ -403,6 +482,12 @@ func (i DataCatalogTagArray) ToDataCatalogTagArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogTagArrayOutput)
 }
 
+func (i DataCatalogTagArray) ToOutput(ctx context.Context) pulumix.Output[[]DataCatalogTag] {
+	return pulumix.Output[[]DataCatalogTag]{
+		OutputState: i.ToDataCatalogTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataCatalogTagOutput struct{ *pulumi.OutputState }
 
 func (DataCatalogTagOutput) ElementType() reflect.Type {
@@ -415,6 +500,12 @@ func (o DataCatalogTagOutput) ToDataCatalogTagOutput() DataCatalogTagOutput {
 
 func (o DataCatalogTagOutput) ToDataCatalogTagOutputWithContext(ctx context.Context) DataCatalogTagOutput {
 	return o
+}
+
+func (o DataCatalogTagOutput) ToOutput(ctx context.Context) pulumix.Output[DataCatalogTag] {
+	return pulumix.Output[DataCatalogTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataCatalogTagOutput) Key() pulumi.StringOutput {
@@ -437,6 +528,12 @@ func (o DataCatalogTagArrayOutput) ToDataCatalogTagArrayOutput() DataCatalogTagA
 
 func (o DataCatalogTagArrayOutput) ToDataCatalogTagArrayOutputWithContext(ctx context.Context) DataCatalogTagArrayOutput {
 	return o
+}
+
+func (o DataCatalogTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DataCatalogTag] {
+	return pulumix.Output[[]DataCatalogTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataCatalogTagArrayOutput) Index(i pulumi.IntInput) DataCatalogTagOutput {
@@ -476,6 +573,12 @@ func (i WorkGroupAclConfigurationArgs) ToWorkGroupAclConfigurationOutput() WorkG
 
 func (i WorkGroupAclConfigurationArgs) ToWorkGroupAclConfigurationOutputWithContext(ctx context.Context) WorkGroupAclConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupAclConfigurationOutput)
+}
+
+func (i WorkGroupAclConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[WorkGroupAclConfiguration] {
+	return pulumix.Output[WorkGroupAclConfiguration]{
+		OutputState: i.ToWorkGroupAclConfigurationOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i WorkGroupAclConfigurationArgs) ToWorkGroupAclConfigurationPtrOutput() WorkGroupAclConfigurationPtrOutput {
@@ -519,6 +622,12 @@ func (i *workGroupAclConfigurationPtrType) ToWorkGroupAclConfigurationPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupAclConfigurationPtrOutput)
 }
 
+func (i *workGroupAclConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkGroupAclConfiguration] {
+	return pulumix.Output[*WorkGroupAclConfiguration]{
+		OutputState: i.ToWorkGroupAclConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results
 type WorkGroupAclConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -544,6 +653,12 @@ func (o WorkGroupAclConfigurationOutput) ToWorkGroupAclConfigurationPtrOutputWit
 	}).(WorkGroupAclConfigurationPtrOutput)
 }
 
+func (o WorkGroupAclConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[WorkGroupAclConfiguration] {
+	return pulumix.Output[WorkGroupAclConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WorkGroupAclConfigurationOutput) S3AclOption() WorkGroupS3AclOptionOutput {
 	return o.ApplyT(func(v WorkGroupAclConfiguration) WorkGroupS3AclOption { return v.S3AclOption }).(WorkGroupS3AclOptionOutput)
 }
@@ -560,6 +675,12 @@ func (o WorkGroupAclConfigurationPtrOutput) ToWorkGroupAclConfigurationPtrOutput
 
 func (o WorkGroupAclConfigurationPtrOutput) ToWorkGroupAclConfigurationPtrOutputWithContext(ctx context.Context) WorkGroupAclConfigurationPtrOutput {
 	return o
+}
+
+func (o WorkGroupAclConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkGroupAclConfiguration] {
+	return pulumix.Output[*WorkGroupAclConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkGroupAclConfigurationPtrOutput) Elem() WorkGroupAclConfigurationOutput {
@@ -628,6 +749,12 @@ func (i WorkGroupConfigurationArgs) ToWorkGroupConfigurationOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupConfigurationOutput)
 }
 
+func (i WorkGroupConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[WorkGroupConfiguration] {
+	return pulumix.Output[WorkGroupConfiguration]{
+		OutputState: i.ToWorkGroupConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i WorkGroupConfigurationArgs) ToWorkGroupConfigurationPtrOutput() WorkGroupConfigurationPtrOutput {
 	return i.ToWorkGroupConfigurationPtrOutputWithContext(context.Background())
 }
@@ -669,6 +796,12 @@ func (i *workGroupConfigurationPtrType) ToWorkGroupConfigurationPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupConfigurationPtrOutput)
 }
 
+func (i *workGroupConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkGroupConfiguration] {
+	return pulumix.Output[*WorkGroupConfiguration]{
+		OutputState: i.ToWorkGroupConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkGroupConfigurationOutput struct{ *pulumi.OutputState }
 
 func (WorkGroupConfigurationOutput) ElementType() reflect.Type {
@@ -691,6 +824,12 @@ func (o WorkGroupConfigurationOutput) ToWorkGroupConfigurationPtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkGroupConfiguration) *WorkGroupConfiguration {
 		return &v
 	}).(WorkGroupConfigurationPtrOutput)
+}
+
+func (o WorkGroupConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[WorkGroupConfiguration] {
+	return pulumix.Output[WorkGroupConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkGroupConfigurationOutput) AdditionalConfiguration() pulumi.StringPtrOutput {
@@ -743,6 +882,12 @@ func (o WorkGroupConfigurationPtrOutput) ToWorkGroupConfigurationPtrOutput() Wor
 
 func (o WorkGroupConfigurationPtrOutput) ToWorkGroupConfigurationPtrOutputWithContext(ctx context.Context) WorkGroupConfigurationPtrOutput {
 	return o
+}
+
+func (o WorkGroupConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkGroupConfiguration] {
+	return pulumix.Output[*WorkGroupConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkGroupConfigurationPtrOutput) Elem() WorkGroupConfigurationOutput {
@@ -889,6 +1034,12 @@ func (i WorkGroupConfigurationUpdatesArgs) ToWorkGroupConfigurationUpdatesOutput
 	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupConfigurationUpdatesOutput)
 }
 
+func (i WorkGroupConfigurationUpdatesArgs) ToOutput(ctx context.Context) pulumix.Output[WorkGroupConfigurationUpdates] {
+	return pulumix.Output[WorkGroupConfigurationUpdates]{
+		OutputState: i.ToWorkGroupConfigurationUpdatesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i WorkGroupConfigurationUpdatesArgs) ToWorkGroupConfigurationUpdatesPtrOutput() WorkGroupConfigurationUpdatesPtrOutput {
 	return i.ToWorkGroupConfigurationUpdatesPtrOutputWithContext(context.Background())
 }
@@ -930,6 +1081,12 @@ func (i *workGroupConfigurationUpdatesPtrType) ToWorkGroupConfigurationUpdatesPt
 	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupConfigurationUpdatesPtrOutput)
 }
 
+func (i *workGroupConfigurationUpdatesPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkGroupConfigurationUpdates] {
+	return pulumix.Output[*WorkGroupConfigurationUpdates]{
+		OutputState: i.ToWorkGroupConfigurationUpdatesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The configuration information that will be updated for this workgroup, which includes the location in Amazon S3 where query results are stored, the encryption option, if any, used for query results, whether the Amazon CloudWatch Metrics are enabled for the workgroup, whether the workgroup settings override the client-side settings, and the data usage limit for the amount of bytes scanned per query, if it is specified.
 type WorkGroupConfigurationUpdatesOutput struct{ *pulumi.OutputState }
 
@@ -953,6 +1110,12 @@ func (o WorkGroupConfigurationUpdatesOutput) ToWorkGroupConfigurationUpdatesPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkGroupConfigurationUpdates) *WorkGroupConfigurationUpdates {
 		return &v
 	}).(WorkGroupConfigurationUpdatesPtrOutput)
+}
+
+func (o WorkGroupConfigurationUpdatesOutput) ToOutput(ctx context.Context) pulumix.Output[WorkGroupConfigurationUpdates] {
+	return pulumix.Output[WorkGroupConfigurationUpdates]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkGroupConfigurationUpdatesOutput) AdditionalConfiguration() pulumi.StringPtrOutput {
@@ -1015,6 +1178,12 @@ func (o WorkGroupConfigurationUpdatesPtrOutput) ToWorkGroupConfigurationUpdatesP
 
 func (o WorkGroupConfigurationUpdatesPtrOutput) ToWorkGroupConfigurationUpdatesPtrOutputWithContext(ctx context.Context) WorkGroupConfigurationUpdatesPtrOutput {
 	return o
+}
+
+func (o WorkGroupConfigurationUpdatesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkGroupConfigurationUpdates] {
+	return pulumix.Output[*WorkGroupConfigurationUpdates]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkGroupConfigurationUpdatesPtrOutput) Elem() WorkGroupConfigurationUpdatesOutput {
@@ -1159,6 +1328,12 @@ func (i WorkGroupCustomerContentEncryptionConfigurationArgs) ToWorkGroupCustomer
 	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupCustomerContentEncryptionConfigurationOutput)
 }
 
+func (i WorkGroupCustomerContentEncryptionConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[WorkGroupCustomerContentEncryptionConfiguration] {
+	return pulumix.Output[WorkGroupCustomerContentEncryptionConfiguration]{
+		OutputState: i.ToWorkGroupCustomerContentEncryptionConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i WorkGroupCustomerContentEncryptionConfigurationArgs) ToWorkGroupCustomerContentEncryptionConfigurationPtrOutput() WorkGroupCustomerContentEncryptionConfigurationPtrOutput {
 	return i.ToWorkGroupCustomerContentEncryptionConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1200,6 +1375,12 @@ func (i *workGroupCustomerContentEncryptionConfigurationPtrType) ToWorkGroupCust
 	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupCustomerContentEncryptionConfigurationPtrOutput)
 }
 
+func (i *workGroupCustomerContentEncryptionConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkGroupCustomerContentEncryptionConfiguration] {
+	return pulumix.Output[*WorkGroupCustomerContentEncryptionConfiguration]{
+		OutputState: i.ToWorkGroupCustomerContentEncryptionConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Indicates the KMS key for encrypting notebook content.
 type WorkGroupCustomerContentEncryptionConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -1225,6 +1406,12 @@ func (o WorkGroupCustomerContentEncryptionConfigurationOutput) ToWorkGroupCustom
 	}).(WorkGroupCustomerContentEncryptionConfigurationPtrOutput)
 }
 
+func (o WorkGroupCustomerContentEncryptionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[WorkGroupCustomerContentEncryptionConfiguration] {
+	return pulumix.Output[WorkGroupCustomerContentEncryptionConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WorkGroupCustomerContentEncryptionConfigurationOutput) KmsKey() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkGroupCustomerContentEncryptionConfiguration) string { return v.KmsKey }).(pulumi.StringOutput)
 }
@@ -1241,6 +1428,12 @@ func (o WorkGroupCustomerContentEncryptionConfigurationPtrOutput) ToWorkGroupCus
 
 func (o WorkGroupCustomerContentEncryptionConfigurationPtrOutput) ToWorkGroupCustomerContentEncryptionConfigurationPtrOutputWithContext(ctx context.Context) WorkGroupCustomerContentEncryptionConfigurationPtrOutput {
 	return o
+}
+
+func (o WorkGroupCustomerContentEncryptionConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkGroupCustomerContentEncryptionConfiguration] {
+	return pulumix.Output[*WorkGroupCustomerContentEncryptionConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkGroupCustomerContentEncryptionConfigurationPtrOutput) Elem() WorkGroupCustomerContentEncryptionConfigurationOutput {
@@ -1297,6 +1490,12 @@ func (i WorkGroupEncryptionConfigurationArgs) ToWorkGroupEncryptionConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupEncryptionConfigurationOutput)
 }
 
+func (i WorkGroupEncryptionConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[WorkGroupEncryptionConfiguration] {
+	return pulumix.Output[WorkGroupEncryptionConfiguration]{
+		OutputState: i.ToWorkGroupEncryptionConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i WorkGroupEncryptionConfigurationArgs) ToWorkGroupEncryptionConfigurationPtrOutput() WorkGroupEncryptionConfigurationPtrOutput {
 	return i.ToWorkGroupEncryptionConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1338,6 +1537,12 @@ func (i *workGroupEncryptionConfigurationPtrType) ToWorkGroupEncryptionConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupEncryptionConfigurationPtrOutput)
 }
 
+func (i *workGroupEncryptionConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkGroupEncryptionConfiguration] {
+	return pulumix.Output[*WorkGroupEncryptionConfiguration]{
+		OutputState: i.ToWorkGroupEncryptionConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // If query results are encrypted in Amazon S3, indicates the encryption option used (for example, SSE-KMS or CSE-KMS) and key information.
 type WorkGroupEncryptionConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -1363,6 +1568,12 @@ func (o WorkGroupEncryptionConfigurationOutput) ToWorkGroupEncryptionConfigurati
 	}).(WorkGroupEncryptionConfigurationPtrOutput)
 }
 
+func (o WorkGroupEncryptionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[WorkGroupEncryptionConfiguration] {
+	return pulumix.Output[WorkGroupEncryptionConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WorkGroupEncryptionConfigurationOutput) EncryptionOption() WorkGroupEncryptionOptionOutput {
 	return o.ApplyT(func(v WorkGroupEncryptionConfiguration) WorkGroupEncryptionOption { return v.EncryptionOption }).(WorkGroupEncryptionOptionOutput)
 }
@@ -1383,6 +1594,12 @@ func (o WorkGroupEncryptionConfigurationPtrOutput) ToWorkGroupEncryptionConfigur
 
 func (o WorkGroupEncryptionConfigurationPtrOutput) ToWorkGroupEncryptionConfigurationPtrOutputWithContext(ctx context.Context) WorkGroupEncryptionConfigurationPtrOutput {
 	return o
+}
+
+func (o WorkGroupEncryptionConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkGroupEncryptionConfiguration] {
+	return pulumix.Output[*WorkGroupEncryptionConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkGroupEncryptionConfigurationPtrOutput) Elem() WorkGroupEncryptionConfigurationOutput {
@@ -1448,6 +1665,12 @@ func (i WorkGroupEngineVersionArgs) ToWorkGroupEngineVersionOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupEngineVersionOutput)
 }
 
+func (i WorkGroupEngineVersionArgs) ToOutput(ctx context.Context) pulumix.Output[WorkGroupEngineVersion] {
+	return pulumix.Output[WorkGroupEngineVersion]{
+		OutputState: i.ToWorkGroupEngineVersionOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i WorkGroupEngineVersionArgs) ToWorkGroupEngineVersionPtrOutput() WorkGroupEngineVersionPtrOutput {
 	return i.ToWorkGroupEngineVersionPtrOutputWithContext(context.Background())
 }
@@ -1489,6 +1712,12 @@ func (i *workGroupEngineVersionPtrType) ToWorkGroupEngineVersionPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupEngineVersionPtrOutput)
 }
 
+func (i *workGroupEngineVersionPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkGroupEngineVersion] {
+	return pulumix.Output[*WorkGroupEngineVersion]{
+		OutputState: i.ToWorkGroupEngineVersionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The Athena engine version for running queries.
 type WorkGroupEngineVersionOutput struct{ *pulumi.OutputState }
 
@@ -1514,6 +1743,12 @@ func (o WorkGroupEngineVersionOutput) ToWorkGroupEngineVersionPtrOutputWithConte
 	}).(WorkGroupEngineVersionPtrOutput)
 }
 
+func (o WorkGroupEngineVersionOutput) ToOutput(ctx context.Context) pulumix.Output[WorkGroupEngineVersion] {
+	return pulumix.Output[WorkGroupEngineVersion]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WorkGroupEngineVersionOutput) EffectiveEngineVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkGroupEngineVersion) *string { return v.EffectiveEngineVersion }).(pulumi.StringPtrOutput)
 }
@@ -1534,6 +1769,12 @@ func (o WorkGroupEngineVersionPtrOutput) ToWorkGroupEngineVersionPtrOutput() Wor
 
 func (o WorkGroupEngineVersionPtrOutput) ToWorkGroupEngineVersionPtrOutputWithContext(ctx context.Context) WorkGroupEngineVersionPtrOutput {
 	return o
+}
+
+func (o WorkGroupEngineVersionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkGroupEngineVersion] {
+	return pulumix.Output[*WorkGroupEngineVersion]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkGroupEngineVersionPtrOutput) Elem() WorkGroupEngineVersionOutput {
@@ -1603,6 +1844,12 @@ func (i WorkGroupResultConfigurationArgs) ToWorkGroupResultConfigurationOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupResultConfigurationOutput)
 }
 
+func (i WorkGroupResultConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[WorkGroupResultConfiguration] {
+	return pulumix.Output[WorkGroupResultConfiguration]{
+		OutputState: i.ToWorkGroupResultConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i WorkGroupResultConfigurationArgs) ToWorkGroupResultConfigurationPtrOutput() WorkGroupResultConfigurationPtrOutput {
 	return i.ToWorkGroupResultConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1644,6 +1891,12 @@ func (i *workGroupResultConfigurationPtrType) ToWorkGroupResultConfigurationPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupResultConfigurationPtrOutput)
 }
 
+func (i *workGroupResultConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkGroupResultConfiguration] {
+	return pulumix.Output[*WorkGroupResultConfiguration]{
+		OutputState: i.ToWorkGroupResultConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The location in Amazon S3 where query results are stored and the encryption option, if any, used for query results. These are known as "client-side settings". If workgroup settings override client-side settings, then the query uses the workgroup settings.
 type WorkGroupResultConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -1667,6 +1920,12 @@ func (o WorkGroupResultConfigurationOutput) ToWorkGroupResultConfigurationPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkGroupResultConfiguration) *WorkGroupResultConfiguration {
 		return &v
 	}).(WorkGroupResultConfigurationPtrOutput)
+}
+
+func (o WorkGroupResultConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[WorkGroupResultConfiguration] {
+	return pulumix.Output[WorkGroupResultConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkGroupResultConfigurationOutput) AclConfiguration() WorkGroupAclConfigurationPtrOutput {
@@ -1699,6 +1958,12 @@ func (o WorkGroupResultConfigurationPtrOutput) ToWorkGroupResultConfigurationPtr
 
 func (o WorkGroupResultConfigurationPtrOutput) ToWorkGroupResultConfigurationPtrOutputWithContext(ctx context.Context) WorkGroupResultConfigurationPtrOutput {
 	return o
+}
+
+func (o WorkGroupResultConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkGroupResultConfiguration] {
+	return pulumix.Output[*WorkGroupResultConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkGroupResultConfigurationPtrOutput) Elem() WorkGroupResultConfigurationOutput {
@@ -1794,6 +2059,12 @@ func (i WorkGroupResultConfigurationUpdatesArgs) ToWorkGroupResultConfigurationU
 	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupResultConfigurationUpdatesOutput)
 }
 
+func (i WorkGroupResultConfigurationUpdatesArgs) ToOutput(ctx context.Context) pulumix.Output[WorkGroupResultConfigurationUpdates] {
+	return pulumix.Output[WorkGroupResultConfigurationUpdates]{
+		OutputState: i.ToWorkGroupResultConfigurationUpdatesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i WorkGroupResultConfigurationUpdatesArgs) ToWorkGroupResultConfigurationUpdatesPtrOutput() WorkGroupResultConfigurationUpdatesPtrOutput {
 	return i.ToWorkGroupResultConfigurationUpdatesPtrOutputWithContext(context.Background())
 }
@@ -1835,6 +2106,12 @@ func (i *workGroupResultConfigurationUpdatesPtrType) ToWorkGroupResultConfigurat
 	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupResultConfigurationUpdatesPtrOutput)
 }
 
+func (i *workGroupResultConfigurationUpdatesPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkGroupResultConfigurationUpdates] {
+	return pulumix.Output[*WorkGroupResultConfigurationUpdates]{
+		OutputState: i.ToWorkGroupResultConfigurationUpdatesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The result configuration information about the queries in this workgroup that will be updated. Includes the updated results location and an updated option for encrypting query results.
 type WorkGroupResultConfigurationUpdatesOutput struct{ *pulumi.OutputState }
 
@@ -1858,6 +2135,12 @@ func (o WorkGroupResultConfigurationUpdatesOutput) ToWorkGroupResultConfiguratio
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkGroupResultConfigurationUpdates) *WorkGroupResultConfigurationUpdates {
 		return &v
 	}).(WorkGroupResultConfigurationUpdatesPtrOutput)
+}
+
+func (o WorkGroupResultConfigurationUpdatesOutput) ToOutput(ctx context.Context) pulumix.Output[WorkGroupResultConfigurationUpdates] {
+	return pulumix.Output[WorkGroupResultConfigurationUpdates]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkGroupResultConfigurationUpdatesOutput) AclConfiguration() WorkGroupAclConfigurationPtrOutput {
@@ -1906,6 +2189,12 @@ func (o WorkGroupResultConfigurationUpdatesPtrOutput) ToWorkGroupResultConfigura
 
 func (o WorkGroupResultConfigurationUpdatesPtrOutput) ToWorkGroupResultConfigurationUpdatesPtrOutputWithContext(ctx context.Context) WorkGroupResultConfigurationUpdatesPtrOutput {
 	return o
+}
+
+func (o WorkGroupResultConfigurationUpdatesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkGroupResultConfigurationUpdates] {
+	return pulumix.Output[*WorkGroupResultConfigurationUpdates]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkGroupResultConfigurationUpdatesPtrOutput) Elem() WorkGroupResultConfigurationUpdatesOutput {
@@ -2023,6 +2312,12 @@ func (i WorkGroupTagArgs) ToWorkGroupTagOutputWithContext(ctx context.Context) W
 	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupTagOutput)
 }
 
+func (i WorkGroupTagArgs) ToOutput(ctx context.Context) pulumix.Output[WorkGroupTag] {
+	return pulumix.Output[WorkGroupTag]{
+		OutputState: i.ToWorkGroupTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // WorkGroupTagArrayInput is an input type that accepts WorkGroupTagArray and WorkGroupTagArrayOutput values.
 // You can construct a concrete instance of `WorkGroupTagArrayInput` via:
 //
@@ -2048,6 +2343,12 @@ func (i WorkGroupTagArray) ToWorkGroupTagArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupTagArrayOutput)
 }
 
+func (i WorkGroupTagArray) ToOutput(ctx context.Context) pulumix.Output[[]WorkGroupTag] {
+	return pulumix.Output[[]WorkGroupTag]{
+		OutputState: i.ToWorkGroupTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkGroupTagOutput struct{ *pulumi.OutputState }
 
 func (WorkGroupTagOutput) ElementType() reflect.Type {
@@ -2060,6 +2361,12 @@ func (o WorkGroupTagOutput) ToWorkGroupTagOutput() WorkGroupTagOutput {
 
 func (o WorkGroupTagOutput) ToWorkGroupTagOutputWithContext(ctx context.Context) WorkGroupTagOutput {
 	return o
+}
+
+func (o WorkGroupTagOutput) ToOutput(ctx context.Context) pulumix.Output[WorkGroupTag] {
+	return pulumix.Output[WorkGroupTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkGroupTagOutput) Key() pulumi.StringOutput {
@@ -2082,6 +2389,12 @@ func (o WorkGroupTagArrayOutput) ToWorkGroupTagArrayOutput() WorkGroupTagArrayOu
 
 func (o WorkGroupTagArrayOutput) ToWorkGroupTagArrayOutputWithContext(ctx context.Context) WorkGroupTagArrayOutput {
 	return o
+}
+
+func (o WorkGroupTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]WorkGroupTag] {
+	return pulumix.Output[[]WorkGroupTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkGroupTagArrayOutput) Index(i pulumi.IntInput) WorkGroupTagOutput {

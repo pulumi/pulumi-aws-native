@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::CloudFront::ContinuousDeploymentPolicy
@@ -65,6 +66,12 @@ func (o LookupContinuousDeploymentPolicyResultOutput) ToLookupContinuousDeployme
 
 func (o LookupContinuousDeploymentPolicyResultOutput) ToLookupContinuousDeploymentPolicyResultOutputWithContext(ctx context.Context) LookupContinuousDeploymentPolicyResultOutput {
 	return o
+}
+
+func (o LookupContinuousDeploymentPolicyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupContinuousDeploymentPolicyResult] {
+	return pulumix.Output[LookupContinuousDeploymentPolicyResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupContinuousDeploymentPolicyResultOutput) ContinuousDeploymentPolicyConfig() ContinuousDeploymentPolicyConfigPtrOutput {

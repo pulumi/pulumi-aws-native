@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // An example resource schema demonstrating some basic constructs and validation rules.
@@ -73,6 +74,12 @@ func (o LookupSuiteDefinitionResultOutput) ToLookupSuiteDefinitionResultOutput()
 
 func (o LookupSuiteDefinitionResultOutput) ToLookupSuiteDefinitionResultOutputWithContext(ctx context.Context) LookupSuiteDefinitionResultOutput {
 	return o
+}
+
+func (o LookupSuiteDefinitionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSuiteDefinitionResult] {
+	return pulumix.Output[LookupSuiteDefinitionResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource name for the suite definition.

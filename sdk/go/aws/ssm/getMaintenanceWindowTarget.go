@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SSM::MaintenanceWindowTarget
@@ -68,6 +69,12 @@ func (o LookupMaintenanceWindowTargetResultOutput) ToLookupMaintenanceWindowTarg
 
 func (o LookupMaintenanceWindowTargetResultOutput) ToLookupMaintenanceWindowTargetResultOutputWithContext(ctx context.Context) LookupMaintenanceWindowTargetResultOutput {
 	return o
+}
+
+func (o LookupMaintenanceWindowTargetResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupMaintenanceWindowTargetResult] {
+	return pulumix.Output[LookupMaintenanceWindowTargetResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupMaintenanceWindowTargetResultOutput) Description() pulumi.StringPtrOutput {

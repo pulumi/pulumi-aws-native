@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -46,6 +47,12 @@ func (i MicrosoftADVpcSettingsArgs) ToMicrosoftADVpcSettingsOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(MicrosoftADVpcSettingsOutput)
 }
 
+func (i MicrosoftADVpcSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[MicrosoftADVpcSettings] {
+	return pulumix.Output[MicrosoftADVpcSettings]{
+		OutputState: i.ToMicrosoftADVpcSettingsOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MicrosoftADVpcSettingsOutput struct{ *pulumi.OutputState }
 
 func (MicrosoftADVpcSettingsOutput) ElementType() reflect.Type {
@@ -58,6 +65,12 @@ func (o MicrosoftADVpcSettingsOutput) ToMicrosoftADVpcSettingsOutput() Microsoft
 
 func (o MicrosoftADVpcSettingsOutput) ToMicrosoftADVpcSettingsOutputWithContext(ctx context.Context) MicrosoftADVpcSettingsOutput {
 	return o
+}
+
+func (o MicrosoftADVpcSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[MicrosoftADVpcSettings] {
+	return pulumix.Output[MicrosoftADVpcSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MicrosoftADVpcSettingsOutput) SubnetIds() pulumi.StringArrayOutput {
@@ -105,6 +118,12 @@ func (i SimpleADVpcSettingsArgs) ToSimpleADVpcSettingsOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(SimpleADVpcSettingsOutput)
 }
 
+func (i SimpleADVpcSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[SimpleADVpcSettings] {
+	return pulumix.Output[SimpleADVpcSettings]{
+		OutputState: i.ToSimpleADVpcSettingsOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SimpleADVpcSettingsOutput struct{ *pulumi.OutputState }
 
 func (SimpleADVpcSettingsOutput) ElementType() reflect.Type {
@@ -117,6 +136,12 @@ func (o SimpleADVpcSettingsOutput) ToSimpleADVpcSettingsOutput() SimpleADVpcSett
 
 func (o SimpleADVpcSettingsOutput) ToSimpleADVpcSettingsOutputWithContext(ctx context.Context) SimpleADVpcSettingsOutput {
 	return o
+}
+
+func (o SimpleADVpcSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[SimpleADVpcSettings] {
+	return pulumix.Output[SimpleADVpcSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The identifiers of the subnets for the directory servers. The two subnets must be in different Availability Zones. AWS Directory Service specifies a directory server and a DNS server in each of these subnets.

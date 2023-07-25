@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Amazon Lex conversational bot performing automated tasks such as ordering a pizza, booking a hotel, and so on.
@@ -72,6 +73,12 @@ func (o LookupBotResultOutput) ToLookupBotResultOutput() LookupBotResultOutput {
 
 func (o LookupBotResultOutput) ToLookupBotResultOutputWithContext(ctx context.Context) LookupBotResultOutput {
 	return o
+}
+
+func (o LookupBotResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupBotResult] {
+	return pulumix.Output[LookupBotResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupBotResultOutput) Arn() pulumi.StringPtrOutput {

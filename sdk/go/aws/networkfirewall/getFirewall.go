@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource type definition for AWS::NetworkFirewall::Firewall
@@ -72,6 +73,12 @@ func (o LookupFirewallResultOutput) ToLookupFirewallResultOutput() LookupFirewal
 
 func (o LookupFirewallResultOutput) ToLookupFirewallResultOutputWithContext(ctx context.Context) LookupFirewallResultOutput {
 	return o
+}
+
+func (o LookupFirewallResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFirewallResult] {
+	return pulumix.Output[LookupFirewallResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupFirewallResultOutput) DeleteProtection() pulumi.BoolPtrOutput {

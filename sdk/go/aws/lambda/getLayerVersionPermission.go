@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Lambda::LayerVersionPermission
@@ -63,6 +64,12 @@ func (o LookupLayerVersionPermissionResultOutput) ToLookupLayerVersionPermission
 
 func (o LookupLayerVersionPermissionResultOutput) ToLookupLayerVersionPermissionResultOutputWithContext(ctx context.Context) LookupLayerVersionPermissionResultOutput {
 	return o
+}
+
+func (o LookupLayerVersionPermissionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupLayerVersionPermissionResult] {
+	return pulumix.Output[LookupLayerVersionPermissionResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupLayerVersionPermissionResultOutput) Id() pulumi.StringPtrOutput {

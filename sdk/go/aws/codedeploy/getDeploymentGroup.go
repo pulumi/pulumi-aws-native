@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::CodeDeploy::DeploymentGroup
@@ -80,6 +81,12 @@ func (o LookupDeploymentGroupResultOutput) ToLookupDeploymentGroupResultOutput()
 
 func (o LookupDeploymentGroupResultOutput) ToLookupDeploymentGroupResultOutputWithContext(ctx context.Context) LookupDeploymentGroupResultOutput {
 	return o
+}
+
+func (o LookupDeploymentGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDeploymentGroupResult] {
+	return pulumix.Output[LookupDeploymentGroupResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupDeploymentGroupResultOutput) AlarmConfiguration() DeploymentGroupAlarmConfigurationPtrOutput {

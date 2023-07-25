@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type CampaignCompression string
@@ -77,6 +78,12 @@ func (o CampaignCompressionOutput) ToCampaignCompressionPtrOutputWithContext(ctx
 	}).(CampaignCompressionPtrOutput)
 }
 
+func (o CampaignCompressionOutput) ToOutput(ctx context.Context) pulumix.Output[CampaignCompression] {
+	return pulumix.Output[CampaignCompression]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CampaignCompressionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -110,6 +117,12 @@ func (o CampaignCompressionPtrOutput) ToCampaignCompressionPtrOutput() CampaignC
 
 func (o CampaignCompressionPtrOutput) ToCampaignCompressionPtrOutputWithContext(ctx context.Context) CampaignCompressionPtrOutput {
 	return o
+}
+
+func (o CampaignCompressionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CampaignCompression] {
+	return pulumix.Output[*CampaignCompression]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CampaignCompressionPtrOutput) Elem() CampaignCompressionOutput {
@@ -172,6 +185,12 @@ func (in *campaignCompressionPtr) ToCampaignCompressionPtrOutput() CampaignCompr
 
 func (in *campaignCompressionPtr) ToCampaignCompressionPtrOutputWithContext(ctx context.Context) CampaignCompressionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(CampaignCompressionPtrOutput)
+}
+
+func (in *campaignCompressionPtr) ToOutput(ctx context.Context) pulumix.Output[*CampaignCompression] {
+	return pulumix.Output[*CampaignCompression]{
+		OutputState: in.ToCampaignCompressionPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type CampaignDiagnosticsMode string
@@ -241,6 +260,12 @@ func (o CampaignDiagnosticsModeOutput) ToCampaignDiagnosticsModePtrOutputWithCon
 	}).(CampaignDiagnosticsModePtrOutput)
 }
 
+func (o CampaignDiagnosticsModeOutput) ToOutput(ctx context.Context) pulumix.Output[CampaignDiagnosticsMode] {
+	return pulumix.Output[CampaignDiagnosticsMode]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CampaignDiagnosticsModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -274,6 +299,12 @@ func (o CampaignDiagnosticsModePtrOutput) ToCampaignDiagnosticsModePtrOutput() C
 
 func (o CampaignDiagnosticsModePtrOutput) ToCampaignDiagnosticsModePtrOutputWithContext(ctx context.Context) CampaignDiagnosticsModePtrOutput {
 	return o
+}
+
+func (o CampaignDiagnosticsModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CampaignDiagnosticsMode] {
+	return pulumix.Output[*CampaignDiagnosticsMode]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CampaignDiagnosticsModePtrOutput) Elem() CampaignDiagnosticsModeOutput {
@@ -336,6 +367,12 @@ func (in *campaignDiagnosticsModePtr) ToCampaignDiagnosticsModePtrOutput() Campa
 
 func (in *campaignDiagnosticsModePtr) ToCampaignDiagnosticsModePtrOutputWithContext(ctx context.Context) CampaignDiagnosticsModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(CampaignDiagnosticsModePtrOutput)
+}
+
+func (in *campaignDiagnosticsModePtr) ToOutput(ctx context.Context) pulumix.Output[*CampaignDiagnosticsMode] {
+	return pulumix.Output[*CampaignDiagnosticsMode]{
+		OutputState: in.ToCampaignDiagnosticsModePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type CampaignSpoolingMode string
@@ -405,6 +442,12 @@ func (o CampaignSpoolingModeOutput) ToCampaignSpoolingModePtrOutputWithContext(c
 	}).(CampaignSpoolingModePtrOutput)
 }
 
+func (o CampaignSpoolingModeOutput) ToOutput(ctx context.Context) pulumix.Output[CampaignSpoolingMode] {
+	return pulumix.Output[CampaignSpoolingMode]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CampaignSpoolingModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -438,6 +481,12 @@ func (o CampaignSpoolingModePtrOutput) ToCampaignSpoolingModePtrOutput() Campaig
 
 func (o CampaignSpoolingModePtrOutput) ToCampaignSpoolingModePtrOutputWithContext(ctx context.Context) CampaignSpoolingModePtrOutput {
 	return o
+}
+
+func (o CampaignSpoolingModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CampaignSpoolingMode] {
+	return pulumix.Output[*CampaignSpoolingMode]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CampaignSpoolingModePtrOutput) Elem() CampaignSpoolingModeOutput {
@@ -502,6 +551,12 @@ func (in *campaignSpoolingModePtr) ToCampaignSpoolingModePtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(CampaignSpoolingModePtrOutput)
 }
 
+func (in *campaignSpoolingModePtr) ToOutput(ctx context.Context) pulumix.Output[*CampaignSpoolingMode] {
+	return pulumix.Output[*CampaignSpoolingMode]{
+		OutputState: in.ToCampaignSpoolingModePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CampaignStatus string
 
 const (
@@ -533,6 +588,12 @@ func (o CampaignStatusOutput) ToCampaignStatusPtrOutputWithContext(ctx context.C
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CampaignStatus) *CampaignStatus {
 		return &v
 	}).(CampaignStatusPtrOutput)
+}
+
+func (o CampaignStatusOutput) ToOutput(ctx context.Context) pulumix.Output[CampaignStatus] {
+	return pulumix.Output[CampaignStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CampaignStatusOutput) ToStringOutput() pulumi.StringOutput {
@@ -568,6 +629,12 @@ func (o CampaignStatusPtrOutput) ToCampaignStatusPtrOutput() CampaignStatusPtrOu
 
 func (o CampaignStatusPtrOutput) ToCampaignStatusPtrOutputWithContext(ctx context.Context) CampaignStatusPtrOutput {
 	return o
+}
+
+func (o CampaignStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CampaignStatus] {
+	return pulumix.Output[*CampaignStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CampaignStatusPtrOutput) Elem() CampaignStatusOutput {
@@ -663,6 +730,12 @@ func (o CampaignUpdateCampaignActionOutput) ToCampaignUpdateCampaignActionPtrOut
 	}).(CampaignUpdateCampaignActionPtrOutput)
 }
 
+func (o CampaignUpdateCampaignActionOutput) ToOutput(ctx context.Context) pulumix.Output[CampaignUpdateCampaignAction] {
+	return pulumix.Output[CampaignUpdateCampaignAction]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CampaignUpdateCampaignActionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -696,6 +769,12 @@ func (o CampaignUpdateCampaignActionPtrOutput) ToCampaignUpdateCampaignActionPtr
 
 func (o CampaignUpdateCampaignActionPtrOutput) ToCampaignUpdateCampaignActionPtrOutputWithContext(ctx context.Context) CampaignUpdateCampaignActionPtrOutput {
 	return o
+}
+
+func (o CampaignUpdateCampaignActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CampaignUpdateCampaignAction] {
+	return pulumix.Output[*CampaignUpdateCampaignAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CampaignUpdateCampaignActionPtrOutput) Elem() CampaignUpdateCampaignActionOutput {
@@ -758,6 +837,12 @@ func (in *campaignUpdateCampaignActionPtr) ToCampaignUpdateCampaignActionPtrOutp
 
 func (in *campaignUpdateCampaignActionPtr) ToCampaignUpdateCampaignActionPtrOutputWithContext(ctx context.Context) CampaignUpdateCampaignActionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(CampaignUpdateCampaignActionPtrOutput)
+}
+
+func (in *campaignUpdateCampaignActionPtr) ToOutput(ctx context.Context) pulumix.Output[*CampaignUpdateCampaignAction] {
+	return pulumix.Output[*CampaignUpdateCampaignAction]{
+		OutputState: in.ToCampaignUpdateCampaignActionPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type DecoderManifestCanNetworkInterfaceType string
@@ -839,6 +924,12 @@ func (o DecoderManifestManifestStatusOutput) ToDecoderManifestManifestStatusPtrO
 	}).(DecoderManifestManifestStatusPtrOutput)
 }
 
+func (o DecoderManifestManifestStatusOutput) ToOutput(ctx context.Context) pulumix.Output[DecoderManifestManifestStatus] {
+	return pulumix.Output[DecoderManifestManifestStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DecoderManifestManifestStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -872,6 +963,12 @@ func (o DecoderManifestManifestStatusPtrOutput) ToDecoderManifestManifestStatusP
 
 func (o DecoderManifestManifestStatusPtrOutput) ToDecoderManifestManifestStatusPtrOutputWithContext(ctx context.Context) DecoderManifestManifestStatusPtrOutput {
 	return o
+}
+
+func (o DecoderManifestManifestStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DecoderManifestManifestStatus] {
+	return pulumix.Output[*DecoderManifestManifestStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DecoderManifestManifestStatusPtrOutput) Elem() DecoderManifestManifestStatusOutput {
@@ -934,6 +1031,12 @@ func (in *decoderManifestManifestStatusPtr) ToDecoderManifestManifestStatusPtrOu
 
 func (in *decoderManifestManifestStatusPtr) ToDecoderManifestManifestStatusPtrOutputWithContext(ctx context.Context) DecoderManifestManifestStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DecoderManifestManifestStatusPtrOutput)
+}
+
+func (in *decoderManifestManifestStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*DecoderManifestManifestStatus] {
+	return pulumix.Output[*DecoderManifestManifestStatus]{
+		OutputState: in.ToDecoderManifestManifestStatusPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type DecoderManifestObdNetworkInterfaceType string
@@ -1015,6 +1118,12 @@ func (o ModelManifestManifestStatusOutput) ToModelManifestManifestStatusPtrOutpu
 	}).(ModelManifestManifestStatusPtrOutput)
 }
 
+func (o ModelManifestManifestStatusOutput) ToOutput(ctx context.Context) pulumix.Output[ModelManifestManifestStatus] {
+	return pulumix.Output[ModelManifestManifestStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ModelManifestManifestStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1048,6 +1157,12 @@ func (o ModelManifestManifestStatusPtrOutput) ToModelManifestManifestStatusPtrOu
 
 func (o ModelManifestManifestStatusPtrOutput) ToModelManifestManifestStatusPtrOutputWithContext(ctx context.Context) ModelManifestManifestStatusPtrOutput {
 	return o
+}
+
+func (o ModelManifestManifestStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ModelManifestManifestStatus] {
+	return pulumix.Output[*ModelManifestManifestStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ModelManifestManifestStatusPtrOutput) Elem() ModelManifestManifestStatusOutput {
@@ -1110,6 +1225,12 @@ func (in *modelManifestManifestStatusPtr) ToModelManifestManifestStatusPtrOutput
 
 func (in *modelManifestManifestStatusPtr) ToModelManifestManifestStatusPtrOutputWithContext(ctx context.Context) ModelManifestManifestStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ModelManifestManifestStatusPtrOutput)
+}
+
+func (in *modelManifestManifestStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*ModelManifestManifestStatus] {
+	return pulumix.Output[*ModelManifestManifestStatus]{
+		OutputState: in.ToModelManifestManifestStatusPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type VehicleAssociationBehavior string
@@ -1179,6 +1300,12 @@ func (o VehicleAssociationBehaviorOutput) ToVehicleAssociationBehaviorPtrOutputW
 	}).(VehicleAssociationBehaviorPtrOutput)
 }
 
+func (o VehicleAssociationBehaviorOutput) ToOutput(ctx context.Context) pulumix.Output[VehicleAssociationBehavior] {
+	return pulumix.Output[VehicleAssociationBehavior]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VehicleAssociationBehaviorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1212,6 +1339,12 @@ func (o VehicleAssociationBehaviorPtrOutput) ToVehicleAssociationBehaviorPtrOutp
 
 func (o VehicleAssociationBehaviorPtrOutput) ToVehicleAssociationBehaviorPtrOutputWithContext(ctx context.Context) VehicleAssociationBehaviorPtrOutput {
 	return o
+}
+
+func (o VehicleAssociationBehaviorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VehicleAssociationBehavior] {
+	return pulumix.Output[*VehicleAssociationBehavior]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VehicleAssociationBehaviorPtrOutput) Elem() VehicleAssociationBehaviorOutput {
@@ -1274,6 +1407,12 @@ func (in *vehicleAssociationBehaviorPtr) ToVehicleAssociationBehaviorPtrOutput()
 
 func (in *vehicleAssociationBehaviorPtr) ToVehicleAssociationBehaviorPtrOutputWithContext(ctx context.Context) VehicleAssociationBehaviorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(VehicleAssociationBehaviorPtrOutput)
+}
+
+func (in *vehicleAssociationBehaviorPtr) ToOutput(ctx context.Context) pulumix.Output[*VehicleAssociationBehavior] {
+	return pulumix.Output[*VehicleAssociationBehavior]{
+		OutputState: in.ToVehicleAssociationBehaviorPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

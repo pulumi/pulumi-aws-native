@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func GetSsmParameterString(ctx *pulumi.Context, args *GetSsmParameterStringArgs, opts ...pulumi.InvokeOption) (*GetSsmParameterStringResult, error) {
@@ -62,6 +63,12 @@ func (o GetSsmParameterStringResultOutput) ToGetSsmParameterStringResultOutput()
 
 func (o GetSsmParameterStringResultOutput) ToGetSsmParameterStringResultOutputWithContext(ctx context.Context) GetSsmParameterStringResultOutput {
 	return o
+}
+
+func (o GetSsmParameterStringResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetSsmParameterStringResult] {
+	return pulumix.Output[GetSsmParameterStringResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSsmParameterStringResultOutput) Value() pulumi.StringOutput {

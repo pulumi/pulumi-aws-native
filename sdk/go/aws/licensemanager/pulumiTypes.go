@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -44,6 +45,12 @@ func (i LicenseBorrowConfigurationArgs) ToLicenseBorrowConfigurationOutput() Lic
 
 func (i LicenseBorrowConfigurationArgs) ToLicenseBorrowConfigurationOutputWithContext(ctx context.Context) LicenseBorrowConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LicenseBorrowConfigurationOutput)
+}
+
+func (i LicenseBorrowConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[LicenseBorrowConfiguration] {
+	return pulumix.Output[LicenseBorrowConfiguration]{
+		OutputState: i.ToLicenseBorrowConfigurationOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i LicenseBorrowConfigurationArgs) ToLicenseBorrowConfigurationPtrOutput() LicenseBorrowConfigurationPtrOutput {
@@ -87,6 +94,12 @@ func (i *licenseBorrowConfigurationPtrType) ToLicenseBorrowConfigurationPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(LicenseBorrowConfigurationPtrOutput)
 }
 
+func (i *licenseBorrowConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*LicenseBorrowConfiguration] {
+	return pulumix.Output[*LicenseBorrowConfiguration]{
+		OutputState: i.ToLicenseBorrowConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LicenseBorrowConfigurationOutput struct{ *pulumi.OutputState }
 
 func (LicenseBorrowConfigurationOutput) ElementType() reflect.Type {
@@ -111,6 +124,12 @@ func (o LicenseBorrowConfigurationOutput) ToLicenseBorrowConfigurationPtrOutputW
 	}).(LicenseBorrowConfigurationPtrOutput)
 }
 
+func (o LicenseBorrowConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[LicenseBorrowConfiguration] {
+	return pulumix.Output[LicenseBorrowConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LicenseBorrowConfigurationOutput) AllowEarlyCheckIn() pulumi.BoolOutput {
 	return o.ApplyT(func(v LicenseBorrowConfiguration) bool { return v.AllowEarlyCheckIn }).(pulumi.BoolOutput)
 }
@@ -131,6 +150,12 @@ func (o LicenseBorrowConfigurationPtrOutput) ToLicenseBorrowConfigurationPtrOutp
 
 func (o LicenseBorrowConfigurationPtrOutput) ToLicenseBorrowConfigurationPtrOutputWithContext(ctx context.Context) LicenseBorrowConfigurationPtrOutput {
 	return o
+}
+
+func (o LicenseBorrowConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LicenseBorrowConfiguration] {
+	return pulumix.Output[*LicenseBorrowConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LicenseBorrowConfigurationPtrOutput) Elem() LicenseBorrowConfigurationOutput {
@@ -196,6 +221,12 @@ func (i LicenseConsumptionConfigurationArgs) ToLicenseConsumptionConfigurationOu
 	return pulumi.ToOutputWithContext(ctx, i).(LicenseConsumptionConfigurationOutput)
 }
 
+func (i LicenseConsumptionConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[LicenseConsumptionConfiguration] {
+	return pulumix.Output[LicenseConsumptionConfiguration]{
+		OutputState: i.ToLicenseConsumptionConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LicenseConsumptionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (LicenseConsumptionConfigurationOutput) ElementType() reflect.Type {
@@ -208,6 +239,12 @@ func (o LicenseConsumptionConfigurationOutput) ToLicenseConsumptionConfiguration
 
 func (o LicenseConsumptionConfigurationOutput) ToLicenseConsumptionConfigurationOutputWithContext(ctx context.Context) LicenseConsumptionConfigurationOutput {
 	return o
+}
+
+func (o LicenseConsumptionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[LicenseConsumptionConfiguration] {
+	return pulumix.Output[LicenseConsumptionConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LicenseConsumptionConfigurationOutput) BorrowConfiguration() LicenseBorrowConfigurationPtrOutput {
@@ -236,6 +273,12 @@ func (o LicenseConsumptionConfigurationPtrOutput) ToLicenseConsumptionConfigurat
 
 func (o LicenseConsumptionConfigurationPtrOutput) ToLicenseConsumptionConfigurationPtrOutputWithContext(ctx context.Context) LicenseConsumptionConfigurationPtrOutput {
 	return o
+}
+
+func (o LicenseConsumptionConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LicenseConsumptionConfiguration] {
+	return pulumix.Output[*LicenseConsumptionConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LicenseConsumptionConfigurationPtrOutput) Elem() LicenseConsumptionConfigurationOutput {
@@ -316,6 +359,12 @@ func (i LicenseEntitlementArgs) ToLicenseEntitlementOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(LicenseEntitlementOutput)
 }
 
+func (i LicenseEntitlementArgs) ToOutput(ctx context.Context) pulumix.Output[LicenseEntitlement] {
+	return pulumix.Output[LicenseEntitlement]{
+		OutputState: i.ToLicenseEntitlementOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LicenseEntitlementArrayInput is an input type that accepts LicenseEntitlementArray and LicenseEntitlementArrayOutput values.
 // You can construct a concrete instance of `LicenseEntitlementArrayInput` via:
 //
@@ -341,6 +390,12 @@ func (i LicenseEntitlementArray) ToLicenseEntitlementArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(LicenseEntitlementArrayOutput)
 }
 
+func (i LicenseEntitlementArray) ToOutput(ctx context.Context) pulumix.Output[[]LicenseEntitlement] {
+	return pulumix.Output[[]LicenseEntitlement]{
+		OutputState: i.ToLicenseEntitlementArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LicenseEntitlementOutput struct{ *pulumi.OutputState }
 
 func (LicenseEntitlementOutput) ElementType() reflect.Type {
@@ -353,6 +408,12 @@ func (o LicenseEntitlementOutput) ToLicenseEntitlementOutput() LicenseEntitlemen
 
 func (o LicenseEntitlementOutput) ToLicenseEntitlementOutputWithContext(ctx context.Context) LicenseEntitlementOutput {
 	return o
+}
+
+func (o LicenseEntitlementOutput) ToOutput(ctx context.Context) pulumix.Output[LicenseEntitlement] {
+	return pulumix.Output[LicenseEntitlement]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LicenseEntitlementOutput) AllowCheckIn() pulumi.BoolPtrOutput {
@@ -391,6 +452,12 @@ func (o LicenseEntitlementArrayOutput) ToLicenseEntitlementArrayOutput() License
 
 func (o LicenseEntitlementArrayOutput) ToLicenseEntitlementArrayOutputWithContext(ctx context.Context) LicenseEntitlementArrayOutput {
 	return o
+}
+
+func (o LicenseEntitlementArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LicenseEntitlement] {
+	return pulumix.Output[[]LicenseEntitlement]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LicenseEntitlementArrayOutput) Index(i pulumi.IntInput) LicenseEntitlementOutput {
@@ -432,6 +499,12 @@ func (i LicenseIssuerDataArgs) ToLicenseIssuerDataOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(LicenseIssuerDataOutput)
 }
 
+func (i LicenseIssuerDataArgs) ToOutput(ctx context.Context) pulumix.Output[LicenseIssuerData] {
+	return pulumix.Output[LicenseIssuerData]{
+		OutputState: i.ToLicenseIssuerDataOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LicenseIssuerDataOutput struct{ *pulumi.OutputState }
 
 func (LicenseIssuerDataOutput) ElementType() reflect.Type {
@@ -444,6 +517,12 @@ func (o LicenseIssuerDataOutput) ToLicenseIssuerDataOutput() LicenseIssuerDataOu
 
 func (o LicenseIssuerDataOutput) ToLicenseIssuerDataOutputWithContext(ctx context.Context) LicenseIssuerDataOutput {
 	return o
+}
+
+func (o LicenseIssuerDataOutput) ToOutput(ctx context.Context) pulumix.Output[LicenseIssuerData] {
+	return pulumix.Output[LicenseIssuerData]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LicenseIssuerDataOutput) Name() pulumi.StringOutput {
@@ -466,6 +545,12 @@ func (o LicenseIssuerDataPtrOutput) ToLicenseIssuerDataPtrOutput() LicenseIssuer
 
 func (o LicenseIssuerDataPtrOutput) ToLicenseIssuerDataPtrOutputWithContext(ctx context.Context) LicenseIssuerDataPtrOutput {
 	return o
+}
+
+func (o LicenseIssuerDataPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LicenseIssuerData] {
+	return pulumix.Output[*LicenseIssuerData]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LicenseIssuerDataPtrOutput) Elem() LicenseIssuerDataOutput {
@@ -529,6 +614,12 @@ func (i LicenseMetadataArgs) ToLicenseMetadataOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(LicenseMetadataOutput)
 }
 
+func (i LicenseMetadataArgs) ToOutput(ctx context.Context) pulumix.Output[LicenseMetadata] {
+	return pulumix.Output[LicenseMetadata]{
+		OutputState: i.ToLicenseMetadataOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LicenseMetadataArrayInput is an input type that accepts LicenseMetadataArray and LicenseMetadataArrayOutput values.
 // You can construct a concrete instance of `LicenseMetadataArrayInput` via:
 //
@@ -554,6 +645,12 @@ func (i LicenseMetadataArray) ToLicenseMetadataArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(LicenseMetadataArrayOutput)
 }
 
+func (i LicenseMetadataArray) ToOutput(ctx context.Context) pulumix.Output[[]LicenseMetadata] {
+	return pulumix.Output[[]LicenseMetadata]{
+		OutputState: i.ToLicenseMetadataArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LicenseMetadataOutput struct{ *pulumi.OutputState }
 
 func (LicenseMetadataOutput) ElementType() reflect.Type {
@@ -566,6 +663,12 @@ func (o LicenseMetadataOutput) ToLicenseMetadataOutput() LicenseMetadataOutput {
 
 func (o LicenseMetadataOutput) ToLicenseMetadataOutputWithContext(ctx context.Context) LicenseMetadataOutput {
 	return o
+}
+
+func (o LicenseMetadataOutput) ToOutput(ctx context.Context) pulumix.Output[LicenseMetadata] {
+	return pulumix.Output[LicenseMetadata]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LicenseMetadataOutput) Name() pulumi.StringOutput {
@@ -588,6 +691,12 @@ func (o LicenseMetadataArrayOutput) ToLicenseMetadataArrayOutput() LicenseMetada
 
 func (o LicenseMetadataArrayOutput) ToLicenseMetadataArrayOutputWithContext(ctx context.Context) LicenseMetadataArrayOutput {
 	return o
+}
+
+func (o LicenseMetadataArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LicenseMetadata] {
+	return pulumix.Output[[]LicenseMetadata]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LicenseMetadataArrayOutput) Index(i pulumi.IntInput) LicenseMetadataOutput {
@@ -625,6 +734,12 @@ func (i LicenseProvisionalConfigurationArgs) ToLicenseProvisionalConfigurationOu
 
 func (i LicenseProvisionalConfigurationArgs) ToLicenseProvisionalConfigurationOutputWithContext(ctx context.Context) LicenseProvisionalConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LicenseProvisionalConfigurationOutput)
+}
+
+func (i LicenseProvisionalConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[LicenseProvisionalConfiguration] {
+	return pulumix.Output[LicenseProvisionalConfiguration]{
+		OutputState: i.ToLicenseProvisionalConfigurationOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i LicenseProvisionalConfigurationArgs) ToLicenseProvisionalConfigurationPtrOutput() LicenseProvisionalConfigurationPtrOutput {
@@ -668,6 +783,12 @@ func (i *licenseProvisionalConfigurationPtrType) ToLicenseProvisionalConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(LicenseProvisionalConfigurationPtrOutput)
 }
 
+func (i *licenseProvisionalConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*LicenseProvisionalConfiguration] {
+	return pulumix.Output[*LicenseProvisionalConfiguration]{
+		OutputState: i.ToLicenseProvisionalConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LicenseProvisionalConfigurationOutput struct{ *pulumi.OutputState }
 
 func (LicenseProvisionalConfigurationOutput) ElementType() reflect.Type {
@@ -692,6 +813,12 @@ func (o LicenseProvisionalConfigurationOutput) ToLicenseProvisionalConfiguration
 	}).(LicenseProvisionalConfigurationPtrOutput)
 }
 
+func (o LicenseProvisionalConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[LicenseProvisionalConfiguration] {
+	return pulumix.Output[LicenseProvisionalConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LicenseProvisionalConfigurationOutput) MaxTimeToLiveInMinutes() pulumi.IntOutput {
 	return o.ApplyT(func(v LicenseProvisionalConfiguration) int { return v.MaxTimeToLiveInMinutes }).(pulumi.IntOutput)
 }
@@ -708,6 +835,12 @@ func (o LicenseProvisionalConfigurationPtrOutput) ToLicenseProvisionalConfigurat
 
 func (o LicenseProvisionalConfigurationPtrOutput) ToLicenseProvisionalConfigurationPtrOutputWithContext(ctx context.Context) LicenseProvisionalConfigurationPtrOutput {
 	return o
+}
+
+func (o LicenseProvisionalConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LicenseProvisionalConfiguration] {
+	return pulumix.Output[*LicenseProvisionalConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LicenseProvisionalConfigurationPtrOutput) Elem() LicenseProvisionalConfigurationOutput {
@@ -766,6 +899,12 @@ func (i LicenseValidityDateFormatArgs) ToLicenseValidityDateFormatOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(LicenseValidityDateFormatOutput)
 }
 
+func (i LicenseValidityDateFormatArgs) ToOutput(ctx context.Context) pulumix.Output[LicenseValidityDateFormat] {
+	return pulumix.Output[LicenseValidityDateFormat]{
+		OutputState: i.ToLicenseValidityDateFormatOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LicenseValidityDateFormatOutput struct{ *pulumi.OutputState }
 
 func (LicenseValidityDateFormatOutput) ElementType() reflect.Type {
@@ -778,6 +917,12 @@ func (o LicenseValidityDateFormatOutput) ToLicenseValidityDateFormatOutput() Lic
 
 func (o LicenseValidityDateFormatOutput) ToLicenseValidityDateFormatOutputWithContext(ctx context.Context) LicenseValidityDateFormatOutput {
 	return o
+}
+
+func (o LicenseValidityDateFormatOutput) ToOutput(ctx context.Context) pulumix.Output[LicenseValidityDateFormat] {
+	return pulumix.Output[LicenseValidityDateFormat]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Validity begin date for the license.
@@ -802,6 +947,12 @@ func (o LicenseValidityDateFormatPtrOutput) ToLicenseValidityDateFormatPtrOutput
 
 func (o LicenseValidityDateFormatPtrOutput) ToLicenseValidityDateFormatPtrOutputWithContext(ctx context.Context) LicenseValidityDateFormatPtrOutput {
 	return o
+}
+
+func (o LicenseValidityDateFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LicenseValidityDateFormat] {
+	return pulumix.Output[*LicenseValidityDateFormat]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LicenseValidityDateFormatPtrOutput) Elem() LicenseValidityDateFormatOutput {

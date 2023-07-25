@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::DocDB::DBSubnetGroup
@@ -66,6 +67,12 @@ func (o LookupDBSubnetGroupResultOutput) ToLookupDBSubnetGroupResultOutput() Loo
 
 func (o LookupDBSubnetGroupResultOutput) ToLookupDBSubnetGroupResultOutputWithContext(ctx context.Context) LookupDBSubnetGroupResultOutput {
 	return o
+}
+
+func (o LookupDBSubnetGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDBSubnetGroupResult] {
+	return pulumix.Output[LookupDBSubnetGroupResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupDBSubnetGroupResultOutput) DBSubnetGroupDescription() pulumi.StringPtrOutput {

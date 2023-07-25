@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of the AWS::QuickSight::VPCConnection Resource Type.
@@ -119,6 +120,12 @@ func (i *VPCConnection) ToVPCConnectionOutputWithContext(ctx context.Context) VP
 	return pulumi.ToOutputWithContext(ctx, i).(VPCConnectionOutput)
 }
 
+func (i *VPCConnection) ToOutput(ctx context.Context) pulumix.Output[*VPCConnection] {
+	return pulumix.Output[*VPCConnection]{
+		OutputState: i.ToVPCConnectionOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VPCConnectionOutput struct{ *pulumi.OutputState }
 
 func (VPCConnectionOutput) ElementType() reflect.Type {
@@ -131,6 +138,12 @@ func (o VPCConnectionOutput) ToVPCConnectionOutput() VPCConnectionOutput {
 
 func (o VPCConnectionOutput) ToVPCConnectionOutputWithContext(ctx context.Context) VPCConnectionOutput {
 	return o
+}
+
+func (o VPCConnectionOutput) ToOutput(ctx context.Context) pulumix.Output[*VPCConnection] {
+	return pulumix.Output[*VPCConnection]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VPCConnectionOutput) Arn() pulumi.StringOutput {

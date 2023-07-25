@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::CloudFront::Distribution
@@ -66,6 +67,12 @@ func (o LookupDistributionResultOutput) ToLookupDistributionResultOutput() Looku
 
 func (o LookupDistributionResultOutput) ToLookupDistributionResultOutputWithContext(ctx context.Context) LookupDistributionResultOutput {
 	return o
+}
+
+func (o LookupDistributionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDistributionResult] {
+	return pulumix.Output[LookupDistributionResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupDistributionResultOutput) DistributionConfig() DistributionConfigPtrOutput {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // IP Address type.
@@ -78,6 +79,12 @@ func (o AcceleratorIpAddressTypeOutput) ToAcceleratorIpAddressTypePtrOutputWithC
 	}).(AcceleratorIpAddressTypePtrOutput)
 }
 
+func (o AcceleratorIpAddressTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AcceleratorIpAddressType] {
+	return pulumix.Output[AcceleratorIpAddressType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AcceleratorIpAddressTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -111,6 +118,12 @@ func (o AcceleratorIpAddressTypePtrOutput) ToAcceleratorIpAddressTypePtrOutput()
 
 func (o AcceleratorIpAddressTypePtrOutput) ToAcceleratorIpAddressTypePtrOutputWithContext(ctx context.Context) AcceleratorIpAddressTypePtrOutput {
 	return o
+}
+
+func (o AcceleratorIpAddressTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AcceleratorIpAddressType] {
+	return pulumix.Output[*AcceleratorIpAddressType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AcceleratorIpAddressTypePtrOutput) Elem() AcceleratorIpAddressTypeOutput {
@@ -173,6 +186,12 @@ func (in *acceleratorIpAddressTypePtr) ToAcceleratorIpAddressTypePtrOutput() Acc
 
 func (in *acceleratorIpAddressTypePtr) ToAcceleratorIpAddressTypePtrOutputWithContext(ctx context.Context) AcceleratorIpAddressTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AcceleratorIpAddressTypePtrOutput)
+}
+
+func (in *acceleratorIpAddressTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AcceleratorIpAddressType] {
+	return pulumix.Output[*AcceleratorIpAddressType]{
+		OutputState: in.ToAcceleratorIpAddressTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The protocol that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.
@@ -244,6 +263,12 @@ func (o EndpointGroupHealthCheckProtocolOutput) ToEndpointGroupHealthCheckProtoc
 	}).(EndpointGroupHealthCheckProtocolPtrOutput)
 }
 
+func (o EndpointGroupHealthCheckProtocolOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointGroupHealthCheckProtocol] {
+	return pulumix.Output[EndpointGroupHealthCheckProtocol]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EndpointGroupHealthCheckProtocolOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -277,6 +302,12 @@ func (o EndpointGroupHealthCheckProtocolPtrOutput) ToEndpointGroupHealthCheckPro
 
 func (o EndpointGroupHealthCheckProtocolPtrOutput) ToEndpointGroupHealthCheckProtocolPtrOutputWithContext(ctx context.Context) EndpointGroupHealthCheckProtocolPtrOutput {
 	return o
+}
+
+func (o EndpointGroupHealthCheckProtocolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointGroupHealthCheckProtocol] {
+	return pulumix.Output[*EndpointGroupHealthCheckProtocol]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EndpointGroupHealthCheckProtocolPtrOutput) Elem() EndpointGroupHealthCheckProtocolOutput {
@@ -339,6 +370,12 @@ func (in *endpointGroupHealthCheckProtocolPtr) ToEndpointGroupHealthCheckProtoco
 
 func (in *endpointGroupHealthCheckProtocolPtr) ToEndpointGroupHealthCheckProtocolPtrOutputWithContext(ctx context.Context) EndpointGroupHealthCheckProtocolPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EndpointGroupHealthCheckProtocolPtrOutput)
+}
+
+func (in *endpointGroupHealthCheckProtocolPtr) ToOutput(ctx context.Context) pulumix.Output[*EndpointGroupHealthCheckProtocol] {
+	return pulumix.Output[*EndpointGroupHealthCheckProtocol]{
+		OutputState: in.ToEndpointGroupHealthCheckProtocolPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Client affinity lets you direct all requests from a user to the same endpoint.
@@ -409,6 +446,12 @@ func (o ListenerClientAffinityOutput) ToListenerClientAffinityPtrOutputWithConte
 	}).(ListenerClientAffinityPtrOutput)
 }
 
+func (o ListenerClientAffinityOutput) ToOutput(ctx context.Context) pulumix.Output[ListenerClientAffinity] {
+	return pulumix.Output[ListenerClientAffinity]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ListenerClientAffinityOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -442,6 +485,12 @@ func (o ListenerClientAffinityPtrOutput) ToListenerClientAffinityPtrOutput() Lis
 
 func (o ListenerClientAffinityPtrOutput) ToListenerClientAffinityPtrOutputWithContext(ctx context.Context) ListenerClientAffinityPtrOutput {
 	return o
+}
+
+func (o ListenerClientAffinityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ListenerClientAffinity] {
+	return pulumix.Output[*ListenerClientAffinity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ListenerClientAffinityPtrOutput) Elem() ListenerClientAffinityOutput {
@@ -504,6 +553,12 @@ func (in *listenerClientAffinityPtr) ToListenerClientAffinityPtrOutput() Listene
 
 func (in *listenerClientAffinityPtr) ToListenerClientAffinityPtrOutputWithContext(ctx context.Context) ListenerClientAffinityPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ListenerClientAffinityPtrOutput)
+}
+
+func (in *listenerClientAffinityPtr) ToOutput(ctx context.Context) pulumix.Output[*ListenerClientAffinity] {
+	return pulumix.Output[*ListenerClientAffinity]{
+		OutputState: in.ToListenerClientAffinityPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The protocol for the listener.
@@ -574,6 +629,12 @@ func (o ListenerProtocolOutput) ToListenerProtocolPtrOutputWithContext(ctx conte
 	}).(ListenerProtocolPtrOutput)
 }
 
+func (o ListenerProtocolOutput) ToOutput(ctx context.Context) pulumix.Output[ListenerProtocol] {
+	return pulumix.Output[ListenerProtocol]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ListenerProtocolOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -607,6 +668,12 @@ func (o ListenerProtocolPtrOutput) ToListenerProtocolPtrOutput() ListenerProtoco
 
 func (o ListenerProtocolPtrOutput) ToListenerProtocolPtrOutputWithContext(ctx context.Context) ListenerProtocolPtrOutput {
 	return o
+}
+
+func (o ListenerProtocolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ListenerProtocol] {
+	return pulumix.Output[*ListenerProtocol]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ListenerProtocolPtrOutput) Elem() ListenerProtocolOutput {
@@ -669,6 +736,12 @@ func (in *listenerProtocolPtr) ToListenerProtocolPtrOutput() ListenerProtocolPtr
 
 func (in *listenerProtocolPtr) ToListenerProtocolPtrOutputWithContext(ctx context.Context) ListenerProtocolPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ListenerProtocolPtrOutput)
+}
+
+func (in *listenerProtocolPtr) ToOutput(ctx context.Context) pulumix.Output[*ListenerProtocol] {
+	return pulumix.Output[*ListenerProtocol]{
+		OutputState: in.ToListenerProtocolPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type BudgetsActionActionThresholdType string
@@ -77,6 +78,12 @@ func (o BudgetsActionActionThresholdTypeOutput) ToBudgetsActionActionThresholdTy
 	}).(BudgetsActionActionThresholdTypePtrOutput)
 }
 
+func (o BudgetsActionActionThresholdTypeOutput) ToOutput(ctx context.Context) pulumix.Output[BudgetsActionActionThresholdType] {
+	return pulumix.Output[BudgetsActionActionThresholdType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BudgetsActionActionThresholdTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -110,6 +117,12 @@ func (o BudgetsActionActionThresholdTypePtrOutput) ToBudgetsActionActionThreshol
 
 func (o BudgetsActionActionThresholdTypePtrOutput) ToBudgetsActionActionThresholdTypePtrOutputWithContext(ctx context.Context) BudgetsActionActionThresholdTypePtrOutput {
 	return o
+}
+
+func (o BudgetsActionActionThresholdTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BudgetsActionActionThresholdType] {
+	return pulumix.Output[*BudgetsActionActionThresholdType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BudgetsActionActionThresholdTypePtrOutput) Elem() BudgetsActionActionThresholdTypeOutput {
@@ -172,6 +185,12 @@ func (in *budgetsActionActionThresholdTypePtr) ToBudgetsActionActionThresholdTyp
 
 func (in *budgetsActionActionThresholdTypePtr) ToBudgetsActionActionThresholdTypePtrOutputWithContext(ctx context.Context) BudgetsActionActionThresholdTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(BudgetsActionActionThresholdTypePtrOutput)
+}
+
+func (in *budgetsActionActionThresholdTypePtr) ToOutput(ctx context.Context) pulumix.Output[*BudgetsActionActionThresholdType] {
+	return pulumix.Output[*BudgetsActionActionThresholdType]{
+		OutputState: in.ToBudgetsActionActionThresholdTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type BudgetsActionActionType string
@@ -242,6 +261,12 @@ func (o BudgetsActionActionTypeOutput) ToBudgetsActionActionTypePtrOutputWithCon
 	}).(BudgetsActionActionTypePtrOutput)
 }
 
+func (o BudgetsActionActionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[BudgetsActionActionType] {
+	return pulumix.Output[BudgetsActionActionType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BudgetsActionActionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -275,6 +300,12 @@ func (o BudgetsActionActionTypePtrOutput) ToBudgetsActionActionTypePtrOutput() B
 
 func (o BudgetsActionActionTypePtrOutput) ToBudgetsActionActionTypePtrOutputWithContext(ctx context.Context) BudgetsActionActionTypePtrOutput {
 	return o
+}
+
+func (o BudgetsActionActionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BudgetsActionActionType] {
+	return pulumix.Output[*BudgetsActionActionType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BudgetsActionActionTypePtrOutput) Elem() BudgetsActionActionTypeOutput {
@@ -337,6 +368,12 @@ func (in *budgetsActionActionTypePtr) ToBudgetsActionActionTypePtrOutput() Budge
 
 func (in *budgetsActionActionTypePtr) ToBudgetsActionActionTypePtrOutputWithContext(ctx context.Context) BudgetsActionActionTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(BudgetsActionActionTypePtrOutput)
+}
+
+func (in *budgetsActionActionTypePtr) ToOutput(ctx context.Context) pulumix.Output[*BudgetsActionActionType] {
+	return pulumix.Output[*BudgetsActionActionType]{
+		OutputState: in.ToBudgetsActionActionTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type BudgetsActionApprovalModel string
@@ -406,6 +443,12 @@ func (o BudgetsActionApprovalModelOutput) ToBudgetsActionApprovalModelPtrOutputW
 	}).(BudgetsActionApprovalModelPtrOutput)
 }
 
+func (o BudgetsActionApprovalModelOutput) ToOutput(ctx context.Context) pulumix.Output[BudgetsActionApprovalModel] {
+	return pulumix.Output[BudgetsActionApprovalModel]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BudgetsActionApprovalModelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -439,6 +482,12 @@ func (o BudgetsActionApprovalModelPtrOutput) ToBudgetsActionApprovalModelPtrOutp
 
 func (o BudgetsActionApprovalModelPtrOutput) ToBudgetsActionApprovalModelPtrOutputWithContext(ctx context.Context) BudgetsActionApprovalModelPtrOutput {
 	return o
+}
+
+func (o BudgetsActionApprovalModelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BudgetsActionApprovalModel] {
+	return pulumix.Output[*BudgetsActionApprovalModel]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BudgetsActionApprovalModelPtrOutput) Elem() BudgetsActionApprovalModelOutput {
@@ -501,6 +550,12 @@ func (in *budgetsActionApprovalModelPtr) ToBudgetsActionApprovalModelPtrOutput()
 
 func (in *budgetsActionApprovalModelPtr) ToBudgetsActionApprovalModelPtrOutputWithContext(ctx context.Context) BudgetsActionApprovalModelPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(BudgetsActionApprovalModelPtrOutput)
+}
+
+func (in *budgetsActionApprovalModelPtr) ToOutput(ctx context.Context) pulumix.Output[*BudgetsActionApprovalModel] {
+	return pulumix.Output[*BudgetsActionApprovalModel]{
+		OutputState: in.ToBudgetsActionApprovalModelPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type BudgetsActionNotificationType string
@@ -570,6 +625,12 @@ func (o BudgetsActionNotificationTypeOutput) ToBudgetsActionNotificationTypePtrO
 	}).(BudgetsActionNotificationTypePtrOutput)
 }
 
+func (o BudgetsActionNotificationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[BudgetsActionNotificationType] {
+	return pulumix.Output[BudgetsActionNotificationType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BudgetsActionNotificationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -603,6 +664,12 @@ func (o BudgetsActionNotificationTypePtrOutput) ToBudgetsActionNotificationTypeP
 
 func (o BudgetsActionNotificationTypePtrOutput) ToBudgetsActionNotificationTypePtrOutputWithContext(ctx context.Context) BudgetsActionNotificationTypePtrOutput {
 	return o
+}
+
+func (o BudgetsActionNotificationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BudgetsActionNotificationType] {
+	return pulumix.Output[*BudgetsActionNotificationType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BudgetsActionNotificationTypePtrOutput) Elem() BudgetsActionNotificationTypeOutput {
@@ -665,6 +732,12 @@ func (in *budgetsActionNotificationTypePtr) ToBudgetsActionNotificationTypePtrOu
 
 func (in *budgetsActionNotificationTypePtr) ToBudgetsActionNotificationTypePtrOutputWithContext(ctx context.Context) BudgetsActionNotificationTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(BudgetsActionNotificationTypePtrOutput)
+}
+
+func (in *budgetsActionNotificationTypePtr) ToOutput(ctx context.Context) pulumix.Output[*BudgetsActionNotificationType] {
+	return pulumix.Output[*BudgetsActionNotificationType]{
+		OutputState: in.ToBudgetsActionNotificationTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type BudgetsActionSsmActionDefinitionSubtype string
@@ -734,6 +807,12 @@ func (o BudgetsActionSsmActionDefinitionSubtypeOutput) ToBudgetsActionSsmActionD
 	}).(BudgetsActionSsmActionDefinitionSubtypePtrOutput)
 }
 
+func (o BudgetsActionSsmActionDefinitionSubtypeOutput) ToOutput(ctx context.Context) pulumix.Output[BudgetsActionSsmActionDefinitionSubtype] {
+	return pulumix.Output[BudgetsActionSsmActionDefinitionSubtype]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BudgetsActionSsmActionDefinitionSubtypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -767,6 +846,12 @@ func (o BudgetsActionSsmActionDefinitionSubtypePtrOutput) ToBudgetsActionSsmActi
 
 func (o BudgetsActionSsmActionDefinitionSubtypePtrOutput) ToBudgetsActionSsmActionDefinitionSubtypePtrOutputWithContext(ctx context.Context) BudgetsActionSsmActionDefinitionSubtypePtrOutput {
 	return o
+}
+
+func (o BudgetsActionSsmActionDefinitionSubtypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BudgetsActionSsmActionDefinitionSubtype] {
+	return pulumix.Output[*BudgetsActionSsmActionDefinitionSubtype]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BudgetsActionSsmActionDefinitionSubtypePtrOutput) Elem() BudgetsActionSsmActionDefinitionSubtypeOutput {
@@ -829,6 +914,12 @@ func (in *budgetsActionSsmActionDefinitionSubtypePtr) ToBudgetsActionSsmActionDe
 
 func (in *budgetsActionSsmActionDefinitionSubtypePtr) ToBudgetsActionSsmActionDefinitionSubtypePtrOutputWithContext(ctx context.Context) BudgetsActionSsmActionDefinitionSubtypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(BudgetsActionSsmActionDefinitionSubtypePtrOutput)
+}
+
+func (in *budgetsActionSsmActionDefinitionSubtypePtr) ToOutput(ctx context.Context) pulumix.Output[*BudgetsActionSsmActionDefinitionSubtype] {
+	return pulumix.Output[*BudgetsActionSsmActionDefinitionSubtype]{
+		OutputState: in.ToBudgetsActionSsmActionDefinitionSubtypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type BudgetsActionSubscriberType string
@@ -898,6 +989,12 @@ func (o BudgetsActionSubscriberTypeOutput) ToBudgetsActionSubscriberTypePtrOutpu
 	}).(BudgetsActionSubscriberTypePtrOutput)
 }
 
+func (o BudgetsActionSubscriberTypeOutput) ToOutput(ctx context.Context) pulumix.Output[BudgetsActionSubscriberType] {
+	return pulumix.Output[BudgetsActionSubscriberType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BudgetsActionSubscriberTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -931,6 +1028,12 @@ func (o BudgetsActionSubscriberTypePtrOutput) ToBudgetsActionSubscriberTypePtrOu
 
 func (o BudgetsActionSubscriberTypePtrOutput) ToBudgetsActionSubscriberTypePtrOutputWithContext(ctx context.Context) BudgetsActionSubscriberTypePtrOutput {
 	return o
+}
+
+func (o BudgetsActionSubscriberTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BudgetsActionSubscriberType] {
+	return pulumix.Output[*BudgetsActionSubscriberType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BudgetsActionSubscriberTypePtrOutput) Elem() BudgetsActionSubscriberTypeOutput {
@@ -993,6 +1096,12 @@ func (in *budgetsActionSubscriberTypePtr) ToBudgetsActionSubscriberTypePtrOutput
 
 func (in *budgetsActionSubscriberTypePtr) ToBudgetsActionSubscriberTypePtrOutputWithContext(ctx context.Context) BudgetsActionSubscriberTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(BudgetsActionSubscriberTypePtrOutput)
+}
+
+func (in *budgetsActionSubscriberTypePtr) ToOutput(ctx context.Context) pulumix.Output[*BudgetsActionSubscriberType] {
+	return pulumix.Output[*BudgetsActionSubscriberType]{
+		OutputState: in.ToBudgetsActionSubscriberTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

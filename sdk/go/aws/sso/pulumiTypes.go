@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -46,6 +47,12 @@ func (i InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs) T
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceAccessControlAttributeConfigurationAccessControlAttributeOutput)
 }
 
+func (i InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs) ToOutput(ctx context.Context) pulumix.Output[InstanceAccessControlAttributeConfigurationAccessControlAttribute] {
+	return pulumix.Output[InstanceAccessControlAttributeConfigurationAccessControlAttribute]{
+		OutputState: i.ToInstanceAccessControlAttributeConfigurationAccessControlAttributeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // InstanceAccessControlAttributeConfigurationAccessControlAttributeArrayInput is an input type that accepts InstanceAccessControlAttributeConfigurationAccessControlAttributeArray and InstanceAccessControlAttributeConfigurationAccessControlAttributeArrayOutput values.
 // You can construct a concrete instance of `InstanceAccessControlAttributeConfigurationAccessControlAttributeArrayInput` via:
 //
@@ -71,6 +78,12 @@ func (i InstanceAccessControlAttributeConfigurationAccessControlAttributeArray) 
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceAccessControlAttributeConfigurationAccessControlAttributeArrayOutput)
 }
 
+func (i InstanceAccessControlAttributeConfigurationAccessControlAttributeArray) ToOutput(ctx context.Context) pulumix.Output[[]InstanceAccessControlAttributeConfigurationAccessControlAttribute] {
+	return pulumix.Output[[]InstanceAccessControlAttributeConfigurationAccessControlAttribute]{
+		OutputState: i.ToInstanceAccessControlAttributeConfigurationAccessControlAttributeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InstanceAccessControlAttributeConfigurationAccessControlAttributeOutput struct{ *pulumi.OutputState }
 
 func (InstanceAccessControlAttributeConfigurationAccessControlAttributeOutput) ElementType() reflect.Type {
@@ -83,6 +96,12 @@ func (o InstanceAccessControlAttributeConfigurationAccessControlAttributeOutput)
 
 func (o InstanceAccessControlAttributeConfigurationAccessControlAttributeOutput) ToInstanceAccessControlAttributeConfigurationAccessControlAttributeOutputWithContext(ctx context.Context) InstanceAccessControlAttributeConfigurationAccessControlAttributeOutput {
 	return o
+}
+
+func (o InstanceAccessControlAttributeConfigurationAccessControlAttributeOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceAccessControlAttributeConfigurationAccessControlAttribute] {
+	return pulumix.Output[InstanceAccessControlAttributeConfigurationAccessControlAttribute]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InstanceAccessControlAttributeConfigurationAccessControlAttributeOutput) Key() pulumi.StringOutput {
@@ -107,6 +126,12 @@ func (o InstanceAccessControlAttributeConfigurationAccessControlAttributeArrayOu
 
 func (o InstanceAccessControlAttributeConfigurationAccessControlAttributeArrayOutput) ToInstanceAccessControlAttributeConfigurationAccessControlAttributeArrayOutputWithContext(ctx context.Context) InstanceAccessControlAttributeConfigurationAccessControlAttributeArrayOutput {
 	return o
+}
+
+func (o InstanceAccessControlAttributeConfigurationAccessControlAttributeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InstanceAccessControlAttributeConfigurationAccessControlAttribute] {
+	return pulumix.Output[[]InstanceAccessControlAttributeConfigurationAccessControlAttribute]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InstanceAccessControlAttributeConfigurationAccessControlAttributeArrayOutput) Index(i pulumi.IntInput) InstanceAccessControlAttributeConfigurationAccessControlAttributeOutput {
@@ -146,6 +171,12 @@ func (i InstanceAccessControlAttributeConfigurationAccessControlAttributeValueAr
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceAccessControlAttributeConfigurationAccessControlAttributeValueOutput)
 }
 
+func (i InstanceAccessControlAttributeConfigurationAccessControlAttributeValueArgs) ToOutput(ctx context.Context) pulumix.Output[InstanceAccessControlAttributeConfigurationAccessControlAttributeValue] {
+	return pulumix.Output[InstanceAccessControlAttributeConfigurationAccessControlAttributeValue]{
+		OutputState: i.ToInstanceAccessControlAttributeConfigurationAccessControlAttributeValueOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InstanceAccessControlAttributeConfigurationAccessControlAttributeValueOutput struct{ *pulumi.OutputState }
 
 func (InstanceAccessControlAttributeConfigurationAccessControlAttributeValueOutput) ElementType() reflect.Type {
@@ -158,6 +189,12 @@ func (o InstanceAccessControlAttributeConfigurationAccessControlAttributeValueOu
 
 func (o InstanceAccessControlAttributeConfigurationAccessControlAttributeValueOutput) ToInstanceAccessControlAttributeConfigurationAccessControlAttributeValueOutputWithContext(ctx context.Context) InstanceAccessControlAttributeConfigurationAccessControlAttributeValueOutput {
 	return o
+}
+
+func (o InstanceAccessControlAttributeConfigurationAccessControlAttributeValueOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceAccessControlAttributeConfigurationAccessControlAttributeValue] {
+	return pulumix.Output[InstanceAccessControlAttributeConfigurationAccessControlAttributeValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InstanceAccessControlAttributeConfigurationAccessControlAttributeValueOutput) Source() pulumi.StringArrayOutput {
@@ -197,6 +234,12 @@ func (i InstanceAccessControlAttributeConfigurationPropertiesArgs) ToInstanceAcc
 
 func (i InstanceAccessControlAttributeConfigurationPropertiesArgs) ToInstanceAccessControlAttributeConfigurationPropertiesOutputWithContext(ctx context.Context) InstanceAccessControlAttributeConfigurationPropertiesOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceAccessControlAttributeConfigurationPropertiesOutput)
+}
+
+func (i InstanceAccessControlAttributeConfigurationPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[InstanceAccessControlAttributeConfigurationProperties] {
+	return pulumix.Output[InstanceAccessControlAttributeConfigurationProperties]{
+		OutputState: i.ToInstanceAccessControlAttributeConfigurationPropertiesOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i InstanceAccessControlAttributeConfigurationPropertiesArgs) ToInstanceAccessControlAttributeConfigurationPropertiesPtrOutput() InstanceAccessControlAttributeConfigurationPropertiesPtrOutput {
@@ -240,6 +283,12 @@ func (i *instanceAccessControlAttributeConfigurationPropertiesPtrType) ToInstanc
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceAccessControlAttributeConfigurationPropertiesPtrOutput)
 }
 
+func (i *instanceAccessControlAttributeConfigurationPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*InstanceAccessControlAttributeConfigurationProperties] {
+	return pulumix.Output[*InstanceAccessControlAttributeConfigurationProperties]{
+		OutputState: i.ToInstanceAccessControlAttributeConfigurationPropertiesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.
 type InstanceAccessControlAttributeConfigurationPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -265,6 +314,12 @@ func (o InstanceAccessControlAttributeConfigurationPropertiesOutput) ToInstanceA
 	}).(InstanceAccessControlAttributeConfigurationPropertiesPtrOutput)
 }
 
+func (o InstanceAccessControlAttributeConfigurationPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceAccessControlAttributeConfigurationProperties] {
+	return pulumix.Output[InstanceAccessControlAttributeConfigurationProperties]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o InstanceAccessControlAttributeConfigurationPropertiesOutput) AccessControlAttributes() InstanceAccessControlAttributeConfigurationAccessControlAttributeArrayOutput {
 	return o.ApplyT(func(v InstanceAccessControlAttributeConfigurationProperties) []InstanceAccessControlAttributeConfigurationAccessControlAttribute {
 		return v.AccessControlAttributes
@@ -283,6 +338,12 @@ func (o InstanceAccessControlAttributeConfigurationPropertiesPtrOutput) ToInstan
 
 func (o InstanceAccessControlAttributeConfigurationPropertiesPtrOutput) ToInstanceAccessControlAttributeConfigurationPropertiesPtrOutputWithContext(ctx context.Context) InstanceAccessControlAttributeConfigurationPropertiesPtrOutput {
 	return o
+}
+
+func (o InstanceAccessControlAttributeConfigurationPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InstanceAccessControlAttributeConfigurationProperties] {
+	return pulumix.Output[*InstanceAccessControlAttributeConfigurationProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InstanceAccessControlAttributeConfigurationPropertiesPtrOutput) Elem() InstanceAccessControlAttributeConfigurationPropertiesOutput {
@@ -337,6 +398,12 @@ func (i PermissionSetCustomerManagedPolicyReferenceArgs) ToPermissionSetCustomer
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionSetCustomerManagedPolicyReferenceOutput)
 }
 
+func (i PermissionSetCustomerManagedPolicyReferenceArgs) ToOutput(ctx context.Context) pulumix.Output[PermissionSetCustomerManagedPolicyReference] {
+	return pulumix.Output[PermissionSetCustomerManagedPolicyReference]{
+		OutputState: i.ToPermissionSetCustomerManagedPolicyReferenceOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PermissionSetCustomerManagedPolicyReferenceArgs) ToPermissionSetCustomerManagedPolicyReferencePtrOutput() PermissionSetCustomerManagedPolicyReferencePtrOutput {
 	return i.ToPermissionSetCustomerManagedPolicyReferencePtrOutputWithContext(context.Background())
 }
@@ -378,6 +445,12 @@ func (i *permissionSetCustomerManagedPolicyReferencePtrType) ToPermissionSetCust
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionSetCustomerManagedPolicyReferencePtrOutput)
 }
 
+func (i *permissionSetCustomerManagedPolicyReferencePtrType) ToOutput(ctx context.Context) pulumix.Output[*PermissionSetCustomerManagedPolicyReference] {
+	return pulumix.Output[*PermissionSetCustomerManagedPolicyReference]{
+		OutputState: i.ToPermissionSetCustomerManagedPolicyReferencePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PermissionSetCustomerManagedPolicyReferenceArrayInput is an input type that accepts PermissionSetCustomerManagedPolicyReferenceArray and PermissionSetCustomerManagedPolicyReferenceArrayOutput values.
 // You can construct a concrete instance of `PermissionSetCustomerManagedPolicyReferenceArrayInput` via:
 //
@@ -401,6 +474,12 @@ func (i PermissionSetCustomerManagedPolicyReferenceArray) ToPermissionSetCustome
 
 func (i PermissionSetCustomerManagedPolicyReferenceArray) ToPermissionSetCustomerManagedPolicyReferenceArrayOutputWithContext(ctx context.Context) PermissionSetCustomerManagedPolicyReferenceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionSetCustomerManagedPolicyReferenceArrayOutput)
+}
+
+func (i PermissionSetCustomerManagedPolicyReferenceArray) ToOutput(ctx context.Context) pulumix.Output[[]PermissionSetCustomerManagedPolicyReference] {
+	return pulumix.Output[[]PermissionSetCustomerManagedPolicyReference]{
+		OutputState: i.ToPermissionSetCustomerManagedPolicyReferenceArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 type PermissionSetCustomerManagedPolicyReferenceOutput struct{ *pulumi.OutputState }
@@ -427,6 +506,12 @@ func (o PermissionSetCustomerManagedPolicyReferenceOutput) ToPermissionSetCustom
 	}).(PermissionSetCustomerManagedPolicyReferencePtrOutput)
 }
 
+func (o PermissionSetCustomerManagedPolicyReferenceOutput) ToOutput(ctx context.Context) pulumix.Output[PermissionSetCustomerManagedPolicyReference] {
+	return pulumix.Output[PermissionSetCustomerManagedPolicyReference]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PermissionSetCustomerManagedPolicyReferenceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PermissionSetCustomerManagedPolicyReference) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -447,6 +532,12 @@ func (o PermissionSetCustomerManagedPolicyReferencePtrOutput) ToPermissionSetCus
 
 func (o PermissionSetCustomerManagedPolicyReferencePtrOutput) ToPermissionSetCustomerManagedPolicyReferencePtrOutputWithContext(ctx context.Context) PermissionSetCustomerManagedPolicyReferencePtrOutput {
 	return o
+}
+
+func (o PermissionSetCustomerManagedPolicyReferencePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PermissionSetCustomerManagedPolicyReference] {
+	return pulumix.Output[*PermissionSetCustomerManagedPolicyReference]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PermissionSetCustomerManagedPolicyReferencePtrOutput) Elem() PermissionSetCustomerManagedPolicyReferenceOutput {
@@ -491,6 +582,12 @@ func (o PermissionSetCustomerManagedPolicyReferenceArrayOutput) ToPermissionSetC
 	return o
 }
 
+func (o PermissionSetCustomerManagedPolicyReferenceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PermissionSetCustomerManagedPolicyReference] {
+	return pulumix.Output[[]PermissionSetCustomerManagedPolicyReference]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PermissionSetCustomerManagedPolicyReferenceArrayOutput) Index(i pulumi.IntInput) PermissionSetCustomerManagedPolicyReferenceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PermissionSetCustomerManagedPolicyReference {
 		return vs[0].([]PermissionSetCustomerManagedPolicyReference)[vs[1].(int)]
@@ -528,6 +625,12 @@ func (i PermissionSetPermissionsBoundaryArgs) ToPermissionSetPermissionsBoundary
 
 func (i PermissionSetPermissionsBoundaryArgs) ToPermissionSetPermissionsBoundaryOutputWithContext(ctx context.Context) PermissionSetPermissionsBoundaryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionSetPermissionsBoundaryOutput)
+}
+
+func (i PermissionSetPermissionsBoundaryArgs) ToOutput(ctx context.Context) pulumix.Output[PermissionSetPermissionsBoundary] {
+	return pulumix.Output[PermissionSetPermissionsBoundary]{
+		OutputState: i.ToPermissionSetPermissionsBoundaryOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i PermissionSetPermissionsBoundaryArgs) ToPermissionSetPermissionsBoundaryPtrOutput() PermissionSetPermissionsBoundaryPtrOutput {
@@ -571,6 +674,12 @@ func (i *permissionSetPermissionsBoundaryPtrType) ToPermissionSetPermissionsBoun
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionSetPermissionsBoundaryPtrOutput)
 }
 
+func (i *permissionSetPermissionsBoundaryPtrType) ToOutput(ctx context.Context) pulumix.Output[*PermissionSetPermissionsBoundary] {
+	return pulumix.Output[*PermissionSetPermissionsBoundary]{
+		OutputState: i.ToPermissionSetPermissionsBoundaryPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PermissionSetPermissionsBoundaryOutput struct{ *pulumi.OutputState }
 
 func (PermissionSetPermissionsBoundaryOutput) ElementType() reflect.Type {
@@ -595,6 +704,12 @@ func (o PermissionSetPermissionsBoundaryOutput) ToPermissionSetPermissionsBounda
 	}).(PermissionSetPermissionsBoundaryPtrOutput)
 }
 
+func (o PermissionSetPermissionsBoundaryOutput) ToOutput(ctx context.Context) pulumix.Output[PermissionSetPermissionsBoundary] {
+	return pulumix.Output[PermissionSetPermissionsBoundary]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PermissionSetPermissionsBoundaryOutput) CustomerManagedPolicyReference() PermissionSetCustomerManagedPolicyReferencePtrOutput {
 	return o.ApplyT(func(v PermissionSetPermissionsBoundary) *PermissionSetCustomerManagedPolicyReference {
 		return v.CustomerManagedPolicyReference
@@ -617,6 +732,12 @@ func (o PermissionSetPermissionsBoundaryPtrOutput) ToPermissionSetPermissionsBou
 
 func (o PermissionSetPermissionsBoundaryPtrOutput) ToPermissionSetPermissionsBoundaryPtrOutputWithContext(ctx context.Context) PermissionSetPermissionsBoundaryPtrOutput {
 	return o
+}
+
+func (o PermissionSetPermissionsBoundaryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PermissionSetPermissionsBoundary] {
+	return pulumix.Output[*PermissionSetPermissionsBoundary]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PermissionSetPermissionsBoundaryPtrOutput) Elem() PermissionSetPermissionsBoundaryOutput {
@@ -682,6 +803,12 @@ func (i PermissionSetTagArgs) ToPermissionSetTagOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionSetTagOutput)
 }
 
+func (i PermissionSetTagArgs) ToOutput(ctx context.Context) pulumix.Output[PermissionSetTag] {
+	return pulumix.Output[PermissionSetTag]{
+		OutputState: i.ToPermissionSetTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PermissionSetTagArrayInput is an input type that accepts PermissionSetTagArray and PermissionSetTagArrayOutput values.
 // You can construct a concrete instance of `PermissionSetTagArrayInput` via:
 //
@@ -707,6 +834,12 @@ func (i PermissionSetTagArray) ToPermissionSetTagArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionSetTagArrayOutput)
 }
 
+func (i PermissionSetTagArray) ToOutput(ctx context.Context) pulumix.Output[[]PermissionSetTag] {
+	return pulumix.Output[[]PermissionSetTag]{
+		OutputState: i.ToPermissionSetTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The metadata that you apply to the permission set to help you categorize and organize them.
 type PermissionSetTagOutput struct{ *pulumi.OutputState }
 
@@ -720,6 +853,12 @@ func (o PermissionSetTagOutput) ToPermissionSetTagOutput() PermissionSetTagOutpu
 
 func (o PermissionSetTagOutput) ToPermissionSetTagOutputWithContext(ctx context.Context) PermissionSetTagOutput {
 	return o
+}
+
+func (o PermissionSetTagOutput) ToOutput(ctx context.Context) pulumix.Output[PermissionSetTag] {
+	return pulumix.Output[PermissionSetTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PermissionSetTagOutput) Key() pulumi.StringOutput {
@@ -742,6 +881,12 @@ func (o PermissionSetTagArrayOutput) ToPermissionSetTagArrayOutput() PermissionS
 
 func (o PermissionSetTagArrayOutput) ToPermissionSetTagArrayOutputWithContext(ctx context.Context) PermissionSetTagArrayOutput {
 	return o
+}
+
+func (o PermissionSetTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PermissionSetTag] {
+	return pulumix.Output[[]PermissionSetTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PermissionSetTagArrayOutput) Index(i pulumi.IntInput) PermissionSetTagOutput {

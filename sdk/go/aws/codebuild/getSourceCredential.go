@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::CodeBuild::SourceCredential
@@ -66,6 +67,12 @@ func (o LookupSourceCredentialResultOutput) ToLookupSourceCredentialResultOutput
 
 func (o LookupSourceCredentialResultOutput) ToLookupSourceCredentialResultOutputWithContext(ctx context.Context) LookupSourceCredentialResultOutput {
 	return o
+}
+
+func (o LookupSourceCredentialResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSourceCredentialResult] {
+	return pulumix.Output[LookupSourceCredentialResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupSourceCredentialResultOutput) AuthType() pulumi.StringPtrOutput {

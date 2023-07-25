@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::SecurityHub::AutomationRule resource represents the Automation Rule in your account. One rule resource is created for each Automation Rule in which you configure rule criteria and actions.
@@ -136,6 +137,12 @@ func (i *AutomationRule) ToAutomationRuleOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleOutput)
 }
 
+func (i *AutomationRule) ToOutput(ctx context.Context) pulumix.Output[*AutomationRule] {
+	return pulumix.Output[*AutomationRule]{
+		OutputState: i.ToAutomationRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AutomationRuleOutput struct{ *pulumi.OutputState }
 
 func (AutomationRuleOutput) ElementType() reflect.Type {
@@ -148,6 +155,12 @@ func (o AutomationRuleOutput) ToAutomationRuleOutput() AutomationRuleOutput {
 
 func (o AutomationRuleOutput) ToAutomationRuleOutputWithContext(ctx context.Context) AutomationRuleOutput {
 	return o
+}
+
+func (o AutomationRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*AutomationRule] {
+	return pulumix.Output[*AutomationRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AutomationRuleOutput) Actions() AutomationRulesActionArrayOutput {

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::TrafficMirrorTarget
@@ -64,6 +65,12 @@ func (o LookupTrafficMirrorTargetResultOutput) ToLookupTrafficMirrorTargetResult
 
 func (o LookupTrafficMirrorTargetResultOutput) ToLookupTrafficMirrorTargetResultOutputWithContext(ctx context.Context) LookupTrafficMirrorTargetResultOutput {
 	return o
+}
+
+func (o LookupTrafficMirrorTargetResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTrafficMirrorTargetResult] {
+	return pulumix.Output[LookupTrafficMirrorTargetResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupTrafficMirrorTargetResultOutput) Id() pulumi.StringPtrOutput {

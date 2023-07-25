@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::ElastiCache::GlobalReplicationGroup resource creates an Amazon ElastiCache Global Replication Group.
@@ -148,6 +149,12 @@ func (i *GlobalReplicationGroup) ToGlobalReplicationGroupOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalReplicationGroupOutput)
 }
 
+func (i *GlobalReplicationGroup) ToOutput(ctx context.Context) pulumix.Output[*GlobalReplicationGroup] {
+	return pulumix.Output[*GlobalReplicationGroup]{
+		OutputState: i.ToGlobalReplicationGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GlobalReplicationGroupOutput struct{ *pulumi.OutputState }
 
 func (GlobalReplicationGroupOutput) ElementType() reflect.Type {
@@ -160,6 +167,12 @@ func (o GlobalReplicationGroupOutput) ToGlobalReplicationGroupOutput() GlobalRep
 
 func (o GlobalReplicationGroupOutput) ToGlobalReplicationGroupOutputWithContext(ctx context.Context) GlobalReplicationGroupOutput {
 	return o
+}
+
+func (o GlobalReplicationGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*GlobalReplicationGroup] {
+	return pulumix.Output[*GlobalReplicationGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // AutomaticFailoverEnabled

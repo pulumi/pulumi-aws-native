@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Contains detailed information about a report plan in AWS Backup Audit Manager.
@@ -74,6 +75,12 @@ func (o LookupReportPlanResultOutput) ToLookupReportPlanResultOutput() LookupRep
 
 func (o LookupReportPlanResultOutput) ToLookupReportPlanResultOutputWithContext(ctx context.Context) LookupReportPlanResultOutput {
 	return o
+}
+
+func (o LookupReportPlanResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupReportPlanResult] {
+	return pulumix.Output[LookupReportPlanResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A structure that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports.

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type ClusterDataTieringStatus string
@@ -77,6 +78,12 @@ func (o ClusterDataTieringStatusOutput) ToClusterDataTieringStatusPtrOutputWithC
 	}).(ClusterDataTieringStatusPtrOutput)
 }
 
+func (o ClusterDataTieringStatusOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterDataTieringStatus] {
+	return pulumix.Output[ClusterDataTieringStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ClusterDataTieringStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -110,6 +117,12 @@ func (o ClusterDataTieringStatusPtrOutput) ToClusterDataTieringStatusPtrOutput()
 
 func (o ClusterDataTieringStatusPtrOutput) ToClusterDataTieringStatusPtrOutputWithContext(ctx context.Context) ClusterDataTieringStatusPtrOutput {
 	return o
+}
+
+func (o ClusterDataTieringStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterDataTieringStatus] {
+	return pulumix.Output[*ClusterDataTieringStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterDataTieringStatusPtrOutput) Elem() ClusterDataTieringStatusOutput {
@@ -172,6 +185,12 @@ func (in *clusterDataTieringStatusPtr) ToClusterDataTieringStatusPtrOutput() Clu
 
 func (in *clusterDataTieringStatusPtr) ToClusterDataTieringStatusPtrOutputWithContext(ctx context.Context) ClusterDataTieringStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ClusterDataTieringStatusPtrOutput)
+}
+
+func (in *clusterDataTieringStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*ClusterDataTieringStatus] {
+	return pulumix.Output[*ClusterDataTieringStatus]{
+		OutputState: in.ToClusterDataTieringStatusPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Type of authentication strategy for this user.
@@ -242,6 +261,12 @@ func (o UserAuthenticationModePropertiesTypeOutput) ToUserAuthenticationModeProp
 	}).(UserAuthenticationModePropertiesTypePtrOutput)
 }
 
+func (o UserAuthenticationModePropertiesTypeOutput) ToOutput(ctx context.Context) pulumix.Output[UserAuthenticationModePropertiesType] {
+	return pulumix.Output[UserAuthenticationModePropertiesType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o UserAuthenticationModePropertiesTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -275,6 +300,12 @@ func (o UserAuthenticationModePropertiesTypePtrOutput) ToUserAuthenticationModeP
 
 func (o UserAuthenticationModePropertiesTypePtrOutput) ToUserAuthenticationModePropertiesTypePtrOutputWithContext(ctx context.Context) UserAuthenticationModePropertiesTypePtrOutput {
 	return o
+}
+
+func (o UserAuthenticationModePropertiesTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserAuthenticationModePropertiesType] {
+	return pulumix.Output[*UserAuthenticationModePropertiesType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o UserAuthenticationModePropertiesTypePtrOutput) Elem() UserAuthenticationModePropertiesTypeOutput {
@@ -337,6 +368,12 @@ func (in *userAuthenticationModePropertiesTypePtr) ToUserAuthenticationModePrope
 
 func (in *userAuthenticationModePropertiesTypePtr) ToUserAuthenticationModePropertiesTypePtrOutputWithContext(ctx context.Context) UserAuthenticationModePropertiesTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(UserAuthenticationModePropertiesTypePtrOutput)
+}
+
+func (in *userAuthenticationModePropertiesTypePtr) ToOutput(ctx context.Context) pulumix.Output[*UserAuthenticationModePropertiesType] {
+	return pulumix.Output[*UserAuthenticationModePropertiesType]{
+		OutputState: in.ToUserAuthenticationModePropertiesTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

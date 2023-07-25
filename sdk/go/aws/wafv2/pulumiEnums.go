@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Type of addresses in the IPSet, use IPV4 for IPV4 IP addresses, IPV6 for IPV6 address.
@@ -78,6 +79,12 @@ func (o IPSetIPAddressVersionOutput) ToIPSetIPAddressVersionPtrOutputWithContext
 	}).(IPSetIPAddressVersionPtrOutput)
 }
 
+func (o IPSetIPAddressVersionOutput) ToOutput(ctx context.Context) pulumix.Output[IPSetIPAddressVersion] {
+	return pulumix.Output[IPSetIPAddressVersion]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IPSetIPAddressVersionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -111,6 +118,12 @@ func (o IPSetIPAddressVersionPtrOutput) ToIPSetIPAddressVersionPtrOutput() IPSet
 
 func (o IPSetIPAddressVersionPtrOutput) ToIPSetIPAddressVersionPtrOutputWithContext(ctx context.Context) IPSetIPAddressVersionPtrOutput {
 	return o
+}
+
+func (o IPSetIPAddressVersionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IPSetIPAddressVersion] {
+	return pulumix.Output[*IPSetIPAddressVersion]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IPSetIPAddressVersionPtrOutput) Elem() IPSetIPAddressVersionOutput {
@@ -173,6 +186,12 @@ func (in *ipsetIPAddressVersionPtr) ToIPSetIPAddressVersionPtrOutput() IPSetIPAd
 
 func (in *ipsetIPAddressVersionPtr) ToIPSetIPAddressVersionPtrOutputWithContext(ctx context.Context) IPSetIPAddressVersionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(IPSetIPAddressVersionPtrOutput)
+}
+
+func (in *ipsetIPAddressVersionPtr) ToOutput(ctx context.Context) pulumix.Output[*IPSetIPAddressVersion] {
+	return pulumix.Output[*IPSetIPAddressVersion]{
+		OutputState: in.ToIPSetIPAddressVersionPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Use CLOUDFRONT for CloudFront IPSet, use REGIONAL for Application Load Balancer and API Gateway.
@@ -243,6 +262,12 @@ func (o IPSetScopeOutput) ToIPSetScopePtrOutputWithContext(ctx context.Context) 
 	}).(IPSetScopePtrOutput)
 }
 
+func (o IPSetScopeOutput) ToOutput(ctx context.Context) pulumix.Output[IPSetScope] {
+	return pulumix.Output[IPSetScope]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IPSetScopeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -276,6 +301,12 @@ func (o IPSetScopePtrOutput) ToIPSetScopePtrOutput() IPSetScopePtrOutput {
 
 func (o IPSetScopePtrOutput) ToIPSetScopePtrOutputWithContext(ctx context.Context) IPSetScopePtrOutput {
 	return o
+}
+
+func (o IPSetScopePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IPSetScope] {
+	return pulumix.Output[*IPSetScope]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IPSetScopePtrOutput) Elem() IPSetScopeOutput {
@@ -338,6 +369,12 @@ func (in *ipsetScopePtr) ToIPSetScopePtrOutput() IPSetScopePtrOutput {
 
 func (in *ipsetScopePtr) ToIPSetScopePtrOutputWithContext(ctx context.Context) IPSetScopePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(IPSetScopePtrOutput)
+}
+
+func (in *ipsetScopePtr) ToOutput(ctx context.Context) pulumix.Output[*IPSetScope] {
+	return pulumix.Output[*IPSetScope]{
+		OutputState: in.ToIPSetScopePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition.
@@ -412,6 +449,12 @@ func (o LoggingConfigurationConditionActionConditionPropertiesActionOutput) ToLo
 	}).(LoggingConfigurationConditionActionConditionPropertiesActionPtrOutput)
 }
 
+func (o LoggingConfigurationConditionActionConditionPropertiesActionOutput) ToOutput(ctx context.Context) pulumix.Output[LoggingConfigurationConditionActionConditionPropertiesAction] {
+	return pulumix.Output[LoggingConfigurationConditionActionConditionPropertiesAction]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LoggingConfigurationConditionActionConditionPropertiesActionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -445,6 +488,12 @@ func (o LoggingConfigurationConditionActionConditionPropertiesActionPtrOutput) T
 
 func (o LoggingConfigurationConditionActionConditionPropertiesActionPtrOutput) ToLoggingConfigurationConditionActionConditionPropertiesActionPtrOutputWithContext(ctx context.Context) LoggingConfigurationConditionActionConditionPropertiesActionPtrOutput {
 	return o
+}
+
+func (o LoggingConfigurationConditionActionConditionPropertiesActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LoggingConfigurationConditionActionConditionPropertiesAction] {
+	return pulumix.Output[*LoggingConfigurationConditionActionConditionPropertiesAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LoggingConfigurationConditionActionConditionPropertiesActionPtrOutput) Elem() LoggingConfigurationConditionActionConditionPropertiesActionOutput {
@@ -507,6 +556,12 @@ func (in *loggingConfigurationConditionActionConditionPropertiesActionPtr) ToLog
 
 func (in *loggingConfigurationConditionActionConditionPropertiesActionPtr) ToLoggingConfigurationConditionActionConditionPropertiesActionPtrOutputWithContext(ctx context.Context) LoggingConfigurationConditionActionConditionPropertiesActionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(LoggingConfigurationConditionActionConditionPropertiesActionPtrOutput)
+}
+
+func (in *loggingConfigurationConditionActionConditionPropertiesActionPtr) ToOutput(ctx context.Context) pulumix.Output[*LoggingConfigurationConditionActionConditionPropertiesAction] {
+	return pulumix.Output[*LoggingConfigurationConditionActionConditionPropertiesAction]{
+		OutputState: in.ToLoggingConfigurationConditionActionConditionPropertiesActionPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // What AWS WAF should do if it fails to completely parse the JSON body.
@@ -578,6 +633,12 @@ func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavio
 	}).(LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutput)
 }
 
+func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorOutput) ToOutput(ctx context.Context) pulumix.Output[LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior] {
+	return pulumix.Output[LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -611,6 +672,12 @@ func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavio
 
 func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutput) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutputWithContext(ctx context.Context) LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutput {
 	return o
+}
+
+func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior] {
+	return pulumix.Output[*LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutput) Elem() LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorOutput {
@@ -673,6 +740,12 @@ func (in *loggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehav
 
 func (in *loggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtr) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutputWithContext(ctx context.Context) LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutput)
+}
+
+func (in *loggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtr) ToOutput(ctx context.Context) pulumix.Output[*LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior] {
+	return pulumix.Output[*LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior]{
+		OutputState: in.ToLoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehaviorPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The parts of the JSON to match against using the MatchPattern. If you specify All, AWS WAF matches against keys and values.
@@ -744,6 +817,12 @@ func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeOutput) ToLo
 	}).(LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutput)
 }
 
+func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeOutput) ToOutput(ctx context.Context) pulumix.Output[LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope] {
+	return pulumix.Output[LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -777,6 +856,12 @@ func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutput) T
 
 func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutput) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutputWithContext(ctx context.Context) LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutput {
 	return o
+}
+
+func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope] {
+	return pulumix.Output[*LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutput) Elem() LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopeOutput {
@@ -839,6 +924,12 @@ func (in *loggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtr) ToLog
 
 func (in *loggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtr) ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutputWithContext(ctx context.Context) LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutput)
+}
+
+func (in *loggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtr) ToOutput(ctx context.Context) pulumix.Output[*LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope] {
+	return pulumix.Output[*LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope]{
+		OutputState: in.ToLoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScopePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // How to handle logs that satisfy the filter's conditions and requirement.
@@ -909,6 +1000,12 @@ func (o LoggingConfigurationFilterBehaviorOutput) ToLoggingConfigurationFilterBe
 	}).(LoggingConfigurationFilterBehaviorPtrOutput)
 }
 
+func (o LoggingConfigurationFilterBehaviorOutput) ToOutput(ctx context.Context) pulumix.Output[LoggingConfigurationFilterBehavior] {
+	return pulumix.Output[LoggingConfigurationFilterBehavior]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LoggingConfigurationFilterBehaviorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -942,6 +1039,12 @@ func (o LoggingConfigurationFilterBehaviorPtrOutput) ToLoggingConfigurationFilte
 
 func (o LoggingConfigurationFilterBehaviorPtrOutput) ToLoggingConfigurationFilterBehaviorPtrOutputWithContext(ctx context.Context) LoggingConfigurationFilterBehaviorPtrOutput {
 	return o
+}
+
+func (o LoggingConfigurationFilterBehaviorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LoggingConfigurationFilterBehavior] {
+	return pulumix.Output[*LoggingConfigurationFilterBehavior]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LoggingConfigurationFilterBehaviorPtrOutput) Elem() LoggingConfigurationFilterBehaviorOutput {
@@ -1004,6 +1107,12 @@ func (in *loggingConfigurationFilterBehaviorPtr) ToLoggingConfigurationFilterBeh
 
 func (in *loggingConfigurationFilterBehaviorPtr) ToLoggingConfigurationFilterBehaviorPtrOutputWithContext(ctx context.Context) LoggingConfigurationFilterBehaviorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(LoggingConfigurationFilterBehaviorPtrOutput)
+}
+
+func (in *loggingConfigurationFilterBehaviorPtr) ToOutput(ctx context.Context) pulumix.Output[*LoggingConfigurationFilterBehavior] {
+	return pulumix.Output[*LoggingConfigurationFilterBehavior]{
+		OutputState: in.ToLoggingConfigurationFilterBehaviorPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition.
@@ -1074,6 +1183,12 @@ func (o LoggingConfigurationFilterRequirementOutput) ToLoggingConfigurationFilte
 	}).(LoggingConfigurationFilterRequirementPtrOutput)
 }
 
+func (o LoggingConfigurationFilterRequirementOutput) ToOutput(ctx context.Context) pulumix.Output[LoggingConfigurationFilterRequirement] {
+	return pulumix.Output[LoggingConfigurationFilterRequirement]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LoggingConfigurationFilterRequirementOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1107,6 +1222,12 @@ func (o LoggingConfigurationFilterRequirementPtrOutput) ToLoggingConfigurationFi
 
 func (o LoggingConfigurationFilterRequirementPtrOutput) ToLoggingConfigurationFilterRequirementPtrOutputWithContext(ctx context.Context) LoggingConfigurationFilterRequirementPtrOutput {
 	return o
+}
+
+func (o LoggingConfigurationFilterRequirementPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LoggingConfigurationFilterRequirement] {
+	return pulumix.Output[*LoggingConfigurationFilterRequirement]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LoggingConfigurationFilterRequirementPtrOutput) Elem() LoggingConfigurationFilterRequirementOutput {
@@ -1169,6 +1290,12 @@ func (in *loggingConfigurationFilterRequirementPtr) ToLoggingConfigurationFilter
 
 func (in *loggingConfigurationFilterRequirementPtr) ToLoggingConfigurationFilterRequirementPtrOutputWithContext(ctx context.Context) LoggingConfigurationFilterRequirementPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(LoggingConfigurationFilterRequirementPtrOutput)
+}
+
+func (in *loggingConfigurationFilterRequirementPtr) ToOutput(ctx context.Context) pulumix.Output[*LoggingConfigurationFilterRequirement] {
+	return pulumix.Output[*LoggingConfigurationFilterRequirement]{
+		OutputState: in.ToLoggingConfigurationFilterRequirementPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Default handling for logs that don't match any of the specified filtering conditions.
@@ -1239,6 +1366,12 @@ func (o LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorOutput) ToLogg
 	}).(LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrOutput)
 }
 
+func (o LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorOutput) ToOutput(ctx context.Context) pulumix.Output[LoggingConfigurationLoggingFilterPropertiesDefaultBehavior] {
+	return pulumix.Output[LoggingConfigurationLoggingFilterPropertiesDefaultBehavior]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1272,6 +1405,12 @@ func (o LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrOutput) ToL
 
 func (o LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrOutput) ToLoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrOutputWithContext(ctx context.Context) LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrOutput {
 	return o
+}
+
+func (o LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LoggingConfigurationLoggingFilterPropertiesDefaultBehavior] {
+	return pulumix.Output[*LoggingConfigurationLoggingFilterPropertiesDefaultBehavior]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrOutput) Elem() LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorOutput {
@@ -1334,6 +1473,12 @@ func (in *loggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtr) ToLoggi
 
 func (in *loggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtr) ToLoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrOutputWithContext(ctx context.Context) LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(LoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrOutput)
+}
+
+func (in *loggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtr) ToOutput(ctx context.Context) pulumix.Output[*LoggingConfigurationLoggingFilterPropertiesDefaultBehavior] {
+	return pulumix.Output[*LoggingConfigurationLoggingFilterPropertiesDefaultBehavior]{
+		OutputState: in.ToLoggingConfigurationLoggingFilterPropertiesDefaultBehaviorPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Use CLOUDFRONT for CloudFront RegexPatternSet, use REGIONAL for Application Load Balancer and API Gateway.
@@ -1404,6 +1549,12 @@ func (o RegexPatternSetScopeOutput) ToRegexPatternSetScopePtrOutputWithContext(c
 	}).(RegexPatternSetScopePtrOutput)
 }
 
+func (o RegexPatternSetScopeOutput) ToOutput(ctx context.Context) pulumix.Output[RegexPatternSetScope] {
+	return pulumix.Output[RegexPatternSetScope]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RegexPatternSetScopeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1437,6 +1588,12 @@ func (o RegexPatternSetScopePtrOutput) ToRegexPatternSetScopePtrOutput() RegexPa
 
 func (o RegexPatternSetScopePtrOutput) ToRegexPatternSetScopePtrOutputWithContext(ctx context.Context) RegexPatternSetScopePtrOutput {
 	return o
+}
+
+func (o RegexPatternSetScopePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RegexPatternSetScope] {
+	return pulumix.Output[*RegexPatternSetScope]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RegexPatternSetScopePtrOutput) Elem() RegexPatternSetScopeOutput {
@@ -1499,6 +1656,12 @@ func (in *regexPatternSetScopePtr) ToRegexPatternSetScopePtrOutput() RegexPatter
 
 func (in *regexPatternSetScopePtr) ToRegexPatternSetScopePtrOutputWithContext(ctx context.Context) RegexPatternSetScopePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RegexPatternSetScopePtrOutput)
+}
+
+func (in *regexPatternSetScopePtr) ToOutput(ctx context.Context) pulumix.Output[*RegexPatternSetScope] {
+	return pulumix.Output[*RegexPatternSetScope]{
+		OutputState: in.ToRegexPatternSetScopePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The inspection behavior to fall back to if the JSON in the request body is invalid.
@@ -1570,6 +1733,12 @@ func (o RuleGroupBodyParsingFallbackBehaviorOutput) ToRuleGroupBodyParsingFallba
 	}).(RuleGroupBodyParsingFallbackBehaviorPtrOutput)
 }
 
+func (o RuleGroupBodyParsingFallbackBehaviorOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupBodyParsingFallbackBehavior] {
+	return pulumix.Output[RuleGroupBodyParsingFallbackBehavior]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RuleGroupBodyParsingFallbackBehaviorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1603,6 +1772,12 @@ func (o RuleGroupBodyParsingFallbackBehaviorPtrOutput) ToRuleGroupBodyParsingFal
 
 func (o RuleGroupBodyParsingFallbackBehaviorPtrOutput) ToRuleGroupBodyParsingFallbackBehaviorPtrOutputWithContext(ctx context.Context) RuleGroupBodyParsingFallbackBehaviorPtrOutput {
 	return o
+}
+
+func (o RuleGroupBodyParsingFallbackBehaviorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupBodyParsingFallbackBehavior] {
+	return pulumix.Output[*RuleGroupBodyParsingFallbackBehavior]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupBodyParsingFallbackBehaviorPtrOutput) Elem() RuleGroupBodyParsingFallbackBehaviorOutput {
@@ -1665,6 +1840,12 @@ func (in *ruleGroupBodyParsingFallbackBehaviorPtr) ToRuleGroupBodyParsingFallbac
 
 func (in *ruleGroupBodyParsingFallbackBehaviorPtr) ToRuleGroupBodyParsingFallbackBehaviorPtrOutputWithContext(ctx context.Context) RuleGroupBodyParsingFallbackBehaviorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupBodyParsingFallbackBehaviorPtrOutput)
+}
+
+func (in *ruleGroupBodyParsingFallbackBehaviorPtr) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupBodyParsingFallbackBehavior] {
+	return pulumix.Output[*RuleGroupBodyParsingFallbackBehavior]{
+		OutputState: in.ToRuleGroupBodyParsingFallbackBehaviorPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type RuleGroupForwardedIPConfigurationFallbackBehavior string
@@ -1734,6 +1915,12 @@ func (o RuleGroupForwardedIPConfigurationFallbackBehaviorOutput) ToRuleGroupForw
 	}).(RuleGroupForwardedIPConfigurationFallbackBehaviorPtrOutput)
 }
 
+func (o RuleGroupForwardedIPConfigurationFallbackBehaviorOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupForwardedIPConfigurationFallbackBehavior] {
+	return pulumix.Output[RuleGroupForwardedIPConfigurationFallbackBehavior]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RuleGroupForwardedIPConfigurationFallbackBehaviorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1767,6 +1954,12 @@ func (o RuleGroupForwardedIPConfigurationFallbackBehaviorPtrOutput) ToRuleGroupF
 
 func (o RuleGroupForwardedIPConfigurationFallbackBehaviorPtrOutput) ToRuleGroupForwardedIPConfigurationFallbackBehaviorPtrOutputWithContext(ctx context.Context) RuleGroupForwardedIPConfigurationFallbackBehaviorPtrOutput {
 	return o
+}
+
+func (o RuleGroupForwardedIPConfigurationFallbackBehaviorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupForwardedIPConfigurationFallbackBehavior] {
+	return pulumix.Output[*RuleGroupForwardedIPConfigurationFallbackBehavior]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupForwardedIPConfigurationFallbackBehaviorPtrOutput) Elem() RuleGroupForwardedIPConfigurationFallbackBehaviorOutput {
@@ -1829,6 +2022,12 @@ func (in *ruleGroupForwardedIPConfigurationFallbackBehaviorPtr) ToRuleGroupForwa
 
 func (in *ruleGroupForwardedIPConfigurationFallbackBehaviorPtr) ToRuleGroupForwardedIPConfigurationFallbackBehaviorPtrOutputWithContext(ctx context.Context) RuleGroupForwardedIPConfigurationFallbackBehaviorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupForwardedIPConfigurationFallbackBehaviorPtrOutput)
+}
+
+func (in *ruleGroupForwardedIPConfigurationFallbackBehaviorPtr) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupForwardedIPConfigurationFallbackBehavior] {
+	return pulumix.Output[*RuleGroupForwardedIPConfigurationFallbackBehavior]{
+		OutputState: in.ToRuleGroupForwardedIPConfigurationFallbackBehaviorPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type RuleGroupIPSetForwardedIPConfigurationFallbackBehavior string
@@ -1898,6 +2097,12 @@ func (o RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorOutput) ToRuleGrou
 	}).(RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput)
 }
 
+func (o RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupIPSetForwardedIPConfigurationFallbackBehavior] {
+	return pulumix.Output[RuleGroupIPSetForwardedIPConfigurationFallbackBehavior]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1931,6 +2136,12 @@ func (o RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput) ToRuleG
 
 func (o RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput) ToRuleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtrOutputWithContext(ctx context.Context) RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput {
 	return o
+}
+
+func (o RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupIPSetForwardedIPConfigurationFallbackBehavior] {
+	return pulumix.Output[*RuleGroupIPSetForwardedIPConfigurationFallbackBehavior]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput) Elem() RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorOutput {
@@ -1993,6 +2204,12 @@ func (in *ruleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtr) ToRuleGroup
 
 func (in *ruleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtr) ToRuleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtrOutputWithContext(ctx context.Context) RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput)
+}
+
+func (in *ruleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtr) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupIPSetForwardedIPConfigurationFallbackBehavior] {
+	return pulumix.Output[*RuleGroupIPSetForwardedIPConfigurationFallbackBehavior]{
+		OutputState: in.ToRuleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type RuleGroupIPSetForwardedIPConfigurationPosition string
@@ -2063,6 +2280,12 @@ func (o RuleGroupIPSetForwardedIPConfigurationPositionOutput) ToRuleGroupIPSetFo
 	}).(RuleGroupIPSetForwardedIPConfigurationPositionPtrOutput)
 }
 
+func (o RuleGroupIPSetForwardedIPConfigurationPositionOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupIPSetForwardedIPConfigurationPosition] {
+	return pulumix.Output[RuleGroupIPSetForwardedIPConfigurationPosition]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RuleGroupIPSetForwardedIPConfigurationPositionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2096,6 +2319,12 @@ func (o RuleGroupIPSetForwardedIPConfigurationPositionPtrOutput) ToRuleGroupIPSe
 
 func (o RuleGroupIPSetForwardedIPConfigurationPositionPtrOutput) ToRuleGroupIPSetForwardedIPConfigurationPositionPtrOutputWithContext(ctx context.Context) RuleGroupIPSetForwardedIPConfigurationPositionPtrOutput {
 	return o
+}
+
+func (o RuleGroupIPSetForwardedIPConfigurationPositionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupIPSetForwardedIPConfigurationPosition] {
+	return pulumix.Output[*RuleGroupIPSetForwardedIPConfigurationPosition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupIPSetForwardedIPConfigurationPositionPtrOutput) Elem() RuleGroupIPSetForwardedIPConfigurationPositionOutput {
@@ -2158,6 +2387,12 @@ func (in *ruleGroupIPSetForwardedIPConfigurationPositionPtr) ToRuleGroupIPSetFor
 
 func (in *ruleGroupIPSetForwardedIPConfigurationPositionPtr) ToRuleGroupIPSetForwardedIPConfigurationPositionPtrOutputWithContext(ctx context.Context) RuleGroupIPSetForwardedIPConfigurationPositionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupIPSetForwardedIPConfigurationPositionPtrOutput)
+}
+
+func (in *ruleGroupIPSetForwardedIPConfigurationPositionPtr) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupIPSetForwardedIPConfigurationPosition] {
+	return pulumix.Output[*RuleGroupIPSetForwardedIPConfigurationPosition]{
+		OutputState: in.ToRuleGroupIPSetForwardedIPConfigurationPositionPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The parts of the JSON to match against using the MatchPattern.
@@ -2229,6 +2464,12 @@ func (o RuleGroupJsonMatchScopeOutput) ToRuleGroupJsonMatchScopePtrOutputWithCon
 	}).(RuleGroupJsonMatchScopePtrOutput)
 }
 
+func (o RuleGroupJsonMatchScopeOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupJsonMatchScope] {
+	return pulumix.Output[RuleGroupJsonMatchScope]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RuleGroupJsonMatchScopeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2262,6 +2503,12 @@ func (o RuleGroupJsonMatchScopePtrOutput) ToRuleGroupJsonMatchScopePtrOutput() R
 
 func (o RuleGroupJsonMatchScopePtrOutput) ToRuleGroupJsonMatchScopePtrOutputWithContext(ctx context.Context) RuleGroupJsonMatchScopePtrOutput {
 	return o
+}
+
+func (o RuleGroupJsonMatchScopePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupJsonMatchScope] {
+	return pulumix.Output[*RuleGroupJsonMatchScope]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupJsonMatchScopePtrOutput) Elem() RuleGroupJsonMatchScopeOutput {
@@ -2324,6 +2571,12 @@ func (in *ruleGroupJsonMatchScopePtr) ToRuleGroupJsonMatchScopePtrOutput() RuleG
 
 func (in *ruleGroupJsonMatchScopePtr) ToRuleGroupJsonMatchScopePtrOutputWithContext(ctx context.Context) RuleGroupJsonMatchScopePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupJsonMatchScopePtrOutput)
+}
+
+func (in *ruleGroupJsonMatchScopePtr) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupJsonMatchScope] {
+	return pulumix.Output[*RuleGroupJsonMatchScope]{
+		OutputState: in.ToRuleGroupJsonMatchScopePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type RuleGroupLabelMatchScope string
@@ -2393,6 +2646,12 @@ func (o RuleGroupLabelMatchScopeOutput) ToRuleGroupLabelMatchScopePtrOutputWithC
 	}).(RuleGroupLabelMatchScopePtrOutput)
 }
 
+func (o RuleGroupLabelMatchScopeOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupLabelMatchScope] {
+	return pulumix.Output[RuleGroupLabelMatchScope]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RuleGroupLabelMatchScopeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2426,6 +2685,12 @@ func (o RuleGroupLabelMatchScopePtrOutput) ToRuleGroupLabelMatchScopePtrOutput()
 
 func (o RuleGroupLabelMatchScopePtrOutput) ToRuleGroupLabelMatchScopePtrOutputWithContext(ctx context.Context) RuleGroupLabelMatchScopePtrOutput {
 	return o
+}
+
+func (o RuleGroupLabelMatchScopePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupLabelMatchScope] {
+	return pulumix.Output[*RuleGroupLabelMatchScope]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupLabelMatchScopePtrOutput) Elem() RuleGroupLabelMatchScopeOutput {
@@ -2488,6 +2753,12 @@ func (in *ruleGroupLabelMatchScopePtr) ToRuleGroupLabelMatchScopePtrOutput() Rul
 
 func (in *ruleGroupLabelMatchScopePtr) ToRuleGroupLabelMatchScopePtrOutputWithContext(ctx context.Context) RuleGroupLabelMatchScopePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupLabelMatchScopePtrOutput)
+}
+
+func (in *ruleGroupLabelMatchScopePtr) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupLabelMatchScope] {
+	return pulumix.Output[*RuleGroupLabelMatchScope]{
+		OutputState: in.ToRuleGroupLabelMatchScopePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The parts of the request to match against using the MatchPattern.
@@ -2559,6 +2830,12 @@ func (o RuleGroupMapMatchScopeOutput) ToRuleGroupMapMatchScopePtrOutputWithConte
 	}).(RuleGroupMapMatchScopePtrOutput)
 }
 
+func (o RuleGroupMapMatchScopeOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupMapMatchScope] {
+	return pulumix.Output[RuleGroupMapMatchScope]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RuleGroupMapMatchScopeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2592,6 +2869,12 @@ func (o RuleGroupMapMatchScopePtrOutput) ToRuleGroupMapMatchScopePtrOutput() Rul
 
 func (o RuleGroupMapMatchScopePtrOutput) ToRuleGroupMapMatchScopePtrOutputWithContext(ctx context.Context) RuleGroupMapMatchScopePtrOutput {
 	return o
+}
+
+func (o RuleGroupMapMatchScopePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupMapMatchScope] {
+	return pulumix.Output[*RuleGroupMapMatchScope]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupMapMatchScopePtrOutput) Elem() RuleGroupMapMatchScopeOutput {
@@ -2654,6 +2937,12 @@ func (in *ruleGroupMapMatchScopePtr) ToRuleGroupMapMatchScopePtrOutput() RuleGro
 
 func (in *ruleGroupMapMatchScopePtr) ToRuleGroupMapMatchScopePtrOutputWithContext(ctx context.Context) RuleGroupMapMatchScopePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupMapMatchScopePtrOutput)
+}
+
+func (in *ruleGroupMapMatchScopePtr) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupMapMatchScope] {
+	return pulumix.Output[*RuleGroupMapMatchScope]{
+		OutputState: in.ToRuleGroupMapMatchScopePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Handling of requests containing oversize fields
@@ -2725,6 +3014,12 @@ func (o RuleGroupOversizeHandlingOutput) ToRuleGroupOversizeHandlingPtrOutputWit
 	}).(RuleGroupOversizeHandlingPtrOutput)
 }
 
+func (o RuleGroupOversizeHandlingOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupOversizeHandling] {
+	return pulumix.Output[RuleGroupOversizeHandling]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RuleGroupOversizeHandlingOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2758,6 +3053,12 @@ func (o RuleGroupOversizeHandlingPtrOutput) ToRuleGroupOversizeHandlingPtrOutput
 
 func (o RuleGroupOversizeHandlingPtrOutput) ToRuleGroupOversizeHandlingPtrOutputWithContext(ctx context.Context) RuleGroupOversizeHandlingPtrOutput {
 	return o
+}
+
+func (o RuleGroupOversizeHandlingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupOversizeHandling] {
+	return pulumix.Output[*RuleGroupOversizeHandling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupOversizeHandlingPtrOutput) Elem() RuleGroupOversizeHandlingOutput {
@@ -2820,6 +3121,12 @@ func (in *ruleGroupOversizeHandlingPtr) ToRuleGroupOversizeHandlingPtrOutput() R
 
 func (in *ruleGroupOversizeHandlingPtr) ToRuleGroupOversizeHandlingPtrOutputWithContext(ctx context.Context) RuleGroupOversizeHandlingPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupOversizeHandlingPtrOutput)
+}
+
+func (in *ruleGroupOversizeHandlingPtr) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupOversizeHandling] {
+	return pulumix.Output[*RuleGroupOversizeHandling]{
+		OutputState: in.ToRuleGroupOversizeHandlingPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Position of the evaluation in the FieldToMatch of request.
@@ -2893,6 +3200,12 @@ func (o RuleGroupPositionalConstraintOutput) ToRuleGroupPositionalConstraintPtrO
 	}).(RuleGroupPositionalConstraintPtrOutput)
 }
 
+func (o RuleGroupPositionalConstraintOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupPositionalConstraint] {
+	return pulumix.Output[RuleGroupPositionalConstraint]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RuleGroupPositionalConstraintOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2926,6 +3239,12 @@ func (o RuleGroupPositionalConstraintPtrOutput) ToRuleGroupPositionalConstraintP
 
 func (o RuleGroupPositionalConstraintPtrOutput) ToRuleGroupPositionalConstraintPtrOutputWithContext(ctx context.Context) RuleGroupPositionalConstraintPtrOutput {
 	return o
+}
+
+func (o RuleGroupPositionalConstraintPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupPositionalConstraint] {
+	return pulumix.Output[*RuleGroupPositionalConstraint]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupPositionalConstraintPtrOutput) Elem() RuleGroupPositionalConstraintOutput {
@@ -2988,6 +3307,12 @@ func (in *ruleGroupPositionalConstraintPtr) ToRuleGroupPositionalConstraintPtrOu
 
 func (in *ruleGroupPositionalConstraintPtr) ToRuleGroupPositionalConstraintPtrOutputWithContext(ctx context.Context) RuleGroupPositionalConstraintPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupPositionalConstraintPtrOutput)
+}
+
+func (in *ruleGroupPositionalConstraintPtr) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupPositionalConstraint] {
+	return pulumix.Output[*RuleGroupPositionalConstraint]{
+		OutputState: in.ToRuleGroupPositionalConstraintPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type RuleGroupRateBasedStatementAggregateKeyType string
@@ -3057,6 +3382,12 @@ func (o RuleGroupRateBasedStatementAggregateKeyTypeOutput) ToRuleGroupRateBasedS
 	}).(RuleGroupRateBasedStatementAggregateKeyTypePtrOutput)
 }
 
+func (o RuleGroupRateBasedStatementAggregateKeyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupRateBasedStatementAggregateKeyType] {
+	return pulumix.Output[RuleGroupRateBasedStatementAggregateKeyType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RuleGroupRateBasedStatementAggregateKeyTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3090,6 +3421,12 @@ func (o RuleGroupRateBasedStatementAggregateKeyTypePtrOutput) ToRuleGroupRateBas
 
 func (o RuleGroupRateBasedStatementAggregateKeyTypePtrOutput) ToRuleGroupRateBasedStatementAggregateKeyTypePtrOutputWithContext(ctx context.Context) RuleGroupRateBasedStatementAggregateKeyTypePtrOutput {
 	return o
+}
+
+func (o RuleGroupRateBasedStatementAggregateKeyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupRateBasedStatementAggregateKeyType] {
+	return pulumix.Output[*RuleGroupRateBasedStatementAggregateKeyType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupRateBasedStatementAggregateKeyTypePtrOutput) Elem() RuleGroupRateBasedStatementAggregateKeyTypeOutput {
@@ -3152,6 +3489,12 @@ func (in *ruleGroupRateBasedStatementAggregateKeyTypePtr) ToRuleGroupRateBasedSt
 
 func (in *ruleGroupRateBasedStatementAggregateKeyTypePtr) ToRuleGroupRateBasedStatementAggregateKeyTypePtrOutputWithContext(ctx context.Context) RuleGroupRateBasedStatementAggregateKeyTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupRateBasedStatementAggregateKeyTypePtrOutput)
+}
+
+func (in *ruleGroupRateBasedStatementAggregateKeyTypePtr) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupRateBasedStatementAggregateKeyType] {
+	return pulumix.Output[*RuleGroupRateBasedStatementAggregateKeyType]{
+		OutputState: in.ToRuleGroupRateBasedStatementAggregateKeyTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Use CLOUDFRONT for CloudFront RuleGroup, use REGIONAL for Application Load Balancer and API Gateway.
@@ -3222,6 +3565,12 @@ func (o RuleGroupScopeOutput) ToRuleGroupScopePtrOutputWithContext(ctx context.C
 	}).(RuleGroupScopePtrOutput)
 }
 
+func (o RuleGroupScopeOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupScope] {
+	return pulumix.Output[RuleGroupScope]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RuleGroupScopeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3255,6 +3604,12 @@ func (o RuleGroupScopePtrOutput) ToRuleGroupScopePtrOutput() RuleGroupScopePtrOu
 
 func (o RuleGroupScopePtrOutput) ToRuleGroupScopePtrOutputWithContext(ctx context.Context) RuleGroupScopePtrOutput {
 	return o
+}
+
+func (o RuleGroupScopePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupScope] {
+	return pulumix.Output[*RuleGroupScope]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupScopePtrOutput) Elem() RuleGroupScopeOutput {
@@ -3317,6 +3672,12 @@ func (in *ruleGroupScopePtr) ToRuleGroupScopePtrOutput() RuleGroupScopePtrOutput
 
 func (in *ruleGroupScopePtr) ToRuleGroupScopePtrOutputWithContext(ctx context.Context) RuleGroupScopePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupScopePtrOutput)
+}
+
+func (in *ruleGroupScopePtr) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupScope] {
+	return pulumix.Output[*RuleGroupScope]{
+		OutputState: in.ToRuleGroupScopePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Sensitivity Level current only used for sqli match statements.
@@ -3387,6 +3748,12 @@ func (o RuleGroupSensitivityLevelOutput) ToRuleGroupSensitivityLevelPtrOutputWit
 	}).(RuleGroupSensitivityLevelPtrOutput)
 }
 
+func (o RuleGroupSensitivityLevelOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupSensitivityLevel] {
+	return pulumix.Output[RuleGroupSensitivityLevel]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RuleGroupSensitivityLevelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3420,6 +3787,12 @@ func (o RuleGroupSensitivityLevelPtrOutput) ToRuleGroupSensitivityLevelPtrOutput
 
 func (o RuleGroupSensitivityLevelPtrOutput) ToRuleGroupSensitivityLevelPtrOutputWithContext(ctx context.Context) RuleGroupSensitivityLevelPtrOutput {
 	return o
+}
+
+func (o RuleGroupSensitivityLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupSensitivityLevel] {
+	return pulumix.Output[*RuleGroupSensitivityLevel]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupSensitivityLevelPtrOutput) Elem() RuleGroupSensitivityLevelOutput {
@@ -3482,6 +3855,12 @@ func (in *ruleGroupSensitivityLevelPtr) ToRuleGroupSensitivityLevelPtrOutput() R
 
 func (in *ruleGroupSensitivityLevelPtr) ToRuleGroupSensitivityLevelPtrOutputWithContext(ctx context.Context) RuleGroupSensitivityLevelPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupSensitivityLevelPtrOutput)
+}
+
+func (in *ruleGroupSensitivityLevelPtr) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupSensitivityLevel] {
+	return pulumix.Output[*RuleGroupSensitivityLevel]{
+		OutputState: in.ToRuleGroupSensitivityLevelPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type RuleGroupSizeConstraintStatementComparisonOperator string
@@ -3555,6 +3934,12 @@ func (o RuleGroupSizeConstraintStatementComparisonOperatorOutput) ToRuleGroupSiz
 	}).(RuleGroupSizeConstraintStatementComparisonOperatorPtrOutput)
 }
 
+func (o RuleGroupSizeConstraintStatementComparisonOperatorOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupSizeConstraintStatementComparisonOperator] {
+	return pulumix.Output[RuleGroupSizeConstraintStatementComparisonOperator]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RuleGroupSizeConstraintStatementComparisonOperatorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3588,6 +3973,12 @@ func (o RuleGroupSizeConstraintStatementComparisonOperatorPtrOutput) ToRuleGroup
 
 func (o RuleGroupSizeConstraintStatementComparisonOperatorPtrOutput) ToRuleGroupSizeConstraintStatementComparisonOperatorPtrOutputWithContext(ctx context.Context) RuleGroupSizeConstraintStatementComparisonOperatorPtrOutput {
 	return o
+}
+
+func (o RuleGroupSizeConstraintStatementComparisonOperatorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupSizeConstraintStatementComparisonOperator] {
+	return pulumix.Output[*RuleGroupSizeConstraintStatementComparisonOperator]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupSizeConstraintStatementComparisonOperatorPtrOutput) Elem() RuleGroupSizeConstraintStatementComparisonOperatorOutput {
@@ -3650,6 +4041,12 @@ func (in *ruleGroupSizeConstraintStatementComparisonOperatorPtr) ToRuleGroupSize
 
 func (in *ruleGroupSizeConstraintStatementComparisonOperatorPtr) ToRuleGroupSizeConstraintStatementComparisonOperatorPtrOutputWithContext(ctx context.Context) RuleGroupSizeConstraintStatementComparisonOperatorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupSizeConstraintStatementComparisonOperatorPtrOutput)
+}
+
+func (in *ruleGroupSizeConstraintStatementComparisonOperatorPtr) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupSizeConstraintStatementComparisonOperator] {
+	return pulumix.Output[*RuleGroupSizeConstraintStatementComparisonOperator]{
+		OutputState: in.ToRuleGroupSizeConstraintStatementComparisonOperatorPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Type of text transformation.
@@ -3739,6 +4136,12 @@ func (o RuleGroupTextTransformationTypeOutput) ToRuleGroupTextTransformationType
 	}).(RuleGroupTextTransformationTypePtrOutput)
 }
 
+func (o RuleGroupTextTransformationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupTextTransformationType] {
+	return pulumix.Output[RuleGroupTextTransformationType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RuleGroupTextTransformationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3772,6 +4175,12 @@ func (o RuleGroupTextTransformationTypePtrOutput) ToRuleGroupTextTransformationT
 
 func (o RuleGroupTextTransformationTypePtrOutput) ToRuleGroupTextTransformationTypePtrOutputWithContext(ctx context.Context) RuleGroupTextTransformationTypePtrOutput {
 	return o
+}
+
+func (o RuleGroupTextTransformationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupTextTransformationType] {
+	return pulumix.Output[*RuleGroupTextTransformationType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupTextTransformationTypePtrOutput) Elem() RuleGroupTextTransformationTypeOutput {
@@ -3834,6 +4243,12 @@ func (in *ruleGroupTextTransformationTypePtr) ToRuleGroupTextTransformationTypeP
 
 func (in *ruleGroupTextTransformationTypePtr) ToRuleGroupTextTransformationTypePtrOutputWithContext(ctx context.Context) RuleGroupTextTransformationTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupTextTransformationTypePtrOutput)
+}
+
+func (in *ruleGroupTextTransformationTypePtr) ToOutput(ctx context.Context) pulumix.Output[*RuleGroupTextTransformationType] {
+	return pulumix.Output[*RuleGroupTextTransformationType]{
+		OutputState: in.ToRuleGroupTextTransformationTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type WebACLAWSManagedRulesBotControlRuleSetInspectionLevel string
@@ -3903,6 +4318,12 @@ func (o WebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutput) ToWebACLAWS
 	}).(WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput)
 }
 
+func (o WebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutput) ToOutput(ctx context.Context) pulumix.Output[WebACLAWSManagedRulesBotControlRuleSetInspectionLevel] {
+	return pulumix.Output[WebACLAWSManagedRulesBotControlRuleSetInspectionLevel]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3936,6 +4357,12 @@ func (o WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput) ToWebACL
 
 func (o WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput) ToWebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutputWithContext(ctx context.Context) WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput {
 	return o
+}
+
+func (o WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WebACLAWSManagedRulesBotControlRuleSetInspectionLevel] {
+	return pulumix.Output[*WebACLAWSManagedRulesBotControlRuleSetInspectionLevel]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput) Elem() WebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutput {
@@ -3998,6 +4425,12 @@ func (in *webACLAWSManagedRulesBotControlRuleSetInspectionLevelPtr) ToWebACLAWSM
 
 func (in *webACLAWSManagedRulesBotControlRuleSetInspectionLevelPtr) ToWebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutputWithContext(ctx context.Context) WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput)
+}
+
+func (in *webACLAWSManagedRulesBotControlRuleSetInspectionLevelPtr) ToOutput(ctx context.Context) pulumix.Output[*WebACLAWSManagedRulesBotControlRuleSetInspectionLevel] {
+	return pulumix.Output[*WebACLAWSManagedRulesBotControlRuleSetInspectionLevel]{
+		OutputState: in.ToWebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The inspection behavior to fall back to if the JSON in the request body is invalid.
@@ -4069,6 +4502,12 @@ func (o WebACLBodyParsingFallbackBehaviorOutput) ToWebACLBodyParsingFallbackBeha
 	}).(WebACLBodyParsingFallbackBehaviorPtrOutput)
 }
 
+func (o WebACLBodyParsingFallbackBehaviorOutput) ToOutput(ctx context.Context) pulumix.Output[WebACLBodyParsingFallbackBehavior] {
+	return pulumix.Output[WebACLBodyParsingFallbackBehavior]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WebACLBodyParsingFallbackBehaviorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4102,6 +4541,12 @@ func (o WebACLBodyParsingFallbackBehaviorPtrOutput) ToWebACLBodyParsingFallbackB
 
 func (o WebACLBodyParsingFallbackBehaviorPtrOutput) ToWebACLBodyParsingFallbackBehaviorPtrOutputWithContext(ctx context.Context) WebACLBodyParsingFallbackBehaviorPtrOutput {
 	return o
+}
+
+func (o WebACLBodyParsingFallbackBehaviorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WebACLBodyParsingFallbackBehavior] {
+	return pulumix.Output[*WebACLBodyParsingFallbackBehavior]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WebACLBodyParsingFallbackBehaviorPtrOutput) Elem() WebACLBodyParsingFallbackBehaviorOutput {
@@ -4164,6 +4609,12 @@ func (in *webACLBodyParsingFallbackBehaviorPtr) ToWebACLBodyParsingFallbackBehav
 
 func (in *webACLBodyParsingFallbackBehaviorPtr) ToWebACLBodyParsingFallbackBehaviorPtrOutputWithContext(ctx context.Context) WebACLBodyParsingFallbackBehaviorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WebACLBodyParsingFallbackBehaviorPtrOutput)
+}
+
+func (in *webACLBodyParsingFallbackBehaviorPtr) ToOutput(ctx context.Context) pulumix.Output[*WebACLBodyParsingFallbackBehavior] {
+	return pulumix.Output[*WebACLBodyParsingFallbackBehavior]{
+		OutputState: in.ToWebACLBodyParsingFallbackBehaviorPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type WebACLForwardedIPConfigurationFallbackBehavior string
@@ -4233,6 +4684,12 @@ func (o WebACLForwardedIPConfigurationFallbackBehaviorOutput) ToWebACLForwardedI
 	}).(WebACLForwardedIPConfigurationFallbackBehaviorPtrOutput)
 }
 
+func (o WebACLForwardedIPConfigurationFallbackBehaviorOutput) ToOutput(ctx context.Context) pulumix.Output[WebACLForwardedIPConfigurationFallbackBehavior] {
+	return pulumix.Output[WebACLForwardedIPConfigurationFallbackBehavior]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WebACLForwardedIPConfigurationFallbackBehaviorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4266,6 +4723,12 @@ func (o WebACLForwardedIPConfigurationFallbackBehaviorPtrOutput) ToWebACLForward
 
 func (o WebACLForwardedIPConfigurationFallbackBehaviorPtrOutput) ToWebACLForwardedIPConfigurationFallbackBehaviorPtrOutputWithContext(ctx context.Context) WebACLForwardedIPConfigurationFallbackBehaviorPtrOutput {
 	return o
+}
+
+func (o WebACLForwardedIPConfigurationFallbackBehaviorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WebACLForwardedIPConfigurationFallbackBehavior] {
+	return pulumix.Output[*WebACLForwardedIPConfigurationFallbackBehavior]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WebACLForwardedIPConfigurationFallbackBehaviorPtrOutput) Elem() WebACLForwardedIPConfigurationFallbackBehaviorOutput {
@@ -4328,6 +4791,12 @@ func (in *webACLForwardedIPConfigurationFallbackBehaviorPtr) ToWebACLForwardedIP
 
 func (in *webACLForwardedIPConfigurationFallbackBehaviorPtr) ToWebACLForwardedIPConfigurationFallbackBehaviorPtrOutputWithContext(ctx context.Context) WebACLForwardedIPConfigurationFallbackBehaviorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WebACLForwardedIPConfigurationFallbackBehaviorPtrOutput)
+}
+
+func (in *webACLForwardedIPConfigurationFallbackBehaviorPtr) ToOutput(ctx context.Context) pulumix.Output[*WebACLForwardedIPConfigurationFallbackBehavior] {
+	return pulumix.Output[*WebACLForwardedIPConfigurationFallbackBehavior]{
+		OutputState: in.ToWebACLForwardedIPConfigurationFallbackBehaviorPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type WebACLIPSetForwardedIPConfigurationFallbackBehavior string
@@ -4397,6 +4866,12 @@ func (o WebACLIPSetForwardedIPConfigurationFallbackBehaviorOutput) ToWebACLIPSet
 	}).(WebACLIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput)
 }
 
+func (o WebACLIPSetForwardedIPConfigurationFallbackBehaviorOutput) ToOutput(ctx context.Context) pulumix.Output[WebACLIPSetForwardedIPConfigurationFallbackBehavior] {
+	return pulumix.Output[WebACLIPSetForwardedIPConfigurationFallbackBehavior]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WebACLIPSetForwardedIPConfigurationFallbackBehaviorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4430,6 +4905,12 @@ func (o WebACLIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput) ToWebACLIP
 
 func (o WebACLIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput) ToWebACLIPSetForwardedIPConfigurationFallbackBehaviorPtrOutputWithContext(ctx context.Context) WebACLIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput {
 	return o
+}
+
+func (o WebACLIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WebACLIPSetForwardedIPConfigurationFallbackBehavior] {
+	return pulumix.Output[*WebACLIPSetForwardedIPConfigurationFallbackBehavior]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WebACLIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput) Elem() WebACLIPSetForwardedIPConfigurationFallbackBehaviorOutput {
@@ -4492,6 +4973,12 @@ func (in *webACLIPSetForwardedIPConfigurationFallbackBehaviorPtr) ToWebACLIPSetF
 
 func (in *webACLIPSetForwardedIPConfigurationFallbackBehaviorPtr) ToWebACLIPSetForwardedIPConfigurationFallbackBehaviorPtrOutputWithContext(ctx context.Context) WebACLIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WebACLIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput)
+}
+
+func (in *webACLIPSetForwardedIPConfigurationFallbackBehaviorPtr) ToOutput(ctx context.Context) pulumix.Output[*WebACLIPSetForwardedIPConfigurationFallbackBehavior] {
+	return pulumix.Output[*WebACLIPSetForwardedIPConfigurationFallbackBehavior]{
+		OutputState: in.ToWebACLIPSetForwardedIPConfigurationFallbackBehaviorPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type WebACLIPSetForwardedIPConfigurationPosition string
@@ -4562,6 +5049,12 @@ func (o WebACLIPSetForwardedIPConfigurationPositionOutput) ToWebACLIPSetForwarde
 	}).(WebACLIPSetForwardedIPConfigurationPositionPtrOutput)
 }
 
+func (o WebACLIPSetForwardedIPConfigurationPositionOutput) ToOutput(ctx context.Context) pulumix.Output[WebACLIPSetForwardedIPConfigurationPosition] {
+	return pulumix.Output[WebACLIPSetForwardedIPConfigurationPosition]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WebACLIPSetForwardedIPConfigurationPositionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4595,6 +5088,12 @@ func (o WebACLIPSetForwardedIPConfigurationPositionPtrOutput) ToWebACLIPSetForwa
 
 func (o WebACLIPSetForwardedIPConfigurationPositionPtrOutput) ToWebACLIPSetForwardedIPConfigurationPositionPtrOutputWithContext(ctx context.Context) WebACLIPSetForwardedIPConfigurationPositionPtrOutput {
 	return o
+}
+
+func (o WebACLIPSetForwardedIPConfigurationPositionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WebACLIPSetForwardedIPConfigurationPosition] {
+	return pulumix.Output[*WebACLIPSetForwardedIPConfigurationPosition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WebACLIPSetForwardedIPConfigurationPositionPtrOutput) Elem() WebACLIPSetForwardedIPConfigurationPositionOutput {
@@ -4657,6 +5156,12 @@ func (in *webACLIPSetForwardedIPConfigurationPositionPtr) ToWebACLIPSetForwarded
 
 func (in *webACLIPSetForwardedIPConfigurationPositionPtr) ToWebACLIPSetForwardedIPConfigurationPositionPtrOutputWithContext(ctx context.Context) WebACLIPSetForwardedIPConfigurationPositionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WebACLIPSetForwardedIPConfigurationPositionPtrOutput)
+}
+
+func (in *webACLIPSetForwardedIPConfigurationPositionPtr) ToOutput(ctx context.Context) pulumix.Output[*WebACLIPSetForwardedIPConfigurationPosition] {
+	return pulumix.Output[*WebACLIPSetForwardedIPConfigurationPosition]{
+		OutputState: in.ToWebACLIPSetForwardedIPConfigurationPositionPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The parts of the JSON to match against using the MatchPattern.
@@ -4728,6 +5233,12 @@ func (o WebACLJsonMatchScopeOutput) ToWebACLJsonMatchScopePtrOutputWithContext(c
 	}).(WebACLJsonMatchScopePtrOutput)
 }
 
+func (o WebACLJsonMatchScopeOutput) ToOutput(ctx context.Context) pulumix.Output[WebACLJsonMatchScope] {
+	return pulumix.Output[WebACLJsonMatchScope]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WebACLJsonMatchScopeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4761,6 +5272,12 @@ func (o WebACLJsonMatchScopePtrOutput) ToWebACLJsonMatchScopePtrOutput() WebACLJ
 
 func (o WebACLJsonMatchScopePtrOutput) ToWebACLJsonMatchScopePtrOutputWithContext(ctx context.Context) WebACLJsonMatchScopePtrOutput {
 	return o
+}
+
+func (o WebACLJsonMatchScopePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WebACLJsonMatchScope] {
+	return pulumix.Output[*WebACLJsonMatchScope]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WebACLJsonMatchScopePtrOutput) Elem() WebACLJsonMatchScopeOutput {
@@ -4823,6 +5340,12 @@ func (in *webACLJsonMatchScopePtr) ToWebACLJsonMatchScopePtrOutput() WebACLJsonM
 
 func (in *webACLJsonMatchScopePtr) ToWebACLJsonMatchScopePtrOutputWithContext(ctx context.Context) WebACLJsonMatchScopePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WebACLJsonMatchScopePtrOutput)
+}
+
+func (in *webACLJsonMatchScopePtr) ToOutput(ctx context.Context) pulumix.Output[*WebACLJsonMatchScope] {
+	return pulumix.Output[*WebACLJsonMatchScope]{
+		OutputState: in.ToWebACLJsonMatchScopePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type WebACLLabelMatchScope string
@@ -4892,6 +5415,12 @@ func (o WebACLLabelMatchScopeOutput) ToWebACLLabelMatchScopePtrOutputWithContext
 	}).(WebACLLabelMatchScopePtrOutput)
 }
 
+func (o WebACLLabelMatchScopeOutput) ToOutput(ctx context.Context) pulumix.Output[WebACLLabelMatchScope] {
+	return pulumix.Output[WebACLLabelMatchScope]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WebACLLabelMatchScopeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4925,6 +5454,12 @@ func (o WebACLLabelMatchScopePtrOutput) ToWebACLLabelMatchScopePtrOutput() WebAC
 
 func (o WebACLLabelMatchScopePtrOutput) ToWebACLLabelMatchScopePtrOutputWithContext(ctx context.Context) WebACLLabelMatchScopePtrOutput {
 	return o
+}
+
+func (o WebACLLabelMatchScopePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WebACLLabelMatchScope] {
+	return pulumix.Output[*WebACLLabelMatchScope]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WebACLLabelMatchScopePtrOutput) Elem() WebACLLabelMatchScopeOutput {
@@ -4987,6 +5522,12 @@ func (in *webACLLabelMatchScopePtr) ToWebACLLabelMatchScopePtrOutput() WebACLLab
 
 func (in *webACLLabelMatchScopePtr) ToWebACLLabelMatchScopePtrOutputWithContext(ctx context.Context) WebACLLabelMatchScopePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WebACLLabelMatchScopePtrOutput)
+}
+
+func (in *webACLLabelMatchScopePtr) ToOutput(ctx context.Context) pulumix.Output[*WebACLLabelMatchScope] {
+	return pulumix.Output[*WebACLLabelMatchScope]{
+		OutputState: in.ToWebACLLabelMatchScopePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type WebACLManagedRuleGroupConfigPayloadType string
@@ -5056,6 +5597,12 @@ func (o WebACLManagedRuleGroupConfigPayloadTypeOutput) ToWebACLManagedRuleGroupC
 	}).(WebACLManagedRuleGroupConfigPayloadTypePtrOutput)
 }
 
+func (o WebACLManagedRuleGroupConfigPayloadTypeOutput) ToOutput(ctx context.Context) pulumix.Output[WebACLManagedRuleGroupConfigPayloadType] {
+	return pulumix.Output[WebACLManagedRuleGroupConfigPayloadType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WebACLManagedRuleGroupConfigPayloadTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5089,6 +5636,12 @@ func (o WebACLManagedRuleGroupConfigPayloadTypePtrOutput) ToWebACLManagedRuleGro
 
 func (o WebACLManagedRuleGroupConfigPayloadTypePtrOutput) ToWebACLManagedRuleGroupConfigPayloadTypePtrOutputWithContext(ctx context.Context) WebACLManagedRuleGroupConfigPayloadTypePtrOutput {
 	return o
+}
+
+func (o WebACLManagedRuleGroupConfigPayloadTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WebACLManagedRuleGroupConfigPayloadType] {
+	return pulumix.Output[*WebACLManagedRuleGroupConfigPayloadType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WebACLManagedRuleGroupConfigPayloadTypePtrOutput) Elem() WebACLManagedRuleGroupConfigPayloadTypeOutput {
@@ -5151,6 +5704,12 @@ func (in *webACLManagedRuleGroupConfigPayloadTypePtr) ToWebACLManagedRuleGroupCo
 
 func (in *webACLManagedRuleGroupConfigPayloadTypePtr) ToWebACLManagedRuleGroupConfigPayloadTypePtrOutputWithContext(ctx context.Context) WebACLManagedRuleGroupConfigPayloadTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WebACLManagedRuleGroupConfigPayloadTypePtrOutput)
+}
+
+func (in *webACLManagedRuleGroupConfigPayloadTypePtr) ToOutput(ctx context.Context) pulumix.Output[*WebACLManagedRuleGroupConfigPayloadType] {
+	return pulumix.Output[*WebACLManagedRuleGroupConfigPayloadType]{
+		OutputState: in.ToWebACLManagedRuleGroupConfigPayloadTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The parts of the request to match against using the MatchPattern.
@@ -5222,6 +5781,12 @@ func (o WebACLMapMatchScopeOutput) ToWebACLMapMatchScopePtrOutputWithContext(ctx
 	}).(WebACLMapMatchScopePtrOutput)
 }
 
+func (o WebACLMapMatchScopeOutput) ToOutput(ctx context.Context) pulumix.Output[WebACLMapMatchScope] {
+	return pulumix.Output[WebACLMapMatchScope]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WebACLMapMatchScopeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5255,6 +5820,12 @@ func (o WebACLMapMatchScopePtrOutput) ToWebACLMapMatchScopePtrOutput() WebACLMap
 
 func (o WebACLMapMatchScopePtrOutput) ToWebACLMapMatchScopePtrOutputWithContext(ctx context.Context) WebACLMapMatchScopePtrOutput {
 	return o
+}
+
+func (o WebACLMapMatchScopePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WebACLMapMatchScope] {
+	return pulumix.Output[*WebACLMapMatchScope]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WebACLMapMatchScopePtrOutput) Elem() WebACLMapMatchScopeOutput {
@@ -5317,6 +5888,12 @@ func (in *webACLMapMatchScopePtr) ToWebACLMapMatchScopePtrOutput() WebACLMapMatc
 
 func (in *webACLMapMatchScopePtr) ToWebACLMapMatchScopePtrOutputWithContext(ctx context.Context) WebACLMapMatchScopePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WebACLMapMatchScopePtrOutput)
+}
+
+func (in *webACLMapMatchScopePtr) ToOutput(ctx context.Context) pulumix.Output[*WebACLMapMatchScope] {
+	return pulumix.Output[*WebACLMapMatchScope]{
+		OutputState: in.ToWebACLMapMatchScopePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Handling of requests containing oversize fields
@@ -5388,6 +5965,12 @@ func (o WebACLOversizeHandlingOutput) ToWebACLOversizeHandlingPtrOutputWithConte
 	}).(WebACLOversizeHandlingPtrOutput)
 }
 
+func (o WebACLOversizeHandlingOutput) ToOutput(ctx context.Context) pulumix.Output[WebACLOversizeHandling] {
+	return pulumix.Output[WebACLOversizeHandling]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WebACLOversizeHandlingOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5421,6 +6004,12 @@ func (o WebACLOversizeHandlingPtrOutput) ToWebACLOversizeHandlingPtrOutput() Web
 
 func (o WebACLOversizeHandlingPtrOutput) ToWebACLOversizeHandlingPtrOutputWithContext(ctx context.Context) WebACLOversizeHandlingPtrOutput {
 	return o
+}
+
+func (o WebACLOversizeHandlingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WebACLOversizeHandling] {
+	return pulumix.Output[*WebACLOversizeHandling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WebACLOversizeHandlingPtrOutput) Elem() WebACLOversizeHandlingOutput {
@@ -5483,6 +6072,12 @@ func (in *webACLOversizeHandlingPtr) ToWebACLOversizeHandlingPtrOutput() WebACLO
 
 func (in *webACLOversizeHandlingPtr) ToWebACLOversizeHandlingPtrOutputWithContext(ctx context.Context) WebACLOversizeHandlingPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WebACLOversizeHandlingPtrOutput)
+}
+
+func (in *webACLOversizeHandlingPtr) ToOutput(ctx context.Context) pulumix.Output[*WebACLOversizeHandling] {
+	return pulumix.Output[*WebACLOversizeHandling]{
+		OutputState: in.ToWebACLOversizeHandlingPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Position of the evaluation in the FieldToMatch of request.
@@ -5556,6 +6151,12 @@ func (o WebACLPositionalConstraintOutput) ToWebACLPositionalConstraintPtrOutputW
 	}).(WebACLPositionalConstraintPtrOutput)
 }
 
+func (o WebACLPositionalConstraintOutput) ToOutput(ctx context.Context) pulumix.Output[WebACLPositionalConstraint] {
+	return pulumix.Output[WebACLPositionalConstraint]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WebACLPositionalConstraintOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5589,6 +6190,12 @@ func (o WebACLPositionalConstraintPtrOutput) ToWebACLPositionalConstraintPtrOutp
 
 func (o WebACLPositionalConstraintPtrOutput) ToWebACLPositionalConstraintPtrOutputWithContext(ctx context.Context) WebACLPositionalConstraintPtrOutput {
 	return o
+}
+
+func (o WebACLPositionalConstraintPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WebACLPositionalConstraint] {
+	return pulumix.Output[*WebACLPositionalConstraint]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WebACLPositionalConstraintPtrOutput) Elem() WebACLPositionalConstraintOutput {
@@ -5651,6 +6258,12 @@ func (in *webACLPositionalConstraintPtr) ToWebACLPositionalConstraintPtrOutput()
 
 func (in *webACLPositionalConstraintPtr) ToWebACLPositionalConstraintPtrOutputWithContext(ctx context.Context) WebACLPositionalConstraintPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WebACLPositionalConstraintPtrOutput)
+}
+
+func (in *webACLPositionalConstraintPtr) ToOutput(ctx context.Context) pulumix.Output[*WebACLPositionalConstraint] {
+	return pulumix.Output[*WebACLPositionalConstraint]{
+		OutputState: in.ToWebACLPositionalConstraintPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type WebACLRateBasedStatementAggregateKeyType string
@@ -5720,6 +6333,12 @@ func (o WebACLRateBasedStatementAggregateKeyTypeOutput) ToWebACLRateBasedStateme
 	}).(WebACLRateBasedStatementAggregateKeyTypePtrOutput)
 }
 
+func (o WebACLRateBasedStatementAggregateKeyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[WebACLRateBasedStatementAggregateKeyType] {
+	return pulumix.Output[WebACLRateBasedStatementAggregateKeyType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WebACLRateBasedStatementAggregateKeyTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5753,6 +6372,12 @@ func (o WebACLRateBasedStatementAggregateKeyTypePtrOutput) ToWebACLRateBasedStat
 
 func (o WebACLRateBasedStatementAggregateKeyTypePtrOutput) ToWebACLRateBasedStatementAggregateKeyTypePtrOutputWithContext(ctx context.Context) WebACLRateBasedStatementAggregateKeyTypePtrOutput {
 	return o
+}
+
+func (o WebACLRateBasedStatementAggregateKeyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WebACLRateBasedStatementAggregateKeyType] {
+	return pulumix.Output[*WebACLRateBasedStatementAggregateKeyType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WebACLRateBasedStatementAggregateKeyTypePtrOutput) Elem() WebACLRateBasedStatementAggregateKeyTypeOutput {
@@ -5815,6 +6440,12 @@ func (in *webACLRateBasedStatementAggregateKeyTypePtr) ToWebACLRateBasedStatemen
 
 func (in *webACLRateBasedStatementAggregateKeyTypePtr) ToWebACLRateBasedStatementAggregateKeyTypePtrOutputWithContext(ctx context.Context) WebACLRateBasedStatementAggregateKeyTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WebACLRateBasedStatementAggregateKeyTypePtrOutput)
+}
+
+func (in *webACLRateBasedStatementAggregateKeyTypePtr) ToOutput(ctx context.Context) pulumix.Output[*WebACLRateBasedStatementAggregateKeyType] {
+	return pulumix.Output[*WebACLRateBasedStatementAggregateKeyType]{
+		OutputState: in.ToWebACLRateBasedStatementAggregateKeyTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type WebACLRequestInspectionPayloadType string
@@ -5884,6 +6515,12 @@ func (o WebACLRequestInspectionPayloadTypeOutput) ToWebACLRequestInspectionPaylo
 	}).(WebACLRequestInspectionPayloadTypePtrOutput)
 }
 
+func (o WebACLRequestInspectionPayloadTypeOutput) ToOutput(ctx context.Context) pulumix.Output[WebACLRequestInspectionPayloadType] {
+	return pulumix.Output[WebACLRequestInspectionPayloadType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WebACLRequestInspectionPayloadTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5917,6 +6554,12 @@ func (o WebACLRequestInspectionPayloadTypePtrOutput) ToWebACLRequestInspectionPa
 
 func (o WebACLRequestInspectionPayloadTypePtrOutput) ToWebACLRequestInspectionPayloadTypePtrOutputWithContext(ctx context.Context) WebACLRequestInspectionPayloadTypePtrOutput {
 	return o
+}
+
+func (o WebACLRequestInspectionPayloadTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WebACLRequestInspectionPayloadType] {
+	return pulumix.Output[*WebACLRequestInspectionPayloadType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WebACLRequestInspectionPayloadTypePtrOutput) Elem() WebACLRequestInspectionPayloadTypeOutput {
@@ -5979,6 +6622,12 @@ func (in *webACLRequestInspectionPayloadTypePtr) ToWebACLRequestInspectionPayloa
 
 func (in *webACLRequestInspectionPayloadTypePtr) ToWebACLRequestInspectionPayloadTypePtrOutputWithContext(ctx context.Context) WebACLRequestInspectionPayloadTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WebACLRequestInspectionPayloadTypePtrOutput)
+}
+
+func (in *webACLRequestInspectionPayloadTypePtr) ToOutput(ctx context.Context) pulumix.Output[*WebACLRequestInspectionPayloadType] {
+	return pulumix.Output[*WebACLRequestInspectionPayloadType]{
+		OutputState: in.ToWebACLRequestInspectionPayloadTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Use CLOUDFRONT for CloudFront WebACL, use REGIONAL for Application Load Balancer and API Gateway.
@@ -6049,6 +6698,12 @@ func (o WebACLScopeOutput) ToWebACLScopePtrOutputWithContext(ctx context.Context
 	}).(WebACLScopePtrOutput)
 }
 
+func (o WebACLScopeOutput) ToOutput(ctx context.Context) pulumix.Output[WebACLScope] {
+	return pulumix.Output[WebACLScope]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WebACLScopeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -6082,6 +6737,12 @@ func (o WebACLScopePtrOutput) ToWebACLScopePtrOutput() WebACLScopePtrOutput {
 
 func (o WebACLScopePtrOutput) ToWebACLScopePtrOutputWithContext(ctx context.Context) WebACLScopePtrOutput {
 	return o
+}
+
+func (o WebACLScopePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WebACLScope] {
+	return pulumix.Output[*WebACLScope]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WebACLScopePtrOutput) Elem() WebACLScopeOutput {
@@ -6144,6 +6805,12 @@ func (in *webACLScopePtr) ToWebACLScopePtrOutput() WebACLScopePtrOutput {
 
 func (in *webACLScopePtr) ToWebACLScopePtrOutputWithContext(ctx context.Context) WebACLScopePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WebACLScopePtrOutput)
+}
+
+func (in *webACLScopePtr) ToOutput(ctx context.Context) pulumix.Output[*WebACLScope] {
+	return pulumix.Output[*WebACLScope]{
+		OutputState: in.ToWebACLScopePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Sensitivity Level current only used for sqli match statements.
@@ -6214,6 +6881,12 @@ func (o WebACLSensitivityLevelOutput) ToWebACLSensitivityLevelPtrOutputWithConte
 	}).(WebACLSensitivityLevelPtrOutput)
 }
 
+func (o WebACLSensitivityLevelOutput) ToOutput(ctx context.Context) pulumix.Output[WebACLSensitivityLevel] {
+	return pulumix.Output[WebACLSensitivityLevel]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WebACLSensitivityLevelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -6247,6 +6920,12 @@ func (o WebACLSensitivityLevelPtrOutput) ToWebACLSensitivityLevelPtrOutput() Web
 
 func (o WebACLSensitivityLevelPtrOutput) ToWebACLSensitivityLevelPtrOutputWithContext(ctx context.Context) WebACLSensitivityLevelPtrOutput {
 	return o
+}
+
+func (o WebACLSensitivityLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WebACLSensitivityLevel] {
+	return pulumix.Output[*WebACLSensitivityLevel]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WebACLSensitivityLevelPtrOutput) Elem() WebACLSensitivityLevelOutput {
@@ -6309,6 +6988,12 @@ func (in *webACLSensitivityLevelPtr) ToWebACLSensitivityLevelPtrOutput() WebACLS
 
 func (in *webACLSensitivityLevelPtr) ToWebACLSensitivityLevelPtrOutputWithContext(ctx context.Context) WebACLSensitivityLevelPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WebACLSensitivityLevelPtrOutput)
+}
+
+func (in *webACLSensitivityLevelPtr) ToOutput(ctx context.Context) pulumix.Output[*WebACLSensitivityLevel] {
+	return pulumix.Output[*WebACLSensitivityLevel]{
+		OutputState: in.ToWebACLSensitivityLevelPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type WebACLSizeConstraintStatementComparisonOperator string
@@ -6382,6 +7067,12 @@ func (o WebACLSizeConstraintStatementComparisonOperatorOutput) ToWebACLSizeConst
 	}).(WebACLSizeConstraintStatementComparisonOperatorPtrOutput)
 }
 
+func (o WebACLSizeConstraintStatementComparisonOperatorOutput) ToOutput(ctx context.Context) pulumix.Output[WebACLSizeConstraintStatementComparisonOperator] {
+	return pulumix.Output[WebACLSizeConstraintStatementComparisonOperator]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WebACLSizeConstraintStatementComparisonOperatorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -6415,6 +7106,12 @@ func (o WebACLSizeConstraintStatementComparisonOperatorPtrOutput) ToWebACLSizeCo
 
 func (o WebACLSizeConstraintStatementComparisonOperatorPtrOutput) ToWebACLSizeConstraintStatementComparisonOperatorPtrOutputWithContext(ctx context.Context) WebACLSizeConstraintStatementComparisonOperatorPtrOutput {
 	return o
+}
+
+func (o WebACLSizeConstraintStatementComparisonOperatorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WebACLSizeConstraintStatementComparisonOperator] {
+	return pulumix.Output[*WebACLSizeConstraintStatementComparisonOperator]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WebACLSizeConstraintStatementComparisonOperatorPtrOutput) Elem() WebACLSizeConstraintStatementComparisonOperatorOutput {
@@ -6477,6 +7174,12 @@ func (in *webACLSizeConstraintStatementComparisonOperatorPtr) ToWebACLSizeConstr
 
 func (in *webACLSizeConstraintStatementComparisonOperatorPtr) ToWebACLSizeConstraintStatementComparisonOperatorPtrOutputWithContext(ctx context.Context) WebACLSizeConstraintStatementComparisonOperatorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WebACLSizeConstraintStatementComparisonOperatorPtrOutput)
+}
+
+func (in *webACLSizeConstraintStatementComparisonOperatorPtr) ToOutput(ctx context.Context) pulumix.Output[*WebACLSizeConstraintStatementComparisonOperator] {
+	return pulumix.Output[*WebACLSizeConstraintStatementComparisonOperator]{
+		OutputState: in.ToWebACLSizeConstraintStatementComparisonOperatorPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Type of text transformation.
@@ -6566,6 +7269,12 @@ func (o WebACLTextTransformationTypeOutput) ToWebACLTextTransformationTypePtrOut
 	}).(WebACLTextTransformationTypePtrOutput)
 }
 
+func (o WebACLTextTransformationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[WebACLTextTransformationType] {
+	return pulumix.Output[WebACLTextTransformationType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WebACLTextTransformationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -6599,6 +7308,12 @@ func (o WebACLTextTransformationTypePtrOutput) ToWebACLTextTransformationTypePtr
 
 func (o WebACLTextTransformationTypePtrOutput) ToWebACLTextTransformationTypePtrOutputWithContext(ctx context.Context) WebACLTextTransformationTypePtrOutput {
 	return o
+}
+
+func (o WebACLTextTransformationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WebACLTextTransformationType] {
+	return pulumix.Output[*WebACLTextTransformationType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WebACLTextTransformationTypePtrOutput) Elem() WebACLTextTransformationTypeOutput {
@@ -6661,6 +7376,12 @@ func (in *webACLTextTransformationTypePtr) ToWebACLTextTransformationTypePtrOutp
 
 func (in *webACLTextTransformationTypePtr) ToWebACLTextTransformationTypePtrOutputWithContext(ctx context.Context) WebACLTextTransformationTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WebACLTextTransformationTypePtrOutput)
+}
+
+func (in *webACLTextTransformationTypePtr) ToOutput(ctx context.Context) pulumix.Output[*WebACLTextTransformationType] {
+	return pulumix.Output[*WebACLTextTransformationType]{
+		OutputState: in.ToWebACLTextTransformationTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

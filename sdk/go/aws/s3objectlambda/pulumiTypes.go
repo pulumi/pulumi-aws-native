@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -34,6 +35,12 @@ func (o AccessPointAliasOutput) ToAccessPointAliasOutputWithContext(ctx context.
 	return o
 }
 
+func (o AccessPointAliasOutput) ToOutput(ctx context.Context) pulumix.Output[AccessPointAlias] {
+	return pulumix.Output[AccessPointAlias]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The status of the Object Lambda alias.
 func (o AccessPointAliasOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v AccessPointAlias) string { return v.Status }).(pulumi.StringOutput)
@@ -56,6 +63,12 @@ func (o AccessPointAliasPtrOutput) ToAccessPointAliasPtrOutput() AccessPointAlia
 
 func (o AccessPointAliasPtrOutput) ToAccessPointAliasPtrOutputWithContext(ctx context.Context) AccessPointAliasPtrOutput {
 	return o
+}
+
+func (o AccessPointAliasPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccessPointAlias] {
+	return pulumix.Output[*AccessPointAlias]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AccessPointAliasPtrOutput) Elem() AccessPointAliasOutput {
@@ -121,6 +134,12 @@ func (i AccessPointAwsLambdaArgs) ToAccessPointAwsLambdaOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPointAwsLambdaOutput)
 }
 
+func (i AccessPointAwsLambdaArgs) ToOutput(ctx context.Context) pulumix.Output[AccessPointAwsLambda] {
+	return pulumix.Output[AccessPointAwsLambda]{
+		OutputState: i.ToAccessPointAwsLambdaOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AccessPointAwsLambdaOutput struct{ *pulumi.OutputState }
 
 func (AccessPointAwsLambdaOutput) ElementType() reflect.Type {
@@ -133,6 +152,12 @@ func (o AccessPointAwsLambdaOutput) ToAccessPointAwsLambdaOutput() AccessPointAw
 
 func (o AccessPointAwsLambdaOutput) ToAccessPointAwsLambdaOutputWithContext(ctx context.Context) AccessPointAwsLambdaOutput {
 	return o
+}
+
+func (o AccessPointAwsLambdaOutput) ToOutput(ctx context.Context) pulumix.Output[AccessPointAwsLambda] {
+	return pulumix.Output[AccessPointAwsLambda]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AccessPointAwsLambdaOutput) FunctionArn() pulumi.StringOutput {
@@ -182,6 +207,12 @@ func (i AccessPointObjectLambdaConfigurationArgs) ToAccessPointObjectLambdaConfi
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPointObjectLambdaConfigurationOutput)
 }
 
+func (i AccessPointObjectLambdaConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[AccessPointObjectLambdaConfiguration] {
+	return pulumix.Output[AccessPointObjectLambdaConfiguration]{
+		OutputState: i.ToAccessPointObjectLambdaConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Configuration to be applied to this Object lambda Access Point. It specifies Supporting Access Point, Transformation Configurations. Customers can also set if they like to enable Cloudwatch metrics for accesses to this Object lambda Access Point. Default setting for Cloudwatch metrics is disable.
 type AccessPointObjectLambdaConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -195,6 +226,12 @@ func (o AccessPointObjectLambdaConfigurationOutput) ToAccessPointObjectLambdaCon
 
 func (o AccessPointObjectLambdaConfigurationOutput) ToAccessPointObjectLambdaConfigurationOutputWithContext(ctx context.Context) AccessPointObjectLambdaConfigurationOutput {
 	return o
+}
+
+func (o AccessPointObjectLambdaConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[AccessPointObjectLambdaConfiguration] {
+	return pulumix.Output[AccessPointObjectLambdaConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AccessPointObjectLambdaConfigurationOutput) AllowedFeatures() pulumi.StringArrayOutput {
@@ -227,6 +264,12 @@ func (o AccessPointObjectLambdaConfigurationPtrOutput) ToAccessPointObjectLambda
 
 func (o AccessPointObjectLambdaConfigurationPtrOutput) ToAccessPointObjectLambdaConfigurationPtrOutputWithContext(ctx context.Context) AccessPointObjectLambdaConfigurationPtrOutput {
 	return o
+}
+
+func (o AccessPointObjectLambdaConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccessPointObjectLambdaConfiguration] {
+	return pulumix.Output[*AccessPointObjectLambdaConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AccessPointObjectLambdaConfigurationPtrOutput) Elem() AccessPointObjectLambdaConfigurationOutput {
@@ -294,6 +337,12 @@ func (o AccessPointPolicyStatusOutput) ToAccessPointPolicyStatusOutputWithContex
 	return o
 }
 
+func (o AccessPointPolicyStatusOutput) ToOutput(ctx context.Context) pulumix.Output[AccessPointPolicyStatus] {
+	return pulumix.Output[AccessPointPolicyStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Specifies whether the Object lambda Access Point Policy is Public or not. Object lambda Access Points are private by default.
 func (o AccessPointPolicyStatusOutput) IsPublic() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AccessPointPolicyStatus) *bool { return v.IsPublic }).(pulumi.BoolPtrOutput)
@@ -311,6 +360,12 @@ func (o AccessPointPolicyStatusPtrOutput) ToAccessPointPolicyStatusPtrOutput() A
 
 func (o AccessPointPolicyStatusPtrOutput) ToAccessPointPolicyStatusPtrOutputWithContext(ctx context.Context) AccessPointPolicyStatusPtrOutput {
 	return o
+}
+
+func (o AccessPointPolicyStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccessPointPolicyStatus] {
+	return pulumix.Output[*AccessPointPolicyStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AccessPointPolicyStatusPtrOutput) Elem() AccessPointPolicyStatusOutput {
@@ -365,6 +420,12 @@ func (o AccessPointPublicAccessBlockConfigurationOutput) ToAccessPointPublicAcce
 	return o
 }
 
+func (o AccessPointPublicAccessBlockConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[AccessPointPublicAccessBlockConfiguration] {
+	return pulumix.Output[AccessPointPublicAccessBlockConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Specifies whether Amazon S3 should block public access control lists (ACLs) to this object lambda access point. Setting this element to TRUE causes the following behavior:
 // - PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
 //   - PUT Object calls fail if the request includes a public ACL.
@@ -402,6 +463,12 @@ func (o AccessPointPublicAccessBlockConfigurationPtrOutput) ToAccessPointPublicA
 
 func (o AccessPointPublicAccessBlockConfigurationPtrOutput) ToAccessPointPublicAccessBlockConfigurationPtrOutputWithContext(ctx context.Context) AccessPointPublicAccessBlockConfigurationPtrOutput {
 	return o
+}
+
+func (o AccessPointPublicAccessBlockConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccessPointPublicAccessBlockConfiguration] {
+	return pulumix.Output[*AccessPointPublicAccessBlockConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AccessPointPublicAccessBlockConfigurationPtrOutput) Elem() AccessPointPublicAccessBlockConfigurationOutput {
@@ -494,6 +561,12 @@ func (i AccessPointTransformationConfigurationArgs) ToAccessPointTransformationC
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPointTransformationConfigurationOutput)
 }
 
+func (i AccessPointTransformationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[AccessPointTransformationConfiguration] {
+	return pulumix.Output[AccessPointTransformationConfiguration]{
+		OutputState: i.ToAccessPointTransformationConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AccessPointTransformationConfigurationArrayInput is an input type that accepts AccessPointTransformationConfigurationArray and AccessPointTransformationConfigurationArrayOutput values.
 // You can construct a concrete instance of `AccessPointTransformationConfigurationArrayInput` via:
 //
@@ -519,6 +592,12 @@ func (i AccessPointTransformationConfigurationArray) ToAccessPointTransformation
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPointTransformationConfigurationArrayOutput)
 }
 
+func (i AccessPointTransformationConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]AccessPointTransformationConfiguration] {
+	return pulumix.Output[[]AccessPointTransformationConfiguration]{
+		OutputState: i.ToAccessPointTransformationConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Configuration to define what content transformation will be applied on which S3 Action.
 type AccessPointTransformationConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -532,6 +611,12 @@ func (o AccessPointTransformationConfigurationOutput) ToAccessPointTransformatio
 
 func (o AccessPointTransformationConfigurationOutput) ToAccessPointTransformationConfigurationOutputWithContext(ctx context.Context) AccessPointTransformationConfigurationOutput {
 	return o
+}
+
+func (o AccessPointTransformationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[AccessPointTransformationConfiguration] {
+	return pulumix.Output[AccessPointTransformationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AccessPointTransformationConfigurationOutput) Actions() pulumi.StringArrayOutput {
@@ -556,6 +641,12 @@ func (o AccessPointTransformationConfigurationArrayOutput) ToAccessPointTransfor
 
 func (o AccessPointTransformationConfigurationArrayOutput) ToAccessPointTransformationConfigurationArrayOutputWithContext(ctx context.Context) AccessPointTransformationConfigurationArrayOutput {
 	return o
+}
+
+func (o AccessPointTransformationConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AccessPointTransformationConfiguration] {
+	return pulumix.Output[[]AccessPointTransformationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AccessPointTransformationConfigurationArrayOutput) Index(i pulumi.IntInput) AccessPointTransformationConfigurationOutput {
@@ -599,6 +690,12 @@ func (i AccessPointTransformationConfigurationContentTransformationPropertiesArg
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPointTransformationConfigurationContentTransformationPropertiesOutput)
 }
 
+func (i AccessPointTransformationConfigurationContentTransformationPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[AccessPointTransformationConfigurationContentTransformationProperties] {
+	return pulumix.Output[AccessPointTransformationConfigurationContentTransformationProperties]{
+		OutputState: i.ToAccessPointTransformationConfigurationContentTransformationPropertiesOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AccessPointTransformationConfigurationContentTransformationPropertiesOutput struct{ *pulumi.OutputState }
 
 func (AccessPointTransformationConfigurationContentTransformationPropertiesOutput) ElementType() reflect.Type {
@@ -611,6 +708,12 @@ func (o AccessPointTransformationConfigurationContentTransformationPropertiesOut
 
 func (o AccessPointTransformationConfigurationContentTransformationPropertiesOutput) ToAccessPointTransformationConfigurationContentTransformationPropertiesOutputWithContext(ctx context.Context) AccessPointTransformationConfigurationContentTransformationPropertiesOutput {
 	return o
+}
+
+func (o AccessPointTransformationConfigurationContentTransformationPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[AccessPointTransformationConfigurationContentTransformationProperties] {
+	return pulumix.Output[AccessPointTransformationConfigurationContentTransformationProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AccessPointTransformationConfigurationContentTransformationPropertiesOutput) AwsLambda() AccessPointAwsLambdaOutput {

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::DataBrew::Ruleset.
@@ -69,6 +70,12 @@ func (o LookupRulesetResultOutput) ToLookupRulesetResultOutput() LookupRulesetRe
 
 func (o LookupRulesetResultOutput) ToLookupRulesetResultOutputWithContext(ctx context.Context) LookupRulesetResultOutput {
 	return o
+}
+
+func (o LookupRulesetResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRulesetResult] {
+	return pulumix.Output[LookupRulesetResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Description of the Ruleset

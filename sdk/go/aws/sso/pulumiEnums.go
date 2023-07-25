@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The assignee's type, user/group
@@ -78,6 +79,12 @@ func (o AssignmentPrincipalTypeOutput) ToAssignmentPrincipalTypePtrOutputWithCon
 	}).(AssignmentPrincipalTypePtrOutput)
 }
 
+func (o AssignmentPrincipalTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AssignmentPrincipalType] {
+	return pulumix.Output[AssignmentPrincipalType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AssignmentPrincipalTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -111,6 +118,12 @@ func (o AssignmentPrincipalTypePtrOutput) ToAssignmentPrincipalTypePtrOutput() A
 
 func (o AssignmentPrincipalTypePtrOutput) ToAssignmentPrincipalTypePtrOutputWithContext(ctx context.Context) AssignmentPrincipalTypePtrOutput {
 	return o
+}
+
+func (o AssignmentPrincipalTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AssignmentPrincipalType] {
+	return pulumix.Output[*AssignmentPrincipalType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AssignmentPrincipalTypePtrOutput) Elem() AssignmentPrincipalTypeOutput {
@@ -173,6 +186,12 @@ func (in *assignmentPrincipalTypePtr) ToAssignmentPrincipalTypePtrOutput() Assig
 
 func (in *assignmentPrincipalTypePtr) ToAssignmentPrincipalTypePtrOutputWithContext(ctx context.Context) AssignmentPrincipalTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AssignmentPrincipalTypePtrOutput)
+}
+
+func (in *assignmentPrincipalTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AssignmentPrincipalType] {
+	return pulumix.Output[*AssignmentPrincipalType]{
+		OutputState: in.ToAssignmentPrincipalTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The type of resource to be provsioned to, only aws account now
@@ -242,6 +261,12 @@ func (o AssignmentTargetTypeOutput) ToAssignmentTargetTypePtrOutputWithContext(c
 	}).(AssignmentTargetTypePtrOutput)
 }
 
+func (o AssignmentTargetTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AssignmentTargetType] {
+	return pulumix.Output[AssignmentTargetType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AssignmentTargetTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -275,6 +300,12 @@ func (o AssignmentTargetTypePtrOutput) ToAssignmentTargetTypePtrOutput() Assignm
 
 func (o AssignmentTargetTypePtrOutput) ToAssignmentTargetTypePtrOutputWithContext(ctx context.Context) AssignmentTargetTypePtrOutput {
 	return o
+}
+
+func (o AssignmentTargetTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AssignmentTargetType] {
+	return pulumix.Output[*AssignmentTargetType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AssignmentTargetTypePtrOutput) Elem() AssignmentTargetTypeOutput {
@@ -337,6 +368,12 @@ func (in *assignmentTargetTypePtr) ToAssignmentTargetTypePtrOutput() AssignmentT
 
 func (in *assignmentTargetTypePtr) ToAssignmentTargetTypePtrOutputWithContext(ctx context.Context) AssignmentTargetTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AssignmentTargetTypePtrOutput)
+}
+
+func (in *assignmentTargetTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AssignmentTargetType] {
+	return pulumix.Output[*AssignmentTargetType]{
+		OutputState: in.ToAssignmentTargetTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

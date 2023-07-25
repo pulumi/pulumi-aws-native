@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::CloudFront::OriginRequestPolicy
@@ -94,6 +95,12 @@ func (i *OriginRequestPolicy) ToOriginRequestPolicyOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyOutput)
 }
 
+func (i *OriginRequestPolicy) ToOutput(ctx context.Context) pulumix.Output[*OriginRequestPolicy] {
+	return pulumix.Output[*OriginRequestPolicy]{
+		OutputState: i.ToOriginRequestPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OriginRequestPolicyOutput struct{ *pulumi.OutputState }
 
 func (OriginRequestPolicyOutput) ElementType() reflect.Type {
@@ -106,6 +113,12 @@ func (o OriginRequestPolicyOutput) ToOriginRequestPolicyOutput() OriginRequestPo
 
 func (o OriginRequestPolicyOutput) ToOriginRequestPolicyOutputWithContext(ctx context.Context) OriginRequestPolicyOutput {
 	return o
+}
+
+func (o OriginRequestPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginRequestPolicy] {
+	return pulumix.Output[*OriginRequestPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OriginRequestPolicyOutput) LastModifiedTime() pulumi.StringOutput {

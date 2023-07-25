@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Config::StoredQuery
@@ -110,6 +111,12 @@ func (i *StoredQuery) ToStoredQueryOutputWithContext(ctx context.Context) Stored
 	return pulumi.ToOutputWithContext(ctx, i).(StoredQueryOutput)
 }
 
+func (i *StoredQuery) ToOutput(ctx context.Context) pulumix.Output[*StoredQuery] {
+	return pulumix.Output[*StoredQuery]{
+		OutputState: i.ToStoredQueryOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StoredQueryOutput struct{ *pulumi.OutputState }
 
 func (StoredQueryOutput) ElementType() reflect.Type {
@@ -122,6 +129,12 @@ func (o StoredQueryOutput) ToStoredQueryOutput() StoredQueryOutput {
 
 func (o StoredQueryOutput) ToStoredQueryOutputWithContext(ctx context.Context) StoredQueryOutput {
 	return o
+}
+
+func (o StoredQueryOutput) ToOutput(ctx context.Context) pulumix.Output[*StoredQuery] {
+	return pulumix.Output[*StoredQuery]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StoredQueryOutput) QueryArn() pulumi.StringOutput {

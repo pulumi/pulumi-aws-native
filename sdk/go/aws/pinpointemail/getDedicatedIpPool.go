@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::PinpointEmail::DedicatedIpPool
@@ -64,6 +65,12 @@ func (o LookupDedicatedIpPoolResultOutput) ToLookupDedicatedIpPoolResultOutput()
 
 func (o LookupDedicatedIpPoolResultOutput) ToLookupDedicatedIpPoolResultOutputWithContext(ctx context.Context) LookupDedicatedIpPoolResultOutput {
 	return o
+}
+
+func (o LookupDedicatedIpPoolResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDedicatedIpPoolResult] {
+	return pulumix.Output[LookupDedicatedIpPoolResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupDedicatedIpPoolResultOutput) Id() pulumi.StringPtrOutput {

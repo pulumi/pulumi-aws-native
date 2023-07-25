@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::FSx::StorageVirtualMachine
@@ -68,6 +69,12 @@ func (o LookupStorageVirtualMachineResultOutput) ToLookupStorageVirtualMachineRe
 
 func (o LookupStorageVirtualMachineResultOutput) ToLookupStorageVirtualMachineResultOutputWithContext(ctx context.Context) LookupStorageVirtualMachineResultOutput {
 	return o
+}
+
+func (o LookupStorageVirtualMachineResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupStorageVirtualMachineResult] {
+	return pulumix.Output[LookupStorageVirtualMachineResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupStorageVirtualMachineResultOutput) ActiveDirectoryConfiguration() StorageVirtualMachineActiveDirectoryConfigurationPtrOutput {

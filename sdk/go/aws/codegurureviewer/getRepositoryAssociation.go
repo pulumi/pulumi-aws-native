@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource schema represents the RepositoryAssociation resource in the Amazon CodeGuru Reviewer service.
@@ -66,6 +67,12 @@ func (o LookupRepositoryAssociationResultOutput) ToLookupRepositoryAssociationRe
 
 func (o LookupRepositoryAssociationResultOutput) ToLookupRepositoryAssociationResultOutputWithContext(ctx context.Context) LookupRepositoryAssociationResultOutput {
 	return o
+}
+
+func (o LookupRepositoryAssociationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRepositoryAssociationResult] {
+	return pulumix.Output[LookupRepositoryAssociationResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the repository association.

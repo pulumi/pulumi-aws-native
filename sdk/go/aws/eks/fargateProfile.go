@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Schema for AWS::EKS::FargateProfile
@@ -127,6 +128,12 @@ func (i *FargateProfile) ToFargateProfileOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(FargateProfileOutput)
 }
 
+func (i *FargateProfile) ToOutput(ctx context.Context) pulumix.Output[*FargateProfile] {
+	return pulumix.Output[*FargateProfile]{
+		OutputState: i.ToFargateProfileOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FargateProfileOutput struct{ *pulumi.OutputState }
 
 func (FargateProfileOutput) ElementType() reflect.Type {
@@ -139,6 +146,12 @@ func (o FargateProfileOutput) ToFargateProfileOutput() FargateProfileOutput {
 
 func (o FargateProfileOutput) ToFargateProfileOutputWithContext(ctx context.Context) FargateProfileOutput {
 	return o
+}
+
+func (o FargateProfileOutput) ToOutput(ctx context.Context) pulumix.Output[*FargateProfile] {
+	return pulumix.Output[*FargateProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FargateProfileOutput) Arn() pulumi.StringOutput {

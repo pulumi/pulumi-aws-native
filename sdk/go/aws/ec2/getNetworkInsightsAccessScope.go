@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::EC2::NetworkInsightsAccessScope
@@ -67,6 +68,12 @@ func (o LookupNetworkInsightsAccessScopeResultOutput) ToLookupNetworkInsightsAcc
 
 func (o LookupNetworkInsightsAccessScopeResultOutput) ToLookupNetworkInsightsAccessScopeResultOutputWithContext(ctx context.Context) LookupNetworkInsightsAccessScopeResultOutput {
 	return o
+}
+
+func (o LookupNetworkInsightsAccessScopeResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupNetworkInsightsAccessScopeResult] {
+	return pulumix.Output[LookupNetworkInsightsAccessScopeResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupNetworkInsightsAccessScopeResultOutput) CreatedDate() pulumi.StringPtrOutput {

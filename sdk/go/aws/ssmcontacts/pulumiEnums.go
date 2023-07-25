@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Device type, which specify notification channel. Currently supported values: “SMS”, “VOICE”, “EMAIL”, “CHATBOT.
@@ -79,6 +80,12 @@ func (o ContactChannelChannelTypeOutput) ToContactChannelChannelTypePtrOutputWit
 	}).(ContactChannelChannelTypePtrOutput)
 }
 
+func (o ContactChannelChannelTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ContactChannelChannelType] {
+	return pulumix.Output[ContactChannelChannelType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ContactChannelChannelTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -112,6 +119,12 @@ func (o ContactChannelChannelTypePtrOutput) ToContactChannelChannelTypePtrOutput
 
 func (o ContactChannelChannelTypePtrOutput) ToContactChannelChannelTypePtrOutputWithContext(ctx context.Context) ContactChannelChannelTypePtrOutput {
 	return o
+}
+
+func (o ContactChannelChannelTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ContactChannelChannelType] {
+	return pulumix.Output[*ContactChannelChannelType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ContactChannelChannelTypePtrOutput) Elem() ContactChannelChannelTypeOutput {
@@ -174,6 +187,12 @@ func (in *contactChannelChannelTypePtr) ToContactChannelChannelTypePtrOutput() C
 
 func (in *contactChannelChannelTypePtr) ToContactChannelChannelTypePtrOutputWithContext(ctx context.Context) ContactChannelChannelTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ContactChannelChannelTypePtrOutput)
+}
+
+func (in *contactChannelChannelTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ContactChannelChannelType] {
+	return pulumix.Output[*ContactChannelChannelType]{
+		OutputState: in.ToContactChannelChannelTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Contact type, which specify type of contact. Currently supported values: “PERSONAL”, “SHARED”, “OTHER“.
@@ -247,6 +266,12 @@ func (o ContactTypeOutput) ToContactTypePtrOutputWithContext(ctx context.Context
 	}).(ContactTypePtrOutput)
 }
 
+func (o ContactTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ContactType] {
+	return pulumix.Output[ContactType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ContactTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -280,6 +305,12 @@ func (o ContactTypePtrOutput) ToContactTypePtrOutput() ContactTypePtrOutput {
 
 func (o ContactTypePtrOutput) ToContactTypePtrOutputWithContext(ctx context.Context) ContactTypePtrOutput {
 	return o
+}
+
+func (o ContactTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ContactType] {
+	return pulumix.Output[*ContactType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ContactTypePtrOutput) Elem() ContactTypeOutput {
@@ -342,6 +373,12 @@ func (in *contactTypePtr) ToContactTypePtrOutput() ContactTypePtrOutput {
 
 func (in *contactTypePtr) ToContactTypePtrOutputWithContext(ctx context.Context) ContactTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ContactTypePtrOutput)
+}
+
+func (in *contactTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ContactType] {
+	return pulumix.Output[*ContactType]{
+		OutputState: in.ToContactTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The day of the week when weekly recurring on-call shift rotations begin.
@@ -417,6 +454,12 @@ func (o RotationDayOfWeekOutput) ToRotationDayOfWeekPtrOutputWithContext(ctx con
 	}).(RotationDayOfWeekPtrOutput)
 }
 
+func (o RotationDayOfWeekOutput) ToOutput(ctx context.Context) pulumix.Output[RotationDayOfWeek] {
+	return pulumix.Output[RotationDayOfWeek]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RotationDayOfWeekOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -450,6 +493,12 @@ func (o RotationDayOfWeekPtrOutput) ToRotationDayOfWeekPtrOutput() RotationDayOf
 
 func (o RotationDayOfWeekPtrOutput) ToRotationDayOfWeekPtrOutputWithContext(ctx context.Context) RotationDayOfWeekPtrOutput {
 	return o
+}
+
+func (o RotationDayOfWeekPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RotationDayOfWeek] {
+	return pulumix.Output[*RotationDayOfWeek]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RotationDayOfWeekPtrOutput) Elem() RotationDayOfWeekOutput {
@@ -512,6 +561,12 @@ func (in *rotationDayOfWeekPtr) ToRotationDayOfWeekPtrOutput() RotationDayOfWeek
 
 func (in *rotationDayOfWeekPtr) ToRotationDayOfWeekPtrOutputWithContext(ctx context.Context) RotationDayOfWeekPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RotationDayOfWeekPtrOutput)
+}
+
+func (in *rotationDayOfWeekPtr) ToOutput(ctx context.Context) pulumix.Output[*RotationDayOfWeek] {
+	return pulumix.Output[*RotationDayOfWeek]{
+		OutputState: in.ToRotationDayOfWeekPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

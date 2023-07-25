@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Schema for AWS::Personalize::DatasetGroup.
@@ -112,6 +113,12 @@ func (i *DatasetGroup) ToDatasetGroupOutputWithContext(ctx context.Context) Data
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetGroupOutput)
 }
 
+func (i *DatasetGroup) ToOutput(ctx context.Context) pulumix.Output[*DatasetGroup] {
+	return pulumix.Output[*DatasetGroup]{
+		OutputState: i.ToDatasetGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DatasetGroupOutput struct{ *pulumi.OutputState }
 
 func (DatasetGroupOutput) ElementType() reflect.Type {
@@ -124,6 +131,12 @@ func (o DatasetGroupOutput) ToDatasetGroupOutput() DatasetGroupOutput {
 
 func (o DatasetGroupOutput) ToDatasetGroupOutputWithContext(ctx context.Context) DatasetGroupOutput {
 	return o
+}
+
+func (o DatasetGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*DatasetGroup] {
+	return pulumix.Output[*DatasetGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the dataset group.

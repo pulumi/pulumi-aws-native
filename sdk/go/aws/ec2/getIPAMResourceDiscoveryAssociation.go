@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Schema of AWS::EC2::IPAMResourceDiscoveryAssociation Type
@@ -82,6 +83,12 @@ func (o LookupIPAMResourceDiscoveryAssociationResultOutput) ToLookupIPAMResource
 
 func (o LookupIPAMResourceDiscoveryAssociationResultOutput) ToLookupIPAMResourceDiscoveryAssociationResultOutputWithContext(ctx context.Context) LookupIPAMResourceDiscoveryAssociationResultOutput {
 	return o
+}
+
+func (o LookupIPAMResourceDiscoveryAssociationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupIPAMResourceDiscoveryAssociationResult] {
+	return pulumix.Output[LookupIPAMResourceDiscoveryAssociationResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Arn of the IPAM.

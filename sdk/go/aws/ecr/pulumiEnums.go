@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Type of repository filter
@@ -77,6 +78,12 @@ func (o ReplicationConfigurationFilterTypeOutput) ToReplicationConfigurationFilt
 	}).(ReplicationConfigurationFilterTypePtrOutput)
 }
 
+func (o ReplicationConfigurationFilterTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicationConfigurationFilterType] {
+	return pulumix.Output[ReplicationConfigurationFilterType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ReplicationConfigurationFilterTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -110,6 +117,12 @@ func (o ReplicationConfigurationFilterTypePtrOutput) ToReplicationConfigurationF
 
 func (o ReplicationConfigurationFilterTypePtrOutput) ToReplicationConfigurationFilterTypePtrOutputWithContext(ctx context.Context) ReplicationConfigurationFilterTypePtrOutput {
 	return o
+}
+
+func (o ReplicationConfigurationFilterTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ReplicationConfigurationFilterType] {
+	return pulumix.Output[*ReplicationConfigurationFilterType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ReplicationConfigurationFilterTypePtrOutput) Elem() ReplicationConfigurationFilterTypeOutput {
@@ -172,6 +185,12 @@ func (in *replicationConfigurationFilterTypePtr) ToReplicationConfigurationFilte
 
 func (in *replicationConfigurationFilterTypePtr) ToReplicationConfigurationFilterTypePtrOutputWithContext(ctx context.Context) ReplicationConfigurationFilterTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ReplicationConfigurationFilterTypePtrOutput)
+}
+
+func (in *replicationConfigurationFilterTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ReplicationConfigurationFilterType] {
+	return pulumix.Output[*ReplicationConfigurationFilterType]{
+		OutputState: in.ToReplicationConfigurationFilterTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The encryption type to use.
@@ -242,6 +261,12 @@ func (o RepositoryEncryptionTypeOutput) ToRepositoryEncryptionTypePtrOutputWithC
 	}).(RepositoryEncryptionTypePtrOutput)
 }
 
+func (o RepositoryEncryptionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryEncryptionType] {
+	return pulumix.Output[RepositoryEncryptionType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RepositoryEncryptionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -275,6 +300,12 @@ func (o RepositoryEncryptionTypePtrOutput) ToRepositoryEncryptionTypePtrOutput()
 
 func (o RepositoryEncryptionTypePtrOutput) ToRepositoryEncryptionTypePtrOutputWithContext(ctx context.Context) RepositoryEncryptionTypePtrOutput {
 	return o
+}
+
+func (o RepositoryEncryptionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryEncryptionType] {
+	return pulumix.Output[*RepositoryEncryptionType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RepositoryEncryptionTypePtrOutput) Elem() RepositoryEncryptionTypeOutput {
@@ -337,6 +368,12 @@ func (in *repositoryEncryptionTypePtr) ToRepositoryEncryptionTypePtrOutput() Rep
 
 func (in *repositoryEncryptionTypePtr) ToRepositoryEncryptionTypePtrOutputWithContext(ctx context.Context) RepositoryEncryptionTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RepositoryEncryptionTypePtrOutput)
+}
+
+func (in *repositoryEncryptionTypePtr) ToOutput(ctx context.Context) pulumix.Output[*RepositoryEncryptionType] {
+	return pulumix.Output[*RepositoryEncryptionType]{
+		OutputState: in.ToRepositoryEncryptionTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The image tag mutability setting for the repository.
@@ -407,6 +444,12 @@ func (o RepositoryImageTagMutabilityOutput) ToRepositoryImageTagMutabilityPtrOut
 	}).(RepositoryImageTagMutabilityPtrOutput)
 }
 
+func (o RepositoryImageTagMutabilityOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryImageTagMutability] {
+	return pulumix.Output[RepositoryImageTagMutability]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RepositoryImageTagMutabilityOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -440,6 +483,12 @@ func (o RepositoryImageTagMutabilityPtrOutput) ToRepositoryImageTagMutabilityPtr
 
 func (o RepositoryImageTagMutabilityPtrOutput) ToRepositoryImageTagMutabilityPtrOutputWithContext(ctx context.Context) RepositoryImageTagMutabilityPtrOutput {
 	return o
+}
+
+func (o RepositoryImageTagMutabilityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryImageTagMutability] {
+	return pulumix.Output[*RepositoryImageTagMutability]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RepositoryImageTagMutabilityPtrOutput) Elem() RepositoryImageTagMutabilityOutput {
@@ -502,6 +551,12 @@ func (in *repositoryImageTagMutabilityPtr) ToRepositoryImageTagMutabilityPtrOutp
 
 func (in *repositoryImageTagMutabilityPtr) ToRepositoryImageTagMutabilityPtrOutputWithContext(ctx context.Context) RepositoryImageTagMutabilityPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RepositoryImageTagMutabilityPtrOutput)
+}
+
+func (in *repositoryImageTagMutabilityPtr) ToOutput(ctx context.Context) pulumix.Output[*RepositoryImageTagMutability] {
+	return pulumix.Output[*RepositoryImageTagMutability]{
+		OutputState: in.ToRepositoryImageTagMutabilityPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

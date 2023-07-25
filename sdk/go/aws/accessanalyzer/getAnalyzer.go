@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::AccessAnalyzer::Analyzer type specifies an analyzer of the user's account
@@ -69,6 +70,12 @@ func (o LookupAnalyzerResultOutput) ToLookupAnalyzerResultOutput() LookupAnalyze
 
 func (o LookupAnalyzerResultOutput) ToLookupAnalyzerResultOutputWithContext(ctx context.Context) LookupAnalyzerResultOutput {
 	return o
+}
+
+func (o LookupAnalyzerResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAnalyzerResult] {
+	return pulumix.Output[LookupAnalyzerResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupAnalyzerResultOutput) ArchiveRules() AnalyzerArchiveRuleArrayOutput {

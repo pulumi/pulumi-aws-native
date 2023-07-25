@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Connect::HoursOfOperation
@@ -134,6 +135,12 @@ func (i *HoursOfOperation) ToHoursOfOperationOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(HoursOfOperationOutput)
 }
 
+func (i *HoursOfOperation) ToOutput(ctx context.Context) pulumix.Output[*HoursOfOperation] {
+	return pulumix.Output[*HoursOfOperation]{
+		OutputState: i.ToHoursOfOperationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type HoursOfOperationOutput struct{ *pulumi.OutputState }
 
 func (HoursOfOperationOutput) ElementType() reflect.Type {
@@ -146,6 +153,12 @@ func (o HoursOfOperationOutput) ToHoursOfOperationOutput() HoursOfOperationOutpu
 
 func (o HoursOfOperationOutput) ToHoursOfOperationOutputWithContext(ctx context.Context) HoursOfOperationOutput {
 	return o
+}
+
+func (o HoursOfOperationOutput) ToOutput(ctx context.Context) pulumix.Output[*HoursOfOperation] {
+	return pulumix.Output[*HoursOfOperation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Configuration information for the hours of operation: day, start time, and end time.

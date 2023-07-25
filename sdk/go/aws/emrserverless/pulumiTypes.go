@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -46,6 +47,12 @@ func (i ApplicationAutoStartConfigurationArgs) ToApplicationAutoStartConfigurati
 
 func (i ApplicationAutoStartConfigurationArgs) ToApplicationAutoStartConfigurationOutputWithContext(ctx context.Context) ApplicationAutoStartConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationAutoStartConfigurationOutput)
+}
+
+func (i ApplicationAutoStartConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationAutoStartConfiguration] {
+	return pulumix.Output[ApplicationAutoStartConfiguration]{
+		OutputState: i.ToApplicationAutoStartConfigurationOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i ApplicationAutoStartConfigurationArgs) ToApplicationAutoStartConfigurationPtrOutput() ApplicationAutoStartConfigurationPtrOutput {
@@ -89,6 +96,12 @@ func (i *applicationAutoStartConfigurationPtrType) ToApplicationAutoStartConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationAutoStartConfigurationPtrOutput)
 }
 
+func (i *applicationAutoStartConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationAutoStartConfiguration] {
+	return pulumix.Output[*ApplicationAutoStartConfiguration]{
+		OutputState: i.ToApplicationAutoStartConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Configuration for Auto Start of Application
 type ApplicationAutoStartConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -114,6 +127,12 @@ func (o ApplicationAutoStartConfigurationOutput) ToApplicationAutoStartConfigura
 	}).(ApplicationAutoStartConfigurationPtrOutput)
 }
 
+func (o ApplicationAutoStartConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationAutoStartConfiguration] {
+	return pulumix.Output[ApplicationAutoStartConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // If set to true, the Application will automatically start. Defaults to true.
 func (o ApplicationAutoStartConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationAutoStartConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
@@ -131,6 +150,12 @@ func (o ApplicationAutoStartConfigurationPtrOutput) ToApplicationAutoStartConfig
 
 func (o ApplicationAutoStartConfigurationPtrOutput) ToApplicationAutoStartConfigurationPtrOutputWithContext(ctx context.Context) ApplicationAutoStartConfigurationPtrOutput {
 	return o
+}
+
+func (o ApplicationAutoStartConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationAutoStartConfiguration] {
+	return pulumix.Output[*ApplicationAutoStartConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationAutoStartConfigurationPtrOutput) Elem() ApplicationAutoStartConfigurationOutput {
@@ -192,6 +217,12 @@ func (i ApplicationAutoStopConfigurationArgs) ToApplicationAutoStopConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationAutoStopConfigurationOutput)
 }
 
+func (i ApplicationAutoStopConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationAutoStopConfiguration] {
+	return pulumix.Output[ApplicationAutoStopConfiguration]{
+		OutputState: i.ToApplicationAutoStopConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationAutoStopConfigurationArgs) ToApplicationAutoStopConfigurationPtrOutput() ApplicationAutoStopConfigurationPtrOutput {
 	return i.ToApplicationAutoStopConfigurationPtrOutputWithContext(context.Background())
 }
@@ -233,6 +264,12 @@ func (i *applicationAutoStopConfigurationPtrType) ToApplicationAutoStopConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationAutoStopConfigurationPtrOutput)
 }
 
+func (i *applicationAutoStopConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationAutoStopConfiguration] {
+	return pulumix.Output[*ApplicationAutoStopConfiguration]{
+		OutputState: i.ToApplicationAutoStopConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Configuration for Auto Stop of Application
 type ApplicationAutoStopConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -258,6 +295,12 @@ func (o ApplicationAutoStopConfigurationOutput) ToApplicationAutoStopConfigurati
 	}).(ApplicationAutoStopConfigurationPtrOutput)
 }
 
+func (o ApplicationAutoStopConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationAutoStopConfiguration] {
+	return pulumix.Output[ApplicationAutoStopConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // If set to true, the Application will automatically stop after being idle. Defaults to true.
 func (o ApplicationAutoStopConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationAutoStopConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
@@ -280,6 +323,12 @@ func (o ApplicationAutoStopConfigurationPtrOutput) ToApplicationAutoStopConfigur
 
 func (o ApplicationAutoStopConfigurationPtrOutput) ToApplicationAutoStopConfigurationPtrOutputWithContext(ctx context.Context) ApplicationAutoStopConfigurationPtrOutput {
 	return o
+}
+
+func (o ApplicationAutoStopConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationAutoStopConfiguration] {
+	return pulumix.Output[*ApplicationAutoStopConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationAutoStopConfigurationPtrOutput) Elem() ApplicationAutoStopConfigurationOutput {
@@ -347,6 +396,12 @@ func (i ApplicationImageConfigurationInputArgs) ToApplicationImageConfigurationI
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationImageConfigurationInputOutput)
 }
 
+func (i ApplicationImageConfigurationInputArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationImageConfigurationInput] {
+	return pulumix.Output[ApplicationImageConfigurationInput]{
+		OutputState: i.ToApplicationImageConfigurationInputOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationImageConfigurationInputArgs) ToApplicationImageConfigurationInputPtrOutput() ApplicationImageConfigurationInputPtrOutput {
 	return i.ToApplicationImageConfigurationInputPtrOutputWithContext(context.Background())
 }
@@ -388,6 +443,12 @@ func (i *applicationImageConfigurationInputPtrType) ToApplicationImageConfigurat
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationImageConfigurationInputPtrOutput)
 }
 
+func (i *applicationImageConfigurationInputPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationImageConfigurationInput] {
+	return pulumix.Output[*ApplicationImageConfigurationInput]{
+		OutputState: i.ToApplicationImageConfigurationInputPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The image configuration.
 type ApplicationImageConfigurationInputOutput struct{ *pulumi.OutputState }
 
@@ -413,6 +474,12 @@ func (o ApplicationImageConfigurationInputOutput) ToApplicationImageConfiguratio
 	}).(ApplicationImageConfigurationInputPtrOutput)
 }
 
+func (o ApplicationImageConfigurationInputOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationImageConfigurationInput] {
+	return pulumix.Output[ApplicationImageConfigurationInput]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The URI of an image in the Amazon ECR registry. This field is required when you create a new application. If you leave this field blank in an update, Amazon EMR will remove the image configuration.
 func (o ApplicationImageConfigurationInputOutput) ImageUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationImageConfigurationInput) *string { return v.ImageUri }).(pulumi.StringPtrOutput)
@@ -430,6 +497,12 @@ func (o ApplicationImageConfigurationInputPtrOutput) ToApplicationImageConfigura
 
 func (o ApplicationImageConfigurationInputPtrOutput) ToApplicationImageConfigurationInputPtrOutputWithContext(ctx context.Context) ApplicationImageConfigurationInputPtrOutput {
 	return o
+}
+
+func (o ApplicationImageConfigurationInputPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationImageConfigurationInput] {
+	return pulumix.Output[*ApplicationImageConfigurationInput]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationImageConfigurationInputPtrOutput) Elem() ApplicationImageConfigurationInputOutput {
@@ -487,6 +560,12 @@ func (i ApplicationInitialCapacityConfigArgs) ToApplicationInitialCapacityConfig
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInitialCapacityConfigOutput)
 }
 
+func (i ApplicationInitialCapacityConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationInitialCapacityConfig] {
+	return pulumix.Output[ApplicationInitialCapacityConfig]{
+		OutputState: i.ToApplicationInitialCapacityConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationInitialCapacityConfigOutput struct{ *pulumi.OutputState }
 
 func (ApplicationInitialCapacityConfigOutput) ElementType() reflect.Type {
@@ -499,6 +578,12 @@ func (o ApplicationInitialCapacityConfigOutput) ToApplicationInitialCapacityConf
 
 func (o ApplicationInitialCapacityConfigOutput) ToApplicationInitialCapacityConfigOutputWithContext(ctx context.Context) ApplicationInitialCapacityConfigOutput {
 	return o
+}
+
+func (o ApplicationInitialCapacityConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationInitialCapacityConfig] {
+	return pulumix.Output[ApplicationInitialCapacityConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationInitialCapacityConfigOutput) WorkerConfiguration() ApplicationWorkerConfigurationOutput {
@@ -545,6 +630,12 @@ func (i ApplicationInitialCapacityConfigKeyValuePairArgs) ToApplicationInitialCa
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInitialCapacityConfigKeyValuePairOutput)
 }
 
+func (i ApplicationInitialCapacityConfigKeyValuePairArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationInitialCapacityConfigKeyValuePair] {
+	return pulumix.Output[ApplicationInitialCapacityConfigKeyValuePair]{
+		OutputState: i.ToApplicationInitialCapacityConfigKeyValuePairOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApplicationInitialCapacityConfigKeyValuePairArrayInput is an input type that accepts ApplicationInitialCapacityConfigKeyValuePairArray and ApplicationInitialCapacityConfigKeyValuePairArrayOutput values.
 // You can construct a concrete instance of `ApplicationInitialCapacityConfigKeyValuePairArrayInput` via:
 //
@@ -570,6 +661,12 @@ func (i ApplicationInitialCapacityConfigKeyValuePairArray) ToApplicationInitialC
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInitialCapacityConfigKeyValuePairArrayOutput)
 }
 
+func (i ApplicationInitialCapacityConfigKeyValuePairArray) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationInitialCapacityConfigKeyValuePair] {
+	return pulumix.Output[[]ApplicationInitialCapacityConfigKeyValuePair]{
+		OutputState: i.ToApplicationInitialCapacityConfigKeyValuePairArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationInitialCapacityConfigKeyValuePairOutput struct{ *pulumi.OutputState }
 
 func (ApplicationInitialCapacityConfigKeyValuePairOutput) ElementType() reflect.Type {
@@ -582,6 +679,12 @@ func (o ApplicationInitialCapacityConfigKeyValuePairOutput) ToApplicationInitial
 
 func (o ApplicationInitialCapacityConfigKeyValuePairOutput) ToApplicationInitialCapacityConfigKeyValuePairOutputWithContext(ctx context.Context) ApplicationInitialCapacityConfigKeyValuePairOutput {
 	return o
+}
+
+func (o ApplicationInitialCapacityConfigKeyValuePairOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationInitialCapacityConfigKeyValuePair] {
+	return pulumix.Output[ApplicationInitialCapacityConfigKeyValuePair]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Worker type for an analytics framework.
@@ -605,6 +708,12 @@ func (o ApplicationInitialCapacityConfigKeyValuePairArrayOutput) ToApplicationIn
 
 func (o ApplicationInitialCapacityConfigKeyValuePairArrayOutput) ToApplicationInitialCapacityConfigKeyValuePairArrayOutputWithContext(ctx context.Context) ApplicationInitialCapacityConfigKeyValuePairArrayOutput {
 	return o
+}
+
+func (o ApplicationInitialCapacityConfigKeyValuePairArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationInitialCapacityConfigKeyValuePair] {
+	return pulumix.Output[[]ApplicationInitialCapacityConfigKeyValuePair]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationInitialCapacityConfigKeyValuePairArrayOutput) Index(i pulumi.IntInput) ApplicationInitialCapacityConfigKeyValuePairOutput {
@@ -654,6 +763,12 @@ func (i ApplicationMaximumAllowedResourcesArgs) ToApplicationMaximumAllowedResou
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMaximumAllowedResourcesOutput)
 }
 
+func (i ApplicationMaximumAllowedResourcesArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationMaximumAllowedResources] {
+	return pulumix.Output[ApplicationMaximumAllowedResources]{
+		OutputState: i.ToApplicationMaximumAllowedResourcesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationMaximumAllowedResourcesArgs) ToApplicationMaximumAllowedResourcesPtrOutput() ApplicationMaximumAllowedResourcesPtrOutput {
 	return i.ToApplicationMaximumAllowedResourcesPtrOutputWithContext(context.Background())
 }
@@ -695,6 +810,12 @@ func (i *applicationMaximumAllowedResourcesPtrType) ToApplicationMaximumAllowedR
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMaximumAllowedResourcesPtrOutput)
 }
 
+func (i *applicationMaximumAllowedResourcesPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationMaximumAllowedResources] {
+	return pulumix.Output[*ApplicationMaximumAllowedResources]{
+		OutputState: i.ToApplicationMaximumAllowedResourcesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationMaximumAllowedResourcesOutput struct{ *pulumi.OutputState }
 
 func (ApplicationMaximumAllowedResourcesOutput) ElementType() reflect.Type {
@@ -717,6 +838,12 @@ func (o ApplicationMaximumAllowedResourcesOutput) ToApplicationMaximumAllowedRes
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationMaximumAllowedResources) *ApplicationMaximumAllowedResources {
 		return &v
 	}).(ApplicationMaximumAllowedResourcesPtrOutput)
+}
+
+func (o ApplicationMaximumAllowedResourcesOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationMaximumAllowedResources] {
+	return pulumix.Output[ApplicationMaximumAllowedResources]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Per worker CPU resource. vCPU is the only supported unit and specifying vCPU is optional.
@@ -746,6 +873,12 @@ func (o ApplicationMaximumAllowedResourcesPtrOutput) ToApplicationMaximumAllowed
 
 func (o ApplicationMaximumAllowedResourcesPtrOutput) ToApplicationMaximumAllowedResourcesPtrOutputWithContext(ctx context.Context) ApplicationMaximumAllowedResourcesPtrOutput {
 	return o
+}
+
+func (o ApplicationMaximumAllowedResourcesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationMaximumAllowedResources] {
+	return pulumix.Output[*ApplicationMaximumAllowedResources]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationMaximumAllowedResourcesPtrOutput) Elem() ApplicationMaximumAllowedResourcesOutput {
@@ -825,6 +958,12 @@ func (i ApplicationNetworkConfigurationArgs) ToApplicationNetworkConfigurationOu
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationNetworkConfigurationOutput)
 }
 
+func (i ApplicationNetworkConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationNetworkConfiguration] {
+	return pulumix.Output[ApplicationNetworkConfiguration]{
+		OutputState: i.ToApplicationNetworkConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationNetworkConfigurationArgs) ToApplicationNetworkConfigurationPtrOutput() ApplicationNetworkConfigurationPtrOutput {
 	return i.ToApplicationNetworkConfigurationPtrOutputWithContext(context.Background())
 }
@@ -866,6 +1005,12 @@ func (i *applicationNetworkConfigurationPtrType) ToApplicationNetworkConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationNetworkConfigurationPtrOutput)
 }
 
+func (i *applicationNetworkConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationNetworkConfiguration] {
+	return pulumix.Output[*ApplicationNetworkConfiguration]{
+		OutputState: i.ToApplicationNetworkConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationNetworkConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationNetworkConfigurationOutput) ElementType() reflect.Type {
@@ -890,6 +1035,12 @@ func (o ApplicationNetworkConfigurationOutput) ToApplicationNetworkConfiguration
 	}).(ApplicationNetworkConfigurationPtrOutput)
 }
 
+func (o ApplicationNetworkConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationNetworkConfiguration] {
+	return pulumix.Output[ApplicationNetworkConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ID of the security groups in the VPC to which you want to connect your job or application.
 func (o ApplicationNetworkConfigurationOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ApplicationNetworkConfiguration) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
@@ -912,6 +1063,12 @@ func (o ApplicationNetworkConfigurationPtrOutput) ToApplicationNetworkConfigurat
 
 func (o ApplicationNetworkConfigurationPtrOutput) ToApplicationNetworkConfigurationPtrOutputWithContext(ctx context.Context) ApplicationNetworkConfigurationPtrOutput {
 	return o
+}
+
+func (o ApplicationNetworkConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationNetworkConfiguration] {
+	return pulumix.Output[*ApplicationNetworkConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationNetworkConfigurationPtrOutput) Elem() ApplicationNetworkConfigurationOutput {
@@ -983,6 +1140,12 @@ func (i ApplicationTagArgs) ToApplicationTagOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTagOutput)
 }
 
+func (i ApplicationTagArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationTag] {
+	return pulumix.Output[ApplicationTag]{
+		OutputState: i.ToApplicationTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApplicationTagArrayInput is an input type that accepts ApplicationTagArray and ApplicationTagArrayOutput values.
 // You can construct a concrete instance of `ApplicationTagArrayInput` via:
 //
@@ -1008,6 +1171,12 @@ func (i ApplicationTagArray) ToApplicationTagArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTagArrayOutput)
 }
 
+func (i ApplicationTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationTag] {
+	return pulumix.Output[[]ApplicationTag]{
+		OutputState: i.ToApplicationTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type ApplicationTagOutput struct{ *pulumi.OutputState }
 
@@ -1021,6 +1190,12 @@ func (o ApplicationTagOutput) ToApplicationTagOutput() ApplicationTagOutput {
 
 func (o ApplicationTagOutput) ToApplicationTagOutputWithContext(ctx context.Context) ApplicationTagOutput {
 	return o
+}
+
+func (o ApplicationTagOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationTag] {
+	return pulumix.Output[ApplicationTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The value for the tag. You can specify a value that is 1 to 128 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -1045,6 +1220,12 @@ func (o ApplicationTagArrayOutput) ToApplicationTagArrayOutput() ApplicationTagA
 
 func (o ApplicationTagArrayOutput) ToApplicationTagArrayOutputWithContext(ctx context.Context) ApplicationTagArrayOutput {
 	return o
+}
+
+func (o ApplicationTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationTag] {
+	return pulumix.Output[[]ApplicationTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationTagArrayOutput) Index(i pulumi.IntInput) ApplicationTagOutput {
@@ -1094,6 +1275,12 @@ func (i ApplicationWorkerConfigurationArgs) ToApplicationWorkerConfigurationOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationWorkerConfigurationOutput)
 }
 
+func (i ApplicationWorkerConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationWorkerConfiguration] {
+	return pulumix.Output[ApplicationWorkerConfiguration]{
+		OutputState: i.ToApplicationWorkerConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationWorkerConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationWorkerConfigurationOutput) ElementType() reflect.Type {
@@ -1106,6 +1293,12 @@ func (o ApplicationWorkerConfigurationOutput) ToApplicationWorkerConfigurationOu
 
 func (o ApplicationWorkerConfigurationOutput) ToApplicationWorkerConfigurationOutputWithContext(ctx context.Context) ApplicationWorkerConfigurationOutput {
 	return o
+}
+
+func (o ApplicationWorkerConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationWorkerConfiguration] {
+	return pulumix.Output[ApplicationWorkerConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Per worker CPU resource. vCPU is the only supported unit and specifying vCPU is optional.
@@ -1152,6 +1345,12 @@ func (i ApplicationWorkerTypeSpecificationInputMapArgs) ToApplicationWorkerTypeS
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationWorkerTypeSpecificationInputMapOutput)
 }
 
+func (i ApplicationWorkerTypeSpecificationInputMapArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationWorkerTypeSpecificationInputMap] {
+	return pulumix.Output[ApplicationWorkerTypeSpecificationInputMap]{
+		OutputState: i.ToApplicationWorkerTypeSpecificationInputMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationWorkerTypeSpecificationInputMapArgs) ToApplicationWorkerTypeSpecificationInputMapPtrOutput() ApplicationWorkerTypeSpecificationInputMapPtrOutput {
 	return i.ToApplicationWorkerTypeSpecificationInputMapPtrOutputWithContext(context.Background())
 }
@@ -1193,6 +1392,12 @@ func (i *applicationWorkerTypeSpecificationInputMapPtrType) ToApplicationWorkerT
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationWorkerTypeSpecificationInputMapPtrOutput)
 }
 
+func (i *applicationWorkerTypeSpecificationInputMapPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationWorkerTypeSpecificationInputMap] {
+	return pulumix.Output[*ApplicationWorkerTypeSpecificationInputMap]{
+		OutputState: i.ToApplicationWorkerTypeSpecificationInputMapPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationWorkerTypeSpecificationInputMapOutput struct{ *pulumi.OutputState }
 
 func (ApplicationWorkerTypeSpecificationInputMapOutput) ElementType() reflect.Type {
@@ -1217,6 +1422,12 @@ func (o ApplicationWorkerTypeSpecificationInputMapOutput) ToApplicationWorkerTyp
 	}).(ApplicationWorkerTypeSpecificationInputMapPtrOutput)
 }
 
+func (o ApplicationWorkerTypeSpecificationInputMapOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationWorkerTypeSpecificationInputMap] {
+	return pulumix.Output[ApplicationWorkerTypeSpecificationInputMap]{
+		OutputState: o.OutputState,
+	}
+}
+
 type ApplicationWorkerTypeSpecificationInputMapPtrOutput struct{ *pulumi.OutputState }
 
 func (ApplicationWorkerTypeSpecificationInputMapPtrOutput) ElementType() reflect.Type {
@@ -1229,6 +1440,12 @@ func (o ApplicationWorkerTypeSpecificationInputMapPtrOutput) ToApplicationWorker
 
 func (o ApplicationWorkerTypeSpecificationInputMapPtrOutput) ToApplicationWorkerTypeSpecificationInputMapPtrOutputWithContext(ctx context.Context) ApplicationWorkerTypeSpecificationInputMapPtrOutput {
 	return o
+}
+
+func (o ApplicationWorkerTypeSpecificationInputMapPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationWorkerTypeSpecificationInputMap] {
+	return pulumix.Output[*ApplicationWorkerTypeSpecificationInputMap]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationWorkerTypeSpecificationInputMapPtrOutput) Elem() ApplicationWorkerTypeSpecificationInputMapOutput {

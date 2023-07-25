@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Schema for PackageVersion Resource Type
@@ -73,6 +74,12 @@ func (o LookupPackageVersionResultOutput) ToLookupPackageVersionResultOutput() L
 
 func (o LookupPackageVersionResultOutput) ToLookupPackageVersionResultOutputWithContext(ctx context.Context) LookupPackageVersionResultOutput {
 	return o
+}
+
+func (o LookupPackageVersionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupPackageVersionResult] {
+	return pulumix.Output[LookupPackageVersionResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupPackageVersionResultOutput) IsLatestPatch() pulumi.BoolPtrOutput {

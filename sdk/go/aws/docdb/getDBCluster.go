@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::DocDB::DBCluster
@@ -80,6 +81,12 @@ func (o LookupDBClusterResultOutput) ToLookupDBClusterResultOutput() LookupDBClu
 
 func (o LookupDBClusterResultOutput) ToLookupDBClusterResultOutputWithContext(ctx context.Context) LookupDBClusterResultOutput {
 	return o
+}
+
+func (o LookupDBClusterResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDBClusterResult] {
+	return pulumix.Output[LookupDBClusterResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupDBClusterResultOutput) BackupRetentionPeriod() pulumi.IntPtrOutput {

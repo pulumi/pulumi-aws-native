@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Amazon OpenSearchServerless vpc endpoint resource
@@ -70,6 +71,12 @@ func (o LookupVpcEndpointResultOutput) ToLookupVpcEndpointResultOutput() LookupV
 
 func (o LookupVpcEndpointResultOutput) ToLookupVpcEndpointResultOutputWithContext(ctx context.Context) LookupVpcEndpointResultOutput {
 	return o
+}
+
+func (o LookupVpcEndpointResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVpcEndpointResult] {
+	return pulumix.Output[LookupVpcEndpointResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The identifier of the VPC Endpoint

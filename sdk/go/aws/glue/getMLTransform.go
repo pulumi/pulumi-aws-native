@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Glue::MLTransform
@@ -75,6 +76,12 @@ func (o LookupMLTransformResultOutput) ToLookupMLTransformResultOutput() LookupM
 
 func (o LookupMLTransformResultOutput) ToLookupMLTransformResultOutputWithContext(ctx context.Context) LookupMLTransformResultOutput {
 	return o
+}
+
+func (o LookupMLTransformResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupMLTransformResult] {
+	return pulumix.Output[LookupMLTransformResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupMLTransformResultOutput) Description() pulumi.StringPtrOutput {

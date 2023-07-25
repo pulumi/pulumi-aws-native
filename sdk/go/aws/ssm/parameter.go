@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SSM::Parameter
@@ -122,6 +123,12 @@ func (i *Parameter) ToParameterOutputWithContext(ctx context.Context) ParameterO
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterOutput)
 }
 
+func (i *Parameter) ToOutput(ctx context.Context) pulumix.Output[*Parameter] {
+	return pulumix.Output[*Parameter]{
+		OutputState: i.ToParameterOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ParameterOutput struct{ *pulumi.OutputState }
 
 func (ParameterOutput) ElementType() reflect.Type {
@@ -134,6 +141,12 @@ func (o ParameterOutput) ToParameterOutput() ParameterOutput {
 
 func (o ParameterOutput) ToParameterOutputWithContext(ctx context.Context) ParameterOutput {
 	return o
+}
+
+func (o ParameterOutput) ToOutput(ctx context.Context) pulumix.Output[*Parameter] {
+	return pulumix.Output[*Parameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ParameterOutput) AllowedPattern() pulumi.StringPtrOutput {

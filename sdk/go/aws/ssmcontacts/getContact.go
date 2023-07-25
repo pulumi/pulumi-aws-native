@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SSMContacts::Contact
@@ -68,6 +69,12 @@ func (o LookupContactResultOutput) ToLookupContactResultOutput() LookupContactRe
 
 func (o LookupContactResultOutput) ToLookupContactResultOutputWithContext(ctx context.Context) LookupContactResultOutput {
 	return o
+}
+
+func (o LookupContactResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupContactResult] {
+	return pulumix.Output[LookupContactResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the contact.

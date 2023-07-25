@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -46,6 +47,12 @@ func (i LedgerTagArgs) ToLedgerTagOutputWithContext(ctx context.Context) LedgerT
 	return pulumi.ToOutputWithContext(ctx, i).(LedgerTagOutput)
 }
 
+func (i LedgerTagArgs) ToOutput(ctx context.Context) pulumix.Output[LedgerTag] {
+	return pulumix.Output[LedgerTag]{
+		OutputState: i.ToLedgerTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LedgerTagArrayInput is an input type that accepts LedgerTagArray and LedgerTagArrayOutput values.
 // You can construct a concrete instance of `LedgerTagArrayInput` via:
 //
@@ -71,6 +78,12 @@ func (i LedgerTagArray) ToLedgerTagArrayOutputWithContext(ctx context.Context) L
 	return pulumi.ToOutputWithContext(ctx, i).(LedgerTagArrayOutput)
 }
 
+func (i LedgerTagArray) ToOutput(ctx context.Context) pulumix.Output[[]LedgerTag] {
+	return pulumix.Output[[]LedgerTag]{
+		OutputState: i.ToLedgerTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LedgerTagOutput struct{ *pulumi.OutputState }
 
 func (LedgerTagOutput) ElementType() reflect.Type {
@@ -83,6 +96,12 @@ func (o LedgerTagOutput) ToLedgerTagOutput() LedgerTagOutput {
 
 func (o LedgerTagOutput) ToLedgerTagOutputWithContext(ctx context.Context) LedgerTagOutput {
 	return o
+}
+
+func (o LedgerTagOutput) ToOutput(ctx context.Context) pulumix.Output[LedgerTag] {
+	return pulumix.Output[LedgerTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LedgerTagOutput) Key() pulumi.StringOutput {
@@ -105,6 +124,12 @@ func (o LedgerTagArrayOutput) ToLedgerTagArrayOutput() LedgerTagArrayOutput {
 
 func (o LedgerTagArrayOutput) ToLedgerTagArrayOutputWithContext(ctx context.Context) LedgerTagArrayOutput {
 	return o
+}
+
+func (o LedgerTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LedgerTag] {
+	return pulumix.Output[[]LedgerTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LedgerTagArrayOutput) Index(i pulumi.IntInput) LedgerTagOutput {
@@ -146,6 +171,12 @@ func (i StreamKinesisConfigurationArgs) ToStreamKinesisConfigurationOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(StreamKinesisConfigurationOutput)
 }
 
+func (i StreamKinesisConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[StreamKinesisConfiguration] {
+	return pulumix.Output[StreamKinesisConfiguration]{
+		OutputState: i.ToStreamKinesisConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StreamKinesisConfigurationOutput struct{ *pulumi.OutputState }
 
 func (StreamKinesisConfigurationOutput) ElementType() reflect.Type {
@@ -158,6 +189,12 @@ func (o StreamKinesisConfigurationOutput) ToStreamKinesisConfigurationOutput() S
 
 func (o StreamKinesisConfigurationOutput) ToStreamKinesisConfigurationOutputWithContext(ctx context.Context) StreamKinesisConfigurationOutput {
 	return o
+}
+
+func (o StreamKinesisConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[StreamKinesisConfiguration] {
+	return pulumix.Output[StreamKinesisConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StreamKinesisConfigurationOutput) AggregationEnabled() pulumi.BoolPtrOutput {
@@ -207,6 +244,12 @@ func (i StreamTagArgs) ToStreamTagOutputWithContext(ctx context.Context) StreamT
 	return pulumi.ToOutputWithContext(ctx, i).(StreamTagOutput)
 }
 
+func (i StreamTagArgs) ToOutput(ctx context.Context) pulumix.Output[StreamTag] {
+	return pulumix.Output[StreamTag]{
+		OutputState: i.ToStreamTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // StreamTagArrayInput is an input type that accepts StreamTagArray and StreamTagArrayOutput values.
 // You can construct a concrete instance of `StreamTagArrayInput` via:
 //
@@ -232,6 +275,12 @@ func (i StreamTagArray) ToStreamTagArrayOutputWithContext(ctx context.Context) S
 	return pulumi.ToOutputWithContext(ctx, i).(StreamTagArrayOutput)
 }
 
+func (i StreamTagArray) ToOutput(ctx context.Context) pulumix.Output[[]StreamTag] {
+	return pulumix.Output[[]StreamTag]{
+		OutputState: i.ToStreamTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type StreamTagOutput struct{ *pulumi.OutputState }
 
@@ -245,6 +294,12 @@ func (o StreamTagOutput) ToStreamTagOutput() StreamTagOutput {
 
 func (o StreamTagOutput) ToStreamTagOutputWithContext(ctx context.Context) StreamTagOutput {
 	return o
+}
+
+func (o StreamTagOutput) ToOutput(ctx context.Context) pulumix.Output[StreamTag] {
+	return pulumix.Output[StreamTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -269,6 +324,12 @@ func (o StreamTagArrayOutput) ToStreamTagArrayOutput() StreamTagArrayOutput {
 
 func (o StreamTagArrayOutput) ToStreamTagArrayOutputWithContext(ctx context.Context) StreamTagArrayOutput {
 	return o
+}
+
+func (o StreamTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StreamTag] {
+	return pulumix.Output[[]StreamTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StreamTagArrayOutput) Index(i pulumi.IntInput) StreamTagOutput {

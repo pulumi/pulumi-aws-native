@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // An example resource schema demonstrating some basic constructs and validation rules.
@@ -72,6 +73,12 @@ func (o LookupCarrierGatewayResultOutput) ToLookupCarrierGatewayResultOutput() L
 
 func (o LookupCarrierGatewayResultOutput) ToLookupCarrierGatewayResultOutputWithContext(ctx context.Context) LookupCarrierGatewayResultOutput {
 	return o
+}
+
+func (o LookupCarrierGatewayResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupCarrierGatewayResult] {
+	return pulumix.Output[LookupCarrierGatewayResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the carrier gateway.

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Pinpoint::APNSSandboxChannel
@@ -119,6 +120,12 @@ func (i *APNSSandboxChannel) ToAPNSSandboxChannelOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(APNSSandboxChannelOutput)
 }
 
+func (i *APNSSandboxChannel) ToOutput(ctx context.Context) pulumix.Output[*APNSSandboxChannel] {
+	return pulumix.Output[*APNSSandboxChannel]{
+		OutputState: i.ToAPNSSandboxChannelOutputWithContext(ctx).OutputState,
+	}
+}
+
 type APNSSandboxChannelOutput struct{ *pulumi.OutputState }
 
 func (APNSSandboxChannelOutput) ElementType() reflect.Type {
@@ -131,6 +138,12 @@ func (o APNSSandboxChannelOutput) ToAPNSSandboxChannelOutput() APNSSandboxChanne
 
 func (o APNSSandboxChannelOutput) ToAPNSSandboxChannelOutputWithContext(ctx context.Context) APNSSandboxChannelOutput {
 	return o
+}
+
+func (o APNSSandboxChannelOutput) ToOutput(ctx context.Context) pulumix.Output[*APNSSandboxChannel] {
+	return pulumix.Output[*APNSSandboxChannel]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o APNSSandboxChannelOutput) ApplicationId() pulumi.StringOutput {

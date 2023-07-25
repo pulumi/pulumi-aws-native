@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::Timestream::ScheduledQuery resource creates a Timestream Scheduled Query.
@@ -80,6 +81,12 @@ func (o LookupScheduledQueryResultOutput) ToLookupScheduledQueryResultOutput() L
 
 func (o LookupScheduledQueryResultOutput) ToLookupScheduledQueryResultOutputWithContext(ctx context.Context) LookupScheduledQueryResultOutput {
 	return o
+}
+
+func (o LookupScheduledQueryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupScheduledQueryResult] {
+	return pulumix.Output[LookupScheduledQueryResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupScheduledQueryResultOutput) Arn() pulumi.StringPtrOutput {

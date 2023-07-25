@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -68,6 +69,12 @@ func (i EnvironmentFederationParametersArgs) ToEnvironmentFederationParametersOu
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentFederationParametersOutput)
 }
 
+func (i EnvironmentFederationParametersArgs) ToOutput(ctx context.Context) pulumix.Output[EnvironmentFederationParameters] {
+	return pulumix.Output[EnvironmentFederationParameters]{
+		OutputState: i.ToEnvironmentFederationParametersOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EnvironmentFederationParametersArgs) ToEnvironmentFederationParametersPtrOutput() EnvironmentFederationParametersPtrOutput {
 	return i.ToEnvironmentFederationParametersPtrOutputWithContext(context.Background())
 }
@@ -109,6 +116,12 @@ func (i *environmentFederationParametersPtrType) ToEnvironmentFederationParamete
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentFederationParametersPtrOutput)
 }
 
+func (i *environmentFederationParametersPtrType) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentFederationParameters] {
+	return pulumix.Output[*EnvironmentFederationParameters]{
+		OutputState: i.ToEnvironmentFederationParametersPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Additional parameters to identify Federation mode
 type EnvironmentFederationParametersOutput struct{ *pulumi.OutputState }
 
@@ -132,6 +145,12 @@ func (o EnvironmentFederationParametersOutput) ToEnvironmentFederationParameters
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnvironmentFederationParameters) *EnvironmentFederationParameters {
 		return &v
 	}).(EnvironmentFederationParametersPtrOutput)
+}
+
+func (o EnvironmentFederationParametersOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentFederationParameters] {
+	return pulumix.Output[EnvironmentFederationParameters]{
+		OutputState: o.OutputState,
+	}
 }
 
 // SAML metadata URL to link with the Environment
@@ -178,6 +197,12 @@ func (o EnvironmentFederationParametersPtrOutput) ToEnvironmentFederationParamet
 
 func (o EnvironmentFederationParametersPtrOutput) ToEnvironmentFederationParametersPtrOutputWithContext(ctx context.Context) EnvironmentFederationParametersPtrOutput {
 	return o
+}
+
+func (o EnvironmentFederationParametersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentFederationParameters] {
+	return pulumix.Output[*EnvironmentFederationParameters]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EnvironmentFederationParametersPtrOutput) Elem() EnvironmentFederationParametersOutput {
@@ -287,6 +312,12 @@ func (i EnvironmentFederationParametersAttributeMapItemPropertiesArgs) ToEnviron
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentFederationParametersAttributeMapItemPropertiesOutput)
 }
 
+func (i EnvironmentFederationParametersAttributeMapItemPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[EnvironmentFederationParametersAttributeMapItemProperties] {
+	return pulumix.Output[EnvironmentFederationParametersAttributeMapItemProperties]{
+		OutputState: i.ToEnvironmentFederationParametersAttributeMapItemPropertiesOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EnvironmentFederationParametersAttributeMapItemPropertiesArrayInput is an input type that accepts EnvironmentFederationParametersAttributeMapItemPropertiesArray and EnvironmentFederationParametersAttributeMapItemPropertiesArrayOutput values.
 // You can construct a concrete instance of `EnvironmentFederationParametersAttributeMapItemPropertiesArrayInput` via:
 //
@@ -312,6 +343,12 @@ func (i EnvironmentFederationParametersAttributeMapItemPropertiesArray) ToEnviro
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentFederationParametersAttributeMapItemPropertiesArrayOutput)
 }
 
+func (i EnvironmentFederationParametersAttributeMapItemPropertiesArray) ToOutput(ctx context.Context) pulumix.Output[[]EnvironmentFederationParametersAttributeMapItemProperties] {
+	return pulumix.Output[[]EnvironmentFederationParametersAttributeMapItemProperties]{
+		OutputState: i.ToEnvironmentFederationParametersAttributeMapItemPropertiesArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EnvironmentFederationParametersAttributeMapItemPropertiesOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentFederationParametersAttributeMapItemPropertiesOutput) ElementType() reflect.Type {
@@ -324,6 +361,12 @@ func (o EnvironmentFederationParametersAttributeMapItemPropertiesOutput) ToEnvir
 
 func (o EnvironmentFederationParametersAttributeMapItemPropertiesOutput) ToEnvironmentFederationParametersAttributeMapItemPropertiesOutputWithContext(ctx context.Context) EnvironmentFederationParametersAttributeMapItemPropertiesOutput {
 	return o
+}
+
+func (o EnvironmentFederationParametersAttributeMapItemPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentFederationParametersAttributeMapItemProperties] {
+	return pulumix.Output[EnvironmentFederationParametersAttributeMapItemProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -348,6 +391,12 @@ func (o EnvironmentFederationParametersAttributeMapItemPropertiesArrayOutput) To
 
 func (o EnvironmentFederationParametersAttributeMapItemPropertiesArrayOutput) ToEnvironmentFederationParametersAttributeMapItemPropertiesArrayOutputWithContext(ctx context.Context) EnvironmentFederationParametersAttributeMapItemPropertiesArrayOutput {
 	return o
+}
+
+func (o EnvironmentFederationParametersAttributeMapItemPropertiesArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EnvironmentFederationParametersAttributeMapItemProperties] {
+	return pulumix.Output[[]EnvironmentFederationParametersAttributeMapItemProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EnvironmentFederationParametersAttributeMapItemPropertiesArrayOutput) Index(i pulumi.IntInput) EnvironmentFederationParametersAttributeMapItemPropertiesOutput {
@@ -399,6 +448,12 @@ func (i EnvironmentSuperuserParametersArgs) ToEnvironmentSuperuserParametersOutp
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentSuperuserParametersOutput)
 }
 
+func (i EnvironmentSuperuserParametersArgs) ToOutput(ctx context.Context) pulumix.Output[EnvironmentSuperuserParameters] {
+	return pulumix.Output[EnvironmentSuperuserParameters]{
+		OutputState: i.ToEnvironmentSuperuserParametersOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EnvironmentSuperuserParametersArgs) ToEnvironmentSuperuserParametersPtrOutput() EnvironmentSuperuserParametersPtrOutput {
 	return i.ToEnvironmentSuperuserParametersPtrOutputWithContext(context.Background())
 }
@@ -440,6 +495,12 @@ func (i *environmentSuperuserParametersPtrType) ToEnvironmentSuperuserParameters
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentSuperuserParametersPtrOutput)
 }
 
+func (i *environmentSuperuserParametersPtrType) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentSuperuserParameters] {
+	return pulumix.Output[*EnvironmentSuperuserParameters]{
+		OutputState: i.ToEnvironmentSuperuserParametersPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Parameters of the first Superuser for the FinSpace Environment
 type EnvironmentSuperuserParametersOutput struct{ *pulumi.OutputState }
 
@@ -463,6 +524,12 @@ func (o EnvironmentSuperuserParametersOutput) ToEnvironmentSuperuserParametersPt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnvironmentSuperuserParameters) *EnvironmentSuperuserParameters {
 		return &v
 	}).(EnvironmentSuperuserParametersPtrOutput)
+}
+
+func (o EnvironmentSuperuserParametersOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentSuperuserParameters] {
+	return pulumix.Output[EnvironmentSuperuserParameters]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Email address
@@ -492,6 +559,12 @@ func (o EnvironmentSuperuserParametersPtrOutput) ToEnvironmentSuperuserParameter
 
 func (o EnvironmentSuperuserParametersPtrOutput) ToEnvironmentSuperuserParametersPtrOutputWithContext(ctx context.Context) EnvironmentSuperuserParametersPtrOutput {
 	return o
+}
+
+func (o EnvironmentSuperuserParametersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentSuperuserParameters] {
+	return pulumix.Output[*EnvironmentSuperuserParameters]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EnvironmentSuperuserParametersPtrOutput) Elem() EnvironmentSuperuserParametersOutput {
@@ -573,6 +646,12 @@ func (i EnvironmentTagArgs) ToEnvironmentTagOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentTagOutput)
 }
 
+func (i EnvironmentTagArgs) ToOutput(ctx context.Context) pulumix.Output[EnvironmentTag] {
+	return pulumix.Output[EnvironmentTag]{
+		OutputState: i.ToEnvironmentTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EnvironmentTagArrayInput is an input type that accepts EnvironmentTagArray and EnvironmentTagArrayOutput values.
 // You can construct a concrete instance of `EnvironmentTagArrayInput` via:
 //
@@ -598,6 +677,12 @@ func (i EnvironmentTagArray) ToEnvironmentTagArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentTagArrayOutput)
 }
 
+func (i EnvironmentTagArray) ToOutput(ctx context.Context) pulumix.Output[[]EnvironmentTag] {
+	return pulumix.Output[[]EnvironmentTag]{
+		OutputState: i.ToEnvironmentTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A list of all tags for a resource.
 type EnvironmentTagOutput struct{ *pulumi.OutputState }
 
@@ -611,6 +696,12 @@ func (o EnvironmentTagOutput) ToEnvironmentTagOutput() EnvironmentTagOutput {
 
 func (o EnvironmentTagOutput) ToEnvironmentTagOutputWithContext(ctx context.Context) EnvironmentTagOutput {
 	return o
+}
+
+func (o EnvironmentTagOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentTag] {
+	return pulumix.Output[EnvironmentTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -635,6 +726,12 @@ func (o EnvironmentTagArrayOutput) ToEnvironmentTagArrayOutput() EnvironmentTagA
 
 func (o EnvironmentTagArrayOutput) ToEnvironmentTagArrayOutputWithContext(ctx context.Context) EnvironmentTagArrayOutput {
 	return o
+}
+
+func (o EnvironmentTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EnvironmentTag] {
+	return pulumix.Output[[]EnvironmentTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EnvironmentTagArrayOutput) Index(i pulumi.IntInput) EnvironmentTagOutput {

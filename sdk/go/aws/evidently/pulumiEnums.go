@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type ExperimentMetricGoalObjectDesiredChange string
@@ -77,6 +78,12 @@ func (o ExperimentMetricGoalObjectDesiredChangeOutput) ToExperimentMetricGoalObj
 	}).(ExperimentMetricGoalObjectDesiredChangePtrOutput)
 }
 
+func (o ExperimentMetricGoalObjectDesiredChangeOutput) ToOutput(ctx context.Context) pulumix.Output[ExperimentMetricGoalObjectDesiredChange] {
+	return pulumix.Output[ExperimentMetricGoalObjectDesiredChange]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ExperimentMetricGoalObjectDesiredChangeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -110,6 +117,12 @@ func (o ExperimentMetricGoalObjectDesiredChangePtrOutput) ToExperimentMetricGoal
 
 func (o ExperimentMetricGoalObjectDesiredChangePtrOutput) ToExperimentMetricGoalObjectDesiredChangePtrOutputWithContext(ctx context.Context) ExperimentMetricGoalObjectDesiredChangePtrOutput {
 	return o
+}
+
+func (o ExperimentMetricGoalObjectDesiredChangePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ExperimentMetricGoalObjectDesiredChange] {
+	return pulumix.Output[*ExperimentMetricGoalObjectDesiredChange]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ExperimentMetricGoalObjectDesiredChangePtrOutput) Elem() ExperimentMetricGoalObjectDesiredChangeOutput {
@@ -172,6 +185,12 @@ func (in *experimentMetricGoalObjectDesiredChangePtr) ToExperimentMetricGoalObje
 
 func (in *experimentMetricGoalObjectDesiredChangePtr) ToExperimentMetricGoalObjectDesiredChangePtrOutputWithContext(ctx context.Context) ExperimentMetricGoalObjectDesiredChangePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ExperimentMetricGoalObjectDesiredChangePtrOutput)
+}
+
+func (in *experimentMetricGoalObjectDesiredChangePtr) ToOutput(ctx context.Context) pulumix.Output[*ExperimentMetricGoalObjectDesiredChange] {
+	return pulumix.Output[*ExperimentMetricGoalObjectDesiredChange]{
+		OutputState: in.ToExperimentMetricGoalObjectDesiredChangePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type FeatureEvaluationStrategy string
@@ -241,6 +260,12 @@ func (o FeatureEvaluationStrategyOutput) ToFeatureEvaluationStrategyPtrOutputWit
 	}).(FeatureEvaluationStrategyPtrOutput)
 }
 
+func (o FeatureEvaluationStrategyOutput) ToOutput(ctx context.Context) pulumix.Output[FeatureEvaluationStrategy] {
+	return pulumix.Output[FeatureEvaluationStrategy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FeatureEvaluationStrategyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -274,6 +299,12 @@ func (o FeatureEvaluationStrategyPtrOutput) ToFeatureEvaluationStrategyPtrOutput
 
 func (o FeatureEvaluationStrategyPtrOutput) ToFeatureEvaluationStrategyPtrOutputWithContext(ctx context.Context) FeatureEvaluationStrategyPtrOutput {
 	return o
+}
+
+func (o FeatureEvaluationStrategyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FeatureEvaluationStrategy] {
+	return pulumix.Output[*FeatureEvaluationStrategy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FeatureEvaluationStrategyPtrOutput) Elem() FeatureEvaluationStrategyOutput {
@@ -336,6 +367,12 @@ func (in *featureEvaluationStrategyPtr) ToFeatureEvaluationStrategyPtrOutput() F
 
 func (in *featureEvaluationStrategyPtr) ToFeatureEvaluationStrategyPtrOutputWithContext(ctx context.Context) FeatureEvaluationStrategyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FeatureEvaluationStrategyPtrOutput)
+}
+
+func (in *featureEvaluationStrategyPtr) ToOutput(ctx context.Context) pulumix.Output[*FeatureEvaluationStrategy] {
+	return pulumix.Output[*FeatureEvaluationStrategy]{
+		OutputState: in.ToFeatureEvaluationStrategyPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

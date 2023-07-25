@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Pinpoint::App
@@ -95,6 +96,12 @@ func (i *App) ToAppOutputWithContext(ctx context.Context) AppOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AppOutput)
 }
 
+func (i *App) ToOutput(ctx context.Context) pulumix.Output[*App] {
+	return pulumix.Output[*App]{
+		OutputState: i.ToAppOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AppOutput struct{ *pulumi.OutputState }
 
 func (AppOutput) ElementType() reflect.Type {
@@ -107,6 +114,12 @@ func (o AppOutput) ToAppOutput() AppOutput {
 
 func (o AppOutput) ToAppOutputWithContext(ctx context.Context) AppOutput {
 	return o
+}
+
+func (o AppOutput) ToOutput(ctx context.Context) pulumix.Output[*App] {
+	return pulumix.Output[*App]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AppOutput) Arn() pulumi.StringOutput {

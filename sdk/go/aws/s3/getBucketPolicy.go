@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::S3::BucketPolicy
@@ -64,6 +65,12 @@ func (o LookupBucketPolicyResultOutput) ToLookupBucketPolicyResultOutput() Looku
 
 func (o LookupBucketPolicyResultOutput) ToLookupBucketPolicyResultOutputWithContext(ctx context.Context) LookupBucketPolicyResultOutput {
 	return o
+}
+
+func (o LookupBucketPolicyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupBucketPolicyResult] {
+	return pulumix.Output[LookupBucketPolicyResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupBucketPolicyResultOutput) Id() pulumi.StringPtrOutput {

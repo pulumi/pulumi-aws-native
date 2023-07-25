@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::GlobalAccelerator::Accelerator
@@ -83,6 +84,12 @@ func (o LookupAcceleratorResultOutput) ToLookupAcceleratorResultOutput() LookupA
 
 func (o LookupAcceleratorResultOutput) ToLookupAcceleratorResultOutputWithContext(ctx context.Context) LookupAcceleratorResultOutput {
 	return o
+}
+
+func (o LookupAcceleratorResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAcceleratorResult] {
+	return pulumix.Output[LookupAcceleratorResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the accelerator.

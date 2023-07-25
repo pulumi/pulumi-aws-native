@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Schema for AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation.
@@ -65,6 +66,12 @@ func (o LookupAttributeGroupAssociationResultOutput) ToLookupAttributeGroupAssoc
 
 func (o LookupAttributeGroupAssociationResultOutput) ToLookupAttributeGroupAssociationResultOutputWithContext(ctx context.Context) LookupAttributeGroupAssociationResultOutput {
 	return o
+}
+
+func (o LookupAttributeGroupAssociationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAttributeGroupAssociationResult] {
+	return pulumix.Output[LookupAttributeGroupAssociationResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupAttributeGroupAssociationResultOutput) ApplicationArn() pulumi.StringPtrOutput {

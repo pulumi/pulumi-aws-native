@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -50,6 +51,12 @@ func (i QueueTagArgs) ToQueueTagOutputWithContext(ctx context.Context) QueueTagO
 	return pulumi.ToOutputWithContext(ctx, i).(QueueTagOutput)
 }
 
+func (i QueueTagArgs) ToOutput(ctx context.Context) pulumix.Output[QueueTag] {
+	return pulumix.Output[QueueTag]{
+		OutputState: i.ToQueueTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // QueueTagArrayInput is an input type that accepts QueueTagArray and QueueTagArrayOutput values.
 // You can construct a concrete instance of `QueueTagArrayInput` via:
 //
@@ -75,6 +82,12 @@ func (i QueueTagArray) ToQueueTagArrayOutputWithContext(ctx context.Context) Que
 	return pulumi.ToOutputWithContext(ctx, i).(QueueTagArrayOutput)
 }
 
+func (i QueueTagArray) ToOutput(ctx context.Context) pulumix.Output[[]QueueTag] {
+	return pulumix.Output[[]QueueTag]{
+		OutputState: i.ToQueueTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type QueueTagOutput struct{ *pulumi.OutputState }
 
 func (QueueTagOutput) ElementType() reflect.Type {
@@ -87,6 +100,12 @@ func (o QueueTagOutput) ToQueueTagOutput() QueueTagOutput {
 
 func (o QueueTagOutput) ToQueueTagOutputWithContext(ctx context.Context) QueueTagOutput {
 	return o
+}
+
+func (o QueueTagOutput) ToOutput(ctx context.Context) pulumix.Output[QueueTag] {
+	return pulumix.Output[QueueTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -111,6 +130,12 @@ func (o QueueTagArrayOutput) ToQueueTagArrayOutput() QueueTagArrayOutput {
 
 func (o QueueTagArrayOutput) ToQueueTagArrayOutputWithContext(ctx context.Context) QueueTagArrayOutput {
 	return o
+}
+
+func (o QueueTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]QueueTag] {
+	return pulumix.Output[[]QueueTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o QueueTagArrayOutput) Index(i pulumi.IntInput) QueueTagOutput {

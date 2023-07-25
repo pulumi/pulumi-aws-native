@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -46,6 +47,12 @@ func (i PlaybackConfigurationAdMarkerPassthroughArgs) ToPlaybackConfigurationAdM
 
 func (i PlaybackConfigurationAdMarkerPassthroughArgs) ToPlaybackConfigurationAdMarkerPassthroughOutputWithContext(ctx context.Context) PlaybackConfigurationAdMarkerPassthroughOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationAdMarkerPassthroughOutput)
+}
+
+func (i PlaybackConfigurationAdMarkerPassthroughArgs) ToOutput(ctx context.Context) pulumix.Output[PlaybackConfigurationAdMarkerPassthrough] {
+	return pulumix.Output[PlaybackConfigurationAdMarkerPassthrough]{
+		OutputState: i.ToPlaybackConfigurationAdMarkerPassthroughOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i PlaybackConfigurationAdMarkerPassthroughArgs) ToPlaybackConfigurationAdMarkerPassthroughPtrOutput() PlaybackConfigurationAdMarkerPassthroughPtrOutput {
@@ -89,6 +96,12 @@ func (i *playbackConfigurationAdMarkerPassthroughPtrType) ToPlaybackConfiguratio
 	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationAdMarkerPassthroughPtrOutput)
 }
 
+func (i *playbackConfigurationAdMarkerPassthroughPtrType) ToOutput(ctx context.Context) pulumix.Output[*PlaybackConfigurationAdMarkerPassthrough] {
+	return pulumix.Output[*PlaybackConfigurationAdMarkerPassthrough]{
+		OutputState: i.ToPlaybackConfigurationAdMarkerPassthroughPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // For HLS, when set to true, MediaTailor passes through EXT-X-CUE-IN, EXT-X-CUE-OUT, and EXT-X-SPLICEPOINT-SCTE35 ad markers from the origin manifest to the MediaTailor personalized manifest. No logic is applied to these ad markers. For example, if EXT-X-CUE-OUT has a value of 60, but no ads are filled for that ad break, MediaTailor will not set the value to 0.
 type PlaybackConfigurationAdMarkerPassthroughOutput struct{ *pulumi.OutputState }
 
@@ -114,6 +127,12 @@ func (o PlaybackConfigurationAdMarkerPassthroughOutput) ToPlaybackConfigurationA
 	}).(PlaybackConfigurationAdMarkerPassthroughPtrOutput)
 }
 
+func (o PlaybackConfigurationAdMarkerPassthroughOutput) ToOutput(ctx context.Context) pulumix.Output[PlaybackConfigurationAdMarkerPassthrough] {
+	return pulumix.Output[PlaybackConfigurationAdMarkerPassthrough]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Enables ad marker passthrough for your configuration.
 func (o PlaybackConfigurationAdMarkerPassthroughOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PlaybackConfigurationAdMarkerPassthrough) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
@@ -131,6 +150,12 @@ func (o PlaybackConfigurationAdMarkerPassthroughPtrOutput) ToPlaybackConfigurati
 
 func (o PlaybackConfigurationAdMarkerPassthroughPtrOutput) ToPlaybackConfigurationAdMarkerPassthroughPtrOutputWithContext(ctx context.Context) PlaybackConfigurationAdMarkerPassthroughPtrOutput {
 	return o
+}
+
+func (o PlaybackConfigurationAdMarkerPassthroughPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PlaybackConfigurationAdMarkerPassthrough] {
+	return pulumix.Output[*PlaybackConfigurationAdMarkerPassthrough]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PlaybackConfigurationAdMarkerPassthroughPtrOutput) Elem() PlaybackConfigurationAdMarkerPassthroughOutput {
@@ -192,6 +217,12 @@ func (i PlaybackConfigurationAvailSuppressionArgs) ToPlaybackConfigurationAvailS
 	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationAvailSuppressionOutput)
 }
 
+func (i PlaybackConfigurationAvailSuppressionArgs) ToOutput(ctx context.Context) pulumix.Output[PlaybackConfigurationAvailSuppression] {
+	return pulumix.Output[PlaybackConfigurationAvailSuppression]{
+		OutputState: i.ToPlaybackConfigurationAvailSuppressionOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PlaybackConfigurationAvailSuppressionArgs) ToPlaybackConfigurationAvailSuppressionPtrOutput() PlaybackConfigurationAvailSuppressionPtrOutput {
 	return i.ToPlaybackConfigurationAvailSuppressionPtrOutputWithContext(context.Background())
 }
@@ -233,6 +264,12 @@ func (i *playbackConfigurationAvailSuppressionPtrType) ToPlaybackConfigurationAv
 	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationAvailSuppressionPtrOutput)
 }
 
+func (i *playbackConfigurationAvailSuppressionPtrType) ToOutput(ctx context.Context) pulumix.Output[*PlaybackConfigurationAvailSuppression] {
+	return pulumix.Output[*PlaybackConfigurationAvailSuppression]{
+		OutputState: i.ToPlaybackConfigurationAvailSuppressionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see Ad Suppression (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
 type PlaybackConfigurationAvailSuppressionOutput struct{ *pulumi.OutputState }
 
@@ -256,6 +293,12 @@ func (o PlaybackConfigurationAvailSuppressionOutput) ToPlaybackConfigurationAvai
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlaybackConfigurationAvailSuppression) *PlaybackConfigurationAvailSuppression {
 		return &v
 	}).(PlaybackConfigurationAvailSuppressionPtrOutput)
+}
+
+func (o PlaybackConfigurationAvailSuppressionOutput) ToOutput(ctx context.Context) pulumix.Output[PlaybackConfigurationAvailSuppression] {
+	return pulumix.Output[PlaybackConfigurationAvailSuppression]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Sets the ad suppression mode. By default, ad suppression is set to OFF and all ad breaks are filled with ads or slate. When Mode is set to BEHIND_LIVE_EDGE, ad suppression is active and MediaTailor won't fill ad breaks on or behind the ad suppression Value time in the manifest lookback window.
@@ -282,6 +325,12 @@ func (o PlaybackConfigurationAvailSuppressionPtrOutput) ToPlaybackConfigurationA
 
 func (o PlaybackConfigurationAvailSuppressionPtrOutput) ToPlaybackConfigurationAvailSuppressionPtrOutputWithContext(ctx context.Context) PlaybackConfigurationAvailSuppressionPtrOutput {
 	return o
+}
+
+func (o PlaybackConfigurationAvailSuppressionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PlaybackConfigurationAvailSuppression] {
+	return pulumix.Output[*PlaybackConfigurationAvailSuppression]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PlaybackConfigurationAvailSuppressionPtrOutput) Elem() PlaybackConfigurationAvailSuppressionOutput {
@@ -353,6 +402,12 @@ func (i PlaybackConfigurationBumperArgs) ToPlaybackConfigurationBumperOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationBumperOutput)
 }
 
+func (i PlaybackConfigurationBumperArgs) ToOutput(ctx context.Context) pulumix.Output[PlaybackConfigurationBumper] {
+	return pulumix.Output[PlaybackConfigurationBumper]{
+		OutputState: i.ToPlaybackConfigurationBumperOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PlaybackConfigurationBumperArgs) ToPlaybackConfigurationBumperPtrOutput() PlaybackConfigurationBumperPtrOutput {
 	return i.ToPlaybackConfigurationBumperPtrOutputWithContext(context.Background())
 }
@@ -394,6 +449,12 @@ func (i *playbackConfigurationBumperPtrType) ToPlaybackConfigurationBumperPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationBumperPtrOutput)
 }
 
+func (i *playbackConfigurationBumperPtrType) ToOutput(ctx context.Context) pulumix.Output[*PlaybackConfigurationBumper] {
+	return pulumix.Output[*PlaybackConfigurationBumper]{
+		OutputState: i.ToPlaybackConfigurationBumperPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see Bumpers (https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html).
 type PlaybackConfigurationBumperOutput struct{ *pulumi.OutputState }
 
@@ -419,6 +480,12 @@ func (o PlaybackConfigurationBumperOutput) ToPlaybackConfigurationBumperPtrOutpu
 	}).(PlaybackConfigurationBumperPtrOutput)
 }
 
+func (o PlaybackConfigurationBumperOutput) ToOutput(ctx context.Context) pulumix.Output[PlaybackConfigurationBumper] {
+	return pulumix.Output[PlaybackConfigurationBumper]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The URL for the end bumper asset.
 func (o PlaybackConfigurationBumperOutput) EndUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PlaybackConfigurationBumper) *string { return v.EndUrl }).(pulumi.StringPtrOutput)
@@ -441,6 +508,12 @@ func (o PlaybackConfigurationBumperPtrOutput) ToPlaybackConfigurationBumperPtrOu
 
 func (o PlaybackConfigurationBumperPtrOutput) ToPlaybackConfigurationBumperPtrOutputWithContext(ctx context.Context) PlaybackConfigurationBumperPtrOutput {
 	return o
+}
+
+func (o PlaybackConfigurationBumperPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PlaybackConfigurationBumper] {
+	return pulumix.Output[*PlaybackConfigurationBumper]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PlaybackConfigurationBumperPtrOutput) Elem() PlaybackConfigurationBumperOutput {
@@ -512,6 +585,12 @@ func (i PlaybackConfigurationCdnConfigurationArgs) ToPlaybackConfigurationCdnCon
 	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationCdnConfigurationOutput)
 }
 
+func (i PlaybackConfigurationCdnConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[PlaybackConfigurationCdnConfiguration] {
+	return pulumix.Output[PlaybackConfigurationCdnConfiguration]{
+		OutputState: i.ToPlaybackConfigurationCdnConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PlaybackConfigurationCdnConfigurationArgs) ToPlaybackConfigurationCdnConfigurationPtrOutput() PlaybackConfigurationCdnConfigurationPtrOutput {
 	return i.ToPlaybackConfigurationCdnConfigurationPtrOutputWithContext(context.Background())
 }
@@ -553,6 +632,12 @@ func (i *playbackConfigurationCdnConfigurationPtrType) ToPlaybackConfigurationCd
 	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationCdnConfigurationPtrOutput)
 }
 
+func (i *playbackConfigurationCdnConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*PlaybackConfigurationCdnConfiguration] {
+	return pulumix.Output[*PlaybackConfigurationCdnConfiguration]{
+		OutputState: i.ToPlaybackConfigurationCdnConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management.
 type PlaybackConfigurationCdnConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -578,6 +663,12 @@ func (o PlaybackConfigurationCdnConfigurationOutput) ToPlaybackConfigurationCdnC
 	}).(PlaybackConfigurationCdnConfigurationPtrOutput)
 }
 
+func (o PlaybackConfigurationCdnConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[PlaybackConfigurationCdnConfiguration] {
+	return pulumix.Output[PlaybackConfigurationCdnConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // A non-default content delivery network (CDN) to serve ad segments. By default, AWS Elemental MediaTailor uses Amazon CloudFront with default cache settings as its CDN for ad segments. To set up an alternate CDN, create a rule in your CDN for the origin ads.mediatailor.&lt;region>.amazonaws.com. Then specify the rule's name in this AdSegmentUrlPrefix. When AWS Elemental MediaTailor serves a manifest, it reports your CDN as the source for ad segments.
 func (o PlaybackConfigurationCdnConfigurationOutput) AdSegmentUrlPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PlaybackConfigurationCdnConfiguration) *string { return v.AdSegmentUrlPrefix }).(pulumi.StringPtrOutput)
@@ -600,6 +691,12 @@ func (o PlaybackConfigurationCdnConfigurationPtrOutput) ToPlaybackConfigurationC
 
 func (o PlaybackConfigurationCdnConfigurationPtrOutput) ToPlaybackConfigurationCdnConfigurationPtrOutputWithContext(ctx context.Context) PlaybackConfigurationCdnConfigurationPtrOutput {
 	return o
+}
+
+func (o PlaybackConfigurationCdnConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PlaybackConfigurationCdnConfiguration] {
+	return pulumix.Output[*PlaybackConfigurationCdnConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PlaybackConfigurationCdnConfigurationPtrOutput) Elem() PlaybackConfigurationCdnConfigurationOutput {
@@ -663,6 +760,12 @@ func (i PlaybackConfigurationConfigurationAliasesArgs) ToPlaybackConfigurationCo
 	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationConfigurationAliasesOutput)
 }
 
+func (i PlaybackConfigurationConfigurationAliasesArgs) ToOutput(ctx context.Context) pulumix.Output[PlaybackConfigurationConfigurationAliases] {
+	return pulumix.Output[PlaybackConfigurationConfigurationAliases]{
+		OutputState: i.ToPlaybackConfigurationConfigurationAliasesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PlaybackConfigurationConfigurationAliasesArgs) ToPlaybackConfigurationConfigurationAliasesPtrOutput() PlaybackConfigurationConfigurationAliasesPtrOutput {
 	return i.ToPlaybackConfigurationConfigurationAliasesPtrOutputWithContext(context.Background())
 }
@@ -704,6 +807,12 @@ func (i *playbackConfigurationConfigurationAliasesPtrType) ToPlaybackConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationConfigurationAliasesPtrOutput)
 }
 
+func (i *playbackConfigurationConfigurationAliasesPtrType) ToOutput(ctx context.Context) pulumix.Output[*PlaybackConfigurationConfigurationAliases] {
+	return pulumix.Output[*PlaybackConfigurationConfigurationAliases]{
+		OutputState: i.ToPlaybackConfigurationConfigurationAliasesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The predefined aliases for dynamic variables.
 type PlaybackConfigurationConfigurationAliasesOutput struct{ *pulumi.OutputState }
 
@@ -729,6 +838,12 @@ func (o PlaybackConfigurationConfigurationAliasesOutput) ToPlaybackConfiguration
 	}).(PlaybackConfigurationConfigurationAliasesPtrOutput)
 }
 
+func (o PlaybackConfigurationConfigurationAliasesOutput) ToOutput(ctx context.Context) pulumix.Output[PlaybackConfigurationConfigurationAliases] {
+	return pulumix.Output[PlaybackConfigurationConfigurationAliases]{
+		OutputState: o.OutputState,
+	}
+}
+
 type PlaybackConfigurationConfigurationAliasesPtrOutput struct{ *pulumi.OutputState }
 
 func (PlaybackConfigurationConfigurationAliasesPtrOutput) ElementType() reflect.Type {
@@ -741,6 +856,12 @@ func (o PlaybackConfigurationConfigurationAliasesPtrOutput) ToPlaybackConfigurat
 
 func (o PlaybackConfigurationConfigurationAliasesPtrOutput) ToPlaybackConfigurationConfigurationAliasesPtrOutputWithContext(ctx context.Context) PlaybackConfigurationConfigurationAliasesPtrOutput {
 	return o
+}
+
+func (o PlaybackConfigurationConfigurationAliasesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PlaybackConfigurationConfigurationAliases] {
+	return pulumix.Output[*PlaybackConfigurationConfigurationAliases]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PlaybackConfigurationConfigurationAliasesPtrOutput) Elem() PlaybackConfigurationConfigurationAliasesOutput {
@@ -796,6 +917,12 @@ func (i PlaybackConfigurationDashConfigurationArgs) ToPlaybackConfigurationDashC
 	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationDashConfigurationOutput)
 }
 
+func (i PlaybackConfigurationDashConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[PlaybackConfigurationDashConfiguration] {
+	return pulumix.Output[PlaybackConfigurationDashConfiguration]{
+		OutputState: i.ToPlaybackConfigurationDashConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PlaybackConfigurationDashConfigurationArgs) ToPlaybackConfigurationDashConfigurationPtrOutput() PlaybackConfigurationDashConfigurationPtrOutput {
 	return i.ToPlaybackConfigurationDashConfigurationPtrOutputWithContext(context.Background())
 }
@@ -837,6 +964,12 @@ func (i *playbackConfigurationDashConfigurationPtrType) ToPlaybackConfigurationD
 	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationDashConfigurationPtrOutput)
 }
 
+func (i *playbackConfigurationDashConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*PlaybackConfigurationDashConfiguration] {
+	return pulumix.Output[*PlaybackConfigurationDashConfiguration]{
+		OutputState: i.ToPlaybackConfigurationDashConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The configuration for DASH PUT operations.
 type PlaybackConfigurationDashConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -860,6 +993,12 @@ func (o PlaybackConfigurationDashConfigurationOutput) ToPlaybackConfigurationDas
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlaybackConfigurationDashConfiguration) *PlaybackConfigurationDashConfiguration {
 		return &v
 	}).(PlaybackConfigurationDashConfigurationPtrOutput)
+}
+
+func (o PlaybackConfigurationDashConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[PlaybackConfigurationDashConfiguration] {
+	return pulumix.Output[PlaybackConfigurationDashConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The URL generated by MediaTailor to initiate a DASH playback session. The session uses server-side reporting.
@@ -891,6 +1030,12 @@ func (o PlaybackConfigurationDashConfigurationPtrOutput) ToPlaybackConfiguration
 
 func (o PlaybackConfigurationDashConfigurationPtrOutput) ToPlaybackConfigurationDashConfigurationPtrOutputWithContext(ctx context.Context) PlaybackConfigurationDashConfigurationPtrOutput {
 	return o
+}
+
+func (o PlaybackConfigurationDashConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PlaybackConfigurationDashConfiguration] {
+	return pulumix.Output[*PlaybackConfigurationDashConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PlaybackConfigurationDashConfigurationPtrOutput) Elem() PlaybackConfigurationDashConfigurationOutput {
@@ -966,6 +1111,12 @@ func (i PlaybackConfigurationHlsConfigurationArgs) ToPlaybackConfigurationHlsCon
 	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationHlsConfigurationOutput)
 }
 
+func (i PlaybackConfigurationHlsConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[PlaybackConfigurationHlsConfiguration] {
+	return pulumix.Output[PlaybackConfigurationHlsConfiguration]{
+		OutputState: i.ToPlaybackConfigurationHlsConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PlaybackConfigurationHlsConfigurationArgs) ToPlaybackConfigurationHlsConfigurationPtrOutput() PlaybackConfigurationHlsConfigurationPtrOutput {
 	return i.ToPlaybackConfigurationHlsConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1007,6 +1158,12 @@ func (i *playbackConfigurationHlsConfigurationPtrType) ToPlaybackConfigurationHl
 	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationHlsConfigurationPtrOutput)
 }
 
+func (i *playbackConfigurationHlsConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*PlaybackConfigurationHlsConfiguration] {
+	return pulumix.Output[*PlaybackConfigurationHlsConfiguration]{
+		OutputState: i.ToPlaybackConfigurationHlsConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PlaybackConfigurationHlsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (PlaybackConfigurationHlsConfigurationOutput) ElementType() reflect.Type {
@@ -1031,6 +1188,12 @@ func (o PlaybackConfigurationHlsConfigurationOutput) ToPlaybackConfigurationHlsC
 	}).(PlaybackConfigurationHlsConfigurationPtrOutput)
 }
 
+func (o PlaybackConfigurationHlsConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[PlaybackConfigurationHlsConfiguration] {
+	return pulumix.Output[PlaybackConfigurationHlsConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The URL that is used to initiate a playback session for devices that support Apple HLS. The session uses server-side reporting.
 func (o PlaybackConfigurationHlsConfigurationOutput) ManifestEndpointPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PlaybackConfigurationHlsConfiguration) *string { return v.ManifestEndpointPrefix }).(pulumi.StringPtrOutput)
@@ -1048,6 +1211,12 @@ func (o PlaybackConfigurationHlsConfigurationPtrOutput) ToPlaybackConfigurationH
 
 func (o PlaybackConfigurationHlsConfigurationPtrOutput) ToPlaybackConfigurationHlsConfigurationPtrOutputWithContext(ctx context.Context) PlaybackConfigurationHlsConfigurationPtrOutput {
 	return o
+}
+
+func (o PlaybackConfigurationHlsConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PlaybackConfigurationHlsConfiguration] {
+	return pulumix.Output[*PlaybackConfigurationHlsConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PlaybackConfigurationHlsConfigurationPtrOutput) Elem() PlaybackConfigurationHlsConfigurationOutput {
@@ -1109,6 +1278,12 @@ func (i PlaybackConfigurationLivePreRollConfigurationArgs) ToPlaybackConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationLivePreRollConfigurationOutput)
 }
 
+func (i PlaybackConfigurationLivePreRollConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[PlaybackConfigurationLivePreRollConfiguration] {
+	return pulumix.Output[PlaybackConfigurationLivePreRollConfiguration]{
+		OutputState: i.ToPlaybackConfigurationLivePreRollConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PlaybackConfigurationLivePreRollConfigurationArgs) ToPlaybackConfigurationLivePreRollConfigurationPtrOutput() PlaybackConfigurationLivePreRollConfigurationPtrOutput {
 	return i.ToPlaybackConfigurationLivePreRollConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1150,6 +1325,12 @@ func (i *playbackConfigurationLivePreRollConfigurationPtrType) ToPlaybackConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationLivePreRollConfigurationPtrOutput)
 }
 
+func (i *playbackConfigurationLivePreRollConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*PlaybackConfigurationLivePreRollConfiguration] {
+	return pulumix.Output[*PlaybackConfigurationLivePreRollConfiguration]{
+		OutputState: i.ToPlaybackConfigurationLivePreRollConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The configuration for pre-roll ad insertion.
 type PlaybackConfigurationLivePreRollConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -1175,6 +1356,12 @@ func (o PlaybackConfigurationLivePreRollConfigurationOutput) ToPlaybackConfigura
 	}).(PlaybackConfigurationLivePreRollConfigurationPtrOutput)
 }
 
+func (o PlaybackConfigurationLivePreRollConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[PlaybackConfigurationLivePreRollConfiguration] {
+	return pulumix.Output[PlaybackConfigurationLivePreRollConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The URL for the ad decision server (ADS) for pre-roll ads. This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing, you can provide a static VAST URL. The maximum length is 25,000 characters.
 func (o PlaybackConfigurationLivePreRollConfigurationOutput) AdDecisionServerUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PlaybackConfigurationLivePreRollConfiguration) *string { return v.AdDecisionServerUrl }).(pulumi.StringPtrOutput)
@@ -1197,6 +1384,12 @@ func (o PlaybackConfigurationLivePreRollConfigurationPtrOutput) ToPlaybackConfig
 
 func (o PlaybackConfigurationLivePreRollConfigurationPtrOutput) ToPlaybackConfigurationLivePreRollConfigurationPtrOutputWithContext(ctx context.Context) PlaybackConfigurationLivePreRollConfigurationPtrOutput {
 	return o
+}
+
+func (o PlaybackConfigurationLivePreRollConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PlaybackConfigurationLivePreRollConfiguration] {
+	return pulumix.Output[*PlaybackConfigurationLivePreRollConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PlaybackConfigurationLivePreRollConfigurationPtrOutput) Elem() PlaybackConfigurationLivePreRollConfigurationOutput {
@@ -1264,6 +1457,12 @@ func (i PlaybackConfigurationManifestProcessingRulesArgs) ToPlaybackConfiguratio
 	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationManifestProcessingRulesOutput)
 }
 
+func (i PlaybackConfigurationManifestProcessingRulesArgs) ToOutput(ctx context.Context) pulumix.Output[PlaybackConfigurationManifestProcessingRules] {
+	return pulumix.Output[PlaybackConfigurationManifestProcessingRules]{
+		OutputState: i.ToPlaybackConfigurationManifestProcessingRulesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PlaybackConfigurationManifestProcessingRulesArgs) ToPlaybackConfigurationManifestProcessingRulesPtrOutput() PlaybackConfigurationManifestProcessingRulesPtrOutput {
 	return i.ToPlaybackConfigurationManifestProcessingRulesPtrOutputWithContext(context.Background())
 }
@@ -1305,6 +1504,12 @@ func (i *playbackConfigurationManifestProcessingRulesPtrType) ToPlaybackConfigur
 	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationManifestProcessingRulesPtrOutput)
 }
 
+func (i *playbackConfigurationManifestProcessingRulesPtrType) ToOutput(ctx context.Context) pulumix.Output[*PlaybackConfigurationManifestProcessingRules] {
+	return pulumix.Output[*PlaybackConfigurationManifestProcessingRules]{
+		OutputState: i.ToPlaybackConfigurationManifestProcessingRulesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The configuration for manifest processing rules. Manifest processing rules enable customization of the personalized manifests created by MediaTailor.
 type PlaybackConfigurationManifestProcessingRulesOutput struct{ *pulumi.OutputState }
 
@@ -1330,6 +1535,12 @@ func (o PlaybackConfigurationManifestProcessingRulesOutput) ToPlaybackConfigurat
 	}).(PlaybackConfigurationManifestProcessingRulesPtrOutput)
 }
 
+func (o PlaybackConfigurationManifestProcessingRulesOutput) ToOutput(ctx context.Context) pulumix.Output[PlaybackConfigurationManifestProcessingRules] {
+	return pulumix.Output[PlaybackConfigurationManifestProcessingRules]{
+		OutputState: o.OutputState,
+	}
+}
+
 // For HLS, when set to true, MediaTailor passes through EXT-X-CUE-IN, EXT-X-CUE-OUT, and EXT-X-SPLICEPOINT-SCTE35 ad markers from the origin manifest to the MediaTailor personalized manifest. No logic is applied to these ad markers. For example, if EXT-X-CUE-OUT has a value of 60, but no ads are filled for that ad break, MediaTailor will not set the value to 0.
 func (o PlaybackConfigurationManifestProcessingRulesOutput) AdMarkerPassthrough() PlaybackConfigurationAdMarkerPassthroughPtrOutput {
 	return o.ApplyT(func(v PlaybackConfigurationManifestProcessingRules) *PlaybackConfigurationAdMarkerPassthrough {
@@ -1349,6 +1560,12 @@ func (o PlaybackConfigurationManifestProcessingRulesPtrOutput) ToPlaybackConfigu
 
 func (o PlaybackConfigurationManifestProcessingRulesPtrOutput) ToPlaybackConfigurationManifestProcessingRulesPtrOutputWithContext(ctx context.Context) PlaybackConfigurationManifestProcessingRulesPtrOutput {
 	return o
+}
+
+func (o PlaybackConfigurationManifestProcessingRulesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PlaybackConfigurationManifestProcessingRules] {
+	return pulumix.Output[*PlaybackConfigurationManifestProcessingRules]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PlaybackConfigurationManifestProcessingRulesPtrOutput) Elem() PlaybackConfigurationManifestProcessingRulesOutput {
@@ -1404,6 +1621,12 @@ func (i PlaybackConfigurationTagArgs) ToPlaybackConfigurationTagOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationTagOutput)
 }
 
+func (i PlaybackConfigurationTagArgs) ToOutput(ctx context.Context) pulumix.Output[PlaybackConfigurationTag] {
+	return pulumix.Output[PlaybackConfigurationTag]{
+		OutputState: i.ToPlaybackConfigurationTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PlaybackConfigurationTagArrayInput is an input type that accepts PlaybackConfigurationTagArray and PlaybackConfigurationTagArrayOutput values.
 // You can construct a concrete instance of `PlaybackConfigurationTagArrayInput` via:
 //
@@ -1429,6 +1652,12 @@ func (i PlaybackConfigurationTagArray) ToPlaybackConfigurationTagArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationTagArrayOutput)
 }
 
+func (i PlaybackConfigurationTagArray) ToOutput(ctx context.Context) pulumix.Output[[]PlaybackConfigurationTag] {
+	return pulumix.Output[[]PlaybackConfigurationTag]{
+		OutputState: i.ToPlaybackConfigurationTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PlaybackConfigurationTagOutput struct{ *pulumi.OutputState }
 
 func (PlaybackConfigurationTagOutput) ElementType() reflect.Type {
@@ -1441,6 +1670,12 @@ func (o PlaybackConfigurationTagOutput) ToPlaybackConfigurationTagOutput() Playb
 
 func (o PlaybackConfigurationTagOutput) ToPlaybackConfigurationTagOutputWithContext(ctx context.Context) PlaybackConfigurationTagOutput {
 	return o
+}
+
+func (o PlaybackConfigurationTagOutput) ToOutput(ctx context.Context) pulumix.Output[PlaybackConfigurationTag] {
+	return pulumix.Output[PlaybackConfigurationTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PlaybackConfigurationTagOutput) Key() pulumi.StringOutput {
@@ -1463,6 +1698,12 @@ func (o PlaybackConfigurationTagArrayOutput) ToPlaybackConfigurationTagArrayOutp
 
 func (o PlaybackConfigurationTagArrayOutput) ToPlaybackConfigurationTagArrayOutputWithContext(ctx context.Context) PlaybackConfigurationTagArrayOutput {
 	return o
+}
+
+func (o PlaybackConfigurationTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PlaybackConfigurationTag] {
+	return pulumix.Output[[]PlaybackConfigurationTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PlaybackConfigurationTagArrayOutput) Index(i pulumi.IntInput) PlaybackConfigurationTagOutput {

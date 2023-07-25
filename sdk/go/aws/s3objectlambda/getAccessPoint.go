@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::S3ObjectLambda::AccessPoint resource is an Amazon S3ObjectLambda resource type that you can use to add computation to S3 actions
@@ -73,6 +74,12 @@ func (o LookupAccessPointResultOutput) ToLookupAccessPointResultOutput() LookupA
 
 func (o LookupAccessPointResultOutput) ToLookupAccessPointResultOutputWithContext(ctx context.Context) LookupAccessPointResultOutput {
 	return o
+}
+
+func (o LookupAccessPointResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAccessPointResult] {
+	return pulumix.Output[LookupAccessPointResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupAccessPointResultOutput) Alias() AccessPointAliasPtrOutput {

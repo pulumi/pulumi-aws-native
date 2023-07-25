@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::GameLift::MatchmakingConfiguration
@@ -78,6 +79,12 @@ func (o LookupMatchmakingConfigurationResultOutput) ToLookupMatchmakingConfigura
 
 func (o LookupMatchmakingConfigurationResultOutput) ToLookupMatchmakingConfigurationResultOutputWithContext(ctx context.Context) LookupMatchmakingConfigurationResultOutput {
 	return o
+}
+
+func (o LookupMatchmakingConfigurationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupMatchmakingConfigurationResult] {
+	return pulumix.Output[LookupMatchmakingConfigurationResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupMatchmakingConfigurationResultOutput) AcceptanceRequired() pulumi.BoolPtrOutput {

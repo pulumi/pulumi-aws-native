@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::BackupGateway::Hypervisor Resource Type
@@ -64,6 +65,12 @@ func (o LookupHypervisorResultOutput) ToLookupHypervisorResultOutput() LookupHyp
 
 func (o LookupHypervisorResultOutput) ToLookupHypervisorResultOutputWithContext(ctx context.Context) LookupHypervisorResultOutput {
 	return o
+}
+
+func (o LookupHypervisorResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupHypervisorResult] {
+	return pulumix.Output[LookupHypervisorResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupHypervisorResultOutput) Host() pulumi.StringPtrOutput {

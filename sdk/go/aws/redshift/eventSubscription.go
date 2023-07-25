@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The `AWS::Redshift::EventSubscription` resource creates an Amazon Redshift Event Subscription.
@@ -150,6 +151,12 @@ func (i *EventSubscription) ToEventSubscriptionOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionOutput)
 }
 
+func (i *EventSubscription) ToOutput(ctx context.Context) pulumix.Output[*EventSubscription] {
+	return pulumix.Output[*EventSubscription]{
+		OutputState: i.ToEventSubscriptionOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionOutput) ElementType() reflect.Type {
@@ -162,6 +169,12 @@ func (o EventSubscriptionOutput) ToEventSubscriptionOutput() EventSubscriptionOu
 
 func (o EventSubscriptionOutput) ToEventSubscriptionOutputWithContext(ctx context.Context) EventSubscriptionOutput {
 	return o
+}
+
+func (o EventSubscriptionOutput) ToOutput(ctx context.Context) pulumix.Output[*EventSubscription] {
+	return pulumix.Output[*EventSubscription]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the Amazon Redshift event notification subscription.

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AppSync::GraphQLSchema
@@ -101,6 +102,12 @@ func (i *GraphQLSchema) ToGraphQLSchemaOutputWithContext(ctx context.Context) Gr
 	return pulumi.ToOutputWithContext(ctx, i).(GraphQLSchemaOutput)
 }
 
+func (i *GraphQLSchema) ToOutput(ctx context.Context) pulumix.Output[*GraphQLSchema] {
+	return pulumix.Output[*GraphQLSchema]{
+		OutputState: i.ToGraphQLSchemaOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GraphQLSchemaOutput struct{ *pulumi.OutputState }
 
 func (GraphQLSchemaOutput) ElementType() reflect.Type {
@@ -113,6 +120,12 @@ func (o GraphQLSchemaOutput) ToGraphQLSchemaOutput() GraphQLSchemaOutput {
 
 func (o GraphQLSchemaOutput) ToGraphQLSchemaOutputWithContext(ctx context.Context) GraphQLSchemaOutput {
 	return o
+}
+
+func (o GraphQLSchemaOutput) ToOutput(ctx context.Context) pulumix.Output[*GraphQLSchema] {
+	return pulumix.Output[*GraphQLSchema]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GraphQLSchemaOutput) ApiId() pulumi.StringOutput {

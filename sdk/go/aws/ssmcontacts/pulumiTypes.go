@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -52,6 +53,12 @@ func (i ContactChannelTargetInfoArgs) ToContactChannelTargetInfoOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ContactChannelTargetInfoOutput)
 }
 
+func (i ContactChannelTargetInfoArgs) ToOutput(ctx context.Context) pulumix.Output[ContactChannelTargetInfo] {
+	return pulumix.Output[ContactChannelTargetInfo]{
+		OutputState: i.ToContactChannelTargetInfoOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ContactChannelTargetInfoArgs) ToContactChannelTargetInfoPtrOutput() ContactChannelTargetInfoPtrOutput {
 	return i.ToContactChannelTargetInfoPtrOutputWithContext(context.Background())
 }
@@ -93,6 +100,12 @@ func (i *contactChannelTargetInfoPtrType) ToContactChannelTargetInfoPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ContactChannelTargetInfoPtrOutput)
 }
 
+func (i *contactChannelTargetInfoPtrType) ToOutput(ctx context.Context) pulumix.Output[*ContactChannelTargetInfo] {
+	return pulumix.Output[*ContactChannelTargetInfo]{
+		OutputState: i.ToContactChannelTargetInfoPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Information about the contact channel that SSM Incident Manager uses to engage the contact.
 type ContactChannelTargetInfoOutput struct{ *pulumi.OutputState }
 
@@ -118,6 +131,12 @@ func (o ContactChannelTargetInfoOutput) ToContactChannelTargetInfoPtrOutputWithC
 	}).(ContactChannelTargetInfoPtrOutput)
 }
 
+func (o ContactChannelTargetInfoOutput) ToOutput(ctx context.Context) pulumix.Output[ContactChannelTargetInfo] {
+	return pulumix.Output[ContactChannelTargetInfo]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The Amazon Resource Name (ARN) of the contact channel.
 func (o ContactChannelTargetInfoOutput) ChannelId() pulumi.StringOutput {
 	return o.ApplyT(func(v ContactChannelTargetInfo) string { return v.ChannelId }).(pulumi.StringOutput)
@@ -140,6 +159,12 @@ func (o ContactChannelTargetInfoPtrOutput) ToContactChannelTargetInfoPtrOutput()
 
 func (o ContactChannelTargetInfoPtrOutput) ToContactChannelTargetInfoPtrOutputWithContext(ctx context.Context) ContactChannelTargetInfoPtrOutput {
 	return o
+}
+
+func (o ContactChannelTargetInfoPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ContactChannelTargetInfo] {
+	return pulumix.Output[*ContactChannelTargetInfo]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ContactChannelTargetInfoPtrOutput) Elem() ContactChannelTargetInfoOutput {
@@ -215,6 +240,12 @@ func (i ContactStageArgs) ToContactStageOutputWithContext(ctx context.Context) C
 	return pulumi.ToOutputWithContext(ctx, i).(ContactStageOutput)
 }
 
+func (i ContactStageArgs) ToOutput(ctx context.Context) pulumix.Output[ContactStage] {
+	return pulumix.Output[ContactStage]{
+		OutputState: i.ToContactStageOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ContactStageArrayInput is an input type that accepts ContactStageArray and ContactStageArrayOutput values.
 // You can construct a concrete instance of `ContactStageArrayInput` via:
 //
@@ -240,6 +271,12 @@ func (i ContactStageArray) ToContactStageArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ContactStageArrayOutput)
 }
 
+func (i ContactStageArray) ToOutput(ctx context.Context) pulumix.Output[[]ContactStage] {
+	return pulumix.Output[[]ContactStage]{
+		OutputState: i.ToContactStageArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A set amount of time that an escalation plan or engagement plan engages the specified contacts or contact methods.
 type ContactStageOutput struct{ *pulumi.OutputState }
 
@@ -253,6 +290,12 @@ func (o ContactStageOutput) ToContactStageOutput() ContactStageOutput {
 
 func (o ContactStageOutput) ToContactStageOutputWithContext(ctx context.Context) ContactStageOutput {
 	return o
+}
+
+func (o ContactStageOutput) ToOutput(ctx context.Context) pulumix.Output[ContactStage] {
+	return pulumix.Output[ContactStage]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The time to wait until beginning the next stage.
@@ -282,6 +325,12 @@ func (o ContactStageArrayOutput) ToContactStageArrayOutput() ContactStageArrayOu
 
 func (o ContactStageArrayOutput) ToContactStageArrayOutputWithContext(ctx context.Context) ContactStageArrayOutput {
 	return o
+}
+
+func (o ContactStageArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ContactStage] {
+	return pulumix.Output[[]ContactStage]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ContactStageArrayOutput) Index(i pulumi.IntInput) ContactStageOutput {
@@ -329,6 +378,12 @@ func (i ContactTargetInfoArgs) ToContactTargetInfoOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ContactTargetInfoOutput)
 }
 
+func (i ContactTargetInfoArgs) ToOutput(ctx context.Context) pulumix.Output[ContactTargetInfo] {
+	return pulumix.Output[ContactTargetInfo]{
+		OutputState: i.ToContactTargetInfoOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ContactTargetInfoArgs) ToContactTargetInfoPtrOutput() ContactTargetInfoPtrOutput {
 	return i.ToContactTargetInfoPtrOutputWithContext(context.Background())
 }
@@ -370,6 +425,12 @@ func (i *contactTargetInfoPtrType) ToContactTargetInfoPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ContactTargetInfoPtrOutput)
 }
 
+func (i *contactTargetInfoPtrType) ToOutput(ctx context.Context) pulumix.Output[*ContactTargetInfo] {
+	return pulumix.Output[*ContactTargetInfo]{
+		OutputState: i.ToContactTargetInfoPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The contact that SSM Incident Manager is engaging during an incident.
 type ContactTargetInfoOutput struct{ *pulumi.OutputState }
 
@@ -395,6 +456,12 @@ func (o ContactTargetInfoOutput) ToContactTargetInfoPtrOutputWithContext(ctx con
 	}).(ContactTargetInfoPtrOutput)
 }
 
+func (o ContactTargetInfoOutput) ToOutput(ctx context.Context) pulumix.Output[ContactTargetInfo] {
+	return pulumix.Output[ContactTargetInfo]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The Amazon Resource Name (ARN) of the contact.
 func (o ContactTargetInfoOutput) ContactId() pulumi.StringOutput {
 	return o.ApplyT(func(v ContactTargetInfo) string { return v.ContactId }).(pulumi.StringOutput)
@@ -417,6 +484,12 @@ func (o ContactTargetInfoPtrOutput) ToContactTargetInfoPtrOutput() ContactTarget
 
 func (o ContactTargetInfoPtrOutput) ToContactTargetInfoPtrOutputWithContext(ctx context.Context) ContactTargetInfoPtrOutput {
 	return o
+}
+
+func (o ContactTargetInfoPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ContactTargetInfo] {
+	return pulumix.Output[*ContactTargetInfo]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ContactTargetInfoPtrOutput) Elem() ContactTargetInfoOutput {
@@ -484,6 +557,12 @@ func (i ContactTargetsArgs) ToContactTargetsOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ContactTargetsOutput)
 }
 
+func (i ContactTargetsArgs) ToOutput(ctx context.Context) pulumix.Output[ContactTargets] {
+	return pulumix.Output[ContactTargets]{
+		OutputState: i.ToContactTargetsOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ContactTargetsArrayInput is an input type that accepts ContactTargetsArray and ContactTargetsArrayOutput values.
 // You can construct a concrete instance of `ContactTargetsArrayInput` via:
 //
@@ -509,6 +588,12 @@ func (i ContactTargetsArray) ToContactTargetsArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ContactTargetsArrayOutput)
 }
 
+func (i ContactTargetsArray) ToOutput(ctx context.Context) pulumix.Output[[]ContactTargets] {
+	return pulumix.Output[[]ContactTargets]{
+		OutputState: i.ToContactTargetsArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The contacts or contact methods that the escalation plan or engagement plan is engaging.
 type ContactTargetsOutput struct{ *pulumi.OutputState }
 
@@ -522,6 +607,12 @@ func (o ContactTargetsOutput) ToContactTargetsOutput() ContactTargetsOutput {
 
 func (o ContactTargetsOutput) ToContactTargetsOutputWithContext(ctx context.Context) ContactTargetsOutput {
 	return o
+}
+
+func (o ContactTargetsOutput) ToOutput(ctx context.Context) pulumix.Output[ContactTargets] {
+	return pulumix.Output[ContactTargets]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ContactTargetsOutput) ChannelTargetInfo() ContactChannelTargetInfoPtrOutput {
@@ -544,6 +635,12 @@ func (o ContactTargetsArrayOutput) ToContactTargetsArrayOutput() ContactTargetsA
 
 func (o ContactTargetsArrayOutput) ToContactTargetsArrayOutputWithContext(ctx context.Context) ContactTargetsArrayOutput {
 	return o
+}
+
+func (o ContactTargetsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ContactTargets] {
+	return pulumix.Output[[]ContactTargets]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ContactTargetsArrayOutput) Index(i pulumi.IntInput) ContactTargetsOutput {
@@ -591,6 +688,12 @@ func (i PlanChannelTargetInfoArgs) ToPlanChannelTargetInfoOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(PlanChannelTargetInfoOutput)
 }
 
+func (i PlanChannelTargetInfoArgs) ToOutput(ctx context.Context) pulumix.Output[PlanChannelTargetInfo] {
+	return pulumix.Output[PlanChannelTargetInfo]{
+		OutputState: i.ToPlanChannelTargetInfoOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PlanChannelTargetInfoArgs) ToPlanChannelTargetInfoPtrOutput() PlanChannelTargetInfoPtrOutput {
 	return i.ToPlanChannelTargetInfoPtrOutputWithContext(context.Background())
 }
@@ -632,6 +735,12 @@ func (i *planChannelTargetInfoPtrType) ToPlanChannelTargetInfoPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(PlanChannelTargetInfoPtrOutput)
 }
 
+func (i *planChannelTargetInfoPtrType) ToOutput(ctx context.Context) pulumix.Output[*PlanChannelTargetInfo] {
+	return pulumix.Output[*PlanChannelTargetInfo]{
+		OutputState: i.ToPlanChannelTargetInfoPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Information about the contact channel that SSM Incident Manager uses to engage the contact.
 type PlanChannelTargetInfoOutput struct{ *pulumi.OutputState }
 
@@ -657,6 +766,12 @@ func (o PlanChannelTargetInfoOutput) ToPlanChannelTargetInfoPtrOutputWithContext
 	}).(PlanChannelTargetInfoPtrOutput)
 }
 
+func (o PlanChannelTargetInfoOutput) ToOutput(ctx context.Context) pulumix.Output[PlanChannelTargetInfo] {
+	return pulumix.Output[PlanChannelTargetInfo]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The Amazon Resource Name (ARN) of the contact channel.
 func (o PlanChannelTargetInfoOutput) ChannelId() pulumi.StringOutput {
 	return o.ApplyT(func(v PlanChannelTargetInfo) string { return v.ChannelId }).(pulumi.StringOutput)
@@ -679,6 +794,12 @@ func (o PlanChannelTargetInfoPtrOutput) ToPlanChannelTargetInfoPtrOutput() PlanC
 
 func (o PlanChannelTargetInfoPtrOutput) ToPlanChannelTargetInfoPtrOutputWithContext(ctx context.Context) PlanChannelTargetInfoPtrOutput {
 	return o
+}
+
+func (o PlanChannelTargetInfoPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PlanChannelTargetInfo] {
+	return pulumix.Output[*PlanChannelTargetInfo]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PlanChannelTargetInfoPtrOutput) Elem() PlanChannelTargetInfoOutput {
@@ -750,6 +871,12 @@ func (i PlanContactTargetInfoArgs) ToPlanContactTargetInfoOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(PlanContactTargetInfoOutput)
 }
 
+func (i PlanContactTargetInfoArgs) ToOutput(ctx context.Context) pulumix.Output[PlanContactTargetInfo] {
+	return pulumix.Output[PlanContactTargetInfo]{
+		OutputState: i.ToPlanContactTargetInfoOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PlanContactTargetInfoArgs) ToPlanContactTargetInfoPtrOutput() PlanContactTargetInfoPtrOutput {
 	return i.ToPlanContactTargetInfoPtrOutputWithContext(context.Background())
 }
@@ -791,6 +918,12 @@ func (i *planContactTargetInfoPtrType) ToPlanContactTargetInfoPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(PlanContactTargetInfoPtrOutput)
 }
 
+func (i *planContactTargetInfoPtrType) ToOutput(ctx context.Context) pulumix.Output[*PlanContactTargetInfo] {
+	return pulumix.Output[*PlanContactTargetInfo]{
+		OutputState: i.ToPlanContactTargetInfoPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The contact that SSM Incident Manager is engaging during an incident.
 type PlanContactTargetInfoOutput struct{ *pulumi.OutputState }
 
@@ -816,6 +949,12 @@ func (o PlanContactTargetInfoOutput) ToPlanContactTargetInfoPtrOutputWithContext
 	}).(PlanContactTargetInfoPtrOutput)
 }
 
+func (o PlanContactTargetInfoOutput) ToOutput(ctx context.Context) pulumix.Output[PlanContactTargetInfo] {
+	return pulumix.Output[PlanContactTargetInfo]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The Amazon Resource Name (ARN) of the contact.
 func (o PlanContactTargetInfoOutput) ContactId() pulumi.StringOutput {
 	return o.ApplyT(func(v PlanContactTargetInfo) string { return v.ContactId }).(pulumi.StringOutput)
@@ -838,6 +977,12 @@ func (o PlanContactTargetInfoPtrOutput) ToPlanContactTargetInfoPtrOutput() PlanC
 
 func (o PlanContactTargetInfoPtrOutput) ToPlanContactTargetInfoPtrOutputWithContext(ctx context.Context) PlanContactTargetInfoPtrOutput {
 	return o
+}
+
+func (o PlanContactTargetInfoPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PlanContactTargetInfo] {
+	return pulumix.Output[*PlanContactTargetInfo]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PlanContactTargetInfoPtrOutput) Elem() PlanContactTargetInfoOutput {
@@ -909,6 +1054,12 @@ func (i PlanStageArgs) ToPlanStageOutputWithContext(ctx context.Context) PlanSta
 	return pulumi.ToOutputWithContext(ctx, i).(PlanStageOutput)
 }
 
+func (i PlanStageArgs) ToOutput(ctx context.Context) pulumix.Output[PlanStage] {
+	return pulumix.Output[PlanStage]{
+		OutputState: i.ToPlanStageOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PlanStageArrayInput is an input type that accepts PlanStageArray and PlanStageArrayOutput values.
 // You can construct a concrete instance of `PlanStageArrayInput` via:
 //
@@ -934,6 +1085,12 @@ func (i PlanStageArray) ToPlanStageArrayOutputWithContext(ctx context.Context) P
 	return pulumi.ToOutputWithContext(ctx, i).(PlanStageArrayOutput)
 }
 
+func (i PlanStageArray) ToOutput(ctx context.Context) pulumix.Output[[]PlanStage] {
+	return pulumix.Output[[]PlanStage]{
+		OutputState: i.ToPlanStageArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A set amount of time that an escalation plan or engagement plan engages the specified contacts or contact methods.
 type PlanStageOutput struct{ *pulumi.OutputState }
 
@@ -947,6 +1104,12 @@ func (o PlanStageOutput) ToPlanStageOutput() PlanStageOutput {
 
 func (o PlanStageOutput) ToPlanStageOutputWithContext(ctx context.Context) PlanStageOutput {
 	return o
+}
+
+func (o PlanStageOutput) ToOutput(ctx context.Context) pulumix.Output[PlanStage] {
+	return pulumix.Output[PlanStage]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The time to wait until beginning the next stage.
@@ -971,6 +1134,12 @@ func (o PlanStageArrayOutput) ToPlanStageArrayOutput() PlanStageArrayOutput {
 
 func (o PlanStageArrayOutput) ToPlanStageArrayOutputWithContext(ctx context.Context) PlanStageArrayOutput {
 	return o
+}
+
+func (o PlanStageArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PlanStage] {
+	return pulumix.Output[[]PlanStage]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PlanStageArrayOutput) Index(i pulumi.IntInput) PlanStageOutput {
@@ -1014,6 +1183,12 @@ func (i PlanTargetsArgs) ToPlanTargetsOutputWithContext(ctx context.Context) Pla
 	return pulumi.ToOutputWithContext(ctx, i).(PlanTargetsOutput)
 }
 
+func (i PlanTargetsArgs) ToOutput(ctx context.Context) pulumix.Output[PlanTargets] {
+	return pulumix.Output[PlanTargets]{
+		OutputState: i.ToPlanTargetsOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PlanTargetsArrayInput is an input type that accepts PlanTargetsArray and PlanTargetsArrayOutput values.
 // You can construct a concrete instance of `PlanTargetsArrayInput` via:
 //
@@ -1039,6 +1214,12 @@ func (i PlanTargetsArray) ToPlanTargetsArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(PlanTargetsArrayOutput)
 }
 
+func (i PlanTargetsArray) ToOutput(ctx context.Context) pulumix.Output[[]PlanTargets] {
+	return pulumix.Output[[]PlanTargets]{
+		OutputState: i.ToPlanTargetsArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The contacts or contact methods that the escalation plan or engagement plan is engaging.
 type PlanTargetsOutput struct{ *pulumi.OutputState }
 
@@ -1052,6 +1233,12 @@ func (o PlanTargetsOutput) ToPlanTargetsOutput() PlanTargetsOutput {
 
 func (o PlanTargetsOutput) ToPlanTargetsOutputWithContext(ctx context.Context) PlanTargetsOutput {
 	return o
+}
+
+func (o PlanTargetsOutput) ToOutput(ctx context.Context) pulumix.Output[PlanTargets] {
+	return pulumix.Output[PlanTargets]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PlanTargetsOutput) ChannelTargetInfo() PlanChannelTargetInfoPtrOutput {
@@ -1074,6 +1261,12 @@ func (o PlanTargetsArrayOutput) ToPlanTargetsArrayOutput() PlanTargetsArrayOutpu
 
 func (o PlanTargetsArrayOutput) ToPlanTargetsArrayOutputWithContext(ctx context.Context) PlanTargetsArrayOutput {
 	return o
+}
+
+func (o PlanTargetsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PlanTargets] {
+	return pulumix.Output[[]PlanTargets]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PlanTargetsArrayOutput) Index(i pulumi.IntInput) PlanTargetsOutput {
@@ -1117,6 +1310,12 @@ func (i RotationCoverageTimeArgs) ToRotationCoverageTimeOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(RotationCoverageTimeOutput)
 }
 
+func (i RotationCoverageTimeArgs) ToOutput(ctx context.Context) pulumix.Output[RotationCoverageTime] {
+	return pulumix.Output[RotationCoverageTime]{
+		OutputState: i.ToRotationCoverageTimeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RotationCoverageTimeArrayInput is an input type that accepts RotationCoverageTimeArray and RotationCoverageTimeArrayOutput values.
 // You can construct a concrete instance of `RotationCoverageTimeArrayInput` via:
 //
@@ -1142,6 +1341,12 @@ func (i RotationCoverageTimeArray) ToRotationCoverageTimeArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(RotationCoverageTimeArrayOutput)
 }
 
+func (i RotationCoverageTimeArray) ToOutput(ctx context.Context) pulumix.Output[[]RotationCoverageTime] {
+	return pulumix.Output[[]RotationCoverageTime]{
+		OutputState: i.ToRotationCoverageTimeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // StartTime and EndTime for the Shift
 type RotationCoverageTimeOutput struct{ *pulumi.OutputState }
 
@@ -1155,6 +1360,12 @@ func (o RotationCoverageTimeOutput) ToRotationCoverageTimeOutput() RotationCover
 
 func (o RotationCoverageTimeOutput) ToRotationCoverageTimeOutputWithContext(ctx context.Context) RotationCoverageTimeOutput {
 	return o
+}
+
+func (o RotationCoverageTimeOutput) ToOutput(ctx context.Context) pulumix.Output[RotationCoverageTime] {
+	return pulumix.Output[RotationCoverageTime]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RotationCoverageTimeOutput) EndTime() pulumi.StringOutput {
@@ -1177,6 +1388,12 @@ func (o RotationCoverageTimeArrayOutput) ToRotationCoverageTimeArrayOutput() Rot
 
 func (o RotationCoverageTimeArrayOutput) ToRotationCoverageTimeArrayOutputWithContext(ctx context.Context) RotationCoverageTimeArrayOutput {
 	return o
+}
+
+func (o RotationCoverageTimeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RotationCoverageTime] {
+	return pulumix.Output[[]RotationCoverageTime]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RotationCoverageTimeArrayOutput) Index(i pulumi.IntInput) RotationCoverageTimeOutput {
@@ -1222,6 +1439,12 @@ func (i RotationMonthlySettingArgs) ToRotationMonthlySettingOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(RotationMonthlySettingOutput)
 }
 
+func (i RotationMonthlySettingArgs) ToOutput(ctx context.Context) pulumix.Output[RotationMonthlySetting] {
+	return pulumix.Output[RotationMonthlySetting]{
+		OutputState: i.ToRotationMonthlySettingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RotationMonthlySettingArrayInput is an input type that accepts RotationMonthlySettingArray and RotationMonthlySettingArrayOutput values.
 // You can construct a concrete instance of `RotationMonthlySettingArrayInput` via:
 //
@@ -1247,6 +1470,12 @@ func (i RotationMonthlySettingArray) ToRotationMonthlySettingArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(RotationMonthlySettingArrayOutput)
 }
 
+func (i RotationMonthlySettingArray) ToOutput(ctx context.Context) pulumix.Output[[]RotationMonthlySetting] {
+	return pulumix.Output[[]RotationMonthlySetting]{
+		OutputState: i.ToRotationMonthlySettingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DayOfWeek for Month and HandOff Time for Monthly Recurring Rotation.
 type RotationMonthlySettingOutput struct{ *pulumi.OutputState }
 
@@ -1260,6 +1489,12 @@ func (o RotationMonthlySettingOutput) ToRotationMonthlySettingOutput() RotationM
 
 func (o RotationMonthlySettingOutput) ToRotationMonthlySettingOutputWithContext(ctx context.Context) RotationMonthlySettingOutput {
 	return o
+}
+
+func (o RotationMonthlySettingOutput) ToOutput(ctx context.Context) pulumix.Output[RotationMonthlySetting] {
+	return pulumix.Output[RotationMonthlySetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The day of the month when monthly recurring on-call rotations begin.
@@ -1283,6 +1518,12 @@ func (o RotationMonthlySettingArrayOutput) ToRotationMonthlySettingArrayOutput()
 
 func (o RotationMonthlySettingArrayOutput) ToRotationMonthlySettingArrayOutputWithContext(ctx context.Context) RotationMonthlySettingArrayOutput {
 	return o
+}
+
+func (o RotationMonthlySettingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RotationMonthlySetting] {
+	return pulumix.Output[[]RotationMonthlySetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RotationMonthlySettingArrayOutput) Index(i pulumi.IntInput) RotationMonthlySettingOutput {
@@ -1346,6 +1587,12 @@ func (i RotationRecurrenceSettingsArgs) ToRotationRecurrenceSettingsOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(RotationRecurrenceSettingsOutput)
 }
 
+func (i RotationRecurrenceSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[RotationRecurrenceSettings] {
+	return pulumix.Output[RotationRecurrenceSettings]{
+		OutputState: i.ToRotationRecurrenceSettingsOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Information about when an on-call rotation is in effect and how long the rotation period lasts.
 type RotationRecurrenceSettingsOutput struct{ *pulumi.OutputState }
 
@@ -1359,6 +1606,12 @@ func (o RotationRecurrenceSettingsOutput) ToRotationRecurrenceSettingsOutput() R
 
 func (o RotationRecurrenceSettingsOutput) ToRotationRecurrenceSettingsOutputWithContext(ctx context.Context) RotationRecurrenceSettingsOutput {
 	return o
+}
+
+func (o RotationRecurrenceSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[RotationRecurrenceSettings] {
+	return pulumix.Output[RotationRecurrenceSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Information about on-call rotations that recur daily.
@@ -1403,6 +1656,12 @@ func (o RotationRecurrenceSettingsPtrOutput) ToRotationRecurrenceSettingsPtrOutp
 
 func (o RotationRecurrenceSettingsPtrOutput) ToRotationRecurrenceSettingsPtrOutputWithContext(ctx context.Context) RotationRecurrenceSettingsPtrOutput {
 	return o
+}
+
+func (o RotationRecurrenceSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RotationRecurrenceSettings] {
+	return pulumix.Output[*RotationRecurrenceSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RotationRecurrenceSettingsPtrOutput) Elem() RotationRecurrenceSettingsOutput {
@@ -1512,6 +1771,12 @@ func (i RotationShiftCoverageArgs) ToRotationShiftCoverageOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(RotationShiftCoverageOutput)
 }
 
+func (i RotationShiftCoverageArgs) ToOutput(ctx context.Context) pulumix.Output[RotationShiftCoverage] {
+	return pulumix.Output[RotationShiftCoverage]{
+		OutputState: i.ToRotationShiftCoverageOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RotationShiftCoverageArrayInput is an input type that accepts RotationShiftCoverageArray and RotationShiftCoverageArrayOutput values.
 // You can construct a concrete instance of `RotationShiftCoverageArrayInput` via:
 //
@@ -1537,6 +1802,12 @@ func (i RotationShiftCoverageArray) ToRotationShiftCoverageArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(RotationShiftCoverageArrayOutput)
 }
 
+func (i RotationShiftCoverageArray) ToOutput(ctx context.Context) pulumix.Output[[]RotationShiftCoverage] {
+	return pulumix.Output[[]RotationShiftCoverage]{
+		OutputState: i.ToRotationShiftCoverageArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Information about the days of the week included in on-call rotation coverage.
 type RotationShiftCoverageOutput struct{ *pulumi.OutputState }
 
@@ -1550,6 +1821,12 @@ func (o RotationShiftCoverageOutput) ToRotationShiftCoverageOutput() RotationShi
 
 func (o RotationShiftCoverageOutput) ToRotationShiftCoverageOutputWithContext(ctx context.Context) RotationShiftCoverageOutput {
 	return o
+}
+
+func (o RotationShiftCoverageOutput) ToOutput(ctx context.Context) pulumix.Output[RotationShiftCoverage] {
+	return pulumix.Output[RotationShiftCoverage]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Information about when an on-call shift begins and ends.
@@ -1573,6 +1850,12 @@ func (o RotationShiftCoverageArrayOutput) ToRotationShiftCoverageArrayOutput() R
 
 func (o RotationShiftCoverageArrayOutput) ToRotationShiftCoverageArrayOutputWithContext(ctx context.Context) RotationShiftCoverageArrayOutput {
 	return o
+}
+
+func (o RotationShiftCoverageArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RotationShiftCoverage] {
+	return pulumix.Output[[]RotationShiftCoverage]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RotationShiftCoverageArrayOutput) Index(i pulumi.IntInput) RotationShiftCoverageOutput {
@@ -1620,6 +1903,12 @@ func (i RotationTagArgs) ToRotationTagOutputWithContext(ctx context.Context) Rot
 	return pulumi.ToOutputWithContext(ctx, i).(RotationTagOutput)
 }
 
+func (i RotationTagArgs) ToOutput(ctx context.Context) pulumix.Output[RotationTag] {
+	return pulumix.Output[RotationTag]{
+		OutputState: i.ToRotationTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RotationTagArrayInput is an input type that accepts RotationTagArray and RotationTagArrayOutput values.
 // You can construct a concrete instance of `RotationTagArrayInput` via:
 //
@@ -1645,6 +1934,12 @@ func (i RotationTagArray) ToRotationTagArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(RotationTagArrayOutput)
 }
 
+func (i RotationTagArray) ToOutput(ctx context.Context) pulumix.Output[[]RotationTag] {
+	return pulumix.Output[[]RotationTag]{
+		OutputState: i.ToRotationTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type RotationTagOutput struct{ *pulumi.OutputState }
 
@@ -1658,6 +1953,12 @@ func (o RotationTagOutput) ToRotationTagOutput() RotationTagOutput {
 
 func (o RotationTagOutput) ToRotationTagOutputWithContext(ctx context.Context) RotationTagOutput {
 	return o
+}
+
+func (o RotationTagOutput) ToOutput(ctx context.Context) pulumix.Output[RotationTag] {
+	return pulumix.Output[RotationTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag
@@ -1682,6 +1983,12 @@ func (o RotationTagArrayOutput) ToRotationTagArrayOutput() RotationTagArrayOutpu
 
 func (o RotationTagArrayOutput) ToRotationTagArrayOutputWithContext(ctx context.Context) RotationTagArrayOutput {
 	return o
+}
+
+func (o RotationTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RotationTag] {
+	return pulumix.Output[[]RotationTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RotationTagArrayOutput) Index(i pulumi.IntInput) RotationTagOutput {
@@ -1725,6 +2032,12 @@ func (i RotationWeeklySettingArgs) ToRotationWeeklySettingOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(RotationWeeklySettingOutput)
 }
 
+func (i RotationWeeklySettingArgs) ToOutput(ctx context.Context) pulumix.Output[RotationWeeklySetting] {
+	return pulumix.Output[RotationWeeklySetting]{
+		OutputState: i.ToRotationWeeklySettingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RotationWeeklySettingArrayInput is an input type that accepts RotationWeeklySettingArray and RotationWeeklySettingArrayOutput values.
 // You can construct a concrete instance of `RotationWeeklySettingArrayInput` via:
 //
@@ -1750,6 +2063,12 @@ func (i RotationWeeklySettingArray) ToRotationWeeklySettingArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(RotationWeeklySettingArrayOutput)
 }
 
+func (i RotationWeeklySettingArray) ToOutput(ctx context.Context) pulumix.Output[[]RotationWeeklySetting] {
+	return pulumix.Output[[]RotationWeeklySetting]{
+		OutputState: i.ToRotationWeeklySettingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DayOfWeek for Rotation and HandOff Time for Weekly Recurring Rotation.
 type RotationWeeklySettingOutput struct{ *pulumi.OutputState }
 
@@ -1763,6 +2082,12 @@ func (o RotationWeeklySettingOutput) ToRotationWeeklySettingOutput() RotationWee
 
 func (o RotationWeeklySettingOutput) ToRotationWeeklySettingOutputWithContext(ctx context.Context) RotationWeeklySettingOutput {
 	return o
+}
+
+func (o RotationWeeklySettingOutput) ToOutput(ctx context.Context) pulumix.Output[RotationWeeklySetting] {
+	return pulumix.Output[RotationWeeklySetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RotationWeeklySettingOutput) DayOfWeek() RotationDayOfWeekOutput {
@@ -1785,6 +2110,12 @@ func (o RotationWeeklySettingArrayOutput) ToRotationWeeklySettingArrayOutput() R
 
 func (o RotationWeeklySettingArrayOutput) ToRotationWeeklySettingArrayOutputWithContext(ctx context.Context) RotationWeeklySettingArrayOutput {
 	return o
+}
+
+func (o RotationWeeklySettingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RotationWeeklySetting] {
+	return pulumix.Output[[]RotationWeeklySetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RotationWeeklySettingArrayOutput) Index(i pulumi.IntInput) RotationWeeklySettingOutput {

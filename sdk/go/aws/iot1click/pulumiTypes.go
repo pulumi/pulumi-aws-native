@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -46,6 +47,12 @@ func (i ProjectPlacementTemplateArgs) ToProjectPlacementTemplateOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectPlacementTemplateOutput)
 }
 
+func (i ProjectPlacementTemplateArgs) ToOutput(ctx context.Context) pulumix.Output[ProjectPlacementTemplate] {
+	return pulumix.Output[ProjectPlacementTemplate]{
+		OutputState: i.ToProjectPlacementTemplateOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProjectPlacementTemplateOutput struct{ *pulumi.OutputState }
 
 func (ProjectPlacementTemplateOutput) ElementType() reflect.Type {
@@ -58,6 +65,12 @@ func (o ProjectPlacementTemplateOutput) ToProjectPlacementTemplateOutput() Proje
 
 func (o ProjectPlacementTemplateOutput) ToProjectPlacementTemplateOutputWithContext(ctx context.Context) ProjectPlacementTemplateOutput {
 	return o
+}
+
+func (o ProjectPlacementTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[ProjectPlacementTemplate] {
+	return pulumix.Output[ProjectPlacementTemplate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProjectPlacementTemplateOutput) DefaultAttributes() pulumi.AnyOutput {
@@ -80,6 +93,12 @@ func (o ProjectPlacementTemplatePtrOutput) ToProjectPlacementTemplatePtrOutput()
 
 func (o ProjectPlacementTemplatePtrOutput) ToProjectPlacementTemplatePtrOutputWithContext(ctx context.Context) ProjectPlacementTemplatePtrOutput {
 	return o
+}
+
+func (o ProjectPlacementTemplatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProjectPlacementTemplate] {
+	return pulumix.Output[*ProjectPlacementTemplate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProjectPlacementTemplatePtrOutput) Elem() ProjectPlacementTemplateOutput {

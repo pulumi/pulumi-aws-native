@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::RAM::ResourceShare
@@ -107,6 +108,12 @@ func (i *ResourceShare) ToResourceShareOutputWithContext(ctx context.Context) Re
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceShareOutput)
 }
 
+func (i *ResourceShare) ToOutput(ctx context.Context) pulumix.Output[*ResourceShare] {
+	return pulumix.Output[*ResourceShare]{
+		OutputState: i.ToResourceShareOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResourceShareOutput struct{ *pulumi.OutputState }
 
 func (ResourceShareOutput) ElementType() reflect.Type {
@@ -119,6 +126,12 @@ func (o ResourceShareOutput) ToResourceShareOutput() ResourceShareOutput {
 
 func (o ResourceShareOutput) ToResourceShareOutputWithContext(ctx context.Context) ResourceShareOutput {
 	return o
+}
+
+func (o ResourceShareOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceShare] {
+	return pulumix.Output[*ResourceShare]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResourceShareOutput) AllowExternalPrincipals() pulumi.BoolPtrOutput {

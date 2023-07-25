@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Associates a VPC with a service network.
@@ -105,6 +106,12 @@ func (i *ServiceNetworkVpcAssociation) ToServiceNetworkVpcAssociationOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkVpcAssociationOutput)
 }
 
+func (i *ServiceNetworkVpcAssociation) ToOutput(ctx context.Context) pulumix.Output[*ServiceNetworkVpcAssociation] {
+	return pulumix.Output[*ServiceNetworkVpcAssociation]{
+		OutputState: i.ToServiceNetworkVpcAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceNetworkVpcAssociationOutput struct{ *pulumi.OutputState }
 
 func (ServiceNetworkVpcAssociationOutput) ElementType() reflect.Type {
@@ -117,6 +124,12 @@ func (o ServiceNetworkVpcAssociationOutput) ToServiceNetworkVpcAssociationOutput
 
 func (o ServiceNetworkVpcAssociationOutput) ToServiceNetworkVpcAssociationOutputWithContext(ctx context.Context) ServiceNetworkVpcAssociationOutput {
 	return o
+}
+
+func (o ServiceNetworkVpcAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceNetworkVpcAssociation] {
+	return pulumix.Output[*ServiceNetworkVpcAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceNetworkVpcAssociationOutput) Arn() pulumi.StringOutput {

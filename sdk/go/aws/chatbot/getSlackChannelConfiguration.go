@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::Chatbot::SlackChannelConfiguration.
@@ -78,6 +79,12 @@ func (o LookupSlackChannelConfigurationResultOutput) ToLookupSlackChannelConfigu
 
 func (o LookupSlackChannelConfigurationResultOutput) ToLookupSlackChannelConfigurationResultOutputWithContext(ctx context.Context) LookupSlackChannelConfigurationResultOutput {
 	return o
+}
+
+func (o LookupSlackChannelConfigurationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSlackChannelConfigurationResult] {
+	return pulumix.Output[LookupSlackChannelConfigurationResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name (ARN) of the configuration

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::RolesAnywhere::CRL Resource Type
@@ -68,6 +69,12 @@ func (o LookupCRLResultOutput) ToLookupCRLResultOutput() LookupCRLResultOutput {
 
 func (o LookupCRLResultOutput) ToLookupCRLResultOutputWithContext(ctx context.Context) LookupCRLResultOutput {
 	return o
+}
+
+func (o LookupCRLResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupCRLResult] {
+	return pulumix.Output[LookupCRLResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupCRLResultOutput) CrlData() pulumi.StringPtrOutput {

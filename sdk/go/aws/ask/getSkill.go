@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for Alexa::ASK::Skill
@@ -65,6 +66,12 @@ func (o LookupSkillResultOutput) ToLookupSkillResultOutput() LookupSkillResultOu
 
 func (o LookupSkillResultOutput) ToLookupSkillResultOutputWithContext(ctx context.Context) LookupSkillResultOutput {
 	return o
+}
+
+func (o LookupSkillResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSkillResult] {
+	return pulumix.Output[LookupSkillResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupSkillResultOutput) AuthenticationConfiguration() SkillAuthenticationConfigurationPtrOutput {

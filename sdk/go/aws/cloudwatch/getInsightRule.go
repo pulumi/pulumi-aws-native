@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::CloudWatch::InsightRule
@@ -67,6 +68,12 @@ func (o LookupInsightRuleResultOutput) ToLookupInsightRuleResultOutput() LookupI
 
 func (o LookupInsightRuleResultOutput) ToLookupInsightRuleResultOutputWithContext(ctx context.Context) LookupInsightRuleResultOutput {
 	return o
+}
+
+func (o LookupInsightRuleResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupInsightRuleResult] {
+	return pulumix.Output[LookupInsightRuleResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupInsightRuleResultOutput) Arn() pulumi.StringPtrOutput {

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::CloudFront::KeyGroup
@@ -65,6 +66,12 @@ func (o LookupKeyGroupResultOutput) ToLookupKeyGroupResultOutput() LookupKeyGrou
 
 func (o LookupKeyGroupResultOutput) ToLookupKeyGroupResultOutputWithContext(ctx context.Context) LookupKeyGroupResultOutput {
 	return o
+}
+
+func (o LookupKeyGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupKeyGroupResult] {
+	return pulumix.Output[LookupKeyGroupResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupKeyGroupResultOutput) Id() pulumi.StringPtrOutput {

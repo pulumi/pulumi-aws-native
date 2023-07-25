@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Specifies an Amazon Redshift subnet group.
@@ -70,6 +71,12 @@ func (o LookupClusterSubnetGroupResultOutput) ToLookupClusterSubnetGroupResultOu
 
 func (o LookupClusterSubnetGroupResultOutput) ToLookupClusterSubnetGroupResultOutputWithContext(ctx context.Context) LookupClusterSubnetGroupResultOutput {
 	return o
+}
+
+func (o LookupClusterSubnetGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupClusterSubnetGroupResult] {
+	return pulumix.Output[LookupClusterSubnetGroupResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // This name must be unique for all subnet groups that are created by your AWS account. If costumer do not provide it, cloudformation will generate it. Must not be "Default".

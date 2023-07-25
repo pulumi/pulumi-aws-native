@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Connect::TaskTemplate.
@@ -83,6 +84,12 @@ func (o LookupTaskTemplateResultOutput) ToLookupTaskTemplateResultOutput() Looku
 
 func (o LookupTaskTemplateResultOutput) ToLookupTaskTemplateResultOutputWithContext(ctx context.Context) LookupTaskTemplateResultOutput {
 	return o
+}
+
+func (o LookupTaskTemplateResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTaskTemplateResult] {
+	return pulumix.Output[LookupTaskTemplateResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The identifier (arn) of the task template.

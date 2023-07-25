@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::VPCCidrBlock
@@ -119,6 +120,12 @@ func (i *VPCCidrBlock) ToVPCCidrBlockOutputWithContext(ctx context.Context) VPCC
 	return pulumi.ToOutputWithContext(ctx, i).(VPCCidrBlockOutput)
 }
 
+func (i *VPCCidrBlock) ToOutput(ctx context.Context) pulumix.Output[*VPCCidrBlock] {
+	return pulumix.Output[*VPCCidrBlock]{
+		OutputState: i.ToVPCCidrBlockOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VPCCidrBlockOutput struct{ *pulumi.OutputState }
 
 func (VPCCidrBlockOutput) ElementType() reflect.Type {
@@ -131,6 +138,12 @@ func (o VPCCidrBlockOutput) ToVPCCidrBlockOutput() VPCCidrBlockOutput {
 
 func (o VPCCidrBlockOutput) ToVPCCidrBlockOutputWithContext(ctx context.Context) VPCCidrBlockOutput {
 	return o
+}
+
+func (o VPCCidrBlockOutput) ToOutput(ctx context.Context) pulumix.Output[*VPCCidrBlock] {
+	return pulumix.Output[*VPCCidrBlock]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VPCCidrBlockOutput) AmazonProvidedIpv6CidrBlock() pulumi.BoolPtrOutput {

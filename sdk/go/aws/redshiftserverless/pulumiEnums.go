@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type NamespaceLogExport string
@@ -78,6 +79,12 @@ func (o NamespaceLogExportOutput) ToNamespaceLogExportPtrOutputWithContext(ctx c
 	}).(NamespaceLogExportPtrOutput)
 }
 
+func (o NamespaceLogExportOutput) ToOutput(ctx context.Context) pulumix.Output[NamespaceLogExport] {
+	return pulumix.Output[NamespaceLogExport]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NamespaceLogExportOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -111,6 +118,12 @@ func (o NamespaceLogExportPtrOutput) ToNamespaceLogExportPtrOutput() NamespaceLo
 
 func (o NamespaceLogExportPtrOutput) ToNamespaceLogExportPtrOutputWithContext(ctx context.Context) NamespaceLogExportPtrOutput {
 	return o
+}
+
+func (o NamespaceLogExportPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NamespaceLogExport] {
+	return pulumix.Output[*NamespaceLogExport]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NamespaceLogExportPtrOutput) Elem() NamespaceLogExportOutput {
@@ -175,6 +188,12 @@ func (in *namespaceLogExportPtr) ToNamespaceLogExportPtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(NamespaceLogExportPtrOutput)
 }
 
+func (in *namespaceLogExportPtr) ToOutput(ctx context.Context) pulumix.Output[*NamespaceLogExport] {
+	return pulumix.Output[*NamespaceLogExport]{
+		OutputState: in.ToNamespaceLogExportPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NamespaceLogExportArrayInput is an input type that accepts NamespaceLogExportArray and NamespaceLogExportArrayOutput values.
 // You can construct a concrete instance of `NamespaceLogExportArrayInput` via:
 //
@@ -200,6 +219,12 @@ func (i NamespaceLogExportArray) ToNamespaceLogExportArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceLogExportArrayOutput)
 }
 
+func (i NamespaceLogExportArray) ToOutput(ctx context.Context) pulumix.Output[[]NamespaceLogExport] {
+	return pulumix.Output[[]NamespaceLogExport]{
+		OutputState: i.ToNamespaceLogExportArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NamespaceLogExportArrayOutput struct{ *pulumi.OutputState }
 
 func (NamespaceLogExportArrayOutput) ElementType() reflect.Type {
@@ -212,6 +237,12 @@ func (o NamespaceLogExportArrayOutput) ToNamespaceLogExportArrayOutput() Namespa
 
 func (o NamespaceLogExportArrayOutput) ToNamespaceLogExportArrayOutputWithContext(ctx context.Context) NamespaceLogExportArrayOutput {
 	return o
+}
+
+func (o NamespaceLogExportArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]NamespaceLogExport] {
+	return pulumix.Output[[]NamespaceLogExport]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NamespaceLogExportArrayOutput) Index(i pulumi.IntInput) NamespaceLogExportOutput {
@@ -252,6 +283,12 @@ func (o NamespaceStatusOutput) ToNamespaceStatusPtrOutputWithContext(ctx context
 	}).(NamespaceStatusPtrOutput)
 }
 
+func (o NamespaceStatusOutput) ToOutput(ctx context.Context) pulumix.Output[NamespaceStatus] {
+	return pulumix.Output[NamespaceStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NamespaceStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -285,6 +322,12 @@ func (o NamespaceStatusPtrOutput) ToNamespaceStatusPtrOutput() NamespaceStatusPt
 
 func (o NamespaceStatusPtrOutput) ToNamespaceStatusPtrOutputWithContext(ctx context.Context) NamespaceStatusPtrOutput {
 	return o
+}
+
+func (o NamespaceStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NamespaceStatus] {
+	return pulumix.Output[*NamespaceStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NamespaceStatusPtrOutput) Elem() NamespaceStatusOutput {
@@ -344,6 +387,12 @@ func (o WorkgroupStatusOutput) ToWorkgroupStatusPtrOutputWithContext(ctx context
 	}).(WorkgroupStatusPtrOutput)
 }
 
+func (o WorkgroupStatusOutput) ToOutput(ctx context.Context) pulumix.Output[WorkgroupStatus] {
+	return pulumix.Output[WorkgroupStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WorkgroupStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -377,6 +426,12 @@ func (o WorkgroupStatusPtrOutput) ToWorkgroupStatusPtrOutput() WorkgroupStatusPt
 
 func (o WorkgroupStatusPtrOutput) ToWorkgroupStatusPtrOutputWithContext(ctx context.Context) WorkgroupStatusPtrOutput {
 	return o
+}
+
+func (o WorkgroupStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkgroupStatus] {
+	return pulumix.Output[*WorkgroupStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkgroupStatusPtrOutput) Elem() WorkgroupStatusOutput {

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::Omics::AnnotationStore Resource Type
@@ -70,6 +71,12 @@ func (o LookupAnnotationStoreResultOutput) ToLookupAnnotationStoreResultOutput()
 
 func (o LookupAnnotationStoreResultOutput) ToLookupAnnotationStoreResultOutputWithContext(ctx context.Context) LookupAnnotationStoreResultOutput {
 	return o
+}
+
+func (o LookupAnnotationStoreResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAnnotationStoreResult] {
+	return pulumix.Output[LookupAnnotationStoreResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupAnnotationStoreResultOutput) CreationTime() pulumi.StringPtrOutput {

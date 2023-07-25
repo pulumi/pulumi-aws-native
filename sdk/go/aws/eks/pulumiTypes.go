@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -52,6 +53,12 @@ func (i AddonTagArgs) ToAddonTagOutputWithContext(ctx context.Context) AddonTagO
 	return pulumi.ToOutputWithContext(ctx, i).(AddonTagOutput)
 }
 
+func (i AddonTagArgs) ToOutput(ctx context.Context) pulumix.Output[AddonTag] {
+	return pulumix.Output[AddonTag]{
+		OutputState: i.ToAddonTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AddonTagArrayInput is an input type that accepts AddonTagArray and AddonTagArrayOutput values.
 // You can construct a concrete instance of `AddonTagArrayInput` via:
 //
@@ -77,6 +84,12 @@ func (i AddonTagArray) ToAddonTagArrayOutputWithContext(ctx context.Context) Add
 	return pulumi.ToOutputWithContext(ctx, i).(AddonTagArrayOutput)
 }
 
+func (i AddonTagArray) ToOutput(ctx context.Context) pulumix.Output[[]AddonTag] {
+	return pulumix.Output[[]AddonTag]{
+		OutputState: i.ToAddonTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type AddonTagOutput struct{ *pulumi.OutputState }
 
@@ -90,6 +103,12 @@ func (o AddonTagOutput) ToAddonTagOutput() AddonTagOutput {
 
 func (o AddonTagOutput) ToAddonTagOutputWithContext(ctx context.Context) AddonTagOutput {
 	return o
+}
+
+func (o AddonTagOutput) ToOutput(ctx context.Context) pulumix.Output[AddonTag] {
+	return pulumix.Output[AddonTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -114,6 +133,12 @@ func (o AddonTagArrayOutput) ToAddonTagArrayOutput() AddonTagArrayOutput {
 
 func (o AddonTagArrayOutput) ToAddonTagArrayOutputWithContext(ctx context.Context) AddonTagArrayOutput {
 	return o
+}
+
+func (o AddonTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AddonTag] {
+	return pulumix.Output[[]AddonTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AddonTagArrayOutput) Index(i pulumi.IntInput) AddonTagOutput {
@@ -157,6 +182,12 @@ func (i ClusterControlPlanePlacementArgs) ToClusterControlPlanePlacementOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterControlPlanePlacementOutput)
 }
 
+func (i ClusterControlPlanePlacementArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterControlPlanePlacement] {
+	return pulumix.Output[ClusterControlPlanePlacement]{
+		OutputState: i.ToClusterControlPlanePlacementOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ClusterControlPlanePlacementArgs) ToClusterControlPlanePlacementPtrOutput() ClusterControlPlanePlacementPtrOutput {
 	return i.ToClusterControlPlanePlacementPtrOutputWithContext(context.Background())
 }
@@ -198,6 +229,12 @@ func (i *clusterControlPlanePlacementPtrType) ToClusterControlPlanePlacementPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterControlPlanePlacementPtrOutput)
 }
 
+func (i *clusterControlPlanePlacementPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterControlPlanePlacement] {
+	return pulumix.Output[*ClusterControlPlanePlacement]{
+		OutputState: i.ToClusterControlPlanePlacementPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Specify the placement group of the control plane machines for your cluster.
 type ClusterControlPlanePlacementOutput struct{ *pulumi.OutputState }
 
@@ -223,6 +260,12 @@ func (o ClusterControlPlanePlacementOutput) ToClusterControlPlanePlacementPtrOut
 	}).(ClusterControlPlanePlacementPtrOutput)
 }
 
+func (o ClusterControlPlanePlacementOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterControlPlanePlacement] {
+	return pulumix.Output[ClusterControlPlanePlacement]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Specify the placement group name of the control place machines for your cluster.
 func (o ClusterControlPlanePlacementOutput) GroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterControlPlanePlacement) *string { return v.GroupName }).(pulumi.StringPtrOutput)
@@ -240,6 +283,12 @@ func (o ClusterControlPlanePlacementPtrOutput) ToClusterControlPlanePlacementPtr
 
 func (o ClusterControlPlanePlacementPtrOutput) ToClusterControlPlanePlacementPtrOutputWithContext(ctx context.Context) ClusterControlPlanePlacementPtrOutput {
 	return o
+}
+
+func (o ClusterControlPlanePlacementPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterControlPlanePlacement] {
+	return pulumix.Output[*ClusterControlPlanePlacement]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterControlPlanePlacementPtrOutput) Elem() ClusterControlPlanePlacementOutput {
@@ -301,6 +350,12 @@ func (i ClusterEncryptionConfigArgs) ToClusterEncryptionConfigOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterEncryptionConfigOutput)
 }
 
+func (i ClusterEncryptionConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterEncryptionConfig] {
+	return pulumix.Output[ClusterEncryptionConfig]{
+		OutputState: i.ToClusterEncryptionConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ClusterEncryptionConfigArrayInput is an input type that accepts ClusterEncryptionConfigArray and ClusterEncryptionConfigArrayOutput values.
 // You can construct a concrete instance of `ClusterEncryptionConfigArrayInput` via:
 //
@@ -326,6 +381,12 @@ func (i ClusterEncryptionConfigArray) ToClusterEncryptionConfigArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterEncryptionConfigArrayOutput)
 }
 
+func (i ClusterEncryptionConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]ClusterEncryptionConfig] {
+	return pulumix.Output[[]ClusterEncryptionConfig]{
+		OutputState: i.ToClusterEncryptionConfigArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The encryption configuration for the cluster
 type ClusterEncryptionConfigOutput struct{ *pulumi.OutputState }
 
@@ -339,6 +400,12 @@ func (o ClusterEncryptionConfigOutput) ToClusterEncryptionConfigOutput() Cluster
 
 func (o ClusterEncryptionConfigOutput) ToClusterEncryptionConfigOutputWithContext(ctx context.Context) ClusterEncryptionConfigOutput {
 	return o
+}
+
+func (o ClusterEncryptionConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterEncryptionConfig] {
+	return pulumix.Output[ClusterEncryptionConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The encryption provider for the cluster.
@@ -363,6 +430,12 @@ func (o ClusterEncryptionConfigArrayOutput) ToClusterEncryptionConfigArrayOutput
 
 func (o ClusterEncryptionConfigArrayOutput) ToClusterEncryptionConfigArrayOutputWithContext(ctx context.Context) ClusterEncryptionConfigArrayOutput {
 	return o
+}
+
+func (o ClusterEncryptionConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClusterEncryptionConfig] {
+	return pulumix.Output[[]ClusterEncryptionConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterEncryptionConfigArrayOutput) Index(i pulumi.IntInput) ClusterEncryptionConfigOutput {
@@ -414,6 +487,12 @@ func (i ClusterKubernetesNetworkConfigArgs) ToClusterKubernetesNetworkConfigOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterKubernetesNetworkConfigOutput)
 }
 
+func (i ClusterKubernetesNetworkConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterKubernetesNetworkConfig] {
+	return pulumix.Output[ClusterKubernetesNetworkConfig]{
+		OutputState: i.ToClusterKubernetesNetworkConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ClusterKubernetesNetworkConfigArgs) ToClusterKubernetesNetworkConfigPtrOutput() ClusterKubernetesNetworkConfigPtrOutput {
 	return i.ToClusterKubernetesNetworkConfigPtrOutputWithContext(context.Background())
 }
@@ -455,6 +534,12 @@ func (i *clusterKubernetesNetworkConfigPtrType) ToClusterKubernetesNetworkConfig
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterKubernetesNetworkConfigPtrOutput)
 }
 
+func (i *clusterKubernetesNetworkConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterKubernetesNetworkConfig] {
+	return pulumix.Output[*ClusterKubernetesNetworkConfig]{
+		OutputState: i.ToClusterKubernetesNetworkConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The Kubernetes network configuration for the cluster.
 type ClusterKubernetesNetworkConfigOutput struct{ *pulumi.OutputState }
 
@@ -478,6 +563,12 @@ func (o ClusterKubernetesNetworkConfigOutput) ToClusterKubernetesNetworkConfigPt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterKubernetesNetworkConfig) *ClusterKubernetesNetworkConfig {
 		return &v
 	}).(ClusterKubernetesNetworkConfigPtrOutput)
+}
+
+func (o ClusterKubernetesNetworkConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterKubernetesNetworkConfig] {
+	return pulumix.Output[ClusterKubernetesNetworkConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Ipv4 or Ipv6. You can only specify ipv6 for 1.21 and later clusters that use version 1.10.1 or later of the Amazon VPC CNI add-on
@@ -507,6 +598,12 @@ func (o ClusterKubernetesNetworkConfigPtrOutput) ToClusterKubernetesNetworkConfi
 
 func (o ClusterKubernetesNetworkConfigPtrOutput) ToClusterKubernetesNetworkConfigPtrOutputWithContext(ctx context.Context) ClusterKubernetesNetworkConfigPtrOutput {
 	return o
+}
+
+func (o ClusterKubernetesNetworkConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterKubernetesNetworkConfig] {
+	return pulumix.Output[*ClusterKubernetesNetworkConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterKubernetesNetworkConfigPtrOutput) Elem() ClusterKubernetesNetworkConfigOutput {
@@ -582,6 +679,12 @@ func (i ClusterLoggingEnabledTypesArgs) ToClusterLoggingEnabledTypesOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterLoggingEnabledTypesOutput)
 }
 
+func (i ClusterLoggingEnabledTypesArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterLoggingEnabledTypes] {
+	return pulumix.Output[ClusterLoggingEnabledTypes]{
+		OutputState: i.ToClusterLoggingEnabledTypesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ClusterLoggingEnabledTypesArgs) ToClusterLoggingEnabledTypesPtrOutput() ClusterLoggingEnabledTypesPtrOutput {
 	return i.ToClusterLoggingEnabledTypesPtrOutputWithContext(context.Background())
 }
@@ -623,6 +726,12 @@ func (i *clusterLoggingEnabledTypesPtrType) ToClusterLoggingEnabledTypesPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterLoggingEnabledTypesPtrOutput)
 }
 
+func (i *clusterLoggingEnabledTypesPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterLoggingEnabledTypes] {
+	return pulumix.Output[*ClusterLoggingEnabledTypes]{
+		OutputState: i.ToClusterLoggingEnabledTypesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The cluster control plane logging configuration for your cluster.
 type ClusterLoggingEnabledTypesOutput struct{ *pulumi.OutputState }
 
@@ -648,6 +757,12 @@ func (o ClusterLoggingEnabledTypesOutput) ToClusterLoggingEnabledTypesPtrOutputW
 	}).(ClusterLoggingEnabledTypesPtrOutput)
 }
 
+func (o ClusterLoggingEnabledTypesOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterLoggingEnabledTypes] {
+	return pulumix.Output[ClusterLoggingEnabledTypes]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ClusterLoggingEnabledTypesOutput) EnabledTypes() ClusterLoggingTypeConfigArrayOutput {
 	return o.ApplyT(func(v ClusterLoggingEnabledTypes) []ClusterLoggingTypeConfig { return v.EnabledTypes }).(ClusterLoggingTypeConfigArrayOutput)
 }
@@ -664,6 +779,12 @@ func (o ClusterLoggingEnabledTypesPtrOutput) ToClusterLoggingEnabledTypesPtrOutp
 
 func (o ClusterLoggingEnabledTypesPtrOutput) ToClusterLoggingEnabledTypesPtrOutputWithContext(ctx context.Context) ClusterLoggingEnabledTypesPtrOutput {
 	return o
+}
+
+func (o ClusterLoggingEnabledTypesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterLoggingEnabledTypes] {
+	return pulumix.Output[*ClusterLoggingEnabledTypes]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterLoggingEnabledTypesPtrOutput) Elem() ClusterLoggingEnabledTypesOutput {
@@ -720,6 +841,12 @@ func (i ClusterLoggingTypeConfigArgs) ToClusterLoggingTypeConfigOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterLoggingTypeConfigOutput)
 }
 
+func (i ClusterLoggingTypeConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterLoggingTypeConfig] {
+	return pulumix.Output[ClusterLoggingTypeConfig]{
+		OutputState: i.ToClusterLoggingTypeConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ClusterLoggingTypeConfigArrayInput is an input type that accepts ClusterLoggingTypeConfigArray and ClusterLoggingTypeConfigArrayOutput values.
 // You can construct a concrete instance of `ClusterLoggingTypeConfigArrayInput` via:
 //
@@ -745,6 +872,12 @@ func (i ClusterLoggingTypeConfigArray) ToClusterLoggingTypeConfigArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterLoggingTypeConfigArrayOutput)
 }
 
+func (i ClusterLoggingTypeConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]ClusterLoggingTypeConfig] {
+	return pulumix.Output[[]ClusterLoggingTypeConfig]{
+		OutputState: i.ToClusterLoggingTypeConfigArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Enabled Logging Type
 type ClusterLoggingTypeConfigOutput struct{ *pulumi.OutputState }
 
@@ -758,6 +891,12 @@ func (o ClusterLoggingTypeConfigOutput) ToClusterLoggingTypeConfigOutput() Clust
 
 func (o ClusterLoggingTypeConfigOutput) ToClusterLoggingTypeConfigOutputWithContext(ctx context.Context) ClusterLoggingTypeConfigOutput {
 	return o
+}
+
+func (o ClusterLoggingTypeConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterLoggingTypeConfig] {
+	return pulumix.Output[ClusterLoggingTypeConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // name of the log type
@@ -777,6 +916,12 @@ func (o ClusterLoggingTypeConfigArrayOutput) ToClusterLoggingTypeConfigArrayOutp
 
 func (o ClusterLoggingTypeConfigArrayOutput) ToClusterLoggingTypeConfigArrayOutputWithContext(ctx context.Context) ClusterLoggingTypeConfigArrayOutput {
 	return o
+}
+
+func (o ClusterLoggingTypeConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClusterLoggingTypeConfig] {
+	return pulumix.Output[[]ClusterLoggingTypeConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterLoggingTypeConfigArrayOutput) Index(i pulumi.IntInput) ClusterLoggingTypeConfigOutput {
@@ -828,6 +973,12 @@ func (i ClusterOutpostConfigArgs) ToClusterOutpostConfigOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterOutpostConfigOutput)
 }
 
+func (i ClusterOutpostConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterOutpostConfig] {
+	return pulumix.Output[ClusterOutpostConfig]{
+		OutputState: i.ToClusterOutpostConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ClusterOutpostConfigArgs) ToClusterOutpostConfigPtrOutput() ClusterOutpostConfigPtrOutput {
 	return i.ToClusterOutpostConfigPtrOutputWithContext(context.Background())
 }
@@ -869,6 +1020,12 @@ func (i *clusterOutpostConfigPtrType) ToClusterOutpostConfigPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterOutpostConfigPtrOutput)
 }
 
+func (i *clusterOutpostConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterOutpostConfig] {
+	return pulumix.Output[*ClusterOutpostConfig]{
+		OutputState: i.ToClusterOutpostConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // An object representing the Outpost configuration to use for AWS EKS outpost cluster.
 type ClusterOutpostConfigOutput struct{ *pulumi.OutputState }
 
@@ -892,6 +1049,12 @@ func (o ClusterOutpostConfigOutput) ToClusterOutpostConfigPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterOutpostConfig) *ClusterOutpostConfig {
 		return &v
 	}).(ClusterOutpostConfigPtrOutput)
+}
+
+func (o ClusterOutpostConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterOutpostConfig] {
+	return pulumix.Output[ClusterOutpostConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify the Instance type of the machines that should be used to create your cluster.
@@ -921,6 +1084,12 @@ func (o ClusterOutpostConfigPtrOutput) ToClusterOutpostConfigPtrOutput() Cluster
 
 func (o ClusterOutpostConfigPtrOutput) ToClusterOutpostConfigPtrOutputWithContext(ctx context.Context) ClusterOutpostConfigPtrOutput {
 	return o
+}
+
+func (o ClusterOutpostConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterOutpostConfig] {
+	return pulumix.Output[*ClusterOutpostConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterOutpostConfigPtrOutput) Elem() ClusterOutpostConfigOutput {
@@ -996,6 +1165,12 @@ func (i ClusterProviderArgs) ToClusterProviderOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterProviderOutput)
 }
 
+func (i ClusterProviderArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterProvider] {
+	return pulumix.Output[ClusterProvider]{
+		OutputState: i.ToClusterProviderOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ClusterProviderArgs) ToClusterProviderPtrOutput() ClusterProviderPtrOutput {
 	return i.ToClusterProviderPtrOutputWithContext(context.Background())
 }
@@ -1037,6 +1212,12 @@ func (i *clusterProviderPtrType) ToClusterProviderPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterProviderPtrOutput)
 }
 
+func (i *clusterProviderPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterProvider] {
+	return pulumix.Output[*ClusterProvider]{
+		OutputState: i.ToClusterProviderPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterProviderOutput struct{ *pulumi.OutputState }
 
 func (ClusterProviderOutput) ElementType() reflect.Type {
@@ -1061,6 +1242,12 @@ func (o ClusterProviderOutput) ToClusterProviderPtrOutputWithContext(ctx context
 	}).(ClusterProviderPtrOutput)
 }
 
+func (o ClusterProviderOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterProvider] {
+	return pulumix.Output[ClusterProvider]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Amazon Resource Name (ARN) or alias of the KMS key. The KMS key must be symmetric, created in the same region as the cluster, and if the KMS key was created in a different account, the user must have access to the KMS key.
 func (o ClusterProviderOutput) KeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterProvider) *string { return v.KeyArn }).(pulumi.StringPtrOutput)
@@ -1078,6 +1265,12 @@ func (o ClusterProviderPtrOutput) ToClusterProviderPtrOutput() ClusterProviderPt
 
 func (o ClusterProviderPtrOutput) ToClusterProviderPtrOutputWithContext(ctx context.Context) ClusterProviderPtrOutput {
 	return o
+}
+
+func (o ClusterProviderPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterProvider] {
+	return pulumix.Output[*ClusterProvider]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterProviderPtrOutput) Elem() ClusterProviderOutput {
@@ -1151,6 +1344,12 @@ func (i ClusterResourcesVpcConfigArgs) ToClusterResourcesVpcConfigOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterResourcesVpcConfigOutput)
 }
 
+func (i ClusterResourcesVpcConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterResourcesVpcConfig] {
+	return pulumix.Output[ClusterResourcesVpcConfig]{
+		OutputState: i.ToClusterResourcesVpcConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 // An object representing the VPC configuration to use for an Amazon EKS cluster.
 type ClusterResourcesVpcConfigOutput struct{ *pulumi.OutputState }
 
@@ -1164,6 +1363,12 @@ func (o ClusterResourcesVpcConfigOutput) ToClusterResourcesVpcConfigOutput() Clu
 
 func (o ClusterResourcesVpcConfigOutput) ToClusterResourcesVpcConfigOutputWithContext(ctx context.Context) ClusterResourcesVpcConfigOutput {
 	return o
+}
+
+func (o ClusterResourcesVpcConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterResourcesVpcConfig] {
+	return pulumix.Output[ClusterResourcesVpcConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Set this value to true to enable private access for your cluster's Kubernetes API server endpoint. If you enable private access, Kubernetes API requests from within your cluster's VPC use the private VPC endpoint. The default value for this parameter is false, which disables private access for your Kubernetes API server. If you disable private access and you have nodes or AWS Fargate pods in the cluster, then ensure that publicAccessCidrs includes the necessary CIDR blocks for communication with the nodes or Fargate pods.
@@ -1203,6 +1408,12 @@ func (o ClusterResourcesVpcConfigPtrOutput) ToClusterResourcesVpcConfigPtrOutput
 
 func (o ClusterResourcesVpcConfigPtrOutput) ToClusterResourcesVpcConfigPtrOutputWithContext(ctx context.Context) ClusterResourcesVpcConfigPtrOutput {
 	return o
+}
+
+func (o ClusterResourcesVpcConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterResourcesVpcConfig] {
+	return pulumix.Output[*ClusterResourcesVpcConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterResourcesVpcConfigPtrOutput) Elem() ClusterResourcesVpcConfigOutput {
@@ -1304,6 +1515,12 @@ func (i ClusterTagArgs) ToClusterTagOutputWithContext(ctx context.Context) Clust
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterTagOutput)
 }
 
+func (i ClusterTagArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterTag] {
+	return pulumix.Output[ClusterTag]{
+		OutputState: i.ToClusterTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ClusterTagArrayInput is an input type that accepts ClusterTagArray and ClusterTagArrayOutput values.
 // You can construct a concrete instance of `ClusterTagArrayInput` via:
 //
@@ -1329,6 +1546,12 @@ func (i ClusterTagArray) ToClusterTagArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterTagArrayOutput)
 }
 
+func (i ClusterTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ClusterTag] {
+	return pulumix.Output[[]ClusterTag]{
+		OutputState: i.ToClusterTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type ClusterTagOutput struct{ *pulumi.OutputState }
 
@@ -1342,6 +1565,12 @@ func (o ClusterTagOutput) ToClusterTagOutput() ClusterTagOutput {
 
 func (o ClusterTagOutput) ToClusterTagOutputWithContext(ctx context.Context) ClusterTagOutput {
 	return o
+}
+
+func (o ClusterTagOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterTag] {
+	return pulumix.Output[ClusterTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -1366,6 +1595,12 @@ func (o ClusterTagArrayOutput) ToClusterTagArrayOutput() ClusterTagArrayOutput {
 
 func (o ClusterTagArrayOutput) ToClusterTagArrayOutputWithContext(ctx context.Context) ClusterTagArrayOutput {
 	return o
+}
+
+func (o ClusterTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClusterTag] {
+	return pulumix.Output[[]ClusterTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterTagArrayOutput) Index(i pulumi.IntInput) ClusterTagOutput {
@@ -1413,6 +1648,12 @@ func (i FargateProfileLabelArgs) ToFargateProfileLabelOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(FargateProfileLabelOutput)
 }
 
+func (i FargateProfileLabelArgs) ToOutput(ctx context.Context) pulumix.Output[FargateProfileLabel] {
+	return pulumix.Output[FargateProfileLabel]{
+		OutputState: i.ToFargateProfileLabelOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FargateProfileLabelArrayInput is an input type that accepts FargateProfileLabelArray and FargateProfileLabelArrayOutput values.
 // You can construct a concrete instance of `FargateProfileLabelArrayInput` via:
 //
@@ -1438,6 +1679,12 @@ func (i FargateProfileLabelArray) ToFargateProfileLabelArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(FargateProfileLabelArrayOutput)
 }
 
+func (i FargateProfileLabelArray) ToOutput(ctx context.Context) pulumix.Output[[]FargateProfileLabel] {
+	return pulumix.Output[[]FargateProfileLabel]{
+		OutputState: i.ToFargateProfileLabelArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a pod.
 type FargateProfileLabelOutput struct{ *pulumi.OutputState }
 
@@ -1451,6 +1698,12 @@ func (o FargateProfileLabelOutput) ToFargateProfileLabelOutput() FargateProfileL
 
 func (o FargateProfileLabelOutput) ToFargateProfileLabelOutputWithContext(ctx context.Context) FargateProfileLabelOutput {
 	return o
+}
+
+func (o FargateProfileLabelOutput) ToOutput(ctx context.Context) pulumix.Output[FargateProfileLabel] {
+	return pulumix.Output[FargateProfileLabel]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the label.
@@ -1475,6 +1728,12 @@ func (o FargateProfileLabelArrayOutput) ToFargateProfileLabelArrayOutput() Farga
 
 func (o FargateProfileLabelArrayOutput) ToFargateProfileLabelArrayOutputWithContext(ctx context.Context) FargateProfileLabelArrayOutput {
 	return o
+}
+
+func (o FargateProfileLabelArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FargateProfileLabel] {
+	return pulumix.Output[[]FargateProfileLabel]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FargateProfileLabelArrayOutput) Index(i pulumi.IntInput) FargateProfileLabelOutput {
@@ -1516,6 +1775,12 @@ func (i FargateProfileSelectorArgs) ToFargateProfileSelectorOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(FargateProfileSelectorOutput)
 }
 
+func (i FargateProfileSelectorArgs) ToOutput(ctx context.Context) pulumix.Output[FargateProfileSelector] {
+	return pulumix.Output[FargateProfileSelector]{
+		OutputState: i.ToFargateProfileSelectorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FargateProfileSelectorArrayInput is an input type that accepts FargateProfileSelectorArray and FargateProfileSelectorArrayOutput values.
 // You can construct a concrete instance of `FargateProfileSelectorArrayInput` via:
 //
@@ -1541,6 +1806,12 @@ func (i FargateProfileSelectorArray) ToFargateProfileSelectorArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(FargateProfileSelectorArrayOutput)
 }
 
+func (i FargateProfileSelectorArray) ToOutput(ctx context.Context) pulumix.Output[[]FargateProfileSelector] {
+	return pulumix.Output[[]FargateProfileSelector]{
+		OutputState: i.ToFargateProfileSelectorArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FargateProfileSelectorOutput struct{ *pulumi.OutputState }
 
 func (FargateProfileSelectorOutput) ElementType() reflect.Type {
@@ -1553,6 +1824,12 @@ func (o FargateProfileSelectorOutput) ToFargateProfileSelectorOutput() FargatePr
 
 func (o FargateProfileSelectorOutput) ToFargateProfileSelectorOutputWithContext(ctx context.Context) FargateProfileSelectorOutput {
 	return o
+}
+
+func (o FargateProfileSelectorOutput) ToOutput(ctx context.Context) pulumix.Output[FargateProfileSelector] {
+	return pulumix.Output[FargateProfileSelector]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FargateProfileSelectorOutput) Labels() FargateProfileLabelArrayOutput {
@@ -1575,6 +1852,12 @@ func (o FargateProfileSelectorArrayOutput) ToFargateProfileSelectorArrayOutput()
 
 func (o FargateProfileSelectorArrayOutput) ToFargateProfileSelectorArrayOutputWithContext(ctx context.Context) FargateProfileSelectorArrayOutput {
 	return o
+}
+
+func (o FargateProfileSelectorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FargateProfileSelector] {
+	return pulumix.Output[[]FargateProfileSelector]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FargateProfileSelectorArrayOutput) Index(i pulumi.IntInput) FargateProfileSelectorOutput {
@@ -1622,6 +1905,12 @@ func (i FargateProfileTagArgs) ToFargateProfileTagOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(FargateProfileTagOutput)
 }
 
+func (i FargateProfileTagArgs) ToOutput(ctx context.Context) pulumix.Output[FargateProfileTag] {
+	return pulumix.Output[FargateProfileTag]{
+		OutputState: i.ToFargateProfileTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FargateProfileTagArrayInput is an input type that accepts FargateProfileTagArray and FargateProfileTagArrayOutput values.
 // You can construct a concrete instance of `FargateProfileTagArrayInput` via:
 //
@@ -1647,6 +1936,12 @@ func (i FargateProfileTagArray) ToFargateProfileTagArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(FargateProfileTagArrayOutput)
 }
 
+func (i FargateProfileTagArray) ToOutput(ctx context.Context) pulumix.Output[[]FargateProfileTag] {
+	return pulumix.Output[[]FargateProfileTag]{
+		OutputState: i.ToFargateProfileTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type FargateProfileTagOutput struct{ *pulumi.OutputState }
 
@@ -1660,6 +1955,12 @@ func (o FargateProfileTagOutput) ToFargateProfileTagOutput() FargateProfileTagOu
 
 func (o FargateProfileTagOutput) ToFargateProfileTagOutputWithContext(ctx context.Context) FargateProfileTagOutput {
 	return o
+}
+
+func (o FargateProfileTagOutput) ToOutput(ctx context.Context) pulumix.Output[FargateProfileTag] {
+	return pulumix.Output[FargateProfileTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -1684,6 +1985,12 @@ func (o FargateProfileTagArrayOutput) ToFargateProfileTagArrayOutput() FargatePr
 
 func (o FargateProfileTagArrayOutput) ToFargateProfileTagArrayOutputWithContext(ctx context.Context) FargateProfileTagArrayOutput {
 	return o
+}
+
+func (o FargateProfileTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FargateProfileTag] {
+	return pulumix.Output[[]FargateProfileTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FargateProfileTagArrayOutput) Index(i pulumi.IntInput) FargateProfileTagOutput {
@@ -1749,6 +2056,12 @@ func (i IdentityProviderConfigOidcIdentityProviderConfigArgs) ToIdentityProvider
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderConfigOidcIdentityProviderConfigOutput)
 }
 
+func (i IdentityProviderConfigOidcIdentityProviderConfigArgs) ToOutput(ctx context.Context) pulumix.Output[IdentityProviderConfigOidcIdentityProviderConfig] {
+	return pulumix.Output[IdentityProviderConfigOidcIdentityProviderConfig]{
+		OutputState: i.ToIdentityProviderConfigOidcIdentityProviderConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i IdentityProviderConfigOidcIdentityProviderConfigArgs) ToIdentityProviderConfigOidcIdentityProviderConfigPtrOutput() IdentityProviderConfigOidcIdentityProviderConfigPtrOutput {
 	return i.ToIdentityProviderConfigOidcIdentityProviderConfigPtrOutputWithContext(context.Background())
 }
@@ -1790,6 +2103,12 @@ func (i *identityProviderConfigOidcIdentityProviderConfigPtrType) ToIdentityProv
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderConfigOidcIdentityProviderConfigPtrOutput)
 }
 
+func (i *identityProviderConfigOidcIdentityProviderConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*IdentityProviderConfigOidcIdentityProviderConfig] {
+	return pulumix.Output[*IdentityProviderConfigOidcIdentityProviderConfig]{
+		OutputState: i.ToIdentityProviderConfigOidcIdentityProviderConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // An object representing an OpenID Connect (OIDC) configuration.
 type IdentityProviderConfigOidcIdentityProviderConfigOutput struct{ *pulumi.OutputState }
 
@@ -1813,6 +2132,12 @@ func (o IdentityProviderConfigOidcIdentityProviderConfigOutput) ToIdentityProvid
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityProviderConfigOidcIdentityProviderConfig) *IdentityProviderConfigOidcIdentityProviderConfig {
 		return &v
 	}).(IdentityProviderConfigOidcIdentityProviderConfigPtrOutput)
+}
+
+func (o IdentityProviderConfigOidcIdentityProviderConfigOutput) ToOutput(ctx context.Context) pulumix.Output[IdentityProviderConfigOidcIdentityProviderConfig] {
+	return pulumix.Output[IdentityProviderConfigOidcIdentityProviderConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // This is also known as audience. The ID for the client application that makes authentication requests to the OpenID identity provider.
@@ -1863,6 +2188,12 @@ func (o IdentityProviderConfigOidcIdentityProviderConfigPtrOutput) ToIdentityPro
 
 func (o IdentityProviderConfigOidcIdentityProviderConfigPtrOutput) ToIdentityProviderConfigOidcIdentityProviderConfigPtrOutputWithContext(ctx context.Context) IdentityProviderConfigOidcIdentityProviderConfigPtrOutput {
 	return o
+}
+
+func (o IdentityProviderConfigOidcIdentityProviderConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IdentityProviderConfigOidcIdentityProviderConfig] {
+	return pulumix.Output[*IdentityProviderConfigOidcIdentityProviderConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IdentityProviderConfigOidcIdentityProviderConfigPtrOutput) Elem() IdentityProviderConfigOidcIdentityProviderConfigOutput {
@@ -1983,6 +2314,12 @@ func (i IdentityProviderConfigRequiredClaimArgs) ToIdentityProviderConfigRequire
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderConfigRequiredClaimOutput)
 }
 
+func (i IdentityProviderConfigRequiredClaimArgs) ToOutput(ctx context.Context) pulumix.Output[IdentityProviderConfigRequiredClaim] {
+	return pulumix.Output[IdentityProviderConfigRequiredClaim]{
+		OutputState: i.ToIdentityProviderConfigRequiredClaimOutputWithContext(ctx).OutputState,
+	}
+}
+
 // IdentityProviderConfigRequiredClaimArrayInput is an input type that accepts IdentityProviderConfigRequiredClaimArray and IdentityProviderConfigRequiredClaimArrayOutput values.
 // You can construct a concrete instance of `IdentityProviderConfigRequiredClaimArrayInput` via:
 //
@@ -2008,6 +2345,12 @@ func (i IdentityProviderConfigRequiredClaimArray) ToIdentityProviderConfigRequir
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderConfigRequiredClaimArrayOutput)
 }
 
+func (i IdentityProviderConfigRequiredClaimArray) ToOutput(ctx context.Context) pulumix.Output[[]IdentityProviderConfigRequiredClaim] {
+	return pulumix.Output[[]IdentityProviderConfigRequiredClaim]{
+		OutputState: i.ToIdentityProviderConfigRequiredClaimArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The key value pairs that describe required claims in the identity token. If set, each claim is verified to be present in the token with a matching value.
 type IdentityProviderConfigRequiredClaimOutput struct{ *pulumi.OutputState }
 
@@ -2021,6 +2364,12 @@ func (o IdentityProviderConfigRequiredClaimOutput) ToIdentityProviderConfigRequi
 
 func (o IdentityProviderConfigRequiredClaimOutput) ToIdentityProviderConfigRequiredClaimOutputWithContext(ctx context.Context) IdentityProviderConfigRequiredClaimOutput {
 	return o
+}
+
+func (o IdentityProviderConfigRequiredClaimOutput) ToOutput(ctx context.Context) pulumix.Output[IdentityProviderConfigRequiredClaim] {
+	return pulumix.Output[IdentityProviderConfigRequiredClaim]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key of the requiredClaims.
@@ -2045,6 +2394,12 @@ func (o IdentityProviderConfigRequiredClaimArrayOutput) ToIdentityProviderConfig
 
 func (o IdentityProviderConfigRequiredClaimArrayOutput) ToIdentityProviderConfigRequiredClaimArrayOutputWithContext(ctx context.Context) IdentityProviderConfigRequiredClaimArrayOutput {
 	return o
+}
+
+func (o IdentityProviderConfigRequiredClaimArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IdentityProviderConfigRequiredClaim] {
+	return pulumix.Output[[]IdentityProviderConfigRequiredClaim]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IdentityProviderConfigRequiredClaimArrayOutput) Index(i pulumi.IntInput) IdentityProviderConfigRequiredClaimOutput {
@@ -2092,6 +2447,12 @@ func (i IdentityProviderConfigTagArgs) ToIdentityProviderConfigTagOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderConfigTagOutput)
 }
 
+func (i IdentityProviderConfigTagArgs) ToOutput(ctx context.Context) pulumix.Output[IdentityProviderConfigTag] {
+	return pulumix.Output[IdentityProviderConfigTag]{
+		OutputState: i.ToIdentityProviderConfigTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // IdentityProviderConfigTagArrayInput is an input type that accepts IdentityProviderConfigTagArray and IdentityProviderConfigTagArrayOutput values.
 // You can construct a concrete instance of `IdentityProviderConfigTagArrayInput` via:
 //
@@ -2117,6 +2478,12 @@ func (i IdentityProviderConfigTagArray) ToIdentityProviderConfigTagArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderConfigTagArrayOutput)
 }
 
+func (i IdentityProviderConfigTagArray) ToOutput(ctx context.Context) pulumix.Output[[]IdentityProviderConfigTag] {
+	return pulumix.Output[[]IdentityProviderConfigTag]{
+		OutputState: i.ToIdentityProviderConfigTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type IdentityProviderConfigTagOutput struct{ *pulumi.OutputState }
 
@@ -2130,6 +2497,12 @@ func (o IdentityProviderConfigTagOutput) ToIdentityProviderConfigTagOutput() Ide
 
 func (o IdentityProviderConfigTagOutput) ToIdentityProviderConfigTagOutputWithContext(ctx context.Context) IdentityProviderConfigTagOutput {
 	return o
+}
+
+func (o IdentityProviderConfigTagOutput) ToOutput(ctx context.Context) pulumix.Output[IdentityProviderConfigTag] {
+	return pulumix.Output[IdentityProviderConfigTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -2154,6 +2527,12 @@ func (o IdentityProviderConfigTagArrayOutput) ToIdentityProviderConfigTagArrayOu
 
 func (o IdentityProviderConfigTagArrayOutput) ToIdentityProviderConfigTagArrayOutputWithContext(ctx context.Context) IdentityProviderConfigTagArrayOutput {
 	return o
+}
+
+func (o IdentityProviderConfigTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IdentityProviderConfigTag] {
+	return pulumix.Output[[]IdentityProviderConfigTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IdentityProviderConfigTagArrayOutput) Index(i pulumi.IntInput) IdentityProviderConfigTagOutput {
@@ -2197,6 +2576,12 @@ func (i LoggingArgs) ToLoggingOutputWithContext(ctx context.Context) LoggingOutp
 	return pulumi.ToOutputWithContext(ctx, i).(LoggingOutput)
 }
 
+func (i LoggingArgs) ToOutput(ctx context.Context) pulumix.Output[Logging] {
+	return pulumix.Output[Logging]{
+		OutputState: i.ToLoggingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i LoggingArgs) ToLoggingPtrOutput() LoggingPtrOutput {
 	return i.ToLoggingPtrOutputWithContext(context.Background())
 }
@@ -2238,6 +2623,12 @@ func (i *loggingPtrType) ToLoggingPtrOutputWithContext(ctx context.Context) Logg
 	return pulumi.ToOutputWithContext(ctx, i).(LoggingPtrOutput)
 }
 
+func (i *loggingPtrType) ToOutput(ctx context.Context) pulumix.Output[*Logging] {
+	return pulumix.Output[*Logging]{
+		OutputState: i.ToLoggingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Enable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs based on log types. By default, cluster control plane logs aren't exported to CloudWatch Logs.
 type LoggingOutput struct{ *pulumi.OutputState }
 
@@ -2263,6 +2654,12 @@ func (o LoggingOutput) ToLoggingPtrOutputWithContext(ctx context.Context) Loggin
 	}).(LoggingPtrOutput)
 }
 
+func (o LoggingOutput) ToOutput(ctx context.Context) pulumix.Output[Logging] {
+	return pulumix.Output[Logging]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The cluster control plane logging configuration for your cluster.
 func (o LoggingOutput) ClusterLogging() ClusterLoggingEnabledTypesPtrOutput {
 	return o.ApplyT(func(v Logging) *ClusterLoggingEnabledTypes { return v.ClusterLogging }).(ClusterLoggingEnabledTypesPtrOutput)
@@ -2280,6 +2677,12 @@ func (o LoggingPtrOutput) ToLoggingPtrOutput() LoggingPtrOutput {
 
 func (o LoggingPtrOutput) ToLoggingPtrOutputWithContext(ctx context.Context) LoggingPtrOutput {
 	return o
+}
+
+func (o LoggingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*Logging] {
+	return pulumix.Output[*Logging]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LoggingPtrOutput) Elem() LoggingOutput {
@@ -2339,6 +2742,12 @@ func (i NodegroupLaunchTemplateSpecificationArgs) ToNodegroupLaunchTemplateSpeci
 	return pulumi.ToOutputWithContext(ctx, i).(NodegroupLaunchTemplateSpecificationOutput)
 }
 
+func (i NodegroupLaunchTemplateSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[NodegroupLaunchTemplateSpecification] {
+	return pulumix.Output[NodegroupLaunchTemplateSpecification]{
+		OutputState: i.ToNodegroupLaunchTemplateSpecificationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i NodegroupLaunchTemplateSpecificationArgs) ToNodegroupLaunchTemplateSpecificationPtrOutput() NodegroupLaunchTemplateSpecificationPtrOutput {
 	return i.ToNodegroupLaunchTemplateSpecificationPtrOutputWithContext(context.Background())
 }
@@ -2380,6 +2789,12 @@ func (i *nodegroupLaunchTemplateSpecificationPtrType) ToNodegroupLaunchTemplateS
 	return pulumi.ToOutputWithContext(ctx, i).(NodegroupLaunchTemplateSpecificationPtrOutput)
 }
 
+func (i *nodegroupLaunchTemplateSpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*NodegroupLaunchTemplateSpecification] {
+	return pulumix.Output[*NodegroupLaunchTemplateSpecification]{
+		OutputState: i.ToNodegroupLaunchTemplateSpecificationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // An object representing a launch template specification for AWS EKS Nodegroup.
 type NodegroupLaunchTemplateSpecificationOutput struct{ *pulumi.OutputState }
 
@@ -2403,6 +2818,12 @@ func (o NodegroupLaunchTemplateSpecificationOutput) ToNodegroupLaunchTemplateSpe
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v NodegroupLaunchTemplateSpecification) *NodegroupLaunchTemplateSpecification {
 		return &v
 	}).(NodegroupLaunchTemplateSpecificationPtrOutput)
+}
+
+func (o NodegroupLaunchTemplateSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[NodegroupLaunchTemplateSpecification] {
+	return pulumix.Output[NodegroupLaunchTemplateSpecification]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NodegroupLaunchTemplateSpecificationOutput) Id() pulumi.StringPtrOutput {
@@ -2429,6 +2850,12 @@ func (o NodegroupLaunchTemplateSpecificationPtrOutput) ToNodegroupLaunchTemplate
 
 func (o NodegroupLaunchTemplateSpecificationPtrOutput) ToNodegroupLaunchTemplateSpecificationPtrOutputWithContext(ctx context.Context) NodegroupLaunchTemplateSpecificationPtrOutput {
 	return o
+}
+
+func (o NodegroupLaunchTemplateSpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NodegroupLaunchTemplateSpecification] {
+	return pulumix.Output[*NodegroupLaunchTemplateSpecification]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NodegroupLaunchTemplateSpecificationPtrOutput) Elem() NodegroupLaunchTemplateSpecificationOutput {
@@ -2503,6 +2930,12 @@ func (i NodegroupRemoteAccessArgs) ToNodegroupRemoteAccessOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(NodegroupRemoteAccessOutput)
 }
 
+func (i NodegroupRemoteAccessArgs) ToOutput(ctx context.Context) pulumix.Output[NodegroupRemoteAccess] {
+	return pulumix.Output[NodegroupRemoteAccess]{
+		OutputState: i.ToNodegroupRemoteAccessOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i NodegroupRemoteAccessArgs) ToNodegroupRemoteAccessPtrOutput() NodegroupRemoteAccessPtrOutput {
 	return i.ToNodegroupRemoteAccessPtrOutputWithContext(context.Background())
 }
@@ -2544,6 +2977,12 @@ func (i *nodegroupRemoteAccessPtrType) ToNodegroupRemoteAccessPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(NodegroupRemoteAccessPtrOutput)
 }
 
+func (i *nodegroupRemoteAccessPtrType) ToOutput(ctx context.Context) pulumix.Output[*NodegroupRemoteAccess] {
+	return pulumix.Output[*NodegroupRemoteAccess]{
+		OutputState: i.ToNodegroupRemoteAccessPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // An object representing a remote access configuration specification for AWS EKS Nodegroup.
 type NodegroupRemoteAccessOutput struct{ *pulumi.OutputState }
 
@@ -2569,6 +3008,12 @@ func (o NodegroupRemoteAccessOutput) ToNodegroupRemoteAccessPtrOutputWithContext
 	}).(NodegroupRemoteAccessPtrOutput)
 }
 
+func (o NodegroupRemoteAccessOutput) ToOutput(ctx context.Context) pulumix.Output[NodegroupRemoteAccess] {
+	return pulumix.Output[NodegroupRemoteAccess]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NodegroupRemoteAccessOutput) Ec2SshKey() pulumi.StringOutput {
 	return o.ApplyT(func(v NodegroupRemoteAccess) string { return v.Ec2SshKey }).(pulumi.StringOutput)
 }
@@ -2589,6 +3034,12 @@ func (o NodegroupRemoteAccessPtrOutput) ToNodegroupRemoteAccessPtrOutput() Nodeg
 
 func (o NodegroupRemoteAccessPtrOutput) ToNodegroupRemoteAccessPtrOutputWithContext(ctx context.Context) NodegroupRemoteAccessPtrOutput {
 	return o
+}
+
+func (o NodegroupRemoteAccessPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NodegroupRemoteAccess] {
+	return pulumix.Output[*NodegroupRemoteAccess]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NodegroupRemoteAccessPtrOutput) Elem() NodegroupRemoteAccessOutput {
@@ -2656,6 +3107,12 @@ func (i NodegroupScalingConfigArgs) ToNodegroupScalingConfigOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(NodegroupScalingConfigOutput)
 }
 
+func (i NodegroupScalingConfigArgs) ToOutput(ctx context.Context) pulumix.Output[NodegroupScalingConfig] {
+	return pulumix.Output[NodegroupScalingConfig]{
+		OutputState: i.ToNodegroupScalingConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i NodegroupScalingConfigArgs) ToNodegroupScalingConfigPtrOutput() NodegroupScalingConfigPtrOutput {
 	return i.ToNodegroupScalingConfigPtrOutputWithContext(context.Background())
 }
@@ -2697,6 +3154,12 @@ func (i *nodegroupScalingConfigPtrType) ToNodegroupScalingConfigPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(NodegroupScalingConfigPtrOutput)
 }
 
+func (i *nodegroupScalingConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*NodegroupScalingConfig] {
+	return pulumix.Output[*NodegroupScalingConfig]{
+		OutputState: i.ToNodegroupScalingConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // An object representing a auto scaling group specification for AWS EKS Nodegroup.
 type NodegroupScalingConfigOutput struct{ *pulumi.OutputState }
 
@@ -2720,6 +3183,12 @@ func (o NodegroupScalingConfigOutput) ToNodegroupScalingConfigPtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v NodegroupScalingConfig) *NodegroupScalingConfig {
 		return &v
 	}).(NodegroupScalingConfigPtrOutput)
+}
+
+func (o NodegroupScalingConfigOutput) ToOutput(ctx context.Context) pulumix.Output[NodegroupScalingConfig] {
+	return pulumix.Output[NodegroupScalingConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NodegroupScalingConfigOutput) DesiredSize() pulumi.IntPtrOutput {
@@ -2746,6 +3215,12 @@ func (o NodegroupScalingConfigPtrOutput) ToNodegroupScalingConfigPtrOutput() Nod
 
 func (o NodegroupScalingConfigPtrOutput) ToNodegroupScalingConfigPtrOutputWithContext(ctx context.Context) NodegroupScalingConfigPtrOutput {
 	return o
+}
+
+func (o NodegroupScalingConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NodegroupScalingConfig] {
+	return pulumix.Output[*NodegroupScalingConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NodegroupScalingConfigPtrOutput) Elem() NodegroupScalingConfigOutput {
@@ -2822,6 +3297,12 @@ func (i NodegroupTaintArgs) ToNodegroupTaintOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(NodegroupTaintOutput)
 }
 
+func (i NodegroupTaintArgs) ToOutput(ctx context.Context) pulumix.Output[NodegroupTaint] {
+	return pulumix.Output[NodegroupTaint]{
+		OutputState: i.ToNodegroupTaintOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NodegroupTaintArrayInput is an input type that accepts NodegroupTaintArray and NodegroupTaintArrayOutput values.
 // You can construct a concrete instance of `NodegroupTaintArrayInput` via:
 //
@@ -2847,6 +3328,12 @@ func (i NodegroupTaintArray) ToNodegroupTaintArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(NodegroupTaintArrayOutput)
 }
 
+func (i NodegroupTaintArray) ToOutput(ctx context.Context) pulumix.Output[[]NodegroupTaint] {
+	return pulumix.Output[[]NodegroupTaint]{
+		OutputState: i.ToNodegroupTaintArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // An object representing a Taint specification for AWS EKS Nodegroup.
 type NodegroupTaintOutput struct{ *pulumi.OutputState }
 
@@ -2860,6 +3347,12 @@ func (o NodegroupTaintOutput) ToNodegroupTaintOutput() NodegroupTaintOutput {
 
 func (o NodegroupTaintOutput) ToNodegroupTaintOutputWithContext(ctx context.Context) NodegroupTaintOutput {
 	return o
+}
+
+func (o NodegroupTaintOutput) ToOutput(ctx context.Context) pulumix.Output[NodegroupTaint] {
+	return pulumix.Output[NodegroupTaint]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NodegroupTaintOutput) Effect() pulumi.StringPtrOutput {
@@ -2886,6 +3379,12 @@ func (o NodegroupTaintArrayOutput) ToNodegroupTaintArrayOutput() NodegroupTaintA
 
 func (o NodegroupTaintArrayOutput) ToNodegroupTaintArrayOutputWithContext(ctx context.Context) NodegroupTaintArrayOutput {
 	return o
+}
+
+func (o NodegroupTaintArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]NodegroupTaint] {
+	return pulumix.Output[[]NodegroupTaint]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NodegroupTaintArrayOutput) Index(i pulumi.IntInput) NodegroupTaintOutput {
@@ -2933,6 +3432,12 @@ func (i NodegroupUpdateConfigArgs) ToNodegroupUpdateConfigOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(NodegroupUpdateConfigOutput)
 }
 
+func (i NodegroupUpdateConfigArgs) ToOutput(ctx context.Context) pulumix.Output[NodegroupUpdateConfig] {
+	return pulumix.Output[NodegroupUpdateConfig]{
+		OutputState: i.ToNodegroupUpdateConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i NodegroupUpdateConfigArgs) ToNodegroupUpdateConfigPtrOutput() NodegroupUpdateConfigPtrOutput {
 	return i.ToNodegroupUpdateConfigPtrOutputWithContext(context.Background())
 }
@@ -2974,6 +3479,12 @@ func (i *nodegroupUpdateConfigPtrType) ToNodegroupUpdateConfigPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(NodegroupUpdateConfigPtrOutput)
 }
 
+func (i *nodegroupUpdateConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*NodegroupUpdateConfig] {
+	return pulumix.Output[*NodegroupUpdateConfig]{
+		OutputState: i.ToNodegroupUpdateConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The node group update configuration.
 type NodegroupUpdateConfigOutput struct{ *pulumi.OutputState }
 
@@ -2999,6 +3510,12 @@ func (o NodegroupUpdateConfigOutput) ToNodegroupUpdateConfigPtrOutputWithContext
 	}).(NodegroupUpdateConfigPtrOutput)
 }
 
+func (o NodegroupUpdateConfigOutput) ToOutput(ctx context.Context) pulumix.Output[NodegroupUpdateConfig] {
+	return pulumix.Output[NodegroupUpdateConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The maximum number of nodes unavailable at once during a version update. Nodes will be updated in parallel. This value or maxUnavailablePercentage is required to have a value.The maximum number is 100.
 func (o NodegroupUpdateConfigOutput) MaxUnavailable() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v NodegroupUpdateConfig) *float64 { return v.MaxUnavailable }).(pulumi.Float64PtrOutput)
@@ -3021,6 +3538,12 @@ func (o NodegroupUpdateConfigPtrOutput) ToNodegroupUpdateConfigPtrOutput() Nodeg
 
 func (o NodegroupUpdateConfigPtrOutput) ToNodegroupUpdateConfigPtrOutputWithContext(ctx context.Context) NodegroupUpdateConfigPtrOutput {
 	return o
+}
+
+func (o NodegroupUpdateConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NodegroupUpdateConfig] {
+	return pulumix.Output[*NodegroupUpdateConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NodegroupUpdateConfigPtrOutput) Elem() NodegroupUpdateConfigOutput {

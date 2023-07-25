@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type FilterAction string
@@ -77,6 +78,12 @@ func (o FilterActionOutput) ToFilterActionPtrOutputWithContext(ctx context.Conte
 	}).(FilterActionPtrOutput)
 }
 
+func (o FilterActionOutput) ToOutput(ctx context.Context) pulumix.Output[FilterAction] {
+	return pulumix.Output[FilterAction]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FilterActionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -110,6 +117,12 @@ func (o FilterActionPtrOutput) ToFilterActionPtrOutput() FilterActionPtrOutput {
 
 func (o FilterActionPtrOutput) ToFilterActionPtrOutputWithContext(ctx context.Context) FilterActionPtrOutput {
 	return o
+}
+
+func (o FilterActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FilterAction] {
+	return pulumix.Output[*FilterAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FilterActionPtrOutput) Elem() FilterActionOutput {
@@ -172,6 +185,12 @@ func (in *filterActionPtr) ToFilterActionPtrOutput() FilterActionPtrOutput {
 
 func (in *filterActionPtr) ToFilterActionPtrOutputWithContext(ctx context.Context) FilterActionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FilterActionPtrOutput)
+}
+
+func (in *filterActionPtr) ToOutput(ctx context.Context) pulumix.Output[*FilterAction] {
+	return pulumix.Output[*FilterAction]{
+		OutputState: in.ToFilterActionPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type FilterMapComparison string
@@ -240,6 +259,12 @@ func (o FilterMapComparisonOutput) ToFilterMapComparisonPtrOutputWithContext(ctx
 	}).(FilterMapComparisonPtrOutput)
 }
 
+func (o FilterMapComparisonOutput) ToOutput(ctx context.Context) pulumix.Output[FilterMapComparison] {
+	return pulumix.Output[FilterMapComparison]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FilterMapComparisonOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -273,6 +298,12 @@ func (o FilterMapComparisonPtrOutput) ToFilterMapComparisonPtrOutput() FilterMap
 
 func (o FilterMapComparisonPtrOutput) ToFilterMapComparisonPtrOutputWithContext(ctx context.Context) FilterMapComparisonPtrOutput {
 	return o
+}
+
+func (o FilterMapComparisonPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FilterMapComparison] {
+	return pulumix.Output[*FilterMapComparison]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FilterMapComparisonPtrOutput) Elem() FilterMapComparisonOutput {
@@ -335,6 +366,12 @@ func (in *filterMapComparisonPtr) ToFilterMapComparisonPtrOutput() FilterMapComp
 
 func (in *filterMapComparisonPtr) ToFilterMapComparisonPtrOutputWithContext(ctx context.Context) FilterMapComparisonPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FilterMapComparisonPtrOutput)
+}
+
+func (in *filterMapComparisonPtr) ToOutput(ctx context.Context) pulumix.Output[*FilterMapComparison] {
+	return pulumix.Output[*FilterMapComparison]{
+		OutputState: in.ToFilterMapComparisonPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type FilterStringComparison string
@@ -405,6 +442,12 @@ func (o FilterStringComparisonOutput) ToFilterStringComparisonPtrOutputWithConte
 	}).(FilterStringComparisonPtrOutput)
 }
 
+func (o FilterStringComparisonOutput) ToOutput(ctx context.Context) pulumix.Output[FilterStringComparison] {
+	return pulumix.Output[FilterStringComparison]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FilterStringComparisonOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -438,6 +481,12 @@ func (o FilterStringComparisonPtrOutput) ToFilterStringComparisonPtrOutput() Fil
 
 func (o FilterStringComparisonPtrOutput) ToFilterStringComparisonPtrOutputWithContext(ctx context.Context) FilterStringComparisonPtrOutput {
 	return o
+}
+
+func (o FilterStringComparisonPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FilterStringComparison] {
+	return pulumix.Output[*FilterStringComparison]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FilterStringComparisonPtrOutput) Elem() FilterStringComparisonOutput {
@@ -500,6 +549,12 @@ func (in *filterStringComparisonPtr) ToFilterStringComparisonPtrOutput() FilterS
 
 func (in *filterStringComparisonPtr) ToFilterStringComparisonPtrOutputWithContext(ctx context.Context) FilterStringComparisonPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FilterStringComparisonPtrOutput)
+}
+
+func (in *filterStringComparisonPtr) ToOutput(ctx context.Context) pulumix.Output[*FilterStringComparison] {
+	return pulumix.Output[*FilterStringComparison]{
+		OutputState: in.ToFilterStringComparisonPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

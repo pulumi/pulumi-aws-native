@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Associates an AWS Identity and Access Management (IAM) role with an AWS Certificate Manager (ACM) certificate. This association is based on Amazon Resource Names and it enables the certificate to be used by the ACM for Nitro Enclaves application inside an enclave.
@@ -74,6 +75,12 @@ func (o LookupEnclaveCertificateIamRoleAssociationResultOutput) ToLookupEnclaveC
 
 func (o LookupEnclaveCertificateIamRoleAssociationResultOutput) ToLookupEnclaveCertificateIamRoleAssociationResultOutputWithContext(ctx context.Context) LookupEnclaveCertificateIamRoleAssociationResultOutput {
 	return o
+}
+
+func (o LookupEnclaveCertificateIamRoleAssociationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupEnclaveCertificateIamRoleAssociationResult] {
+	return pulumix.Output[LookupEnclaveCertificateIamRoleAssociationResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the Amazon S3 bucket to which the certificate was uploaded.

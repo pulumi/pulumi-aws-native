@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::GameLift::Location resource creates an Amazon GameLift (GameLift) custom location.
@@ -65,6 +66,12 @@ func (o LookupLocationResultOutput) ToLookupLocationResultOutput() LookupLocatio
 
 func (o LookupLocationResultOutput) ToLookupLocationResultOutputWithContext(ctx context.Context) LookupLocationResultOutput {
 	return o
+}
+
+func (o LookupLocationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupLocationResult] {
+	return pulumix.Output[LookupLocationResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupLocationResultOutput) LocationArn() pulumi.StringPtrOutput {

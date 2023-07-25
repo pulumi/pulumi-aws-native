@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::AppRunner::ObservabilityConfiguration resource  is an AWS App Runner resource type that specifies an App Runner observability configuration
@@ -70,6 +71,12 @@ func (o LookupObservabilityConfigurationResultOutput) ToLookupObservabilityConfi
 
 func (o LookupObservabilityConfigurationResultOutput) ToLookupObservabilityConfigurationResultOutputWithContext(ctx context.Context) LookupObservabilityConfigurationResultOutput {
 	return o
+}
+
+func (o LookupObservabilityConfigurationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupObservabilityConfigurationResult] {
+	return pulumix.Output[LookupObservabilityConfigurationResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // It's set to true for the configuration with the highest Revision among all configurations that share the same Name. It's set to false otherwise.

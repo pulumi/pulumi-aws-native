@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::IoTTwinMaker::Scene
@@ -86,6 +87,12 @@ func (o LookupSceneResultOutput) ToLookupSceneResultOutput() LookupSceneResultOu
 
 func (o LookupSceneResultOutput) ToLookupSceneResultOutputWithContext(ctx context.Context) LookupSceneResultOutput {
 	return o
+}
+
+func (o LookupSceneResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSceneResult] {
+	return pulumix.Output[LookupSceneResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the scene.

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::EC2::NetworkInsightsPath
@@ -68,6 +69,12 @@ func (o LookupNetworkInsightsPathResultOutput) ToLookupNetworkInsightsPathResult
 
 func (o LookupNetworkInsightsPathResultOutput) ToLookupNetworkInsightsPathResultOutputWithContext(ctx context.Context) LookupNetworkInsightsPathResultOutput {
 	return o
+}
+
+func (o LookupNetworkInsightsPathResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupNetworkInsightsPathResult] {
+	return pulumix.Output[LookupNetworkInsightsPathResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupNetworkInsightsPathResultOutput) CreatedDate() pulumi.StringPtrOutput {

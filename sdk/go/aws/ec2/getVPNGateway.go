@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Schema for EC2 VPN Gateway
@@ -68,6 +69,12 @@ func (o LookupVPNGatewayResultOutput) ToLookupVPNGatewayResultOutput() LookupVPN
 
 func (o LookupVPNGatewayResultOutput) ToLookupVPNGatewayResultOutputWithContext(ctx context.Context) LookupVPNGatewayResultOutput {
 	return o
+}
+
+func (o LookupVPNGatewayResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVPNGatewayResult] {
+	return pulumix.Output[LookupVPNGatewayResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Any tags assigned to the virtual private gateway.

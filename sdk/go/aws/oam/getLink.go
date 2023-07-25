@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::Oam::Link Resource Type
@@ -67,6 +68,12 @@ func (o LookupLinkResultOutput) ToLookupLinkResultOutput() LookupLinkResultOutpu
 
 func (o LookupLinkResultOutput) ToLookupLinkResultOutputWithContext(ctx context.Context) LookupLinkResultOutput {
 	return o
+}
+
+func (o LookupLinkResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupLinkResult] {
+	return pulumix.Output[LookupLinkResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupLinkResultOutput) Arn() pulumi.StringPtrOutput {

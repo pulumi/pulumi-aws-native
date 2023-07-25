@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::Omics::VariantStore Resource Type
@@ -70,6 +71,12 @@ func (o LookupVariantStoreResultOutput) ToLookupVariantStoreResultOutput() Looku
 
 func (o LookupVariantStoreResultOutput) ToLookupVariantStoreResultOutputWithContext(ctx context.Context) LookupVariantStoreResultOutput {
 	return o
+}
+
+func (o LookupVariantStoreResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVariantStoreResult] {
+	return pulumix.Output[LookupVariantStoreResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupVariantStoreResultOutput) CreationTime() pulumi.StringPtrOutput {

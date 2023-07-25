@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::IoTSiteWise::Portal
@@ -84,6 +85,12 @@ func (o LookupPortalResultOutput) ToLookupPortalResultOutput() LookupPortalResul
 
 func (o LookupPortalResultOutput) ToLookupPortalResultOutputWithContext(ctx context.Context) LookupPortalResultOutput {
 	return o
+}
+
+func (o LookupPortalResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupPortalResult] {
+	return pulumix.Output[LookupPortalResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range.

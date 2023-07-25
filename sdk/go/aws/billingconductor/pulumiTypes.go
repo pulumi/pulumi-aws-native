@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -44,6 +45,12 @@ func (i BillingGroupAccountGroupingArgs) ToBillingGroupAccountGroupingOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(BillingGroupAccountGroupingOutput)
 }
 
+func (i BillingGroupAccountGroupingArgs) ToOutput(ctx context.Context) pulumix.Output[BillingGroupAccountGrouping] {
+	return pulumix.Output[BillingGroupAccountGrouping]{
+		OutputState: i.ToBillingGroupAccountGroupingOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BillingGroupAccountGroupingOutput struct{ *pulumi.OutputState }
 
 func (BillingGroupAccountGroupingOutput) ElementType() reflect.Type {
@@ -56,6 +63,12 @@ func (o BillingGroupAccountGroupingOutput) ToBillingGroupAccountGroupingOutput()
 
 func (o BillingGroupAccountGroupingOutput) ToBillingGroupAccountGroupingOutputWithContext(ctx context.Context) BillingGroupAccountGroupingOutput {
 	return o
+}
+
+func (o BillingGroupAccountGroupingOutput) ToOutput(ctx context.Context) pulumix.Output[BillingGroupAccountGrouping] {
+	return pulumix.Output[BillingGroupAccountGrouping]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BillingGroupAccountGroupingOutput) LinkedAccountIds() pulumi.StringArrayOutput {
@@ -74,6 +87,12 @@ func (o BillingGroupAccountGroupingPtrOutput) ToBillingGroupAccountGroupingPtrOu
 
 func (o BillingGroupAccountGroupingPtrOutput) ToBillingGroupAccountGroupingPtrOutputWithContext(ctx context.Context) BillingGroupAccountGroupingPtrOutput {
 	return o
+}
+
+func (o BillingGroupAccountGroupingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BillingGroupAccountGrouping] {
+	return pulumix.Output[*BillingGroupAccountGrouping]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BillingGroupAccountGroupingPtrOutput) Elem() BillingGroupAccountGroupingOutput {
@@ -128,6 +147,12 @@ func (i BillingGroupComputationPreferenceArgs) ToBillingGroupComputationPreferen
 	return pulumi.ToOutputWithContext(ctx, i).(BillingGroupComputationPreferenceOutput)
 }
 
+func (i BillingGroupComputationPreferenceArgs) ToOutput(ctx context.Context) pulumix.Output[BillingGroupComputationPreference] {
+	return pulumix.Output[BillingGroupComputationPreference]{
+		OutputState: i.ToBillingGroupComputationPreferenceOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BillingGroupComputationPreferenceOutput struct{ *pulumi.OutputState }
 
 func (BillingGroupComputationPreferenceOutput) ElementType() reflect.Type {
@@ -140,6 +165,12 @@ func (o BillingGroupComputationPreferenceOutput) ToBillingGroupComputationPrefer
 
 func (o BillingGroupComputationPreferenceOutput) ToBillingGroupComputationPreferenceOutputWithContext(ctx context.Context) BillingGroupComputationPreferenceOutput {
 	return o
+}
+
+func (o BillingGroupComputationPreferenceOutput) ToOutput(ctx context.Context) pulumix.Output[BillingGroupComputationPreference] {
+	return pulumix.Output[BillingGroupComputationPreference]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the attached pricing plan
@@ -159,6 +190,12 @@ func (o BillingGroupComputationPreferencePtrOutput) ToBillingGroupComputationPre
 
 func (o BillingGroupComputationPreferencePtrOutput) ToBillingGroupComputationPreferencePtrOutputWithContext(ctx context.Context) BillingGroupComputationPreferencePtrOutput {
 	return o
+}
+
+func (o BillingGroupComputationPreferencePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BillingGroupComputationPreference] {
+	return pulumix.Output[*BillingGroupComputationPreference]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BillingGroupComputationPreferencePtrOutput) Elem() BillingGroupComputationPreferenceOutput {
@@ -214,6 +251,12 @@ func (i BillingGroupTagArgs) ToBillingGroupTagOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(BillingGroupTagOutput)
 }
 
+func (i BillingGroupTagArgs) ToOutput(ctx context.Context) pulumix.Output[BillingGroupTag] {
+	return pulumix.Output[BillingGroupTag]{
+		OutputState: i.ToBillingGroupTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BillingGroupTagArrayInput is an input type that accepts BillingGroupTagArray and BillingGroupTagArrayOutput values.
 // You can construct a concrete instance of `BillingGroupTagArrayInput` via:
 //
@@ -239,6 +282,12 @@ func (i BillingGroupTagArray) ToBillingGroupTagArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(BillingGroupTagArrayOutput)
 }
 
+func (i BillingGroupTagArray) ToOutput(ctx context.Context) pulumix.Output[[]BillingGroupTag] {
+	return pulumix.Output[[]BillingGroupTag]{
+		OutputState: i.ToBillingGroupTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BillingGroupTagOutput struct{ *pulumi.OutputState }
 
 func (BillingGroupTagOutput) ElementType() reflect.Type {
@@ -251,6 +300,12 @@ func (o BillingGroupTagOutput) ToBillingGroupTagOutput() BillingGroupTagOutput {
 
 func (o BillingGroupTagOutput) ToBillingGroupTagOutputWithContext(ctx context.Context) BillingGroupTagOutput {
 	return o
+}
+
+func (o BillingGroupTagOutput) ToOutput(ctx context.Context) pulumix.Output[BillingGroupTag] {
+	return pulumix.Output[BillingGroupTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BillingGroupTagOutput) Key() pulumi.StringOutput {
@@ -273,6 +328,12 @@ func (o BillingGroupTagArrayOutput) ToBillingGroupTagArrayOutput() BillingGroupT
 
 func (o BillingGroupTagArrayOutput) ToBillingGroupTagArrayOutputWithContext(ctx context.Context) BillingGroupTagArrayOutput {
 	return o
+}
+
+func (o BillingGroupTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BillingGroupTag] {
+	return pulumix.Output[[]BillingGroupTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BillingGroupTagArrayOutput) Index(i pulumi.IntInput) BillingGroupTagOutput {
@@ -312,6 +373,12 @@ func (i CustomLineItemBillingPeriodRangeArgs) ToCustomLineItemBillingPeriodRange
 
 func (i CustomLineItemBillingPeriodRangeArgs) ToCustomLineItemBillingPeriodRangeOutputWithContext(ctx context.Context) CustomLineItemBillingPeriodRangeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CustomLineItemBillingPeriodRangeOutput)
+}
+
+func (i CustomLineItemBillingPeriodRangeArgs) ToOutput(ctx context.Context) pulumix.Output[CustomLineItemBillingPeriodRange] {
+	return pulumix.Output[CustomLineItemBillingPeriodRange]{
+		OutputState: i.ToCustomLineItemBillingPeriodRangeOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i CustomLineItemBillingPeriodRangeArgs) ToCustomLineItemBillingPeriodRangePtrOutput() CustomLineItemBillingPeriodRangePtrOutput {
@@ -355,6 +422,12 @@ func (i *customLineItemBillingPeriodRangePtrType) ToCustomLineItemBillingPeriodR
 	return pulumi.ToOutputWithContext(ctx, i).(CustomLineItemBillingPeriodRangePtrOutput)
 }
 
+func (i *customLineItemBillingPeriodRangePtrType) ToOutput(ctx context.Context) pulumix.Output[*CustomLineItemBillingPeriodRange] {
+	return pulumix.Output[*CustomLineItemBillingPeriodRange]{
+		OutputState: i.ToCustomLineItemBillingPeriodRangePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CustomLineItemBillingPeriodRangeOutput struct{ *pulumi.OutputState }
 
 func (CustomLineItemBillingPeriodRangeOutput) ElementType() reflect.Type {
@@ -379,6 +452,12 @@ func (o CustomLineItemBillingPeriodRangeOutput) ToCustomLineItemBillingPeriodRan
 	}).(CustomLineItemBillingPeriodRangePtrOutput)
 }
 
+func (o CustomLineItemBillingPeriodRangeOutput) ToOutput(ctx context.Context) pulumix.Output[CustomLineItemBillingPeriodRange] {
+	return pulumix.Output[CustomLineItemBillingPeriodRange]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CustomLineItemBillingPeriodRangeOutput) ExclusiveEndBillingPeriod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomLineItemBillingPeriodRange) *string { return v.ExclusiveEndBillingPeriod }).(pulumi.StringPtrOutput)
 }
@@ -399,6 +478,12 @@ func (o CustomLineItemBillingPeriodRangePtrOutput) ToCustomLineItemBillingPeriod
 
 func (o CustomLineItemBillingPeriodRangePtrOutput) ToCustomLineItemBillingPeriodRangePtrOutputWithContext(ctx context.Context) CustomLineItemBillingPeriodRangePtrOutput {
 	return o
+}
+
+func (o CustomLineItemBillingPeriodRangePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CustomLineItemBillingPeriodRange] {
+	return pulumix.Output[*CustomLineItemBillingPeriodRange]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CustomLineItemBillingPeriodRangePtrOutput) Elem() CustomLineItemBillingPeriodRangeOutput {
@@ -464,6 +549,12 @@ func (i CustomLineItemChargeDetailsArgs) ToCustomLineItemChargeDetailsOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(CustomLineItemChargeDetailsOutput)
 }
 
+func (i CustomLineItemChargeDetailsArgs) ToOutput(ctx context.Context) pulumix.Output[CustomLineItemChargeDetails] {
+	return pulumix.Output[CustomLineItemChargeDetails]{
+		OutputState: i.ToCustomLineItemChargeDetailsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i CustomLineItemChargeDetailsArgs) ToCustomLineItemChargeDetailsPtrOutput() CustomLineItemChargeDetailsPtrOutput {
 	return i.ToCustomLineItemChargeDetailsPtrOutputWithContext(context.Background())
 }
@@ -505,6 +596,12 @@ func (i *customLineItemChargeDetailsPtrType) ToCustomLineItemChargeDetailsPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(CustomLineItemChargeDetailsPtrOutput)
 }
 
+func (i *customLineItemChargeDetailsPtrType) ToOutput(ctx context.Context) pulumix.Output[*CustomLineItemChargeDetails] {
+	return pulumix.Output[*CustomLineItemChargeDetails]{
+		OutputState: i.ToCustomLineItemChargeDetailsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CustomLineItemChargeDetailsOutput struct{ *pulumi.OutputState }
 
 func (CustomLineItemChargeDetailsOutput) ElementType() reflect.Type {
@@ -527,6 +624,12 @@ func (o CustomLineItemChargeDetailsOutput) ToCustomLineItemChargeDetailsPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomLineItemChargeDetails) *CustomLineItemChargeDetails {
 		return &v
 	}).(CustomLineItemChargeDetailsPtrOutput)
+}
+
+func (o CustomLineItemChargeDetailsOutput) ToOutput(ctx context.Context) pulumix.Output[CustomLineItemChargeDetails] {
+	return pulumix.Output[CustomLineItemChargeDetails]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CustomLineItemChargeDetailsOutput) Flat() CustomLineItemFlatChargeDetailsPtrOutput {
@@ -553,6 +656,12 @@ func (o CustomLineItemChargeDetailsPtrOutput) ToCustomLineItemChargeDetailsPtrOu
 
 func (o CustomLineItemChargeDetailsPtrOutput) ToCustomLineItemChargeDetailsPtrOutputWithContext(ctx context.Context) CustomLineItemChargeDetailsPtrOutput {
 	return o
+}
+
+func (o CustomLineItemChargeDetailsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CustomLineItemChargeDetails] {
+	return pulumix.Output[*CustomLineItemChargeDetails]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CustomLineItemChargeDetailsPtrOutput) Elem() CustomLineItemChargeDetailsOutput {
@@ -623,6 +732,12 @@ func (i CustomLineItemFlatChargeDetailsArgs) ToCustomLineItemFlatChargeDetailsOu
 	return pulumi.ToOutputWithContext(ctx, i).(CustomLineItemFlatChargeDetailsOutput)
 }
 
+func (i CustomLineItemFlatChargeDetailsArgs) ToOutput(ctx context.Context) pulumix.Output[CustomLineItemFlatChargeDetails] {
+	return pulumix.Output[CustomLineItemFlatChargeDetails]{
+		OutputState: i.ToCustomLineItemFlatChargeDetailsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i CustomLineItemFlatChargeDetailsArgs) ToCustomLineItemFlatChargeDetailsPtrOutput() CustomLineItemFlatChargeDetailsPtrOutput {
 	return i.ToCustomLineItemFlatChargeDetailsPtrOutputWithContext(context.Background())
 }
@@ -664,6 +779,12 @@ func (i *customLineItemFlatChargeDetailsPtrType) ToCustomLineItemFlatChargeDetai
 	return pulumi.ToOutputWithContext(ctx, i).(CustomLineItemFlatChargeDetailsPtrOutput)
 }
 
+func (i *customLineItemFlatChargeDetailsPtrType) ToOutput(ctx context.Context) pulumix.Output[*CustomLineItemFlatChargeDetails] {
+	return pulumix.Output[*CustomLineItemFlatChargeDetails]{
+		OutputState: i.ToCustomLineItemFlatChargeDetailsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CustomLineItemFlatChargeDetailsOutput struct{ *pulumi.OutputState }
 
 func (CustomLineItemFlatChargeDetailsOutput) ElementType() reflect.Type {
@@ -688,6 +809,12 @@ func (o CustomLineItemFlatChargeDetailsOutput) ToCustomLineItemFlatChargeDetails
 	}).(CustomLineItemFlatChargeDetailsPtrOutput)
 }
 
+func (o CustomLineItemFlatChargeDetailsOutput) ToOutput(ctx context.Context) pulumix.Output[CustomLineItemFlatChargeDetails] {
+	return pulumix.Output[CustomLineItemFlatChargeDetails]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CustomLineItemFlatChargeDetailsOutput) ChargeValue() pulumi.Float64Output {
 	return o.ApplyT(func(v CustomLineItemFlatChargeDetails) float64 { return v.ChargeValue }).(pulumi.Float64Output)
 }
@@ -704,6 +831,12 @@ func (o CustomLineItemFlatChargeDetailsPtrOutput) ToCustomLineItemFlatChargeDeta
 
 func (o CustomLineItemFlatChargeDetailsPtrOutput) ToCustomLineItemFlatChargeDetailsPtrOutputWithContext(ctx context.Context) CustomLineItemFlatChargeDetailsPtrOutput {
 	return o
+}
+
+func (o CustomLineItemFlatChargeDetailsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CustomLineItemFlatChargeDetails] {
+	return pulumix.Output[*CustomLineItemFlatChargeDetails]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CustomLineItemFlatChargeDetailsPtrOutput) Elem() CustomLineItemFlatChargeDetailsOutput {
@@ -758,6 +891,12 @@ func (i CustomLineItemPercentageChargeDetailsArgs) ToCustomLineItemPercentageCha
 	return pulumi.ToOutputWithContext(ctx, i).(CustomLineItemPercentageChargeDetailsOutput)
 }
 
+func (i CustomLineItemPercentageChargeDetailsArgs) ToOutput(ctx context.Context) pulumix.Output[CustomLineItemPercentageChargeDetails] {
+	return pulumix.Output[CustomLineItemPercentageChargeDetails]{
+		OutputState: i.ToCustomLineItemPercentageChargeDetailsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i CustomLineItemPercentageChargeDetailsArgs) ToCustomLineItemPercentageChargeDetailsPtrOutput() CustomLineItemPercentageChargeDetailsPtrOutput {
 	return i.ToCustomLineItemPercentageChargeDetailsPtrOutputWithContext(context.Background())
 }
@@ -799,6 +938,12 @@ func (i *customLineItemPercentageChargeDetailsPtrType) ToCustomLineItemPercentag
 	return pulumi.ToOutputWithContext(ctx, i).(CustomLineItemPercentageChargeDetailsPtrOutput)
 }
 
+func (i *customLineItemPercentageChargeDetailsPtrType) ToOutput(ctx context.Context) pulumix.Output[*CustomLineItemPercentageChargeDetails] {
+	return pulumix.Output[*CustomLineItemPercentageChargeDetails]{
+		OutputState: i.ToCustomLineItemPercentageChargeDetailsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CustomLineItemPercentageChargeDetailsOutput struct{ *pulumi.OutputState }
 
 func (CustomLineItemPercentageChargeDetailsOutput) ElementType() reflect.Type {
@@ -823,6 +968,12 @@ func (o CustomLineItemPercentageChargeDetailsOutput) ToCustomLineItemPercentageC
 	}).(CustomLineItemPercentageChargeDetailsPtrOutput)
 }
 
+func (o CustomLineItemPercentageChargeDetailsOutput) ToOutput(ctx context.Context) pulumix.Output[CustomLineItemPercentageChargeDetails] {
+	return pulumix.Output[CustomLineItemPercentageChargeDetails]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CustomLineItemPercentageChargeDetailsOutput) ChildAssociatedResources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CustomLineItemPercentageChargeDetails) []string { return v.ChildAssociatedResources }).(pulumi.StringArrayOutput)
 }
@@ -843,6 +994,12 @@ func (o CustomLineItemPercentageChargeDetailsPtrOutput) ToCustomLineItemPercenta
 
 func (o CustomLineItemPercentageChargeDetailsPtrOutput) ToCustomLineItemPercentageChargeDetailsPtrOutputWithContext(ctx context.Context) CustomLineItemPercentageChargeDetailsPtrOutput {
 	return o
+}
+
+func (o CustomLineItemPercentageChargeDetailsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CustomLineItemPercentageChargeDetails] {
+	return pulumix.Output[*CustomLineItemPercentageChargeDetails]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CustomLineItemPercentageChargeDetailsPtrOutput) Elem() CustomLineItemPercentageChargeDetailsOutput {
@@ -906,6 +1063,12 @@ func (i CustomLineItemTagArgs) ToCustomLineItemTagOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(CustomLineItemTagOutput)
 }
 
+func (i CustomLineItemTagArgs) ToOutput(ctx context.Context) pulumix.Output[CustomLineItemTag] {
+	return pulumix.Output[CustomLineItemTag]{
+		OutputState: i.ToCustomLineItemTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CustomLineItemTagArrayInput is an input type that accepts CustomLineItemTagArray and CustomLineItemTagArrayOutput values.
 // You can construct a concrete instance of `CustomLineItemTagArrayInput` via:
 //
@@ -931,6 +1094,12 @@ func (i CustomLineItemTagArray) ToCustomLineItemTagArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(CustomLineItemTagArrayOutput)
 }
 
+func (i CustomLineItemTagArray) ToOutput(ctx context.Context) pulumix.Output[[]CustomLineItemTag] {
+	return pulumix.Output[[]CustomLineItemTag]{
+		OutputState: i.ToCustomLineItemTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CustomLineItemTagOutput struct{ *pulumi.OutputState }
 
 func (CustomLineItemTagOutput) ElementType() reflect.Type {
@@ -943,6 +1112,12 @@ func (o CustomLineItemTagOutput) ToCustomLineItemTagOutput() CustomLineItemTagOu
 
 func (o CustomLineItemTagOutput) ToCustomLineItemTagOutputWithContext(ctx context.Context) CustomLineItemTagOutput {
 	return o
+}
+
+func (o CustomLineItemTagOutput) ToOutput(ctx context.Context) pulumix.Output[CustomLineItemTag] {
+	return pulumix.Output[CustomLineItemTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CustomLineItemTagOutput) Key() pulumi.StringOutput {
@@ -965,6 +1140,12 @@ func (o CustomLineItemTagArrayOutput) ToCustomLineItemTagArrayOutput() CustomLin
 
 func (o CustomLineItemTagArrayOutput) ToCustomLineItemTagArrayOutputWithContext(ctx context.Context) CustomLineItemTagArrayOutput {
 	return o
+}
+
+func (o CustomLineItemTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CustomLineItemTag] {
+	return pulumix.Output[[]CustomLineItemTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CustomLineItemTagArrayOutput) Index(i pulumi.IntInput) CustomLineItemTagOutput {
@@ -1006,6 +1187,12 @@ func (i PricingPlanTagArgs) ToPricingPlanTagOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(PricingPlanTagOutput)
 }
 
+func (i PricingPlanTagArgs) ToOutput(ctx context.Context) pulumix.Output[PricingPlanTag] {
+	return pulumix.Output[PricingPlanTag]{
+		OutputState: i.ToPricingPlanTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PricingPlanTagArrayInput is an input type that accepts PricingPlanTagArray and PricingPlanTagArrayOutput values.
 // You can construct a concrete instance of `PricingPlanTagArrayInput` via:
 //
@@ -1031,6 +1218,12 @@ func (i PricingPlanTagArray) ToPricingPlanTagArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(PricingPlanTagArrayOutput)
 }
 
+func (i PricingPlanTagArray) ToOutput(ctx context.Context) pulumix.Output[[]PricingPlanTag] {
+	return pulumix.Output[[]PricingPlanTag]{
+		OutputState: i.ToPricingPlanTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PricingPlanTagOutput struct{ *pulumi.OutputState }
 
 func (PricingPlanTagOutput) ElementType() reflect.Type {
@@ -1043,6 +1236,12 @@ func (o PricingPlanTagOutput) ToPricingPlanTagOutput() PricingPlanTagOutput {
 
 func (o PricingPlanTagOutput) ToPricingPlanTagOutputWithContext(ctx context.Context) PricingPlanTagOutput {
 	return o
+}
+
+func (o PricingPlanTagOutput) ToOutput(ctx context.Context) pulumix.Output[PricingPlanTag] {
+	return pulumix.Output[PricingPlanTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PricingPlanTagOutput) Key() pulumi.StringOutput {
@@ -1065,6 +1264,12 @@ func (o PricingPlanTagArrayOutput) ToPricingPlanTagArrayOutput() PricingPlanTagA
 
 func (o PricingPlanTagArrayOutput) ToPricingPlanTagArrayOutputWithContext(ctx context.Context) PricingPlanTagArrayOutput {
 	return o
+}
+
+func (o PricingPlanTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PricingPlanTag] {
+	return pulumix.Output[[]PricingPlanTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PricingPlanTagArrayOutput) Index(i pulumi.IntInput) PricingPlanTagOutput {
@@ -1104,6 +1309,12 @@ func (i PricingRuleFreeTierArgs) ToPricingRuleFreeTierOutput() PricingRuleFreeTi
 
 func (i PricingRuleFreeTierArgs) ToPricingRuleFreeTierOutputWithContext(ctx context.Context) PricingRuleFreeTierOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PricingRuleFreeTierOutput)
+}
+
+func (i PricingRuleFreeTierArgs) ToOutput(ctx context.Context) pulumix.Output[PricingRuleFreeTier] {
+	return pulumix.Output[PricingRuleFreeTier]{
+		OutputState: i.ToPricingRuleFreeTierOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i PricingRuleFreeTierArgs) ToPricingRuleFreeTierPtrOutput() PricingRuleFreeTierPtrOutput {
@@ -1147,6 +1358,12 @@ func (i *pricingRuleFreeTierPtrType) ToPricingRuleFreeTierPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(PricingRuleFreeTierPtrOutput)
 }
 
+func (i *pricingRuleFreeTierPtrType) ToOutput(ctx context.Context) pulumix.Output[*PricingRuleFreeTier] {
+	return pulumix.Output[*PricingRuleFreeTier]{
+		OutputState: i.ToPricingRuleFreeTierPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The possible customizable free tier configurations.
 type PricingRuleFreeTierOutput struct{ *pulumi.OutputState }
 
@@ -1172,6 +1389,12 @@ func (o PricingRuleFreeTierOutput) ToPricingRuleFreeTierPtrOutputWithContext(ctx
 	}).(PricingRuleFreeTierPtrOutput)
 }
 
+func (o PricingRuleFreeTierOutput) ToOutput(ctx context.Context) pulumix.Output[PricingRuleFreeTier] {
+	return pulumix.Output[PricingRuleFreeTier]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PricingRuleFreeTierOutput) Activated() pulumi.BoolOutput {
 	return o.ApplyT(func(v PricingRuleFreeTier) bool { return v.Activated }).(pulumi.BoolOutput)
 }
@@ -1188,6 +1411,12 @@ func (o PricingRuleFreeTierPtrOutput) ToPricingRuleFreeTierPtrOutput() PricingRu
 
 func (o PricingRuleFreeTierPtrOutput) ToPricingRuleFreeTierPtrOutputWithContext(ctx context.Context) PricingRuleFreeTierPtrOutput {
 	return o
+}
+
+func (o PricingRuleFreeTierPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PricingRuleFreeTier] {
+	return pulumix.Output[*PricingRuleFreeTier]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PricingRuleFreeTierPtrOutput) Elem() PricingRuleFreeTierOutput {
@@ -1242,6 +1471,12 @@ func (i PricingRuleTagArgs) ToPricingRuleTagOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(PricingRuleTagOutput)
 }
 
+func (i PricingRuleTagArgs) ToOutput(ctx context.Context) pulumix.Output[PricingRuleTag] {
+	return pulumix.Output[PricingRuleTag]{
+		OutputState: i.ToPricingRuleTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PricingRuleTagArrayInput is an input type that accepts PricingRuleTagArray and PricingRuleTagArrayOutput values.
 // You can construct a concrete instance of `PricingRuleTagArrayInput` via:
 //
@@ -1267,6 +1502,12 @@ func (i PricingRuleTagArray) ToPricingRuleTagArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(PricingRuleTagArrayOutput)
 }
 
+func (i PricingRuleTagArray) ToOutput(ctx context.Context) pulumix.Output[[]PricingRuleTag] {
+	return pulumix.Output[[]PricingRuleTag]{
+		OutputState: i.ToPricingRuleTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PricingRuleTagOutput struct{ *pulumi.OutputState }
 
 func (PricingRuleTagOutput) ElementType() reflect.Type {
@@ -1279,6 +1520,12 @@ func (o PricingRuleTagOutput) ToPricingRuleTagOutput() PricingRuleTagOutput {
 
 func (o PricingRuleTagOutput) ToPricingRuleTagOutputWithContext(ctx context.Context) PricingRuleTagOutput {
 	return o
+}
+
+func (o PricingRuleTagOutput) ToOutput(ctx context.Context) pulumix.Output[PricingRuleTag] {
+	return pulumix.Output[PricingRuleTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PricingRuleTagOutput) Key() pulumi.StringOutput {
@@ -1301,6 +1548,12 @@ func (o PricingRuleTagArrayOutput) ToPricingRuleTagArrayOutput() PricingRuleTagA
 
 func (o PricingRuleTagArrayOutput) ToPricingRuleTagArrayOutputWithContext(ctx context.Context) PricingRuleTagArrayOutput {
 	return o
+}
+
+func (o PricingRuleTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PricingRuleTag] {
+	return pulumix.Output[[]PricingRuleTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PricingRuleTagArrayOutput) Index(i pulumi.IntInput) PricingRuleTagOutput {
@@ -1340,6 +1593,12 @@ func (i TieringPropertiesArgs) ToTieringPropertiesOutput() TieringPropertiesOutp
 
 func (i TieringPropertiesArgs) ToTieringPropertiesOutputWithContext(ctx context.Context) TieringPropertiesOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TieringPropertiesOutput)
+}
+
+func (i TieringPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[TieringProperties] {
+	return pulumix.Output[TieringProperties]{
+		OutputState: i.ToTieringPropertiesOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i TieringPropertiesArgs) ToTieringPropertiesPtrOutput() TieringPropertiesPtrOutput {
@@ -1383,6 +1642,12 @@ func (i *tieringPropertiesPtrType) ToTieringPropertiesPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(TieringPropertiesPtrOutput)
 }
 
+func (i *tieringPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*TieringProperties] {
+	return pulumix.Output[*TieringProperties]{
+		OutputState: i.ToTieringPropertiesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The set of tiering configurations for the pricing rule.
 type TieringPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -1408,6 +1673,12 @@ func (o TieringPropertiesOutput) ToTieringPropertiesPtrOutputWithContext(ctx con
 	}).(TieringPropertiesPtrOutput)
 }
 
+func (o TieringPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[TieringProperties] {
+	return pulumix.Output[TieringProperties]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TieringPropertiesOutput) FreeTier() PricingRuleFreeTierPtrOutput {
 	return o.ApplyT(func(v TieringProperties) *PricingRuleFreeTier { return v.FreeTier }).(PricingRuleFreeTierPtrOutput)
 }
@@ -1424,6 +1695,12 @@ func (o TieringPropertiesPtrOutput) ToTieringPropertiesPtrOutput() TieringProper
 
 func (o TieringPropertiesPtrOutput) ToTieringPropertiesPtrOutputWithContext(ctx context.Context) TieringPropertiesPtrOutput {
 	return o
+}
+
+func (o TieringPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TieringProperties] {
+	return pulumix.Output[*TieringProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TieringPropertiesPtrOutput) Elem() TieringPropertiesOutput {

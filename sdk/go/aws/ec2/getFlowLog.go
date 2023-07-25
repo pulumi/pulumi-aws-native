@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Specifies a VPC flow log, which enables you to capture IP traffic for a specific network interface, subnet, or VPC.
@@ -68,6 +69,12 @@ func (o LookupFlowLogResultOutput) ToLookupFlowLogResultOutput() LookupFlowLogRe
 
 func (o LookupFlowLogResultOutput) ToLookupFlowLogResultOutputWithContext(ctx context.Context) LookupFlowLogResultOutput {
 	return o
+}
+
+func (o LookupFlowLogResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFlowLogResult] {
+	return pulumix.Output[LookupFlowLogResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Flow Log ID

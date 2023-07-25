@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Cloud9::EnvironmentEC2
@@ -67,6 +68,12 @@ func (o LookupEnvironmentEC2ResultOutput) ToLookupEnvironmentEC2ResultOutput() L
 
 func (o LookupEnvironmentEC2ResultOutput) ToLookupEnvironmentEC2ResultOutputWithContext(ctx context.Context) LookupEnvironmentEC2ResultOutput {
 	return o
+}
+
+func (o LookupEnvironmentEC2ResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupEnvironmentEC2Result] {
+	return pulumix.Output[LookupEnvironmentEC2Result]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupEnvironmentEC2ResultOutput) Arn() pulumi.StringPtrOutput {

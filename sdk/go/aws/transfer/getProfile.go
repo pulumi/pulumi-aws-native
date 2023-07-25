@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Transfer::Profile
@@ -74,6 +75,12 @@ func (o LookupProfileResultOutput) ToLookupProfileResultOutput() LookupProfileRe
 
 func (o LookupProfileResultOutput) ToLookupProfileResultOutputWithContext(ctx context.Context) LookupProfileResultOutput {
 	return o
+}
+
+func (o LookupProfileResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupProfileResult] {
+	return pulumix.Output[LookupProfileResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the unique Amazon Resource Name (ARN) for the profile.

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::CapacityReservation
@@ -68,6 +69,12 @@ func (o LookupCapacityReservationResultOutput) ToLookupCapacityReservationResult
 
 func (o LookupCapacityReservationResultOutput) ToLookupCapacityReservationResultOutputWithContext(ctx context.Context) LookupCapacityReservationResultOutput {
 	return o
+}
+
+func (o LookupCapacityReservationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupCapacityReservationResult] {
+	return pulumix.Output[LookupCapacityReservationResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupCapacityReservationResultOutput) AvailableInstanceCount() pulumi.IntPtrOutput {

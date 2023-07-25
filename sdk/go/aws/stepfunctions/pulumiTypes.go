@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -46,6 +47,12 @@ func (i ActivityTagsEntryArgs) ToActivityTagsEntryOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ActivityTagsEntryOutput)
 }
 
+func (i ActivityTagsEntryArgs) ToOutput(ctx context.Context) pulumix.Output[ActivityTagsEntry] {
+	return pulumix.Output[ActivityTagsEntry]{
+		OutputState: i.ToActivityTagsEntryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ActivityTagsEntryArrayInput is an input type that accepts ActivityTagsEntryArray and ActivityTagsEntryArrayOutput values.
 // You can construct a concrete instance of `ActivityTagsEntryArrayInput` via:
 //
@@ -71,6 +78,12 @@ func (i ActivityTagsEntryArray) ToActivityTagsEntryArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ActivityTagsEntryArrayOutput)
 }
 
+func (i ActivityTagsEntryArray) ToOutput(ctx context.Context) pulumix.Output[[]ActivityTagsEntry] {
+	return pulumix.Output[[]ActivityTagsEntry]{
+		OutputState: i.ToActivityTagsEntryArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ActivityTagsEntryOutput struct{ *pulumi.OutputState }
 
 func (ActivityTagsEntryOutput) ElementType() reflect.Type {
@@ -83,6 +96,12 @@ func (o ActivityTagsEntryOutput) ToActivityTagsEntryOutput() ActivityTagsEntryOu
 
 func (o ActivityTagsEntryOutput) ToActivityTagsEntryOutputWithContext(ctx context.Context) ActivityTagsEntryOutput {
 	return o
+}
+
+func (o ActivityTagsEntryOutput) ToOutput(ctx context.Context) pulumix.Output[ActivityTagsEntry] {
+	return pulumix.Output[ActivityTagsEntry]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ActivityTagsEntryOutput) Key() pulumi.StringOutput {
@@ -105,6 +124,12 @@ func (o ActivityTagsEntryArrayOutput) ToActivityTagsEntryArrayOutput() ActivityT
 
 func (o ActivityTagsEntryArrayOutput) ToActivityTagsEntryArrayOutputWithContext(ctx context.Context) ActivityTagsEntryArrayOutput {
 	return o
+}
+
+func (o ActivityTagsEntryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ActivityTagsEntry] {
+	return pulumix.Output[[]ActivityTagsEntry]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ActivityTagsEntryArrayOutput) Index(i pulumi.IntInput) ActivityTagsEntryOutput {
@@ -162,6 +187,12 @@ func (i StateMachineAliasDeploymentPreferenceArgs) ToStateMachineAliasDeployment
 	return pulumi.ToOutputWithContext(ctx, i).(StateMachineAliasDeploymentPreferenceOutput)
 }
 
+func (i StateMachineAliasDeploymentPreferenceArgs) ToOutput(ctx context.Context) pulumix.Output[StateMachineAliasDeploymentPreference] {
+	return pulumix.Output[StateMachineAliasDeploymentPreference]{
+		OutputState: i.ToStateMachineAliasDeploymentPreferenceOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i StateMachineAliasDeploymentPreferenceArgs) ToStateMachineAliasDeploymentPreferencePtrOutput() StateMachineAliasDeploymentPreferencePtrOutput {
 	return i.ToStateMachineAliasDeploymentPreferencePtrOutputWithContext(context.Background())
 }
@@ -203,6 +234,12 @@ func (i *stateMachineAliasDeploymentPreferencePtrType) ToStateMachineAliasDeploy
 	return pulumi.ToOutputWithContext(ctx, i).(StateMachineAliasDeploymentPreferencePtrOutput)
 }
 
+func (i *stateMachineAliasDeploymentPreferencePtrType) ToOutput(ctx context.Context) pulumix.Output[*StateMachineAliasDeploymentPreference] {
+	return pulumix.Output[*StateMachineAliasDeploymentPreference]{
+		OutputState: i.ToStateMachineAliasDeploymentPreferencePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The settings to enable gradual state machine deployments.
 type StateMachineAliasDeploymentPreferenceOutput struct{ *pulumi.OutputState }
 
@@ -226,6 +263,12 @@ func (o StateMachineAliasDeploymentPreferenceOutput) ToStateMachineAliasDeployme
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v StateMachineAliasDeploymentPreference) *StateMachineAliasDeploymentPreference {
 		return &v
 	}).(StateMachineAliasDeploymentPreferencePtrOutput)
+}
+
+func (o StateMachineAliasDeploymentPreferenceOutput) ToOutput(ctx context.Context) pulumix.Output[StateMachineAliasDeploymentPreference] {
+	return pulumix.Output[StateMachineAliasDeploymentPreference]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of CloudWatch alarm names that will be monitored during the deployment. The deployment will fail and rollback if any alarms go into ALARM state.
@@ -264,6 +307,12 @@ func (o StateMachineAliasDeploymentPreferencePtrOutput) ToStateMachineAliasDeplo
 
 func (o StateMachineAliasDeploymentPreferencePtrOutput) ToStateMachineAliasDeploymentPreferencePtrOutputWithContext(ctx context.Context) StateMachineAliasDeploymentPreferencePtrOutput {
 	return o
+}
+
+func (o StateMachineAliasDeploymentPreferencePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StateMachineAliasDeploymentPreference] {
+	return pulumix.Output[*StateMachineAliasDeploymentPreference]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StateMachineAliasDeploymentPreferencePtrOutput) Elem() StateMachineAliasDeploymentPreferenceOutput {
@@ -362,6 +411,12 @@ func (i StateMachineAliasRoutingConfigurationVersionArgs) ToStateMachineAliasRou
 	return pulumi.ToOutputWithContext(ctx, i).(StateMachineAliasRoutingConfigurationVersionOutput)
 }
 
+func (i StateMachineAliasRoutingConfigurationVersionArgs) ToOutput(ctx context.Context) pulumix.Output[StateMachineAliasRoutingConfigurationVersion] {
+	return pulumix.Output[StateMachineAliasRoutingConfigurationVersion]{
+		OutputState: i.ToStateMachineAliasRoutingConfigurationVersionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // StateMachineAliasRoutingConfigurationVersionArrayInput is an input type that accepts StateMachineAliasRoutingConfigurationVersionArray and StateMachineAliasRoutingConfigurationVersionArrayOutput values.
 // You can construct a concrete instance of `StateMachineAliasRoutingConfigurationVersionArrayInput` via:
 //
@@ -387,6 +442,12 @@ func (i StateMachineAliasRoutingConfigurationVersionArray) ToStateMachineAliasRo
 	return pulumi.ToOutputWithContext(ctx, i).(StateMachineAliasRoutingConfigurationVersionArrayOutput)
 }
 
+func (i StateMachineAliasRoutingConfigurationVersionArray) ToOutput(ctx context.Context) pulumix.Output[[]StateMachineAliasRoutingConfigurationVersion] {
+	return pulumix.Output[[]StateMachineAliasRoutingConfigurationVersion]{
+		OutputState: i.ToStateMachineAliasRoutingConfigurationVersionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StateMachineAliasRoutingConfigurationVersionOutput struct{ *pulumi.OutputState }
 
 func (StateMachineAliasRoutingConfigurationVersionOutput) ElementType() reflect.Type {
@@ -399,6 +460,12 @@ func (o StateMachineAliasRoutingConfigurationVersionOutput) ToStateMachineAliasR
 
 func (o StateMachineAliasRoutingConfigurationVersionOutput) ToStateMachineAliasRoutingConfigurationVersionOutputWithContext(ctx context.Context) StateMachineAliasRoutingConfigurationVersionOutput {
 	return o
+}
+
+func (o StateMachineAliasRoutingConfigurationVersionOutput) ToOutput(ctx context.Context) pulumix.Output[StateMachineAliasRoutingConfigurationVersion] {
+	return pulumix.Output[StateMachineAliasRoutingConfigurationVersion]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) that identifies one or two state machine versions defined in the routing configuration.
@@ -423,6 +490,12 @@ func (o StateMachineAliasRoutingConfigurationVersionArrayOutput) ToStateMachineA
 
 func (o StateMachineAliasRoutingConfigurationVersionArrayOutput) ToStateMachineAliasRoutingConfigurationVersionArrayOutputWithContext(ctx context.Context) StateMachineAliasRoutingConfigurationVersionArrayOutput {
 	return o
+}
+
+func (o StateMachineAliasRoutingConfigurationVersionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StateMachineAliasRoutingConfigurationVersion] {
+	return pulumix.Output[[]StateMachineAliasRoutingConfigurationVersion]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StateMachineAliasRoutingConfigurationVersionArrayOutput) Index(i pulumi.IntInput) StateMachineAliasRoutingConfigurationVersionOutput {
@@ -460,6 +533,12 @@ func (i StateMachineCloudWatchLogsLogGroupArgs) ToStateMachineCloudWatchLogsLogG
 
 func (i StateMachineCloudWatchLogsLogGroupArgs) ToStateMachineCloudWatchLogsLogGroupOutputWithContext(ctx context.Context) StateMachineCloudWatchLogsLogGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StateMachineCloudWatchLogsLogGroupOutput)
+}
+
+func (i StateMachineCloudWatchLogsLogGroupArgs) ToOutput(ctx context.Context) pulumix.Output[StateMachineCloudWatchLogsLogGroup] {
+	return pulumix.Output[StateMachineCloudWatchLogsLogGroup]{
+		OutputState: i.ToStateMachineCloudWatchLogsLogGroupOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i StateMachineCloudWatchLogsLogGroupArgs) ToStateMachineCloudWatchLogsLogGroupPtrOutput() StateMachineCloudWatchLogsLogGroupPtrOutput {
@@ -503,6 +582,12 @@ func (i *stateMachineCloudWatchLogsLogGroupPtrType) ToStateMachineCloudWatchLogs
 	return pulumi.ToOutputWithContext(ctx, i).(StateMachineCloudWatchLogsLogGroupPtrOutput)
 }
 
+func (i *stateMachineCloudWatchLogsLogGroupPtrType) ToOutput(ctx context.Context) pulumix.Output[*StateMachineCloudWatchLogsLogGroup] {
+	return pulumix.Output[*StateMachineCloudWatchLogsLogGroup]{
+		OutputState: i.ToStateMachineCloudWatchLogsLogGroupPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StateMachineCloudWatchLogsLogGroupOutput struct{ *pulumi.OutputState }
 
 func (StateMachineCloudWatchLogsLogGroupOutput) ElementType() reflect.Type {
@@ -527,6 +612,12 @@ func (o StateMachineCloudWatchLogsLogGroupOutput) ToStateMachineCloudWatchLogsLo
 	}).(StateMachineCloudWatchLogsLogGroupPtrOutput)
 }
 
+func (o StateMachineCloudWatchLogsLogGroupOutput) ToOutput(ctx context.Context) pulumix.Output[StateMachineCloudWatchLogsLogGroup] {
+	return pulumix.Output[StateMachineCloudWatchLogsLogGroup]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o StateMachineCloudWatchLogsLogGroupOutput) LogGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StateMachineCloudWatchLogsLogGroup) *string { return v.LogGroupArn }).(pulumi.StringPtrOutput)
 }
@@ -543,6 +634,12 @@ func (o StateMachineCloudWatchLogsLogGroupPtrOutput) ToStateMachineCloudWatchLog
 
 func (o StateMachineCloudWatchLogsLogGroupPtrOutput) ToStateMachineCloudWatchLogsLogGroupPtrOutputWithContext(ctx context.Context) StateMachineCloudWatchLogsLogGroupPtrOutput {
 	return o
+}
+
+func (o StateMachineCloudWatchLogsLogGroupPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StateMachineCloudWatchLogsLogGroup] {
+	return pulumix.Output[*StateMachineCloudWatchLogsLogGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StateMachineCloudWatchLogsLogGroupPtrOutput) Elem() StateMachineCloudWatchLogsLogGroupOutput {
@@ -593,6 +690,12 @@ func (i StateMachineDefinitionArgs) ToStateMachineDefinitionOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(StateMachineDefinitionOutput)
 }
 
+func (i StateMachineDefinitionArgs) ToOutput(ctx context.Context) pulumix.Output[StateMachineDefinition] {
+	return pulumix.Output[StateMachineDefinition]{
+		OutputState: i.ToStateMachineDefinitionOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i StateMachineDefinitionArgs) ToStateMachineDefinitionPtrOutput() StateMachineDefinitionPtrOutput {
 	return i.ToStateMachineDefinitionPtrOutputWithContext(context.Background())
 }
@@ -634,6 +737,12 @@ func (i *stateMachineDefinitionPtrType) ToStateMachineDefinitionPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(StateMachineDefinitionPtrOutput)
 }
 
+func (i *stateMachineDefinitionPtrType) ToOutput(ctx context.Context) pulumix.Output[*StateMachineDefinition] {
+	return pulumix.Output[*StateMachineDefinition]{
+		OutputState: i.ToStateMachineDefinitionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StateMachineDefinitionOutput struct{ *pulumi.OutputState }
 
 func (StateMachineDefinitionOutput) ElementType() reflect.Type {
@@ -658,6 +767,12 @@ func (o StateMachineDefinitionOutput) ToStateMachineDefinitionPtrOutputWithConte
 	}).(StateMachineDefinitionPtrOutput)
 }
 
+func (o StateMachineDefinitionOutput) ToOutput(ctx context.Context) pulumix.Output[StateMachineDefinition] {
+	return pulumix.Output[StateMachineDefinition]{
+		OutputState: o.OutputState,
+	}
+}
+
 type StateMachineDefinitionPtrOutput struct{ *pulumi.OutputState }
 
 func (StateMachineDefinitionPtrOutput) ElementType() reflect.Type {
@@ -670,6 +785,12 @@ func (o StateMachineDefinitionPtrOutput) ToStateMachineDefinitionPtrOutput() Sta
 
 func (o StateMachineDefinitionPtrOutput) ToStateMachineDefinitionPtrOutputWithContext(ctx context.Context) StateMachineDefinitionPtrOutput {
 	return o
+}
+
+func (o StateMachineDefinitionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StateMachineDefinition] {
+	return pulumix.Output[*StateMachineDefinition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StateMachineDefinitionPtrOutput) Elem() StateMachineDefinitionOutput {
@@ -709,6 +830,12 @@ func (i StateMachineDefinitionSubstitutionsArgs) ToStateMachineDefinitionSubstit
 
 func (i StateMachineDefinitionSubstitutionsArgs) ToStateMachineDefinitionSubstitutionsOutputWithContext(ctx context.Context) StateMachineDefinitionSubstitutionsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StateMachineDefinitionSubstitutionsOutput)
+}
+
+func (i StateMachineDefinitionSubstitutionsArgs) ToOutput(ctx context.Context) pulumix.Output[StateMachineDefinitionSubstitutions] {
+	return pulumix.Output[StateMachineDefinitionSubstitutions]{
+		OutputState: i.ToStateMachineDefinitionSubstitutionsOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i StateMachineDefinitionSubstitutionsArgs) ToStateMachineDefinitionSubstitutionsPtrOutput() StateMachineDefinitionSubstitutionsPtrOutput {
@@ -752,6 +879,12 @@ func (i *stateMachineDefinitionSubstitutionsPtrType) ToStateMachineDefinitionSub
 	return pulumi.ToOutputWithContext(ctx, i).(StateMachineDefinitionSubstitutionsPtrOutput)
 }
 
+func (i *stateMachineDefinitionSubstitutionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*StateMachineDefinitionSubstitutions] {
+	return pulumix.Output[*StateMachineDefinitionSubstitutions]{
+		OutputState: i.ToStateMachineDefinitionSubstitutionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StateMachineDefinitionSubstitutionsOutput struct{ *pulumi.OutputState }
 
 func (StateMachineDefinitionSubstitutionsOutput) ElementType() reflect.Type {
@@ -776,6 +909,12 @@ func (o StateMachineDefinitionSubstitutionsOutput) ToStateMachineDefinitionSubst
 	}).(StateMachineDefinitionSubstitutionsPtrOutput)
 }
 
+func (o StateMachineDefinitionSubstitutionsOutput) ToOutput(ctx context.Context) pulumix.Output[StateMachineDefinitionSubstitutions] {
+	return pulumix.Output[StateMachineDefinitionSubstitutions]{
+		OutputState: o.OutputState,
+	}
+}
+
 type StateMachineDefinitionSubstitutionsPtrOutput struct{ *pulumi.OutputState }
 
 func (StateMachineDefinitionSubstitutionsPtrOutput) ElementType() reflect.Type {
@@ -788,6 +927,12 @@ func (o StateMachineDefinitionSubstitutionsPtrOutput) ToStateMachineDefinitionSu
 
 func (o StateMachineDefinitionSubstitutionsPtrOutput) ToStateMachineDefinitionSubstitutionsPtrOutputWithContext(ctx context.Context) StateMachineDefinitionSubstitutionsPtrOutput {
 	return o
+}
+
+func (o StateMachineDefinitionSubstitutionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StateMachineDefinitionSubstitutions] {
+	return pulumix.Output[*StateMachineDefinitionSubstitutions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StateMachineDefinitionSubstitutionsPtrOutput) Elem() StateMachineDefinitionSubstitutionsOutput {
@@ -831,6 +976,12 @@ func (i StateMachineLogDestinationArgs) ToStateMachineLogDestinationOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(StateMachineLogDestinationOutput)
 }
 
+func (i StateMachineLogDestinationArgs) ToOutput(ctx context.Context) pulumix.Output[StateMachineLogDestination] {
+	return pulumix.Output[StateMachineLogDestination]{
+		OutputState: i.ToStateMachineLogDestinationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // StateMachineLogDestinationArrayInput is an input type that accepts StateMachineLogDestinationArray and StateMachineLogDestinationArrayOutput values.
 // You can construct a concrete instance of `StateMachineLogDestinationArrayInput` via:
 //
@@ -856,6 +1007,12 @@ func (i StateMachineLogDestinationArray) ToStateMachineLogDestinationArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(StateMachineLogDestinationArrayOutput)
 }
 
+func (i StateMachineLogDestinationArray) ToOutput(ctx context.Context) pulumix.Output[[]StateMachineLogDestination] {
+	return pulumix.Output[[]StateMachineLogDestination]{
+		OutputState: i.ToStateMachineLogDestinationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StateMachineLogDestinationOutput struct{ *pulumi.OutputState }
 
 func (StateMachineLogDestinationOutput) ElementType() reflect.Type {
@@ -868,6 +1025,12 @@ func (o StateMachineLogDestinationOutput) ToStateMachineLogDestinationOutput() S
 
 func (o StateMachineLogDestinationOutput) ToStateMachineLogDestinationOutputWithContext(ctx context.Context) StateMachineLogDestinationOutput {
 	return o
+}
+
+func (o StateMachineLogDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[StateMachineLogDestination] {
+	return pulumix.Output[StateMachineLogDestination]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StateMachineLogDestinationOutput) CloudWatchLogsLogGroup() StateMachineCloudWatchLogsLogGroupPtrOutput {
@@ -888,6 +1051,12 @@ func (o StateMachineLogDestinationArrayOutput) ToStateMachineLogDestinationArray
 
 func (o StateMachineLogDestinationArrayOutput) ToStateMachineLogDestinationArrayOutputWithContext(ctx context.Context) StateMachineLogDestinationArrayOutput {
 	return o
+}
+
+func (o StateMachineLogDestinationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StateMachineLogDestination] {
+	return pulumix.Output[[]StateMachineLogDestination]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StateMachineLogDestinationArrayOutput) Index(i pulumi.IntInput) StateMachineLogDestinationOutput {
@@ -931,6 +1100,12 @@ func (i StateMachineLoggingConfigurationArgs) ToStateMachineLoggingConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(StateMachineLoggingConfigurationOutput)
 }
 
+func (i StateMachineLoggingConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[StateMachineLoggingConfiguration] {
+	return pulumix.Output[StateMachineLoggingConfiguration]{
+		OutputState: i.ToStateMachineLoggingConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i StateMachineLoggingConfigurationArgs) ToStateMachineLoggingConfigurationPtrOutput() StateMachineLoggingConfigurationPtrOutput {
 	return i.ToStateMachineLoggingConfigurationPtrOutputWithContext(context.Background())
 }
@@ -972,6 +1147,12 @@ func (i *stateMachineLoggingConfigurationPtrType) ToStateMachineLoggingConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(StateMachineLoggingConfigurationPtrOutput)
 }
 
+func (i *stateMachineLoggingConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*StateMachineLoggingConfiguration] {
+	return pulumix.Output[*StateMachineLoggingConfiguration]{
+		OutputState: i.ToStateMachineLoggingConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StateMachineLoggingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (StateMachineLoggingConfigurationOutput) ElementType() reflect.Type {
@@ -994,6 +1175,12 @@ func (o StateMachineLoggingConfigurationOutput) ToStateMachineLoggingConfigurati
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v StateMachineLoggingConfiguration) *StateMachineLoggingConfiguration {
 		return &v
 	}).(StateMachineLoggingConfigurationPtrOutput)
+}
+
+func (o StateMachineLoggingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[StateMachineLoggingConfiguration] {
+	return pulumix.Output[StateMachineLoggingConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StateMachineLoggingConfigurationOutput) Destinations() StateMachineLogDestinationArrayOutput {
@@ -1020,6 +1207,12 @@ func (o StateMachineLoggingConfigurationPtrOutput) ToStateMachineLoggingConfigur
 
 func (o StateMachineLoggingConfigurationPtrOutput) ToStateMachineLoggingConfigurationPtrOutputWithContext(ctx context.Context) StateMachineLoggingConfigurationPtrOutput {
 	return o
+}
+
+func (o StateMachineLoggingConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StateMachineLoggingConfiguration] {
+	return pulumix.Output[*StateMachineLoggingConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StateMachineLoggingConfigurationPtrOutput) Elem() StateMachineLoggingConfigurationOutput {
@@ -1094,6 +1287,12 @@ func (i StateMachineS3LocationArgs) ToStateMachineS3LocationOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(StateMachineS3LocationOutput)
 }
 
+func (i StateMachineS3LocationArgs) ToOutput(ctx context.Context) pulumix.Output[StateMachineS3Location] {
+	return pulumix.Output[StateMachineS3Location]{
+		OutputState: i.ToStateMachineS3LocationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i StateMachineS3LocationArgs) ToStateMachineS3LocationPtrOutput() StateMachineS3LocationPtrOutput {
 	return i.ToStateMachineS3LocationPtrOutputWithContext(context.Background())
 }
@@ -1135,6 +1334,12 @@ func (i *stateMachineS3LocationPtrType) ToStateMachineS3LocationPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(StateMachineS3LocationPtrOutput)
 }
 
+func (i *stateMachineS3LocationPtrType) ToOutput(ctx context.Context) pulumix.Output[*StateMachineS3Location] {
+	return pulumix.Output[*StateMachineS3Location]{
+		OutputState: i.ToStateMachineS3LocationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StateMachineS3LocationOutput struct{ *pulumi.OutputState }
 
 func (StateMachineS3LocationOutput) ElementType() reflect.Type {
@@ -1157,6 +1362,12 @@ func (o StateMachineS3LocationOutput) ToStateMachineS3LocationPtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v StateMachineS3Location) *StateMachineS3Location {
 		return &v
 	}).(StateMachineS3LocationPtrOutput)
+}
+
+func (o StateMachineS3LocationOutput) ToOutput(ctx context.Context) pulumix.Output[StateMachineS3Location] {
+	return pulumix.Output[StateMachineS3Location]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StateMachineS3LocationOutput) Bucket() pulumi.StringOutput {
@@ -1183,6 +1394,12 @@ func (o StateMachineS3LocationPtrOutput) ToStateMachineS3LocationPtrOutput() Sta
 
 func (o StateMachineS3LocationPtrOutput) ToStateMachineS3LocationPtrOutputWithContext(ctx context.Context) StateMachineS3LocationPtrOutput {
 	return o
+}
+
+func (o StateMachineS3LocationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StateMachineS3Location] {
+	return pulumix.Output[*StateMachineS3Location]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StateMachineS3LocationPtrOutput) Elem() StateMachineS3LocationOutput {
@@ -1255,6 +1472,12 @@ func (i StateMachineTagsEntryArgs) ToStateMachineTagsEntryOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(StateMachineTagsEntryOutput)
 }
 
+func (i StateMachineTagsEntryArgs) ToOutput(ctx context.Context) pulumix.Output[StateMachineTagsEntry] {
+	return pulumix.Output[StateMachineTagsEntry]{
+		OutputState: i.ToStateMachineTagsEntryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // StateMachineTagsEntryArrayInput is an input type that accepts StateMachineTagsEntryArray and StateMachineTagsEntryArrayOutput values.
 // You can construct a concrete instance of `StateMachineTagsEntryArrayInput` via:
 //
@@ -1280,6 +1503,12 @@ func (i StateMachineTagsEntryArray) ToStateMachineTagsEntryArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(StateMachineTagsEntryArrayOutput)
 }
 
+func (i StateMachineTagsEntryArray) ToOutput(ctx context.Context) pulumix.Output[[]StateMachineTagsEntry] {
+	return pulumix.Output[[]StateMachineTagsEntry]{
+		OutputState: i.ToStateMachineTagsEntryArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StateMachineTagsEntryOutput struct{ *pulumi.OutputState }
 
 func (StateMachineTagsEntryOutput) ElementType() reflect.Type {
@@ -1292,6 +1521,12 @@ func (o StateMachineTagsEntryOutput) ToStateMachineTagsEntryOutput() StateMachin
 
 func (o StateMachineTagsEntryOutput) ToStateMachineTagsEntryOutputWithContext(ctx context.Context) StateMachineTagsEntryOutput {
 	return o
+}
+
+func (o StateMachineTagsEntryOutput) ToOutput(ctx context.Context) pulumix.Output[StateMachineTagsEntry] {
+	return pulumix.Output[StateMachineTagsEntry]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StateMachineTagsEntryOutput) Key() pulumi.StringOutput {
@@ -1314,6 +1549,12 @@ func (o StateMachineTagsEntryArrayOutput) ToStateMachineTagsEntryArrayOutput() S
 
 func (o StateMachineTagsEntryArrayOutput) ToStateMachineTagsEntryArrayOutputWithContext(ctx context.Context) StateMachineTagsEntryArrayOutput {
 	return o
+}
+
+func (o StateMachineTagsEntryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StateMachineTagsEntry] {
+	return pulumix.Output[[]StateMachineTagsEntry]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StateMachineTagsEntryArrayOutput) Index(i pulumi.IntInput) StateMachineTagsEntryOutput {
@@ -1351,6 +1592,12 @@ func (i StateMachineTracingConfigurationArgs) ToStateMachineTracingConfiguration
 
 func (i StateMachineTracingConfigurationArgs) ToStateMachineTracingConfigurationOutputWithContext(ctx context.Context) StateMachineTracingConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StateMachineTracingConfigurationOutput)
+}
+
+func (i StateMachineTracingConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[StateMachineTracingConfiguration] {
+	return pulumix.Output[StateMachineTracingConfiguration]{
+		OutputState: i.ToStateMachineTracingConfigurationOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i StateMachineTracingConfigurationArgs) ToStateMachineTracingConfigurationPtrOutput() StateMachineTracingConfigurationPtrOutput {
@@ -1394,6 +1641,12 @@ func (i *stateMachineTracingConfigurationPtrType) ToStateMachineTracingConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(StateMachineTracingConfigurationPtrOutput)
 }
 
+func (i *stateMachineTracingConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*StateMachineTracingConfiguration] {
+	return pulumix.Output[*StateMachineTracingConfiguration]{
+		OutputState: i.ToStateMachineTracingConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StateMachineTracingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (StateMachineTracingConfigurationOutput) ElementType() reflect.Type {
@@ -1418,6 +1671,12 @@ func (o StateMachineTracingConfigurationOutput) ToStateMachineTracingConfigurati
 	}).(StateMachineTracingConfigurationPtrOutput)
 }
 
+func (o StateMachineTracingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[StateMachineTracingConfiguration] {
+	return pulumix.Output[StateMachineTracingConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o StateMachineTracingConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StateMachineTracingConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -1434,6 +1693,12 @@ func (o StateMachineTracingConfigurationPtrOutput) ToStateMachineTracingConfigur
 
 func (o StateMachineTracingConfigurationPtrOutput) ToStateMachineTracingConfigurationPtrOutputWithContext(ctx context.Context) StateMachineTracingConfigurationPtrOutput {
 	return o
+}
+
+func (o StateMachineTracingConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StateMachineTracingConfiguration] {
+	return pulumix.Output[*StateMachineTracingConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StateMachineTracingConfigurationPtrOutput) Elem() StateMachineTracingConfigurationOutput {

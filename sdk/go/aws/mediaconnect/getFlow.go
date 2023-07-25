@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::MediaConnect::Flow
@@ -72,6 +73,12 @@ func (o LookupFlowResultOutput) ToLookupFlowResultOutput() LookupFlowResultOutpu
 
 func (o LookupFlowResultOutput) ToLookupFlowResultOutputWithContext(ctx context.Context) LookupFlowResultOutput {
 	return o
+}
+
+func (o LookupFlowResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFlowResult] {
+	return pulumix.Output[LookupFlowResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.

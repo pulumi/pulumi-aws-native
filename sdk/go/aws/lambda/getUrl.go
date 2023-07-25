@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Lambda::Url
@@ -73,6 +74,12 @@ func (o LookupUrlResultOutput) ToLookupUrlResultOutput() LookupUrlResultOutput {
 
 func (o LookupUrlResultOutput) ToLookupUrlResultOutputWithContext(ctx context.Context) LookupUrlResultOutput {
 	return o
+}
+
+func (o LookupUrlResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupUrlResult] {
+	return pulumix.Output[LookupUrlResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL.

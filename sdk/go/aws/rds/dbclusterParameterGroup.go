@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::RDS::DBClusterParameterGroup resource creates a new Amazon RDS DB cluster parameter group. For more information, see Managing an Amazon Aurora DB Cluster in the Amazon Aurora User Guide.
@@ -123,6 +124,12 @@ func (i *DBClusterParameterGroup) ToDBClusterParameterGroupOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(DBClusterParameterGroupOutput)
 }
 
+func (i *DBClusterParameterGroup) ToOutput(ctx context.Context) pulumix.Output[*DBClusterParameterGroup] {
+	return pulumix.Output[*DBClusterParameterGroup]{
+		OutputState: i.ToDBClusterParameterGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DBClusterParameterGroupOutput struct{ *pulumi.OutputState }
 
 func (DBClusterParameterGroupOutput) ElementType() reflect.Type {
@@ -135,6 +142,12 @@ func (o DBClusterParameterGroupOutput) ToDBClusterParameterGroupOutput() DBClust
 
 func (o DBClusterParameterGroupOutput) ToDBClusterParameterGroupOutputWithContext(ctx context.Context) DBClusterParameterGroupOutput {
 	return o
+}
+
+func (o DBClusterParameterGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*DBClusterParameterGroup] {
+	return pulumix.Output[*DBClusterParameterGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DBClusterParameterGroupOutput) DBClusterParameterGroupName() pulumi.StringPtrOutput {

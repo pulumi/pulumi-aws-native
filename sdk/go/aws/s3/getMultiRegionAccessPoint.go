@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // AWS::S3::MultiRegionAccessPoint is an Amazon S3 resource type that dynamically routes S3 requests to easily satisfy geographic compliance requirements based on customer-defined routing policies.
@@ -68,6 +69,12 @@ func (o LookupMultiRegionAccessPointResultOutput) ToLookupMultiRegionAccessPoint
 
 func (o LookupMultiRegionAccessPointResultOutput) ToLookupMultiRegionAccessPointResultOutputWithContext(ctx context.Context) LookupMultiRegionAccessPointResultOutput {
 	return o
+}
+
+func (o LookupMultiRegionAccessPointResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupMultiRegionAccessPointResult] {
+	return pulumix.Output[LookupMultiRegionAccessPointResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The alias is a unique identifier to, and is part of the public DNS name for this Multi Region Access Point

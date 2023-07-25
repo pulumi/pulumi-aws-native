@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Channel latency mode.
@@ -78,6 +79,12 @@ func (o ChannelLatencyModeOutput) ToChannelLatencyModePtrOutputWithContext(ctx c
 	}).(ChannelLatencyModePtrOutput)
 }
 
+func (o ChannelLatencyModeOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelLatencyMode] {
+	return pulumix.Output[ChannelLatencyMode]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ChannelLatencyModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -111,6 +118,12 @@ func (o ChannelLatencyModePtrOutput) ToChannelLatencyModePtrOutput() ChannelLate
 
 func (o ChannelLatencyModePtrOutput) ToChannelLatencyModePtrOutputWithContext(ctx context.Context) ChannelLatencyModePtrOutput {
 	return o
+}
+
+func (o ChannelLatencyModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelLatencyMode] {
+	return pulumix.Output[*ChannelLatencyMode]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ChannelLatencyModePtrOutput) Elem() ChannelLatencyModeOutput {
@@ -173,6 +186,12 @@ func (in *channelLatencyModePtr) ToChannelLatencyModePtrOutput() ChannelLatencyM
 
 func (in *channelLatencyModePtr) ToChannelLatencyModePtrOutputWithContext(ctx context.Context) ChannelLatencyModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ChannelLatencyModePtrOutput)
+}
+
+func (in *channelLatencyModePtr) ToOutput(ctx context.Context) pulumix.Output[*ChannelLatencyMode] {
+	return pulumix.Output[*ChannelLatencyMode]{
+		OutputState: in.ToChannelLatencyModePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Optional transcode preset for the channel. This is selectable only for ADVANCED_HD and ADVANCED_SD channel types. For those channel types, the default preset is HIGHER_BANDWIDTH_DELIVERY. For other channel types (BASIC and STANDARD), preset is the empty string ("").
@@ -243,6 +262,12 @@ func (o ChannelPresetOutput) ToChannelPresetPtrOutputWithContext(ctx context.Con
 	}).(ChannelPresetPtrOutput)
 }
 
+func (o ChannelPresetOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelPreset] {
+	return pulumix.Output[ChannelPreset]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ChannelPresetOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -276,6 +301,12 @@ func (o ChannelPresetPtrOutput) ToChannelPresetPtrOutput() ChannelPresetPtrOutpu
 
 func (o ChannelPresetPtrOutput) ToChannelPresetPtrOutputWithContext(ctx context.Context) ChannelPresetPtrOutput {
 	return o
+}
+
+func (o ChannelPresetPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelPreset] {
+	return pulumix.Output[*ChannelPreset]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ChannelPresetPtrOutput) Elem() ChannelPresetOutput {
@@ -338,6 +369,12 @@ func (in *channelPresetPtr) ToChannelPresetPtrOutput() ChannelPresetPtrOutput {
 
 func (in *channelPresetPtr) ToChannelPresetPtrOutputWithContext(ctx context.Context) ChannelPresetPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ChannelPresetPtrOutput)
+}
+
+func (in *channelPresetPtr) ToOutput(ctx context.Context) pulumix.Output[*ChannelPreset] {
+	return pulumix.Output[*ChannelPreset]{
+		OutputState: in.ToChannelPresetPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Channel type, which determines the allowable resolution and bitrate. If you exceed the allowable resolution or bitrate, the stream probably will disconnect immediately.
@@ -410,6 +447,12 @@ func (o ChannelTypeOutput) ToChannelTypePtrOutputWithContext(ctx context.Context
 	}).(ChannelTypePtrOutput)
 }
 
+func (o ChannelTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelType] {
+	return pulumix.Output[ChannelType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ChannelTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -443,6 +486,12 @@ func (o ChannelTypePtrOutput) ToChannelTypePtrOutput() ChannelTypePtrOutput {
 
 func (o ChannelTypePtrOutput) ToChannelTypePtrOutputWithContext(ctx context.Context) ChannelTypePtrOutput {
 	return o
+}
+
+func (o ChannelTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelType] {
+	return pulumix.Output[*ChannelType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ChannelTypePtrOutput) Elem() ChannelTypeOutput {
@@ -507,6 +556,12 @@ func (in *channelTypePtr) ToChannelTypePtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(ChannelTypePtrOutput)
 }
 
+func (in *channelTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ChannelType] {
+	return pulumix.Output[*ChannelType]{
+		OutputState: in.ToChannelTypePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Recording Configuration State.
 type RecordingConfigurationStateEnum string
 
@@ -538,6 +593,12 @@ func (o RecordingConfigurationStateEnumOutput) ToRecordingConfigurationStateEnum
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecordingConfigurationStateEnum) *RecordingConfigurationStateEnum {
 		return &v
 	}).(RecordingConfigurationStateEnumPtrOutput)
+}
+
+func (o RecordingConfigurationStateEnumOutput) ToOutput(ctx context.Context) pulumix.Output[RecordingConfigurationStateEnum] {
+	return pulumix.Output[RecordingConfigurationStateEnum]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RecordingConfigurationStateEnumOutput) ToStringOutput() pulumi.StringOutput {
@@ -573,6 +634,12 @@ func (o RecordingConfigurationStateEnumPtrOutput) ToRecordingConfigurationStateE
 
 func (o RecordingConfigurationStateEnumPtrOutput) ToRecordingConfigurationStateEnumPtrOutputWithContext(ctx context.Context) RecordingConfigurationStateEnumPtrOutput {
 	return o
+}
+
+func (o RecordingConfigurationStateEnumPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RecordingConfigurationStateEnum] {
+	return pulumix.Output[*RecordingConfigurationStateEnum]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RecordingConfigurationStateEnumPtrOutput) Elem() RecordingConfigurationStateEnumOutput {
@@ -667,6 +734,12 @@ func (o RecordingConfigurationThumbnailConfigurationRecordingModeOutput) ToRecor
 	}).(RecordingConfigurationThumbnailConfigurationRecordingModePtrOutput)
 }
 
+func (o RecordingConfigurationThumbnailConfigurationRecordingModeOutput) ToOutput(ctx context.Context) pulumix.Output[RecordingConfigurationThumbnailConfigurationRecordingMode] {
+	return pulumix.Output[RecordingConfigurationThumbnailConfigurationRecordingMode]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RecordingConfigurationThumbnailConfigurationRecordingModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -700,6 +773,12 @@ func (o RecordingConfigurationThumbnailConfigurationRecordingModePtrOutput) ToRe
 
 func (o RecordingConfigurationThumbnailConfigurationRecordingModePtrOutput) ToRecordingConfigurationThumbnailConfigurationRecordingModePtrOutputWithContext(ctx context.Context) RecordingConfigurationThumbnailConfigurationRecordingModePtrOutput {
 	return o
+}
+
+func (o RecordingConfigurationThumbnailConfigurationRecordingModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RecordingConfigurationThumbnailConfigurationRecordingMode] {
+	return pulumix.Output[*RecordingConfigurationThumbnailConfigurationRecordingMode]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RecordingConfigurationThumbnailConfigurationRecordingModePtrOutput) Elem() RecordingConfigurationThumbnailConfigurationRecordingModeOutput {
@@ -762,6 +841,12 @@ func (in *recordingConfigurationThumbnailConfigurationRecordingModePtr) ToRecord
 
 func (in *recordingConfigurationThumbnailConfigurationRecordingModePtr) ToRecordingConfigurationThumbnailConfigurationRecordingModePtrOutputWithContext(ctx context.Context) RecordingConfigurationThumbnailConfigurationRecordingModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RecordingConfigurationThumbnailConfigurationRecordingModePtrOutput)
+}
+
+func (in *recordingConfigurationThumbnailConfigurationRecordingModePtr) ToOutput(ctx context.Context) pulumix.Output[*RecordingConfigurationThumbnailConfigurationRecordingMode] {
+	return pulumix.Output[*RecordingConfigurationThumbnailConfigurationRecordingMode]{
+		OutputState: in.ToRecordingConfigurationThumbnailConfigurationRecordingModePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

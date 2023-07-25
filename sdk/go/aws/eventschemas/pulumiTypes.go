@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -46,6 +47,12 @@ func (i DiscovererTagsEntryArgs) ToDiscovererTagsEntryOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(DiscovererTagsEntryOutput)
 }
 
+func (i DiscovererTagsEntryArgs) ToOutput(ctx context.Context) pulumix.Output[DiscovererTagsEntry] {
+	return pulumix.Output[DiscovererTagsEntry]{
+		OutputState: i.ToDiscovererTagsEntryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DiscovererTagsEntryArrayInput is an input type that accepts DiscovererTagsEntryArray and DiscovererTagsEntryArrayOutput values.
 // You can construct a concrete instance of `DiscovererTagsEntryArrayInput` via:
 //
@@ -71,6 +78,12 @@ func (i DiscovererTagsEntryArray) ToDiscovererTagsEntryArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(DiscovererTagsEntryArrayOutput)
 }
 
+func (i DiscovererTagsEntryArray) ToOutput(ctx context.Context) pulumix.Output[[]DiscovererTagsEntry] {
+	return pulumix.Output[[]DiscovererTagsEntry]{
+		OutputState: i.ToDiscovererTagsEntryArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DiscovererTagsEntryOutput struct{ *pulumi.OutputState }
 
 func (DiscovererTagsEntryOutput) ElementType() reflect.Type {
@@ -83,6 +96,12 @@ func (o DiscovererTagsEntryOutput) ToDiscovererTagsEntryOutput() DiscovererTagsE
 
 func (o DiscovererTagsEntryOutput) ToDiscovererTagsEntryOutputWithContext(ctx context.Context) DiscovererTagsEntryOutput {
 	return o
+}
+
+func (o DiscovererTagsEntryOutput) ToOutput(ctx context.Context) pulumix.Output[DiscovererTagsEntry] {
+	return pulumix.Output[DiscovererTagsEntry]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DiscovererTagsEntryOutput) Key() pulumi.StringOutput {
@@ -105,6 +124,12 @@ func (o DiscovererTagsEntryArrayOutput) ToDiscovererTagsEntryArrayOutput() Disco
 
 func (o DiscovererTagsEntryArrayOutput) ToDiscovererTagsEntryArrayOutputWithContext(ctx context.Context) DiscovererTagsEntryArrayOutput {
 	return o
+}
+
+func (o DiscovererTagsEntryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DiscovererTagsEntry] {
+	return pulumix.Output[[]DiscovererTagsEntry]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DiscovererTagsEntryArrayOutput) Index(i pulumi.IntInput) DiscovererTagsEntryOutput {
@@ -146,6 +171,12 @@ func (i RegistryTagsEntryArgs) ToRegistryTagsEntryOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryTagsEntryOutput)
 }
 
+func (i RegistryTagsEntryArgs) ToOutput(ctx context.Context) pulumix.Output[RegistryTagsEntry] {
+	return pulumix.Output[RegistryTagsEntry]{
+		OutputState: i.ToRegistryTagsEntryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RegistryTagsEntryArrayInput is an input type that accepts RegistryTagsEntryArray and RegistryTagsEntryArrayOutput values.
 // You can construct a concrete instance of `RegistryTagsEntryArrayInput` via:
 //
@@ -171,6 +202,12 @@ func (i RegistryTagsEntryArray) ToRegistryTagsEntryArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryTagsEntryArrayOutput)
 }
 
+func (i RegistryTagsEntryArray) ToOutput(ctx context.Context) pulumix.Output[[]RegistryTagsEntry] {
+	return pulumix.Output[[]RegistryTagsEntry]{
+		OutputState: i.ToRegistryTagsEntryArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RegistryTagsEntryOutput struct{ *pulumi.OutputState }
 
 func (RegistryTagsEntryOutput) ElementType() reflect.Type {
@@ -183,6 +220,12 @@ func (o RegistryTagsEntryOutput) ToRegistryTagsEntryOutput() RegistryTagsEntryOu
 
 func (o RegistryTagsEntryOutput) ToRegistryTagsEntryOutputWithContext(ctx context.Context) RegistryTagsEntryOutput {
 	return o
+}
+
+func (o RegistryTagsEntryOutput) ToOutput(ctx context.Context) pulumix.Output[RegistryTagsEntry] {
+	return pulumix.Output[RegistryTagsEntry]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RegistryTagsEntryOutput) Key() pulumi.StringOutput {
@@ -205,6 +248,12 @@ func (o RegistryTagsEntryArrayOutput) ToRegistryTagsEntryArrayOutput() RegistryT
 
 func (o RegistryTagsEntryArrayOutput) ToRegistryTagsEntryArrayOutputWithContext(ctx context.Context) RegistryTagsEntryArrayOutput {
 	return o
+}
+
+func (o RegistryTagsEntryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RegistryTagsEntry] {
+	return pulumix.Output[[]RegistryTagsEntry]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RegistryTagsEntryArrayOutput) Index(i pulumi.IntInput) RegistryTagsEntryOutput {
@@ -246,6 +295,12 @@ func (i SchemaTagsEntryArgs) ToSchemaTagsEntryOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(SchemaTagsEntryOutput)
 }
 
+func (i SchemaTagsEntryArgs) ToOutput(ctx context.Context) pulumix.Output[SchemaTagsEntry] {
+	return pulumix.Output[SchemaTagsEntry]{
+		OutputState: i.ToSchemaTagsEntryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SchemaTagsEntryArrayInput is an input type that accepts SchemaTagsEntryArray and SchemaTagsEntryArrayOutput values.
 // You can construct a concrete instance of `SchemaTagsEntryArrayInput` via:
 //
@@ -271,6 +326,12 @@ func (i SchemaTagsEntryArray) ToSchemaTagsEntryArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(SchemaTagsEntryArrayOutput)
 }
 
+func (i SchemaTagsEntryArray) ToOutput(ctx context.Context) pulumix.Output[[]SchemaTagsEntry] {
+	return pulumix.Output[[]SchemaTagsEntry]{
+		OutputState: i.ToSchemaTagsEntryArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SchemaTagsEntryOutput struct{ *pulumi.OutputState }
 
 func (SchemaTagsEntryOutput) ElementType() reflect.Type {
@@ -283,6 +344,12 @@ func (o SchemaTagsEntryOutput) ToSchemaTagsEntryOutput() SchemaTagsEntryOutput {
 
 func (o SchemaTagsEntryOutput) ToSchemaTagsEntryOutputWithContext(ctx context.Context) SchemaTagsEntryOutput {
 	return o
+}
+
+func (o SchemaTagsEntryOutput) ToOutput(ctx context.Context) pulumix.Output[SchemaTagsEntry] {
+	return pulumix.Output[SchemaTagsEntry]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SchemaTagsEntryOutput) Key() pulumi.StringOutput {
@@ -305,6 +372,12 @@ func (o SchemaTagsEntryArrayOutput) ToSchemaTagsEntryArrayOutput() SchemaTagsEnt
 
 func (o SchemaTagsEntryArrayOutput) ToSchemaTagsEntryArrayOutputWithContext(ctx context.Context) SchemaTagsEntryArrayOutput {
 	return o
+}
+
+func (o SchemaTagsEntryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SchemaTagsEntry] {
+	return pulumix.Output[[]SchemaTagsEntry]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SchemaTagsEntryArrayOutput) Index(i pulumi.IntInput) SchemaTagsEntryOutput {

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -40,6 +41,12 @@ func (i ApplicationTagsArgs) ToApplicationTagsOutput() ApplicationTagsOutput {
 
 func (i ApplicationTagsArgs) ToApplicationTagsOutputWithContext(ctx context.Context) ApplicationTagsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTagsOutput)
+}
+
+func (i ApplicationTagsArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationTags] {
+	return pulumix.Output[ApplicationTags]{
+		OutputState: i.ToApplicationTagsOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i ApplicationTagsArgs) ToApplicationTagsPtrOutput() ApplicationTagsPtrOutput {
@@ -83,6 +90,12 @@ func (i *applicationTagsPtrType) ToApplicationTagsPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTagsPtrOutput)
 }
 
+func (i *applicationTagsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationTags] {
+	return pulumix.Output[*ApplicationTags]{
+		OutputState: i.ToApplicationTagsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationTagsOutput struct{ *pulumi.OutputState }
 
 func (ApplicationTagsOutput) ElementType() reflect.Type {
@@ -107,6 +120,12 @@ func (o ApplicationTagsOutput) ToApplicationTagsPtrOutputWithContext(ctx context
 	}).(ApplicationTagsPtrOutput)
 }
 
+func (o ApplicationTagsOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationTags] {
+	return pulumix.Output[ApplicationTags]{
+		OutputState: o.OutputState,
+	}
+}
+
 type ApplicationTagsPtrOutput struct{ *pulumi.OutputState }
 
 func (ApplicationTagsPtrOutput) ElementType() reflect.Type {
@@ -119,6 +138,12 @@ func (o ApplicationTagsPtrOutput) ToApplicationTagsPtrOutput() ApplicationTagsPt
 
 func (o ApplicationTagsPtrOutput) ToApplicationTagsPtrOutputWithContext(ctx context.Context) ApplicationTagsPtrOutput {
 	return o
+}
+
+func (o ApplicationTagsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationTags] {
+	return pulumix.Output[*ApplicationTags]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationTagsPtrOutput) Elem() ApplicationTagsOutput {
@@ -158,6 +183,12 @@ func (i AttributeGroupTagsArgs) ToAttributeGroupTagsOutput() AttributeGroupTagsO
 
 func (i AttributeGroupTagsArgs) ToAttributeGroupTagsOutputWithContext(ctx context.Context) AttributeGroupTagsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AttributeGroupTagsOutput)
+}
+
+func (i AttributeGroupTagsArgs) ToOutput(ctx context.Context) pulumix.Output[AttributeGroupTags] {
+	return pulumix.Output[AttributeGroupTags]{
+		OutputState: i.ToAttributeGroupTagsOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i AttributeGroupTagsArgs) ToAttributeGroupTagsPtrOutput() AttributeGroupTagsPtrOutput {
@@ -201,6 +232,12 @@ func (i *attributeGroupTagsPtrType) ToAttributeGroupTagsPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(AttributeGroupTagsPtrOutput)
 }
 
+func (i *attributeGroupTagsPtrType) ToOutput(ctx context.Context) pulumix.Output[*AttributeGroupTags] {
+	return pulumix.Output[*AttributeGroupTags]{
+		OutputState: i.ToAttributeGroupTagsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AttributeGroupTagsOutput struct{ *pulumi.OutputState }
 
 func (AttributeGroupTagsOutput) ElementType() reflect.Type {
@@ -225,6 +262,12 @@ func (o AttributeGroupTagsOutput) ToAttributeGroupTagsPtrOutputWithContext(ctx c
 	}).(AttributeGroupTagsPtrOutput)
 }
 
+func (o AttributeGroupTagsOutput) ToOutput(ctx context.Context) pulumix.Output[AttributeGroupTags] {
+	return pulumix.Output[AttributeGroupTags]{
+		OutputState: o.OutputState,
+	}
+}
+
 type AttributeGroupTagsPtrOutput struct{ *pulumi.OutputState }
 
 func (AttributeGroupTagsPtrOutput) ElementType() reflect.Type {
@@ -237,6 +280,12 @@ func (o AttributeGroupTagsPtrOutput) ToAttributeGroupTagsPtrOutput() AttributeGr
 
 func (o AttributeGroupTagsPtrOutput) ToAttributeGroupTagsPtrOutputWithContext(ctx context.Context) AttributeGroupTagsPtrOutput {
 	return o
+}
+
+func (o AttributeGroupTagsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AttributeGroupTags] {
+	return pulumix.Output[*AttributeGroupTags]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AttributeGroupTagsPtrOutput) Elem() AttributeGroupTagsOutput {

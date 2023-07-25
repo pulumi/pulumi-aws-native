@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Associate a set of ECS Capacity Providers with a specified ECS Cluster
@@ -64,6 +65,12 @@ func (o LookupClusterCapacityProviderAssociationsResultOutput) ToLookupClusterCa
 
 func (o LookupClusterCapacityProviderAssociationsResultOutput) ToLookupClusterCapacityProviderAssociationsResultOutputWithContext(ctx context.Context) LookupClusterCapacityProviderAssociationsResultOutput {
 	return o
+}
+
+func (o LookupClusterCapacityProviderAssociationsResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupClusterCapacityProviderAssociationsResult] {
+	return pulumix.Output[LookupClusterCapacityProviderAssociationsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupClusterCapacityProviderAssociationsResultOutput) CapacityProviders() pulumi.StringArrayOutput {

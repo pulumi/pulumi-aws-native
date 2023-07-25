@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Redshift::ClusterParameterGroup
@@ -66,6 +67,12 @@ func (o LookupClusterParameterGroupResultOutput) ToLookupClusterParameterGroupRe
 
 func (o LookupClusterParameterGroupResultOutput) ToLookupClusterParameterGroupResultOutputWithContext(ctx context.Context) LookupClusterParameterGroupResultOutput {
 	return o
+}
+
+func (o LookupClusterParameterGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupClusterParameterGroupResult] {
+	return pulumix.Output[LookupClusterParameterGroupResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.

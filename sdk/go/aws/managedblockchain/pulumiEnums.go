@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type AccessorStatus string
@@ -40,6 +41,12 @@ func (o AccessorStatusOutput) ToAccessorStatusPtrOutputWithContext(ctx context.C
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessorStatus) *AccessorStatus {
 		return &v
 	}).(AccessorStatusPtrOutput)
+}
+
+func (o AccessorStatusOutput) ToOutput(ctx context.Context) pulumix.Output[AccessorStatus] {
+	return pulumix.Output[AccessorStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AccessorStatusOutput) ToStringOutput() pulumi.StringOutput {
@@ -75,6 +82,12 @@ func (o AccessorStatusPtrOutput) ToAccessorStatusPtrOutput() AccessorStatusPtrOu
 
 func (o AccessorStatusPtrOutput) ToAccessorStatusPtrOutputWithContext(ctx context.Context) AccessorStatusPtrOutput {
 	return o
+}
+
+func (o AccessorStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccessorStatus] {
+	return pulumix.Output[*AccessorStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AccessorStatusPtrOutput) Elem() AccessorStatusOutput {
@@ -167,6 +180,12 @@ func (o AccessorTypeOutput) ToAccessorTypePtrOutputWithContext(ctx context.Conte
 	}).(AccessorTypePtrOutput)
 }
 
+func (o AccessorTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AccessorType] {
+	return pulumix.Output[AccessorType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AccessorTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -200,6 +219,12 @@ func (o AccessorTypePtrOutput) ToAccessorTypePtrOutput() AccessorTypePtrOutput {
 
 func (o AccessorTypePtrOutput) ToAccessorTypePtrOutputWithContext(ctx context.Context) AccessorTypePtrOutput {
 	return o
+}
+
+func (o AccessorTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccessorType] {
+	return pulumix.Output[*AccessorType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AccessorTypePtrOutput) Elem() AccessorTypeOutput {
@@ -262,6 +287,12 @@ func (in *accessorTypePtr) ToAccessorTypePtrOutput() AccessorTypePtrOutput {
 
 func (in *accessorTypePtr) ToAccessorTypePtrOutputWithContext(ctx context.Context) AccessorTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AccessorTypePtrOutput)
+}
+
+func (in *accessorTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AccessorType] {
+	return pulumix.Output[*AccessorType]{
+		OutputState: in.ToAccessorTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

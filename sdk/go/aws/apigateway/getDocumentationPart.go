@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ApiGateway::DocumentationPart
@@ -72,6 +73,12 @@ func (o LookupDocumentationPartResultOutput) ToLookupDocumentationPartResultOutp
 
 func (o LookupDocumentationPartResultOutput) ToLookupDocumentationPartResultOutputWithContext(ctx context.Context) LookupDocumentationPartResultOutput {
 	return o
+}
+
+func (o LookupDocumentationPartResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDocumentationPartResult] {
+	return pulumix.Output[LookupDocumentationPartResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The identifier of the documentation Part.

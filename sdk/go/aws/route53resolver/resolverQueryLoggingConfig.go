@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::Route53Resolver::ResolverQueryLoggingConfig.
@@ -112,6 +113,12 @@ func (i *ResolverQueryLoggingConfig) ToResolverQueryLoggingConfigOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverQueryLoggingConfigOutput)
 }
 
+func (i *ResolverQueryLoggingConfig) ToOutput(ctx context.Context) pulumix.Output[*ResolverQueryLoggingConfig] {
+	return pulumix.Output[*ResolverQueryLoggingConfig]{
+		OutputState: i.ToResolverQueryLoggingConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResolverQueryLoggingConfigOutput struct{ *pulumi.OutputState }
 
 func (ResolverQueryLoggingConfigOutput) ElementType() reflect.Type {
@@ -124,6 +131,12 @@ func (o ResolverQueryLoggingConfigOutput) ToResolverQueryLoggingConfigOutput() R
 
 func (o ResolverQueryLoggingConfigOutput) ToResolverQueryLoggingConfigOutputWithContext(ctx context.Context) ResolverQueryLoggingConfigOutput {
 	return o
+}
+
+func (o ResolverQueryLoggingConfigOutput) ToOutput(ctx context.Context) pulumix.Output[*ResolverQueryLoggingConfig] {
+	return pulumix.Output[*ResolverQueryLoggingConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Arn

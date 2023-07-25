@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Backup::BackupSelection
@@ -64,6 +65,12 @@ func (o LookupBackupSelectionResultOutput) ToLookupBackupSelectionResultOutput()
 
 func (o LookupBackupSelectionResultOutput) ToLookupBackupSelectionResultOutputWithContext(ctx context.Context) LookupBackupSelectionResultOutput {
 	return o
+}
+
+func (o LookupBackupSelectionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupBackupSelectionResult] {
+	return pulumix.Output[LookupBackupSelectionResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupBackupSelectionResultOutput) Id() pulumi.StringPtrOutput {

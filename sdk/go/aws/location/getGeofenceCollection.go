@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::Location::GeofenceCollection Resource Type
@@ -68,6 +69,12 @@ func (o LookupGeofenceCollectionResultOutput) ToLookupGeofenceCollectionResultOu
 
 func (o LookupGeofenceCollectionResultOutput) ToLookupGeofenceCollectionResultOutputWithContext(ctx context.Context) LookupGeofenceCollectionResultOutput {
 	return o
+}
+
+func (o LookupGeofenceCollectionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupGeofenceCollectionResult] {
+	return pulumix.Output[LookupGeofenceCollectionResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupGeofenceCollectionResultOutput) Arn() pulumi.StringPtrOutput {

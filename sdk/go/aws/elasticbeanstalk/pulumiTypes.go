@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -54,6 +55,12 @@ func (i ApplicationMaxAgeRuleArgs) ToApplicationMaxAgeRuleOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMaxAgeRuleOutput)
 }
 
+func (i ApplicationMaxAgeRuleArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationMaxAgeRule] {
+	return pulumix.Output[ApplicationMaxAgeRule]{
+		OutputState: i.ToApplicationMaxAgeRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationMaxAgeRuleArgs) ToApplicationMaxAgeRulePtrOutput() ApplicationMaxAgeRulePtrOutput {
 	return i.ToApplicationMaxAgeRulePtrOutputWithContext(context.Background())
 }
@@ -95,6 +102,12 @@ func (i *applicationMaxAgeRulePtrType) ToApplicationMaxAgeRulePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMaxAgeRulePtrOutput)
 }
 
+func (i *applicationMaxAgeRulePtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationMaxAgeRule] {
+	return pulumix.Output[*ApplicationMaxAgeRule]{
+		OutputState: i.ToApplicationMaxAgeRulePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationMaxAgeRuleOutput struct{ *pulumi.OutputState }
 
 func (ApplicationMaxAgeRuleOutput) ElementType() reflect.Type {
@@ -117,6 +130,12 @@ func (o ApplicationMaxAgeRuleOutput) ToApplicationMaxAgeRulePtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationMaxAgeRule) *ApplicationMaxAgeRule {
 		return &v
 	}).(ApplicationMaxAgeRulePtrOutput)
+}
+
+func (o ApplicationMaxAgeRuleOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationMaxAgeRule] {
+	return pulumix.Output[ApplicationMaxAgeRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Set to true to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
@@ -146,6 +165,12 @@ func (o ApplicationMaxAgeRulePtrOutput) ToApplicationMaxAgeRulePtrOutput() Appli
 
 func (o ApplicationMaxAgeRulePtrOutput) ToApplicationMaxAgeRulePtrOutputWithContext(ctx context.Context) ApplicationMaxAgeRulePtrOutput {
 	return o
+}
+
+func (o ApplicationMaxAgeRulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationMaxAgeRule] {
+	return pulumix.Output[*ApplicationMaxAgeRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationMaxAgeRulePtrOutput) Elem() ApplicationMaxAgeRuleOutput {
@@ -229,6 +254,12 @@ func (i ApplicationMaxCountRuleArgs) ToApplicationMaxCountRuleOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMaxCountRuleOutput)
 }
 
+func (i ApplicationMaxCountRuleArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationMaxCountRule] {
+	return pulumix.Output[ApplicationMaxCountRule]{
+		OutputState: i.ToApplicationMaxCountRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationMaxCountRuleArgs) ToApplicationMaxCountRulePtrOutput() ApplicationMaxCountRulePtrOutput {
 	return i.ToApplicationMaxCountRulePtrOutputWithContext(context.Background())
 }
@@ -270,6 +301,12 @@ func (i *applicationMaxCountRulePtrType) ToApplicationMaxCountRulePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMaxCountRulePtrOutput)
 }
 
+func (i *applicationMaxCountRulePtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationMaxCountRule] {
+	return pulumix.Output[*ApplicationMaxCountRule]{
+		OutputState: i.ToApplicationMaxCountRulePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationMaxCountRuleOutput struct{ *pulumi.OutputState }
 
 func (ApplicationMaxCountRuleOutput) ElementType() reflect.Type {
@@ -292,6 +329,12 @@ func (o ApplicationMaxCountRuleOutput) ToApplicationMaxCountRulePtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationMaxCountRule) *ApplicationMaxCountRule {
 		return &v
 	}).(ApplicationMaxCountRulePtrOutput)
+}
+
+func (o ApplicationMaxCountRuleOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationMaxCountRule] {
+	return pulumix.Output[ApplicationMaxCountRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Set to true to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
@@ -321,6 +364,12 @@ func (o ApplicationMaxCountRulePtrOutput) ToApplicationMaxCountRulePtrOutput() A
 
 func (o ApplicationMaxCountRulePtrOutput) ToApplicationMaxCountRulePtrOutputWithContext(ctx context.Context) ApplicationMaxCountRulePtrOutput {
 	return o
+}
+
+func (o ApplicationMaxCountRulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationMaxCountRule] {
+	return pulumix.Output[*ApplicationMaxCountRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationMaxCountRulePtrOutput) Elem() ApplicationMaxCountRuleOutput {
@@ -400,6 +449,12 @@ func (i ApplicationResourceLifecycleConfigArgs) ToApplicationResourceLifecycleCo
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationResourceLifecycleConfigOutput)
 }
 
+func (i ApplicationResourceLifecycleConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationResourceLifecycleConfig] {
+	return pulumix.Output[ApplicationResourceLifecycleConfig]{
+		OutputState: i.ToApplicationResourceLifecycleConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationResourceLifecycleConfigArgs) ToApplicationResourceLifecycleConfigPtrOutput() ApplicationResourceLifecycleConfigPtrOutput {
 	return i.ToApplicationResourceLifecycleConfigPtrOutputWithContext(context.Background())
 }
@@ -441,6 +496,12 @@ func (i *applicationResourceLifecycleConfigPtrType) ToApplicationResourceLifecyc
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationResourceLifecycleConfigPtrOutput)
 }
 
+func (i *applicationResourceLifecycleConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationResourceLifecycleConfig] {
+	return pulumix.Output[*ApplicationResourceLifecycleConfig]{
+		OutputState: i.ToApplicationResourceLifecycleConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationResourceLifecycleConfigOutput struct{ *pulumi.OutputState }
 
 func (ApplicationResourceLifecycleConfigOutput) ElementType() reflect.Type {
@@ -463,6 +524,12 @@ func (o ApplicationResourceLifecycleConfigOutput) ToApplicationResourceLifecycle
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationResourceLifecycleConfig) *ApplicationResourceLifecycleConfig {
 		return &v
 	}).(ApplicationResourceLifecycleConfigPtrOutput)
+}
+
+func (o ApplicationResourceLifecycleConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationResourceLifecycleConfig] {
+	return pulumix.Output[ApplicationResourceLifecycleConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of an IAM service role that Elastic Beanstalk has permission to assume. The ServiceRole property is required the first time that you provide a ResourceLifecycleConfig for the application. After you provide it once, Elastic Beanstalk persists the Service Role with the application, and you don't need to specify it again. You can, however, specify it in subsequent updates to change the Service Role to another value.
@@ -489,6 +556,12 @@ func (o ApplicationResourceLifecycleConfigPtrOutput) ToApplicationResourceLifecy
 
 func (o ApplicationResourceLifecycleConfigPtrOutput) ToApplicationResourceLifecycleConfigPtrOutputWithContext(ctx context.Context) ApplicationResourceLifecycleConfigPtrOutput {
 	return o
+}
+
+func (o ApplicationResourceLifecycleConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationResourceLifecycleConfig] {
+	return pulumix.Output[*ApplicationResourceLifecycleConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationResourceLifecycleConfigPtrOutput) Elem() ApplicationResourceLifecycleConfigOutput {
@@ -558,6 +631,12 @@ func (i ApplicationVersionLifecycleConfigArgs) ToApplicationVersionLifecycleConf
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationVersionLifecycleConfigOutput)
 }
 
+func (i ApplicationVersionLifecycleConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationVersionLifecycleConfig] {
+	return pulumix.Output[ApplicationVersionLifecycleConfig]{
+		OutputState: i.ToApplicationVersionLifecycleConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationVersionLifecycleConfigArgs) ToApplicationVersionLifecycleConfigPtrOutput() ApplicationVersionLifecycleConfigPtrOutput {
 	return i.ToApplicationVersionLifecycleConfigPtrOutputWithContext(context.Background())
 }
@@ -599,6 +678,12 @@ func (i *applicationVersionLifecycleConfigPtrType) ToApplicationVersionLifecycle
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationVersionLifecycleConfigPtrOutput)
 }
 
+func (i *applicationVersionLifecycleConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationVersionLifecycleConfig] {
+	return pulumix.Output[*ApplicationVersionLifecycleConfig]{
+		OutputState: i.ToApplicationVersionLifecycleConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationVersionLifecycleConfigOutput struct{ *pulumi.OutputState }
 
 func (ApplicationVersionLifecycleConfigOutput) ElementType() reflect.Type {
@@ -623,6 +708,12 @@ func (o ApplicationVersionLifecycleConfigOutput) ToApplicationVersionLifecycleCo
 	}).(ApplicationVersionLifecycleConfigPtrOutput)
 }
 
+func (o ApplicationVersionLifecycleConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationVersionLifecycleConfig] {
+	return pulumix.Output[ApplicationVersionLifecycleConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Specify a max age rule to restrict the length of time that application versions are retained for an application.
 func (o ApplicationVersionLifecycleConfigOutput) MaxAgeRule() ApplicationMaxAgeRulePtrOutput {
 	return o.ApplyT(func(v ApplicationVersionLifecycleConfig) *ApplicationMaxAgeRule { return v.MaxAgeRule }).(ApplicationMaxAgeRulePtrOutput)
@@ -645,6 +736,12 @@ func (o ApplicationVersionLifecycleConfigPtrOutput) ToApplicationVersionLifecycl
 
 func (o ApplicationVersionLifecycleConfigPtrOutput) ToApplicationVersionLifecycleConfigPtrOutputWithContext(ctx context.Context) ApplicationVersionLifecycleConfigPtrOutput {
 	return o
+}
+
+func (o ApplicationVersionLifecycleConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationVersionLifecycleConfig] {
+	return pulumix.Output[*ApplicationVersionLifecycleConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationVersionLifecycleConfigPtrOutput) Elem() ApplicationVersionLifecycleConfigOutput {
@@ -714,6 +811,12 @@ func (i ApplicationVersionSourceBundleArgs) ToApplicationVersionSourceBundleOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationVersionSourceBundleOutput)
 }
 
+func (i ApplicationVersionSourceBundleArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationVersionSourceBundle] {
+	return pulumix.Output[ApplicationVersionSourceBundle]{
+		OutputState: i.ToApplicationVersionSourceBundleOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationVersionSourceBundleOutput struct{ *pulumi.OutputState }
 
 func (ApplicationVersionSourceBundleOutput) ElementType() reflect.Type {
@@ -726,6 +829,12 @@ func (o ApplicationVersionSourceBundleOutput) ToApplicationVersionSourceBundleOu
 
 func (o ApplicationVersionSourceBundleOutput) ToApplicationVersionSourceBundleOutputWithContext(ctx context.Context) ApplicationVersionSourceBundleOutput {
 	return o
+}
+
+func (o ApplicationVersionSourceBundleOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationVersionSourceBundle] {
+	return pulumix.Output[ApplicationVersionSourceBundle]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon S3 bucket where the data is located.
@@ -783,6 +892,12 @@ func (i ConfigurationTemplateConfigurationOptionSettingArgs) ToConfigurationTemp
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationTemplateConfigurationOptionSettingOutput)
 }
 
+func (i ConfigurationTemplateConfigurationOptionSettingArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationTemplateConfigurationOptionSetting] {
+	return pulumix.Output[ConfigurationTemplateConfigurationOptionSetting]{
+		OutputState: i.ToConfigurationTemplateConfigurationOptionSettingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ConfigurationTemplateConfigurationOptionSettingArrayInput is an input type that accepts ConfigurationTemplateConfigurationOptionSettingArray and ConfigurationTemplateConfigurationOptionSettingArrayOutput values.
 // You can construct a concrete instance of `ConfigurationTemplateConfigurationOptionSettingArrayInput` via:
 //
@@ -808,6 +923,12 @@ func (i ConfigurationTemplateConfigurationOptionSettingArray) ToConfigurationTem
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationTemplateConfigurationOptionSettingArrayOutput)
 }
 
+func (i ConfigurationTemplateConfigurationOptionSettingArray) ToOutput(ctx context.Context) pulumix.Output[[]ConfigurationTemplateConfigurationOptionSetting] {
+	return pulumix.Output[[]ConfigurationTemplateConfigurationOptionSetting]{
+		OutputState: i.ToConfigurationTemplateConfigurationOptionSettingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConfigurationTemplateConfigurationOptionSettingOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationTemplateConfigurationOptionSettingOutput) ElementType() reflect.Type {
@@ -820,6 +941,12 @@ func (o ConfigurationTemplateConfigurationOptionSettingOutput) ToConfigurationTe
 
 func (o ConfigurationTemplateConfigurationOptionSettingOutput) ToConfigurationTemplateConfigurationOptionSettingOutputWithContext(ctx context.Context) ConfigurationTemplateConfigurationOptionSettingOutput {
 	return o
+}
+
+func (o ConfigurationTemplateConfigurationOptionSettingOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationTemplateConfigurationOptionSetting] {
+	return pulumix.Output[ConfigurationTemplateConfigurationOptionSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A unique namespace that identifies the option's associated AWS resource.
@@ -854,6 +981,12 @@ func (o ConfigurationTemplateConfigurationOptionSettingArrayOutput) ToConfigurat
 
 func (o ConfigurationTemplateConfigurationOptionSettingArrayOutput) ToConfigurationTemplateConfigurationOptionSettingArrayOutputWithContext(ctx context.Context) ConfigurationTemplateConfigurationOptionSettingArrayOutput {
 	return o
+}
+
+func (o ConfigurationTemplateConfigurationOptionSettingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ConfigurationTemplateConfigurationOptionSetting] {
+	return pulumix.Output[[]ConfigurationTemplateConfigurationOptionSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConfigurationTemplateConfigurationOptionSettingArrayOutput) Index(i pulumi.IntInput) ConfigurationTemplateConfigurationOptionSettingOutput {
@@ -899,6 +1032,12 @@ func (i ConfigurationTemplateSourceConfigurationArgs) ToConfigurationTemplateSou
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationTemplateSourceConfigurationOutput)
 }
 
+func (i ConfigurationTemplateSourceConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationTemplateSourceConfiguration] {
+	return pulumix.Output[ConfigurationTemplateSourceConfiguration]{
+		OutputState: i.ToConfigurationTemplateSourceConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ConfigurationTemplateSourceConfigurationArgs) ToConfigurationTemplateSourceConfigurationPtrOutput() ConfigurationTemplateSourceConfigurationPtrOutput {
 	return i.ToConfigurationTemplateSourceConfigurationPtrOutputWithContext(context.Background())
 }
@@ -940,6 +1079,12 @@ func (i *configurationTemplateSourceConfigurationPtrType) ToConfigurationTemplat
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationTemplateSourceConfigurationPtrOutput)
 }
 
+func (i *configurationTemplateSourceConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationTemplateSourceConfiguration] {
+	return pulumix.Output[*ConfigurationTemplateSourceConfiguration]{
+		OutputState: i.ToConfigurationTemplateSourceConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConfigurationTemplateSourceConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationTemplateSourceConfigurationOutput) ElementType() reflect.Type {
@@ -964,6 +1109,12 @@ func (o ConfigurationTemplateSourceConfigurationOutput) ToConfigurationTemplateS
 	}).(ConfigurationTemplateSourceConfigurationPtrOutput)
 }
 
+func (o ConfigurationTemplateSourceConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationTemplateSourceConfiguration] {
+	return pulumix.Output[ConfigurationTemplateSourceConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The name of the application associated with the configuration.
 func (o ConfigurationTemplateSourceConfigurationOutput) ApplicationName() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationTemplateSourceConfiguration) string { return v.ApplicationName }).(pulumi.StringOutput)
@@ -986,6 +1137,12 @@ func (o ConfigurationTemplateSourceConfigurationPtrOutput) ToConfigurationTempla
 
 func (o ConfigurationTemplateSourceConfigurationPtrOutput) ToConfigurationTemplateSourceConfigurationPtrOutputWithContext(ctx context.Context) ConfigurationTemplateSourceConfigurationPtrOutput {
 	return o
+}
+
+func (o ConfigurationTemplateSourceConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationTemplateSourceConfiguration] {
+	return pulumix.Output[*ConfigurationTemplateSourceConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConfigurationTemplateSourceConfigurationPtrOutput) Elem() ConfigurationTemplateSourceConfigurationOutput {
@@ -1063,6 +1220,12 @@ func (i EnvironmentOptionSettingArgs) ToEnvironmentOptionSettingOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentOptionSettingOutput)
 }
 
+func (i EnvironmentOptionSettingArgs) ToOutput(ctx context.Context) pulumix.Output[EnvironmentOptionSetting] {
+	return pulumix.Output[EnvironmentOptionSetting]{
+		OutputState: i.ToEnvironmentOptionSettingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EnvironmentOptionSettingArrayInput is an input type that accepts EnvironmentOptionSettingArray and EnvironmentOptionSettingArrayOutput values.
 // You can construct a concrete instance of `EnvironmentOptionSettingArrayInput` via:
 //
@@ -1088,6 +1251,12 @@ func (i EnvironmentOptionSettingArray) ToEnvironmentOptionSettingArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentOptionSettingArrayOutput)
 }
 
+func (i EnvironmentOptionSettingArray) ToOutput(ctx context.Context) pulumix.Output[[]EnvironmentOptionSetting] {
+	return pulumix.Output[[]EnvironmentOptionSetting]{
+		OutputState: i.ToEnvironmentOptionSettingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EnvironmentOptionSettingOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentOptionSettingOutput) ElementType() reflect.Type {
@@ -1100,6 +1269,12 @@ func (o EnvironmentOptionSettingOutput) ToEnvironmentOptionSettingOutput() Envir
 
 func (o EnvironmentOptionSettingOutput) ToEnvironmentOptionSettingOutputWithContext(ctx context.Context) EnvironmentOptionSettingOutput {
 	return o
+}
+
+func (o EnvironmentOptionSettingOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentOptionSetting] {
+	return pulumix.Output[EnvironmentOptionSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A unique namespace that identifies the option's associated AWS resource.
@@ -1134,6 +1309,12 @@ func (o EnvironmentOptionSettingArrayOutput) ToEnvironmentOptionSettingArrayOutp
 
 func (o EnvironmentOptionSettingArrayOutput) ToEnvironmentOptionSettingArrayOutputWithContext(ctx context.Context) EnvironmentOptionSettingArrayOutput {
 	return o
+}
+
+func (o EnvironmentOptionSettingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EnvironmentOptionSetting] {
+	return pulumix.Output[[]EnvironmentOptionSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EnvironmentOptionSettingArrayOutput) Index(i pulumi.IntInput) EnvironmentOptionSettingOutput {
@@ -1179,6 +1360,12 @@ func (i EnvironmentTagArgs) ToEnvironmentTagOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentTagOutput)
 }
 
+func (i EnvironmentTagArgs) ToOutput(ctx context.Context) pulumix.Output[EnvironmentTag] {
+	return pulumix.Output[EnvironmentTag]{
+		OutputState: i.ToEnvironmentTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EnvironmentTagArrayInput is an input type that accepts EnvironmentTagArray and EnvironmentTagArrayOutput values.
 // You can construct a concrete instance of `EnvironmentTagArrayInput` via:
 //
@@ -1204,6 +1391,12 @@ func (i EnvironmentTagArray) ToEnvironmentTagArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentTagArrayOutput)
 }
 
+func (i EnvironmentTagArray) ToOutput(ctx context.Context) pulumix.Output[[]EnvironmentTag] {
+	return pulumix.Output[[]EnvironmentTag]{
+		OutputState: i.ToEnvironmentTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EnvironmentTagOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentTagOutput) ElementType() reflect.Type {
@@ -1216,6 +1409,12 @@ func (o EnvironmentTagOutput) ToEnvironmentTagOutput() EnvironmentTagOutput {
 
 func (o EnvironmentTagOutput) ToEnvironmentTagOutputWithContext(ctx context.Context) EnvironmentTagOutput {
 	return o
+}
+
+func (o EnvironmentTagOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentTag] {
+	return pulumix.Output[EnvironmentTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag.
@@ -1240,6 +1439,12 @@ func (o EnvironmentTagArrayOutput) ToEnvironmentTagArrayOutput() EnvironmentTagA
 
 func (o EnvironmentTagArrayOutput) ToEnvironmentTagArrayOutputWithContext(ctx context.Context) EnvironmentTagArrayOutput {
 	return o
+}
+
+func (o EnvironmentTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EnvironmentTag] {
+	return pulumix.Output[[]EnvironmentTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EnvironmentTagArrayOutput) Index(i pulumi.IntInput) EnvironmentTagOutput {
@@ -1289,6 +1494,12 @@ func (i EnvironmentTierArgs) ToEnvironmentTierOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentTierOutput)
 }
 
+func (i EnvironmentTierArgs) ToOutput(ctx context.Context) pulumix.Output[EnvironmentTier] {
+	return pulumix.Output[EnvironmentTier]{
+		OutputState: i.ToEnvironmentTierOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EnvironmentTierArgs) ToEnvironmentTierPtrOutput() EnvironmentTierPtrOutput {
 	return i.ToEnvironmentTierPtrOutputWithContext(context.Background())
 }
@@ -1330,6 +1541,12 @@ func (i *environmentTierPtrType) ToEnvironmentTierPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentTierPtrOutput)
 }
 
+func (i *environmentTierPtrType) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentTier] {
+	return pulumix.Output[*EnvironmentTier]{
+		OutputState: i.ToEnvironmentTierPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EnvironmentTierOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentTierOutput) ElementType() reflect.Type {
@@ -1352,6 +1569,12 @@ func (o EnvironmentTierOutput) ToEnvironmentTierPtrOutputWithContext(ctx context
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnvironmentTier) *EnvironmentTier {
 		return &v
 	}).(EnvironmentTierPtrOutput)
+}
+
+func (o EnvironmentTierOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentTier] {
+	return pulumix.Output[EnvironmentTier]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of this environment tier.
@@ -1381,6 +1604,12 @@ func (o EnvironmentTierPtrOutput) ToEnvironmentTierPtrOutput() EnvironmentTierPt
 
 func (o EnvironmentTierPtrOutput) ToEnvironmentTierPtrOutputWithContext(ctx context.Context) EnvironmentTierPtrOutput {
 	return o
+}
+
+func (o EnvironmentTierPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentTier] {
+	return pulumix.Output[*EnvironmentTier]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EnvironmentTierPtrOutput) Elem() EnvironmentTierOutput {

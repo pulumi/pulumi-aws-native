@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::OpsWorks::UserProfile
@@ -66,6 +67,12 @@ func (o LookupUserProfileResultOutput) ToLookupUserProfileResultOutput() LookupU
 
 func (o LookupUserProfileResultOutput) ToLookupUserProfileResultOutputWithContext(ctx context.Context) LookupUserProfileResultOutput {
 	return o
+}
+
+func (o LookupUserProfileResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupUserProfileResult] {
+	return pulumix.Output[LookupUserProfileResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupUserProfileResultOutput) AllowSelfManagement() pulumi.BoolPtrOutput {

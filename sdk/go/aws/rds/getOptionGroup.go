@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::RDS::OptionGroup resource creates an option group, to enable and configure features that are specific to a particular DB engine.
@@ -68,6 +69,12 @@ func (o LookupOptionGroupResultOutput) ToLookupOptionGroupResultOutput() LookupO
 
 func (o LookupOptionGroupResultOutput) ToLookupOptionGroupResultOutputWithContext(ctx context.Context) LookupOptionGroupResultOutput {
 	return o
+}
+
+func (o LookupOptionGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupOptionGroupResult] {
+	return pulumix.Output[LookupOptionGroupResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Indicates what options are available in the option group.

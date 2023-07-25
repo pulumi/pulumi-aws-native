@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::DataSync::LocationFSxLustre.
@@ -70,6 +71,12 @@ func (o LookupLocationFSxLustreResultOutput) ToLookupLocationFSxLustreResultOutp
 
 func (o LookupLocationFSxLustreResultOutput) ToLookupLocationFSxLustreResultOutputWithContext(ctx context.Context) LookupLocationFSxLustreResultOutput {
 	return o
+}
+
+func (o LookupLocationFSxLustreResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupLocationFSxLustreResult] {
+	return pulumix.Output[LookupLocationFSxLustreResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the Amazon FSx for Lustre file system location that is created.

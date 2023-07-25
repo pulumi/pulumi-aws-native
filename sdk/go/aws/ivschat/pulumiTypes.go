@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -46,6 +47,12 @@ func (i LoggingConfigurationCloudWatchLogsDestinationConfigurationArgs) ToLoggin
 
 func (i LoggingConfigurationCloudWatchLogsDestinationConfigurationArgs) ToLoggingConfigurationCloudWatchLogsDestinationConfigurationOutputWithContext(ctx context.Context) LoggingConfigurationCloudWatchLogsDestinationConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationCloudWatchLogsDestinationConfigurationOutput)
+}
+
+func (i LoggingConfigurationCloudWatchLogsDestinationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[LoggingConfigurationCloudWatchLogsDestinationConfiguration] {
+	return pulumix.Output[LoggingConfigurationCloudWatchLogsDestinationConfiguration]{
+		OutputState: i.ToLoggingConfigurationCloudWatchLogsDestinationConfigurationOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i LoggingConfigurationCloudWatchLogsDestinationConfigurationArgs) ToLoggingConfigurationCloudWatchLogsDestinationConfigurationPtrOutput() LoggingConfigurationCloudWatchLogsDestinationConfigurationPtrOutput {
@@ -89,6 +96,12 @@ func (i *loggingConfigurationCloudWatchLogsDestinationConfigurationPtrType) ToLo
 	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationCloudWatchLogsDestinationConfigurationPtrOutput)
 }
 
+func (i *loggingConfigurationCloudWatchLogsDestinationConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*LoggingConfigurationCloudWatchLogsDestinationConfiguration] {
+	return pulumix.Output[*LoggingConfigurationCloudWatchLogsDestinationConfiguration]{
+		OutputState: i.ToLoggingConfigurationCloudWatchLogsDestinationConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CloudWatch destination configuration for IVS Chat logging.
 type LoggingConfigurationCloudWatchLogsDestinationConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -114,6 +127,12 @@ func (o LoggingConfigurationCloudWatchLogsDestinationConfigurationOutput) ToLogg
 	}).(LoggingConfigurationCloudWatchLogsDestinationConfigurationPtrOutput)
 }
 
+func (o LoggingConfigurationCloudWatchLogsDestinationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[LoggingConfigurationCloudWatchLogsDestinationConfiguration] {
+	return pulumix.Output[LoggingConfigurationCloudWatchLogsDestinationConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Name of the Amazon CloudWatch Logs log group where chat activity will be logged.
 func (o LoggingConfigurationCloudWatchLogsDestinationConfigurationOutput) LogGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LoggingConfigurationCloudWatchLogsDestinationConfiguration) string { return v.LogGroupName }).(pulumi.StringOutput)
@@ -131,6 +150,12 @@ func (o LoggingConfigurationCloudWatchLogsDestinationConfigurationPtrOutput) ToL
 
 func (o LoggingConfigurationCloudWatchLogsDestinationConfigurationPtrOutput) ToLoggingConfigurationCloudWatchLogsDestinationConfigurationPtrOutputWithContext(ctx context.Context) LoggingConfigurationCloudWatchLogsDestinationConfigurationPtrOutput {
 	return o
+}
+
+func (o LoggingConfigurationCloudWatchLogsDestinationConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LoggingConfigurationCloudWatchLogsDestinationConfiguration] {
+	return pulumix.Output[*LoggingConfigurationCloudWatchLogsDestinationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LoggingConfigurationCloudWatchLogsDestinationConfigurationPtrOutput) Elem() LoggingConfigurationCloudWatchLogsDestinationConfigurationOutput {
@@ -190,6 +215,12 @@ func (i LoggingConfigurationDestinationConfigurationArgs) ToLoggingConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationDestinationConfigurationOutput)
 }
 
+func (i LoggingConfigurationDestinationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[LoggingConfigurationDestinationConfiguration] {
+	return pulumix.Output[LoggingConfigurationDestinationConfiguration]{
+		OutputState: i.ToLoggingConfigurationDestinationConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Destination configuration for IVS Chat logging.
 type LoggingConfigurationDestinationConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -203,6 +234,12 @@ func (o LoggingConfigurationDestinationConfigurationOutput) ToLoggingConfigurati
 
 func (o LoggingConfigurationDestinationConfigurationOutput) ToLoggingConfigurationDestinationConfigurationOutputWithContext(ctx context.Context) LoggingConfigurationDestinationConfigurationOutput {
 	return o
+}
+
+func (o LoggingConfigurationDestinationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[LoggingConfigurationDestinationConfiguration] {
+	return pulumix.Output[LoggingConfigurationDestinationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LoggingConfigurationDestinationConfigurationOutput) CloudWatchLogs() LoggingConfigurationCloudWatchLogsDestinationConfigurationPtrOutput {
@@ -235,6 +272,12 @@ func (o LoggingConfigurationDestinationConfigurationPtrOutput) ToLoggingConfigur
 
 func (o LoggingConfigurationDestinationConfigurationPtrOutput) ToLoggingConfigurationDestinationConfigurationPtrOutputWithContext(ctx context.Context) LoggingConfigurationDestinationConfigurationPtrOutput {
 	return o
+}
+
+func (o LoggingConfigurationDestinationConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LoggingConfigurationDestinationConfiguration] {
+	return pulumix.Output[*LoggingConfigurationDestinationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LoggingConfigurationDestinationConfigurationPtrOutput) Elem() LoggingConfigurationDestinationConfigurationOutput {
@@ -309,6 +352,12 @@ func (i LoggingConfigurationFirehoseDestinationConfigurationArgs) ToLoggingConfi
 	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationFirehoseDestinationConfigurationOutput)
 }
 
+func (i LoggingConfigurationFirehoseDestinationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[LoggingConfigurationFirehoseDestinationConfiguration] {
+	return pulumix.Output[LoggingConfigurationFirehoseDestinationConfiguration]{
+		OutputState: i.ToLoggingConfigurationFirehoseDestinationConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i LoggingConfigurationFirehoseDestinationConfigurationArgs) ToLoggingConfigurationFirehoseDestinationConfigurationPtrOutput() LoggingConfigurationFirehoseDestinationConfigurationPtrOutput {
 	return i.ToLoggingConfigurationFirehoseDestinationConfigurationPtrOutputWithContext(context.Background())
 }
@@ -350,6 +399,12 @@ func (i *loggingConfigurationFirehoseDestinationConfigurationPtrType) ToLoggingC
 	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationFirehoseDestinationConfigurationPtrOutput)
 }
 
+func (i *loggingConfigurationFirehoseDestinationConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*LoggingConfigurationFirehoseDestinationConfiguration] {
+	return pulumix.Output[*LoggingConfigurationFirehoseDestinationConfiguration]{
+		OutputState: i.ToLoggingConfigurationFirehoseDestinationConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Kinesis Firehose destination configuration for IVS Chat logging.
 type LoggingConfigurationFirehoseDestinationConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -375,6 +430,12 @@ func (o LoggingConfigurationFirehoseDestinationConfigurationOutput) ToLoggingCon
 	}).(LoggingConfigurationFirehoseDestinationConfigurationPtrOutput)
 }
 
+func (o LoggingConfigurationFirehoseDestinationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[LoggingConfigurationFirehoseDestinationConfiguration] {
+	return pulumix.Output[LoggingConfigurationFirehoseDestinationConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Name of the Amazon Kinesis Firehose delivery stream where chat activity will be logged.
 func (o LoggingConfigurationFirehoseDestinationConfigurationOutput) DeliveryStreamName() pulumi.StringOutput {
 	return o.ApplyT(func(v LoggingConfigurationFirehoseDestinationConfiguration) string { return v.DeliveryStreamName }).(pulumi.StringOutput)
@@ -392,6 +453,12 @@ func (o LoggingConfigurationFirehoseDestinationConfigurationPtrOutput) ToLogging
 
 func (o LoggingConfigurationFirehoseDestinationConfigurationPtrOutput) ToLoggingConfigurationFirehoseDestinationConfigurationPtrOutputWithContext(ctx context.Context) LoggingConfigurationFirehoseDestinationConfigurationPtrOutput {
 	return o
+}
+
+func (o LoggingConfigurationFirehoseDestinationConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LoggingConfigurationFirehoseDestinationConfiguration] {
+	return pulumix.Output[*LoggingConfigurationFirehoseDestinationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LoggingConfigurationFirehoseDestinationConfigurationPtrOutput) Elem() LoggingConfigurationFirehoseDestinationConfigurationOutput {
@@ -449,6 +516,12 @@ func (i LoggingConfigurationS3DestinationConfigurationArgs) ToLoggingConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationS3DestinationConfigurationOutput)
 }
 
+func (i LoggingConfigurationS3DestinationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[LoggingConfigurationS3DestinationConfiguration] {
+	return pulumix.Output[LoggingConfigurationS3DestinationConfiguration]{
+		OutputState: i.ToLoggingConfigurationS3DestinationConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i LoggingConfigurationS3DestinationConfigurationArgs) ToLoggingConfigurationS3DestinationConfigurationPtrOutput() LoggingConfigurationS3DestinationConfigurationPtrOutput {
 	return i.ToLoggingConfigurationS3DestinationConfigurationPtrOutputWithContext(context.Background())
 }
@@ -490,6 +563,12 @@ func (i *loggingConfigurationS3DestinationConfigurationPtrType) ToLoggingConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationS3DestinationConfigurationPtrOutput)
 }
 
+func (i *loggingConfigurationS3DestinationConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*LoggingConfigurationS3DestinationConfiguration] {
+	return pulumix.Output[*LoggingConfigurationS3DestinationConfiguration]{
+		OutputState: i.ToLoggingConfigurationS3DestinationConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // S3 destination configuration for IVS Chat logging.
 type LoggingConfigurationS3DestinationConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -515,6 +594,12 @@ func (o LoggingConfigurationS3DestinationConfigurationOutput) ToLoggingConfigura
 	}).(LoggingConfigurationS3DestinationConfigurationPtrOutput)
 }
 
+func (o LoggingConfigurationS3DestinationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[LoggingConfigurationS3DestinationConfiguration] {
+	return pulumix.Output[LoggingConfigurationS3DestinationConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Name of the Amazon S3 bucket where chat activity will be logged.
 func (o LoggingConfigurationS3DestinationConfigurationOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v LoggingConfigurationS3DestinationConfiguration) string { return v.BucketName }).(pulumi.StringOutput)
@@ -532,6 +617,12 @@ func (o LoggingConfigurationS3DestinationConfigurationPtrOutput) ToLoggingConfig
 
 func (o LoggingConfigurationS3DestinationConfigurationPtrOutput) ToLoggingConfigurationS3DestinationConfigurationPtrOutputWithContext(ctx context.Context) LoggingConfigurationS3DestinationConfigurationPtrOutput {
 	return o
+}
+
+func (o LoggingConfigurationS3DestinationConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LoggingConfigurationS3DestinationConfiguration] {
+	return pulumix.Output[*LoggingConfigurationS3DestinationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LoggingConfigurationS3DestinationConfigurationPtrOutput) Elem() LoggingConfigurationS3DestinationConfigurationOutput {
@@ -593,6 +684,12 @@ func (i LoggingConfigurationTagArgs) ToLoggingConfigurationTagOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationTagOutput)
 }
 
+func (i LoggingConfigurationTagArgs) ToOutput(ctx context.Context) pulumix.Output[LoggingConfigurationTag] {
+	return pulumix.Output[LoggingConfigurationTag]{
+		OutputState: i.ToLoggingConfigurationTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LoggingConfigurationTagArrayInput is an input type that accepts LoggingConfigurationTagArray and LoggingConfigurationTagArrayOutput values.
 // You can construct a concrete instance of `LoggingConfigurationTagArrayInput` via:
 //
@@ -618,6 +715,12 @@ func (i LoggingConfigurationTagArray) ToLoggingConfigurationTagArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationTagArrayOutput)
 }
 
+func (i LoggingConfigurationTagArray) ToOutput(ctx context.Context) pulumix.Output[[]LoggingConfigurationTag] {
+	return pulumix.Output[[]LoggingConfigurationTag]{
+		OutputState: i.ToLoggingConfigurationTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type LoggingConfigurationTagOutput struct{ *pulumi.OutputState }
 
@@ -631,6 +734,12 @@ func (o LoggingConfigurationTagOutput) ToLoggingConfigurationTagOutput() Logging
 
 func (o LoggingConfigurationTagOutput) ToLoggingConfigurationTagOutputWithContext(ctx context.Context) LoggingConfigurationTagOutput {
 	return o
+}
+
+func (o LoggingConfigurationTagOutput) ToOutput(ctx context.Context) pulumix.Output[LoggingConfigurationTag] {
+	return pulumix.Output[LoggingConfigurationTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -655,6 +764,12 @@ func (o LoggingConfigurationTagArrayOutput) ToLoggingConfigurationTagArrayOutput
 
 func (o LoggingConfigurationTagArrayOutput) ToLoggingConfigurationTagArrayOutputWithContext(ctx context.Context) LoggingConfigurationTagArrayOutput {
 	return o
+}
+
+func (o LoggingConfigurationTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LoggingConfigurationTag] {
+	return pulumix.Output[[]LoggingConfigurationTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LoggingConfigurationTagArrayOutput) Index(i pulumi.IntInput) LoggingConfigurationTagOutput {
@@ -702,6 +817,12 @@ func (i RoomMessageReviewHandlerArgs) ToRoomMessageReviewHandlerOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(RoomMessageReviewHandlerOutput)
 }
 
+func (i RoomMessageReviewHandlerArgs) ToOutput(ctx context.Context) pulumix.Output[RoomMessageReviewHandler] {
+	return pulumix.Output[RoomMessageReviewHandler]{
+		OutputState: i.ToRoomMessageReviewHandlerOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RoomMessageReviewHandlerArgs) ToRoomMessageReviewHandlerPtrOutput() RoomMessageReviewHandlerPtrOutput {
 	return i.ToRoomMessageReviewHandlerPtrOutputWithContext(context.Background())
 }
@@ -743,6 +864,12 @@ func (i *roomMessageReviewHandlerPtrType) ToRoomMessageReviewHandlerPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(RoomMessageReviewHandlerPtrOutput)
 }
 
+func (i *roomMessageReviewHandlerPtrType) ToOutput(ctx context.Context) pulumix.Output[*RoomMessageReviewHandler] {
+	return pulumix.Output[*RoomMessageReviewHandler]{
+		OutputState: i.ToRoomMessageReviewHandlerPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Configuration information for optional review of messages.
 type RoomMessageReviewHandlerOutput struct{ *pulumi.OutputState }
 
@@ -768,6 +895,12 @@ func (o RoomMessageReviewHandlerOutput) ToRoomMessageReviewHandlerPtrOutputWithC
 	}).(RoomMessageReviewHandlerPtrOutput)
 }
 
+func (o RoomMessageReviewHandlerOutput) ToOutput(ctx context.Context) pulumix.Output[RoomMessageReviewHandler] {
+	return pulumix.Output[RoomMessageReviewHandler]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Specifies the fallback behavior if the handler does not return a valid response, encounters an error, or times out.
 func (o RoomMessageReviewHandlerOutput) FallbackResult() RoomMessageReviewHandlerFallbackResultPtrOutput {
 	return o.ApplyT(func(v RoomMessageReviewHandler) *RoomMessageReviewHandlerFallbackResult { return v.FallbackResult }).(RoomMessageReviewHandlerFallbackResultPtrOutput)
@@ -790,6 +923,12 @@ func (o RoomMessageReviewHandlerPtrOutput) ToRoomMessageReviewHandlerPtrOutput()
 
 func (o RoomMessageReviewHandlerPtrOutput) ToRoomMessageReviewHandlerPtrOutputWithContext(ctx context.Context) RoomMessageReviewHandlerPtrOutput {
 	return o
+}
+
+func (o RoomMessageReviewHandlerPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RoomMessageReviewHandler] {
+	return pulumix.Output[*RoomMessageReviewHandler]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RoomMessageReviewHandlerPtrOutput) Elem() RoomMessageReviewHandlerOutput {
@@ -861,6 +1000,12 @@ func (i RoomTagArgs) ToRoomTagOutputWithContext(ctx context.Context) RoomTagOutp
 	return pulumi.ToOutputWithContext(ctx, i).(RoomTagOutput)
 }
 
+func (i RoomTagArgs) ToOutput(ctx context.Context) pulumix.Output[RoomTag] {
+	return pulumix.Output[RoomTag]{
+		OutputState: i.ToRoomTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RoomTagArrayInput is an input type that accepts RoomTagArray and RoomTagArrayOutput values.
 // You can construct a concrete instance of `RoomTagArrayInput` via:
 //
@@ -886,6 +1031,12 @@ func (i RoomTagArray) ToRoomTagArrayOutputWithContext(ctx context.Context) RoomT
 	return pulumi.ToOutputWithContext(ctx, i).(RoomTagArrayOutput)
 }
 
+func (i RoomTagArray) ToOutput(ctx context.Context) pulumix.Output[[]RoomTag] {
+	return pulumix.Output[[]RoomTag]{
+		OutputState: i.ToRoomTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type RoomTagOutput struct{ *pulumi.OutputState }
 
@@ -899,6 +1050,12 @@ func (o RoomTagOutput) ToRoomTagOutput() RoomTagOutput {
 
 func (o RoomTagOutput) ToRoomTagOutputWithContext(ctx context.Context) RoomTagOutput {
 	return o
+}
+
+func (o RoomTagOutput) ToOutput(ctx context.Context) pulumix.Output[RoomTag] {
+	return pulumix.Output[RoomTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -923,6 +1080,12 @@ func (o RoomTagArrayOutput) ToRoomTagArrayOutput() RoomTagArrayOutput {
 
 func (o RoomTagArrayOutput) ToRoomTagArrayOutputWithContext(ctx context.Context) RoomTagArrayOutput {
 	return o
+}
+
+func (o RoomTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RoomTag] {
+	return pulumix.Output[[]RoomTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RoomTagArrayOutput) Index(i pulumi.IntInput) RoomTagOutput {

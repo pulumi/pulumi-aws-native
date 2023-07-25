@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A resource schema for a Variable in Amazon Fraud Detector.
@@ -144,6 +145,12 @@ func (i *Variable) ToVariableOutputWithContext(ctx context.Context) VariableOutp
 	return pulumi.ToOutputWithContext(ctx, i).(VariableOutput)
 }
 
+func (i *Variable) ToOutput(ctx context.Context) pulumix.Output[*Variable] {
+	return pulumix.Output[*Variable]{
+		OutputState: i.ToVariableOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VariableOutput struct{ *pulumi.OutputState }
 
 func (VariableOutput) ElementType() reflect.Type {
@@ -156,6 +163,12 @@ func (o VariableOutput) ToVariableOutput() VariableOutput {
 
 func (o VariableOutput) ToVariableOutputWithContext(ctx context.Context) VariableOutput {
 	return o
+}
+
+func (o VariableOutput) ToOutput(ctx context.Context) pulumix.Output[*Variable] {
+	return pulumix.Output[*Variable]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the variable.

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -48,6 +49,12 @@ func (i GroupInsightsConfigurationArgs) ToGroupInsightsConfigurationOutput() Gro
 
 func (i GroupInsightsConfigurationArgs) ToGroupInsightsConfigurationOutputWithContext(ctx context.Context) GroupInsightsConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GroupInsightsConfigurationOutput)
+}
+
+func (i GroupInsightsConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GroupInsightsConfiguration] {
+	return pulumix.Output[GroupInsightsConfiguration]{
+		OutputState: i.ToGroupInsightsConfigurationOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i GroupInsightsConfigurationArgs) ToGroupInsightsConfigurationPtrOutput() GroupInsightsConfigurationPtrOutput {
@@ -91,6 +98,12 @@ func (i *groupInsightsConfigurationPtrType) ToGroupInsightsConfigurationPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(GroupInsightsConfigurationPtrOutput)
 }
 
+func (i *groupInsightsConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*GroupInsightsConfiguration] {
+	return pulumix.Output[*GroupInsightsConfiguration]{
+		OutputState: i.ToGroupInsightsConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupInsightsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GroupInsightsConfigurationOutput) ElementType() reflect.Type {
@@ -115,6 +128,12 @@ func (o GroupInsightsConfigurationOutput) ToGroupInsightsConfigurationPtrOutputW
 	}).(GroupInsightsConfigurationPtrOutput)
 }
 
+func (o GroupInsightsConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GroupInsightsConfiguration] {
+	return pulumix.Output[GroupInsightsConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Set the InsightsEnabled value to true to enable insights or false to disable insights.
 func (o GroupInsightsConfigurationOutput) InsightsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GroupInsightsConfiguration) *bool { return v.InsightsEnabled }).(pulumi.BoolPtrOutput)
@@ -137,6 +156,12 @@ func (o GroupInsightsConfigurationPtrOutput) ToGroupInsightsConfigurationPtrOutp
 
 func (o GroupInsightsConfigurationPtrOutput) ToGroupInsightsConfigurationPtrOutputWithContext(ctx context.Context) GroupInsightsConfigurationPtrOutput {
 	return o
+}
+
+func (o GroupInsightsConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GroupInsightsConfiguration] {
+	return pulumix.Output[*GroupInsightsConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupInsightsConfigurationPtrOutput) Elem() GroupInsightsConfigurationOutput {
@@ -206,6 +231,12 @@ func (i GroupTagArgs) ToGroupTagOutputWithContext(ctx context.Context) GroupTagO
 	return pulumi.ToOutputWithContext(ctx, i).(GroupTagOutput)
 }
 
+func (i GroupTagArgs) ToOutput(ctx context.Context) pulumix.Output[GroupTag] {
+	return pulumix.Output[GroupTag]{
+		OutputState: i.ToGroupTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GroupTagArrayInput is an input type that accepts GroupTagArray and GroupTagArrayOutput values.
 // You can construct a concrete instance of `GroupTagArrayInput` via:
 //
@@ -231,6 +262,12 @@ func (i GroupTagArray) ToGroupTagArrayOutputWithContext(ctx context.Context) Gro
 	return pulumi.ToOutputWithContext(ctx, i).(GroupTagArrayOutput)
 }
 
+func (i GroupTagArray) ToOutput(ctx context.Context) pulumix.Output[[]GroupTag] {
+	return pulumix.Output[[]GroupTag]{
+		OutputState: i.ToGroupTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupTagOutput struct{ *pulumi.OutputState }
 
 func (GroupTagOutput) ElementType() reflect.Type {
@@ -243,6 +280,12 @@ func (o GroupTagOutput) ToGroupTagOutput() GroupTagOutput {
 
 func (o GroupTagOutput) ToGroupTagOutputWithContext(ctx context.Context) GroupTagOutput {
 	return o
+}
+
+func (o GroupTagOutput) ToOutput(ctx context.Context) pulumix.Output[GroupTag] {
+	return pulumix.Output[GroupTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag.
@@ -267,6 +310,12 @@ func (o GroupTagArrayOutput) ToGroupTagArrayOutput() GroupTagArrayOutput {
 
 func (o GroupTagArrayOutput) ToGroupTagArrayOutputWithContext(ctx context.Context) GroupTagArrayOutput {
 	return o
+}
+
+func (o GroupTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GroupTag] {
+	return pulumix.Output[[]GroupTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupTagArrayOutput) Index(i pulumi.IntInput) GroupTagOutput {
@@ -352,6 +401,12 @@ func (i SamplingRuleTypeArgs) ToSamplingRuleTypeOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(SamplingRuleTypeOutput)
 }
 
+func (i SamplingRuleTypeArgs) ToOutput(ctx context.Context) pulumix.Output[SamplingRuleType] {
+	return pulumix.Output[SamplingRuleType]{
+		OutputState: i.ToSamplingRuleTypeOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SamplingRuleTypeArgs) ToSamplingRuleTypePtrOutput() SamplingRuleTypePtrOutput {
 	return i.ToSamplingRuleTypePtrOutputWithContext(context.Background())
 }
@@ -393,6 +448,12 @@ func (i *samplingRuleTypePtrType) ToSamplingRuleTypePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(SamplingRuleTypePtrOutput)
 }
 
+func (i *samplingRuleTypePtrType) ToOutput(ctx context.Context) pulumix.Output[*SamplingRuleType] {
+	return pulumix.Output[*SamplingRuleType]{
+		OutputState: i.ToSamplingRuleTypePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SamplingRuleTypeOutput struct{ *pulumi.OutputState }
 
 func (SamplingRuleTypeOutput) ElementType() reflect.Type {
@@ -415,6 +476,12 @@ func (o SamplingRuleTypeOutput) ToSamplingRuleTypePtrOutputWithContext(ctx conte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SamplingRuleType) *SamplingRuleType {
 		return &v
 	}).(SamplingRuleTypePtrOutput)
+}
+
+func (o SamplingRuleTypeOutput) ToOutput(ctx context.Context) pulumix.Output[SamplingRuleType] {
+	return pulumix.Output[SamplingRuleType]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Matches attributes derived from the request.
@@ -492,6 +559,12 @@ func (o SamplingRuleTypePtrOutput) ToSamplingRuleTypePtrOutput() SamplingRuleTyp
 
 func (o SamplingRuleTypePtrOutput) ToSamplingRuleTypePtrOutputWithContext(ctx context.Context) SamplingRuleTypePtrOutput {
 	return o
+}
+
+func (o SamplingRuleTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SamplingRuleType] {
+	return pulumix.Output[*SamplingRuleType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SamplingRuleTypePtrOutput) Elem() SamplingRuleTypeOutput {
@@ -671,6 +744,12 @@ func (i SamplingRuleRecordArgs) ToSamplingRuleRecordOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(SamplingRuleRecordOutput)
 }
 
+func (i SamplingRuleRecordArgs) ToOutput(ctx context.Context) pulumix.Output[SamplingRuleRecord] {
+	return pulumix.Output[SamplingRuleRecord]{
+		OutputState: i.ToSamplingRuleRecordOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SamplingRuleRecordArgs) ToSamplingRuleRecordPtrOutput() SamplingRuleRecordPtrOutput {
 	return i.ToSamplingRuleRecordPtrOutputWithContext(context.Background())
 }
@@ -712,6 +791,12 @@ func (i *samplingRuleRecordPtrType) ToSamplingRuleRecordPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SamplingRuleRecordPtrOutput)
 }
 
+func (i *samplingRuleRecordPtrType) ToOutput(ctx context.Context) pulumix.Output[*SamplingRuleRecord] {
+	return pulumix.Output[*SamplingRuleRecord]{
+		OutputState: i.ToSamplingRuleRecordPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SamplingRuleRecordOutput struct{ *pulumi.OutputState }
 
 func (SamplingRuleRecordOutput) ElementType() reflect.Type {
@@ -734,6 +819,12 @@ func (o SamplingRuleRecordOutput) ToSamplingRuleRecordPtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SamplingRuleRecord) *SamplingRuleRecord {
 		return &v
 	}).(SamplingRuleRecordPtrOutput)
+}
+
+func (o SamplingRuleRecordOutput) ToOutput(ctx context.Context) pulumix.Output[SamplingRuleRecord] {
+	return pulumix.Output[SamplingRuleRecord]{
+		OutputState: o.OutputState,
+	}
 }
 
 // When the rule was created, in Unix time seconds.
@@ -762,6 +853,12 @@ func (o SamplingRuleRecordPtrOutput) ToSamplingRuleRecordPtrOutput() SamplingRul
 
 func (o SamplingRuleRecordPtrOutput) ToSamplingRuleRecordPtrOutputWithContext(ctx context.Context) SamplingRuleRecordPtrOutput {
 	return o
+}
+
+func (o SamplingRuleRecordPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SamplingRuleRecord] {
+	return pulumix.Output[*SamplingRuleRecord]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SamplingRuleRecordPtrOutput) Elem() SamplingRuleRecordOutput {
@@ -840,6 +937,12 @@ func (i SamplingRuleTagArgs) ToSamplingRuleTagOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(SamplingRuleTagOutput)
 }
 
+func (i SamplingRuleTagArgs) ToOutput(ctx context.Context) pulumix.Output[SamplingRuleTag] {
+	return pulumix.Output[SamplingRuleTag]{
+		OutputState: i.ToSamplingRuleTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SamplingRuleTagArrayInput is an input type that accepts SamplingRuleTagArray and SamplingRuleTagArrayOutput values.
 // You can construct a concrete instance of `SamplingRuleTagArrayInput` via:
 //
@@ -865,6 +968,12 @@ func (i SamplingRuleTagArray) ToSamplingRuleTagArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(SamplingRuleTagArrayOutput)
 }
 
+func (i SamplingRuleTagArray) ToOutput(ctx context.Context) pulumix.Output[[]SamplingRuleTag] {
+	return pulumix.Output[[]SamplingRuleTag]{
+		OutputState: i.ToSamplingRuleTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SamplingRuleTagOutput struct{ *pulumi.OutputState }
 
 func (SamplingRuleTagOutput) ElementType() reflect.Type {
@@ -877,6 +986,12 @@ func (o SamplingRuleTagOutput) ToSamplingRuleTagOutput() SamplingRuleTagOutput {
 
 func (o SamplingRuleTagOutput) ToSamplingRuleTagOutputWithContext(ctx context.Context) SamplingRuleTagOutput {
 	return o
+}
+
+func (o SamplingRuleTagOutput) ToOutput(ctx context.Context) pulumix.Output[SamplingRuleTag] {
+	return pulumix.Output[SamplingRuleTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag.
@@ -901,6 +1016,12 @@ func (o SamplingRuleTagArrayOutput) ToSamplingRuleTagArrayOutput() SamplingRuleT
 
 func (o SamplingRuleTagArrayOutput) ToSamplingRuleTagArrayOutputWithContext(ctx context.Context) SamplingRuleTagArrayOutput {
 	return o
+}
+
+func (o SamplingRuleTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SamplingRuleTag] {
+	return pulumix.Output[[]SamplingRuleTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SamplingRuleTagArrayOutput) Index(i pulumi.IntInput) SamplingRuleTagOutput {
@@ -982,6 +1103,12 @@ func (i SamplingRuleUpdateArgs) ToSamplingRuleUpdateOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(SamplingRuleUpdateOutput)
 }
 
+func (i SamplingRuleUpdateArgs) ToOutput(ctx context.Context) pulumix.Output[SamplingRuleUpdate] {
+	return pulumix.Output[SamplingRuleUpdate]{
+		OutputState: i.ToSamplingRuleUpdateOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SamplingRuleUpdateArgs) ToSamplingRuleUpdatePtrOutput() SamplingRuleUpdatePtrOutput {
 	return i.ToSamplingRuleUpdatePtrOutputWithContext(context.Background())
 }
@@ -1023,6 +1150,12 @@ func (i *samplingRuleUpdatePtrType) ToSamplingRuleUpdatePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SamplingRuleUpdatePtrOutput)
 }
 
+func (i *samplingRuleUpdatePtrType) ToOutput(ctx context.Context) pulumix.Output[*SamplingRuleUpdate] {
+	return pulumix.Output[*SamplingRuleUpdate]{
+		OutputState: i.ToSamplingRuleUpdatePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SamplingRuleUpdateOutput struct{ *pulumi.OutputState }
 
 func (SamplingRuleUpdateOutput) ElementType() reflect.Type {
@@ -1045,6 +1178,12 @@ func (o SamplingRuleUpdateOutput) ToSamplingRuleUpdatePtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SamplingRuleUpdate) *SamplingRuleUpdate {
 		return &v
 	}).(SamplingRuleUpdatePtrOutput)
+}
+
+func (o SamplingRuleUpdateOutput) ToOutput(ctx context.Context) pulumix.Output[SamplingRuleUpdate] {
+	return pulumix.Output[SamplingRuleUpdate]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Matches attributes derived from the request.
@@ -1117,6 +1256,12 @@ func (o SamplingRuleUpdatePtrOutput) ToSamplingRuleUpdatePtrOutput() SamplingRul
 
 func (o SamplingRuleUpdatePtrOutput) ToSamplingRuleUpdatePtrOutputWithContext(ctx context.Context) SamplingRuleUpdatePtrOutput {
 	return o
+}
+
+func (o SamplingRuleUpdatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SamplingRuleUpdate] {
+	return pulumix.Output[*SamplingRuleUpdate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SamplingRuleUpdatePtrOutput) Elem() SamplingRuleUpdateOutput {

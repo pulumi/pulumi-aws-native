@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Amazon Lex conversational bot performing automated tasks such as ordering a pizza, booking a hotel, and so on.
@@ -148,6 +149,12 @@ func (i *Bot) ToBotOutputWithContext(ctx context.Context) BotOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BotOutput)
 }
 
+func (i *Bot) ToOutput(ctx context.Context) pulumix.Output[*Bot] {
+	return pulumix.Output[*Bot]{
+		OutputState: i.ToBotOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BotOutput struct{ *pulumi.OutputState }
 
 func (BotOutput) ElementType() reflect.Type {
@@ -160,6 +167,12 @@ func (o BotOutput) ToBotOutput() BotOutput {
 
 func (o BotOutput) ToBotOutputWithContext(ctx context.Context) BotOutput {
 	return o
+}
+
+func (o BotOutput) ToOutput(ctx context.Context) pulumix.Output[*Bot] {
+	return pulumix.Output[*Bot]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotOutput) Arn() pulumi.StringOutput {

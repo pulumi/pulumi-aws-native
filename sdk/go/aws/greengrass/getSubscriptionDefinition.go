@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Greengrass::SubscriptionDefinition
@@ -67,6 +68,12 @@ func (o LookupSubscriptionDefinitionResultOutput) ToLookupSubscriptionDefinition
 
 func (o LookupSubscriptionDefinitionResultOutput) ToLookupSubscriptionDefinitionResultOutputWithContext(ctx context.Context) LookupSubscriptionDefinitionResultOutput {
 	return o
+}
+
+func (o LookupSubscriptionDefinitionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSubscriptionDefinitionResult] {
+	return pulumix.Output[LookupSubscriptionDefinitionResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupSubscriptionDefinitionResultOutput) Arn() pulumi.StringPtrOutput {

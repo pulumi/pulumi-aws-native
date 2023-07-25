@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a fleet provisioning template.
@@ -118,6 +119,12 @@ func (i *ProvisioningTemplate) ToProvisioningTemplateOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ProvisioningTemplateOutput)
 }
 
+func (i *ProvisioningTemplate) ToOutput(ctx context.Context) pulumix.Output[*ProvisioningTemplate] {
+	return pulumix.Output[*ProvisioningTemplate]{
+		OutputState: i.ToProvisioningTemplateOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProvisioningTemplateOutput struct{ *pulumi.OutputState }
 
 func (ProvisioningTemplateOutput) ElementType() reflect.Type {
@@ -130,6 +137,12 @@ func (o ProvisioningTemplateOutput) ToProvisioningTemplateOutput() ProvisioningT
 
 func (o ProvisioningTemplateOutput) ToProvisioningTemplateOutputWithContext(ctx context.Context) ProvisioningTemplateOutput {
 	return o
+}
+
+func (o ProvisioningTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[*ProvisioningTemplate] {
+	return pulumix.Output[*ProvisioningTemplate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProvisioningTemplateOutput) Description() pulumi.StringPtrOutput {

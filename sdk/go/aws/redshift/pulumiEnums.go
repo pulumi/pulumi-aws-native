@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type EventSubscriptionEventCategoriesItem string
@@ -80,6 +81,12 @@ func (o EventSubscriptionEventCategoriesItemOutput) ToEventSubscriptionEventCate
 	}).(EventSubscriptionEventCategoriesItemPtrOutput)
 }
 
+func (o EventSubscriptionEventCategoriesItemOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionEventCategoriesItem] {
+	return pulumix.Output[EventSubscriptionEventCategoriesItem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EventSubscriptionEventCategoriesItemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -113,6 +120,12 @@ func (o EventSubscriptionEventCategoriesItemPtrOutput) ToEventSubscriptionEventC
 
 func (o EventSubscriptionEventCategoriesItemPtrOutput) ToEventSubscriptionEventCategoriesItemPtrOutputWithContext(ctx context.Context) EventSubscriptionEventCategoriesItemPtrOutput {
 	return o
+}
+
+func (o EventSubscriptionEventCategoriesItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventSubscriptionEventCategoriesItem] {
+	return pulumix.Output[*EventSubscriptionEventCategoriesItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventSubscriptionEventCategoriesItemPtrOutput) Elem() EventSubscriptionEventCategoriesItemOutput {
@@ -177,6 +190,12 @@ func (in *eventSubscriptionEventCategoriesItemPtr) ToEventSubscriptionEventCateg
 	return pulumi.ToOutputWithContext(ctx, in).(EventSubscriptionEventCategoriesItemPtrOutput)
 }
 
+func (in *eventSubscriptionEventCategoriesItemPtr) ToOutput(ctx context.Context) pulumix.Output[*EventSubscriptionEventCategoriesItem] {
+	return pulumix.Output[*EventSubscriptionEventCategoriesItem]{
+		OutputState: in.ToEventSubscriptionEventCategoriesItemPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventSubscriptionEventCategoriesItemArrayInput is an input type that accepts EventSubscriptionEventCategoriesItemArray and EventSubscriptionEventCategoriesItemArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionEventCategoriesItemArrayInput` via:
 //
@@ -202,6 +221,12 @@ func (i EventSubscriptionEventCategoriesItemArray) ToEventSubscriptionEventCateg
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionEventCategoriesItemArrayOutput)
 }
 
+func (i EventSubscriptionEventCategoriesItemArray) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionEventCategoriesItem] {
+	return pulumix.Output[[]EventSubscriptionEventCategoriesItem]{
+		OutputState: i.ToEventSubscriptionEventCategoriesItemArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventSubscriptionEventCategoriesItemArrayOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionEventCategoriesItemArrayOutput) ElementType() reflect.Type {
@@ -214,6 +239,12 @@ func (o EventSubscriptionEventCategoriesItemArrayOutput) ToEventSubscriptionEven
 
 func (o EventSubscriptionEventCategoriesItemArrayOutput) ToEventSubscriptionEventCategoriesItemArrayOutputWithContext(ctx context.Context) EventSubscriptionEventCategoriesItemArrayOutput {
 	return o
+}
+
+func (o EventSubscriptionEventCategoriesItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionEventCategoriesItem] {
+	return pulumix.Output[[]EventSubscriptionEventCategoriesItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventSubscriptionEventCategoriesItemArrayOutput) Index(i pulumi.IntInput) EventSubscriptionEventCategoriesItemOutput {
@@ -290,6 +321,12 @@ func (o EventSubscriptionSeverityOutput) ToEventSubscriptionSeverityPtrOutputWit
 	}).(EventSubscriptionSeverityPtrOutput)
 }
 
+func (o EventSubscriptionSeverityOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionSeverity] {
+	return pulumix.Output[EventSubscriptionSeverity]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EventSubscriptionSeverityOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -323,6 +360,12 @@ func (o EventSubscriptionSeverityPtrOutput) ToEventSubscriptionSeverityPtrOutput
 
 func (o EventSubscriptionSeverityPtrOutput) ToEventSubscriptionSeverityPtrOutputWithContext(ctx context.Context) EventSubscriptionSeverityPtrOutput {
 	return o
+}
+
+func (o EventSubscriptionSeverityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventSubscriptionSeverity] {
+	return pulumix.Output[*EventSubscriptionSeverity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventSubscriptionSeverityPtrOutput) Elem() EventSubscriptionSeverityOutput {
@@ -385,6 +428,12 @@ func (in *eventSubscriptionSeverityPtr) ToEventSubscriptionSeverityPtrOutput() E
 
 func (in *eventSubscriptionSeverityPtr) ToEventSubscriptionSeverityPtrOutputWithContext(ctx context.Context) EventSubscriptionSeverityPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EventSubscriptionSeverityPtrOutput)
+}
+
+func (in *eventSubscriptionSeverityPtr) ToOutput(ctx context.Context) pulumix.Output[*EventSubscriptionSeverity] {
+	return pulumix.Output[*EventSubscriptionSeverity]{
+		OutputState: in.ToEventSubscriptionSeverityPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The type of source that will be generating the events.
@@ -458,6 +507,12 @@ func (o EventSubscriptionSourceTypeOutput) ToEventSubscriptionSourceTypePtrOutpu
 	}).(EventSubscriptionSourceTypePtrOutput)
 }
 
+func (o EventSubscriptionSourceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionSourceType] {
+	return pulumix.Output[EventSubscriptionSourceType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EventSubscriptionSourceTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -491,6 +546,12 @@ func (o EventSubscriptionSourceTypePtrOutput) ToEventSubscriptionSourceTypePtrOu
 
 func (o EventSubscriptionSourceTypePtrOutput) ToEventSubscriptionSourceTypePtrOutputWithContext(ctx context.Context) EventSubscriptionSourceTypePtrOutput {
 	return o
+}
+
+func (o EventSubscriptionSourceTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventSubscriptionSourceType] {
+	return pulumix.Output[*EventSubscriptionSourceType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventSubscriptionSourceTypePtrOutput) Elem() EventSubscriptionSourceTypeOutput {
@@ -555,6 +616,12 @@ func (in *eventSubscriptionSourceTypePtr) ToEventSubscriptionSourceTypePtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(EventSubscriptionSourceTypePtrOutput)
 }
 
+func (in *eventSubscriptionSourceTypePtr) ToOutput(ctx context.Context) pulumix.Output[*EventSubscriptionSourceType] {
+	return pulumix.Output[*EventSubscriptionSourceType]{
+		OutputState: in.ToEventSubscriptionSourceTypePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The status of the Amazon Redshift event notification subscription.
 type EventSubscriptionStatus string
 
@@ -586,6 +653,12 @@ func (o EventSubscriptionStatusOutput) ToEventSubscriptionStatusPtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSubscriptionStatus) *EventSubscriptionStatus {
 		return &v
 	}).(EventSubscriptionStatusPtrOutput)
+}
+
+func (o EventSubscriptionStatusOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionStatus] {
+	return pulumix.Output[EventSubscriptionStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventSubscriptionStatusOutput) ToStringOutput() pulumi.StringOutput {
@@ -621,6 +694,12 @@ func (o EventSubscriptionStatusPtrOutput) ToEventSubscriptionStatusPtrOutput() E
 
 func (o EventSubscriptionStatusPtrOutput) ToEventSubscriptionStatusPtrOutputWithContext(ctx context.Context) EventSubscriptionStatusPtrOutput {
 	return o
+}
+
+func (o EventSubscriptionStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventSubscriptionStatus] {
+	return pulumix.Output[*EventSubscriptionStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventSubscriptionStatusPtrOutput) Elem() EventSubscriptionStatusOutput {
@@ -679,6 +758,12 @@ func (o ScheduledActionStateEnumOutput) ToScheduledActionStateEnumPtrOutputWithC
 	}).(ScheduledActionStateEnumPtrOutput)
 }
 
+func (o ScheduledActionStateEnumOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduledActionStateEnum] {
+	return pulumix.Output[ScheduledActionStateEnum]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ScheduledActionStateEnumOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -712,6 +797,12 @@ func (o ScheduledActionStateEnumPtrOutput) ToScheduledActionStateEnumPtrOutput()
 
 func (o ScheduledActionStateEnumPtrOutput) ToScheduledActionStateEnumPtrOutputWithContext(ctx context.Context) ScheduledActionStateEnumPtrOutput {
 	return o
+}
+
+func (o ScheduledActionStateEnumPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduledActionStateEnum] {
+	return pulumix.Output[*ScheduledActionStateEnum]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScheduledActionStateEnumPtrOutput) Elem() ScheduledActionStateEnumOutput {

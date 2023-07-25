@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -44,6 +45,12 @@ func (i MapConfigurationArgs) ToMapConfigurationOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(MapConfigurationOutput)
 }
 
+func (i MapConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[MapConfiguration] {
+	return pulumix.Output[MapConfiguration]{
+		OutputState: i.ToMapConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MapConfigurationOutput struct{ *pulumi.OutputState }
 
 func (MapConfigurationOutput) ElementType() reflect.Type {
@@ -56,6 +63,12 @@ func (o MapConfigurationOutput) ToMapConfigurationOutput() MapConfigurationOutpu
 
 func (o MapConfigurationOutput) ToMapConfigurationOutputWithContext(ctx context.Context) MapConfigurationOutput {
 	return o
+}
+
+func (o MapConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[MapConfiguration] {
+	return pulumix.Output[MapConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MapConfigurationOutput) Style() pulumi.StringOutput {
@@ -91,6 +104,12 @@ func (i PlaceIndexDataSourceConfigurationArgs) ToPlaceIndexDataSourceConfigurati
 
 func (i PlaceIndexDataSourceConfigurationArgs) ToPlaceIndexDataSourceConfigurationOutputWithContext(ctx context.Context) PlaceIndexDataSourceConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PlaceIndexDataSourceConfigurationOutput)
+}
+
+func (i PlaceIndexDataSourceConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[PlaceIndexDataSourceConfiguration] {
+	return pulumix.Output[PlaceIndexDataSourceConfiguration]{
+		OutputState: i.ToPlaceIndexDataSourceConfigurationOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i PlaceIndexDataSourceConfigurationArgs) ToPlaceIndexDataSourceConfigurationPtrOutput() PlaceIndexDataSourceConfigurationPtrOutput {
@@ -134,6 +153,12 @@ func (i *placeIndexDataSourceConfigurationPtrType) ToPlaceIndexDataSourceConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(PlaceIndexDataSourceConfigurationPtrOutput)
 }
 
+func (i *placeIndexDataSourceConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*PlaceIndexDataSourceConfiguration] {
+	return pulumix.Output[*PlaceIndexDataSourceConfiguration]{
+		OutputState: i.ToPlaceIndexDataSourceConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PlaceIndexDataSourceConfigurationOutput struct{ *pulumi.OutputState }
 
 func (PlaceIndexDataSourceConfigurationOutput) ElementType() reflect.Type {
@@ -158,6 +183,12 @@ func (o PlaceIndexDataSourceConfigurationOutput) ToPlaceIndexDataSourceConfigura
 	}).(PlaceIndexDataSourceConfigurationPtrOutput)
 }
 
+func (o PlaceIndexDataSourceConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[PlaceIndexDataSourceConfiguration] {
+	return pulumix.Output[PlaceIndexDataSourceConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PlaceIndexDataSourceConfigurationOutput) IntendedUse() PlaceIndexIntendedUsePtrOutput {
 	return o.ApplyT(func(v PlaceIndexDataSourceConfiguration) *PlaceIndexIntendedUse { return v.IntendedUse }).(PlaceIndexIntendedUsePtrOutput)
 }
@@ -174,6 +205,12 @@ func (o PlaceIndexDataSourceConfigurationPtrOutput) ToPlaceIndexDataSourceConfig
 
 func (o PlaceIndexDataSourceConfigurationPtrOutput) ToPlaceIndexDataSourceConfigurationPtrOutputWithContext(ctx context.Context) PlaceIndexDataSourceConfigurationPtrOutput {
 	return o
+}
+
+func (o PlaceIndexDataSourceConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PlaceIndexDataSourceConfiguration] {
+	return pulumix.Output[*PlaceIndexDataSourceConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PlaceIndexDataSourceConfigurationPtrOutput) Elem() PlaceIndexDataSourceConfigurationOutput {

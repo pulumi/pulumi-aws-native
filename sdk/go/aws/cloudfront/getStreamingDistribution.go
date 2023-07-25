@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::CloudFront::StreamingDistribution
@@ -66,6 +67,12 @@ func (o LookupStreamingDistributionResultOutput) ToLookupStreamingDistributionRe
 
 func (o LookupStreamingDistributionResultOutput) ToLookupStreamingDistributionResultOutputWithContext(ctx context.Context) LookupStreamingDistributionResultOutput {
 	return o
+}
+
+func (o LookupStreamingDistributionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupStreamingDistributionResult] {
+	return pulumix.Output[LookupStreamingDistributionResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupStreamingDistributionResultOutput) DomainName() pulumi.StringPtrOutput {

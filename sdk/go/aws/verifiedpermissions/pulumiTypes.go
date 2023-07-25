@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -46,6 +47,12 @@ func (i IdentitySourceCognitoUserPoolConfigurationArgs) ToIdentitySourceCognitoU
 	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceCognitoUserPoolConfigurationOutput)
 }
 
+func (i IdentitySourceCognitoUserPoolConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[IdentitySourceCognitoUserPoolConfiguration] {
+	return pulumix.Output[IdentitySourceCognitoUserPoolConfiguration]{
+		OutputState: i.ToIdentitySourceCognitoUserPoolConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IdentitySourceCognitoUserPoolConfigurationOutput struct{ *pulumi.OutputState }
 
 func (IdentitySourceCognitoUserPoolConfigurationOutput) ElementType() reflect.Type {
@@ -58,6 +65,12 @@ func (o IdentitySourceCognitoUserPoolConfigurationOutput) ToIdentitySourceCognit
 
 func (o IdentitySourceCognitoUserPoolConfigurationOutput) ToIdentitySourceCognitoUserPoolConfigurationOutputWithContext(ctx context.Context) IdentitySourceCognitoUserPoolConfigurationOutput {
 	return o
+}
+
+func (o IdentitySourceCognitoUserPoolConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[IdentitySourceCognitoUserPoolConfiguration] {
+	return pulumix.Output[IdentitySourceCognitoUserPoolConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IdentitySourceCognitoUserPoolConfigurationOutput) ClientIds() pulumi.StringArrayOutput {
@@ -80,6 +93,12 @@ func (o IdentitySourceCognitoUserPoolConfigurationPtrOutput) ToIdentitySourceCog
 
 func (o IdentitySourceCognitoUserPoolConfigurationPtrOutput) ToIdentitySourceCognitoUserPoolConfigurationPtrOutputWithContext(ctx context.Context) IdentitySourceCognitoUserPoolConfigurationPtrOutput {
 	return o
+}
+
+func (o IdentitySourceCognitoUserPoolConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IdentitySourceCognitoUserPoolConfiguration] {
+	return pulumix.Output[*IdentitySourceCognitoUserPoolConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IdentitySourceCognitoUserPoolConfigurationPtrOutput) Elem() IdentitySourceCognitoUserPoolConfigurationOutput {
@@ -141,6 +160,12 @@ func (i IdentitySourceConfigurationArgs) ToIdentitySourceConfigurationOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceConfigurationOutput)
 }
 
+func (i IdentitySourceConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[IdentitySourceConfiguration] {
+	return pulumix.Output[IdentitySourceConfiguration]{
+		OutputState: i.ToIdentitySourceConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IdentitySourceConfigurationOutput struct{ *pulumi.OutputState }
 
 func (IdentitySourceConfigurationOutput) ElementType() reflect.Type {
@@ -153,6 +178,12 @@ func (o IdentitySourceConfigurationOutput) ToIdentitySourceConfigurationOutput()
 
 func (o IdentitySourceConfigurationOutput) ToIdentitySourceConfigurationOutputWithContext(ctx context.Context) IdentitySourceConfigurationOutput {
 	return o
+}
+
+func (o IdentitySourceConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[IdentitySourceConfiguration] {
+	return pulumix.Output[IdentitySourceConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IdentitySourceConfigurationOutput) CognitoUserPoolConfiguration() IdentitySourceCognitoUserPoolConfigurationOutput {
@@ -173,6 +204,12 @@ func (o IdentitySourceConfigurationPtrOutput) ToIdentitySourceConfigurationPtrOu
 
 func (o IdentitySourceConfigurationPtrOutput) ToIdentitySourceConfigurationPtrOutputWithContext(ctx context.Context) IdentitySourceConfigurationPtrOutput {
 	return o
+}
+
+func (o IdentitySourceConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IdentitySourceConfiguration] {
+	return pulumix.Output[*IdentitySourceConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IdentitySourceConfigurationPtrOutput) Elem() IdentitySourceConfigurationOutput {
@@ -215,6 +252,12 @@ func (o IdentitySourceDetailsOutput) ToIdentitySourceDetailsOutputWithContext(ct
 	return o
 }
 
+func (o IdentitySourceDetailsOutput) ToOutput(ctx context.Context) pulumix.Output[IdentitySourceDetails] {
+	return pulumix.Output[IdentitySourceDetails]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IdentitySourceDetailsOutput) ClientIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v IdentitySourceDetails) []string { return v.ClientIds }).(pulumi.StringArrayOutput)
 }
@@ -243,6 +286,12 @@ func (o IdentitySourceDetailsPtrOutput) ToIdentitySourceDetailsPtrOutput() Ident
 
 func (o IdentitySourceDetailsPtrOutput) ToIdentitySourceDetailsPtrOutputWithContext(ctx context.Context) IdentitySourceDetailsPtrOutput {
 	return o
+}
+
+func (o IdentitySourceDetailsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IdentitySourceDetails] {
+	return pulumix.Output[*IdentitySourceDetails]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IdentitySourceDetailsPtrOutput) Elem() IdentitySourceDetailsOutput {
@@ -320,6 +369,12 @@ func (i PolicyDefinitionArgs) ToPolicyDefinitionOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyDefinitionOutput)
 }
 
+func (i PolicyDefinitionArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyDefinition] {
+	return pulumix.Output[PolicyDefinition]{
+		OutputState: i.ToPolicyDefinitionOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyDefinitionOutput struct{ *pulumi.OutputState }
 
 func (PolicyDefinitionOutput) ElementType() reflect.Type {
@@ -334,6 +389,12 @@ func (o PolicyDefinitionOutput) ToPolicyDefinitionOutputWithContext(ctx context.
 	return o
 }
 
+func (o PolicyDefinitionOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyDefinition] {
+	return pulumix.Output[PolicyDefinition]{
+		OutputState: o.OutputState,
+	}
+}
+
 type PolicyDefinitionPtrOutput struct{ *pulumi.OutputState }
 
 func (PolicyDefinitionPtrOutput) ElementType() reflect.Type {
@@ -346,6 +407,12 @@ func (o PolicyDefinitionPtrOutput) ToPolicyDefinitionPtrOutput() PolicyDefinitio
 
 func (o PolicyDefinitionPtrOutput) ToPolicyDefinitionPtrOutputWithContext(ctx context.Context) PolicyDefinitionPtrOutput {
 	return o
+}
+
+func (o PolicyDefinitionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyDefinition] {
+	return pulumix.Output[*PolicyDefinition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyDefinitionPtrOutput) Elem() PolicyDefinitionOutput {
@@ -389,6 +456,12 @@ func (i PolicyStoreSchemaDefinitionArgs) ToPolicyStoreSchemaDefinitionOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyStoreSchemaDefinitionOutput)
 }
 
+func (i PolicyStoreSchemaDefinitionArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyStoreSchemaDefinition] {
+	return pulumix.Output[PolicyStoreSchemaDefinition]{
+		OutputState: i.ToPolicyStoreSchemaDefinitionOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PolicyStoreSchemaDefinitionArgs) ToPolicyStoreSchemaDefinitionPtrOutput() PolicyStoreSchemaDefinitionPtrOutput {
 	return i.ToPolicyStoreSchemaDefinitionPtrOutputWithContext(context.Background())
 }
@@ -430,6 +503,12 @@ func (i *policyStoreSchemaDefinitionPtrType) ToPolicyStoreSchemaDefinitionPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyStoreSchemaDefinitionPtrOutput)
 }
 
+func (i *policyStoreSchemaDefinitionPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyStoreSchemaDefinition] {
+	return pulumix.Output[*PolicyStoreSchemaDefinition]{
+		OutputState: i.ToPolicyStoreSchemaDefinitionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyStoreSchemaDefinitionOutput struct{ *pulumi.OutputState }
 
 func (PolicyStoreSchemaDefinitionOutput) ElementType() reflect.Type {
@@ -454,6 +533,12 @@ func (o PolicyStoreSchemaDefinitionOutput) ToPolicyStoreSchemaDefinitionPtrOutpu
 	}).(PolicyStoreSchemaDefinitionPtrOutput)
 }
 
+func (o PolicyStoreSchemaDefinitionOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyStoreSchemaDefinition] {
+	return pulumix.Output[PolicyStoreSchemaDefinition]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PolicyStoreSchemaDefinitionOutput) CedarJson() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyStoreSchemaDefinition) *string { return v.CedarJson }).(pulumi.StringPtrOutput)
 }
@@ -470,6 +555,12 @@ func (o PolicyStoreSchemaDefinitionPtrOutput) ToPolicyStoreSchemaDefinitionPtrOu
 
 func (o PolicyStoreSchemaDefinitionPtrOutput) ToPolicyStoreSchemaDefinitionPtrOutputWithContext(ctx context.Context) PolicyStoreSchemaDefinitionPtrOutput {
 	return o
+}
+
+func (o PolicyStoreSchemaDefinitionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyStoreSchemaDefinition] {
+	return pulumix.Output[*PolicyStoreSchemaDefinition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyStoreSchemaDefinitionPtrOutput) Elem() PolicyStoreSchemaDefinitionOutput {
@@ -522,6 +613,12 @@ func (i PolicyStoreValidationSettingsArgs) ToPolicyStoreValidationSettingsOutput
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyStoreValidationSettingsOutput)
 }
 
+func (i PolicyStoreValidationSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyStoreValidationSettings] {
+	return pulumix.Output[PolicyStoreValidationSettings]{
+		OutputState: i.ToPolicyStoreValidationSettingsOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyStoreValidationSettingsOutput struct{ *pulumi.OutputState }
 
 func (PolicyStoreValidationSettingsOutput) ElementType() reflect.Type {
@@ -534,6 +631,12 @@ func (o PolicyStoreValidationSettingsOutput) ToPolicyStoreValidationSettingsOutp
 
 func (o PolicyStoreValidationSettingsOutput) ToPolicyStoreValidationSettingsOutputWithContext(ctx context.Context) PolicyStoreValidationSettingsOutput {
 	return o
+}
+
+func (o PolicyStoreValidationSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyStoreValidationSettings] {
+	return pulumix.Output[PolicyStoreValidationSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyStoreValidationSettingsOutput) Mode() PolicyStoreValidationModeOutput {
@@ -552,6 +655,12 @@ func (o PolicyStoreValidationSettingsPtrOutput) ToPolicyStoreValidationSettingsP
 
 func (o PolicyStoreValidationSettingsPtrOutput) ToPolicyStoreValidationSettingsPtrOutputWithContext(ctx context.Context) PolicyStoreValidationSettingsPtrOutput {
 	return o
+}
+
+func (o PolicyStoreValidationSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyStoreValidationSettings] {
+	return pulumix.Output[*PolicyStoreValidationSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyStoreValidationSettingsPtrOutput) Elem() PolicyStoreValidationSettingsOutput {

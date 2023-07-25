@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Backup::BackupPlan
@@ -67,6 +68,12 @@ func (o LookupBackupPlanResultOutput) ToLookupBackupPlanResultOutput() LookupBac
 
 func (o LookupBackupPlanResultOutput) ToLookupBackupPlanResultOutputWithContext(ctx context.Context) LookupBackupPlanResultOutput {
 	return o
+}
+
+func (o LookupBackupPlanResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupBackupPlanResult] {
+	return pulumix.Output[LookupBackupPlanResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupBackupPlanResultOutput) BackupPlan() BackupPlanResourceTypePtrOutput {

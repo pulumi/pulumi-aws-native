@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::GuardDuty::IPSet
@@ -67,6 +68,12 @@ func (o LookupIPSetResultOutput) ToLookupIPSetResultOutput() LookupIPSetResultOu
 
 func (o LookupIPSetResultOutput) ToLookupIPSetResultOutputWithContext(ctx context.Context) LookupIPSetResultOutput {
 	return o
+}
+
+func (o LookupIPSetResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupIPSetResult] {
+	return pulumix.Output[LookupIPSetResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupIPSetResultOutput) Activate() pulumi.BoolPtrOutput {

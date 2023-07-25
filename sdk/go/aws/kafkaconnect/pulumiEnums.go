@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The type of client authentication used to connect to the Kafka cluster. Value NONE means that no client authentication is used.
@@ -78,6 +79,12 @@ func (o ConnectorKafkaClusterClientAuthenticationTypeOutput) ToConnectorKafkaClu
 	}).(ConnectorKafkaClusterClientAuthenticationTypePtrOutput)
 }
 
+func (o ConnectorKafkaClusterClientAuthenticationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorKafkaClusterClientAuthenticationType] {
+	return pulumix.Output[ConnectorKafkaClusterClientAuthenticationType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ConnectorKafkaClusterClientAuthenticationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -111,6 +118,12 @@ func (o ConnectorKafkaClusterClientAuthenticationTypePtrOutput) ToConnectorKafka
 
 func (o ConnectorKafkaClusterClientAuthenticationTypePtrOutput) ToConnectorKafkaClusterClientAuthenticationTypePtrOutputWithContext(ctx context.Context) ConnectorKafkaClusterClientAuthenticationTypePtrOutput {
 	return o
+}
+
+func (o ConnectorKafkaClusterClientAuthenticationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorKafkaClusterClientAuthenticationType] {
+	return pulumix.Output[*ConnectorKafkaClusterClientAuthenticationType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConnectorKafkaClusterClientAuthenticationTypePtrOutput) Elem() ConnectorKafkaClusterClientAuthenticationTypeOutput {
@@ -173,6 +186,12 @@ func (in *connectorKafkaClusterClientAuthenticationTypePtr) ToConnectorKafkaClus
 
 func (in *connectorKafkaClusterClientAuthenticationTypePtr) ToConnectorKafkaClusterClientAuthenticationTypePtrOutputWithContext(ctx context.Context) ConnectorKafkaClusterClientAuthenticationTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ConnectorKafkaClusterClientAuthenticationTypePtrOutput)
+}
+
+func (in *connectorKafkaClusterClientAuthenticationTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ConnectorKafkaClusterClientAuthenticationType] {
+	return pulumix.Output[*ConnectorKafkaClusterClientAuthenticationType]{
+		OutputState: in.ToConnectorKafkaClusterClientAuthenticationTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The type of encryption in transit to the Kafka cluster.
@@ -243,6 +262,12 @@ func (o ConnectorKafkaClusterEncryptionInTransitTypeOutput) ToConnectorKafkaClus
 	}).(ConnectorKafkaClusterEncryptionInTransitTypePtrOutput)
 }
 
+func (o ConnectorKafkaClusterEncryptionInTransitTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorKafkaClusterEncryptionInTransitType] {
+	return pulumix.Output[ConnectorKafkaClusterEncryptionInTransitType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ConnectorKafkaClusterEncryptionInTransitTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -276,6 +301,12 @@ func (o ConnectorKafkaClusterEncryptionInTransitTypePtrOutput) ToConnectorKafkaC
 
 func (o ConnectorKafkaClusterEncryptionInTransitTypePtrOutput) ToConnectorKafkaClusterEncryptionInTransitTypePtrOutputWithContext(ctx context.Context) ConnectorKafkaClusterEncryptionInTransitTypePtrOutput {
 	return o
+}
+
+func (o ConnectorKafkaClusterEncryptionInTransitTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorKafkaClusterEncryptionInTransitType] {
+	return pulumix.Output[*ConnectorKafkaClusterEncryptionInTransitType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConnectorKafkaClusterEncryptionInTransitTypePtrOutput) Elem() ConnectorKafkaClusterEncryptionInTransitTypeOutput {
@@ -338,6 +369,12 @@ func (in *connectorKafkaClusterEncryptionInTransitTypePtr) ToConnectorKafkaClust
 
 func (in *connectorKafkaClusterEncryptionInTransitTypePtr) ToConnectorKafkaClusterEncryptionInTransitTypePtrOutputWithContext(ctx context.Context) ConnectorKafkaClusterEncryptionInTransitTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ConnectorKafkaClusterEncryptionInTransitTypePtrOutput)
+}
+
+func (in *connectorKafkaClusterEncryptionInTransitTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ConnectorKafkaClusterEncryptionInTransitType] {
+	return pulumix.Output[*ConnectorKafkaClusterEncryptionInTransitType]{
+		OutputState: in.ToConnectorKafkaClusterEncryptionInTransitTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

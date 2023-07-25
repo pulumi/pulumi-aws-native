@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::Route53Resolver::ResolverQueryLoggingConfig.
@@ -80,6 +81,12 @@ func (o LookupResolverQueryLoggingConfigResultOutput) ToLookupResolverQueryLoggi
 
 func (o LookupResolverQueryLoggingConfigResultOutput) ToLookupResolverQueryLoggingConfigResultOutputWithContext(ctx context.Context) LookupResolverQueryLoggingConfigResultOutput {
 	return o
+}
+
+func (o LookupResolverQueryLoggingConfigResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupResolverQueryLoggingConfigResult] {
+	return pulumix.Output[LookupResolverQueryLoggingConfigResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Arn

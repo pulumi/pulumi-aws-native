@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ApiGateway::RestApi.
@@ -133,6 +134,12 @@ func (i *RestApi) ToRestApiOutputWithContext(ctx context.Context) RestApiOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(RestApiOutput)
 }
 
+func (i *RestApi) ToOutput(ctx context.Context) pulumix.Output[*RestApi] {
+	return pulumix.Output[*RestApi]{
+		OutputState: i.ToRestApiOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RestApiOutput struct{ *pulumi.OutputState }
 
 func (RestApiOutput) ElementType() reflect.Type {
@@ -145,6 +152,12 @@ func (o RestApiOutput) ToRestApiOutput() RestApiOutput {
 
 func (o RestApiOutput) ToRestApiOutputWithContext(ctx context.Context) RestApiOutput {
 	return o
+}
+
+func (o RestApiOutput) ToOutput(ctx context.Context) pulumix.Output[*RestApi] {
+	return pulumix.Output[*RestApi]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RestApiOutput) ApiKeySourceType() pulumi.StringPtrOutput {

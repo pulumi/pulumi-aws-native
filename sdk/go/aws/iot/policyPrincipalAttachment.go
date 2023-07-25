@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::IoT::PolicyPrincipalAttachment
@@ -101,6 +102,12 @@ func (i *PolicyPrincipalAttachment) ToPolicyPrincipalAttachmentOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyPrincipalAttachmentOutput)
 }
 
+func (i *PolicyPrincipalAttachment) ToOutput(ctx context.Context) pulumix.Output[*PolicyPrincipalAttachment] {
+	return pulumix.Output[*PolicyPrincipalAttachment]{
+		OutputState: i.ToPolicyPrincipalAttachmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyPrincipalAttachmentOutput struct{ *pulumi.OutputState }
 
 func (PolicyPrincipalAttachmentOutput) ElementType() reflect.Type {
@@ -113,6 +120,12 @@ func (o PolicyPrincipalAttachmentOutput) ToPolicyPrincipalAttachmentOutput() Pol
 
 func (o PolicyPrincipalAttachmentOutput) ToPolicyPrincipalAttachmentOutputWithContext(ctx context.Context) PolicyPrincipalAttachmentOutput {
 	return o
+}
+
+func (o PolicyPrincipalAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyPrincipalAttachment] {
+	return pulumix.Output[*PolicyPrincipalAttachment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyPrincipalAttachmentOutput) PolicyName() pulumi.StringOutput {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type EnvironmentAccountConnectionStatus string
@@ -40,6 +41,12 @@ func (o EnvironmentAccountConnectionStatusOutput) ToEnvironmentAccountConnection
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnvironmentAccountConnectionStatus) *EnvironmentAccountConnectionStatus {
 		return &v
 	}).(EnvironmentAccountConnectionStatusPtrOutput)
+}
+
+func (o EnvironmentAccountConnectionStatusOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentAccountConnectionStatus] {
+	return pulumix.Output[EnvironmentAccountConnectionStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EnvironmentAccountConnectionStatusOutput) ToStringOutput() pulumi.StringOutput {
@@ -75,6 +82,12 @@ func (o EnvironmentAccountConnectionStatusPtrOutput) ToEnvironmentAccountConnect
 
 func (o EnvironmentAccountConnectionStatusPtrOutput) ToEnvironmentAccountConnectionStatusPtrOutputWithContext(ctx context.Context) EnvironmentAccountConnectionStatusPtrOutput {
 	return o
+}
+
+func (o EnvironmentAccountConnectionStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentAccountConnectionStatus] {
+	return pulumix.Output[*EnvironmentAccountConnectionStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EnvironmentAccountConnectionStatusPtrOutput) Elem() EnvironmentAccountConnectionStatusOutput {
@@ -167,6 +180,12 @@ func (o EnvironmentTemplateProvisioningOutput) ToEnvironmentTemplateProvisioning
 	}).(EnvironmentTemplateProvisioningPtrOutput)
 }
 
+func (o EnvironmentTemplateProvisioningOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentTemplateProvisioning] {
+	return pulumix.Output[EnvironmentTemplateProvisioning]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EnvironmentTemplateProvisioningOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -200,6 +219,12 @@ func (o EnvironmentTemplateProvisioningPtrOutput) ToEnvironmentTemplateProvision
 
 func (o EnvironmentTemplateProvisioningPtrOutput) ToEnvironmentTemplateProvisioningPtrOutputWithContext(ctx context.Context) EnvironmentTemplateProvisioningPtrOutput {
 	return o
+}
+
+func (o EnvironmentTemplateProvisioningPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentTemplateProvisioning] {
+	return pulumix.Output[*EnvironmentTemplateProvisioning]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EnvironmentTemplateProvisioningPtrOutput) Elem() EnvironmentTemplateProvisioningOutput {
@@ -262,6 +287,12 @@ func (in *environmentTemplateProvisioningPtr) ToEnvironmentTemplateProvisioningP
 
 func (in *environmentTemplateProvisioningPtr) ToEnvironmentTemplateProvisioningPtrOutputWithContext(ctx context.Context) EnvironmentTemplateProvisioningPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EnvironmentTemplateProvisioningPtrOutput)
+}
+
+func (in *environmentTemplateProvisioningPtr) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentTemplateProvisioning] {
+	return pulumix.Output[*EnvironmentTemplateProvisioning]{
+		OutputState: in.ToEnvironmentTemplateProvisioningPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type ServiceTemplateProvisioning string
@@ -330,6 +361,12 @@ func (o ServiceTemplateProvisioningOutput) ToServiceTemplateProvisioningPtrOutpu
 	}).(ServiceTemplateProvisioningPtrOutput)
 }
 
+func (o ServiceTemplateProvisioningOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceTemplateProvisioning] {
+	return pulumix.Output[ServiceTemplateProvisioning]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServiceTemplateProvisioningOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -363,6 +400,12 @@ func (o ServiceTemplateProvisioningPtrOutput) ToServiceTemplateProvisioningPtrOu
 
 func (o ServiceTemplateProvisioningPtrOutput) ToServiceTemplateProvisioningPtrOutputWithContext(ctx context.Context) ServiceTemplateProvisioningPtrOutput {
 	return o
+}
+
+func (o ServiceTemplateProvisioningPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceTemplateProvisioning] {
+	return pulumix.Output[*ServiceTemplateProvisioning]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceTemplateProvisioningPtrOutput) Elem() ServiceTemplateProvisioningOutput {
@@ -425,6 +468,12 @@ func (in *serviceTemplateProvisioningPtr) ToServiceTemplateProvisioningPtrOutput
 
 func (in *serviceTemplateProvisioningPtr) ToServiceTemplateProvisioningPtrOutputWithContext(ctx context.Context) ServiceTemplateProvisioningPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ServiceTemplateProvisioningPtrOutput)
+}
+
+func (in *serviceTemplateProvisioningPtr) ToOutput(ctx context.Context) pulumix.Output[*ServiceTemplateProvisioning] {
+	return pulumix.Output[*ServiceTemplateProvisioning]{
+		OutputState: in.ToServiceTemplateProvisioningPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

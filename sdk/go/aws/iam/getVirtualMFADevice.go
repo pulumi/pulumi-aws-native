@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::IAM::VirtualMFADevice
@@ -65,6 +66,12 @@ func (o LookupVirtualMFADeviceResultOutput) ToLookupVirtualMFADeviceResultOutput
 
 func (o LookupVirtualMFADeviceResultOutput) ToLookupVirtualMFADeviceResultOutputWithContext(ctx context.Context) LookupVirtualMFADeviceResultOutput {
 	return o
+}
+
+func (o LookupVirtualMFADeviceResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVirtualMFADeviceResult] {
+	return pulumix.Output[LookupVirtualMFADeviceResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupVirtualMFADeviceResultOutput) SerialNumber() pulumi.StringPtrOutput {

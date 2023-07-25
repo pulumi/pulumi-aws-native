@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type BridgeFailoverConfigStateEnum string
@@ -77,6 +78,12 @@ func (o BridgeFailoverConfigStateEnumOutput) ToBridgeFailoverConfigStateEnumPtrO
 	}).(BridgeFailoverConfigStateEnumPtrOutput)
 }
 
+func (o BridgeFailoverConfigStateEnumOutput) ToOutput(ctx context.Context) pulumix.Output[BridgeFailoverConfigStateEnum] {
+	return pulumix.Output[BridgeFailoverConfigStateEnum]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BridgeFailoverConfigStateEnumOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -110,6 +117,12 @@ func (o BridgeFailoverConfigStateEnumPtrOutput) ToBridgeFailoverConfigStateEnumP
 
 func (o BridgeFailoverConfigStateEnumPtrOutput) ToBridgeFailoverConfigStateEnumPtrOutputWithContext(ctx context.Context) BridgeFailoverConfigStateEnumPtrOutput {
 	return o
+}
+
+func (o BridgeFailoverConfigStateEnumPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BridgeFailoverConfigStateEnum] {
+	return pulumix.Output[*BridgeFailoverConfigStateEnum]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BridgeFailoverConfigStateEnumPtrOutput) Elem() BridgeFailoverConfigStateEnumOutput {
@@ -172,6 +185,12 @@ func (in *bridgeFailoverConfigStateEnumPtr) ToBridgeFailoverConfigStateEnumPtrOu
 
 func (in *bridgeFailoverConfigStateEnumPtr) ToBridgeFailoverConfigStateEnumPtrOutputWithContext(ctx context.Context) BridgeFailoverConfigStateEnumPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(BridgeFailoverConfigStateEnumPtrOutput)
+}
+
+func (in *bridgeFailoverConfigStateEnumPtr) ToOutput(ctx context.Context) pulumix.Output[*BridgeFailoverConfigStateEnum] {
+	return pulumix.Output[*BridgeFailoverConfigStateEnum]{
+		OutputState: in.ToBridgeFailoverConfigStateEnumPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type BridgeFailoverModeEnum string
@@ -240,6 +259,12 @@ func (o BridgeFailoverModeEnumOutput) ToBridgeFailoverModeEnumPtrOutputWithConte
 	}).(BridgeFailoverModeEnumPtrOutput)
 }
 
+func (o BridgeFailoverModeEnumOutput) ToOutput(ctx context.Context) pulumix.Output[BridgeFailoverModeEnum] {
+	return pulumix.Output[BridgeFailoverModeEnum]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BridgeFailoverModeEnumOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -273,6 +298,12 @@ func (o BridgeFailoverModeEnumPtrOutput) ToBridgeFailoverModeEnumPtrOutput() Bri
 
 func (o BridgeFailoverModeEnumPtrOutput) ToBridgeFailoverModeEnumPtrOutputWithContext(ctx context.Context) BridgeFailoverModeEnumPtrOutput {
 	return o
+}
+
+func (o BridgeFailoverModeEnumPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BridgeFailoverModeEnum] {
+	return pulumix.Output[*BridgeFailoverModeEnum]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BridgeFailoverModeEnumPtrOutput) Elem() BridgeFailoverModeEnumOutput {
@@ -335,6 +366,12 @@ func (in *bridgeFailoverModeEnumPtr) ToBridgeFailoverModeEnumPtrOutput() BridgeF
 
 func (in *bridgeFailoverModeEnumPtr) ToBridgeFailoverModeEnumPtrOutputWithContext(ctx context.Context) BridgeFailoverModeEnumPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(BridgeFailoverModeEnumPtrOutput)
+}
+
+func (in *bridgeFailoverModeEnumPtr) ToOutput(ctx context.Context) pulumix.Output[*BridgeFailoverModeEnum] {
+	return pulumix.Output[*BridgeFailoverModeEnum]{
+		OutputState: in.ToBridgeFailoverModeEnumPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The network output protocol.
@@ -406,6 +443,12 @@ func (o BridgeOutputResourceBridgeNetworkOutputProtocolOutput) ToBridgeOutputRes
 	}).(BridgeOutputResourceBridgeNetworkOutputProtocolPtrOutput)
 }
 
+func (o BridgeOutputResourceBridgeNetworkOutputProtocolOutput) ToOutput(ctx context.Context) pulumix.Output[BridgeOutputResourceBridgeNetworkOutputProtocol] {
+	return pulumix.Output[BridgeOutputResourceBridgeNetworkOutputProtocol]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BridgeOutputResourceBridgeNetworkOutputProtocolOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -439,6 +482,12 @@ func (o BridgeOutputResourceBridgeNetworkOutputProtocolPtrOutput) ToBridgeOutput
 
 func (o BridgeOutputResourceBridgeNetworkOutputProtocolPtrOutput) ToBridgeOutputResourceBridgeNetworkOutputProtocolPtrOutputWithContext(ctx context.Context) BridgeOutputResourceBridgeNetworkOutputProtocolPtrOutput {
 	return o
+}
+
+func (o BridgeOutputResourceBridgeNetworkOutputProtocolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BridgeOutputResourceBridgeNetworkOutputProtocol] {
+	return pulumix.Output[*BridgeOutputResourceBridgeNetworkOutputProtocol]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BridgeOutputResourceBridgeNetworkOutputProtocolPtrOutput) Elem() BridgeOutputResourceBridgeNetworkOutputProtocolOutput {
@@ -501,6 +550,12 @@ func (in *bridgeOutputResourceBridgeNetworkOutputProtocolPtr) ToBridgeOutputReso
 
 func (in *bridgeOutputResourceBridgeNetworkOutputProtocolPtr) ToBridgeOutputResourceBridgeNetworkOutputProtocolPtrOutputWithContext(ctx context.Context) BridgeOutputResourceBridgeNetworkOutputProtocolPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(BridgeOutputResourceBridgeNetworkOutputProtocolPtrOutput)
+}
+
+func (in *bridgeOutputResourceBridgeNetworkOutputProtocolPtr) ToOutput(ctx context.Context) pulumix.Output[*BridgeOutputResourceBridgeNetworkOutputProtocol] {
+	return pulumix.Output[*BridgeOutputResourceBridgeNetworkOutputProtocol]{
+		OutputState: in.ToBridgeOutputResourceBridgeNetworkOutputProtocolPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type BridgeProtocolEnum string
@@ -571,6 +626,12 @@ func (o BridgeProtocolEnumOutput) ToBridgeProtocolEnumPtrOutputWithContext(ctx c
 	}).(BridgeProtocolEnumPtrOutput)
 }
 
+func (o BridgeProtocolEnumOutput) ToOutput(ctx context.Context) pulumix.Output[BridgeProtocolEnum] {
+	return pulumix.Output[BridgeProtocolEnum]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BridgeProtocolEnumOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -604,6 +665,12 @@ func (o BridgeProtocolEnumPtrOutput) ToBridgeProtocolEnumPtrOutput() BridgeProto
 
 func (o BridgeProtocolEnumPtrOutput) ToBridgeProtocolEnumPtrOutputWithContext(ctx context.Context) BridgeProtocolEnumPtrOutput {
 	return o
+}
+
+func (o BridgeProtocolEnumPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BridgeProtocolEnum] {
+	return pulumix.Output[*BridgeProtocolEnum]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BridgeProtocolEnumPtrOutput) Elem() BridgeProtocolEnumOutput {
@@ -666,6 +733,12 @@ func (in *bridgeProtocolEnumPtr) ToBridgeProtocolEnumPtrOutput() BridgeProtocolE
 
 func (in *bridgeProtocolEnumPtr) ToBridgeProtocolEnumPtrOutputWithContext(ctx context.Context) BridgeProtocolEnumPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(BridgeProtocolEnumPtrOutput)
+}
+
+func (in *bridgeProtocolEnumPtr) ToOutput(ctx context.Context) pulumix.Output[*BridgeProtocolEnum] {
+	return pulumix.Output[*BridgeProtocolEnum]{
+		OutputState: in.ToBridgeProtocolEnumPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type BridgeSourceProtocolEnum string
@@ -736,6 +809,12 @@ func (o BridgeSourceProtocolEnumOutput) ToBridgeSourceProtocolEnumPtrOutputWithC
 	}).(BridgeSourceProtocolEnumPtrOutput)
 }
 
+func (o BridgeSourceProtocolEnumOutput) ToOutput(ctx context.Context) pulumix.Output[BridgeSourceProtocolEnum] {
+	return pulumix.Output[BridgeSourceProtocolEnum]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BridgeSourceProtocolEnumOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -769,6 +848,12 @@ func (o BridgeSourceProtocolEnumPtrOutput) ToBridgeSourceProtocolEnumPtrOutput()
 
 func (o BridgeSourceProtocolEnumPtrOutput) ToBridgeSourceProtocolEnumPtrOutputWithContext(ctx context.Context) BridgeSourceProtocolEnumPtrOutput {
 	return o
+}
+
+func (o BridgeSourceProtocolEnumPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BridgeSourceProtocolEnum] {
+	return pulumix.Output[*BridgeSourceProtocolEnum]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BridgeSourceProtocolEnumPtrOutput) Elem() BridgeSourceProtocolEnumOutput {
@@ -833,6 +918,12 @@ func (in *bridgeSourceProtocolEnumPtr) ToBridgeSourceProtocolEnumPtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(BridgeSourceProtocolEnumPtrOutput)
 }
 
+func (in *bridgeSourceProtocolEnumPtr) ToOutput(ctx context.Context) pulumix.Output[*BridgeSourceProtocolEnum] {
+	return pulumix.Output[*BridgeSourceProtocolEnum]{
+		OutputState: in.ToBridgeSourceProtocolEnumPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BridgeStateEnum string
 
 const (
@@ -873,6 +964,12 @@ func (o BridgeStateEnumOutput) ToBridgeStateEnumPtrOutputWithContext(ctx context
 	}).(BridgeStateEnumPtrOutput)
 }
 
+func (o BridgeStateEnumOutput) ToOutput(ctx context.Context) pulumix.Output[BridgeStateEnum] {
+	return pulumix.Output[BridgeStateEnum]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BridgeStateEnumOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -906,6 +1003,12 @@ func (o BridgeStateEnumPtrOutput) ToBridgeStateEnumPtrOutput() BridgeStateEnumPt
 
 func (o BridgeStateEnumPtrOutput) ToBridgeStateEnumPtrOutputWithContext(ctx context.Context) BridgeStateEnumPtrOutput {
 	return o
+}
+
+func (o BridgeStateEnumPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BridgeStateEnum] {
+	return pulumix.Output[*BridgeStateEnum]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BridgeStateEnumPtrOutput) Elem() BridgeStateEnumOutput {
@@ -1001,6 +1104,12 @@ func (o FlowEncryptionAlgorithmOutput) ToFlowEncryptionAlgorithmPtrOutputWithCon
 	}).(FlowEncryptionAlgorithmPtrOutput)
 }
 
+func (o FlowEncryptionAlgorithmOutput) ToOutput(ctx context.Context) pulumix.Output[FlowEncryptionAlgorithm] {
+	return pulumix.Output[FlowEncryptionAlgorithm]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowEncryptionAlgorithmOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1034,6 +1143,12 @@ func (o FlowEncryptionAlgorithmPtrOutput) ToFlowEncryptionAlgorithmPtrOutput() F
 
 func (o FlowEncryptionAlgorithmPtrOutput) ToFlowEncryptionAlgorithmPtrOutputWithContext(ctx context.Context) FlowEncryptionAlgorithmPtrOutput {
 	return o
+}
+
+func (o FlowEncryptionAlgorithmPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowEncryptionAlgorithm] {
+	return pulumix.Output[*FlowEncryptionAlgorithm]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowEncryptionAlgorithmPtrOutput) Elem() FlowEncryptionAlgorithmOutput {
@@ -1096,6 +1211,12 @@ func (in *flowEncryptionAlgorithmPtr) ToFlowEncryptionAlgorithmPtrOutput() FlowE
 
 func (in *flowEncryptionAlgorithmPtr) ToFlowEncryptionAlgorithmPtrOutputWithContext(ctx context.Context) FlowEncryptionAlgorithmPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FlowEncryptionAlgorithmPtrOutput)
+}
+
+func (in *flowEncryptionAlgorithmPtr) ToOutput(ctx context.Context) pulumix.Output[*FlowEncryptionAlgorithm] {
+	return pulumix.Output[*FlowEncryptionAlgorithm]{
+		OutputState: in.ToFlowEncryptionAlgorithmPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
@@ -1167,6 +1288,12 @@ func (o FlowEncryptionKeyTypeOutput) ToFlowEncryptionKeyTypePtrOutputWithContext
 	}).(FlowEncryptionKeyTypePtrOutput)
 }
 
+func (o FlowEncryptionKeyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FlowEncryptionKeyType] {
+	return pulumix.Output[FlowEncryptionKeyType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowEncryptionKeyTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1200,6 +1327,12 @@ func (o FlowEncryptionKeyTypePtrOutput) ToFlowEncryptionKeyTypePtrOutput() FlowE
 
 func (o FlowEncryptionKeyTypePtrOutput) ToFlowEncryptionKeyTypePtrOutputWithContext(ctx context.Context) FlowEncryptionKeyTypePtrOutput {
 	return o
+}
+
+func (o FlowEncryptionKeyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowEncryptionKeyType] {
+	return pulumix.Output[*FlowEncryptionKeyType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowEncryptionKeyTypePtrOutput) Elem() FlowEncryptionKeyTypeOutput {
@@ -1262,6 +1395,12 @@ func (in *flowEncryptionKeyTypePtr) ToFlowEncryptionKeyTypePtrOutput() FlowEncry
 
 func (in *flowEncryptionKeyTypePtr) ToFlowEncryptionKeyTypePtrOutputWithContext(ctx context.Context) FlowEncryptionKeyTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FlowEncryptionKeyTypePtrOutput)
+}
+
+func (in *flowEncryptionKeyTypePtr) ToOutput(ctx context.Context) pulumix.Output[*FlowEncryptionKeyType] {
+	return pulumix.Output[*FlowEncryptionKeyType]{
+		OutputState: in.ToFlowEncryptionKeyTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
@@ -1333,6 +1472,12 @@ func (o FlowEntitlementEncryptionAlgorithmOutput) ToFlowEntitlementEncryptionAlg
 	}).(FlowEntitlementEncryptionAlgorithmPtrOutput)
 }
 
+func (o FlowEntitlementEncryptionAlgorithmOutput) ToOutput(ctx context.Context) pulumix.Output[FlowEntitlementEncryptionAlgorithm] {
+	return pulumix.Output[FlowEntitlementEncryptionAlgorithm]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowEntitlementEncryptionAlgorithmOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1366,6 +1511,12 @@ func (o FlowEntitlementEncryptionAlgorithmPtrOutput) ToFlowEntitlementEncryption
 
 func (o FlowEntitlementEncryptionAlgorithmPtrOutput) ToFlowEntitlementEncryptionAlgorithmPtrOutputWithContext(ctx context.Context) FlowEntitlementEncryptionAlgorithmPtrOutput {
 	return o
+}
+
+func (o FlowEntitlementEncryptionAlgorithmPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowEntitlementEncryptionAlgorithm] {
+	return pulumix.Output[*FlowEntitlementEncryptionAlgorithm]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowEntitlementEncryptionAlgorithmPtrOutput) Elem() FlowEntitlementEncryptionAlgorithmOutput {
@@ -1428,6 +1579,12 @@ func (in *flowEntitlementEncryptionAlgorithmPtr) ToFlowEntitlementEncryptionAlgo
 
 func (in *flowEntitlementEncryptionAlgorithmPtr) ToFlowEntitlementEncryptionAlgorithmPtrOutputWithContext(ctx context.Context) FlowEntitlementEncryptionAlgorithmPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FlowEntitlementEncryptionAlgorithmPtrOutput)
+}
+
+func (in *flowEntitlementEncryptionAlgorithmPtr) ToOutput(ctx context.Context) pulumix.Output[*FlowEntitlementEncryptionAlgorithm] {
+	return pulumix.Output[*FlowEntitlementEncryptionAlgorithm]{
+		OutputState: in.ToFlowEntitlementEncryptionAlgorithmPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
@@ -1498,6 +1655,12 @@ func (o FlowEntitlementEncryptionKeyTypeOutput) ToFlowEntitlementEncryptionKeyTy
 	}).(FlowEntitlementEncryptionKeyTypePtrOutput)
 }
 
+func (o FlowEntitlementEncryptionKeyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FlowEntitlementEncryptionKeyType] {
+	return pulumix.Output[FlowEntitlementEncryptionKeyType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowEntitlementEncryptionKeyTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1531,6 +1694,12 @@ func (o FlowEntitlementEncryptionKeyTypePtrOutput) ToFlowEntitlementEncryptionKe
 
 func (o FlowEntitlementEncryptionKeyTypePtrOutput) ToFlowEntitlementEncryptionKeyTypePtrOutputWithContext(ctx context.Context) FlowEntitlementEncryptionKeyTypePtrOutput {
 	return o
+}
+
+func (o FlowEntitlementEncryptionKeyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowEntitlementEncryptionKeyType] {
+	return pulumix.Output[*FlowEntitlementEncryptionKeyType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowEntitlementEncryptionKeyTypePtrOutput) Elem() FlowEntitlementEncryptionKeyTypeOutput {
@@ -1593,6 +1762,12 @@ func (in *flowEntitlementEncryptionKeyTypePtr) ToFlowEntitlementEncryptionKeyTyp
 
 func (in *flowEntitlementEncryptionKeyTypePtr) ToFlowEntitlementEncryptionKeyTypePtrOutputWithContext(ctx context.Context) FlowEntitlementEncryptionKeyTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FlowEntitlementEncryptionKeyTypePtrOutput)
+}
+
+func (in *flowEntitlementEncryptionKeyTypePtr) ToOutput(ctx context.Context) pulumix.Output[*FlowEntitlementEncryptionKeyType] {
+	return pulumix.Output[*FlowEntitlementEncryptionKeyType]{
+		OutputState: in.ToFlowEntitlementEncryptionKeyTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // An indication of whether the entitlement is enabled.
@@ -1663,6 +1838,12 @@ func (o FlowEntitlementEntitlementStatusOutput) ToFlowEntitlementEntitlementStat
 	}).(FlowEntitlementEntitlementStatusPtrOutput)
 }
 
+func (o FlowEntitlementEntitlementStatusOutput) ToOutput(ctx context.Context) pulumix.Output[FlowEntitlementEntitlementStatus] {
+	return pulumix.Output[FlowEntitlementEntitlementStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowEntitlementEntitlementStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1696,6 +1877,12 @@ func (o FlowEntitlementEntitlementStatusPtrOutput) ToFlowEntitlementEntitlementS
 
 func (o FlowEntitlementEntitlementStatusPtrOutput) ToFlowEntitlementEntitlementStatusPtrOutputWithContext(ctx context.Context) FlowEntitlementEntitlementStatusPtrOutput {
 	return o
+}
+
+func (o FlowEntitlementEntitlementStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowEntitlementEntitlementStatus] {
+	return pulumix.Output[*FlowEntitlementEntitlementStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowEntitlementEntitlementStatusPtrOutput) Elem() FlowEntitlementEntitlementStatusOutput {
@@ -1758,6 +1945,12 @@ func (in *flowEntitlementEntitlementStatusPtr) ToFlowEntitlementEntitlementStatu
 
 func (in *flowEntitlementEntitlementStatusPtr) ToFlowEntitlementEntitlementStatusPtrOutputWithContext(ctx context.Context) FlowEntitlementEntitlementStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FlowEntitlementEntitlementStatusPtrOutput)
+}
+
+func (in *flowEntitlementEntitlementStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*FlowEntitlementEntitlementStatus] {
+	return pulumix.Output[*FlowEntitlementEntitlementStatus]{
+		OutputState: in.ToFlowEntitlementEntitlementStatusPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The type of failover you choose for this flow. MERGE combines the source streams into a single stream, allowing graceful recovery from any single-source loss. FAILOVER allows switching between different streams.
@@ -1828,6 +2021,12 @@ func (o FlowFailoverConfigFailoverModeOutput) ToFlowFailoverConfigFailoverModePt
 	}).(FlowFailoverConfigFailoverModePtrOutput)
 }
 
+func (o FlowFailoverConfigFailoverModeOutput) ToOutput(ctx context.Context) pulumix.Output[FlowFailoverConfigFailoverMode] {
+	return pulumix.Output[FlowFailoverConfigFailoverMode]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowFailoverConfigFailoverModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1861,6 +2060,12 @@ func (o FlowFailoverConfigFailoverModePtrOutput) ToFlowFailoverConfigFailoverMod
 
 func (o FlowFailoverConfigFailoverModePtrOutput) ToFlowFailoverConfigFailoverModePtrOutputWithContext(ctx context.Context) FlowFailoverConfigFailoverModePtrOutput {
 	return o
+}
+
+func (o FlowFailoverConfigFailoverModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowFailoverConfigFailoverMode] {
+	return pulumix.Output[*FlowFailoverConfigFailoverMode]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowFailoverConfigFailoverModePtrOutput) Elem() FlowFailoverConfigFailoverModeOutput {
@@ -1923,6 +2128,12 @@ func (in *flowFailoverConfigFailoverModePtr) ToFlowFailoverConfigFailoverModePtr
 
 func (in *flowFailoverConfigFailoverModePtr) ToFlowFailoverConfigFailoverModePtrOutputWithContext(ctx context.Context) FlowFailoverConfigFailoverModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FlowFailoverConfigFailoverModePtrOutput)
+}
+
+func (in *flowFailoverConfigFailoverModePtr) ToOutput(ctx context.Context) pulumix.Output[*FlowFailoverConfigFailoverMode] {
+	return pulumix.Output[*FlowFailoverConfigFailoverMode]{
+		OutputState: in.ToFlowFailoverConfigFailoverModePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type FlowFailoverConfigState string
@@ -1992,6 +2203,12 @@ func (o FlowFailoverConfigStateOutput) ToFlowFailoverConfigStatePtrOutputWithCon
 	}).(FlowFailoverConfigStatePtrOutput)
 }
 
+func (o FlowFailoverConfigStateOutput) ToOutput(ctx context.Context) pulumix.Output[FlowFailoverConfigState] {
+	return pulumix.Output[FlowFailoverConfigState]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowFailoverConfigStateOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2025,6 +2242,12 @@ func (o FlowFailoverConfigStatePtrOutput) ToFlowFailoverConfigStatePtrOutput() F
 
 func (o FlowFailoverConfigStatePtrOutput) ToFlowFailoverConfigStatePtrOutputWithContext(ctx context.Context) FlowFailoverConfigStatePtrOutput {
 	return o
+}
+
+func (o FlowFailoverConfigStatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowFailoverConfigState] {
+	return pulumix.Output[*FlowFailoverConfigState]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowFailoverConfigStatePtrOutput) Elem() FlowFailoverConfigStateOutput {
@@ -2087,6 +2310,12 @@ func (in *flowFailoverConfigStatePtr) ToFlowFailoverConfigStatePtrOutput() FlowF
 
 func (in *flowFailoverConfigStatePtr) ToFlowFailoverConfigStatePtrOutputWithContext(ctx context.Context) FlowFailoverConfigStatePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FlowFailoverConfigStatePtrOutput)
+}
+
+func (in *flowFailoverConfigStatePtr) ToOutput(ctx context.Context) pulumix.Output[*FlowFailoverConfigState] {
+	return pulumix.Output[*FlowFailoverConfigState]{
+		OutputState: in.ToFlowFailoverConfigStatePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
@@ -2158,6 +2387,12 @@ func (o FlowOutputEncryptionAlgorithmOutput) ToFlowOutputEncryptionAlgorithmPtrO
 	}).(FlowOutputEncryptionAlgorithmPtrOutput)
 }
 
+func (o FlowOutputEncryptionAlgorithmOutput) ToOutput(ctx context.Context) pulumix.Output[FlowOutputEncryptionAlgorithm] {
+	return pulumix.Output[FlowOutputEncryptionAlgorithm]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowOutputEncryptionAlgorithmOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2191,6 +2426,12 @@ func (o FlowOutputEncryptionAlgorithmPtrOutput) ToFlowOutputEncryptionAlgorithmP
 
 func (o FlowOutputEncryptionAlgorithmPtrOutput) ToFlowOutputEncryptionAlgorithmPtrOutputWithContext(ctx context.Context) FlowOutputEncryptionAlgorithmPtrOutput {
 	return o
+}
+
+func (o FlowOutputEncryptionAlgorithmPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowOutputEncryptionAlgorithm] {
+	return pulumix.Output[*FlowOutputEncryptionAlgorithm]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowOutputEncryptionAlgorithmPtrOutput) Elem() FlowOutputEncryptionAlgorithmOutput {
@@ -2253,6 +2494,12 @@ func (in *flowOutputEncryptionAlgorithmPtr) ToFlowOutputEncryptionAlgorithmPtrOu
 
 func (in *flowOutputEncryptionAlgorithmPtr) ToFlowOutputEncryptionAlgorithmPtrOutputWithContext(ctx context.Context) FlowOutputEncryptionAlgorithmPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FlowOutputEncryptionAlgorithmPtrOutput)
+}
+
+func (in *flowOutputEncryptionAlgorithmPtr) ToOutput(ctx context.Context) pulumix.Output[*FlowOutputEncryptionAlgorithm] {
+	return pulumix.Output[*FlowOutputEncryptionAlgorithm]{
+		OutputState: in.ToFlowOutputEncryptionAlgorithmPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
@@ -2323,6 +2570,12 @@ func (o FlowOutputEncryptionKeyTypeOutput) ToFlowOutputEncryptionKeyTypePtrOutpu
 	}).(FlowOutputEncryptionKeyTypePtrOutput)
 }
 
+func (o FlowOutputEncryptionKeyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FlowOutputEncryptionKeyType] {
+	return pulumix.Output[FlowOutputEncryptionKeyType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowOutputEncryptionKeyTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2356,6 +2609,12 @@ func (o FlowOutputEncryptionKeyTypePtrOutput) ToFlowOutputEncryptionKeyTypePtrOu
 
 func (o FlowOutputEncryptionKeyTypePtrOutput) ToFlowOutputEncryptionKeyTypePtrOutputWithContext(ctx context.Context) FlowOutputEncryptionKeyTypePtrOutput {
 	return o
+}
+
+func (o FlowOutputEncryptionKeyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowOutputEncryptionKeyType] {
+	return pulumix.Output[*FlowOutputEncryptionKeyType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowOutputEncryptionKeyTypePtrOutput) Elem() FlowOutputEncryptionKeyTypeOutput {
@@ -2418,6 +2677,12 @@ func (in *flowOutputEncryptionKeyTypePtr) ToFlowOutputEncryptionKeyTypePtrOutput
 
 func (in *flowOutputEncryptionKeyTypePtr) ToFlowOutputEncryptionKeyTypePtrOutputWithContext(ctx context.Context) FlowOutputEncryptionKeyTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FlowOutputEncryptionKeyTypePtrOutput)
+}
+
+func (in *flowOutputEncryptionKeyTypePtr) ToOutput(ctx context.Context) pulumix.Output[*FlowOutputEncryptionKeyType] {
+	return pulumix.Output[*FlowOutputEncryptionKeyType]{
+		OutputState: in.ToFlowOutputEncryptionKeyTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The protocol that is used by the source or output.
@@ -2494,6 +2759,12 @@ func (o FlowOutputProtocolOutput) ToFlowOutputProtocolPtrOutputWithContext(ctx c
 	}).(FlowOutputProtocolPtrOutput)
 }
 
+func (o FlowOutputProtocolOutput) ToOutput(ctx context.Context) pulumix.Output[FlowOutputProtocol] {
+	return pulumix.Output[FlowOutputProtocol]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowOutputProtocolOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2527,6 +2798,12 @@ func (o FlowOutputProtocolPtrOutput) ToFlowOutputProtocolPtrOutput() FlowOutputP
 
 func (o FlowOutputProtocolPtrOutput) ToFlowOutputProtocolPtrOutputWithContext(ctx context.Context) FlowOutputProtocolPtrOutput {
 	return o
+}
+
+func (o FlowOutputProtocolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowOutputProtocol] {
+	return pulumix.Output[*FlowOutputProtocol]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowOutputProtocolPtrOutput) Elem() FlowOutputProtocolOutput {
@@ -2589,6 +2866,12 @@ func (in *flowOutputProtocolPtr) ToFlowOutputProtocolPtrOutput() FlowOutputProto
 
 func (in *flowOutputProtocolPtr) ToFlowOutputProtocolPtrOutputWithContext(ctx context.Context) FlowOutputProtocolPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FlowOutputProtocolPtrOutput)
+}
+
+func (in *flowOutputProtocolPtr) ToOutput(ctx context.Context) pulumix.Output[*FlowOutputProtocol] {
+	return pulumix.Output[*FlowOutputProtocol]{
+		OutputState: in.ToFlowOutputProtocolPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
@@ -2660,6 +2943,12 @@ func (o FlowSourceEncryptionAlgorithmOutput) ToFlowSourceEncryptionAlgorithmPtrO
 	}).(FlowSourceEncryptionAlgorithmPtrOutput)
 }
 
+func (o FlowSourceEncryptionAlgorithmOutput) ToOutput(ctx context.Context) pulumix.Output[FlowSourceEncryptionAlgorithm] {
+	return pulumix.Output[FlowSourceEncryptionAlgorithm]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowSourceEncryptionAlgorithmOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2693,6 +2982,12 @@ func (o FlowSourceEncryptionAlgorithmPtrOutput) ToFlowSourceEncryptionAlgorithmP
 
 func (o FlowSourceEncryptionAlgorithmPtrOutput) ToFlowSourceEncryptionAlgorithmPtrOutputWithContext(ctx context.Context) FlowSourceEncryptionAlgorithmPtrOutput {
 	return o
+}
+
+func (o FlowSourceEncryptionAlgorithmPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowSourceEncryptionAlgorithm] {
+	return pulumix.Output[*FlowSourceEncryptionAlgorithm]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowSourceEncryptionAlgorithmPtrOutput) Elem() FlowSourceEncryptionAlgorithmOutput {
@@ -2755,6 +3050,12 @@ func (in *flowSourceEncryptionAlgorithmPtr) ToFlowSourceEncryptionAlgorithmPtrOu
 
 func (in *flowSourceEncryptionAlgorithmPtr) ToFlowSourceEncryptionAlgorithmPtrOutputWithContext(ctx context.Context) FlowSourceEncryptionAlgorithmPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FlowSourceEncryptionAlgorithmPtrOutput)
+}
+
+func (in *flowSourceEncryptionAlgorithmPtr) ToOutput(ctx context.Context) pulumix.Output[*FlowSourceEncryptionAlgorithm] {
+	return pulumix.Output[*FlowSourceEncryptionAlgorithm]{
+		OutputState: in.ToFlowSourceEncryptionAlgorithmPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
@@ -2826,6 +3127,12 @@ func (o FlowSourceEncryptionKeyTypeOutput) ToFlowSourceEncryptionKeyTypePtrOutpu
 	}).(FlowSourceEncryptionKeyTypePtrOutput)
 }
 
+func (o FlowSourceEncryptionKeyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FlowSourceEncryptionKeyType] {
+	return pulumix.Output[FlowSourceEncryptionKeyType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowSourceEncryptionKeyTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2859,6 +3166,12 @@ func (o FlowSourceEncryptionKeyTypePtrOutput) ToFlowSourceEncryptionKeyTypePtrOu
 
 func (o FlowSourceEncryptionKeyTypePtrOutput) ToFlowSourceEncryptionKeyTypePtrOutputWithContext(ctx context.Context) FlowSourceEncryptionKeyTypePtrOutput {
 	return o
+}
+
+func (o FlowSourceEncryptionKeyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowSourceEncryptionKeyType] {
+	return pulumix.Output[*FlowSourceEncryptionKeyType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowSourceEncryptionKeyTypePtrOutput) Elem() FlowSourceEncryptionKeyTypeOutput {
@@ -2921,6 +3234,12 @@ func (in *flowSourceEncryptionKeyTypePtr) ToFlowSourceEncryptionKeyTypePtrOutput
 
 func (in *flowSourceEncryptionKeyTypePtr) ToFlowSourceEncryptionKeyTypePtrOutputWithContext(ctx context.Context) FlowSourceEncryptionKeyTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FlowSourceEncryptionKeyTypePtrOutput)
+}
+
+func (in *flowSourceEncryptionKeyTypePtr) ToOutput(ctx context.Context) pulumix.Output[*FlowSourceEncryptionKeyType] {
+	return pulumix.Output[*FlowSourceEncryptionKeyType]{
+		OutputState: in.ToFlowSourceEncryptionKeyTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The protocol that is used by the source.
@@ -2996,6 +3315,12 @@ func (o FlowSourceProtocolOutput) ToFlowSourceProtocolPtrOutputWithContext(ctx c
 	}).(FlowSourceProtocolPtrOutput)
 }
 
+func (o FlowSourceProtocolOutput) ToOutput(ctx context.Context) pulumix.Output[FlowSourceProtocol] {
+	return pulumix.Output[FlowSourceProtocol]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowSourceProtocolOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3029,6 +3354,12 @@ func (o FlowSourceProtocolPtrOutput) ToFlowSourceProtocolPtrOutput() FlowSourceP
 
 func (o FlowSourceProtocolPtrOutput) ToFlowSourceProtocolPtrOutputWithContext(ctx context.Context) FlowSourceProtocolPtrOutput {
 	return o
+}
+
+func (o FlowSourceProtocolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowSourceProtocol] {
+	return pulumix.Output[*FlowSourceProtocol]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowSourceProtocolPtrOutput) Elem() FlowSourceProtocolOutput {
@@ -3093,6 +3424,12 @@ func (in *flowSourceProtocolPtr) ToFlowSourceProtocolPtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(FlowSourceProtocolPtrOutput)
 }
 
+func (in *flowSourceProtocolPtr) ToOutput(ctx context.Context) pulumix.Output[*FlowSourceProtocol] {
+	return pulumix.Output[*FlowSourceProtocol]{
+		OutputState: in.ToFlowSourceProtocolPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The current status of the gateway.
 type GatewayStateEnum string
 
@@ -3129,6 +3466,12 @@ func (o GatewayStateEnumOutput) ToGatewayStateEnumPtrOutputWithContext(ctx conte
 	}).(GatewayStateEnumPtrOutput)
 }
 
+func (o GatewayStateEnumOutput) ToOutput(ctx context.Context) pulumix.Output[GatewayStateEnum] {
+	return pulumix.Output[GatewayStateEnum]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GatewayStateEnumOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3162,6 +3505,12 @@ func (o GatewayStateEnumPtrOutput) ToGatewayStateEnumPtrOutput() GatewayStateEnu
 
 func (o GatewayStateEnumPtrOutput) ToGatewayStateEnumPtrOutputWithContext(ctx context.Context) GatewayStateEnumPtrOutput {
 	return o
+}
+
+func (o GatewayStateEnumPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GatewayStateEnum] {
+	return pulumix.Output[*GatewayStateEnum]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GatewayStateEnumPtrOutput) Elem() GatewayStateEnumOutput {

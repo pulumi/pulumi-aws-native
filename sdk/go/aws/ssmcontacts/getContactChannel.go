@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SSMContacts::ContactChannel
@@ -70,6 +71,12 @@ func (o LookupContactChannelResultOutput) ToLookupContactChannelResultOutput() L
 
 func (o LookupContactChannelResultOutput) ToLookupContactChannelResultOutputWithContext(ctx context.Context) LookupContactChannelResultOutput {
 	return o
+}
+
+func (o LookupContactChannelResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupContactChannelResult] {
+	return pulumix.Output[LookupContactChannelResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the engagement to a contact channel.

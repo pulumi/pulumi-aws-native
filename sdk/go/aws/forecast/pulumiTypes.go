@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -50,6 +51,12 @@ func (i AttributesItemPropertiesArgs) ToAttributesItemPropertiesOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(AttributesItemPropertiesOutput)
 }
 
+func (i AttributesItemPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[AttributesItemProperties] {
+	return pulumix.Output[AttributesItemProperties]{
+		OutputState: i.ToAttributesItemPropertiesOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AttributesItemPropertiesArrayInput is an input type that accepts AttributesItemPropertiesArray and AttributesItemPropertiesArrayOutput values.
 // You can construct a concrete instance of `AttributesItemPropertiesArrayInput` via:
 //
@@ -75,6 +82,12 @@ func (i AttributesItemPropertiesArray) ToAttributesItemPropertiesArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(AttributesItemPropertiesArrayOutput)
 }
 
+func (i AttributesItemPropertiesArray) ToOutput(ctx context.Context) pulumix.Output[[]AttributesItemProperties] {
+	return pulumix.Output[[]AttributesItemProperties]{
+		OutputState: i.ToAttributesItemPropertiesArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AttributesItemPropertiesOutput struct{ *pulumi.OutputState }
 
 func (AttributesItemPropertiesOutput) ElementType() reflect.Type {
@@ -87,6 +100,12 @@ func (o AttributesItemPropertiesOutput) ToAttributesItemPropertiesOutput() Attri
 
 func (o AttributesItemPropertiesOutput) ToAttributesItemPropertiesOutputWithContext(ctx context.Context) AttributesItemPropertiesOutput {
 	return o
+}
+
+func (o AttributesItemPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[AttributesItemProperties] {
+	return pulumix.Output[AttributesItemProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the dataset field
@@ -111,6 +130,12 @@ func (o AttributesItemPropertiesArrayOutput) ToAttributesItemPropertiesArrayOutp
 
 func (o AttributesItemPropertiesArrayOutput) ToAttributesItemPropertiesArrayOutputWithContext(ctx context.Context) AttributesItemPropertiesArrayOutput {
 	return o
+}
+
+func (o AttributesItemPropertiesArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AttributesItemProperties] {
+	return pulumix.Output[[]AttributesItemProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AttributesItemPropertiesArrayOutput) Index(i pulumi.IntInput) AttributesItemPropertiesOutput {
@@ -158,6 +183,12 @@ func (i DatasetGroupTagArgs) ToDatasetGroupTagOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetGroupTagOutput)
 }
 
+func (i DatasetGroupTagArgs) ToOutput(ctx context.Context) pulumix.Output[DatasetGroupTag] {
+	return pulumix.Output[DatasetGroupTag]{
+		OutputState: i.ToDatasetGroupTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DatasetGroupTagArrayInput is an input type that accepts DatasetGroupTagArray and DatasetGroupTagArrayOutput values.
 // You can construct a concrete instance of `DatasetGroupTagArrayInput` via:
 //
@@ -183,6 +214,12 @@ func (i DatasetGroupTagArray) ToDatasetGroupTagArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetGroupTagArrayOutput)
 }
 
+func (i DatasetGroupTagArray) ToOutput(ctx context.Context) pulumix.Output[[]DatasetGroupTag] {
+	return pulumix.Output[[]DatasetGroupTag]{
+		OutputState: i.ToDatasetGroupTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type DatasetGroupTagOutput struct{ *pulumi.OutputState }
 
@@ -196,6 +233,12 @@ func (o DatasetGroupTagOutput) ToDatasetGroupTagOutput() DatasetGroupTagOutput {
 
 func (o DatasetGroupTagOutput) ToDatasetGroupTagOutputWithContext(ctx context.Context) DatasetGroupTagOutput {
 	return o
+}
+
+func (o DatasetGroupTagOutput) ToOutput(ctx context.Context) pulumix.Output[DatasetGroupTag] {
+	return pulumix.Output[DatasetGroupTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -220,6 +263,12 @@ func (o DatasetGroupTagArrayOutput) ToDatasetGroupTagArrayOutput() DatasetGroupT
 
 func (o DatasetGroupTagArrayOutput) ToDatasetGroupTagArrayOutputWithContext(ctx context.Context) DatasetGroupTagArrayOutput {
 	return o
+}
+
+func (o DatasetGroupTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DatasetGroupTag] {
+	return pulumix.Output[[]DatasetGroupTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatasetGroupTagArrayOutput) Index(i pulumi.IntInput) DatasetGroupTagOutput {
@@ -259,6 +308,12 @@ func (i EncryptionConfigPropertiesArgs) ToEncryptionConfigPropertiesOutput() Enc
 
 func (i EncryptionConfigPropertiesArgs) ToEncryptionConfigPropertiesOutputWithContext(ctx context.Context) EncryptionConfigPropertiesOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionConfigPropertiesOutput)
+}
+
+func (i EncryptionConfigPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[EncryptionConfigProperties] {
+	return pulumix.Output[EncryptionConfigProperties]{
+		OutputState: i.ToEncryptionConfigPropertiesOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i EncryptionConfigPropertiesArgs) ToEncryptionConfigPropertiesPtrOutput() EncryptionConfigPropertiesPtrOutput {
@@ -302,6 +357,12 @@ func (i *encryptionConfigPropertiesPtrType) ToEncryptionConfigPropertiesPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionConfigPropertiesPtrOutput)
 }
 
+func (i *encryptionConfigPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*EncryptionConfigProperties] {
+	return pulumix.Output[*EncryptionConfigProperties]{
+		OutputState: i.ToEncryptionConfigPropertiesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EncryptionConfigPropertiesOutput struct{ *pulumi.OutputState }
 
 func (EncryptionConfigPropertiesOutput) ElementType() reflect.Type {
@@ -326,6 +387,12 @@ func (o EncryptionConfigPropertiesOutput) ToEncryptionConfigPropertiesPtrOutputW
 	}).(EncryptionConfigPropertiesPtrOutput)
 }
 
+func (o EncryptionConfigPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[EncryptionConfigProperties] {
+	return pulumix.Output[EncryptionConfigProperties]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EncryptionConfigPropertiesOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EncryptionConfigProperties) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
@@ -346,6 +413,12 @@ func (o EncryptionConfigPropertiesPtrOutput) ToEncryptionConfigPropertiesPtrOutp
 
 func (o EncryptionConfigPropertiesPtrOutput) ToEncryptionConfigPropertiesPtrOutputWithContext(ctx context.Context) EncryptionConfigPropertiesPtrOutput {
 	return o
+}
+
+func (o EncryptionConfigPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EncryptionConfigProperties] {
+	return pulumix.Output[*EncryptionConfigProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EncryptionConfigPropertiesPtrOutput) Elem() EncryptionConfigPropertiesOutput {
@@ -407,6 +480,12 @@ func (i SchemaPropertiesArgs) ToSchemaPropertiesOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(SchemaPropertiesOutput)
 }
 
+func (i SchemaPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[SchemaProperties] {
+	return pulumix.Output[SchemaProperties]{
+		OutputState: i.ToSchemaPropertiesOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SchemaPropertiesOutput struct{ *pulumi.OutputState }
 
 func (SchemaPropertiesOutput) ElementType() reflect.Type {
@@ -419,6 +498,12 @@ func (o SchemaPropertiesOutput) ToSchemaPropertiesOutput() SchemaPropertiesOutpu
 
 func (o SchemaPropertiesOutput) ToSchemaPropertiesOutputWithContext(ctx context.Context) SchemaPropertiesOutput {
 	return o
+}
+
+func (o SchemaPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[SchemaProperties] {
+	return pulumix.Output[SchemaProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SchemaPropertiesOutput) Attributes() AttributesItemPropertiesArrayOutput {
@@ -437,6 +522,12 @@ func (o SchemaPropertiesPtrOutput) ToSchemaPropertiesPtrOutput() SchemaPropertie
 
 func (o SchemaPropertiesPtrOutput) ToSchemaPropertiesPtrOutputWithContext(ctx context.Context) SchemaPropertiesPtrOutput {
 	return o
+}
+
+func (o SchemaPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SchemaProperties] {
+	return pulumix.Output[*SchemaProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SchemaPropertiesPtrOutput) Elem() SchemaPropertiesOutput {
@@ -493,6 +584,12 @@ func (i TagsItemPropertiesArgs) ToTagsItemPropertiesOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(TagsItemPropertiesOutput)
 }
 
+func (i TagsItemPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[TagsItemProperties] {
+	return pulumix.Output[TagsItemProperties]{
+		OutputState: i.ToTagsItemPropertiesOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TagsItemPropertiesArrayInput is an input type that accepts TagsItemPropertiesArray and TagsItemPropertiesArrayOutput values.
 // You can construct a concrete instance of `TagsItemPropertiesArrayInput` via:
 //
@@ -518,6 +615,12 @@ func (i TagsItemPropertiesArray) ToTagsItemPropertiesArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(TagsItemPropertiesArrayOutput)
 }
 
+func (i TagsItemPropertiesArray) ToOutput(ctx context.Context) pulumix.Output[[]TagsItemProperties] {
+	return pulumix.Output[[]TagsItemProperties]{
+		OutputState: i.ToTagsItemPropertiesArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type TagsItemPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -531,6 +634,12 @@ func (o TagsItemPropertiesOutput) ToTagsItemPropertiesOutput() TagsItemPropertie
 
 func (o TagsItemPropertiesOutput) ToTagsItemPropertiesOutputWithContext(ctx context.Context) TagsItemPropertiesOutput {
 	return o
+}
+
+func (o TagsItemPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[TagsItemProperties] {
+	return pulumix.Output[TagsItemProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TagsItemPropertiesOutput) Key() pulumi.StringOutput {
@@ -553,6 +662,12 @@ func (o TagsItemPropertiesArrayOutput) ToTagsItemPropertiesArrayOutput() TagsIte
 
 func (o TagsItemPropertiesArrayOutput) ToTagsItemPropertiesArrayOutputWithContext(ctx context.Context) TagsItemPropertiesArrayOutput {
 	return o
+}
+
+func (o TagsItemPropertiesArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TagsItemProperties] {
+	return pulumix.Output[[]TagsItemProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TagsItemPropertiesArrayOutput) Index(i pulumi.IntInput) TagsItemPropertiesOutput {

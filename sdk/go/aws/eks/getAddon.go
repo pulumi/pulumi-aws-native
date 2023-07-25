@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Schema for AWS::EKS::Addon
@@ -78,6 +79,12 @@ func (o LookupAddonResultOutput) ToLookupAddonResultOutput() LookupAddonResultOu
 
 func (o LookupAddonResultOutput) ToLookupAddonResultOutputWithContext(ctx context.Context) LookupAddonResultOutput {
 	return o
+}
+
+func (o LookupAddonResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAddonResult] {
+	return pulumix.Output[LookupAddonResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Version of Addon

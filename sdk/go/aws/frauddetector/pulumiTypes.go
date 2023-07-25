@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -64,6 +65,12 @@ func (i DetectorEntityTypeArgs) ToDetectorEntityTypeOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorEntityTypeOutput)
 }
 
+func (i DetectorEntityTypeArgs) ToOutput(ctx context.Context) pulumix.Output[DetectorEntityType] {
+	return pulumix.Output[DetectorEntityType]{
+		OutputState: i.ToDetectorEntityTypeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DetectorEntityTypeArrayInput is an input type that accepts DetectorEntityTypeArray and DetectorEntityTypeArrayOutput values.
 // You can construct a concrete instance of `DetectorEntityTypeArrayInput` via:
 //
@@ -89,6 +96,12 @@ func (i DetectorEntityTypeArray) ToDetectorEntityTypeArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorEntityTypeArrayOutput)
 }
 
+func (i DetectorEntityTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]DetectorEntityType] {
+	return pulumix.Output[[]DetectorEntityType]{
+		OutputState: i.ToDetectorEntityTypeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DetectorEntityTypeOutput struct{ *pulumi.OutputState }
 
 func (DetectorEntityTypeOutput) ElementType() reflect.Type {
@@ -101,6 +114,12 @@ func (o DetectorEntityTypeOutput) ToDetectorEntityTypeOutput() DetectorEntityTyp
 
 func (o DetectorEntityTypeOutput) ToDetectorEntityTypeOutputWithContext(ctx context.Context) DetectorEntityTypeOutput {
 	return o
+}
+
+func (o DetectorEntityTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorEntityType] {
+	return pulumix.Output[DetectorEntityType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DetectorEntityTypeOutput) Arn() pulumi.StringPtrOutput {
@@ -147,6 +166,12 @@ func (o DetectorEntityTypeArrayOutput) ToDetectorEntityTypeArrayOutput() Detecto
 
 func (o DetectorEntityTypeArrayOutput) ToDetectorEntityTypeArrayOutputWithContext(ctx context.Context) DetectorEntityTypeArrayOutput {
 	return o
+}
+
+func (o DetectorEntityTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DetectorEntityType] {
+	return pulumix.Output[[]DetectorEntityType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DetectorEntityTypeArrayOutput) Index(i pulumi.IntInput) DetectorEntityTypeOutput {
@@ -216,6 +241,12 @@ func (i DetectorEventTypeArgs) ToDetectorEventTypeOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorEventTypeOutput)
 }
 
+func (i DetectorEventTypeArgs) ToOutput(ctx context.Context) pulumix.Output[DetectorEventType] {
+	return pulumix.Output[DetectorEventType]{
+		OutputState: i.ToDetectorEventTypeOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DetectorEventTypeOutput struct{ *pulumi.OutputState }
 
 func (DetectorEventTypeOutput) ElementType() reflect.Type {
@@ -228,6 +259,12 @@ func (o DetectorEventTypeOutput) ToDetectorEventTypeOutput() DetectorEventTypeOu
 
 func (o DetectorEventTypeOutput) ToDetectorEventTypeOutputWithContext(ctx context.Context) DetectorEventTypeOutput {
 	return o
+}
+
+func (o DetectorEventTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorEventType] {
+	return pulumix.Output[DetectorEventType]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the event type.
@@ -288,6 +325,12 @@ func (o DetectorEventTypePtrOutput) ToDetectorEventTypePtrOutput() DetectorEvent
 
 func (o DetectorEventTypePtrOutput) ToDetectorEventTypePtrOutputWithContext(ctx context.Context) DetectorEventTypePtrOutput {
 	return o
+}
+
+func (o DetectorEventTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DetectorEventType] {
+	return pulumix.Output[*DetectorEventType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DetectorEventTypePtrOutput) Elem() DetectorEventTypeOutput {
@@ -455,6 +498,12 @@ func (i DetectorEventVariableArgs) ToDetectorEventVariableOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorEventVariableOutput)
 }
 
+func (i DetectorEventVariableArgs) ToOutput(ctx context.Context) pulumix.Output[DetectorEventVariable] {
+	return pulumix.Output[DetectorEventVariable]{
+		OutputState: i.ToDetectorEventVariableOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DetectorEventVariableArrayInput is an input type that accepts DetectorEventVariableArray and DetectorEventVariableArrayOutput values.
 // You can construct a concrete instance of `DetectorEventVariableArrayInput` via:
 //
@@ -480,6 +529,12 @@ func (i DetectorEventVariableArray) ToDetectorEventVariableArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorEventVariableArrayOutput)
 }
 
+func (i DetectorEventVariableArray) ToOutput(ctx context.Context) pulumix.Output[[]DetectorEventVariable] {
+	return pulumix.Output[[]DetectorEventVariable]{
+		OutputState: i.ToDetectorEventVariableArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DetectorEventVariableOutput struct{ *pulumi.OutputState }
 
 func (DetectorEventVariableOutput) ElementType() reflect.Type {
@@ -492,6 +547,12 @@ func (o DetectorEventVariableOutput) ToDetectorEventVariableOutput() DetectorEve
 
 func (o DetectorEventVariableOutput) ToDetectorEventVariableOutputWithContext(ctx context.Context) DetectorEventVariableOutput {
 	return o
+}
+
+func (o DetectorEventVariableOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorEventVariable] {
+	return pulumix.Output[DetectorEventVariable]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DetectorEventVariableOutput) Arn() pulumi.StringPtrOutput {
@@ -556,6 +617,12 @@ func (o DetectorEventVariableArrayOutput) ToDetectorEventVariableArrayOutputWith
 	return o
 }
 
+func (o DetectorEventVariableArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DetectorEventVariable] {
+	return pulumix.Output[[]DetectorEventVariable]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DetectorEventVariableArrayOutput) Index(i pulumi.IntInput) DetectorEventVariableOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DetectorEventVariable {
 		return vs[0].([]DetectorEventVariable)[vs[1].(int)]
@@ -613,6 +680,12 @@ func (i DetectorLabelArgs) ToDetectorLabelOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorLabelOutput)
 }
 
+func (i DetectorLabelArgs) ToOutput(ctx context.Context) pulumix.Output[DetectorLabel] {
+	return pulumix.Output[DetectorLabel]{
+		OutputState: i.ToDetectorLabelOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DetectorLabelArrayInput is an input type that accepts DetectorLabelArray and DetectorLabelArrayOutput values.
 // You can construct a concrete instance of `DetectorLabelArrayInput` via:
 //
@@ -638,6 +711,12 @@ func (i DetectorLabelArray) ToDetectorLabelArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorLabelArrayOutput)
 }
 
+func (i DetectorLabelArray) ToOutput(ctx context.Context) pulumix.Output[[]DetectorLabel] {
+	return pulumix.Output[[]DetectorLabel]{
+		OutputState: i.ToDetectorLabelArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DetectorLabelOutput struct{ *pulumi.OutputState }
 
 func (DetectorLabelOutput) ElementType() reflect.Type {
@@ -650,6 +729,12 @@ func (o DetectorLabelOutput) ToDetectorLabelOutput() DetectorLabelOutput {
 
 func (o DetectorLabelOutput) ToDetectorLabelOutputWithContext(ctx context.Context) DetectorLabelOutput {
 	return o
+}
+
+func (o DetectorLabelOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorLabel] {
+	return pulumix.Output[DetectorLabel]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DetectorLabelOutput) Arn() pulumi.StringPtrOutput {
@@ -698,6 +783,12 @@ func (o DetectorLabelArrayOutput) ToDetectorLabelArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o DetectorLabelArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DetectorLabel] {
+	return pulumix.Output[[]DetectorLabel]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DetectorLabelArrayOutput) Index(i pulumi.IntInput) DetectorLabelOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DetectorLabel {
 		return vs[0].([]DetectorLabel)[vs[1].(int)]
@@ -737,6 +828,12 @@ func (i DetectorModelArgs) ToDetectorModelOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelOutput)
 }
 
+func (i DetectorModelArgs) ToOutput(ctx context.Context) pulumix.Output[DetectorModel] {
+	return pulumix.Output[DetectorModel]{
+		OutputState: i.ToDetectorModelOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DetectorModelArrayInput is an input type that accepts DetectorModelArray and DetectorModelArrayOutput values.
 // You can construct a concrete instance of `DetectorModelArrayInput` via:
 //
@@ -762,6 +859,12 @@ func (i DetectorModelArray) ToDetectorModelArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelArrayOutput)
 }
 
+func (i DetectorModelArray) ToOutput(ctx context.Context) pulumix.Output[[]DetectorModel] {
+	return pulumix.Output[[]DetectorModel]{
+		OutputState: i.ToDetectorModelArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A model to associate with a detector.
 type DetectorModelOutput struct{ *pulumi.OutputState }
 
@@ -775,6 +878,12 @@ func (o DetectorModelOutput) ToDetectorModelOutput() DetectorModelOutput {
 
 func (o DetectorModelOutput) ToDetectorModelOutputWithContext(ctx context.Context) DetectorModelOutput {
 	return o
+}
+
+func (o DetectorModelOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorModel] {
+	return pulumix.Output[DetectorModel]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DetectorModelOutput) Arn() pulumi.StringPtrOutput {
@@ -793,6 +902,12 @@ func (o DetectorModelArrayOutput) ToDetectorModelArrayOutput() DetectorModelArra
 
 func (o DetectorModelArrayOutput) ToDetectorModelArrayOutputWithContext(ctx context.Context) DetectorModelArrayOutput {
 	return o
+}
+
+func (o DetectorModelArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DetectorModel] {
+	return pulumix.Output[[]DetectorModel]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DetectorModelArrayOutput) Index(i pulumi.IntInput) DetectorModelOutput {
@@ -852,6 +967,12 @@ func (i DetectorOutcomeArgs) ToDetectorOutcomeOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorOutcomeOutput)
 }
 
+func (i DetectorOutcomeArgs) ToOutput(ctx context.Context) pulumix.Output[DetectorOutcome] {
+	return pulumix.Output[DetectorOutcome]{
+		OutputState: i.ToDetectorOutcomeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DetectorOutcomeArrayInput is an input type that accepts DetectorOutcomeArray and DetectorOutcomeArrayOutput values.
 // You can construct a concrete instance of `DetectorOutcomeArrayInput` via:
 //
@@ -877,6 +998,12 @@ func (i DetectorOutcomeArray) ToDetectorOutcomeArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorOutcomeArrayOutput)
 }
 
+func (i DetectorOutcomeArray) ToOutput(ctx context.Context) pulumix.Output[[]DetectorOutcome] {
+	return pulumix.Output[[]DetectorOutcome]{
+		OutputState: i.ToDetectorOutcomeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DetectorOutcomeOutput struct{ *pulumi.OutputState }
 
 func (DetectorOutcomeOutput) ElementType() reflect.Type {
@@ -889,6 +1016,12 @@ func (o DetectorOutcomeOutput) ToDetectorOutcomeOutput() DetectorOutcomeOutput {
 
 func (o DetectorOutcomeOutput) ToDetectorOutcomeOutputWithContext(ctx context.Context) DetectorOutcomeOutput {
 	return o
+}
+
+func (o DetectorOutcomeOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorOutcome] {
+	return pulumix.Output[DetectorOutcome]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DetectorOutcomeOutput) Arn() pulumi.StringPtrOutput {
@@ -935,6 +1068,12 @@ func (o DetectorOutcomeArrayOutput) ToDetectorOutcomeArrayOutput() DetectorOutco
 
 func (o DetectorOutcomeArrayOutput) ToDetectorOutcomeArrayOutputWithContext(ctx context.Context) DetectorOutcomeArrayOutput {
 	return o
+}
+
+func (o DetectorOutcomeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DetectorOutcome] {
+	return pulumix.Output[[]DetectorOutcome]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DetectorOutcomeArrayOutput) Index(i pulumi.IntInput) DetectorOutcomeOutput {
@@ -1002,6 +1141,12 @@ func (i DetectorRuleArgs) ToDetectorRuleOutputWithContext(ctx context.Context) D
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorRuleOutput)
 }
 
+func (i DetectorRuleArgs) ToOutput(ctx context.Context) pulumix.Output[DetectorRule] {
+	return pulumix.Output[DetectorRule]{
+		OutputState: i.ToDetectorRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DetectorRuleArrayInput is an input type that accepts DetectorRuleArray and DetectorRuleArrayOutput values.
 // You can construct a concrete instance of `DetectorRuleArrayInput` via:
 //
@@ -1027,6 +1172,12 @@ func (i DetectorRuleArray) ToDetectorRuleArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorRuleArrayOutput)
 }
 
+func (i DetectorRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]DetectorRule] {
+	return pulumix.Output[[]DetectorRule]{
+		OutputState: i.ToDetectorRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DetectorRuleOutput struct{ *pulumi.OutputState }
 
 func (DetectorRuleOutput) ElementType() reflect.Type {
@@ -1039,6 +1190,12 @@ func (o DetectorRuleOutput) ToDetectorRuleOutput() DetectorRuleOutput {
 
 func (o DetectorRuleOutput) ToDetectorRuleOutputWithContext(ctx context.Context) DetectorRuleOutput {
 	return o
+}
+
+func (o DetectorRuleOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorRule] {
+	return pulumix.Output[DetectorRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DetectorRuleOutput) Arn() pulumi.StringPtrOutput {
@@ -1103,6 +1260,12 @@ func (o DetectorRuleArrayOutput) ToDetectorRuleArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o DetectorRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DetectorRule] {
+	return pulumix.Output[[]DetectorRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DetectorRuleArrayOutput) Index(i pulumi.IntInput) DetectorRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DetectorRule {
 		return vs[0].([]DetectorRule)[vs[1].(int)]
@@ -1142,6 +1305,12 @@ func (i DetectorTagArgs) ToDetectorTagOutputWithContext(ctx context.Context) Det
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorTagOutput)
 }
 
+func (i DetectorTagArgs) ToOutput(ctx context.Context) pulumix.Output[DetectorTag] {
+	return pulumix.Output[DetectorTag]{
+		OutputState: i.ToDetectorTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DetectorTagArrayInput is an input type that accepts DetectorTagArray and DetectorTagArrayOutput values.
 // You can construct a concrete instance of `DetectorTagArrayInput` via:
 //
@@ -1167,6 +1336,12 @@ func (i DetectorTagArray) ToDetectorTagArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorTagArrayOutput)
 }
 
+func (i DetectorTagArray) ToOutput(ctx context.Context) pulumix.Output[[]DetectorTag] {
+	return pulumix.Output[[]DetectorTag]{
+		OutputState: i.ToDetectorTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DetectorTagOutput struct{ *pulumi.OutputState }
 
 func (DetectorTagOutput) ElementType() reflect.Type {
@@ -1179,6 +1354,12 @@ func (o DetectorTagOutput) ToDetectorTagOutput() DetectorTagOutput {
 
 func (o DetectorTagOutput) ToDetectorTagOutputWithContext(ctx context.Context) DetectorTagOutput {
 	return o
+}
+
+func (o DetectorTagOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorTag] {
+	return pulumix.Output[DetectorTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DetectorTagOutput) Key() pulumi.StringOutput {
@@ -1201,6 +1382,12 @@ func (o DetectorTagArrayOutput) ToDetectorTagArrayOutput() DetectorTagArrayOutpu
 
 func (o DetectorTagArrayOutput) ToDetectorTagArrayOutputWithContext(ctx context.Context) DetectorTagArrayOutput {
 	return o
+}
+
+func (o DetectorTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DetectorTag] {
+	return pulumix.Output[[]DetectorTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DetectorTagArrayOutput) Index(i pulumi.IntInput) DetectorTagOutput {
@@ -1242,6 +1429,12 @@ func (i EntityTypeTagArgs) ToEntityTypeTagOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(EntityTypeTagOutput)
 }
 
+func (i EntityTypeTagArgs) ToOutput(ctx context.Context) pulumix.Output[EntityTypeTag] {
+	return pulumix.Output[EntityTypeTag]{
+		OutputState: i.ToEntityTypeTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EntityTypeTagArrayInput is an input type that accepts EntityTypeTagArray and EntityTypeTagArrayOutput values.
 // You can construct a concrete instance of `EntityTypeTagArrayInput` via:
 //
@@ -1267,6 +1460,12 @@ func (i EntityTypeTagArray) ToEntityTypeTagArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(EntityTypeTagArrayOutput)
 }
 
+func (i EntityTypeTagArray) ToOutput(ctx context.Context) pulumix.Output[[]EntityTypeTag] {
+	return pulumix.Output[[]EntityTypeTag]{
+		OutputState: i.ToEntityTypeTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EntityTypeTagOutput struct{ *pulumi.OutputState }
 
 func (EntityTypeTagOutput) ElementType() reflect.Type {
@@ -1279,6 +1478,12 @@ func (o EntityTypeTagOutput) ToEntityTypeTagOutput() EntityTypeTagOutput {
 
 func (o EntityTypeTagOutput) ToEntityTypeTagOutputWithContext(ctx context.Context) EntityTypeTagOutput {
 	return o
+}
+
+func (o EntityTypeTagOutput) ToOutput(ctx context.Context) pulumix.Output[EntityTypeTag] {
+	return pulumix.Output[EntityTypeTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EntityTypeTagOutput) Key() pulumi.StringOutput {
@@ -1301,6 +1506,12 @@ func (o EntityTypeTagArrayOutput) ToEntityTypeTagArrayOutput() EntityTypeTagArra
 
 func (o EntityTypeTagArrayOutput) ToEntityTypeTagArrayOutputWithContext(ctx context.Context) EntityTypeTagArrayOutput {
 	return o
+}
+
+func (o EntityTypeTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EntityTypeTag] {
+	return pulumix.Output[[]EntityTypeTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EntityTypeTagArrayOutput) Index(i pulumi.IntInput) EntityTypeTagOutput {
@@ -1360,6 +1571,12 @@ func (i EventTypeEntityTypeArgs) ToEventTypeEntityTypeOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(EventTypeEntityTypeOutput)
 }
 
+func (i EventTypeEntityTypeArgs) ToOutput(ctx context.Context) pulumix.Output[EventTypeEntityType] {
+	return pulumix.Output[EventTypeEntityType]{
+		OutputState: i.ToEventTypeEntityTypeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventTypeEntityTypeArrayInput is an input type that accepts EventTypeEntityTypeArray and EventTypeEntityTypeArrayOutput values.
 // You can construct a concrete instance of `EventTypeEntityTypeArrayInput` via:
 //
@@ -1385,6 +1602,12 @@ func (i EventTypeEntityTypeArray) ToEventTypeEntityTypeArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(EventTypeEntityTypeArrayOutput)
 }
 
+func (i EventTypeEntityTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]EventTypeEntityType] {
+	return pulumix.Output[[]EventTypeEntityType]{
+		OutputState: i.ToEventTypeEntityTypeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventTypeEntityTypeOutput struct{ *pulumi.OutputState }
 
 func (EventTypeEntityTypeOutput) ElementType() reflect.Type {
@@ -1397,6 +1620,12 @@ func (o EventTypeEntityTypeOutput) ToEventTypeEntityTypeOutput() EventTypeEntity
 
 func (o EventTypeEntityTypeOutput) ToEventTypeEntityTypeOutputWithContext(ctx context.Context) EventTypeEntityTypeOutput {
 	return o
+}
+
+func (o EventTypeEntityTypeOutput) ToOutput(ctx context.Context) pulumix.Output[EventTypeEntityType] {
+	return pulumix.Output[EventTypeEntityType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventTypeEntityTypeOutput) Arn() pulumi.StringPtrOutput {
@@ -1443,6 +1672,12 @@ func (o EventTypeEntityTypeArrayOutput) ToEventTypeEntityTypeArrayOutput() Event
 
 func (o EventTypeEntityTypeArrayOutput) ToEventTypeEntityTypeArrayOutputWithContext(ctx context.Context) EventTypeEntityTypeArrayOutput {
 	return o
+}
+
+func (o EventTypeEntityTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventTypeEntityType] {
+	return pulumix.Output[[]EventTypeEntityType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventTypeEntityTypeArrayOutput) Index(i pulumi.IntInput) EventTypeEntityTypeOutput {
@@ -1510,6 +1745,12 @@ func (i EventTypeEventVariableArgs) ToEventTypeEventVariableOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(EventTypeEventVariableOutput)
 }
 
+func (i EventTypeEventVariableArgs) ToOutput(ctx context.Context) pulumix.Output[EventTypeEventVariable] {
+	return pulumix.Output[EventTypeEventVariable]{
+		OutputState: i.ToEventTypeEventVariableOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventTypeEventVariableArrayInput is an input type that accepts EventTypeEventVariableArray and EventTypeEventVariableArrayOutput values.
 // You can construct a concrete instance of `EventTypeEventVariableArrayInput` via:
 //
@@ -1535,6 +1776,12 @@ func (i EventTypeEventVariableArray) ToEventTypeEventVariableArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(EventTypeEventVariableArrayOutput)
 }
 
+func (i EventTypeEventVariableArray) ToOutput(ctx context.Context) pulumix.Output[[]EventTypeEventVariable] {
+	return pulumix.Output[[]EventTypeEventVariable]{
+		OutputState: i.ToEventTypeEventVariableArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventTypeEventVariableOutput struct{ *pulumi.OutputState }
 
 func (EventTypeEventVariableOutput) ElementType() reflect.Type {
@@ -1547,6 +1794,12 @@ func (o EventTypeEventVariableOutput) ToEventTypeEventVariableOutput() EventType
 
 func (o EventTypeEventVariableOutput) ToEventTypeEventVariableOutputWithContext(ctx context.Context) EventTypeEventVariableOutput {
 	return o
+}
+
+func (o EventTypeEventVariableOutput) ToOutput(ctx context.Context) pulumix.Output[EventTypeEventVariable] {
+	return pulumix.Output[EventTypeEventVariable]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventTypeEventVariableOutput) Arn() pulumi.StringPtrOutput {
@@ -1611,6 +1864,12 @@ func (o EventTypeEventVariableArrayOutput) ToEventTypeEventVariableArrayOutputWi
 	return o
 }
 
+func (o EventTypeEventVariableArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventTypeEventVariable] {
+	return pulumix.Output[[]EventTypeEventVariable]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EventTypeEventVariableArrayOutput) Index(i pulumi.IntInput) EventTypeEventVariableOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventTypeEventVariable {
 		return vs[0].([]EventTypeEventVariable)[vs[1].(int)]
@@ -1668,6 +1927,12 @@ func (i EventTypeLabelArgs) ToEventTypeLabelOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(EventTypeLabelOutput)
 }
 
+func (i EventTypeLabelArgs) ToOutput(ctx context.Context) pulumix.Output[EventTypeLabel] {
+	return pulumix.Output[EventTypeLabel]{
+		OutputState: i.ToEventTypeLabelOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventTypeLabelArrayInput is an input type that accepts EventTypeLabelArray and EventTypeLabelArrayOutput values.
 // You can construct a concrete instance of `EventTypeLabelArrayInput` via:
 //
@@ -1693,6 +1958,12 @@ func (i EventTypeLabelArray) ToEventTypeLabelArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(EventTypeLabelArrayOutput)
 }
 
+func (i EventTypeLabelArray) ToOutput(ctx context.Context) pulumix.Output[[]EventTypeLabel] {
+	return pulumix.Output[[]EventTypeLabel]{
+		OutputState: i.ToEventTypeLabelArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventTypeLabelOutput struct{ *pulumi.OutputState }
 
 func (EventTypeLabelOutput) ElementType() reflect.Type {
@@ -1705,6 +1976,12 @@ func (o EventTypeLabelOutput) ToEventTypeLabelOutput() EventTypeLabelOutput {
 
 func (o EventTypeLabelOutput) ToEventTypeLabelOutputWithContext(ctx context.Context) EventTypeLabelOutput {
 	return o
+}
+
+func (o EventTypeLabelOutput) ToOutput(ctx context.Context) pulumix.Output[EventTypeLabel] {
+	return pulumix.Output[EventTypeLabel]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventTypeLabelOutput) Arn() pulumi.StringPtrOutput {
@@ -1753,6 +2030,12 @@ func (o EventTypeLabelArrayOutput) ToEventTypeLabelArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o EventTypeLabelArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventTypeLabel] {
+	return pulumix.Output[[]EventTypeLabel]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EventTypeLabelArrayOutput) Index(i pulumi.IntInput) EventTypeLabelOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventTypeLabel {
 		return vs[0].([]EventTypeLabel)[vs[1].(int)]
@@ -1792,6 +2075,12 @@ func (i EventTypeTagArgs) ToEventTypeTagOutputWithContext(ctx context.Context) E
 	return pulumi.ToOutputWithContext(ctx, i).(EventTypeTagOutput)
 }
 
+func (i EventTypeTagArgs) ToOutput(ctx context.Context) pulumix.Output[EventTypeTag] {
+	return pulumix.Output[EventTypeTag]{
+		OutputState: i.ToEventTypeTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventTypeTagArrayInput is an input type that accepts EventTypeTagArray and EventTypeTagArrayOutput values.
 // You can construct a concrete instance of `EventTypeTagArrayInput` via:
 //
@@ -1817,6 +2106,12 @@ func (i EventTypeTagArray) ToEventTypeTagArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(EventTypeTagArrayOutput)
 }
 
+func (i EventTypeTagArray) ToOutput(ctx context.Context) pulumix.Output[[]EventTypeTag] {
+	return pulumix.Output[[]EventTypeTag]{
+		OutputState: i.ToEventTypeTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventTypeTagOutput struct{ *pulumi.OutputState }
 
 func (EventTypeTagOutput) ElementType() reflect.Type {
@@ -1829,6 +2124,12 @@ func (o EventTypeTagOutput) ToEventTypeTagOutput() EventTypeTagOutput {
 
 func (o EventTypeTagOutput) ToEventTypeTagOutputWithContext(ctx context.Context) EventTypeTagOutput {
 	return o
+}
+
+func (o EventTypeTagOutput) ToOutput(ctx context.Context) pulumix.Output[EventTypeTag] {
+	return pulumix.Output[EventTypeTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventTypeTagOutput) Key() pulumi.StringOutput {
@@ -1851,6 +2152,12 @@ func (o EventTypeTagArrayOutput) ToEventTypeTagArrayOutput() EventTypeTagArrayOu
 
 func (o EventTypeTagArrayOutput) ToEventTypeTagArrayOutputWithContext(ctx context.Context) EventTypeTagArrayOutput {
 	return o
+}
+
+func (o EventTypeTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventTypeTag] {
+	return pulumix.Output[[]EventTypeTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventTypeTagArrayOutput) Index(i pulumi.IntInput) EventTypeTagOutput {
@@ -1892,6 +2199,12 @@ func (i LabelTagArgs) ToLabelTagOutputWithContext(ctx context.Context) LabelTagO
 	return pulumi.ToOutputWithContext(ctx, i).(LabelTagOutput)
 }
 
+func (i LabelTagArgs) ToOutput(ctx context.Context) pulumix.Output[LabelTag] {
+	return pulumix.Output[LabelTag]{
+		OutputState: i.ToLabelTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LabelTagArrayInput is an input type that accepts LabelTagArray and LabelTagArrayOutput values.
 // You can construct a concrete instance of `LabelTagArrayInput` via:
 //
@@ -1917,6 +2230,12 @@ func (i LabelTagArray) ToLabelTagArrayOutputWithContext(ctx context.Context) Lab
 	return pulumi.ToOutputWithContext(ctx, i).(LabelTagArrayOutput)
 }
 
+func (i LabelTagArray) ToOutput(ctx context.Context) pulumix.Output[[]LabelTag] {
+	return pulumix.Output[[]LabelTag]{
+		OutputState: i.ToLabelTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LabelTagOutput struct{ *pulumi.OutputState }
 
 func (LabelTagOutput) ElementType() reflect.Type {
@@ -1929,6 +2248,12 @@ func (o LabelTagOutput) ToLabelTagOutput() LabelTagOutput {
 
 func (o LabelTagOutput) ToLabelTagOutputWithContext(ctx context.Context) LabelTagOutput {
 	return o
+}
+
+func (o LabelTagOutput) ToOutput(ctx context.Context) pulumix.Output[LabelTag] {
+	return pulumix.Output[LabelTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LabelTagOutput) Key() pulumi.StringOutput {
@@ -1951,6 +2276,12 @@ func (o LabelTagArrayOutput) ToLabelTagArrayOutput() LabelTagArrayOutput {
 
 func (o LabelTagArrayOutput) ToLabelTagArrayOutputWithContext(ctx context.Context) LabelTagArrayOutput {
 	return o
+}
+
+func (o LabelTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LabelTag] {
+	return pulumix.Output[[]LabelTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LabelTagArrayOutput) Index(i pulumi.IntInput) LabelTagOutput {
@@ -1998,6 +2329,12 @@ func (i ListTagArgs) ToListTagOutputWithContext(ctx context.Context) ListTagOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ListTagOutput)
 }
 
+func (i ListTagArgs) ToOutput(ctx context.Context) pulumix.Output[ListTag] {
+	return pulumix.Output[ListTag]{
+		OutputState: i.ToListTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ListTagArrayInput is an input type that accepts ListTagArray and ListTagArrayOutput values.
 // You can construct a concrete instance of `ListTagArrayInput` via:
 //
@@ -2023,6 +2360,12 @@ func (i ListTagArray) ToListTagArrayOutputWithContext(ctx context.Context) ListT
 	return pulumi.ToOutputWithContext(ctx, i).(ListTagArrayOutput)
 }
 
+func (i ListTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ListTag] {
+	return pulumix.Output[[]ListTag]{
+		OutputState: i.ToListTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type ListTagOutput struct{ *pulumi.OutputState }
 
@@ -2036,6 +2379,12 @@ func (o ListTagOutput) ToListTagOutput() ListTagOutput {
 
 func (o ListTagOutput) ToListTagOutputWithContext(ctx context.Context) ListTagOutput {
 	return o
+}
+
+func (o ListTagOutput) ToOutput(ctx context.Context) pulumix.Output[ListTag] {
+	return pulumix.Output[ListTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -2060,6 +2409,12 @@ func (o ListTagArrayOutput) ToListTagArrayOutput() ListTagArrayOutput {
 
 func (o ListTagArrayOutput) ToListTagArrayOutputWithContext(ctx context.Context) ListTagArrayOutput {
 	return o
+}
+
+func (o ListTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ListTag] {
+	return pulumix.Output[[]ListTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ListTagArrayOutput) Index(i pulumi.IntInput) ListTagOutput {
@@ -2101,6 +2456,12 @@ func (i OutcomeTagArgs) ToOutcomeTagOutputWithContext(ctx context.Context) Outco
 	return pulumi.ToOutputWithContext(ctx, i).(OutcomeTagOutput)
 }
 
+func (i OutcomeTagArgs) ToOutput(ctx context.Context) pulumix.Output[OutcomeTag] {
+	return pulumix.Output[OutcomeTag]{
+		OutputState: i.ToOutcomeTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OutcomeTagArrayInput is an input type that accepts OutcomeTagArray and OutcomeTagArrayOutput values.
 // You can construct a concrete instance of `OutcomeTagArrayInput` via:
 //
@@ -2126,6 +2487,12 @@ func (i OutcomeTagArray) ToOutcomeTagArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(OutcomeTagArrayOutput)
 }
 
+func (i OutcomeTagArray) ToOutput(ctx context.Context) pulumix.Output[[]OutcomeTag] {
+	return pulumix.Output[[]OutcomeTag]{
+		OutputState: i.ToOutcomeTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OutcomeTagOutput struct{ *pulumi.OutputState }
 
 func (OutcomeTagOutput) ElementType() reflect.Type {
@@ -2138,6 +2505,12 @@ func (o OutcomeTagOutput) ToOutcomeTagOutput() OutcomeTagOutput {
 
 func (o OutcomeTagOutput) ToOutcomeTagOutputWithContext(ctx context.Context) OutcomeTagOutput {
 	return o
+}
+
+func (o OutcomeTagOutput) ToOutput(ctx context.Context) pulumix.Output[OutcomeTag] {
+	return pulumix.Output[OutcomeTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OutcomeTagOutput) Key() pulumi.StringOutput {
@@ -2160,6 +2533,12 @@ func (o OutcomeTagArrayOutput) ToOutcomeTagArrayOutput() OutcomeTagArrayOutput {
 
 func (o OutcomeTagArrayOutput) ToOutcomeTagArrayOutputWithContext(ctx context.Context) OutcomeTagArrayOutput {
 	return o
+}
+
+func (o OutcomeTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OutcomeTag] {
+	return pulumix.Output[[]OutcomeTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OutcomeTagArrayOutput) Index(i pulumi.IntInput) OutcomeTagOutput {
@@ -2201,6 +2580,12 @@ func (i VariableTagArgs) ToVariableTagOutputWithContext(ctx context.Context) Var
 	return pulumi.ToOutputWithContext(ctx, i).(VariableTagOutput)
 }
 
+func (i VariableTagArgs) ToOutput(ctx context.Context) pulumix.Output[VariableTag] {
+	return pulumix.Output[VariableTag]{
+		OutputState: i.ToVariableTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VariableTagArrayInput is an input type that accepts VariableTagArray and VariableTagArrayOutput values.
 // You can construct a concrete instance of `VariableTagArrayInput` via:
 //
@@ -2226,6 +2611,12 @@ func (i VariableTagArray) ToVariableTagArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(VariableTagArrayOutput)
 }
 
+func (i VariableTagArray) ToOutput(ctx context.Context) pulumix.Output[[]VariableTag] {
+	return pulumix.Output[[]VariableTag]{
+		OutputState: i.ToVariableTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VariableTagOutput struct{ *pulumi.OutputState }
 
 func (VariableTagOutput) ElementType() reflect.Type {
@@ -2238,6 +2629,12 @@ func (o VariableTagOutput) ToVariableTagOutput() VariableTagOutput {
 
 func (o VariableTagOutput) ToVariableTagOutputWithContext(ctx context.Context) VariableTagOutput {
 	return o
+}
+
+func (o VariableTagOutput) ToOutput(ctx context.Context) pulumix.Output[VariableTag] {
+	return pulumix.Output[VariableTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VariableTagOutput) Key() pulumi.StringOutput {
@@ -2260,6 +2657,12 @@ func (o VariableTagArrayOutput) ToVariableTagArrayOutput() VariableTagArrayOutpu
 
 func (o VariableTagArrayOutput) ToVariableTagArrayOutputWithContext(ctx context.Context) VariableTagArrayOutput {
 	return o
+}
+
+func (o VariableTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]VariableTag] {
+	return pulumix.Output[[]VariableTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VariableTagArrayOutput) Index(i pulumi.IntInput) VariableTagOutput {

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A resource schema for a List in Amazon Fraud Detector.
@@ -78,6 +79,12 @@ func (o LookupListResultOutput) ToLookupListResultOutput() LookupListResultOutpu
 
 func (o LookupListResultOutput) ToLookupListResultOutputWithContext(ctx context.Context) LookupListResultOutput {
 	return o
+}
+
+func (o LookupListResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupListResult] {
+	return pulumix.Output[LookupListResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The list ARN.

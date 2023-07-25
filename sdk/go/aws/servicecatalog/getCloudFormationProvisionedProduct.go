@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Schema for AWS::ServiceCatalog::CloudFormationProvisionedProduct
@@ -77,6 +78,12 @@ func (o LookupCloudFormationProvisionedProductResultOutput) ToLookupCloudFormati
 
 func (o LookupCloudFormationProvisionedProductResultOutput) ToLookupCloudFormationProvisionedProductResultOutputWithContext(ctx context.Context) LookupCloudFormationProvisionedProductResultOutput {
 	return o
+}
+
+func (o LookupCloudFormationProvisionedProductResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupCloudFormationProvisionedProductResult] {
+	return pulumix.Output[LookupCloudFormationProvisionedProductResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupCloudFormationProvisionedProductResultOutput) AcceptLanguage() CloudFormationProvisionedProductAcceptLanguagePtrOutput {

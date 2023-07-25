@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema of AWS::EC2::PrefixList Type
@@ -82,6 +83,12 @@ func (o LookupPrefixListResultOutput) ToLookupPrefixListResultOutput() LookupPre
 
 func (o LookupPrefixListResultOutput) ToLookupPrefixListResultOutputWithContext(ctx context.Context) LookupPrefixListResultOutput {
 	return o
+}
+
+func (o LookupPrefixListResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupPrefixListResult] {
+	return pulumix.Output[LookupPrefixListResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Ip Version of Prefix List.

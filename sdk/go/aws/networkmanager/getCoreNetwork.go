@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // AWS::NetworkManager::CoreNetwork Resource Type Definition.
@@ -84,6 +85,12 @@ func (o LookupCoreNetworkResultOutput) ToLookupCoreNetworkResultOutput() LookupC
 
 func (o LookupCoreNetworkResultOutput) ToLookupCoreNetworkResultOutputWithContext(ctx context.Context) LookupCoreNetworkResultOutput {
 	return o
+}
+
+func (o LookupCoreNetworkResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupCoreNetworkResult] {
+	return pulumix.Output[LookupCoreNetworkResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN (Amazon resource name) of core network

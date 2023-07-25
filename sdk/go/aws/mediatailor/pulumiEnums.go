@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Sets the ad suppression mode. By default, ad suppression is set to OFF and all ad breaks are filled with ads or slate. When Mode is set to BEHIND_LIVE_EDGE, ad suppression is active and MediaTailor won't fill ad breaks on or behind the ad suppression Value time in the manifest lookback window.
@@ -78,6 +79,12 @@ func (o PlaybackConfigurationAvailSuppressionModeOutput) ToPlaybackConfiguration
 	}).(PlaybackConfigurationAvailSuppressionModePtrOutput)
 }
 
+func (o PlaybackConfigurationAvailSuppressionModeOutput) ToOutput(ctx context.Context) pulumix.Output[PlaybackConfigurationAvailSuppressionMode] {
+	return pulumix.Output[PlaybackConfigurationAvailSuppressionMode]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PlaybackConfigurationAvailSuppressionModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -111,6 +118,12 @@ func (o PlaybackConfigurationAvailSuppressionModePtrOutput) ToPlaybackConfigurat
 
 func (o PlaybackConfigurationAvailSuppressionModePtrOutput) ToPlaybackConfigurationAvailSuppressionModePtrOutputWithContext(ctx context.Context) PlaybackConfigurationAvailSuppressionModePtrOutput {
 	return o
+}
+
+func (o PlaybackConfigurationAvailSuppressionModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PlaybackConfigurationAvailSuppressionMode] {
+	return pulumix.Output[*PlaybackConfigurationAvailSuppressionMode]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PlaybackConfigurationAvailSuppressionModePtrOutput) Elem() PlaybackConfigurationAvailSuppressionModeOutput {
@@ -173,6 +186,12 @@ func (in *playbackConfigurationAvailSuppressionModePtr) ToPlaybackConfigurationA
 
 func (in *playbackConfigurationAvailSuppressionModePtr) ToPlaybackConfigurationAvailSuppressionModePtrOutputWithContext(ctx context.Context) PlaybackConfigurationAvailSuppressionModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PlaybackConfigurationAvailSuppressionModePtrOutput)
+}
+
+func (in *playbackConfigurationAvailSuppressionModePtr) ToOutput(ctx context.Context) pulumix.Output[*PlaybackConfigurationAvailSuppressionMode] {
+	return pulumix.Output[*PlaybackConfigurationAvailSuppressionMode]{
+		OutputState: in.ToPlaybackConfigurationAvailSuppressionModePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The setting that controls whether MediaTailor handles manifests from the origin server as multi-period manifests or single-period manifests. If your origin server produces single-period manifests, set this to SINGLE_PERIOD. The default setting is MULTI_PERIOD. For multi-period manifests, omit this setting or set it to MULTI_PERIOD.
@@ -243,6 +262,12 @@ func (o PlaybackConfigurationDashConfigurationOriginManifestTypeOutput) ToPlayba
 	}).(PlaybackConfigurationDashConfigurationOriginManifestTypePtrOutput)
 }
 
+func (o PlaybackConfigurationDashConfigurationOriginManifestTypeOutput) ToOutput(ctx context.Context) pulumix.Output[PlaybackConfigurationDashConfigurationOriginManifestType] {
+	return pulumix.Output[PlaybackConfigurationDashConfigurationOriginManifestType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PlaybackConfigurationDashConfigurationOriginManifestTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -276,6 +301,12 @@ func (o PlaybackConfigurationDashConfigurationOriginManifestTypePtrOutput) ToPla
 
 func (o PlaybackConfigurationDashConfigurationOriginManifestTypePtrOutput) ToPlaybackConfigurationDashConfigurationOriginManifestTypePtrOutputWithContext(ctx context.Context) PlaybackConfigurationDashConfigurationOriginManifestTypePtrOutput {
 	return o
+}
+
+func (o PlaybackConfigurationDashConfigurationOriginManifestTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PlaybackConfigurationDashConfigurationOriginManifestType] {
+	return pulumix.Output[*PlaybackConfigurationDashConfigurationOriginManifestType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PlaybackConfigurationDashConfigurationOriginManifestTypePtrOutput) Elem() PlaybackConfigurationDashConfigurationOriginManifestTypeOutput {
@@ -338,6 +369,12 @@ func (in *playbackConfigurationDashConfigurationOriginManifestTypePtr) ToPlaybac
 
 func (in *playbackConfigurationDashConfigurationOriginManifestTypePtr) ToPlaybackConfigurationDashConfigurationOriginManifestTypePtrOutputWithContext(ctx context.Context) PlaybackConfigurationDashConfigurationOriginManifestTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PlaybackConfigurationDashConfigurationOriginManifestTypePtrOutput)
+}
+
+func (in *playbackConfigurationDashConfigurationOriginManifestTypePtr) ToOutput(ctx context.Context) pulumix.Output[*PlaybackConfigurationDashConfigurationOriginManifestType] {
+	return pulumix.Output[*PlaybackConfigurationDashConfigurationOriginManifestType]{
+		OutputState: in.ToPlaybackConfigurationDashConfigurationOriginManifestTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

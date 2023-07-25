@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::ClientVpnRoute
@@ -63,6 +64,12 @@ func (o LookupClientVpnRouteResultOutput) ToLookupClientVpnRouteResultOutput() L
 
 func (o LookupClientVpnRouteResultOutput) ToLookupClientVpnRouteResultOutputWithContext(ctx context.Context) LookupClientVpnRouteResultOutput {
 	return o
+}
+
+func (o LookupClientVpnRouteResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupClientVpnRouteResult] {
+	return pulumix.Output[LookupClientVpnRouteResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupClientVpnRouteResultOutput) Id() pulumi.StringPtrOutput {

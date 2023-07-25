@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::CloudWatch::Alarm
@@ -159,6 +160,12 @@ func (i *Alarm) ToAlarmOutputWithContext(ctx context.Context) AlarmOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmOutput)
 }
 
+func (i *Alarm) ToOutput(ctx context.Context) pulumix.Output[*Alarm] {
+	return pulumix.Output[*Alarm]{
+		OutputState: i.ToAlarmOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AlarmOutput struct{ *pulumi.OutputState }
 
 func (AlarmOutput) ElementType() reflect.Type {
@@ -171,6 +178,12 @@ func (o AlarmOutput) ToAlarmOutput() AlarmOutput {
 
 func (o AlarmOutput) ToAlarmOutputWithContext(ctx context.Context) AlarmOutput {
 	return o
+}
+
+func (o AlarmOutput) ToOutput(ctx context.Context) pulumix.Output[*Alarm] {
+	return pulumix.Output[*Alarm]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AlarmOutput) ActionsEnabled() pulumi.BoolPtrOutput {

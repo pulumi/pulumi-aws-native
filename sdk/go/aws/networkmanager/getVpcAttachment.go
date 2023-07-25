@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // AWS::NetworkManager::VpcAttachment Resoruce Type
@@ -94,6 +95,12 @@ func (o LookupVpcAttachmentResultOutput) ToLookupVpcAttachmentResultOutput() Loo
 
 func (o LookupVpcAttachmentResultOutput) ToLookupVpcAttachmentResultOutputWithContext(ctx context.Context) LookupVpcAttachmentResultOutput {
 	return o
+}
+
+func (o LookupVpcAttachmentResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVpcAttachmentResult] {
+	return pulumix.Output[LookupVpcAttachmentResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Id of the attachment.

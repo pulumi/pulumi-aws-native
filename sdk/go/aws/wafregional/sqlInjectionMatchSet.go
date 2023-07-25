@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::WAFRegional::SqlInjectionMatchSet
@@ -94,6 +95,12 @@ func (i *SqlInjectionMatchSet) ToSqlInjectionMatchSetOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(SqlInjectionMatchSetOutput)
 }
 
+func (i *SqlInjectionMatchSet) ToOutput(ctx context.Context) pulumix.Output[*SqlInjectionMatchSet] {
+	return pulumix.Output[*SqlInjectionMatchSet]{
+		OutputState: i.ToSqlInjectionMatchSetOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SqlInjectionMatchSetOutput struct{ *pulumi.OutputState }
 
 func (SqlInjectionMatchSetOutput) ElementType() reflect.Type {
@@ -106,6 +113,12 @@ func (o SqlInjectionMatchSetOutput) ToSqlInjectionMatchSetOutput() SqlInjectionM
 
 func (o SqlInjectionMatchSetOutput) ToSqlInjectionMatchSetOutputWithContext(ctx context.Context) SqlInjectionMatchSetOutput {
 	return o
+}
+
+func (o SqlInjectionMatchSetOutput) ToOutput(ctx context.Context) pulumix.Output[*SqlInjectionMatchSet] {
+	return pulumix.Output[*SqlInjectionMatchSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SqlInjectionMatchSetOutput) Name() pulumi.StringOutput {

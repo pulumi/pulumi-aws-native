@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource type definition for AWS::NetworkFirewall::LoggingConfiguration
@@ -63,6 +64,12 @@ func (o LookupLoggingConfigurationResultOutput) ToLookupLoggingConfigurationResu
 
 func (o LookupLoggingConfigurationResultOutput) ToLookupLoggingConfigurationResultOutputWithContext(ctx context.Context) LookupLoggingConfigurationResultOutput {
 	return o
+}
+
+func (o LookupLoggingConfigurationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupLoggingConfigurationResult] {
+	return pulumix.Output[LookupLoggingConfigurationResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupLoggingConfigurationResultOutput) LoggingConfiguration() LoggingConfigurationTypePtrOutput {

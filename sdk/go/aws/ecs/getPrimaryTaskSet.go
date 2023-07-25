@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A pseudo-resource that manages which of your ECS task sets is primary.
@@ -70,6 +71,12 @@ func (o LookupPrimaryTaskSetResultOutput) ToLookupPrimaryTaskSetResultOutput() L
 
 func (o LookupPrimaryTaskSetResultOutput) ToLookupPrimaryTaskSetResultOutputWithContext(ctx context.Context) LookupPrimaryTaskSetResultOutput {
 	return o
+}
+
+func (o LookupPrimaryTaskSetResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupPrimaryTaskSetResult] {
+	return pulumix.Output[LookupPrimaryTaskSetResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID or full Amazon Resource Name (ARN) of the task set.

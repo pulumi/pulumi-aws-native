@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::DataSync::LocationFSxOpenZFS.
@@ -124,6 +125,12 @@ func (i *LocationFSxOpenZFS) ToLocationFSxOpenZFSOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxOpenZFSOutput)
 }
 
+func (i *LocationFSxOpenZFS) ToOutput(ctx context.Context) pulumix.Output[*LocationFSxOpenZFS] {
+	return pulumix.Output[*LocationFSxOpenZFS]{
+		OutputState: i.ToLocationFSxOpenZFSOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LocationFSxOpenZFSOutput struct{ *pulumi.OutputState }
 
 func (LocationFSxOpenZFSOutput) ElementType() reflect.Type {
@@ -136,6 +143,12 @@ func (o LocationFSxOpenZFSOutput) ToLocationFSxOpenZFSOutput() LocationFSxOpenZF
 
 func (o LocationFSxOpenZFSOutput) ToLocationFSxOpenZFSOutputWithContext(ctx context.Context) LocationFSxOpenZFSOutput {
 	return o
+}
+
+func (o LocationFSxOpenZFSOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationFSxOpenZFS] {
+	return pulumix.Output[*LocationFSxOpenZFS]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) for the FSx OpenZFS file system.

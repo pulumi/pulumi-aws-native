@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Describes an association between a local gateway route table and a VPC.
@@ -117,6 +118,12 @@ func (i *LocalGatewayRouteTableVPCAssociation) ToLocalGatewayRouteTableVPCAssoci
 	return pulumi.ToOutputWithContext(ctx, i).(LocalGatewayRouteTableVPCAssociationOutput)
 }
 
+func (i *LocalGatewayRouteTableVPCAssociation) ToOutput(ctx context.Context) pulumix.Output[*LocalGatewayRouteTableVPCAssociation] {
+	return pulumix.Output[*LocalGatewayRouteTableVPCAssociation]{
+		OutputState: i.ToLocalGatewayRouteTableVPCAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LocalGatewayRouteTableVPCAssociationOutput struct{ *pulumi.OutputState }
 
 func (LocalGatewayRouteTableVPCAssociationOutput) ElementType() reflect.Type {
@@ -129,6 +136,12 @@ func (o LocalGatewayRouteTableVPCAssociationOutput) ToLocalGatewayRouteTableVPCA
 
 func (o LocalGatewayRouteTableVPCAssociationOutput) ToLocalGatewayRouteTableVPCAssociationOutputWithContext(ctx context.Context) LocalGatewayRouteTableVPCAssociationOutput {
 	return o
+}
+
+func (o LocalGatewayRouteTableVPCAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*LocalGatewayRouteTableVPCAssociation] {
+	return pulumix.Output[*LocalGatewayRouteTableVPCAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the local gateway.

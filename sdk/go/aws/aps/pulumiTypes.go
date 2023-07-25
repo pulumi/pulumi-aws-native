@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -52,6 +53,12 @@ func (i RuleGroupsNamespaceTagArgs) ToRuleGroupsNamespaceTagOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupsNamespaceTagOutput)
 }
 
+func (i RuleGroupsNamespaceTagArgs) ToOutput(ctx context.Context) pulumix.Output[RuleGroupsNamespaceTag] {
+	return pulumix.Output[RuleGroupsNamespaceTag]{
+		OutputState: i.ToRuleGroupsNamespaceTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RuleGroupsNamespaceTagArrayInput is an input type that accepts RuleGroupsNamespaceTagArray and RuleGroupsNamespaceTagArrayOutput values.
 // You can construct a concrete instance of `RuleGroupsNamespaceTagArrayInput` via:
 //
@@ -77,6 +84,12 @@ func (i RuleGroupsNamespaceTagArray) ToRuleGroupsNamespaceTagArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupsNamespaceTagArrayOutput)
 }
 
+func (i RuleGroupsNamespaceTagArray) ToOutput(ctx context.Context) pulumix.Output[[]RuleGroupsNamespaceTag] {
+	return pulumix.Output[[]RuleGroupsNamespaceTag]{
+		OutputState: i.ToRuleGroupsNamespaceTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type RuleGroupsNamespaceTagOutput struct{ *pulumi.OutputState }
 
@@ -90,6 +103,12 @@ func (o RuleGroupsNamespaceTagOutput) ToRuleGroupsNamespaceTagOutput() RuleGroup
 
 func (o RuleGroupsNamespaceTagOutput) ToRuleGroupsNamespaceTagOutputWithContext(ctx context.Context) RuleGroupsNamespaceTagOutput {
 	return o
+}
+
+func (o RuleGroupsNamespaceTagOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupsNamespaceTag] {
+	return pulumix.Output[RuleGroupsNamespaceTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -114,6 +133,12 @@ func (o RuleGroupsNamespaceTagArrayOutput) ToRuleGroupsNamespaceTagArrayOutput()
 
 func (o RuleGroupsNamespaceTagArrayOutput) ToRuleGroupsNamespaceTagArrayOutputWithContext(ctx context.Context) RuleGroupsNamespaceTagArrayOutput {
 	return o
+}
+
+func (o RuleGroupsNamespaceTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RuleGroupsNamespaceTag] {
+	return pulumix.Output[[]RuleGroupsNamespaceTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupsNamespaceTagArrayOutput) Index(i pulumi.IntInput) RuleGroupsNamespaceTagOutput {
@@ -157,6 +182,12 @@ func (i WorkspaceLoggingConfigurationArgs) ToWorkspaceLoggingConfigurationOutput
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceLoggingConfigurationOutput)
 }
 
+func (i WorkspaceLoggingConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[WorkspaceLoggingConfiguration] {
+	return pulumix.Output[WorkspaceLoggingConfiguration]{
+		OutputState: i.ToWorkspaceLoggingConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i WorkspaceLoggingConfigurationArgs) ToWorkspaceLoggingConfigurationPtrOutput() WorkspaceLoggingConfigurationPtrOutput {
 	return i.ToWorkspaceLoggingConfigurationPtrOutputWithContext(context.Background())
 }
@@ -198,6 +229,12 @@ func (i *workspaceLoggingConfigurationPtrType) ToWorkspaceLoggingConfigurationPt
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceLoggingConfigurationPtrOutput)
 }
 
+func (i *workspaceLoggingConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceLoggingConfiguration] {
+	return pulumix.Output[*WorkspaceLoggingConfiguration]{
+		OutputState: i.ToWorkspaceLoggingConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Logging configuration
 type WorkspaceLoggingConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -223,6 +260,12 @@ func (o WorkspaceLoggingConfigurationOutput) ToWorkspaceLoggingConfigurationPtrO
 	}).(WorkspaceLoggingConfigurationPtrOutput)
 }
 
+func (o WorkspaceLoggingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[WorkspaceLoggingConfiguration] {
+	return pulumix.Output[WorkspaceLoggingConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // CloudWatch log group ARN
 func (o WorkspaceLoggingConfigurationOutput) LogGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspaceLoggingConfiguration) *string { return v.LogGroupArn }).(pulumi.StringPtrOutput)
@@ -240,6 +283,12 @@ func (o WorkspaceLoggingConfigurationPtrOutput) ToWorkspaceLoggingConfigurationP
 
 func (o WorkspaceLoggingConfigurationPtrOutput) ToWorkspaceLoggingConfigurationPtrOutputWithContext(ctx context.Context) WorkspaceLoggingConfigurationPtrOutput {
 	return o
+}
+
+func (o WorkspaceLoggingConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceLoggingConfiguration] {
+	return pulumix.Output[*WorkspaceLoggingConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkspaceLoggingConfigurationPtrOutput) Elem() WorkspaceLoggingConfigurationOutput {
@@ -301,6 +350,12 @@ func (i WorkspaceTagArgs) ToWorkspaceTagOutputWithContext(ctx context.Context) W
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceTagOutput)
 }
 
+func (i WorkspaceTagArgs) ToOutput(ctx context.Context) pulumix.Output[WorkspaceTag] {
+	return pulumix.Output[WorkspaceTag]{
+		OutputState: i.ToWorkspaceTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // WorkspaceTagArrayInput is an input type that accepts WorkspaceTagArray and WorkspaceTagArrayOutput values.
 // You can construct a concrete instance of `WorkspaceTagArrayInput` via:
 //
@@ -326,6 +381,12 @@ func (i WorkspaceTagArray) ToWorkspaceTagArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceTagArrayOutput)
 }
 
+func (i WorkspaceTagArray) ToOutput(ctx context.Context) pulumix.Output[[]WorkspaceTag] {
+	return pulumix.Output[[]WorkspaceTag]{
+		OutputState: i.ToWorkspaceTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type WorkspaceTagOutput struct{ *pulumi.OutputState }
 
@@ -339,6 +400,12 @@ func (o WorkspaceTagOutput) ToWorkspaceTagOutput() WorkspaceTagOutput {
 
 func (o WorkspaceTagOutput) ToWorkspaceTagOutputWithContext(ctx context.Context) WorkspaceTagOutput {
 	return o
+}
+
+func (o WorkspaceTagOutput) ToOutput(ctx context.Context) pulumix.Output[WorkspaceTag] {
+	return pulumix.Output[WorkspaceTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -363,6 +430,12 @@ func (o WorkspaceTagArrayOutput) ToWorkspaceTagArrayOutput() WorkspaceTagArrayOu
 
 func (o WorkspaceTagArrayOutput) ToWorkspaceTagArrayOutputWithContext(ctx context.Context) WorkspaceTagArrayOutput {
 	return o
+}
+
+func (o WorkspaceTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]WorkspaceTag] {
+	return pulumix.Output[[]WorkspaceTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkspaceTagArrayOutput) Index(i pulumi.IntInput) WorkspaceTagOutput {

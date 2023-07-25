@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SageMaker::ModelCard.
@@ -83,6 +84,12 @@ func (o LookupModelCardResultOutput) ToLookupModelCardResultOutput() LookupModel
 
 func (o LookupModelCardResultOutput) ToLookupModelCardResultOutputWithContext(ctx context.Context) LookupModelCardResultOutput {
 	return o
+}
+
+func (o LookupModelCardResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupModelCardResult] {
+	return pulumix.Output[LookupModelCardResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupModelCardResultOutput) Content() ModelCardContentPtrOutput {

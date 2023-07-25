@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::WAF::SqlInjectionMatchSet
@@ -64,6 +65,12 @@ func (o LookupSqlInjectionMatchSetResultOutput) ToLookupSqlInjectionMatchSetResu
 
 func (o LookupSqlInjectionMatchSetResultOutput) ToLookupSqlInjectionMatchSetResultOutputWithContext(ctx context.Context) LookupSqlInjectionMatchSetResultOutput {
 	return o
+}
+
+func (o LookupSqlInjectionMatchSetResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSqlInjectionMatchSetResult] {
+	return pulumix.Output[LookupSqlInjectionMatchSetResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupSqlInjectionMatchSetResultOutput) Id() pulumi.StringPtrOutput {

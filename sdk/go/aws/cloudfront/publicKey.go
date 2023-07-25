@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::CloudFront::PublicKey
@@ -94,6 +95,12 @@ func (i *PublicKey) ToPublicKeyOutputWithContext(ctx context.Context) PublicKeyO
 	return pulumi.ToOutputWithContext(ctx, i).(PublicKeyOutput)
 }
 
+func (i *PublicKey) ToOutput(ctx context.Context) pulumix.Output[*PublicKey] {
+	return pulumix.Output[*PublicKey]{
+		OutputState: i.ToPublicKeyOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PublicKeyOutput struct{ *pulumi.OutputState }
 
 func (PublicKeyOutput) ElementType() reflect.Type {
@@ -106,6 +113,12 @@ func (o PublicKeyOutput) ToPublicKeyOutput() PublicKeyOutput {
 
 func (o PublicKeyOutput) ToPublicKeyOutputWithContext(ctx context.Context) PublicKeyOutput {
 	return o
+}
+
+func (o PublicKeyOutput) ToOutput(ctx context.Context) pulumix.Output[*PublicKey] {
+	return pulumix.Output[*PublicKey]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PublicKeyOutput) CreatedTime() pulumi.StringOutput {

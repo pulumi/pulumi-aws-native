@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Inspector::AssessmentTarget
@@ -93,6 +94,12 @@ func (i *AssessmentTarget) ToAssessmentTargetOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentTargetOutput)
 }
 
+func (i *AssessmentTarget) ToOutput(ctx context.Context) pulumix.Output[*AssessmentTarget] {
+	return pulumix.Output[*AssessmentTarget]{
+		OutputState: i.ToAssessmentTargetOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AssessmentTargetOutput struct{ *pulumi.OutputState }
 
 func (AssessmentTargetOutput) ElementType() reflect.Type {
@@ -105,6 +112,12 @@ func (o AssessmentTargetOutput) ToAssessmentTargetOutput() AssessmentTargetOutpu
 
 func (o AssessmentTargetOutput) ToAssessmentTargetOutputWithContext(ctx context.Context) AssessmentTargetOutput {
 	return o
+}
+
+func (o AssessmentTargetOutput) ToOutput(ctx context.Context) pulumix.Output[*AssessmentTarget] {
+	return pulumix.Output[*AssessmentTarget]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AssessmentTargetOutput) Arn() pulumi.StringOutput {

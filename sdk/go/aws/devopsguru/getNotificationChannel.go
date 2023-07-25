@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource schema represents the NotificationChannel resource in the Amazon DevOps Guru.
@@ -66,6 +67,12 @@ func (o LookupNotificationChannelResultOutput) ToLookupNotificationChannelResult
 
 func (o LookupNotificationChannelResultOutput) ToLookupNotificationChannelResultOutputWithContext(ctx context.Context) LookupNotificationChannelResultOutput {
 	return o
+}
+
+func (o LookupNotificationChannelResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupNotificationChannelResult] {
+	return pulumix.Output[LookupNotificationChannelResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of a notification channel.

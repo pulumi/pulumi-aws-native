@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::MediaLive::InputSecurityGroup
@@ -95,6 +96,12 @@ func (i *InputSecurityGroup) ToInputSecurityGroupOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(InputSecurityGroupOutput)
 }
 
+func (i *InputSecurityGroup) ToOutput(ctx context.Context) pulumix.Output[*InputSecurityGroup] {
+	return pulumix.Output[*InputSecurityGroup]{
+		OutputState: i.ToInputSecurityGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InputSecurityGroupOutput struct{ *pulumi.OutputState }
 
 func (InputSecurityGroupOutput) ElementType() reflect.Type {
@@ -107,6 +114,12 @@ func (o InputSecurityGroupOutput) ToInputSecurityGroupOutput() InputSecurityGrou
 
 func (o InputSecurityGroupOutput) ToInputSecurityGroupOutputWithContext(ctx context.Context) InputSecurityGroupOutput {
 	return o
+}
+
+func (o InputSecurityGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*InputSecurityGroup] {
+	return pulumix.Output[*InputSecurityGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InputSecurityGroupOutput) Arn() pulumi.StringOutput {

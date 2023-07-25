@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::AppRunner::VpcIngressConnection resource is an App Runner resource that specifies an App Runner VpcIngressConnection.
@@ -71,6 +72,12 @@ func (o LookupVpcIngressConnectionResultOutput) ToLookupVpcIngressConnectionResu
 
 func (o LookupVpcIngressConnectionResultOutput) ToLookupVpcIngressConnectionResultOutputWithContext(ctx context.Context) LookupVpcIngressConnectionResultOutput {
 	return o
+}
+
+func (o LookupVpcIngressConnectionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVpcIngressConnectionResult] {
+	return pulumix.Output[LookupVpcIngressConnectionResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Domain name associated with the VPC Ingress Connection.

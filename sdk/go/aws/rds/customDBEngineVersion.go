@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::RDS::CustomDBEngineVersion resource creates an Amazon RDS custom DB engine version.
@@ -152,6 +153,12 @@ func (i *CustomDBEngineVersion) ToCustomDBEngineVersionOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(CustomDBEngineVersionOutput)
 }
 
+func (i *CustomDBEngineVersion) ToOutput(ctx context.Context) pulumix.Output[*CustomDBEngineVersion] {
+	return pulumix.Output[*CustomDBEngineVersion]{
+		OutputState: i.ToCustomDBEngineVersionOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CustomDBEngineVersionOutput struct{ *pulumi.OutputState }
 
 func (CustomDBEngineVersionOutput) ElementType() reflect.Type {
@@ -164,6 +171,12 @@ func (o CustomDBEngineVersionOutput) ToCustomDBEngineVersionOutput() CustomDBEng
 
 func (o CustomDBEngineVersionOutput) ToCustomDBEngineVersionOutputWithContext(ctx context.Context) CustomDBEngineVersionOutput {
 	return o
+}
+
+func (o CustomDBEngineVersionOutput) ToOutput(ctx context.Context) pulumix.Output[*CustomDBEngineVersion] {
+	return pulumix.Output[*CustomDBEngineVersion]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the custom engine version.

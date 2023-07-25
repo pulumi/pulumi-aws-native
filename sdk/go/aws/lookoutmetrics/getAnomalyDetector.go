@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // An Amazon Lookout for Metrics Detector
@@ -71,6 +72,12 @@ func (o LookupAnomalyDetectorResultOutput) ToLookupAnomalyDetectorResultOutput()
 
 func (o LookupAnomalyDetectorResultOutput) ToLookupAnomalyDetectorResultOutputWithContext(ctx context.Context) LookupAnomalyDetectorResultOutput {
 	return o
+}
+
+func (o LookupAnomalyDetectorResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAnomalyDetectorResult] {
+	return pulumix.Output[LookupAnomalyDetectorResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Configuration options for the AnomalyDetector

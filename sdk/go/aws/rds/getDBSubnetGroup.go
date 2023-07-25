@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::RDS::DBSubnetGroup resource creates a database subnet group. Subnet groups must contain at least two subnets in two different Availability Zones in the same region.
@@ -65,6 +66,12 @@ func (o LookupDBSubnetGroupResultOutput) ToLookupDBSubnetGroupResultOutput() Loo
 
 func (o LookupDBSubnetGroupResultOutput) ToLookupDBSubnetGroupResultOutputWithContext(ctx context.Context) LookupDBSubnetGroupResultOutput {
 	return o
+}
+
+func (o LookupDBSubnetGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDBSubnetGroupResult] {
+	return pulumix.Output[LookupDBSubnetGroupResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupDBSubnetGroupResultOutput) DBSubnetGroupDescription() pulumi.StringPtrOutput {

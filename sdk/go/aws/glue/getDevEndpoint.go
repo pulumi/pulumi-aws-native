@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Glue::DevEndpoint
@@ -77,6 +78,12 @@ func (o LookupDevEndpointResultOutput) ToLookupDevEndpointResultOutput() LookupD
 
 func (o LookupDevEndpointResultOutput) ToLookupDevEndpointResultOutputWithContext(ctx context.Context) LookupDevEndpointResultOutput {
 	return o
+}
+
+func (o LookupDevEndpointResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDevEndpointResult] {
+	return pulumix.Output[LookupDevEndpointResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupDevEndpointResultOutput) Arguments() pulumi.AnyOutput {

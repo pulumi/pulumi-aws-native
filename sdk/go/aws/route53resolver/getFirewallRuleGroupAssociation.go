@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::Route53Resolver::FirewallRuleGroupAssociation.
@@ -88,6 +89,12 @@ func (o LookupFirewallRuleGroupAssociationResultOutput) ToLookupFirewallRuleGrou
 
 func (o LookupFirewallRuleGroupAssociationResultOutput) ToLookupFirewallRuleGroupAssociationResultOutputWithContext(ctx context.Context) LookupFirewallRuleGroupAssociationResultOutput {
 	return o
+}
+
+func (o LookupFirewallRuleGroupAssociationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFirewallRuleGroupAssociationResult] {
+	return pulumix.Output[LookupFirewallRuleGroupAssociationResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Arn

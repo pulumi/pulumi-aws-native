@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::IAM::SAMLProvider
@@ -101,6 +102,12 @@ func (i *SAMLProvider) ToSAMLProviderOutputWithContext(ctx context.Context) SAML
 	return pulumi.ToOutputWithContext(ctx, i).(SAMLProviderOutput)
 }
 
+func (i *SAMLProvider) ToOutput(ctx context.Context) pulumix.Output[*SAMLProvider] {
+	return pulumix.Output[*SAMLProvider]{
+		OutputState: i.ToSAMLProviderOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SAMLProviderOutput struct{ *pulumi.OutputState }
 
 func (SAMLProviderOutput) ElementType() reflect.Type {
@@ -113,6 +120,12 @@ func (o SAMLProviderOutput) ToSAMLProviderOutput() SAMLProviderOutput {
 
 func (o SAMLProviderOutput) ToSAMLProviderOutputWithContext(ctx context.Context) SAMLProviderOutput {
 	return o
+}
+
+func (o SAMLProviderOutput) ToOutput(ctx context.Context) pulumix.Output[*SAMLProvider] {
+	return pulumix.Output[*SAMLProvider]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name (ARN) of the SAML provider

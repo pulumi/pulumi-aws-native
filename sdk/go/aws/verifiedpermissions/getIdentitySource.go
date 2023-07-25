@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::VerifiedPermissions::IdentitySource Resource Type
@@ -68,6 +69,12 @@ func (o LookupIdentitySourceResultOutput) ToLookupIdentitySourceResultOutput() L
 
 func (o LookupIdentitySourceResultOutput) ToLookupIdentitySourceResultOutputWithContext(ctx context.Context) LookupIdentitySourceResultOutput {
 	return o
+}
+
+func (o LookupIdentitySourceResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupIdentitySourceResult] {
+	return pulumix.Output[LookupIdentitySourceResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupIdentitySourceResultOutput) Configuration() IdentitySourceConfigurationPtrOutput {

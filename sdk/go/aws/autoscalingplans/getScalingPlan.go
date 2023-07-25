@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AutoScalingPlans::ScalingPlan
@@ -67,6 +68,12 @@ func (o LookupScalingPlanResultOutput) ToLookupScalingPlanResultOutput() LookupS
 
 func (o LookupScalingPlanResultOutput) ToLookupScalingPlanResultOutputWithContext(ctx context.Context) LookupScalingPlanResultOutput {
 	return o
+}
+
+func (o LookupScalingPlanResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupScalingPlanResult] {
+	return pulumix.Output[LookupScalingPlanResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupScalingPlanResultOutput) ApplicationSource() ScalingPlanApplicationSourcePtrOutput {

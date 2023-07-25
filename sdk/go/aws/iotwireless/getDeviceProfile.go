@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Device Profile's resource schema demonstrating some basic constructs and validation rules.
@@ -74,6 +75,12 @@ func (o LookupDeviceProfileResultOutput) ToLookupDeviceProfileResultOutput() Loo
 
 func (o LookupDeviceProfileResultOutput) ToLookupDeviceProfileResultOutputWithContext(ctx context.Context) LookupDeviceProfileResultOutput {
 	return o
+}
+
+func (o LookupDeviceProfileResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDeviceProfileResult] {
+	return pulumix.Output[LookupDeviceProfileResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Service profile Arn. Returned after successful create.

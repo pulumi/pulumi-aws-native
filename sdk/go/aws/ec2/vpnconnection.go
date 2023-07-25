@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::VPNConnection
@@ -137,6 +138,12 @@ func (i *VPNConnection) ToVPNConnectionOutputWithContext(ctx context.Context) VP
 	return pulumi.ToOutputWithContext(ctx, i).(VPNConnectionOutput)
 }
 
+func (i *VPNConnection) ToOutput(ctx context.Context) pulumix.Output[*VPNConnection] {
+	return pulumix.Output[*VPNConnection]{
+		OutputState: i.ToVPNConnectionOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VPNConnectionOutput struct{ *pulumi.OutputState }
 
 func (VPNConnectionOutput) ElementType() reflect.Type {
@@ -149,6 +156,12 @@ func (o VPNConnectionOutput) ToVPNConnectionOutput() VPNConnectionOutput {
 
 func (o VPNConnectionOutput) ToVPNConnectionOutputWithContext(ctx context.Context) VPNConnectionOutput {
 	return o
+}
+
+func (o VPNConnectionOutput) ToOutput(ctx context.Context) pulumix.Output[*VPNConnection] {
+	return pulumix.Output[*VPNConnection]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the customer gateway at your end of the VPN connection.

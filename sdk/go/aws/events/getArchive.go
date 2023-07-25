@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Events::Archive
@@ -66,6 +67,12 @@ func (o LookupArchiveResultOutput) ToLookupArchiveResultOutput() LookupArchiveRe
 
 func (o LookupArchiveResultOutput) ToLookupArchiveResultOutputWithContext(ctx context.Context) LookupArchiveResultOutput {
 	return o
+}
+
+func (o LookupArchiveResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupArchiveResult] {
+	return pulumix.Output[LookupArchiveResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupArchiveResultOutput) Arn() pulumi.StringPtrOutput {

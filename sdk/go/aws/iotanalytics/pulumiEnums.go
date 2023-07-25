@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type DatasetResourceConfigurationComputeType string
@@ -77,6 +78,12 @@ func (o DatasetResourceConfigurationComputeTypeOutput) ToDatasetResourceConfigur
 	}).(DatasetResourceConfigurationComputeTypePtrOutput)
 }
 
+func (o DatasetResourceConfigurationComputeTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DatasetResourceConfigurationComputeType] {
+	return pulumix.Output[DatasetResourceConfigurationComputeType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DatasetResourceConfigurationComputeTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -110,6 +117,12 @@ func (o DatasetResourceConfigurationComputeTypePtrOutput) ToDatasetResourceConfi
 
 func (o DatasetResourceConfigurationComputeTypePtrOutput) ToDatasetResourceConfigurationComputeTypePtrOutputWithContext(ctx context.Context) DatasetResourceConfigurationComputeTypePtrOutput {
 	return o
+}
+
+func (o DatasetResourceConfigurationComputeTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatasetResourceConfigurationComputeType] {
+	return pulumix.Output[*DatasetResourceConfigurationComputeType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DatasetResourceConfigurationComputeTypePtrOutput) Elem() DatasetResourceConfigurationComputeTypeOutput {
@@ -172,6 +185,12 @@ func (in *datasetResourceConfigurationComputeTypePtr) ToDatasetResourceConfigura
 
 func (in *datasetResourceConfigurationComputeTypePtr) ToDatasetResourceConfigurationComputeTypePtrOutputWithContext(ctx context.Context) DatasetResourceConfigurationComputeTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DatasetResourceConfigurationComputeTypePtrOutput)
+}
+
+func (in *datasetResourceConfigurationComputeTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DatasetResourceConfigurationComputeType] {
+	return pulumix.Output[*DatasetResourceConfigurationComputeType]{
+		OutputState: in.ToDatasetResourceConfigurationComputeTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

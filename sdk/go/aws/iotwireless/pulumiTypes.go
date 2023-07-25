@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -46,6 +47,12 @@ func (i DestinationTagArgs) ToDestinationTagOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(DestinationTagOutput)
 }
 
+func (i DestinationTagArgs) ToOutput(ctx context.Context) pulumix.Output[DestinationTag] {
+	return pulumix.Output[DestinationTag]{
+		OutputState: i.ToDestinationTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DestinationTagArrayInput is an input type that accepts DestinationTagArray and DestinationTagArrayOutput values.
 // You can construct a concrete instance of `DestinationTagArrayInput` via:
 //
@@ -71,6 +78,12 @@ func (i DestinationTagArray) ToDestinationTagArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(DestinationTagArrayOutput)
 }
 
+func (i DestinationTagArray) ToOutput(ctx context.Context) pulumix.Output[[]DestinationTag] {
+	return pulumix.Output[[]DestinationTag]{
+		OutputState: i.ToDestinationTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DestinationTagOutput struct{ *pulumi.OutputState }
 
 func (DestinationTagOutput) ElementType() reflect.Type {
@@ -83,6 +96,12 @@ func (o DestinationTagOutput) ToDestinationTagOutput() DestinationTagOutput {
 
 func (o DestinationTagOutput) ToDestinationTagOutputWithContext(ctx context.Context) DestinationTagOutput {
 	return o
+}
+
+func (o DestinationTagOutput) ToOutput(ctx context.Context) pulumix.Output[DestinationTag] {
+	return pulumix.Output[DestinationTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DestinationTagOutput) Key() pulumi.StringPtrOutput {
@@ -105,6 +124,12 @@ func (o DestinationTagArrayOutput) ToDestinationTagArrayOutput() DestinationTagA
 
 func (o DestinationTagArrayOutput) ToDestinationTagArrayOutputWithContext(ctx context.Context) DestinationTagArrayOutput {
 	return o
+}
+
+func (o DestinationTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DestinationTag] {
+	return pulumix.Output[[]DestinationTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DestinationTagArrayOutput) Index(i pulumi.IntInput) DestinationTagOutput {
@@ -180,6 +205,12 @@ func (i DeviceProfileLoRaWANDeviceProfileArgs) ToDeviceProfileLoRaWANDeviceProfi
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceProfileLoRaWANDeviceProfileOutput)
 }
 
+func (i DeviceProfileLoRaWANDeviceProfileArgs) ToOutput(ctx context.Context) pulumix.Output[DeviceProfileLoRaWANDeviceProfile] {
+	return pulumix.Output[DeviceProfileLoRaWANDeviceProfile]{
+		OutputState: i.ToDeviceProfileLoRaWANDeviceProfileOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeviceProfileLoRaWANDeviceProfileArgs) ToDeviceProfileLoRaWANDeviceProfilePtrOutput() DeviceProfileLoRaWANDeviceProfilePtrOutput {
 	return i.ToDeviceProfileLoRaWANDeviceProfilePtrOutputWithContext(context.Background())
 }
@@ -221,6 +252,12 @@ func (i *deviceProfileLoRaWANDeviceProfilePtrType) ToDeviceProfileLoRaWANDeviceP
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceProfileLoRaWANDeviceProfilePtrOutput)
 }
 
+func (i *deviceProfileLoRaWANDeviceProfilePtrType) ToOutput(ctx context.Context) pulumix.Output[*DeviceProfileLoRaWANDeviceProfile] {
+	return pulumix.Output[*DeviceProfileLoRaWANDeviceProfile]{
+		OutputState: i.ToDeviceProfileLoRaWANDeviceProfilePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeviceProfileLoRaWANDeviceProfileOutput struct{ *pulumi.OutputState }
 
 func (DeviceProfileLoRaWANDeviceProfileOutput) ElementType() reflect.Type {
@@ -243,6 +280,12 @@ func (o DeviceProfileLoRaWANDeviceProfileOutput) ToDeviceProfileLoRaWANDevicePro
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeviceProfileLoRaWANDeviceProfile) *DeviceProfileLoRaWANDeviceProfile {
 		return &v
 	}).(DeviceProfileLoRaWANDeviceProfilePtrOutput)
+}
+
+func (o DeviceProfileLoRaWANDeviceProfileOutput) ToOutput(ctx context.Context) pulumix.Output[DeviceProfileLoRaWANDeviceProfile] {
+	return pulumix.Output[DeviceProfileLoRaWANDeviceProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeviceProfileLoRaWANDeviceProfileOutput) ClassBTimeout() pulumi.IntPtrOutput {
@@ -333,6 +376,12 @@ func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) ToDeviceProfileLoRaWANDevice
 
 func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) ToDeviceProfileLoRaWANDeviceProfilePtrOutputWithContext(ctx context.Context) DeviceProfileLoRaWANDeviceProfilePtrOutput {
 	return o
+}
+
+func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeviceProfileLoRaWANDeviceProfile] {
+	return pulumix.Output[*DeviceProfileLoRaWANDeviceProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) Elem() DeviceProfileLoRaWANDeviceProfileOutput {
@@ -549,6 +598,12 @@ func (i DeviceProfileTagArgs) ToDeviceProfileTagOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceProfileTagOutput)
 }
 
+func (i DeviceProfileTagArgs) ToOutput(ctx context.Context) pulumix.Output[DeviceProfileTag] {
+	return pulumix.Output[DeviceProfileTag]{
+		OutputState: i.ToDeviceProfileTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DeviceProfileTagArrayInput is an input type that accepts DeviceProfileTagArray and DeviceProfileTagArrayOutput values.
 // You can construct a concrete instance of `DeviceProfileTagArrayInput` via:
 //
@@ -574,6 +629,12 @@ func (i DeviceProfileTagArray) ToDeviceProfileTagArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceProfileTagArrayOutput)
 }
 
+func (i DeviceProfileTagArray) ToOutput(ctx context.Context) pulumix.Output[[]DeviceProfileTag] {
+	return pulumix.Output[[]DeviceProfileTag]{
+		OutputState: i.ToDeviceProfileTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeviceProfileTagOutput struct{ *pulumi.OutputState }
 
 func (DeviceProfileTagOutput) ElementType() reflect.Type {
@@ -586,6 +647,12 @@ func (o DeviceProfileTagOutput) ToDeviceProfileTagOutput() DeviceProfileTagOutpu
 
 func (o DeviceProfileTagOutput) ToDeviceProfileTagOutputWithContext(ctx context.Context) DeviceProfileTagOutput {
 	return o
+}
+
+func (o DeviceProfileTagOutput) ToOutput(ctx context.Context) pulumix.Output[DeviceProfileTag] {
+	return pulumix.Output[DeviceProfileTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeviceProfileTagOutput) Key() pulumi.StringPtrOutput {
@@ -608,6 +675,12 @@ func (o DeviceProfileTagArrayOutput) ToDeviceProfileTagArrayOutput() DeviceProfi
 
 func (o DeviceProfileTagArrayOutput) ToDeviceProfileTagArrayOutputWithContext(ctx context.Context) DeviceProfileTagArrayOutput {
 	return o
+}
+
+func (o DeviceProfileTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DeviceProfileTag] {
+	return pulumix.Output[[]DeviceProfileTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeviceProfileTagArrayOutput) Index(i pulumi.IntInput) DeviceProfileTagOutput {
@@ -653,6 +726,12 @@ func (i FuotaTaskLoRaWANArgs) ToFuotaTaskLoRaWANOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(FuotaTaskLoRaWANOutput)
 }
 
+func (i FuotaTaskLoRaWANArgs) ToOutput(ctx context.Context) pulumix.Output[FuotaTaskLoRaWAN] {
+	return pulumix.Output[FuotaTaskLoRaWAN]{
+		OutputState: i.ToFuotaTaskLoRaWANOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FuotaTaskLoRaWANOutput struct{ *pulumi.OutputState }
 
 func (FuotaTaskLoRaWANOutput) ElementType() reflect.Type {
@@ -665,6 +744,12 @@ func (o FuotaTaskLoRaWANOutput) ToFuotaTaskLoRaWANOutput() FuotaTaskLoRaWANOutpu
 
 func (o FuotaTaskLoRaWANOutput) ToFuotaTaskLoRaWANOutputWithContext(ctx context.Context) FuotaTaskLoRaWANOutput {
 	return o
+}
+
+func (o FuotaTaskLoRaWANOutput) ToOutput(ctx context.Context) pulumix.Output[FuotaTaskLoRaWAN] {
+	return pulumix.Output[FuotaTaskLoRaWAN]{
+		OutputState: o.OutputState,
+	}
 }
 
 // FUOTA task LoRaWAN RF region
@@ -689,6 +774,12 @@ func (o FuotaTaskLoRaWANPtrOutput) ToFuotaTaskLoRaWANPtrOutput() FuotaTaskLoRaWA
 
 func (o FuotaTaskLoRaWANPtrOutput) ToFuotaTaskLoRaWANPtrOutputWithContext(ctx context.Context) FuotaTaskLoRaWANPtrOutput {
 	return o
+}
+
+func (o FuotaTaskLoRaWANPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FuotaTaskLoRaWAN] {
+	return pulumix.Output[*FuotaTaskLoRaWAN]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FuotaTaskLoRaWANPtrOutput) Elem() FuotaTaskLoRaWANOutput {
@@ -754,6 +845,12 @@ func (i FuotaTaskTagArgs) ToFuotaTaskTagOutputWithContext(ctx context.Context) F
 	return pulumi.ToOutputWithContext(ctx, i).(FuotaTaskTagOutput)
 }
 
+func (i FuotaTaskTagArgs) ToOutput(ctx context.Context) pulumix.Output[FuotaTaskTag] {
+	return pulumix.Output[FuotaTaskTag]{
+		OutputState: i.ToFuotaTaskTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FuotaTaskTagArrayInput is an input type that accepts FuotaTaskTagArray and FuotaTaskTagArrayOutput values.
 // You can construct a concrete instance of `FuotaTaskTagArrayInput` via:
 //
@@ -779,6 +876,12 @@ func (i FuotaTaskTagArray) ToFuotaTaskTagArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(FuotaTaskTagArrayOutput)
 }
 
+func (i FuotaTaskTagArray) ToOutput(ctx context.Context) pulumix.Output[[]FuotaTaskTag] {
+	return pulumix.Output[[]FuotaTaskTag]{
+		OutputState: i.ToFuotaTaskTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FuotaTaskTagOutput struct{ *pulumi.OutputState }
 
 func (FuotaTaskTagOutput) ElementType() reflect.Type {
@@ -791,6 +894,12 @@ func (o FuotaTaskTagOutput) ToFuotaTaskTagOutput() FuotaTaskTagOutput {
 
 func (o FuotaTaskTagOutput) ToFuotaTaskTagOutputWithContext(ctx context.Context) FuotaTaskTagOutput {
 	return o
+}
+
+func (o FuotaTaskTagOutput) ToOutput(ctx context.Context) pulumix.Output[FuotaTaskTag] {
+	return pulumix.Output[FuotaTaskTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FuotaTaskTagOutput) Key() pulumi.StringPtrOutput {
@@ -813,6 +922,12 @@ func (o FuotaTaskTagArrayOutput) ToFuotaTaskTagArrayOutput() FuotaTaskTagArrayOu
 
 func (o FuotaTaskTagArrayOutput) ToFuotaTaskTagArrayOutputWithContext(ctx context.Context) FuotaTaskTagArrayOutput {
 	return o
+}
+
+func (o FuotaTaskTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FuotaTaskTag] {
+	return pulumix.Output[[]FuotaTaskTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FuotaTaskTagArrayOutput) Index(i pulumi.IntInput) FuotaTaskTagOutput {
@@ -866,6 +981,12 @@ func (i MulticastGroupLoRaWANArgs) ToMulticastGroupLoRaWANOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(MulticastGroupLoRaWANOutput)
 }
 
+func (i MulticastGroupLoRaWANArgs) ToOutput(ctx context.Context) pulumix.Output[MulticastGroupLoRaWAN] {
+	return pulumix.Output[MulticastGroupLoRaWAN]{
+		OutputState: i.ToMulticastGroupLoRaWANOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MulticastGroupLoRaWANOutput struct{ *pulumi.OutputState }
 
 func (MulticastGroupLoRaWANOutput) ElementType() reflect.Type {
@@ -878,6 +999,12 @@ func (o MulticastGroupLoRaWANOutput) ToMulticastGroupLoRaWANOutput() MulticastGr
 
 func (o MulticastGroupLoRaWANOutput) ToMulticastGroupLoRaWANOutputWithContext(ctx context.Context) MulticastGroupLoRaWANOutput {
 	return o
+}
+
+func (o MulticastGroupLoRaWANOutput) ToOutput(ctx context.Context) pulumix.Output[MulticastGroupLoRaWAN] {
+	return pulumix.Output[MulticastGroupLoRaWAN]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Multicast group LoRaWAN DL Class
@@ -912,6 +1039,12 @@ func (o MulticastGroupLoRaWANPtrOutput) ToMulticastGroupLoRaWANPtrOutput() Multi
 
 func (o MulticastGroupLoRaWANPtrOutput) ToMulticastGroupLoRaWANPtrOutputWithContext(ctx context.Context) MulticastGroupLoRaWANPtrOutput {
 	return o
+}
+
+func (o MulticastGroupLoRaWANPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MulticastGroupLoRaWAN] {
+	return pulumix.Output[*MulticastGroupLoRaWAN]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MulticastGroupLoRaWANPtrOutput) Elem() MulticastGroupLoRaWANOutput {
@@ -997,6 +1130,12 @@ func (i MulticastGroupTagArgs) ToMulticastGroupTagOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(MulticastGroupTagOutput)
 }
 
+func (i MulticastGroupTagArgs) ToOutput(ctx context.Context) pulumix.Output[MulticastGroupTag] {
+	return pulumix.Output[MulticastGroupTag]{
+		OutputState: i.ToMulticastGroupTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MulticastGroupTagArrayInput is an input type that accepts MulticastGroupTagArray and MulticastGroupTagArrayOutput values.
 // You can construct a concrete instance of `MulticastGroupTagArrayInput` via:
 //
@@ -1022,6 +1161,12 @@ func (i MulticastGroupTagArray) ToMulticastGroupTagArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(MulticastGroupTagArrayOutput)
 }
 
+func (i MulticastGroupTagArray) ToOutput(ctx context.Context) pulumix.Output[[]MulticastGroupTag] {
+	return pulumix.Output[[]MulticastGroupTag]{
+		OutputState: i.ToMulticastGroupTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MulticastGroupTagOutput struct{ *pulumi.OutputState }
 
 func (MulticastGroupTagOutput) ElementType() reflect.Type {
@@ -1034,6 +1179,12 @@ func (o MulticastGroupTagOutput) ToMulticastGroupTagOutput() MulticastGroupTagOu
 
 func (o MulticastGroupTagOutput) ToMulticastGroupTagOutputWithContext(ctx context.Context) MulticastGroupTagOutput {
 	return o
+}
+
+func (o MulticastGroupTagOutput) ToOutput(ctx context.Context) pulumix.Output[MulticastGroupTag] {
+	return pulumix.Output[MulticastGroupTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MulticastGroupTagOutput) Key() pulumi.StringPtrOutput {
@@ -1056,6 +1207,12 @@ func (o MulticastGroupTagArrayOutput) ToMulticastGroupTagArrayOutput() Multicast
 
 func (o MulticastGroupTagArrayOutput) ToMulticastGroupTagArrayOutputWithContext(ctx context.Context) MulticastGroupTagArrayOutput {
 	return o
+}
+
+func (o MulticastGroupTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MulticastGroupTag] {
+	return pulumix.Output[[]MulticastGroupTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MulticastGroupTagArrayOutput) Index(i pulumi.IntInput) MulticastGroupTagOutput {
@@ -1103,6 +1260,12 @@ func (i NetworkAnalyzerConfigurationTagArgs) ToNetworkAnalyzerConfigurationTagOu
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkAnalyzerConfigurationTagOutput)
 }
 
+func (i NetworkAnalyzerConfigurationTagArgs) ToOutput(ctx context.Context) pulumix.Output[NetworkAnalyzerConfigurationTag] {
+	return pulumix.Output[NetworkAnalyzerConfigurationTag]{
+		OutputState: i.ToNetworkAnalyzerConfigurationTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NetworkAnalyzerConfigurationTagArrayInput is an input type that accepts NetworkAnalyzerConfigurationTagArray and NetworkAnalyzerConfigurationTagArrayOutput values.
 // You can construct a concrete instance of `NetworkAnalyzerConfigurationTagArrayInput` via:
 //
@@ -1128,6 +1291,12 @@ func (i NetworkAnalyzerConfigurationTagArray) ToNetworkAnalyzerConfigurationTagA
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkAnalyzerConfigurationTagArrayOutput)
 }
 
+func (i NetworkAnalyzerConfigurationTagArray) ToOutput(ctx context.Context) pulumix.Output[[]NetworkAnalyzerConfigurationTag] {
+	return pulumix.Output[[]NetworkAnalyzerConfigurationTag]{
+		OutputState: i.ToNetworkAnalyzerConfigurationTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type NetworkAnalyzerConfigurationTagOutput struct{ *pulumi.OutputState }
 
@@ -1141,6 +1310,12 @@ func (o NetworkAnalyzerConfigurationTagOutput) ToNetworkAnalyzerConfigurationTag
 
 func (o NetworkAnalyzerConfigurationTagOutput) ToNetworkAnalyzerConfigurationTagOutputWithContext(ctx context.Context) NetworkAnalyzerConfigurationTagOutput {
 	return o
+}
+
+func (o NetworkAnalyzerConfigurationTagOutput) ToOutput(ctx context.Context) pulumix.Output[NetworkAnalyzerConfigurationTag] {
+	return pulumix.Output[NetworkAnalyzerConfigurationTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -1165,6 +1340,12 @@ func (o NetworkAnalyzerConfigurationTagArrayOutput) ToNetworkAnalyzerConfigurati
 
 func (o NetworkAnalyzerConfigurationTagArrayOutput) ToNetworkAnalyzerConfigurationTagArrayOutputWithContext(ctx context.Context) NetworkAnalyzerConfigurationTagArrayOutput {
 	return o
+}
+
+func (o NetworkAnalyzerConfigurationTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]NetworkAnalyzerConfigurationTag] {
+	return pulumix.Output[[]NetworkAnalyzerConfigurationTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkAnalyzerConfigurationTagArrayOutput) Index(i pulumi.IntInput) NetworkAnalyzerConfigurationTagOutput {
@@ -1202,6 +1383,12 @@ func (i PartnerAccountSidewalkAccountInfoArgs) ToPartnerAccountSidewalkAccountIn
 
 func (i PartnerAccountSidewalkAccountInfoArgs) ToPartnerAccountSidewalkAccountInfoOutputWithContext(ctx context.Context) PartnerAccountSidewalkAccountInfoOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PartnerAccountSidewalkAccountInfoOutput)
+}
+
+func (i PartnerAccountSidewalkAccountInfoArgs) ToOutput(ctx context.Context) pulumix.Output[PartnerAccountSidewalkAccountInfo] {
+	return pulumix.Output[PartnerAccountSidewalkAccountInfo]{
+		OutputState: i.ToPartnerAccountSidewalkAccountInfoOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i PartnerAccountSidewalkAccountInfoArgs) ToPartnerAccountSidewalkAccountInfoPtrOutput() PartnerAccountSidewalkAccountInfoPtrOutput {
@@ -1245,6 +1432,12 @@ func (i *partnerAccountSidewalkAccountInfoPtrType) ToPartnerAccountSidewalkAccou
 	return pulumi.ToOutputWithContext(ctx, i).(PartnerAccountSidewalkAccountInfoPtrOutput)
 }
 
+func (i *partnerAccountSidewalkAccountInfoPtrType) ToOutput(ctx context.Context) pulumix.Output[*PartnerAccountSidewalkAccountInfo] {
+	return pulumix.Output[*PartnerAccountSidewalkAccountInfo]{
+		OutputState: i.ToPartnerAccountSidewalkAccountInfoPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PartnerAccountSidewalkAccountInfoOutput struct{ *pulumi.OutputState }
 
 func (PartnerAccountSidewalkAccountInfoOutput) ElementType() reflect.Type {
@@ -1269,6 +1462,12 @@ func (o PartnerAccountSidewalkAccountInfoOutput) ToPartnerAccountSidewalkAccount
 	}).(PartnerAccountSidewalkAccountInfoPtrOutput)
 }
 
+func (o PartnerAccountSidewalkAccountInfoOutput) ToOutput(ctx context.Context) pulumix.Output[PartnerAccountSidewalkAccountInfo] {
+	return pulumix.Output[PartnerAccountSidewalkAccountInfo]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PartnerAccountSidewalkAccountInfoOutput) AppServerPrivateKey() pulumi.StringOutput {
 	return o.ApplyT(func(v PartnerAccountSidewalkAccountInfo) string { return v.AppServerPrivateKey }).(pulumi.StringOutput)
 }
@@ -1285,6 +1484,12 @@ func (o PartnerAccountSidewalkAccountInfoPtrOutput) ToPartnerAccountSidewalkAcco
 
 func (o PartnerAccountSidewalkAccountInfoPtrOutput) ToPartnerAccountSidewalkAccountInfoPtrOutputWithContext(ctx context.Context) PartnerAccountSidewalkAccountInfoPtrOutput {
 	return o
+}
+
+func (o PartnerAccountSidewalkAccountInfoPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PartnerAccountSidewalkAccountInfo] {
+	return pulumix.Output[*PartnerAccountSidewalkAccountInfo]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PartnerAccountSidewalkAccountInfoPtrOutput) Elem() PartnerAccountSidewalkAccountInfoOutput {
@@ -1341,6 +1546,12 @@ func (i PartnerAccountSidewalkAccountInfoWithFingerprintArgs) ToPartnerAccountSi
 	return pulumi.ToOutputWithContext(ctx, i).(PartnerAccountSidewalkAccountInfoWithFingerprintOutput)
 }
 
+func (i PartnerAccountSidewalkAccountInfoWithFingerprintArgs) ToOutput(ctx context.Context) pulumix.Output[PartnerAccountSidewalkAccountInfoWithFingerprint] {
+	return pulumix.Output[PartnerAccountSidewalkAccountInfoWithFingerprint]{
+		OutputState: i.ToPartnerAccountSidewalkAccountInfoWithFingerprintOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PartnerAccountSidewalkAccountInfoWithFingerprintArgs) ToPartnerAccountSidewalkAccountInfoWithFingerprintPtrOutput() PartnerAccountSidewalkAccountInfoWithFingerprintPtrOutput {
 	return i.ToPartnerAccountSidewalkAccountInfoWithFingerprintPtrOutputWithContext(context.Background())
 }
@@ -1382,6 +1593,12 @@ func (i *partnerAccountSidewalkAccountInfoWithFingerprintPtrType) ToPartnerAccou
 	return pulumi.ToOutputWithContext(ctx, i).(PartnerAccountSidewalkAccountInfoWithFingerprintPtrOutput)
 }
 
+func (i *partnerAccountSidewalkAccountInfoWithFingerprintPtrType) ToOutput(ctx context.Context) pulumix.Output[*PartnerAccountSidewalkAccountInfoWithFingerprint] {
+	return pulumix.Output[*PartnerAccountSidewalkAccountInfoWithFingerprint]{
+		OutputState: i.ToPartnerAccountSidewalkAccountInfoWithFingerprintPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PartnerAccountSidewalkAccountInfoWithFingerprintOutput struct{ *pulumi.OutputState }
 
 func (PartnerAccountSidewalkAccountInfoWithFingerprintOutput) ElementType() reflect.Type {
@@ -1404,6 +1621,12 @@ func (o PartnerAccountSidewalkAccountInfoWithFingerprintOutput) ToPartnerAccount
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PartnerAccountSidewalkAccountInfoWithFingerprint) *PartnerAccountSidewalkAccountInfoWithFingerprint {
 		return &v
 	}).(PartnerAccountSidewalkAccountInfoWithFingerprintPtrOutput)
+}
+
+func (o PartnerAccountSidewalkAccountInfoWithFingerprintOutput) ToOutput(ctx context.Context) pulumix.Output[PartnerAccountSidewalkAccountInfoWithFingerprint] {
+	return pulumix.Output[PartnerAccountSidewalkAccountInfoWithFingerprint]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PartnerAccountSidewalkAccountInfoWithFingerprintOutput) AmazonId() pulumi.StringPtrOutput {
@@ -1430,6 +1653,12 @@ func (o PartnerAccountSidewalkAccountInfoWithFingerprintPtrOutput) ToPartnerAcco
 
 func (o PartnerAccountSidewalkAccountInfoWithFingerprintPtrOutput) ToPartnerAccountSidewalkAccountInfoWithFingerprintPtrOutputWithContext(ctx context.Context) PartnerAccountSidewalkAccountInfoWithFingerprintPtrOutput {
 	return o
+}
+
+func (o PartnerAccountSidewalkAccountInfoWithFingerprintPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PartnerAccountSidewalkAccountInfoWithFingerprint] {
+	return pulumix.Output[*PartnerAccountSidewalkAccountInfoWithFingerprint]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PartnerAccountSidewalkAccountInfoWithFingerprintPtrOutput) Elem() PartnerAccountSidewalkAccountInfoWithFingerprintOutput {
@@ -1500,6 +1729,12 @@ func (i PartnerAccountSidewalkUpdateAccountArgs) ToPartnerAccountSidewalkUpdateA
 	return pulumi.ToOutputWithContext(ctx, i).(PartnerAccountSidewalkUpdateAccountOutput)
 }
 
+func (i PartnerAccountSidewalkUpdateAccountArgs) ToOutput(ctx context.Context) pulumix.Output[PartnerAccountSidewalkUpdateAccount] {
+	return pulumix.Output[PartnerAccountSidewalkUpdateAccount]{
+		OutputState: i.ToPartnerAccountSidewalkUpdateAccountOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PartnerAccountSidewalkUpdateAccountArgs) ToPartnerAccountSidewalkUpdateAccountPtrOutput() PartnerAccountSidewalkUpdateAccountPtrOutput {
 	return i.ToPartnerAccountSidewalkUpdateAccountPtrOutputWithContext(context.Background())
 }
@@ -1541,6 +1776,12 @@ func (i *partnerAccountSidewalkUpdateAccountPtrType) ToPartnerAccountSidewalkUpd
 	return pulumi.ToOutputWithContext(ctx, i).(PartnerAccountSidewalkUpdateAccountPtrOutput)
 }
 
+func (i *partnerAccountSidewalkUpdateAccountPtrType) ToOutput(ctx context.Context) pulumix.Output[*PartnerAccountSidewalkUpdateAccount] {
+	return pulumix.Output[*PartnerAccountSidewalkUpdateAccount]{
+		OutputState: i.ToPartnerAccountSidewalkUpdateAccountPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PartnerAccountSidewalkUpdateAccountOutput struct{ *pulumi.OutputState }
 
 func (PartnerAccountSidewalkUpdateAccountOutput) ElementType() reflect.Type {
@@ -1565,6 +1806,12 @@ func (o PartnerAccountSidewalkUpdateAccountOutput) ToPartnerAccountSidewalkUpdat
 	}).(PartnerAccountSidewalkUpdateAccountPtrOutput)
 }
 
+func (o PartnerAccountSidewalkUpdateAccountOutput) ToOutput(ctx context.Context) pulumix.Output[PartnerAccountSidewalkUpdateAccount] {
+	return pulumix.Output[PartnerAccountSidewalkUpdateAccount]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PartnerAccountSidewalkUpdateAccountOutput) AppServerPrivateKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PartnerAccountSidewalkUpdateAccount) *string { return v.AppServerPrivateKey }).(pulumi.StringPtrOutput)
 }
@@ -1581,6 +1828,12 @@ func (o PartnerAccountSidewalkUpdateAccountPtrOutput) ToPartnerAccountSidewalkUp
 
 func (o PartnerAccountSidewalkUpdateAccountPtrOutput) ToPartnerAccountSidewalkUpdateAccountPtrOutputWithContext(ctx context.Context) PartnerAccountSidewalkUpdateAccountPtrOutput {
 	return o
+}
+
+func (o PartnerAccountSidewalkUpdateAccountPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PartnerAccountSidewalkUpdateAccount] {
+	return pulumix.Output[*PartnerAccountSidewalkUpdateAccount]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PartnerAccountSidewalkUpdateAccountPtrOutput) Elem() PartnerAccountSidewalkUpdateAccountOutput {
@@ -1635,6 +1888,12 @@ func (i PartnerAccountTagArgs) ToPartnerAccountTagOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(PartnerAccountTagOutput)
 }
 
+func (i PartnerAccountTagArgs) ToOutput(ctx context.Context) pulumix.Output[PartnerAccountTag] {
+	return pulumix.Output[PartnerAccountTag]{
+		OutputState: i.ToPartnerAccountTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PartnerAccountTagArrayInput is an input type that accepts PartnerAccountTagArray and PartnerAccountTagArrayOutput values.
 // You can construct a concrete instance of `PartnerAccountTagArrayInput` via:
 //
@@ -1660,6 +1919,12 @@ func (i PartnerAccountTagArray) ToPartnerAccountTagArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(PartnerAccountTagArrayOutput)
 }
 
+func (i PartnerAccountTagArray) ToOutput(ctx context.Context) pulumix.Output[[]PartnerAccountTag] {
+	return pulumix.Output[[]PartnerAccountTag]{
+		OutputState: i.ToPartnerAccountTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PartnerAccountTagOutput struct{ *pulumi.OutputState }
 
 func (PartnerAccountTagOutput) ElementType() reflect.Type {
@@ -1672,6 +1937,12 @@ func (o PartnerAccountTagOutput) ToPartnerAccountTagOutput() PartnerAccountTagOu
 
 func (o PartnerAccountTagOutput) ToPartnerAccountTagOutputWithContext(ctx context.Context) PartnerAccountTagOutput {
 	return o
+}
+
+func (o PartnerAccountTagOutput) ToOutput(ctx context.Context) pulumix.Output[PartnerAccountTag] {
+	return pulumix.Output[PartnerAccountTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PartnerAccountTagOutput) Key() pulumi.StringPtrOutput {
@@ -1694,6 +1965,12 @@ func (o PartnerAccountTagArrayOutput) ToPartnerAccountTagArrayOutput() PartnerAc
 
 func (o PartnerAccountTagArrayOutput) ToPartnerAccountTagArrayOutputWithContext(ctx context.Context) PartnerAccountTagArrayOutput {
 	return o
+}
+
+func (o PartnerAccountTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PartnerAccountTag] {
+	return pulumix.Output[[]PartnerAccountTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PartnerAccountTagArrayOutput) Index(i pulumi.IntInput) PartnerAccountTagOutput {
@@ -1769,6 +2046,12 @@ func (i ServiceProfileLoRaWANServiceProfileArgs) ToServiceProfileLoRaWANServiceP
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceProfileLoRaWANServiceProfileOutput)
 }
 
+func (i ServiceProfileLoRaWANServiceProfileArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceProfileLoRaWANServiceProfile] {
+	return pulumix.Output[ServiceProfileLoRaWANServiceProfile]{
+		OutputState: i.ToServiceProfileLoRaWANServiceProfileOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ServiceProfileLoRaWANServiceProfileArgs) ToServiceProfileLoRaWANServiceProfilePtrOutput() ServiceProfileLoRaWANServiceProfilePtrOutput {
 	return i.ToServiceProfileLoRaWANServiceProfilePtrOutputWithContext(context.Background())
 }
@@ -1810,6 +2093,12 @@ func (i *serviceProfileLoRaWANServiceProfilePtrType) ToServiceProfileLoRaWANServ
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceProfileLoRaWANServiceProfilePtrOutput)
 }
 
+func (i *serviceProfileLoRaWANServiceProfilePtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceProfileLoRaWANServiceProfile] {
+	return pulumix.Output[*ServiceProfileLoRaWANServiceProfile]{
+		OutputState: i.ToServiceProfileLoRaWANServiceProfilePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceProfileLoRaWANServiceProfileOutput struct{ *pulumi.OutputState }
 
 func (ServiceProfileLoRaWANServiceProfileOutput) ElementType() reflect.Type {
@@ -1832,6 +2121,12 @@ func (o ServiceProfileLoRaWANServiceProfileOutput) ToServiceProfileLoRaWANServic
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceProfileLoRaWANServiceProfile) *ServiceProfileLoRaWANServiceProfile {
 		return &v
 	}).(ServiceProfileLoRaWANServiceProfilePtrOutput)
+}
+
+func (o ServiceProfileLoRaWANServiceProfileOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceProfileLoRaWANServiceProfile] {
+	return pulumix.Output[ServiceProfileLoRaWANServiceProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceProfileLoRaWANServiceProfileOutput) AddGwMetadata() pulumi.BoolPtrOutput {
@@ -1922,6 +2217,12 @@ func (o ServiceProfileLoRaWANServiceProfilePtrOutput) ToServiceProfileLoRaWANSer
 
 func (o ServiceProfileLoRaWANServiceProfilePtrOutput) ToServiceProfileLoRaWANServiceProfilePtrOutputWithContext(ctx context.Context) ServiceProfileLoRaWANServiceProfilePtrOutput {
 	return o
+}
+
+func (o ServiceProfileLoRaWANServiceProfilePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceProfileLoRaWANServiceProfile] {
+	return pulumix.Output[*ServiceProfileLoRaWANServiceProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceProfileLoRaWANServiceProfilePtrOutput) Elem() ServiceProfileLoRaWANServiceProfileOutput {
@@ -2138,6 +2439,12 @@ func (i ServiceProfileTagArgs) ToServiceProfileTagOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceProfileTagOutput)
 }
 
+func (i ServiceProfileTagArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceProfileTag] {
+	return pulumix.Output[ServiceProfileTag]{
+		OutputState: i.ToServiceProfileTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceProfileTagArrayInput is an input type that accepts ServiceProfileTagArray and ServiceProfileTagArrayOutput values.
 // You can construct a concrete instance of `ServiceProfileTagArrayInput` via:
 //
@@ -2163,6 +2470,12 @@ func (i ServiceProfileTagArray) ToServiceProfileTagArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceProfileTagArrayOutput)
 }
 
+func (i ServiceProfileTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ServiceProfileTag] {
+	return pulumix.Output[[]ServiceProfileTag]{
+		OutputState: i.ToServiceProfileTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceProfileTagOutput struct{ *pulumi.OutputState }
 
 func (ServiceProfileTagOutput) ElementType() reflect.Type {
@@ -2175,6 +2488,12 @@ func (o ServiceProfileTagOutput) ToServiceProfileTagOutput() ServiceProfileTagOu
 
 func (o ServiceProfileTagOutput) ToServiceProfileTagOutputWithContext(ctx context.Context) ServiceProfileTagOutput {
 	return o
+}
+
+func (o ServiceProfileTagOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceProfileTag] {
+	return pulumix.Output[ServiceProfileTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceProfileTagOutput) Key() pulumi.StringPtrOutput {
@@ -2197,6 +2516,12 @@ func (o ServiceProfileTagArrayOutput) ToServiceProfileTagArrayOutput() ServicePr
 
 func (o ServiceProfileTagArrayOutput) ToServiceProfileTagArrayOutputWithContext(ctx context.Context) ServiceProfileTagArrayOutput {
 	return o
+}
+
+func (o ServiceProfileTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServiceProfileTag] {
+	return pulumix.Output[[]ServiceProfileTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceProfileTagArrayOutput) Index(i pulumi.IntInput) ServiceProfileTagOutput {
@@ -2244,6 +2569,12 @@ func (i SidewalkPropertiesArgs) ToSidewalkPropertiesOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(SidewalkPropertiesOutput)
 }
 
+func (i SidewalkPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[SidewalkProperties] {
+	return pulumix.Output[SidewalkProperties]{
+		OutputState: i.ToSidewalkPropertiesOutputWithContext(ctx).OutputState,
+	}
+}
+
 // sidewalk contain file for created device and role
 type SidewalkPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -2257,6 +2588,12 @@ func (o SidewalkPropertiesOutput) ToSidewalkPropertiesOutput() SidewalkPropertie
 
 func (o SidewalkPropertiesOutput) ToSidewalkPropertiesOutputWithContext(ctx context.Context) SidewalkPropertiesOutput {
 	return o
+}
+
+func (o SidewalkPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[SidewalkProperties] {
+	return pulumix.Output[SidewalkProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SidewalkPropertiesOutput) DeviceCreationFile() pulumi.StringPtrOutput {
@@ -2287,6 +2624,12 @@ func (o SidewalkPropertiesPtrOutput) ToSidewalkPropertiesPtrOutput() SidewalkPro
 
 func (o SidewalkPropertiesPtrOutput) ToSidewalkPropertiesPtrOutputWithContext(ctx context.Context) SidewalkPropertiesPtrOutput {
 	return o
+}
+
+func (o SidewalkPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SidewalkProperties] {
+	return pulumix.Output[*SidewalkProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SidewalkPropertiesPtrOutput) Elem() SidewalkPropertiesOutput {
@@ -2370,6 +2713,12 @@ func (i TaskDefinitionLoRaWANGatewayVersionArgs) ToTaskDefinitionLoRaWANGatewayV
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionLoRaWANGatewayVersionOutput)
 }
 
+func (i TaskDefinitionLoRaWANGatewayVersionArgs) ToOutput(ctx context.Context) pulumix.Output[TaskDefinitionLoRaWANGatewayVersion] {
+	return pulumix.Output[TaskDefinitionLoRaWANGatewayVersion]{
+		OutputState: i.ToTaskDefinitionLoRaWANGatewayVersionOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i TaskDefinitionLoRaWANGatewayVersionArgs) ToTaskDefinitionLoRaWANGatewayVersionPtrOutput() TaskDefinitionLoRaWANGatewayVersionPtrOutput {
 	return i.ToTaskDefinitionLoRaWANGatewayVersionPtrOutputWithContext(context.Background())
 }
@@ -2411,6 +2760,12 @@ func (i *taskDefinitionLoRaWANGatewayVersionPtrType) ToTaskDefinitionLoRaWANGate
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionLoRaWANGatewayVersionPtrOutput)
 }
 
+func (i *taskDefinitionLoRaWANGatewayVersionPtrType) ToOutput(ctx context.Context) pulumix.Output[*TaskDefinitionLoRaWANGatewayVersion] {
+	return pulumix.Output[*TaskDefinitionLoRaWANGatewayVersion]{
+		OutputState: i.ToTaskDefinitionLoRaWANGatewayVersionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TaskDefinitionLoRaWANGatewayVersionOutput struct{ *pulumi.OutputState }
 
 func (TaskDefinitionLoRaWANGatewayVersionOutput) ElementType() reflect.Type {
@@ -2433,6 +2788,12 @@ func (o TaskDefinitionLoRaWANGatewayVersionOutput) ToTaskDefinitionLoRaWANGatewa
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskDefinitionLoRaWANGatewayVersion) *TaskDefinitionLoRaWANGatewayVersion {
 		return &v
 	}).(TaskDefinitionLoRaWANGatewayVersionPtrOutput)
+}
+
+func (o TaskDefinitionLoRaWANGatewayVersionOutput) ToOutput(ctx context.Context) pulumix.Output[TaskDefinitionLoRaWANGatewayVersion] {
+	return pulumix.Output[TaskDefinitionLoRaWANGatewayVersion]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TaskDefinitionLoRaWANGatewayVersionOutput) Model() pulumi.StringPtrOutput {
@@ -2459,6 +2820,12 @@ func (o TaskDefinitionLoRaWANGatewayVersionPtrOutput) ToTaskDefinitionLoRaWANGat
 
 func (o TaskDefinitionLoRaWANGatewayVersionPtrOutput) ToTaskDefinitionLoRaWANGatewayVersionPtrOutputWithContext(ctx context.Context) TaskDefinitionLoRaWANGatewayVersionPtrOutput {
 	return o
+}
+
+func (o TaskDefinitionLoRaWANGatewayVersionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskDefinitionLoRaWANGatewayVersion] {
+	return pulumix.Output[*TaskDefinitionLoRaWANGatewayVersion]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TaskDefinitionLoRaWANGatewayVersionPtrOutput) Elem() TaskDefinitionLoRaWANGatewayVersionOutput {
@@ -2535,6 +2902,12 @@ func (i TaskDefinitionLoRaWANUpdateGatewayTaskCreateArgs) ToTaskDefinitionLoRaWA
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionLoRaWANUpdateGatewayTaskCreateOutput)
 }
 
+func (i TaskDefinitionLoRaWANUpdateGatewayTaskCreateArgs) ToOutput(ctx context.Context) pulumix.Output[TaskDefinitionLoRaWANUpdateGatewayTaskCreate] {
+	return pulumix.Output[TaskDefinitionLoRaWANUpdateGatewayTaskCreate]{
+		OutputState: i.ToTaskDefinitionLoRaWANUpdateGatewayTaskCreateOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i TaskDefinitionLoRaWANUpdateGatewayTaskCreateArgs) ToTaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput() TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput {
 	return i.ToTaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutputWithContext(context.Background())
 }
@@ -2576,6 +2949,12 @@ func (i *taskDefinitionLoRaWANUpdateGatewayTaskCreatePtrType) ToTaskDefinitionLo
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput)
 }
 
+func (i *taskDefinitionLoRaWANUpdateGatewayTaskCreatePtrType) ToOutput(ctx context.Context) pulumix.Output[*TaskDefinitionLoRaWANUpdateGatewayTaskCreate] {
+	return pulumix.Output[*TaskDefinitionLoRaWANUpdateGatewayTaskCreate]{
+		OutputState: i.ToTaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TaskDefinitionLoRaWANUpdateGatewayTaskCreateOutput struct{ *pulumi.OutputState }
 
 func (TaskDefinitionLoRaWANUpdateGatewayTaskCreateOutput) ElementType() reflect.Type {
@@ -2598,6 +2977,12 @@ func (o TaskDefinitionLoRaWANUpdateGatewayTaskCreateOutput) ToTaskDefinitionLoRa
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskDefinitionLoRaWANUpdateGatewayTaskCreate) *TaskDefinitionLoRaWANUpdateGatewayTaskCreate {
 		return &v
 	}).(TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput)
+}
+
+func (o TaskDefinitionLoRaWANUpdateGatewayTaskCreateOutput) ToOutput(ctx context.Context) pulumix.Output[TaskDefinitionLoRaWANUpdateGatewayTaskCreate] {
+	return pulumix.Output[TaskDefinitionLoRaWANUpdateGatewayTaskCreate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TaskDefinitionLoRaWANUpdateGatewayTaskCreateOutput) CurrentVersion() TaskDefinitionLoRaWANGatewayVersionPtrOutput {
@@ -2632,6 +3017,12 @@ func (o TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput) ToTaskDefinitionL
 
 func (o TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput) ToTaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutputWithContext(ctx context.Context) TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput {
 	return o
+}
+
+func (o TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskDefinitionLoRaWANUpdateGatewayTaskCreate] {
+	return pulumix.Output[*TaskDefinitionLoRaWANUpdateGatewayTaskCreate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput) Elem() TaskDefinitionLoRaWANUpdateGatewayTaskCreateOutput {
@@ -2713,6 +3104,12 @@ func (i TaskDefinitionLoRaWANUpdateGatewayTaskEntryArgs) ToTaskDefinitionLoRaWAN
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionLoRaWANUpdateGatewayTaskEntryOutput)
 }
 
+func (i TaskDefinitionLoRaWANUpdateGatewayTaskEntryArgs) ToOutput(ctx context.Context) pulumix.Output[TaskDefinitionLoRaWANUpdateGatewayTaskEntry] {
+	return pulumix.Output[TaskDefinitionLoRaWANUpdateGatewayTaskEntry]{
+		OutputState: i.ToTaskDefinitionLoRaWANUpdateGatewayTaskEntryOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i TaskDefinitionLoRaWANUpdateGatewayTaskEntryArgs) ToTaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutput() TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutput {
 	return i.ToTaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutputWithContext(context.Background())
 }
@@ -2754,6 +3151,12 @@ func (i *taskDefinitionLoRaWANUpdateGatewayTaskEntryPtrType) ToTaskDefinitionLoR
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutput)
 }
 
+func (i *taskDefinitionLoRaWANUpdateGatewayTaskEntryPtrType) ToOutput(ctx context.Context) pulumix.Output[*TaskDefinitionLoRaWANUpdateGatewayTaskEntry] {
+	return pulumix.Output[*TaskDefinitionLoRaWANUpdateGatewayTaskEntry]{
+		OutputState: i.ToTaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TaskDefinitionLoRaWANUpdateGatewayTaskEntryOutput struct{ *pulumi.OutputState }
 
 func (TaskDefinitionLoRaWANUpdateGatewayTaskEntryOutput) ElementType() reflect.Type {
@@ -2776,6 +3179,12 @@ func (o TaskDefinitionLoRaWANUpdateGatewayTaskEntryOutput) ToTaskDefinitionLoRaW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskDefinitionLoRaWANUpdateGatewayTaskEntry) *TaskDefinitionLoRaWANUpdateGatewayTaskEntry {
 		return &v
 	}).(TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutput)
+}
+
+func (o TaskDefinitionLoRaWANUpdateGatewayTaskEntryOutput) ToOutput(ctx context.Context) pulumix.Output[TaskDefinitionLoRaWANUpdateGatewayTaskEntry] {
+	return pulumix.Output[TaskDefinitionLoRaWANUpdateGatewayTaskEntry]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TaskDefinitionLoRaWANUpdateGatewayTaskEntryOutput) CurrentVersion() TaskDefinitionLoRaWANGatewayVersionPtrOutput {
@@ -2802,6 +3211,12 @@ func (o TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutput) ToTaskDefinitionLo
 
 func (o TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutput) ToTaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutputWithContext(ctx context.Context) TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutput {
 	return o
+}
+
+func (o TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskDefinitionLoRaWANUpdateGatewayTaskEntry] {
+	return pulumix.Output[*TaskDefinitionLoRaWANUpdateGatewayTaskEntry]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutput) Elem() TaskDefinitionLoRaWANUpdateGatewayTaskEntryOutput {
@@ -2865,6 +3280,12 @@ func (i TaskDefinitionTagArgs) ToTaskDefinitionTagOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionTagOutput)
 }
 
+func (i TaskDefinitionTagArgs) ToOutput(ctx context.Context) pulumix.Output[TaskDefinitionTag] {
+	return pulumix.Output[TaskDefinitionTag]{
+		OutputState: i.ToTaskDefinitionTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TaskDefinitionTagArrayInput is an input type that accepts TaskDefinitionTagArray and TaskDefinitionTagArrayOutput values.
 // You can construct a concrete instance of `TaskDefinitionTagArrayInput` via:
 //
@@ -2890,6 +3311,12 @@ func (i TaskDefinitionTagArray) ToTaskDefinitionTagArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionTagArrayOutput)
 }
 
+func (i TaskDefinitionTagArray) ToOutput(ctx context.Context) pulumix.Output[[]TaskDefinitionTag] {
+	return pulumix.Output[[]TaskDefinitionTag]{
+		OutputState: i.ToTaskDefinitionTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TaskDefinitionTagOutput struct{ *pulumi.OutputState }
 
 func (TaskDefinitionTagOutput) ElementType() reflect.Type {
@@ -2902,6 +3329,12 @@ func (o TaskDefinitionTagOutput) ToTaskDefinitionTagOutput() TaskDefinitionTagOu
 
 func (o TaskDefinitionTagOutput) ToTaskDefinitionTagOutputWithContext(ctx context.Context) TaskDefinitionTagOutput {
 	return o
+}
+
+func (o TaskDefinitionTagOutput) ToOutput(ctx context.Context) pulumix.Output[TaskDefinitionTag] {
+	return pulumix.Output[TaskDefinitionTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TaskDefinitionTagOutput) Key() pulumi.StringPtrOutput {
@@ -2924,6 +3357,12 @@ func (o TaskDefinitionTagArrayOutput) ToTaskDefinitionTagArrayOutput() TaskDefin
 
 func (o TaskDefinitionTagArrayOutput) ToTaskDefinitionTagArrayOutputWithContext(ctx context.Context) TaskDefinitionTagArrayOutput {
 	return o
+}
+
+func (o TaskDefinitionTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TaskDefinitionTag] {
+	return pulumix.Output[[]TaskDefinitionTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TaskDefinitionTagArrayOutput) Index(i pulumi.IntInput) TaskDefinitionTagOutput {
@@ -2967,6 +3406,12 @@ func (i TaskDefinitionUpdateWirelessGatewayTaskCreateArgs) ToTaskDefinitionUpdat
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionUpdateWirelessGatewayTaskCreateOutput)
 }
 
+func (i TaskDefinitionUpdateWirelessGatewayTaskCreateArgs) ToOutput(ctx context.Context) pulumix.Output[TaskDefinitionUpdateWirelessGatewayTaskCreate] {
+	return pulumix.Output[TaskDefinitionUpdateWirelessGatewayTaskCreate]{
+		OutputState: i.ToTaskDefinitionUpdateWirelessGatewayTaskCreateOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i TaskDefinitionUpdateWirelessGatewayTaskCreateArgs) ToTaskDefinitionUpdateWirelessGatewayTaskCreatePtrOutput() TaskDefinitionUpdateWirelessGatewayTaskCreatePtrOutput {
 	return i.ToTaskDefinitionUpdateWirelessGatewayTaskCreatePtrOutputWithContext(context.Background())
 }
@@ -3008,6 +3453,12 @@ func (i *taskDefinitionUpdateWirelessGatewayTaskCreatePtrType) ToTaskDefinitionU
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionUpdateWirelessGatewayTaskCreatePtrOutput)
 }
 
+func (i *taskDefinitionUpdateWirelessGatewayTaskCreatePtrType) ToOutput(ctx context.Context) pulumix.Output[*TaskDefinitionUpdateWirelessGatewayTaskCreate] {
+	return pulumix.Output[*TaskDefinitionUpdateWirelessGatewayTaskCreate]{
+		OutputState: i.ToTaskDefinitionUpdateWirelessGatewayTaskCreatePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TaskDefinitionUpdateWirelessGatewayTaskCreateOutput struct{ *pulumi.OutputState }
 
 func (TaskDefinitionUpdateWirelessGatewayTaskCreateOutput) ElementType() reflect.Type {
@@ -3030,6 +3481,12 @@ func (o TaskDefinitionUpdateWirelessGatewayTaskCreateOutput) ToTaskDefinitionUpd
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskDefinitionUpdateWirelessGatewayTaskCreate) *TaskDefinitionUpdateWirelessGatewayTaskCreate {
 		return &v
 	}).(TaskDefinitionUpdateWirelessGatewayTaskCreatePtrOutput)
+}
+
+func (o TaskDefinitionUpdateWirelessGatewayTaskCreateOutput) ToOutput(ctx context.Context) pulumix.Output[TaskDefinitionUpdateWirelessGatewayTaskCreate] {
+	return pulumix.Output[TaskDefinitionUpdateWirelessGatewayTaskCreate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TaskDefinitionUpdateWirelessGatewayTaskCreateOutput) LoRaWAN() TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput {
@@ -3058,6 +3515,12 @@ func (o TaskDefinitionUpdateWirelessGatewayTaskCreatePtrOutput) ToTaskDefinition
 
 func (o TaskDefinitionUpdateWirelessGatewayTaskCreatePtrOutput) ToTaskDefinitionUpdateWirelessGatewayTaskCreatePtrOutputWithContext(ctx context.Context) TaskDefinitionUpdateWirelessGatewayTaskCreatePtrOutput {
 	return o
+}
+
+func (o TaskDefinitionUpdateWirelessGatewayTaskCreatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskDefinitionUpdateWirelessGatewayTaskCreate] {
+	return pulumix.Output[*TaskDefinitionUpdateWirelessGatewayTaskCreate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TaskDefinitionUpdateWirelessGatewayTaskCreatePtrOutput) Elem() TaskDefinitionUpdateWirelessGatewayTaskCreateOutput {
@@ -3132,6 +3595,12 @@ func (i TraceContentPropertiesArgs) ToTraceContentPropertiesOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(TraceContentPropertiesOutput)
 }
 
+func (i TraceContentPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[TraceContentProperties] {
+	return pulumix.Output[TraceContentProperties]{
+		OutputState: i.ToTraceContentPropertiesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i TraceContentPropertiesArgs) ToTraceContentPropertiesPtrOutput() TraceContentPropertiesPtrOutput {
 	return i.ToTraceContentPropertiesPtrOutputWithContext(context.Background())
 }
@@ -3173,6 +3642,12 @@ func (i *traceContentPropertiesPtrType) ToTraceContentPropertiesPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(TraceContentPropertiesPtrOutput)
 }
 
+func (i *traceContentPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*TraceContentProperties] {
+	return pulumix.Output[*TraceContentProperties]{
+		OutputState: i.ToTraceContentPropertiesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Trace content for your wireless gateway and wireless device resources
 type TraceContentPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -3198,6 +3673,12 @@ func (o TraceContentPropertiesOutput) ToTraceContentPropertiesPtrOutputWithConte
 	}).(TraceContentPropertiesPtrOutput)
 }
 
+func (o TraceContentPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[TraceContentProperties] {
+	return pulumix.Output[TraceContentProperties]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TraceContentPropertiesOutput) LogLevel() NetworkAnalyzerConfigurationLogLevelPtrOutput {
 	return o.ApplyT(func(v TraceContentProperties) *NetworkAnalyzerConfigurationLogLevel { return v.LogLevel }).(NetworkAnalyzerConfigurationLogLevelPtrOutput)
 }
@@ -3220,6 +3701,12 @@ func (o TraceContentPropertiesPtrOutput) ToTraceContentPropertiesPtrOutput() Tra
 
 func (o TraceContentPropertiesPtrOutput) ToTraceContentPropertiesPtrOutputWithContext(ctx context.Context) TraceContentPropertiesPtrOutput {
 	return o
+}
+
+func (o TraceContentPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TraceContentProperties] {
+	return pulumix.Output[*TraceContentProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TraceContentPropertiesPtrOutput) Elem() TraceContentPropertiesOutput {
@@ -3283,6 +3770,12 @@ func (i WirelessDeviceAbpV10xArgs) ToWirelessDeviceAbpV10xOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(WirelessDeviceAbpV10xOutput)
 }
 
+func (i WirelessDeviceAbpV10xArgs) ToOutput(ctx context.Context) pulumix.Output[WirelessDeviceAbpV10x] {
+	return pulumix.Output[WirelessDeviceAbpV10x]{
+		OutputState: i.ToWirelessDeviceAbpV10xOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i WirelessDeviceAbpV10xArgs) ToWirelessDeviceAbpV10xPtrOutput() WirelessDeviceAbpV10xPtrOutput {
 	return i.ToWirelessDeviceAbpV10xPtrOutputWithContext(context.Background())
 }
@@ -3324,6 +3817,12 @@ func (i *wirelessDeviceAbpV10xPtrType) ToWirelessDeviceAbpV10xPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(WirelessDeviceAbpV10xPtrOutput)
 }
 
+func (i *wirelessDeviceAbpV10xPtrType) ToOutput(ctx context.Context) pulumix.Output[*WirelessDeviceAbpV10x] {
+	return pulumix.Output[*WirelessDeviceAbpV10x]{
+		OutputState: i.ToWirelessDeviceAbpV10xPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WirelessDeviceAbpV10xOutput struct{ *pulumi.OutputState }
 
 func (WirelessDeviceAbpV10xOutput) ElementType() reflect.Type {
@@ -3348,6 +3847,12 @@ func (o WirelessDeviceAbpV10xOutput) ToWirelessDeviceAbpV10xPtrOutputWithContext
 	}).(WirelessDeviceAbpV10xPtrOutput)
 }
 
+func (o WirelessDeviceAbpV10xOutput) ToOutput(ctx context.Context) pulumix.Output[WirelessDeviceAbpV10x] {
+	return pulumix.Output[WirelessDeviceAbpV10x]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WirelessDeviceAbpV10xOutput) DevAddr() pulumi.StringOutput {
 	return o.ApplyT(func(v WirelessDeviceAbpV10x) string { return v.DevAddr }).(pulumi.StringOutput)
 }
@@ -3368,6 +3873,12 @@ func (o WirelessDeviceAbpV10xPtrOutput) ToWirelessDeviceAbpV10xPtrOutput() Wirel
 
 func (o WirelessDeviceAbpV10xPtrOutput) ToWirelessDeviceAbpV10xPtrOutputWithContext(ctx context.Context) WirelessDeviceAbpV10xPtrOutput {
 	return o
+}
+
+func (o WirelessDeviceAbpV10xPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WirelessDeviceAbpV10x] {
+	return pulumix.Output[*WirelessDeviceAbpV10x]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WirelessDeviceAbpV10xPtrOutput) Elem() WirelessDeviceAbpV10xOutput {
@@ -3431,6 +3942,12 @@ func (i WirelessDeviceAbpV11Args) ToWirelessDeviceAbpV11OutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(WirelessDeviceAbpV11Output)
 }
 
+func (i WirelessDeviceAbpV11Args) ToOutput(ctx context.Context) pulumix.Output[WirelessDeviceAbpV11] {
+	return pulumix.Output[WirelessDeviceAbpV11]{
+		OutputState: i.ToWirelessDeviceAbpV11OutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i WirelessDeviceAbpV11Args) ToWirelessDeviceAbpV11PtrOutput() WirelessDeviceAbpV11PtrOutput {
 	return i.ToWirelessDeviceAbpV11PtrOutputWithContext(context.Background())
 }
@@ -3472,6 +3989,12 @@ func (i *wirelessDeviceAbpV11PtrType) ToWirelessDeviceAbpV11PtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(WirelessDeviceAbpV11PtrOutput)
 }
 
+func (i *wirelessDeviceAbpV11PtrType) ToOutput(ctx context.Context) pulumix.Output[*WirelessDeviceAbpV11] {
+	return pulumix.Output[*WirelessDeviceAbpV11]{
+		OutputState: i.ToWirelessDeviceAbpV11PtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WirelessDeviceAbpV11Output struct{ *pulumi.OutputState }
 
 func (WirelessDeviceAbpV11Output) ElementType() reflect.Type {
@@ -3496,6 +4019,12 @@ func (o WirelessDeviceAbpV11Output) ToWirelessDeviceAbpV11PtrOutputWithContext(c
 	}).(WirelessDeviceAbpV11PtrOutput)
 }
 
+func (o WirelessDeviceAbpV11Output) ToOutput(ctx context.Context) pulumix.Output[WirelessDeviceAbpV11] {
+	return pulumix.Output[WirelessDeviceAbpV11]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WirelessDeviceAbpV11Output) DevAddr() pulumi.StringOutput {
 	return o.ApplyT(func(v WirelessDeviceAbpV11) string { return v.DevAddr }).(pulumi.StringOutput)
 }
@@ -3516,6 +4045,12 @@ func (o WirelessDeviceAbpV11PtrOutput) ToWirelessDeviceAbpV11PtrOutput() Wireles
 
 func (o WirelessDeviceAbpV11PtrOutput) ToWirelessDeviceAbpV11PtrOutputWithContext(ctx context.Context) WirelessDeviceAbpV11PtrOutput {
 	return o
+}
+
+func (o WirelessDeviceAbpV11PtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WirelessDeviceAbpV11] {
+	return pulumix.Output[*WirelessDeviceAbpV11]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WirelessDeviceAbpV11PtrOutput) Elem() WirelessDeviceAbpV11Output {
@@ -3585,6 +4120,12 @@ func (i WirelessDeviceImportTaskTagArgs) ToWirelessDeviceImportTaskTagOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(WirelessDeviceImportTaskTagOutput)
 }
 
+func (i WirelessDeviceImportTaskTagArgs) ToOutput(ctx context.Context) pulumix.Output[WirelessDeviceImportTaskTag] {
+	return pulumix.Output[WirelessDeviceImportTaskTag]{
+		OutputState: i.ToWirelessDeviceImportTaskTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // WirelessDeviceImportTaskTagArrayInput is an input type that accepts WirelessDeviceImportTaskTagArray and WirelessDeviceImportTaskTagArrayOutput values.
 // You can construct a concrete instance of `WirelessDeviceImportTaskTagArrayInput` via:
 //
@@ -3610,6 +4151,12 @@ func (i WirelessDeviceImportTaskTagArray) ToWirelessDeviceImportTaskTagArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(WirelessDeviceImportTaskTagArrayOutput)
 }
 
+func (i WirelessDeviceImportTaskTagArray) ToOutput(ctx context.Context) pulumix.Output[[]WirelessDeviceImportTaskTag] {
+	return pulumix.Output[[]WirelessDeviceImportTaskTag]{
+		OutputState: i.ToWirelessDeviceImportTaskTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type WirelessDeviceImportTaskTagOutput struct{ *pulumi.OutputState }
 
@@ -3623,6 +4170,12 @@ func (o WirelessDeviceImportTaskTagOutput) ToWirelessDeviceImportTaskTagOutput()
 
 func (o WirelessDeviceImportTaskTagOutput) ToWirelessDeviceImportTaskTagOutputWithContext(ctx context.Context) WirelessDeviceImportTaskTagOutput {
 	return o
+}
+
+func (o WirelessDeviceImportTaskTagOutput) ToOutput(ctx context.Context) pulumix.Output[WirelessDeviceImportTaskTag] {
+	return pulumix.Output[WirelessDeviceImportTaskTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -3647,6 +4200,12 @@ func (o WirelessDeviceImportTaskTagArrayOutput) ToWirelessDeviceImportTaskTagArr
 
 func (o WirelessDeviceImportTaskTagArrayOutput) ToWirelessDeviceImportTaskTagArrayOutputWithContext(ctx context.Context) WirelessDeviceImportTaskTagArrayOutput {
 	return o
+}
+
+func (o WirelessDeviceImportTaskTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]WirelessDeviceImportTaskTag] {
+	return pulumix.Output[[]WirelessDeviceImportTaskTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WirelessDeviceImportTaskTagArrayOutput) Index(i pulumi.IntInput) WirelessDeviceImportTaskTagOutput {
@@ -3698,6 +4257,12 @@ func (i WirelessDeviceLoRaWANDeviceArgs) ToWirelessDeviceLoRaWANDeviceOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(WirelessDeviceLoRaWANDeviceOutput)
 }
 
+func (i WirelessDeviceLoRaWANDeviceArgs) ToOutput(ctx context.Context) pulumix.Output[WirelessDeviceLoRaWANDevice] {
+	return pulumix.Output[WirelessDeviceLoRaWANDevice]{
+		OutputState: i.ToWirelessDeviceLoRaWANDeviceOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i WirelessDeviceLoRaWANDeviceArgs) ToWirelessDeviceLoRaWANDevicePtrOutput() WirelessDeviceLoRaWANDevicePtrOutput {
 	return i.ToWirelessDeviceLoRaWANDevicePtrOutputWithContext(context.Background())
 }
@@ -3739,6 +4304,12 @@ func (i *wirelessDeviceLoRaWANDevicePtrType) ToWirelessDeviceLoRaWANDevicePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(WirelessDeviceLoRaWANDevicePtrOutput)
 }
 
+func (i *wirelessDeviceLoRaWANDevicePtrType) ToOutput(ctx context.Context) pulumix.Output[*WirelessDeviceLoRaWANDevice] {
+	return pulumix.Output[*WirelessDeviceLoRaWANDevice]{
+		OutputState: i.ToWirelessDeviceLoRaWANDevicePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WirelessDeviceLoRaWANDeviceOutput struct{ *pulumi.OutputState }
 
 func (WirelessDeviceLoRaWANDeviceOutput) ElementType() reflect.Type {
@@ -3761,6 +4332,12 @@ func (o WirelessDeviceLoRaWANDeviceOutput) ToWirelessDeviceLoRaWANDevicePtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v WirelessDeviceLoRaWANDevice) *WirelessDeviceLoRaWANDevice {
 		return &v
 	}).(WirelessDeviceLoRaWANDevicePtrOutput)
+}
+
+func (o WirelessDeviceLoRaWANDeviceOutput) ToOutput(ctx context.Context) pulumix.Output[WirelessDeviceLoRaWANDevice] {
+	return pulumix.Output[WirelessDeviceLoRaWANDevice]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WirelessDeviceLoRaWANDeviceOutput) AbpV10x() WirelessDeviceAbpV10xPtrOutput {
@@ -3803,6 +4380,12 @@ func (o WirelessDeviceLoRaWANDevicePtrOutput) ToWirelessDeviceLoRaWANDevicePtrOu
 
 func (o WirelessDeviceLoRaWANDevicePtrOutput) ToWirelessDeviceLoRaWANDevicePtrOutputWithContext(ctx context.Context) WirelessDeviceLoRaWANDevicePtrOutput {
 	return o
+}
+
+func (o WirelessDeviceLoRaWANDevicePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WirelessDeviceLoRaWANDevice] {
+	return pulumix.Output[*WirelessDeviceLoRaWANDevice]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WirelessDeviceLoRaWANDevicePtrOutput) Elem() WirelessDeviceLoRaWANDeviceOutput {
@@ -3911,6 +4494,12 @@ func (i WirelessDeviceOtaaV10xArgs) ToWirelessDeviceOtaaV10xOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(WirelessDeviceOtaaV10xOutput)
 }
 
+func (i WirelessDeviceOtaaV10xArgs) ToOutput(ctx context.Context) pulumix.Output[WirelessDeviceOtaaV10x] {
+	return pulumix.Output[WirelessDeviceOtaaV10x]{
+		OutputState: i.ToWirelessDeviceOtaaV10xOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i WirelessDeviceOtaaV10xArgs) ToWirelessDeviceOtaaV10xPtrOutput() WirelessDeviceOtaaV10xPtrOutput {
 	return i.ToWirelessDeviceOtaaV10xPtrOutputWithContext(context.Background())
 }
@@ -3952,6 +4541,12 @@ func (i *wirelessDeviceOtaaV10xPtrType) ToWirelessDeviceOtaaV10xPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(WirelessDeviceOtaaV10xPtrOutput)
 }
 
+func (i *wirelessDeviceOtaaV10xPtrType) ToOutput(ctx context.Context) pulumix.Output[*WirelessDeviceOtaaV10x] {
+	return pulumix.Output[*WirelessDeviceOtaaV10x]{
+		OutputState: i.ToWirelessDeviceOtaaV10xPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WirelessDeviceOtaaV10xOutput struct{ *pulumi.OutputState }
 
 func (WirelessDeviceOtaaV10xOutput) ElementType() reflect.Type {
@@ -3976,6 +4571,12 @@ func (o WirelessDeviceOtaaV10xOutput) ToWirelessDeviceOtaaV10xPtrOutputWithConte
 	}).(WirelessDeviceOtaaV10xPtrOutput)
 }
 
+func (o WirelessDeviceOtaaV10xOutput) ToOutput(ctx context.Context) pulumix.Output[WirelessDeviceOtaaV10x] {
+	return pulumix.Output[WirelessDeviceOtaaV10x]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WirelessDeviceOtaaV10xOutput) AppEui() pulumi.StringOutput {
 	return o.ApplyT(func(v WirelessDeviceOtaaV10x) string { return v.AppEui }).(pulumi.StringOutput)
 }
@@ -3996,6 +4597,12 @@ func (o WirelessDeviceOtaaV10xPtrOutput) ToWirelessDeviceOtaaV10xPtrOutput() Wir
 
 func (o WirelessDeviceOtaaV10xPtrOutput) ToWirelessDeviceOtaaV10xPtrOutputWithContext(ctx context.Context) WirelessDeviceOtaaV10xPtrOutput {
 	return o
+}
+
+func (o WirelessDeviceOtaaV10xPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WirelessDeviceOtaaV10x] {
+	return pulumix.Output[*WirelessDeviceOtaaV10x]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WirelessDeviceOtaaV10xPtrOutput) Elem() WirelessDeviceOtaaV10xOutput {
@@ -4061,6 +4668,12 @@ func (i WirelessDeviceOtaaV11Args) ToWirelessDeviceOtaaV11OutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(WirelessDeviceOtaaV11Output)
 }
 
+func (i WirelessDeviceOtaaV11Args) ToOutput(ctx context.Context) pulumix.Output[WirelessDeviceOtaaV11] {
+	return pulumix.Output[WirelessDeviceOtaaV11]{
+		OutputState: i.ToWirelessDeviceOtaaV11OutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i WirelessDeviceOtaaV11Args) ToWirelessDeviceOtaaV11PtrOutput() WirelessDeviceOtaaV11PtrOutput {
 	return i.ToWirelessDeviceOtaaV11PtrOutputWithContext(context.Background())
 }
@@ -4102,6 +4715,12 @@ func (i *wirelessDeviceOtaaV11PtrType) ToWirelessDeviceOtaaV11PtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(WirelessDeviceOtaaV11PtrOutput)
 }
 
+func (i *wirelessDeviceOtaaV11PtrType) ToOutput(ctx context.Context) pulumix.Output[*WirelessDeviceOtaaV11] {
+	return pulumix.Output[*WirelessDeviceOtaaV11]{
+		OutputState: i.ToWirelessDeviceOtaaV11PtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WirelessDeviceOtaaV11Output struct{ *pulumi.OutputState }
 
 func (WirelessDeviceOtaaV11Output) ElementType() reflect.Type {
@@ -4124,6 +4743,12 @@ func (o WirelessDeviceOtaaV11Output) ToWirelessDeviceOtaaV11PtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v WirelessDeviceOtaaV11) *WirelessDeviceOtaaV11 {
 		return &v
 	}).(WirelessDeviceOtaaV11PtrOutput)
+}
+
+func (o WirelessDeviceOtaaV11Output) ToOutput(ctx context.Context) pulumix.Output[WirelessDeviceOtaaV11] {
+	return pulumix.Output[WirelessDeviceOtaaV11]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WirelessDeviceOtaaV11Output) AppKey() pulumi.StringOutput {
@@ -4150,6 +4775,12 @@ func (o WirelessDeviceOtaaV11PtrOutput) ToWirelessDeviceOtaaV11PtrOutput() Wirel
 
 func (o WirelessDeviceOtaaV11PtrOutput) ToWirelessDeviceOtaaV11PtrOutputWithContext(ctx context.Context) WirelessDeviceOtaaV11PtrOutput {
 	return o
+}
+
+func (o WirelessDeviceOtaaV11PtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WirelessDeviceOtaaV11] {
+	return pulumix.Output[*WirelessDeviceOtaaV11]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WirelessDeviceOtaaV11PtrOutput) Elem() WirelessDeviceOtaaV11Output {
@@ -4222,6 +4853,12 @@ func (i WirelessDeviceSessionKeysAbpV10xArgs) ToWirelessDeviceSessionKeysAbpV10x
 	return pulumi.ToOutputWithContext(ctx, i).(WirelessDeviceSessionKeysAbpV10xOutput)
 }
 
+func (i WirelessDeviceSessionKeysAbpV10xArgs) ToOutput(ctx context.Context) pulumix.Output[WirelessDeviceSessionKeysAbpV10x] {
+	return pulumix.Output[WirelessDeviceSessionKeysAbpV10x]{
+		OutputState: i.ToWirelessDeviceSessionKeysAbpV10xOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i WirelessDeviceSessionKeysAbpV10xArgs) ToWirelessDeviceSessionKeysAbpV10xPtrOutput() WirelessDeviceSessionKeysAbpV10xPtrOutput {
 	return i.ToWirelessDeviceSessionKeysAbpV10xPtrOutputWithContext(context.Background())
 }
@@ -4263,6 +4900,12 @@ func (i *wirelessDeviceSessionKeysAbpV10xPtrType) ToWirelessDeviceSessionKeysAbp
 	return pulumi.ToOutputWithContext(ctx, i).(WirelessDeviceSessionKeysAbpV10xPtrOutput)
 }
 
+func (i *wirelessDeviceSessionKeysAbpV10xPtrType) ToOutput(ctx context.Context) pulumix.Output[*WirelessDeviceSessionKeysAbpV10x] {
+	return pulumix.Output[*WirelessDeviceSessionKeysAbpV10x]{
+		OutputState: i.ToWirelessDeviceSessionKeysAbpV10xPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WirelessDeviceSessionKeysAbpV10xOutput struct{ *pulumi.OutputState }
 
 func (WirelessDeviceSessionKeysAbpV10xOutput) ElementType() reflect.Type {
@@ -4287,6 +4930,12 @@ func (o WirelessDeviceSessionKeysAbpV10xOutput) ToWirelessDeviceSessionKeysAbpV1
 	}).(WirelessDeviceSessionKeysAbpV10xPtrOutput)
 }
 
+func (o WirelessDeviceSessionKeysAbpV10xOutput) ToOutput(ctx context.Context) pulumix.Output[WirelessDeviceSessionKeysAbpV10x] {
+	return pulumix.Output[WirelessDeviceSessionKeysAbpV10x]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WirelessDeviceSessionKeysAbpV10xOutput) AppSKey() pulumi.StringOutput {
 	return o.ApplyT(func(v WirelessDeviceSessionKeysAbpV10x) string { return v.AppSKey }).(pulumi.StringOutput)
 }
@@ -4307,6 +4956,12 @@ func (o WirelessDeviceSessionKeysAbpV10xPtrOutput) ToWirelessDeviceSessionKeysAb
 
 func (o WirelessDeviceSessionKeysAbpV10xPtrOutput) ToWirelessDeviceSessionKeysAbpV10xPtrOutputWithContext(ctx context.Context) WirelessDeviceSessionKeysAbpV10xPtrOutput {
 	return o
+}
+
+func (o WirelessDeviceSessionKeysAbpV10xPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WirelessDeviceSessionKeysAbpV10x] {
+	return pulumix.Output[*WirelessDeviceSessionKeysAbpV10x]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WirelessDeviceSessionKeysAbpV10xPtrOutput) Elem() WirelessDeviceSessionKeysAbpV10xOutput {
@@ -4374,6 +5029,12 @@ func (i WirelessDeviceSessionKeysAbpV11Args) ToWirelessDeviceSessionKeysAbpV11Ou
 	return pulumi.ToOutputWithContext(ctx, i).(WirelessDeviceSessionKeysAbpV11Output)
 }
 
+func (i WirelessDeviceSessionKeysAbpV11Args) ToOutput(ctx context.Context) pulumix.Output[WirelessDeviceSessionKeysAbpV11] {
+	return pulumix.Output[WirelessDeviceSessionKeysAbpV11]{
+		OutputState: i.ToWirelessDeviceSessionKeysAbpV11OutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i WirelessDeviceSessionKeysAbpV11Args) ToWirelessDeviceSessionKeysAbpV11PtrOutput() WirelessDeviceSessionKeysAbpV11PtrOutput {
 	return i.ToWirelessDeviceSessionKeysAbpV11PtrOutputWithContext(context.Background())
 }
@@ -4415,6 +5076,12 @@ func (i *wirelessDeviceSessionKeysAbpV11PtrType) ToWirelessDeviceSessionKeysAbpV
 	return pulumi.ToOutputWithContext(ctx, i).(WirelessDeviceSessionKeysAbpV11PtrOutput)
 }
 
+func (i *wirelessDeviceSessionKeysAbpV11PtrType) ToOutput(ctx context.Context) pulumix.Output[*WirelessDeviceSessionKeysAbpV11] {
+	return pulumix.Output[*WirelessDeviceSessionKeysAbpV11]{
+		OutputState: i.ToWirelessDeviceSessionKeysAbpV11PtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WirelessDeviceSessionKeysAbpV11Output struct{ *pulumi.OutputState }
 
 func (WirelessDeviceSessionKeysAbpV11Output) ElementType() reflect.Type {
@@ -4437,6 +5104,12 @@ func (o WirelessDeviceSessionKeysAbpV11Output) ToWirelessDeviceSessionKeysAbpV11
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v WirelessDeviceSessionKeysAbpV11) *WirelessDeviceSessionKeysAbpV11 {
 		return &v
 	}).(WirelessDeviceSessionKeysAbpV11PtrOutput)
+}
+
+func (o WirelessDeviceSessionKeysAbpV11Output) ToOutput(ctx context.Context) pulumix.Output[WirelessDeviceSessionKeysAbpV11] {
+	return pulumix.Output[WirelessDeviceSessionKeysAbpV11]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WirelessDeviceSessionKeysAbpV11Output) AppSKey() pulumi.StringOutput {
@@ -4467,6 +5140,12 @@ func (o WirelessDeviceSessionKeysAbpV11PtrOutput) ToWirelessDeviceSessionKeysAbp
 
 func (o WirelessDeviceSessionKeysAbpV11PtrOutput) ToWirelessDeviceSessionKeysAbpV11PtrOutputWithContext(ctx context.Context) WirelessDeviceSessionKeysAbpV11PtrOutput {
 	return o
+}
+
+func (o WirelessDeviceSessionKeysAbpV11PtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WirelessDeviceSessionKeysAbpV11] {
+	return pulumix.Output[*WirelessDeviceSessionKeysAbpV11]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WirelessDeviceSessionKeysAbpV11PtrOutput) Elem() WirelessDeviceSessionKeysAbpV11Output {
@@ -4548,6 +5227,12 @@ func (i WirelessDeviceTagArgs) ToWirelessDeviceTagOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(WirelessDeviceTagOutput)
 }
 
+func (i WirelessDeviceTagArgs) ToOutput(ctx context.Context) pulumix.Output[WirelessDeviceTag] {
+	return pulumix.Output[WirelessDeviceTag]{
+		OutputState: i.ToWirelessDeviceTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // WirelessDeviceTagArrayInput is an input type that accepts WirelessDeviceTagArray and WirelessDeviceTagArrayOutput values.
 // You can construct a concrete instance of `WirelessDeviceTagArrayInput` via:
 //
@@ -4573,6 +5258,12 @@ func (i WirelessDeviceTagArray) ToWirelessDeviceTagArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(WirelessDeviceTagArrayOutput)
 }
 
+func (i WirelessDeviceTagArray) ToOutput(ctx context.Context) pulumix.Output[[]WirelessDeviceTag] {
+	return pulumix.Output[[]WirelessDeviceTag]{
+		OutputState: i.ToWirelessDeviceTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WirelessDeviceTagOutput struct{ *pulumi.OutputState }
 
 func (WirelessDeviceTagOutput) ElementType() reflect.Type {
@@ -4585,6 +5276,12 @@ func (o WirelessDeviceTagOutput) ToWirelessDeviceTagOutput() WirelessDeviceTagOu
 
 func (o WirelessDeviceTagOutput) ToWirelessDeviceTagOutputWithContext(ctx context.Context) WirelessDeviceTagOutput {
 	return o
+}
+
+func (o WirelessDeviceTagOutput) ToOutput(ctx context.Context) pulumix.Output[WirelessDeviceTag] {
+	return pulumix.Output[WirelessDeviceTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WirelessDeviceTagOutput) Key() pulumi.StringPtrOutput {
@@ -4607,6 +5304,12 @@ func (o WirelessDeviceTagArrayOutput) ToWirelessDeviceTagArrayOutput() WirelessD
 
 func (o WirelessDeviceTagArrayOutput) ToWirelessDeviceTagArrayOutputWithContext(ctx context.Context) WirelessDeviceTagArrayOutput {
 	return o
+}
+
+func (o WirelessDeviceTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]WirelessDeviceTag] {
+	return pulumix.Output[[]WirelessDeviceTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WirelessDeviceTagArrayOutput) Index(i pulumi.IntInput) WirelessDeviceTagOutput {
@@ -4648,6 +5351,12 @@ func (i WirelessGatewayLoRaWANGatewayArgs) ToWirelessGatewayLoRaWANGatewayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(WirelessGatewayLoRaWANGatewayOutput)
 }
 
+func (i WirelessGatewayLoRaWANGatewayArgs) ToOutput(ctx context.Context) pulumix.Output[WirelessGatewayLoRaWANGateway] {
+	return pulumix.Output[WirelessGatewayLoRaWANGateway]{
+		OutputState: i.ToWirelessGatewayLoRaWANGatewayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WirelessGatewayLoRaWANGatewayOutput struct{ *pulumi.OutputState }
 
 func (WirelessGatewayLoRaWANGatewayOutput) ElementType() reflect.Type {
@@ -4660,6 +5369,12 @@ func (o WirelessGatewayLoRaWANGatewayOutput) ToWirelessGatewayLoRaWANGatewayOutp
 
 func (o WirelessGatewayLoRaWANGatewayOutput) ToWirelessGatewayLoRaWANGatewayOutputWithContext(ctx context.Context) WirelessGatewayLoRaWANGatewayOutput {
 	return o
+}
+
+func (o WirelessGatewayLoRaWANGatewayOutput) ToOutput(ctx context.Context) pulumix.Output[WirelessGatewayLoRaWANGateway] {
+	return pulumix.Output[WirelessGatewayLoRaWANGateway]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WirelessGatewayLoRaWANGatewayOutput) GatewayEui() pulumi.StringOutput {
@@ -4682,6 +5397,12 @@ func (o WirelessGatewayLoRaWANGatewayPtrOutput) ToWirelessGatewayLoRaWANGatewayP
 
 func (o WirelessGatewayLoRaWANGatewayPtrOutput) ToWirelessGatewayLoRaWANGatewayPtrOutputWithContext(ctx context.Context) WirelessGatewayLoRaWANGatewayPtrOutput {
 	return o
+}
+
+func (o WirelessGatewayLoRaWANGatewayPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WirelessGatewayLoRaWANGateway] {
+	return pulumix.Output[*WirelessGatewayLoRaWANGateway]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WirelessGatewayLoRaWANGatewayPtrOutput) Elem() WirelessGatewayLoRaWANGatewayOutput {
@@ -4745,6 +5466,12 @@ func (i WirelessGatewayTagArgs) ToWirelessGatewayTagOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(WirelessGatewayTagOutput)
 }
 
+func (i WirelessGatewayTagArgs) ToOutput(ctx context.Context) pulumix.Output[WirelessGatewayTag] {
+	return pulumix.Output[WirelessGatewayTag]{
+		OutputState: i.ToWirelessGatewayTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // WirelessGatewayTagArrayInput is an input type that accepts WirelessGatewayTagArray and WirelessGatewayTagArrayOutput values.
 // You can construct a concrete instance of `WirelessGatewayTagArrayInput` via:
 //
@@ -4770,6 +5497,12 @@ func (i WirelessGatewayTagArray) ToWirelessGatewayTagArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(WirelessGatewayTagArrayOutput)
 }
 
+func (i WirelessGatewayTagArray) ToOutput(ctx context.Context) pulumix.Output[[]WirelessGatewayTag] {
+	return pulumix.Output[[]WirelessGatewayTag]{
+		OutputState: i.ToWirelessGatewayTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WirelessGatewayTagOutput struct{ *pulumi.OutputState }
 
 func (WirelessGatewayTagOutput) ElementType() reflect.Type {
@@ -4782,6 +5515,12 @@ func (o WirelessGatewayTagOutput) ToWirelessGatewayTagOutput() WirelessGatewayTa
 
 func (o WirelessGatewayTagOutput) ToWirelessGatewayTagOutputWithContext(ctx context.Context) WirelessGatewayTagOutput {
 	return o
+}
+
+func (o WirelessGatewayTagOutput) ToOutput(ctx context.Context) pulumix.Output[WirelessGatewayTag] {
+	return pulumix.Output[WirelessGatewayTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WirelessGatewayTagOutput) Key() pulumi.StringPtrOutput {
@@ -4804,6 +5543,12 @@ func (o WirelessGatewayTagArrayOutput) ToWirelessGatewayTagArrayOutput() Wireles
 
 func (o WirelessGatewayTagArrayOutput) ToWirelessGatewayTagArrayOutputWithContext(ctx context.Context) WirelessGatewayTagArrayOutput {
 	return o
+}
+
+func (o WirelessGatewayTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]WirelessGatewayTag] {
+	return pulumix.Output[[]WirelessGatewayTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WirelessGatewayTagArrayOutput) Index(i pulumi.IntInput) WirelessGatewayTagOutput {

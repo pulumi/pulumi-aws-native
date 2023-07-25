@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::IoTSiteWise::AssetModel
@@ -126,6 +127,12 @@ func (i *AssetModel) ToAssetModelOutputWithContext(ctx context.Context) AssetMod
 	return pulumi.ToOutputWithContext(ctx, i).(AssetModelOutput)
 }
 
+func (i *AssetModel) ToOutput(ctx context.Context) pulumix.Output[*AssetModel] {
+	return pulumix.Output[*AssetModel]{
+		OutputState: i.ToAssetModelOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AssetModelOutput struct{ *pulumi.OutputState }
 
 func (AssetModelOutput) ElementType() reflect.Type {
@@ -138,6 +145,12 @@ func (o AssetModelOutput) ToAssetModelOutput() AssetModelOutput {
 
 func (o AssetModelOutput) ToAssetModelOutputWithContext(ctx context.Context) AssetModelOutput {
 	return o
+}
+
+func (o AssetModelOutput) ToOutput(ctx context.Context) pulumix.Output[*AssetModel] {
+	return pulumix.Output[*AssetModel]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the asset model, which has the following format.

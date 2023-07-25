@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Schema of AWS::EC2::IPAMAllocation Type
@@ -110,6 +111,12 @@ func (i *IPAMAllocation) ToIPAMAllocationOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(IPAMAllocationOutput)
 }
 
+func (i *IPAMAllocation) ToOutput(ctx context.Context) pulumix.Output[*IPAMAllocation] {
+	return pulumix.Output[*IPAMAllocation]{
+		OutputState: i.ToIPAMAllocationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IPAMAllocationOutput struct{ *pulumi.OutputState }
 
 func (IPAMAllocationOutput) ElementType() reflect.Type {
@@ -122,6 +129,12 @@ func (o IPAMAllocationOutput) ToIPAMAllocationOutput() IPAMAllocationOutput {
 
 func (o IPAMAllocationOutput) ToIPAMAllocationOutputWithContext(ctx context.Context) IPAMAllocationOutput {
 	return o
+}
+
+func (o IPAMAllocationOutput) ToOutput(ctx context.Context) pulumix.Output[*IPAMAllocation] {
+	return pulumix.Output[*IPAMAllocation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IPAMAllocationOutput) Cidr() pulumi.StringPtrOutput {

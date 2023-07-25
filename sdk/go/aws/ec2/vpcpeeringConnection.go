@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::VPCPeeringConnection
@@ -126,6 +127,12 @@ func (i *VPCPeeringConnection) ToVPCPeeringConnectionOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(VPCPeeringConnectionOutput)
 }
 
+func (i *VPCPeeringConnection) ToOutput(ctx context.Context) pulumix.Output[*VPCPeeringConnection] {
+	return pulumix.Output[*VPCPeeringConnection]{
+		OutputState: i.ToVPCPeeringConnectionOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VPCPeeringConnectionOutput struct{ *pulumi.OutputState }
 
 func (VPCPeeringConnectionOutput) ElementType() reflect.Type {
@@ -138,6 +145,12 @@ func (o VPCPeeringConnectionOutput) ToVPCPeeringConnectionOutput() VPCPeeringCon
 
 func (o VPCPeeringConnectionOutput) ToVPCPeeringConnectionOutputWithContext(ctx context.Context) VPCPeeringConnectionOutput {
 	return o
+}
+
+func (o VPCPeeringConnectionOutput) ToOutput(ctx context.Context) pulumix.Output[*VPCPeeringConnection] {
+	return pulumix.Output[*VPCPeeringConnection]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The AWS account ID of the owner of the accepter VPC.

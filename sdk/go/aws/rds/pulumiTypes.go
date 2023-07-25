@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -52,6 +53,12 @@ func (i CustomDBEngineVersionTagArgs) ToCustomDBEngineVersionTagOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(CustomDBEngineVersionTagOutput)
 }
 
+func (i CustomDBEngineVersionTagArgs) ToOutput(ctx context.Context) pulumix.Output[CustomDBEngineVersionTag] {
+	return pulumix.Output[CustomDBEngineVersionTag]{
+		OutputState: i.ToCustomDBEngineVersionTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CustomDBEngineVersionTagArrayInput is an input type that accepts CustomDBEngineVersionTagArray and CustomDBEngineVersionTagArrayOutput values.
 // You can construct a concrete instance of `CustomDBEngineVersionTagArrayInput` via:
 //
@@ -77,6 +84,12 @@ func (i CustomDBEngineVersionTagArray) ToCustomDBEngineVersionTagArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(CustomDBEngineVersionTagArrayOutput)
 }
 
+func (i CustomDBEngineVersionTagArray) ToOutput(ctx context.Context) pulumix.Output[[]CustomDBEngineVersionTag] {
+	return pulumix.Output[[]CustomDBEngineVersionTag]{
+		OutputState: i.ToCustomDBEngineVersionTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type CustomDBEngineVersionTagOutput struct{ *pulumi.OutputState }
 
@@ -90,6 +103,12 @@ func (o CustomDBEngineVersionTagOutput) ToCustomDBEngineVersionTagOutput() Custo
 
 func (o CustomDBEngineVersionTagOutput) ToCustomDBEngineVersionTagOutputWithContext(ctx context.Context) CustomDBEngineVersionTagOutput {
 	return o
+}
+
+func (o CustomDBEngineVersionTagOutput) ToOutput(ctx context.Context) pulumix.Output[CustomDBEngineVersionTag] {
+	return pulumix.Output[CustomDBEngineVersionTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -114,6 +133,12 @@ func (o CustomDBEngineVersionTagArrayOutput) ToCustomDBEngineVersionTagArrayOutp
 
 func (o CustomDBEngineVersionTagArrayOutput) ToCustomDBEngineVersionTagArrayOutputWithContext(ctx context.Context) CustomDBEngineVersionTagArrayOutput {
 	return o
+}
+
+func (o CustomDBEngineVersionTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CustomDBEngineVersionTag] {
+	return pulumix.Output[[]CustomDBEngineVersionTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CustomDBEngineVersionTagArrayOutput) Index(i pulumi.IntInput) CustomDBEngineVersionTagOutput {
@@ -143,6 +168,12 @@ func (o DBClusterEndpointOutput) ToDBClusterEndpointOutputWithContext(ctx contex
 	return o
 }
 
+func (o DBClusterEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[DBClusterEndpoint] {
+	return pulumix.Output[DBClusterEndpoint]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The connection endpoint for the DB cluster.
 func (o DBClusterEndpointOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DBClusterEndpoint) *string { return v.Address }).(pulumi.StringPtrOutput)
@@ -165,6 +196,12 @@ func (o DBClusterEndpointPtrOutput) ToDBClusterEndpointPtrOutput() DBClusterEndp
 
 func (o DBClusterEndpointPtrOutput) ToDBClusterEndpointPtrOutputWithContext(ctx context.Context) DBClusterEndpointPtrOutput {
 	return o
+}
+
+func (o DBClusterEndpointPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DBClusterEndpoint] {
+	return pulumix.Output[*DBClusterEndpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DBClusterEndpointPtrOutput) Elem() DBClusterEndpointOutput {
@@ -234,6 +271,12 @@ func (i DBClusterMasterUserSecretArgs) ToDBClusterMasterUserSecretOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(DBClusterMasterUserSecretOutput)
 }
 
+func (i DBClusterMasterUserSecretArgs) ToOutput(ctx context.Context) pulumix.Output[DBClusterMasterUserSecret] {
+	return pulumix.Output[DBClusterMasterUserSecret]{
+		OutputState: i.ToDBClusterMasterUserSecretOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DBClusterMasterUserSecretArgs) ToDBClusterMasterUserSecretPtrOutput() DBClusterMasterUserSecretPtrOutput {
 	return i.ToDBClusterMasterUserSecretPtrOutputWithContext(context.Background())
 }
@@ -275,6 +318,12 @@ func (i *dbclusterMasterUserSecretPtrType) ToDBClusterMasterUserSecretPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(DBClusterMasterUserSecretPtrOutput)
 }
 
+func (i *dbclusterMasterUserSecretPtrType) ToOutput(ctx context.Context) pulumix.Output[*DBClusterMasterUserSecret] {
+	return pulumix.Output[*DBClusterMasterUserSecret]{
+		OutputState: i.ToDBClusterMasterUserSecretPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DBClusterMasterUserSecretOutput struct{ *pulumi.OutputState }
 
 func (DBClusterMasterUserSecretOutput) ElementType() reflect.Type {
@@ -299,6 +348,12 @@ func (o DBClusterMasterUserSecretOutput) ToDBClusterMasterUserSecretPtrOutputWit
 	}).(DBClusterMasterUserSecretPtrOutput)
 }
 
+func (o DBClusterMasterUserSecretOutput) ToOutput(ctx context.Context) pulumix.Output[DBClusterMasterUserSecret] {
+	return pulumix.Output[DBClusterMasterUserSecret]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The AWS KMS key identifier that is used to encrypt the secret.
 func (o DBClusterMasterUserSecretOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DBClusterMasterUserSecret) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
@@ -321,6 +376,12 @@ func (o DBClusterMasterUserSecretPtrOutput) ToDBClusterMasterUserSecretPtrOutput
 
 func (o DBClusterMasterUserSecretPtrOutput) ToDBClusterMasterUserSecretPtrOutputWithContext(ctx context.Context) DBClusterMasterUserSecretPtrOutput {
 	return o
+}
+
+func (o DBClusterMasterUserSecretPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DBClusterMasterUserSecret] {
+	return pulumix.Output[*DBClusterMasterUserSecret]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DBClusterMasterUserSecretPtrOutput) Elem() DBClusterMasterUserSecretOutput {
@@ -392,6 +453,12 @@ func (i DBClusterParameterGroupTagArgs) ToDBClusterParameterGroupTagOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(DBClusterParameterGroupTagOutput)
 }
 
+func (i DBClusterParameterGroupTagArgs) ToOutput(ctx context.Context) pulumix.Output[DBClusterParameterGroupTag] {
+	return pulumix.Output[DBClusterParameterGroupTag]{
+		OutputState: i.ToDBClusterParameterGroupTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DBClusterParameterGroupTagArrayInput is an input type that accepts DBClusterParameterGroupTagArray and DBClusterParameterGroupTagArrayOutput values.
 // You can construct a concrete instance of `DBClusterParameterGroupTagArrayInput` via:
 //
@@ -417,6 +484,12 @@ func (i DBClusterParameterGroupTagArray) ToDBClusterParameterGroupTagArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(DBClusterParameterGroupTagArrayOutput)
 }
 
+func (i DBClusterParameterGroupTagArray) ToOutput(ctx context.Context) pulumix.Output[[]DBClusterParameterGroupTag] {
+	return pulumix.Output[[]DBClusterParameterGroupTag]{
+		OutputState: i.ToDBClusterParameterGroupTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type DBClusterParameterGroupTagOutput struct{ *pulumi.OutputState }
 
@@ -430,6 +503,12 @@ func (o DBClusterParameterGroupTagOutput) ToDBClusterParameterGroupTagOutput() D
 
 func (o DBClusterParameterGroupTagOutput) ToDBClusterParameterGroupTagOutputWithContext(ctx context.Context) DBClusterParameterGroupTagOutput {
 	return o
+}
+
+func (o DBClusterParameterGroupTagOutput) ToOutput(ctx context.Context) pulumix.Output[DBClusterParameterGroupTag] {
+	return pulumix.Output[DBClusterParameterGroupTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -454,6 +533,12 @@ func (o DBClusterParameterGroupTagArrayOutput) ToDBClusterParameterGroupTagArray
 
 func (o DBClusterParameterGroupTagArrayOutput) ToDBClusterParameterGroupTagArrayOutputWithContext(ctx context.Context) DBClusterParameterGroupTagArrayOutput {
 	return o
+}
+
+func (o DBClusterParameterGroupTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DBClusterParameterGroupTag] {
+	return pulumix.Output[[]DBClusterParameterGroupTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DBClusterParameterGroupTagArrayOutput) Index(i pulumi.IntInput) DBClusterParameterGroupTagOutput {
@@ -493,6 +578,12 @@ func (i DBClusterReadEndpointArgs) ToDBClusterReadEndpointOutput() DBClusterRead
 
 func (i DBClusterReadEndpointArgs) ToDBClusterReadEndpointOutputWithContext(ctx context.Context) DBClusterReadEndpointOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DBClusterReadEndpointOutput)
+}
+
+func (i DBClusterReadEndpointArgs) ToOutput(ctx context.Context) pulumix.Output[DBClusterReadEndpoint] {
+	return pulumix.Output[DBClusterReadEndpoint]{
+		OutputState: i.ToDBClusterReadEndpointOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i DBClusterReadEndpointArgs) ToDBClusterReadEndpointPtrOutput() DBClusterReadEndpointPtrOutput {
@@ -536,6 +627,12 @@ func (i *dbclusterReadEndpointPtrType) ToDBClusterReadEndpointPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(DBClusterReadEndpointPtrOutput)
 }
 
+func (i *dbclusterReadEndpointPtrType) ToOutput(ctx context.Context) pulumix.Output[*DBClusterReadEndpoint] {
+	return pulumix.Output[*DBClusterReadEndpoint]{
+		OutputState: i.ToDBClusterReadEndpointPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DBClusterReadEndpointOutput struct{ *pulumi.OutputState }
 
 func (DBClusterReadEndpointOutput) ElementType() reflect.Type {
@@ -560,6 +657,12 @@ func (o DBClusterReadEndpointOutput) ToDBClusterReadEndpointPtrOutputWithContext
 	}).(DBClusterReadEndpointPtrOutput)
 }
 
+func (o DBClusterReadEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[DBClusterReadEndpoint] {
+	return pulumix.Output[DBClusterReadEndpoint]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The reader endpoint for the DB cluster.
 func (o DBClusterReadEndpointOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DBClusterReadEndpoint) *string { return v.Address }).(pulumi.StringPtrOutput)
@@ -577,6 +680,12 @@ func (o DBClusterReadEndpointPtrOutput) ToDBClusterReadEndpointPtrOutput() DBClu
 
 func (o DBClusterReadEndpointPtrOutput) ToDBClusterReadEndpointPtrOutputWithContext(ctx context.Context) DBClusterReadEndpointPtrOutput {
 	return o
+}
+
+func (o DBClusterReadEndpointPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DBClusterReadEndpoint] {
+	return pulumix.Output[*DBClusterReadEndpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DBClusterReadEndpointPtrOutput) Elem() DBClusterReadEndpointOutput {
@@ -638,6 +747,12 @@ func (i DBClusterRoleArgs) ToDBClusterRoleOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(DBClusterRoleOutput)
 }
 
+func (i DBClusterRoleArgs) ToOutput(ctx context.Context) pulumix.Output[DBClusterRole] {
+	return pulumix.Output[DBClusterRole]{
+		OutputState: i.ToDBClusterRoleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DBClusterRoleArrayInput is an input type that accepts DBClusterRoleArray and DBClusterRoleArrayOutput values.
 // You can construct a concrete instance of `DBClusterRoleArrayInput` via:
 //
@@ -663,6 +778,12 @@ func (i DBClusterRoleArray) ToDBClusterRoleArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(DBClusterRoleArrayOutput)
 }
 
+func (i DBClusterRoleArray) ToOutput(ctx context.Context) pulumix.Output[[]DBClusterRole] {
+	return pulumix.Output[[]DBClusterRole]{
+		OutputState: i.ToDBClusterRoleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Describes an AWS Identity and Access Management (IAM) role that is associated with a DB cluster.
 type DBClusterRoleOutput struct{ *pulumi.OutputState }
 
@@ -676,6 +797,12 @@ func (o DBClusterRoleOutput) ToDBClusterRoleOutput() DBClusterRoleOutput {
 
 func (o DBClusterRoleOutput) ToDBClusterRoleOutputWithContext(ctx context.Context) DBClusterRoleOutput {
 	return o
+}
+
+func (o DBClusterRoleOutput) ToOutput(ctx context.Context) pulumix.Output[DBClusterRole] {
+	return pulumix.Output[DBClusterRole]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the feature associated with the AWS Identity and Access Management (IAM) role. For the list of supported feature names, see DBEngineVersion in the Amazon RDS API Reference.
@@ -700,6 +827,12 @@ func (o DBClusterRoleArrayOutput) ToDBClusterRoleArrayOutput() DBClusterRoleArra
 
 func (o DBClusterRoleArrayOutput) ToDBClusterRoleArrayOutputWithContext(ctx context.Context) DBClusterRoleArrayOutput {
 	return o
+}
+
+func (o DBClusterRoleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DBClusterRole] {
+	return pulumix.Output[[]DBClusterRole]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DBClusterRoleArrayOutput) Index(i pulumi.IntInput) DBClusterRoleOutput {
@@ -785,6 +918,12 @@ func (i DBClusterScalingConfigurationArgs) ToDBClusterScalingConfigurationOutput
 	return pulumi.ToOutputWithContext(ctx, i).(DBClusterScalingConfigurationOutput)
 }
 
+func (i DBClusterScalingConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DBClusterScalingConfiguration] {
+	return pulumix.Output[DBClusterScalingConfiguration]{
+		OutputState: i.ToDBClusterScalingConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DBClusterScalingConfigurationArgs) ToDBClusterScalingConfigurationPtrOutput() DBClusterScalingConfigurationPtrOutput {
 	return i.ToDBClusterScalingConfigurationPtrOutputWithContext(context.Background())
 }
@@ -826,6 +965,12 @@ func (i *dbclusterScalingConfigurationPtrType) ToDBClusterScalingConfigurationPt
 	return pulumi.ToOutputWithContext(ctx, i).(DBClusterScalingConfigurationPtrOutput)
 }
 
+func (i *dbclusterScalingConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DBClusterScalingConfiguration] {
+	return pulumix.Output[*DBClusterScalingConfiguration]{
+		OutputState: i.ToDBClusterScalingConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The ScalingConfiguration property type specifies the scaling configuration of an Aurora Serverless DB cluster.
 type DBClusterScalingConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -849,6 +994,12 @@ func (o DBClusterScalingConfigurationOutput) ToDBClusterScalingConfigurationPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DBClusterScalingConfiguration) *DBClusterScalingConfiguration {
 		return &v
 	}).(DBClusterScalingConfigurationPtrOutput)
+}
+
+func (o DBClusterScalingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DBClusterScalingConfiguration] {
+	return pulumix.Output[DBClusterScalingConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A value that indicates whether to allow or disallow automatic pause for an Aurora DB cluster in serverless DB engine mode. A DB cluster can be paused only when it's idle (it has no connections).
@@ -904,6 +1055,12 @@ func (o DBClusterScalingConfigurationPtrOutput) ToDBClusterScalingConfigurationP
 
 func (o DBClusterScalingConfigurationPtrOutput) ToDBClusterScalingConfigurationPtrOutputWithContext(ctx context.Context) DBClusterScalingConfigurationPtrOutput {
 	return o
+}
+
+func (o DBClusterScalingConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DBClusterScalingConfiguration] {
+	return pulumix.Output[*DBClusterScalingConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DBClusterScalingConfigurationPtrOutput) Elem() DBClusterScalingConfigurationOutput {
@@ -1026,6 +1183,12 @@ func (i DBClusterServerlessV2ScalingConfigurationArgs) ToDBClusterServerlessV2Sc
 	return pulumi.ToOutputWithContext(ctx, i).(DBClusterServerlessV2ScalingConfigurationOutput)
 }
 
+func (i DBClusterServerlessV2ScalingConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DBClusterServerlessV2ScalingConfiguration] {
+	return pulumix.Output[DBClusterServerlessV2ScalingConfiguration]{
+		OutputState: i.ToDBClusterServerlessV2ScalingConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DBClusterServerlessV2ScalingConfigurationArgs) ToDBClusterServerlessV2ScalingConfigurationPtrOutput() DBClusterServerlessV2ScalingConfigurationPtrOutput {
 	return i.ToDBClusterServerlessV2ScalingConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1067,6 +1230,12 @@ func (i *dbclusterServerlessV2ScalingConfigurationPtrType) ToDBClusterServerless
 	return pulumi.ToOutputWithContext(ctx, i).(DBClusterServerlessV2ScalingConfigurationPtrOutput)
 }
 
+func (i *dbclusterServerlessV2ScalingConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DBClusterServerlessV2ScalingConfiguration] {
+	return pulumix.Output[*DBClusterServerlessV2ScalingConfiguration]{
+		OutputState: i.ToDBClusterServerlessV2ScalingConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Contains the scaling configuration of an Aurora Serverless v2 DB cluster.
 type DBClusterServerlessV2ScalingConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -1092,6 +1261,12 @@ func (o DBClusterServerlessV2ScalingConfigurationOutput) ToDBClusterServerlessV2
 	}).(DBClusterServerlessV2ScalingConfigurationPtrOutput)
 }
 
+func (o DBClusterServerlessV2ScalingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DBClusterServerlessV2ScalingConfiguration] {
+	return pulumix.Output[DBClusterServerlessV2ScalingConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The maximum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 40, 40.5, 41, and so on. The largest value that you can use is 128.
 func (o DBClusterServerlessV2ScalingConfigurationOutput) MaxCapacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v DBClusterServerlessV2ScalingConfiguration) *float64 { return v.MaxCapacity }).(pulumi.Float64PtrOutput)
@@ -1114,6 +1289,12 @@ func (o DBClusterServerlessV2ScalingConfigurationPtrOutput) ToDBClusterServerles
 
 func (o DBClusterServerlessV2ScalingConfigurationPtrOutput) ToDBClusterServerlessV2ScalingConfigurationPtrOutputWithContext(ctx context.Context) DBClusterServerlessV2ScalingConfigurationPtrOutput {
 	return o
+}
+
+func (o DBClusterServerlessV2ScalingConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DBClusterServerlessV2ScalingConfiguration] {
+	return pulumix.Output[*DBClusterServerlessV2ScalingConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DBClusterServerlessV2ScalingConfigurationPtrOutput) Elem() DBClusterServerlessV2ScalingConfigurationOutput {
@@ -1185,6 +1366,12 @@ func (i DBClusterTagArgs) ToDBClusterTagOutputWithContext(ctx context.Context) D
 	return pulumi.ToOutputWithContext(ctx, i).(DBClusterTagOutput)
 }
 
+func (i DBClusterTagArgs) ToOutput(ctx context.Context) pulumix.Output[DBClusterTag] {
+	return pulumix.Output[DBClusterTag]{
+		OutputState: i.ToDBClusterTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DBClusterTagArrayInput is an input type that accepts DBClusterTagArray and DBClusterTagArrayOutput values.
 // You can construct a concrete instance of `DBClusterTagArrayInput` via:
 //
@@ -1210,6 +1397,12 @@ func (i DBClusterTagArray) ToDBClusterTagArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(DBClusterTagArrayOutput)
 }
 
+func (i DBClusterTagArray) ToOutput(ctx context.Context) pulumix.Output[[]DBClusterTag] {
+	return pulumix.Output[[]DBClusterTag]{
+		OutputState: i.ToDBClusterTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type DBClusterTagOutput struct{ *pulumi.OutputState }
 
@@ -1223,6 +1416,12 @@ func (o DBClusterTagOutput) ToDBClusterTagOutput() DBClusterTagOutput {
 
 func (o DBClusterTagOutput) ToDBClusterTagOutputWithContext(ctx context.Context) DBClusterTagOutput {
 	return o
+}
+
+func (o DBClusterTagOutput) ToOutput(ctx context.Context) pulumix.Output[DBClusterTag] {
+	return pulumix.Output[DBClusterTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -1247,6 +1446,12 @@ func (o DBClusterTagArrayOutput) ToDBClusterTagArrayOutput() DBClusterTagArrayOu
 
 func (o DBClusterTagArrayOutput) ToDBClusterTagArrayOutputWithContext(ctx context.Context) DBClusterTagArrayOutput {
 	return o
+}
+
+func (o DBClusterTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DBClusterTag] {
+	return pulumix.Output[[]DBClusterTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DBClusterTagArrayOutput) Index(i pulumi.IntInput) DBClusterTagOutput {
@@ -1292,6 +1497,12 @@ func (i DBInstanceCertificateDetailsArgs) ToDBInstanceCertificateDetailsOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(DBInstanceCertificateDetailsOutput)
 }
 
+func (i DBInstanceCertificateDetailsArgs) ToOutput(ctx context.Context) pulumix.Output[DBInstanceCertificateDetails] {
+	return pulumix.Output[DBInstanceCertificateDetails]{
+		OutputState: i.ToDBInstanceCertificateDetailsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DBInstanceCertificateDetailsArgs) ToDBInstanceCertificateDetailsPtrOutput() DBInstanceCertificateDetailsPtrOutput {
 	return i.ToDBInstanceCertificateDetailsPtrOutputWithContext(context.Background())
 }
@@ -1333,6 +1544,12 @@ func (i *dbinstanceCertificateDetailsPtrType) ToDBInstanceCertificateDetailsPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(DBInstanceCertificateDetailsPtrOutput)
 }
 
+func (i *dbinstanceCertificateDetailsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DBInstanceCertificateDetails] {
+	return pulumix.Output[*DBInstanceCertificateDetails]{
+		OutputState: i.ToDBInstanceCertificateDetailsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DBInstanceCertificateDetailsOutput struct{ *pulumi.OutputState }
 
 func (DBInstanceCertificateDetailsOutput) ElementType() reflect.Type {
@@ -1357,6 +1574,12 @@ func (o DBInstanceCertificateDetailsOutput) ToDBInstanceCertificateDetailsPtrOut
 	}).(DBInstanceCertificateDetailsPtrOutput)
 }
 
+func (o DBInstanceCertificateDetailsOutput) ToOutput(ctx context.Context) pulumix.Output[DBInstanceCertificateDetails] {
+	return pulumix.Output[DBInstanceCertificateDetails]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The CA identifier of the CA certificate used for the DB instance's server certificate.
 func (o DBInstanceCertificateDetailsOutput) CAIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DBInstanceCertificateDetails) *string { return v.CAIdentifier }).(pulumi.StringPtrOutput)
@@ -1379,6 +1602,12 @@ func (o DBInstanceCertificateDetailsPtrOutput) ToDBInstanceCertificateDetailsPtr
 
 func (o DBInstanceCertificateDetailsPtrOutput) ToDBInstanceCertificateDetailsPtrOutputWithContext(ctx context.Context) DBInstanceCertificateDetailsPtrOutput {
 	return o
+}
+
+func (o DBInstanceCertificateDetailsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DBInstanceCertificateDetails] {
+	return pulumix.Output[*DBInstanceCertificateDetails]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DBInstanceCertificateDetailsPtrOutput) Elem() DBInstanceCertificateDetailsOutput {
@@ -1452,6 +1681,12 @@ func (i DBInstanceEndpointArgs) ToDBInstanceEndpointOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(DBInstanceEndpointOutput)
 }
 
+func (i DBInstanceEndpointArgs) ToOutput(ctx context.Context) pulumix.Output[DBInstanceEndpoint] {
+	return pulumix.Output[DBInstanceEndpoint]{
+		OutputState: i.ToDBInstanceEndpointOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DBInstanceEndpointArgs) ToDBInstanceEndpointPtrOutput() DBInstanceEndpointPtrOutput {
 	return i.ToDBInstanceEndpointPtrOutputWithContext(context.Background())
 }
@@ -1493,6 +1728,12 @@ func (i *dbinstanceEndpointPtrType) ToDBInstanceEndpointPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(DBInstanceEndpointPtrOutput)
 }
 
+func (i *dbinstanceEndpointPtrType) ToOutput(ctx context.Context) pulumix.Output[*DBInstanceEndpoint] {
+	return pulumix.Output[*DBInstanceEndpoint]{
+		OutputState: i.ToDBInstanceEndpointPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DBInstanceEndpointOutput struct{ *pulumi.OutputState }
 
 func (DBInstanceEndpointOutput) ElementType() reflect.Type {
@@ -1515,6 +1756,12 @@ func (o DBInstanceEndpointOutput) ToDBInstanceEndpointPtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DBInstanceEndpoint) *DBInstanceEndpoint {
 		return &v
 	}).(DBInstanceEndpointPtrOutput)
+}
+
+func (o DBInstanceEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[DBInstanceEndpoint] {
+	return pulumix.Output[DBInstanceEndpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the DNS address of the DB instance.
@@ -1544,6 +1791,12 @@ func (o DBInstanceEndpointPtrOutput) ToDBInstanceEndpointPtrOutput() DBInstanceE
 
 func (o DBInstanceEndpointPtrOutput) ToDBInstanceEndpointPtrOutputWithContext(ctx context.Context) DBInstanceEndpointPtrOutput {
 	return o
+}
+
+func (o DBInstanceEndpointPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DBInstanceEndpoint] {
+	return pulumix.Output[*DBInstanceEndpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DBInstanceEndpointPtrOutput) Elem() DBInstanceEndpointOutput {
@@ -1623,6 +1876,12 @@ func (i DBInstanceMasterUserSecretArgs) ToDBInstanceMasterUserSecretOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(DBInstanceMasterUserSecretOutput)
 }
 
+func (i DBInstanceMasterUserSecretArgs) ToOutput(ctx context.Context) pulumix.Output[DBInstanceMasterUserSecret] {
+	return pulumix.Output[DBInstanceMasterUserSecret]{
+		OutputState: i.ToDBInstanceMasterUserSecretOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DBInstanceMasterUserSecretArgs) ToDBInstanceMasterUserSecretPtrOutput() DBInstanceMasterUserSecretPtrOutput {
 	return i.ToDBInstanceMasterUserSecretPtrOutputWithContext(context.Background())
 }
@@ -1664,6 +1923,12 @@ func (i *dbinstanceMasterUserSecretPtrType) ToDBInstanceMasterUserSecretPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(DBInstanceMasterUserSecretPtrOutput)
 }
 
+func (i *dbinstanceMasterUserSecretPtrType) ToOutput(ctx context.Context) pulumix.Output[*DBInstanceMasterUserSecret] {
+	return pulumix.Output[*DBInstanceMasterUserSecret]{
+		OutputState: i.ToDBInstanceMasterUserSecretPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DBInstanceMasterUserSecretOutput struct{ *pulumi.OutputState }
 
 func (DBInstanceMasterUserSecretOutput) ElementType() reflect.Type {
@@ -1688,6 +1953,12 @@ func (o DBInstanceMasterUserSecretOutput) ToDBInstanceMasterUserSecretPtrOutputW
 	}).(DBInstanceMasterUserSecretPtrOutput)
 }
 
+func (o DBInstanceMasterUserSecretOutput) ToOutput(ctx context.Context) pulumix.Output[DBInstanceMasterUserSecret] {
+	return pulumix.Output[DBInstanceMasterUserSecret]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The AWS KMS key identifier that is used to encrypt the secret.
 func (o DBInstanceMasterUserSecretOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DBInstanceMasterUserSecret) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
@@ -1710,6 +1981,12 @@ func (o DBInstanceMasterUserSecretPtrOutput) ToDBInstanceMasterUserSecretPtrOutp
 
 func (o DBInstanceMasterUserSecretPtrOutput) ToDBInstanceMasterUserSecretPtrOutputWithContext(ctx context.Context) DBInstanceMasterUserSecretPtrOutput {
 	return o
+}
+
+func (o DBInstanceMasterUserSecretPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DBInstanceMasterUserSecret] {
+	return pulumix.Output[*DBInstanceMasterUserSecret]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DBInstanceMasterUserSecretPtrOutput) Elem() DBInstanceMasterUserSecretOutput {
@@ -1779,6 +2056,12 @@ func (i DBInstanceProcessorFeatureArgs) ToDBInstanceProcessorFeatureOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(DBInstanceProcessorFeatureOutput)
 }
 
+func (i DBInstanceProcessorFeatureArgs) ToOutput(ctx context.Context) pulumix.Output[DBInstanceProcessorFeature] {
+	return pulumix.Output[DBInstanceProcessorFeature]{
+		OutputState: i.ToDBInstanceProcessorFeatureOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DBInstanceProcessorFeatureArrayInput is an input type that accepts DBInstanceProcessorFeatureArray and DBInstanceProcessorFeatureArrayOutput values.
 // You can construct a concrete instance of `DBInstanceProcessorFeatureArrayInput` via:
 //
@@ -1804,6 +2087,12 @@ func (i DBInstanceProcessorFeatureArray) ToDBInstanceProcessorFeatureArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(DBInstanceProcessorFeatureArrayOutput)
 }
 
+func (i DBInstanceProcessorFeatureArray) ToOutput(ctx context.Context) pulumix.Output[[]DBInstanceProcessorFeature] {
+	return pulumix.Output[[]DBInstanceProcessorFeature]{
+		OutputState: i.ToDBInstanceProcessorFeatureArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DBInstanceProcessorFeatureOutput struct{ *pulumi.OutputState }
 
 func (DBInstanceProcessorFeatureOutput) ElementType() reflect.Type {
@@ -1816,6 +2105,12 @@ func (o DBInstanceProcessorFeatureOutput) ToDBInstanceProcessorFeatureOutput() D
 
 func (o DBInstanceProcessorFeatureOutput) ToDBInstanceProcessorFeatureOutputWithContext(ctx context.Context) DBInstanceProcessorFeatureOutput {
 	return o
+}
+
+func (o DBInstanceProcessorFeatureOutput) ToOutput(ctx context.Context) pulumix.Output[DBInstanceProcessorFeature] {
+	return pulumix.Output[DBInstanceProcessorFeature]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the processor feature. Valid names are coreCount and threadsPerCore.
@@ -1840,6 +2135,12 @@ func (o DBInstanceProcessorFeatureArrayOutput) ToDBInstanceProcessorFeatureArray
 
 func (o DBInstanceProcessorFeatureArrayOutput) ToDBInstanceProcessorFeatureArrayOutputWithContext(ctx context.Context) DBInstanceProcessorFeatureArrayOutput {
 	return o
+}
+
+func (o DBInstanceProcessorFeatureArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DBInstanceProcessorFeature] {
+	return pulumix.Output[[]DBInstanceProcessorFeature]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DBInstanceProcessorFeatureArrayOutput) Index(i pulumi.IntInput) DBInstanceProcessorFeatureOutput {
@@ -1885,6 +2186,12 @@ func (i DBInstanceRoleArgs) ToDBInstanceRoleOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(DBInstanceRoleOutput)
 }
 
+func (i DBInstanceRoleArgs) ToOutput(ctx context.Context) pulumix.Output[DBInstanceRole] {
+	return pulumix.Output[DBInstanceRole]{
+		OutputState: i.ToDBInstanceRoleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DBInstanceRoleArrayInput is an input type that accepts DBInstanceRoleArray and DBInstanceRoleArrayOutput values.
 // You can construct a concrete instance of `DBInstanceRoleArrayInput` via:
 //
@@ -1910,6 +2217,12 @@ func (i DBInstanceRoleArray) ToDBInstanceRoleArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(DBInstanceRoleArrayOutput)
 }
 
+func (i DBInstanceRoleArray) ToOutput(ctx context.Context) pulumix.Output[[]DBInstanceRole] {
+	return pulumix.Output[[]DBInstanceRole]{
+		OutputState: i.ToDBInstanceRoleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DBInstanceRoleOutput struct{ *pulumi.OutputState }
 
 func (DBInstanceRoleOutput) ElementType() reflect.Type {
@@ -1922,6 +2235,12 @@ func (o DBInstanceRoleOutput) ToDBInstanceRoleOutput() DBInstanceRoleOutput {
 
 func (o DBInstanceRoleOutput) ToDBInstanceRoleOutputWithContext(ctx context.Context) DBInstanceRoleOutput {
 	return o
+}
+
+func (o DBInstanceRoleOutput) ToOutput(ctx context.Context) pulumix.Output[DBInstanceRole] {
+	return pulumix.Output[DBInstanceRole]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the feature associated with the AWS Identity and Access Management (IAM) role. IAM roles that are associated with a DB instance grant permission for the DB instance to access other AWS services on your behalf.
@@ -1946,6 +2265,12 @@ func (o DBInstanceRoleArrayOutput) ToDBInstanceRoleArrayOutput() DBInstanceRoleA
 
 func (o DBInstanceRoleArrayOutput) ToDBInstanceRoleArrayOutputWithContext(ctx context.Context) DBInstanceRoleArrayOutput {
 	return o
+}
+
+func (o DBInstanceRoleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DBInstanceRole] {
+	return pulumix.Output[[]DBInstanceRole]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DBInstanceRoleArrayOutput) Index(i pulumi.IntInput) DBInstanceRoleOutput {
@@ -1993,6 +2318,12 @@ func (i DBInstanceTagArgs) ToDBInstanceTagOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(DBInstanceTagOutput)
 }
 
+func (i DBInstanceTagArgs) ToOutput(ctx context.Context) pulumix.Output[DBInstanceTag] {
+	return pulumix.Output[DBInstanceTag]{
+		OutputState: i.ToDBInstanceTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DBInstanceTagArrayInput is an input type that accepts DBInstanceTagArray and DBInstanceTagArrayOutput values.
 // You can construct a concrete instance of `DBInstanceTagArrayInput` via:
 //
@@ -2018,6 +2349,12 @@ func (i DBInstanceTagArray) ToDBInstanceTagArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(DBInstanceTagArrayOutput)
 }
 
+func (i DBInstanceTagArray) ToOutput(ctx context.Context) pulumix.Output[[]DBInstanceTag] {
+	return pulumix.Output[[]DBInstanceTag]{
+		OutputState: i.ToDBInstanceTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type DBInstanceTagOutput struct{ *pulumi.OutputState }
 
@@ -2031,6 +2368,12 @@ func (o DBInstanceTagOutput) ToDBInstanceTagOutput() DBInstanceTagOutput {
 
 func (o DBInstanceTagOutput) ToDBInstanceTagOutputWithContext(ctx context.Context) DBInstanceTagOutput {
 	return o
+}
+
+func (o DBInstanceTagOutput) ToOutput(ctx context.Context) pulumix.Output[DBInstanceTag] {
+	return pulumix.Output[DBInstanceTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -2055,6 +2398,12 @@ func (o DBInstanceTagArrayOutput) ToDBInstanceTagArrayOutput() DBInstanceTagArra
 
 func (o DBInstanceTagArrayOutput) ToDBInstanceTagArrayOutputWithContext(ctx context.Context) DBInstanceTagArrayOutput {
 	return o
+}
+
+func (o DBInstanceTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DBInstanceTag] {
+	return pulumix.Output[[]DBInstanceTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DBInstanceTagArrayOutput) Index(i pulumi.IntInput) DBInstanceTagOutput {
@@ -2102,6 +2451,12 @@ func (i DBParameterGroupTagArgs) ToDBParameterGroupTagOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(DBParameterGroupTagOutput)
 }
 
+func (i DBParameterGroupTagArgs) ToOutput(ctx context.Context) pulumix.Output[DBParameterGroupTag] {
+	return pulumix.Output[DBParameterGroupTag]{
+		OutputState: i.ToDBParameterGroupTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DBParameterGroupTagArrayInput is an input type that accepts DBParameterGroupTagArray and DBParameterGroupTagArrayOutput values.
 // You can construct a concrete instance of `DBParameterGroupTagArrayInput` via:
 //
@@ -2127,6 +2482,12 @@ func (i DBParameterGroupTagArray) ToDBParameterGroupTagArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(DBParameterGroupTagArrayOutput)
 }
 
+func (i DBParameterGroupTagArray) ToOutput(ctx context.Context) pulumix.Output[[]DBParameterGroupTag] {
+	return pulumix.Output[[]DBParameterGroupTag]{
+		OutputState: i.ToDBParameterGroupTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type DBParameterGroupTagOutput struct{ *pulumi.OutputState }
 
@@ -2140,6 +2501,12 @@ func (o DBParameterGroupTagOutput) ToDBParameterGroupTagOutput() DBParameterGrou
 
 func (o DBParameterGroupTagOutput) ToDBParameterGroupTagOutputWithContext(ctx context.Context) DBParameterGroupTagOutput {
 	return o
+}
+
+func (o DBParameterGroupTagOutput) ToOutput(ctx context.Context) pulumix.Output[DBParameterGroupTag] {
+	return pulumix.Output[DBParameterGroupTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -2164,6 +2531,12 @@ func (o DBParameterGroupTagArrayOutput) ToDBParameterGroupTagArrayOutput() DBPar
 
 func (o DBParameterGroupTagArrayOutput) ToDBParameterGroupTagArrayOutputWithContext(ctx context.Context) DBParameterGroupTagArrayOutput {
 	return o
+}
+
+func (o DBParameterGroupTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DBParameterGroupTag] {
+	return pulumix.Output[[]DBParameterGroupTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DBParameterGroupTagArrayOutput) Index(i pulumi.IntInput) DBParameterGroupTagOutput {
@@ -2221,6 +2594,12 @@ func (i DBProxyAuthFormatArgs) ToDBProxyAuthFormatOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(DBProxyAuthFormatOutput)
 }
 
+func (i DBProxyAuthFormatArgs) ToOutput(ctx context.Context) pulumix.Output[DBProxyAuthFormat] {
+	return pulumix.Output[DBProxyAuthFormat]{
+		OutputState: i.ToDBProxyAuthFormatOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DBProxyAuthFormatArrayInput is an input type that accepts DBProxyAuthFormatArray and DBProxyAuthFormatArrayOutput values.
 // You can construct a concrete instance of `DBProxyAuthFormatArrayInput` via:
 //
@@ -2246,6 +2625,12 @@ func (i DBProxyAuthFormatArray) ToDBProxyAuthFormatArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(DBProxyAuthFormatArrayOutput)
 }
 
+func (i DBProxyAuthFormatArray) ToOutput(ctx context.Context) pulumix.Output[[]DBProxyAuthFormat] {
+	return pulumix.Output[[]DBProxyAuthFormat]{
+		OutputState: i.ToDBProxyAuthFormatArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DBProxyAuthFormatOutput struct{ *pulumi.OutputState }
 
 func (DBProxyAuthFormatOutput) ElementType() reflect.Type {
@@ -2258,6 +2643,12 @@ func (o DBProxyAuthFormatOutput) ToDBProxyAuthFormatOutput() DBProxyAuthFormatOu
 
 func (o DBProxyAuthFormatOutput) ToDBProxyAuthFormatOutputWithContext(ctx context.Context) DBProxyAuthFormatOutput {
 	return o
+}
+
+func (o DBProxyAuthFormatOutput) ToOutput(ctx context.Context) pulumix.Output[DBProxyAuthFormat] {
+	return pulumix.Output[DBProxyAuthFormat]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The type of authentication that the proxy uses for connections from the proxy to the underlying database.
@@ -2299,6 +2690,12 @@ func (o DBProxyAuthFormatArrayOutput) ToDBProxyAuthFormatArrayOutputWithContext(
 	return o
 }
 
+func (o DBProxyAuthFormatArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DBProxyAuthFormat] {
+	return pulumix.Output[[]DBProxyAuthFormat]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DBProxyAuthFormatArrayOutput) Index(i pulumi.IntInput) DBProxyAuthFormatOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DBProxyAuthFormat {
 		return vs[0].([]DBProxyAuthFormat)[vs[1].(int)]
@@ -2338,6 +2735,12 @@ func (i DBProxyEndpointTagFormatArgs) ToDBProxyEndpointTagFormatOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(DBProxyEndpointTagFormatOutput)
 }
 
+func (i DBProxyEndpointTagFormatArgs) ToOutput(ctx context.Context) pulumix.Output[DBProxyEndpointTagFormat] {
+	return pulumix.Output[DBProxyEndpointTagFormat]{
+		OutputState: i.ToDBProxyEndpointTagFormatOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DBProxyEndpointTagFormatArrayInput is an input type that accepts DBProxyEndpointTagFormatArray and DBProxyEndpointTagFormatArrayOutput values.
 // You can construct a concrete instance of `DBProxyEndpointTagFormatArrayInput` via:
 //
@@ -2363,6 +2766,12 @@ func (i DBProxyEndpointTagFormatArray) ToDBProxyEndpointTagFormatArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(DBProxyEndpointTagFormatArrayOutput)
 }
 
+func (i DBProxyEndpointTagFormatArray) ToOutput(ctx context.Context) pulumix.Output[[]DBProxyEndpointTagFormat] {
+	return pulumix.Output[[]DBProxyEndpointTagFormat]{
+		OutputState: i.ToDBProxyEndpointTagFormatArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DBProxyEndpointTagFormatOutput struct{ *pulumi.OutputState }
 
 func (DBProxyEndpointTagFormatOutput) ElementType() reflect.Type {
@@ -2375,6 +2784,12 @@ func (o DBProxyEndpointTagFormatOutput) ToDBProxyEndpointTagFormatOutput() DBPro
 
 func (o DBProxyEndpointTagFormatOutput) ToDBProxyEndpointTagFormatOutputWithContext(ctx context.Context) DBProxyEndpointTagFormatOutput {
 	return o
+}
+
+func (o DBProxyEndpointTagFormatOutput) ToOutput(ctx context.Context) pulumix.Output[DBProxyEndpointTagFormat] {
+	return pulumix.Output[DBProxyEndpointTagFormat]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DBProxyEndpointTagFormatOutput) Key() pulumi.StringPtrOutput {
@@ -2397,6 +2812,12 @@ func (o DBProxyEndpointTagFormatArrayOutput) ToDBProxyEndpointTagFormatArrayOutp
 
 func (o DBProxyEndpointTagFormatArrayOutput) ToDBProxyEndpointTagFormatArrayOutputWithContext(ctx context.Context) DBProxyEndpointTagFormatArrayOutput {
 	return o
+}
+
+func (o DBProxyEndpointTagFormatArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DBProxyEndpointTagFormat] {
+	return pulumix.Output[[]DBProxyEndpointTagFormat]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DBProxyEndpointTagFormatArrayOutput) Index(i pulumi.IntInput) DBProxyEndpointTagFormatOutput {
@@ -2438,6 +2859,12 @@ func (i DBProxyTagFormatArgs) ToDBProxyTagFormatOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(DBProxyTagFormatOutput)
 }
 
+func (i DBProxyTagFormatArgs) ToOutput(ctx context.Context) pulumix.Output[DBProxyTagFormat] {
+	return pulumix.Output[DBProxyTagFormat]{
+		OutputState: i.ToDBProxyTagFormatOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DBProxyTagFormatArrayInput is an input type that accepts DBProxyTagFormatArray and DBProxyTagFormatArrayOutput values.
 // You can construct a concrete instance of `DBProxyTagFormatArrayInput` via:
 //
@@ -2463,6 +2890,12 @@ func (i DBProxyTagFormatArray) ToDBProxyTagFormatArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(DBProxyTagFormatArrayOutput)
 }
 
+func (i DBProxyTagFormatArray) ToOutput(ctx context.Context) pulumix.Output[[]DBProxyTagFormat] {
+	return pulumix.Output[[]DBProxyTagFormat]{
+		OutputState: i.ToDBProxyTagFormatArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DBProxyTagFormatOutput struct{ *pulumi.OutputState }
 
 func (DBProxyTagFormatOutput) ElementType() reflect.Type {
@@ -2475,6 +2908,12 @@ func (o DBProxyTagFormatOutput) ToDBProxyTagFormatOutput() DBProxyTagFormatOutpu
 
 func (o DBProxyTagFormatOutput) ToDBProxyTagFormatOutputWithContext(ctx context.Context) DBProxyTagFormatOutput {
 	return o
+}
+
+func (o DBProxyTagFormatOutput) ToOutput(ctx context.Context) pulumix.Output[DBProxyTagFormat] {
+	return pulumix.Output[DBProxyTagFormat]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DBProxyTagFormatOutput) Key() pulumi.StringPtrOutput {
@@ -2497,6 +2936,12 @@ func (o DBProxyTagFormatArrayOutput) ToDBProxyTagFormatArrayOutput() DBProxyTagF
 
 func (o DBProxyTagFormatArrayOutput) ToDBProxyTagFormatArrayOutputWithContext(ctx context.Context) DBProxyTagFormatArrayOutput {
 	return o
+}
+
+func (o DBProxyTagFormatArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DBProxyTagFormat] {
+	return pulumix.Output[[]DBProxyTagFormat]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DBProxyTagFormatArrayOutput) Index(i pulumi.IntInput) DBProxyTagFormatOutput {
@@ -2554,6 +2999,12 @@ func (i DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs) ToDBProxyTa
 	return pulumi.ToOutputWithContext(ctx, i).(DBProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput)
 }
 
+func (i DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs) ToOutput(ctx context.Context) pulumix.Output[DBProxyTargetGroupConnectionPoolConfigurationInfoFormat] {
+	return pulumix.Output[DBProxyTargetGroupConnectionPoolConfigurationInfoFormat]{
+		OutputState: i.ToDBProxyTargetGroupConnectionPoolConfigurationInfoFormatOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs) ToDBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput() DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput {
 	return i.ToDBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutputWithContext(context.Background())
 }
@@ -2595,6 +3046,12 @@ func (i *dbproxyTargetGroupConnectionPoolConfigurationInfoFormatPtrType) ToDBPro
 	return pulumi.ToOutputWithContext(ctx, i).(DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput)
 }
 
+func (i *dbproxyTargetGroupConnectionPoolConfigurationInfoFormatPtrType) ToOutput(ctx context.Context) pulumix.Output[*DBProxyTargetGroupConnectionPoolConfigurationInfoFormat] {
+	return pulumix.Output[*DBProxyTargetGroupConnectionPoolConfigurationInfoFormat]{
+		OutputState: i.ToDBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DBProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput struct{ *pulumi.OutputState }
 
 func (DBProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput) ElementType() reflect.Type {
@@ -2617,6 +3074,12 @@ func (o DBProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput) ToDBProxy
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DBProxyTargetGroupConnectionPoolConfigurationInfoFormat) *DBProxyTargetGroupConnectionPoolConfigurationInfoFormat {
 		return &v
 	}).(DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput)
+}
+
+func (o DBProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput) ToOutput(ctx context.Context) pulumix.Output[DBProxyTargetGroupConnectionPoolConfigurationInfoFormat] {
+	return pulumix.Output[DBProxyTargetGroupConnectionPoolConfigurationInfoFormat]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The number of seconds for a proxy to wait for a connection to become available in the connection pool.
@@ -2660,6 +3123,12 @@ func (o DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput) ToDBPr
 
 func (o DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput) ToDBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutputWithContext(ctx context.Context) DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput {
 	return o
+}
+
+func (o DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DBProxyTargetGroupConnectionPoolConfigurationInfoFormat] {
+	return pulumix.Output[*DBProxyTargetGroupConnectionPoolConfigurationInfoFormat]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput) Elem() DBProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput {
@@ -2759,6 +3228,12 @@ func (i DBSecurityGroupIngressTypeArgs) ToDBSecurityGroupIngressTypeOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(DBSecurityGroupIngressTypeOutput)
 }
 
+func (i DBSecurityGroupIngressTypeArgs) ToOutput(ctx context.Context) pulumix.Output[DBSecurityGroupIngressType] {
+	return pulumix.Output[DBSecurityGroupIngressType]{
+		OutputState: i.ToDBSecurityGroupIngressTypeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DBSecurityGroupIngressTypeArrayInput is an input type that accepts DBSecurityGroupIngressTypeArray and DBSecurityGroupIngressTypeArrayOutput values.
 // You can construct a concrete instance of `DBSecurityGroupIngressTypeArrayInput` via:
 //
@@ -2784,6 +3259,12 @@ func (i DBSecurityGroupIngressTypeArray) ToDBSecurityGroupIngressTypeArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(DBSecurityGroupIngressTypeArrayOutput)
 }
 
+func (i DBSecurityGroupIngressTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]DBSecurityGroupIngressType] {
+	return pulumix.Output[[]DBSecurityGroupIngressType]{
+		OutputState: i.ToDBSecurityGroupIngressTypeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DBSecurityGroupIngressTypeOutput struct{ *pulumi.OutputState }
 
 func (DBSecurityGroupIngressTypeOutput) ElementType() reflect.Type {
@@ -2796,6 +3277,12 @@ func (o DBSecurityGroupIngressTypeOutput) ToDBSecurityGroupIngressTypeOutput() D
 
 func (o DBSecurityGroupIngressTypeOutput) ToDBSecurityGroupIngressTypeOutputWithContext(ctx context.Context) DBSecurityGroupIngressTypeOutput {
 	return o
+}
+
+func (o DBSecurityGroupIngressTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DBSecurityGroupIngressType] {
+	return pulumix.Output[DBSecurityGroupIngressType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DBSecurityGroupIngressTypeOutput) CIDRIP() pulumi.StringPtrOutput {
@@ -2826,6 +3313,12 @@ func (o DBSecurityGroupIngressTypeArrayOutput) ToDBSecurityGroupIngressTypeArray
 
 func (o DBSecurityGroupIngressTypeArrayOutput) ToDBSecurityGroupIngressTypeArrayOutputWithContext(ctx context.Context) DBSecurityGroupIngressTypeArrayOutput {
 	return o
+}
+
+func (o DBSecurityGroupIngressTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DBSecurityGroupIngressType] {
+	return pulumix.Output[[]DBSecurityGroupIngressType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DBSecurityGroupIngressTypeArrayOutput) Index(i pulumi.IntInput) DBSecurityGroupIngressTypeOutput {
@@ -2867,6 +3360,12 @@ func (i DBSecurityGroupTagArgs) ToDBSecurityGroupTagOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(DBSecurityGroupTagOutput)
 }
 
+func (i DBSecurityGroupTagArgs) ToOutput(ctx context.Context) pulumix.Output[DBSecurityGroupTag] {
+	return pulumix.Output[DBSecurityGroupTag]{
+		OutputState: i.ToDBSecurityGroupTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DBSecurityGroupTagArrayInput is an input type that accepts DBSecurityGroupTagArray and DBSecurityGroupTagArrayOutput values.
 // You can construct a concrete instance of `DBSecurityGroupTagArrayInput` via:
 //
@@ -2892,6 +3391,12 @@ func (i DBSecurityGroupTagArray) ToDBSecurityGroupTagArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(DBSecurityGroupTagArrayOutput)
 }
 
+func (i DBSecurityGroupTagArray) ToOutput(ctx context.Context) pulumix.Output[[]DBSecurityGroupTag] {
+	return pulumix.Output[[]DBSecurityGroupTag]{
+		OutputState: i.ToDBSecurityGroupTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DBSecurityGroupTagOutput struct{ *pulumi.OutputState }
 
 func (DBSecurityGroupTagOutput) ElementType() reflect.Type {
@@ -2904,6 +3409,12 @@ func (o DBSecurityGroupTagOutput) ToDBSecurityGroupTagOutput() DBSecurityGroupTa
 
 func (o DBSecurityGroupTagOutput) ToDBSecurityGroupTagOutputWithContext(ctx context.Context) DBSecurityGroupTagOutput {
 	return o
+}
+
+func (o DBSecurityGroupTagOutput) ToOutput(ctx context.Context) pulumix.Output[DBSecurityGroupTag] {
+	return pulumix.Output[DBSecurityGroupTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DBSecurityGroupTagOutput) Key() pulumi.StringOutput {
@@ -2926,6 +3437,12 @@ func (o DBSecurityGroupTagArrayOutput) ToDBSecurityGroupTagArrayOutput() DBSecur
 
 func (o DBSecurityGroupTagArrayOutput) ToDBSecurityGroupTagArrayOutputWithContext(ctx context.Context) DBSecurityGroupTagArrayOutput {
 	return o
+}
+
+func (o DBSecurityGroupTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DBSecurityGroupTag] {
+	return pulumix.Output[[]DBSecurityGroupTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DBSecurityGroupTagArrayOutput) Index(i pulumi.IntInput) DBSecurityGroupTagOutput {
@@ -2973,6 +3490,12 @@ func (i DBSubnetGroupTagArgs) ToDBSubnetGroupTagOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(DBSubnetGroupTagOutput)
 }
 
+func (i DBSubnetGroupTagArgs) ToOutput(ctx context.Context) pulumix.Output[DBSubnetGroupTag] {
+	return pulumix.Output[DBSubnetGroupTag]{
+		OutputState: i.ToDBSubnetGroupTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DBSubnetGroupTagArrayInput is an input type that accepts DBSubnetGroupTagArray and DBSubnetGroupTagArrayOutput values.
 // You can construct a concrete instance of `DBSubnetGroupTagArrayInput` via:
 //
@@ -2998,6 +3521,12 @@ func (i DBSubnetGroupTagArray) ToDBSubnetGroupTagArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(DBSubnetGroupTagArrayOutput)
 }
 
+func (i DBSubnetGroupTagArray) ToOutput(ctx context.Context) pulumix.Output[[]DBSubnetGroupTag] {
+	return pulumix.Output[[]DBSubnetGroupTag]{
+		OutputState: i.ToDBSubnetGroupTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type DBSubnetGroupTagOutput struct{ *pulumi.OutputState }
 
@@ -3011,6 +3540,12 @@ func (o DBSubnetGroupTagOutput) ToDBSubnetGroupTagOutput() DBSubnetGroupTagOutpu
 
 func (o DBSubnetGroupTagOutput) ToDBSubnetGroupTagOutputWithContext(ctx context.Context) DBSubnetGroupTagOutput {
 	return o
+}
+
+func (o DBSubnetGroupTagOutput) ToOutput(ctx context.Context) pulumix.Output[DBSubnetGroupTag] {
+	return pulumix.Output[DBSubnetGroupTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -3035,6 +3570,12 @@ func (o DBSubnetGroupTagArrayOutput) ToDBSubnetGroupTagArrayOutput() DBSubnetGro
 
 func (o DBSubnetGroupTagArrayOutput) ToDBSubnetGroupTagArrayOutputWithContext(ctx context.Context) DBSubnetGroupTagArrayOutput {
 	return o
+}
+
+func (o DBSubnetGroupTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DBSubnetGroupTag] {
+	return pulumix.Output[[]DBSubnetGroupTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DBSubnetGroupTagArrayOutput) Index(i pulumi.IntInput) DBSubnetGroupTagOutput {
@@ -3082,6 +3623,12 @@ func (i EventSubscriptionTagArgs) ToEventSubscriptionTagOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionTagOutput)
 }
 
+func (i EventSubscriptionTagArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionTag] {
+	return pulumix.Output[EventSubscriptionTag]{
+		OutputState: i.ToEventSubscriptionTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventSubscriptionTagArrayInput is an input type that accepts EventSubscriptionTagArray and EventSubscriptionTagArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionTagArrayInput` via:
 //
@@ -3107,6 +3654,12 @@ func (i EventSubscriptionTagArray) ToEventSubscriptionTagArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionTagArrayOutput)
 }
 
+func (i EventSubscriptionTagArray) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionTag] {
+	return pulumix.Output[[]EventSubscriptionTag]{
+		OutputState: i.ToEventSubscriptionTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type EventSubscriptionTagOutput struct{ *pulumi.OutputState }
 
@@ -3120,6 +3673,12 @@ func (o EventSubscriptionTagOutput) ToEventSubscriptionTagOutput() EventSubscrip
 
 func (o EventSubscriptionTagOutput) ToEventSubscriptionTagOutputWithContext(ctx context.Context) EventSubscriptionTagOutput {
 	return o
+}
+
+func (o EventSubscriptionTagOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionTag] {
+	return pulumix.Output[EventSubscriptionTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -3144,6 +3703,12 @@ func (o EventSubscriptionTagArrayOutput) ToEventSubscriptionTagArrayOutput() Eve
 
 func (o EventSubscriptionTagArrayOutput) ToEventSubscriptionTagArrayOutputWithContext(ctx context.Context) EventSubscriptionTagArrayOutput {
 	return o
+}
+
+func (o EventSubscriptionTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionTag] {
+	return pulumix.Output[[]EventSubscriptionTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventSubscriptionTagArrayOutput) Index(i pulumi.IntInput) EventSubscriptionTagOutput {
@@ -3207,6 +3772,12 @@ func (i OptionGroupOptionConfigurationArgs) ToOptionGroupOptionConfigurationOutp
 	return pulumi.ToOutputWithContext(ctx, i).(OptionGroupOptionConfigurationOutput)
 }
 
+func (i OptionGroupOptionConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[OptionGroupOptionConfiguration] {
+	return pulumix.Output[OptionGroupOptionConfiguration]{
+		OutputState: i.ToOptionGroupOptionConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OptionGroupOptionConfigurationArrayInput is an input type that accepts OptionGroupOptionConfigurationArray and OptionGroupOptionConfigurationArrayOutput values.
 // You can construct a concrete instance of `OptionGroupOptionConfigurationArrayInput` via:
 //
@@ -3232,6 +3803,12 @@ func (i OptionGroupOptionConfigurationArray) ToOptionGroupOptionConfigurationArr
 	return pulumi.ToOutputWithContext(ctx, i).(OptionGroupOptionConfigurationArrayOutput)
 }
 
+func (i OptionGroupOptionConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]OptionGroupOptionConfiguration] {
+	return pulumix.Output[[]OptionGroupOptionConfiguration]{
+		OutputState: i.ToOptionGroupOptionConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The OptionConfiguration property type specifies an individual option, and its settings, within an AWS::RDS::OptionGroup resource.
 type OptionGroupOptionConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -3245,6 +3822,12 @@ func (o OptionGroupOptionConfigurationOutput) ToOptionGroupOptionConfigurationOu
 
 func (o OptionGroupOptionConfigurationOutput) ToOptionGroupOptionConfigurationOutputWithContext(ctx context.Context) OptionGroupOptionConfigurationOutput {
 	return o
+}
+
+func (o OptionGroupOptionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[OptionGroupOptionConfiguration] {
+	return pulumix.Output[OptionGroupOptionConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of DBSecurityGroupMembership name strings used for this option.
@@ -3289,6 +3872,12 @@ func (o OptionGroupOptionConfigurationArrayOutput) ToOptionGroupOptionConfigurat
 
 func (o OptionGroupOptionConfigurationArrayOutput) ToOptionGroupOptionConfigurationArrayOutputWithContext(ctx context.Context) OptionGroupOptionConfigurationArrayOutput {
 	return o
+}
+
+func (o OptionGroupOptionConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OptionGroupOptionConfiguration] {
+	return pulumix.Output[[]OptionGroupOptionConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OptionGroupOptionConfigurationArrayOutput) Index(i pulumi.IntInput) OptionGroupOptionConfigurationOutput {
@@ -3336,6 +3925,12 @@ func (i OptionGroupOptionSettingArgs) ToOptionGroupOptionSettingOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(OptionGroupOptionSettingOutput)
 }
 
+func (i OptionGroupOptionSettingArgs) ToOutput(ctx context.Context) pulumix.Output[OptionGroupOptionSetting] {
+	return pulumix.Output[OptionGroupOptionSetting]{
+		OutputState: i.ToOptionGroupOptionSettingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OptionGroupOptionSettingArrayInput is an input type that accepts OptionGroupOptionSettingArray and OptionGroupOptionSettingArrayOutput values.
 // You can construct a concrete instance of `OptionGroupOptionSettingArrayInput` via:
 //
@@ -3361,6 +3956,12 @@ func (i OptionGroupOptionSettingArray) ToOptionGroupOptionSettingArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(OptionGroupOptionSettingArrayOutput)
 }
 
+func (i OptionGroupOptionSettingArray) ToOutput(ctx context.Context) pulumix.Output[[]OptionGroupOptionSetting] {
+	return pulumix.Output[[]OptionGroupOptionSetting]{
+		OutputState: i.ToOptionGroupOptionSettingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The OptionSetting property type specifies the value for an option within an OptionSetting property.
 type OptionGroupOptionSettingOutput struct{ *pulumi.OutputState }
 
@@ -3374,6 +3975,12 @@ func (o OptionGroupOptionSettingOutput) ToOptionGroupOptionSettingOutput() Optio
 
 func (o OptionGroupOptionSettingOutput) ToOptionGroupOptionSettingOutputWithContext(ctx context.Context) OptionGroupOptionSettingOutput {
 	return o
+}
+
+func (o OptionGroupOptionSettingOutput) ToOutput(ctx context.Context) pulumix.Output[OptionGroupOptionSetting] {
+	return pulumix.Output[OptionGroupOptionSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the option that has settings that you can set.
@@ -3398,6 +4005,12 @@ func (o OptionGroupOptionSettingArrayOutput) ToOptionGroupOptionSettingArrayOutp
 
 func (o OptionGroupOptionSettingArrayOutput) ToOptionGroupOptionSettingArrayOutputWithContext(ctx context.Context) OptionGroupOptionSettingArrayOutput {
 	return o
+}
+
+func (o OptionGroupOptionSettingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OptionGroupOptionSetting] {
+	return pulumix.Output[[]OptionGroupOptionSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OptionGroupOptionSettingArrayOutput) Index(i pulumi.IntInput) OptionGroupOptionSettingOutput {
@@ -3445,6 +4058,12 @@ func (i OptionGroupTagArgs) ToOptionGroupTagOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(OptionGroupTagOutput)
 }
 
+func (i OptionGroupTagArgs) ToOutput(ctx context.Context) pulumix.Output[OptionGroupTag] {
+	return pulumix.Output[OptionGroupTag]{
+		OutputState: i.ToOptionGroupTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OptionGroupTagArrayInput is an input type that accepts OptionGroupTagArray and OptionGroupTagArrayOutput values.
 // You can construct a concrete instance of `OptionGroupTagArrayInput` via:
 //
@@ -3470,6 +4089,12 @@ func (i OptionGroupTagArray) ToOptionGroupTagArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(OptionGroupTagArrayOutput)
 }
 
+func (i OptionGroupTagArray) ToOutput(ctx context.Context) pulumix.Output[[]OptionGroupTag] {
+	return pulumix.Output[[]OptionGroupTag]{
+		OutputState: i.ToOptionGroupTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type OptionGroupTagOutput struct{ *pulumi.OutputState }
 
@@ -3483,6 +4108,12 @@ func (o OptionGroupTagOutput) ToOptionGroupTagOutput() OptionGroupTagOutput {
 
 func (o OptionGroupTagOutput) ToOptionGroupTagOutputWithContext(ctx context.Context) OptionGroupTagOutput {
 	return o
+}
+
+func (o OptionGroupTagOutput) ToOutput(ctx context.Context) pulumix.Output[OptionGroupTag] {
+	return pulumix.Output[OptionGroupTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -3507,6 +4138,12 @@ func (o OptionGroupTagArrayOutput) ToOptionGroupTagArrayOutput() OptionGroupTagA
 
 func (o OptionGroupTagArrayOutput) ToOptionGroupTagArrayOutputWithContext(ctx context.Context) OptionGroupTagArrayOutput {
 	return o
+}
+
+func (o OptionGroupTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OptionGroupTag] {
+	return pulumix.Output[[]OptionGroupTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OptionGroupTagArrayOutput) Index(i pulumi.IntInput) OptionGroupTagOutput {

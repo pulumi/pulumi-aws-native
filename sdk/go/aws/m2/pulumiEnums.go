@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type ApplicationEngineType string
@@ -77,6 +78,12 @@ func (o ApplicationEngineTypeOutput) ToApplicationEngineTypePtrOutputWithContext
 	}).(ApplicationEngineTypePtrOutput)
 }
 
+func (o ApplicationEngineTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationEngineType] {
+	return pulumix.Output[ApplicationEngineType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApplicationEngineTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -110,6 +117,12 @@ func (o ApplicationEngineTypePtrOutput) ToApplicationEngineTypePtrOutput() Appli
 
 func (o ApplicationEngineTypePtrOutput) ToApplicationEngineTypePtrOutputWithContext(ctx context.Context) ApplicationEngineTypePtrOutput {
 	return o
+}
+
+func (o ApplicationEngineTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationEngineType] {
+	return pulumix.Output[*ApplicationEngineType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationEngineTypePtrOutput) Elem() ApplicationEngineTypeOutput {
@@ -172,6 +185,12 @@ func (in *applicationEngineTypePtr) ToApplicationEngineTypePtrOutput() Applicati
 
 func (in *applicationEngineTypePtr) ToApplicationEngineTypePtrOutputWithContext(ctx context.Context) ApplicationEngineTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationEngineTypePtrOutput)
+}
+
+func (in *applicationEngineTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ApplicationEngineType] {
+	return pulumix.Output[*ApplicationEngineType]{
+		OutputState: in.ToApplicationEngineTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The target platform for the environment.
@@ -242,6 +261,12 @@ func (o EnvironmentEngineTypeOutput) ToEnvironmentEngineTypePtrOutputWithContext
 	}).(EnvironmentEngineTypePtrOutput)
 }
 
+func (o EnvironmentEngineTypeOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentEngineType] {
+	return pulumix.Output[EnvironmentEngineType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EnvironmentEngineTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -275,6 +300,12 @@ func (o EnvironmentEngineTypePtrOutput) ToEnvironmentEngineTypePtrOutput() Envir
 
 func (o EnvironmentEngineTypePtrOutput) ToEnvironmentEngineTypePtrOutputWithContext(ctx context.Context) EnvironmentEngineTypePtrOutput {
 	return o
+}
+
+func (o EnvironmentEngineTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentEngineType] {
+	return pulumix.Output[*EnvironmentEngineType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EnvironmentEngineTypePtrOutput) Elem() EnvironmentEngineTypeOutput {
@@ -337,6 +368,12 @@ func (in *environmentEngineTypePtr) ToEnvironmentEngineTypePtrOutput() Environme
 
 func (in *environmentEngineTypePtr) ToEnvironmentEngineTypePtrOutputWithContext(ctx context.Context) EnvironmentEngineTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EnvironmentEngineTypePtrOutput)
+}
+
+func (in *environmentEngineTypePtr) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentEngineType] {
+	return pulumix.Output[*EnvironmentEngineType]{
+		OutputState: in.ToEnvironmentEngineTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

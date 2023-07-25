@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Pinpoint::GCMChannel
@@ -65,6 +66,12 @@ func (o LookupGCMChannelResultOutput) ToLookupGCMChannelResultOutput() LookupGCM
 
 func (o LookupGCMChannelResultOutput) ToLookupGCMChannelResultOutputWithContext(ctx context.Context) LookupGCMChannelResultOutput {
 	return o
+}
+
+func (o LookupGCMChannelResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupGCMChannelResult] {
+	return pulumix.Output[LookupGCMChannelResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupGCMChannelResultOutput) ApiKey() pulumi.StringPtrOutput {

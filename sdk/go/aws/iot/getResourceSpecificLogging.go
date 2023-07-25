@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource-specific logging allows you to specify a logging level for a specific thing group.
@@ -68,6 +69,12 @@ func (o LookupResourceSpecificLoggingResultOutput) ToLookupResourceSpecificLoggi
 
 func (o LookupResourceSpecificLoggingResultOutput) ToLookupResourceSpecificLoggingResultOutputWithContext(ctx context.Context) LookupResourceSpecificLoggingResultOutput {
 	return o
+}
+
+func (o LookupResourceSpecificLoggingResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupResourceSpecificLoggingResult] {
+	return pulumix.Output[LookupResourceSpecificLoggingResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The log level for a specific target. Valid values are: ERROR, WARN, INFO, DEBUG, or DISABLED.

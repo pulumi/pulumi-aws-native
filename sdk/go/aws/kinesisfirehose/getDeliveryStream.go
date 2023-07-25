@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::KinesisFirehose::DeliveryStream
@@ -73,6 +74,12 @@ func (o LookupDeliveryStreamResultOutput) ToLookupDeliveryStreamResultOutput() L
 
 func (o LookupDeliveryStreamResultOutput) ToLookupDeliveryStreamResultOutputWithContext(ctx context.Context) LookupDeliveryStreamResultOutput {
 	return o
+}
+
+func (o LookupDeliveryStreamResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDeliveryStreamResult] {
+	return pulumix.Output[LookupDeliveryStreamResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupDeliveryStreamResultOutput) AmazonOpenSearchServerlessDestinationConfiguration() DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutput {

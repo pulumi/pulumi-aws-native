@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SES::ReceiptFilter
@@ -63,6 +64,12 @@ func (o LookupReceiptFilterResultOutput) ToLookupReceiptFilterResultOutput() Loo
 
 func (o LookupReceiptFilterResultOutput) ToLookupReceiptFilterResultOutputWithContext(ctx context.Context) LookupReceiptFilterResultOutput {
 	return o
+}
+
+func (o LookupReceiptFilterResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupReceiptFilterResult] {
+	return pulumix.Output[LookupReceiptFilterResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupReceiptFilterResultOutput) Id() pulumi.StringPtrOutput {

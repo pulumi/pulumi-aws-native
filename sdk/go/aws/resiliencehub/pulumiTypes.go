@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -50,6 +51,12 @@ func (i AppPhysicalResourceIdArgs) ToAppPhysicalResourceIdOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(AppPhysicalResourceIdOutput)
 }
 
+func (i AppPhysicalResourceIdArgs) ToOutput(ctx context.Context) pulumix.Output[AppPhysicalResourceId] {
+	return pulumix.Output[AppPhysicalResourceId]{
+		OutputState: i.ToAppPhysicalResourceIdOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AppPhysicalResourceIdOutput struct{ *pulumi.OutputState }
 
 func (AppPhysicalResourceIdOutput) ElementType() reflect.Type {
@@ -62,6 +69,12 @@ func (o AppPhysicalResourceIdOutput) ToAppPhysicalResourceIdOutput() AppPhysical
 
 func (o AppPhysicalResourceIdOutput) ToAppPhysicalResourceIdOutputWithContext(ctx context.Context) AppPhysicalResourceIdOutput {
 	return o
+}
+
+func (o AppPhysicalResourceIdOutput) ToOutput(ctx context.Context) pulumix.Output[AppPhysicalResourceId] {
+	return pulumix.Output[AppPhysicalResourceId]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AppPhysicalResourceIdOutput) AwsAccountId() pulumi.StringPtrOutput {
@@ -123,6 +136,12 @@ func (i AppResourceMappingArgs) ToAppResourceMappingOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(AppResourceMappingOutput)
 }
 
+func (i AppResourceMappingArgs) ToOutput(ctx context.Context) pulumix.Output[AppResourceMapping] {
+	return pulumix.Output[AppResourceMapping]{
+		OutputState: i.ToAppResourceMappingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AppResourceMappingArrayInput is an input type that accepts AppResourceMappingArray and AppResourceMappingArrayOutput values.
 // You can construct a concrete instance of `AppResourceMappingArrayInput` via:
 //
@@ -148,6 +167,12 @@ func (i AppResourceMappingArray) ToAppResourceMappingArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(AppResourceMappingArrayOutput)
 }
 
+func (i AppResourceMappingArray) ToOutput(ctx context.Context) pulumix.Output[[]AppResourceMapping] {
+	return pulumix.Output[[]AppResourceMapping]{
+		OutputState: i.ToAppResourceMappingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Resource mapping is used to map logical resources from template to physical resource
 type AppResourceMappingOutput struct{ *pulumi.OutputState }
 
@@ -161,6 +186,12 @@ func (o AppResourceMappingOutput) ToAppResourceMappingOutput() AppResourceMappin
 
 func (o AppResourceMappingOutput) ToAppResourceMappingOutputWithContext(ctx context.Context) AppResourceMappingOutput {
 	return o
+}
+
+func (o AppResourceMappingOutput) ToOutput(ctx context.Context) pulumix.Output[AppResourceMapping] {
+	return pulumix.Output[AppResourceMapping]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AppResourceMappingOutput) EksSourceName() pulumi.StringPtrOutput {
@@ -201,6 +232,12 @@ func (o AppResourceMappingArrayOutput) ToAppResourceMappingArrayOutputWithContex
 	return o
 }
 
+func (o AppResourceMappingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AppResourceMapping] {
+	return pulumix.Output[[]AppResourceMapping]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AppResourceMappingArrayOutput) Index(i pulumi.IntInput) AppResourceMappingOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppResourceMapping {
 		return vs[0].([]AppResourceMapping)[vs[1].(int)]
@@ -234,6 +271,12 @@ func (i AppTagMapArgs) ToAppTagMapOutput() AppTagMapOutput {
 
 func (i AppTagMapArgs) ToAppTagMapOutputWithContext(ctx context.Context) AppTagMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AppTagMapOutput)
+}
+
+func (i AppTagMapArgs) ToOutput(ctx context.Context) pulumix.Output[AppTagMap] {
+	return pulumix.Output[AppTagMap]{
+		OutputState: i.ToAppTagMapOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i AppTagMapArgs) ToAppTagMapPtrOutput() AppTagMapPtrOutput {
@@ -277,6 +320,12 @@ func (i *appTagMapPtrType) ToAppTagMapPtrOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(AppTagMapPtrOutput)
 }
 
+func (i *appTagMapPtrType) ToOutput(ctx context.Context) pulumix.Output[*AppTagMap] {
+	return pulumix.Output[*AppTagMap]{
+		OutputState: i.ToAppTagMapPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AppTagMapOutput struct{ *pulumi.OutputState }
 
 func (AppTagMapOutput) ElementType() reflect.Type {
@@ -301,6 +350,12 @@ func (o AppTagMapOutput) ToAppTagMapPtrOutputWithContext(ctx context.Context) Ap
 	}).(AppTagMapPtrOutput)
 }
 
+func (o AppTagMapOutput) ToOutput(ctx context.Context) pulumix.Output[AppTagMap] {
+	return pulumix.Output[AppTagMap]{
+		OutputState: o.OutputState,
+	}
+}
+
 type AppTagMapPtrOutput struct{ *pulumi.OutputState }
 
 func (AppTagMapPtrOutput) ElementType() reflect.Type {
@@ -313,6 +368,12 @@ func (o AppTagMapPtrOutput) ToAppTagMapPtrOutput() AppTagMapPtrOutput {
 
 func (o AppTagMapPtrOutput) ToAppTagMapPtrOutputWithContext(ctx context.Context) AppTagMapPtrOutput {
 	return o
+}
+
+func (o AppTagMapPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AppTagMap] {
+	return pulumix.Output[*AppTagMap]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AppTagMapPtrOutput) Elem() AppTagMapOutput {
@@ -354,6 +415,12 @@ func (i ResiliencyPolicyPolicyMapArgs) ToResiliencyPolicyPolicyMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ResiliencyPolicyPolicyMapOutput)
 }
 
+func (i ResiliencyPolicyPolicyMapArgs) ToOutput(ctx context.Context) pulumix.Output[ResiliencyPolicyPolicyMap] {
+	return pulumix.Output[ResiliencyPolicyPolicyMap]{
+		OutputState: i.ToResiliencyPolicyPolicyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResiliencyPolicyPolicyMapOutput struct{ *pulumi.OutputState }
 
 func (ResiliencyPolicyPolicyMapOutput) ElementType() reflect.Type {
@@ -368,6 +435,12 @@ func (o ResiliencyPolicyPolicyMapOutput) ToResiliencyPolicyPolicyMapOutputWithCo
 	return o
 }
 
+func (o ResiliencyPolicyPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[ResiliencyPolicyPolicyMap] {
+	return pulumix.Output[ResiliencyPolicyPolicyMap]{
+		OutputState: o.OutputState,
+	}
+}
+
 type ResiliencyPolicyPolicyMapPtrOutput struct{ *pulumi.OutputState }
 
 func (ResiliencyPolicyPolicyMapPtrOutput) ElementType() reflect.Type {
@@ -380,6 +453,12 @@ func (o ResiliencyPolicyPolicyMapPtrOutput) ToResiliencyPolicyPolicyMapPtrOutput
 
 func (o ResiliencyPolicyPolicyMapPtrOutput) ToResiliencyPolicyPolicyMapPtrOutputWithContext(ctx context.Context) ResiliencyPolicyPolicyMapPtrOutput {
 	return o
+}
+
+func (o ResiliencyPolicyPolicyMapPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResiliencyPolicyPolicyMap] {
+	return pulumix.Output[*ResiliencyPolicyPolicyMap]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResiliencyPolicyPolicyMapPtrOutput) Elem() ResiliencyPolicyPolicyMapOutput {
@@ -419,6 +498,12 @@ func (i ResiliencyPolicyTagMapArgs) ToResiliencyPolicyTagMapOutput() ResiliencyP
 
 func (i ResiliencyPolicyTagMapArgs) ToResiliencyPolicyTagMapOutputWithContext(ctx context.Context) ResiliencyPolicyTagMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResiliencyPolicyTagMapOutput)
+}
+
+func (i ResiliencyPolicyTagMapArgs) ToOutput(ctx context.Context) pulumix.Output[ResiliencyPolicyTagMap] {
+	return pulumix.Output[ResiliencyPolicyTagMap]{
+		OutputState: i.ToResiliencyPolicyTagMapOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i ResiliencyPolicyTagMapArgs) ToResiliencyPolicyTagMapPtrOutput() ResiliencyPolicyTagMapPtrOutput {
@@ -462,6 +547,12 @@ func (i *resiliencyPolicyTagMapPtrType) ToResiliencyPolicyTagMapPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ResiliencyPolicyTagMapPtrOutput)
 }
 
+func (i *resiliencyPolicyTagMapPtrType) ToOutput(ctx context.Context) pulumix.Output[*ResiliencyPolicyTagMap] {
+	return pulumix.Output[*ResiliencyPolicyTagMap]{
+		OutputState: i.ToResiliencyPolicyTagMapPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResiliencyPolicyTagMapOutput struct{ *pulumi.OutputState }
 
 func (ResiliencyPolicyTagMapOutput) ElementType() reflect.Type {
@@ -486,6 +577,12 @@ func (o ResiliencyPolicyTagMapOutput) ToResiliencyPolicyTagMapPtrOutputWithConte
 	}).(ResiliencyPolicyTagMapPtrOutput)
 }
 
+func (o ResiliencyPolicyTagMapOutput) ToOutput(ctx context.Context) pulumix.Output[ResiliencyPolicyTagMap] {
+	return pulumix.Output[ResiliencyPolicyTagMap]{
+		OutputState: o.OutputState,
+	}
+}
+
 type ResiliencyPolicyTagMapPtrOutput struct{ *pulumi.OutputState }
 
 func (ResiliencyPolicyTagMapPtrOutput) ElementType() reflect.Type {
@@ -498,6 +595,12 @@ func (o ResiliencyPolicyTagMapPtrOutput) ToResiliencyPolicyTagMapPtrOutput() Res
 
 func (o ResiliencyPolicyTagMapPtrOutput) ToResiliencyPolicyTagMapPtrOutputWithContext(ctx context.Context) ResiliencyPolicyTagMapPtrOutput {
 	return o
+}
+
+func (o ResiliencyPolicyTagMapPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResiliencyPolicyTagMap] {
+	return pulumix.Output[*ResiliencyPolicyTagMap]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResiliencyPolicyTagMapPtrOutput) Elem() ResiliencyPolicyTagMapOutput {

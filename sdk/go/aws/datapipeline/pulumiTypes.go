@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -54,6 +55,12 @@ func (i PipelineFieldArgs) ToPipelineFieldOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineFieldOutput)
 }
 
+func (i PipelineFieldArgs) ToOutput(ctx context.Context) pulumix.Output[PipelineField] {
+	return pulumix.Output[PipelineField]{
+		OutputState: i.ToPipelineFieldOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PipelineFieldArrayInput is an input type that accepts PipelineFieldArray and PipelineFieldArrayOutput values.
 // You can construct a concrete instance of `PipelineFieldArrayInput` via:
 //
@@ -79,6 +86,12 @@ func (i PipelineFieldArray) ToPipelineFieldArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineFieldArrayOutput)
 }
 
+func (i PipelineFieldArray) ToOutput(ctx context.Context) pulumix.Output[[]PipelineField] {
+	return pulumix.Output[[]PipelineField]{
+		OutputState: i.ToPipelineFieldArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PipelineFieldOutput struct{ *pulumi.OutputState }
 
 func (PipelineFieldOutput) ElementType() reflect.Type {
@@ -91,6 +104,12 @@ func (o PipelineFieldOutput) ToPipelineFieldOutput() PipelineFieldOutput {
 
 func (o PipelineFieldOutput) ToPipelineFieldOutputWithContext(ctx context.Context) PipelineFieldOutput {
 	return o
+}
+
+func (o PipelineFieldOutput) ToOutput(ctx context.Context) pulumix.Output[PipelineField] {
+	return pulumix.Output[PipelineField]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the name of a field for a particular object. To view valid values for a particular field, see Pipeline Object Reference in the AWS Data Pipeline Developer Guide.
@@ -120,6 +139,12 @@ func (o PipelineFieldArrayOutput) ToPipelineFieldArrayOutput() PipelineFieldArra
 
 func (o PipelineFieldArrayOutput) ToPipelineFieldArrayOutputWithContext(ctx context.Context) PipelineFieldArrayOutput {
 	return o
+}
+
+func (o PipelineFieldArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PipelineField] {
+	return pulumix.Output[[]PipelineField]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PipelineFieldArrayOutput) Index(i pulumi.IntInput) PipelineFieldOutput {
@@ -169,6 +194,12 @@ func (i PipelineObjectArgs) ToPipelineObjectOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineObjectOutput)
 }
 
+func (i PipelineObjectArgs) ToOutput(ctx context.Context) pulumix.Output[PipelineObject] {
+	return pulumix.Output[PipelineObject]{
+		OutputState: i.ToPipelineObjectOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PipelineObjectArrayInput is an input type that accepts PipelineObjectArray and PipelineObjectArrayOutput values.
 // You can construct a concrete instance of `PipelineObjectArrayInput` via:
 //
@@ -194,6 +225,12 @@ func (i PipelineObjectArray) ToPipelineObjectArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineObjectArrayOutput)
 }
 
+func (i PipelineObjectArray) ToOutput(ctx context.Context) pulumix.Output[[]PipelineObject] {
+	return pulumix.Output[[]PipelineObject]{
+		OutputState: i.ToPipelineObjectArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PipelineObjectOutput struct{ *pulumi.OutputState }
 
 func (PipelineObjectOutput) ElementType() reflect.Type {
@@ -206,6 +243,12 @@ func (o PipelineObjectOutput) ToPipelineObjectOutput() PipelineObjectOutput {
 
 func (o PipelineObjectOutput) ToPipelineObjectOutputWithContext(ctx context.Context) PipelineObjectOutput {
 	return o
+}
+
+func (o PipelineObjectOutput) ToOutput(ctx context.Context) pulumix.Output[PipelineObject] {
+	return pulumix.Output[PipelineObject]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Key-value pairs that define the properties of the object.
@@ -235,6 +278,12 @@ func (o PipelineObjectArrayOutput) ToPipelineObjectArrayOutput() PipelineObjectA
 
 func (o PipelineObjectArrayOutput) ToPipelineObjectArrayOutputWithContext(ctx context.Context) PipelineObjectArrayOutput {
 	return o
+}
+
+func (o PipelineObjectArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PipelineObject] {
+	return pulumix.Output[[]PipelineObject]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PipelineObjectArrayOutput) Index(i pulumi.IntInput) PipelineObjectOutput {
@@ -280,6 +329,12 @@ func (i PipelineParameterAttributeArgs) ToPipelineParameterAttributeOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineParameterAttributeOutput)
 }
 
+func (i PipelineParameterAttributeArgs) ToOutput(ctx context.Context) pulumix.Output[PipelineParameterAttribute] {
+	return pulumix.Output[PipelineParameterAttribute]{
+		OutputState: i.ToPipelineParameterAttributeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PipelineParameterAttributeArrayInput is an input type that accepts PipelineParameterAttributeArray and PipelineParameterAttributeArrayOutput values.
 // You can construct a concrete instance of `PipelineParameterAttributeArrayInput` via:
 //
@@ -305,6 +360,12 @@ func (i PipelineParameterAttributeArray) ToPipelineParameterAttributeArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineParameterAttributeArrayOutput)
 }
 
+func (i PipelineParameterAttributeArray) ToOutput(ctx context.Context) pulumix.Output[[]PipelineParameterAttribute] {
+	return pulumix.Output[[]PipelineParameterAttribute]{
+		OutputState: i.ToPipelineParameterAttributeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PipelineParameterAttributeOutput struct{ *pulumi.OutputState }
 
 func (PipelineParameterAttributeOutput) ElementType() reflect.Type {
@@ -317,6 +378,12 @@ func (o PipelineParameterAttributeOutput) ToPipelineParameterAttributeOutput() P
 
 func (o PipelineParameterAttributeOutput) ToPipelineParameterAttributeOutputWithContext(ctx context.Context) PipelineParameterAttributeOutput {
 	return o
+}
+
+func (o PipelineParameterAttributeOutput) ToOutput(ctx context.Context) pulumix.Output[PipelineParameterAttribute] {
+	return pulumix.Output[PipelineParameterAttribute]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The field identifier.
@@ -341,6 +408,12 @@ func (o PipelineParameterAttributeArrayOutput) ToPipelineParameterAttributeArray
 
 func (o PipelineParameterAttributeArrayOutput) ToPipelineParameterAttributeArrayOutputWithContext(ctx context.Context) PipelineParameterAttributeArrayOutput {
 	return o
+}
+
+func (o PipelineParameterAttributeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PipelineParameterAttribute] {
+	return pulumix.Output[[]PipelineParameterAttribute]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PipelineParameterAttributeArrayOutput) Index(i pulumi.IntInput) PipelineParameterAttributeOutput {
@@ -386,6 +459,12 @@ func (i PipelineParameterObjectArgs) ToPipelineParameterObjectOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineParameterObjectOutput)
 }
 
+func (i PipelineParameterObjectArgs) ToOutput(ctx context.Context) pulumix.Output[PipelineParameterObject] {
+	return pulumix.Output[PipelineParameterObject]{
+		OutputState: i.ToPipelineParameterObjectOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PipelineParameterObjectArrayInput is an input type that accepts PipelineParameterObjectArray and PipelineParameterObjectArrayOutput values.
 // You can construct a concrete instance of `PipelineParameterObjectArrayInput` via:
 //
@@ -411,6 +490,12 @@ func (i PipelineParameterObjectArray) ToPipelineParameterObjectArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineParameterObjectArrayOutput)
 }
 
+func (i PipelineParameterObjectArray) ToOutput(ctx context.Context) pulumix.Output[[]PipelineParameterObject] {
+	return pulumix.Output[[]PipelineParameterObject]{
+		OutputState: i.ToPipelineParameterObjectArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PipelineParameterObjectOutput struct{ *pulumi.OutputState }
 
 func (PipelineParameterObjectOutput) ElementType() reflect.Type {
@@ -423,6 +508,12 @@ func (o PipelineParameterObjectOutput) ToPipelineParameterObjectOutput() Pipelin
 
 func (o PipelineParameterObjectOutput) ToPipelineParameterObjectOutputWithContext(ctx context.Context) PipelineParameterObjectOutput {
 	return o
+}
+
+func (o PipelineParameterObjectOutput) ToOutput(ctx context.Context) pulumix.Output[PipelineParameterObject] {
+	return pulumix.Output[PipelineParameterObject]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The attributes of the parameter object.
@@ -447,6 +538,12 @@ func (o PipelineParameterObjectArrayOutput) ToPipelineParameterObjectArrayOutput
 
 func (o PipelineParameterObjectArrayOutput) ToPipelineParameterObjectArrayOutputWithContext(ctx context.Context) PipelineParameterObjectArrayOutput {
 	return o
+}
+
+func (o PipelineParameterObjectArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PipelineParameterObject] {
+	return pulumix.Output[[]PipelineParameterObject]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PipelineParameterObjectArrayOutput) Index(i pulumi.IntInput) PipelineParameterObjectOutput {
@@ -492,6 +589,12 @@ func (i PipelineParameterValueArgs) ToPipelineParameterValueOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineParameterValueOutput)
 }
 
+func (i PipelineParameterValueArgs) ToOutput(ctx context.Context) pulumix.Output[PipelineParameterValue] {
+	return pulumix.Output[PipelineParameterValue]{
+		OutputState: i.ToPipelineParameterValueOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PipelineParameterValueArrayInput is an input type that accepts PipelineParameterValueArray and PipelineParameterValueArrayOutput values.
 // You can construct a concrete instance of `PipelineParameterValueArrayInput` via:
 //
@@ -517,6 +620,12 @@ func (i PipelineParameterValueArray) ToPipelineParameterValueArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineParameterValueArrayOutput)
 }
 
+func (i PipelineParameterValueArray) ToOutput(ctx context.Context) pulumix.Output[[]PipelineParameterValue] {
+	return pulumix.Output[[]PipelineParameterValue]{
+		OutputState: i.ToPipelineParameterValueArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PipelineParameterValueOutput struct{ *pulumi.OutputState }
 
 func (PipelineParameterValueOutput) ElementType() reflect.Type {
@@ -529,6 +638,12 @@ func (o PipelineParameterValueOutput) ToPipelineParameterValueOutput() PipelineP
 
 func (o PipelineParameterValueOutput) ToPipelineParameterValueOutputWithContext(ctx context.Context) PipelineParameterValueOutput {
 	return o
+}
+
+func (o PipelineParameterValueOutput) ToOutput(ctx context.Context) pulumix.Output[PipelineParameterValue] {
+	return pulumix.Output[PipelineParameterValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the parameter value.
@@ -553,6 +668,12 @@ func (o PipelineParameterValueArrayOutput) ToPipelineParameterValueArrayOutput()
 
 func (o PipelineParameterValueArrayOutput) ToPipelineParameterValueArrayOutputWithContext(ctx context.Context) PipelineParameterValueArrayOutput {
 	return o
+}
+
+func (o PipelineParameterValueArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PipelineParameterValue] {
+	return pulumix.Output[[]PipelineParameterValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PipelineParameterValueArrayOutput) Index(i pulumi.IntInput) PipelineParameterValueOutput {
@@ -598,6 +719,12 @@ func (i PipelineTagArgs) ToPipelineTagOutputWithContext(ctx context.Context) Pip
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineTagOutput)
 }
 
+func (i PipelineTagArgs) ToOutput(ctx context.Context) pulumix.Output[PipelineTag] {
+	return pulumix.Output[PipelineTag]{
+		OutputState: i.ToPipelineTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PipelineTagArrayInput is an input type that accepts PipelineTagArray and PipelineTagArrayOutput values.
 // You can construct a concrete instance of `PipelineTagArrayInput` via:
 //
@@ -623,6 +750,12 @@ func (i PipelineTagArray) ToPipelineTagArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineTagArrayOutput)
 }
 
+func (i PipelineTagArray) ToOutput(ctx context.Context) pulumix.Output[[]PipelineTag] {
+	return pulumix.Output[[]PipelineTag]{
+		OutputState: i.ToPipelineTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PipelineTagOutput struct{ *pulumi.OutputState }
 
 func (PipelineTagOutput) ElementType() reflect.Type {
@@ -635,6 +768,12 @@ func (o PipelineTagOutput) ToPipelineTagOutput() PipelineTagOutput {
 
 func (o PipelineTagOutput) ToPipelineTagOutputWithContext(ctx context.Context) PipelineTagOutput {
 	return o
+}
+
+func (o PipelineTagOutput) ToOutput(ctx context.Context) pulumix.Output[PipelineTag] {
+	return pulumix.Output[PipelineTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of a tag.
@@ -659,6 +798,12 @@ func (o PipelineTagArrayOutput) ToPipelineTagArrayOutput() PipelineTagArrayOutpu
 
 func (o PipelineTagArrayOutput) ToPipelineTagArrayOutputWithContext(ctx context.Context) PipelineTagArrayOutput {
 	return o
+}
+
+func (o PipelineTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PipelineTag] {
+	return pulumix.Output[[]PipelineTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PipelineTagArrayOutput) Index(i pulumi.IntInput) PipelineTagOutput {

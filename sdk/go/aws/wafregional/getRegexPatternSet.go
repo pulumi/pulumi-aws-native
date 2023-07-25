@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::WAFRegional::RegexPatternSet
@@ -64,6 +65,12 @@ func (o LookupRegexPatternSetResultOutput) ToLookupRegexPatternSetResultOutput()
 
 func (o LookupRegexPatternSetResultOutput) ToLookupRegexPatternSetResultOutputWithContext(ctx context.Context) LookupRegexPatternSetResultOutput {
 	return o
+}
+
+func (o LookupRegexPatternSetResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRegexPatternSetResult] {
+	return pulumix.Output[LookupRegexPatternSetResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupRegexPatternSetResultOutput) Id() pulumi.StringPtrOutput {

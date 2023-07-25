@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Redshift::ClusterSecurityGroup
@@ -64,6 +65,12 @@ func (o LookupClusterSecurityGroupResultOutput) ToLookupClusterSecurityGroupResu
 
 func (o LookupClusterSecurityGroupResultOutput) ToLookupClusterSecurityGroupResultOutputWithContext(ctx context.Context) LookupClusterSecurityGroupResultOutput {
 	return o
+}
+
+func (o LookupClusterSecurityGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupClusterSecurityGroupResult] {
+	return pulumix.Output[LookupClusterSecurityGroupResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupClusterSecurityGroupResultOutput) Id() pulumi.StringPtrOutput {

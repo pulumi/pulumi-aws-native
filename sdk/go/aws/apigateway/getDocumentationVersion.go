@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A snapshot of the documentation of an API.
@@ -70,6 +71,12 @@ func (o LookupDocumentationVersionResultOutput) ToLookupDocumentationVersionResu
 
 func (o LookupDocumentationVersionResultOutput) ToLookupDocumentationVersionResultOutputWithContext(ctx context.Context) LookupDocumentationVersionResultOutput {
 	return o
+}
+
+func (o LookupDocumentationVersionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDocumentationVersionResult] {
+	return pulumix.Output[LookupDocumentationVersionResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The description of the API documentation snapshot.

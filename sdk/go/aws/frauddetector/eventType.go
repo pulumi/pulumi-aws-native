@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A resource schema for an EventType in Amazon Fraud Detector.
@@ -129,6 +130,12 @@ func (i *EventType) ToEventTypeOutputWithContext(ctx context.Context) EventTypeO
 	return pulumi.ToOutputWithContext(ctx, i).(EventTypeOutput)
 }
 
+func (i *EventType) ToOutput(ctx context.Context) pulumix.Output[*EventType] {
+	return pulumix.Output[*EventType]{
+		OutputState: i.ToEventTypeOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventTypeOutput struct{ *pulumi.OutputState }
 
 func (EventTypeOutput) ElementType() reflect.Type {
@@ -141,6 +148,12 @@ func (o EventTypeOutput) ToEventTypeOutput() EventTypeOutput {
 
 func (o EventTypeOutput) ToEventTypeOutputWithContext(ctx context.Context) EventTypeOutput {
 	return o
+}
+
+func (o EventTypeOutput) ToOutput(ctx context.Context) pulumix.Output[*EventType] {
+	return pulumix.Output[*EventType]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the event type.

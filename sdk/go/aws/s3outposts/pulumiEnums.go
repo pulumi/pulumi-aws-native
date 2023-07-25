@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type BucketRuleStatus string
@@ -77,6 +78,12 @@ func (o BucketRuleStatusOutput) ToBucketRuleStatusPtrOutputWithContext(ctx conte
 	}).(BucketRuleStatusPtrOutput)
 }
 
+func (o BucketRuleStatusOutput) ToOutput(ctx context.Context) pulumix.Output[BucketRuleStatus] {
+	return pulumix.Output[BucketRuleStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BucketRuleStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -110,6 +117,12 @@ func (o BucketRuleStatusPtrOutput) ToBucketRuleStatusPtrOutput() BucketRuleStatu
 
 func (o BucketRuleStatusPtrOutput) ToBucketRuleStatusPtrOutputWithContext(ctx context.Context) BucketRuleStatusPtrOutput {
 	return o
+}
+
+func (o BucketRuleStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketRuleStatus] {
+	return pulumix.Output[*BucketRuleStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketRuleStatusPtrOutput) Elem() BucketRuleStatusOutput {
@@ -172,6 +185,12 @@ func (in *bucketRuleStatusPtr) ToBucketRuleStatusPtrOutput() BucketRuleStatusPtr
 
 func (in *bucketRuleStatusPtr) ToBucketRuleStatusPtrOutputWithContext(ctx context.Context) BucketRuleStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(BucketRuleStatusPtrOutput)
+}
+
+func (in *bucketRuleStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*BucketRuleStatus] {
+	return pulumix.Output[*BucketRuleStatus]{
+		OutputState: in.ToBucketRuleStatusPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The type of access for the on-premise network connectivity for the Outpost endpoint. To access endpoint from an on-premises network, you must specify the access type and provide the customer owned Ipv4 pool.
@@ -242,6 +261,12 @@ func (o EndpointAccessTypeOutput) ToEndpointAccessTypePtrOutputWithContext(ctx c
 	}).(EndpointAccessTypePtrOutput)
 }
 
+func (o EndpointAccessTypeOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointAccessType] {
+	return pulumix.Output[EndpointAccessType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EndpointAccessTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -275,6 +300,12 @@ func (o EndpointAccessTypePtrOutput) ToEndpointAccessTypePtrOutput() EndpointAcc
 
 func (o EndpointAccessTypePtrOutput) ToEndpointAccessTypePtrOutputWithContext(ctx context.Context) EndpointAccessTypePtrOutput {
 	return o
+}
+
+func (o EndpointAccessTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointAccessType] {
+	return pulumix.Output[*EndpointAccessType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EndpointAccessTypePtrOutput) Elem() EndpointAccessTypeOutput {
@@ -339,6 +370,12 @@ func (in *endpointAccessTypePtr) ToEndpointAccessTypePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(EndpointAccessTypePtrOutput)
 }
 
+func (in *endpointAccessTypePtr) ToOutput(ctx context.Context) pulumix.Output[*EndpointAccessType] {
+	return pulumix.Output[*EndpointAccessType]{
+		OutputState: in.ToEndpointAccessTypePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EndpointStatus string
 
 const (
@@ -371,6 +408,12 @@ func (o EndpointStatusOutput) ToEndpointStatusPtrOutputWithContext(ctx context.C
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointStatus) *EndpointStatus {
 		return &v
 	}).(EndpointStatusPtrOutput)
+}
+
+func (o EndpointStatusOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointStatus] {
+	return pulumix.Output[EndpointStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EndpointStatusOutput) ToStringOutput() pulumi.StringOutput {
@@ -406,6 +449,12 @@ func (o EndpointStatusPtrOutput) ToEndpointStatusPtrOutput() EndpointStatusPtrOu
 
 func (o EndpointStatusPtrOutput) ToEndpointStatusPtrOutputWithContext(ctx context.Context) EndpointStatusPtrOutput {
 	return o
+}
+
+func (o EndpointStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointStatus] {
+	return pulumix.Output[*EndpointStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EndpointStatusPtrOutput) Elem() EndpointStatusOutput {

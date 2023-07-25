@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The status of the Data Store. Possible statuses are 'CREATING', 'ACTIVE', 'DELETING', or 'DELETED'.
@@ -44,6 +45,12 @@ func (o FHIRDatastoreDatastoreStatusOutput) ToFHIRDatastoreDatastoreStatusPtrOut
 	}).(FHIRDatastoreDatastoreStatusPtrOutput)
 }
 
+func (o FHIRDatastoreDatastoreStatusOutput) ToOutput(ctx context.Context) pulumix.Output[FHIRDatastoreDatastoreStatus] {
+	return pulumix.Output[FHIRDatastoreDatastoreStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FHIRDatastoreDatastoreStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -77,6 +84,12 @@ func (o FHIRDatastoreDatastoreStatusPtrOutput) ToFHIRDatastoreDatastoreStatusPtr
 
 func (o FHIRDatastoreDatastoreStatusPtrOutput) ToFHIRDatastoreDatastoreStatusPtrOutputWithContext(ctx context.Context) FHIRDatastoreDatastoreStatusPtrOutput {
 	return o
+}
+
+func (o FHIRDatastoreDatastoreStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FHIRDatastoreDatastoreStatus] {
+	return pulumix.Output[*FHIRDatastoreDatastoreStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FHIRDatastoreDatastoreStatusPtrOutput) Elem() FHIRDatastoreDatastoreStatusOutput {
@@ -170,6 +183,12 @@ func (o FHIRDatastoreDatastoreTypeVersionOutput) ToFHIRDatastoreDatastoreTypeVer
 	}).(FHIRDatastoreDatastoreTypeVersionPtrOutput)
 }
 
+func (o FHIRDatastoreDatastoreTypeVersionOutput) ToOutput(ctx context.Context) pulumix.Output[FHIRDatastoreDatastoreTypeVersion] {
+	return pulumix.Output[FHIRDatastoreDatastoreTypeVersion]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FHIRDatastoreDatastoreTypeVersionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -203,6 +222,12 @@ func (o FHIRDatastoreDatastoreTypeVersionPtrOutput) ToFHIRDatastoreDatastoreType
 
 func (o FHIRDatastoreDatastoreTypeVersionPtrOutput) ToFHIRDatastoreDatastoreTypeVersionPtrOutputWithContext(ctx context.Context) FHIRDatastoreDatastoreTypeVersionPtrOutput {
 	return o
+}
+
+func (o FHIRDatastoreDatastoreTypeVersionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FHIRDatastoreDatastoreTypeVersion] {
+	return pulumix.Output[*FHIRDatastoreDatastoreTypeVersion]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FHIRDatastoreDatastoreTypeVersionPtrOutput) Elem() FHIRDatastoreDatastoreTypeVersionOutput {
@@ -265,6 +290,12 @@ func (in *fhirdatastoreDatastoreTypeVersionPtr) ToFHIRDatastoreDatastoreTypeVers
 
 func (in *fhirdatastoreDatastoreTypeVersionPtr) ToFHIRDatastoreDatastoreTypeVersionPtrOutputWithContext(ctx context.Context) FHIRDatastoreDatastoreTypeVersionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FHIRDatastoreDatastoreTypeVersionPtrOutput)
+}
+
+func (in *fhirdatastoreDatastoreTypeVersionPtr) ToOutput(ctx context.Context) pulumix.Output[*FHIRDatastoreDatastoreTypeVersion] {
+	return pulumix.Output[*FHIRDatastoreDatastoreTypeVersion]{
+		OutputState: in.ToFHIRDatastoreDatastoreTypeVersionPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Type of Authorization Strategy. The two types of supported Authorization strategies are SMART_ON_FHIR_V1 and AWS_AUTH.
@@ -335,6 +366,12 @@ func (o FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyOutput) T
 	}).(FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutput)
 }
 
+func (o FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyOutput) ToOutput(ctx context.Context) pulumix.Output[FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy] {
+	return pulumix.Output[FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -368,6 +405,12 @@ func (o FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutput
 
 func (o FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutput) ToFHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutputWithContext(ctx context.Context) FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutput {
 	return o
+}
+
+func (o FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy] {
+	return pulumix.Output[*FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutput) Elem() FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyOutput {
@@ -430,6 +473,12 @@ func (in *fhirdatastoreIdentityProviderConfigurationAuthorizationStrategyPtr) To
 
 func (in *fhirdatastoreIdentityProviderConfigurationAuthorizationStrategyPtr) ToFHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutputWithContext(ctx context.Context) FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutput)
+}
+
+func (in *fhirdatastoreIdentityProviderConfigurationAuthorizationStrategyPtr) ToOutput(ctx context.Context) pulumix.Output[*FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy] {
+	return pulumix.Output[*FHIRDatastoreIdentityProviderConfigurationAuthorizationStrategy]{
+		OutputState: in.ToFHIRDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The type of customer-managed-key (CMK) used for encryption. The two types of supported CMKs are customer owned CMKs and AWS owned CMKs.
@@ -500,6 +549,12 @@ func (o FHIRDatastoreKmsEncryptionConfigCmkTypeOutput) ToFHIRDatastoreKmsEncrypt
 	}).(FHIRDatastoreKmsEncryptionConfigCmkTypePtrOutput)
 }
 
+func (o FHIRDatastoreKmsEncryptionConfigCmkTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FHIRDatastoreKmsEncryptionConfigCmkType] {
+	return pulumix.Output[FHIRDatastoreKmsEncryptionConfigCmkType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FHIRDatastoreKmsEncryptionConfigCmkTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -533,6 +588,12 @@ func (o FHIRDatastoreKmsEncryptionConfigCmkTypePtrOutput) ToFHIRDatastoreKmsEncr
 
 func (o FHIRDatastoreKmsEncryptionConfigCmkTypePtrOutput) ToFHIRDatastoreKmsEncryptionConfigCmkTypePtrOutputWithContext(ctx context.Context) FHIRDatastoreKmsEncryptionConfigCmkTypePtrOutput {
 	return o
+}
+
+func (o FHIRDatastoreKmsEncryptionConfigCmkTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FHIRDatastoreKmsEncryptionConfigCmkType] {
+	return pulumix.Output[*FHIRDatastoreKmsEncryptionConfigCmkType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FHIRDatastoreKmsEncryptionConfigCmkTypePtrOutput) Elem() FHIRDatastoreKmsEncryptionConfigCmkTypeOutput {
@@ -595,6 +656,12 @@ func (in *fhirdatastoreKmsEncryptionConfigCmkTypePtr) ToFHIRDatastoreKmsEncrypti
 
 func (in *fhirdatastoreKmsEncryptionConfigCmkTypePtr) ToFHIRDatastoreKmsEncryptionConfigCmkTypePtrOutputWithContext(ctx context.Context) FHIRDatastoreKmsEncryptionConfigCmkTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FHIRDatastoreKmsEncryptionConfigCmkTypePtrOutput)
+}
+
+func (in *fhirdatastoreKmsEncryptionConfigCmkTypePtr) ToOutput(ctx context.Context) pulumix.Output[*FHIRDatastoreKmsEncryptionConfigCmkType] {
+	return pulumix.Output[*FHIRDatastoreKmsEncryptionConfigCmkType]{
+		OutputState: in.ToFHIRDatastoreKmsEncryptionConfigCmkTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The type of preloaded data. Only Synthea preloaded data is supported.
@@ -664,6 +731,12 @@ func (o FHIRDatastorePreloadDataConfigPreloadDataTypeOutput) ToFHIRDatastorePrel
 	}).(FHIRDatastorePreloadDataConfigPreloadDataTypePtrOutput)
 }
 
+func (o FHIRDatastorePreloadDataConfigPreloadDataTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FHIRDatastorePreloadDataConfigPreloadDataType] {
+	return pulumix.Output[FHIRDatastorePreloadDataConfigPreloadDataType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FHIRDatastorePreloadDataConfigPreloadDataTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -697,6 +770,12 @@ func (o FHIRDatastorePreloadDataConfigPreloadDataTypePtrOutput) ToFHIRDatastoreP
 
 func (o FHIRDatastorePreloadDataConfigPreloadDataTypePtrOutput) ToFHIRDatastorePreloadDataConfigPreloadDataTypePtrOutputWithContext(ctx context.Context) FHIRDatastorePreloadDataConfigPreloadDataTypePtrOutput {
 	return o
+}
+
+func (o FHIRDatastorePreloadDataConfigPreloadDataTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FHIRDatastorePreloadDataConfigPreloadDataType] {
+	return pulumix.Output[*FHIRDatastorePreloadDataConfigPreloadDataType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FHIRDatastorePreloadDataConfigPreloadDataTypePtrOutput) Elem() FHIRDatastorePreloadDataConfigPreloadDataTypeOutput {
@@ -759,6 +838,12 @@ func (in *fhirdatastorePreloadDataConfigPreloadDataTypePtr) ToFHIRDatastorePrelo
 
 func (in *fhirdatastorePreloadDataConfigPreloadDataTypePtr) ToFHIRDatastorePreloadDataConfigPreloadDataTypePtrOutputWithContext(ctx context.Context) FHIRDatastorePreloadDataConfigPreloadDataTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FHIRDatastorePreloadDataConfigPreloadDataTypePtrOutput)
+}
+
+func (in *fhirdatastorePreloadDataConfigPreloadDataTypePtr) ToOutput(ctx context.Context) pulumix.Output[*FHIRDatastorePreloadDataConfigPreloadDataType] {
+	return pulumix.Output[*FHIRDatastorePreloadDataConfigPreloadDataType]{
+		OutputState: in.ToFHIRDatastorePreloadDataConfigPreloadDataTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

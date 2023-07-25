@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::VPCGatewayAttachment
@@ -101,6 +102,12 @@ func (i *VPCGatewayAttachment) ToVPCGatewayAttachmentOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(VPCGatewayAttachmentOutput)
 }
 
+func (i *VPCGatewayAttachment) ToOutput(ctx context.Context) pulumix.Output[*VPCGatewayAttachment] {
+	return pulumix.Output[*VPCGatewayAttachment]{
+		OutputState: i.ToVPCGatewayAttachmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VPCGatewayAttachmentOutput struct{ *pulumi.OutputState }
 
 func (VPCGatewayAttachmentOutput) ElementType() reflect.Type {
@@ -113,6 +120,12 @@ func (o VPCGatewayAttachmentOutput) ToVPCGatewayAttachmentOutput() VPCGatewayAtt
 
 func (o VPCGatewayAttachmentOutput) ToVPCGatewayAttachmentOutputWithContext(ctx context.Context) VPCGatewayAttachmentOutput {
 	return o
+}
+
+func (o VPCGatewayAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[*VPCGatewayAttachment] {
+	return pulumix.Output[*VPCGatewayAttachment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VPCGatewayAttachmentOutput) InternetGatewayId() pulumi.StringPtrOutput {

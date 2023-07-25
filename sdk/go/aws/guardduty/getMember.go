@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::GuardDuty::Member
@@ -65,6 +66,12 @@ func (o LookupMemberResultOutput) ToLookupMemberResultOutput() LookupMemberResul
 
 func (o LookupMemberResultOutput) ToLookupMemberResultOutputWithContext(ctx context.Context) LookupMemberResultOutput {
 	return o
+}
+
+func (o LookupMemberResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupMemberResult] {
+	return pulumix.Output[LookupMemberResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupMemberResultOutput) DisableEmailNotification() pulumi.BoolPtrOutput {

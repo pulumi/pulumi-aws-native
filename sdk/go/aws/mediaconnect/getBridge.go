@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::MediaConnect::Bridge
@@ -78,6 +79,12 @@ func (o LookupBridgeResultOutput) ToLookupBridgeResultOutput() LookupBridgeResul
 
 func (o LookupBridgeResultOutput) ToLookupBridgeResultOutputWithContext(ctx context.Context) LookupBridgeResultOutput {
 	return o
+}
+
+func (o LookupBridgeResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupBridgeResult] {
+	return pulumix.Output[LookupBridgeResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Number (ARN) of the bridge.

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -48,6 +49,12 @@ func (i SkillAuthenticationConfigurationArgs) ToSkillAuthenticationConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(SkillAuthenticationConfigurationOutput)
 }
 
+func (i SkillAuthenticationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[SkillAuthenticationConfiguration] {
+	return pulumix.Output[SkillAuthenticationConfiguration]{
+		OutputState: i.ToSkillAuthenticationConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SkillAuthenticationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (SkillAuthenticationConfigurationOutput) ElementType() reflect.Type {
@@ -60,6 +67,12 @@ func (o SkillAuthenticationConfigurationOutput) ToSkillAuthenticationConfigurati
 
 func (o SkillAuthenticationConfigurationOutput) ToSkillAuthenticationConfigurationOutputWithContext(ctx context.Context) SkillAuthenticationConfigurationOutput {
 	return o
+}
+
+func (o SkillAuthenticationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[SkillAuthenticationConfiguration] {
+	return pulumix.Output[SkillAuthenticationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SkillAuthenticationConfigurationOutput) ClientId() pulumi.StringOutput {
@@ -86,6 +99,12 @@ func (o SkillAuthenticationConfigurationPtrOutput) ToSkillAuthenticationConfigur
 
 func (o SkillAuthenticationConfigurationPtrOutput) ToSkillAuthenticationConfigurationPtrOutputWithContext(ctx context.Context) SkillAuthenticationConfigurationPtrOutput {
 	return o
+}
+
+func (o SkillAuthenticationConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SkillAuthenticationConfiguration] {
+	return pulumix.Output[*SkillAuthenticationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SkillAuthenticationConfigurationPtrOutput) Elem() SkillAuthenticationConfigurationOutput {
@@ -156,6 +175,12 @@ func (i SkillOverridesArgs) ToSkillOverridesOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(SkillOverridesOutput)
 }
 
+func (i SkillOverridesArgs) ToOutput(ctx context.Context) pulumix.Output[SkillOverrides] {
+	return pulumix.Output[SkillOverrides]{
+		OutputState: i.ToSkillOverridesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SkillOverridesArgs) ToSkillOverridesPtrOutput() SkillOverridesPtrOutput {
 	return i.ToSkillOverridesPtrOutputWithContext(context.Background())
 }
@@ -197,6 +222,12 @@ func (i *skillOverridesPtrType) ToSkillOverridesPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(SkillOverridesPtrOutput)
 }
 
+func (i *skillOverridesPtrType) ToOutput(ctx context.Context) pulumix.Output[*SkillOverrides] {
+	return pulumix.Output[*SkillOverrides]{
+		OutputState: i.ToSkillOverridesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SkillOverridesOutput struct{ *pulumi.OutputState }
 
 func (SkillOverridesOutput) ElementType() reflect.Type {
@@ -221,6 +252,12 @@ func (o SkillOverridesOutput) ToSkillOverridesPtrOutputWithContext(ctx context.C
 	}).(SkillOverridesPtrOutput)
 }
 
+func (o SkillOverridesOutput) ToOutput(ctx context.Context) pulumix.Output[SkillOverrides] {
+	return pulumix.Output[SkillOverrides]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SkillOverridesOutput) Manifest() pulumi.AnyOutput {
 	return o.ApplyT(func(v SkillOverrides) interface{} { return v.Manifest }).(pulumi.AnyOutput)
 }
@@ -237,6 +274,12 @@ func (o SkillOverridesPtrOutput) ToSkillOverridesPtrOutput() SkillOverridesPtrOu
 
 func (o SkillOverridesPtrOutput) ToSkillOverridesPtrOutputWithContext(ctx context.Context) SkillOverridesPtrOutput {
 	return o
+}
+
+func (o SkillOverridesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SkillOverrides] {
+	return pulumix.Output[*SkillOverrides]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SkillOverridesPtrOutput) Elem() SkillOverridesOutput {
@@ -297,6 +340,12 @@ func (i SkillPackageArgs) ToSkillPackageOutputWithContext(ctx context.Context) S
 	return pulumi.ToOutputWithContext(ctx, i).(SkillPackageOutput)
 }
 
+func (i SkillPackageArgs) ToOutput(ctx context.Context) pulumix.Output[SkillPackage] {
+	return pulumix.Output[SkillPackage]{
+		OutputState: i.ToSkillPackageOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SkillPackageOutput struct{ *pulumi.OutputState }
 
 func (SkillPackageOutput) ElementType() reflect.Type {
@@ -309,6 +358,12 @@ func (o SkillPackageOutput) ToSkillPackageOutput() SkillPackageOutput {
 
 func (o SkillPackageOutput) ToSkillPackageOutputWithContext(ctx context.Context) SkillPackageOutput {
 	return o
+}
+
+func (o SkillPackageOutput) ToOutput(ctx context.Context) pulumix.Output[SkillPackage] {
+	return pulumix.Output[SkillPackage]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SkillPackageOutput) Overrides() SkillOverridesPtrOutput {
@@ -343,6 +398,12 @@ func (o SkillPackagePtrOutput) ToSkillPackagePtrOutput() SkillPackagePtrOutput {
 
 func (o SkillPackagePtrOutput) ToSkillPackagePtrOutputWithContext(ctx context.Context) SkillPackagePtrOutput {
 	return o
+}
+
+func (o SkillPackagePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SkillPackage] {
+	return pulumix.Output[*SkillPackage]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SkillPackagePtrOutput) Elem() SkillPackageOutput {

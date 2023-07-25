@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::MediaConnect::FlowVpcInterface
@@ -76,6 +77,12 @@ func (o LookupFlowVpcInterfaceResultOutput) ToLookupFlowVpcInterfaceResultOutput
 
 func (o LookupFlowVpcInterfaceResultOutput) ToLookupFlowVpcInterfaceResultOutputWithContext(ctx context.Context) LookupFlowVpcInterfaceResultOutput {
 	return o
+}
+
+func (o LookupFlowVpcInterfaceResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFlowVpcInterfaceResult] {
+	return pulumix.Output[LookupFlowVpcInterfaceResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // IDs of the network interfaces created in customer's account by MediaConnect.

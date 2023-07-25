@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ServiceCatalog::TagOptionAssociation
@@ -101,6 +102,12 @@ func (i *TagOptionAssociation) ToTagOptionAssociationOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(TagOptionAssociationOutput)
 }
 
+func (i *TagOptionAssociation) ToOutput(ctx context.Context) pulumix.Output[*TagOptionAssociation] {
+	return pulumix.Output[*TagOptionAssociation]{
+		OutputState: i.ToTagOptionAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TagOptionAssociationOutput struct{ *pulumi.OutputState }
 
 func (TagOptionAssociationOutput) ElementType() reflect.Type {
@@ -113,6 +120,12 @@ func (o TagOptionAssociationOutput) ToTagOptionAssociationOutput() TagOptionAsso
 
 func (o TagOptionAssociationOutput) ToTagOptionAssociationOutputWithContext(ctx context.Context) TagOptionAssociationOutput {
 	return o
+}
+
+func (o TagOptionAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*TagOptionAssociation] {
+	return pulumix.Output[*TagOptionAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TagOptionAssociationOutput) ResourceId() pulumi.StringOutput {

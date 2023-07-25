@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::Location::Map Resource Type
@@ -67,6 +68,12 @@ func (o LookupMapResultOutput) ToLookupMapResultOutput() LookupMapResultOutput {
 
 func (o LookupMapResultOutput) ToLookupMapResultOutputWithContext(ctx context.Context) LookupMapResultOutput {
 	return o
+}
+
+func (o LookupMapResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupMapResult] {
+	return pulumix.Output[LookupMapResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupMapResultOutput) Arn() pulumi.StringPtrOutput {

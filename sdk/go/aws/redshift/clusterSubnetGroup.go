@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Specifies an Amazon Redshift subnet group.
@@ -113,6 +114,12 @@ func (i *ClusterSubnetGroup) ToClusterSubnetGroupOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterSubnetGroupOutput)
 }
 
+func (i *ClusterSubnetGroup) ToOutput(ctx context.Context) pulumix.Output[*ClusterSubnetGroup] {
+	return pulumix.Output[*ClusterSubnetGroup]{
+		OutputState: i.ToClusterSubnetGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterSubnetGroupOutput struct{ *pulumi.OutputState }
 
 func (ClusterSubnetGroupOutput) ElementType() reflect.Type {
@@ -125,6 +132,12 @@ func (o ClusterSubnetGroupOutput) ToClusterSubnetGroupOutput() ClusterSubnetGrou
 
 func (o ClusterSubnetGroupOutput) ToClusterSubnetGroupOutputWithContext(ctx context.Context) ClusterSubnetGroupOutput {
 	return o
+}
+
+func (o ClusterSubnetGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterSubnetGroup] {
+	return pulumix.Output[*ClusterSubnetGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // This name must be unique for all subnet groups that are created by your AWS account. If costumer do not provide it, cloudformation will generate it. Must not be "Default".

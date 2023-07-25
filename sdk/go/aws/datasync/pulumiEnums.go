@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The service endpoints that the agent will connect to.
@@ -43,6 +44,12 @@ func (o AgentEndpointTypeOutput) ToAgentEndpointTypePtrOutputWithContext(ctx con
 	}).(AgentEndpointTypePtrOutput)
 }
 
+func (o AgentEndpointTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AgentEndpointType] {
+	return pulumix.Output[AgentEndpointType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AgentEndpointTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -76,6 +83,12 @@ func (o AgentEndpointTypePtrOutput) ToAgentEndpointTypePtrOutput() AgentEndpoint
 
 func (o AgentEndpointTypePtrOutput) ToAgentEndpointTypePtrOutputWithContext(ctx context.Context) AgentEndpointTypePtrOutput {
 	return o
+}
+
+func (o AgentEndpointTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AgentEndpointType] {
+	return pulumix.Output[*AgentEndpointType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AgentEndpointTypePtrOutput) Elem() AgentEndpointTypeOutput {
@@ -170,6 +183,12 @@ func (o LocationEFSInTransitEncryptionOutput) ToLocationEFSInTransitEncryptionPt
 	}).(LocationEFSInTransitEncryptionPtrOutput)
 }
 
+func (o LocationEFSInTransitEncryptionOutput) ToOutput(ctx context.Context) pulumix.Output[LocationEFSInTransitEncryption] {
+	return pulumix.Output[LocationEFSInTransitEncryption]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocationEFSInTransitEncryptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -203,6 +222,12 @@ func (o LocationEFSInTransitEncryptionPtrOutput) ToLocationEFSInTransitEncryptio
 
 func (o LocationEFSInTransitEncryptionPtrOutput) ToLocationEFSInTransitEncryptionPtrOutputWithContext(ctx context.Context) LocationEFSInTransitEncryptionPtrOutput {
 	return o
+}
+
+func (o LocationEFSInTransitEncryptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationEFSInTransitEncryption] {
+	return pulumix.Output[*LocationEFSInTransitEncryption]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocationEFSInTransitEncryptionPtrOutput) Elem() LocationEFSInTransitEncryptionOutput {
@@ -265,6 +290,12 @@ func (in *locationEFSInTransitEncryptionPtr) ToLocationEFSInTransitEncryptionPtr
 
 func (in *locationEFSInTransitEncryptionPtr) ToLocationEFSInTransitEncryptionPtrOutputWithContext(ctx context.Context) LocationEFSInTransitEncryptionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(LocationEFSInTransitEncryptionPtrOutput)
+}
+
+func (in *locationEFSInTransitEncryptionPtr) ToOutput(ctx context.Context) pulumix.Output[*LocationEFSInTransitEncryption] {
+	return pulumix.Output[*LocationEFSInTransitEncryption]{
+		OutputState: in.ToLocationEFSInTransitEncryptionPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The specific NFS version that you want DataSync to use to mount your NFS share.
@@ -337,6 +368,12 @@ func (o LocationFSxONTAPNfsMountOptionsVersionOutput) ToLocationFSxONTAPNfsMount
 	}).(LocationFSxONTAPNfsMountOptionsVersionPtrOutput)
 }
 
+func (o LocationFSxONTAPNfsMountOptionsVersionOutput) ToOutput(ctx context.Context) pulumix.Output[LocationFSxONTAPNfsMountOptionsVersion] {
+	return pulumix.Output[LocationFSxONTAPNfsMountOptionsVersion]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocationFSxONTAPNfsMountOptionsVersionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -370,6 +407,12 @@ func (o LocationFSxONTAPNfsMountOptionsVersionPtrOutput) ToLocationFSxONTAPNfsMo
 
 func (o LocationFSxONTAPNfsMountOptionsVersionPtrOutput) ToLocationFSxONTAPNfsMountOptionsVersionPtrOutputWithContext(ctx context.Context) LocationFSxONTAPNfsMountOptionsVersionPtrOutput {
 	return o
+}
+
+func (o LocationFSxONTAPNfsMountOptionsVersionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationFSxONTAPNfsMountOptionsVersion] {
+	return pulumix.Output[*LocationFSxONTAPNfsMountOptionsVersion]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocationFSxONTAPNfsMountOptionsVersionPtrOutput) Elem() LocationFSxONTAPNfsMountOptionsVersionOutput {
@@ -432,6 +475,12 @@ func (in *locationFSxONTAPNfsMountOptionsVersionPtr) ToLocationFSxONTAPNfsMountO
 
 func (in *locationFSxONTAPNfsMountOptionsVersionPtr) ToLocationFSxONTAPNfsMountOptionsVersionPtrOutputWithContext(ctx context.Context) LocationFSxONTAPNfsMountOptionsVersionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(LocationFSxONTAPNfsMountOptionsVersionPtrOutput)
+}
+
+func (in *locationFSxONTAPNfsMountOptionsVersionPtr) ToOutput(ctx context.Context) pulumix.Output[*LocationFSxONTAPNfsMountOptionsVersion] {
+	return pulumix.Output[*LocationFSxONTAPNfsMountOptionsVersion]{
+		OutputState: in.ToLocationFSxONTAPNfsMountOptionsVersionPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The specific SMB version that you want DataSync to use to mount your SMB share.
@@ -503,6 +552,12 @@ func (o LocationFSxONTAPSmbMountOptionsVersionOutput) ToLocationFSxONTAPSmbMount
 	}).(LocationFSxONTAPSmbMountOptionsVersionPtrOutput)
 }
 
+func (o LocationFSxONTAPSmbMountOptionsVersionOutput) ToOutput(ctx context.Context) pulumix.Output[LocationFSxONTAPSmbMountOptionsVersion] {
+	return pulumix.Output[LocationFSxONTAPSmbMountOptionsVersion]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocationFSxONTAPSmbMountOptionsVersionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -536,6 +591,12 @@ func (o LocationFSxONTAPSmbMountOptionsVersionPtrOutput) ToLocationFSxONTAPSmbMo
 
 func (o LocationFSxONTAPSmbMountOptionsVersionPtrOutput) ToLocationFSxONTAPSmbMountOptionsVersionPtrOutputWithContext(ctx context.Context) LocationFSxONTAPSmbMountOptionsVersionPtrOutput {
 	return o
+}
+
+func (o LocationFSxONTAPSmbMountOptionsVersionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationFSxONTAPSmbMountOptionsVersion] {
+	return pulumix.Output[*LocationFSxONTAPSmbMountOptionsVersion]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocationFSxONTAPSmbMountOptionsVersionPtrOutput) Elem() LocationFSxONTAPSmbMountOptionsVersionOutput {
@@ -598,6 +659,12 @@ func (in *locationFSxONTAPSmbMountOptionsVersionPtr) ToLocationFSxONTAPSmbMountO
 
 func (in *locationFSxONTAPSmbMountOptionsVersionPtr) ToLocationFSxONTAPSmbMountOptionsVersionPtrOutputWithContext(ctx context.Context) LocationFSxONTAPSmbMountOptionsVersionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(LocationFSxONTAPSmbMountOptionsVersionPtrOutput)
+}
+
+func (in *locationFSxONTAPSmbMountOptionsVersionPtr) ToOutput(ctx context.Context) pulumix.Output[*LocationFSxONTAPSmbMountOptionsVersion] {
+	return pulumix.Output[*LocationFSxONTAPSmbMountOptionsVersion]{
+		OutputState: in.ToLocationFSxONTAPSmbMountOptionsVersionPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The specific NFS version that you want DataSync to use to mount your NFS share.
@@ -670,6 +737,12 @@ func (o LocationFSxOpenZFSMountOptionsVersionOutput) ToLocationFSxOpenZFSMountOp
 	}).(LocationFSxOpenZFSMountOptionsVersionPtrOutput)
 }
 
+func (o LocationFSxOpenZFSMountOptionsVersionOutput) ToOutput(ctx context.Context) pulumix.Output[LocationFSxOpenZFSMountOptionsVersion] {
+	return pulumix.Output[LocationFSxOpenZFSMountOptionsVersion]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocationFSxOpenZFSMountOptionsVersionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -703,6 +776,12 @@ func (o LocationFSxOpenZFSMountOptionsVersionPtrOutput) ToLocationFSxOpenZFSMoun
 
 func (o LocationFSxOpenZFSMountOptionsVersionPtrOutput) ToLocationFSxOpenZFSMountOptionsVersionPtrOutputWithContext(ctx context.Context) LocationFSxOpenZFSMountOptionsVersionPtrOutput {
 	return o
+}
+
+func (o LocationFSxOpenZFSMountOptionsVersionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationFSxOpenZFSMountOptionsVersion] {
+	return pulumix.Output[*LocationFSxOpenZFSMountOptionsVersion]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocationFSxOpenZFSMountOptionsVersionPtrOutput) Elem() LocationFSxOpenZFSMountOptionsVersionOutput {
@@ -765,6 +844,12 @@ func (in *locationFSxOpenZFSMountOptionsVersionPtr) ToLocationFSxOpenZFSMountOpt
 
 func (in *locationFSxOpenZFSMountOptionsVersionPtr) ToLocationFSxOpenZFSMountOptionsVersionPtrOutputWithContext(ctx context.Context) LocationFSxOpenZFSMountOptionsVersionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(LocationFSxOpenZFSMountOptionsVersionPtrOutput)
+}
+
+func (in *locationFSxOpenZFSMountOptionsVersionPtr) ToOutput(ctx context.Context) pulumix.Output[*LocationFSxOpenZFSMountOptionsVersion] {
+	return pulumix.Output[*LocationFSxOpenZFSMountOptionsVersion]{
+		OutputState: in.ToLocationFSxOpenZFSMountOptionsVersionPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The authentication mode used to determine identity of user.
@@ -835,6 +920,12 @@ func (o LocationHDFSAuthenticationTypeOutput) ToLocationHDFSAuthenticationTypePt
 	}).(LocationHDFSAuthenticationTypePtrOutput)
 }
 
+func (o LocationHDFSAuthenticationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[LocationHDFSAuthenticationType] {
+	return pulumix.Output[LocationHDFSAuthenticationType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocationHDFSAuthenticationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -868,6 +959,12 @@ func (o LocationHDFSAuthenticationTypePtrOutput) ToLocationHDFSAuthenticationTyp
 
 func (o LocationHDFSAuthenticationTypePtrOutput) ToLocationHDFSAuthenticationTypePtrOutputWithContext(ctx context.Context) LocationHDFSAuthenticationTypePtrOutput {
 	return o
+}
+
+func (o LocationHDFSAuthenticationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationHDFSAuthenticationType] {
+	return pulumix.Output[*LocationHDFSAuthenticationType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocationHDFSAuthenticationTypePtrOutput) Elem() LocationHDFSAuthenticationTypeOutput {
@@ -930,6 +1027,12 @@ func (in *locationHDFSAuthenticationTypePtr) ToLocationHDFSAuthenticationTypePtr
 
 func (in *locationHDFSAuthenticationTypePtr) ToLocationHDFSAuthenticationTypePtrOutputWithContext(ctx context.Context) LocationHDFSAuthenticationTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(LocationHDFSAuthenticationTypePtrOutput)
+}
+
+func (in *locationHDFSAuthenticationTypePtr) ToOutput(ctx context.Context) pulumix.Output[*LocationHDFSAuthenticationType] {
+	return pulumix.Output[*LocationHDFSAuthenticationType]{
+		OutputState: in.ToLocationHDFSAuthenticationTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Configuration for Data Transfer Protection.
@@ -1002,6 +1105,12 @@ func (o LocationHDFSQopConfigurationDataTransferProtectionOutput) ToLocationHDFS
 	}).(LocationHDFSQopConfigurationDataTransferProtectionPtrOutput)
 }
 
+func (o LocationHDFSQopConfigurationDataTransferProtectionOutput) ToOutput(ctx context.Context) pulumix.Output[LocationHDFSQopConfigurationDataTransferProtection] {
+	return pulumix.Output[LocationHDFSQopConfigurationDataTransferProtection]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocationHDFSQopConfigurationDataTransferProtectionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1035,6 +1144,12 @@ func (o LocationHDFSQopConfigurationDataTransferProtectionPtrOutput) ToLocationH
 
 func (o LocationHDFSQopConfigurationDataTransferProtectionPtrOutput) ToLocationHDFSQopConfigurationDataTransferProtectionPtrOutputWithContext(ctx context.Context) LocationHDFSQopConfigurationDataTransferProtectionPtrOutput {
 	return o
+}
+
+func (o LocationHDFSQopConfigurationDataTransferProtectionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationHDFSQopConfigurationDataTransferProtection] {
+	return pulumix.Output[*LocationHDFSQopConfigurationDataTransferProtection]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocationHDFSQopConfigurationDataTransferProtectionPtrOutput) Elem() LocationHDFSQopConfigurationDataTransferProtectionOutput {
@@ -1097,6 +1212,12 @@ func (in *locationHDFSQopConfigurationDataTransferProtectionPtr) ToLocationHDFSQ
 
 func (in *locationHDFSQopConfigurationDataTransferProtectionPtr) ToLocationHDFSQopConfigurationDataTransferProtectionPtrOutputWithContext(ctx context.Context) LocationHDFSQopConfigurationDataTransferProtectionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(LocationHDFSQopConfigurationDataTransferProtectionPtrOutput)
+}
+
+func (in *locationHDFSQopConfigurationDataTransferProtectionPtr) ToOutput(ctx context.Context) pulumix.Output[*LocationHDFSQopConfigurationDataTransferProtection] {
+	return pulumix.Output[*LocationHDFSQopConfigurationDataTransferProtection]{
+		OutputState: in.ToLocationHDFSQopConfigurationDataTransferProtectionPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Configuration for RPC Protection.
@@ -1169,6 +1290,12 @@ func (o LocationHDFSQopConfigurationRpcProtectionOutput) ToLocationHDFSQopConfig
 	}).(LocationHDFSQopConfigurationRpcProtectionPtrOutput)
 }
 
+func (o LocationHDFSQopConfigurationRpcProtectionOutput) ToOutput(ctx context.Context) pulumix.Output[LocationHDFSQopConfigurationRpcProtection] {
+	return pulumix.Output[LocationHDFSQopConfigurationRpcProtection]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocationHDFSQopConfigurationRpcProtectionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1202,6 +1329,12 @@ func (o LocationHDFSQopConfigurationRpcProtectionPtrOutput) ToLocationHDFSQopCon
 
 func (o LocationHDFSQopConfigurationRpcProtectionPtrOutput) ToLocationHDFSQopConfigurationRpcProtectionPtrOutputWithContext(ctx context.Context) LocationHDFSQopConfigurationRpcProtectionPtrOutput {
 	return o
+}
+
+func (o LocationHDFSQopConfigurationRpcProtectionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationHDFSQopConfigurationRpcProtection] {
+	return pulumix.Output[*LocationHDFSQopConfigurationRpcProtection]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocationHDFSQopConfigurationRpcProtectionPtrOutput) Elem() LocationHDFSQopConfigurationRpcProtectionOutput {
@@ -1264,6 +1397,12 @@ func (in *locationHDFSQopConfigurationRpcProtectionPtr) ToLocationHDFSQopConfigu
 
 func (in *locationHDFSQopConfigurationRpcProtectionPtr) ToLocationHDFSQopConfigurationRpcProtectionPtrOutputWithContext(ctx context.Context) LocationHDFSQopConfigurationRpcProtectionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(LocationHDFSQopConfigurationRpcProtectionPtrOutput)
+}
+
+func (in *locationHDFSQopConfigurationRpcProtectionPtr) ToOutput(ctx context.Context) pulumix.Output[*LocationHDFSQopConfigurationRpcProtection] {
+	return pulumix.Output[*LocationHDFSQopConfigurationRpcProtection]{
+		OutputState: in.ToLocationHDFSQopConfigurationRpcProtectionPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The specific NFS version that you want DataSync to use to mount your NFS share.
@@ -1336,6 +1475,12 @@ func (o LocationNFSMountOptionsVersionOutput) ToLocationNFSMountOptionsVersionPt
 	}).(LocationNFSMountOptionsVersionPtrOutput)
 }
 
+func (o LocationNFSMountOptionsVersionOutput) ToOutput(ctx context.Context) pulumix.Output[LocationNFSMountOptionsVersion] {
+	return pulumix.Output[LocationNFSMountOptionsVersion]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocationNFSMountOptionsVersionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1369,6 +1514,12 @@ func (o LocationNFSMountOptionsVersionPtrOutput) ToLocationNFSMountOptionsVersio
 
 func (o LocationNFSMountOptionsVersionPtrOutput) ToLocationNFSMountOptionsVersionPtrOutputWithContext(ctx context.Context) LocationNFSMountOptionsVersionPtrOutput {
 	return o
+}
+
+func (o LocationNFSMountOptionsVersionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationNFSMountOptionsVersion] {
+	return pulumix.Output[*LocationNFSMountOptionsVersion]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocationNFSMountOptionsVersionPtrOutput) Elem() LocationNFSMountOptionsVersionOutput {
@@ -1431,6 +1582,12 @@ func (in *locationNFSMountOptionsVersionPtr) ToLocationNFSMountOptionsVersionPtr
 
 func (in *locationNFSMountOptionsVersionPtr) ToLocationNFSMountOptionsVersionPtrOutputWithContext(ctx context.Context) LocationNFSMountOptionsVersionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(LocationNFSMountOptionsVersionPtrOutput)
+}
+
+func (in *locationNFSMountOptionsVersionPtr) ToOutput(ctx context.Context) pulumix.Output[*LocationNFSMountOptionsVersion] {
+	return pulumix.Output[*LocationNFSMountOptionsVersion]{
+		OutputState: in.ToLocationNFSMountOptionsVersionPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The protocol that the object storage server uses to communicate.
@@ -1501,6 +1658,12 @@ func (o LocationObjectStorageServerProtocolOutput) ToLocationObjectStorageServer
 	}).(LocationObjectStorageServerProtocolPtrOutput)
 }
 
+func (o LocationObjectStorageServerProtocolOutput) ToOutput(ctx context.Context) pulumix.Output[LocationObjectStorageServerProtocol] {
+	return pulumix.Output[LocationObjectStorageServerProtocol]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocationObjectStorageServerProtocolOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1534,6 +1697,12 @@ func (o LocationObjectStorageServerProtocolPtrOutput) ToLocationObjectStorageSer
 
 func (o LocationObjectStorageServerProtocolPtrOutput) ToLocationObjectStorageServerProtocolPtrOutputWithContext(ctx context.Context) LocationObjectStorageServerProtocolPtrOutput {
 	return o
+}
+
+func (o LocationObjectStorageServerProtocolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationObjectStorageServerProtocol] {
+	return pulumix.Output[*LocationObjectStorageServerProtocol]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocationObjectStorageServerProtocolPtrOutput) Elem() LocationObjectStorageServerProtocolOutput {
@@ -1596,6 +1765,12 @@ func (in *locationObjectStorageServerProtocolPtr) ToLocationObjectStorageServerP
 
 func (in *locationObjectStorageServerProtocolPtr) ToLocationObjectStorageServerProtocolPtrOutputWithContext(ctx context.Context) LocationObjectStorageServerProtocolPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(LocationObjectStorageServerProtocolPtrOutput)
+}
+
+func (in *locationObjectStorageServerProtocolPtr) ToOutput(ctx context.Context) pulumix.Output[*LocationObjectStorageServerProtocol] {
+	return pulumix.Output[*LocationObjectStorageServerProtocol]{
+		OutputState: in.ToLocationObjectStorageServerProtocolPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The Amazon S3 storage class you want to store your files in when this location is used as a task destination.
@@ -1671,6 +1846,12 @@ func (o LocationS3S3StorageClassOutput) ToLocationS3S3StorageClassPtrOutputWithC
 	}).(LocationS3S3StorageClassPtrOutput)
 }
 
+func (o LocationS3S3StorageClassOutput) ToOutput(ctx context.Context) pulumix.Output[LocationS3S3StorageClass] {
+	return pulumix.Output[LocationS3S3StorageClass]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocationS3S3StorageClassOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1704,6 +1885,12 @@ func (o LocationS3S3StorageClassPtrOutput) ToLocationS3S3StorageClassPtrOutput()
 
 func (o LocationS3S3StorageClassPtrOutput) ToLocationS3S3StorageClassPtrOutputWithContext(ctx context.Context) LocationS3S3StorageClassPtrOutput {
 	return o
+}
+
+func (o LocationS3S3StorageClassPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationS3S3StorageClass] {
+	return pulumix.Output[*LocationS3S3StorageClass]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocationS3S3StorageClassPtrOutput) Elem() LocationS3S3StorageClassOutput {
@@ -1766,6 +1953,12 @@ func (in *locationS3S3StorageClassPtr) ToLocationS3S3StorageClassPtrOutput() Loc
 
 func (in *locationS3S3StorageClassPtr) ToLocationS3S3StorageClassPtrOutputWithContext(ctx context.Context) LocationS3S3StorageClassPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(LocationS3S3StorageClassPtrOutput)
+}
+
+func (in *locationS3S3StorageClassPtr) ToOutput(ctx context.Context) pulumix.Output[*LocationS3S3StorageClass] {
+	return pulumix.Output[*LocationS3S3StorageClass]{
+		OutputState: in.ToLocationS3S3StorageClassPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The specific SMB version that you want DataSync to use to mount your SMB share.
@@ -1839,6 +2032,12 @@ func (o LocationSMBMountOptionsVersionOutput) ToLocationSMBMountOptionsVersionPt
 	}).(LocationSMBMountOptionsVersionPtrOutput)
 }
 
+func (o LocationSMBMountOptionsVersionOutput) ToOutput(ctx context.Context) pulumix.Output[LocationSMBMountOptionsVersion] {
+	return pulumix.Output[LocationSMBMountOptionsVersion]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocationSMBMountOptionsVersionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1872,6 +2071,12 @@ func (o LocationSMBMountOptionsVersionPtrOutput) ToLocationSMBMountOptionsVersio
 
 func (o LocationSMBMountOptionsVersionPtrOutput) ToLocationSMBMountOptionsVersionPtrOutputWithContext(ctx context.Context) LocationSMBMountOptionsVersionPtrOutput {
 	return o
+}
+
+func (o LocationSMBMountOptionsVersionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationSMBMountOptionsVersion] {
+	return pulumix.Output[*LocationSMBMountOptionsVersion]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocationSMBMountOptionsVersionPtrOutput) Elem() LocationSMBMountOptionsVersionOutput {
@@ -1936,6 +2141,12 @@ func (in *locationSMBMountOptionsVersionPtr) ToLocationSMBMountOptionsVersionPtr
 	return pulumi.ToOutputWithContext(ctx, in).(LocationSMBMountOptionsVersionPtrOutput)
 }
 
+func (in *locationSMBMountOptionsVersionPtr) ToOutput(ctx context.Context) pulumix.Output[*LocationSMBMountOptionsVersion] {
+	return pulumix.Output[*LocationSMBMountOptionsVersion]{
+		OutputState: in.ToLocationSMBMountOptionsVersionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Indicates whether the DataSync agent can access the on-premises storage system.
 type StorageSystemConnectivityStatus string
 
@@ -1967,6 +2178,12 @@ func (o StorageSystemConnectivityStatusOutput) ToStorageSystemConnectivityStatus
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageSystemConnectivityStatus) *StorageSystemConnectivityStatus {
 		return &v
 	}).(StorageSystemConnectivityStatusPtrOutput)
+}
+
+func (o StorageSystemConnectivityStatusOutput) ToOutput(ctx context.Context) pulumix.Output[StorageSystemConnectivityStatus] {
+	return pulumix.Output[StorageSystemConnectivityStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StorageSystemConnectivityStatusOutput) ToStringOutput() pulumi.StringOutput {
@@ -2002,6 +2219,12 @@ func (o StorageSystemConnectivityStatusPtrOutput) ToStorageSystemConnectivitySta
 
 func (o StorageSystemConnectivityStatusPtrOutput) ToStorageSystemConnectivityStatusPtrOutputWithContext(ctx context.Context) StorageSystemConnectivityStatusPtrOutput {
 	return o
+}
+
+func (o StorageSystemConnectivityStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageSystemConnectivityStatus] {
+	return pulumix.Output[*StorageSystemConnectivityStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StorageSystemConnectivityStatusPtrOutput) Elem() StorageSystemConnectivityStatusOutput {
@@ -2095,6 +2318,12 @@ func (o StorageSystemSystemTypeOutput) ToStorageSystemSystemTypePtrOutputWithCon
 	}).(StorageSystemSystemTypePtrOutput)
 }
 
+func (o StorageSystemSystemTypeOutput) ToOutput(ctx context.Context) pulumix.Output[StorageSystemSystemType] {
+	return pulumix.Output[StorageSystemSystemType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o StorageSystemSystemTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2128,6 +2357,12 @@ func (o StorageSystemSystemTypePtrOutput) ToStorageSystemSystemTypePtrOutput() S
 
 func (o StorageSystemSystemTypePtrOutput) ToStorageSystemSystemTypePtrOutputWithContext(ctx context.Context) StorageSystemSystemTypePtrOutput {
 	return o
+}
+
+func (o StorageSystemSystemTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageSystemSystemType] {
+	return pulumix.Output[*StorageSystemSystemType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StorageSystemSystemTypePtrOutput) Elem() StorageSystemSystemTypeOutput {
@@ -2190,6 +2425,12 @@ func (in *storageSystemSystemTypePtr) ToStorageSystemSystemTypePtrOutput() Stora
 
 func (in *storageSystemSystemTypePtr) ToStorageSystemSystemTypePtrOutputWithContext(ctx context.Context) StorageSystemSystemTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(StorageSystemSystemTypePtrOutput)
+}
+
+func (in *storageSystemSystemTypePtr) ToOutput(ctx context.Context) pulumix.Output[*StorageSystemSystemType] {
+	return pulumix.Output[*StorageSystemSystemType]{
+		OutputState: in.ToStorageSystemSystemTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The type of filter rule to apply. AWS DataSync only supports the SIMPLE_PATTERN rule type.
@@ -2259,6 +2500,12 @@ func (o TaskFilterRuleFilterTypeOutput) ToTaskFilterRuleFilterTypePtrOutputWithC
 	}).(TaskFilterRuleFilterTypePtrOutput)
 }
 
+func (o TaskFilterRuleFilterTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TaskFilterRuleFilterType] {
+	return pulumix.Output[TaskFilterRuleFilterType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskFilterRuleFilterTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2292,6 +2539,12 @@ func (o TaskFilterRuleFilterTypePtrOutput) ToTaskFilterRuleFilterTypePtrOutput()
 
 func (o TaskFilterRuleFilterTypePtrOutput) ToTaskFilterRuleFilterTypePtrOutputWithContext(ctx context.Context) TaskFilterRuleFilterTypePtrOutput {
 	return o
+}
+
+func (o TaskFilterRuleFilterTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskFilterRuleFilterType] {
+	return pulumix.Output[*TaskFilterRuleFilterType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TaskFilterRuleFilterTypePtrOutput) Elem() TaskFilterRuleFilterTypeOutput {
@@ -2354,6 +2607,12 @@ func (in *taskFilterRuleFilterTypePtr) ToTaskFilterRuleFilterTypePtrOutput() Tas
 
 func (in *taskFilterRuleFilterTypePtr) ToTaskFilterRuleFilterTypePtrOutputWithContext(ctx context.Context) TaskFilterRuleFilterTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TaskFilterRuleFilterTypePtrOutput)
+}
+
+func (in *taskFilterRuleFilterTypePtr) ToOutput(ctx context.Context) pulumix.Output[*TaskFilterRuleFilterType] {
+	return pulumix.Output[*TaskFilterRuleFilterType]{
+		OutputState: in.ToTaskFilterRuleFilterTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // A file metadata value that shows the last time a file was accessed (that is, when the file was read or written to).
@@ -2424,6 +2683,12 @@ func (o TaskOptionsAtimeOutput) ToTaskOptionsAtimePtrOutputWithContext(ctx conte
 	}).(TaskOptionsAtimePtrOutput)
 }
 
+func (o TaskOptionsAtimeOutput) ToOutput(ctx context.Context) pulumix.Output[TaskOptionsAtime] {
+	return pulumix.Output[TaskOptionsAtime]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskOptionsAtimeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2457,6 +2722,12 @@ func (o TaskOptionsAtimePtrOutput) ToTaskOptionsAtimePtrOutput() TaskOptionsAtim
 
 func (o TaskOptionsAtimePtrOutput) ToTaskOptionsAtimePtrOutputWithContext(ctx context.Context) TaskOptionsAtimePtrOutput {
 	return o
+}
+
+func (o TaskOptionsAtimePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskOptionsAtime] {
+	return pulumix.Output[*TaskOptionsAtime]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TaskOptionsAtimePtrOutput) Elem() TaskOptionsAtimeOutput {
@@ -2519,6 +2790,12 @@ func (in *taskOptionsAtimePtr) ToTaskOptionsAtimePtrOutput() TaskOptionsAtimePtr
 
 func (in *taskOptionsAtimePtr) ToTaskOptionsAtimePtrOutputWithContext(ctx context.Context) TaskOptionsAtimePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TaskOptionsAtimePtrOutput)
+}
+
+func (in *taskOptionsAtimePtr) ToOutput(ctx context.Context) pulumix.Output[*TaskOptionsAtime] {
+	return pulumix.Output[*TaskOptionsAtime]{
+		OutputState: in.ToTaskOptionsAtimePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The group ID (GID) of the file's owners.
@@ -2591,6 +2868,12 @@ func (o TaskOptionsGidOutput) ToTaskOptionsGidPtrOutputWithContext(ctx context.C
 	}).(TaskOptionsGidPtrOutput)
 }
 
+func (o TaskOptionsGidOutput) ToOutput(ctx context.Context) pulumix.Output[TaskOptionsGid] {
+	return pulumix.Output[TaskOptionsGid]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskOptionsGidOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2624,6 +2907,12 @@ func (o TaskOptionsGidPtrOutput) ToTaskOptionsGidPtrOutput() TaskOptionsGidPtrOu
 
 func (o TaskOptionsGidPtrOutput) ToTaskOptionsGidPtrOutputWithContext(ctx context.Context) TaskOptionsGidPtrOutput {
 	return o
+}
+
+func (o TaskOptionsGidPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskOptionsGid] {
+	return pulumix.Output[*TaskOptionsGid]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TaskOptionsGidPtrOutput) Elem() TaskOptionsGidOutput {
@@ -2686,6 +2975,12 @@ func (in *taskOptionsGidPtr) ToTaskOptionsGidPtrOutput() TaskOptionsGidPtrOutput
 
 func (in *taskOptionsGidPtr) ToTaskOptionsGidPtrOutputWithContext(ctx context.Context) TaskOptionsGidPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TaskOptionsGidPtrOutput)
+}
+
+func (in *taskOptionsGidPtr) ToOutput(ctx context.Context) pulumix.Output[*TaskOptionsGid] {
+	return pulumix.Output[*TaskOptionsGid]{
+		OutputState: in.ToTaskOptionsGidPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // A value that determines the types of logs that DataSync publishes to a log stream in the Amazon CloudWatch log group that you provide.
@@ -2757,6 +3052,12 @@ func (o TaskOptionsLogLevelOutput) ToTaskOptionsLogLevelPtrOutputWithContext(ctx
 	}).(TaskOptionsLogLevelPtrOutput)
 }
 
+func (o TaskOptionsLogLevelOutput) ToOutput(ctx context.Context) pulumix.Output[TaskOptionsLogLevel] {
+	return pulumix.Output[TaskOptionsLogLevel]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskOptionsLogLevelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2790,6 +3091,12 @@ func (o TaskOptionsLogLevelPtrOutput) ToTaskOptionsLogLevelPtrOutput() TaskOptio
 
 func (o TaskOptionsLogLevelPtrOutput) ToTaskOptionsLogLevelPtrOutputWithContext(ctx context.Context) TaskOptionsLogLevelPtrOutput {
 	return o
+}
+
+func (o TaskOptionsLogLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskOptionsLogLevel] {
+	return pulumix.Output[*TaskOptionsLogLevel]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TaskOptionsLogLevelPtrOutput) Elem() TaskOptionsLogLevelOutput {
@@ -2852,6 +3159,12 @@ func (in *taskOptionsLogLevelPtr) ToTaskOptionsLogLevelPtrOutput() TaskOptionsLo
 
 func (in *taskOptionsLogLevelPtr) ToTaskOptionsLogLevelPtrOutputWithContext(ctx context.Context) TaskOptionsLogLevelPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TaskOptionsLogLevelPtrOutput)
+}
+
+func (in *taskOptionsLogLevelPtr) ToOutput(ctx context.Context) pulumix.Output[*TaskOptionsLogLevel] {
+	return pulumix.Output[*TaskOptionsLogLevel]{
+		OutputState: in.ToTaskOptionsLogLevelPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // A value that indicates the last time that a file was modified (that is, a file was written to) before the PREPARING phase.
@@ -2922,6 +3235,12 @@ func (o TaskOptionsMtimeOutput) ToTaskOptionsMtimePtrOutputWithContext(ctx conte
 	}).(TaskOptionsMtimePtrOutput)
 }
 
+func (o TaskOptionsMtimeOutput) ToOutput(ctx context.Context) pulumix.Output[TaskOptionsMtime] {
+	return pulumix.Output[TaskOptionsMtime]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskOptionsMtimeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2955,6 +3274,12 @@ func (o TaskOptionsMtimePtrOutput) ToTaskOptionsMtimePtrOutput() TaskOptionsMtim
 
 func (o TaskOptionsMtimePtrOutput) ToTaskOptionsMtimePtrOutputWithContext(ctx context.Context) TaskOptionsMtimePtrOutput {
 	return o
+}
+
+func (o TaskOptionsMtimePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskOptionsMtime] {
+	return pulumix.Output[*TaskOptionsMtime]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TaskOptionsMtimePtrOutput) Elem() TaskOptionsMtimeOutput {
@@ -3017,6 +3342,12 @@ func (in *taskOptionsMtimePtr) ToTaskOptionsMtimePtrOutput() TaskOptionsMtimePtr
 
 func (in *taskOptionsMtimePtr) ToTaskOptionsMtimePtrOutputWithContext(ctx context.Context) TaskOptionsMtimePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TaskOptionsMtimePtrOutput)
+}
+
+func (in *taskOptionsMtimePtr) ToOutput(ctx context.Context) pulumix.Output[*TaskOptionsMtime] {
+	return pulumix.Output[*TaskOptionsMtime]{
+		OutputState: in.ToTaskOptionsMtimePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // A value that determines whether object tags should be read from the source object store and written to the destination object store.
@@ -3087,6 +3418,12 @@ func (o TaskOptionsObjectTagsOutput) ToTaskOptionsObjectTagsPtrOutputWithContext
 	}).(TaskOptionsObjectTagsPtrOutput)
 }
 
+func (o TaskOptionsObjectTagsOutput) ToOutput(ctx context.Context) pulumix.Output[TaskOptionsObjectTags] {
+	return pulumix.Output[TaskOptionsObjectTags]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskOptionsObjectTagsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3120,6 +3457,12 @@ func (o TaskOptionsObjectTagsPtrOutput) ToTaskOptionsObjectTagsPtrOutput() TaskO
 
 func (o TaskOptionsObjectTagsPtrOutput) ToTaskOptionsObjectTagsPtrOutputWithContext(ctx context.Context) TaskOptionsObjectTagsPtrOutput {
 	return o
+}
+
+func (o TaskOptionsObjectTagsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskOptionsObjectTags] {
+	return pulumix.Output[*TaskOptionsObjectTags]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TaskOptionsObjectTagsPtrOutput) Elem() TaskOptionsObjectTagsOutput {
@@ -3182,6 +3525,12 @@ func (in *taskOptionsObjectTagsPtr) ToTaskOptionsObjectTagsPtrOutput() TaskOptio
 
 func (in *taskOptionsObjectTagsPtr) ToTaskOptionsObjectTagsPtrOutputWithContext(ctx context.Context) TaskOptionsObjectTagsPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TaskOptionsObjectTagsPtrOutput)
+}
+
+func (in *taskOptionsObjectTagsPtr) ToOutput(ctx context.Context) pulumix.Output[*TaskOptionsObjectTags] {
+	return pulumix.Output[*TaskOptionsObjectTags]{
+		OutputState: in.ToTaskOptionsObjectTagsPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // A value that determines whether files at the destination should be overwritten or preserved when copying files.
@@ -3252,6 +3601,12 @@ func (o TaskOptionsOverwriteModeOutput) ToTaskOptionsOverwriteModePtrOutputWithC
 	}).(TaskOptionsOverwriteModePtrOutput)
 }
 
+func (o TaskOptionsOverwriteModeOutput) ToOutput(ctx context.Context) pulumix.Output[TaskOptionsOverwriteMode] {
+	return pulumix.Output[TaskOptionsOverwriteMode]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskOptionsOverwriteModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3285,6 +3640,12 @@ func (o TaskOptionsOverwriteModePtrOutput) ToTaskOptionsOverwriteModePtrOutput()
 
 func (o TaskOptionsOverwriteModePtrOutput) ToTaskOptionsOverwriteModePtrOutputWithContext(ctx context.Context) TaskOptionsOverwriteModePtrOutput {
 	return o
+}
+
+func (o TaskOptionsOverwriteModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskOptionsOverwriteMode] {
+	return pulumix.Output[*TaskOptionsOverwriteMode]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TaskOptionsOverwriteModePtrOutput) Elem() TaskOptionsOverwriteModeOutput {
@@ -3347,6 +3708,12 @@ func (in *taskOptionsOverwriteModePtr) ToTaskOptionsOverwriteModePtrOutput() Tas
 
 func (in *taskOptionsOverwriteModePtr) ToTaskOptionsOverwriteModePtrOutputWithContext(ctx context.Context) TaskOptionsOverwriteModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TaskOptionsOverwriteModePtrOutput)
+}
+
+func (in *taskOptionsOverwriteModePtr) ToOutput(ctx context.Context) pulumix.Output[*TaskOptionsOverwriteMode] {
+	return pulumix.Output[*TaskOptionsOverwriteMode]{
+		OutputState: in.ToTaskOptionsOverwriteModePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // A value that determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file.
@@ -3417,6 +3784,12 @@ func (o TaskOptionsPosixPermissionsOutput) ToTaskOptionsPosixPermissionsPtrOutpu
 	}).(TaskOptionsPosixPermissionsPtrOutput)
 }
 
+func (o TaskOptionsPosixPermissionsOutput) ToOutput(ctx context.Context) pulumix.Output[TaskOptionsPosixPermissions] {
+	return pulumix.Output[TaskOptionsPosixPermissions]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskOptionsPosixPermissionsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3450,6 +3823,12 @@ func (o TaskOptionsPosixPermissionsPtrOutput) ToTaskOptionsPosixPermissionsPtrOu
 
 func (o TaskOptionsPosixPermissionsPtrOutput) ToTaskOptionsPosixPermissionsPtrOutputWithContext(ctx context.Context) TaskOptionsPosixPermissionsPtrOutput {
 	return o
+}
+
+func (o TaskOptionsPosixPermissionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskOptionsPosixPermissions] {
+	return pulumix.Output[*TaskOptionsPosixPermissions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TaskOptionsPosixPermissionsPtrOutput) Elem() TaskOptionsPosixPermissionsOutput {
@@ -3512,6 +3891,12 @@ func (in *taskOptionsPosixPermissionsPtr) ToTaskOptionsPosixPermissionsPtrOutput
 
 func (in *taskOptionsPosixPermissionsPtr) ToTaskOptionsPosixPermissionsPtrOutputWithContext(ctx context.Context) TaskOptionsPosixPermissionsPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TaskOptionsPosixPermissionsPtrOutput)
+}
+
+func (in *taskOptionsPosixPermissionsPtr) ToOutput(ctx context.Context) pulumix.Output[*TaskOptionsPosixPermissions] {
+	return pulumix.Output[*TaskOptionsPosixPermissions]{
+		OutputState: in.ToTaskOptionsPosixPermissionsPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // A value that specifies whether files in the destination that don't exist in the source file system should be preserved.
@@ -3582,6 +3967,12 @@ func (o TaskOptionsPreserveDeletedFilesOutput) ToTaskOptionsPreserveDeletedFiles
 	}).(TaskOptionsPreserveDeletedFilesPtrOutput)
 }
 
+func (o TaskOptionsPreserveDeletedFilesOutput) ToOutput(ctx context.Context) pulumix.Output[TaskOptionsPreserveDeletedFiles] {
+	return pulumix.Output[TaskOptionsPreserveDeletedFiles]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskOptionsPreserveDeletedFilesOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3615,6 +4006,12 @@ func (o TaskOptionsPreserveDeletedFilesPtrOutput) ToTaskOptionsPreserveDeletedFi
 
 func (o TaskOptionsPreserveDeletedFilesPtrOutput) ToTaskOptionsPreserveDeletedFilesPtrOutputWithContext(ctx context.Context) TaskOptionsPreserveDeletedFilesPtrOutput {
 	return o
+}
+
+func (o TaskOptionsPreserveDeletedFilesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskOptionsPreserveDeletedFiles] {
+	return pulumix.Output[*TaskOptionsPreserveDeletedFiles]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TaskOptionsPreserveDeletedFilesPtrOutput) Elem() TaskOptionsPreserveDeletedFilesOutput {
@@ -3677,6 +4074,12 @@ func (in *taskOptionsPreserveDeletedFilesPtr) ToTaskOptionsPreserveDeletedFilesP
 
 func (in *taskOptionsPreserveDeletedFilesPtr) ToTaskOptionsPreserveDeletedFilesPtrOutputWithContext(ctx context.Context) TaskOptionsPreserveDeletedFilesPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TaskOptionsPreserveDeletedFilesPtrOutput)
+}
+
+func (in *taskOptionsPreserveDeletedFilesPtr) ToOutput(ctx context.Context) pulumix.Output[*TaskOptionsPreserveDeletedFiles] {
+	return pulumix.Output[*TaskOptionsPreserveDeletedFiles]{
+		OutputState: in.ToTaskOptionsPreserveDeletedFilesPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // A value that determines whether AWS DataSync should preserve the metadata of block and character devices in the source file system, and recreate the files with that device name and metadata on the destination.
@@ -3747,6 +4150,12 @@ func (o TaskOptionsPreserveDevicesOutput) ToTaskOptionsPreserveDevicesPtrOutputW
 	}).(TaskOptionsPreserveDevicesPtrOutput)
 }
 
+func (o TaskOptionsPreserveDevicesOutput) ToOutput(ctx context.Context) pulumix.Output[TaskOptionsPreserveDevices] {
+	return pulumix.Output[TaskOptionsPreserveDevices]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskOptionsPreserveDevicesOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3780,6 +4189,12 @@ func (o TaskOptionsPreserveDevicesPtrOutput) ToTaskOptionsPreserveDevicesPtrOutp
 
 func (o TaskOptionsPreserveDevicesPtrOutput) ToTaskOptionsPreserveDevicesPtrOutputWithContext(ctx context.Context) TaskOptionsPreserveDevicesPtrOutput {
 	return o
+}
+
+func (o TaskOptionsPreserveDevicesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskOptionsPreserveDevices] {
+	return pulumix.Output[*TaskOptionsPreserveDevices]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TaskOptionsPreserveDevicesPtrOutput) Elem() TaskOptionsPreserveDevicesOutput {
@@ -3842,6 +4257,12 @@ func (in *taskOptionsPreserveDevicesPtr) ToTaskOptionsPreserveDevicesPtrOutput()
 
 func (in *taskOptionsPreserveDevicesPtr) ToTaskOptionsPreserveDevicesPtrOutputWithContext(ctx context.Context) TaskOptionsPreserveDevicesPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TaskOptionsPreserveDevicesPtrOutput)
+}
+
+func (in *taskOptionsPreserveDevicesPtr) ToOutput(ctx context.Context) pulumix.Output[*TaskOptionsPreserveDevices] {
+	return pulumix.Output[*TaskOptionsPreserveDevices]{
+		OutputState: in.ToTaskOptionsPreserveDevicesPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // A value that determines which components of the SMB security descriptor are copied during transfer.
@@ -3913,6 +4334,12 @@ func (o TaskOptionsSecurityDescriptorCopyFlagsOutput) ToTaskOptionsSecurityDescr
 	}).(TaskOptionsSecurityDescriptorCopyFlagsPtrOutput)
 }
 
+func (o TaskOptionsSecurityDescriptorCopyFlagsOutput) ToOutput(ctx context.Context) pulumix.Output[TaskOptionsSecurityDescriptorCopyFlags] {
+	return pulumix.Output[TaskOptionsSecurityDescriptorCopyFlags]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskOptionsSecurityDescriptorCopyFlagsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3946,6 +4373,12 @@ func (o TaskOptionsSecurityDescriptorCopyFlagsPtrOutput) ToTaskOptionsSecurityDe
 
 func (o TaskOptionsSecurityDescriptorCopyFlagsPtrOutput) ToTaskOptionsSecurityDescriptorCopyFlagsPtrOutputWithContext(ctx context.Context) TaskOptionsSecurityDescriptorCopyFlagsPtrOutput {
 	return o
+}
+
+func (o TaskOptionsSecurityDescriptorCopyFlagsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskOptionsSecurityDescriptorCopyFlags] {
+	return pulumix.Output[*TaskOptionsSecurityDescriptorCopyFlags]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TaskOptionsSecurityDescriptorCopyFlagsPtrOutput) Elem() TaskOptionsSecurityDescriptorCopyFlagsOutput {
@@ -4008,6 +4441,12 @@ func (in *taskOptionsSecurityDescriptorCopyFlagsPtr) ToTaskOptionsSecurityDescri
 
 func (in *taskOptionsSecurityDescriptorCopyFlagsPtr) ToTaskOptionsSecurityDescriptorCopyFlagsPtrOutputWithContext(ctx context.Context) TaskOptionsSecurityDescriptorCopyFlagsPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TaskOptionsSecurityDescriptorCopyFlagsPtrOutput)
+}
+
+func (in *taskOptionsSecurityDescriptorCopyFlagsPtr) ToOutput(ctx context.Context) pulumix.Output[*TaskOptionsSecurityDescriptorCopyFlags] {
+	return pulumix.Output[*TaskOptionsSecurityDescriptorCopyFlags]{
+		OutputState: in.ToTaskOptionsSecurityDescriptorCopyFlagsPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // A value that determines whether tasks should be queued before executing the tasks.
@@ -4078,6 +4517,12 @@ func (o TaskOptionsTaskQueueingOutput) ToTaskOptionsTaskQueueingPtrOutputWithCon
 	}).(TaskOptionsTaskQueueingPtrOutput)
 }
 
+func (o TaskOptionsTaskQueueingOutput) ToOutput(ctx context.Context) pulumix.Output[TaskOptionsTaskQueueing] {
+	return pulumix.Output[TaskOptionsTaskQueueing]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskOptionsTaskQueueingOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4111,6 +4556,12 @@ func (o TaskOptionsTaskQueueingPtrOutput) ToTaskOptionsTaskQueueingPtrOutput() T
 
 func (o TaskOptionsTaskQueueingPtrOutput) ToTaskOptionsTaskQueueingPtrOutputWithContext(ctx context.Context) TaskOptionsTaskQueueingPtrOutput {
 	return o
+}
+
+func (o TaskOptionsTaskQueueingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskOptionsTaskQueueing] {
+	return pulumix.Output[*TaskOptionsTaskQueueing]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TaskOptionsTaskQueueingPtrOutput) Elem() TaskOptionsTaskQueueingOutput {
@@ -4173,6 +4624,12 @@ func (in *taskOptionsTaskQueueingPtr) ToTaskOptionsTaskQueueingPtrOutput() TaskO
 
 func (in *taskOptionsTaskQueueingPtr) ToTaskOptionsTaskQueueingPtrOutputWithContext(ctx context.Context) TaskOptionsTaskQueueingPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TaskOptionsTaskQueueingPtrOutput)
+}
+
+func (in *taskOptionsTaskQueueingPtr) ToOutput(ctx context.Context) pulumix.Output[*TaskOptionsTaskQueueing] {
+	return pulumix.Output[*TaskOptionsTaskQueueing]{
+		OutputState: in.ToTaskOptionsTaskQueueingPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // A value that determines whether DataSync transfers only the data and metadata that differ between the source and the destination location, or whether DataSync transfers all the content from the source, without comparing to the destination location.
@@ -4243,6 +4700,12 @@ func (o TaskOptionsTransferModeOutput) ToTaskOptionsTransferModePtrOutputWithCon
 	}).(TaskOptionsTransferModePtrOutput)
 }
 
+func (o TaskOptionsTransferModeOutput) ToOutput(ctx context.Context) pulumix.Output[TaskOptionsTransferMode] {
+	return pulumix.Output[TaskOptionsTransferMode]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskOptionsTransferModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4276,6 +4739,12 @@ func (o TaskOptionsTransferModePtrOutput) ToTaskOptionsTransferModePtrOutput() T
 
 func (o TaskOptionsTransferModePtrOutput) ToTaskOptionsTransferModePtrOutputWithContext(ctx context.Context) TaskOptionsTransferModePtrOutput {
 	return o
+}
+
+func (o TaskOptionsTransferModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskOptionsTransferMode] {
+	return pulumix.Output[*TaskOptionsTransferMode]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TaskOptionsTransferModePtrOutput) Elem() TaskOptionsTransferModeOutput {
@@ -4338,6 +4807,12 @@ func (in *taskOptionsTransferModePtr) ToTaskOptionsTransferModePtrOutput() TaskO
 
 func (in *taskOptionsTransferModePtr) ToTaskOptionsTransferModePtrOutputWithContext(ctx context.Context) TaskOptionsTransferModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TaskOptionsTransferModePtrOutput)
+}
+
+func (in *taskOptionsTransferModePtr) ToOutput(ctx context.Context) pulumix.Output[*TaskOptionsTransferMode] {
+	return pulumix.Output[*TaskOptionsTransferMode]{
+		OutputState: in.ToTaskOptionsTransferModePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The user ID (UID) of the file's owner.
@@ -4410,6 +4885,12 @@ func (o TaskOptionsUidOutput) ToTaskOptionsUidPtrOutputWithContext(ctx context.C
 	}).(TaskOptionsUidPtrOutput)
 }
 
+func (o TaskOptionsUidOutput) ToOutput(ctx context.Context) pulumix.Output[TaskOptionsUid] {
+	return pulumix.Output[TaskOptionsUid]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskOptionsUidOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4443,6 +4924,12 @@ func (o TaskOptionsUidPtrOutput) ToTaskOptionsUidPtrOutput() TaskOptionsUidPtrOu
 
 func (o TaskOptionsUidPtrOutput) ToTaskOptionsUidPtrOutputWithContext(ctx context.Context) TaskOptionsUidPtrOutput {
 	return o
+}
+
+func (o TaskOptionsUidPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskOptionsUid] {
+	return pulumix.Output[*TaskOptionsUid]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TaskOptionsUidPtrOutput) Elem() TaskOptionsUidOutput {
@@ -4505,6 +4992,12 @@ func (in *taskOptionsUidPtr) ToTaskOptionsUidPtrOutput() TaskOptionsUidPtrOutput
 
 func (in *taskOptionsUidPtr) ToTaskOptionsUidPtrOutputWithContext(ctx context.Context) TaskOptionsUidPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TaskOptionsUidPtrOutput)
+}
+
+func (in *taskOptionsUidPtr) ToOutput(ctx context.Context) pulumix.Output[*TaskOptionsUid] {
+	return pulumix.Output[*TaskOptionsUid]{
+		OutputState: in.ToTaskOptionsUidPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // A value that determines whether a data integrity verification should be performed at the end of a task execution after all data and metadata have been transferred.
@@ -4576,6 +5069,12 @@ func (o TaskOptionsVerifyModeOutput) ToTaskOptionsVerifyModePtrOutputWithContext
 	}).(TaskOptionsVerifyModePtrOutput)
 }
 
+func (o TaskOptionsVerifyModeOutput) ToOutput(ctx context.Context) pulumix.Output[TaskOptionsVerifyMode] {
+	return pulumix.Output[TaskOptionsVerifyMode]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskOptionsVerifyModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4609,6 +5108,12 @@ func (o TaskOptionsVerifyModePtrOutput) ToTaskOptionsVerifyModePtrOutput() TaskO
 
 func (o TaskOptionsVerifyModePtrOutput) ToTaskOptionsVerifyModePtrOutputWithContext(ctx context.Context) TaskOptionsVerifyModePtrOutput {
 	return o
+}
+
+func (o TaskOptionsVerifyModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskOptionsVerifyMode] {
+	return pulumix.Output[*TaskOptionsVerifyMode]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TaskOptionsVerifyModePtrOutput) Elem() TaskOptionsVerifyModeOutput {
@@ -4673,6 +5178,12 @@ func (in *taskOptionsVerifyModePtr) ToTaskOptionsVerifyModePtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(TaskOptionsVerifyModePtrOutput)
 }
 
+func (in *taskOptionsVerifyModePtr) ToOutput(ctx context.Context) pulumix.Output[*TaskOptionsVerifyMode] {
+	return pulumix.Output[*TaskOptionsVerifyMode]{
+		OutputState: in.ToTaskOptionsVerifyModePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The status of the task that was described.
 type TaskStatus string
 
@@ -4708,6 +5219,12 @@ func (o TaskStatusOutput) ToTaskStatusPtrOutputWithContext(ctx context.Context) 
 	}).(TaskStatusPtrOutput)
 }
 
+func (o TaskStatusOutput) ToOutput(ctx context.Context) pulumix.Output[TaskStatus] {
+	return pulumix.Output[TaskStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4741,6 +5258,12 @@ func (o TaskStatusPtrOutput) ToTaskStatusPtrOutput() TaskStatusPtrOutput {
 
 func (o TaskStatusPtrOutput) ToTaskStatusPtrOutputWithContext(ctx context.Context) TaskStatusPtrOutput {
 	return o
+}
+
+func (o TaskStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskStatus] {
+	return pulumix.Output[*TaskStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TaskStatusPtrOutput) Elem() TaskStatusOutput {

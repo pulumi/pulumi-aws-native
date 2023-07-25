@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Type of the policy.
@@ -77,6 +78,12 @@ func (o AccountPolicyPolicyTypeOutput) ToAccountPolicyPolicyTypePtrOutputWithCon
 	}).(AccountPolicyPolicyTypePtrOutput)
 }
 
+func (o AccountPolicyPolicyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AccountPolicyPolicyType] {
+	return pulumix.Output[AccountPolicyPolicyType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AccountPolicyPolicyTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -110,6 +117,12 @@ func (o AccountPolicyPolicyTypePtrOutput) ToAccountPolicyPolicyTypePtrOutput() A
 
 func (o AccountPolicyPolicyTypePtrOutput) ToAccountPolicyPolicyTypePtrOutputWithContext(ctx context.Context) AccountPolicyPolicyTypePtrOutput {
 	return o
+}
+
+func (o AccountPolicyPolicyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountPolicyPolicyType] {
+	return pulumix.Output[*AccountPolicyPolicyType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AccountPolicyPolicyTypePtrOutput) Elem() AccountPolicyPolicyTypeOutput {
@@ -172,6 +185,12 @@ func (in *accountPolicyPolicyTypePtr) ToAccountPolicyPolicyTypePtrOutput() Accou
 
 func (in *accountPolicyPolicyTypePtr) ToAccountPolicyPolicyTypePtrOutputWithContext(ctx context.Context) AccountPolicyPolicyTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AccountPolicyPolicyTypePtrOutput)
+}
+
+func (in *accountPolicyPolicyTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AccountPolicyPolicyType] {
+	return pulumix.Output[*AccountPolicyPolicyType]{
+		OutputState: in.ToAccountPolicyPolicyTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Scope for policy application
@@ -241,6 +260,12 @@ func (o AccountPolicyScopeOutput) ToAccountPolicyScopePtrOutputWithContext(ctx c
 	}).(AccountPolicyScopePtrOutput)
 }
 
+func (o AccountPolicyScopeOutput) ToOutput(ctx context.Context) pulumix.Output[AccountPolicyScope] {
+	return pulumix.Output[AccountPolicyScope]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AccountPolicyScopeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -274,6 +299,12 @@ func (o AccountPolicyScopePtrOutput) ToAccountPolicyScopePtrOutput() AccountPoli
 
 func (o AccountPolicyScopePtrOutput) ToAccountPolicyScopePtrOutputWithContext(ctx context.Context) AccountPolicyScopePtrOutput {
 	return o
+}
+
+func (o AccountPolicyScopePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountPolicyScope] {
+	return pulumix.Output[*AccountPolicyScope]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AccountPolicyScopePtrOutput) Elem() AccountPolicyScopeOutput {
@@ -336,6 +367,12 @@ func (in *accountPolicyScopePtr) ToAccountPolicyScopePtrOutput() AccountPolicySc
 
 func (in *accountPolicyScopePtr) ToAccountPolicyScopePtrOutputWithContext(ctx context.Context) AccountPolicyScopePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AccountPolicyScopePtrOutput)
+}
+
+func (in *accountPolicyScopePtr) ToOutput(ctx context.Context) pulumix.Output[*AccountPolicyScope] {
+	return pulumix.Output[*AccountPolicyScope]{
+		OutputState: in.ToAccountPolicyScopePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The unit to assign to the metric. If you omit this, the unit is set as None.
@@ -431,6 +468,12 @@ func (o MetricFilterMetricTransformationUnitOutput) ToMetricFilterMetricTransfor
 	}).(MetricFilterMetricTransformationUnitPtrOutput)
 }
 
+func (o MetricFilterMetricTransformationUnitOutput) ToOutput(ctx context.Context) pulumix.Output[MetricFilterMetricTransformationUnit] {
+	return pulumix.Output[MetricFilterMetricTransformationUnit]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MetricFilterMetricTransformationUnitOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -464,6 +507,12 @@ func (o MetricFilterMetricTransformationUnitPtrOutput) ToMetricFilterMetricTrans
 
 func (o MetricFilterMetricTransformationUnitPtrOutput) ToMetricFilterMetricTransformationUnitPtrOutputWithContext(ctx context.Context) MetricFilterMetricTransformationUnitPtrOutput {
 	return o
+}
+
+func (o MetricFilterMetricTransformationUnitPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MetricFilterMetricTransformationUnit] {
+	return pulumix.Output[*MetricFilterMetricTransformationUnit]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MetricFilterMetricTransformationUnitPtrOutput) Elem() MetricFilterMetricTransformationUnitOutput {
@@ -526,6 +575,12 @@ func (in *metricFilterMetricTransformationUnitPtr) ToMetricFilterMetricTransform
 
 func (in *metricFilterMetricTransformationUnitPtr) ToMetricFilterMetricTransformationUnitPtrOutputWithContext(ctx context.Context) MetricFilterMetricTransformationUnitPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MetricFilterMetricTransformationUnitPtrOutput)
+}
+
+func (in *metricFilterMetricTransformationUnitPtr) ToOutput(ctx context.Context) pulumix.Output[*MetricFilterMetricTransformationUnit] {
+	return pulumix.Output[*MetricFilterMetricTransformationUnit]{
+		OutputState: in.ToMetricFilterMetricTransformationUnitPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The method used to distribute log data to the destination. By default, log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream.
@@ -596,6 +651,12 @@ func (o SubscriptionFilterDistributionOutput) ToSubscriptionFilterDistributionPt
 	}).(SubscriptionFilterDistributionPtrOutput)
 }
 
+func (o SubscriptionFilterDistributionOutput) ToOutput(ctx context.Context) pulumix.Output[SubscriptionFilterDistribution] {
+	return pulumix.Output[SubscriptionFilterDistribution]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SubscriptionFilterDistributionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -629,6 +690,12 @@ func (o SubscriptionFilterDistributionPtrOutput) ToSubscriptionFilterDistributio
 
 func (o SubscriptionFilterDistributionPtrOutput) ToSubscriptionFilterDistributionPtrOutputWithContext(ctx context.Context) SubscriptionFilterDistributionPtrOutput {
 	return o
+}
+
+func (o SubscriptionFilterDistributionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SubscriptionFilterDistribution] {
+	return pulumix.Output[*SubscriptionFilterDistribution]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SubscriptionFilterDistributionPtrOutput) Elem() SubscriptionFilterDistributionOutput {
@@ -691,6 +758,12 @@ func (in *subscriptionFilterDistributionPtr) ToSubscriptionFilterDistributionPtr
 
 func (in *subscriptionFilterDistributionPtr) ToSubscriptionFilterDistributionPtrOutputWithContext(ctx context.Context) SubscriptionFilterDistributionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SubscriptionFilterDistributionPtrOutput)
+}
+
+func (in *subscriptionFilterDistributionPtr) ToOutput(ctx context.Context) pulumix.Output[*SubscriptionFilterDistribution] {
+	return pulumix.Output[*SubscriptionFilterDistribution]{
+		OutputState: in.ToSubscriptionFilterDistributionPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

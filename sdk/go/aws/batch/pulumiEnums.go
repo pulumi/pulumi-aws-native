@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type JobQueueStateEnum string
@@ -77,6 +78,12 @@ func (o JobQueueStateEnumOutput) ToJobQueueStateEnumPtrOutputWithContext(ctx con
 	}).(JobQueueStateEnumPtrOutput)
 }
 
+func (o JobQueueStateEnumOutput) ToOutput(ctx context.Context) pulumix.Output[JobQueueStateEnum] {
+	return pulumix.Output[JobQueueStateEnum]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o JobQueueStateEnumOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -110,6 +117,12 @@ func (o JobQueueStateEnumPtrOutput) ToJobQueueStateEnumPtrOutput() JobQueueState
 
 func (o JobQueueStateEnumPtrOutput) ToJobQueueStateEnumPtrOutputWithContext(ctx context.Context) JobQueueStateEnumPtrOutput {
 	return o
+}
+
+func (o JobQueueStateEnumPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*JobQueueStateEnum] {
+	return pulumix.Output[*JobQueueStateEnum]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o JobQueueStateEnumPtrOutput) Elem() JobQueueStateEnumOutput {
@@ -172,6 +185,12 @@ func (in *jobQueueStateEnumPtr) ToJobQueueStateEnumPtrOutput() JobQueueStateEnum
 
 func (in *jobQueueStateEnumPtr) ToJobQueueStateEnumPtrOutputWithContext(ctx context.Context) JobQueueStateEnumPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(JobQueueStateEnumPtrOutput)
+}
+
+func (in *jobQueueStateEnumPtr) ToOutput(ctx context.Context) pulumix.Output[*JobQueueStateEnum] {
+	return pulumix.Output[*JobQueueStateEnum]{
+		OutputState: in.ToJobQueueStateEnumPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

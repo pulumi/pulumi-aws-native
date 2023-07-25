@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Create and manage FUOTA tasks.
@@ -90,6 +91,12 @@ func (o LookupFuotaTaskResultOutput) ToLookupFuotaTaskResultOutput() LookupFuota
 
 func (o LookupFuotaTaskResultOutput) ToLookupFuotaTaskResultOutputWithContext(ctx context.Context) LookupFuotaTaskResultOutput {
 	return o
+}
+
+func (o LookupFuotaTaskResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFuotaTaskResult] {
+	return pulumix.Output[LookupFuotaTaskResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // FUOTA task arn. Returned after successful create.

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // An entity type for fraud detector.
@@ -110,6 +111,12 @@ func (i *EntityType) ToEntityTypeOutputWithContext(ctx context.Context) EntityTy
 	return pulumi.ToOutputWithContext(ctx, i).(EntityTypeOutput)
 }
 
+func (i *EntityType) ToOutput(ctx context.Context) pulumix.Output[*EntityType] {
+	return pulumix.Output[*EntityType]{
+		OutputState: i.ToEntityTypeOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EntityTypeOutput struct{ *pulumi.OutputState }
 
 func (EntityTypeOutput) ElementType() reflect.Type {
@@ -122,6 +129,12 @@ func (o EntityTypeOutput) ToEntityTypeOutput() EntityTypeOutput {
 
 func (o EntityTypeOutput) ToEntityTypeOutputWithContext(ctx context.Context) EntityTypeOutput {
 	return o
+}
+
+func (o EntityTypeOutput) ToOutput(ctx context.Context) pulumix.Output[*EntityType] {
+	return pulumix.Output[*EntityType]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The entity type ARN.

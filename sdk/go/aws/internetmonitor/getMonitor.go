@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Represents a monitor, which defines the monitoring boundaries for measurements that Internet Monitor publishes information about for an application
@@ -74,6 +75,12 @@ func (o LookupMonitorResultOutput) ToLookupMonitorResultOutput() LookupMonitorRe
 
 func (o LookupMonitorResultOutput) ToLookupMonitorResultOutputWithContext(ctx context.Context) LookupMonitorResultOutput {
 	return o
+}
+
+func (o LookupMonitorResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupMonitorResult] {
+	return pulumix.Output[LookupMonitorResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupMonitorResultOutput) CreatedAt() pulumi.StringPtrOutput {

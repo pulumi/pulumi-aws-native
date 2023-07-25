@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::Route53::HealthCheck.
@@ -67,6 +68,12 @@ func (o LookupHealthCheckResultOutput) ToLookupHealthCheckResultOutput() LookupH
 
 func (o LookupHealthCheckResultOutput) ToLookupHealthCheckResultOutputWithContext(ctx context.Context) LookupHealthCheckResultOutput {
 	return o
+}
+
+func (o LookupHealthCheckResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupHealthCheckResult] {
+	return pulumix.Output[LookupHealthCheckResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A complex type that contains information about the health check.

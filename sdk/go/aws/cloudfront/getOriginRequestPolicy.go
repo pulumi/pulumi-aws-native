@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::CloudFront::OriginRequestPolicy
@@ -65,6 +66,12 @@ func (o LookupOriginRequestPolicyResultOutput) ToLookupOriginRequestPolicyResult
 
 func (o LookupOriginRequestPolicyResultOutput) ToLookupOriginRequestPolicyResultOutputWithContext(ctx context.Context) LookupOriginRequestPolicyResultOutput {
 	return o
+}
+
+func (o LookupOriginRequestPolicyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupOriginRequestPolicyResult] {
+	return pulumix.Output[LookupOriginRequestPolicyResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupOriginRequestPolicyResultOutput) Id() pulumi.StringPtrOutput {

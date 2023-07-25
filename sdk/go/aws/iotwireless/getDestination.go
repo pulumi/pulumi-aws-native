@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Destination's resource schema demonstrating some basic constructs and validation rules.
@@ -76,6 +77,12 @@ func (o LookupDestinationResultOutput) ToLookupDestinationResultOutput() LookupD
 
 func (o LookupDestinationResultOutput) ToLookupDestinationResultOutputWithContext(ctx context.Context) LookupDestinationResultOutput {
 	return o
+}
+
+func (o LookupDestinationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDestinationResult] {
+	return pulumix.Output[LookupDestinationResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Destination arn. Returned after successful create.

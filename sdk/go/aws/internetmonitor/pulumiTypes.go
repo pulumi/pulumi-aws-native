@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -44,6 +45,12 @@ func (i MonitorHealthEventsConfigArgs) ToMonitorHealthEventsConfigOutput() Monit
 
 func (i MonitorHealthEventsConfigArgs) ToMonitorHealthEventsConfigOutputWithContext(ctx context.Context) MonitorHealthEventsConfigOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorHealthEventsConfigOutput)
+}
+
+func (i MonitorHealthEventsConfigArgs) ToOutput(ctx context.Context) pulumix.Output[MonitorHealthEventsConfig] {
+	return pulumix.Output[MonitorHealthEventsConfig]{
+		OutputState: i.ToMonitorHealthEventsConfigOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i MonitorHealthEventsConfigArgs) ToMonitorHealthEventsConfigPtrOutput() MonitorHealthEventsConfigPtrOutput {
@@ -87,6 +94,12 @@ func (i *monitorHealthEventsConfigPtrType) ToMonitorHealthEventsConfigPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorHealthEventsConfigPtrOutput)
 }
 
+func (i *monitorHealthEventsConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*MonitorHealthEventsConfig] {
+	return pulumix.Output[*MonitorHealthEventsConfig]{
+		OutputState: i.ToMonitorHealthEventsConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MonitorHealthEventsConfigOutput struct{ *pulumi.OutputState }
 
 func (MonitorHealthEventsConfigOutput) ElementType() reflect.Type {
@@ -111,6 +124,12 @@ func (o MonitorHealthEventsConfigOutput) ToMonitorHealthEventsConfigPtrOutputWit
 	}).(MonitorHealthEventsConfigPtrOutput)
 }
 
+func (o MonitorHealthEventsConfigOutput) ToOutput(ctx context.Context) pulumix.Output[MonitorHealthEventsConfig] {
+	return pulumix.Output[MonitorHealthEventsConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MonitorHealthEventsConfigOutput) AvailabilityScoreThreshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v MonitorHealthEventsConfig) *float64 { return v.AvailabilityScoreThreshold }).(pulumi.Float64PtrOutput)
 }
@@ -131,6 +150,12 @@ func (o MonitorHealthEventsConfigPtrOutput) ToMonitorHealthEventsConfigPtrOutput
 
 func (o MonitorHealthEventsConfigPtrOutput) ToMonitorHealthEventsConfigPtrOutputWithContext(ctx context.Context) MonitorHealthEventsConfigPtrOutput {
 	return o
+}
+
+func (o MonitorHealthEventsConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MonitorHealthEventsConfig] {
+	return pulumix.Output[*MonitorHealthEventsConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MonitorHealthEventsConfigPtrOutput) Elem() MonitorHealthEventsConfigOutput {
@@ -192,6 +217,12 @@ func (i MonitorInternetMeasurementsLogDeliveryArgs) ToMonitorInternetMeasurement
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorInternetMeasurementsLogDeliveryOutput)
 }
 
+func (i MonitorInternetMeasurementsLogDeliveryArgs) ToOutput(ctx context.Context) pulumix.Output[MonitorInternetMeasurementsLogDelivery] {
+	return pulumix.Output[MonitorInternetMeasurementsLogDelivery]{
+		OutputState: i.ToMonitorInternetMeasurementsLogDeliveryOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i MonitorInternetMeasurementsLogDeliveryArgs) ToMonitorInternetMeasurementsLogDeliveryPtrOutput() MonitorInternetMeasurementsLogDeliveryPtrOutput {
 	return i.ToMonitorInternetMeasurementsLogDeliveryPtrOutputWithContext(context.Background())
 }
@@ -233,6 +264,12 @@ func (i *monitorInternetMeasurementsLogDeliveryPtrType) ToMonitorInternetMeasure
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorInternetMeasurementsLogDeliveryPtrOutput)
 }
 
+func (i *monitorInternetMeasurementsLogDeliveryPtrType) ToOutput(ctx context.Context) pulumix.Output[*MonitorInternetMeasurementsLogDelivery] {
+	return pulumix.Output[*MonitorInternetMeasurementsLogDelivery]{
+		OutputState: i.ToMonitorInternetMeasurementsLogDeliveryPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MonitorInternetMeasurementsLogDeliveryOutput struct{ *pulumi.OutputState }
 
 func (MonitorInternetMeasurementsLogDeliveryOutput) ElementType() reflect.Type {
@@ -257,6 +294,12 @@ func (o MonitorInternetMeasurementsLogDeliveryOutput) ToMonitorInternetMeasureme
 	}).(MonitorInternetMeasurementsLogDeliveryPtrOutput)
 }
 
+func (o MonitorInternetMeasurementsLogDeliveryOutput) ToOutput(ctx context.Context) pulumix.Output[MonitorInternetMeasurementsLogDelivery] {
+	return pulumix.Output[MonitorInternetMeasurementsLogDelivery]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MonitorInternetMeasurementsLogDeliveryOutput) S3Config() MonitorS3ConfigPtrOutput {
 	return o.ApplyT(func(v MonitorInternetMeasurementsLogDelivery) *MonitorS3Config { return v.S3Config }).(MonitorS3ConfigPtrOutput)
 }
@@ -273,6 +316,12 @@ func (o MonitorInternetMeasurementsLogDeliveryPtrOutput) ToMonitorInternetMeasur
 
 func (o MonitorInternetMeasurementsLogDeliveryPtrOutput) ToMonitorInternetMeasurementsLogDeliveryPtrOutputWithContext(ctx context.Context) MonitorInternetMeasurementsLogDeliveryPtrOutput {
 	return o
+}
+
+func (o MonitorInternetMeasurementsLogDeliveryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MonitorInternetMeasurementsLogDelivery] {
+	return pulumix.Output[*MonitorInternetMeasurementsLogDelivery]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MonitorInternetMeasurementsLogDeliveryPtrOutput) Elem() MonitorInternetMeasurementsLogDeliveryOutput {
@@ -329,6 +378,12 @@ func (i MonitorS3ConfigArgs) ToMonitorS3ConfigOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorS3ConfigOutput)
 }
 
+func (i MonitorS3ConfigArgs) ToOutput(ctx context.Context) pulumix.Output[MonitorS3Config] {
+	return pulumix.Output[MonitorS3Config]{
+		OutputState: i.ToMonitorS3ConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i MonitorS3ConfigArgs) ToMonitorS3ConfigPtrOutput() MonitorS3ConfigPtrOutput {
 	return i.ToMonitorS3ConfigPtrOutputWithContext(context.Background())
 }
@@ -370,6 +425,12 @@ func (i *monitorS3ConfigPtrType) ToMonitorS3ConfigPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorS3ConfigPtrOutput)
 }
 
+func (i *monitorS3ConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*MonitorS3Config] {
+	return pulumix.Output[*MonitorS3Config]{
+		OutputState: i.ToMonitorS3ConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MonitorS3ConfigOutput struct{ *pulumi.OutputState }
 
 func (MonitorS3ConfigOutput) ElementType() reflect.Type {
@@ -392,6 +453,12 @@ func (o MonitorS3ConfigOutput) ToMonitorS3ConfigPtrOutputWithContext(ctx context
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitorS3Config) *MonitorS3Config {
 		return &v
 	}).(MonitorS3ConfigPtrOutput)
+}
+
+func (o MonitorS3ConfigOutput) ToOutput(ctx context.Context) pulumix.Output[MonitorS3Config] {
+	return pulumix.Output[MonitorS3Config]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MonitorS3ConfigOutput) BucketName() pulumi.StringPtrOutput {
@@ -418,6 +485,12 @@ func (o MonitorS3ConfigPtrOutput) ToMonitorS3ConfigPtrOutput() MonitorS3ConfigPt
 
 func (o MonitorS3ConfigPtrOutput) ToMonitorS3ConfigPtrOutputWithContext(ctx context.Context) MonitorS3ConfigPtrOutput {
 	return o
+}
+
+func (o MonitorS3ConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MonitorS3Config] {
+	return pulumix.Output[*MonitorS3Config]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MonitorS3ConfigPtrOutput) Elem() MonitorS3ConfigOutput {
@@ -492,6 +565,12 @@ func (i MonitorTagArgs) ToMonitorTagOutputWithContext(ctx context.Context) Monit
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorTagOutput)
 }
 
+func (i MonitorTagArgs) ToOutput(ctx context.Context) pulumix.Output[MonitorTag] {
+	return pulumix.Output[MonitorTag]{
+		OutputState: i.ToMonitorTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MonitorTagArrayInput is an input type that accepts MonitorTagArray and MonitorTagArrayOutput values.
 // You can construct a concrete instance of `MonitorTagArrayInput` via:
 //
@@ -517,6 +596,12 @@ func (i MonitorTagArray) ToMonitorTagArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorTagArrayOutput)
 }
 
+func (i MonitorTagArray) ToOutput(ctx context.Context) pulumix.Output[[]MonitorTag] {
+	return pulumix.Output[[]MonitorTag]{
+		OutputState: i.ToMonitorTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The metadata that you apply to the cluster to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
 type MonitorTagOutput struct{ *pulumi.OutputState }
 
@@ -530,6 +615,12 @@ func (o MonitorTagOutput) ToMonitorTagOutput() MonitorTagOutput {
 
 func (o MonitorTagOutput) ToMonitorTagOutputWithContext(ctx context.Context) MonitorTagOutput {
 	return o
+}
+
+func (o MonitorTagOutput) ToOutput(ctx context.Context) pulumix.Output[MonitorTag] {
+	return pulumix.Output[MonitorTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MonitorTagOutput) Key() pulumi.StringPtrOutput {
@@ -552,6 +643,12 @@ func (o MonitorTagArrayOutput) ToMonitorTagArrayOutput() MonitorTagArrayOutput {
 
 func (o MonitorTagArrayOutput) ToMonitorTagArrayOutputWithContext(ctx context.Context) MonitorTagArrayOutput {
 	return o
+}
+
+func (o MonitorTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MonitorTag] {
+	return pulumix.Output[[]MonitorTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MonitorTagArrayOutput) Index(i pulumi.IntInput) MonitorTagOutput {

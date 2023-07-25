@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Associates WebACL to Application Load Balancer, CloudFront or API Gateway.
@@ -99,6 +100,12 @@ func (i *WebACLAssociation) ToWebACLAssociationOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(WebACLAssociationOutput)
 }
 
+func (i *WebACLAssociation) ToOutput(ctx context.Context) pulumix.Output[*WebACLAssociation] {
+	return pulumix.Output[*WebACLAssociation]{
+		OutputState: i.ToWebACLAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WebACLAssociationOutput struct{ *pulumi.OutputState }
 
 func (WebACLAssociationOutput) ElementType() reflect.Type {
@@ -111,6 +118,12 @@ func (o WebACLAssociationOutput) ToWebACLAssociationOutput() WebACLAssociationOu
 
 func (o WebACLAssociationOutput) ToWebACLAssociationOutputWithContext(ctx context.Context) WebACLAssociationOutput {
 	return o
+}
+
+func (o WebACLAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*WebACLAssociation] {
+	return pulumix.Output[*WebACLAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WebACLAssociationOutput) ResourceArn() pulumi.StringOutput {

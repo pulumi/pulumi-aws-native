@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type ApplicationCredentialCredentialType string
@@ -76,6 +77,12 @@ func (o ApplicationCredentialCredentialTypeOutput) ToApplicationCredentialCreden
 	}).(ApplicationCredentialCredentialTypePtrOutput)
 }
 
+func (o ApplicationCredentialCredentialTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationCredentialCredentialType] {
+	return pulumix.Output[ApplicationCredentialCredentialType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApplicationCredentialCredentialTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -109,6 +116,12 @@ func (o ApplicationCredentialCredentialTypePtrOutput) ToApplicationCredentialCre
 
 func (o ApplicationCredentialCredentialTypePtrOutput) ToApplicationCredentialCredentialTypePtrOutputWithContext(ctx context.Context) ApplicationCredentialCredentialTypePtrOutput {
 	return o
+}
+
+func (o ApplicationCredentialCredentialTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationCredentialCredentialType] {
+	return pulumix.Output[*ApplicationCredentialCredentialType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationCredentialCredentialTypePtrOutput) Elem() ApplicationCredentialCredentialTypeOutput {
@@ -171,6 +184,12 @@ func (in *applicationCredentialCredentialTypePtr) ToApplicationCredentialCredent
 
 func (in *applicationCredentialCredentialTypePtr) ToApplicationCredentialCredentialTypePtrOutputWithContext(ctx context.Context) ApplicationCredentialCredentialTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationCredentialCredentialTypePtrOutput)
+}
+
+func (in *applicationCredentialCredentialTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ApplicationCredentialCredentialType] {
+	return pulumix.Output[*ApplicationCredentialCredentialType]{
+		OutputState: in.ToApplicationCredentialCredentialTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type ApplicationType string
@@ -239,6 +258,12 @@ func (o ApplicationTypeOutput) ToApplicationTypePtrOutputWithContext(ctx context
 	}).(ApplicationTypePtrOutput)
 }
 
+func (o ApplicationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationType] {
+	return pulumix.Output[ApplicationType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApplicationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -272,6 +297,12 @@ func (o ApplicationTypePtrOutput) ToApplicationTypePtrOutput() ApplicationTypePt
 
 func (o ApplicationTypePtrOutput) ToApplicationTypePtrOutputWithContext(ctx context.Context) ApplicationTypePtrOutput {
 	return o
+}
+
+func (o ApplicationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationType] {
+	return pulumix.Output[*ApplicationType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationTypePtrOutput) Elem() ApplicationTypeOutput {
@@ -334,6 +365,12 @@ func (in *applicationTypePtr) ToApplicationTypePtrOutput() ApplicationTypePtrOut
 
 func (in *applicationTypePtr) ToApplicationTypePtrOutputWithContext(ctx context.Context) ApplicationTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationTypePtrOutput)
+}
+
+func (in *applicationTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ApplicationType] {
+	return pulumix.Output[*ApplicationType]{
+		OutputState: in.ToApplicationTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type AuthPolicyStateEnum string
@@ -39,6 +40,12 @@ func (o AuthPolicyStateEnumOutput) ToAuthPolicyStateEnumPtrOutputWithContext(ctx
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AuthPolicyStateEnum) *AuthPolicyStateEnum {
 		return &v
 	}).(AuthPolicyStateEnumPtrOutput)
+}
+
+func (o AuthPolicyStateEnumOutput) ToOutput(ctx context.Context) pulumix.Output[AuthPolicyStateEnum] {
+	return pulumix.Output[AuthPolicyStateEnum]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AuthPolicyStateEnumOutput) ToStringOutput() pulumi.StringOutput {
@@ -74,6 +81,12 @@ func (o AuthPolicyStateEnumPtrOutput) ToAuthPolicyStateEnumPtrOutput() AuthPolic
 
 func (o AuthPolicyStateEnumPtrOutput) ToAuthPolicyStateEnumPtrOutputWithContext(ctx context.Context) AuthPolicyStateEnumPtrOutput {
 	return o
+}
+
+func (o AuthPolicyStateEnumPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AuthPolicyStateEnum] {
+	return pulumix.Output[*AuthPolicyStateEnum]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AuthPolicyStateEnumPtrOutput) Elem() AuthPolicyStateEnumOutput {
@@ -167,6 +180,12 @@ func (o ListenerProtocolOutput) ToListenerProtocolPtrOutputWithContext(ctx conte
 	}).(ListenerProtocolPtrOutput)
 }
 
+func (o ListenerProtocolOutput) ToOutput(ctx context.Context) pulumix.Output[ListenerProtocol] {
+	return pulumix.Output[ListenerProtocol]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ListenerProtocolOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -200,6 +219,12 @@ func (o ListenerProtocolPtrOutput) ToListenerProtocolPtrOutput() ListenerProtoco
 
 func (o ListenerProtocolPtrOutput) ToListenerProtocolPtrOutputWithContext(ctx context.Context) ListenerProtocolPtrOutput {
 	return o
+}
+
+func (o ListenerProtocolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ListenerProtocol] {
+	return pulumix.Output[*ListenerProtocol]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ListenerProtocolPtrOutput) Elem() ListenerProtocolOutput {
@@ -262,6 +287,12 @@ func (in *listenerProtocolPtr) ToListenerProtocolPtrOutput() ListenerProtocolPtr
 
 func (in *listenerProtocolPtr) ToListenerProtocolPtrOutputWithContext(ctx context.Context) ListenerProtocolPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ListenerProtocolPtrOutput)
+}
+
+func (in *listenerProtocolPtr) ToOutput(ctx context.Context) pulumix.Output[*ListenerProtocol] {
+	return pulumix.Output[*ListenerProtocol]{
+		OutputState: in.ToListenerProtocolPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type RuleHttpMatchMethod string
@@ -337,6 +368,12 @@ func (o RuleHttpMatchMethodOutput) ToRuleHttpMatchMethodPtrOutputWithContext(ctx
 	}).(RuleHttpMatchMethodPtrOutput)
 }
 
+func (o RuleHttpMatchMethodOutput) ToOutput(ctx context.Context) pulumix.Output[RuleHttpMatchMethod] {
+	return pulumix.Output[RuleHttpMatchMethod]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RuleHttpMatchMethodOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -370,6 +407,12 @@ func (o RuleHttpMatchMethodPtrOutput) ToRuleHttpMatchMethodPtrOutput() RuleHttpM
 
 func (o RuleHttpMatchMethodPtrOutput) ToRuleHttpMatchMethodPtrOutputWithContext(ctx context.Context) RuleHttpMatchMethodPtrOutput {
 	return o
+}
+
+func (o RuleHttpMatchMethodPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleHttpMatchMethod] {
+	return pulumix.Output[*RuleHttpMatchMethod]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleHttpMatchMethodPtrOutput) Elem() RuleHttpMatchMethodOutput {
@@ -432,6 +475,12 @@ func (in *ruleHttpMatchMethodPtr) ToRuleHttpMatchMethodPtrOutput() RuleHttpMatch
 
 func (in *ruleHttpMatchMethodPtr) ToRuleHttpMatchMethodPtrOutputWithContext(ctx context.Context) RuleHttpMatchMethodPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RuleHttpMatchMethodPtrOutput)
+}
+
+func (in *ruleHttpMatchMethodPtr) ToOutput(ctx context.Context) pulumix.Output[*RuleHttpMatchMethod] {
+	return pulumix.Output[*RuleHttpMatchMethod]{
+		OutputState: in.ToRuleHttpMatchMethodPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type ServiceAuthType string
@@ -501,6 +550,12 @@ func (o ServiceAuthTypeOutput) ToServiceAuthTypePtrOutputWithContext(ctx context
 	}).(ServiceAuthTypePtrOutput)
 }
 
+func (o ServiceAuthTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceAuthType] {
+	return pulumix.Output[ServiceAuthType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServiceAuthTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -534,6 +589,12 @@ func (o ServiceAuthTypePtrOutput) ToServiceAuthTypePtrOutput() ServiceAuthTypePt
 
 func (o ServiceAuthTypePtrOutput) ToServiceAuthTypePtrOutputWithContext(ctx context.Context) ServiceAuthTypePtrOutput {
 	return o
+}
+
+func (o ServiceAuthTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceAuthType] {
+	return pulumix.Output[*ServiceAuthType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceAuthTypePtrOutput) Elem() ServiceAuthTypeOutput {
@@ -596,6 +657,12 @@ func (in *serviceAuthTypePtr) ToServiceAuthTypePtrOutput() ServiceAuthTypePtrOut
 
 func (in *serviceAuthTypePtr) ToServiceAuthTypePtrOutputWithContext(ctx context.Context) ServiceAuthTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ServiceAuthTypePtrOutput)
+}
+
+func (in *serviceAuthTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ServiceAuthType] {
+	return pulumix.Output[*ServiceAuthType]{
+		OutputState: in.ToServiceAuthTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type ServiceNetworkAuthType string
@@ -665,6 +732,12 @@ func (o ServiceNetworkAuthTypeOutput) ToServiceNetworkAuthTypePtrOutputWithConte
 	}).(ServiceNetworkAuthTypePtrOutput)
 }
 
+func (o ServiceNetworkAuthTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceNetworkAuthType] {
+	return pulumix.Output[ServiceNetworkAuthType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServiceNetworkAuthTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -698,6 +771,12 @@ func (o ServiceNetworkAuthTypePtrOutput) ToServiceNetworkAuthTypePtrOutput() Ser
 
 func (o ServiceNetworkAuthTypePtrOutput) ToServiceNetworkAuthTypePtrOutputWithContext(ctx context.Context) ServiceNetworkAuthTypePtrOutput {
 	return o
+}
+
+func (o ServiceNetworkAuthTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceNetworkAuthType] {
+	return pulumix.Output[*ServiceNetworkAuthType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceNetworkAuthTypePtrOutput) Elem() ServiceNetworkAuthTypeOutput {
@@ -762,6 +841,12 @@ func (in *serviceNetworkAuthTypePtr) ToServiceNetworkAuthTypePtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(ServiceNetworkAuthTypePtrOutput)
 }
 
+func (in *serviceNetworkAuthTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ServiceNetworkAuthType] {
+	return pulumix.Output[*ServiceNetworkAuthType]{
+		OutputState: in.ToServiceNetworkAuthTypePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceNetworkServiceAssociationStatus string
 
 const (
@@ -794,6 +879,12 @@ func (o ServiceNetworkServiceAssociationStatusOutput) ToServiceNetworkServiceAss
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceNetworkServiceAssociationStatus) *ServiceNetworkServiceAssociationStatus {
 		return &v
 	}).(ServiceNetworkServiceAssociationStatusPtrOutput)
+}
+
+func (o ServiceNetworkServiceAssociationStatusOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceNetworkServiceAssociationStatus] {
+	return pulumix.Output[ServiceNetworkServiceAssociationStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceNetworkServiceAssociationStatusOutput) ToStringOutput() pulumi.StringOutput {
@@ -829,6 +920,12 @@ func (o ServiceNetworkServiceAssociationStatusPtrOutput) ToServiceNetworkService
 
 func (o ServiceNetworkServiceAssociationStatusPtrOutput) ToServiceNetworkServiceAssociationStatusPtrOutputWithContext(ctx context.Context) ServiceNetworkServiceAssociationStatusPtrOutput {
 	return o
+}
+
+func (o ServiceNetworkServiceAssociationStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceNetworkServiceAssociationStatus] {
+	return pulumix.Output[*ServiceNetworkServiceAssociationStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceNetworkServiceAssociationStatusPtrOutput) Elem() ServiceNetworkServiceAssociationStatusOutput {
@@ -890,6 +987,12 @@ func (o ServiceNetworkVpcAssociationStatusOutput) ToServiceNetworkVpcAssociation
 	}).(ServiceNetworkVpcAssociationStatusPtrOutput)
 }
 
+func (o ServiceNetworkVpcAssociationStatusOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceNetworkVpcAssociationStatus] {
+	return pulumix.Output[ServiceNetworkVpcAssociationStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServiceNetworkVpcAssociationStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -923,6 +1026,12 @@ func (o ServiceNetworkVpcAssociationStatusPtrOutput) ToServiceNetworkVpcAssociat
 
 func (o ServiceNetworkVpcAssociationStatusPtrOutput) ToServiceNetworkVpcAssociationStatusPtrOutputWithContext(ctx context.Context) ServiceNetworkVpcAssociationStatusPtrOutput {
 	return o
+}
+
+func (o ServiceNetworkVpcAssociationStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceNetworkVpcAssociationStatus] {
+	return pulumix.Output[*ServiceNetworkVpcAssociationStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceNetworkVpcAssociationStatusPtrOutput) Elem() ServiceNetworkVpcAssociationStatusOutput {
@@ -983,6 +1092,12 @@ func (o ServiceStatusOutput) ToServiceStatusPtrOutputWithContext(ctx context.Con
 	}).(ServiceStatusPtrOutput)
 }
 
+func (o ServiceStatusOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceStatus] {
+	return pulumix.Output[ServiceStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServiceStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1016,6 +1131,12 @@ func (o ServiceStatusPtrOutput) ToServiceStatusPtrOutput() ServiceStatusPtrOutpu
 
 func (o ServiceStatusPtrOutput) ToServiceStatusPtrOutputWithContext(ctx context.Context) ServiceStatusPtrOutput {
 	return o
+}
+
+func (o ServiceStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceStatus] {
+	return pulumix.Output[*ServiceStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceStatusPtrOutput) Elem() ServiceStatusOutput {
@@ -1109,6 +1230,12 @@ func (o TargetGroupConfigIpAddressTypeOutput) ToTargetGroupConfigIpAddressTypePt
 	}).(TargetGroupConfigIpAddressTypePtrOutput)
 }
 
+func (o TargetGroupConfigIpAddressTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TargetGroupConfigIpAddressType] {
+	return pulumix.Output[TargetGroupConfigIpAddressType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TargetGroupConfigIpAddressTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1142,6 +1269,12 @@ func (o TargetGroupConfigIpAddressTypePtrOutput) ToTargetGroupConfigIpAddressTyp
 
 func (o TargetGroupConfigIpAddressTypePtrOutput) ToTargetGroupConfigIpAddressTypePtrOutputWithContext(ctx context.Context) TargetGroupConfigIpAddressTypePtrOutput {
 	return o
+}
+
+func (o TargetGroupConfigIpAddressTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TargetGroupConfigIpAddressType] {
+	return pulumix.Output[*TargetGroupConfigIpAddressType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TargetGroupConfigIpAddressTypePtrOutput) Elem() TargetGroupConfigIpAddressTypeOutput {
@@ -1204,6 +1337,12 @@ func (in *targetGroupConfigIpAddressTypePtr) ToTargetGroupConfigIpAddressTypePtr
 
 func (in *targetGroupConfigIpAddressTypePtr) ToTargetGroupConfigIpAddressTypePtrOutputWithContext(ctx context.Context) TargetGroupConfigIpAddressTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TargetGroupConfigIpAddressTypePtrOutput)
+}
+
+func (in *targetGroupConfigIpAddressTypePtr) ToOutput(ctx context.Context) pulumix.Output[*TargetGroupConfigIpAddressType] {
+	return pulumix.Output[*TargetGroupConfigIpAddressType]{
+		OutputState: in.ToTargetGroupConfigIpAddressTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type TargetGroupConfigProtocol string
@@ -1273,6 +1412,12 @@ func (o TargetGroupConfigProtocolOutput) ToTargetGroupConfigProtocolPtrOutputWit
 	}).(TargetGroupConfigProtocolPtrOutput)
 }
 
+func (o TargetGroupConfigProtocolOutput) ToOutput(ctx context.Context) pulumix.Output[TargetGroupConfigProtocol] {
+	return pulumix.Output[TargetGroupConfigProtocol]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TargetGroupConfigProtocolOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1306,6 +1451,12 @@ func (o TargetGroupConfigProtocolPtrOutput) ToTargetGroupConfigProtocolPtrOutput
 
 func (o TargetGroupConfigProtocolPtrOutput) ToTargetGroupConfigProtocolPtrOutputWithContext(ctx context.Context) TargetGroupConfigProtocolPtrOutput {
 	return o
+}
+
+func (o TargetGroupConfigProtocolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TargetGroupConfigProtocol] {
+	return pulumix.Output[*TargetGroupConfigProtocol]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TargetGroupConfigProtocolPtrOutput) Elem() TargetGroupConfigProtocolOutput {
@@ -1368,6 +1519,12 @@ func (in *targetGroupConfigProtocolPtr) ToTargetGroupConfigProtocolPtrOutput() T
 
 func (in *targetGroupConfigProtocolPtr) ToTargetGroupConfigProtocolPtrOutputWithContext(ctx context.Context) TargetGroupConfigProtocolPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TargetGroupConfigProtocolPtrOutput)
+}
+
+func (in *targetGroupConfigProtocolPtr) ToOutput(ctx context.Context) pulumix.Output[*TargetGroupConfigProtocol] {
+	return pulumix.Output[*TargetGroupConfigProtocol]{
+		OutputState: in.ToTargetGroupConfigProtocolPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type TargetGroupConfigProtocolVersion string
@@ -1438,6 +1595,12 @@ func (o TargetGroupConfigProtocolVersionOutput) ToTargetGroupConfigProtocolVersi
 	}).(TargetGroupConfigProtocolVersionPtrOutput)
 }
 
+func (o TargetGroupConfigProtocolVersionOutput) ToOutput(ctx context.Context) pulumix.Output[TargetGroupConfigProtocolVersion] {
+	return pulumix.Output[TargetGroupConfigProtocolVersion]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TargetGroupConfigProtocolVersionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1471,6 +1634,12 @@ func (o TargetGroupConfigProtocolVersionPtrOutput) ToTargetGroupConfigProtocolVe
 
 func (o TargetGroupConfigProtocolVersionPtrOutput) ToTargetGroupConfigProtocolVersionPtrOutputWithContext(ctx context.Context) TargetGroupConfigProtocolVersionPtrOutput {
 	return o
+}
+
+func (o TargetGroupConfigProtocolVersionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TargetGroupConfigProtocolVersion] {
+	return pulumix.Output[*TargetGroupConfigProtocolVersion]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TargetGroupConfigProtocolVersionPtrOutput) Elem() TargetGroupConfigProtocolVersionOutput {
@@ -1533,6 +1702,12 @@ func (in *targetGroupConfigProtocolVersionPtr) ToTargetGroupConfigProtocolVersio
 
 func (in *targetGroupConfigProtocolVersionPtr) ToTargetGroupConfigProtocolVersionPtrOutputWithContext(ctx context.Context) TargetGroupConfigProtocolVersionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TargetGroupConfigProtocolVersionPtrOutput)
+}
+
+func (in *targetGroupConfigProtocolVersionPtr) ToOutput(ctx context.Context) pulumix.Output[*TargetGroupConfigProtocolVersion] {
+	return pulumix.Output[*TargetGroupConfigProtocolVersion]{
+		OutputState: in.ToTargetGroupConfigProtocolVersionPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type TargetGroupHealthCheckConfigProtocol string
@@ -1602,6 +1777,12 @@ func (o TargetGroupHealthCheckConfigProtocolOutput) ToTargetGroupHealthCheckConf
 	}).(TargetGroupHealthCheckConfigProtocolPtrOutput)
 }
 
+func (o TargetGroupHealthCheckConfigProtocolOutput) ToOutput(ctx context.Context) pulumix.Output[TargetGroupHealthCheckConfigProtocol] {
+	return pulumix.Output[TargetGroupHealthCheckConfigProtocol]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TargetGroupHealthCheckConfigProtocolOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1635,6 +1816,12 @@ func (o TargetGroupHealthCheckConfigProtocolPtrOutput) ToTargetGroupHealthCheckC
 
 func (o TargetGroupHealthCheckConfigProtocolPtrOutput) ToTargetGroupHealthCheckConfigProtocolPtrOutputWithContext(ctx context.Context) TargetGroupHealthCheckConfigProtocolPtrOutput {
 	return o
+}
+
+func (o TargetGroupHealthCheckConfigProtocolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TargetGroupHealthCheckConfigProtocol] {
+	return pulumix.Output[*TargetGroupHealthCheckConfigProtocol]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TargetGroupHealthCheckConfigProtocolPtrOutput) Elem() TargetGroupHealthCheckConfigProtocolOutput {
@@ -1697,6 +1884,12 @@ func (in *targetGroupHealthCheckConfigProtocolPtr) ToTargetGroupHealthCheckConfi
 
 func (in *targetGroupHealthCheckConfigProtocolPtr) ToTargetGroupHealthCheckConfigProtocolPtrOutputWithContext(ctx context.Context) TargetGroupHealthCheckConfigProtocolPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TargetGroupHealthCheckConfigProtocolPtrOutput)
+}
+
+func (in *targetGroupHealthCheckConfigProtocolPtr) ToOutput(ctx context.Context) pulumix.Output[*TargetGroupHealthCheckConfigProtocol] {
+	return pulumix.Output[*TargetGroupHealthCheckConfigProtocol]{
+		OutputState: in.ToTargetGroupHealthCheckConfigProtocolPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type TargetGroupHealthCheckConfigProtocolVersion string
@@ -1766,6 +1959,12 @@ func (o TargetGroupHealthCheckConfigProtocolVersionOutput) ToTargetGroupHealthCh
 	}).(TargetGroupHealthCheckConfigProtocolVersionPtrOutput)
 }
 
+func (o TargetGroupHealthCheckConfigProtocolVersionOutput) ToOutput(ctx context.Context) pulumix.Output[TargetGroupHealthCheckConfigProtocolVersion] {
+	return pulumix.Output[TargetGroupHealthCheckConfigProtocolVersion]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TargetGroupHealthCheckConfigProtocolVersionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1799,6 +1998,12 @@ func (o TargetGroupHealthCheckConfigProtocolVersionPtrOutput) ToTargetGroupHealt
 
 func (o TargetGroupHealthCheckConfigProtocolVersionPtrOutput) ToTargetGroupHealthCheckConfigProtocolVersionPtrOutputWithContext(ctx context.Context) TargetGroupHealthCheckConfigProtocolVersionPtrOutput {
 	return o
+}
+
+func (o TargetGroupHealthCheckConfigProtocolVersionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TargetGroupHealthCheckConfigProtocolVersion] {
+	return pulumix.Output[*TargetGroupHealthCheckConfigProtocolVersion]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TargetGroupHealthCheckConfigProtocolVersionPtrOutput) Elem() TargetGroupHealthCheckConfigProtocolVersionOutput {
@@ -1863,6 +2068,12 @@ func (in *targetGroupHealthCheckConfigProtocolVersionPtr) ToTargetGroupHealthChe
 	return pulumi.ToOutputWithContext(ctx, in).(TargetGroupHealthCheckConfigProtocolVersionPtrOutput)
 }
 
+func (in *targetGroupHealthCheckConfigProtocolVersionPtr) ToOutput(ctx context.Context) pulumix.Output[*TargetGroupHealthCheckConfigProtocolVersion] {
+	return pulumix.Output[*TargetGroupHealthCheckConfigProtocolVersion]{
+		OutputState: in.ToTargetGroupHealthCheckConfigProtocolVersionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TargetGroupStatus string
 
 const (
@@ -1895,6 +2106,12 @@ func (o TargetGroupStatusOutput) ToTargetGroupStatusPtrOutputWithContext(ctx con
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TargetGroupStatus) *TargetGroupStatus {
 		return &v
 	}).(TargetGroupStatusPtrOutput)
+}
+
+func (o TargetGroupStatusOutput) ToOutput(ctx context.Context) pulumix.Output[TargetGroupStatus] {
+	return pulumix.Output[TargetGroupStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TargetGroupStatusOutput) ToStringOutput() pulumi.StringOutput {
@@ -1930,6 +2147,12 @@ func (o TargetGroupStatusPtrOutput) ToTargetGroupStatusPtrOutput() TargetGroupSt
 
 func (o TargetGroupStatusPtrOutput) ToTargetGroupStatusPtrOutputWithContext(ctx context.Context) TargetGroupStatusPtrOutput {
 	return o
+}
+
+func (o TargetGroupStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TargetGroupStatus] {
+	return pulumix.Output[*TargetGroupStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TargetGroupStatusPtrOutput) Elem() TargetGroupStatusOutput {
@@ -2025,6 +2248,12 @@ func (o TargetGroupTypeOutput) ToTargetGroupTypePtrOutputWithContext(ctx context
 	}).(TargetGroupTypePtrOutput)
 }
 
+func (o TargetGroupTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TargetGroupType] {
+	return pulumix.Output[TargetGroupType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TargetGroupTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2058,6 +2287,12 @@ func (o TargetGroupTypePtrOutput) ToTargetGroupTypePtrOutput() TargetGroupTypePt
 
 func (o TargetGroupTypePtrOutput) ToTargetGroupTypePtrOutputWithContext(ctx context.Context) TargetGroupTypePtrOutput {
 	return o
+}
+
+func (o TargetGroupTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TargetGroupType] {
+	return pulumix.Output[*TargetGroupType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TargetGroupTypePtrOutput) Elem() TargetGroupTypeOutput {
@@ -2120,6 +2355,12 @@ func (in *targetGroupTypePtr) ToTargetGroupTypePtrOutput() TargetGroupTypePtrOut
 
 func (in *targetGroupTypePtr) ToTargetGroupTypePtrOutputWithContext(ctx context.Context) TargetGroupTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TargetGroupTypePtrOutput)
+}
+
+func (in *targetGroupTypePtr) ToOutput(ctx context.Context) pulumix.Output[*TargetGroupType] {
+	return pulumix.Output[*TargetGroupType]{
+		OutputState: in.ToTargetGroupTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

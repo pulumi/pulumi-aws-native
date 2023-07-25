@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::MSK::ServerlessCluster
@@ -63,6 +64,12 @@ func (o LookupServerlessClusterResultOutput) ToLookupServerlessClusterResultOutp
 
 func (o LookupServerlessClusterResultOutput) ToLookupServerlessClusterResultOutputWithContext(ctx context.Context) LookupServerlessClusterResultOutput {
 	return o
+}
+
+func (o LookupServerlessClusterResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupServerlessClusterResult] {
+	return pulumix.Output[LookupServerlessClusterResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupServerlessClusterResultOutput) Arn() pulumi.StringPtrOutput {

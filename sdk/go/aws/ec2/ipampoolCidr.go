@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Schema of AWS::EC2::IPAMPoolCidr Type
@@ -112,6 +113,12 @@ func (i *IPAMPoolCidr) ToIPAMPoolCidrOutputWithContext(ctx context.Context) IPAM
 	return pulumi.ToOutputWithContext(ctx, i).(IPAMPoolCidrOutput)
 }
 
+func (i *IPAMPoolCidr) ToOutput(ctx context.Context) pulumix.Output[*IPAMPoolCidr] {
+	return pulumix.Output[*IPAMPoolCidr]{
+		OutputState: i.ToIPAMPoolCidrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IPAMPoolCidrOutput struct{ *pulumi.OutputState }
 
 func (IPAMPoolCidrOutput) ElementType() reflect.Type {
@@ -124,6 +131,12 @@ func (o IPAMPoolCidrOutput) ToIPAMPoolCidrOutput() IPAMPoolCidrOutput {
 
 func (o IPAMPoolCidrOutput) ToIPAMPoolCidrOutputWithContext(ctx context.Context) IPAMPoolCidrOutput {
 	return o
+}
+
+func (o IPAMPoolCidrOutput) ToOutput(ctx context.Context) pulumix.Output[*IPAMPoolCidr] {
+	return pulumix.Output[*IPAMPoolCidr]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Represents a single IPv4 or IPv6 CIDR

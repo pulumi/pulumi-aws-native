@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Schema for AWS::EKS::Addon
@@ -140,6 +141,12 @@ func (i *Addon) ToAddonOutputWithContext(ctx context.Context) AddonOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AddonOutput)
 }
 
+func (i *Addon) ToOutput(ctx context.Context) pulumix.Output[*Addon] {
+	return pulumix.Output[*Addon]{
+		OutputState: i.ToAddonOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AddonOutput struct{ *pulumi.OutputState }
 
 func (AddonOutput) ElementType() reflect.Type {
@@ -152,6 +159,12 @@ func (o AddonOutput) ToAddonOutput() AddonOutput {
 
 func (o AddonOutput) ToAddonOutputWithContext(ctx context.Context) AddonOutput {
 	return o
+}
+
+func (o AddonOutput) ToOutput(ctx context.Context) pulumix.Output[*Addon] {
+	return pulumix.Output[*Addon]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of Addon

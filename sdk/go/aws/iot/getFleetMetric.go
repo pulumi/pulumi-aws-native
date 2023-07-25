@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // An aggregated metric of certain devices in your fleet
@@ -89,6 +90,12 @@ func (o LookupFleetMetricResultOutput) ToLookupFleetMetricResultOutput() LookupF
 
 func (o LookupFleetMetricResultOutput) ToLookupFleetMetricResultOutputWithContext(ctx context.Context) LookupFleetMetricResultOutput {
 	return o
+}
+
+func (o LookupFleetMetricResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFleetMetricResult] {
+	return pulumix.Output[LookupFleetMetricResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The aggregation field to perform aggregation and metric emission

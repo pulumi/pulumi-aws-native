@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::VPCEndpointConnectionNotification
@@ -65,6 +66,12 @@ func (o LookupVPCEndpointConnectionNotificationResultOutput) ToLookupVPCEndpoint
 
 func (o LookupVPCEndpointConnectionNotificationResultOutput) ToLookupVPCEndpointConnectionNotificationResultOutputWithContext(ctx context.Context) LookupVPCEndpointConnectionNotificationResultOutput {
 	return o
+}
+
+func (o LookupVPCEndpointConnectionNotificationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVPCEndpointConnectionNotificationResult] {
+	return pulumix.Output[LookupVPCEndpointConnectionNotificationResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupVPCEndpointConnectionNotificationResultOutput) ConnectionEvents() pulumi.StringArrayOutput {

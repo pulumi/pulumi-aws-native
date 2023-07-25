@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A resource schema for a Variable in Amazon Fraud Detector.
@@ -82,6 +83,12 @@ func (o LookupVariableResultOutput) ToLookupVariableResultOutput() LookupVariabl
 
 func (o LookupVariableResultOutput) ToLookupVariableResultOutputWithContext(ctx context.Context) LookupVariableResultOutput {
 	return o
+}
+
+func (o LookupVariableResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVariableResult] {
+	return pulumix.Output[LookupVariableResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the variable.

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -46,6 +47,12 @@ func (i CRLTagArgs) ToCRLTagOutputWithContext(ctx context.Context) CRLTagOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(CRLTagOutput)
 }
 
+func (i CRLTagArgs) ToOutput(ctx context.Context) pulumix.Output[CRLTag] {
+	return pulumix.Output[CRLTag]{
+		OutputState: i.ToCRLTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CRLTagArrayInput is an input type that accepts CRLTagArray and CRLTagArrayOutput values.
 // You can construct a concrete instance of `CRLTagArrayInput` via:
 //
@@ -71,6 +78,12 @@ func (i CRLTagArray) ToCRLTagArrayOutputWithContext(ctx context.Context) CRLTagA
 	return pulumi.ToOutputWithContext(ctx, i).(CRLTagArrayOutput)
 }
 
+func (i CRLTagArray) ToOutput(ctx context.Context) pulumix.Output[[]CRLTag] {
+	return pulumix.Output[[]CRLTag]{
+		OutputState: i.ToCRLTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CRLTagOutput struct{ *pulumi.OutputState }
 
 func (CRLTagOutput) ElementType() reflect.Type {
@@ -83,6 +96,12 @@ func (o CRLTagOutput) ToCRLTagOutput() CRLTagOutput {
 
 func (o CRLTagOutput) ToCRLTagOutputWithContext(ctx context.Context) CRLTagOutput {
 	return o
+}
+
+func (o CRLTagOutput) ToOutput(ctx context.Context) pulumix.Output[CRLTag] {
+	return pulumix.Output[CRLTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CRLTagOutput) Key() pulumi.StringOutput {
@@ -105,6 +124,12 @@ func (o CRLTagArrayOutput) ToCRLTagArrayOutput() CRLTagArrayOutput {
 
 func (o CRLTagArrayOutput) ToCRLTagArrayOutputWithContext(ctx context.Context) CRLTagArrayOutput {
 	return o
+}
+
+func (o CRLTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CRLTag] {
+	return pulumix.Output[[]CRLTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CRLTagArrayOutput) Index(i pulumi.IntInput) CRLTagOutput {
@@ -146,6 +171,12 @@ func (i ProfileTagArgs) ToProfileTagOutputWithContext(ctx context.Context) Profi
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileTagOutput)
 }
 
+func (i ProfileTagArgs) ToOutput(ctx context.Context) pulumix.Output[ProfileTag] {
+	return pulumix.Output[ProfileTag]{
+		OutputState: i.ToProfileTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ProfileTagArrayInput is an input type that accepts ProfileTagArray and ProfileTagArrayOutput values.
 // You can construct a concrete instance of `ProfileTagArrayInput` via:
 //
@@ -171,6 +202,12 @@ func (i ProfileTagArray) ToProfileTagArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileTagArrayOutput)
 }
 
+func (i ProfileTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ProfileTag] {
+	return pulumix.Output[[]ProfileTag]{
+		OutputState: i.ToProfileTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProfileTagOutput struct{ *pulumi.OutputState }
 
 func (ProfileTagOutput) ElementType() reflect.Type {
@@ -183,6 +220,12 @@ func (o ProfileTagOutput) ToProfileTagOutput() ProfileTagOutput {
 
 func (o ProfileTagOutput) ToProfileTagOutputWithContext(ctx context.Context) ProfileTagOutput {
 	return o
+}
+
+func (o ProfileTagOutput) ToOutput(ctx context.Context) pulumix.Output[ProfileTag] {
+	return pulumix.Output[ProfileTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProfileTagOutput) Key() pulumi.StringOutput {
@@ -205,6 +248,12 @@ func (o ProfileTagArrayOutput) ToProfileTagArrayOutput() ProfileTagArrayOutput {
 
 func (o ProfileTagArrayOutput) ToProfileTagArrayOutputWithContext(ctx context.Context) ProfileTagArrayOutput {
 	return o
+}
+
+func (o ProfileTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ProfileTag] {
+	return pulumix.Output[[]ProfileTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProfileTagArrayOutput) Index(i pulumi.IntInput) ProfileTagOutput {
@@ -246,6 +295,12 @@ func (i TrustAnchorSourceArgs) ToTrustAnchorSourceOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(TrustAnchorSourceOutput)
 }
 
+func (i TrustAnchorSourceArgs) ToOutput(ctx context.Context) pulumix.Output[TrustAnchorSource] {
+	return pulumix.Output[TrustAnchorSource]{
+		OutputState: i.ToTrustAnchorSourceOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TrustAnchorSourceOutput struct{ *pulumi.OutputState }
 
 func (TrustAnchorSourceOutput) ElementType() reflect.Type {
@@ -258,6 +313,12 @@ func (o TrustAnchorSourceOutput) ToTrustAnchorSourceOutput() TrustAnchorSourceOu
 
 func (o TrustAnchorSourceOutput) ToTrustAnchorSourceOutputWithContext(ctx context.Context) TrustAnchorSourceOutput {
 	return o
+}
+
+func (o TrustAnchorSourceOutput) ToOutput(ctx context.Context) pulumix.Output[TrustAnchorSource] {
+	return pulumix.Output[TrustAnchorSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TrustAnchorSourceOutput) SourceData() TrustAnchorSourceDataPtrOutput {
@@ -280,6 +341,12 @@ func (o TrustAnchorSourcePtrOutput) ToTrustAnchorSourcePtrOutput() TrustAnchorSo
 
 func (o TrustAnchorSourcePtrOutput) ToTrustAnchorSourcePtrOutputWithContext(ctx context.Context) TrustAnchorSourcePtrOutput {
 	return o
+}
+
+func (o TrustAnchorSourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TrustAnchorSource] {
+	return pulumix.Output[*TrustAnchorSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TrustAnchorSourcePtrOutput) Elem() TrustAnchorSourceOutput {
@@ -339,6 +406,12 @@ func (i TrustAnchorSourceDataArgs) ToTrustAnchorSourceDataOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(TrustAnchorSourceDataOutput)
 }
 
+func (i TrustAnchorSourceDataArgs) ToOutput(ctx context.Context) pulumix.Output[TrustAnchorSourceData] {
+	return pulumix.Output[TrustAnchorSourceData]{
+		OutputState: i.ToTrustAnchorSourceDataOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i TrustAnchorSourceDataArgs) ToTrustAnchorSourceDataPtrOutput() TrustAnchorSourceDataPtrOutput {
 	return i.ToTrustAnchorSourceDataPtrOutputWithContext(context.Background())
 }
@@ -380,6 +453,12 @@ func (i *trustAnchorSourceDataPtrType) ToTrustAnchorSourceDataPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(TrustAnchorSourceDataPtrOutput)
 }
 
+func (i *trustAnchorSourceDataPtrType) ToOutput(ctx context.Context) pulumix.Output[*TrustAnchorSourceData] {
+	return pulumix.Output[*TrustAnchorSourceData]{
+		OutputState: i.ToTrustAnchorSourceDataPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TrustAnchorSourceDataOutput struct{ *pulumi.OutputState }
 
 func (TrustAnchorSourceDataOutput) ElementType() reflect.Type {
@@ -404,6 +483,12 @@ func (o TrustAnchorSourceDataOutput) ToTrustAnchorSourceDataPtrOutputWithContext
 	}).(TrustAnchorSourceDataPtrOutput)
 }
 
+func (o TrustAnchorSourceDataOutput) ToOutput(ctx context.Context) pulumix.Output[TrustAnchorSourceData] {
+	return pulumix.Output[TrustAnchorSourceData]{
+		OutputState: o.OutputState,
+	}
+}
+
 type TrustAnchorSourceDataPtrOutput struct{ *pulumi.OutputState }
 
 func (TrustAnchorSourceDataPtrOutput) ElementType() reflect.Type {
@@ -416,6 +501,12 @@ func (o TrustAnchorSourceDataPtrOutput) ToTrustAnchorSourceDataPtrOutput() Trust
 
 func (o TrustAnchorSourceDataPtrOutput) ToTrustAnchorSourceDataPtrOutputWithContext(ctx context.Context) TrustAnchorSourceDataPtrOutput {
 	return o
+}
+
+func (o TrustAnchorSourceDataPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TrustAnchorSourceData] {
+	return pulumix.Output[*TrustAnchorSourceData]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TrustAnchorSourceDataPtrOutput) Elem() TrustAnchorSourceDataOutput {
@@ -461,6 +552,12 @@ func (i TrustAnchorTagArgs) ToTrustAnchorTagOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(TrustAnchorTagOutput)
 }
 
+func (i TrustAnchorTagArgs) ToOutput(ctx context.Context) pulumix.Output[TrustAnchorTag] {
+	return pulumix.Output[TrustAnchorTag]{
+		OutputState: i.ToTrustAnchorTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TrustAnchorTagArrayInput is an input type that accepts TrustAnchorTagArray and TrustAnchorTagArrayOutput values.
 // You can construct a concrete instance of `TrustAnchorTagArrayInput` via:
 //
@@ -486,6 +583,12 @@ func (i TrustAnchorTagArray) ToTrustAnchorTagArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(TrustAnchorTagArrayOutput)
 }
 
+func (i TrustAnchorTagArray) ToOutput(ctx context.Context) pulumix.Output[[]TrustAnchorTag] {
+	return pulumix.Output[[]TrustAnchorTag]{
+		OutputState: i.ToTrustAnchorTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TrustAnchorTagOutput struct{ *pulumi.OutputState }
 
 func (TrustAnchorTagOutput) ElementType() reflect.Type {
@@ -498,6 +601,12 @@ func (o TrustAnchorTagOutput) ToTrustAnchorTagOutput() TrustAnchorTagOutput {
 
 func (o TrustAnchorTagOutput) ToTrustAnchorTagOutputWithContext(ctx context.Context) TrustAnchorTagOutput {
 	return o
+}
+
+func (o TrustAnchorTagOutput) ToOutput(ctx context.Context) pulumix.Output[TrustAnchorTag] {
+	return pulumix.Output[TrustAnchorTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TrustAnchorTagOutput) Key() pulumi.StringOutput {
@@ -520,6 +629,12 @@ func (o TrustAnchorTagArrayOutput) ToTrustAnchorTagArrayOutput() TrustAnchorTagA
 
 func (o TrustAnchorTagArrayOutput) ToTrustAnchorTagArrayOutputWithContext(ctx context.Context) TrustAnchorTagArrayOutput {
 	return o
+}
+
+func (o TrustAnchorTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TrustAnchorTag] {
+	return pulumix.Output[[]TrustAnchorTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TrustAnchorTagArrayOutput) Index(i pulumi.IntInput) TrustAnchorTagOutput {

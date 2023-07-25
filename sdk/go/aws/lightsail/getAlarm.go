@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Lightsail::Alarm
@@ -83,6 +84,12 @@ func (o LookupAlarmResultOutput) ToLookupAlarmResultOutput() LookupAlarmResultOu
 
 func (o LookupAlarmResultOutput) ToLookupAlarmResultOutputWithContext(ctx context.Context) LookupAlarmResultOutput {
 	return o
+}
+
+func (o LookupAlarmResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAlarmResult] {
+	return pulumix.Output[LookupAlarmResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupAlarmResultOutput) AlarmArn() pulumi.StringPtrOutput {

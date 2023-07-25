@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EFS::AccessPoint
@@ -65,6 +66,12 @@ func (o LookupAccessPointResultOutput) ToLookupAccessPointResultOutput() LookupA
 
 func (o LookupAccessPointResultOutput) ToLookupAccessPointResultOutputWithContext(ctx context.Context) LookupAccessPointResultOutput {
 	return o
+}
+
+func (o LookupAccessPointResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAccessPointResult] {
+	return pulumix.Output[LookupAccessPointResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupAccessPointResultOutput) AccessPointId() pulumi.StringPtrOutput {

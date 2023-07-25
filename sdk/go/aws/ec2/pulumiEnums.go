@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type CapacityReservationFleetInstanceMatchCriteria string
@@ -76,6 +77,12 @@ func (o CapacityReservationFleetInstanceMatchCriteriaOutput) ToCapacityReservati
 	}).(CapacityReservationFleetInstanceMatchCriteriaPtrOutput)
 }
 
+func (o CapacityReservationFleetInstanceMatchCriteriaOutput) ToOutput(ctx context.Context) pulumix.Output[CapacityReservationFleetInstanceMatchCriteria] {
+	return pulumix.Output[CapacityReservationFleetInstanceMatchCriteria]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CapacityReservationFleetInstanceMatchCriteriaOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -109,6 +116,12 @@ func (o CapacityReservationFleetInstanceMatchCriteriaPtrOutput) ToCapacityReserv
 
 func (o CapacityReservationFleetInstanceMatchCriteriaPtrOutput) ToCapacityReservationFleetInstanceMatchCriteriaPtrOutputWithContext(ctx context.Context) CapacityReservationFleetInstanceMatchCriteriaPtrOutput {
 	return o
+}
+
+func (o CapacityReservationFleetInstanceMatchCriteriaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CapacityReservationFleetInstanceMatchCriteria] {
+	return pulumix.Output[*CapacityReservationFleetInstanceMatchCriteria]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CapacityReservationFleetInstanceMatchCriteriaPtrOutput) Elem() CapacityReservationFleetInstanceMatchCriteriaOutput {
@@ -171,6 +184,12 @@ func (in *capacityReservationFleetInstanceMatchCriteriaPtr) ToCapacityReservatio
 
 func (in *capacityReservationFleetInstanceMatchCriteriaPtr) ToCapacityReservationFleetInstanceMatchCriteriaPtrOutputWithContext(ctx context.Context) CapacityReservationFleetInstanceMatchCriteriaPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(CapacityReservationFleetInstanceMatchCriteriaPtrOutput)
+}
+
+func (in *capacityReservationFleetInstanceMatchCriteriaPtr) ToOutput(ctx context.Context) pulumix.Output[*CapacityReservationFleetInstanceMatchCriteria] {
+	return pulumix.Output[*CapacityReservationFleetInstanceMatchCriteria]{
+		OutputState: in.ToCapacityReservationFleetInstanceMatchCriteriaPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type CapacityReservationFleetTenancy string
@@ -239,6 +258,12 @@ func (o CapacityReservationFleetTenancyOutput) ToCapacityReservationFleetTenancy
 	}).(CapacityReservationFleetTenancyPtrOutput)
 }
 
+func (o CapacityReservationFleetTenancyOutput) ToOutput(ctx context.Context) pulumix.Output[CapacityReservationFleetTenancy] {
+	return pulumix.Output[CapacityReservationFleetTenancy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CapacityReservationFleetTenancyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -272,6 +297,12 @@ func (o CapacityReservationFleetTenancyPtrOutput) ToCapacityReservationFleetTena
 
 func (o CapacityReservationFleetTenancyPtrOutput) ToCapacityReservationFleetTenancyPtrOutputWithContext(ctx context.Context) CapacityReservationFleetTenancyPtrOutput {
 	return o
+}
+
+func (o CapacityReservationFleetTenancyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CapacityReservationFleetTenancy] {
+	return pulumix.Output[*CapacityReservationFleetTenancy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CapacityReservationFleetTenancyPtrOutput) Elem() CapacityReservationFleetTenancyOutput {
@@ -334,6 +365,12 @@ func (in *capacityReservationFleetTenancyPtr) ToCapacityReservationFleetTenancyP
 
 func (in *capacityReservationFleetTenancyPtr) ToCapacityReservationFleetTenancyPtrOutputWithContext(ctx context.Context) CapacityReservationFleetTenancyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(CapacityReservationFleetTenancyPtrOutput)
+}
+
+func (in *capacityReservationFleetTenancyPtr) ToOutput(ctx context.Context) pulumix.Output[*CapacityReservationFleetTenancy] {
+	return pulumix.Output[*CapacityReservationFleetTenancy]{
+		OutputState: in.ToCapacityReservationFleetTenancyPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type EC2FleetCapacityRebalanceReplacementStrategy string
@@ -403,6 +440,12 @@ func (o EC2FleetCapacityRebalanceReplacementStrategyOutput) ToEC2FleetCapacityRe
 	}).(EC2FleetCapacityRebalanceReplacementStrategyPtrOutput)
 }
 
+func (o EC2FleetCapacityRebalanceReplacementStrategyOutput) ToOutput(ctx context.Context) pulumix.Output[EC2FleetCapacityRebalanceReplacementStrategy] {
+	return pulumix.Output[EC2FleetCapacityRebalanceReplacementStrategy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EC2FleetCapacityRebalanceReplacementStrategyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -436,6 +479,12 @@ func (o EC2FleetCapacityRebalanceReplacementStrategyPtrOutput) ToEC2FleetCapacit
 
 func (o EC2FleetCapacityRebalanceReplacementStrategyPtrOutput) ToEC2FleetCapacityRebalanceReplacementStrategyPtrOutputWithContext(ctx context.Context) EC2FleetCapacityRebalanceReplacementStrategyPtrOutput {
 	return o
+}
+
+func (o EC2FleetCapacityRebalanceReplacementStrategyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EC2FleetCapacityRebalanceReplacementStrategy] {
+	return pulumix.Output[*EC2FleetCapacityRebalanceReplacementStrategy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EC2FleetCapacityRebalanceReplacementStrategyPtrOutput) Elem() EC2FleetCapacityRebalanceReplacementStrategyOutput {
@@ -498,6 +547,12 @@ func (in *ec2fleetCapacityRebalanceReplacementStrategyPtr) ToEC2FleetCapacityReb
 
 func (in *ec2fleetCapacityRebalanceReplacementStrategyPtr) ToEC2FleetCapacityRebalanceReplacementStrategyPtrOutputWithContext(ctx context.Context) EC2FleetCapacityRebalanceReplacementStrategyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EC2FleetCapacityRebalanceReplacementStrategyPtrOutput)
+}
+
+func (in *ec2fleetCapacityRebalanceReplacementStrategyPtr) ToOutput(ctx context.Context) pulumix.Output[*EC2FleetCapacityRebalanceReplacementStrategy] {
+	return pulumix.Output[*EC2FleetCapacityRebalanceReplacementStrategy]{
+		OutputState: in.ToEC2FleetCapacityRebalanceReplacementStrategyPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type EC2FleetCapacityReservationOptionsRequestUsageStrategy string
@@ -566,6 +621,12 @@ func (o EC2FleetCapacityReservationOptionsRequestUsageStrategyOutput) ToEC2Fleet
 	}).(EC2FleetCapacityReservationOptionsRequestUsageStrategyPtrOutput)
 }
 
+func (o EC2FleetCapacityReservationOptionsRequestUsageStrategyOutput) ToOutput(ctx context.Context) pulumix.Output[EC2FleetCapacityReservationOptionsRequestUsageStrategy] {
+	return pulumix.Output[EC2FleetCapacityReservationOptionsRequestUsageStrategy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EC2FleetCapacityReservationOptionsRequestUsageStrategyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -599,6 +660,12 @@ func (o EC2FleetCapacityReservationOptionsRequestUsageStrategyPtrOutput) ToEC2Fl
 
 func (o EC2FleetCapacityReservationOptionsRequestUsageStrategyPtrOutput) ToEC2FleetCapacityReservationOptionsRequestUsageStrategyPtrOutputWithContext(ctx context.Context) EC2FleetCapacityReservationOptionsRequestUsageStrategyPtrOutput {
 	return o
+}
+
+func (o EC2FleetCapacityReservationOptionsRequestUsageStrategyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EC2FleetCapacityReservationOptionsRequestUsageStrategy] {
+	return pulumix.Output[*EC2FleetCapacityReservationOptionsRequestUsageStrategy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EC2FleetCapacityReservationOptionsRequestUsageStrategyPtrOutput) Elem() EC2FleetCapacityReservationOptionsRequestUsageStrategyOutput {
@@ -661,6 +728,12 @@ func (in *ec2fleetCapacityReservationOptionsRequestUsageStrategyPtr) ToEC2FleetC
 
 func (in *ec2fleetCapacityReservationOptionsRequestUsageStrategyPtr) ToEC2FleetCapacityReservationOptionsRequestUsageStrategyPtrOutputWithContext(ctx context.Context) EC2FleetCapacityReservationOptionsRequestUsageStrategyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EC2FleetCapacityReservationOptionsRequestUsageStrategyPtrOutput)
+}
+
+func (in *ec2fleetCapacityReservationOptionsRequestUsageStrategyPtr) ToOutput(ctx context.Context) pulumix.Output[*EC2FleetCapacityReservationOptionsRequestUsageStrategy] {
+	return pulumix.Output[*EC2FleetCapacityReservationOptionsRequestUsageStrategy]{
+		OutputState: in.ToEC2FleetCapacityReservationOptionsRequestUsageStrategyPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type EC2FleetExcessCapacityTerminationPolicy string
@@ -730,6 +803,12 @@ func (o EC2FleetExcessCapacityTerminationPolicyOutput) ToEC2FleetExcessCapacityT
 	}).(EC2FleetExcessCapacityTerminationPolicyPtrOutput)
 }
 
+func (o EC2FleetExcessCapacityTerminationPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[EC2FleetExcessCapacityTerminationPolicy] {
+	return pulumix.Output[EC2FleetExcessCapacityTerminationPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EC2FleetExcessCapacityTerminationPolicyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -763,6 +842,12 @@ func (o EC2FleetExcessCapacityTerminationPolicyPtrOutput) ToEC2FleetExcessCapaci
 
 func (o EC2FleetExcessCapacityTerminationPolicyPtrOutput) ToEC2FleetExcessCapacityTerminationPolicyPtrOutputWithContext(ctx context.Context) EC2FleetExcessCapacityTerminationPolicyPtrOutput {
 	return o
+}
+
+func (o EC2FleetExcessCapacityTerminationPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EC2FleetExcessCapacityTerminationPolicy] {
+	return pulumix.Output[*EC2FleetExcessCapacityTerminationPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EC2FleetExcessCapacityTerminationPolicyPtrOutput) Elem() EC2FleetExcessCapacityTerminationPolicyOutput {
@@ -825,6 +910,12 @@ func (in *ec2fleetExcessCapacityTerminationPolicyPtr) ToEC2FleetExcessCapacityTe
 
 func (in *ec2fleetExcessCapacityTerminationPolicyPtr) ToEC2FleetExcessCapacityTerminationPolicyPtrOutputWithContext(ctx context.Context) EC2FleetExcessCapacityTerminationPolicyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EC2FleetExcessCapacityTerminationPolicyPtrOutput)
+}
+
+func (in *ec2fleetExcessCapacityTerminationPolicyPtr) ToOutput(ctx context.Context) pulumix.Output[*EC2FleetExcessCapacityTerminationPolicy] {
+	return pulumix.Output[*EC2FleetExcessCapacityTerminationPolicy]{
+		OutputState: in.ToEC2FleetExcessCapacityTerminationPolicyPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem string
@@ -896,6 +987,12 @@ func (o EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput) T
 	}).(EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput)
 }
 
+func (o EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput) ToOutput(ctx context.Context) pulumix.Output[EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem] {
+	return pulumix.Output[EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -929,6 +1026,12 @@ func (o EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput
 
 func (o EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput) ToEC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput {
 	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem] {
+	return pulumix.Output[*EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput) Elem() EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput {
@@ -993,6 +1096,12 @@ func (in *ec2fleetInstanceRequirementsRequestAcceleratorManufacturersItemPtr) To
 	return pulumi.ToOutputWithContext(ctx, in).(EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput)
 }
 
+func (in *ec2fleetInstanceRequirementsRequestAcceleratorManufacturersItemPtr) ToOutput(ctx context.Context) pulumix.Output[*EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem] {
+	return pulumix.Output[*EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem]{
+		OutputState: in.ToEC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayInput is an input type that accepts EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArray and EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput values.
 // You can construct a concrete instance of `EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayInput` via:
 //
@@ -1018,6 +1127,12 @@ func (i EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArray) To
 	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput)
 }
 
+func (i EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArray) ToOutput(ctx context.Context) pulumix.Output[[]EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem] {
+	return pulumix.Output[[]EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem]{
+		OutputState: i.ToEC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput struct{ *pulumi.OutputState }
 
 func (EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput) ElementType() reflect.Type {
@@ -1030,6 +1145,12 @@ func (o EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutp
 
 func (o EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput) ToEC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput {
 	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem] {
+	return pulumix.Output[[]EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput) Index(i pulumi.IntInput) EC2FleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput {
@@ -1112,6 +1233,12 @@ func (o EC2FleetInstanceRequirementsRequestAcceleratorNamesItemOutput) ToEC2Flee
 	}).(EC2FleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput)
 }
 
+func (o EC2FleetInstanceRequirementsRequestAcceleratorNamesItemOutput) ToOutput(ctx context.Context) pulumix.Output[EC2FleetInstanceRequirementsRequestAcceleratorNamesItem] {
+	return pulumix.Output[EC2FleetInstanceRequirementsRequestAcceleratorNamesItem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EC2FleetInstanceRequirementsRequestAcceleratorNamesItemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1145,6 +1272,12 @@ func (o EC2FleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput) ToEC2F
 
 func (o EC2FleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput) ToEC2FleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput {
 	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EC2FleetInstanceRequirementsRequestAcceleratorNamesItem] {
+	return pulumix.Output[*EC2FleetInstanceRequirementsRequestAcceleratorNamesItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EC2FleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput) Elem() EC2FleetInstanceRequirementsRequestAcceleratorNamesItemOutput {
@@ -1209,6 +1342,12 @@ func (in *ec2fleetInstanceRequirementsRequestAcceleratorNamesItemPtr) ToEC2Fleet
 	return pulumi.ToOutputWithContext(ctx, in).(EC2FleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput)
 }
 
+func (in *ec2fleetInstanceRequirementsRequestAcceleratorNamesItemPtr) ToOutput(ctx context.Context) pulumix.Output[*EC2FleetInstanceRequirementsRequestAcceleratorNamesItem] {
+	return pulumix.Output[*EC2FleetInstanceRequirementsRequestAcceleratorNamesItem]{
+		OutputState: in.ToEC2FleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EC2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayInput is an input type that accepts EC2FleetInstanceRequirementsRequestAcceleratorNamesItemArray and EC2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput values.
 // You can construct a concrete instance of `EC2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayInput` via:
 //
@@ -1234,6 +1373,12 @@ func (i EC2FleetInstanceRequirementsRequestAcceleratorNamesItemArray) ToEC2Fleet
 	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput)
 }
 
+func (i EC2FleetInstanceRequirementsRequestAcceleratorNamesItemArray) ToOutput(ctx context.Context) pulumix.Output[[]EC2FleetInstanceRequirementsRequestAcceleratorNamesItem] {
+	return pulumix.Output[[]EC2FleetInstanceRequirementsRequestAcceleratorNamesItem]{
+		OutputState: i.ToEC2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EC2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput struct{ *pulumi.OutputState }
 
 func (EC2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput) ElementType() reflect.Type {
@@ -1246,6 +1391,12 @@ func (o EC2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput) ToEC
 
 func (o EC2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput) ToEC2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput {
 	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EC2FleetInstanceRequirementsRequestAcceleratorNamesItem] {
+	return pulumix.Output[[]EC2FleetInstanceRequirementsRequestAcceleratorNamesItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EC2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput) Index(i pulumi.IntInput) EC2FleetInstanceRequirementsRequestAcceleratorNamesItemOutput {
@@ -1322,6 +1473,12 @@ func (o EC2FleetInstanceRequirementsRequestAcceleratorTypesItemOutput) ToEC2Flee
 	}).(EC2FleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput)
 }
 
+func (o EC2FleetInstanceRequirementsRequestAcceleratorTypesItemOutput) ToOutput(ctx context.Context) pulumix.Output[EC2FleetInstanceRequirementsRequestAcceleratorTypesItem] {
+	return pulumix.Output[EC2FleetInstanceRequirementsRequestAcceleratorTypesItem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EC2FleetInstanceRequirementsRequestAcceleratorTypesItemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1355,6 +1512,12 @@ func (o EC2FleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput) ToEC2F
 
 func (o EC2FleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput) ToEC2FleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput {
 	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EC2FleetInstanceRequirementsRequestAcceleratorTypesItem] {
+	return pulumix.Output[*EC2FleetInstanceRequirementsRequestAcceleratorTypesItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EC2FleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput) Elem() EC2FleetInstanceRequirementsRequestAcceleratorTypesItemOutput {
@@ -1419,6 +1582,12 @@ func (in *ec2fleetInstanceRequirementsRequestAcceleratorTypesItemPtr) ToEC2Fleet
 	return pulumi.ToOutputWithContext(ctx, in).(EC2FleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput)
 }
 
+func (in *ec2fleetInstanceRequirementsRequestAcceleratorTypesItemPtr) ToOutput(ctx context.Context) pulumix.Output[*EC2FleetInstanceRequirementsRequestAcceleratorTypesItem] {
+	return pulumix.Output[*EC2FleetInstanceRequirementsRequestAcceleratorTypesItem]{
+		OutputState: in.ToEC2FleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayInput is an input type that accepts EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArray and EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput values.
 // You can construct a concrete instance of `EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayInput` via:
 //
@@ -1444,6 +1613,12 @@ func (i EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArray) ToEC2Fleet
 	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput)
 }
 
+func (i EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArray) ToOutput(ctx context.Context) pulumix.Output[[]EC2FleetInstanceRequirementsRequestAcceleratorTypesItem] {
+	return pulumix.Output[[]EC2FleetInstanceRequirementsRequestAcceleratorTypesItem]{
+		OutputState: i.ToEC2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput struct{ *pulumi.OutputState }
 
 func (EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput) ElementType() reflect.Type {
@@ -1456,6 +1631,12 @@ func (o EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput) ToEC
 
 func (o EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput) ToEC2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput {
 	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EC2FleetInstanceRequirementsRequestAcceleratorTypesItem] {
+	return pulumix.Output[[]EC2FleetInstanceRequirementsRequestAcceleratorTypesItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput) Index(i pulumi.IntInput) EC2FleetInstanceRequirementsRequestAcceleratorTypesItemOutput {
@@ -1532,6 +1713,12 @@ func (o EC2FleetInstanceRequirementsRequestBareMetalOutput) ToEC2FleetInstanceRe
 	}).(EC2FleetInstanceRequirementsRequestBareMetalPtrOutput)
 }
 
+func (o EC2FleetInstanceRequirementsRequestBareMetalOutput) ToOutput(ctx context.Context) pulumix.Output[EC2FleetInstanceRequirementsRequestBareMetal] {
+	return pulumix.Output[EC2FleetInstanceRequirementsRequestBareMetal]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EC2FleetInstanceRequirementsRequestBareMetalOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1565,6 +1752,12 @@ func (o EC2FleetInstanceRequirementsRequestBareMetalPtrOutput) ToEC2FleetInstanc
 
 func (o EC2FleetInstanceRequirementsRequestBareMetalPtrOutput) ToEC2FleetInstanceRequirementsRequestBareMetalPtrOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestBareMetalPtrOutput {
 	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestBareMetalPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EC2FleetInstanceRequirementsRequestBareMetal] {
+	return pulumix.Output[*EC2FleetInstanceRequirementsRequestBareMetal]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EC2FleetInstanceRequirementsRequestBareMetalPtrOutput) Elem() EC2FleetInstanceRequirementsRequestBareMetalOutput {
@@ -1627,6 +1820,12 @@ func (in *ec2fleetInstanceRequirementsRequestBareMetalPtr) ToEC2FleetInstanceReq
 
 func (in *ec2fleetInstanceRequirementsRequestBareMetalPtr) ToEC2FleetInstanceRequirementsRequestBareMetalPtrOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestBareMetalPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EC2FleetInstanceRequirementsRequestBareMetalPtrOutput)
+}
+
+func (in *ec2fleetInstanceRequirementsRequestBareMetalPtr) ToOutput(ctx context.Context) pulumix.Output[*EC2FleetInstanceRequirementsRequestBareMetal] {
+	return pulumix.Output[*EC2FleetInstanceRequirementsRequestBareMetal]{
+		OutputState: in.ToEC2FleetInstanceRequirementsRequestBareMetalPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type EC2FleetInstanceRequirementsRequestBurstablePerformance string
@@ -1697,6 +1896,12 @@ func (o EC2FleetInstanceRequirementsRequestBurstablePerformanceOutput) ToEC2Flee
 	}).(EC2FleetInstanceRequirementsRequestBurstablePerformancePtrOutput)
 }
 
+func (o EC2FleetInstanceRequirementsRequestBurstablePerformanceOutput) ToOutput(ctx context.Context) pulumix.Output[EC2FleetInstanceRequirementsRequestBurstablePerformance] {
+	return pulumix.Output[EC2FleetInstanceRequirementsRequestBurstablePerformance]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EC2FleetInstanceRequirementsRequestBurstablePerformanceOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1730,6 +1935,12 @@ func (o EC2FleetInstanceRequirementsRequestBurstablePerformancePtrOutput) ToEC2F
 
 func (o EC2FleetInstanceRequirementsRequestBurstablePerformancePtrOutput) ToEC2FleetInstanceRequirementsRequestBurstablePerformancePtrOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestBurstablePerformancePtrOutput {
 	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestBurstablePerformancePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EC2FleetInstanceRequirementsRequestBurstablePerformance] {
+	return pulumix.Output[*EC2FleetInstanceRequirementsRequestBurstablePerformance]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EC2FleetInstanceRequirementsRequestBurstablePerformancePtrOutput) Elem() EC2FleetInstanceRequirementsRequestBurstablePerformanceOutput {
@@ -1792,6 +2003,12 @@ func (in *ec2fleetInstanceRequirementsRequestBurstablePerformancePtr) ToEC2Fleet
 
 func (in *ec2fleetInstanceRequirementsRequestBurstablePerformancePtr) ToEC2FleetInstanceRequirementsRequestBurstablePerformancePtrOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestBurstablePerformancePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EC2FleetInstanceRequirementsRequestBurstablePerformancePtrOutput)
+}
+
+func (in *ec2fleetInstanceRequirementsRequestBurstablePerformancePtr) ToOutput(ctx context.Context) pulumix.Output[*EC2FleetInstanceRequirementsRequestBurstablePerformance] {
+	return pulumix.Output[*EC2FleetInstanceRequirementsRequestBurstablePerformance]{
+		OutputState: in.ToEC2FleetInstanceRequirementsRequestBurstablePerformancePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type EC2FleetInstanceRequirementsRequestCpuManufacturersItem string
@@ -1862,6 +2079,12 @@ func (o EC2FleetInstanceRequirementsRequestCpuManufacturersItemOutput) ToEC2Flee
 	}).(EC2FleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput)
 }
 
+func (o EC2FleetInstanceRequirementsRequestCpuManufacturersItemOutput) ToOutput(ctx context.Context) pulumix.Output[EC2FleetInstanceRequirementsRequestCpuManufacturersItem] {
+	return pulumix.Output[EC2FleetInstanceRequirementsRequestCpuManufacturersItem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EC2FleetInstanceRequirementsRequestCpuManufacturersItemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1895,6 +2118,12 @@ func (o EC2FleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput) ToEC2F
 
 func (o EC2FleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput) ToEC2FleetInstanceRequirementsRequestCpuManufacturersItemPtrOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput {
 	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EC2FleetInstanceRequirementsRequestCpuManufacturersItem] {
+	return pulumix.Output[*EC2FleetInstanceRequirementsRequestCpuManufacturersItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EC2FleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput) Elem() EC2FleetInstanceRequirementsRequestCpuManufacturersItemOutput {
@@ -1959,6 +2188,12 @@ func (in *ec2fleetInstanceRequirementsRequestCpuManufacturersItemPtr) ToEC2Fleet
 	return pulumi.ToOutputWithContext(ctx, in).(EC2FleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput)
 }
 
+func (in *ec2fleetInstanceRequirementsRequestCpuManufacturersItemPtr) ToOutput(ctx context.Context) pulumix.Output[*EC2FleetInstanceRequirementsRequestCpuManufacturersItem] {
+	return pulumix.Output[*EC2FleetInstanceRequirementsRequestCpuManufacturersItem]{
+		OutputState: in.ToEC2FleetInstanceRequirementsRequestCpuManufacturersItemPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EC2FleetInstanceRequirementsRequestCpuManufacturersItemArrayInput is an input type that accepts EC2FleetInstanceRequirementsRequestCpuManufacturersItemArray and EC2FleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput values.
 // You can construct a concrete instance of `EC2FleetInstanceRequirementsRequestCpuManufacturersItemArrayInput` via:
 //
@@ -1984,6 +2219,12 @@ func (i EC2FleetInstanceRequirementsRequestCpuManufacturersItemArray) ToEC2Fleet
 	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput)
 }
 
+func (i EC2FleetInstanceRequirementsRequestCpuManufacturersItemArray) ToOutput(ctx context.Context) pulumix.Output[[]EC2FleetInstanceRequirementsRequestCpuManufacturersItem] {
+	return pulumix.Output[[]EC2FleetInstanceRequirementsRequestCpuManufacturersItem]{
+		OutputState: i.ToEC2FleetInstanceRequirementsRequestCpuManufacturersItemArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EC2FleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput struct{ *pulumi.OutputState }
 
 func (EC2FleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput) ElementType() reflect.Type {
@@ -1996,6 +2237,12 @@ func (o EC2FleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput) ToEC
 
 func (o EC2FleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput) ToEC2FleetInstanceRequirementsRequestCpuManufacturersItemArrayOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput {
 	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EC2FleetInstanceRequirementsRequestCpuManufacturersItem] {
+	return pulumix.Output[[]EC2FleetInstanceRequirementsRequestCpuManufacturersItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EC2FleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput) Index(i pulumi.IntInput) EC2FleetInstanceRequirementsRequestCpuManufacturersItemOutput {
@@ -2071,6 +2318,12 @@ func (o EC2FleetInstanceRequirementsRequestInstanceGenerationsItemOutput) ToEC2F
 	}).(EC2FleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput)
 }
 
+func (o EC2FleetInstanceRequirementsRequestInstanceGenerationsItemOutput) ToOutput(ctx context.Context) pulumix.Output[EC2FleetInstanceRequirementsRequestInstanceGenerationsItem] {
+	return pulumix.Output[EC2FleetInstanceRequirementsRequestInstanceGenerationsItem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EC2FleetInstanceRequirementsRequestInstanceGenerationsItemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2104,6 +2357,12 @@ func (o EC2FleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput) ToE
 
 func (o EC2FleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput) ToEC2FleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput {
 	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EC2FleetInstanceRequirementsRequestInstanceGenerationsItem] {
+	return pulumix.Output[*EC2FleetInstanceRequirementsRequestInstanceGenerationsItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EC2FleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput) Elem() EC2FleetInstanceRequirementsRequestInstanceGenerationsItemOutput {
@@ -2168,6 +2427,12 @@ func (in *ec2fleetInstanceRequirementsRequestInstanceGenerationsItemPtr) ToEC2Fl
 	return pulumi.ToOutputWithContext(ctx, in).(EC2FleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput)
 }
 
+func (in *ec2fleetInstanceRequirementsRequestInstanceGenerationsItemPtr) ToOutput(ctx context.Context) pulumix.Output[*EC2FleetInstanceRequirementsRequestInstanceGenerationsItem] {
+	return pulumix.Output[*EC2FleetInstanceRequirementsRequestInstanceGenerationsItem]{
+		OutputState: in.ToEC2FleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EC2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayInput is an input type that accepts EC2FleetInstanceRequirementsRequestInstanceGenerationsItemArray and EC2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput values.
 // You can construct a concrete instance of `EC2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayInput` via:
 //
@@ -2193,6 +2458,12 @@ func (i EC2FleetInstanceRequirementsRequestInstanceGenerationsItemArray) ToEC2Fl
 	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput)
 }
 
+func (i EC2FleetInstanceRequirementsRequestInstanceGenerationsItemArray) ToOutput(ctx context.Context) pulumix.Output[[]EC2FleetInstanceRequirementsRequestInstanceGenerationsItem] {
+	return pulumix.Output[[]EC2FleetInstanceRequirementsRequestInstanceGenerationsItem]{
+		OutputState: i.ToEC2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EC2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput struct{ *pulumi.OutputState }
 
 func (EC2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput) ElementType() reflect.Type {
@@ -2205,6 +2476,12 @@ func (o EC2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput) T
 
 func (o EC2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput) ToEC2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput {
 	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EC2FleetInstanceRequirementsRequestInstanceGenerationsItem] {
+	return pulumix.Output[[]EC2FleetInstanceRequirementsRequestInstanceGenerationsItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EC2FleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput) Index(i pulumi.IntInput) EC2FleetInstanceRequirementsRequestInstanceGenerationsItemOutput {
@@ -2281,6 +2558,12 @@ func (o EC2FleetInstanceRequirementsRequestLocalStorageOutput) ToEC2FleetInstanc
 	}).(EC2FleetInstanceRequirementsRequestLocalStoragePtrOutput)
 }
 
+func (o EC2FleetInstanceRequirementsRequestLocalStorageOutput) ToOutput(ctx context.Context) pulumix.Output[EC2FleetInstanceRequirementsRequestLocalStorage] {
+	return pulumix.Output[EC2FleetInstanceRequirementsRequestLocalStorage]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EC2FleetInstanceRequirementsRequestLocalStorageOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2314,6 +2597,12 @@ func (o EC2FleetInstanceRequirementsRequestLocalStoragePtrOutput) ToEC2FleetInst
 
 func (o EC2FleetInstanceRequirementsRequestLocalStoragePtrOutput) ToEC2FleetInstanceRequirementsRequestLocalStoragePtrOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestLocalStoragePtrOutput {
 	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestLocalStoragePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EC2FleetInstanceRequirementsRequestLocalStorage] {
+	return pulumix.Output[*EC2FleetInstanceRequirementsRequestLocalStorage]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EC2FleetInstanceRequirementsRequestLocalStoragePtrOutput) Elem() EC2FleetInstanceRequirementsRequestLocalStorageOutput {
@@ -2376,6 +2665,12 @@ func (in *ec2fleetInstanceRequirementsRequestLocalStoragePtr) ToEC2FleetInstance
 
 func (in *ec2fleetInstanceRequirementsRequestLocalStoragePtr) ToEC2FleetInstanceRequirementsRequestLocalStoragePtrOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestLocalStoragePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EC2FleetInstanceRequirementsRequestLocalStoragePtrOutput)
+}
+
+func (in *ec2fleetInstanceRequirementsRequestLocalStoragePtr) ToOutput(ctx context.Context) pulumix.Output[*EC2FleetInstanceRequirementsRequestLocalStorage] {
+	return pulumix.Output[*EC2FleetInstanceRequirementsRequestLocalStorage]{
+		OutputState: in.ToEC2FleetInstanceRequirementsRequestLocalStoragePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type EC2FleetInstanceRequirementsRequestLocalStorageTypesItem string
@@ -2445,6 +2740,12 @@ func (o EC2FleetInstanceRequirementsRequestLocalStorageTypesItemOutput) ToEC2Fle
 	}).(EC2FleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput)
 }
 
+func (o EC2FleetInstanceRequirementsRequestLocalStorageTypesItemOutput) ToOutput(ctx context.Context) pulumix.Output[EC2FleetInstanceRequirementsRequestLocalStorageTypesItem] {
+	return pulumix.Output[EC2FleetInstanceRequirementsRequestLocalStorageTypesItem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EC2FleetInstanceRequirementsRequestLocalStorageTypesItemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2478,6 +2779,12 @@ func (o EC2FleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput) ToEC2
 
 func (o EC2FleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput) ToEC2FleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput {
 	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EC2FleetInstanceRequirementsRequestLocalStorageTypesItem] {
+	return pulumix.Output[*EC2FleetInstanceRequirementsRequestLocalStorageTypesItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EC2FleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput) Elem() EC2FleetInstanceRequirementsRequestLocalStorageTypesItemOutput {
@@ -2542,6 +2849,12 @@ func (in *ec2fleetInstanceRequirementsRequestLocalStorageTypesItemPtr) ToEC2Flee
 	return pulumi.ToOutputWithContext(ctx, in).(EC2FleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput)
 }
 
+func (in *ec2fleetInstanceRequirementsRequestLocalStorageTypesItemPtr) ToOutput(ctx context.Context) pulumix.Output[*EC2FleetInstanceRequirementsRequestLocalStorageTypesItem] {
+	return pulumix.Output[*EC2FleetInstanceRequirementsRequestLocalStorageTypesItem]{
+		OutputState: in.ToEC2FleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayInput is an input type that accepts EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArray and EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput values.
 // You can construct a concrete instance of `EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayInput` via:
 //
@@ -2567,6 +2880,12 @@ func (i EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArray) ToEC2Flee
 	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput)
 }
 
+func (i EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArray) ToOutput(ctx context.Context) pulumix.Output[[]EC2FleetInstanceRequirementsRequestLocalStorageTypesItem] {
+	return pulumix.Output[[]EC2FleetInstanceRequirementsRequestLocalStorageTypesItem]{
+		OutputState: i.ToEC2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput struct{ *pulumi.OutputState }
 
 func (EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput) ElementType() reflect.Type {
@@ -2579,6 +2898,12 @@ func (o EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput) ToE
 
 func (o EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput) ToEC2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutputWithContext(ctx context.Context) EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput {
 	return o
+}
+
+func (o EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EC2FleetInstanceRequirementsRequestLocalStorageTypesItem] {
+	return pulumix.Output[[]EC2FleetInstanceRequirementsRequestLocalStorageTypesItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput) Index(i pulumi.IntInput) EC2FleetInstanceRequirementsRequestLocalStorageTypesItemOutput {
@@ -2657,6 +2982,12 @@ func (o EC2FleetSpotOptionsRequestAllocationStrategyOutput) ToEC2FleetSpotOption
 	}).(EC2FleetSpotOptionsRequestAllocationStrategyPtrOutput)
 }
 
+func (o EC2FleetSpotOptionsRequestAllocationStrategyOutput) ToOutput(ctx context.Context) pulumix.Output[EC2FleetSpotOptionsRequestAllocationStrategy] {
+	return pulumix.Output[EC2FleetSpotOptionsRequestAllocationStrategy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EC2FleetSpotOptionsRequestAllocationStrategyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2690,6 +3021,12 @@ func (o EC2FleetSpotOptionsRequestAllocationStrategyPtrOutput) ToEC2FleetSpotOpt
 
 func (o EC2FleetSpotOptionsRequestAllocationStrategyPtrOutput) ToEC2FleetSpotOptionsRequestAllocationStrategyPtrOutputWithContext(ctx context.Context) EC2FleetSpotOptionsRequestAllocationStrategyPtrOutput {
 	return o
+}
+
+func (o EC2FleetSpotOptionsRequestAllocationStrategyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EC2FleetSpotOptionsRequestAllocationStrategy] {
+	return pulumix.Output[*EC2FleetSpotOptionsRequestAllocationStrategy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EC2FleetSpotOptionsRequestAllocationStrategyPtrOutput) Elem() EC2FleetSpotOptionsRequestAllocationStrategyOutput {
@@ -2752,6 +3089,12 @@ func (in *ec2fleetSpotOptionsRequestAllocationStrategyPtr) ToEC2FleetSpotOptions
 
 func (in *ec2fleetSpotOptionsRequestAllocationStrategyPtr) ToEC2FleetSpotOptionsRequestAllocationStrategyPtrOutputWithContext(ctx context.Context) EC2FleetSpotOptionsRequestAllocationStrategyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EC2FleetSpotOptionsRequestAllocationStrategyPtrOutput)
+}
+
+func (in *ec2fleetSpotOptionsRequestAllocationStrategyPtr) ToOutput(ctx context.Context) pulumix.Output[*EC2FleetSpotOptionsRequestAllocationStrategy] {
+	return pulumix.Output[*EC2FleetSpotOptionsRequestAllocationStrategy]{
+		OutputState: in.ToEC2FleetSpotOptionsRequestAllocationStrategyPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type EC2FleetSpotOptionsRequestInstanceInterruptionBehavior string
@@ -2822,6 +3165,12 @@ func (o EC2FleetSpotOptionsRequestInstanceInterruptionBehaviorOutput) ToEC2Fleet
 	}).(EC2FleetSpotOptionsRequestInstanceInterruptionBehaviorPtrOutput)
 }
 
+func (o EC2FleetSpotOptionsRequestInstanceInterruptionBehaviorOutput) ToOutput(ctx context.Context) pulumix.Output[EC2FleetSpotOptionsRequestInstanceInterruptionBehavior] {
+	return pulumix.Output[EC2FleetSpotOptionsRequestInstanceInterruptionBehavior]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EC2FleetSpotOptionsRequestInstanceInterruptionBehaviorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2855,6 +3204,12 @@ func (o EC2FleetSpotOptionsRequestInstanceInterruptionBehaviorPtrOutput) ToEC2Fl
 
 func (o EC2FleetSpotOptionsRequestInstanceInterruptionBehaviorPtrOutput) ToEC2FleetSpotOptionsRequestInstanceInterruptionBehaviorPtrOutputWithContext(ctx context.Context) EC2FleetSpotOptionsRequestInstanceInterruptionBehaviorPtrOutput {
 	return o
+}
+
+func (o EC2FleetSpotOptionsRequestInstanceInterruptionBehaviorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EC2FleetSpotOptionsRequestInstanceInterruptionBehavior] {
+	return pulumix.Output[*EC2FleetSpotOptionsRequestInstanceInterruptionBehavior]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EC2FleetSpotOptionsRequestInstanceInterruptionBehaviorPtrOutput) Elem() EC2FleetSpotOptionsRequestInstanceInterruptionBehaviorOutput {
@@ -2917,6 +3272,12 @@ func (in *ec2fleetSpotOptionsRequestInstanceInterruptionBehaviorPtr) ToEC2FleetS
 
 func (in *ec2fleetSpotOptionsRequestInstanceInterruptionBehaviorPtr) ToEC2FleetSpotOptionsRequestInstanceInterruptionBehaviorPtrOutputWithContext(ctx context.Context) EC2FleetSpotOptionsRequestInstanceInterruptionBehaviorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EC2FleetSpotOptionsRequestInstanceInterruptionBehaviorPtrOutput)
+}
+
+func (in *ec2fleetSpotOptionsRequestInstanceInterruptionBehaviorPtr) ToOutput(ctx context.Context) pulumix.Output[*EC2FleetSpotOptionsRequestInstanceInterruptionBehavior] {
+	return pulumix.Output[*EC2FleetSpotOptionsRequestInstanceInterruptionBehavior]{
+		OutputState: in.ToEC2FleetSpotOptionsRequestInstanceInterruptionBehaviorPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type EC2FleetTagSpecificationResourceType string
@@ -3031,6 +3392,12 @@ func (o EC2FleetTagSpecificationResourceTypeOutput) ToEC2FleetTagSpecificationRe
 	}).(EC2FleetTagSpecificationResourceTypePtrOutput)
 }
 
+func (o EC2FleetTagSpecificationResourceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[EC2FleetTagSpecificationResourceType] {
+	return pulumix.Output[EC2FleetTagSpecificationResourceType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EC2FleetTagSpecificationResourceTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3064,6 +3431,12 @@ func (o EC2FleetTagSpecificationResourceTypePtrOutput) ToEC2FleetTagSpecificatio
 
 func (o EC2FleetTagSpecificationResourceTypePtrOutput) ToEC2FleetTagSpecificationResourceTypePtrOutputWithContext(ctx context.Context) EC2FleetTagSpecificationResourceTypePtrOutput {
 	return o
+}
+
+func (o EC2FleetTagSpecificationResourceTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EC2FleetTagSpecificationResourceType] {
+	return pulumix.Output[*EC2FleetTagSpecificationResourceType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EC2FleetTagSpecificationResourceTypePtrOutput) Elem() EC2FleetTagSpecificationResourceTypeOutput {
@@ -3126,6 +3499,12 @@ func (in *ec2fleetTagSpecificationResourceTypePtr) ToEC2FleetTagSpecificationRes
 
 func (in *ec2fleetTagSpecificationResourceTypePtr) ToEC2FleetTagSpecificationResourceTypePtrOutputWithContext(ctx context.Context) EC2FleetTagSpecificationResourceTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EC2FleetTagSpecificationResourceTypePtrOutput)
+}
+
+func (in *ec2fleetTagSpecificationResourceTypePtr) ToOutput(ctx context.Context) pulumix.Output[*EC2FleetTagSpecificationResourceType] {
+	return pulumix.Output[*EC2FleetTagSpecificationResourceType]{
+		OutputState: in.ToEC2FleetTagSpecificationResourceTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType string
@@ -3195,6 +3574,12 @@ func (o EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypeOutpu
 	}).(EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypePtrOutput)
 }
 
+func (o EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypeOutput) ToOutput(ctx context.Context) pulumix.Output[EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType] {
+	return pulumix.Output[EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3228,6 +3613,12 @@ func (o EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypePtrOu
 
 func (o EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypePtrOutput) ToEC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypePtrOutputWithContext(ctx context.Context) EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypePtrOutput {
 	return o
+}
+
+func (o EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType] {
+	return pulumix.Output[*EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypePtrOutput) Elem() EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypeOutput {
@@ -3290,6 +3681,12 @@ func (in *ec2fleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypePtr
 
 func (in *ec2fleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypePtr) ToEC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypePtrOutputWithContext(ctx context.Context) EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypePtrOutput)
+}
+
+func (in *ec2fleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypePtr) ToOutput(ctx context.Context) pulumix.Output[*EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType] {
+	return pulumix.Output[*EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType]{
+		OutputState: in.ToEC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType string
@@ -3360,6 +3757,12 @@ func (o EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeOutput) 
 	}).(EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutput)
 }
 
+func (o EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeOutput) ToOutput(ctx context.Context) pulumix.Output[EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType] {
+	return pulumix.Output[EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3393,6 +3796,12 @@ func (o EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutpu
 
 func (o EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutput) ToEC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutputWithContext(ctx context.Context) EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutput {
 	return o
+}
+
+func (o EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType] {
+	return pulumix.Output[*EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutput) Elem() EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypeOutput {
@@ -3455,6 +3864,12 @@ func (in *ec2fleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtr) T
 
 func (in *ec2fleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtr) ToEC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutputWithContext(ctx context.Context) EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutput)
+}
+
+func (in *ec2fleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtr) ToOutput(ctx context.Context) pulumix.Output[*EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType] {
+	return pulumix.Output[*EC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType]{
+		OutputState: in.ToEC2FleetTargetCapacitySpecificationRequestTargetCapacityUnitTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type EC2FleetType string
@@ -3525,6 +3940,12 @@ func (o EC2FleetTypeOutput) ToEC2FleetTypePtrOutputWithContext(ctx context.Conte
 	}).(EC2FleetTypePtrOutput)
 }
 
+func (o EC2FleetTypeOutput) ToOutput(ctx context.Context) pulumix.Output[EC2FleetType] {
+	return pulumix.Output[EC2FleetType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EC2FleetTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3558,6 +3979,12 @@ func (o EC2FleetTypePtrOutput) ToEC2FleetTypePtrOutput() EC2FleetTypePtrOutput {
 
 func (o EC2FleetTypePtrOutput) ToEC2FleetTypePtrOutputWithContext(ctx context.Context) EC2FleetTypePtrOutput {
 	return o
+}
+
+func (o EC2FleetTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EC2FleetType] {
+	return pulumix.Output[*EC2FleetType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EC2FleetTypePtrOutput) Elem() EC2FleetTypeOutput {
@@ -3620,6 +4047,12 @@ func (in *ec2fleetTypePtr) ToEC2FleetTypePtrOutput() EC2FleetTypePtrOutput {
 
 func (in *ec2fleetTypePtr) ToEC2FleetTypePtrOutputWithContext(ctx context.Context) EC2FleetTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EC2FleetTypePtrOutput)
+}
+
+func (in *ec2fleetTypePtr) ToOutput(ctx context.Context) pulumix.Output[*EC2FleetType] {
+	return pulumix.Output[*EC2FleetType]{
+		OutputState: in.ToEC2FleetTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type FlowLogDestinationOptionsPropertiesFileFormat string
@@ -3689,6 +4122,12 @@ func (o FlowLogDestinationOptionsPropertiesFileFormatOutput) ToFlowLogDestinatio
 	}).(FlowLogDestinationOptionsPropertiesFileFormatPtrOutput)
 }
 
+func (o FlowLogDestinationOptionsPropertiesFileFormatOutput) ToOutput(ctx context.Context) pulumix.Output[FlowLogDestinationOptionsPropertiesFileFormat] {
+	return pulumix.Output[FlowLogDestinationOptionsPropertiesFileFormat]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowLogDestinationOptionsPropertiesFileFormatOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3722,6 +4161,12 @@ func (o FlowLogDestinationOptionsPropertiesFileFormatPtrOutput) ToFlowLogDestina
 
 func (o FlowLogDestinationOptionsPropertiesFileFormatPtrOutput) ToFlowLogDestinationOptionsPropertiesFileFormatPtrOutputWithContext(ctx context.Context) FlowLogDestinationOptionsPropertiesFileFormatPtrOutput {
 	return o
+}
+
+func (o FlowLogDestinationOptionsPropertiesFileFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowLogDestinationOptionsPropertiesFileFormat] {
+	return pulumix.Output[*FlowLogDestinationOptionsPropertiesFileFormat]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowLogDestinationOptionsPropertiesFileFormatPtrOutput) Elem() FlowLogDestinationOptionsPropertiesFileFormatOutput {
@@ -3784,6 +4229,12 @@ func (in *flowLogDestinationOptionsPropertiesFileFormatPtr) ToFlowLogDestination
 
 func (in *flowLogDestinationOptionsPropertiesFileFormatPtr) ToFlowLogDestinationOptionsPropertiesFileFormatPtrOutputWithContext(ctx context.Context) FlowLogDestinationOptionsPropertiesFileFormatPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FlowLogDestinationOptionsPropertiesFileFormatPtrOutput)
+}
+
+func (in *flowLogDestinationOptionsPropertiesFileFormatPtr) ToOutput(ctx context.Context) pulumix.Output[*FlowLogDestinationOptionsPropertiesFileFormat] {
+	return pulumix.Output[*FlowLogDestinationOptionsPropertiesFileFormat]{
+		OutputState: in.ToFlowLogDestinationOptionsPropertiesFileFormatPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Specifies the type of destination to which the flow log data is to be published. Flow log data can be published to CloudWatch Logs or Amazon S3.
@@ -3855,6 +4306,12 @@ func (o FlowLogLogDestinationTypeOutput) ToFlowLogLogDestinationTypePtrOutputWit
 	}).(FlowLogLogDestinationTypePtrOutput)
 }
 
+func (o FlowLogLogDestinationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FlowLogLogDestinationType] {
+	return pulumix.Output[FlowLogLogDestinationType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowLogLogDestinationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3888,6 +4345,12 @@ func (o FlowLogLogDestinationTypePtrOutput) ToFlowLogLogDestinationTypePtrOutput
 
 func (o FlowLogLogDestinationTypePtrOutput) ToFlowLogLogDestinationTypePtrOutputWithContext(ctx context.Context) FlowLogLogDestinationTypePtrOutput {
 	return o
+}
+
+func (o FlowLogLogDestinationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowLogLogDestinationType] {
+	return pulumix.Output[*FlowLogLogDestinationType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowLogLogDestinationTypePtrOutput) Elem() FlowLogLogDestinationTypeOutput {
@@ -3950,6 +4413,12 @@ func (in *flowLogLogDestinationTypePtr) ToFlowLogLogDestinationTypePtrOutput() F
 
 func (in *flowLogLogDestinationTypePtr) ToFlowLogLogDestinationTypePtrOutputWithContext(ctx context.Context) FlowLogLogDestinationTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FlowLogLogDestinationTypePtrOutput)
+}
+
+func (in *flowLogLogDestinationTypePtr) ToOutput(ctx context.Context) pulumix.Output[*FlowLogLogDestinationType] {
+	return pulumix.Output[*FlowLogLogDestinationType]{
+		OutputState: in.ToFlowLogLogDestinationTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The type of resource for which to create the flow log. For example, if you specified a VPC ID for the ResourceId property, specify VPC for this property.
@@ -4023,6 +4492,12 @@ func (o FlowLogResourceTypeOutput) ToFlowLogResourceTypePtrOutputWithContext(ctx
 	}).(FlowLogResourceTypePtrOutput)
 }
 
+func (o FlowLogResourceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FlowLogResourceType] {
+	return pulumix.Output[FlowLogResourceType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowLogResourceTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4056,6 +4531,12 @@ func (o FlowLogResourceTypePtrOutput) ToFlowLogResourceTypePtrOutput() FlowLogRe
 
 func (o FlowLogResourceTypePtrOutput) ToFlowLogResourceTypePtrOutputWithContext(ctx context.Context) FlowLogResourceTypePtrOutput {
 	return o
+}
+
+func (o FlowLogResourceTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowLogResourceType] {
+	return pulumix.Output[*FlowLogResourceType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowLogResourceTypePtrOutput) Elem() FlowLogResourceTypeOutput {
@@ -4118,6 +4599,12 @@ func (in *flowLogResourceTypePtr) ToFlowLogResourceTypePtrOutput() FlowLogResour
 
 func (in *flowLogResourceTypePtr) ToFlowLogResourceTypePtrOutputWithContext(ctx context.Context) FlowLogResourceTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FlowLogResourceTypePtrOutput)
+}
+
+func (in *flowLogResourceTypePtr) ToOutput(ctx context.Context) pulumix.Output[*FlowLogResourceType] {
+	return pulumix.Output[*FlowLogResourceType]{
+		OutputState: in.ToFlowLogResourceTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The type of traffic to log. You can log traffic that the resource accepts or rejects, or all traffic.
@@ -4189,6 +4676,12 @@ func (o FlowLogTrafficTypeOutput) ToFlowLogTrafficTypePtrOutputWithContext(ctx c
 	}).(FlowLogTrafficTypePtrOutput)
 }
 
+func (o FlowLogTrafficTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FlowLogTrafficType] {
+	return pulumix.Output[FlowLogTrafficType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FlowLogTrafficTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4222,6 +4715,12 @@ func (o FlowLogTrafficTypePtrOutput) ToFlowLogTrafficTypePtrOutput() FlowLogTraf
 
 func (o FlowLogTrafficTypePtrOutput) ToFlowLogTrafficTypePtrOutputWithContext(ctx context.Context) FlowLogTrafficTypePtrOutput {
 	return o
+}
+
+func (o FlowLogTrafficTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowLogTrafficType] {
+	return pulumix.Output[*FlowLogTrafficType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FlowLogTrafficTypePtrOutput) Elem() FlowLogTrafficTypeOutput {
@@ -4284,6 +4783,12 @@ func (in *flowLogTrafficTypePtr) ToFlowLogTrafficTypePtrOutput() FlowLogTrafficT
 
 func (in *flowLogTrafficTypePtr) ToFlowLogTrafficTypePtrOutputWithContext(ctx context.Context) FlowLogTrafficTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FlowLogTrafficTypePtrOutput)
+}
+
+func (in *flowLogTrafficTypePtr) ToOutput(ctx context.Context) pulumix.Output[*FlowLogTrafficType] {
+	return pulumix.Output[*FlowLogTrafficType]{
+		OutputState: in.ToFlowLogTrafficTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Limits which service in Amazon Web Services that the pool can be used in.
@@ -4353,6 +4858,12 @@ func (o IPAMPoolAwsServiceOutput) ToIPAMPoolAwsServicePtrOutputWithContext(ctx c
 	}).(IPAMPoolAwsServicePtrOutput)
 }
 
+func (o IPAMPoolAwsServiceOutput) ToOutput(ctx context.Context) pulumix.Output[IPAMPoolAwsService] {
+	return pulumix.Output[IPAMPoolAwsService]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IPAMPoolAwsServiceOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4386,6 +4897,12 @@ func (o IPAMPoolAwsServicePtrOutput) ToIPAMPoolAwsServicePtrOutput() IPAMPoolAws
 
 func (o IPAMPoolAwsServicePtrOutput) ToIPAMPoolAwsServicePtrOutputWithContext(ctx context.Context) IPAMPoolAwsServicePtrOutput {
 	return o
+}
+
+func (o IPAMPoolAwsServicePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IPAMPoolAwsService] {
+	return pulumix.Output[*IPAMPoolAwsService]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IPAMPoolAwsServicePtrOutput) Elem() IPAMPoolAwsServiceOutput {
@@ -4450,6 +4967,12 @@ func (in *ipampoolAwsServicePtr) ToIPAMPoolAwsServicePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(IPAMPoolAwsServicePtrOutput)
 }
 
+func (in *ipampoolAwsServicePtr) ToOutput(ctx context.Context) pulumix.Output[*IPAMPoolAwsService] {
+	return pulumix.Output[*IPAMPoolAwsService]{
+		OutputState: in.ToIPAMPoolAwsServicePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Determines whether this scope contains publicly routable space or space for a private network
 type IPAMPoolIpamScopeType string
 
@@ -4480,6 +5003,12 @@ func (o IPAMPoolIpamScopeTypeOutput) ToIPAMPoolIpamScopeTypePtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v IPAMPoolIpamScopeType) *IPAMPoolIpamScopeType {
 		return &v
 	}).(IPAMPoolIpamScopeTypePtrOutput)
+}
+
+func (o IPAMPoolIpamScopeTypeOutput) ToOutput(ctx context.Context) pulumix.Output[IPAMPoolIpamScopeType] {
+	return pulumix.Output[IPAMPoolIpamScopeType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IPAMPoolIpamScopeTypeOutput) ToStringOutput() pulumi.StringOutput {
@@ -4515,6 +5044,12 @@ func (o IPAMPoolIpamScopeTypePtrOutput) ToIPAMPoolIpamScopeTypePtrOutput() IPAMP
 
 func (o IPAMPoolIpamScopeTypePtrOutput) ToIPAMPoolIpamScopeTypePtrOutputWithContext(ctx context.Context) IPAMPoolIpamScopeTypePtrOutput {
 	return o
+}
+
+func (o IPAMPoolIpamScopeTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IPAMPoolIpamScopeType] {
+	return pulumix.Output[*IPAMPoolIpamScopeType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IPAMPoolIpamScopeTypePtrOutput) Elem() IPAMPoolIpamScopeTypeOutput {
@@ -4609,6 +5144,12 @@ func (o IPAMPoolPublicIpSourceOutput) ToIPAMPoolPublicIpSourcePtrOutputWithConte
 	}).(IPAMPoolPublicIpSourcePtrOutput)
 }
 
+func (o IPAMPoolPublicIpSourceOutput) ToOutput(ctx context.Context) pulumix.Output[IPAMPoolPublicIpSource] {
+	return pulumix.Output[IPAMPoolPublicIpSource]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IPAMPoolPublicIpSourceOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4642,6 +5183,12 @@ func (o IPAMPoolPublicIpSourcePtrOutput) ToIPAMPoolPublicIpSourcePtrOutput() IPA
 
 func (o IPAMPoolPublicIpSourcePtrOutput) ToIPAMPoolPublicIpSourcePtrOutputWithContext(ctx context.Context) IPAMPoolPublicIpSourcePtrOutput {
 	return o
+}
+
+func (o IPAMPoolPublicIpSourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IPAMPoolPublicIpSource] {
+	return pulumix.Output[*IPAMPoolPublicIpSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IPAMPoolPublicIpSourcePtrOutput) Elem() IPAMPoolPublicIpSourceOutput {
@@ -4706,6 +5253,12 @@ func (in *ipampoolPublicIpSourcePtr) ToIPAMPoolPublicIpSourcePtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(IPAMPoolPublicIpSourcePtrOutput)
 }
 
+func (in *ipampoolPublicIpSourcePtr) ToOutput(ctx context.Context) pulumix.Output[*IPAMPoolPublicIpSource] {
+	return pulumix.Output[*IPAMPoolPublicIpSource]{
+		OutputState: in.ToIPAMPoolPublicIpSourcePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The state of this pool. This can be one of the following values: "create-in-progress", "create-complete", "modify-in-progress", "modify-complete", "delete-in-progress", or "delete-complete"
 type IPAMPoolStateEnum string
 
@@ -4742,6 +5295,12 @@ func (o IPAMPoolStateEnumOutput) ToIPAMPoolStateEnumPtrOutputWithContext(ctx con
 	}).(IPAMPoolStateEnumPtrOutput)
 }
 
+func (o IPAMPoolStateEnumOutput) ToOutput(ctx context.Context) pulumix.Output[IPAMPoolStateEnum] {
+	return pulumix.Output[IPAMPoolStateEnum]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IPAMPoolStateEnumOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4775,6 +5334,12 @@ func (o IPAMPoolStateEnumPtrOutput) ToIPAMPoolStateEnumPtrOutput() IPAMPoolState
 
 func (o IPAMPoolStateEnumPtrOutput) ToIPAMPoolStateEnumPtrOutputWithContext(ctx context.Context) IPAMPoolStateEnumPtrOutput {
 	return o
+}
+
+func (o IPAMPoolStateEnumPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IPAMPoolStateEnum] {
+	return pulumix.Output[*IPAMPoolStateEnum]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IPAMPoolStateEnumPtrOutput) Elem() IPAMPoolStateEnumOutput {
@@ -4833,6 +5398,12 @@ func (o IPAMScopeIpamScopeTypeOutput) ToIPAMScopeIpamScopeTypePtrOutputWithConte
 	}).(IPAMScopeIpamScopeTypePtrOutput)
 }
 
+func (o IPAMScopeIpamScopeTypeOutput) ToOutput(ctx context.Context) pulumix.Output[IPAMScopeIpamScopeType] {
+	return pulumix.Output[IPAMScopeIpamScopeType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IPAMScopeIpamScopeTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4866,6 +5437,12 @@ func (o IPAMScopeIpamScopeTypePtrOutput) ToIPAMScopeIpamScopeTypePtrOutput() IPA
 
 func (o IPAMScopeIpamScopeTypePtrOutput) ToIPAMScopeIpamScopeTypePtrOutputWithContext(ctx context.Context) IPAMScopeIpamScopeTypePtrOutput {
 	return o
+}
+
+func (o IPAMScopeIpamScopeTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IPAMScopeIpamScopeType] {
+	return pulumix.Output[*IPAMScopeIpamScopeType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IPAMScopeIpamScopeTypePtrOutput) Elem() IPAMScopeIpamScopeTypeOutput {
@@ -4960,6 +5537,12 @@ func (o KeyPairKeyFormatOutput) ToKeyPairKeyFormatPtrOutputWithContext(ctx conte
 	}).(KeyPairKeyFormatPtrOutput)
 }
 
+func (o KeyPairKeyFormatOutput) ToOutput(ctx context.Context) pulumix.Output[KeyPairKeyFormat] {
+	return pulumix.Output[KeyPairKeyFormat]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o KeyPairKeyFormatOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4993,6 +5576,12 @@ func (o KeyPairKeyFormatPtrOutput) ToKeyPairKeyFormatPtrOutput() KeyPairKeyForma
 
 func (o KeyPairKeyFormatPtrOutput) ToKeyPairKeyFormatPtrOutputWithContext(ctx context.Context) KeyPairKeyFormatPtrOutput {
 	return o
+}
+
+func (o KeyPairKeyFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KeyPairKeyFormat] {
+	return pulumix.Output[*KeyPairKeyFormat]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KeyPairKeyFormatPtrOutput) Elem() KeyPairKeyFormatOutput {
@@ -5055,6 +5644,12 @@ func (in *keyPairKeyFormatPtr) ToKeyPairKeyFormatPtrOutput() KeyPairKeyFormatPtr
 
 func (in *keyPairKeyFormatPtr) ToKeyPairKeyFormatPtrOutputWithContext(ctx context.Context) KeyPairKeyFormatPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(KeyPairKeyFormatPtrOutput)
+}
+
+func (in *keyPairKeyFormatPtr) ToOutput(ctx context.Context) pulumix.Output[*KeyPairKeyFormat] {
+	return pulumix.Output[*KeyPairKeyFormat]{
+		OutputState: in.ToKeyPairKeyFormatPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The crypto-system used to generate a key pair.
@@ -5125,6 +5720,12 @@ func (o KeyPairKeyTypeOutput) ToKeyPairKeyTypePtrOutputWithContext(ctx context.C
 	}).(KeyPairKeyTypePtrOutput)
 }
 
+func (o KeyPairKeyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[KeyPairKeyType] {
+	return pulumix.Output[KeyPairKeyType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o KeyPairKeyTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5158,6 +5759,12 @@ func (o KeyPairKeyTypePtrOutput) ToKeyPairKeyTypePtrOutput() KeyPairKeyTypePtrOu
 
 func (o KeyPairKeyTypePtrOutput) ToKeyPairKeyTypePtrOutputWithContext(ctx context.Context) KeyPairKeyTypePtrOutput {
 	return o
+}
+
+func (o KeyPairKeyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KeyPairKeyType] {
+	return pulumix.Output[*KeyPairKeyType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KeyPairKeyTypePtrOutput) Elem() KeyPairKeyTypeOutput {
@@ -5220,6 +5827,12 @@ func (in *keyPairKeyTypePtr) ToKeyPairKeyTypePtrOutput() KeyPairKeyTypePtrOutput
 
 func (in *keyPairKeyTypePtr) ToKeyPairKeyTypePtrOutputWithContext(ctx context.Context) KeyPairKeyTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(KeyPairKeyTypePtrOutput)
+}
+
+func (in *keyPairKeyTypePtr) ToOutput(ctx context.Context) pulumix.Output[*KeyPairKeyType] {
+	return pulumix.Output[*KeyPairKeyType]{
+		OutputState: in.ToKeyPairKeyTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only.
@@ -5290,6 +5903,12 @@ func (o LaunchTemplateCpuOptionsAmdSevSnpOutput) ToLaunchTemplateCpuOptionsAmdSe
 	}).(LaunchTemplateCpuOptionsAmdSevSnpPtrOutput)
 }
 
+func (o LaunchTemplateCpuOptionsAmdSevSnpOutput) ToOutput(ctx context.Context) pulumix.Output[LaunchTemplateCpuOptionsAmdSevSnp] {
+	return pulumix.Output[LaunchTemplateCpuOptionsAmdSevSnp]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LaunchTemplateCpuOptionsAmdSevSnpOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5323,6 +5942,12 @@ func (o LaunchTemplateCpuOptionsAmdSevSnpPtrOutput) ToLaunchTemplateCpuOptionsAm
 
 func (o LaunchTemplateCpuOptionsAmdSevSnpPtrOutput) ToLaunchTemplateCpuOptionsAmdSevSnpPtrOutputWithContext(ctx context.Context) LaunchTemplateCpuOptionsAmdSevSnpPtrOutput {
 	return o
+}
+
+func (o LaunchTemplateCpuOptionsAmdSevSnpPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LaunchTemplateCpuOptionsAmdSevSnp] {
+	return pulumix.Output[*LaunchTemplateCpuOptionsAmdSevSnp]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LaunchTemplateCpuOptionsAmdSevSnpPtrOutput) Elem() LaunchTemplateCpuOptionsAmdSevSnpOutput {
@@ -5387,6 +6012,12 @@ func (in *launchTemplateCpuOptionsAmdSevSnpPtr) ToLaunchTemplateCpuOptionsAmdSev
 	return pulumi.ToOutputWithContext(ctx, in).(LaunchTemplateCpuOptionsAmdSevSnpPtrOutput)
 }
 
+func (in *launchTemplateCpuOptionsAmdSevSnpPtr) ToOutput(ctx context.Context) pulumix.Output[*LaunchTemplateCpuOptionsAmdSevSnp] {
+	return pulumix.Output[*LaunchTemplateCpuOptionsAmdSevSnp]{
+		OutputState: in.ToLaunchTemplateCpuOptionsAmdSevSnpPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NetworkInsightsAccessScopeAnalysisFindingsFound string
 
 const (
@@ -5417,6 +6048,12 @@ func (o NetworkInsightsAccessScopeAnalysisFindingsFoundOutput) ToNetworkInsights
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkInsightsAccessScopeAnalysisFindingsFound) *NetworkInsightsAccessScopeAnalysisFindingsFound {
 		return &v
 	}).(NetworkInsightsAccessScopeAnalysisFindingsFoundPtrOutput)
+}
+
+func (o NetworkInsightsAccessScopeAnalysisFindingsFoundOutput) ToOutput(ctx context.Context) pulumix.Output[NetworkInsightsAccessScopeAnalysisFindingsFound] {
+	return pulumix.Output[NetworkInsightsAccessScopeAnalysisFindingsFound]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkInsightsAccessScopeAnalysisFindingsFoundOutput) ToStringOutput() pulumi.StringOutput {
@@ -5452,6 +6089,12 @@ func (o NetworkInsightsAccessScopeAnalysisFindingsFoundPtrOutput) ToNetworkInsig
 
 func (o NetworkInsightsAccessScopeAnalysisFindingsFoundPtrOutput) ToNetworkInsightsAccessScopeAnalysisFindingsFoundPtrOutputWithContext(ctx context.Context) NetworkInsightsAccessScopeAnalysisFindingsFoundPtrOutput {
 	return o
+}
+
+func (o NetworkInsightsAccessScopeAnalysisFindingsFoundPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkInsightsAccessScopeAnalysisFindingsFound] {
+	return pulumix.Output[*NetworkInsightsAccessScopeAnalysisFindingsFound]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkInsightsAccessScopeAnalysisFindingsFoundPtrOutput) Elem() NetworkInsightsAccessScopeAnalysisFindingsFoundOutput {
@@ -5510,6 +6153,12 @@ func (o NetworkInsightsAccessScopeAnalysisStatusOutput) ToNetworkInsightsAccessS
 	}).(NetworkInsightsAccessScopeAnalysisStatusPtrOutput)
 }
 
+func (o NetworkInsightsAccessScopeAnalysisStatusOutput) ToOutput(ctx context.Context) pulumix.Output[NetworkInsightsAccessScopeAnalysisStatus] {
+	return pulumix.Output[NetworkInsightsAccessScopeAnalysisStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NetworkInsightsAccessScopeAnalysisStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5543,6 +6192,12 @@ func (o NetworkInsightsAccessScopeAnalysisStatusPtrOutput) ToNetworkInsightsAcce
 
 func (o NetworkInsightsAccessScopeAnalysisStatusPtrOutput) ToNetworkInsightsAccessScopeAnalysisStatusPtrOutputWithContext(ctx context.Context) NetworkInsightsAccessScopeAnalysisStatusPtrOutput {
 	return o
+}
+
+func (o NetworkInsightsAccessScopeAnalysisStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkInsightsAccessScopeAnalysisStatus] {
+	return pulumix.Output[*NetworkInsightsAccessScopeAnalysisStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkInsightsAccessScopeAnalysisStatusPtrOutput) Elem() NetworkInsightsAccessScopeAnalysisStatusOutput {
@@ -5636,6 +6291,12 @@ func (o NetworkInsightsAccessScopeProtocolOutput) ToNetworkInsightsAccessScopePr
 	}).(NetworkInsightsAccessScopeProtocolPtrOutput)
 }
 
+func (o NetworkInsightsAccessScopeProtocolOutput) ToOutput(ctx context.Context) pulumix.Output[NetworkInsightsAccessScopeProtocol] {
+	return pulumix.Output[NetworkInsightsAccessScopeProtocol]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NetworkInsightsAccessScopeProtocolOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5669,6 +6330,12 @@ func (o NetworkInsightsAccessScopeProtocolPtrOutput) ToNetworkInsightsAccessScop
 
 func (o NetworkInsightsAccessScopeProtocolPtrOutput) ToNetworkInsightsAccessScopeProtocolPtrOutputWithContext(ctx context.Context) NetworkInsightsAccessScopeProtocolPtrOutput {
 	return o
+}
+
+func (o NetworkInsightsAccessScopeProtocolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkInsightsAccessScopeProtocol] {
+	return pulumix.Output[*NetworkInsightsAccessScopeProtocol]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkInsightsAccessScopeProtocolPtrOutput) Elem() NetworkInsightsAccessScopeProtocolOutput {
@@ -5733,6 +6400,12 @@ func (in *networkInsightsAccessScopeProtocolPtr) ToNetworkInsightsAccessScopePro
 	return pulumi.ToOutputWithContext(ctx, in).(NetworkInsightsAccessScopeProtocolPtrOutput)
 }
 
+func (in *networkInsightsAccessScopeProtocolPtr) ToOutput(ctx context.Context) pulumix.Output[*NetworkInsightsAccessScopeProtocol] {
+	return pulumix.Output[*NetworkInsightsAccessScopeProtocol]{
+		OutputState: in.ToNetworkInsightsAccessScopeProtocolPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NetworkInsightsAccessScopeProtocolArrayInput is an input type that accepts NetworkInsightsAccessScopeProtocolArray and NetworkInsightsAccessScopeProtocolArrayOutput values.
 // You can construct a concrete instance of `NetworkInsightsAccessScopeProtocolArrayInput` via:
 //
@@ -5758,6 +6431,12 @@ func (i NetworkInsightsAccessScopeProtocolArray) ToNetworkInsightsAccessScopePro
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAccessScopeProtocolArrayOutput)
 }
 
+func (i NetworkInsightsAccessScopeProtocolArray) ToOutput(ctx context.Context) pulumix.Output[[]NetworkInsightsAccessScopeProtocol] {
+	return pulumix.Output[[]NetworkInsightsAccessScopeProtocol]{
+		OutputState: i.ToNetworkInsightsAccessScopeProtocolArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NetworkInsightsAccessScopeProtocolArrayOutput struct{ *pulumi.OutputState }
 
 func (NetworkInsightsAccessScopeProtocolArrayOutput) ElementType() reflect.Type {
@@ -5770,6 +6449,12 @@ func (o NetworkInsightsAccessScopeProtocolArrayOutput) ToNetworkInsightsAccessSc
 
 func (o NetworkInsightsAccessScopeProtocolArrayOutput) ToNetworkInsightsAccessScopeProtocolArrayOutputWithContext(ctx context.Context) NetworkInsightsAccessScopeProtocolArrayOutput {
 	return o
+}
+
+func (o NetworkInsightsAccessScopeProtocolArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]NetworkInsightsAccessScopeProtocol] {
+	return pulumix.Output[[]NetworkInsightsAccessScopeProtocol]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkInsightsAccessScopeProtocolArrayOutput) Index(i pulumi.IntInput) NetworkInsightsAccessScopeProtocolOutput {
@@ -5810,6 +6495,12 @@ func (o NetworkInsightsAnalysisStatusOutput) ToNetworkInsightsAnalysisStatusPtrO
 	}).(NetworkInsightsAnalysisStatusPtrOutput)
 }
 
+func (o NetworkInsightsAnalysisStatusOutput) ToOutput(ctx context.Context) pulumix.Output[NetworkInsightsAnalysisStatus] {
+	return pulumix.Output[NetworkInsightsAnalysisStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NetworkInsightsAnalysisStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5843,6 +6534,12 @@ func (o NetworkInsightsAnalysisStatusPtrOutput) ToNetworkInsightsAnalysisStatusP
 
 func (o NetworkInsightsAnalysisStatusPtrOutput) ToNetworkInsightsAnalysisStatusPtrOutputWithContext(ctx context.Context) NetworkInsightsAnalysisStatusPtrOutput {
 	return o
+}
+
+func (o NetworkInsightsAnalysisStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkInsightsAnalysisStatus] {
+	return pulumix.Output[*NetworkInsightsAnalysisStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkInsightsAnalysisStatusPtrOutput) Elem() NetworkInsightsAnalysisStatusOutput {
@@ -5936,6 +6633,12 @@ func (o NetworkInsightsPathProtocolOutput) ToNetworkInsightsPathProtocolPtrOutpu
 	}).(NetworkInsightsPathProtocolPtrOutput)
 }
 
+func (o NetworkInsightsPathProtocolOutput) ToOutput(ctx context.Context) pulumix.Output[NetworkInsightsPathProtocol] {
+	return pulumix.Output[NetworkInsightsPathProtocol]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NetworkInsightsPathProtocolOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5969,6 +6672,12 @@ func (o NetworkInsightsPathProtocolPtrOutput) ToNetworkInsightsPathProtocolPtrOu
 
 func (o NetworkInsightsPathProtocolPtrOutput) ToNetworkInsightsPathProtocolPtrOutputWithContext(ctx context.Context) NetworkInsightsPathProtocolPtrOutput {
 	return o
+}
+
+func (o NetworkInsightsPathProtocolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkInsightsPathProtocol] {
+	return pulumix.Output[*NetworkInsightsPathProtocol]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkInsightsPathProtocolPtrOutput) Elem() NetworkInsightsPathProtocolOutput {
@@ -6031,6 +6740,12 @@ func (in *networkInsightsPathProtocolPtr) ToNetworkInsightsPathProtocolPtrOutput
 
 func (in *networkInsightsPathProtocolPtr) ToNetworkInsightsPathProtocolPtrOutputWithContext(ctx context.Context) NetworkInsightsPathProtocolPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(NetworkInsightsPathProtocolPtrOutput)
+}
+
+func (in *networkInsightsPathProtocolPtr) ToOutput(ctx context.Context) pulumix.Output[*NetworkInsightsPathProtocol] {
+	return pulumix.Output[*NetworkInsightsPathProtocol]{
+		OutputState: in.ToNetworkInsightsPathProtocolPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Ip Version of Prefix List.
@@ -6101,6 +6816,12 @@ func (o PrefixListAddressFamilyOutput) ToPrefixListAddressFamilyPtrOutputWithCon
 	}).(PrefixListAddressFamilyPtrOutput)
 }
 
+func (o PrefixListAddressFamilyOutput) ToOutput(ctx context.Context) pulumix.Output[PrefixListAddressFamily] {
+	return pulumix.Output[PrefixListAddressFamily]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PrefixListAddressFamilyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -6134,6 +6855,12 @@ func (o PrefixListAddressFamilyPtrOutput) ToPrefixListAddressFamilyPtrOutput() P
 
 func (o PrefixListAddressFamilyPtrOutput) ToPrefixListAddressFamilyPtrOutputWithContext(ctx context.Context) PrefixListAddressFamilyPtrOutput {
 	return o
+}
+
+func (o PrefixListAddressFamilyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PrefixListAddressFamily] {
+	return pulumix.Output[*PrefixListAddressFamily]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PrefixListAddressFamilyPtrOutput) Elem() PrefixListAddressFamilyOutput {
@@ -6196,6 +6923,12 @@ func (in *prefixListAddressFamilyPtr) ToPrefixListAddressFamilyPtrOutput() Prefi
 
 func (in *prefixListAddressFamilyPtr) ToPrefixListAddressFamilyPtrOutputWithContext(ctx context.Context) PrefixListAddressFamilyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PrefixListAddressFamilyPtrOutput)
+}
+
+func (in *prefixListAddressFamilyPtr) ToOutput(ctx context.Context) pulumix.Output[*PrefixListAddressFamily] {
+	return pulumix.Output[*PrefixListAddressFamily]{
+		OutputState: in.ToPrefixListAddressFamilyPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type SpotFleetEbsBlockDeviceVolumeType string
@@ -6270,6 +7003,12 @@ func (o SpotFleetEbsBlockDeviceVolumeTypeOutput) ToSpotFleetEbsBlockDeviceVolume
 	}).(SpotFleetEbsBlockDeviceVolumeTypePtrOutput)
 }
 
+func (o SpotFleetEbsBlockDeviceVolumeTypeOutput) ToOutput(ctx context.Context) pulumix.Output[SpotFleetEbsBlockDeviceVolumeType] {
+	return pulumix.Output[SpotFleetEbsBlockDeviceVolumeType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpotFleetEbsBlockDeviceVolumeTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -6303,6 +7042,12 @@ func (o SpotFleetEbsBlockDeviceVolumeTypePtrOutput) ToSpotFleetEbsBlockDeviceVol
 
 func (o SpotFleetEbsBlockDeviceVolumeTypePtrOutput) ToSpotFleetEbsBlockDeviceVolumeTypePtrOutputWithContext(ctx context.Context) SpotFleetEbsBlockDeviceVolumeTypePtrOutput {
 	return o
+}
+
+func (o SpotFleetEbsBlockDeviceVolumeTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpotFleetEbsBlockDeviceVolumeType] {
+	return pulumix.Output[*SpotFleetEbsBlockDeviceVolumeType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpotFleetEbsBlockDeviceVolumeTypePtrOutput) Elem() SpotFleetEbsBlockDeviceVolumeTypeOutput {
@@ -6365,6 +7110,12 @@ func (in *spotFleetEbsBlockDeviceVolumeTypePtr) ToSpotFleetEbsBlockDeviceVolumeT
 
 func (in *spotFleetEbsBlockDeviceVolumeTypePtr) ToSpotFleetEbsBlockDeviceVolumeTypePtrOutputWithContext(ctx context.Context) SpotFleetEbsBlockDeviceVolumeTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SpotFleetEbsBlockDeviceVolumeTypePtrOutput)
+}
+
+func (in *spotFleetEbsBlockDeviceVolumeTypePtr) ToOutput(ctx context.Context) pulumix.Output[*SpotFleetEbsBlockDeviceVolumeType] {
+	return pulumix.Output[*SpotFleetEbsBlockDeviceVolumeType]{
+		OutputState: in.ToSpotFleetEbsBlockDeviceVolumeTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem string
@@ -6436,6 +7187,12 @@ func (o SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput) 
 	}).(SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput)
 }
 
+func (o SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput) ToOutput(ctx context.Context) pulumix.Output[SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem] {
+	return pulumix.Output[SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -6469,6 +7226,12 @@ func (o SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutpu
 
 func (o SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput) ToSpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput {
 	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem] {
+	return pulumix.Output[*SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput) Elem() SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput {
@@ -6533,6 +7296,12 @@ func (in *spotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtr) T
 	return pulumi.ToOutputWithContext(ctx, in).(SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput)
 }
 
+func (in *spotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtr) ToOutput(ctx context.Context) pulumix.Output[*SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem] {
+	return pulumix.Output[*SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem]{
+		OutputState: in.ToSpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayInput is an input type that accepts SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArray and SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput values.
 // You can construct a concrete instance of `SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayInput` via:
 //
@@ -6558,6 +7327,12 @@ func (i SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArray) T
 	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput)
 }
 
+func (i SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArray) ToOutput(ctx context.Context) pulumix.Output[[]SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem] {
+	return pulumix.Output[[]SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem]{
+		OutputState: i.ToSpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput struct{ *pulumi.OutputState }
 
 func (SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput) ElementType() reflect.Type {
@@ -6570,6 +7345,12 @@ func (o SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOut
 
 func (o SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput) ToSpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput {
 	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem] {
+	return pulumix.Output[[]SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput) Index(i pulumi.IntInput) SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput {
@@ -6652,6 +7433,12 @@ func (o SpotFleetInstanceRequirementsRequestAcceleratorNamesItemOutput) ToSpotFl
 	}).(SpotFleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput)
 }
 
+func (o SpotFleetInstanceRequirementsRequestAcceleratorNamesItemOutput) ToOutput(ctx context.Context) pulumix.Output[SpotFleetInstanceRequirementsRequestAcceleratorNamesItem] {
+	return pulumix.Output[SpotFleetInstanceRequirementsRequestAcceleratorNamesItem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpotFleetInstanceRequirementsRequestAcceleratorNamesItemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -6685,6 +7472,12 @@ func (o SpotFleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput) ToSpo
 
 func (o SpotFleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput) ToSpotFleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput {
 	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpotFleetInstanceRequirementsRequestAcceleratorNamesItem] {
+	return pulumix.Output[*SpotFleetInstanceRequirementsRequestAcceleratorNamesItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpotFleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput) Elem() SpotFleetInstanceRequirementsRequestAcceleratorNamesItemOutput {
@@ -6749,6 +7542,12 @@ func (in *spotFleetInstanceRequirementsRequestAcceleratorNamesItemPtr) ToSpotFle
 	return pulumi.ToOutputWithContext(ctx, in).(SpotFleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput)
 }
 
+func (in *spotFleetInstanceRequirementsRequestAcceleratorNamesItemPtr) ToOutput(ctx context.Context) pulumix.Output[*SpotFleetInstanceRequirementsRequestAcceleratorNamesItem] {
+	return pulumix.Output[*SpotFleetInstanceRequirementsRequestAcceleratorNamesItem]{
+		OutputState: in.ToSpotFleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayInput is an input type that accepts SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArray and SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput values.
 // You can construct a concrete instance of `SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayInput` via:
 //
@@ -6774,6 +7573,12 @@ func (i SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArray) ToSpotFle
 	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput)
 }
 
+func (i SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArray) ToOutput(ctx context.Context) pulumix.Output[[]SpotFleetInstanceRequirementsRequestAcceleratorNamesItem] {
+	return pulumix.Output[[]SpotFleetInstanceRequirementsRequestAcceleratorNamesItem]{
+		OutputState: i.ToSpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput struct{ *pulumi.OutputState }
 
 func (SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput) ElementType() reflect.Type {
@@ -6786,6 +7591,12 @@ func (o SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput) ToS
 
 func (o SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput) ToSpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput {
 	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SpotFleetInstanceRequirementsRequestAcceleratorNamesItem] {
+	return pulumix.Output[[]SpotFleetInstanceRequirementsRequestAcceleratorNamesItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayOutput) Index(i pulumi.IntInput) SpotFleetInstanceRequirementsRequestAcceleratorNamesItemOutput {
@@ -6862,6 +7673,12 @@ func (o SpotFleetInstanceRequirementsRequestAcceleratorTypesItemOutput) ToSpotFl
 	}).(SpotFleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput)
 }
 
+func (o SpotFleetInstanceRequirementsRequestAcceleratorTypesItemOutput) ToOutput(ctx context.Context) pulumix.Output[SpotFleetInstanceRequirementsRequestAcceleratorTypesItem] {
+	return pulumix.Output[SpotFleetInstanceRequirementsRequestAcceleratorTypesItem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpotFleetInstanceRequirementsRequestAcceleratorTypesItemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -6895,6 +7712,12 @@ func (o SpotFleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput) ToSpo
 
 func (o SpotFleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput) ToSpotFleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput {
 	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpotFleetInstanceRequirementsRequestAcceleratorTypesItem] {
+	return pulumix.Output[*SpotFleetInstanceRequirementsRequestAcceleratorTypesItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpotFleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput) Elem() SpotFleetInstanceRequirementsRequestAcceleratorTypesItemOutput {
@@ -6959,6 +7782,12 @@ func (in *spotFleetInstanceRequirementsRequestAcceleratorTypesItemPtr) ToSpotFle
 	return pulumi.ToOutputWithContext(ctx, in).(SpotFleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput)
 }
 
+func (in *spotFleetInstanceRequirementsRequestAcceleratorTypesItemPtr) ToOutput(ctx context.Context) pulumix.Output[*SpotFleetInstanceRequirementsRequestAcceleratorTypesItem] {
+	return pulumix.Output[*SpotFleetInstanceRequirementsRequestAcceleratorTypesItem]{
+		OutputState: in.ToSpotFleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayInput is an input type that accepts SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArray and SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput values.
 // You can construct a concrete instance of `SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayInput` via:
 //
@@ -6984,6 +7813,12 @@ func (i SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArray) ToSpotFle
 	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput)
 }
 
+func (i SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArray) ToOutput(ctx context.Context) pulumix.Output[[]SpotFleetInstanceRequirementsRequestAcceleratorTypesItem] {
+	return pulumix.Output[[]SpotFleetInstanceRequirementsRequestAcceleratorTypesItem]{
+		OutputState: i.ToSpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput struct{ *pulumi.OutputState }
 
 func (SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput) ElementType() reflect.Type {
@@ -6996,6 +7831,12 @@ func (o SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput) ToS
 
 func (o SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput) ToSpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput {
 	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SpotFleetInstanceRequirementsRequestAcceleratorTypesItem] {
+	return pulumix.Output[[]SpotFleetInstanceRequirementsRequestAcceleratorTypesItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput) Index(i pulumi.IntInput) SpotFleetInstanceRequirementsRequestAcceleratorTypesItemOutput {
@@ -7072,6 +7913,12 @@ func (o SpotFleetInstanceRequirementsRequestBareMetalOutput) ToSpotFleetInstance
 	}).(SpotFleetInstanceRequirementsRequestBareMetalPtrOutput)
 }
 
+func (o SpotFleetInstanceRequirementsRequestBareMetalOutput) ToOutput(ctx context.Context) pulumix.Output[SpotFleetInstanceRequirementsRequestBareMetal] {
+	return pulumix.Output[SpotFleetInstanceRequirementsRequestBareMetal]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpotFleetInstanceRequirementsRequestBareMetalOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -7105,6 +7952,12 @@ func (o SpotFleetInstanceRequirementsRequestBareMetalPtrOutput) ToSpotFleetInsta
 
 func (o SpotFleetInstanceRequirementsRequestBareMetalPtrOutput) ToSpotFleetInstanceRequirementsRequestBareMetalPtrOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestBareMetalPtrOutput {
 	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestBareMetalPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpotFleetInstanceRequirementsRequestBareMetal] {
+	return pulumix.Output[*SpotFleetInstanceRequirementsRequestBareMetal]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpotFleetInstanceRequirementsRequestBareMetalPtrOutput) Elem() SpotFleetInstanceRequirementsRequestBareMetalOutput {
@@ -7167,6 +8020,12 @@ func (in *spotFleetInstanceRequirementsRequestBareMetalPtr) ToSpotFleetInstanceR
 
 func (in *spotFleetInstanceRequirementsRequestBareMetalPtr) ToSpotFleetInstanceRequirementsRequestBareMetalPtrOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestBareMetalPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SpotFleetInstanceRequirementsRequestBareMetalPtrOutput)
+}
+
+func (in *spotFleetInstanceRequirementsRequestBareMetalPtr) ToOutput(ctx context.Context) pulumix.Output[*SpotFleetInstanceRequirementsRequestBareMetal] {
+	return pulumix.Output[*SpotFleetInstanceRequirementsRequestBareMetal]{
+		OutputState: in.ToSpotFleetInstanceRequirementsRequestBareMetalPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type SpotFleetInstanceRequirementsRequestBurstablePerformance string
@@ -7237,6 +8096,12 @@ func (o SpotFleetInstanceRequirementsRequestBurstablePerformanceOutput) ToSpotFl
 	}).(SpotFleetInstanceRequirementsRequestBurstablePerformancePtrOutput)
 }
 
+func (o SpotFleetInstanceRequirementsRequestBurstablePerformanceOutput) ToOutput(ctx context.Context) pulumix.Output[SpotFleetInstanceRequirementsRequestBurstablePerformance] {
+	return pulumix.Output[SpotFleetInstanceRequirementsRequestBurstablePerformance]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpotFleetInstanceRequirementsRequestBurstablePerformanceOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -7270,6 +8135,12 @@ func (o SpotFleetInstanceRequirementsRequestBurstablePerformancePtrOutput) ToSpo
 
 func (o SpotFleetInstanceRequirementsRequestBurstablePerformancePtrOutput) ToSpotFleetInstanceRequirementsRequestBurstablePerformancePtrOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestBurstablePerformancePtrOutput {
 	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestBurstablePerformancePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpotFleetInstanceRequirementsRequestBurstablePerformance] {
+	return pulumix.Output[*SpotFleetInstanceRequirementsRequestBurstablePerformance]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpotFleetInstanceRequirementsRequestBurstablePerformancePtrOutput) Elem() SpotFleetInstanceRequirementsRequestBurstablePerformanceOutput {
@@ -7332,6 +8203,12 @@ func (in *spotFleetInstanceRequirementsRequestBurstablePerformancePtr) ToSpotFle
 
 func (in *spotFleetInstanceRequirementsRequestBurstablePerformancePtr) ToSpotFleetInstanceRequirementsRequestBurstablePerformancePtrOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestBurstablePerformancePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SpotFleetInstanceRequirementsRequestBurstablePerformancePtrOutput)
+}
+
+func (in *spotFleetInstanceRequirementsRequestBurstablePerformancePtr) ToOutput(ctx context.Context) pulumix.Output[*SpotFleetInstanceRequirementsRequestBurstablePerformance] {
+	return pulumix.Output[*SpotFleetInstanceRequirementsRequestBurstablePerformance]{
+		OutputState: in.ToSpotFleetInstanceRequirementsRequestBurstablePerformancePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type SpotFleetInstanceRequirementsRequestCpuManufacturersItem string
@@ -7402,6 +8279,12 @@ func (o SpotFleetInstanceRequirementsRequestCpuManufacturersItemOutput) ToSpotFl
 	}).(SpotFleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput)
 }
 
+func (o SpotFleetInstanceRequirementsRequestCpuManufacturersItemOutput) ToOutput(ctx context.Context) pulumix.Output[SpotFleetInstanceRequirementsRequestCpuManufacturersItem] {
+	return pulumix.Output[SpotFleetInstanceRequirementsRequestCpuManufacturersItem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpotFleetInstanceRequirementsRequestCpuManufacturersItemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -7435,6 +8318,12 @@ func (o SpotFleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput) ToSpo
 
 func (o SpotFleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput) ToSpotFleetInstanceRequirementsRequestCpuManufacturersItemPtrOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput {
 	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpotFleetInstanceRequirementsRequestCpuManufacturersItem] {
+	return pulumix.Output[*SpotFleetInstanceRequirementsRequestCpuManufacturersItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpotFleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput) Elem() SpotFleetInstanceRequirementsRequestCpuManufacturersItemOutput {
@@ -7499,6 +8388,12 @@ func (in *spotFleetInstanceRequirementsRequestCpuManufacturersItemPtr) ToSpotFle
 	return pulumi.ToOutputWithContext(ctx, in).(SpotFleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput)
 }
 
+func (in *spotFleetInstanceRequirementsRequestCpuManufacturersItemPtr) ToOutput(ctx context.Context) pulumix.Output[*SpotFleetInstanceRequirementsRequestCpuManufacturersItem] {
+	return pulumix.Output[*SpotFleetInstanceRequirementsRequestCpuManufacturersItem]{
+		OutputState: in.ToSpotFleetInstanceRequirementsRequestCpuManufacturersItemPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayInput is an input type that accepts SpotFleetInstanceRequirementsRequestCpuManufacturersItemArray and SpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput values.
 // You can construct a concrete instance of `SpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayInput` via:
 //
@@ -7524,6 +8419,12 @@ func (i SpotFleetInstanceRequirementsRequestCpuManufacturersItemArray) ToSpotFle
 	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput)
 }
 
+func (i SpotFleetInstanceRequirementsRequestCpuManufacturersItemArray) ToOutput(ctx context.Context) pulumix.Output[[]SpotFleetInstanceRequirementsRequestCpuManufacturersItem] {
+	return pulumix.Output[[]SpotFleetInstanceRequirementsRequestCpuManufacturersItem]{
+		OutputState: i.ToSpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput struct{ *pulumi.OutputState }
 
 func (SpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput) ElementType() reflect.Type {
@@ -7536,6 +8437,12 @@ func (o SpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput) ToS
 
 func (o SpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput) ToSpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput {
 	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SpotFleetInstanceRequirementsRequestCpuManufacturersItem] {
+	return pulumix.Output[[]SpotFleetInstanceRequirementsRequestCpuManufacturersItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpotFleetInstanceRequirementsRequestCpuManufacturersItemArrayOutput) Index(i pulumi.IntInput) SpotFleetInstanceRequirementsRequestCpuManufacturersItemOutput {
@@ -7611,6 +8518,12 @@ func (o SpotFleetInstanceRequirementsRequestInstanceGenerationsItemOutput) ToSpo
 	}).(SpotFleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput)
 }
 
+func (o SpotFleetInstanceRequirementsRequestInstanceGenerationsItemOutput) ToOutput(ctx context.Context) pulumix.Output[SpotFleetInstanceRequirementsRequestInstanceGenerationsItem] {
+	return pulumix.Output[SpotFleetInstanceRequirementsRequestInstanceGenerationsItem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpotFleetInstanceRequirementsRequestInstanceGenerationsItemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -7644,6 +8557,12 @@ func (o SpotFleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput) To
 
 func (o SpotFleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput) ToSpotFleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput {
 	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpotFleetInstanceRequirementsRequestInstanceGenerationsItem] {
+	return pulumix.Output[*SpotFleetInstanceRequirementsRequestInstanceGenerationsItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpotFleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput) Elem() SpotFleetInstanceRequirementsRequestInstanceGenerationsItemOutput {
@@ -7708,6 +8627,12 @@ func (in *spotFleetInstanceRequirementsRequestInstanceGenerationsItemPtr) ToSpot
 	return pulumi.ToOutputWithContext(ctx, in).(SpotFleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutput)
 }
 
+func (in *spotFleetInstanceRequirementsRequestInstanceGenerationsItemPtr) ToOutput(ctx context.Context) pulumix.Output[*SpotFleetInstanceRequirementsRequestInstanceGenerationsItem] {
+	return pulumix.Output[*SpotFleetInstanceRequirementsRequestInstanceGenerationsItem]{
+		OutputState: in.ToSpotFleetInstanceRequirementsRequestInstanceGenerationsItemPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayInput is an input type that accepts SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArray and SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput values.
 // You can construct a concrete instance of `SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayInput` via:
 //
@@ -7733,6 +8658,12 @@ func (i SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArray) ToSpot
 	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput)
 }
 
+func (i SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArray) ToOutput(ctx context.Context) pulumix.Output[[]SpotFleetInstanceRequirementsRequestInstanceGenerationsItem] {
+	return pulumix.Output[[]SpotFleetInstanceRequirementsRequestInstanceGenerationsItem]{
+		OutputState: i.ToSpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput struct{ *pulumi.OutputState }
 
 func (SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput) ElementType() reflect.Type {
@@ -7745,6 +8676,12 @@ func (o SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput) 
 
 func (o SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput) ToSpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput {
 	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SpotFleetInstanceRequirementsRequestInstanceGenerationsItem] {
+	return pulumix.Output[[]SpotFleetInstanceRequirementsRequestInstanceGenerationsItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpotFleetInstanceRequirementsRequestInstanceGenerationsItemArrayOutput) Index(i pulumi.IntInput) SpotFleetInstanceRequirementsRequestInstanceGenerationsItemOutput {
@@ -7821,6 +8758,12 @@ func (o SpotFleetInstanceRequirementsRequestLocalStorageOutput) ToSpotFleetInsta
 	}).(SpotFleetInstanceRequirementsRequestLocalStoragePtrOutput)
 }
 
+func (o SpotFleetInstanceRequirementsRequestLocalStorageOutput) ToOutput(ctx context.Context) pulumix.Output[SpotFleetInstanceRequirementsRequestLocalStorage] {
+	return pulumix.Output[SpotFleetInstanceRequirementsRequestLocalStorage]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpotFleetInstanceRequirementsRequestLocalStorageOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -7854,6 +8797,12 @@ func (o SpotFleetInstanceRequirementsRequestLocalStoragePtrOutput) ToSpotFleetIn
 
 func (o SpotFleetInstanceRequirementsRequestLocalStoragePtrOutput) ToSpotFleetInstanceRequirementsRequestLocalStoragePtrOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestLocalStoragePtrOutput {
 	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestLocalStoragePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpotFleetInstanceRequirementsRequestLocalStorage] {
+	return pulumix.Output[*SpotFleetInstanceRequirementsRequestLocalStorage]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpotFleetInstanceRequirementsRequestLocalStoragePtrOutput) Elem() SpotFleetInstanceRequirementsRequestLocalStorageOutput {
@@ -7916,6 +8865,12 @@ func (in *spotFleetInstanceRequirementsRequestLocalStoragePtr) ToSpotFleetInstan
 
 func (in *spotFleetInstanceRequirementsRequestLocalStoragePtr) ToSpotFleetInstanceRequirementsRequestLocalStoragePtrOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestLocalStoragePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SpotFleetInstanceRequirementsRequestLocalStoragePtrOutput)
+}
+
+func (in *spotFleetInstanceRequirementsRequestLocalStoragePtr) ToOutput(ctx context.Context) pulumix.Output[*SpotFleetInstanceRequirementsRequestLocalStorage] {
+	return pulumix.Output[*SpotFleetInstanceRequirementsRequestLocalStorage]{
+		OutputState: in.ToSpotFleetInstanceRequirementsRequestLocalStoragePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type SpotFleetInstanceRequirementsRequestLocalStorageTypesItem string
@@ -7985,6 +8940,12 @@ func (o SpotFleetInstanceRequirementsRequestLocalStorageTypesItemOutput) ToSpotF
 	}).(SpotFleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput)
 }
 
+func (o SpotFleetInstanceRequirementsRequestLocalStorageTypesItemOutput) ToOutput(ctx context.Context) pulumix.Output[SpotFleetInstanceRequirementsRequestLocalStorageTypesItem] {
+	return pulumix.Output[SpotFleetInstanceRequirementsRequestLocalStorageTypesItem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpotFleetInstanceRequirementsRequestLocalStorageTypesItemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -8018,6 +8979,12 @@ func (o SpotFleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput) ToSp
 
 func (o SpotFleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput) ToSpotFleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput {
 	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpotFleetInstanceRequirementsRequestLocalStorageTypesItem] {
+	return pulumix.Output[*SpotFleetInstanceRequirementsRequestLocalStorageTypesItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpotFleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput) Elem() SpotFleetInstanceRequirementsRequestLocalStorageTypesItemOutput {
@@ -8082,6 +9049,12 @@ func (in *spotFleetInstanceRequirementsRequestLocalStorageTypesItemPtr) ToSpotFl
 	return pulumi.ToOutputWithContext(ctx, in).(SpotFleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput)
 }
 
+func (in *spotFleetInstanceRequirementsRequestLocalStorageTypesItemPtr) ToOutput(ctx context.Context) pulumix.Output[*SpotFleetInstanceRequirementsRequestLocalStorageTypesItem] {
+	return pulumix.Output[*SpotFleetInstanceRequirementsRequestLocalStorageTypesItem]{
+		OutputState: in.ToSpotFleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayInput is an input type that accepts SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArray and SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput values.
 // You can construct a concrete instance of `SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayInput` via:
 //
@@ -8107,6 +9080,12 @@ func (i SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArray) ToSpotFl
 	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput)
 }
 
+func (i SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArray) ToOutput(ctx context.Context) pulumix.Output[[]SpotFleetInstanceRequirementsRequestLocalStorageTypesItem] {
+	return pulumix.Output[[]SpotFleetInstanceRequirementsRequestLocalStorageTypesItem]{
+		OutputState: i.ToSpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput struct{ *pulumi.OutputState }
 
 func (SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput) ElementType() reflect.Type {
@@ -8119,6 +9098,12 @@ func (o SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput) To
 
 func (o SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput) ToSpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutputWithContext(ctx context.Context) SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput {
 	return o
+}
+
+func (o SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SpotFleetInstanceRequirementsRequestLocalStorageTypesItem] {
+	return pulumix.Output[[]SpotFleetInstanceRequirementsRequestLocalStorageTypesItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput) Index(i pulumi.IntInput) SpotFleetInstanceRequirementsRequestLocalStorageTypesItemOutput {
@@ -8197,6 +9182,12 @@ func (o SpotFleetRequestConfigDataAllocationStrategyOutput) ToSpotFleetRequestCo
 	}).(SpotFleetRequestConfigDataAllocationStrategyPtrOutput)
 }
 
+func (o SpotFleetRequestConfigDataAllocationStrategyOutput) ToOutput(ctx context.Context) pulumix.Output[SpotFleetRequestConfigDataAllocationStrategy] {
+	return pulumix.Output[SpotFleetRequestConfigDataAllocationStrategy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpotFleetRequestConfigDataAllocationStrategyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -8230,6 +9221,12 @@ func (o SpotFleetRequestConfigDataAllocationStrategyPtrOutput) ToSpotFleetReques
 
 func (o SpotFleetRequestConfigDataAllocationStrategyPtrOutput) ToSpotFleetRequestConfigDataAllocationStrategyPtrOutputWithContext(ctx context.Context) SpotFleetRequestConfigDataAllocationStrategyPtrOutput {
 	return o
+}
+
+func (o SpotFleetRequestConfigDataAllocationStrategyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpotFleetRequestConfigDataAllocationStrategy] {
+	return pulumix.Output[*SpotFleetRequestConfigDataAllocationStrategy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpotFleetRequestConfigDataAllocationStrategyPtrOutput) Elem() SpotFleetRequestConfigDataAllocationStrategyOutput {
@@ -8292,6 +9289,12 @@ func (in *spotFleetRequestConfigDataAllocationStrategyPtr) ToSpotFleetRequestCon
 
 func (in *spotFleetRequestConfigDataAllocationStrategyPtr) ToSpotFleetRequestConfigDataAllocationStrategyPtrOutputWithContext(ctx context.Context) SpotFleetRequestConfigDataAllocationStrategyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SpotFleetRequestConfigDataAllocationStrategyPtrOutput)
+}
+
+func (in *spotFleetRequestConfigDataAllocationStrategyPtr) ToOutput(ctx context.Context) pulumix.Output[*SpotFleetRequestConfigDataAllocationStrategy] {
+	return pulumix.Output[*SpotFleetRequestConfigDataAllocationStrategy]{
+		OutputState: in.ToSpotFleetRequestConfigDataAllocationStrategyPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type SpotFleetRequestConfigDataExcessCapacityTerminationPolicy string
@@ -8361,6 +9364,12 @@ func (o SpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput) ToSpotF
 	}).(SpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput)
 }
 
+func (o SpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[SpotFleetRequestConfigDataExcessCapacityTerminationPolicy] {
+	return pulumix.Output[SpotFleetRequestConfigDataExcessCapacityTerminationPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -8394,6 +9403,12 @@ func (o SpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput) ToSp
 
 func (o SpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput) ToSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutputWithContext(ctx context.Context) SpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput {
 	return o
+}
+
+func (o SpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpotFleetRequestConfigDataExcessCapacityTerminationPolicy] {
+	return pulumix.Output[*SpotFleetRequestConfigDataExcessCapacityTerminationPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput) Elem() SpotFleetRequestConfigDataExcessCapacityTerminationPolicyOutput {
@@ -8456,6 +9471,12 @@ func (in *spotFleetRequestConfigDataExcessCapacityTerminationPolicyPtr) ToSpotFl
 
 func (in *spotFleetRequestConfigDataExcessCapacityTerminationPolicyPtr) ToSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutputWithContext(ctx context.Context) SpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput)
+}
+
+func (in *spotFleetRequestConfigDataExcessCapacityTerminationPolicyPtr) ToOutput(ctx context.Context) pulumix.Output[*SpotFleetRequestConfigDataExcessCapacityTerminationPolicy] {
+	return pulumix.Output[*SpotFleetRequestConfigDataExcessCapacityTerminationPolicy]{
+		OutputState: in.ToSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type SpotFleetRequestConfigDataInstanceInterruptionBehavior string
@@ -8526,6 +9547,12 @@ func (o SpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput) ToSpotFlee
 	}).(SpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput)
 }
 
+func (o SpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput) ToOutput(ctx context.Context) pulumix.Output[SpotFleetRequestConfigDataInstanceInterruptionBehavior] {
+	return pulumix.Output[SpotFleetRequestConfigDataInstanceInterruptionBehavior]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -8559,6 +9586,12 @@ func (o SpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput) ToSpotF
 
 func (o SpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput) ToSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutputWithContext(ctx context.Context) SpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput {
 	return o
+}
+
+func (o SpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpotFleetRequestConfigDataInstanceInterruptionBehavior] {
+	return pulumix.Output[*SpotFleetRequestConfigDataInstanceInterruptionBehavior]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput) Elem() SpotFleetRequestConfigDataInstanceInterruptionBehaviorOutput {
@@ -8621,6 +9654,12 @@ func (in *spotFleetRequestConfigDataInstanceInterruptionBehaviorPtr) ToSpotFleet
 
 func (in *spotFleetRequestConfigDataInstanceInterruptionBehaviorPtr) ToSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutputWithContext(ctx context.Context) SpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput)
+}
+
+func (in *spotFleetRequestConfigDataInstanceInterruptionBehaviorPtr) ToOutput(ctx context.Context) pulumix.Output[*SpotFleetRequestConfigDataInstanceInterruptionBehavior] {
+	return pulumix.Output[*SpotFleetRequestConfigDataInstanceInterruptionBehavior]{
+		OutputState: in.ToSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type SpotFleetRequestConfigDataTargetCapacityUnitType string
@@ -8691,6 +9730,12 @@ func (o SpotFleetRequestConfigDataTargetCapacityUnitTypeOutput) ToSpotFleetReque
 	}).(SpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutput)
 }
 
+func (o SpotFleetRequestConfigDataTargetCapacityUnitTypeOutput) ToOutput(ctx context.Context) pulumix.Output[SpotFleetRequestConfigDataTargetCapacityUnitType] {
+	return pulumix.Output[SpotFleetRequestConfigDataTargetCapacityUnitType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpotFleetRequestConfigDataTargetCapacityUnitTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -8724,6 +9769,12 @@ func (o SpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutput) ToSpotFleetRe
 
 func (o SpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutput) ToSpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutputWithContext(ctx context.Context) SpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutput {
 	return o
+}
+
+func (o SpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpotFleetRequestConfigDataTargetCapacityUnitType] {
+	return pulumix.Output[*SpotFleetRequestConfigDataTargetCapacityUnitType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutput) Elem() SpotFleetRequestConfigDataTargetCapacityUnitTypeOutput {
@@ -8786,6 +9837,12 @@ func (in *spotFleetRequestConfigDataTargetCapacityUnitTypePtr) ToSpotFleetReques
 
 func (in *spotFleetRequestConfigDataTargetCapacityUnitTypePtr) ToSpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutputWithContext(ctx context.Context) SpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutput)
+}
+
+func (in *spotFleetRequestConfigDataTargetCapacityUnitTypePtr) ToOutput(ctx context.Context) pulumix.Output[*SpotFleetRequestConfigDataTargetCapacityUnitType] {
+	return pulumix.Output[*SpotFleetRequestConfigDataTargetCapacityUnitType]{
+		OutputState: in.ToSpotFleetRequestConfigDataTargetCapacityUnitTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type SpotFleetRequestConfigDataType string
@@ -8855,6 +9912,12 @@ func (o SpotFleetRequestConfigDataTypeOutput) ToSpotFleetRequestConfigDataTypePt
 	}).(SpotFleetRequestConfigDataTypePtrOutput)
 }
 
+func (o SpotFleetRequestConfigDataTypeOutput) ToOutput(ctx context.Context) pulumix.Output[SpotFleetRequestConfigDataType] {
+	return pulumix.Output[SpotFleetRequestConfigDataType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpotFleetRequestConfigDataTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -8888,6 +9951,12 @@ func (o SpotFleetRequestConfigDataTypePtrOutput) ToSpotFleetRequestConfigDataTyp
 
 func (o SpotFleetRequestConfigDataTypePtrOutput) ToSpotFleetRequestConfigDataTypePtrOutputWithContext(ctx context.Context) SpotFleetRequestConfigDataTypePtrOutput {
 	return o
+}
+
+func (o SpotFleetRequestConfigDataTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpotFleetRequestConfigDataType] {
+	return pulumix.Output[*SpotFleetRequestConfigDataType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpotFleetRequestConfigDataTypePtrOutput) Elem() SpotFleetRequestConfigDataTypeOutput {
@@ -8950,6 +10019,12 @@ func (in *spotFleetRequestConfigDataTypePtr) ToSpotFleetRequestConfigDataTypePtr
 
 func (in *spotFleetRequestConfigDataTypePtr) ToSpotFleetRequestConfigDataTypePtrOutputWithContext(ctx context.Context) SpotFleetRequestConfigDataTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SpotFleetRequestConfigDataTypePtrOutput)
+}
+
+func (in *spotFleetRequestConfigDataTypePtr) ToOutput(ctx context.Context) pulumix.Output[*SpotFleetRequestConfigDataType] {
+	return pulumix.Output[*SpotFleetRequestConfigDataType]{
+		OutputState: in.ToSpotFleetRequestConfigDataTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type SpotFleetSpotCapacityRebalanceReplacementStrategy string
@@ -9019,6 +10094,12 @@ func (o SpotFleetSpotCapacityRebalanceReplacementStrategyOutput) ToSpotFleetSpot
 	}).(SpotFleetSpotCapacityRebalanceReplacementStrategyPtrOutput)
 }
 
+func (o SpotFleetSpotCapacityRebalanceReplacementStrategyOutput) ToOutput(ctx context.Context) pulumix.Output[SpotFleetSpotCapacityRebalanceReplacementStrategy] {
+	return pulumix.Output[SpotFleetSpotCapacityRebalanceReplacementStrategy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpotFleetSpotCapacityRebalanceReplacementStrategyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -9052,6 +10133,12 @@ func (o SpotFleetSpotCapacityRebalanceReplacementStrategyPtrOutput) ToSpotFleetS
 
 func (o SpotFleetSpotCapacityRebalanceReplacementStrategyPtrOutput) ToSpotFleetSpotCapacityRebalanceReplacementStrategyPtrOutputWithContext(ctx context.Context) SpotFleetSpotCapacityRebalanceReplacementStrategyPtrOutput {
 	return o
+}
+
+func (o SpotFleetSpotCapacityRebalanceReplacementStrategyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpotFleetSpotCapacityRebalanceReplacementStrategy] {
+	return pulumix.Output[*SpotFleetSpotCapacityRebalanceReplacementStrategy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpotFleetSpotCapacityRebalanceReplacementStrategyPtrOutput) Elem() SpotFleetSpotCapacityRebalanceReplacementStrategyOutput {
@@ -9114,6 +10201,12 @@ func (in *spotFleetSpotCapacityRebalanceReplacementStrategyPtr) ToSpotFleetSpotC
 
 func (in *spotFleetSpotCapacityRebalanceReplacementStrategyPtr) ToSpotFleetSpotCapacityRebalanceReplacementStrategyPtrOutputWithContext(ctx context.Context) SpotFleetSpotCapacityRebalanceReplacementStrategyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SpotFleetSpotCapacityRebalanceReplacementStrategyPtrOutput)
+}
+
+func (in *spotFleetSpotCapacityRebalanceReplacementStrategyPtr) ToOutput(ctx context.Context) pulumix.Output[*SpotFleetSpotCapacityRebalanceReplacementStrategy] {
+	return pulumix.Output[*SpotFleetSpotCapacityRebalanceReplacementStrategy]{
+		OutputState: in.ToSpotFleetSpotCapacityRebalanceReplacementStrategyPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type SpotFleetSpotPlacementTenancy string
@@ -9184,6 +10277,12 @@ func (o SpotFleetSpotPlacementTenancyOutput) ToSpotFleetSpotPlacementTenancyPtrO
 	}).(SpotFleetSpotPlacementTenancyPtrOutput)
 }
 
+func (o SpotFleetSpotPlacementTenancyOutput) ToOutput(ctx context.Context) pulumix.Output[SpotFleetSpotPlacementTenancy] {
+	return pulumix.Output[SpotFleetSpotPlacementTenancy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpotFleetSpotPlacementTenancyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -9217,6 +10316,12 @@ func (o SpotFleetSpotPlacementTenancyPtrOutput) ToSpotFleetSpotPlacementTenancyP
 
 func (o SpotFleetSpotPlacementTenancyPtrOutput) ToSpotFleetSpotPlacementTenancyPtrOutputWithContext(ctx context.Context) SpotFleetSpotPlacementTenancyPtrOutput {
 	return o
+}
+
+func (o SpotFleetSpotPlacementTenancyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpotFleetSpotPlacementTenancy] {
+	return pulumix.Output[*SpotFleetSpotPlacementTenancy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpotFleetSpotPlacementTenancyPtrOutput) Elem() SpotFleetSpotPlacementTenancyOutput {
@@ -9279,6 +10384,12 @@ func (in *spotFleetSpotPlacementTenancyPtr) ToSpotFleetSpotPlacementTenancyPtrOu
 
 func (in *spotFleetSpotPlacementTenancyPtr) ToSpotFleetSpotPlacementTenancyPtrOutputWithContext(ctx context.Context) SpotFleetSpotPlacementTenancyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SpotFleetSpotPlacementTenancyPtrOutput)
+}
+
+func (in *spotFleetSpotPlacementTenancyPtr) ToOutput(ctx context.Context) pulumix.Output[*SpotFleetSpotPlacementTenancy] {
+	return pulumix.Output[*SpotFleetSpotPlacementTenancy]{
+		OutputState: in.ToSpotFleetSpotPlacementTenancyPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type SpotFleetTagSpecificationResourceType string
@@ -9393,6 +10504,12 @@ func (o SpotFleetTagSpecificationResourceTypeOutput) ToSpotFleetTagSpecification
 	}).(SpotFleetTagSpecificationResourceTypePtrOutput)
 }
 
+func (o SpotFleetTagSpecificationResourceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[SpotFleetTagSpecificationResourceType] {
+	return pulumix.Output[SpotFleetTagSpecificationResourceType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpotFleetTagSpecificationResourceTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -9426,6 +10543,12 @@ func (o SpotFleetTagSpecificationResourceTypePtrOutput) ToSpotFleetTagSpecificat
 
 func (o SpotFleetTagSpecificationResourceTypePtrOutput) ToSpotFleetTagSpecificationResourceTypePtrOutputWithContext(ctx context.Context) SpotFleetTagSpecificationResourceTypePtrOutput {
 	return o
+}
+
+func (o SpotFleetTagSpecificationResourceTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpotFleetTagSpecificationResourceType] {
+	return pulumix.Output[*SpotFleetTagSpecificationResourceType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpotFleetTagSpecificationResourceTypePtrOutput) Elem() SpotFleetTagSpecificationResourceTypeOutput {
@@ -9488,6 +10611,12 @@ func (in *spotFleetTagSpecificationResourceTypePtr) ToSpotFleetTagSpecificationR
 
 func (in *spotFleetTagSpecificationResourceTypePtr) ToSpotFleetTagSpecificationResourceTypePtrOutputWithContext(ctx context.Context) SpotFleetTagSpecificationResourceTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SpotFleetTagSpecificationResourceTypePtrOutput)
+}
+
+func (in *spotFleetTagSpecificationResourceTypePtr) ToOutput(ctx context.Context) pulumix.Output[*SpotFleetTagSpecificationResourceType] {
+	return pulumix.Output[*SpotFleetTagSpecificationResourceType]{
+		OutputState: in.ToSpotFleetTagSpecificationResourceTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type VPCEndpointVpcEndpointType string
@@ -9558,6 +10687,12 @@ func (o VPCEndpointVpcEndpointTypeOutput) ToVPCEndpointVpcEndpointTypePtrOutputW
 	}).(VPCEndpointVpcEndpointTypePtrOutput)
 }
 
+func (o VPCEndpointVpcEndpointTypeOutput) ToOutput(ctx context.Context) pulumix.Output[VPCEndpointVpcEndpointType] {
+	return pulumix.Output[VPCEndpointVpcEndpointType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VPCEndpointVpcEndpointTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -9591,6 +10726,12 @@ func (o VPCEndpointVpcEndpointTypePtrOutput) ToVPCEndpointVpcEndpointTypePtrOutp
 
 func (o VPCEndpointVpcEndpointTypePtrOutput) ToVPCEndpointVpcEndpointTypePtrOutputWithContext(ctx context.Context) VPCEndpointVpcEndpointTypePtrOutput {
 	return o
+}
+
+func (o VPCEndpointVpcEndpointTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VPCEndpointVpcEndpointType] {
+	return pulumix.Output[*VPCEndpointVpcEndpointType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VPCEndpointVpcEndpointTypePtrOutput) Elem() VPCEndpointVpcEndpointTypeOutput {
@@ -9653,6 +10794,12 @@ func (in *vpcendpointVpcEndpointTypePtr) ToVPCEndpointVpcEndpointTypePtrOutput()
 
 func (in *vpcendpointVpcEndpointTypePtr) ToVPCEndpointVpcEndpointTypePtrOutputWithContext(ctx context.Context) VPCEndpointVpcEndpointTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(VPCEndpointVpcEndpointTypePtrOutput)
+}
+
+func (in *vpcendpointVpcEndpointTypePtr) ToOutput(ctx context.Context) pulumix.Output[*VPCEndpointVpcEndpointType] {
+	return pulumix.Output[*VPCEndpointVpcEndpointType]{
+		OutputState: in.ToVPCEndpointVpcEndpointTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

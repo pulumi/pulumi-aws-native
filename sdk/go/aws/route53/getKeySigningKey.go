@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Represents a key signing key (KSK) associated with a hosted zone. You can only have two KSKs per hosted zone.
@@ -70,6 +71,12 @@ func (o LookupKeySigningKeyResultOutput) ToLookupKeySigningKeyResultOutput() Loo
 
 func (o LookupKeySigningKeyResultOutput) ToLookupKeySigningKeyResultOutputWithContext(ctx context.Context) LookupKeySigningKeyResultOutput {
 	return o
+}
+
+func (o LookupKeySigningKeyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupKeySigningKeyResult] {
+	return pulumix.Output[LookupKeySigningKeyResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A string specifying the initial status of the key signing key (KSK). You can set the value to ACTIVE or INACTIVE.

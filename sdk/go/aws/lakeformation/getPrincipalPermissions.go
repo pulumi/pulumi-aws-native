@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A resource schema representing a Lake Formation Permission.
@@ -66,6 +67,12 @@ func (o LookupPrincipalPermissionsResultOutput) ToLookupPrincipalPermissionsResu
 
 func (o LookupPrincipalPermissionsResultOutput) ToLookupPrincipalPermissionsResultOutputWithContext(ctx context.Context) LookupPrincipalPermissionsResultOutput {
 	return o
+}
+
+func (o LookupPrincipalPermissionsResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupPrincipalPermissionsResult] {
+	return pulumix.Output[LookupPrincipalPermissionsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupPrincipalPermissionsResultOutput) PrincipalIdentifier() pulumi.StringPtrOutput {

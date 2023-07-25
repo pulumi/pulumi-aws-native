@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Create and manage a Domain Configuration
@@ -69,6 +70,12 @@ func (o LookupDomainConfigurationResultOutput) ToLookupDomainConfigurationResult
 
 func (o LookupDomainConfigurationResultOutput) ToLookupDomainConfigurationResultOutputWithContext(ctx context.Context) LookupDomainConfigurationResultOutput {
 	return o
+}
+
+func (o LookupDomainConfigurationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDomainConfigurationResult] {
+	return pulumix.Output[LookupDomainConfigurationResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupDomainConfigurationResultOutput) Arn() pulumi.StringPtrOutput {

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AppMesh::VirtualGateway
@@ -68,6 +69,12 @@ func (o LookupVirtualGatewayResultOutput) ToLookupVirtualGatewayResultOutput() L
 
 func (o LookupVirtualGatewayResultOutput) ToLookupVirtualGatewayResultOutputWithContext(ctx context.Context) LookupVirtualGatewayResultOutput {
 	return o
+}
+
+func (o LookupVirtualGatewayResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVirtualGatewayResult] {
+	return pulumix.Output[LookupVirtualGatewayResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupVirtualGatewayResultOutput) Arn() pulumi.StringPtrOutput {

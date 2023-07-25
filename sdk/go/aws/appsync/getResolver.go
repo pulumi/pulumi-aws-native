@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AppSync::Resolver
@@ -77,6 +78,12 @@ func (o LookupResolverResultOutput) ToLookupResolverResultOutput() LookupResolve
 
 func (o LookupResolverResultOutput) ToLookupResolverResultOutputWithContext(ctx context.Context) LookupResolverResultOutput {
 	return o
+}
+
+func (o LookupResolverResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupResolverResult] {
+	return pulumix.Output[LookupResolverResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupResolverResultOutput) CachingConfig() ResolverCachingConfigPtrOutput {

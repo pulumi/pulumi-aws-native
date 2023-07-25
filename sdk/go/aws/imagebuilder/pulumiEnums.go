@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The platform of the component.
@@ -78,6 +79,12 @@ func (o ComponentPlatformOutput) ToComponentPlatformPtrOutputWithContext(ctx con
 	}).(ComponentPlatformPtrOutput)
 }
 
+func (o ComponentPlatformOutput) ToOutput(ctx context.Context) pulumix.Output[ComponentPlatform] {
+	return pulumix.Output[ComponentPlatform]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ComponentPlatformOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -111,6 +118,12 @@ func (o ComponentPlatformPtrOutput) ToComponentPlatformPtrOutput() ComponentPlat
 
 func (o ComponentPlatformPtrOutput) ToComponentPlatformPtrOutputWithContext(ctx context.Context) ComponentPlatformPtrOutput {
 	return o
+}
+
+func (o ComponentPlatformPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ComponentPlatform] {
+	return pulumix.Output[*ComponentPlatform]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ComponentPlatformPtrOutput) Elem() ComponentPlatformOutput {
@@ -175,6 +188,12 @@ func (in *componentPlatformPtr) ToComponentPlatformPtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(ComponentPlatformPtrOutput)
 }
 
+func (in *componentPlatformPtr) ToOutput(ctx context.Context) pulumix.Output[*ComponentPlatform] {
+	return pulumix.Output[*ComponentPlatform]{
+		OutputState: in.ToComponentPlatformPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The type of the component denotes whether the component is used to build the image or only to test it.
 type ComponentType string
 
@@ -205,6 +224,12 @@ func (o ComponentTypeOutput) ToComponentTypePtrOutputWithContext(ctx context.Con
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComponentType) *ComponentType {
 		return &v
 	}).(ComponentTypePtrOutput)
+}
+
+func (o ComponentTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ComponentType] {
+	return pulumix.Output[ComponentType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ComponentTypeOutput) ToStringOutput() pulumi.StringOutput {
@@ -240,6 +265,12 @@ func (o ComponentTypePtrOutput) ToComponentTypePtrOutput() ComponentTypePtrOutpu
 
 func (o ComponentTypePtrOutput) ToComponentTypePtrOutputWithContext(ctx context.Context) ComponentTypePtrOutput {
 	return o
+}
+
+func (o ComponentTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ComponentType] {
+	return pulumix.Output[*ComponentType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ComponentTypePtrOutput) Elem() ComponentTypeOutput {
@@ -333,6 +364,12 @@ func (o ContainerRecipeContainerTypeOutput) ToContainerRecipeContainerTypePtrOut
 	}).(ContainerRecipeContainerTypePtrOutput)
 }
 
+func (o ContainerRecipeContainerTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ContainerRecipeContainerType] {
+	return pulumix.Output[ContainerRecipeContainerType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ContainerRecipeContainerTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -366,6 +403,12 @@ func (o ContainerRecipeContainerTypePtrOutput) ToContainerRecipeContainerTypePtr
 
 func (o ContainerRecipeContainerTypePtrOutput) ToContainerRecipeContainerTypePtrOutputWithContext(ctx context.Context) ContainerRecipeContainerTypePtrOutput {
 	return o
+}
+
+func (o ContainerRecipeContainerTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ContainerRecipeContainerType] {
+	return pulumix.Output[*ContainerRecipeContainerType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ContainerRecipeContainerTypePtrOutput) Elem() ContainerRecipeContainerTypeOutput {
@@ -428,6 +471,12 @@ func (in *containerRecipeContainerTypePtr) ToContainerRecipeContainerTypePtrOutp
 
 func (in *containerRecipeContainerTypePtr) ToContainerRecipeContainerTypePtrOutputWithContext(ctx context.Context) ContainerRecipeContainerTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ContainerRecipeContainerTypePtrOutput)
+}
+
+func (in *containerRecipeContainerTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ContainerRecipeContainerType] {
+	return pulumix.Output[*ContainerRecipeContainerType]{
+		OutputState: in.ToContainerRecipeContainerTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Use to override the device's volume type.
@@ -503,6 +552,12 @@ func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeOutput) ToCo
 	}).(ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtrOutput)
 }
 
+func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType] {
+	return pulumix.Output[ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -536,6 +591,12 @@ func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtrOutput) T
 
 func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtrOutput) ToContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtrOutputWithContext(ctx context.Context) ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtrOutput {
 	return o
+}
+
+func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType] {
+	return pulumix.Output[*ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtrOutput) Elem() ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeOutput {
@@ -598,6 +659,12 @@ func (in *containerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtr) ToCon
 
 func (in *containerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtr) ToContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtrOutputWithContext(ctx context.Context) ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtrOutput)
+}
+
+func (in *containerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType] {
+	return pulumix.Output[*ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType]{
+		OutputState: in.ToContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Specifies the operating system platform when you use a custom source image.
@@ -668,6 +735,12 @@ func (o ContainerRecipePlatformOverrideOutput) ToContainerRecipePlatformOverride
 	}).(ContainerRecipePlatformOverridePtrOutput)
 }
 
+func (o ContainerRecipePlatformOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[ContainerRecipePlatformOverride] {
+	return pulumix.Output[ContainerRecipePlatformOverride]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ContainerRecipePlatformOverrideOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -701,6 +774,12 @@ func (o ContainerRecipePlatformOverridePtrOutput) ToContainerRecipePlatformOverr
 
 func (o ContainerRecipePlatformOverridePtrOutput) ToContainerRecipePlatformOverridePtrOutputWithContext(ctx context.Context) ContainerRecipePlatformOverridePtrOutput {
 	return o
+}
+
+func (o ContainerRecipePlatformOverridePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ContainerRecipePlatformOverride] {
+	return pulumix.Output[*ContainerRecipePlatformOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ContainerRecipePlatformOverridePtrOutput) Elem() ContainerRecipePlatformOverrideOutput {
@@ -763,6 +842,12 @@ func (in *containerRecipePlatformOverridePtr) ToContainerRecipePlatformOverrideP
 
 func (in *containerRecipePlatformOverridePtr) ToContainerRecipePlatformOverridePtrOutputWithContext(ctx context.Context) ContainerRecipePlatformOverridePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ContainerRecipePlatformOverridePtrOutput)
+}
+
+func (in *containerRecipePlatformOverridePtr) ToOutput(ctx context.Context) pulumix.Output[*ContainerRecipePlatformOverride] {
+	return pulumix.Output[*ContainerRecipePlatformOverride]{
+		OutputState: in.ToContainerRecipePlatformOverridePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Specifies the service in which this image was registered.
@@ -832,6 +917,12 @@ func (o ContainerRecipeTargetContainerRepositoryServiceOutput) ToContainerRecipe
 	}).(ContainerRecipeTargetContainerRepositoryServicePtrOutput)
 }
 
+func (o ContainerRecipeTargetContainerRepositoryServiceOutput) ToOutput(ctx context.Context) pulumix.Output[ContainerRecipeTargetContainerRepositoryService] {
+	return pulumix.Output[ContainerRecipeTargetContainerRepositoryService]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ContainerRecipeTargetContainerRepositoryServiceOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -865,6 +956,12 @@ func (o ContainerRecipeTargetContainerRepositoryServicePtrOutput) ToContainerRec
 
 func (o ContainerRecipeTargetContainerRepositoryServicePtrOutput) ToContainerRecipeTargetContainerRepositoryServicePtrOutputWithContext(ctx context.Context) ContainerRecipeTargetContainerRepositoryServicePtrOutput {
 	return o
+}
+
+func (o ContainerRecipeTargetContainerRepositoryServicePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ContainerRecipeTargetContainerRepositoryService] {
+	return pulumix.Output[*ContainerRecipeTargetContainerRepositoryService]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ContainerRecipeTargetContainerRepositoryServicePtrOutput) Elem() ContainerRecipeTargetContainerRepositoryServiceOutput {
@@ -927,6 +1024,12 @@ func (in *containerRecipeTargetContainerRepositoryServicePtr) ToContainerRecipeT
 
 func (in *containerRecipeTargetContainerRepositoryServicePtr) ToContainerRecipeTargetContainerRepositoryServicePtrOutputWithContext(ctx context.Context) ContainerRecipeTargetContainerRepositoryServicePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ContainerRecipeTargetContainerRepositoryServicePtrOutput)
+}
+
+func (in *containerRecipeTargetContainerRepositoryServicePtr) ToOutput(ctx context.Context) pulumix.Output[*ContainerRecipeTargetContainerRepositoryService] {
+	return pulumix.Output[*ContainerRecipeTargetContainerRepositoryService]{
+		OutputState: in.ToContainerRecipeTargetContainerRepositoryServicePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The service of target container repository.
@@ -996,6 +1099,12 @@ func (o DistributionConfigurationTargetContainerRepositoryServiceOutput) ToDistr
 	}).(DistributionConfigurationTargetContainerRepositoryServicePtrOutput)
 }
 
+func (o DistributionConfigurationTargetContainerRepositoryServiceOutput) ToOutput(ctx context.Context) pulumix.Output[DistributionConfigurationTargetContainerRepositoryService] {
+	return pulumix.Output[DistributionConfigurationTargetContainerRepositoryService]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DistributionConfigurationTargetContainerRepositoryServiceOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1029,6 +1138,12 @@ func (o DistributionConfigurationTargetContainerRepositoryServicePtrOutput) ToDi
 
 func (o DistributionConfigurationTargetContainerRepositoryServicePtrOutput) ToDistributionConfigurationTargetContainerRepositoryServicePtrOutputWithContext(ctx context.Context) DistributionConfigurationTargetContainerRepositoryServicePtrOutput {
 	return o
+}
+
+func (o DistributionConfigurationTargetContainerRepositoryServicePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DistributionConfigurationTargetContainerRepositoryService] {
+	return pulumix.Output[*DistributionConfigurationTargetContainerRepositoryService]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DistributionConfigurationTargetContainerRepositoryServicePtrOutput) Elem() DistributionConfigurationTargetContainerRepositoryServiceOutput {
@@ -1091,6 +1206,12 @@ func (in *distributionConfigurationTargetContainerRepositoryServicePtr) ToDistri
 
 func (in *distributionConfigurationTargetContainerRepositoryServicePtr) ToDistributionConfigurationTargetContainerRepositoryServicePtrOutputWithContext(ctx context.Context) DistributionConfigurationTargetContainerRepositoryServicePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DistributionConfigurationTargetContainerRepositoryServicePtrOutput)
+}
+
+func (in *distributionConfigurationTargetContainerRepositoryServicePtr) ToOutput(ctx context.Context) pulumix.Output[*DistributionConfigurationTargetContainerRepositoryService] {
+	return pulumix.Output[*DistributionConfigurationTargetContainerRepositoryService]{
+		OutputState: in.ToDistributionConfigurationTargetContainerRepositoryServicePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The condition configures when the pipeline should trigger a new image build.
@@ -1161,6 +1282,12 @@ func (o ImagePipelineSchedulePipelineExecutionStartConditionOutput) ToImagePipel
 	}).(ImagePipelineSchedulePipelineExecutionStartConditionPtrOutput)
 }
 
+func (o ImagePipelineSchedulePipelineExecutionStartConditionOutput) ToOutput(ctx context.Context) pulumix.Output[ImagePipelineSchedulePipelineExecutionStartCondition] {
+	return pulumix.Output[ImagePipelineSchedulePipelineExecutionStartCondition]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ImagePipelineSchedulePipelineExecutionStartConditionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1194,6 +1321,12 @@ func (o ImagePipelineSchedulePipelineExecutionStartConditionPtrOutput) ToImagePi
 
 func (o ImagePipelineSchedulePipelineExecutionStartConditionPtrOutput) ToImagePipelineSchedulePipelineExecutionStartConditionPtrOutputWithContext(ctx context.Context) ImagePipelineSchedulePipelineExecutionStartConditionPtrOutput {
 	return o
+}
+
+func (o ImagePipelineSchedulePipelineExecutionStartConditionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ImagePipelineSchedulePipelineExecutionStartCondition] {
+	return pulumix.Output[*ImagePipelineSchedulePipelineExecutionStartCondition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ImagePipelineSchedulePipelineExecutionStartConditionPtrOutput) Elem() ImagePipelineSchedulePipelineExecutionStartConditionOutput {
@@ -1256,6 +1389,12 @@ func (in *imagePipelineSchedulePipelineExecutionStartConditionPtr) ToImagePipeli
 
 func (in *imagePipelineSchedulePipelineExecutionStartConditionPtr) ToImagePipelineSchedulePipelineExecutionStartConditionPtrOutputWithContext(ctx context.Context) ImagePipelineSchedulePipelineExecutionStartConditionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ImagePipelineSchedulePipelineExecutionStartConditionPtrOutput)
+}
+
+func (in *imagePipelineSchedulePipelineExecutionStartConditionPtr) ToOutput(ctx context.Context) pulumix.Output[*ImagePipelineSchedulePipelineExecutionStartCondition] {
+	return pulumix.Output[*ImagePipelineSchedulePipelineExecutionStartCondition]{
+		OutputState: in.ToImagePipelineSchedulePipelineExecutionStartConditionPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The status of the image pipeline.
@@ -1326,6 +1465,12 @@ func (o ImagePipelineStatusOutput) ToImagePipelineStatusPtrOutputWithContext(ctx
 	}).(ImagePipelineStatusPtrOutput)
 }
 
+func (o ImagePipelineStatusOutput) ToOutput(ctx context.Context) pulumix.Output[ImagePipelineStatus] {
+	return pulumix.Output[ImagePipelineStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ImagePipelineStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1359,6 +1504,12 @@ func (o ImagePipelineStatusPtrOutput) ToImagePipelineStatusPtrOutput() ImagePipe
 
 func (o ImagePipelineStatusPtrOutput) ToImagePipelineStatusPtrOutputWithContext(ctx context.Context) ImagePipelineStatusPtrOutput {
 	return o
+}
+
+func (o ImagePipelineStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ImagePipelineStatus] {
+	return pulumix.Output[*ImagePipelineStatus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ImagePipelineStatusPtrOutput) Elem() ImagePipelineStatusOutput {
@@ -1421,6 +1572,12 @@ func (in *imagePipelineStatusPtr) ToImagePipelineStatusPtrOutput() ImagePipeline
 
 func (in *imagePipelineStatusPtr) ToImagePipelineStatusPtrOutputWithContext(ctx context.Context) ImagePipelineStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ImagePipelineStatusPtrOutput)
+}
+
+func (in *imagePipelineStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*ImagePipelineStatus] {
+	return pulumix.Output[*ImagePipelineStatus]{
+		OutputState: in.ToImagePipelineStatusPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Use to override the device's volume type.
@@ -1496,6 +1653,12 @@ func (o ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeOutput) ToImageR
 	}).(ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtrOutput)
 }
 
+func (o ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType] {
+	return pulumix.Output[ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1529,6 +1692,12 @@ func (o ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtrOutput) ToIma
 
 func (o ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtrOutput) ToImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtrOutputWithContext(ctx context.Context) ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtrOutput {
 	return o
+}
+
+func (o ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType] {
+	return pulumix.Output[*ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtrOutput) Elem() ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeOutput {
@@ -1591,6 +1760,12 @@ func (in *imageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtr) ToImageRe
 
 func (in *imageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtr) ToImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtrOutputWithContext(ctx context.Context) ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtrOutput)
+}
+
+func (in *imageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType] {
+	return pulumix.Output[*ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType]{
+		OutputState: in.ToImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Indicates whether a signed token header is required for instance metadata retrieval requests. The values affect the response as follows:
@@ -1661,6 +1836,12 @@ func (o InfrastructureConfigurationInstanceMetadataOptionsHttpTokensOutput) ToIn
 	}).(InfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrOutput)
 }
 
+func (o InfrastructureConfigurationInstanceMetadataOptionsHttpTokensOutput) ToOutput(ctx context.Context) pulumix.Output[InfrastructureConfigurationInstanceMetadataOptionsHttpTokens] {
+	return pulumix.Output[InfrastructureConfigurationInstanceMetadataOptionsHttpTokens]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o InfrastructureConfigurationInstanceMetadataOptionsHttpTokensOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1694,6 +1875,12 @@ func (o InfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrOutput) T
 
 func (o InfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrOutput) ToInfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrOutputWithContext(ctx context.Context) InfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrOutput {
 	return o
+}
+
+func (o InfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InfrastructureConfigurationInstanceMetadataOptionsHttpTokens] {
+	return pulumix.Output[*InfrastructureConfigurationInstanceMetadataOptionsHttpTokens]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrOutput) Elem() InfrastructureConfigurationInstanceMetadataOptionsHttpTokensOutput {
@@ -1756,6 +1943,12 @@ func (in *infrastructureConfigurationInstanceMetadataOptionsHttpTokensPtr) ToInf
 
 func (in *infrastructureConfigurationInstanceMetadataOptionsHttpTokensPtr) ToInfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrOutputWithContext(ctx context.Context) InfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(InfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrOutput)
+}
+
+func (in *infrastructureConfigurationInstanceMetadataOptionsHttpTokensPtr) ToOutput(ctx context.Context) pulumix.Output[*InfrastructureConfigurationInstanceMetadataOptionsHttpTokens] {
+	return pulumix.Output[*InfrastructureConfigurationInstanceMetadataOptionsHttpTokens]{
+		OutputState: in.ToInfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

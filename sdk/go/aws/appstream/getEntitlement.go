@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AppStream::Entitlement
@@ -69,6 +70,12 @@ func (o LookupEntitlementResultOutput) ToLookupEntitlementResultOutput() LookupE
 
 func (o LookupEntitlementResultOutput) ToLookupEntitlementResultOutputWithContext(ctx context.Context) LookupEntitlementResultOutput {
 	return o
+}
+
+func (o LookupEntitlementResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupEntitlementResult] {
+	return pulumix.Output[LookupEntitlementResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupEntitlementResultOutput) AppVisibility() pulumi.StringPtrOutput {

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::IoTThingsGraph::FlowTemplate
@@ -65,6 +66,12 @@ func (o LookupFlowTemplateResultOutput) ToLookupFlowTemplateResultOutput() Looku
 
 func (o LookupFlowTemplateResultOutput) ToLookupFlowTemplateResultOutputWithContext(ctx context.Context) LookupFlowTemplateResultOutput {
 	return o
+}
+
+func (o LookupFlowTemplateResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFlowTemplateResult] {
+	return pulumix.Output[LookupFlowTemplateResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupFlowTemplateResultOutput) CompatibleNamespaceVersion() pulumi.Float64PtrOutput {

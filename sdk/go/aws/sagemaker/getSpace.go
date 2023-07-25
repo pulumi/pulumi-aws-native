@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SageMaker::Space
@@ -70,6 +71,12 @@ func (o LookupSpaceResultOutput) ToLookupSpaceResultOutput() LookupSpaceResultOu
 
 func (o LookupSpaceResultOutput) ToLookupSpaceResultOutputWithContext(ctx context.Context) LookupSpaceResultOutput {
 	return o
+}
+
+func (o LookupSpaceResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSpaceResult] {
+	return pulumix.Output[LookupSpaceResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The space Amazon Resource Name (ARN).

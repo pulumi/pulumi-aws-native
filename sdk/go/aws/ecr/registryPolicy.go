@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::ECR::RegistryPolicy is used to specify permissions for another AWS account and is used when configuring cross-account replication. For more information, see Registry permissions in the Amazon Elastic Container Registry User Guide: https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html
@@ -97,6 +98,12 @@ func (i *RegistryPolicy) ToRegistryPolicyOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryPolicyOutput)
 }
 
+func (i *RegistryPolicy) ToOutput(ctx context.Context) pulumix.Output[*RegistryPolicy] {
+	return pulumix.Output[*RegistryPolicy]{
+		OutputState: i.ToRegistryPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RegistryPolicyOutput struct{ *pulumi.OutputState }
 
 func (RegistryPolicyOutput) ElementType() reflect.Type {
@@ -109,6 +116,12 @@ func (o RegistryPolicyOutput) ToRegistryPolicyOutput() RegistryPolicyOutput {
 
 func (o RegistryPolicyOutput) ToRegistryPolicyOutputWithContext(ctx context.Context) RegistryPolicyOutput {
 	return o
+}
+
+func (o RegistryPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*RegistryPolicy] {
+	return pulumix.Output[*RegistryPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The JSON policy text to apply to your registry. The policy text follows the same format as IAM policy text. For more information, see Registry permissions (https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html) in the Amazon Elastic Container Registry User Guide.

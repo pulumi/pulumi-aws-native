@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -46,6 +47,12 @@ func (i LifecyclePolicyActionArgs) ToLifecyclePolicyActionOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyActionOutput)
 }
 
+func (i LifecyclePolicyActionArgs) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyAction] {
+	return pulumix.Output[LifecyclePolicyAction]{
+		OutputState: i.ToLifecyclePolicyActionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LifecyclePolicyActionArrayInput is an input type that accepts LifecyclePolicyActionArray and LifecyclePolicyActionArrayOutput values.
 // You can construct a concrete instance of `LifecyclePolicyActionArrayInput` via:
 //
@@ -71,6 +78,12 @@ func (i LifecyclePolicyActionArray) ToLifecyclePolicyActionArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyActionArrayOutput)
 }
 
+func (i LifecyclePolicyActionArray) ToOutput(ctx context.Context) pulumix.Output[[]LifecyclePolicyAction] {
+	return pulumix.Output[[]LifecyclePolicyAction]{
+		OutputState: i.ToLifecyclePolicyActionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LifecyclePolicyActionOutput struct{ *pulumi.OutputState }
 
 func (LifecyclePolicyActionOutput) ElementType() reflect.Type {
@@ -83,6 +96,12 @@ func (o LifecyclePolicyActionOutput) ToLifecyclePolicyActionOutput() LifecyclePo
 
 func (o LifecyclePolicyActionOutput) ToLifecyclePolicyActionOutputWithContext(ctx context.Context) LifecyclePolicyActionOutput {
 	return o
+}
+
+func (o LifecyclePolicyActionOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyAction] {
+	return pulumix.Output[LifecyclePolicyAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LifecyclePolicyActionOutput) CrossRegionCopy() LifecyclePolicyCrossRegionCopyActionArrayOutput {
@@ -105,6 +124,12 @@ func (o LifecyclePolicyActionArrayOutput) ToLifecyclePolicyActionArrayOutput() L
 
 func (o LifecyclePolicyActionArrayOutput) ToLifecyclePolicyActionArrayOutputWithContext(ctx context.Context) LifecyclePolicyActionArrayOutput {
 	return o
+}
+
+func (o LifecyclePolicyActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LifecyclePolicyAction] {
+	return pulumix.Output[[]LifecyclePolicyAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LifecyclePolicyActionArrayOutput) Index(i pulumi.IntInput) LifecyclePolicyActionOutput {
@@ -142,6 +167,12 @@ func (i LifecyclePolicyArchiveRetainRuleArgs) ToLifecyclePolicyArchiveRetainRule
 
 func (i LifecyclePolicyArchiveRetainRuleArgs) ToLifecyclePolicyArchiveRetainRuleOutputWithContext(ctx context.Context) LifecyclePolicyArchiveRetainRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyArchiveRetainRuleOutput)
+}
+
+func (i LifecyclePolicyArchiveRetainRuleArgs) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyArchiveRetainRule] {
+	return pulumix.Output[LifecyclePolicyArchiveRetainRule]{
+		OutputState: i.ToLifecyclePolicyArchiveRetainRuleOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i LifecyclePolicyArchiveRetainRuleArgs) ToLifecyclePolicyArchiveRetainRulePtrOutput() LifecyclePolicyArchiveRetainRulePtrOutput {
@@ -185,6 +216,12 @@ func (i *lifecyclePolicyArchiveRetainRulePtrType) ToLifecyclePolicyArchiveRetain
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyArchiveRetainRulePtrOutput)
 }
 
+func (i *lifecyclePolicyArchiveRetainRulePtrType) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyArchiveRetainRule] {
+	return pulumix.Output[*LifecyclePolicyArchiveRetainRule]{
+		OutputState: i.ToLifecyclePolicyArchiveRetainRulePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LifecyclePolicyArchiveRetainRuleOutput struct{ *pulumi.OutputState }
 
 func (LifecyclePolicyArchiveRetainRuleOutput) ElementType() reflect.Type {
@@ -209,6 +246,12 @@ func (o LifecyclePolicyArchiveRetainRuleOutput) ToLifecyclePolicyArchiveRetainRu
 	}).(LifecyclePolicyArchiveRetainRulePtrOutput)
 }
 
+func (o LifecyclePolicyArchiveRetainRuleOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyArchiveRetainRule] {
+	return pulumix.Output[LifecyclePolicyArchiveRetainRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LifecyclePolicyArchiveRetainRuleOutput) RetentionArchiveTier() LifecyclePolicyRetentionArchiveTierOutput {
 	return o.ApplyT(func(v LifecyclePolicyArchiveRetainRule) LifecyclePolicyRetentionArchiveTier {
 		return v.RetentionArchiveTier
@@ -227,6 +270,12 @@ func (o LifecyclePolicyArchiveRetainRulePtrOutput) ToLifecyclePolicyArchiveRetai
 
 func (o LifecyclePolicyArchiveRetainRulePtrOutput) ToLifecyclePolicyArchiveRetainRulePtrOutputWithContext(ctx context.Context) LifecyclePolicyArchiveRetainRulePtrOutput {
 	return o
+}
+
+func (o LifecyclePolicyArchiveRetainRulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyArchiveRetainRule] {
+	return pulumix.Output[*LifecyclePolicyArchiveRetainRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LifecyclePolicyArchiveRetainRulePtrOutput) Elem() LifecyclePolicyArchiveRetainRuleOutput {
@@ -279,6 +328,12 @@ func (i LifecyclePolicyArchiveRuleArgs) ToLifecyclePolicyArchiveRuleOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyArchiveRuleOutput)
 }
 
+func (i LifecyclePolicyArchiveRuleArgs) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyArchiveRule] {
+	return pulumix.Output[LifecyclePolicyArchiveRule]{
+		OutputState: i.ToLifecyclePolicyArchiveRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i LifecyclePolicyArchiveRuleArgs) ToLifecyclePolicyArchiveRulePtrOutput() LifecyclePolicyArchiveRulePtrOutput {
 	return i.ToLifecyclePolicyArchiveRulePtrOutputWithContext(context.Background())
 }
@@ -320,6 +375,12 @@ func (i *lifecyclePolicyArchiveRulePtrType) ToLifecyclePolicyArchiveRulePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyArchiveRulePtrOutput)
 }
 
+func (i *lifecyclePolicyArchiveRulePtrType) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyArchiveRule] {
+	return pulumix.Output[*LifecyclePolicyArchiveRule]{
+		OutputState: i.ToLifecyclePolicyArchiveRulePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LifecyclePolicyArchiveRuleOutput struct{ *pulumi.OutputState }
 
 func (LifecyclePolicyArchiveRuleOutput) ElementType() reflect.Type {
@@ -344,6 +405,12 @@ func (o LifecyclePolicyArchiveRuleOutput) ToLifecyclePolicyArchiveRulePtrOutputW
 	}).(LifecyclePolicyArchiveRulePtrOutput)
 }
 
+func (o LifecyclePolicyArchiveRuleOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyArchiveRule] {
+	return pulumix.Output[LifecyclePolicyArchiveRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LifecyclePolicyArchiveRuleOutput) RetainRule() LifecyclePolicyArchiveRetainRuleOutput {
 	return o.ApplyT(func(v LifecyclePolicyArchiveRule) LifecyclePolicyArchiveRetainRule { return v.RetainRule }).(LifecyclePolicyArchiveRetainRuleOutput)
 }
@@ -360,6 +427,12 @@ func (o LifecyclePolicyArchiveRulePtrOutput) ToLifecyclePolicyArchiveRulePtrOutp
 
 func (o LifecyclePolicyArchiveRulePtrOutput) ToLifecyclePolicyArchiveRulePtrOutputWithContext(ctx context.Context) LifecyclePolicyArchiveRulePtrOutput {
 	return o
+}
+
+func (o LifecyclePolicyArchiveRulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyArchiveRule] {
+	return pulumix.Output[*LifecyclePolicyArchiveRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LifecyclePolicyArchiveRulePtrOutput) Elem() LifecyclePolicyArchiveRuleOutput {
@@ -420,6 +493,12 @@ func (i LifecyclePolicyCreateRuleArgs) ToLifecyclePolicyCreateRuleOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyCreateRuleOutput)
 }
 
+func (i LifecyclePolicyCreateRuleArgs) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyCreateRule] {
+	return pulumix.Output[LifecyclePolicyCreateRule]{
+		OutputState: i.ToLifecyclePolicyCreateRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i LifecyclePolicyCreateRuleArgs) ToLifecyclePolicyCreateRulePtrOutput() LifecyclePolicyCreateRulePtrOutput {
 	return i.ToLifecyclePolicyCreateRulePtrOutputWithContext(context.Background())
 }
@@ -461,6 +540,12 @@ func (i *lifecyclePolicyCreateRulePtrType) ToLifecyclePolicyCreateRulePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyCreateRulePtrOutput)
 }
 
+func (i *lifecyclePolicyCreateRulePtrType) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyCreateRule] {
+	return pulumix.Output[*LifecyclePolicyCreateRule]{
+		OutputState: i.ToLifecyclePolicyCreateRulePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LifecyclePolicyCreateRuleOutput struct{ *pulumi.OutputState }
 
 func (LifecyclePolicyCreateRuleOutput) ElementType() reflect.Type {
@@ -483,6 +568,12 @@ func (o LifecyclePolicyCreateRuleOutput) ToLifecyclePolicyCreateRulePtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v LifecyclePolicyCreateRule) *LifecyclePolicyCreateRule {
 		return &v
 	}).(LifecyclePolicyCreateRulePtrOutput)
+}
+
+func (o LifecyclePolicyCreateRuleOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyCreateRule] {
+	return pulumix.Output[LifecyclePolicyCreateRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LifecyclePolicyCreateRuleOutput) CronExpression() pulumi.StringPtrOutput {
@@ -517,6 +608,12 @@ func (o LifecyclePolicyCreateRulePtrOutput) ToLifecyclePolicyCreateRulePtrOutput
 
 func (o LifecyclePolicyCreateRulePtrOutput) ToLifecyclePolicyCreateRulePtrOutputWithContext(ctx context.Context) LifecyclePolicyCreateRulePtrOutput {
 	return o
+}
+
+func (o LifecyclePolicyCreateRulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyCreateRule] {
+	return pulumix.Output[*LifecyclePolicyCreateRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LifecyclePolicyCreateRulePtrOutput) Elem() LifecyclePolicyCreateRuleOutput {
@@ -609,6 +706,12 @@ func (i LifecyclePolicyCrossRegionCopyActionArgs) ToLifecyclePolicyCrossRegionCo
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyCrossRegionCopyActionOutput)
 }
 
+func (i LifecyclePolicyCrossRegionCopyActionArgs) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyCrossRegionCopyAction] {
+	return pulumix.Output[LifecyclePolicyCrossRegionCopyAction]{
+		OutputState: i.ToLifecyclePolicyCrossRegionCopyActionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LifecyclePolicyCrossRegionCopyActionArrayInput is an input type that accepts LifecyclePolicyCrossRegionCopyActionArray and LifecyclePolicyCrossRegionCopyActionArrayOutput values.
 // You can construct a concrete instance of `LifecyclePolicyCrossRegionCopyActionArrayInput` via:
 //
@@ -634,6 +737,12 @@ func (i LifecyclePolicyCrossRegionCopyActionArray) ToLifecyclePolicyCrossRegionC
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyCrossRegionCopyActionArrayOutput)
 }
 
+func (i LifecyclePolicyCrossRegionCopyActionArray) ToOutput(ctx context.Context) pulumix.Output[[]LifecyclePolicyCrossRegionCopyAction] {
+	return pulumix.Output[[]LifecyclePolicyCrossRegionCopyAction]{
+		OutputState: i.ToLifecyclePolicyCrossRegionCopyActionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LifecyclePolicyCrossRegionCopyActionOutput struct{ *pulumi.OutputState }
 
 func (LifecyclePolicyCrossRegionCopyActionOutput) ElementType() reflect.Type {
@@ -646,6 +755,12 @@ func (o LifecyclePolicyCrossRegionCopyActionOutput) ToLifecyclePolicyCrossRegion
 
 func (o LifecyclePolicyCrossRegionCopyActionOutput) ToLifecyclePolicyCrossRegionCopyActionOutputWithContext(ctx context.Context) LifecyclePolicyCrossRegionCopyActionOutput {
 	return o
+}
+
+func (o LifecyclePolicyCrossRegionCopyActionOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyCrossRegionCopyAction] {
+	return pulumix.Output[LifecyclePolicyCrossRegionCopyAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LifecyclePolicyCrossRegionCopyActionOutput) EncryptionConfiguration() LifecyclePolicyEncryptionConfigurationOutput {
@@ -676,6 +791,12 @@ func (o LifecyclePolicyCrossRegionCopyActionArrayOutput) ToLifecyclePolicyCrossR
 
 func (o LifecyclePolicyCrossRegionCopyActionArrayOutput) ToLifecyclePolicyCrossRegionCopyActionArrayOutputWithContext(ctx context.Context) LifecyclePolicyCrossRegionCopyActionArrayOutput {
 	return o
+}
+
+func (o LifecyclePolicyCrossRegionCopyActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LifecyclePolicyCrossRegionCopyAction] {
+	return pulumix.Output[[]LifecyclePolicyCrossRegionCopyAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LifecyclePolicyCrossRegionCopyActionArrayOutput) Index(i pulumi.IntInput) LifecyclePolicyCrossRegionCopyActionOutput {
@@ -715,6 +836,12 @@ func (i LifecyclePolicyCrossRegionCopyDeprecateRuleArgs) ToLifecyclePolicyCrossR
 
 func (i LifecyclePolicyCrossRegionCopyDeprecateRuleArgs) ToLifecyclePolicyCrossRegionCopyDeprecateRuleOutputWithContext(ctx context.Context) LifecyclePolicyCrossRegionCopyDeprecateRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyCrossRegionCopyDeprecateRuleOutput)
+}
+
+func (i LifecyclePolicyCrossRegionCopyDeprecateRuleArgs) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyCrossRegionCopyDeprecateRule] {
+	return pulumix.Output[LifecyclePolicyCrossRegionCopyDeprecateRule]{
+		OutputState: i.ToLifecyclePolicyCrossRegionCopyDeprecateRuleOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i LifecyclePolicyCrossRegionCopyDeprecateRuleArgs) ToLifecyclePolicyCrossRegionCopyDeprecateRulePtrOutput() LifecyclePolicyCrossRegionCopyDeprecateRulePtrOutput {
@@ -758,6 +885,12 @@ func (i *lifecyclePolicyCrossRegionCopyDeprecateRulePtrType) ToLifecyclePolicyCr
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyCrossRegionCopyDeprecateRulePtrOutput)
 }
 
+func (i *lifecyclePolicyCrossRegionCopyDeprecateRulePtrType) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyCrossRegionCopyDeprecateRule] {
+	return pulumix.Output[*LifecyclePolicyCrossRegionCopyDeprecateRule]{
+		OutputState: i.ToLifecyclePolicyCrossRegionCopyDeprecateRulePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LifecyclePolicyCrossRegionCopyDeprecateRuleOutput struct{ *pulumi.OutputState }
 
 func (LifecyclePolicyCrossRegionCopyDeprecateRuleOutput) ElementType() reflect.Type {
@@ -782,6 +915,12 @@ func (o LifecyclePolicyCrossRegionCopyDeprecateRuleOutput) ToLifecyclePolicyCros
 	}).(LifecyclePolicyCrossRegionCopyDeprecateRulePtrOutput)
 }
 
+func (o LifecyclePolicyCrossRegionCopyDeprecateRuleOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyCrossRegionCopyDeprecateRule] {
+	return pulumix.Output[LifecyclePolicyCrossRegionCopyDeprecateRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LifecyclePolicyCrossRegionCopyDeprecateRuleOutput) Interval() pulumi.IntOutput {
 	return o.ApplyT(func(v LifecyclePolicyCrossRegionCopyDeprecateRule) int { return v.Interval }).(pulumi.IntOutput)
 }
@@ -802,6 +941,12 @@ func (o LifecyclePolicyCrossRegionCopyDeprecateRulePtrOutput) ToLifecyclePolicyC
 
 func (o LifecyclePolicyCrossRegionCopyDeprecateRulePtrOutput) ToLifecyclePolicyCrossRegionCopyDeprecateRulePtrOutputWithContext(ctx context.Context) LifecyclePolicyCrossRegionCopyDeprecateRulePtrOutput {
 	return o
+}
+
+func (o LifecyclePolicyCrossRegionCopyDeprecateRulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyCrossRegionCopyDeprecateRule] {
+	return pulumix.Output[*LifecyclePolicyCrossRegionCopyDeprecateRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LifecyclePolicyCrossRegionCopyDeprecateRulePtrOutput) Elem() LifecyclePolicyCrossRegionCopyDeprecateRuleOutput {
@@ -865,6 +1010,12 @@ func (i LifecyclePolicyCrossRegionCopyRetainRuleArgs) ToLifecyclePolicyCrossRegi
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyCrossRegionCopyRetainRuleOutput)
 }
 
+func (i LifecyclePolicyCrossRegionCopyRetainRuleArgs) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyCrossRegionCopyRetainRule] {
+	return pulumix.Output[LifecyclePolicyCrossRegionCopyRetainRule]{
+		OutputState: i.ToLifecyclePolicyCrossRegionCopyRetainRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i LifecyclePolicyCrossRegionCopyRetainRuleArgs) ToLifecyclePolicyCrossRegionCopyRetainRulePtrOutput() LifecyclePolicyCrossRegionCopyRetainRulePtrOutput {
 	return i.ToLifecyclePolicyCrossRegionCopyRetainRulePtrOutputWithContext(context.Background())
 }
@@ -906,6 +1057,12 @@ func (i *lifecyclePolicyCrossRegionCopyRetainRulePtrType) ToLifecyclePolicyCross
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyCrossRegionCopyRetainRulePtrOutput)
 }
 
+func (i *lifecyclePolicyCrossRegionCopyRetainRulePtrType) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyCrossRegionCopyRetainRule] {
+	return pulumix.Output[*LifecyclePolicyCrossRegionCopyRetainRule]{
+		OutputState: i.ToLifecyclePolicyCrossRegionCopyRetainRulePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LifecyclePolicyCrossRegionCopyRetainRuleOutput struct{ *pulumi.OutputState }
 
 func (LifecyclePolicyCrossRegionCopyRetainRuleOutput) ElementType() reflect.Type {
@@ -930,6 +1087,12 @@ func (o LifecyclePolicyCrossRegionCopyRetainRuleOutput) ToLifecyclePolicyCrossRe
 	}).(LifecyclePolicyCrossRegionCopyRetainRulePtrOutput)
 }
 
+func (o LifecyclePolicyCrossRegionCopyRetainRuleOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyCrossRegionCopyRetainRule] {
+	return pulumix.Output[LifecyclePolicyCrossRegionCopyRetainRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LifecyclePolicyCrossRegionCopyRetainRuleOutput) Interval() pulumi.IntOutput {
 	return o.ApplyT(func(v LifecyclePolicyCrossRegionCopyRetainRule) int { return v.Interval }).(pulumi.IntOutput)
 }
@@ -950,6 +1113,12 @@ func (o LifecyclePolicyCrossRegionCopyRetainRulePtrOutput) ToLifecyclePolicyCros
 
 func (o LifecyclePolicyCrossRegionCopyRetainRulePtrOutput) ToLifecyclePolicyCrossRegionCopyRetainRulePtrOutputWithContext(ctx context.Context) LifecyclePolicyCrossRegionCopyRetainRulePtrOutput {
 	return o
+}
+
+func (o LifecyclePolicyCrossRegionCopyRetainRulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyCrossRegionCopyRetainRule] {
+	return pulumix.Output[*LifecyclePolicyCrossRegionCopyRetainRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LifecyclePolicyCrossRegionCopyRetainRulePtrOutput) Elem() LifecyclePolicyCrossRegionCopyRetainRuleOutput {
@@ -1023,6 +1192,12 @@ func (i LifecyclePolicyCrossRegionCopyRuleArgs) ToLifecyclePolicyCrossRegionCopy
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyCrossRegionCopyRuleOutput)
 }
 
+func (i LifecyclePolicyCrossRegionCopyRuleArgs) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyCrossRegionCopyRule] {
+	return pulumix.Output[LifecyclePolicyCrossRegionCopyRule]{
+		OutputState: i.ToLifecyclePolicyCrossRegionCopyRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LifecyclePolicyCrossRegionCopyRuleArrayInput is an input type that accepts LifecyclePolicyCrossRegionCopyRuleArray and LifecyclePolicyCrossRegionCopyRuleArrayOutput values.
 // You can construct a concrete instance of `LifecyclePolicyCrossRegionCopyRuleArrayInput` via:
 //
@@ -1048,6 +1223,12 @@ func (i LifecyclePolicyCrossRegionCopyRuleArray) ToLifecyclePolicyCrossRegionCop
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyCrossRegionCopyRuleArrayOutput)
 }
 
+func (i LifecyclePolicyCrossRegionCopyRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]LifecyclePolicyCrossRegionCopyRule] {
+	return pulumix.Output[[]LifecyclePolicyCrossRegionCopyRule]{
+		OutputState: i.ToLifecyclePolicyCrossRegionCopyRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LifecyclePolicyCrossRegionCopyRuleOutput struct{ *pulumi.OutputState }
 
 func (LifecyclePolicyCrossRegionCopyRuleOutput) ElementType() reflect.Type {
@@ -1060,6 +1241,12 @@ func (o LifecyclePolicyCrossRegionCopyRuleOutput) ToLifecyclePolicyCrossRegionCo
 
 func (o LifecyclePolicyCrossRegionCopyRuleOutput) ToLifecyclePolicyCrossRegionCopyRuleOutputWithContext(ctx context.Context) LifecyclePolicyCrossRegionCopyRuleOutput {
 	return o
+}
+
+func (o LifecyclePolicyCrossRegionCopyRuleOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyCrossRegionCopyRule] {
+	return pulumix.Output[LifecyclePolicyCrossRegionCopyRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LifecyclePolicyCrossRegionCopyRuleOutput) CmkArn() pulumi.StringPtrOutput {
@@ -1108,6 +1295,12 @@ func (o LifecyclePolicyCrossRegionCopyRuleArrayOutput) ToLifecyclePolicyCrossReg
 	return o
 }
 
+func (o LifecyclePolicyCrossRegionCopyRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LifecyclePolicyCrossRegionCopyRule] {
+	return pulumix.Output[[]LifecyclePolicyCrossRegionCopyRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LifecyclePolicyCrossRegionCopyRuleArrayOutput) Index(i pulumi.IntInput) LifecyclePolicyCrossRegionCopyRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LifecyclePolicyCrossRegionCopyRule {
 		return vs[0].([]LifecyclePolicyCrossRegionCopyRule)[vs[1].(int)]
@@ -1147,6 +1340,12 @@ func (i LifecyclePolicyDeprecateRuleArgs) ToLifecyclePolicyDeprecateRuleOutput()
 
 func (i LifecyclePolicyDeprecateRuleArgs) ToLifecyclePolicyDeprecateRuleOutputWithContext(ctx context.Context) LifecyclePolicyDeprecateRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyDeprecateRuleOutput)
+}
+
+func (i LifecyclePolicyDeprecateRuleArgs) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyDeprecateRule] {
+	return pulumix.Output[LifecyclePolicyDeprecateRule]{
+		OutputState: i.ToLifecyclePolicyDeprecateRuleOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i LifecyclePolicyDeprecateRuleArgs) ToLifecyclePolicyDeprecateRulePtrOutput() LifecyclePolicyDeprecateRulePtrOutput {
@@ -1190,6 +1389,12 @@ func (i *lifecyclePolicyDeprecateRulePtrType) ToLifecyclePolicyDeprecateRulePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyDeprecateRulePtrOutput)
 }
 
+func (i *lifecyclePolicyDeprecateRulePtrType) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyDeprecateRule] {
+	return pulumix.Output[*LifecyclePolicyDeprecateRule]{
+		OutputState: i.ToLifecyclePolicyDeprecateRulePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LifecyclePolicyDeprecateRuleOutput struct{ *pulumi.OutputState }
 
 func (LifecyclePolicyDeprecateRuleOutput) ElementType() reflect.Type {
@@ -1212,6 +1417,12 @@ func (o LifecyclePolicyDeprecateRuleOutput) ToLifecyclePolicyDeprecateRulePtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v LifecyclePolicyDeprecateRule) *LifecyclePolicyDeprecateRule {
 		return &v
 	}).(LifecyclePolicyDeprecateRulePtrOutput)
+}
+
+func (o LifecyclePolicyDeprecateRuleOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyDeprecateRule] {
+	return pulumix.Output[LifecyclePolicyDeprecateRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LifecyclePolicyDeprecateRuleOutput) Count() pulumi.IntPtrOutput {
@@ -1238,6 +1449,12 @@ func (o LifecyclePolicyDeprecateRulePtrOutput) ToLifecyclePolicyDeprecateRulePtr
 
 func (o LifecyclePolicyDeprecateRulePtrOutput) ToLifecyclePolicyDeprecateRulePtrOutputWithContext(ctx context.Context) LifecyclePolicyDeprecateRulePtrOutput {
 	return o
+}
+
+func (o LifecyclePolicyDeprecateRulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyDeprecateRule] {
+	return pulumix.Output[*LifecyclePolicyDeprecateRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LifecyclePolicyDeprecateRulePtrOutput) Elem() LifecyclePolicyDeprecateRuleOutput {
@@ -1310,6 +1527,12 @@ func (i LifecyclePolicyEncryptionConfigurationArgs) ToLifecyclePolicyEncryptionC
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyEncryptionConfigurationOutput)
 }
 
+func (i LifecyclePolicyEncryptionConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyEncryptionConfiguration] {
+	return pulumix.Output[LifecyclePolicyEncryptionConfiguration]{
+		OutputState: i.ToLifecyclePolicyEncryptionConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LifecyclePolicyEncryptionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (LifecyclePolicyEncryptionConfigurationOutput) ElementType() reflect.Type {
@@ -1322,6 +1545,12 @@ func (o LifecyclePolicyEncryptionConfigurationOutput) ToLifecyclePolicyEncryptio
 
 func (o LifecyclePolicyEncryptionConfigurationOutput) ToLifecyclePolicyEncryptionConfigurationOutputWithContext(ctx context.Context) LifecyclePolicyEncryptionConfigurationOutput {
 	return o
+}
+
+func (o LifecyclePolicyEncryptionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyEncryptionConfiguration] {
+	return pulumix.Output[LifecyclePolicyEncryptionConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LifecyclePolicyEncryptionConfigurationOutput) CmkArn() pulumi.StringPtrOutput {
@@ -1367,6 +1596,12 @@ func (i LifecyclePolicyEventParametersArgs) ToLifecyclePolicyEventParametersOutp
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyEventParametersOutput)
 }
 
+func (i LifecyclePolicyEventParametersArgs) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyEventParameters] {
+	return pulumix.Output[LifecyclePolicyEventParameters]{
+		OutputState: i.ToLifecyclePolicyEventParametersOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i LifecyclePolicyEventParametersArgs) ToLifecyclePolicyEventParametersPtrOutput() LifecyclePolicyEventParametersPtrOutput {
 	return i.ToLifecyclePolicyEventParametersPtrOutputWithContext(context.Background())
 }
@@ -1408,6 +1643,12 @@ func (i *lifecyclePolicyEventParametersPtrType) ToLifecyclePolicyEventParameters
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyEventParametersPtrOutput)
 }
 
+func (i *lifecyclePolicyEventParametersPtrType) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyEventParameters] {
+	return pulumix.Output[*LifecyclePolicyEventParameters]{
+		OutputState: i.ToLifecyclePolicyEventParametersPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LifecyclePolicyEventParametersOutput struct{ *pulumi.OutputState }
 
 func (LifecyclePolicyEventParametersOutput) ElementType() reflect.Type {
@@ -1430,6 +1671,12 @@ func (o LifecyclePolicyEventParametersOutput) ToLifecyclePolicyEventParametersPt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v LifecyclePolicyEventParameters) *LifecyclePolicyEventParameters {
 		return &v
 	}).(LifecyclePolicyEventParametersPtrOutput)
+}
+
+func (o LifecyclePolicyEventParametersOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyEventParameters] {
+	return pulumix.Output[LifecyclePolicyEventParameters]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LifecyclePolicyEventParametersOutput) DescriptionRegex() pulumi.StringPtrOutput {
@@ -1456,6 +1703,12 @@ func (o LifecyclePolicyEventParametersPtrOutput) ToLifecyclePolicyEventParameter
 
 func (o LifecyclePolicyEventParametersPtrOutput) ToLifecyclePolicyEventParametersPtrOutputWithContext(ctx context.Context) LifecyclePolicyEventParametersPtrOutput {
 	return o
+}
+
+func (o LifecyclePolicyEventParametersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyEventParameters] {
+	return pulumix.Output[*LifecyclePolicyEventParameters]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LifecyclePolicyEventParametersPtrOutput) Elem() LifecyclePolicyEventParametersOutput {
@@ -1528,6 +1781,12 @@ func (i LifecyclePolicyEventSourceArgs) ToLifecyclePolicyEventSourceOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyEventSourceOutput)
 }
 
+func (i LifecyclePolicyEventSourceArgs) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyEventSource] {
+	return pulumix.Output[LifecyclePolicyEventSource]{
+		OutputState: i.ToLifecyclePolicyEventSourceOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i LifecyclePolicyEventSourceArgs) ToLifecyclePolicyEventSourcePtrOutput() LifecyclePolicyEventSourcePtrOutput {
 	return i.ToLifecyclePolicyEventSourcePtrOutputWithContext(context.Background())
 }
@@ -1569,6 +1828,12 @@ func (i *lifecyclePolicyEventSourcePtrType) ToLifecyclePolicyEventSourcePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyEventSourcePtrOutput)
 }
 
+func (i *lifecyclePolicyEventSourcePtrType) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyEventSource] {
+	return pulumix.Output[*LifecyclePolicyEventSource]{
+		OutputState: i.ToLifecyclePolicyEventSourcePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LifecyclePolicyEventSourceOutput struct{ *pulumi.OutputState }
 
 func (LifecyclePolicyEventSourceOutput) ElementType() reflect.Type {
@@ -1593,6 +1858,12 @@ func (o LifecyclePolicyEventSourceOutput) ToLifecyclePolicyEventSourcePtrOutputW
 	}).(LifecyclePolicyEventSourcePtrOutput)
 }
 
+func (o LifecyclePolicyEventSourceOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyEventSource] {
+	return pulumix.Output[LifecyclePolicyEventSource]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LifecyclePolicyEventSourceOutput) Parameters() LifecyclePolicyEventParametersPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyEventSource) *LifecyclePolicyEventParameters { return v.Parameters }).(LifecyclePolicyEventParametersPtrOutput)
 }
@@ -1613,6 +1884,12 @@ func (o LifecyclePolicyEventSourcePtrOutput) ToLifecyclePolicyEventSourcePtrOutp
 
 func (o LifecyclePolicyEventSourcePtrOutput) ToLifecyclePolicyEventSourcePtrOutputWithContext(ctx context.Context) LifecyclePolicyEventSourcePtrOutput {
 	return o
+}
+
+func (o LifecyclePolicyEventSourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyEventSource] {
+	return pulumix.Output[*LifecyclePolicyEventSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LifecyclePolicyEventSourcePtrOutput) Elem() LifecyclePolicyEventSourceOutput {
@@ -1680,6 +1957,12 @@ func (i LifecyclePolicyFastRestoreRuleArgs) ToLifecyclePolicyFastRestoreRuleOutp
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyFastRestoreRuleOutput)
 }
 
+func (i LifecyclePolicyFastRestoreRuleArgs) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyFastRestoreRule] {
+	return pulumix.Output[LifecyclePolicyFastRestoreRule]{
+		OutputState: i.ToLifecyclePolicyFastRestoreRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i LifecyclePolicyFastRestoreRuleArgs) ToLifecyclePolicyFastRestoreRulePtrOutput() LifecyclePolicyFastRestoreRulePtrOutput {
 	return i.ToLifecyclePolicyFastRestoreRulePtrOutputWithContext(context.Background())
 }
@@ -1721,6 +2004,12 @@ func (i *lifecyclePolicyFastRestoreRulePtrType) ToLifecyclePolicyFastRestoreRule
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyFastRestoreRulePtrOutput)
 }
 
+func (i *lifecyclePolicyFastRestoreRulePtrType) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyFastRestoreRule] {
+	return pulumix.Output[*LifecyclePolicyFastRestoreRule]{
+		OutputState: i.ToLifecyclePolicyFastRestoreRulePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LifecyclePolicyFastRestoreRuleOutput struct{ *pulumi.OutputState }
 
 func (LifecyclePolicyFastRestoreRuleOutput) ElementType() reflect.Type {
@@ -1743,6 +2032,12 @@ func (o LifecyclePolicyFastRestoreRuleOutput) ToLifecyclePolicyFastRestoreRulePt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v LifecyclePolicyFastRestoreRule) *LifecyclePolicyFastRestoreRule {
 		return &v
 	}).(LifecyclePolicyFastRestoreRulePtrOutput)
+}
+
+func (o LifecyclePolicyFastRestoreRuleOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyFastRestoreRule] {
+	return pulumix.Output[LifecyclePolicyFastRestoreRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LifecyclePolicyFastRestoreRuleOutput) AvailabilityZones() pulumi.StringArrayOutput {
@@ -1773,6 +2068,12 @@ func (o LifecyclePolicyFastRestoreRulePtrOutput) ToLifecyclePolicyFastRestoreRul
 
 func (o LifecyclePolicyFastRestoreRulePtrOutput) ToLifecyclePolicyFastRestoreRulePtrOutputWithContext(ctx context.Context) LifecyclePolicyFastRestoreRulePtrOutput {
 	return o
+}
+
+func (o LifecyclePolicyFastRestoreRulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyFastRestoreRule] {
+	return pulumix.Output[*LifecyclePolicyFastRestoreRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LifecyclePolicyFastRestoreRulePtrOutput) Elem() LifecyclePolicyFastRestoreRuleOutput {
@@ -1856,6 +2157,12 @@ func (i LifecyclePolicyParametersArgs) ToLifecyclePolicyParametersOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyParametersOutput)
 }
 
+func (i LifecyclePolicyParametersArgs) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyParameters] {
+	return pulumix.Output[LifecyclePolicyParameters]{
+		OutputState: i.ToLifecyclePolicyParametersOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i LifecyclePolicyParametersArgs) ToLifecyclePolicyParametersPtrOutput() LifecyclePolicyParametersPtrOutput {
 	return i.ToLifecyclePolicyParametersPtrOutputWithContext(context.Background())
 }
@@ -1897,6 +2204,12 @@ func (i *lifecyclePolicyParametersPtrType) ToLifecyclePolicyParametersPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyParametersPtrOutput)
 }
 
+func (i *lifecyclePolicyParametersPtrType) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyParameters] {
+	return pulumix.Output[*LifecyclePolicyParameters]{
+		OutputState: i.ToLifecyclePolicyParametersPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LifecyclePolicyParametersOutput struct{ *pulumi.OutputState }
 
 func (LifecyclePolicyParametersOutput) ElementType() reflect.Type {
@@ -1919,6 +2232,12 @@ func (o LifecyclePolicyParametersOutput) ToLifecyclePolicyParametersPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v LifecyclePolicyParameters) *LifecyclePolicyParameters {
 		return &v
 	}).(LifecyclePolicyParametersPtrOutput)
+}
+
+func (o LifecyclePolicyParametersOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyParameters] {
+	return pulumix.Output[LifecyclePolicyParameters]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LifecyclePolicyParametersOutput) ExcludeBootVolume() pulumi.BoolPtrOutput {
@@ -1945,6 +2264,12 @@ func (o LifecyclePolicyParametersPtrOutput) ToLifecyclePolicyParametersPtrOutput
 
 func (o LifecyclePolicyParametersPtrOutput) ToLifecyclePolicyParametersPtrOutputWithContext(ctx context.Context) LifecyclePolicyParametersPtrOutput {
 	return o
+}
+
+func (o LifecyclePolicyParametersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyParameters] {
+	return pulumix.Output[*LifecyclePolicyParameters]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LifecyclePolicyParametersPtrOutput) Elem() LifecyclePolicyParametersOutput {
@@ -2029,6 +2354,12 @@ func (i LifecyclePolicyPolicyDetailsArgs) ToLifecyclePolicyPolicyDetailsOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsOutput)
 }
 
+func (i LifecyclePolicyPolicyDetailsArgs) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyPolicyDetails] {
+	return pulumix.Output[LifecyclePolicyPolicyDetails]{
+		OutputState: i.ToLifecyclePolicyPolicyDetailsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i LifecyclePolicyPolicyDetailsArgs) ToLifecyclePolicyPolicyDetailsPtrOutput() LifecyclePolicyPolicyDetailsPtrOutput {
 	return i.ToLifecyclePolicyPolicyDetailsPtrOutputWithContext(context.Background())
 }
@@ -2070,6 +2401,12 @@ func (i *lifecyclePolicyPolicyDetailsPtrType) ToLifecyclePolicyPolicyDetailsPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsPtrOutput)
 }
 
+func (i *lifecyclePolicyPolicyDetailsPtrType) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyPolicyDetails] {
+	return pulumix.Output[*LifecyclePolicyPolicyDetails]{
+		OutputState: i.ToLifecyclePolicyPolicyDetailsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LifecyclePolicyPolicyDetailsOutput struct{ *pulumi.OutputState }
 
 func (LifecyclePolicyPolicyDetailsOutput) ElementType() reflect.Type {
@@ -2092,6 +2429,12 @@ func (o LifecyclePolicyPolicyDetailsOutput) ToLifecyclePolicyPolicyDetailsPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v LifecyclePolicyPolicyDetails) *LifecyclePolicyPolicyDetails {
 		return &v
 	}).(LifecyclePolicyPolicyDetailsPtrOutput)
+}
+
+func (o LifecyclePolicyPolicyDetailsOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyPolicyDetails] {
+	return pulumix.Output[LifecyclePolicyPolicyDetails]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LifecyclePolicyPolicyDetailsOutput) Actions() LifecyclePolicyActionArrayOutput {
@@ -2138,6 +2481,12 @@ func (o LifecyclePolicyPolicyDetailsPtrOutput) ToLifecyclePolicyPolicyDetailsPtr
 
 func (o LifecyclePolicyPolicyDetailsPtrOutput) ToLifecyclePolicyPolicyDetailsPtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsPtrOutput {
 	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyPolicyDetails] {
+	return pulumix.Output[*LifecyclePolicyPolicyDetails]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LifecyclePolicyPolicyDetailsPtrOutput) Elem() LifecyclePolicyPolicyDetailsOutput {
@@ -2257,6 +2606,12 @@ func (i LifecyclePolicyRetainRuleArgs) ToLifecyclePolicyRetainRuleOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyRetainRuleOutput)
 }
 
+func (i LifecyclePolicyRetainRuleArgs) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyRetainRule] {
+	return pulumix.Output[LifecyclePolicyRetainRule]{
+		OutputState: i.ToLifecyclePolicyRetainRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i LifecyclePolicyRetainRuleArgs) ToLifecyclePolicyRetainRulePtrOutput() LifecyclePolicyRetainRulePtrOutput {
 	return i.ToLifecyclePolicyRetainRulePtrOutputWithContext(context.Background())
 }
@@ -2298,6 +2653,12 @@ func (i *lifecyclePolicyRetainRulePtrType) ToLifecyclePolicyRetainRulePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyRetainRulePtrOutput)
 }
 
+func (i *lifecyclePolicyRetainRulePtrType) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyRetainRule] {
+	return pulumix.Output[*LifecyclePolicyRetainRule]{
+		OutputState: i.ToLifecyclePolicyRetainRulePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LifecyclePolicyRetainRuleOutput struct{ *pulumi.OutputState }
 
 func (LifecyclePolicyRetainRuleOutput) ElementType() reflect.Type {
@@ -2320,6 +2681,12 @@ func (o LifecyclePolicyRetainRuleOutput) ToLifecyclePolicyRetainRulePtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v LifecyclePolicyRetainRule) *LifecyclePolicyRetainRule {
 		return &v
 	}).(LifecyclePolicyRetainRulePtrOutput)
+}
+
+func (o LifecyclePolicyRetainRuleOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyRetainRule] {
+	return pulumix.Output[LifecyclePolicyRetainRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LifecyclePolicyRetainRuleOutput) Count() pulumi.IntPtrOutput {
@@ -2346,6 +2713,12 @@ func (o LifecyclePolicyRetainRulePtrOutput) ToLifecyclePolicyRetainRulePtrOutput
 
 func (o LifecyclePolicyRetainRulePtrOutput) ToLifecyclePolicyRetainRulePtrOutputWithContext(ctx context.Context) LifecyclePolicyRetainRulePtrOutput {
 	return o
+}
+
+func (o LifecyclePolicyRetainRulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyRetainRule] {
+	return pulumix.Output[*LifecyclePolicyRetainRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LifecyclePolicyRetainRulePtrOutput) Elem() LifecyclePolicyRetainRuleOutput {
@@ -2420,6 +2793,12 @@ func (i LifecyclePolicyRetentionArchiveTierArgs) ToLifecyclePolicyRetentionArchi
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyRetentionArchiveTierOutput)
 }
 
+func (i LifecyclePolicyRetentionArchiveTierArgs) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyRetentionArchiveTier] {
+	return pulumix.Output[LifecyclePolicyRetentionArchiveTier]{
+		OutputState: i.ToLifecyclePolicyRetentionArchiveTierOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i LifecyclePolicyRetentionArchiveTierArgs) ToLifecyclePolicyRetentionArchiveTierPtrOutput() LifecyclePolicyRetentionArchiveTierPtrOutput {
 	return i.ToLifecyclePolicyRetentionArchiveTierPtrOutputWithContext(context.Background())
 }
@@ -2461,6 +2840,12 @@ func (i *lifecyclePolicyRetentionArchiveTierPtrType) ToLifecyclePolicyRetentionA
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyRetentionArchiveTierPtrOutput)
 }
 
+func (i *lifecyclePolicyRetentionArchiveTierPtrType) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyRetentionArchiveTier] {
+	return pulumix.Output[*LifecyclePolicyRetentionArchiveTier]{
+		OutputState: i.ToLifecyclePolicyRetentionArchiveTierPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LifecyclePolicyRetentionArchiveTierOutput struct{ *pulumi.OutputState }
 
 func (LifecyclePolicyRetentionArchiveTierOutput) ElementType() reflect.Type {
@@ -2483,6 +2868,12 @@ func (o LifecyclePolicyRetentionArchiveTierOutput) ToLifecyclePolicyRetentionArc
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v LifecyclePolicyRetentionArchiveTier) *LifecyclePolicyRetentionArchiveTier {
 		return &v
 	}).(LifecyclePolicyRetentionArchiveTierPtrOutput)
+}
+
+func (o LifecyclePolicyRetentionArchiveTierOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyRetentionArchiveTier] {
+	return pulumix.Output[LifecyclePolicyRetentionArchiveTier]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LifecyclePolicyRetentionArchiveTierOutput) Count() pulumi.IntPtrOutput {
@@ -2509,6 +2900,12 @@ func (o LifecyclePolicyRetentionArchiveTierPtrOutput) ToLifecyclePolicyRetention
 
 func (o LifecyclePolicyRetentionArchiveTierPtrOutput) ToLifecyclePolicyRetentionArchiveTierPtrOutputWithContext(ctx context.Context) LifecyclePolicyRetentionArchiveTierPtrOutput {
 	return o
+}
+
+func (o LifecyclePolicyRetentionArchiveTierPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyRetentionArchiveTier] {
+	return pulumix.Output[*LifecyclePolicyRetentionArchiveTier]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LifecyclePolicyRetentionArchiveTierPtrOutput) Elem() LifecyclePolicyRetentionArchiveTierOutput {
@@ -2599,6 +2996,12 @@ func (i LifecyclePolicyScheduleArgs) ToLifecyclePolicyScheduleOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyScheduleOutput)
 }
 
+func (i LifecyclePolicyScheduleArgs) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicySchedule] {
+	return pulumix.Output[LifecyclePolicySchedule]{
+		OutputState: i.ToLifecyclePolicyScheduleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LifecyclePolicyScheduleArrayInput is an input type that accepts LifecyclePolicyScheduleArray and LifecyclePolicyScheduleArrayOutput values.
 // You can construct a concrete instance of `LifecyclePolicyScheduleArrayInput` via:
 //
@@ -2624,6 +3027,12 @@ func (i LifecyclePolicyScheduleArray) ToLifecyclePolicyScheduleArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyScheduleArrayOutput)
 }
 
+func (i LifecyclePolicyScheduleArray) ToOutput(ctx context.Context) pulumix.Output[[]LifecyclePolicySchedule] {
+	return pulumix.Output[[]LifecyclePolicySchedule]{
+		OutputState: i.ToLifecyclePolicyScheduleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LifecyclePolicyScheduleOutput struct{ *pulumi.OutputState }
 
 func (LifecyclePolicyScheduleOutput) ElementType() reflect.Type {
@@ -2636,6 +3045,12 @@ func (o LifecyclePolicyScheduleOutput) ToLifecyclePolicyScheduleOutput() Lifecyc
 
 func (o LifecyclePolicyScheduleOutput) ToLifecyclePolicyScheduleOutputWithContext(ctx context.Context) LifecyclePolicyScheduleOutput {
 	return o
+}
+
+func (o LifecyclePolicyScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicySchedule] {
+	return pulumix.Output[LifecyclePolicySchedule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LifecyclePolicyScheduleOutput) ArchiveRule() LifecyclePolicyArchiveRulePtrOutput {
@@ -2696,6 +3111,12 @@ func (o LifecyclePolicyScheduleArrayOutput) ToLifecyclePolicyScheduleArrayOutput
 	return o
 }
 
+func (o LifecyclePolicyScheduleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LifecyclePolicySchedule] {
+	return pulumix.Output[[]LifecyclePolicySchedule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LifecyclePolicyScheduleArrayOutput) Index(i pulumi.IntInput) LifecyclePolicyScheduleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LifecyclePolicySchedule {
 		return vs[0].([]LifecyclePolicySchedule)[vs[1].(int)]
@@ -2737,6 +3158,12 @@ func (i LifecyclePolicyShareRuleArgs) ToLifecyclePolicyShareRuleOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyShareRuleOutput)
 }
 
+func (i LifecyclePolicyShareRuleArgs) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyShareRule] {
+	return pulumix.Output[LifecyclePolicyShareRule]{
+		OutputState: i.ToLifecyclePolicyShareRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LifecyclePolicyShareRuleArrayInput is an input type that accepts LifecyclePolicyShareRuleArray and LifecyclePolicyShareRuleArrayOutput values.
 // You can construct a concrete instance of `LifecyclePolicyShareRuleArrayInput` via:
 //
@@ -2762,6 +3189,12 @@ func (i LifecyclePolicyShareRuleArray) ToLifecyclePolicyShareRuleArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyShareRuleArrayOutput)
 }
 
+func (i LifecyclePolicyShareRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]LifecyclePolicyShareRule] {
+	return pulumix.Output[[]LifecyclePolicyShareRule]{
+		OutputState: i.ToLifecyclePolicyShareRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LifecyclePolicyShareRuleOutput struct{ *pulumi.OutputState }
 
 func (LifecyclePolicyShareRuleOutput) ElementType() reflect.Type {
@@ -2774,6 +3207,12 @@ func (o LifecyclePolicyShareRuleOutput) ToLifecyclePolicyShareRuleOutput() Lifec
 
 func (o LifecyclePolicyShareRuleOutput) ToLifecyclePolicyShareRuleOutputWithContext(ctx context.Context) LifecyclePolicyShareRuleOutput {
 	return o
+}
+
+func (o LifecyclePolicyShareRuleOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyShareRule] {
+	return pulumix.Output[LifecyclePolicyShareRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LifecyclePolicyShareRuleOutput) TargetAccounts() pulumi.StringArrayOutput {
@@ -2800,6 +3239,12 @@ func (o LifecyclePolicyShareRuleArrayOutput) ToLifecyclePolicyShareRuleArrayOutp
 
 func (o LifecyclePolicyShareRuleArrayOutput) ToLifecyclePolicyShareRuleArrayOutputWithContext(ctx context.Context) LifecyclePolicyShareRuleArrayOutput {
 	return o
+}
+
+func (o LifecyclePolicyShareRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LifecyclePolicyShareRule] {
+	return pulumix.Output[[]LifecyclePolicyShareRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LifecyclePolicyShareRuleArrayOutput) Index(i pulumi.IntInput) LifecyclePolicyShareRuleOutput {
@@ -2841,6 +3286,12 @@ func (i LifecyclePolicyTagArgs) ToLifecyclePolicyTagOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyTagOutput)
 }
 
+func (i LifecyclePolicyTagArgs) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyTag] {
+	return pulumix.Output[LifecyclePolicyTag]{
+		OutputState: i.ToLifecyclePolicyTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LifecyclePolicyTagArrayInput is an input type that accepts LifecyclePolicyTagArray and LifecyclePolicyTagArrayOutput values.
 // You can construct a concrete instance of `LifecyclePolicyTagArrayInput` via:
 //
@@ -2866,6 +3317,12 @@ func (i LifecyclePolicyTagArray) ToLifecyclePolicyTagArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyTagArrayOutput)
 }
 
+func (i LifecyclePolicyTagArray) ToOutput(ctx context.Context) pulumix.Output[[]LifecyclePolicyTag] {
+	return pulumix.Output[[]LifecyclePolicyTag]{
+		OutputState: i.ToLifecyclePolicyTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LifecyclePolicyTagOutput struct{ *pulumi.OutputState }
 
 func (LifecyclePolicyTagOutput) ElementType() reflect.Type {
@@ -2878,6 +3335,12 @@ func (o LifecyclePolicyTagOutput) ToLifecyclePolicyTagOutput() LifecyclePolicyTa
 
 func (o LifecyclePolicyTagOutput) ToLifecyclePolicyTagOutputWithContext(ctx context.Context) LifecyclePolicyTagOutput {
 	return o
+}
+
+func (o LifecyclePolicyTagOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyTag] {
+	return pulumix.Output[LifecyclePolicyTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LifecyclePolicyTagOutput) Key() pulumi.StringOutput {
@@ -2900,6 +3363,12 @@ func (o LifecyclePolicyTagArrayOutput) ToLifecyclePolicyTagArrayOutput() Lifecyc
 
 func (o LifecyclePolicyTagArrayOutput) ToLifecyclePolicyTagArrayOutputWithContext(ctx context.Context) LifecyclePolicyTagArrayOutput {
 	return o
+}
+
+func (o LifecyclePolicyTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LifecyclePolicyTag] {
+	return pulumix.Output[[]LifecyclePolicyTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LifecyclePolicyTagArrayOutput) Index(i pulumi.IntInput) LifecyclePolicyTagOutput {

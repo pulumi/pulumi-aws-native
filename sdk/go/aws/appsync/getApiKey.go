@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AppSync::ApiKey
@@ -67,6 +68,12 @@ func (o LookupApiKeyResultOutput) ToLookupApiKeyResultOutput() LookupApiKeyResul
 
 func (o LookupApiKeyResultOutput) ToLookupApiKeyResultOutputWithContext(ctx context.Context) LookupApiKeyResultOutput {
 	return o
+}
+
+func (o LookupApiKeyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupApiKeyResult] {
+	return pulumix.Output[LookupApiKeyResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupApiKeyResultOutput) ApiKey() pulumi.StringPtrOutput {

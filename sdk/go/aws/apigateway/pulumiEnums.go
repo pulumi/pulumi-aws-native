@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The type of API entity that the documentation content applies to.
@@ -88,6 +89,12 @@ func (o DocumentationPartLocationTypeOutput) ToDocumentationPartLocationTypePtrO
 	}).(DocumentationPartLocationTypePtrOutput)
 }
 
+func (o DocumentationPartLocationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DocumentationPartLocationType] {
+	return pulumix.Output[DocumentationPartLocationType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DocumentationPartLocationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -121,6 +128,12 @@ func (o DocumentationPartLocationTypePtrOutput) ToDocumentationPartLocationTypeP
 
 func (o DocumentationPartLocationTypePtrOutput) ToDocumentationPartLocationTypePtrOutputWithContext(ctx context.Context) DocumentationPartLocationTypePtrOutput {
 	return o
+}
+
+func (o DocumentationPartLocationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DocumentationPartLocationType] {
+	return pulumix.Output[*DocumentationPartLocationType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DocumentationPartLocationTypePtrOutput) Elem() DocumentationPartLocationTypeOutput {
@@ -183,6 +196,12 @@ func (in *documentationPartLocationTypePtr) ToDocumentationPartLocationTypePtrOu
 
 func (in *documentationPartLocationTypePtr) ToDocumentationPartLocationTypePtrOutputWithContext(ctx context.Context) DocumentationPartLocationTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DocumentationPartLocationTypePtrOutput)
+}
+
+func (in *documentationPartLocationTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DocumentationPartLocationType] {
+	return pulumix.Output[*DocumentationPartLocationType]{
+		OutputState: in.ToDocumentationPartLocationTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The method's authorization type.
@@ -255,6 +274,12 @@ func (o MethodAuthorizationTypeOutput) ToMethodAuthorizationTypePtrOutputWithCon
 	}).(MethodAuthorizationTypePtrOutput)
 }
 
+func (o MethodAuthorizationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[MethodAuthorizationType] {
+	return pulumix.Output[MethodAuthorizationType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MethodAuthorizationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -288,6 +313,12 @@ func (o MethodAuthorizationTypePtrOutput) ToMethodAuthorizationTypePtrOutput() M
 
 func (o MethodAuthorizationTypePtrOutput) ToMethodAuthorizationTypePtrOutputWithContext(ctx context.Context) MethodAuthorizationTypePtrOutput {
 	return o
+}
+
+func (o MethodAuthorizationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MethodAuthorizationType] {
+	return pulumix.Output[*MethodAuthorizationType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MethodAuthorizationTypePtrOutput) Elem() MethodAuthorizationTypeOutput {
@@ -350,6 +381,12 @@ func (in *methodAuthorizationTypePtr) ToMethodAuthorizationTypePtrOutput() Metho
 
 func (in *methodAuthorizationTypePtr) ToMethodAuthorizationTypePtrOutputWithContext(ctx context.Context) MethodAuthorizationTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MethodAuthorizationTypePtrOutput)
+}
+
+func (in *methodAuthorizationTypePtr) ToOutput(ctx context.Context) pulumix.Output[*MethodAuthorizationType] {
+	return pulumix.Output[*MethodAuthorizationType]{
+		OutputState: in.ToMethodAuthorizationTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The type of the network connection to the integration endpoint.
@@ -420,6 +457,12 @@ func (o MethodIntegrationConnectionTypeOutput) ToMethodIntegrationConnectionType
 	}).(MethodIntegrationConnectionTypePtrOutput)
 }
 
+func (o MethodIntegrationConnectionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[MethodIntegrationConnectionType] {
+	return pulumix.Output[MethodIntegrationConnectionType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MethodIntegrationConnectionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -453,6 +496,12 @@ func (o MethodIntegrationConnectionTypePtrOutput) ToMethodIntegrationConnectionT
 
 func (o MethodIntegrationConnectionTypePtrOutput) ToMethodIntegrationConnectionTypePtrOutputWithContext(ctx context.Context) MethodIntegrationConnectionTypePtrOutput {
 	return o
+}
+
+func (o MethodIntegrationConnectionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MethodIntegrationConnectionType] {
+	return pulumix.Output[*MethodIntegrationConnectionType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MethodIntegrationConnectionTypePtrOutput) Elem() MethodIntegrationConnectionTypeOutput {
@@ -515,6 +564,12 @@ func (in *methodIntegrationConnectionTypePtr) ToMethodIntegrationConnectionTypeP
 
 func (in *methodIntegrationConnectionTypePtr) ToMethodIntegrationConnectionTypePtrOutputWithContext(ctx context.Context) MethodIntegrationConnectionTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MethodIntegrationConnectionTypePtrOutput)
+}
+
+func (in *methodIntegrationConnectionTypePtr) ToOutput(ctx context.Context) pulumix.Output[*MethodIntegrationConnectionType] {
+	return pulumix.Output[*MethodIntegrationConnectionType]{
+		OutputState: in.ToMethodIntegrationConnectionTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Specifies how to handle request payload content type conversions.
@@ -585,6 +640,12 @@ func (o MethodIntegrationContentHandlingOutput) ToMethodIntegrationContentHandli
 	}).(MethodIntegrationContentHandlingPtrOutput)
 }
 
+func (o MethodIntegrationContentHandlingOutput) ToOutput(ctx context.Context) pulumix.Output[MethodIntegrationContentHandling] {
+	return pulumix.Output[MethodIntegrationContentHandling]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MethodIntegrationContentHandlingOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -618,6 +679,12 @@ func (o MethodIntegrationContentHandlingPtrOutput) ToMethodIntegrationContentHan
 
 func (o MethodIntegrationContentHandlingPtrOutput) ToMethodIntegrationContentHandlingPtrOutputWithContext(ctx context.Context) MethodIntegrationContentHandlingPtrOutput {
 	return o
+}
+
+func (o MethodIntegrationContentHandlingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MethodIntegrationContentHandling] {
+	return pulumix.Output[*MethodIntegrationContentHandling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MethodIntegrationContentHandlingPtrOutput) Elem() MethodIntegrationContentHandlingOutput {
@@ -680,6 +747,12 @@ func (in *methodIntegrationContentHandlingPtr) ToMethodIntegrationContentHandlin
 
 func (in *methodIntegrationContentHandlingPtr) ToMethodIntegrationContentHandlingPtrOutputWithContext(ctx context.Context) MethodIntegrationContentHandlingPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MethodIntegrationContentHandlingPtrOutput)
+}
+
+func (in *methodIntegrationContentHandlingPtr) ToOutput(ctx context.Context) pulumix.Output[*MethodIntegrationContentHandling] {
+	return pulumix.Output[*MethodIntegrationContentHandling]{
+		OutputState: in.ToMethodIntegrationContentHandlingPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Indicates when API Gateway passes requests to the targeted backend.
@@ -751,6 +824,12 @@ func (o MethodIntegrationPassthroughBehaviorOutput) ToMethodIntegrationPassthrou
 	}).(MethodIntegrationPassthroughBehaviorPtrOutput)
 }
 
+func (o MethodIntegrationPassthroughBehaviorOutput) ToOutput(ctx context.Context) pulumix.Output[MethodIntegrationPassthroughBehavior] {
+	return pulumix.Output[MethodIntegrationPassthroughBehavior]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MethodIntegrationPassthroughBehaviorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -784,6 +863,12 @@ func (o MethodIntegrationPassthroughBehaviorPtrOutput) ToMethodIntegrationPassth
 
 func (o MethodIntegrationPassthroughBehaviorPtrOutput) ToMethodIntegrationPassthroughBehaviorPtrOutputWithContext(ctx context.Context) MethodIntegrationPassthroughBehaviorPtrOutput {
 	return o
+}
+
+func (o MethodIntegrationPassthroughBehaviorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MethodIntegrationPassthroughBehavior] {
+	return pulumix.Output[*MethodIntegrationPassthroughBehavior]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MethodIntegrationPassthroughBehaviorPtrOutput) Elem() MethodIntegrationPassthroughBehaviorOutput {
@@ -846,6 +931,12 @@ func (in *methodIntegrationPassthroughBehaviorPtr) ToMethodIntegrationPassthroug
 
 func (in *methodIntegrationPassthroughBehaviorPtr) ToMethodIntegrationPassthroughBehaviorPtrOutputWithContext(ctx context.Context) MethodIntegrationPassthroughBehaviorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MethodIntegrationPassthroughBehaviorPtrOutput)
+}
+
+func (in *methodIntegrationPassthroughBehaviorPtr) ToOutput(ctx context.Context) pulumix.Output[*MethodIntegrationPassthroughBehavior] {
+	return pulumix.Output[*MethodIntegrationPassthroughBehavior]{
+		OutputState: in.ToMethodIntegrationPassthroughBehaviorPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // Specifies how to handle request payload content type conversions.
@@ -916,6 +1007,12 @@ func (o MethodIntegrationResponseContentHandlingOutput) ToMethodIntegrationRespo
 	}).(MethodIntegrationResponseContentHandlingPtrOutput)
 }
 
+func (o MethodIntegrationResponseContentHandlingOutput) ToOutput(ctx context.Context) pulumix.Output[MethodIntegrationResponseContentHandling] {
+	return pulumix.Output[MethodIntegrationResponseContentHandling]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MethodIntegrationResponseContentHandlingOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -949,6 +1046,12 @@ func (o MethodIntegrationResponseContentHandlingPtrOutput) ToMethodIntegrationRe
 
 func (o MethodIntegrationResponseContentHandlingPtrOutput) ToMethodIntegrationResponseContentHandlingPtrOutputWithContext(ctx context.Context) MethodIntegrationResponseContentHandlingPtrOutput {
 	return o
+}
+
+func (o MethodIntegrationResponseContentHandlingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MethodIntegrationResponseContentHandling] {
+	return pulumix.Output[*MethodIntegrationResponseContentHandling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MethodIntegrationResponseContentHandlingPtrOutput) Elem() MethodIntegrationResponseContentHandlingOutput {
@@ -1011,6 +1114,12 @@ func (in *methodIntegrationResponseContentHandlingPtr) ToMethodIntegrationRespon
 
 func (in *methodIntegrationResponseContentHandlingPtr) ToMethodIntegrationResponseContentHandlingPtrOutputWithContext(ctx context.Context) MethodIntegrationResponseContentHandlingPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MethodIntegrationResponseContentHandlingPtrOutput)
+}
+
+func (in *methodIntegrationResponseContentHandlingPtr) ToOutput(ctx context.Context) pulumix.Output[*MethodIntegrationResponseContentHandling] {
+	return pulumix.Output[*MethodIntegrationResponseContentHandling]{
+		OutputState: in.ToMethodIntegrationResponseContentHandlingPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The type of backend that your method is running.
@@ -1084,6 +1193,12 @@ func (o MethodIntegrationTypeOutput) ToMethodIntegrationTypePtrOutputWithContext
 	}).(MethodIntegrationTypePtrOutput)
 }
 
+func (o MethodIntegrationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[MethodIntegrationType] {
+	return pulumix.Output[MethodIntegrationType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MethodIntegrationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1117,6 +1232,12 @@ func (o MethodIntegrationTypePtrOutput) ToMethodIntegrationTypePtrOutput() Metho
 
 func (o MethodIntegrationTypePtrOutput) ToMethodIntegrationTypePtrOutputWithContext(ctx context.Context) MethodIntegrationTypePtrOutput {
 	return o
+}
+
+func (o MethodIntegrationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MethodIntegrationType] {
+	return pulumix.Output[*MethodIntegrationType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MethodIntegrationTypePtrOutput) Elem() MethodIntegrationTypeOutput {
@@ -1179,6 +1300,12 @@ func (in *methodIntegrationTypePtr) ToMethodIntegrationTypePtrOutput() MethodInt
 
 func (in *methodIntegrationTypePtr) ToMethodIntegrationTypePtrOutputWithContext(ctx context.Context) MethodIntegrationTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MethodIntegrationTypePtrOutput)
+}
+
+func (in *methodIntegrationTypePtr) ToOutput(ctx context.Context) pulumix.Output[*MethodIntegrationType] {
+	return pulumix.Output[*MethodIntegrationType]{
+		OutputState: in.ToMethodIntegrationTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The type of usage plan key. Currently, the only valid key type is API_KEY.
@@ -1248,6 +1375,12 @@ func (o UsagePlanKeyKeyTypeOutput) ToUsagePlanKeyKeyTypePtrOutputWithContext(ctx
 	}).(UsagePlanKeyKeyTypePtrOutput)
 }
 
+func (o UsagePlanKeyKeyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[UsagePlanKeyKeyType] {
+	return pulumix.Output[UsagePlanKeyKeyType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o UsagePlanKeyKeyTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1281,6 +1414,12 @@ func (o UsagePlanKeyKeyTypePtrOutput) ToUsagePlanKeyKeyTypePtrOutput() UsagePlan
 
 func (o UsagePlanKeyKeyTypePtrOutput) ToUsagePlanKeyKeyTypePtrOutputWithContext(ctx context.Context) UsagePlanKeyKeyTypePtrOutput {
 	return o
+}
+
+func (o UsagePlanKeyKeyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UsagePlanKeyKeyType] {
+	return pulumix.Output[*UsagePlanKeyKeyType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o UsagePlanKeyKeyTypePtrOutput) Elem() UsagePlanKeyKeyTypeOutput {
@@ -1343,6 +1482,12 @@ func (in *usagePlanKeyKeyTypePtr) ToUsagePlanKeyKeyTypePtrOutput() UsagePlanKeyK
 
 func (in *usagePlanKeyKeyTypePtr) ToUsagePlanKeyKeyTypePtrOutputWithContext(ctx context.Context) UsagePlanKeyKeyTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(UsagePlanKeyKeyTypePtrOutput)
+}
+
+func (in *usagePlanKeyKeyTypePtr) ToOutput(ctx context.Context) pulumix.Output[*UsagePlanKeyKeyType] {
+	return pulumix.Output[*UsagePlanKeyKeyType]{
+		OutputState: in.ToUsagePlanKeyKeyTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

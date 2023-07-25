@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::WAF::WebACL
@@ -107,6 +108,12 @@ func (i *WebACL) ToWebACLOutputWithContext(ctx context.Context) WebACLOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WebACLOutput)
 }
 
+func (i *WebACL) ToOutput(ctx context.Context) pulumix.Output[*WebACL] {
+	return pulumix.Output[*WebACL]{
+		OutputState: i.ToWebACLOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WebACLOutput struct{ *pulumi.OutputState }
 
 func (WebACLOutput) ElementType() reflect.Type {
@@ -119,6 +126,12 @@ func (o WebACLOutput) ToWebACLOutput() WebACLOutput {
 
 func (o WebACLOutput) ToWebACLOutputWithContext(ctx context.Context) WebACLOutput {
 	return o
+}
+
+func (o WebACLOutput) ToOutput(ctx context.Context) pulumix.Output[*WebACL] {
+	return pulumix.Output[*WebACL]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WebACLOutput) DefaultAction() WebACLWafActionOutput {

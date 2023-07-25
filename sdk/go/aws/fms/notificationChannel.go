@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Designates the IAM role and Amazon Simple Notification Service (SNS) topic that AWS Firewall Manager uses to record SNS logs.
@@ -99,6 +100,12 @@ func (i *NotificationChannel) ToNotificationChannelOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationChannelOutput)
 }
 
+func (i *NotificationChannel) ToOutput(ctx context.Context) pulumix.Output[*NotificationChannel] {
+	return pulumix.Output[*NotificationChannel]{
+		OutputState: i.ToNotificationChannelOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NotificationChannelOutput struct{ *pulumi.OutputState }
 
 func (NotificationChannelOutput) ElementType() reflect.Type {
@@ -111,6 +118,12 @@ func (o NotificationChannelOutput) ToNotificationChannelOutput() NotificationCha
 
 func (o NotificationChannelOutput) ToNotificationChannelOutputWithContext(ctx context.Context) NotificationChannelOutput {
 	return o
+}
+
+func (o NotificationChannelOutput) ToOutput(ctx context.Context) pulumix.Output[*NotificationChannel] {
+	return pulumix.Output[*NotificationChannel]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NotificationChannelOutput) SnsRoleName() pulumi.StringOutput {

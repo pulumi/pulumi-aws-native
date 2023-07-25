@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::EIPAssociation
@@ -101,6 +102,12 @@ func (i *EIPAssociation) ToEIPAssociationOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(EIPAssociationOutput)
 }
 
+func (i *EIPAssociation) ToOutput(ctx context.Context) pulumix.Output[*EIPAssociation] {
+	return pulumix.Output[*EIPAssociation]{
+		OutputState: i.ToEIPAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EIPAssociationOutput struct{ *pulumi.OutputState }
 
 func (EIPAssociationOutput) ElementType() reflect.Type {
@@ -113,6 +120,12 @@ func (o EIPAssociationOutput) ToEIPAssociationOutput() EIPAssociationOutput {
 
 func (o EIPAssociationOutput) ToEIPAssociationOutputWithContext(ctx context.Context) EIPAssociationOutput {
 	return o
+}
+
+func (o EIPAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*EIPAssociation] {
+	return pulumix.Output[*EIPAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EIPAssociationOutput) AllocationId() pulumi.StringPtrOutput {

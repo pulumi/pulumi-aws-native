@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::GlobalAccelerator::EndpointGroup
@@ -80,6 +81,12 @@ func (o LookupEndpointGroupResultOutput) ToLookupEndpointGroupResultOutput() Loo
 
 func (o LookupEndpointGroupResultOutput) ToLookupEndpointGroupResultOutputWithContext(ctx context.Context) LookupEndpointGroupResultOutput {
 	return o
+}
+
+func (o LookupEndpointGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupEndpointGroupResult] {
+	return pulumix.Output[LookupEndpointGroupResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The list of endpoint objects.

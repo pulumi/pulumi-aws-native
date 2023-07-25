@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::NetworkInterfacePermission
@@ -63,6 +64,12 @@ func (o LookupNetworkInterfacePermissionResultOutput) ToLookupNetworkInterfacePe
 
 func (o LookupNetworkInterfacePermissionResultOutput) ToLookupNetworkInterfacePermissionResultOutputWithContext(ctx context.Context) LookupNetworkInterfacePermissionResultOutput {
 	return o
+}
+
+func (o LookupNetworkInterfacePermissionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupNetworkInterfacePermissionResult] {
+	return pulumix.Output[LookupNetworkInterfacePermissionResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupNetworkInterfacePermissionResultOutput) Id() pulumi.StringPtrOutput {

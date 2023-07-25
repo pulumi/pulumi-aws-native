@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EventSchemas::RegistryPolicy
@@ -102,6 +103,12 @@ func (i *RegistryPolicy) ToRegistryPolicyOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryPolicyOutput)
 }
 
+func (i *RegistryPolicy) ToOutput(ctx context.Context) pulumix.Output[*RegistryPolicy] {
+	return pulumix.Output[*RegistryPolicy]{
+		OutputState: i.ToRegistryPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RegistryPolicyOutput struct{ *pulumi.OutputState }
 
 func (RegistryPolicyOutput) ElementType() reflect.Type {
@@ -114,6 +121,12 @@ func (o RegistryPolicyOutput) ToRegistryPolicyOutput() RegistryPolicyOutput {
 
 func (o RegistryPolicyOutput) ToRegistryPolicyOutputWithContext(ctx context.Context) RegistryPolicyOutput {
 	return o
+}
+
+func (o RegistryPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*RegistryPolicy] {
+	return pulumix.Output[*RegistryPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RegistryPolicyOutput) Policy() pulumi.AnyOutput {

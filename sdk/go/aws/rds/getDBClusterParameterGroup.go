@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::RDS::DBClusterParameterGroup resource creates a new Amazon RDS DB cluster parameter group. For more information, see Managing an Amazon Aurora DB Cluster in the Amazon Aurora User Guide.
@@ -66,6 +67,12 @@ func (o LookupDBClusterParameterGroupResultOutput) ToLookupDBClusterParameterGro
 
 func (o LookupDBClusterParameterGroupResultOutput) ToLookupDBClusterParameterGroupResultOutputWithContext(ctx context.Context) LookupDBClusterParameterGroupResultOutput {
 	return o
+}
+
+func (o LookupDBClusterParameterGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDBClusterParameterGroupResult] {
+	return pulumix.Output[LookupDBClusterParameterGroupResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.

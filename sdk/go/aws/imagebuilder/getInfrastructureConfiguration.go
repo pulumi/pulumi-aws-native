@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::ImageBuilder::InfrastructureConfiguration
@@ -90,6 +91,12 @@ func (o LookupInfrastructureConfigurationResultOutput) ToLookupInfrastructureCon
 
 func (o LookupInfrastructureConfigurationResultOutput) ToLookupInfrastructureConfigurationResultOutputWithContext(ctx context.Context) LookupInfrastructureConfigurationResultOutput {
 	return o
+}
+
+func (o LookupInfrastructureConfigurationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupInfrastructureConfigurationResult] {
+	return pulumix.Output[LookupInfrastructureConfigurationResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the infrastructure configuration.

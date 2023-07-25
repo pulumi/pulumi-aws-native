@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource type definition for AWS::SSMIncidents::ResponsePlan
@@ -78,6 +79,12 @@ func (o LookupResponsePlanResultOutput) ToLookupResponsePlanResultOutput() Looku
 
 func (o LookupResponsePlanResultOutput) ToLookupResponsePlanResultOutputWithContext(ctx context.Context) LookupResponsePlanResultOutput {
 	return o
+}
+
+func (o LookupResponsePlanResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupResponsePlanResult] {
+	return pulumix.Output[LookupResponsePlanResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The list of actions.

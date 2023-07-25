@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Associates a service with a service network.
@@ -107,6 +108,12 @@ func (i *ServiceNetworkServiceAssociation) ToServiceNetworkServiceAssociationOut
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkServiceAssociationOutput)
 }
 
+func (i *ServiceNetworkServiceAssociation) ToOutput(ctx context.Context) pulumix.Output[*ServiceNetworkServiceAssociation] {
+	return pulumix.Output[*ServiceNetworkServiceAssociation]{
+		OutputState: i.ToServiceNetworkServiceAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceNetworkServiceAssociationOutput struct{ *pulumi.OutputState }
 
 func (ServiceNetworkServiceAssociationOutput) ElementType() reflect.Type {
@@ -119,6 +126,12 @@ func (o ServiceNetworkServiceAssociationOutput) ToServiceNetworkServiceAssociati
 
 func (o ServiceNetworkServiceAssociationOutput) ToServiceNetworkServiceAssociationOutputWithContext(ctx context.Context) ServiceNetworkServiceAssociationOutput {
 	return o
+}
+
+func (o ServiceNetworkServiceAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceNetworkServiceAssociation] {
+	return pulumix.Output[*ServiceNetworkServiceAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceNetworkServiceAssociationOutput) Arn() pulumi.StringOutput {

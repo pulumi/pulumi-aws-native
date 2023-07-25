@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::MSK::ClusterPolicy
@@ -68,6 +69,12 @@ func (o LookupClusterPolicyResultOutput) ToLookupClusterPolicyResultOutput() Loo
 
 func (o LookupClusterPolicyResultOutput) ToLookupClusterPolicyResultOutputWithContext(ctx context.Context) LookupClusterPolicyResultOutput {
 	return o
+}
+
+func (o LookupClusterPolicyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupClusterPolicyResult] {
+	return pulumix.Output[LookupClusterPolicyResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The current version of the policy attached to the specified cluster

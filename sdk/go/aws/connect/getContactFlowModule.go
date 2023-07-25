@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Connect::ContactFlowModule.
@@ -80,6 +81,12 @@ func (o LookupContactFlowModuleResultOutput) ToLookupContactFlowModuleResultOutp
 
 func (o LookupContactFlowModuleResultOutput) ToLookupContactFlowModuleResultOutputWithContext(ctx context.Context) LookupContactFlowModuleResultOutput {
 	return o
+}
+
+func (o LookupContactFlowModuleResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupContactFlowModuleResult] {
+	return pulumix.Output[LookupContactFlowModuleResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The identifier of the contact flow module (ARN).

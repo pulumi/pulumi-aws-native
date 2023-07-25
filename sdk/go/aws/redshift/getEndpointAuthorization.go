@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Describes an endpoint authorization for authorizing Redshift-managed VPC endpoint access to a cluster across AWS accounts.
@@ -86,6 +87,12 @@ func (o LookupEndpointAuthorizationResultOutput) ToLookupEndpointAuthorizationRe
 
 func (o LookupEndpointAuthorizationResultOutput) ToLookupEndpointAuthorizationResultOutputWithContext(ctx context.Context) LookupEndpointAuthorizationResultOutput {
 	return o
+}
+
+func (o LookupEndpointAuthorizationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupEndpointAuthorizationResult] {
+	return pulumix.Output[LookupEndpointAuthorizationResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Indicates whether all VPCs in the grantee account are allowed access to the cluster.

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Pinpoint::APNSChannel
@@ -71,6 +72,12 @@ func (o LookupAPNSChannelResultOutput) ToLookupAPNSChannelResultOutput() LookupA
 
 func (o LookupAPNSChannelResultOutput) ToLookupAPNSChannelResultOutputWithContext(ctx context.Context) LookupAPNSChannelResultOutput {
 	return o
+}
+
+func (o LookupAPNSChannelResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAPNSChannelResult] {
+	return pulumix.Output[LookupAPNSChannelResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupAPNSChannelResultOutput) BundleId() pulumi.StringPtrOutput {

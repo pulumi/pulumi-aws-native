@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::VPNConnection
@@ -68,6 +69,12 @@ func (o LookupVPNConnectionResultOutput) ToLookupVPNConnectionResultOutput() Loo
 
 func (o LookupVPNConnectionResultOutput) ToLookupVPNConnectionResultOutputWithContext(ctx context.Context) LookupVPNConnectionResultOutput {
 	return o
+}
+
+func (o LookupVPNConnectionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVPNConnectionResult] {
+	return pulumix.Output[LookupVPNConnectionResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Any tags assigned to the VPN connection.

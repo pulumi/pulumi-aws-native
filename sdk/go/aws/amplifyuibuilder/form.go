@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::AmplifyUIBuilder::Form Resource Type
@@ -141,6 +142,12 @@ func (i *Form) ToFormOutputWithContext(ctx context.Context) FormOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FormOutput)
 }
 
+func (i *Form) ToOutput(ctx context.Context) pulumix.Output[*Form] {
+	return pulumix.Output[*Form]{
+		OutputState: i.ToFormOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FormOutput struct{ *pulumi.OutputState }
 
 func (FormOutput) ElementType() reflect.Type {
@@ -153,6 +160,12 @@ func (o FormOutput) ToFormOutput() FormOutput {
 
 func (o FormOutput) ToFormOutputWithContext(ctx context.Context) FormOutput {
 	return o
+}
+
+func (o FormOutput) ToOutput(ctx context.Context) pulumix.Output[*Form] {
+	return pulumix.Output[*Form]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FormOutput) AppId() pulumi.StringPtrOutput {

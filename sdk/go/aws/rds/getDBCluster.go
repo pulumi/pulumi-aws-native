@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::RDS::DBCluster resource creates an Amazon Aurora DB cluster.
@@ -144,6 +145,12 @@ func (o LookupDBClusterResultOutput) ToLookupDBClusterResultOutput() LookupDBClu
 
 func (o LookupDBClusterResultOutput) ToLookupDBClusterResultOutputWithContext(ctx context.Context) LookupDBClusterResultOutput {
 	return o
+}
+
+func (o LookupDBClusterResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDBClusterResult] {
+	return pulumix.Output[LookupDBClusterResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.

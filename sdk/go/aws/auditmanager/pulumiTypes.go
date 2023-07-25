@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -48,6 +49,12 @@ func (i AssessmentAWSAccountArgs) ToAssessmentAWSAccountOutput() AssessmentAWSAc
 
 func (i AssessmentAWSAccountArgs) ToAssessmentAWSAccountOutputWithContext(ctx context.Context) AssessmentAWSAccountOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentAWSAccountOutput)
+}
+
+func (i AssessmentAWSAccountArgs) ToOutput(ctx context.Context) pulumix.Output[AssessmentAWSAccount] {
+	return pulumix.Output[AssessmentAWSAccount]{
+		OutputState: i.ToAssessmentAWSAccountOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i AssessmentAWSAccountArgs) ToAssessmentAWSAccountPtrOutput() AssessmentAWSAccountPtrOutput {
@@ -91,6 +98,12 @@ func (i *assessmentAWSAccountPtrType) ToAssessmentAWSAccountPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentAWSAccountPtrOutput)
 }
 
+func (i *assessmentAWSAccountPtrType) ToOutput(ctx context.Context) pulumix.Output[*AssessmentAWSAccount] {
+	return pulumix.Output[*AssessmentAWSAccount]{
+		OutputState: i.ToAssessmentAWSAccountPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AssessmentAWSAccountArrayInput is an input type that accepts AssessmentAWSAccountArray and AssessmentAWSAccountArrayOutput values.
 // You can construct a concrete instance of `AssessmentAWSAccountArrayInput` via:
 //
@@ -114,6 +127,12 @@ func (i AssessmentAWSAccountArray) ToAssessmentAWSAccountArrayOutput() Assessmen
 
 func (i AssessmentAWSAccountArray) ToAssessmentAWSAccountArrayOutputWithContext(ctx context.Context) AssessmentAWSAccountArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentAWSAccountArrayOutput)
+}
+
+func (i AssessmentAWSAccountArray) ToOutput(ctx context.Context) pulumix.Output[[]AssessmentAWSAccount] {
+	return pulumix.Output[[]AssessmentAWSAccount]{
+		OutputState: i.ToAssessmentAWSAccountArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // The AWS account associated with the assessment.
@@ -141,6 +160,12 @@ func (o AssessmentAWSAccountOutput) ToAssessmentAWSAccountPtrOutputWithContext(c
 	}).(AssessmentAWSAccountPtrOutput)
 }
 
+func (o AssessmentAWSAccountOutput) ToOutput(ctx context.Context) pulumix.Output[AssessmentAWSAccount] {
+	return pulumix.Output[AssessmentAWSAccount]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AssessmentAWSAccountOutput) EmailAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssessmentAWSAccount) *string { return v.EmailAddress }).(pulumi.StringPtrOutput)
 }
@@ -165,6 +190,12 @@ func (o AssessmentAWSAccountPtrOutput) ToAssessmentAWSAccountPtrOutput() Assessm
 
 func (o AssessmentAWSAccountPtrOutput) ToAssessmentAWSAccountPtrOutputWithContext(ctx context.Context) AssessmentAWSAccountPtrOutput {
 	return o
+}
+
+func (o AssessmentAWSAccountPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AssessmentAWSAccount] {
+	return pulumix.Output[*AssessmentAWSAccount]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AssessmentAWSAccountPtrOutput) Elem() AssessmentAWSAccountOutput {
@@ -218,6 +249,12 @@ func (o AssessmentAWSAccountArrayOutput) ToAssessmentAWSAccountArrayOutputWithCo
 	return o
 }
 
+func (o AssessmentAWSAccountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AssessmentAWSAccount] {
+	return pulumix.Output[[]AssessmentAWSAccount]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AssessmentAWSAccountArrayOutput) Index(i pulumi.IntInput) AssessmentAWSAccountOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssessmentAWSAccount {
 		return vs[0].([]AssessmentAWSAccount)[vs[1].(int)]
@@ -257,6 +294,12 @@ func (i AssessmentAWSServiceArgs) ToAssessmentAWSServiceOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentAWSServiceOutput)
 }
 
+func (i AssessmentAWSServiceArgs) ToOutput(ctx context.Context) pulumix.Output[AssessmentAWSService] {
+	return pulumix.Output[AssessmentAWSService]{
+		OutputState: i.ToAssessmentAWSServiceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AssessmentAWSServiceArrayInput is an input type that accepts AssessmentAWSServiceArray and AssessmentAWSServiceArrayOutput values.
 // You can construct a concrete instance of `AssessmentAWSServiceArrayInput` via:
 //
@@ -282,6 +325,12 @@ func (i AssessmentAWSServiceArray) ToAssessmentAWSServiceArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentAWSServiceArrayOutput)
 }
 
+func (i AssessmentAWSServiceArray) ToOutput(ctx context.Context) pulumix.Output[[]AssessmentAWSService] {
+	return pulumix.Output[[]AssessmentAWSService]{
+		OutputState: i.ToAssessmentAWSServiceArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // An AWS service such as Amazon S3, AWS CloudTrail, and so on.
 type AssessmentAWSServiceOutput struct{ *pulumi.OutputState }
 
@@ -295,6 +344,12 @@ func (o AssessmentAWSServiceOutput) ToAssessmentAWSServiceOutput() AssessmentAWS
 
 func (o AssessmentAWSServiceOutput) ToAssessmentAWSServiceOutputWithContext(ctx context.Context) AssessmentAWSServiceOutput {
 	return o
+}
+
+func (o AssessmentAWSServiceOutput) ToOutput(ctx context.Context) pulumix.Output[AssessmentAWSService] {
+	return pulumix.Output[AssessmentAWSService]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AssessmentAWSServiceOutput) ServiceName() pulumi.StringPtrOutput {
@@ -313,6 +368,12 @@ func (o AssessmentAWSServiceArrayOutput) ToAssessmentAWSServiceArrayOutput() Ass
 
 func (o AssessmentAWSServiceArrayOutput) ToAssessmentAWSServiceArrayOutputWithContext(ctx context.Context) AssessmentAWSServiceArrayOutput {
 	return o
+}
+
+func (o AssessmentAWSServiceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AssessmentAWSService] {
+	return pulumix.Output[[]AssessmentAWSService]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AssessmentAWSServiceArrayOutput) Index(i pulumi.IntInput) AssessmentAWSServiceOutput {
@@ -374,6 +435,12 @@ func (i AssessmentDelegationArgs) ToAssessmentDelegationOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentDelegationOutput)
 }
 
+func (i AssessmentDelegationArgs) ToOutput(ctx context.Context) pulumix.Output[AssessmentDelegation] {
+	return pulumix.Output[AssessmentDelegation]{
+		OutputState: i.ToAssessmentDelegationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AssessmentDelegationArrayInput is an input type that accepts AssessmentDelegationArray and AssessmentDelegationArrayOutput values.
 // You can construct a concrete instance of `AssessmentDelegationArrayInput` via:
 //
@@ -399,6 +466,12 @@ func (i AssessmentDelegationArray) ToAssessmentDelegationArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentDelegationArrayOutput)
 }
 
+func (i AssessmentDelegationArray) ToOutput(ctx context.Context) pulumix.Output[[]AssessmentDelegation] {
+	return pulumix.Output[[]AssessmentDelegation]{
+		OutputState: i.ToAssessmentDelegationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The assignment of a control set to a delegate for review.
 type AssessmentDelegationOutput struct{ *pulumi.OutputState }
 
@@ -412,6 +485,12 @@ func (o AssessmentDelegationOutput) ToAssessmentDelegationOutput() AssessmentDel
 
 func (o AssessmentDelegationOutput) ToAssessmentDelegationOutputWithContext(ctx context.Context) AssessmentDelegationOutput {
 	return o
+}
+
+func (o AssessmentDelegationOutput) ToOutput(ctx context.Context) pulumix.Output[AssessmentDelegation] {
+	return pulumix.Output[AssessmentDelegation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AssessmentDelegationOutput) AssessmentId() pulumi.StringPtrOutput {
@@ -472,6 +551,12 @@ func (o AssessmentDelegationArrayOutput) ToAssessmentDelegationArrayOutputWithCo
 	return o
 }
 
+func (o AssessmentDelegationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AssessmentDelegation] {
+	return pulumix.Output[[]AssessmentDelegation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AssessmentDelegationArrayOutput) Index(i pulumi.IntInput) AssessmentDelegationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssessmentDelegation {
 		return vs[0].([]AssessmentDelegation)[vs[1].(int)]
@@ -511,6 +596,12 @@ func (i AssessmentReportsDestinationArgs) ToAssessmentReportsDestinationOutput()
 
 func (i AssessmentReportsDestinationArgs) ToAssessmentReportsDestinationOutputWithContext(ctx context.Context) AssessmentReportsDestinationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentReportsDestinationOutput)
+}
+
+func (i AssessmentReportsDestinationArgs) ToOutput(ctx context.Context) pulumix.Output[AssessmentReportsDestination] {
+	return pulumix.Output[AssessmentReportsDestination]{
+		OutputState: i.ToAssessmentReportsDestinationOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i AssessmentReportsDestinationArgs) ToAssessmentReportsDestinationPtrOutput() AssessmentReportsDestinationPtrOutput {
@@ -554,6 +645,12 @@ func (i *assessmentReportsDestinationPtrType) ToAssessmentReportsDestinationPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentReportsDestinationPtrOutput)
 }
 
+func (i *assessmentReportsDestinationPtrType) ToOutput(ctx context.Context) pulumix.Output[*AssessmentReportsDestination] {
+	return pulumix.Output[*AssessmentReportsDestination]{
+		OutputState: i.ToAssessmentReportsDestinationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The destination in which evidence reports are stored for the specified assessment.
 type AssessmentReportsDestinationOutput struct{ *pulumi.OutputState }
 
@@ -579,6 +676,12 @@ func (o AssessmentReportsDestinationOutput) ToAssessmentReportsDestinationPtrOut
 	}).(AssessmentReportsDestinationPtrOutput)
 }
 
+func (o AssessmentReportsDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[AssessmentReportsDestination] {
+	return pulumix.Output[AssessmentReportsDestination]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AssessmentReportsDestinationOutput) Destination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssessmentReportsDestination) *string { return v.Destination }).(pulumi.StringPtrOutput)
 }
@@ -599,6 +702,12 @@ func (o AssessmentReportsDestinationPtrOutput) ToAssessmentReportsDestinationPtr
 
 func (o AssessmentReportsDestinationPtrOutput) ToAssessmentReportsDestinationPtrOutputWithContext(ctx context.Context) AssessmentReportsDestinationPtrOutput {
 	return o
+}
+
+func (o AssessmentReportsDestinationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AssessmentReportsDestination] {
+	return pulumix.Output[*AssessmentReportsDestination]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AssessmentReportsDestinationPtrOutput) Elem() AssessmentReportsDestinationOutput {
@@ -664,6 +773,12 @@ func (i AssessmentRoleArgs) ToAssessmentRoleOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentRoleOutput)
 }
 
+func (i AssessmentRoleArgs) ToOutput(ctx context.Context) pulumix.Output[AssessmentRole] {
+	return pulumix.Output[AssessmentRole]{
+		OutputState: i.ToAssessmentRoleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AssessmentRoleArrayInput is an input type that accepts AssessmentRoleArray and AssessmentRoleArrayOutput values.
 // You can construct a concrete instance of `AssessmentRoleArrayInput` via:
 //
@@ -689,6 +804,12 @@ func (i AssessmentRoleArray) ToAssessmentRoleArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentRoleArrayOutput)
 }
 
+func (i AssessmentRoleArray) ToOutput(ctx context.Context) pulumix.Output[[]AssessmentRole] {
+	return pulumix.Output[[]AssessmentRole]{
+		OutputState: i.ToAssessmentRoleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The wrapper that contains AWS Audit Manager role information, such as the role type and IAM ARN.
 type AssessmentRoleOutput struct{ *pulumi.OutputState }
 
@@ -702,6 +823,12 @@ func (o AssessmentRoleOutput) ToAssessmentRoleOutput() AssessmentRoleOutput {
 
 func (o AssessmentRoleOutput) ToAssessmentRoleOutputWithContext(ctx context.Context) AssessmentRoleOutput {
 	return o
+}
+
+func (o AssessmentRoleOutput) ToOutput(ctx context.Context) pulumix.Output[AssessmentRole] {
+	return pulumix.Output[AssessmentRole]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AssessmentRoleOutput) RoleArn() pulumi.StringPtrOutput {
@@ -724,6 +851,12 @@ func (o AssessmentRoleArrayOutput) ToAssessmentRoleArrayOutput() AssessmentRoleA
 
 func (o AssessmentRoleArrayOutput) ToAssessmentRoleArrayOutputWithContext(ctx context.Context) AssessmentRoleArrayOutput {
 	return o
+}
+
+func (o AssessmentRoleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AssessmentRole] {
+	return pulumix.Output[[]AssessmentRole]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AssessmentRoleArrayOutput) Index(i pulumi.IntInput) AssessmentRoleOutput {
@@ -771,6 +904,12 @@ func (i AssessmentScopeArgs) ToAssessmentScopeOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentScopeOutput)
 }
 
+func (i AssessmentScopeArgs) ToOutput(ctx context.Context) pulumix.Output[AssessmentScope] {
+	return pulumix.Output[AssessmentScope]{
+		OutputState: i.ToAssessmentScopeOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AssessmentScopeArgs) ToAssessmentScopePtrOutput() AssessmentScopePtrOutput {
 	return i.ToAssessmentScopePtrOutputWithContext(context.Background())
 }
@@ -812,6 +951,12 @@ func (i *assessmentScopePtrType) ToAssessmentScopePtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentScopePtrOutput)
 }
 
+func (i *assessmentScopePtrType) ToOutput(ctx context.Context) pulumix.Output[*AssessmentScope] {
+	return pulumix.Output[*AssessmentScope]{
+		OutputState: i.ToAssessmentScopePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The wrapper that contains the AWS accounts and AWS services in scope for the assessment.
 type AssessmentScopeOutput struct{ *pulumi.OutputState }
 
@@ -837,6 +982,12 @@ func (o AssessmentScopeOutput) ToAssessmentScopePtrOutputWithContext(ctx context
 	}).(AssessmentScopePtrOutput)
 }
 
+func (o AssessmentScopeOutput) ToOutput(ctx context.Context) pulumix.Output[AssessmentScope] {
+	return pulumix.Output[AssessmentScope]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The AWS accounts included in scope.
 func (o AssessmentScopeOutput) AwsAccounts() AssessmentAWSAccountArrayOutput {
 	return o.ApplyT(func(v AssessmentScope) []AssessmentAWSAccount { return v.AwsAccounts }).(AssessmentAWSAccountArrayOutput)
@@ -859,6 +1010,12 @@ func (o AssessmentScopePtrOutput) ToAssessmentScopePtrOutput() AssessmentScopePt
 
 func (o AssessmentScopePtrOutput) ToAssessmentScopePtrOutputWithContext(ctx context.Context) AssessmentScopePtrOutput {
 	return o
+}
+
+func (o AssessmentScopePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AssessmentScope] {
+	return pulumix.Output[*AssessmentScope]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AssessmentScopePtrOutput) Elem() AssessmentScopeOutput {
@@ -930,6 +1087,12 @@ func (i AssessmentTagArgs) ToAssessmentTagOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentTagOutput)
 }
 
+func (i AssessmentTagArgs) ToOutput(ctx context.Context) pulumix.Output[AssessmentTag] {
+	return pulumix.Output[AssessmentTag]{
+		OutputState: i.ToAssessmentTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AssessmentTagArrayInput is an input type that accepts AssessmentTagArray and AssessmentTagArrayOutput values.
 // You can construct a concrete instance of `AssessmentTagArrayInput` via:
 //
@@ -955,6 +1118,12 @@ func (i AssessmentTagArray) ToAssessmentTagArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentTagArrayOutput)
 }
 
+func (i AssessmentTagArray) ToOutput(ctx context.Context) pulumix.Output[[]AssessmentTag] {
+	return pulumix.Output[[]AssessmentTag]{
+		OutputState: i.ToAssessmentTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // A key-value pair to associate with a resource.
 type AssessmentTagOutput struct{ *pulumi.OutputState }
 
@@ -968,6 +1137,12 @@ func (o AssessmentTagOutput) ToAssessmentTagOutput() AssessmentTagOutput {
 
 func (o AssessmentTagOutput) ToAssessmentTagOutputWithContext(ctx context.Context) AssessmentTagOutput {
 	return o
+}
+
+func (o AssessmentTagOutput) ToOutput(ctx context.Context) pulumix.Output[AssessmentTag] {
+	return pulumix.Output[AssessmentTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -992,6 +1167,12 @@ func (o AssessmentTagArrayOutput) ToAssessmentTagArrayOutput() AssessmentTagArra
 
 func (o AssessmentTagArrayOutput) ToAssessmentTagArrayOutputWithContext(ctx context.Context) AssessmentTagArrayOutput {
 	return o
+}
+
+func (o AssessmentTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AssessmentTag] {
+	return pulumix.Output[[]AssessmentTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AssessmentTagArrayOutput) Index(i pulumi.IntInput) AssessmentTagOutput {

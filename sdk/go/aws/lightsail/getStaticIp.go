@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Lightsail::StaticIp
@@ -71,6 +72,12 @@ func (o LookupStaticIpResultOutput) ToLookupStaticIpResultOutput() LookupStaticI
 
 func (o LookupStaticIpResultOutput) ToLookupStaticIpResultOutputWithContext(ctx context.Context) LookupStaticIpResultOutput {
 	return o
+}
+
+func (o LookupStaticIpResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupStaticIpResult] {
+	return pulumix.Output[LookupStaticIpResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The instance where the static IP is attached.

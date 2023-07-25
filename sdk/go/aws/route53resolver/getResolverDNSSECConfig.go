@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::Route53Resolver::ResolverDNSSECConfig.
@@ -70,6 +71,12 @@ func (o LookupResolverDNSSECConfigResultOutput) ToLookupResolverDNSSECConfigResu
 
 func (o LookupResolverDNSSECConfigResultOutput) ToLookupResolverDNSSECConfigResultOutputWithContext(ctx context.Context) LookupResolverDNSSECConfigResultOutput {
 	return o
+}
+
+func (o LookupResolverDNSSECConfigResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupResolverDNSSECConfigResult] {
+	return pulumix.Output[LookupResolverDNSSECConfigResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Id
