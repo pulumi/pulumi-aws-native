@@ -83,6 +83,12 @@ func (o ComponentTypeStatusPtrOutput) State() ComponentTypeStatusStatePtrOutput 
 }
 
 // Error object with Message and Code.
+type ComponentTypeStatusError1Properties struct {
+	Code    *ComponentTypeStatusError1PropertiesCode `pulumi:"code"`
+	Message *string                                  `pulumi:"message"`
+}
+
+// Error object with Message and Code.
 type ComponentTypeStatusErrorProperties struct {
 	Code    *ComponentTypeStatusErrorPropertiesCode `pulumi:"code"`
 	Message *string                                 `pulumi:"message"`
@@ -155,6 +161,12 @@ func (o EntityStatusPtrOutput) State() EntityStatusStatePtrOutput {
 		}
 		return v.State
 	}).(EntityStatusStatePtrOutput)
+}
+
+// Error object with Message and Code.
+type EntityStatusError1Properties struct {
+	Code    *EntityStatusError1PropertiesCode `pulumi:"code"`
+	Message *string                           `pulumi:"message"`
 }
 
 // Error object with Message and Code.

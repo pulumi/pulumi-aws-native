@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.CloudWatch
         /// The date of creation of the metric stream.
         /// </summary>
         [Output("creationDate")]
-        public Output<object> CreationDate { get; private set; } = null!;
+        public Output<string> CreationDate { get; private set; } = null!;
 
         /// <summary>
         /// Define which metrics will be not streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.CloudWatch
         /// The date of the last update of the metric stream.
         /// </summary>
         [Output("lastUpdateDate")]
-        public Output<object> LastUpdateDate { get; private set; } = null!;
+        public Output<string> LastUpdateDate { get; private set; } = null!;
 
         /// <summary>
         /// Name of the metric stream.

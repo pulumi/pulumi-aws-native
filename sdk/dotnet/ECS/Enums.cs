@@ -63,6 +63,9 @@ namespace Pulumi.AwsNative.ECS
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// If using ec2 auto-scaling, the name of the associated capacity provider. Otherwise FARGATE, FARGATE_SPOT.
+    /// </summary>
     [EnumType]
     public readonly struct ClusterCapacityProviderAssociationsCapacityProvider : IEquatable<ClusterCapacityProviderAssociationsCapacityProvider>
     {
@@ -84,6 +87,37 @@ namespace Pulumi.AwsNative.ECS
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ClusterCapacityProviderAssociationsCapacityProvider other && Equals(other);
         public bool Equals(ClusterCapacityProviderAssociationsCapacityProvider other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// If using ec2 auto-scaling, the name of the associated capacity provider. Otherwise FARGATE, FARGATE_SPOT.
+    /// </summary>
+    [EnumType]
+    public readonly struct ClusterCapacityProviderAssociationsCapacityProvider0 : IEquatable<ClusterCapacityProviderAssociationsCapacityProvider0>
+    {
+        private readonly string _value;
+
+        private ClusterCapacityProviderAssociationsCapacityProvider0(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClusterCapacityProviderAssociationsCapacityProvider0 Fargate { get; } = new ClusterCapacityProviderAssociationsCapacityProvider0("FARGATE");
+        public static ClusterCapacityProviderAssociationsCapacityProvider0 FargateSpot { get; } = new ClusterCapacityProviderAssociationsCapacityProvider0("FARGATE_SPOT");
+
+        public static bool operator ==(ClusterCapacityProviderAssociationsCapacityProvider0 left, ClusterCapacityProviderAssociationsCapacityProvider0 right) => left.Equals(right);
+        public static bool operator !=(ClusterCapacityProviderAssociationsCapacityProvider0 left, ClusterCapacityProviderAssociationsCapacityProvider0 right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterCapacityProviderAssociationsCapacityProvider0 value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterCapacityProviderAssociationsCapacityProvider0 other && Equals(other);
+        public bool Equals(ClusterCapacityProviderAssociationsCapacityProvider0 other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

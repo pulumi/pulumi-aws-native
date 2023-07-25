@@ -19,7 +19,7 @@ type MetricStream struct {
 	// Amazon Resource Name of the metric stream.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The date of creation of the metric stream.
-	CreationDate pulumi.AnyOutput `pulumi:"creationDate"`
+	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
 	// Define which metrics will be not streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
 	ExcludeFilters MetricStreamFilterArrayOutput `pulumi:"excludeFilters"`
 	// The ARN of the Kinesis Firehose where to stream the data.
@@ -29,7 +29,7 @@ type MetricStream struct {
 	// If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false.
 	IncludeLinkedAccountsMetrics pulumi.BoolPtrOutput `pulumi:"includeLinkedAccountsMetrics"`
 	// The date of the last update of the metric stream.
-	LastUpdateDate pulumi.AnyOutput `pulumi:"lastUpdateDate"`
+	LastUpdateDate pulumi.StringOutput `pulumi:"lastUpdateDate"`
 	// Name of the metric stream.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The output format of the data streamed to the Kinesis Firehose.
@@ -178,8 +178,8 @@ func (o MetricStreamOutput) Arn() pulumi.StringOutput {
 }
 
 // The date of creation of the metric stream.
-func (o MetricStreamOutput) CreationDate() pulumi.AnyOutput {
-	return o.ApplyT(func(v *MetricStream) pulumi.AnyOutput { return v.CreationDate }).(pulumi.AnyOutput)
+func (o MetricStreamOutput) CreationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *MetricStream) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
 }
 
 // Define which metrics will be not streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
@@ -203,8 +203,8 @@ func (o MetricStreamOutput) IncludeLinkedAccountsMetrics() pulumi.BoolPtrOutput 
 }
 
 // The date of the last update of the metric stream.
-func (o MetricStreamOutput) LastUpdateDate() pulumi.AnyOutput {
-	return o.ApplyT(func(v *MetricStream) pulumi.AnyOutput { return v.LastUpdateDate }).(pulumi.AnyOutput)
+func (o MetricStreamOutput) LastUpdateDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *MetricStream) pulumi.StringOutput { return v.LastUpdateDate }).(pulumi.StringOutput)
 }
 
 // Name of the metric stream.

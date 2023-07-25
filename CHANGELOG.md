@@ -1,5 +1,11 @@
 ## HEAD (Unreleased)
 
+### Breaking changes:
+- Resource "aws-native:cloudwatch:MetricStream" output "creationDate" type changed from "Any" to "string"
+- Resource "aws-native:cloudwatch:MetricStream" output "lastUpdateDate" type changed from "Any" to "string"
+- Function "aws-native:cloudwatch:getMetricStream" output "lastUpdateDate" type changed from "Any" to "string"
+- Function "aws-native:cloudwatch:getMetricStream" output "creationDate" type changed from "Any" to "string"
+
 ## 0.69.0 (July 19, 2023)
 
 ### Breaking changes:

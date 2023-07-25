@@ -2,6 +2,13 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const ComponentTypeStatusError1PropertiesCode = {
+    ValidationError: "VALIDATION_ERROR",
+    InternalFailure: "INTERNAL_FAILURE",
+} as const;
+
+export type ComponentTypeStatusError1PropertiesCode = (typeof ComponentTypeStatusError1PropertiesCode)[keyof typeof ComponentTypeStatusError1PropertiesCode];
+
 export const ComponentTypeStatusErrorPropertiesCode = {
     ValidationError: "VALIDATION_ERROR",
     InternalFailure: "INTERNAL_FAILURE",
@@ -18,6 +25,13 @@ export const ComponentTypeStatusState = {
 } as const;
 
 export type ComponentTypeStatusState = (typeof ComponentTypeStatusState)[keyof typeof ComponentTypeStatusState];
+
+export const EntityStatusError1PropertiesCode = {
+    ValidationError: "VALIDATION_ERROR",
+    InternalFailure: "INTERNAL_FAILURE",
+} as const;
+
+export type EntityStatusError1PropertiesCode = (typeof EntityStatusError1PropertiesCode)[keyof typeof EntityStatusError1PropertiesCode];
 
 export const EntityStatusErrorPropertiesCode = {
     ValidationError: "VALIDATION_ERROR",

@@ -564,6 +564,10 @@ func (o AccessPointTransformationConfigurationArrayOutput) Index(i pulumi.IntInp
 	}).(AccessPointTransformationConfigurationOutput)
 }
 
+type AccessPointTransformationConfigurationContentTransformation0Properties struct {
+	AwsLambda AccessPointAwsLambda `pulumi:"awsLambda"`
+}
+
 type AccessPointTransformationConfigurationContentTransformationProperties struct {
 	AwsLambda AccessPointAwsLambda `pulumi:"awsLambda"`
 }

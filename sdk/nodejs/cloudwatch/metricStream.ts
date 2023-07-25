@@ -44,7 +44,7 @@ export class MetricStream extends pulumi.CustomResource {
     /**
      * The date of creation of the metric stream.
      */
-    public /*out*/ readonly creationDate!: pulumi.Output<any | any>;
+    public /*out*/ readonly creationDate!: pulumi.Output<string>;
     /**
      * Define which metrics will be not streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
      */
@@ -64,7 +64,7 @@ export class MetricStream extends pulumi.CustomResource {
     /**
      * The date of the last update of the metric stream.
      */
-    public /*out*/ readonly lastUpdateDate!: pulumi.Output<any | any>;
+    public /*out*/ readonly lastUpdateDate!: pulumi.Output<string>;
     /**
      * Name of the metric stream.
      */

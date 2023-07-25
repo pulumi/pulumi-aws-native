@@ -79,6 +79,7 @@ class ProtectionApplicationLayerAutomaticResponseConfigurationAction0PropertiesA
     def __init__(__self__, *,
                  count: Optional[Any] = None):
         """
+        Specifies the action setting that Shield Advanced should use in the AWS WAF rules that it creates on behalf of the protected resource in response to DDoS attacks. You specify this as part of the configuration for the automatic application layer DDoS mitigation feature, when you enable or update automatic mitigation. Shield Advanced creates the AWS WAF rules in a Shield Advanced-managed rule group, inside the web ACL that you have associated with the resource.
         :param Any count: Specifies that Shield Advanced should configure its AWS WAF rules with the AWS WAF `Count` action.
                You must specify exactly one action, either `Block` or `Count`.
         """
@@ -104,6 +105,7 @@ class ProtectionApplicationLayerAutomaticResponseConfigurationAction1PropertiesA
     def __init__(__self__, *,
                  block: Optional[Any] = None):
         """
+        Specifies the action setting that Shield Advanced should use in the AWS WAF rules that it creates on behalf of the protected resource in response to DDoS attacks. You specify this as part of the configuration for the automatic application layer DDoS mitigation feature, when you enable or update automatic mitigation. Shield Advanced creates the AWS WAF rules in a Shield Advanced-managed rule group, inside the web ACL that you have associated with the resource.
         :param Any block: Specifies that Shield Advanced should configure its AWS WAF rules with the AWS WAF `Block` action.
                You must specify exactly one action, either `Block` or `Count`.
         """

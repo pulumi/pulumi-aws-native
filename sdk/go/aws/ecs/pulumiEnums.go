@@ -338,11 +338,20 @@ func (in *capacityProviderManagedScalingStatusPtr) ToCapacityProviderManagedScal
 	return pulumi.ToOutputWithContext(ctx, in).(CapacityProviderManagedScalingStatusPtrOutput)
 }
 
+// If using ec2 auto-scaling, the name of the associated capacity provider. Otherwise FARGATE, FARGATE_SPOT.
 type ClusterCapacityProviderAssociationsCapacityProvider string
 
 const (
 	ClusterCapacityProviderAssociationsCapacityProviderFargate     = ClusterCapacityProviderAssociationsCapacityProvider("FARGATE")
 	ClusterCapacityProviderAssociationsCapacityProviderFargateSpot = ClusterCapacityProviderAssociationsCapacityProvider("FARGATE_SPOT")
+)
+
+// If using ec2 auto-scaling, the name of the associated capacity provider. Otherwise FARGATE, FARGATE_SPOT.
+type ClusterCapacityProviderAssociationsCapacityProvider0 string
+
+const (
+	ClusterCapacityProviderAssociationsCapacityProvider0Fargate     = ClusterCapacityProviderAssociationsCapacityProvider0("FARGATE")
+	ClusterCapacityProviderAssociationsCapacityProvider0FargateSpot = ClusterCapacityProviderAssociationsCapacityProvider0("FARGATE_SPOT")
 )
 
 type ServiceAwsVpcConfigurationAssignPublicIp string

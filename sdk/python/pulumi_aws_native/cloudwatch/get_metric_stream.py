@@ -23,8 +23,8 @@ class GetMetricStreamResult:
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
-        if creation_date and not isinstance(creation_date, dict):
-            raise TypeError("Expected argument 'creation_date' to be a dict")
+        if creation_date and not isinstance(creation_date, str):
+            raise TypeError("Expected argument 'creation_date' to be a str")
         pulumi.set(__self__, "creation_date", creation_date)
         if exclude_filters and not isinstance(exclude_filters, list):
             raise TypeError("Expected argument 'exclude_filters' to be a list")
@@ -38,8 +38,8 @@ class GetMetricStreamResult:
         if include_linked_accounts_metrics and not isinstance(include_linked_accounts_metrics, bool):
             raise TypeError("Expected argument 'include_linked_accounts_metrics' to be a bool")
         pulumi.set(__self__, "include_linked_accounts_metrics", include_linked_accounts_metrics)
-        if last_update_date and not isinstance(last_update_date, dict):
-            raise TypeError("Expected argument 'last_update_date' to be a dict")
+        if last_update_date and not isinstance(last_update_date, str):
+            raise TypeError("Expected argument 'last_update_date' to be a str")
         pulumi.set(__self__, "last_update_date", last_update_date)
         if output_format and not isinstance(output_format, str):
             raise TypeError("Expected argument 'output_format' to be a str")
@@ -64,7 +64,7 @@ class GetMetricStreamResult:
 
     @property
     @pulumi.getter(name="creationDate")
-    def creation_date(self) -> Optional[Any]:
+    def creation_date(self) -> Optional[str]:
         """
         The date of creation of the metric stream.
         """
@@ -104,7 +104,7 @@ class GetMetricStreamResult:
 
     @property
     @pulumi.getter(name="lastUpdateDate")
-    def last_update_date(self) -> Optional[Any]:
+    def last_update_date(self) -> Optional[str]:
         """
         The date of the last update of the metric stream.
         """

@@ -10,6 +10,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type ComponentTypeStatusError1PropertiesCode string
+
+const (
+	ComponentTypeStatusError1PropertiesCodeValidationError = ComponentTypeStatusError1PropertiesCode("VALIDATION_ERROR")
+	ComponentTypeStatusError1PropertiesCodeInternalFailure = ComponentTypeStatusError1PropertiesCode("INTERNAL_FAILURE")
+)
+
 type ComponentTypeStatusErrorPropertiesCode string
 
 const (
@@ -109,6 +116,13 @@ func (o ComponentTypeStatusStatePtrOutput) ToStringPtrOutputWithContext(ctx cont
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
+
+type EntityStatusError1PropertiesCode string
+
+const (
+	EntityStatusError1PropertiesCodeValidationError = EntityStatusError1PropertiesCode("VALIDATION_ERROR")
+	EntityStatusError1PropertiesCodeInternalFailure = EntityStatusError1PropertiesCode("INTERNAL_FAILURE")
+)
 
 type EntityStatusErrorPropertiesCode string
 
