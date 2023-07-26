@@ -126,7 +126,7 @@
   "createOnlyProperties" : [ "/properties/BucketName", "/properties/ServerHostname" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "datasync:CreateLocationObjectStorage", "datasync:DescribeLocationObjectStorage", "datasync:ListTagsForResource" ]
+      "permissions" : [ "datasync:CreateLocationObjectStorage", "datasync:DescribeLocationObjectStorage", "datasync:ListTagsForResource", "datasync:TagResource" ]
     },
     "read" : {
       "permissions" : [ "datasync:DescribeLocationObjectStorage", "datasync:ListTagsForResource" ]

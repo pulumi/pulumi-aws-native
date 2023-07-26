@@ -100,7 +100,7 @@
   "writeOnlyProperties" : [ "/properties/Subdirectory", "/properties/S3BucketArn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "datasync:CreateLocationS3", "datasync:DescribeLocationS3", "datasync:ListTagsForResource", "s3:ListAllMyBuckets", "s3:ListBucket", "iam:GetRole", "iam:PassRole" ]
+      "permissions" : [ "datasync:CreateLocationS3", "datasync:DescribeLocationS3", "datasync:ListTagsForResource", "datasync:TagResource", "s3:ListAllMyBuckets", "s3:ListBucket", "iam:GetRole", "iam:PassRole" ]
     },
     "read" : {
       "permissions" : [ "datasync:DescribeLocationS3", "datasync:ListTagsForResource" ]

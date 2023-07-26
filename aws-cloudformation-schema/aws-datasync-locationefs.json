@@ -123,7 +123,7 @@
   "writeOnlyProperties" : [ "/properties/EfsFilesystemArn", "/properties/Subdirectory" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "datasync:CreateLocationEfs", "datasync:DescribeLocationEfs", "datasync:ListTagsForResource", "elasticfilesystem:DescribeFileSystems", "elasticfilesystem:DescribeMountTargets", "ec2:DescribeSubnets", "ec2:DescribeSecurityGroups" ]
+      "permissions" : [ "datasync:CreateLocationEfs", "datasync:DescribeLocationEfs", "datasync:ListTagsForResource", "datasync:TagResource", "elasticfilesystem:DescribeFileSystems", "elasticfilesystem:DescribeMountTargets", "elasticfilesystem:DescribeAccessPoints", "iam:PassRole", "ec2:DescribeSubnets", "ec2:DescribeSecurityGroups" ]
     },
     "read" : {
       "permissions" : [ "datasync:DescribeLocationEfs", "datasync:ListTagsForResource" ]

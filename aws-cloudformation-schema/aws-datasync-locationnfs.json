@@ -118,7 +118,7 @@
   "writeOnlyProperties" : [ "/properties/ServerHostname", "/properties/Subdirectory" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "datasync:CreateLocationNfs", "datasync:DescribeLocationNfs", "datasync:ListTagsForResource" ]
+      "permissions" : [ "datasync:CreateLocationNfs", "datasync:DescribeLocationNfs", "datasync:ListTagsForResource", "datasync:TagResource" ]
     },
     "read" : {
       "permissions" : [ "datasync:DescribeLocationNfs", "datasync:ListTagsForResource" ]
