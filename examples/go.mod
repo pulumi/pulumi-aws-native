@@ -1,6 +1,6 @@
 module github.com/pulumi/pulumi-aws-native/examples
 
-go 1.20
+go 1.19
 
 require github.com/pulumi/pulumi/pkg/v3 v3.75.0
 
