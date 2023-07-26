@@ -16,12 +16,24 @@ export function getQueuePolicy(args: GetQueuePolicyArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetQueuePolicyArgs {
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
     id: string;
 }
 
 export interface GetQueuePolicyResult {
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
     readonly id?: string;
+    /**
+     * A policy document that contains the permissions for the specified Amazon SQS queues. For more information about Amazon SQS policies, see Creating Custom Policies Using the Access Policy Language in the Amazon Simple Queue Service Developer Guide.
+     */
     readonly policyDocument?: any;
+    /**
+     * The URLs of the queues to which you want to add the policy. You can use the Ref function to specify an AWS::SQS::Queue resource.
+     */
     readonly queues?: string[];
 }
 /**
@@ -32,5 +44,8 @@ export function getQueuePolicyOutput(args: GetQueuePolicyOutputArgs, opts?: pulu
 }
 
 export interface GetQueuePolicyOutputArgs {
+    /**
+     * The provider-assigned unique ID for this managed resource.
+     */
     id: pulumi.Input<string>;
 }

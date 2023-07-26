@@ -140,7 +140,7 @@
   "required" : [ "CoreNetworkId", "EdgeLocation", "TransportAttachmentId", "Options" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "networkmanager:GetConnectAttachment", "networkmanager:CreateConnectAttachment", "ec2:DescribeRegions" ]
+      "permissions" : [ "networkmanager:GetConnectAttachment", "networkmanager:CreateConnectAttachment", "networkmanager:TagResource", "ec2:DescribeRegions" ]
     },
     "read" : {
       "permissions" : [ "networkmanager:GetConnectAttachment" ]

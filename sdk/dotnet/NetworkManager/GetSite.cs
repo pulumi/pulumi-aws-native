@@ -70,6 +70,10 @@ namespace Pulumi.AwsNative.NetworkManager
     public sealed class GetSiteResult
     {
         /// <summary>
+        /// The date and time that the device was created.
+        /// </summary>
+        public readonly string? CreatedAt;
+        /// <summary>
         /// The description of the site.
         /// </summary>
         public readonly string? Description;
@@ -92,6 +96,8 @@ namespace Pulumi.AwsNative.NetworkManager
 
         [OutputConstructor]
         private GetSiteResult(
+            string? createdAt,
+
             string? description,
 
             Outputs.SiteLocation? location,
@@ -102,6 +108,7 @@ namespace Pulumi.AwsNative.NetworkManager
 
             ImmutableArray<Outputs.SiteTag> tags)
         {
+            CreatedAt = createdAt;
             Description = description;
             Location = location;
             SiteArn = siteArn;

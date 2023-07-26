@@ -32,6 +32,14 @@ export interface GetDeviceArgs {
 
 export interface GetDeviceResult {
     /**
+     * The Amazon Web Services location of the device, if applicable.
+     */
+    readonly aWSLocation?: outputs.networkmanager.DeviceAWSLocation;
+    /**
+     * The date and time that the device was created.
+     */
+    readonly createdAt?: string;
+    /**
      * The description of the device.
      */
     readonly description?: string;

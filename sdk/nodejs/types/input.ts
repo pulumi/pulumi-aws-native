@@ -29563,6 +29563,20 @@ export namespace networkmanager {
     }
 
     /**
+     * The Amazon Web Services location of the device, if applicable.
+     */
+    export interface DeviceAWSLocationArgs {
+        /**
+         * The Amazon Resource Name (ARN) of the subnet that the device is located in.
+         */
+        subnetArn?: pulumi.Input<string>;
+        /**
+         * The Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
+         */
+        zone?: pulumi.Input<string>;
+    }
+
+    /**
      * The site location.
      */
     export interface DeviceLocationArgs {
@@ -29584,8 +29598,14 @@ export namespace networkmanager {
      * A key-value pair to associate with a device resource.
      */
     export interface DeviceTagArgs {
-        key?: pulumi.Input<string>;
-        value?: pulumi.Input<string>;
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
     }
 
     /**
@@ -29640,8 +29660,14 @@ export namespace networkmanager {
      * A key-value pair to associate with a site resource.
      */
     export interface SiteTagArgs {
-        key?: pulumi.Input<string>;
-        value?: pulumi.Input<string>;
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
     }
 
     /**

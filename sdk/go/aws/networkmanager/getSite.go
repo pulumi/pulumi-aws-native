@@ -30,6 +30,8 @@ type LookupSiteArgs struct {
 }
 
 type LookupSiteResult struct {
+	// The date and time that the device was created.
+	CreatedAt *string `pulumi:"createdAt"`
 	// The description of the site.
 	Description *string `pulumi:"description"`
 	// The location of the site.
@@ -78,6 +80,11 @@ func (o LookupSiteResultOutput) ToLookupSiteResultOutput() LookupSiteResultOutpu
 
 func (o LookupSiteResultOutput) ToLookupSiteResultOutputWithContext(ctx context.Context) LookupSiteResultOutput {
 	return o
+}
+
+// The date and time that the device was created.
+func (o LookupSiteResultOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSiteResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
 // The description of the site.

@@ -17,6 +17,7 @@ __all__ = ['DeviceArgs', 'Device']
 class DeviceArgs:
     def __init__(__self__, *,
                  global_network_id: pulumi.Input[str],
+                 a_ws_location: Optional[pulumi.Input['DeviceAWSLocationArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input['DeviceLocationArgs']] = None,
                  model: Optional[pulumi.Input[str]] = None,
@@ -28,6 +29,7 @@ class DeviceArgs:
         """
         The set of arguments for constructing a Device resource.
         :param pulumi.Input[str] global_network_id: The ID of the global network.
+        :param pulumi.Input['DeviceAWSLocationArgs'] a_ws_location: The Amazon Web Services location of the device, if applicable.
         :param pulumi.Input[str] description: The description of the device.
         :param pulumi.Input['DeviceLocationArgs'] location: The site location.
         :param pulumi.Input[str] model: The device model
@@ -38,6 +40,8 @@ class DeviceArgs:
         :param pulumi.Input[str] vendor: The device vendor.
         """
         pulumi.set(__self__, "global_network_id", global_network_id)
+        if a_ws_location is not None:
+            pulumi.set(__self__, "a_ws_location", a_ws_location)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if location is not None:
@@ -66,6 +70,18 @@ class DeviceArgs:
     @global_network_id.setter
     def global_network_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "global_network_id", value)
+
+    @property
+    @pulumi.getter(name="aWSLocation")
+    def a_ws_location(self) -> Optional[pulumi.Input['DeviceAWSLocationArgs']]:
+        """
+        The Amazon Web Services location of the device, if applicable.
+        """
+        return pulumi.get(self, "a_ws_location")
+
+    @a_ws_location.setter
+    def a_ws_location(self, value: Optional[pulumi.Input['DeviceAWSLocationArgs']]):
+        pulumi.set(self, "a_ws_location", value)
 
     @property
     @pulumi.getter
@@ -169,6 +185,7 @@ class Device(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 a_ws_location: Optional[pulumi.Input[pulumi.InputType['DeviceAWSLocationArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  global_network_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[pulumi.InputType['DeviceLocationArgs']]] = None,
@@ -184,6 +201,7 @@ class Device(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['DeviceAWSLocationArgs']] a_ws_location: The Amazon Web Services location of the device, if applicable.
         :param pulumi.Input[str] description: The description of the device.
         :param pulumi.Input[str] global_network_id: The ID of the global network.
         :param pulumi.Input[pulumi.InputType['DeviceLocationArgs']] location: The site location.
@@ -218,6 +236,7 @@ class Device(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 a_ws_location: Optional[pulumi.Input[pulumi.InputType['DeviceAWSLocationArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  global_network_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[pulumi.InputType['DeviceLocationArgs']]] = None,
@@ -236,6 +255,7 @@ class Device(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DeviceArgs.__new__(DeviceArgs)
 
+            __props__.__dict__["a_ws_location"] = a_ws_location
             __props__.__dict__["description"] = description
             if global_network_id is None and not opts.urn:
                 raise TypeError("Missing required property 'global_network_id'")
@@ -247,6 +267,7 @@ class Device(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["type"] = type
             __props__.__dict__["vendor"] = vendor
+            __props__.__dict__["created_at"] = None
             __props__.__dict__["device_arn"] = None
             __props__.__dict__["device_id"] = None
         super(Device, __self__).__init__(
@@ -271,6 +292,8 @@ class Device(pulumi.CustomResource):
 
         __props__ = DeviceArgs.__new__(DeviceArgs)
 
+        __props__.__dict__["a_ws_location"] = None
+        __props__.__dict__["created_at"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["device_arn"] = None
         __props__.__dict__["device_id"] = None
@@ -283,6 +306,22 @@ class Device(pulumi.CustomResource):
         __props__.__dict__["type"] = None
         __props__.__dict__["vendor"] = None
         return Device(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="aWSLocation")
+    def a_ws_location(self) -> pulumi.Output[Optional['outputs.DeviceAWSLocation']]:
+        """
+        The Amazon Web Services location of the device, if applicable.
+        """
+        return pulumi.get(self, "a_ws_location")
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> pulumi.Output[str]:
+        """
+        The date and time that the device was created.
+        """
+        return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter

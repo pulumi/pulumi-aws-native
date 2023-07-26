@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.NetworkManager
     public partial class Site : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The date and time that the device was created.
+        /// </summary>
+        [Output("createdAt")]
+        public Output<string> CreatedAt { get; private set; } = null!;
+
+        /// <summary>
         /// The description of the site.
         /// </summary>
         [Output("description")]

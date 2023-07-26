@@ -255,7 +255,7 @@
   "createOnlyProperties" : [ "/properties/DestinationLocationArn", "/properties/SourceLocationArn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "datasync:CreateTask", "datasync:DescribeTask", "datasync:ListTagsForResource", "s3:ListAllMyBuckets", "s3:ListBucket", "ec2:DescribeNetworkInterfaces", "ec2:CreateNetworkInterface", "ec2:DeleteNetworkInterface", "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "ec2:CreateNetworkInterfacePermission", "fsx:DescribeFileSystems", "elasticfilesystem:DescribeFileSystems", "elasticfilesystem:DescribeMountTargets", "logs:DescribeLogGroups", "iam:GetRole" ]
+      "permissions" : [ "datasync:CreateTask", "datasync:DescribeTask", "datasync:ListTagsForResource", "datasync:TagResource", "s3:ListAllMyBuckets", "s3:ListBucket", "ec2:DescribeNetworkInterfaces", "ec2:CreateNetworkInterface", "ec2:DeleteNetworkInterface", "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "ec2:CreateNetworkInterfacePermission", "fsx:DescribeFileSystems", "elasticfilesystem:DescribeFileSystems", "elasticfilesystem:DescribeMountTargets", "logs:DescribeLogGroups", "iam:GetRole" ]
     },
     "read" : {
       "permissions" : [ "datasync:DescribeTask", "datasync:ListTagsForResource" ]
@@ -264,7 +264,7 @@
       "permissions" : [ "datasync:UpdateTask", "datasync:DescribeTask", "datasync:ListTagsForResource", "datasync:TagResource", "datasync:UntagResource", "logs:DescribeLogGroups" ]
     },
     "delete" : {
-      "permissions" : [ "datasync:DeleteTask", "ec2:DeleteNetworkInterface", "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "fsx:DescribeFileSystems", "elasticfilesystem:DescribeFileSystems", "elasticfilesystem:DescribeMountTargets", "iam:GetRole" ]
+      "permissions" : [ "datasync:DeleteTask", "ec2:DescribeNetworkInterfaces", "ec2:DeleteNetworkInterface", "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "fsx:DescribeFileSystems", "elasticfilesystem:DescribeFileSystems", "elasticfilesystem:DescribeMountTargets", "iam:GetRole" ]
     },
     "list" : {
       "permissions" : [ "datasync:ListTasks" ]

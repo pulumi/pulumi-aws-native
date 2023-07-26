@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.SQS
 
     public sealed class GetQueuePolicyArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The provider-assigned unique ID for this managed resource.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.SQS
 
     public sealed class GetQueuePolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The provider-assigned unique ID for this managed resource.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -51,8 +57,17 @@ namespace Pulumi.AwsNative.SQS
     [OutputType]
     public sealed class GetQueuePolicyResult
     {
+        /// <summary>
+        /// The provider-assigned unique ID for this managed resource.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// A policy document that contains the permissions for the specified Amazon SQS queues. For more information about Amazon SQS policies, see Creating Custom Policies Using the Access Policy Language in the Amazon Simple Queue Service Developer Guide.
+        /// </summary>
         public readonly object? PolicyDocument;
+        /// <summary>
+        /// The URLs of the queues to which you want to add the policy. You can use the Ref function to specify an AWS::SQS::Queue resource.
+        /// </summary>
         public readonly ImmutableArray<string> Queues;
 
         [OutputConstructor]

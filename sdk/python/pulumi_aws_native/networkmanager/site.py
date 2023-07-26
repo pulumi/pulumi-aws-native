@@ -147,6 +147,7 @@ class Site(pulumi.CustomResource):
             __props__.__dict__["global_network_id"] = global_network_id
             __props__.__dict__["location"] = location
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["created_at"] = None
             __props__.__dict__["site_arn"] = None
             __props__.__dict__["site_id"] = None
         super(Site, __self__).__init__(
@@ -171,6 +172,7 @@ class Site(pulumi.CustomResource):
 
         __props__ = SiteArgs.__new__(SiteArgs)
 
+        __props__.__dict__["created_at"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["global_network_id"] = None
         __props__.__dict__["location"] = None
@@ -178,6 +180,14 @@ class Site(pulumi.CustomResource):
         __props__.__dict__["site_id"] = None
         __props__.__dict__["tags"] = None
         return Site(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> pulumi.Output[str]:
+        """
+        The date and time that the device was created.
+        """
+        return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter

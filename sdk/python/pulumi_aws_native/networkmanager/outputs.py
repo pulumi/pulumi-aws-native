@@ -21,6 +21,7 @@ __all__ = [
     'CoreNetworkEdge',
     'CoreNetworkSegment',
     'CoreNetworkTag',
+    'DeviceAWSLocation',
     'DeviceLocation',
     'DeviceTag',
     'GlobalNetworkTag',
@@ -539,6 +540,58 @@ class CoreNetworkTag(dict):
 
 
 @pulumi.output_type
+class DeviceAWSLocation(dict):
+    """
+    The Amazon Web Services location of the device, if applicable.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subnetArn":
+            suggest = "subnet_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeviceAWSLocation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeviceAWSLocation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeviceAWSLocation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 subnet_arn: Optional[str] = None,
+                 zone: Optional[str] = None):
+        """
+        The Amazon Web Services location of the device, if applicable.
+        :param str subnet_arn: The Amazon Resource Name (ARN) of the subnet that the device is located in.
+        :param str zone: The Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
+        """
+        if subnet_arn is not None:
+            pulumi.set(__self__, "subnet_arn", subnet_arn)
+        if zone is not None:
+            pulumi.set(__self__, "zone", zone)
+
+    @property
+    @pulumi.getter(name="subnetArn")
+    def subnet_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the subnet that the device is located in.
+        """
+        return pulumi.get(self, "subnet_arn")
+
+    @property
+    @pulumi.getter
+    def zone(self) -> Optional[str]:
+        """
+        The Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
+        """
+        return pulumi.get(self, "zone")
+
+
+@pulumi.output_type
 class DeviceLocation(dict):
     """
     The site location.
@@ -591,24 +644,30 @@ class DeviceTag(dict):
     A key-value pair to associate with a device resource.
     """
     def __init__(__self__, *,
-                 key: Optional[str] = None,
-                 value: Optional[str] = None):
+                 key: str,
+                 value: str):
         """
         A key-value pair to associate with a device resource.
+        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def key(self) -> Optional[str]:
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[str]:
+    def value(self) -> str:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
         return pulumi.get(self, "value")
 
 
@@ -773,24 +832,30 @@ class SiteTag(dict):
     A key-value pair to associate with a site resource.
     """
     def __init__(__self__, *,
-                 key: Optional[str] = None,
-                 value: Optional[str] = None):
+                 key: str,
+                 value: str):
         """
         A key-value pair to associate with a site resource.
+        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def key(self) -> Optional[str]:
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[str]:
+    def value(self) -> str:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
         return pulumi.get(self, "value")
 
 

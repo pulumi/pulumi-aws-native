@@ -19,7 +19,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetSiteResult:
-    def __init__(__self__, description=None, location=None, site_arn=None, site_id=None, tags=None):
+    def __init__(__self__, created_at=None, description=None, location=None, site_arn=None, site_id=None, tags=None):
+        if created_at and not isinstance(created_at, str):
+            raise TypeError("Expected argument 'created_at' to be a str")
+        pulumi.set(__self__, "created_at", created_at)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -35,6 +38,14 @@ class GetSiteResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        """
+        The date and time that the device was created.
+        """
+        return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter
@@ -83,6 +94,7 @@ class AwaitableGetSiteResult(GetSiteResult):
         if False:
             yield self
         return GetSiteResult(
+            created_at=self.created_at,
             description=self.description,
             location=self.location,
             site_arn=self.site_arn,
@@ -107,6 +119,7 @@ def get_site(global_network_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:networkmanager:getSite', __args__, opts=opts, typ=GetSiteResult).value
 
     return AwaitableGetSiteResult(
+        created_at=pulumi.get(__ret__, 'created_at'),
         description=pulumi.get(__ret__, 'description'),
         location=pulumi.get(__ret__, 'location'),
         site_arn=pulumi.get(__ret__, 'site_arn'),

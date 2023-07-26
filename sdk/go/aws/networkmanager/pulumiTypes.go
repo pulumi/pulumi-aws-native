@@ -1006,6 +1006,165 @@ func (o CoreNetworkTagArrayOutput) Index(i pulumi.IntInput) CoreNetworkTagOutput
 	}).(CoreNetworkTagOutput)
 }
 
+// The Amazon Web Services location of the device, if applicable.
+type DeviceAWSLocation struct {
+	// The Amazon Resource Name (ARN) of the subnet that the device is located in.
+	SubnetArn *string `pulumi:"subnetArn"`
+	// The Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
+	Zone *string `pulumi:"zone"`
+}
+
+// DeviceAWSLocationInput is an input type that accepts DeviceAWSLocationArgs and DeviceAWSLocationOutput values.
+// You can construct a concrete instance of `DeviceAWSLocationInput` via:
+//
+//	DeviceAWSLocationArgs{...}
+type DeviceAWSLocationInput interface {
+	pulumi.Input
+
+	ToDeviceAWSLocationOutput() DeviceAWSLocationOutput
+	ToDeviceAWSLocationOutputWithContext(context.Context) DeviceAWSLocationOutput
+}
+
+// The Amazon Web Services location of the device, if applicable.
+type DeviceAWSLocationArgs struct {
+	// The Amazon Resource Name (ARN) of the subnet that the device is located in.
+	SubnetArn pulumi.StringPtrInput `pulumi:"subnetArn"`
+	// The Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
+	Zone pulumi.StringPtrInput `pulumi:"zone"`
+}
+
+func (DeviceAWSLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeviceAWSLocation)(nil)).Elem()
+}
+
+func (i DeviceAWSLocationArgs) ToDeviceAWSLocationOutput() DeviceAWSLocationOutput {
+	return i.ToDeviceAWSLocationOutputWithContext(context.Background())
+}
+
+func (i DeviceAWSLocationArgs) ToDeviceAWSLocationOutputWithContext(ctx context.Context) DeviceAWSLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeviceAWSLocationOutput)
+}
+
+func (i DeviceAWSLocationArgs) ToDeviceAWSLocationPtrOutput() DeviceAWSLocationPtrOutput {
+	return i.ToDeviceAWSLocationPtrOutputWithContext(context.Background())
+}
+
+func (i DeviceAWSLocationArgs) ToDeviceAWSLocationPtrOutputWithContext(ctx context.Context) DeviceAWSLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeviceAWSLocationOutput).ToDeviceAWSLocationPtrOutputWithContext(ctx)
+}
+
+// DeviceAWSLocationPtrInput is an input type that accepts DeviceAWSLocationArgs, DeviceAWSLocationPtr and DeviceAWSLocationPtrOutput values.
+// You can construct a concrete instance of `DeviceAWSLocationPtrInput` via:
+//
+//	        DeviceAWSLocationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeviceAWSLocationPtrInput interface {
+	pulumi.Input
+
+	ToDeviceAWSLocationPtrOutput() DeviceAWSLocationPtrOutput
+	ToDeviceAWSLocationPtrOutputWithContext(context.Context) DeviceAWSLocationPtrOutput
+}
+
+type deviceAWSLocationPtrType DeviceAWSLocationArgs
+
+func DeviceAWSLocationPtr(v *DeviceAWSLocationArgs) DeviceAWSLocationPtrInput {
+	return (*deviceAWSLocationPtrType)(v)
+}
+
+func (*deviceAWSLocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeviceAWSLocation)(nil)).Elem()
+}
+
+func (i *deviceAWSLocationPtrType) ToDeviceAWSLocationPtrOutput() DeviceAWSLocationPtrOutput {
+	return i.ToDeviceAWSLocationPtrOutputWithContext(context.Background())
+}
+
+func (i *deviceAWSLocationPtrType) ToDeviceAWSLocationPtrOutputWithContext(ctx context.Context) DeviceAWSLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeviceAWSLocationPtrOutput)
+}
+
+// The Amazon Web Services location of the device, if applicable.
+type DeviceAWSLocationOutput struct{ *pulumi.OutputState }
+
+func (DeviceAWSLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeviceAWSLocation)(nil)).Elem()
+}
+
+func (o DeviceAWSLocationOutput) ToDeviceAWSLocationOutput() DeviceAWSLocationOutput {
+	return o
+}
+
+func (o DeviceAWSLocationOutput) ToDeviceAWSLocationOutputWithContext(ctx context.Context) DeviceAWSLocationOutput {
+	return o
+}
+
+func (o DeviceAWSLocationOutput) ToDeviceAWSLocationPtrOutput() DeviceAWSLocationPtrOutput {
+	return o.ToDeviceAWSLocationPtrOutputWithContext(context.Background())
+}
+
+func (o DeviceAWSLocationOutput) ToDeviceAWSLocationPtrOutputWithContext(ctx context.Context) DeviceAWSLocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeviceAWSLocation) *DeviceAWSLocation {
+		return &v
+	}).(DeviceAWSLocationPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the subnet that the device is located in.
+func (o DeviceAWSLocationOutput) SubnetArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeviceAWSLocation) *string { return v.SubnetArn }).(pulumi.StringPtrOutput)
+}
+
+// The Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
+func (o DeviceAWSLocationOutput) Zone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeviceAWSLocation) *string { return v.Zone }).(pulumi.StringPtrOutput)
+}
+
+type DeviceAWSLocationPtrOutput struct{ *pulumi.OutputState }
+
+func (DeviceAWSLocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeviceAWSLocation)(nil)).Elem()
+}
+
+func (o DeviceAWSLocationPtrOutput) ToDeviceAWSLocationPtrOutput() DeviceAWSLocationPtrOutput {
+	return o
+}
+
+func (o DeviceAWSLocationPtrOutput) ToDeviceAWSLocationPtrOutputWithContext(ctx context.Context) DeviceAWSLocationPtrOutput {
+	return o
+}
+
+func (o DeviceAWSLocationPtrOutput) Elem() DeviceAWSLocationOutput {
+	return o.ApplyT(func(v *DeviceAWSLocation) DeviceAWSLocation {
+		if v != nil {
+			return *v
+		}
+		var ret DeviceAWSLocation
+		return ret
+	}).(DeviceAWSLocationOutput)
+}
+
+// The Amazon Resource Name (ARN) of the subnet that the device is located in.
+func (o DeviceAWSLocationPtrOutput) SubnetArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeviceAWSLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
+func (o DeviceAWSLocationPtrOutput) Zone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeviceAWSLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Zone
+	}).(pulumi.StringPtrOutput)
+}
+
 // The site location.
 type DeviceLocation struct {
 	// The physical address.
@@ -1186,8 +1345,10 @@ func (o DeviceLocationPtrOutput) Longitude() pulumi.StringPtrOutput {
 
 // A key-value pair to associate with a device resource.
 type DeviceTag struct {
-	Key   *string `pulumi:"key"`
-	Value *string `pulumi:"value"`
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
 }
 
 // DeviceTagInput is an input type that accepts DeviceTagArgs and DeviceTagOutput values.
@@ -1203,8 +1364,10 @@ type DeviceTagInput interface {
 
 // A key-value pair to associate with a device resource.
 type DeviceTagArgs struct {
-	Key   pulumi.StringPtrInput `pulumi:"key"`
-	Value pulumi.StringPtrInput `pulumi:"value"`
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (DeviceTagArgs) ElementType() reflect.Type {
@@ -1259,12 +1422,14 @@ func (o DeviceTagOutput) ToDeviceTagOutputWithContext(ctx context.Context) Devic
 	return o
 }
 
-func (o DeviceTagOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeviceTag) *string { return v.Key }).(pulumi.StringPtrOutput)
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o DeviceTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v DeviceTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-func (o DeviceTagOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeviceTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o DeviceTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v DeviceTag) string { return v.Value }).(pulumi.StringOutput)
 }
 
 type DeviceTagArrayOutput struct{ *pulumi.OutputState }
@@ -1781,8 +1946,10 @@ func (o SiteLocationPtrOutput) Longitude() pulumi.StringPtrOutput {
 
 // A key-value pair to associate with a site resource.
 type SiteTag struct {
-	Key   *string `pulumi:"key"`
-	Value *string `pulumi:"value"`
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
 }
 
 // SiteTagInput is an input type that accepts SiteTagArgs and SiteTagOutput values.
@@ -1798,8 +1965,10 @@ type SiteTagInput interface {
 
 // A key-value pair to associate with a site resource.
 type SiteTagArgs struct {
-	Key   pulumi.StringPtrInput `pulumi:"key"`
-	Value pulumi.StringPtrInput `pulumi:"value"`
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (SiteTagArgs) ElementType() reflect.Type {
@@ -1854,12 +2023,14 @@ func (o SiteTagOutput) ToSiteTagOutputWithContext(ctx context.Context) SiteTagOu
 	return o
 }
 
-func (o SiteTagOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SiteTag) *string { return v.Key }).(pulumi.StringPtrOutput)
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o SiteTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v SiteTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-func (o SiteTagOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SiteTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o SiteTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v SiteTag) string { return v.Value }).(pulumi.StringOutput)
 }
 
 type SiteTagArrayOutput struct{ *pulumi.OutputState }
@@ -3027,6 +3198,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectPeerTagArrayInput)(nil)).Elem(), ConnectPeerTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CoreNetworkTagInput)(nil)).Elem(), CoreNetworkTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CoreNetworkTagArrayInput)(nil)).Elem(), CoreNetworkTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeviceAWSLocationInput)(nil)).Elem(), DeviceAWSLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeviceAWSLocationPtrInput)(nil)).Elem(), DeviceAWSLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceLocationInput)(nil)).Elem(), DeviceLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceLocationPtrInput)(nil)).Elem(), DeviceLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceTagInput)(nil)).Elem(), DeviceTagArgs{})
@@ -3075,6 +3248,8 @@ func init() {
 	pulumi.RegisterOutputType(CoreNetworkSegmentArrayOutput{})
 	pulumi.RegisterOutputType(CoreNetworkTagOutput{})
 	pulumi.RegisterOutputType(CoreNetworkTagArrayOutput{})
+	pulumi.RegisterOutputType(DeviceAWSLocationOutput{})
+	pulumi.RegisterOutputType(DeviceAWSLocationPtrOutput{})
 	pulumi.RegisterOutputType(DeviceLocationOutput{})
 	pulumi.RegisterOutputType(DeviceLocationPtrOutput{})
 	pulumi.RegisterOutputType(DeviceTagOutput{})

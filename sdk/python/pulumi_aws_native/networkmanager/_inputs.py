@@ -16,6 +16,7 @@ __all__ = [
     'ConnectPeerBgpOptionsArgs',
     'ConnectPeerTagArgs',
     'CoreNetworkTagArgs',
+    'DeviceAWSLocationArgs',
     'DeviceLocationArgs',
     'DeviceTagArgs',
     'GlobalNetworkTagArgs',
@@ -248,6 +249,46 @@ class CoreNetworkTagArgs:
 
 
 @pulumi.input_type
+class DeviceAWSLocationArgs:
+    def __init__(__self__, *,
+                 subnet_arn: Optional[pulumi.Input[str]] = None,
+                 zone: Optional[pulumi.Input[str]] = None):
+        """
+        The Amazon Web Services location of the device, if applicable.
+        :param pulumi.Input[str] subnet_arn: The Amazon Resource Name (ARN) of the subnet that the device is located in.
+        :param pulumi.Input[str] zone: The Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
+        """
+        if subnet_arn is not None:
+            pulumi.set(__self__, "subnet_arn", subnet_arn)
+        if zone is not None:
+            pulumi.set(__self__, "zone", zone)
+
+    @property
+    @pulumi.getter(name="subnetArn")
+    def subnet_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the subnet that the device is located in.
+        """
+        return pulumi.get(self, "subnet_arn")
+
+    @subnet_arn.setter
+    def subnet_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subnet_arn", value)
+
+    @property
+    @pulumi.getter
+    def zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
+        """
+        return pulumi.get(self, "zone")
+
+    @zone.setter
+    def zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "zone", value)
+
+
+@pulumi.input_type
 class DeviceLocationArgs:
     def __init__(__self__, *,
                  address: Optional[pulumi.Input[str]] = None,
@@ -306,32 +347,38 @@ class DeviceLocationArgs:
 @pulumi.input_type
 class DeviceTagArgs:
     def __init__(__self__, *,
-                 key: Optional[pulumi.Input[str]] = None,
-                 value: Optional[pulumi.Input[str]] = None):
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
         """
         A key-value pair to associate with a device resource.
+        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[str]]:
+    def key(self) -> pulumi.Input[str]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[str]]):
+    def key(self, value: pulumi.Input[str]):
         pulumi.set(self, "key", value)
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[str]]:
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[str]]):
+    def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
 
@@ -498,32 +545,38 @@ class SiteLocationArgs:
 @pulumi.input_type
 class SiteTagArgs:
     def __init__(__self__, *,
-                 key: Optional[pulumi.Input[str]] = None,
-                 value: Optional[pulumi.Input[str]] = None):
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
         """
         A key-value pair to associate with a site resource.
+        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[str]]:
+    def key(self) -> pulumi.Input[str]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[str]]):
+    def key(self, value: pulumi.Input[str]):
         pulumi.set(self, "key", value)
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[str]]:
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[str]]):
+    def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
 

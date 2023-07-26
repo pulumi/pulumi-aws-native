@@ -16,6 +16,18 @@ namespace Pulumi.AwsNative.NetworkManager
     public partial class Device : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The Amazon Web Services location of the device, if applicable.
+        /// </summary>
+        [Output("aWSLocation")]
+        public Output<Outputs.DeviceAWSLocation?> AWSLocation { get; private set; } = null!;
+
+        /// <summary>
+        /// The date and time that the device was created.
+        /// </summary>
+        [Output("createdAt")]
+        public Output<string> CreatedAt { get; private set; } = null!;
+
+        /// <summary>
         /// The description of the device.
         /// </summary>
         [Output("description")]
@@ -126,6 +138,12 @@ namespace Pulumi.AwsNative.NetworkManager
 
     public sealed class DeviceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Web Services location of the device, if applicable.
+        /// </summary>
+        [Input("aWSLocation")]
+        public Input<Inputs.DeviceAWSLocationArgs>? AWSLocation { get; set; }
+
         /// <summary>
         /// The description of the device.
         /// </summary>

@@ -38,6 +38,10 @@ export class Site extends pulumi.CustomResource {
     }
 
     /**
+     * The date and time that the device was created.
+     */
+    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
      * The description of the site.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -80,9 +84,11 @@ export class Site extends pulumi.CustomResource {
             resourceInputs["globalNetworkId"] = args ? args.globalNetworkId : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["siteArn"] = undefined /*out*/;
             resourceInputs["siteId"] = undefined /*out*/;
         } else {
+            resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["globalNetworkId"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;

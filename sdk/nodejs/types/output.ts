@@ -30007,6 +30007,20 @@ export namespace networkmanager {
     }
 
     /**
+     * The Amazon Web Services location of the device, if applicable.
+     */
+    export interface DeviceAWSLocation {
+        /**
+         * The Amazon Resource Name (ARN) of the subnet that the device is located in.
+         */
+        subnetArn?: string;
+        /**
+         * The Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
+         */
+        zone?: string;
+    }
+
+    /**
      * The site location.
      */
     export interface DeviceLocation {
@@ -30028,8 +30042,14 @@ export namespace networkmanager {
      * A key-value pair to associate with a device resource.
      */
     export interface DeviceTag {
-        key?: string;
-        value?: string;
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
     }
 
     /**
@@ -30084,8 +30104,14 @@ export namespace networkmanager {
      * A key-value pair to associate with a site resource.
      */
     export interface SiteTag {
-        key?: string;
-        value?: string;
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
     }
 
     /**

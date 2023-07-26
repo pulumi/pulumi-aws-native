@@ -155,7 +155,7 @@
   "additionalIdentifiers" : [ [ "/properties/CoreNetworkId", "/properties/VpcArn" ] ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "networkmanager:CreateVpcAttachment", "networkmanager:GetVpcAttachment", "ec2:DescribeRegions", "iam:CreateServiceLinkedRole" ],
+      "permissions" : [ "networkmanager:CreateVpcAttachment", "networkmanager:GetVpcAttachment", "networkmanager:TagResource", "ec2:DescribeRegions", "iam:CreateServiceLinkedRole" ],
       "timeoutInMinutes" : 60
     },
     "read" : {

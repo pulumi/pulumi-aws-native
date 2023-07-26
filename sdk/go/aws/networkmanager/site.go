@@ -16,6 +16,8 @@ import (
 type Site struct {
 	pulumi.CustomResourceState
 
+	// The date and time that the device was created.
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// The description of the site.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The ID of the global network.
@@ -130,6 +132,11 @@ func (o SiteOutput) ToSiteOutput() SiteOutput {
 
 func (o SiteOutput) ToSiteOutputWithContext(ctx context.Context) SiteOutput {
 	return o
+}
+
+// The date and time that the device was created.
+func (o SiteOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *Site) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
 // The description of the site.

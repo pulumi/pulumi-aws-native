@@ -23,13 +23,17 @@ func LookupQueuePolicy(ctx *pulumi.Context, args *LookupQueuePolicyArgs, opts ..
 }
 
 type LookupQueuePolicyArgs struct {
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 }
 
 type LookupQueuePolicyResult struct {
-	Id             *string     `pulumi:"id"`
+	// The provider-assigned unique ID for this managed resource.
+	Id *string `pulumi:"id"`
+	// A policy document that contains the permissions for the specified Amazon SQS queues. For more information about Amazon SQS policies, see Creating Custom Policies Using the Access Policy Language in the Amazon Simple Queue Service Developer Guide.
 	PolicyDocument interface{} `pulumi:"policyDocument"`
-	Queues         []string    `pulumi:"queues"`
+	// The URLs of the queues to which you want to add the policy. You can use the Ref function to specify an AWS::SQS::Queue resource.
+	Queues []string `pulumi:"queues"`
 }
 
 func LookupQueuePolicyOutput(ctx *pulumi.Context, args LookupQueuePolicyOutputArgs, opts ...pulumi.InvokeOption) LookupQueuePolicyResultOutput {
@@ -46,6 +50,7 @@ func LookupQueuePolicyOutput(ctx *pulumi.Context, args LookupQueuePolicyOutputAr
 }
 
 type LookupQueuePolicyOutputArgs struct {
+	// The provider-assigned unique ID for this managed resource.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -67,14 +72,17 @@ func (o LookupQueuePolicyResultOutput) ToLookupQueuePolicyResultOutputWithContex
 	return o
 }
 
+// The provider-assigned unique ID for this managed resource.
 func (o LookupQueuePolicyResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupQueuePolicyResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// A policy document that contains the permissions for the specified Amazon SQS queues. For more information about Amazon SQS policies, see Creating Custom Policies Using the Access Policy Language in the Amazon Simple Queue Service Developer Guide.
 func (o LookupQueuePolicyResultOutput) PolicyDocument() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupQueuePolicyResult) interface{} { return v.PolicyDocument }).(pulumi.AnyOutput)
 }
 
+// The URLs of the queues to which you want to add the policy. You can use the Ref function to specify an AWS::SQS::Queue resource.
 func (o LookupQueuePolicyResultOutput) Queues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupQueuePolicyResult) []string { return v.Queues }).(pulumi.StringArrayOutput)
 }

@@ -32,6 +32,10 @@ export interface GetSiteArgs {
 
 export interface GetSiteResult {
     /**
+     * The date and time that the device was created.
+     */
+    readonly createdAt?: string;
+    /**
      * The description of the site.
      */
     readonly description?: string;

@@ -19,7 +19,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetDeviceResult:
-    def __init__(__self__, description=None, device_arn=None, device_id=None, location=None, model=None, serial_number=None, site_id=None, tags=None, type=None, vendor=None):
+    def __init__(__self__, a_ws_location=None, created_at=None, description=None, device_arn=None, device_id=None, location=None, model=None, serial_number=None, site_id=None, tags=None, type=None, vendor=None):
+        if a_ws_location and not isinstance(a_ws_location, dict):
+            raise TypeError("Expected argument 'a_ws_location' to be a dict")
+        pulumi.set(__self__, "a_ws_location", a_ws_location)
+        if created_at and not isinstance(created_at, str):
+            raise TypeError("Expected argument 'created_at' to be a str")
+        pulumi.set(__self__, "created_at", created_at)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -50,6 +56,22 @@ class GetDeviceResult:
         if vendor and not isinstance(vendor, str):
             raise TypeError("Expected argument 'vendor' to be a str")
         pulumi.set(__self__, "vendor", vendor)
+
+    @property
+    @pulumi.getter(name="aWSLocation")
+    def a_ws_location(self) -> Optional['outputs.DeviceAWSLocation']:
+        """
+        The Amazon Web Services location of the device, if applicable.
+        """
+        return pulumi.get(self, "a_ws_location")
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        """
+        The date and time that the device was created.
+        """
+        return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter
@@ -138,6 +160,8 @@ class AwaitableGetDeviceResult(GetDeviceResult):
         if False:
             yield self
         return GetDeviceResult(
+            a_ws_location=self.a_ws_location,
+            created_at=self.created_at,
             description=self.description,
             device_arn=self.device_arn,
             device_id=self.device_id,
@@ -167,6 +191,8 @@ def get_device(device_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:networkmanager:getDevice', __args__, opts=opts, typ=GetDeviceResult).value
 
     return AwaitableGetDeviceResult(
+        a_ws_location=pulumi.get(__ret__, 'a_ws_location'),
+        created_at=pulumi.get(__ret__, 'created_at'),
         description=pulumi.get(__ret__, 'description'),
         device_arn=pulumi.get(__ret__, 'device_arn'),
         device_id=pulumi.get(__ret__, 'device_id'),
