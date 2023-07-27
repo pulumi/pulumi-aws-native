@@ -104,12 +104,7 @@ class ConfigRuleArgs:
         pulumi.set(self, "scope", value)
 
 
-warnings.warn("""ConfigRule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class ConfigRule(pulumi.CustomResource):
-    warnings.warn("""ConfigRule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -160,7 +155,6 @@ class ConfigRule(pulumi.CustomResource):
                  scope: Optional[pulumi.Input[pulumi.InputType['ConfigRuleScopeArgs']]] = None,
                  source: Optional[pulumi.Input[pulumi.InputType['ConfigRuleSourceArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""ConfigRule is deprecated: ConfigRule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

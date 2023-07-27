@@ -12,7 +12,6 @@ namespace Pulumi.AwsNative.Configuration
     /// <summary>
     /// Resource Type definition for AWS::Config::ConfigRule
     /// </summary>
-    [Obsolete(@"ConfigRule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:configuration:ConfigRule")]
     public partial class ConfigRule : global::Pulumi.CustomResource
     {
