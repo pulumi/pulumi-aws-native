@@ -478,7 +478,7 @@
   "primaryIdentifier" : [ "/properties/JobDefinitionArn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "sagemaker:CreateDataQualityJobDefinition", "sagemaker:DescribeDataQualityJobDefinition", "iam:PassRole" ]
+      "permissions" : [ "sagemaker:CreateDataQualityJobDefinition", "sagemaker:DescribeDataQualityJobDefinition", "sagemaker:AddTags", "iam:PassRole" ]
     },
     "delete" : {
       "permissions" : [ "sagemaker:DeleteDataQualityJobDefinition" ]
@@ -487,9 +487,10 @@
       "permissions" : [ "sagemaker:DescribeDataQualityJobDefinition" ]
     },
     "list" : {
-      "permissions" : [ "sagemaker:ListDataQualityJobDefinitions" ]
+      "permissions" : [ "sagemaker:ListDataQualityJobDefinitions", "sagemaker:ListTags" ]
     }
   },
   "readOnlyProperties" : [ "/properties/CreationTime", "/properties/JobDefinitionArn" ],
-  "createOnlyProperties" : [ "/properties/JobDefinitionName", "/properties/DataQualityAppSpecification", "/properties/DataQualityBaselineConfig", "/properties/DataQualityJobInput", "/properties/DataQualityJobOutputConfig", "/properties/JobResources", "/properties/NetworkConfig", "/properties/RoleArn", "/properties/StoppingCondition", "/properties/Tags" ]
+  "createOnlyProperties" : [ "/properties/JobDefinitionName", "/properties/DataQualityAppSpecification", "/properties/DataQualityBaselineConfig", "/properties/DataQualityJobInput", "/properties/DataQualityJobOutputConfig", "/properties/JobResources", "/properties/NetworkConfig", "/properties/RoleArn", "/properties/StoppingCondition", "/properties/Tags", "/properties/EndpointName" ],
+  "writeOnlyProperties" : [ "/properties/EndpointName", "/properties/Tags", "/properties/Tags/*/Key", "/properties/Tags/*/Value" ]
 }

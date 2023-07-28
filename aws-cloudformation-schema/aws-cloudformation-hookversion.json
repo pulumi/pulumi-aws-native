@@ -95,7 +95,7 @@
           }
         }
       },
-      "permissions" : [ "cloudformation:ListTypes" ]
+      "permissions" : [ "cloudformation:ListTypes", "cloudformation:ListTypeVersions" ]
     }
   },
   "additionalProperties" : false

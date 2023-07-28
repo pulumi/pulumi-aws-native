@@ -73,7 +73,7 @@
   "required" : [ "Name", "RoleArns" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "iam:GetRole", "iam:GetPolicy", "iam:PassRole", "rolesanywhere:CreateProfile", "rolesanywhere:ListTagsForResource" ]
+      "permissions" : [ "iam:GetRole", "iam:GetPolicy", "iam:PassRole", "rolesanywhere:CreateProfile", "rolesanywhere:TagResource", "rolesanywhere:ListTagsForResource" ]
     },
     "read" : {
       "permissions" : [ "rolesanywhere:GetProfile", "rolesanywhere:ListTagsForResource" ]

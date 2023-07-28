@@ -1156,6 +1156,9 @@
         },
         "AWSManagedRulesATPRuleSet" : {
           "$ref" : "#/definitions/AWSManagedRulesATPRuleSet"
+        },
+        "AWSManagedRulesACFPRuleSet" : {
+          "$ref" : "#/definitions/AWSManagedRulesACFPRuleSet"
         }
       },
       "additionalProperties" : false
@@ -1179,6 +1182,9 @@
         "LoginPath" : {
           "type" : "string"
         },
+        "EnableRegexInPath" : {
+          "type" : "boolean"
+        },
         "RequestInspection" : {
           "$ref" : "#/definitions/RequestInspection"
         },
@@ -1187,6 +1193,29 @@
         }
       },
       "required" : [ "LoginPath" ],
+      "additionalProperties" : false
+    },
+    "AWSManagedRulesACFPRuleSet" : {
+      "description" : "Configures how to use the Account creation fraud prevention managed rule group in the web ACL",
+      "type" : "object",
+      "properties" : {
+        "CreationPath" : {
+          "type" : "string"
+        },
+        "RegistrationPagePath" : {
+          "type" : "string"
+        },
+        "RequestInspection" : {
+          "$ref" : "#/definitions/RequestInspectionACFP"
+        },
+        "ResponseInspection" : {
+          "$ref" : "#/definitions/ResponseInspection"
+        },
+        "EnableRegexInPath" : {
+          "type" : "boolean"
+        }
+      },
+      "required" : [ "CreationPath", "RegistrationPagePath", "RequestInspection" ],
       "additionalProperties" : false
     },
     "RequestInspection" : {
@@ -1205,6 +1234,39 @@
         }
       },
       "required" : [ "PayloadType", "UsernameField", "PasswordField" ],
+      "additionalProperties" : false
+    },
+    "RequestInspectionACFP" : {
+      "description" : "Configures the inspection of sign-up requests",
+      "type" : "object",
+      "properties" : {
+        "PayloadType" : {
+          "type" : "string",
+          "enum" : [ "JSON", "FORM_ENCODED" ]
+        },
+        "UsernameField" : {
+          "$ref" : "#/definitions/FieldIdentifier"
+        },
+        "PasswordField" : {
+          "$ref" : "#/definitions/FieldIdentifier"
+        },
+        "EmailField" : {
+          "$ref" : "#/definitions/FieldIdentifier"
+        },
+        "PhoneNumberFields" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/PhoneNumberField"
+          }
+        },
+        "AddressFields" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/AddressField"
+          }
+        }
+      },
+      "required" : [ "PayloadType" ],
       "additionalProperties" : false
     },
     "ResponseInspection" : {
@@ -1400,6 +1462,12 @@
     "SizeInspectionLimit" : {
       "type" : "string",
       "enum" : [ "KB_16", "KB_32", "KB_48", "KB_64" ]
+    },
+    "PhoneNumberField" : {
+      "$ref" : "#/definitions/FieldIdentifier"
+    },
+    "AddressField" : {
+      "$ref" : "#/definitions/FieldIdentifier"
     },
     "FieldIdentifier" : {
       "type" : "object",

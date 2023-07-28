@@ -32,7 +32,7 @@
     "CollectionType" : {
       "type" : "string",
       "description" : "The possible types for the collection",
-      "enum" : [ "SEARCH", "TIMESERIES" ]
+      "enum" : [ "SEARCH", "TIMESERIES", "VECTORSEARCH" ]
     }
   },
   "properties" : {
