@@ -1,5 +1,384 @@
 ## HEAD (Unreleased)
 
+This release includes a large number of breaking changes as we now UPPERCASE initialisms
+to TitleCase in property names. 
+
+
+### Breaking Changes
+
+#### Resources
+- "aws-native:amplify:App":
+    - `🟡` inputs: "iAMServiceRole" missing
+    - `🟡` properties: "iAMServiceRole" missing output "iAMServiceRole"
+- "aws-native:amplify:Domain":
+    - `🟡` inputs: "autoSubDomainIAMRole" missing
+    - `🟡` properties: "autoSubDomainIAMRole" missing output "autoSubDomainIAMRole"
+- `🟡` "aws-native:apigateway:ApiKey": properties: "aPIKeyId" missing output "aPIKeyId"
+- "aws-native:apigateway:Authorizer":
+    - `🟡` inputs: "providerARNs" missing
+    - `🟡` properties: "providerARNs" missing output "providerARNs"
+- "aws-native:appflow:ConnectorProfile":
+    - `🟡` inputs: "kMSArn" missing
+    - `🟡` properties: "kMSArn" missing output "kMSArn"
+- "aws-native:appflow:Flow":
+    - `🟡` inputs: "kMSArn" missing
+    - `🟡` properties: "kMSArn" missing output "kMSArn"
+- "aws-native:appintegrations:DataIntegration":
+    - `🟡` inputs: "sourceURI" missing
+    - `🟡` properties: "sourceURI" missing output "sourceURI"
+    - `🟢` required inputs: "sourceUri" input has changed to Required
+- "aws-native:applicationautoscaling:ScalableTarget":
+    - `🟡` inputs: "roleARN" missing
+    - `🟡` properties: "roleARN" missing output "roleARN"
+- "aws-native:applicationinsights:Application":
+    - inputs:
+        - `🟡` "cWEMonitorEnabled" missing
+        - `🟡` "opsItemSNSTopicArn" missing
+    - properties:
+        - `🟡` "applicationARN" missing output "applicationARN"
+        - `🟡` "cWEMonitorEnabled" missing output "cWEMonitorEnabled"
+        - `🟡` "opsItemSNSTopicArn" missing output "opsItemSNSTopicArn"
+- "aws-native:autoscaling:LaunchConfiguration":
+    - inputs:
+        - `🟡` "classicLinkVPCId" missing
+        - `🟡` "classicLinkVPCSecurityGroups" missing
+    - properties:
+        - `🟡` "classicLinkVPCId" missing output "classicLinkVPCId"
+        - `🟡` "classicLinkVPCSecurityGroups" missing output "classicLinkVPCSecurityGroups"
+- "aws-native:autoscaling:LifecycleHook":
+    - inputs:
+        - `🟡` "notificationTargetARN" missing
+        - `🟡` "roleARN" missing
+    - properties:
+        - `🟡` "notificationTargetARN" missing output "notificationTargetARN"
+        - `🟡` "roleARN" missing output "roleARN"
+- "aws-native:cloudformation:StackSet":
+    - inputs:
+        - `🟡` "administrationRoleARN" missing
+        - `🟡` "templateURL" missing
+    - properties:
+        - `🟡` "administrationRoleARN" missing output "administrationRoleARN"
+        - `🟡` "templateURL" missing output "templateURL"
+- `🟡` "aws-native:cloudfront:Function": properties: "functionARN" missing output "functionARN"
+- "aws-native:cloudtrail:Trail":
+    - `🟡` inputs: "kMSKeyId" missing
+    - `🟡` properties: "kMSKeyId" missing output "kMSKeyId"
+- "aws-native:cloudwatch:CompositeAlarm":
+    - `🟡` inputs: "oKActions" missing
+    - `🟡` properties: "oKActions" missing output "oKActions"
+- "aws-native:configuration:ConformancePack":
+    - `🟡` inputs: "templateSSMDocumentDetails" missing
+    - `🟡` properties: "templateSSMDocumentDetails" missing output "templateSSMDocumentDetails"
+- "aws-native:dynamodb:GlobalTable":
+    - `🟡` inputs: "sSESpecification" missing
+    - `🟡` properties: "sSESpecification" missing output "sSESpecification"
+- "aws-native:dynamodb:Table":
+    - `🟡` inputs: "sSESpecification" missing
+    - `🟡` properties: "sSESpecification" missing output "sSESpecification"
+- "aws-native:ec2:EIPAssociation":
+    - `🟡` inputs: "eIP" missing
+    - `🟡` properties: "eIP" missing output "eIP"
+- `🟡` "aws-native:ec2:VPNGateway": properties: "vPNGatewayId" missing output "vPNGatewayId"
+- "aws-native:ec2:Volume":
+    - `🟡` inputs: "autoEnableIO" missing
+    - `🟡` properties: "autoEnableIO" missing output "autoEnableIO"
+- "aws-native:ecs:Service":
+    - `🟡` inputs: "enableECSManagedTags" missing
+    - `🟡` properties: "enableECSManagedTags" missing output "enableECSManagedTags"
+- "aws-native:elasticbeanstalk:Environment":
+    - `🟡` inputs: "cNAMEPrefix" missing
+    - properties:
+        - `🟡` "cNAMEPrefix" missing output "cNAMEPrefix"
+        - `🟡` "endpointURL" missing output "endpointURL"
+- `🟡` "aws-native:fsx:DataRepositoryAssociation": properties: "resourceARN" missing output "resourceARN"
+- "aws-native:gamelift:Fleet":
+    - inputs:
+        - `🟡` "desiredEC2Instances" missing
+        - `🟡` "eC2InboundPermissions" missing
+        - `🟡` "eC2InstanceType" missing
+        - `🟡` "instanceRoleARN" missing
+    - properties:
+        - `🟡` "desiredEC2Instances" missing output "desiredEC2Instances"
+        - `🟡` "eC2InboundPermissions" missing output "eC2InboundPermissions"
+        - `🟡` "eC2InstanceType" missing output "eC2InstanceType"
+        - `🟡` "instanceRoleARN" missing output "instanceRoleARN"
+- "aws-native:iam:ServiceLinkedRole":
+    - `🟡` inputs: "aWSServiceName" missing
+    - `🟡` properties: "aWSServiceName" missing output "aWSServiceName"
+- "aws-native:iot:CACertificate":
+    - `🟡` inputs: "cACertificatePem" missing
+    - `🟡` properties: "cACertificatePem" missing output "cACertificatePem"
+    - `🟢` required inputs: "caCertificatePem" input has changed to Required
+- "aws-native:iot:Certificate":
+    - `🟡` inputs: "cACertificatePem" missing
+    - `🟡` properties: "cACertificatePem" missing output "cACertificatePem"
+- "aws-native:iotwireless:DeviceProfile":
+    - `🟡` inputs: "loRaWAN" missing
+    - `🟡` properties: "loRaWAN" missing output "loRaWAN"
+- "aws-native:iotwireless:FuotaTask":
+    - `🟡` inputs: "loRaWAN" missing
+    - `🟡` properties: "loRaWAN" missing output "loRaWAN"
+    - `🟢` required inputs: "loRaWan" input has changed to Required
+- "aws-native:iotwireless:MulticastGroup":
+    - `🟡` inputs: "loRaWAN" missing
+    - `🟡` properties: "loRaWAN" missing output "loRaWAN"
+    - `🟢` required inputs: "loRaWan" input has changed to Required
+- "aws-native:iotwireless:ServiceProfile":
+    - `🟡` inputs: "loRaWAN" missing
+    - `🟡` properties: "loRaWAN" missing output "loRaWAN"
+- "aws-native:iotwireless:TaskDefinition":
+    - `🟡` inputs: "loRaWANUpdateGatewayTaskEntry" missing
+    - `🟡` properties: "loRaWANUpdateGatewayTaskEntry" missing output "loRaWANUpdateGatewayTaskEntry"
+- "aws-native:iotwireless:WirelessDevice":
+    - `🟡` inputs: "loRaWAN" missing
+    - `🟡` properties: "loRaWAN" missing output "loRaWAN"
+- "aws-native:iotwireless:WirelessGateway":
+    - `🟡` inputs: "loRaWAN" missing
+    - `🟡` properties: "loRaWAN" missing output "loRaWAN"
+    - `🟢` required inputs: "loRaWan" input has changed to Required
+- "aws-native:lakeformation:TagAssociation":
+    - `🟡` inputs: "lFTags" missing
+    - `🟡` properties: "lFTags" missing output "lFTags"
+    - `🟢` required inputs: "lfTags" input has changed to Required
+- "aws-native:lambda:EventSourceMapping":
+    - `🟡` inputs: "documentDBEventSourceConfig" missing
+    - `🟡` properties: "documentDBEventSourceConfig" missing output "documentDBEventSourceConfig"
+- "aws-native:lambda:Permission":
+    - `🟡` inputs: "principalOrgID" missing
+    - `🟡` properties: "principalOrgID" missing output "principalOrgID"
+- "aws-native:lex:Bot":
+    - `🟡` inputs: "idleSessionTTLInSeconds" missing
+    - `🟡` properties: "idleSessionTTLInSeconds" missing output "idleSessionTTLInSeconds"
+    - `🟢` required inputs: "idleSessionTtlInSeconds" input has changed to Required
+- "aws-native:licensemanager:License":
+    - `🟡` inputs: "productSKU" missing
+    - `🟡` properties: "productSKU" missing output "productSKU"
+- "aws-native:lightsail:LoadBalancer":
+    - `🟡` inputs: "sessionStickinessLBCookieDurationSeconds" missing
+    - `🟡` properties: "sessionStickinessLBCookieDurationSeconds" missing output "sessionStickinessLBCookieDurationSeconds"
+- "aws-native:memorydb:ACL":
+    - `🟡` inputs: "aCLName" missing
+    - `🟡` properties: "aCLName" missing output "aCLName"
+- "aws-native:memorydb:Cluster":
+    - inputs:
+        - `🟡` "aCLName" missing
+        - `🟡` "tLSEnabled" missing
+    - properties:
+        - `🟡` "aCLName" missing output "aCLName"
+        - `🟡` "aRN" missing output "aRN"
+        - `🟡` "tLSEnabled" missing output "tLSEnabled"
+    - `🟢` required inputs: "aclName" input has changed to Required
+- `🟡` "aws-native:memorydb:ParameterGroup": properties: "aRN" missing output "aRN"
+- `🟡` "aws-native:memorydb:SubnetGroup": properties: "aRN" missing output "aRN"
+- "aws-native:neptune:DBCluster":
+    - inputs:
+        - `🟡` "dBClusterIdentifier" missing
+        - `🟡` "dBClusterParameterGroupName" missing
+        - `🟡` "dBInstanceParameterGroupName" missing
+        - `🟡` "dBSubnetGroupName" missing
+        - `🟡` "sourceDBClusterIdentifier" missing
+    - properties:
+        - `🟡` "dBClusterIdentifier" missing output "dBClusterIdentifier"
+        - `🟡` "dBClusterParameterGroupName" missing output "dBClusterParameterGroupName"
+        - `🟡` "dBInstanceParameterGroupName" missing output "dBInstanceParameterGroupName"
+        - `🟡` "dBSubnetGroupName" missing output "dBSubnetGroupName"
+        - `🟡` "sourceDBClusterIdentifier" missing output "sourceDBClusterIdentifier"
+- "aws-native:networkmanager:Device":
+    - `🟡` inputs: "aWSLocation" missing
+    - `🟡` properties: "aWSLocation" missing output "aWSLocation"
+- "aws-native:opensearchservice:Domain":
+    - inputs:
+        - `🟡` "eBSOptions" missing
+        - `🟡` "vPCOptions" missing
+    - properties:
+        - `🟡` "eBSOptions" missing output "eBSOptions"
+        - `🟡` "vPCOptions" missing output "vPCOptions"
+- "aws-native:personalize:Solution":
+    - inputs:
+        - `🟡` "performAutoML" missing
+        - `🟡` "performHPO" missing
+    - properties:
+        - `🟡` "performAutoML" missing output "performAutoML"
+        - `🟡` "performHPO" missing output "performHPO"
+- "aws-native:quicksight:VPCConnection":
+    - `🟡` inputs: "vPCConnectionId" missing
+    - properties:
+        - `🟡` "vPCConnectionId" missing output "vPCConnectionId"
+        - `🟡` "vPCId" missing output "vPCId"
+- "aws-native:rds:CustomDBEngineVersion":
+    - `🟡` inputs: "kMSKeyId" missing
+    - properties:
+        - `🟡` "dBEngineVersionArn" missing output "dBEngineVersionArn"
+        - `🟡` "kMSKeyId" missing output "kMSKeyId"
+- "aws-native:rds:DBCluster":
+    - inputs:
+        - `🟡` "dBClusterIdentifier" missing
+        - `🟡` "dBClusterInstanceClass" missing
+        - `🟡` "dBClusterParameterGroupName" missing
+        - `🟡` "dBInstanceParameterGroupName" missing
+        - `🟡` "dBSubnetGroupName" missing
+        - `🟡` "dBSystemId" missing
+        - `🟡` "domainIAMRoleName" missing
+        - `🟡` "enableIAMDatabaseAuthentication" missing
+        - `🟡` "sourceDBClusterIdentifier" missing
+    - properties:
+        - `🟡` "dBClusterArn" missing output "dBClusterArn"
+        - `🟡` "dBClusterIdentifier" missing output "dBClusterIdentifier"
+        - `🟡` "dBClusterInstanceClass" missing output "dBClusterInstanceClass"
+        - `🟡` "dBClusterParameterGroupName" missing output "dBClusterParameterGroupName"
+        - `🟡` "dBClusterResourceId" missing output "dBClusterResourceId"
+        - `🟡` "dBInstanceParameterGroupName" missing output "dBInstanceParameterGroupName"
+        - `🟡` "dBSubnetGroupName" missing output "dBSubnetGroupName"
+        - `🟡` "dBSystemId" missing output "dBSystemId"
+        - `🟡` "domainIAMRoleName" missing output "domainIAMRoleName"
+        - `🟡` "enableIAMDatabaseAuthentication" missing output "enableIAMDatabaseAuthentication"
+        - `🟡` "sourceDBClusterIdentifier" missing output "sourceDBClusterIdentifier"
+- "aws-native:rds:DBClusterParameterGroup":
+    - `🟡` inputs: "dBClusterParameterGroupName" missing
+    - `🟡` properties: "dBClusterParameterGroupName" missing output "dBClusterParameterGroupName"
+- "aws-native:rds:DBInstance":
+    - inputs:
+        - `🟡` "cACertificateIdentifier" missing
+        - `🟡` "customIAMInstanceProfile" missing
+        - `🟡` "dBClusterIdentifier" missing
+        - `🟡` "dBClusterSnapshotIdentifier" missing
+        - `🟡` "dBInstanceClass" missing
+        - `🟡` "dBInstanceIdentifier" missing
+        - `🟡` "dBName" missing
+        - `🟡` "dBParameterGroupName" missing
+        - `🟡` "dBSecurityGroups" missing
+        - `🟡` "dBSnapshotIdentifier" missing
+        - `🟡` "dBSubnetGroupName" missing
+        - `🟡` "domainIAMRoleName" missing
+        - `🟡` "enableIAMDatabaseAuthentication" missing
+        - `🟡` "multiAZ" missing
+        - `🟡` "performanceInsightsKMSKeyId" missing
+        - `🟡` "sourceDBClusterIdentifier" missing
+        - `🟡` "sourceDBInstanceAutomatedBackupsArn" missing
+        - `🟡` "sourceDBInstanceIdentifier" missing
+        - `🟡` "vPCSecurityGroups" missing
+    - properties:
+        - `🟡` "cACertificateIdentifier" missing output "cACertificateIdentifier"
+        - `🟡` "customIAMInstanceProfile" missing output "customIAMInstanceProfile"
+        - `🟡` "dBClusterIdentifier" missing output "dBClusterIdentifier"
+        - `🟡` "dBClusterSnapshotIdentifier" missing output "dBClusterSnapshotIdentifier"
+        - `🟡` "dBInstanceArn" missing output "dBInstanceArn"
+        - `🟡` "dBInstanceClass" missing output "dBInstanceClass"
+        - `🟡` "dBInstanceIdentifier" missing output "dBInstanceIdentifier"
+        - `🟡` "dBName" missing output "dBName"
+        - `🟡` "dBParameterGroupName" missing output "dBParameterGroupName"
+        - `🟡` "dBSecurityGroups" missing output "dBSecurityGroups"
+        - `🟡` "dBSnapshotIdentifier" missing output "dBSnapshotIdentifier"
+        - `🟡` "dBSubnetGroupName" missing output "dBSubnetGroupName"
+        - `🟡` "dBSystemId" missing output "dBSystemId"
+        - `🟡` "domainIAMRoleName" missing output "domainIAMRoleName"
+        - `🟡` "enableIAMDatabaseAuthentication" missing output "enableIAMDatabaseAuthentication"
+        - `🟡` "multiAZ" missing output "multiAZ"
+        - `🟡` "performanceInsightsKMSKeyId" missing output "performanceInsightsKMSKeyId"
+        - `🟡` "sourceDBClusterIdentifier" missing output "sourceDBClusterIdentifier"
+        - `🟡` "sourceDBInstanceAutomatedBackupsArn" missing output "sourceDBInstanceAutomatedBackupsArn"
+        - `🟡` "sourceDBInstanceIdentifier" missing output "sourceDBInstanceIdentifier"
+        - `🟡` "vPCSecurityGroups" missing output "vPCSecurityGroups"
+- "aws-native:rds:DBParameterGroup":
+    - `🟡` inputs: "dBParameterGroupName" missing
+    - `🟡` properties: "dBParameterGroupName" missing output "dBParameterGroupName"
+- "aws-native:rds:DBProxy":
+    - inputs:
+        - `🟡` "dBProxyName" missing
+        - `🟡` "requireTLS" missing
+    - properties:
+        - `🟡` "dBProxyArn" missing output "dBProxyArn"
+        - `🟡` "dBProxyName" missing output "dBProxyName"
+        - `🟡` "requireTLS" missing output "requireTLS"
+- "aws-native:rds:DBProxyEndpoint":
+    - inputs:
+        - `🟡` "dBProxyEndpointName" missing
+        - `🟡` "dBProxyName" missing
+    - properties:
+        - `🟡` "dBProxyEndpointArn" missing output "dBProxyEndpointArn"
+        - `🟡` "dBProxyEndpointName" missing output "dBProxyEndpointName"
+        - `🟡` "dBProxyName" missing output "dBProxyName"
+    - `🟢` required inputs: "dbProxyName" input has changed to Required
+- "aws-native:rds:DBProxyTargetGroup":
+    - inputs:
+        - `🟡` "dBClusterIdentifiers" missing
+        - `🟡` "dBInstanceIdentifiers" missing
+        - `🟡` "dBProxyName" missing
+    - properties:
+        - `🟡` "dBClusterIdentifiers" missing output "dBClusterIdentifiers"
+        - `🟡` "dBInstanceIdentifiers" missing output "dBInstanceIdentifiers"
+        - `🟡` "dBProxyName" missing output "dBProxyName"
+    - `🟢` required inputs: "dbProxyName" input has changed to Required
+- "aws-native:rds:DBSubnetGroup":
+    - inputs:
+        - `🟡` "dBSubnetGroupDescription" missing
+        - `🟡` "dBSubnetGroupName" missing
+    - properties:
+        - `🟡` "dBSubnetGroupDescription" missing output "dBSubnetGroupDescription"
+        - `🟡` "dBSubnetGroupName" missing output "dBSubnetGroupName"
+    - `🟢` required inputs: "dbSubnetGroupDescription" input has changed to Required
+- "aws-native:rds:GlobalCluster":
+    - `🟡` inputs: "sourceDBClusterIdentifier" missing
+    - `🟡` properties: "sourceDBClusterIdentifier" missing output "sourceDBClusterIdentifier"
+- "aws-native:redshift:Cluster":
+    - `🟡` inputs: "dBName" missing
+    - `🟡` properties: "dBName" missing output "dBName"
+    - `🟢` required inputs: "dbName" input has changed to Required
+- "aws-native:redshift:EndpointAuthorization": properties:
+    - `🟡` "allowedAllVPCs" missing output "allowedAllVPCs"
+    - `🟡` "allowedVPCs" missing output "allowedVPCs"
+- "aws-native:route53:HostedZone":
+    - `🟡` inputs: "vPCs" missing
+    - `🟡` properties: "vPCs" missing output "vPCs"
+- "aws-native:route53resolver:ResolverRuleAssociation":
+    - `🟡` inputs: "vPCId" missing
+    - `🟡` properties: "vPCId" missing output "vPCId"
+    - `🟢` required inputs: "vpcId" input has changed to Required
+- `🟡` "aws-native:s3:Bucket": properties: "websiteURL" missing output "websiteURL"
+- "aws-native:sagemaker:ImageVersion":
+    - `🟡` inputs: "mLFramework" missing
+    - `🟡` properties: "mLFramework" missing output "mLFramework"
+- "aws-native:ses:EmailIdentity": properties:
+    - `🟡` "dkimDNSTokenName1" missing output "dkimDNSTokenName1"
+    - `🟡` "dkimDNSTokenName2" missing output "dkimDNSTokenName2"
+    - `🟡` "dkimDNSTokenName3" missing output "dkimDNSTokenName3"
+    - `🟡` "dkimDNSTokenValue1" missing output "dkimDNSTokenValue1"
+    - `🟡` "dkimDNSTokenValue2" missing output "dkimDNSTokenValue2"
+    - `🟡` "dkimDNSTokenValue3" missing output "dkimDNSTokenValue3"
+- "aws-native:ssm:ResourceDataSync":
+    - `🟡` inputs: "kMSKeyArn" missing
+    - `🟡` properties: "kMSKeyArn" missing output "kMSKeyArn"
+- "aws-native:synthetics:Canary":
+    - `🟡` inputs: "vPCConfig" missing
+    - `🟡` properties: "vPCConfig" missing output "vPCConfig"
+- "aws-native:timestream:ScheduledQuery": properties:
+    - `🟡` "sQErrorReportConfiguration" missing output "sQErrorReportConfiguration"
+    - `🟡` "sQKmsKeyId" missing output "sQKmsKeyId"
+    - `🟡` "sQName" missing output "sQName"
+    - `🟡` "sQNotificationConfiguration" missing output "sQNotificationConfiguration"
+    - `🟡` "sQQueryString" missing output "sQQueryString"
+    - `🟡` "sQScheduleConfiguration" missing output "sQScheduleConfiguration"
+    - `🟡` "sQScheduledQueryExecutionRoleArn" missing output "sQScheduledQueryExecutionRoleArn"
+    - `🟡` "sQTargetConfiguration" missing output "sQTargetConfiguration"
+- "aws-native:wafv2:IPSet":
+    - `🟡` inputs: "iPAddressVersion" missing
+    - `🟡` properties: "iPAddressVersion" missing output "iPAddressVersion"
+    - `🟢` required inputs: "ipAddressVersion" input has changed to Required
+- "aws-native:wafv2:WebACLAssociation":
+    - `🟡` inputs: "webACLArn" missing
+    - `🟡` properties: "webACLArn" missing output "webACLArn"
+    - `🟢` required inputs: "webAclArn" input has changed to Required
+- `🟡` "aws-native:xray:Group": properties: "groupARN" missing output "groupARN"
+- `🟡` "aws-native:xray:SamplingRule": properties: "ruleARN" missing output "ruleARN"
+#### Functions
+- "aws-native:apigateway:getApiKey": inputs:
+    - `🟡` "aPIKeyId" missing input "aPIKeyId"
+    - `🟢` required: "apiKeyId" input has changed to Required
+- "aws-native:applicationinsights:getApplication": inputs:
+    - `🟡` "applicationARN" missing input "applicationARN"No new resources/functions.
+
+## 0.71.0
+
 ### Breaking changes:
 - Resource "aws-native:omics:AnnotationStore" input "storeOptions" type changed from "#/types/aws-native:omics:AnnotationStoreStoreOptions" to "#/types/aws-native:omics:StoreOptionsProperties"
 - Resource "aws-native:omics:AnnotationStore" output "storeOptions" type changed from "#/types/aws-native:omics:AnnotationStoreStoreOptions" to "#/types/aws-native:omics:StoreOptionsProperties"
