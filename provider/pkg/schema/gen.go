@@ -875,9 +875,11 @@ func (ctx *context) propertyTypeSpec(parentName string, propSchema *jsschema.Sch
 		if !ok {
 			return nil, errors.Errorf("definition %s not found in resource %s", schemaName, ctx.cfTypeName)
 		}
-		baseType := "object"
+		baseType := ""
 		if len(typeSchema.Type) > 0 {
 			baseType = typeSchema.Type[0].String()
+		} else if len(typeSchema.Properties) > 0 || len(typeSchema.PatternProperties) > 0 {
+			baseType = "object"
 		}
 		if baseType == "object" {
 			if !ctx.visitedTypes.Has(tok) {
