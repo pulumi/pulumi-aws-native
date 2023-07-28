@@ -54,7 +54,7 @@ class GetStudioComponentResult:
 
     @property
     @pulumi.getter
-    def configuration(self) -> Optional['outputs.StudioComponentConfiguration']:
+    def configuration(self) -> Optional[Any]:
         return pulumi.get(self, "configuration")
 
     @property

@@ -21,14 +21,17 @@ __all__ = [
     'ComponentTags',
     'ComponentVariant',
     'ComponentVariantValues',
+    'FieldPosition0Properties',
+    'FieldPosition1Properties',
+    'FieldPosition2Properties',
     'FormButton',
     'FormCTA',
     'FormDataTypeConfig',
-    'FormFieldPosition',
     'FormFieldsMap',
     'FormSectionalElementMap',
     'FormStyle',
-    'FormStyleConfig',
+    'FormStyleConfig0Properties',
+    'FormStyleConfig1Properties',
     'FormTags',
     'ThemeTags',
     'ThemeValue',
@@ -175,11 +178,64 @@ class ComponentVariantValues(dict):
 
 
 @pulumi.output_type
+class FieldPosition0Properties(dict):
+    def __init__(__self__, *,
+                 fixed: 'FormFixedPosition'):
+        pulumi.set(__self__, "fixed", fixed)
+
+    @property
+    @pulumi.getter
+    def fixed(self) -> 'FormFixedPosition':
+        return pulumi.get(self, "fixed")
+
+
+@pulumi.output_type
+class FieldPosition1Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "rightOf":
+            suggest = "right_of"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FieldPosition1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FieldPosition1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FieldPosition1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 right_of: str):
+        pulumi.set(__self__, "right_of", right_of)
+
+    @property
+    @pulumi.getter(name="rightOf")
+    def right_of(self) -> str:
+        return pulumi.get(self, "right_of")
+
+
+@pulumi.output_type
+class FieldPosition2Properties(dict):
+    def __init__(__self__, *,
+                 below: str):
+        pulumi.set(__self__, "below", below)
+
+    @property
+    @pulumi.getter
+    def below(self) -> str:
+        return pulumi.get(self, "below")
+
+
+@pulumi.output_type
 class FormButton(dict):
     def __init__(__self__, *,
                  children: Optional[str] = None,
                  excluded: Optional[bool] = None,
-                 position: Optional['outputs.FormFieldPosition'] = None):
+                 position: Optional[Any] = None):
         if children is not None:
             pulumi.set(__self__, "children", children)
         if excluded is not None:
@@ -199,7 +255,7 @@ class FormButton(dict):
 
     @property
     @pulumi.getter
-    def position(self) -> Optional['outputs.FormFieldPosition']:
+    def position(self) -> Optional[Any]:
         return pulumi.get(self, "position")
 
 
@@ -279,12 +335,6 @@ class FormDataTypeConfig(dict):
 
 
 @pulumi.output_type
-class FormFieldPosition(dict):
-    def __init__(__self__):
-        pass
-
-
-@pulumi.output_type
 class FormFieldsMap(dict):
     def __init__(__self__):
         pass
@@ -320,9 +370,9 @@ class FormStyle(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 horizontal_gap: Optional['outputs.FormStyleConfig'] = None,
-                 outer_padding: Optional['outputs.FormStyleConfig'] = None,
-                 vertical_gap: Optional['outputs.FormStyleConfig'] = None):
+                 horizontal_gap: Optional[Any] = None,
+                 outer_padding: Optional[Any] = None,
+                 vertical_gap: Optional[Any] = None):
         if horizontal_gap is not None:
             pulumi.set(__self__, "horizontal_gap", horizontal_gap)
         if outer_padding is not None:
@@ -332,24 +382,59 @@ class FormStyle(dict):
 
     @property
     @pulumi.getter(name="horizontalGap")
-    def horizontal_gap(self) -> Optional['outputs.FormStyleConfig']:
+    def horizontal_gap(self) -> Optional[Any]:
         return pulumi.get(self, "horizontal_gap")
 
     @property
     @pulumi.getter(name="outerPadding")
-    def outer_padding(self) -> Optional['outputs.FormStyleConfig']:
+    def outer_padding(self) -> Optional[Any]:
         return pulumi.get(self, "outer_padding")
 
     @property
     @pulumi.getter(name="verticalGap")
-    def vertical_gap(self) -> Optional['outputs.FormStyleConfig']:
+    def vertical_gap(self) -> Optional[Any]:
         return pulumi.get(self, "vertical_gap")
 
 
 @pulumi.output_type
-class FormStyleConfig(dict):
-    def __init__(__self__):
-        pass
+class FormStyleConfig0Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tokenReference":
+            suggest = "token_reference"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FormStyleConfig0Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FormStyleConfig0Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FormStyleConfig0Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 token_reference: str):
+        pulumi.set(__self__, "token_reference", token_reference)
+
+    @property
+    @pulumi.getter(name="tokenReference")
+    def token_reference(self) -> str:
+        return pulumi.get(self, "token_reference")
+
+
+@pulumi.output_type
+class FormStyleConfig1Properties(dict):
+    def __init__(__self__, *,
+                 value: str):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

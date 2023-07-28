@@ -15,7 +15,7 @@ namespace Pulumi.AwsNative.AmplifyUIBuilder.Outputs
     {
         public readonly string? Children;
         public readonly bool? Excluded;
-        public readonly Outputs.FormFieldPosition? Position;
+        public readonly object? Position;
 
         [OutputConstructor]
         private FormButton(
@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.AmplifyUIBuilder.Outputs
 
             bool? excluded,
 
-            Outputs.FormFieldPosition? position)
+            object? position)
         {
             Children = children;
             Excluded = excluded;

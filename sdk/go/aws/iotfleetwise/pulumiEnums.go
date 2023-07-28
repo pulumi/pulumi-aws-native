@@ -174,6 +174,13 @@ func (in *campaignCompressionPtr) ToCampaignCompressionPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(CampaignCompressionPtrOutput)
 }
 
+type CampaignDataFormat string
+
+const (
+	CampaignDataFormatJson    = CampaignDataFormat("JSON")
+	CampaignDataFormatParquet = CampaignDataFormat("PARQUET")
+)
+
 type CampaignDiagnosticsMode string
 
 const (
@@ -593,6 +600,20 @@ func (o CampaignStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
+
+type CampaignStorageCompressionFormat string
+
+const (
+	CampaignStorageCompressionFormatNone = CampaignStorageCompressionFormat("NONE")
+	CampaignStorageCompressionFormatGzip = CampaignStorageCompressionFormat("GZIP")
+)
+
+type CampaignTriggerMode string
+
+const (
+	CampaignTriggerModeAlways     = CampaignTriggerMode("ALWAYS")
+	CampaignTriggerModeRisingEdge = CampaignTriggerMode("RISING_EDGE")
+)
 
 type CampaignUpdateCampaignAction string
 
@@ -1111,6 +1132,38 @@ func (in *modelManifestManifestStatusPtr) ToModelManifestManifestStatusPtrOutput
 func (in *modelManifestManifestStatusPtr) ToModelManifestManifestStatusPtrOutputWithContext(ctx context.Context) ModelManifestManifestStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ModelManifestManifestStatusPtrOutput)
 }
+
+type SignalCatalogNodeDataType string
+
+const (
+	SignalCatalogNodeDataTypeInt8               = SignalCatalogNodeDataType("INT8")
+	SignalCatalogNodeDataTypeUint8              = SignalCatalogNodeDataType("UINT8")
+	SignalCatalogNodeDataTypeInt16              = SignalCatalogNodeDataType("INT16")
+	SignalCatalogNodeDataTypeUint16             = SignalCatalogNodeDataType("UINT16")
+	SignalCatalogNodeDataTypeInt32              = SignalCatalogNodeDataType("INT32")
+	SignalCatalogNodeDataTypeUint32             = SignalCatalogNodeDataType("UINT32")
+	SignalCatalogNodeDataTypeInt64              = SignalCatalogNodeDataType("INT64")
+	SignalCatalogNodeDataTypeUint64             = SignalCatalogNodeDataType("UINT64")
+	SignalCatalogNodeDataTypeBoolean            = SignalCatalogNodeDataType("BOOLEAN")
+	SignalCatalogNodeDataTypeFloat              = SignalCatalogNodeDataType("FLOAT")
+	SignalCatalogNodeDataTypeDouble             = SignalCatalogNodeDataType("DOUBLE")
+	SignalCatalogNodeDataTypeString             = SignalCatalogNodeDataType("STRING")
+	SignalCatalogNodeDataTypeUnixTimestamp      = SignalCatalogNodeDataType("UNIX_TIMESTAMP")
+	SignalCatalogNodeDataTypeInt8Array          = SignalCatalogNodeDataType("INT8_ARRAY")
+	SignalCatalogNodeDataTypeUint8Array         = SignalCatalogNodeDataType("UINT8_ARRAY")
+	SignalCatalogNodeDataTypeInt16Array         = SignalCatalogNodeDataType("INT16_ARRAY")
+	SignalCatalogNodeDataTypeUint16Array        = SignalCatalogNodeDataType("UINT16_ARRAY")
+	SignalCatalogNodeDataTypeInt32Array         = SignalCatalogNodeDataType("INT32_ARRAY")
+	SignalCatalogNodeDataTypeUint32Array        = SignalCatalogNodeDataType("UINT32_ARRAY")
+	SignalCatalogNodeDataTypeInt64Array         = SignalCatalogNodeDataType("INT64_ARRAY")
+	SignalCatalogNodeDataTypeUint64Array        = SignalCatalogNodeDataType("UINT64_ARRAY")
+	SignalCatalogNodeDataTypeBooleanArray       = SignalCatalogNodeDataType("BOOLEAN_ARRAY")
+	SignalCatalogNodeDataTypeFloatArray         = SignalCatalogNodeDataType("FLOAT_ARRAY")
+	SignalCatalogNodeDataTypeDoubleArray        = SignalCatalogNodeDataType("DOUBLE_ARRAY")
+	SignalCatalogNodeDataTypeStringArray        = SignalCatalogNodeDataType("STRING_ARRAY")
+	SignalCatalogNodeDataTypeUnixTimestampArray = SignalCatalogNodeDataType("UNIX_TIMESTAMP_ARRAY")
+	SignalCatalogNodeDataTypeUnknown            = SignalCatalogNodeDataType("UNKNOWN")
+)
 
 type VehicleAssociationBehavior string
 

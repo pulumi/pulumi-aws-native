@@ -397,6 +397,17 @@ func (o CollaborationTagArrayOutput) Index(i pulumi.IntInput) CollaborationTagOu
 	}).(CollaborationTagOutput)
 }
 
+type ConfiguredTableAggregateColumn struct {
+	ColumnNames []string                             `pulumi:"columnNames"`
+	Function    ConfiguredTableAggregateFunctionName `pulumi:"function"`
+}
+
+type ConfiguredTableAggregationConstraint struct {
+	ColumnName string                         `pulumi:"columnName"`
+	Minimum    float64                        `pulumi:"minimum"`
+	Type       ConfiguredTableAggregationType `pulumi:"type"`
+}
+
 type ConfiguredTableAnalysisRule struct {
 	Policy ConfiguredTableAnalysisRulePolicy `pulumi:"policy"`
 	Type   ConfiguredTableAnalysisRuleType   `pulumi:"type"`
@@ -497,8 +508,24 @@ func (o ConfiguredTableAnalysisRuleArrayOutput) Index(i pulumi.IntInput) Configu
 	}).(ConfiguredTableAnalysisRuleOutput)
 }
 
+type ConfiguredTableAnalysisRuleAggregation struct {
+	AggregateColumns     []ConfiguredTableAggregateColumn       `pulumi:"aggregateColumns"`
+	AllowedJoinOperators []ConfiguredTableJoinOperator          `pulumi:"allowedJoinOperators"`
+	DimensionColumns     []string                               `pulumi:"dimensionColumns"`
+	JoinColumns          []string                               `pulumi:"joinColumns"`
+	JoinRequired         *ConfiguredTableJoinRequiredOption     `pulumi:"joinRequired"`
+	OutputConstraints    []ConfiguredTableAggregationConstraint `pulumi:"outputConstraints"`
+	ScalarFunctions      []ConfiguredTableScalarFunctions       `pulumi:"scalarFunctions"`
+}
+
+type ConfiguredTableAnalysisRuleList struct {
+	AllowedJoinOperators []ConfiguredTableJoinOperator `pulumi:"allowedJoinOperators"`
+	JoinColumns          []string                      `pulumi:"joinColumns"`
+	ListColumns          []string                      `pulumi:"listColumns"`
+}
+
 type ConfiguredTableAnalysisRulePolicy struct {
-	V1 ConfiguredTableAnalysisRulePolicyV1 `pulumi:"v1"`
+	V1 interface{} `pulumi:"v1"`
 }
 
 // ConfiguredTableAnalysisRulePolicyInput is an input type that accepts ConfiguredTableAnalysisRulePolicyArgs and ConfiguredTableAnalysisRulePolicyOutput values.
@@ -513,7 +540,7 @@ type ConfiguredTableAnalysisRulePolicyInput interface {
 }
 
 type ConfiguredTableAnalysisRulePolicyArgs struct {
-	V1 ConfiguredTableAnalysisRulePolicyV1Input `pulumi:"v1"`
+	V1 pulumi.Input `pulumi:"v1"`
 }
 
 func (ConfiguredTableAnalysisRulePolicyArgs) ElementType() reflect.Type {
@@ -542,51 +569,16 @@ func (o ConfiguredTableAnalysisRulePolicyOutput) ToConfiguredTableAnalysisRulePo
 	return o
 }
 
-func (o ConfiguredTableAnalysisRulePolicyOutput) V1() ConfiguredTableAnalysisRulePolicyV1Output {
-	return o.ApplyT(func(v ConfiguredTableAnalysisRulePolicy) ConfiguredTableAnalysisRulePolicyV1 { return v.V1 }).(ConfiguredTableAnalysisRulePolicyV1Output)
+func (o ConfiguredTableAnalysisRulePolicyOutput) V1() pulumi.AnyOutput {
+	return o.ApplyT(func(v ConfiguredTableAnalysisRulePolicy) interface{} { return v.V1 }).(pulumi.AnyOutput)
 }
 
-type ConfiguredTableAnalysisRulePolicyV1 struct {
+type ConfiguredTableAnalysisRulePolicyV10Properties struct {
+	List ConfiguredTableAnalysisRuleList `pulumi:"list"`
 }
 
-// ConfiguredTableAnalysisRulePolicyV1Input is an input type that accepts ConfiguredTableAnalysisRulePolicyV1Args and ConfiguredTableAnalysisRulePolicyV1Output values.
-// You can construct a concrete instance of `ConfiguredTableAnalysisRulePolicyV1Input` via:
-//
-//	ConfiguredTableAnalysisRulePolicyV1Args{...}
-type ConfiguredTableAnalysisRulePolicyV1Input interface {
-	pulumi.Input
-
-	ToConfiguredTableAnalysisRulePolicyV1Output() ConfiguredTableAnalysisRulePolicyV1Output
-	ToConfiguredTableAnalysisRulePolicyV1OutputWithContext(context.Context) ConfiguredTableAnalysisRulePolicyV1Output
-}
-
-type ConfiguredTableAnalysisRulePolicyV1Args struct {
-}
-
-func (ConfiguredTableAnalysisRulePolicyV1Args) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfiguredTableAnalysisRulePolicyV1)(nil)).Elem()
-}
-
-func (i ConfiguredTableAnalysisRulePolicyV1Args) ToConfiguredTableAnalysisRulePolicyV1Output() ConfiguredTableAnalysisRulePolicyV1Output {
-	return i.ToConfiguredTableAnalysisRulePolicyV1OutputWithContext(context.Background())
-}
-
-func (i ConfiguredTableAnalysisRulePolicyV1Args) ToConfiguredTableAnalysisRulePolicyV1OutputWithContext(ctx context.Context) ConfiguredTableAnalysisRulePolicyV1Output {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableAnalysisRulePolicyV1Output)
-}
-
-type ConfiguredTableAnalysisRulePolicyV1Output struct{ *pulumi.OutputState }
-
-func (ConfiguredTableAnalysisRulePolicyV1Output) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfiguredTableAnalysisRulePolicyV1)(nil)).Elem()
-}
-
-func (o ConfiguredTableAnalysisRulePolicyV1Output) ToConfiguredTableAnalysisRulePolicyV1Output() ConfiguredTableAnalysisRulePolicyV1Output {
-	return o
-}
-
-func (o ConfiguredTableAnalysisRulePolicyV1Output) ToConfiguredTableAnalysisRulePolicyV1OutputWithContext(ctx context.Context) ConfiguredTableAnalysisRulePolicyV1Output {
-	return o
+type ConfiguredTableAnalysisRulePolicyV11Properties struct {
+	Aggregation ConfiguredTableAnalysisRuleAggregation `pulumi:"aggregation"`
 }
 
 type ConfiguredTableAssociationTag struct {
@@ -1003,7 +995,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAnalysisRuleInput)(nil)).Elem(), ConfiguredTableAnalysisRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAnalysisRuleArrayInput)(nil)).Elem(), ConfiguredTableAnalysisRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAnalysisRulePolicyInput)(nil)).Elem(), ConfiguredTableAnalysisRulePolicyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAnalysisRulePolicyV1Input)(nil)).Elem(), ConfiguredTableAnalysisRulePolicyV1Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAssociationTagInput)(nil)).Elem(), ConfiguredTableAssociationTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAssociationTagArrayInput)(nil)).Elem(), ConfiguredTableAssociationTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableGlueTableReferenceInput)(nil)).Elem(), ConfiguredTableGlueTableReferenceArgs{})
@@ -1021,7 +1012,6 @@ func init() {
 	pulumi.RegisterOutputType(ConfiguredTableAnalysisRuleOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableAnalysisRuleArrayOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableAnalysisRulePolicyOutput{})
-	pulumi.RegisterOutputType(ConfiguredTableAnalysisRulePolicyV1Output{})
 	pulumi.RegisterOutputType(ConfiguredTableAssociationTagOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableAssociationTagArrayOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableGlueTableReferenceOutput{})

@@ -15,9 +15,13 @@ __all__ = [
     'IdentitySourceCognitoUserPoolConfiguration',
     'IdentitySourceConfiguration',
     'IdentitySourceDetails',
-    'PolicyDefinition',
+    'PolicyDefinition0Properties',
+    'PolicyDefinition1Properties',
+    'PolicyEntityIdentifier',
+    'PolicyStaticPolicyDefinition',
     'PolicyStoreSchemaDefinition',
     'PolicyStoreValidationSettings',
+    'PolicyTemplateLinkedPolicyDefinition',
 ]
 
 @pulumi.output_type
@@ -149,9 +153,102 @@ class IdentitySourceDetails(dict):
 
 
 @pulumi.output_type
-class PolicyDefinition(dict):
-    def __init__(__self__):
-        pass
+class PolicyDefinition0Properties(dict):
+    def __init__(__self__, *,
+                 static: 'outputs.PolicyStaticPolicyDefinition'):
+        pulumi.set(__self__, "static", static)
+
+    @property
+    @pulumi.getter
+    def static(self) -> 'outputs.PolicyStaticPolicyDefinition':
+        return pulumi.get(self, "static")
+
+
+@pulumi.output_type
+class PolicyDefinition1Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "templateLinked":
+            suggest = "template_linked"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyDefinition1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyDefinition1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyDefinition1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 template_linked: 'outputs.PolicyTemplateLinkedPolicyDefinition'):
+        pulumi.set(__self__, "template_linked", template_linked)
+
+    @property
+    @pulumi.getter(name="templateLinked")
+    def template_linked(self) -> 'outputs.PolicyTemplateLinkedPolicyDefinition':
+        return pulumi.get(self, "template_linked")
+
+
+@pulumi.output_type
+class PolicyEntityIdentifier(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "entityId":
+            suggest = "entity_id"
+        elif key == "entityType":
+            suggest = "entity_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyEntityIdentifier. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyEntityIdentifier.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyEntityIdentifier.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 entity_id: str,
+                 entity_type: str):
+        pulumi.set(__self__, "entity_id", entity_id)
+        pulumi.set(__self__, "entity_type", entity_type)
+
+    @property
+    @pulumi.getter(name="entityId")
+    def entity_id(self) -> str:
+        return pulumi.get(self, "entity_id")
+
+    @property
+    @pulumi.getter(name="entityType")
+    def entity_type(self) -> str:
+        return pulumi.get(self, "entity_type")
+
+
+@pulumi.output_type
+class PolicyStaticPolicyDefinition(dict):
+    def __init__(__self__, *,
+                 statement: str,
+                 description: Optional[str] = None):
+        pulumi.set(__self__, "statement", statement)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def statement(self) -> str:
+        return pulumi.get(self, "statement")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
 
 
 @pulumi.output_type
@@ -194,5 +291,50 @@ class PolicyStoreValidationSettings(dict):
     @pulumi.getter
     def mode(self) -> 'PolicyStoreValidationMode':
         return pulumi.get(self, "mode")
+
+
+@pulumi.output_type
+class PolicyTemplateLinkedPolicyDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "policyTemplateId":
+            suggest = "policy_template_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyTemplateLinkedPolicyDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyTemplateLinkedPolicyDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyTemplateLinkedPolicyDefinition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 policy_template_id: str,
+                 principal: Optional['outputs.PolicyEntityIdentifier'] = None,
+                 resource: Optional['outputs.PolicyEntityIdentifier'] = None):
+        pulumi.set(__self__, "policy_template_id", policy_template_id)
+        if principal is not None:
+            pulumi.set(__self__, "principal", principal)
+        if resource is not None:
+            pulumi.set(__self__, "resource", resource)
+
+    @property
+    @pulumi.getter(name="policyTemplateId")
+    def policy_template_id(self) -> str:
+        return pulumi.get(self, "policy_template_id")
+
+    @property
+    @pulumi.getter
+    def principal(self) -> Optional['outputs.PolicyEntityIdentifier']:
+        return pulumi.get(self, "principal")
+
+    @property
+    @pulumi.getter
+    def resource(self) -> Optional['outputs.PolicyEntityIdentifier']:
+        return pulumi.get(self, "resource")
 
 

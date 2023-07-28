@@ -15,9 +15,14 @@ __all__ = [
     'CollaborationDataEncryptionMetadata',
     'CollaborationMemberSpecification',
     'CollaborationTag',
+    'ConfiguredTableAggregateColumn',
+    'ConfiguredTableAggregationConstraint',
     'ConfiguredTableAnalysisRule',
+    'ConfiguredTableAnalysisRuleAggregation',
+    'ConfiguredTableAnalysisRuleList',
     'ConfiguredTableAnalysisRulePolicy',
-    'ConfiguredTableAnalysisRulePolicyV1',
+    'ConfiguredTableAnalysisRulePolicyV10Properties',
+    'ConfiguredTableAnalysisRulePolicyV11Properties',
     'ConfiguredTableAssociationTag',
     'ConfiguredTableGlueTableReference',
     'ConfiguredTableTableReference',
@@ -148,6 +153,85 @@ class CollaborationTag(dict):
 
 
 @pulumi.output_type
+class ConfiguredTableAggregateColumn(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "columnNames":
+            suggest = "column_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfiguredTableAggregateColumn. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfiguredTableAggregateColumn.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfiguredTableAggregateColumn.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 column_names: Sequence[str],
+                 function: 'ConfiguredTableAggregateFunctionName'):
+        pulumi.set(__self__, "column_names", column_names)
+        pulumi.set(__self__, "function", function)
+
+    @property
+    @pulumi.getter(name="columnNames")
+    def column_names(self) -> Sequence[str]:
+        return pulumi.get(self, "column_names")
+
+    @property
+    @pulumi.getter
+    def function(self) -> 'ConfiguredTableAggregateFunctionName':
+        return pulumi.get(self, "function")
+
+
+@pulumi.output_type
+class ConfiguredTableAggregationConstraint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "columnName":
+            suggest = "column_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfiguredTableAggregationConstraint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfiguredTableAggregationConstraint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfiguredTableAggregationConstraint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 column_name: str,
+                 minimum: float,
+                 type: 'ConfiguredTableAggregationType'):
+        pulumi.set(__self__, "column_name", column_name)
+        pulumi.set(__self__, "minimum", minimum)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="columnName")
+    def column_name(self) -> str:
+        return pulumi.get(self, "column_name")
+
+    @property
+    @pulumi.getter
+    def minimum(self) -> float:
+        return pulumi.get(self, "minimum")
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'ConfiguredTableAggregationType':
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class ConfiguredTableAnalysisRule(dict):
     def __init__(__self__, *,
                  policy: 'outputs.ConfiguredTableAnalysisRulePolicy',
@@ -167,21 +251,172 @@ class ConfiguredTableAnalysisRule(dict):
 
 
 @pulumi.output_type
+class ConfiguredTableAnalysisRuleAggregation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "aggregateColumns":
+            suggest = "aggregate_columns"
+        elif key == "dimensionColumns":
+            suggest = "dimension_columns"
+        elif key == "joinColumns":
+            suggest = "join_columns"
+        elif key == "outputConstraints":
+            suggest = "output_constraints"
+        elif key == "scalarFunctions":
+            suggest = "scalar_functions"
+        elif key == "allowedJoinOperators":
+            suggest = "allowed_join_operators"
+        elif key == "joinRequired":
+            suggest = "join_required"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfiguredTableAnalysisRuleAggregation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfiguredTableAnalysisRuleAggregation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfiguredTableAnalysisRuleAggregation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 aggregate_columns: Sequence['outputs.ConfiguredTableAggregateColumn'],
+                 dimension_columns: Sequence[str],
+                 join_columns: Sequence[str],
+                 output_constraints: Sequence['outputs.ConfiguredTableAggregationConstraint'],
+                 scalar_functions: Sequence['ConfiguredTableScalarFunctions'],
+                 allowed_join_operators: Optional[Sequence['ConfiguredTableJoinOperator']] = None,
+                 join_required: Optional['ConfiguredTableJoinRequiredOption'] = None):
+        pulumi.set(__self__, "aggregate_columns", aggregate_columns)
+        pulumi.set(__self__, "dimension_columns", dimension_columns)
+        pulumi.set(__self__, "join_columns", join_columns)
+        pulumi.set(__self__, "output_constraints", output_constraints)
+        pulumi.set(__self__, "scalar_functions", scalar_functions)
+        if allowed_join_operators is not None:
+            pulumi.set(__self__, "allowed_join_operators", allowed_join_operators)
+        if join_required is not None:
+            pulumi.set(__self__, "join_required", join_required)
+
+    @property
+    @pulumi.getter(name="aggregateColumns")
+    def aggregate_columns(self) -> Sequence['outputs.ConfiguredTableAggregateColumn']:
+        return pulumi.get(self, "aggregate_columns")
+
+    @property
+    @pulumi.getter(name="dimensionColumns")
+    def dimension_columns(self) -> Sequence[str]:
+        return pulumi.get(self, "dimension_columns")
+
+    @property
+    @pulumi.getter(name="joinColumns")
+    def join_columns(self) -> Sequence[str]:
+        return pulumi.get(self, "join_columns")
+
+    @property
+    @pulumi.getter(name="outputConstraints")
+    def output_constraints(self) -> Sequence['outputs.ConfiguredTableAggregationConstraint']:
+        return pulumi.get(self, "output_constraints")
+
+    @property
+    @pulumi.getter(name="scalarFunctions")
+    def scalar_functions(self) -> Sequence['ConfiguredTableScalarFunctions']:
+        return pulumi.get(self, "scalar_functions")
+
+    @property
+    @pulumi.getter(name="allowedJoinOperators")
+    def allowed_join_operators(self) -> Optional[Sequence['ConfiguredTableJoinOperator']]:
+        return pulumi.get(self, "allowed_join_operators")
+
+    @property
+    @pulumi.getter(name="joinRequired")
+    def join_required(self) -> Optional['ConfiguredTableJoinRequiredOption']:
+        return pulumi.get(self, "join_required")
+
+
+@pulumi.output_type
+class ConfiguredTableAnalysisRuleList(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "joinColumns":
+            suggest = "join_columns"
+        elif key == "listColumns":
+            suggest = "list_columns"
+        elif key == "allowedJoinOperators":
+            suggest = "allowed_join_operators"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfiguredTableAnalysisRuleList. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfiguredTableAnalysisRuleList.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfiguredTableAnalysisRuleList.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 join_columns: Sequence[str],
+                 list_columns: Sequence[str],
+                 allowed_join_operators: Optional[Sequence['ConfiguredTableJoinOperator']] = None):
+        pulumi.set(__self__, "join_columns", join_columns)
+        pulumi.set(__self__, "list_columns", list_columns)
+        if allowed_join_operators is not None:
+            pulumi.set(__self__, "allowed_join_operators", allowed_join_operators)
+
+    @property
+    @pulumi.getter(name="joinColumns")
+    def join_columns(self) -> Sequence[str]:
+        return pulumi.get(self, "join_columns")
+
+    @property
+    @pulumi.getter(name="listColumns")
+    def list_columns(self) -> Sequence[str]:
+        return pulumi.get(self, "list_columns")
+
+    @property
+    @pulumi.getter(name="allowedJoinOperators")
+    def allowed_join_operators(self) -> Optional[Sequence['ConfiguredTableJoinOperator']]:
+        return pulumi.get(self, "allowed_join_operators")
+
+
+@pulumi.output_type
 class ConfiguredTableAnalysisRulePolicy(dict):
     def __init__(__self__, *,
-                 v1: 'outputs.ConfiguredTableAnalysisRulePolicyV1'):
+                 v1: Any):
         pulumi.set(__self__, "v1", v1)
 
     @property
     @pulumi.getter
-    def v1(self) -> 'outputs.ConfiguredTableAnalysisRulePolicyV1':
+    def v1(self) -> Any:
         return pulumi.get(self, "v1")
 
 
 @pulumi.output_type
-class ConfiguredTableAnalysisRulePolicyV1(dict):
-    def __init__(__self__):
-        pass
+class ConfiguredTableAnalysisRulePolicyV10Properties(dict):
+    def __init__(__self__, *,
+                 list: 'outputs.ConfiguredTableAnalysisRuleList'):
+        pulumi.set(__self__, "list", list)
+
+    @property
+    @pulumi.getter
+    def list(self) -> 'outputs.ConfiguredTableAnalysisRuleList':
+        return pulumi.get(self, "list")
+
+
+@pulumi.output_type
+class ConfiguredTableAnalysisRulePolicyV11Properties(dict):
+    def __init__(__self__, *,
+                 aggregation: 'outputs.ConfiguredTableAnalysisRuleAggregation'):
+        pulumi.set(__self__, "aggregation", aggregation)
+
+    @property
+    @pulumi.getter
+    def aggregation(self) -> 'outputs.ConfiguredTableAnalysisRuleAggregation':
+        return pulumi.get(self, "aggregation")
 
 
 @pulumi.output_type

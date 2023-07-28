@@ -23,7 +23,7 @@ type SignalCatalog struct {
 	LastModificationTime pulumi.StringOutput              `pulumi:"lastModificationTime"`
 	Name                 pulumi.StringPtrOutput           `pulumi:"name"`
 	NodeCounts           SignalCatalogNodeCountsPtrOutput `pulumi:"nodeCounts"`
-	Nodes                SignalCatalogNodeArrayOutput     `pulumi:"nodes"`
+	Nodes                pulumi.ArrayOutput               `pulumi:"nodes"`
 	Tags                 SignalCatalogTagArrayOutput      `pulumi:"tags"`
 }
 
@@ -70,7 +70,7 @@ type signalCatalogArgs struct {
 	Description *string                  `pulumi:"description"`
 	Name        *string                  `pulumi:"name"`
 	NodeCounts  *SignalCatalogNodeCounts `pulumi:"nodeCounts"`
-	Nodes       []SignalCatalogNode      `pulumi:"nodes"`
+	Nodes       []interface{}            `pulumi:"nodes"`
 	Tags        []SignalCatalogTag       `pulumi:"tags"`
 }
 
@@ -79,7 +79,7 @@ type SignalCatalogArgs struct {
 	Description pulumi.StringPtrInput
 	Name        pulumi.StringPtrInput
 	NodeCounts  SignalCatalogNodeCountsPtrInput
-	Nodes       SignalCatalogNodeArrayInput
+	Nodes       pulumi.ArrayInput
 	Tags        SignalCatalogTagArrayInput
 }
 
@@ -144,8 +144,8 @@ func (o SignalCatalogOutput) NodeCounts() SignalCatalogNodeCountsPtrOutput {
 	return o.ApplyT(func(v *SignalCatalog) SignalCatalogNodeCountsPtrOutput { return v.NodeCounts }).(SignalCatalogNodeCountsPtrOutput)
 }
 
-func (o SignalCatalogOutput) Nodes() SignalCatalogNodeArrayOutput {
-	return o.ApplyT(func(v *SignalCatalog) SignalCatalogNodeArrayOutput { return v.Nodes }).(SignalCatalogNodeArrayOutput)
+func (o SignalCatalogOutput) Nodes() pulumi.ArrayOutput {
+	return o.ApplyT(func(v *SignalCatalog) pulumi.ArrayOutput { return v.Nodes }).(pulumi.ArrayOutput)
 }
 
 func (o SignalCatalogOutput) Tags() SignalCatalogTagArrayOutput {

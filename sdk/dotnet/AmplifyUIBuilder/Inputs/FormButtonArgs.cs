@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.AmplifyUIBuilder.Inputs
         public Input<bool>? Excluded { get; set; }
 
         [Input("position")]
-        public Input<Inputs.FormFieldPositionArgs>? Position { get; set; }
+        public object? Position { get; set; }
 
         public FormButtonArgs()
         {

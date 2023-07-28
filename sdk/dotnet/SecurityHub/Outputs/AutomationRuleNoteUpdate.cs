@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.SecurityHub.Outputs
     public sealed class AutomationRuleNoteUpdate
     {
         public readonly string Text;
-        public readonly Outputs.AutomationRulearnOrId UpdatedBy;
+        public readonly string UpdatedBy;
 
         [OutputConstructor]
         private AutomationRuleNoteUpdate(
             string text,
 
-            Outputs.AutomationRulearnOrId updatedBy)
+            string updatedBy)
         {
             Text = text;
             UpdatedBy = updatedBy;

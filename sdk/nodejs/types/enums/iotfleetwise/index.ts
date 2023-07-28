@@ -9,6 +9,13 @@ export const CampaignCompression = {
 
 export type CampaignCompression = (typeof CampaignCompression)[keyof typeof CampaignCompression];
 
+export const CampaignDataFormat = {
+    Json: "JSON",
+    Parquet: "PARQUET",
+} as const;
+
+export type CampaignDataFormat = (typeof CampaignDataFormat)[keyof typeof CampaignDataFormat];
+
 export const CampaignDiagnosticsMode = {
     Off: "OFF",
     SendActiveDtcs: "SEND_ACTIVE_DTCS",
@@ -31,6 +38,20 @@ export const CampaignStatus = {
 } as const;
 
 export type CampaignStatus = (typeof CampaignStatus)[keyof typeof CampaignStatus];
+
+export const CampaignStorageCompressionFormat = {
+    None: "NONE",
+    Gzip: "GZIP",
+} as const;
+
+export type CampaignStorageCompressionFormat = (typeof CampaignStorageCompressionFormat)[keyof typeof CampaignStorageCompressionFormat];
+
+export const CampaignTriggerMode = {
+    Always: "ALWAYS",
+    RisingEdge: "RISING_EDGE",
+} as const;
+
+export type CampaignTriggerMode = (typeof CampaignTriggerMode)[keyof typeof CampaignTriggerMode];
 
 export const CampaignUpdateCampaignAction = {
     Approve: "APPROVE",
@@ -78,6 +99,38 @@ export const ModelManifestManifestStatus = {
 } as const;
 
 export type ModelManifestManifestStatus = (typeof ModelManifestManifestStatus)[keyof typeof ModelManifestManifestStatus];
+
+export const SignalCatalogNodeDataType = {
+    Int8: "INT8",
+    Uint8: "UINT8",
+    Int16: "INT16",
+    Uint16: "UINT16",
+    Int32: "INT32",
+    Uint32: "UINT32",
+    Int64: "INT64",
+    Uint64: "UINT64",
+    Boolean: "BOOLEAN",
+    Float: "FLOAT",
+    Double: "DOUBLE",
+    String: "STRING",
+    UnixTimestamp: "UNIX_TIMESTAMP",
+    Int8Array: "INT8_ARRAY",
+    Uint8Array: "UINT8_ARRAY",
+    Int16Array: "INT16_ARRAY",
+    Uint16Array: "UINT16_ARRAY",
+    Int32Array: "INT32_ARRAY",
+    Uint32Array: "UINT32_ARRAY",
+    Int64Array: "INT64_ARRAY",
+    Uint64Array: "UINT64_ARRAY",
+    BooleanArray: "BOOLEAN_ARRAY",
+    FloatArray: "FLOAT_ARRAY",
+    DoubleArray: "DOUBLE_ARRAY",
+    StringArray: "STRING_ARRAY",
+    UnixTimestampArray: "UNIX_TIMESTAMP_ARRAY",
+    Unknown: "UNKNOWN",
+} as const;
+
+export type SignalCatalogNodeDataType = (typeof SignalCatalogNodeDataType)[keyof typeof SignalCatalogNodeDataType];
 
 export const VehicleAssociationBehavior = {
     CreateIotThing: "CreateIotThing",

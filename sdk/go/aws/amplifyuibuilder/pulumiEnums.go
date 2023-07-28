@@ -503,6 +503,12 @@ func (in *formDataSourceTypePtr) ToFormDataSourceTypePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(FormDataSourceTypePtrOutput)
 }
 
+type FormFixedPosition string
+
+const (
+	FormFixedPositionFirst = FormFixedPosition("first")
+)
+
 type FormLabelDecorator string
 
 const (

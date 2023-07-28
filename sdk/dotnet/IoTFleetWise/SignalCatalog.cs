@@ -35,7 +35,7 @@ namespace Pulumi.AwsNative.IoTFleetWise
         public Output<Outputs.SignalCatalogNodeCounts?> NodeCounts { get; private set; } = null!;
 
         [Output("nodes")]
-        public Output<ImmutableArray<Outputs.SignalCatalogNode>> Nodes { get; private set; } = null!;
+        public Output<ImmutableArray<object>> Nodes { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableArray<Outputs.SignalCatalogTag>> Tags { get; private set; } = null!;
@@ -95,10 +95,10 @@ namespace Pulumi.AwsNative.IoTFleetWise
         public Input<Inputs.SignalCatalogNodeCountsArgs>? NodeCounts { get; set; }
 
         [Input("nodes")]
-        private InputList<Inputs.SignalCatalogNodeArgs>? _nodes;
-        public InputList<Inputs.SignalCatalogNodeArgs> Nodes
+        private InputList<object>? _nodes;
+        public InputList<object> Nodes
         {
-            get => _nodes ?? (_nodes = new InputList<Inputs.SignalCatalogNodeArgs>());
+            get => _nodes ?? (_nodes = new InputList<object>());
             set => _nodes = value;
         }
 

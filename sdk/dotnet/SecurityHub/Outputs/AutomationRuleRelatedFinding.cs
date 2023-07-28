@@ -13,12 +13,12 @@ namespace Pulumi.AwsNative.SecurityHub.Outputs
     [OutputType]
     public sealed class AutomationRuleRelatedFinding
     {
-        public readonly Outputs.AutomationRulearnOrId Id;
+        public readonly string Id;
         public readonly string ProductArn;
 
         [OutputConstructor]
         private AutomationRuleRelatedFinding(
-            Outputs.AutomationRulearnOrId id,
+            string id,
 
             string productArn)
         {

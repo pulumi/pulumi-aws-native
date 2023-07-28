@@ -37,7 +37,7 @@ type LookupPlaybackConfigurationResult struct {
 	// The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management.
 	CdnConfiguration *PlaybackConfigurationCdnConfiguration `pulumi:"cdnConfiguration"`
 	// The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables.
-	ConfigurationAliases *PlaybackConfigurationConfigurationAliases `pulumi:"configurationAliases"`
+	ConfigurationAliases interface{} `pulumi:"configurationAliases"`
 	// The configuration for DASH content.
 	DashConfiguration *PlaybackConfigurationDashConfiguration `pulumi:"dashConfiguration"`
 	// The configuration for HLS content.
@@ -125,10 +125,8 @@ func (o LookupPlaybackConfigurationResultOutput) CdnConfiguration() PlaybackConf
 }
 
 // The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables.
-func (o LookupPlaybackConfigurationResultOutput) ConfigurationAliases() PlaybackConfigurationConfigurationAliasesPtrOutput {
-	return o.ApplyT(func(v LookupPlaybackConfigurationResult) *PlaybackConfigurationConfigurationAliases {
-		return v.ConfigurationAliases
-	}).(PlaybackConfigurationConfigurationAliasesPtrOutput)
+func (o LookupPlaybackConfigurationResultOutput) ConfigurationAliases() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupPlaybackConfigurationResult) interface{} { return v.ConfigurationAliases }).(pulumi.AnyOutput)
 }
 
 // The configuration for DASH content.

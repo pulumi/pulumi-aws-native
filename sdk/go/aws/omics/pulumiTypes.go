@@ -13,6 +13,124 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type AnnotationStoreFormatToHeader struct {
+}
+
+// AnnotationStoreFormatToHeaderInput is an input type that accepts AnnotationStoreFormatToHeaderArgs and AnnotationStoreFormatToHeaderOutput values.
+// You can construct a concrete instance of `AnnotationStoreFormatToHeaderInput` via:
+//
+//	AnnotationStoreFormatToHeaderArgs{...}
+type AnnotationStoreFormatToHeaderInput interface {
+	pulumi.Input
+
+	ToAnnotationStoreFormatToHeaderOutput() AnnotationStoreFormatToHeaderOutput
+	ToAnnotationStoreFormatToHeaderOutputWithContext(context.Context) AnnotationStoreFormatToHeaderOutput
+}
+
+type AnnotationStoreFormatToHeaderArgs struct {
+}
+
+func (AnnotationStoreFormatToHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnnotationStoreFormatToHeader)(nil)).Elem()
+}
+
+func (i AnnotationStoreFormatToHeaderArgs) ToAnnotationStoreFormatToHeaderOutput() AnnotationStoreFormatToHeaderOutput {
+	return i.ToAnnotationStoreFormatToHeaderOutputWithContext(context.Background())
+}
+
+func (i AnnotationStoreFormatToHeaderArgs) ToAnnotationStoreFormatToHeaderOutputWithContext(ctx context.Context) AnnotationStoreFormatToHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnnotationStoreFormatToHeaderOutput)
+}
+
+func (i AnnotationStoreFormatToHeaderArgs) ToAnnotationStoreFormatToHeaderPtrOutput() AnnotationStoreFormatToHeaderPtrOutput {
+	return i.ToAnnotationStoreFormatToHeaderPtrOutputWithContext(context.Background())
+}
+
+func (i AnnotationStoreFormatToHeaderArgs) ToAnnotationStoreFormatToHeaderPtrOutputWithContext(ctx context.Context) AnnotationStoreFormatToHeaderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnnotationStoreFormatToHeaderOutput).ToAnnotationStoreFormatToHeaderPtrOutputWithContext(ctx)
+}
+
+// AnnotationStoreFormatToHeaderPtrInput is an input type that accepts AnnotationStoreFormatToHeaderArgs, AnnotationStoreFormatToHeaderPtr and AnnotationStoreFormatToHeaderPtrOutput values.
+// You can construct a concrete instance of `AnnotationStoreFormatToHeaderPtrInput` via:
+//
+//	        AnnotationStoreFormatToHeaderArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnnotationStoreFormatToHeaderPtrInput interface {
+	pulumi.Input
+
+	ToAnnotationStoreFormatToHeaderPtrOutput() AnnotationStoreFormatToHeaderPtrOutput
+	ToAnnotationStoreFormatToHeaderPtrOutputWithContext(context.Context) AnnotationStoreFormatToHeaderPtrOutput
+}
+
+type annotationStoreFormatToHeaderPtrType AnnotationStoreFormatToHeaderArgs
+
+func AnnotationStoreFormatToHeaderPtr(v *AnnotationStoreFormatToHeaderArgs) AnnotationStoreFormatToHeaderPtrInput {
+	return (*annotationStoreFormatToHeaderPtrType)(v)
+}
+
+func (*annotationStoreFormatToHeaderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnnotationStoreFormatToHeader)(nil)).Elem()
+}
+
+func (i *annotationStoreFormatToHeaderPtrType) ToAnnotationStoreFormatToHeaderPtrOutput() AnnotationStoreFormatToHeaderPtrOutput {
+	return i.ToAnnotationStoreFormatToHeaderPtrOutputWithContext(context.Background())
+}
+
+func (i *annotationStoreFormatToHeaderPtrType) ToAnnotationStoreFormatToHeaderPtrOutputWithContext(ctx context.Context) AnnotationStoreFormatToHeaderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnnotationStoreFormatToHeaderPtrOutput)
+}
+
+type AnnotationStoreFormatToHeaderOutput struct{ *pulumi.OutputState }
+
+func (AnnotationStoreFormatToHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnnotationStoreFormatToHeader)(nil)).Elem()
+}
+
+func (o AnnotationStoreFormatToHeaderOutput) ToAnnotationStoreFormatToHeaderOutput() AnnotationStoreFormatToHeaderOutput {
+	return o
+}
+
+func (o AnnotationStoreFormatToHeaderOutput) ToAnnotationStoreFormatToHeaderOutputWithContext(ctx context.Context) AnnotationStoreFormatToHeaderOutput {
+	return o
+}
+
+func (o AnnotationStoreFormatToHeaderOutput) ToAnnotationStoreFormatToHeaderPtrOutput() AnnotationStoreFormatToHeaderPtrOutput {
+	return o.ToAnnotationStoreFormatToHeaderPtrOutputWithContext(context.Background())
+}
+
+func (o AnnotationStoreFormatToHeaderOutput) ToAnnotationStoreFormatToHeaderPtrOutputWithContext(ctx context.Context) AnnotationStoreFormatToHeaderPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnnotationStoreFormatToHeader) *AnnotationStoreFormatToHeader {
+		return &v
+	}).(AnnotationStoreFormatToHeaderPtrOutput)
+}
+
+type AnnotationStoreFormatToHeaderPtrOutput struct{ *pulumi.OutputState }
+
+func (AnnotationStoreFormatToHeaderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnnotationStoreFormatToHeader)(nil)).Elem()
+}
+
+func (o AnnotationStoreFormatToHeaderPtrOutput) ToAnnotationStoreFormatToHeaderPtrOutput() AnnotationStoreFormatToHeaderPtrOutput {
+	return o
+}
+
+func (o AnnotationStoreFormatToHeaderPtrOutput) ToAnnotationStoreFormatToHeaderPtrOutputWithContext(ctx context.Context) AnnotationStoreFormatToHeaderPtrOutput {
+	return o
+}
+
+func (o AnnotationStoreFormatToHeaderPtrOutput) Elem() AnnotationStoreFormatToHeaderOutput {
+	return o.ApplyT(func(v *AnnotationStoreFormatToHeader) AnnotationStoreFormatToHeader {
+		if v != nil {
+			return *v
+		}
+		var ret AnnotationStoreFormatToHeader
+		return ret
+	}).(AnnotationStoreFormatToHeaderOutput)
+}
+
 type AnnotationStoreReferenceItem struct {
 	ReferenceArn string `pulumi:"referenceArn"`
 }
@@ -144,6 +262,94 @@ func (o AnnotationStoreReferenceItemPtrOutput) ReferenceArn() pulumi.StringPtrOu
 		}
 		return &v.ReferenceArn
 	}).(pulumi.StringPtrOutput)
+}
+
+type AnnotationStoreSchemaItem struct {
+}
+
+// AnnotationStoreSchemaItemInput is an input type that accepts AnnotationStoreSchemaItemArgs and AnnotationStoreSchemaItemOutput values.
+// You can construct a concrete instance of `AnnotationStoreSchemaItemInput` via:
+//
+//	AnnotationStoreSchemaItemArgs{...}
+type AnnotationStoreSchemaItemInput interface {
+	pulumi.Input
+
+	ToAnnotationStoreSchemaItemOutput() AnnotationStoreSchemaItemOutput
+	ToAnnotationStoreSchemaItemOutputWithContext(context.Context) AnnotationStoreSchemaItemOutput
+}
+
+type AnnotationStoreSchemaItemArgs struct {
+}
+
+func (AnnotationStoreSchemaItemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnnotationStoreSchemaItem)(nil)).Elem()
+}
+
+func (i AnnotationStoreSchemaItemArgs) ToAnnotationStoreSchemaItemOutput() AnnotationStoreSchemaItemOutput {
+	return i.ToAnnotationStoreSchemaItemOutputWithContext(context.Background())
+}
+
+func (i AnnotationStoreSchemaItemArgs) ToAnnotationStoreSchemaItemOutputWithContext(ctx context.Context) AnnotationStoreSchemaItemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnnotationStoreSchemaItemOutput)
+}
+
+// AnnotationStoreSchemaItemArrayInput is an input type that accepts AnnotationStoreSchemaItemArray and AnnotationStoreSchemaItemArrayOutput values.
+// You can construct a concrete instance of `AnnotationStoreSchemaItemArrayInput` via:
+//
+//	AnnotationStoreSchemaItemArray{ AnnotationStoreSchemaItemArgs{...} }
+type AnnotationStoreSchemaItemArrayInput interface {
+	pulumi.Input
+
+	ToAnnotationStoreSchemaItemArrayOutput() AnnotationStoreSchemaItemArrayOutput
+	ToAnnotationStoreSchemaItemArrayOutputWithContext(context.Context) AnnotationStoreSchemaItemArrayOutput
+}
+
+type AnnotationStoreSchemaItemArray []AnnotationStoreSchemaItemInput
+
+func (AnnotationStoreSchemaItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnnotationStoreSchemaItem)(nil)).Elem()
+}
+
+func (i AnnotationStoreSchemaItemArray) ToAnnotationStoreSchemaItemArrayOutput() AnnotationStoreSchemaItemArrayOutput {
+	return i.ToAnnotationStoreSchemaItemArrayOutputWithContext(context.Background())
+}
+
+func (i AnnotationStoreSchemaItemArray) ToAnnotationStoreSchemaItemArrayOutputWithContext(ctx context.Context) AnnotationStoreSchemaItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnnotationStoreSchemaItemArrayOutput)
+}
+
+type AnnotationStoreSchemaItemOutput struct{ *pulumi.OutputState }
+
+func (AnnotationStoreSchemaItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnnotationStoreSchemaItem)(nil)).Elem()
+}
+
+func (o AnnotationStoreSchemaItemOutput) ToAnnotationStoreSchemaItemOutput() AnnotationStoreSchemaItemOutput {
+	return o
+}
+
+func (o AnnotationStoreSchemaItemOutput) ToAnnotationStoreSchemaItemOutputWithContext(ctx context.Context) AnnotationStoreSchemaItemOutput {
+	return o
+}
+
+type AnnotationStoreSchemaItemArrayOutput struct{ *pulumi.OutputState }
+
+func (AnnotationStoreSchemaItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnnotationStoreSchemaItem)(nil)).Elem()
+}
+
+func (o AnnotationStoreSchemaItemArrayOutput) ToAnnotationStoreSchemaItemArrayOutput() AnnotationStoreSchemaItemArrayOutput {
+	return o
+}
+
+func (o AnnotationStoreSchemaItemArrayOutput) ToAnnotationStoreSchemaItemArrayOutputWithContext(ctx context.Context) AnnotationStoreSchemaItemArrayOutput {
+	return o
+}
+
+func (o AnnotationStoreSchemaItemArrayOutput) Index(i pulumi.IntInput) AnnotationStoreSchemaItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AnnotationStoreSchemaItem {
+		return vs[0].([]AnnotationStoreSchemaItem)[vs[1].(int)]
+	}).(AnnotationStoreSchemaItemOutput)
 }
 
 type AnnotationStoreSseConfig struct {
@@ -294,124 +500,6 @@ func (o AnnotationStoreSseConfigPtrOutput) Type() AnnotationStoreEncryptionTypeP
 	}).(AnnotationStoreEncryptionTypePtrOutput)
 }
 
-type AnnotationStoreStoreOptions struct {
-}
-
-// AnnotationStoreStoreOptionsInput is an input type that accepts AnnotationStoreStoreOptionsArgs and AnnotationStoreStoreOptionsOutput values.
-// You can construct a concrete instance of `AnnotationStoreStoreOptionsInput` via:
-//
-//	AnnotationStoreStoreOptionsArgs{...}
-type AnnotationStoreStoreOptionsInput interface {
-	pulumi.Input
-
-	ToAnnotationStoreStoreOptionsOutput() AnnotationStoreStoreOptionsOutput
-	ToAnnotationStoreStoreOptionsOutputWithContext(context.Context) AnnotationStoreStoreOptionsOutput
-}
-
-type AnnotationStoreStoreOptionsArgs struct {
-}
-
-func (AnnotationStoreStoreOptionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnnotationStoreStoreOptions)(nil)).Elem()
-}
-
-func (i AnnotationStoreStoreOptionsArgs) ToAnnotationStoreStoreOptionsOutput() AnnotationStoreStoreOptionsOutput {
-	return i.ToAnnotationStoreStoreOptionsOutputWithContext(context.Background())
-}
-
-func (i AnnotationStoreStoreOptionsArgs) ToAnnotationStoreStoreOptionsOutputWithContext(ctx context.Context) AnnotationStoreStoreOptionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnnotationStoreStoreOptionsOutput)
-}
-
-func (i AnnotationStoreStoreOptionsArgs) ToAnnotationStoreStoreOptionsPtrOutput() AnnotationStoreStoreOptionsPtrOutput {
-	return i.ToAnnotationStoreStoreOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i AnnotationStoreStoreOptionsArgs) ToAnnotationStoreStoreOptionsPtrOutputWithContext(ctx context.Context) AnnotationStoreStoreOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnnotationStoreStoreOptionsOutput).ToAnnotationStoreStoreOptionsPtrOutputWithContext(ctx)
-}
-
-// AnnotationStoreStoreOptionsPtrInput is an input type that accepts AnnotationStoreStoreOptionsArgs, AnnotationStoreStoreOptionsPtr and AnnotationStoreStoreOptionsPtrOutput values.
-// You can construct a concrete instance of `AnnotationStoreStoreOptionsPtrInput` via:
-//
-//	        AnnotationStoreStoreOptionsArgs{...}
-//
-//	or:
-//
-//	        nil
-type AnnotationStoreStoreOptionsPtrInput interface {
-	pulumi.Input
-
-	ToAnnotationStoreStoreOptionsPtrOutput() AnnotationStoreStoreOptionsPtrOutput
-	ToAnnotationStoreStoreOptionsPtrOutputWithContext(context.Context) AnnotationStoreStoreOptionsPtrOutput
-}
-
-type annotationStoreStoreOptionsPtrType AnnotationStoreStoreOptionsArgs
-
-func AnnotationStoreStoreOptionsPtr(v *AnnotationStoreStoreOptionsArgs) AnnotationStoreStoreOptionsPtrInput {
-	return (*annotationStoreStoreOptionsPtrType)(v)
-}
-
-func (*annotationStoreStoreOptionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnnotationStoreStoreOptions)(nil)).Elem()
-}
-
-func (i *annotationStoreStoreOptionsPtrType) ToAnnotationStoreStoreOptionsPtrOutput() AnnotationStoreStoreOptionsPtrOutput {
-	return i.ToAnnotationStoreStoreOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i *annotationStoreStoreOptionsPtrType) ToAnnotationStoreStoreOptionsPtrOutputWithContext(ctx context.Context) AnnotationStoreStoreOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnnotationStoreStoreOptionsPtrOutput)
-}
-
-type AnnotationStoreStoreOptionsOutput struct{ *pulumi.OutputState }
-
-func (AnnotationStoreStoreOptionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnnotationStoreStoreOptions)(nil)).Elem()
-}
-
-func (o AnnotationStoreStoreOptionsOutput) ToAnnotationStoreStoreOptionsOutput() AnnotationStoreStoreOptionsOutput {
-	return o
-}
-
-func (o AnnotationStoreStoreOptionsOutput) ToAnnotationStoreStoreOptionsOutputWithContext(ctx context.Context) AnnotationStoreStoreOptionsOutput {
-	return o
-}
-
-func (o AnnotationStoreStoreOptionsOutput) ToAnnotationStoreStoreOptionsPtrOutput() AnnotationStoreStoreOptionsPtrOutput {
-	return o.ToAnnotationStoreStoreOptionsPtrOutputWithContext(context.Background())
-}
-
-func (o AnnotationStoreStoreOptionsOutput) ToAnnotationStoreStoreOptionsPtrOutputWithContext(ctx context.Context) AnnotationStoreStoreOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnnotationStoreStoreOptions) *AnnotationStoreStoreOptions {
-		return &v
-	}).(AnnotationStoreStoreOptionsPtrOutput)
-}
-
-type AnnotationStoreStoreOptionsPtrOutput struct{ *pulumi.OutputState }
-
-func (AnnotationStoreStoreOptionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnnotationStoreStoreOptions)(nil)).Elem()
-}
-
-func (o AnnotationStoreStoreOptionsPtrOutput) ToAnnotationStoreStoreOptionsPtrOutput() AnnotationStoreStoreOptionsPtrOutput {
-	return o
-}
-
-func (o AnnotationStoreStoreOptionsPtrOutput) ToAnnotationStoreStoreOptionsPtrOutputWithContext(ctx context.Context) AnnotationStoreStoreOptionsPtrOutput {
-	return o
-}
-
-func (o AnnotationStoreStoreOptionsPtrOutput) Elem() AnnotationStoreStoreOptionsOutput {
-	return o.ApplyT(func(v *AnnotationStoreStoreOptions) AnnotationStoreStoreOptions {
-		if v != nil {
-			return *v
-		}
-		var ret AnnotationStoreStoreOptions
-		return ret
-	}).(AnnotationStoreStoreOptionsOutput)
-}
-
 type AnnotationStoreTagMap struct {
 }
 
@@ -528,6 +616,169 @@ func (o AnnotationStoreTagMapPtrOutput) Elem() AnnotationStoreTagMapOutput {
 		var ret AnnotationStoreTagMap
 		return ret
 	}).(AnnotationStoreTagMapOutput)
+}
+
+type AnnotationStoreTsvStoreOptions struct {
+	AnnotationType *AnnotationStoreAnnotationType `pulumi:"annotationType"`
+	FormatToHeader *AnnotationStoreFormatToHeader `pulumi:"formatToHeader"`
+	Schema         []AnnotationStoreSchemaItem    `pulumi:"schema"`
+}
+
+// AnnotationStoreTsvStoreOptionsInput is an input type that accepts AnnotationStoreTsvStoreOptionsArgs and AnnotationStoreTsvStoreOptionsOutput values.
+// You can construct a concrete instance of `AnnotationStoreTsvStoreOptionsInput` via:
+//
+//	AnnotationStoreTsvStoreOptionsArgs{...}
+type AnnotationStoreTsvStoreOptionsInput interface {
+	pulumi.Input
+
+	ToAnnotationStoreTsvStoreOptionsOutput() AnnotationStoreTsvStoreOptionsOutput
+	ToAnnotationStoreTsvStoreOptionsOutputWithContext(context.Context) AnnotationStoreTsvStoreOptionsOutput
+}
+
+type AnnotationStoreTsvStoreOptionsArgs struct {
+	AnnotationType AnnotationStoreAnnotationTypePtrInput `pulumi:"annotationType"`
+	FormatToHeader AnnotationStoreFormatToHeaderPtrInput `pulumi:"formatToHeader"`
+	Schema         AnnotationStoreSchemaItemArrayInput   `pulumi:"schema"`
+}
+
+func (AnnotationStoreTsvStoreOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnnotationStoreTsvStoreOptions)(nil)).Elem()
+}
+
+func (i AnnotationStoreTsvStoreOptionsArgs) ToAnnotationStoreTsvStoreOptionsOutput() AnnotationStoreTsvStoreOptionsOutput {
+	return i.ToAnnotationStoreTsvStoreOptionsOutputWithContext(context.Background())
+}
+
+func (i AnnotationStoreTsvStoreOptionsArgs) ToAnnotationStoreTsvStoreOptionsOutputWithContext(ctx context.Context) AnnotationStoreTsvStoreOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnnotationStoreTsvStoreOptionsOutput)
+}
+
+func (i AnnotationStoreTsvStoreOptionsArgs) ToAnnotationStoreTsvStoreOptionsPtrOutput() AnnotationStoreTsvStoreOptionsPtrOutput {
+	return i.ToAnnotationStoreTsvStoreOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i AnnotationStoreTsvStoreOptionsArgs) ToAnnotationStoreTsvStoreOptionsPtrOutputWithContext(ctx context.Context) AnnotationStoreTsvStoreOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnnotationStoreTsvStoreOptionsOutput).ToAnnotationStoreTsvStoreOptionsPtrOutputWithContext(ctx)
+}
+
+// AnnotationStoreTsvStoreOptionsPtrInput is an input type that accepts AnnotationStoreTsvStoreOptionsArgs, AnnotationStoreTsvStoreOptionsPtr and AnnotationStoreTsvStoreOptionsPtrOutput values.
+// You can construct a concrete instance of `AnnotationStoreTsvStoreOptionsPtrInput` via:
+//
+//	        AnnotationStoreTsvStoreOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnnotationStoreTsvStoreOptionsPtrInput interface {
+	pulumi.Input
+
+	ToAnnotationStoreTsvStoreOptionsPtrOutput() AnnotationStoreTsvStoreOptionsPtrOutput
+	ToAnnotationStoreTsvStoreOptionsPtrOutputWithContext(context.Context) AnnotationStoreTsvStoreOptionsPtrOutput
+}
+
+type annotationStoreTsvStoreOptionsPtrType AnnotationStoreTsvStoreOptionsArgs
+
+func AnnotationStoreTsvStoreOptionsPtr(v *AnnotationStoreTsvStoreOptionsArgs) AnnotationStoreTsvStoreOptionsPtrInput {
+	return (*annotationStoreTsvStoreOptionsPtrType)(v)
+}
+
+func (*annotationStoreTsvStoreOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnnotationStoreTsvStoreOptions)(nil)).Elem()
+}
+
+func (i *annotationStoreTsvStoreOptionsPtrType) ToAnnotationStoreTsvStoreOptionsPtrOutput() AnnotationStoreTsvStoreOptionsPtrOutput {
+	return i.ToAnnotationStoreTsvStoreOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *annotationStoreTsvStoreOptionsPtrType) ToAnnotationStoreTsvStoreOptionsPtrOutputWithContext(ctx context.Context) AnnotationStoreTsvStoreOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnnotationStoreTsvStoreOptionsPtrOutput)
+}
+
+type AnnotationStoreTsvStoreOptionsOutput struct{ *pulumi.OutputState }
+
+func (AnnotationStoreTsvStoreOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnnotationStoreTsvStoreOptions)(nil)).Elem()
+}
+
+func (o AnnotationStoreTsvStoreOptionsOutput) ToAnnotationStoreTsvStoreOptionsOutput() AnnotationStoreTsvStoreOptionsOutput {
+	return o
+}
+
+func (o AnnotationStoreTsvStoreOptionsOutput) ToAnnotationStoreTsvStoreOptionsOutputWithContext(ctx context.Context) AnnotationStoreTsvStoreOptionsOutput {
+	return o
+}
+
+func (o AnnotationStoreTsvStoreOptionsOutput) ToAnnotationStoreTsvStoreOptionsPtrOutput() AnnotationStoreTsvStoreOptionsPtrOutput {
+	return o.ToAnnotationStoreTsvStoreOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o AnnotationStoreTsvStoreOptionsOutput) ToAnnotationStoreTsvStoreOptionsPtrOutputWithContext(ctx context.Context) AnnotationStoreTsvStoreOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnnotationStoreTsvStoreOptions) *AnnotationStoreTsvStoreOptions {
+		return &v
+	}).(AnnotationStoreTsvStoreOptionsPtrOutput)
+}
+
+func (o AnnotationStoreTsvStoreOptionsOutput) AnnotationType() AnnotationStoreAnnotationTypePtrOutput {
+	return o.ApplyT(func(v AnnotationStoreTsvStoreOptions) *AnnotationStoreAnnotationType { return v.AnnotationType }).(AnnotationStoreAnnotationTypePtrOutput)
+}
+
+func (o AnnotationStoreTsvStoreOptionsOutput) FormatToHeader() AnnotationStoreFormatToHeaderPtrOutput {
+	return o.ApplyT(func(v AnnotationStoreTsvStoreOptions) *AnnotationStoreFormatToHeader { return v.FormatToHeader }).(AnnotationStoreFormatToHeaderPtrOutput)
+}
+
+func (o AnnotationStoreTsvStoreOptionsOutput) Schema() AnnotationStoreSchemaItemArrayOutput {
+	return o.ApplyT(func(v AnnotationStoreTsvStoreOptions) []AnnotationStoreSchemaItem { return v.Schema }).(AnnotationStoreSchemaItemArrayOutput)
+}
+
+type AnnotationStoreTsvStoreOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (AnnotationStoreTsvStoreOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnnotationStoreTsvStoreOptions)(nil)).Elem()
+}
+
+func (o AnnotationStoreTsvStoreOptionsPtrOutput) ToAnnotationStoreTsvStoreOptionsPtrOutput() AnnotationStoreTsvStoreOptionsPtrOutput {
+	return o
+}
+
+func (o AnnotationStoreTsvStoreOptionsPtrOutput) ToAnnotationStoreTsvStoreOptionsPtrOutputWithContext(ctx context.Context) AnnotationStoreTsvStoreOptionsPtrOutput {
+	return o
+}
+
+func (o AnnotationStoreTsvStoreOptionsPtrOutput) Elem() AnnotationStoreTsvStoreOptionsOutput {
+	return o.ApplyT(func(v *AnnotationStoreTsvStoreOptions) AnnotationStoreTsvStoreOptions {
+		if v != nil {
+			return *v
+		}
+		var ret AnnotationStoreTsvStoreOptions
+		return ret
+	}).(AnnotationStoreTsvStoreOptionsOutput)
+}
+
+func (o AnnotationStoreTsvStoreOptionsPtrOutput) AnnotationType() AnnotationStoreAnnotationTypePtrOutput {
+	return o.ApplyT(func(v *AnnotationStoreTsvStoreOptions) *AnnotationStoreAnnotationType {
+		if v == nil {
+			return nil
+		}
+		return v.AnnotationType
+	}).(AnnotationStoreAnnotationTypePtrOutput)
+}
+
+func (o AnnotationStoreTsvStoreOptionsPtrOutput) FormatToHeader() AnnotationStoreFormatToHeaderPtrOutput {
+	return o.ApplyT(func(v *AnnotationStoreTsvStoreOptions) *AnnotationStoreFormatToHeader {
+		if v == nil {
+			return nil
+		}
+		return v.FormatToHeader
+	}).(AnnotationStoreFormatToHeaderPtrOutput)
+}
+
+func (o AnnotationStoreTsvStoreOptionsPtrOutput) Schema() AnnotationStoreSchemaItemArrayOutput {
+	return o.ApplyT(func(v *AnnotationStoreTsvStoreOptions) []AnnotationStoreSchemaItem {
+		if v == nil {
+			return nil
+		}
+		return v.Schema
+	}).(AnnotationStoreSchemaItemArrayOutput)
 }
 
 // Server-side encryption (SSE) settings for a store.
@@ -1197,6 +1448,143 @@ func (o SequenceStoreTagMapPtrOutput) Elem() SequenceStoreTagMapOutput {
 	}).(SequenceStoreTagMapOutput)
 }
 
+type StoreOptions0Properties struct {
+	TsvStoreOptions AnnotationStoreTsvStoreOptions `pulumi:"tsvStoreOptions"`
+}
+
+type StoreOptionsProperties struct {
+	TsvStoreOptions AnnotationStoreTsvStoreOptions `pulumi:"tsvStoreOptions"`
+}
+
+// StoreOptionsPropertiesInput is an input type that accepts StoreOptionsPropertiesArgs and StoreOptionsPropertiesOutput values.
+// You can construct a concrete instance of `StoreOptionsPropertiesInput` via:
+//
+//	StoreOptionsPropertiesArgs{...}
+type StoreOptionsPropertiesInput interface {
+	pulumi.Input
+
+	ToStoreOptionsPropertiesOutput() StoreOptionsPropertiesOutput
+	ToStoreOptionsPropertiesOutputWithContext(context.Context) StoreOptionsPropertiesOutput
+}
+
+type StoreOptionsPropertiesArgs struct {
+	TsvStoreOptions AnnotationStoreTsvStoreOptionsInput `pulumi:"tsvStoreOptions"`
+}
+
+func (StoreOptionsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StoreOptionsProperties)(nil)).Elem()
+}
+
+func (i StoreOptionsPropertiesArgs) ToStoreOptionsPropertiesOutput() StoreOptionsPropertiesOutput {
+	return i.ToStoreOptionsPropertiesOutputWithContext(context.Background())
+}
+
+func (i StoreOptionsPropertiesArgs) ToStoreOptionsPropertiesOutputWithContext(ctx context.Context) StoreOptionsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StoreOptionsPropertiesOutput)
+}
+
+func (i StoreOptionsPropertiesArgs) ToStoreOptionsPropertiesPtrOutput() StoreOptionsPropertiesPtrOutput {
+	return i.ToStoreOptionsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i StoreOptionsPropertiesArgs) ToStoreOptionsPropertiesPtrOutputWithContext(ctx context.Context) StoreOptionsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StoreOptionsPropertiesOutput).ToStoreOptionsPropertiesPtrOutputWithContext(ctx)
+}
+
+// StoreOptionsPropertiesPtrInput is an input type that accepts StoreOptionsPropertiesArgs, StoreOptionsPropertiesPtr and StoreOptionsPropertiesPtrOutput values.
+// You can construct a concrete instance of `StoreOptionsPropertiesPtrInput` via:
+//
+//	        StoreOptionsPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type StoreOptionsPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToStoreOptionsPropertiesPtrOutput() StoreOptionsPropertiesPtrOutput
+	ToStoreOptionsPropertiesPtrOutputWithContext(context.Context) StoreOptionsPropertiesPtrOutput
+}
+
+type storeOptionsPropertiesPtrType StoreOptionsPropertiesArgs
+
+func StoreOptionsPropertiesPtr(v *StoreOptionsPropertiesArgs) StoreOptionsPropertiesPtrInput {
+	return (*storeOptionsPropertiesPtrType)(v)
+}
+
+func (*storeOptionsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StoreOptionsProperties)(nil)).Elem()
+}
+
+func (i *storeOptionsPropertiesPtrType) ToStoreOptionsPropertiesPtrOutput() StoreOptionsPropertiesPtrOutput {
+	return i.ToStoreOptionsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *storeOptionsPropertiesPtrType) ToStoreOptionsPropertiesPtrOutputWithContext(ctx context.Context) StoreOptionsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StoreOptionsPropertiesPtrOutput)
+}
+
+type StoreOptionsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (StoreOptionsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StoreOptionsProperties)(nil)).Elem()
+}
+
+func (o StoreOptionsPropertiesOutput) ToStoreOptionsPropertiesOutput() StoreOptionsPropertiesOutput {
+	return o
+}
+
+func (o StoreOptionsPropertiesOutput) ToStoreOptionsPropertiesOutputWithContext(ctx context.Context) StoreOptionsPropertiesOutput {
+	return o
+}
+
+func (o StoreOptionsPropertiesOutput) ToStoreOptionsPropertiesPtrOutput() StoreOptionsPropertiesPtrOutput {
+	return o.ToStoreOptionsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o StoreOptionsPropertiesOutput) ToStoreOptionsPropertiesPtrOutputWithContext(ctx context.Context) StoreOptionsPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StoreOptionsProperties) *StoreOptionsProperties {
+		return &v
+	}).(StoreOptionsPropertiesPtrOutput)
+}
+
+func (o StoreOptionsPropertiesOutput) TsvStoreOptions() AnnotationStoreTsvStoreOptionsOutput {
+	return o.ApplyT(func(v StoreOptionsProperties) AnnotationStoreTsvStoreOptions { return v.TsvStoreOptions }).(AnnotationStoreTsvStoreOptionsOutput)
+}
+
+type StoreOptionsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (StoreOptionsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StoreOptionsProperties)(nil)).Elem()
+}
+
+func (o StoreOptionsPropertiesPtrOutput) ToStoreOptionsPropertiesPtrOutput() StoreOptionsPropertiesPtrOutput {
+	return o
+}
+
+func (o StoreOptionsPropertiesPtrOutput) ToStoreOptionsPropertiesPtrOutputWithContext(ctx context.Context) StoreOptionsPropertiesPtrOutput {
+	return o
+}
+
+func (o StoreOptionsPropertiesPtrOutput) Elem() StoreOptionsPropertiesOutput {
+	return o.ApplyT(func(v *StoreOptionsProperties) StoreOptionsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret StoreOptionsProperties
+		return ret
+	}).(StoreOptionsPropertiesOutput)
+}
+
+func (o StoreOptionsPropertiesPtrOutput) TsvStoreOptions() AnnotationStoreTsvStoreOptionsPtrOutput {
+	return o.ApplyT(func(v *StoreOptionsProperties) *AnnotationStoreTsvStoreOptions {
+		if v == nil {
+			return nil
+		}
+		return &v.TsvStoreOptions
+	}).(AnnotationStoreTsvStoreOptionsPtrOutput)
+}
+
 type VariantStoreReferenceItem struct {
 	ReferenceArn string `pulumi:"referenceArn"`
 }
@@ -1752,14 +2140,18 @@ func (o WorkflowTagMapPtrOutput) Elem() WorkflowTagMapOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AnnotationStoreFormatToHeaderInput)(nil)).Elem(), AnnotationStoreFormatToHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnnotationStoreFormatToHeaderPtrInput)(nil)).Elem(), AnnotationStoreFormatToHeaderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnnotationStoreReferenceItemInput)(nil)).Elem(), AnnotationStoreReferenceItemArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnnotationStoreReferenceItemPtrInput)(nil)).Elem(), AnnotationStoreReferenceItemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnnotationStoreSchemaItemInput)(nil)).Elem(), AnnotationStoreSchemaItemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnnotationStoreSchemaItemArrayInput)(nil)).Elem(), AnnotationStoreSchemaItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnnotationStoreSseConfigInput)(nil)).Elem(), AnnotationStoreSseConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnnotationStoreSseConfigPtrInput)(nil)).Elem(), AnnotationStoreSseConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnnotationStoreStoreOptionsInput)(nil)).Elem(), AnnotationStoreStoreOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AnnotationStoreStoreOptionsPtrInput)(nil)).Elem(), AnnotationStoreStoreOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnnotationStoreTagMapInput)(nil)).Elem(), AnnotationStoreTagMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnnotationStoreTagMapPtrInput)(nil)).Elem(), AnnotationStoreTagMapArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnnotationStoreTsvStoreOptionsInput)(nil)).Elem(), AnnotationStoreTsvStoreOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnnotationStoreTsvStoreOptionsPtrInput)(nil)).Elem(), AnnotationStoreTsvStoreOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReferenceStoreSseConfigInput)(nil)).Elem(), ReferenceStoreSseConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReferenceStoreSseConfigPtrInput)(nil)).Elem(), ReferenceStoreSseConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReferenceStoreTagMapInput)(nil)).Elem(), ReferenceStoreTagMapArgs{})
@@ -1770,6 +2162,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SequenceStoreSseConfigPtrInput)(nil)).Elem(), SequenceStoreSseConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SequenceStoreTagMapInput)(nil)).Elem(), SequenceStoreTagMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SequenceStoreTagMapPtrInput)(nil)).Elem(), SequenceStoreTagMapArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StoreOptionsPropertiesInput)(nil)).Elem(), StoreOptionsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StoreOptionsPropertiesPtrInput)(nil)).Elem(), StoreOptionsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VariantStoreReferenceItemInput)(nil)).Elem(), VariantStoreReferenceItemArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VariantStoreSseConfigInput)(nil)).Elem(), VariantStoreSseConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VariantStoreSseConfigPtrInput)(nil)).Elem(), VariantStoreSseConfigArgs{})
@@ -1779,14 +2173,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowParameterTemplatePtrInput)(nil)).Elem(), WorkflowParameterTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowTagMapInput)(nil)).Elem(), WorkflowTagMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowTagMapPtrInput)(nil)).Elem(), WorkflowTagMapArgs{})
+	pulumi.RegisterOutputType(AnnotationStoreFormatToHeaderOutput{})
+	pulumi.RegisterOutputType(AnnotationStoreFormatToHeaderPtrOutput{})
 	pulumi.RegisterOutputType(AnnotationStoreReferenceItemOutput{})
 	pulumi.RegisterOutputType(AnnotationStoreReferenceItemPtrOutput{})
+	pulumi.RegisterOutputType(AnnotationStoreSchemaItemOutput{})
+	pulumi.RegisterOutputType(AnnotationStoreSchemaItemArrayOutput{})
 	pulumi.RegisterOutputType(AnnotationStoreSseConfigOutput{})
 	pulumi.RegisterOutputType(AnnotationStoreSseConfigPtrOutput{})
-	pulumi.RegisterOutputType(AnnotationStoreStoreOptionsOutput{})
-	pulumi.RegisterOutputType(AnnotationStoreStoreOptionsPtrOutput{})
 	pulumi.RegisterOutputType(AnnotationStoreTagMapOutput{})
 	pulumi.RegisterOutputType(AnnotationStoreTagMapPtrOutput{})
+	pulumi.RegisterOutputType(AnnotationStoreTsvStoreOptionsOutput{})
+	pulumi.RegisterOutputType(AnnotationStoreTsvStoreOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ReferenceStoreSseConfigOutput{})
 	pulumi.RegisterOutputType(ReferenceStoreSseConfigPtrOutput{})
 	pulumi.RegisterOutputType(ReferenceStoreTagMapOutput{})
@@ -1797,6 +2195,8 @@ func init() {
 	pulumi.RegisterOutputType(SequenceStoreSseConfigPtrOutput{})
 	pulumi.RegisterOutputType(SequenceStoreTagMapOutput{})
 	pulumi.RegisterOutputType(SequenceStoreTagMapPtrOutput{})
+	pulumi.RegisterOutputType(StoreOptionsPropertiesOutput{})
+	pulumi.RegisterOutputType(StoreOptionsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(VariantStoreReferenceItemOutput{})
 	pulumi.RegisterOutputType(VariantStoreSseConfigOutput{})
 	pulumi.RegisterOutputType(VariantStoreSseConfigPtrOutput{})

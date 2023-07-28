@@ -21,7 +21,6 @@ __all__ = [
     'AutomationRuleStringFilterArgs',
     'AutomationRuleTagsArgs',
     'AutomationRuleWorkflowUpdateArgs',
-    'AutomationRulearnOrIdArgs',
     'AutomationRulemapArgs',
     'AutomationRulesActionArgs',
     'AutomationRulesFindingFieldsUpdateArgs',
@@ -139,7 +138,7 @@ class AutomationRuleMapFilterArgs:
 class AutomationRuleNoteUpdateArgs:
     def __init__(__self__, *,
                  text: pulumi.Input[str],
-                 updated_by: pulumi.Input['AutomationRulearnOrIdArgs']):
+                 updated_by: pulumi.Input[str]):
         pulumi.set(__self__, "text", text)
         pulumi.set(__self__, "updated_by", updated_by)
 
@@ -154,11 +153,11 @@ class AutomationRuleNoteUpdateArgs:
 
     @property
     @pulumi.getter(name="updatedBy")
-    def updated_by(self) -> pulumi.Input['AutomationRulearnOrIdArgs']:
+    def updated_by(self) -> pulumi.Input[str]:
         return pulumi.get(self, "updated_by")
 
     @updated_by.setter
-    def updated_by(self, value: pulumi.Input['AutomationRulearnOrIdArgs']):
+    def updated_by(self, value: pulumi.Input[str]):
         pulumi.set(self, "updated_by", value)
 
 
@@ -206,18 +205,18 @@ class AutomationRuleNumberFilterArgs:
 @pulumi.input_type
 class AutomationRuleRelatedFindingArgs:
     def __init__(__self__, *,
-                 id: pulumi.Input['AutomationRulearnOrIdArgs'],
+                 id: pulumi.Input[str],
                  product_arn: pulumi.Input[str]):
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "product_arn", product_arn)
 
     @property
     @pulumi.getter
-    def id(self) -> pulumi.Input['AutomationRulearnOrIdArgs']:
+    def id(self) -> pulumi.Input[str]:
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: pulumi.Input['AutomationRulearnOrIdArgs']):
+    def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
     @property
@@ -321,12 +320,6 @@ class AutomationRuleWorkflowUpdateArgs:
     @status.setter
     def status(self, value: pulumi.Input['AutomationRuleWorkflowUpdateStatus']):
         pulumi.set(self, "status", value)
-
-
-@pulumi.input_type
-class AutomationRulearnOrIdArgs:
-    def __init__(__self__):
-        pass
 
 
 @pulumi.input_type

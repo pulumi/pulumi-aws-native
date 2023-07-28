@@ -36,6 +36,34 @@ namespace Pulumi.AwsNative.IoTFleetWise
     }
 
     [EnumType]
+    public readonly struct CampaignDataFormat : IEquatable<CampaignDataFormat>
+    {
+        private readonly string _value;
+
+        private CampaignDataFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CampaignDataFormat Json { get; } = new CampaignDataFormat("JSON");
+        public static CampaignDataFormat Parquet { get; } = new CampaignDataFormat("PARQUET");
+
+        public static bool operator ==(CampaignDataFormat left, CampaignDataFormat right) => left.Equals(right);
+        public static bool operator !=(CampaignDataFormat left, CampaignDataFormat right) => !left.Equals(right);
+
+        public static explicit operator string(CampaignDataFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CampaignDataFormat other && Equals(other);
+        public bool Equals(CampaignDataFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct CampaignDiagnosticsMode : IEquatable<CampaignDiagnosticsMode>
     {
         private readonly string _value;
@@ -114,6 +142,62 @@ namespace Pulumi.AwsNative.IoTFleetWise
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is CampaignStatus other && Equals(other);
         public bool Equals(CampaignStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct CampaignStorageCompressionFormat : IEquatable<CampaignStorageCompressionFormat>
+    {
+        private readonly string _value;
+
+        private CampaignStorageCompressionFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CampaignStorageCompressionFormat None { get; } = new CampaignStorageCompressionFormat("NONE");
+        public static CampaignStorageCompressionFormat Gzip { get; } = new CampaignStorageCompressionFormat("GZIP");
+
+        public static bool operator ==(CampaignStorageCompressionFormat left, CampaignStorageCompressionFormat right) => left.Equals(right);
+        public static bool operator !=(CampaignStorageCompressionFormat left, CampaignStorageCompressionFormat right) => !left.Equals(right);
+
+        public static explicit operator string(CampaignStorageCompressionFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CampaignStorageCompressionFormat other && Equals(other);
+        public bool Equals(CampaignStorageCompressionFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct CampaignTriggerMode : IEquatable<CampaignTriggerMode>
+    {
+        private readonly string _value;
+
+        private CampaignTriggerMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CampaignTriggerMode Always { get; } = new CampaignTriggerMode("ALWAYS");
+        public static CampaignTriggerMode RisingEdge { get; } = new CampaignTriggerMode("RISING_EDGE");
+
+        public static bool operator ==(CampaignTriggerMode left, CampaignTriggerMode right) => left.Equals(right);
+        public static bool operator !=(CampaignTriggerMode left, CampaignTriggerMode right) => !left.Equals(right);
+
+        public static explicit operator string(CampaignTriggerMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CampaignTriggerMode other && Equals(other);
+        public bool Equals(CampaignTriggerMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -308,6 +392,59 @@ namespace Pulumi.AwsNative.IoTFleetWise
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ModelManifestManifestStatus other && Equals(other);
         public bool Equals(ModelManifestManifestStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct SignalCatalogNodeDataType : IEquatable<SignalCatalogNodeDataType>
+    {
+        private readonly string _value;
+
+        private SignalCatalogNodeDataType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SignalCatalogNodeDataType Int8 { get; } = new SignalCatalogNodeDataType("INT8");
+        public static SignalCatalogNodeDataType Uint8 { get; } = new SignalCatalogNodeDataType("UINT8");
+        public static SignalCatalogNodeDataType Int16 { get; } = new SignalCatalogNodeDataType("INT16");
+        public static SignalCatalogNodeDataType Uint16 { get; } = new SignalCatalogNodeDataType("UINT16");
+        public static SignalCatalogNodeDataType Int32 { get; } = new SignalCatalogNodeDataType("INT32");
+        public static SignalCatalogNodeDataType Uint32 { get; } = new SignalCatalogNodeDataType("UINT32");
+        public static SignalCatalogNodeDataType Int64 { get; } = new SignalCatalogNodeDataType("INT64");
+        public static SignalCatalogNodeDataType Uint64 { get; } = new SignalCatalogNodeDataType("UINT64");
+        public static SignalCatalogNodeDataType Boolean { get; } = new SignalCatalogNodeDataType("BOOLEAN");
+        public static SignalCatalogNodeDataType Float { get; } = new SignalCatalogNodeDataType("FLOAT");
+        public static SignalCatalogNodeDataType Double { get; } = new SignalCatalogNodeDataType("DOUBLE");
+        public static SignalCatalogNodeDataType String { get; } = new SignalCatalogNodeDataType("STRING");
+        public static SignalCatalogNodeDataType UnixTimestamp { get; } = new SignalCatalogNodeDataType("UNIX_TIMESTAMP");
+        public static SignalCatalogNodeDataType Int8Array { get; } = new SignalCatalogNodeDataType("INT8_ARRAY");
+        public static SignalCatalogNodeDataType Uint8Array { get; } = new SignalCatalogNodeDataType("UINT8_ARRAY");
+        public static SignalCatalogNodeDataType Int16Array { get; } = new SignalCatalogNodeDataType("INT16_ARRAY");
+        public static SignalCatalogNodeDataType Uint16Array { get; } = new SignalCatalogNodeDataType("UINT16_ARRAY");
+        public static SignalCatalogNodeDataType Int32Array { get; } = new SignalCatalogNodeDataType("INT32_ARRAY");
+        public static SignalCatalogNodeDataType Uint32Array { get; } = new SignalCatalogNodeDataType("UINT32_ARRAY");
+        public static SignalCatalogNodeDataType Int64Array { get; } = new SignalCatalogNodeDataType("INT64_ARRAY");
+        public static SignalCatalogNodeDataType Uint64Array { get; } = new SignalCatalogNodeDataType("UINT64_ARRAY");
+        public static SignalCatalogNodeDataType BooleanArray { get; } = new SignalCatalogNodeDataType("BOOLEAN_ARRAY");
+        public static SignalCatalogNodeDataType FloatArray { get; } = new SignalCatalogNodeDataType("FLOAT_ARRAY");
+        public static SignalCatalogNodeDataType DoubleArray { get; } = new SignalCatalogNodeDataType("DOUBLE_ARRAY");
+        public static SignalCatalogNodeDataType StringArray { get; } = new SignalCatalogNodeDataType("STRING_ARRAY");
+        public static SignalCatalogNodeDataType UnixTimestampArray { get; } = new SignalCatalogNodeDataType("UNIX_TIMESTAMP_ARRAY");
+        public static SignalCatalogNodeDataType Unknown { get; } = new SignalCatalogNodeDataType("UNKNOWN");
+
+        public static bool operator ==(SignalCatalogNodeDataType left, SignalCatalogNodeDataType right) => left.Equals(right);
+        public static bool operator !=(SignalCatalogNodeDataType left, SignalCatalogNodeDataType right) => !left.Equals(right);
+
+        public static explicit operator string(SignalCatalogNodeDataType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SignalCatalogNodeDataType other && Equals(other);
+        public bool Equals(SignalCatalogNodeDataType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

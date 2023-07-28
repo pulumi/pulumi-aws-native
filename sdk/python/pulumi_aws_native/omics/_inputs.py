@@ -11,21 +11,30 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'AnnotationStoreFormatToHeaderArgs',
     'AnnotationStoreReferenceItemArgs',
+    'AnnotationStoreSchemaItemArgs',
     'AnnotationStoreSseConfigArgs',
-    'AnnotationStoreStoreOptionsArgs',
     'AnnotationStoreTagMapArgs',
+    'AnnotationStoreTsvStoreOptionsArgs',
     'ReferenceStoreSseConfigArgs',
     'ReferenceStoreTagMapArgs',
     'RunGroupTagMapArgs',
     'SequenceStoreSseConfigArgs',
     'SequenceStoreTagMapArgs',
+    'StoreOptionsPropertiesArgs',
     'VariantStoreReferenceItemArgs',
     'VariantStoreSseConfigArgs',
     'VariantStoreTagMapArgs',
     'WorkflowParameterTemplateArgs',
     'WorkflowTagMapArgs',
 ]
+
+@pulumi.input_type
+class AnnotationStoreFormatToHeaderArgs:
+    def __init__(__self__):
+        pass
+
 
 @pulumi.input_type
 class AnnotationStoreReferenceItemArgs:
@@ -41,6 +50,12 @@ class AnnotationStoreReferenceItemArgs:
     @reference_arn.setter
     def reference_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "reference_arn", value)
+
+
+@pulumi.input_type
+class AnnotationStoreSchemaItemArgs:
+    def __init__(__self__):
+        pass
 
 
 @pulumi.input_type
@@ -72,15 +87,50 @@ class AnnotationStoreSseConfigArgs:
 
 
 @pulumi.input_type
-class AnnotationStoreStoreOptionsArgs:
+class AnnotationStoreTagMapArgs:
     def __init__(__self__):
         pass
 
 
 @pulumi.input_type
-class AnnotationStoreTagMapArgs:
-    def __init__(__self__):
-        pass
+class AnnotationStoreTsvStoreOptionsArgs:
+    def __init__(__self__, *,
+                 annotation_type: Optional[pulumi.Input['AnnotationStoreAnnotationType']] = None,
+                 format_to_header: Optional[pulumi.Input['AnnotationStoreFormatToHeaderArgs']] = None,
+                 schema: Optional[pulumi.Input[Sequence[pulumi.Input['AnnotationStoreSchemaItemArgs']]]] = None):
+        if annotation_type is not None:
+            pulumi.set(__self__, "annotation_type", annotation_type)
+        if format_to_header is not None:
+            pulumi.set(__self__, "format_to_header", format_to_header)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter(name="annotationType")
+    def annotation_type(self) -> Optional[pulumi.Input['AnnotationStoreAnnotationType']]:
+        return pulumi.get(self, "annotation_type")
+
+    @annotation_type.setter
+    def annotation_type(self, value: Optional[pulumi.Input['AnnotationStoreAnnotationType']]):
+        pulumi.set(self, "annotation_type", value)
+
+    @property
+    @pulumi.getter(name="formatToHeader")
+    def format_to_header(self) -> Optional[pulumi.Input['AnnotationStoreFormatToHeaderArgs']]:
+        return pulumi.get(self, "format_to_header")
+
+    @format_to_header.setter
+    def format_to_header(self, value: Optional[pulumi.Input['AnnotationStoreFormatToHeaderArgs']]):
+        pulumi.set(self, "format_to_header", value)
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnnotationStoreSchemaItemArgs']]]]:
+        return pulumi.get(self, "schema")
+
+    @schema.setter
+    def schema(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnnotationStoreSchemaItemArgs']]]]):
+        pulumi.set(self, "schema", value)
 
 
 @pulumi.input_type
@@ -172,6 +222,22 @@ class SequenceStoreSseConfigArgs:
 class SequenceStoreTagMapArgs:
     def __init__(__self__):
         pass
+
+
+@pulumi.input_type
+class StoreOptionsPropertiesArgs:
+    def __init__(__self__, *,
+                 tsv_store_options: pulumi.Input['AnnotationStoreTsvStoreOptionsArgs']):
+        pulumi.set(__self__, "tsv_store_options", tsv_store_options)
+
+    @property
+    @pulumi.getter(name="tsvStoreOptions")
+    def tsv_store_options(self) -> pulumi.Input['AnnotationStoreTsvStoreOptionsArgs']:
+        return pulumi.get(self, "tsv_store_options")
+
+    @tsv_store_options.setter
+    def tsv_store_options(self, value: pulumi.Input['AnnotationStoreTsvStoreOptionsArgs']):
+        pulumi.set(self, "tsv_store_options", value)
 
 
 @pulumi.input_type

@@ -37,7 +37,7 @@ export class Policy extends pulumi.CustomResource {
         return obj['__pulumiType'] === Policy.__pulumiType;
     }
 
-    public readonly definition!: pulumi.Output<outputs.verifiedpermissions.PolicyDefinition>;
+    public readonly definition!: pulumi.Output<outputs.verifiedpermissions.PolicyDefinition0Properties | outputs.verifiedpermissions.PolicyDefinition1Properties>;
     public /*out*/ readonly policyId!: pulumi.Output<string>;
     public readonly policyStoreId!: pulumi.Output<string | undefined>;
     public /*out*/ readonly policyType!: pulumi.Output<enums.verifiedpermissions.PolicyType>;
@@ -75,6 +75,6 @@ export class Policy extends pulumi.CustomResource {
  * The set of arguments for constructing a Policy resource.
  */
 export interface PolicyArgs {
-    definition: pulumi.Input<inputs.verifiedpermissions.PolicyDefinitionArgs>;
+    definition: pulumi.Input<inputs.verifiedpermissions.PolicyDefinition0PropertiesArgs | inputs.verifiedpermissions.PolicyDefinition1PropertiesArgs>;
     policyStoreId?: pulumi.Input<string>;
 }

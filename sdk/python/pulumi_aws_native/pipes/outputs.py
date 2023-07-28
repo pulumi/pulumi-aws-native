@@ -12,6 +12,9 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'MQBrokerAccessCredentialsProperties',
+    'MSKAccessCredentials0Properties',
+    'MSKAccessCredentials1Properties',
     'PipeAwsVpcConfiguration',
     'PipeBatchArrayProperties',
     'PipeBatchContainerOverrides',
@@ -34,14 +37,11 @@ __all__ = [
     'PipeFilter',
     'PipeFilterCriteria',
     'PipeHeaderParametersMap',
-    'PipeMQBrokerAccessCredentials',
-    'PipeMSKAccessCredentials',
     'PipeNetworkConfiguration',
     'PipePlacementConstraint',
     'PipePlacementStrategy',
     'PipeQueryStringParametersMap',
     'PipeSageMakerPipelineParameter',
-    'PipeSelfManagedKafkaAccessConfigurationCredentials',
     'PipeSelfManagedKafkaAccessConfigurationVpc',
     'PipeSourceActiveMQBrokerParameters',
     'PipeSourceDynamoDBStreamParameters',
@@ -65,7 +65,116 @@ __all__ = [
     'PipeTargetSageMakerPipelineParameters',
     'PipeTargetSqsQueueParameters',
     'PipeTargetStateMachineParameters',
+    'SelfManagedKafkaAccessConfigurationCredentials0Properties',
+    'SelfManagedKafkaAccessConfigurationCredentials1Properties',
+    'SelfManagedKafkaAccessConfigurationCredentials2Properties',
+    'SelfManagedKafkaAccessConfigurationCredentials3Properties',
 ]
+
+@pulumi.output_type
+class MQBrokerAccessCredentialsProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "basicAuth":
+            suggest = "basic_auth"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MQBrokerAccessCredentialsProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MQBrokerAccessCredentialsProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MQBrokerAccessCredentialsProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 basic_auth: str):
+        """
+        :param str basic_auth: Optional SecretManager ARN which stores the database credentials
+        """
+        pulumi.set(__self__, "basic_auth", basic_auth)
+
+    @property
+    @pulumi.getter(name="basicAuth")
+    def basic_auth(self) -> str:
+        """
+        Optional SecretManager ARN which stores the database credentials
+        """
+        return pulumi.get(self, "basic_auth")
+
+
+@pulumi.output_type
+class MSKAccessCredentials0Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "saslScram512Auth":
+            suggest = "sasl_scram512_auth"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MSKAccessCredentials0Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MSKAccessCredentials0Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MSKAccessCredentials0Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 sasl_scram512_auth: str):
+        """
+        :param str sasl_scram512_auth: Optional SecretManager ARN which stores the database credentials
+        """
+        pulumi.set(__self__, "sasl_scram512_auth", sasl_scram512_auth)
+
+    @property
+    @pulumi.getter(name="saslScram512Auth")
+    def sasl_scram512_auth(self) -> str:
+        """
+        Optional SecretManager ARN which stores the database credentials
+        """
+        return pulumi.get(self, "sasl_scram512_auth")
+
+
+@pulumi.output_type
+class MSKAccessCredentials1Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientCertificateTlsAuth":
+            suggest = "client_certificate_tls_auth"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MSKAccessCredentials1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MSKAccessCredentials1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MSKAccessCredentials1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_certificate_tls_auth: str):
+        """
+        :param str client_certificate_tls_auth: Optional SecretManager ARN which stores the database credentials
+        """
+        pulumi.set(__self__, "client_certificate_tls_auth", client_certificate_tls_auth)
+
+    @property
+    @pulumi.getter(name="clientCertificateTlsAuth")
+    def client_certificate_tls_auth(self) -> str:
+        """
+        Optional SecretManager ARN which stores the database credentials
+        """
+        return pulumi.get(self, "client_certificate_tls_auth")
+
 
 @pulumi.output_type
 class PipeAwsVpcConfiguration(dict):
@@ -765,18 +874,6 @@ class PipeHeaderParametersMap(dict):
 
 
 @pulumi.output_type
-class PipeMQBrokerAccessCredentials(dict):
-    def __init__(__self__):
-        pass
-
-
-@pulumi.output_type
-class PipeMSKAccessCredentials(dict):
-    def __init__(__self__):
-        pass
-
-
-@pulumi.output_type
 class PipeNetworkConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -874,12 +971,6 @@ class PipeSageMakerPipelineParameter(dict):
 
 
 @pulumi.output_type
-class PipeSelfManagedKafkaAccessConfigurationCredentials(dict):
-    def __init__(__self__):
-        pass
-
-
-@pulumi.output_type
 class PipeSelfManagedKafkaAccessConfigurationVpc(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -951,7 +1042,7 @@ class PipeSourceActiveMQBrokerParameters(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 credentials: 'outputs.PipeMQBrokerAccessCredentials',
+                 credentials: 'outputs.MQBrokerAccessCredentialsProperties',
                  queue_name: str,
                  batch_size: Optional[int] = None,
                  maximum_batching_window_in_seconds: Optional[int] = None):
@@ -964,7 +1055,7 @@ class PipeSourceActiveMQBrokerParameters(dict):
 
     @property
     @pulumi.getter
-    def credentials(self) -> 'outputs.PipeMQBrokerAccessCredentials':
+    def credentials(self) -> 'outputs.MQBrokerAccessCredentialsProperties':
         return pulumi.get(self, "credentials")
 
     @property
@@ -1222,7 +1313,7 @@ class PipeSourceManagedStreamingKafkaParameters(dict):
                  topic_name: str,
                  batch_size: Optional[int] = None,
                  consumer_group_id: Optional[str] = None,
-                 credentials: Optional['outputs.PipeMSKAccessCredentials'] = None,
+                 credentials: Optional[Any] = None,
                  maximum_batching_window_in_seconds: Optional[int] = None,
                  starting_position: Optional['PipeMSKStartPosition'] = None):
         pulumi.set(__self__, "topic_name", topic_name)
@@ -1254,7 +1345,7 @@ class PipeSourceManagedStreamingKafkaParameters(dict):
 
     @property
     @pulumi.getter
-    def credentials(self) -> Optional['outputs.PipeMSKAccessCredentials']:
+    def credentials(self) -> Optional[Any]:
         return pulumi.get(self, "credentials")
 
     @property
@@ -1394,7 +1485,7 @@ class PipeSourceRabbitMQBrokerParameters(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 credentials: 'outputs.PipeMQBrokerAccessCredentials',
+                 credentials: 'outputs.MQBrokerAccessCredentialsProperties',
                  queue_name: str,
                  batch_size: Optional[int] = None,
                  maximum_batching_window_in_seconds: Optional[int] = None,
@@ -1410,7 +1501,7 @@ class PipeSourceRabbitMQBrokerParameters(dict):
 
     @property
     @pulumi.getter
-    def credentials(self) -> 'outputs.PipeMQBrokerAccessCredentials':
+    def credentials(self) -> 'outputs.MQBrokerAccessCredentialsProperties':
         return pulumi.get(self, "credentials")
 
     @property
@@ -1470,7 +1561,7 @@ class PipeSourceSelfManagedKafkaParameters(dict):
                  additional_bootstrap_servers: Optional[Sequence[str]] = None,
                  batch_size: Optional[int] = None,
                  consumer_group_id: Optional[str] = None,
-                 credentials: Optional['outputs.PipeSelfManagedKafkaAccessConfigurationCredentials'] = None,
+                 credentials: Optional[Any] = None,
                  maximum_batching_window_in_seconds: Optional[int] = None,
                  server_root_ca_certificate: Optional[str] = None,
                  starting_position: Optional['PipeSelfManagedKafkaStartPosition'] = None,
@@ -1518,7 +1609,7 @@ class PipeSourceSelfManagedKafkaParameters(dict):
 
     @property
     @pulumi.getter
-    def credentials(self) -> Optional['outputs.PipeSelfManagedKafkaAccessConfigurationCredentials']:
+    def credentials(self) -> Optional[Any]:
         return pulumi.get(self, "credentials")
 
     @property
@@ -2404,5 +2495,145 @@ class PipeTargetStateMachineParameters(dict):
     @pulumi.getter(name="invocationType")
     def invocation_type(self) -> Optional['PipeTargetInvocationType']:
         return pulumi.get(self, "invocation_type")
+
+
+@pulumi.output_type
+class SelfManagedKafkaAccessConfigurationCredentials0Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "basicAuth":
+            suggest = "basic_auth"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SelfManagedKafkaAccessConfigurationCredentials0Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SelfManagedKafkaAccessConfigurationCredentials0Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SelfManagedKafkaAccessConfigurationCredentials0Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 basic_auth: str):
+        """
+        :param str basic_auth: Optional SecretManager ARN which stores the database credentials
+        """
+        pulumi.set(__self__, "basic_auth", basic_auth)
+
+    @property
+    @pulumi.getter(name="basicAuth")
+    def basic_auth(self) -> str:
+        """
+        Optional SecretManager ARN which stores the database credentials
+        """
+        return pulumi.get(self, "basic_auth")
+
+
+@pulumi.output_type
+class SelfManagedKafkaAccessConfigurationCredentials1Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "saslScram512Auth":
+            suggest = "sasl_scram512_auth"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SelfManagedKafkaAccessConfigurationCredentials1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SelfManagedKafkaAccessConfigurationCredentials1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SelfManagedKafkaAccessConfigurationCredentials1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 sasl_scram512_auth: str):
+        """
+        :param str sasl_scram512_auth: Optional SecretManager ARN which stores the database credentials
+        """
+        pulumi.set(__self__, "sasl_scram512_auth", sasl_scram512_auth)
+
+    @property
+    @pulumi.getter(name="saslScram512Auth")
+    def sasl_scram512_auth(self) -> str:
+        """
+        Optional SecretManager ARN which stores the database credentials
+        """
+        return pulumi.get(self, "sasl_scram512_auth")
+
+
+@pulumi.output_type
+class SelfManagedKafkaAccessConfigurationCredentials2Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "saslScram256Auth":
+            suggest = "sasl_scram256_auth"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SelfManagedKafkaAccessConfigurationCredentials2Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SelfManagedKafkaAccessConfigurationCredentials2Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SelfManagedKafkaAccessConfigurationCredentials2Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 sasl_scram256_auth: str):
+        """
+        :param str sasl_scram256_auth: Optional SecretManager ARN which stores the database credentials
+        """
+        pulumi.set(__self__, "sasl_scram256_auth", sasl_scram256_auth)
+
+    @property
+    @pulumi.getter(name="saslScram256Auth")
+    def sasl_scram256_auth(self) -> str:
+        """
+        Optional SecretManager ARN which stores the database credentials
+        """
+        return pulumi.get(self, "sasl_scram256_auth")
+
+
+@pulumi.output_type
+class SelfManagedKafkaAccessConfigurationCredentials3Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientCertificateTlsAuth":
+            suggest = "client_certificate_tls_auth"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SelfManagedKafkaAccessConfigurationCredentials3Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SelfManagedKafkaAccessConfigurationCredentials3Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SelfManagedKafkaAccessConfigurationCredentials3Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_certificate_tls_auth: str):
+        """
+        :param str client_certificate_tls_auth: Optional SecretManager ARN which stores the database credentials
+        """
+        pulumi.set(__self__, "client_certificate_tls_auth", client_certificate_tls_auth)
+
+    @property
+    @pulumi.getter(name="clientCertificateTlsAuth")
+    def client_certificate_tls_auth(self) -> str:
+        """
+        Optional SecretManager ARN which stores the database credentials
+        """
+        return pulumi.get(self, "client_certificate_tls_auth")
 
 

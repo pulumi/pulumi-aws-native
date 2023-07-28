@@ -472,10 +472,22 @@ export namespace amplifyuibuilder {
     export interface ComponentVariantValues {
     }
 
+    export interface FieldPosition0Properties {
+        fixed: enums.amplifyuibuilder.FormFixedPosition;
+    }
+
+    export interface FieldPosition1Properties {
+        rightOf: string;
+    }
+
+    export interface FieldPosition2Properties {
+        below: string;
+    }
+
     export interface FormButton {
         children?: string;
         excluded?: boolean;
-        position?: outputs.amplifyuibuilder.FormFieldPosition;
+        position?: outputs.amplifyuibuilder.FieldPosition0Properties | outputs.amplifyuibuilder.FieldPosition1Properties | outputs.amplifyuibuilder.FieldPosition2Properties;
     }
 
     export interface FormCTA {
@@ -490,9 +502,6 @@ export namespace amplifyuibuilder {
         dataTypeName: string;
     }
 
-    export interface FormFieldPosition {
-    }
-
     export interface FormFieldsMap {
     }
 
@@ -500,12 +509,17 @@ export namespace amplifyuibuilder {
     }
 
     export interface FormStyle {
-        horizontalGap?: outputs.amplifyuibuilder.FormStyleConfig;
-        outerPadding?: outputs.amplifyuibuilder.FormStyleConfig;
-        verticalGap?: outputs.amplifyuibuilder.FormStyleConfig;
+        horizontalGap?: outputs.amplifyuibuilder.FormStyleConfig0Properties | outputs.amplifyuibuilder.FormStyleConfig1Properties;
+        outerPadding?: outputs.amplifyuibuilder.FormStyleConfig0Properties | outputs.amplifyuibuilder.FormStyleConfig1Properties;
+        verticalGap?: outputs.amplifyuibuilder.FormStyleConfig0Properties | outputs.amplifyuibuilder.FormStyleConfig1Properties;
     }
 
-    export interface FormStyleConfig {
+    export interface FormStyleConfig0Properties {
+        tokenReference: string;
+    }
+
+    export interface FormStyleConfig1Properties {
+        value: string;
     }
 
     export interface FormTags {
@@ -3689,15 +3703,9 @@ export namespace appstream {
         timeoutInSeconds: number;
     }
 
-    export interface AppBlockTag {
-    }
-
     export interface ApplicationS3Location {
         s3Bucket: string;
         s3Key: string;
-    }
-
-    export interface ApplicationTag {
     }
 
     export interface DirectoryConfigCertificateBasedAuthProperties {
@@ -3787,6 +3795,16 @@ export namespace appstream {
     export interface StackUserSetting {
         action: string;
         permission: string;
+    }
+
+    export interface Tag0Properties {
+        key: string;
+        value: string;
+    }
+
+    export interface Tag1Properties {
+        tagKey: string;
+        tagValue: string;
     }
 
 }
@@ -5351,16 +5369,48 @@ export namespace cleanrooms {
         value: string;
     }
 
+    export interface ConfiguredTableAggregateColumn {
+        columnNames: string[];
+        function: enums.cleanrooms.ConfiguredTableAggregateFunctionName;
+    }
+
+    export interface ConfiguredTableAggregationConstraint {
+        columnName: string;
+        minimum: number;
+        type: enums.cleanrooms.ConfiguredTableAggregationType;
+    }
+
     export interface ConfiguredTableAnalysisRule {
         policy: outputs.cleanrooms.ConfiguredTableAnalysisRulePolicy;
         type: enums.cleanrooms.ConfiguredTableAnalysisRuleType;
     }
 
-    export interface ConfiguredTableAnalysisRulePolicy {
-        v1: outputs.cleanrooms.ConfiguredTableAnalysisRulePolicyV1;
+    export interface ConfiguredTableAnalysisRuleAggregation {
+        aggregateColumns: outputs.cleanrooms.ConfiguredTableAggregateColumn[];
+        allowedJoinOperators?: enums.cleanrooms.ConfiguredTableJoinOperator[];
+        dimensionColumns: string[];
+        joinColumns: string[];
+        joinRequired?: enums.cleanrooms.ConfiguredTableJoinRequiredOption;
+        outputConstraints: outputs.cleanrooms.ConfiguredTableAggregationConstraint[];
+        scalarFunctions: enums.cleanrooms.ConfiguredTableScalarFunctions[];
     }
 
-    export interface ConfiguredTableAnalysisRulePolicyV1 {
+    export interface ConfiguredTableAnalysisRuleList {
+        allowedJoinOperators?: enums.cleanrooms.ConfiguredTableJoinOperator[];
+        joinColumns: string[];
+        listColumns: string[];
+    }
+
+    export interface ConfiguredTableAnalysisRulePolicy {
+        v1: outputs.cleanrooms.ConfiguredTableAnalysisRulePolicyV10Properties | outputs.cleanrooms.ConfiguredTableAnalysisRulePolicyV11Properties;
+    }
+
+    export interface ConfiguredTableAnalysisRulePolicyV10Properties {
+        list: outputs.cleanrooms.ConfiguredTableAnalysisRuleList;
+    }
+
+    export interface ConfiguredTableAnalysisRulePolicyV11Properties {
+        aggregation: outputs.cleanrooms.ConfiguredTableAnalysisRuleAggregation;
     }
 
     export interface ConfiguredTableAssociationTag {
@@ -21153,10 +21203,18 @@ export namespace iotfleethub {
 }
 
 export namespace iotfleetwise {
-    export interface CampaignCollectionScheme {
+    export interface CampaignConditionBasedCollectionScheme {
+        conditionLanguageVersion?: number;
+        expression: string;
+        minimumTriggerIntervalMs?: number;
+        triggerMode?: enums.iotfleetwise.CampaignTriggerMode;
     }
 
-    export interface CampaignDataDestinationConfig {
+    export interface CampaignS3Config {
+        bucketArn: string;
+        dataFormat?: enums.iotfleetwise.CampaignDataFormat;
+        prefix?: string;
+        storageCompressionFormat?: enums.iotfleetwise.CampaignStorageCompressionFormat;
     }
 
     export interface CampaignSignalInformation {
@@ -21168,6 +21226,31 @@ export namespace iotfleetwise {
     export interface CampaignTag {
         key: string;
         value: string;
+    }
+
+    export interface CampaignTimeBasedCollectionScheme {
+        periodMs: number;
+    }
+
+    export interface CampaignTimestreamConfig {
+        executionRoleArn: string;
+        timestreamTableArn: string;
+    }
+
+    export interface CollectionScheme0Properties {
+        timeBasedCollectionScheme: outputs.iotfleetwise.CampaignTimeBasedCollectionScheme;
+    }
+
+    export interface CollectionScheme1Properties {
+        conditionBasedCollectionScheme: outputs.iotfleetwise.CampaignConditionBasedCollectionScheme;
+    }
+
+    export interface DataDestinationConfig0Properties {
+        s3Config: outputs.iotfleetwise.CampaignS3Config;
+    }
+
+    export interface DataDestinationConfig1Properties {
+        timestreamConfig: outputs.iotfleetwise.CampaignTimestreamConfig;
     }
 
     export interface DecoderManifestCanInterface {
@@ -21250,7 +21333,48 @@ export namespace iotfleetwise {
         value: string;
     }
 
-    export interface SignalCatalogNode {
+    export interface Node0Properties {
+        branch?: outputs.iotfleetwise.SignalCatalogBranch;
+    }
+
+    export interface Node1Properties {
+        sensor?: outputs.iotfleetwise.SignalCatalogSensor;
+    }
+
+    export interface Node2Properties {
+        actuator?: outputs.iotfleetwise.SignalCatalogActuator;
+    }
+
+    export interface Node3Properties {
+        attribute?: outputs.iotfleetwise.SignalCatalogAttribute;
+    }
+
+    export interface SignalCatalogActuator {
+        allowedValues?: string[];
+        assignedValue?: string;
+        dataType: enums.iotfleetwise.SignalCatalogNodeDataType;
+        description?: string;
+        fullyQualifiedName: string;
+        max?: number;
+        min?: number;
+        unit?: string;
+    }
+
+    export interface SignalCatalogAttribute {
+        allowedValues?: string[];
+        assignedValue?: string;
+        dataType: enums.iotfleetwise.SignalCatalogNodeDataType;
+        defaultValue?: string;
+        description?: string;
+        fullyQualifiedName: string;
+        max?: number;
+        min?: number;
+        unit?: string;
+    }
+
+    export interface SignalCatalogBranch {
+        description?: string;
+        fullyQualifiedName: string;
     }
 
     export interface SignalCatalogNodeCounts {
@@ -21259,6 +21383,16 @@ export namespace iotfleetwise {
         totalBranches?: number;
         totalNodes?: number;
         totalSensors?: number;
+    }
+
+    export interface SignalCatalogSensor {
+        allowedValues?: string[];
+        dataType: enums.iotfleetwise.SignalCatalogNodeDataType;
+        description?: string;
+        fullyQualifiedName: string;
+        max?: number;
+        min?: number;
+        unit?: string;
     }
 
     export interface SignalCatalogTag {
@@ -26650,10 +26784,15 @@ export namespace lookoutmetrics {
 }
 
 export namespace m2 {
-    export interface ApplicationDefinition {
+    export interface ApplicationTagMap {
     }
 
-    export interface ApplicationTagMap {
+    export interface Definition0Properties {
+        s3Location: string;
+    }
+
+    export interface Definition1Properties {
+        content: string;
     }
 
     /**
@@ -29231,12 +29370,6 @@ export namespace mediatailor {
     }
 
     /**
-     * The predefined aliases for dynamic variables.
-     */
-    export interface PlaybackConfigurationConfigurationAliases {
-    }
-
-    /**
      * The configuration for DASH PUT operations.
      */
     export interface PlaybackConfigurationDashConfiguration {
@@ -30371,9 +30504,83 @@ export namespace nimblestudio {
     }
 
     /**
+     * <p>An LDAP attribute of an Active Directory computer account, in the form of a name:value
+     *             pair.</p>
+     */
+    export interface StudioComponentActiveDirectoryComputerAttribute {
+        /**
+         * <p>The name for the LDAP attribute.</p>
+         */
+        name?: string;
+        /**
+         * <p>The value for the LDAP attribute.</p>
+         */
+        value?: string;
+    }
+
+    /**
+     * <p>The configuration for a Microsoft Active Directory (Microsoft AD) studio
+     *             resource.</p>
+     */
+    export interface StudioComponentActiveDirectoryConfiguration {
+        /**
+         * <p>A collection of custom attributes for an Active Directory computer.</p>
+         */
+        computerAttributes?: outputs.nimblestudio.StudioComponentActiveDirectoryComputerAttribute[];
+        /**
+         * <p>The directory ID of the Directory Service for Microsoft Active Directory to access
+         *             using this studio component.</p>
+         */
+        directoryId?: string;
+        /**
+         * <p>The distinguished name (DN) and organizational unit (OU) of an Active Directory
+         *             computer.</p>
+         */
+        organizationalUnitDistinguishedName?: string;
+    }
+
+    /**
+     * <p>The configuration for a render farm that is associated with a studio resource.</p>
+     */
+    export interface StudioComponentComputeFarmConfiguration {
+        /**
+         * <p>The name of an Active Directory user that is used on ComputeFarm worker
+         *             instances.</p>
+         */
+        activeDirectoryUser?: string;
+        /**
+         * <p>The endpoint of the ComputeFarm that is accessed by the studio component
+         *             resource.</p>
+         */
+        endpoint?: string;
+    }
+
+    /**
      * <p>The configuration of the studio component, based on component type.</p>
      */
-    export interface StudioComponentConfiguration {
+    export interface StudioComponentConfiguration0Properties {
+        activeDirectoryConfiguration: outputs.nimblestudio.StudioComponentActiveDirectoryConfiguration;
+    }
+
+    /**
+     * <p>The configuration of the studio component, based on component type.</p>
+     */
+    export interface StudioComponentConfiguration1Properties {
+        computeFarmConfiguration: outputs.nimblestudio.StudioComponentComputeFarmConfiguration;
+    }
+
+    /**
+     * <p>The configuration of the studio component, based on component type.</p>
+     */
+    export interface StudioComponentConfiguration2Properties {
+        licenseServiceConfiguration: outputs.nimblestudio.StudioComponentLicenseServiceConfiguration;
+    }
+
+    /**
+     * <p>The configuration of the studio component, based on component type.</p>
+     */
+    export interface StudioComponentConfiguration3Properties {
+        sharedFileSystemConfiguration: outputs.nimblestudio.StudioComponentSharedFileSystemConfiguration;
     }
 
     /**
@@ -30394,6 +30601,18 @@ export namespace nimblestudio {
     }
 
     /**
+     * <p>The configuration for a license service that is associated with a studio
+     *             resource.</p>
+     */
+    export interface StudioComponentLicenseServiceConfiguration {
+        /**
+         * <p>The endpoint of the license service that is accessed by the studio component
+         *             resource.</p>
+         */
+        endpoint?: string;
+    }
+
+    /**
      * <p>A parameter for a studio component script, in the form of a key:value pair.</p>
      */
     export interface StudioComponentScriptParameterKeyValue {
@@ -30405,6 +30624,34 @@ export namespace nimblestudio {
          * <p>A script parameter value.</p>
          */
         value?: string;
+    }
+
+    /**
+     * <p>The configuration for a shared file storage system that is associated with a studio
+     *             resource.</p>
+     */
+    export interface StudioComponentSharedFileSystemConfiguration {
+        /**
+         * <p>The endpoint of the shared file system that is accessed by the studio component
+         *             resource.</p>
+         */
+        endpoint?: string;
+        /**
+         * <p>The unique identifier for a file system.</p>
+         */
+        fileSystemId?: string;
+        /**
+         * <p>The mount location for a shared file system on a Linux virtual workstation.</p>
+         */
+        linuxMountPoint?: string;
+        /**
+         * <p>The name of the file share.</p>
+         */
+        shareName?: string;
+        /**
+         * <p>The mount location for a shared file system on a Windows virtual workstation.</p>
+         */
+        windowsMountDrive?: string;
     }
 
     export interface StudioComponentTags {
@@ -30427,8 +30674,14 @@ export namespace nimblestudio {
 }
 
 export namespace omics {
+    export interface AnnotationStoreFormatToHeader {
+    }
+
     export interface AnnotationStoreReferenceItem {
         referenceArn: string;
+    }
+
+    export interface AnnotationStoreSchemaItem {
     }
 
     export interface AnnotationStoreSseConfig {
@@ -30436,10 +30689,13 @@ export namespace omics {
         type: enums.omics.AnnotationStoreEncryptionType;
     }
 
-    export interface AnnotationStoreStoreOptions {
+    export interface AnnotationStoreTagMap {
     }
 
-    export interface AnnotationStoreTagMap {
+    export interface AnnotationStoreTsvStoreOptions {
+        annotationType?: enums.omics.AnnotationStoreAnnotationType;
+        formatToHeader?: outputs.omics.AnnotationStoreFormatToHeader;
+        schema?: outputs.omics.AnnotationStoreSchemaItem[];
     }
 
     /**
@@ -30474,6 +30730,10 @@ export namespace omics {
     }
 
     export interface SequenceStoreTagMap {
+    }
+
+    export interface StoreOptionsProperties {
+        tsvStoreOptions: outputs.omics.AnnotationStoreTsvStoreOptions;
     }
 
     export interface VariantStoreReferenceItem {
@@ -31572,6 +31832,27 @@ export namespace pinpointemail {
 }
 
 export namespace pipes {
+    export interface MQBrokerAccessCredentialsProperties {
+        /**
+         * Optional SecretManager ARN which stores the database credentials
+         */
+        basicAuth: string;
+    }
+
+    export interface MSKAccessCredentials0Properties {
+        /**
+         * Optional SecretManager ARN which stores the database credentials
+         */
+        saslScram512Auth: string;
+    }
+
+    export interface MSKAccessCredentials1Properties {
+        /**
+         * Optional SecretManager ARN which stores the database credentials
+         */
+        clientCertificateTlsAuth: string;
+    }
+
     export interface PipeAwsVpcConfiguration {
         assignPublicIp?: enums.pipes.PipeAssignPublicIp;
         securityGroups?: string[];
@@ -31688,12 +31969,6 @@ export namespace pipes {
     export interface PipeHeaderParametersMap {
     }
 
-    export interface PipeMQBrokerAccessCredentials {
-    }
-
-    export interface PipeMSKAccessCredentials {
-    }
-
     export interface PipeNetworkConfiguration {
         awsvpcConfiguration?: outputs.pipes.PipeAwsVpcConfiguration;
     }
@@ -31716,9 +31991,6 @@ export namespace pipes {
         value: string;
     }
 
-    export interface PipeSelfManagedKafkaAccessConfigurationCredentials {
-    }
-
     export interface PipeSelfManagedKafkaAccessConfigurationVpc {
         /**
          * List of SecurityGroupId.
@@ -31732,7 +32004,7 @@ export namespace pipes {
 
     export interface PipeSourceActiveMQBrokerParameters {
         batchSize?: number;
-        credentials: outputs.pipes.PipeMQBrokerAccessCredentials;
+        credentials: outputs.pipes.MQBrokerAccessCredentialsProperties;
         maximumBatchingWindowInSeconds?: number;
         queueName: string;
     }
@@ -31763,7 +32035,7 @@ export namespace pipes {
     export interface PipeSourceManagedStreamingKafkaParameters {
         batchSize?: number;
         consumerGroupID?: string;
-        credentials?: outputs.pipes.PipeMSKAccessCredentials;
+        credentials?: outputs.pipes.MSKAccessCredentials0Properties | outputs.pipes.MSKAccessCredentials1Properties;
         maximumBatchingWindowInSeconds?: number;
         startingPosition?: enums.pipes.PipeMSKStartPosition;
         topicName: string;
@@ -31782,7 +32054,7 @@ export namespace pipes {
 
     export interface PipeSourceRabbitMQBrokerParameters {
         batchSize?: number;
-        credentials: outputs.pipes.PipeMQBrokerAccessCredentials;
+        credentials: outputs.pipes.MQBrokerAccessCredentialsProperties;
         maximumBatchingWindowInSeconds?: number;
         queueName: string;
         virtualHost?: string;
@@ -31792,7 +32064,7 @@ export namespace pipes {
         additionalBootstrapServers?: string[];
         batchSize?: number;
         consumerGroupID?: string;
-        credentials?: outputs.pipes.PipeSelfManagedKafkaAccessConfigurationCredentials;
+        credentials?: outputs.pipes.SelfManagedKafkaAccessConfigurationCredentials0Properties | outputs.pipes.SelfManagedKafkaAccessConfigurationCredentials1Properties | outputs.pipes.SelfManagedKafkaAccessConfigurationCredentials2Properties | outputs.pipes.SelfManagedKafkaAccessConfigurationCredentials3Properties;
         maximumBatchingWindowInSeconds?: number;
         /**
          * Optional SecretManager ARN which stores the database credentials
@@ -31921,6 +32193,34 @@ export namespace pipes {
 
     export interface PipeTargetStateMachineParameters {
         invocationType?: enums.pipes.PipeTargetInvocationType;
+    }
+
+    export interface SelfManagedKafkaAccessConfigurationCredentials0Properties {
+        /**
+         * Optional SecretManager ARN which stores the database credentials
+         */
+        basicAuth: string;
+    }
+
+    export interface SelfManagedKafkaAccessConfigurationCredentials1Properties {
+        /**
+         * Optional SecretManager ARN which stores the database credentials
+         */
+        saslScram512Auth: string;
+    }
+
+    export interface SelfManagedKafkaAccessConfigurationCredentials2Properties {
+        /**
+         * Optional SecretManager ARN which stores the database credentials
+         */
+        saslScram256Auth: string;
+    }
+
+    export interface SelfManagedKafkaAccessConfigurationCredentials3Properties {
+        /**
+         * Optional SecretManager ARN which stores the database credentials
+         */
+        clientCertificateTlsAuth: string;
     }
 
 }
@@ -43008,12 +43308,17 @@ export namespace rolesanywhere {
         value: string;
     }
 
-    export interface TrustAnchorSource {
-        sourceData?: outputs.rolesanywhere.TrustAnchorSourceData;
-        sourceType?: enums.rolesanywhere.TrustAnchorType;
+    export interface SourceData0Properties {
+        x509CertificateData: string;
     }
 
-    export interface TrustAnchorSourceData {
+    export interface SourceData1Properties {
+        acmPcaArn: string;
+    }
+
+    export interface TrustAnchorSource {
+        sourceData?: outputs.rolesanywhere.SourceData0Properties | outputs.rolesanywhere.SourceData1Properties;
+        sourceType?: enums.rolesanywhere.TrustAnchorType;
     }
 
     export interface TrustAnchorTag {
@@ -44686,9 +44991,6 @@ export namespace s3outposts {
         daysAfterInitiation: number;
     }
 
-    export interface BucketFilterAndOperator {
-    }
-
     /**
      * Tag used to identify a subset of objects for an Amazon S3Outposts bucket.
      */
@@ -44738,7 +45040,7 @@ export namespace s3outposts {
         /**
          * The container for the AND condition for the lifecycle rule. A combination of Prefix and 1 or more Tags OR a minimum of 2 or more tags.
          */
-        andOperator?: outputs.s3outposts.BucketFilterAndOperator;
+        andOperator?: outputs.s3outposts.FilterAndOperatorProperties;
         /**
          * Object key prefix that identifies one or more objects to which this rule applies.
          */
@@ -44770,6 +45072,17 @@ export namespace s3outposts {
      */
     export interface EndpointNetworkInterface {
         networkInterfaceId: string;
+    }
+
+    export interface FilterAndOperatorProperties {
+        /**
+         * Prefix identifies one or more objects to which the rule applies.
+         */
+        prefix?: string;
+        /**
+         * All of these tags must exist in the object's tag set in order for the rule to apply.
+         */
+        tags: outputs.s3outposts.BucketFilterTag[];
     }
 
 }
@@ -48461,7 +48774,7 @@ export namespace securityhub {
 
     export interface AutomationRuleNoteUpdate {
         text: string;
-        updatedBy: outputs.securityhub.AutomationRulearnOrId;
+        updatedBy: string;
     }
 
     export interface AutomationRuleNumberFilter {
@@ -48471,7 +48784,7 @@ export namespace securityhub {
     }
 
     export interface AutomationRuleRelatedFinding {
-        id: outputs.securityhub.AutomationRulearnOrId;
+        id: string;
         productArn: string;
     }
 
@@ -48494,9 +48807,6 @@ export namespace securityhub {
 
     export interface AutomationRuleWorkflowUpdate {
         status: enums.securityhub.AutomationRuleWorkflowUpdateStatus;
-    }
-
-    export interface AutomationRulearnOrId {
     }
 
     export interface AutomationRulemap {
@@ -50571,7 +50881,22 @@ export namespace verifiedpermissions {
         userPoolArn?: string;
     }
 
-    export interface PolicyDefinition {
+    export interface PolicyDefinition0Properties {
+        static: outputs.verifiedpermissions.PolicyStaticPolicyDefinition;
+    }
+
+    export interface PolicyDefinition1Properties {
+        templateLinked: outputs.verifiedpermissions.PolicyTemplateLinkedPolicyDefinition;
+    }
+
+    export interface PolicyEntityIdentifier {
+        entityId: string;
+        entityType: string;
+    }
+
+    export interface PolicyStaticPolicyDefinition {
+        description?: string;
+        statement: string;
     }
 
     export interface PolicyStoreSchemaDefinition {
@@ -50580,6 +50905,12 @@ export namespace verifiedpermissions {
 
     export interface PolicyStoreValidationSettings {
         mode: enums.verifiedpermissions.PolicyStoreValidationMode;
+    }
+
+    export interface PolicyTemplateLinkedPolicyDefinition {
+        policyTemplateId: string;
+        principal?: outputs.verifiedpermissions.PolicyEntityIdentifier;
+        resource?: outputs.verifiedpermissions.PolicyEntityIdentifier;
     }
 
 }

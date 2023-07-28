@@ -1171,10 +1171,22 @@ export namespace amplifyuibuilder {
     export interface ComponentVariantValuesArgs {
     }
 
+    export interface FieldPosition0PropertiesArgs {
+        fixed: pulumi.Input<enums.amplifyuibuilder.FormFixedPosition>;
+    }
+
+    export interface FieldPosition1PropertiesArgs {
+        rightOf: pulumi.Input<string>;
+    }
+
+    export interface FieldPosition2PropertiesArgs {
+        below: pulumi.Input<string>;
+    }
+
     export interface FormButtonArgs {
         children?: pulumi.Input<string>;
         excluded?: pulumi.Input<boolean>;
-        position?: pulumi.Input<inputs.amplifyuibuilder.FormFieldPositionArgs>;
+        position?: pulumi.Input<inputs.amplifyuibuilder.FieldPosition0PropertiesArgs | inputs.amplifyuibuilder.FieldPosition1PropertiesArgs | inputs.amplifyuibuilder.FieldPosition2PropertiesArgs>;
     }
 
     export interface FormCTAArgs {
@@ -1189,9 +1201,6 @@ export namespace amplifyuibuilder {
         dataTypeName: pulumi.Input<string>;
     }
 
-    export interface FormFieldPositionArgs {
-    }
-
     export interface FormFieldsMapArgs {
     }
 
@@ -1199,12 +1208,17 @@ export namespace amplifyuibuilder {
     }
 
     export interface FormStyleArgs {
-        horizontalGap?: pulumi.Input<inputs.amplifyuibuilder.FormStyleConfigArgs>;
-        outerPadding?: pulumi.Input<inputs.amplifyuibuilder.FormStyleConfigArgs>;
-        verticalGap?: pulumi.Input<inputs.amplifyuibuilder.FormStyleConfigArgs>;
+        horizontalGap?: pulumi.Input<inputs.amplifyuibuilder.FormStyleConfig0PropertiesArgs | inputs.amplifyuibuilder.FormStyleConfig1PropertiesArgs>;
+        outerPadding?: pulumi.Input<inputs.amplifyuibuilder.FormStyleConfig0PropertiesArgs | inputs.amplifyuibuilder.FormStyleConfig1PropertiesArgs>;
+        verticalGap?: pulumi.Input<inputs.amplifyuibuilder.FormStyleConfig0PropertiesArgs | inputs.amplifyuibuilder.FormStyleConfig1PropertiesArgs>;
     }
 
-    export interface FormStyleConfigArgs {
+    export interface FormStyleConfig0PropertiesArgs {
+        tokenReference: pulumi.Input<string>;
+    }
+
+    export interface FormStyleConfig1PropertiesArgs {
+        value: pulumi.Input<string>;
     }
 
     export interface FormTagsArgs {
@@ -4378,15 +4392,9 @@ export namespace appstream {
         timeoutInSeconds: pulumi.Input<number>;
     }
 
-    export interface AppBlockTagArgs {
-    }
-
     export interface ApplicationS3LocationArgs {
         s3Bucket: pulumi.Input<string>;
         s3Key: pulumi.Input<string>;
-    }
-
-    export interface ApplicationTagArgs {
     }
 
     export interface DirectoryConfigCertificateBasedAuthPropertiesArgs {
@@ -4476,6 +4484,16 @@ export namespace appstream {
     export interface StackUserSettingArgs {
         action: pulumi.Input<string>;
         permission: pulumi.Input<string>;
+    }
+
+    export interface Tag0PropertiesArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface Tag1PropertiesArgs {
+        tagKey: pulumi.Input<string>;
+        tagValue: pulumi.Input<string>;
     }
 }
 
@@ -6024,16 +6042,48 @@ export namespace cleanrooms {
         value: pulumi.Input<string>;
     }
 
+    export interface ConfiguredTableAggregateColumnArgs {
+        columnNames: pulumi.Input<pulumi.Input<string>[]>;
+        function: pulumi.Input<enums.cleanrooms.ConfiguredTableAggregateFunctionName>;
+    }
+
+    export interface ConfiguredTableAggregationConstraintArgs {
+        columnName: pulumi.Input<string>;
+        minimum: pulumi.Input<number>;
+        type: pulumi.Input<enums.cleanrooms.ConfiguredTableAggregationType>;
+    }
+
     export interface ConfiguredTableAnalysisRuleArgs {
         policy: pulumi.Input<inputs.cleanrooms.ConfiguredTableAnalysisRulePolicyArgs>;
         type: pulumi.Input<enums.cleanrooms.ConfiguredTableAnalysisRuleType>;
     }
 
-    export interface ConfiguredTableAnalysisRulePolicyArgs {
-        v1: pulumi.Input<inputs.cleanrooms.ConfiguredTableAnalysisRulePolicyV1Args>;
+    export interface ConfiguredTableAnalysisRuleAggregationArgs {
+        aggregateColumns: pulumi.Input<pulumi.Input<inputs.cleanrooms.ConfiguredTableAggregateColumnArgs>[]>;
+        allowedJoinOperators?: pulumi.Input<pulumi.Input<enums.cleanrooms.ConfiguredTableJoinOperator>[]>;
+        dimensionColumns: pulumi.Input<pulumi.Input<string>[]>;
+        joinColumns: pulumi.Input<pulumi.Input<string>[]>;
+        joinRequired?: pulumi.Input<enums.cleanrooms.ConfiguredTableJoinRequiredOption>;
+        outputConstraints: pulumi.Input<pulumi.Input<inputs.cleanrooms.ConfiguredTableAggregationConstraintArgs>[]>;
+        scalarFunctions: pulumi.Input<pulumi.Input<enums.cleanrooms.ConfiguredTableScalarFunctions>[]>;
     }
 
-    export interface ConfiguredTableAnalysisRulePolicyV1Args {
+    export interface ConfiguredTableAnalysisRuleListArgs {
+        allowedJoinOperators?: pulumi.Input<pulumi.Input<enums.cleanrooms.ConfiguredTableJoinOperator>[]>;
+        joinColumns: pulumi.Input<pulumi.Input<string>[]>;
+        listColumns: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ConfiguredTableAnalysisRulePolicyArgs {
+        v1: pulumi.Input<inputs.cleanrooms.ConfiguredTableAnalysisRulePolicyV10PropertiesArgs | inputs.cleanrooms.ConfiguredTableAnalysisRulePolicyV11PropertiesArgs>;
+    }
+
+    export interface ConfiguredTableAnalysisRulePolicyV10PropertiesArgs {
+        list: pulumi.Input<inputs.cleanrooms.ConfiguredTableAnalysisRuleListArgs>;
+    }
+
+    export interface ConfiguredTableAnalysisRulePolicyV11PropertiesArgs {
+        aggregation: pulumi.Input<inputs.cleanrooms.ConfiguredTableAnalysisRuleAggregationArgs>;
     }
 
     export interface ConfiguredTableAssociationTagArgs {
@@ -20847,10 +20897,18 @@ export namespace iotfleethub {
 }
 
 export namespace iotfleetwise {
-    export interface CampaignCollectionSchemeArgs {
+    export interface CampaignConditionBasedCollectionSchemeArgs {
+        conditionLanguageVersion?: pulumi.Input<number>;
+        expression: pulumi.Input<string>;
+        minimumTriggerIntervalMs?: pulumi.Input<number>;
+        triggerMode?: pulumi.Input<enums.iotfleetwise.CampaignTriggerMode>;
     }
 
-    export interface CampaignDataDestinationConfigArgs {
+    export interface CampaignS3ConfigArgs {
+        bucketArn: pulumi.Input<string>;
+        dataFormat?: pulumi.Input<enums.iotfleetwise.CampaignDataFormat>;
+        prefix?: pulumi.Input<string>;
+        storageCompressionFormat?: pulumi.Input<enums.iotfleetwise.CampaignStorageCompressionFormat>;
     }
 
     export interface CampaignSignalInformationArgs {
@@ -20862,6 +20920,31 @@ export namespace iotfleetwise {
     export interface CampaignTagArgs {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
+    }
+
+    export interface CampaignTimeBasedCollectionSchemeArgs {
+        periodMs: pulumi.Input<number>;
+    }
+
+    export interface CampaignTimestreamConfigArgs {
+        executionRoleArn: pulumi.Input<string>;
+        timestreamTableArn: pulumi.Input<string>;
+    }
+
+    export interface CollectionScheme0PropertiesArgs {
+        timeBasedCollectionScheme: pulumi.Input<inputs.iotfleetwise.CampaignTimeBasedCollectionSchemeArgs>;
+    }
+
+    export interface CollectionScheme1PropertiesArgs {
+        conditionBasedCollectionScheme: pulumi.Input<inputs.iotfleetwise.CampaignConditionBasedCollectionSchemeArgs>;
+    }
+
+    export interface DataDestinationConfig0PropertiesArgs {
+        s3Config: pulumi.Input<inputs.iotfleetwise.CampaignS3ConfigArgs>;
+    }
+
+    export interface DataDestinationConfig1PropertiesArgs {
+        timestreamConfig: pulumi.Input<inputs.iotfleetwise.CampaignTimestreamConfigArgs>;
     }
 
     export interface DecoderManifestCanInterfaceArgs {
@@ -20944,7 +21027,48 @@ export namespace iotfleetwise {
         value: pulumi.Input<string>;
     }
 
-    export interface SignalCatalogNodeArgs {
+    export interface Node0PropertiesArgs {
+        branch?: pulumi.Input<inputs.iotfleetwise.SignalCatalogBranchArgs>;
+    }
+
+    export interface Node1PropertiesArgs {
+        sensor?: pulumi.Input<inputs.iotfleetwise.SignalCatalogSensorArgs>;
+    }
+
+    export interface Node2PropertiesArgs {
+        actuator?: pulumi.Input<inputs.iotfleetwise.SignalCatalogActuatorArgs>;
+    }
+
+    export interface Node3PropertiesArgs {
+        attribute?: pulumi.Input<inputs.iotfleetwise.SignalCatalogAttributeArgs>;
+    }
+
+    export interface SignalCatalogActuatorArgs {
+        allowedValues?: pulumi.Input<pulumi.Input<string>[]>;
+        assignedValue?: pulumi.Input<string>;
+        dataType: pulumi.Input<enums.iotfleetwise.SignalCatalogNodeDataType>;
+        description?: pulumi.Input<string>;
+        fullyQualifiedName: pulumi.Input<string>;
+        max?: pulumi.Input<number>;
+        min?: pulumi.Input<number>;
+        unit?: pulumi.Input<string>;
+    }
+
+    export interface SignalCatalogAttributeArgs {
+        allowedValues?: pulumi.Input<pulumi.Input<string>[]>;
+        assignedValue?: pulumi.Input<string>;
+        dataType: pulumi.Input<enums.iotfleetwise.SignalCatalogNodeDataType>;
+        defaultValue?: pulumi.Input<string>;
+        description?: pulumi.Input<string>;
+        fullyQualifiedName: pulumi.Input<string>;
+        max?: pulumi.Input<number>;
+        min?: pulumi.Input<number>;
+        unit?: pulumi.Input<string>;
+    }
+
+    export interface SignalCatalogBranchArgs {
+        description?: pulumi.Input<string>;
+        fullyQualifiedName: pulumi.Input<string>;
     }
 
     export interface SignalCatalogNodeCountsArgs {
@@ -20953,6 +21077,16 @@ export namespace iotfleetwise {
         totalBranches?: pulumi.Input<number>;
         totalNodes?: pulumi.Input<number>;
         totalSensors?: pulumi.Input<number>;
+    }
+
+    export interface SignalCatalogSensorArgs {
+        allowedValues?: pulumi.Input<pulumi.Input<string>[]>;
+        dataType: pulumi.Input<enums.iotfleetwise.SignalCatalogNodeDataType>;
+        description?: pulumi.Input<string>;
+        fullyQualifiedName: pulumi.Input<string>;
+        max?: pulumi.Input<number>;
+        min?: pulumi.Input<number>;
+        unit?: pulumi.Input<string>;
     }
 
     export interface SignalCatalogTagArgs {
@@ -26280,10 +26414,15 @@ export namespace lookoutmetrics {
 }
 
 export namespace m2 {
-    export interface ApplicationDefinitionArgs {
+    export interface ApplicationTagMapArgs {
     }
 
-    export interface ApplicationTagMapArgs {
+    export interface Definition0PropertiesArgs {
+        s3Location: pulumi.Input<string>;
+    }
+
+    export interface Definition1PropertiesArgs {
+        content: pulumi.Input<string>;
     }
 
     /**
@@ -28853,12 +28992,6 @@ export namespace mediatailor {
     }
 
     /**
-     * The predefined aliases for dynamic variables.
-     */
-    export interface PlaybackConfigurationConfigurationAliasesArgs {
-    }
-
-    /**
      * The configuration for DASH PUT operations.
      */
     export interface PlaybackConfigurationDashConfigurationArgs {
@@ -29915,9 +30048,83 @@ export namespace nimblestudio {
     }
 
     /**
+     * <p>An LDAP attribute of an Active Directory computer account, in the form of a name:value
+     *             pair.</p>
+     */
+    export interface StudioComponentActiveDirectoryComputerAttributeArgs {
+        /**
+         * <p>The name for the LDAP attribute.</p>
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * <p>The value for the LDAP attribute.</p>
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    /**
+     * <p>The configuration for a Microsoft Active Directory (Microsoft AD) studio
+     *             resource.</p>
+     */
+    export interface StudioComponentActiveDirectoryConfigurationArgs {
+        /**
+         * <p>A collection of custom attributes for an Active Directory computer.</p>
+         */
+        computerAttributes?: pulumi.Input<pulumi.Input<inputs.nimblestudio.StudioComponentActiveDirectoryComputerAttributeArgs>[]>;
+        /**
+         * <p>The directory ID of the Directory Service for Microsoft Active Directory to access
+         *             using this studio component.</p>
+         */
+        directoryId?: pulumi.Input<string>;
+        /**
+         * <p>The distinguished name (DN) and organizational unit (OU) of an Active Directory
+         *             computer.</p>
+         */
+        organizationalUnitDistinguishedName?: pulumi.Input<string>;
+    }
+
+    /**
+     * <p>The configuration for a render farm that is associated with a studio resource.</p>
+     */
+    export interface StudioComponentComputeFarmConfigurationArgs {
+        /**
+         * <p>The name of an Active Directory user that is used on ComputeFarm worker
+         *             instances.</p>
+         */
+        activeDirectoryUser?: pulumi.Input<string>;
+        /**
+         * <p>The endpoint of the ComputeFarm that is accessed by the studio component
+         *             resource.</p>
+         */
+        endpoint?: pulumi.Input<string>;
+    }
+
+    /**
      * <p>The configuration of the studio component, based on component type.</p>
      */
-    export interface StudioComponentConfigurationArgs {
+    export interface StudioComponentConfiguration0PropertiesArgs {
+        activeDirectoryConfiguration: pulumi.Input<inputs.nimblestudio.StudioComponentActiveDirectoryConfigurationArgs>;
+    }
+
+    /**
+     * <p>The configuration of the studio component, based on component type.</p>
+     */
+    export interface StudioComponentConfiguration1PropertiesArgs {
+        computeFarmConfiguration: pulumi.Input<inputs.nimblestudio.StudioComponentComputeFarmConfigurationArgs>;
+    }
+
+    /**
+     * <p>The configuration of the studio component, based on component type.</p>
+     */
+    export interface StudioComponentConfiguration2PropertiesArgs {
+        licenseServiceConfiguration: pulumi.Input<inputs.nimblestudio.StudioComponentLicenseServiceConfigurationArgs>;
+    }
+
+    /**
+     * <p>The configuration of the studio component, based on component type.</p>
+     */
+    export interface StudioComponentConfiguration3PropertiesArgs {
+        sharedFileSystemConfiguration: pulumi.Input<inputs.nimblestudio.StudioComponentSharedFileSystemConfigurationArgs>;
     }
 
     /**
@@ -29938,6 +30145,18 @@ export namespace nimblestudio {
     }
 
     /**
+     * <p>The configuration for a license service that is associated with a studio
+     *             resource.</p>
+     */
+    export interface StudioComponentLicenseServiceConfigurationArgs {
+        /**
+         * <p>The endpoint of the license service that is accessed by the studio component
+         *             resource.</p>
+         */
+        endpoint?: pulumi.Input<string>;
+    }
+
+    /**
      * <p>A parameter for a studio component script, in the form of a key:value pair.</p>
      */
     export interface StudioComponentScriptParameterKeyValueArgs {
@@ -29949,6 +30168,34 @@ export namespace nimblestudio {
          * <p>A script parameter value.</p>
          */
         value?: pulumi.Input<string>;
+    }
+
+    /**
+     * <p>The configuration for a shared file storage system that is associated with a studio
+     *             resource.</p>
+     */
+    export interface StudioComponentSharedFileSystemConfigurationArgs {
+        /**
+         * <p>The endpoint of the shared file system that is accessed by the studio component
+         *             resource.</p>
+         */
+        endpoint?: pulumi.Input<string>;
+        /**
+         * <p>The unique identifier for a file system.</p>
+         */
+        fileSystemId?: pulumi.Input<string>;
+        /**
+         * <p>The mount location for a shared file system on a Linux virtual workstation.</p>
+         */
+        linuxMountPoint?: pulumi.Input<string>;
+        /**
+         * <p>The name of the file share.</p>
+         */
+        shareName?: pulumi.Input<string>;
+        /**
+         * <p>The mount location for a shared file system on a Windows virtual workstation.</p>
+         */
+        windowsMountDrive?: pulumi.Input<string>;
     }
 
     export interface StudioComponentTagsArgs {
@@ -29970,8 +30217,14 @@ export namespace nimblestudio {
 }
 
 export namespace omics {
+    export interface AnnotationStoreFormatToHeaderArgs {
+    }
+
     export interface AnnotationStoreReferenceItemArgs {
         referenceArn: pulumi.Input<string>;
+    }
+
+    export interface AnnotationStoreSchemaItemArgs {
     }
 
     export interface AnnotationStoreSseConfigArgs {
@@ -29979,10 +30232,13 @@ export namespace omics {
         type: pulumi.Input<enums.omics.AnnotationStoreEncryptionType>;
     }
 
-    export interface AnnotationStoreStoreOptionsArgs {
+    export interface AnnotationStoreTagMapArgs {
     }
 
-    export interface AnnotationStoreTagMapArgs {
+    export interface AnnotationStoreTsvStoreOptionsArgs {
+        annotationType?: pulumi.Input<enums.omics.AnnotationStoreAnnotationType>;
+        formatToHeader?: pulumi.Input<inputs.omics.AnnotationStoreFormatToHeaderArgs>;
+        schema?: pulumi.Input<pulumi.Input<inputs.omics.AnnotationStoreSchemaItemArgs>[]>;
     }
 
     /**
@@ -30017,6 +30273,10 @@ export namespace omics {
     }
 
     export interface SequenceStoreTagMapArgs {
+    }
+
+    export interface StoreOptionsPropertiesArgs {
+        tsvStoreOptions: pulumi.Input<inputs.omics.AnnotationStoreTsvStoreOptionsArgs>;
     }
 
     export interface VariantStoreReferenceItemArgs {
@@ -31078,6 +31338,27 @@ export namespace pinpointemail {
 }
 
 export namespace pipes {
+    export interface MQBrokerAccessCredentialsPropertiesArgs {
+        /**
+         * Optional SecretManager ARN which stores the database credentials
+         */
+        basicAuth: pulumi.Input<string>;
+    }
+
+    export interface MSKAccessCredentials0PropertiesArgs {
+        /**
+         * Optional SecretManager ARN which stores the database credentials
+         */
+        saslScram512Auth: pulumi.Input<string>;
+    }
+
+    export interface MSKAccessCredentials1PropertiesArgs {
+        /**
+         * Optional SecretManager ARN which stores the database credentials
+         */
+        clientCertificateTlsAuth: pulumi.Input<string>;
+    }
+
     export interface PipeAwsVpcConfigurationArgs {
         assignPublicIp?: pulumi.Input<enums.pipes.PipeAssignPublicIp>;
         securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
@@ -31194,12 +31475,6 @@ export namespace pipes {
     export interface PipeHeaderParametersMapArgs {
     }
 
-    export interface PipeMQBrokerAccessCredentialsArgs {
-    }
-
-    export interface PipeMSKAccessCredentialsArgs {
-    }
-
     export interface PipeNetworkConfigurationArgs {
         awsvpcConfiguration?: pulumi.Input<inputs.pipes.PipeAwsVpcConfigurationArgs>;
     }
@@ -31222,9 +31497,6 @@ export namespace pipes {
         value: pulumi.Input<string>;
     }
 
-    export interface PipeSelfManagedKafkaAccessConfigurationCredentialsArgs {
-    }
-
     export interface PipeSelfManagedKafkaAccessConfigurationVpcArgs {
         /**
          * List of SecurityGroupId.
@@ -31238,7 +31510,7 @@ export namespace pipes {
 
     export interface PipeSourceActiveMQBrokerParametersArgs {
         batchSize?: pulumi.Input<number>;
-        credentials: pulumi.Input<inputs.pipes.PipeMQBrokerAccessCredentialsArgs>;
+        credentials: pulumi.Input<inputs.pipes.MQBrokerAccessCredentialsPropertiesArgs>;
         maximumBatchingWindowInSeconds?: pulumi.Input<number>;
         queueName: pulumi.Input<string>;
     }
@@ -31269,7 +31541,7 @@ export namespace pipes {
     export interface PipeSourceManagedStreamingKafkaParametersArgs {
         batchSize?: pulumi.Input<number>;
         consumerGroupID?: pulumi.Input<string>;
-        credentials?: pulumi.Input<inputs.pipes.PipeMSKAccessCredentialsArgs>;
+        credentials?: pulumi.Input<inputs.pipes.MSKAccessCredentials0PropertiesArgs | inputs.pipes.MSKAccessCredentials1PropertiesArgs>;
         maximumBatchingWindowInSeconds?: pulumi.Input<number>;
         startingPosition?: pulumi.Input<enums.pipes.PipeMSKStartPosition>;
         topicName: pulumi.Input<string>;
@@ -31288,7 +31560,7 @@ export namespace pipes {
 
     export interface PipeSourceRabbitMQBrokerParametersArgs {
         batchSize?: pulumi.Input<number>;
-        credentials: pulumi.Input<inputs.pipes.PipeMQBrokerAccessCredentialsArgs>;
+        credentials: pulumi.Input<inputs.pipes.MQBrokerAccessCredentialsPropertiesArgs>;
         maximumBatchingWindowInSeconds?: pulumi.Input<number>;
         queueName: pulumi.Input<string>;
         virtualHost?: pulumi.Input<string>;
@@ -31298,7 +31570,7 @@ export namespace pipes {
         additionalBootstrapServers?: pulumi.Input<pulumi.Input<string>[]>;
         batchSize?: pulumi.Input<number>;
         consumerGroupID?: pulumi.Input<string>;
-        credentials?: pulumi.Input<inputs.pipes.PipeSelfManagedKafkaAccessConfigurationCredentialsArgs>;
+        credentials?: pulumi.Input<inputs.pipes.SelfManagedKafkaAccessConfigurationCredentials0PropertiesArgs | inputs.pipes.SelfManagedKafkaAccessConfigurationCredentials1PropertiesArgs | inputs.pipes.SelfManagedKafkaAccessConfigurationCredentials2PropertiesArgs | inputs.pipes.SelfManagedKafkaAccessConfigurationCredentials3PropertiesArgs>;
         maximumBatchingWindowInSeconds?: pulumi.Input<number>;
         /**
          * Optional SecretManager ARN which stores the database credentials
@@ -31427,6 +31699,34 @@ export namespace pipes {
 
     export interface PipeTargetStateMachineParametersArgs {
         invocationType?: pulumi.Input<enums.pipes.PipeTargetInvocationType>;
+    }
+
+    export interface SelfManagedKafkaAccessConfigurationCredentials0PropertiesArgs {
+        /**
+         * Optional SecretManager ARN which stores the database credentials
+         */
+        basicAuth: pulumi.Input<string>;
+    }
+
+    export interface SelfManagedKafkaAccessConfigurationCredentials1PropertiesArgs {
+        /**
+         * Optional SecretManager ARN which stores the database credentials
+         */
+        saslScram512Auth: pulumi.Input<string>;
+    }
+
+    export interface SelfManagedKafkaAccessConfigurationCredentials2PropertiesArgs {
+        /**
+         * Optional SecretManager ARN which stores the database credentials
+         */
+        saslScram256Auth: pulumi.Input<string>;
+    }
+
+    export interface SelfManagedKafkaAccessConfigurationCredentials3PropertiesArgs {
+        /**
+         * Optional SecretManager ARN which stores the database credentials
+         */
+        clientCertificateTlsAuth: pulumi.Input<string>;
     }
 }
 
@@ -42279,12 +42579,17 @@ export namespace rolesanywhere {
         value: pulumi.Input<string>;
     }
 
-    export interface TrustAnchorSourceArgs {
-        sourceData?: pulumi.Input<inputs.rolesanywhere.TrustAnchorSourceDataArgs>;
-        sourceType?: pulumi.Input<enums.rolesanywhere.TrustAnchorType>;
+    export interface SourceData0PropertiesArgs {
+        x509CertificateData: pulumi.Input<string>;
     }
 
-    export interface TrustAnchorSourceDataArgs {
+    export interface SourceData1PropertiesArgs {
+        acmPcaArn: pulumi.Input<string>;
+    }
+
+    export interface TrustAnchorSourceArgs {
+        sourceData?: pulumi.Input<inputs.rolesanywhere.SourceData0PropertiesArgs | inputs.rolesanywhere.SourceData1PropertiesArgs>;
+        sourceType?: pulumi.Input<enums.rolesanywhere.TrustAnchorType>;
     }
 
     export interface TrustAnchorTagArgs {
@@ -43889,9 +44194,6 @@ export namespace s3outposts {
         daysAfterInitiation: pulumi.Input<number>;
     }
 
-    export interface BucketFilterAndOperatorArgs {
-    }
-
     /**
      * Tag used to identify a subset of objects for an Amazon S3Outposts bucket.
      */
@@ -43941,7 +44243,7 @@ export namespace s3outposts {
         /**
          * The container for the AND condition for the lifecycle rule. A combination of Prefix and 1 or more Tags OR a minimum of 2 or more tags.
          */
-        andOperator?: pulumi.Input<inputs.s3outposts.BucketFilterAndOperatorArgs>;
+        andOperator?: pulumi.Input<inputs.s3outposts.FilterAndOperatorPropertiesArgs>;
         /**
          * Object key prefix that identifies one or more objects to which this rule applies.
          */
@@ -43968,6 +44270,16 @@ export namespace s3outposts {
         message?: pulumi.Input<string>;
     }
 
+    export interface FilterAndOperatorPropertiesArgs {
+        /**
+         * Prefix identifies one or more objects to which the rule applies.
+         */
+        prefix?: pulumi.Input<string>;
+        /**
+         * All of these tags must exist in the object's tag set in order for the rule to apply.
+         */
+        tags: pulumi.Input<pulumi.Input<inputs.s3outposts.BucketFilterTagArgs>[]>;
+    }
 }
 
 export namespace sagemaker {
@@ -47639,7 +47951,7 @@ export namespace securityhub {
 
     export interface AutomationRuleNoteUpdateArgs {
         text: pulumi.Input<string>;
-        updatedBy: pulumi.Input<inputs.securityhub.AutomationRulearnOrIdArgs>;
+        updatedBy: pulumi.Input<string>;
     }
 
     export interface AutomationRuleNumberFilterArgs {
@@ -47649,7 +47961,7 @@ export namespace securityhub {
     }
 
     export interface AutomationRuleRelatedFindingArgs {
-        id: pulumi.Input<inputs.securityhub.AutomationRulearnOrIdArgs>;
+        id: pulumi.Input<string>;
         productArn: pulumi.Input<string>;
     }
 
@@ -47672,9 +47984,6 @@ export namespace securityhub {
 
     export interface AutomationRuleWorkflowUpdateArgs {
         status: pulumi.Input<enums.securityhub.AutomationRuleWorkflowUpdateStatus>;
-    }
-
-    export interface AutomationRulearnOrIdArgs {
     }
 
     export interface AutomationRulemapArgs {
@@ -49723,7 +50032,22 @@ export namespace verifiedpermissions {
         cognitoUserPoolConfiguration: pulumi.Input<inputs.verifiedpermissions.IdentitySourceCognitoUserPoolConfigurationArgs>;
     }
 
-    export interface PolicyDefinitionArgs {
+    export interface PolicyDefinition0PropertiesArgs {
+        static: pulumi.Input<inputs.verifiedpermissions.PolicyStaticPolicyDefinitionArgs>;
+    }
+
+    export interface PolicyDefinition1PropertiesArgs {
+        templateLinked: pulumi.Input<inputs.verifiedpermissions.PolicyTemplateLinkedPolicyDefinitionArgs>;
+    }
+
+    export interface PolicyEntityIdentifierArgs {
+        entityId: pulumi.Input<string>;
+        entityType: pulumi.Input<string>;
+    }
+
+    export interface PolicyStaticPolicyDefinitionArgs {
+        description?: pulumi.Input<string>;
+        statement: pulumi.Input<string>;
     }
 
     export interface PolicyStoreSchemaDefinitionArgs {
@@ -49732,6 +50056,12 @@ export namespace verifiedpermissions {
 
     export interface PolicyStoreValidationSettingsArgs {
         mode: pulumi.Input<enums.verifiedpermissions.PolicyStoreValidationMode>;
+    }
+
+    export interface PolicyTemplateLinkedPolicyDefinitionArgs {
+        policyTemplateId: pulumi.Input<string>;
+        principal?: pulumi.Input<inputs.verifiedpermissions.PolicyEntityIdentifierArgs>;
+        resource?: pulumi.Input<inputs.verifiedpermissions.PolicyEntityIdentifierArgs>;
     }
 }
 

@@ -33,7 +33,7 @@ class GetPolicyResult:
 
     @property
     @pulumi.getter
-    def definition(self) -> Optional['outputs.PolicyDefinition']:
+    def definition(self) -> Optional[Any]:
         return pulumi.get(self, "definition")
 
     @property

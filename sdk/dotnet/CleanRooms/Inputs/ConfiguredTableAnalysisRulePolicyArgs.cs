@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.CleanRooms.Inputs
     public sealed class ConfiguredTableAnalysisRulePolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("v1", required: true)]
-        public Input<Inputs.ConfiguredTableAnalysisRulePolicyV1Args> V1 { get; set; } = null!;
+        public InputUnion<Inputs.ConfiguredTableAnalysisRulePolicyV10PropertiesArgs, Inputs.ConfiguredTableAnalysisRulePolicyV11PropertiesArgs> V1 { get; set; } = null!;
 
         public ConfiguredTableAnalysisRulePolicyArgs()
         {

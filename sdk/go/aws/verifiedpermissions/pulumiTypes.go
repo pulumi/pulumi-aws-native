@@ -291,71 +291,22 @@ func (o IdentitySourceDetailsPtrOutput) UserPoolArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type PolicyDefinition struct {
+type PolicyDefinition0Properties struct {
+	Static PolicyStaticPolicyDefinition `pulumi:"static"`
 }
 
-// PolicyDefinitionInput is an input type that accepts PolicyDefinitionArgs and PolicyDefinitionOutput values.
-// You can construct a concrete instance of `PolicyDefinitionInput` via:
-//
-//	PolicyDefinitionArgs{...}
-type PolicyDefinitionInput interface {
-	pulumi.Input
-
-	ToPolicyDefinitionOutput() PolicyDefinitionOutput
-	ToPolicyDefinitionOutputWithContext(context.Context) PolicyDefinitionOutput
+type PolicyDefinition1Properties struct {
+	TemplateLinked PolicyTemplateLinkedPolicyDefinition `pulumi:"templateLinked"`
 }
 
-type PolicyDefinitionArgs struct {
+type PolicyEntityIdentifier struct {
+	EntityId   string `pulumi:"entityId"`
+	EntityType string `pulumi:"entityType"`
 }
 
-func (PolicyDefinitionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyDefinition)(nil)).Elem()
-}
-
-func (i PolicyDefinitionArgs) ToPolicyDefinitionOutput() PolicyDefinitionOutput {
-	return i.ToPolicyDefinitionOutputWithContext(context.Background())
-}
-
-func (i PolicyDefinitionArgs) ToPolicyDefinitionOutputWithContext(ctx context.Context) PolicyDefinitionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicyDefinitionOutput)
-}
-
-type PolicyDefinitionOutput struct{ *pulumi.OutputState }
-
-func (PolicyDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyDefinition)(nil)).Elem()
-}
-
-func (o PolicyDefinitionOutput) ToPolicyDefinitionOutput() PolicyDefinitionOutput {
-	return o
-}
-
-func (o PolicyDefinitionOutput) ToPolicyDefinitionOutputWithContext(ctx context.Context) PolicyDefinitionOutput {
-	return o
-}
-
-type PolicyDefinitionPtrOutput struct{ *pulumi.OutputState }
-
-func (PolicyDefinitionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PolicyDefinition)(nil)).Elem()
-}
-
-func (o PolicyDefinitionPtrOutput) ToPolicyDefinitionPtrOutput() PolicyDefinitionPtrOutput {
-	return o
-}
-
-func (o PolicyDefinitionPtrOutput) ToPolicyDefinitionPtrOutputWithContext(ctx context.Context) PolicyDefinitionPtrOutput {
-	return o
-}
-
-func (o PolicyDefinitionPtrOutput) Elem() PolicyDefinitionOutput {
-	return o.ApplyT(func(v *PolicyDefinition) PolicyDefinition {
-		if v != nil {
-			return *v
-		}
-		var ret PolicyDefinition
-		return ret
-	}).(PolicyDefinitionOutput)
+type PolicyStaticPolicyDefinition struct {
+	Description *string `pulumi:"description"`
+	Statement   string  `pulumi:"statement"`
 }
 
 type PolicyStoreSchemaDefinition struct {
@@ -573,10 +524,15 @@ func (o PolicyStoreValidationSettingsPtrOutput) Mode() PolicyStoreValidationMode
 	}).(PolicyStoreValidationModePtrOutput)
 }
 
+type PolicyTemplateLinkedPolicyDefinition struct {
+	PolicyTemplateId string                  `pulumi:"policyTemplateId"`
+	Principal        *PolicyEntityIdentifier `pulumi:"principal"`
+	Resource         *PolicyEntityIdentifier `pulumi:"resource"`
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceCognitoUserPoolConfigurationInput)(nil)).Elem(), IdentitySourceCognitoUserPoolConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceConfigurationInput)(nil)).Elem(), IdentitySourceConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PolicyDefinitionInput)(nil)).Elem(), PolicyDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStoreSchemaDefinitionInput)(nil)).Elem(), PolicyStoreSchemaDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStoreSchemaDefinitionPtrInput)(nil)).Elem(), PolicyStoreSchemaDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStoreValidationSettingsInput)(nil)).Elem(), PolicyStoreValidationSettingsArgs{})
@@ -586,8 +542,6 @@ func init() {
 	pulumi.RegisterOutputType(IdentitySourceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(IdentitySourceDetailsOutput{})
 	pulumi.RegisterOutputType(IdentitySourceDetailsPtrOutput{})
-	pulumi.RegisterOutputType(PolicyDefinitionOutput{})
-	pulumi.RegisterOutputType(PolicyDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(PolicyStoreSchemaDefinitionOutput{})
 	pulumi.RegisterOutputType(PolicyStoreSchemaDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(PolicyStoreValidationSettingsOutput{})

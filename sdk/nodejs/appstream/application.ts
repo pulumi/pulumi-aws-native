@@ -49,7 +49,7 @@ export class Application extends pulumi.CustomResource {
     public readonly launchPath!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string>;
     public readonly platforms!: pulumi.Output<string[]>;
-    public readonly tags!: pulumi.Output<outputs.appstream.ApplicationTag[] | undefined>;
+    public readonly tags!: pulumi.Output<(outputs.appstream.Tag0Properties | outputs.appstream.Tag1Properties)[] | undefined>;
     public readonly workingDirectory!: pulumi.Output<string | undefined>;
 
     /**
@@ -127,6 +127,6 @@ export interface ApplicationArgs {
     launchPath: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     platforms: pulumi.Input<pulumi.Input<string>[]>;
-    tags?: pulumi.Input<pulumi.Input<inputs.appstream.ApplicationTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.appstream.Tag0PropertiesArgs | inputs.appstream.Tag1PropertiesArgs>[]>;
     workingDirectory?: pulumi.Input<string>;
 }

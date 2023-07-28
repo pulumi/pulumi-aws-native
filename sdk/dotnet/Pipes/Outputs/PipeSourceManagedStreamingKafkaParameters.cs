@@ -15,7 +15,7 @@ namespace Pulumi.AwsNative.Pipes.Outputs
     {
         public readonly int? BatchSize;
         public readonly string? ConsumerGroupID;
-        public readonly Outputs.PipeMSKAccessCredentials? Credentials;
+        public readonly Union<Outputs.MSKAccessCredentials0Properties, Outputs.MSKAccessCredentials1Properties>? Credentials;
         public readonly int? MaximumBatchingWindowInSeconds;
         public readonly Pulumi.AwsNative.Pipes.PipeMSKStartPosition? StartingPosition;
         public readonly string TopicName;
@@ -26,7 +26,7 @@ namespace Pulumi.AwsNative.Pipes.Outputs
 
             string? consumerGroupID,
 
-            Outputs.PipeMSKAccessCredentials? credentials,
+            Union<Outputs.MSKAccessCredentials0Properties, Outputs.MSKAccessCredentials1Properties>? credentials,
 
             int? maximumBatchingWindowInSeconds,
 

@@ -23,7 +23,7 @@ class AppBlockArgs:
                  packaging_type: Optional[pulumi.Input[str]] = None,
                  post_setup_script_details: Optional[pulumi.Input['AppBlockScriptDetailsArgs']] = None,
                  setup_script_details: Optional[pulumi.Input['AppBlockScriptDetailsArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['AppBlockTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['Tag0PropertiesArgs', 'Tag1PropertiesArgs']]]]] = None):
         """
         The set of arguments for constructing a AppBlock resource.
         """
@@ -108,11 +108,11 @@ class AppBlockArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppBlockTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['Tag0PropertiesArgs', 'Tag1PropertiesArgs']]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppBlockTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['Tag0PropertiesArgs', 'Tag1PropertiesArgs']]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -128,7 +128,7 @@ class AppBlock(pulumi.CustomResource):
                  post_setup_script_details: Optional[pulumi.Input[pulumi.InputType['AppBlockScriptDetailsArgs']]] = None,
                  setup_script_details: Optional[pulumi.Input[pulumi.InputType['AppBlockScriptDetailsArgs']]] = None,
                  source_s3_location: Optional[pulumi.Input[pulumi.InputType['AppBlockS3LocationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppBlockTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['Tag0PropertiesArgs'], pulumi.InputType['Tag1PropertiesArgs']]]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::AppStream::AppBlock
@@ -167,7 +167,7 @@ class AppBlock(pulumi.CustomResource):
                  post_setup_script_details: Optional[pulumi.Input[pulumi.InputType['AppBlockScriptDetailsArgs']]] = None,
                  setup_script_details: Optional[pulumi.Input[pulumi.InputType['AppBlockScriptDetailsArgs']]] = None,
                  source_s3_location: Optional[pulumi.Input[pulumi.InputType['AppBlockS3LocationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppBlockTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['Tag0PropertiesArgs'], pulumi.InputType['Tag1PropertiesArgs']]]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -270,6 +270,6 @@ class AppBlock(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.AppBlockTag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence[Any]]]:
         return pulumi.get(self, "tags")
 

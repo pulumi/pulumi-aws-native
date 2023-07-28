@@ -15,9 +15,7 @@ __all__ = [
     'AppBlockBuilderVpcConfigArgs',
     'AppBlockS3LocationArgs',
     'AppBlockScriptDetailsArgs',
-    'AppBlockTagArgs',
     'ApplicationS3LocationArgs',
-    'ApplicationTagArgs',
     'DirectoryConfigCertificateBasedAuthPropertiesArgs',
     'DirectoryConfigServiceAccountCredentialsArgs',
     'EntitlementAttributeArgs',
@@ -36,6 +34,8 @@ __all__ = [
     'StackStreamingExperienceSettingsArgs',
     'StackTagArgs',
     'StackUserSettingArgs',
+    'Tag0PropertiesArgs',
+    'Tag1PropertiesArgs',
 ]
 
 @pulumi.input_type
@@ -200,12 +200,6 @@ class AppBlockScriptDetailsArgs:
 
 
 @pulumi.input_type
-class AppBlockTagArgs:
-    def __init__(__self__):
-        pass
-
-
-@pulumi.input_type
 class ApplicationS3LocationArgs:
     def __init__(__self__, *,
                  s3_bucket: pulumi.Input[str],
@@ -230,12 +224,6 @@ class ApplicationS3LocationArgs:
     @s3_key.setter
     def s3_key(self, value: pulumi.Input[str]):
         pulumi.set(self, "s3_key", value)
-
-
-@pulumi.input_type
-class ApplicationTagArgs:
-    def __init__(__self__):
-        pass
 
 
 @pulumi.input_type
@@ -725,5 +713,59 @@ class StackUserSettingArgs:
     @permission.setter
     def permission(self, value: pulumi.Input[str]):
         pulumi.set(self, "permission", value)
+
+
+@pulumi.input_type
+class Tag0PropertiesArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class Tag1PropertiesArgs:
+    def __init__(__self__, *,
+                 tag_key: pulumi.Input[str],
+                 tag_value: pulumi.Input[str]):
+        pulumi.set(__self__, "tag_key", tag_key)
+        pulumi.set(__self__, "tag_value", tag_value)
+
+    @property
+    @pulumi.getter(name="tagKey")
+    def tag_key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "tag_key")
+
+    @tag_key.setter
+    def tag_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "tag_key", value)
+
+    @property
+    @pulumi.getter(name="tagValue")
+    def tag_value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "tag_value")
+
+    @tag_value.setter
+    def tag_value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "tag_value", value)
 
 

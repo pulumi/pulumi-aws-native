@@ -18,7 +18,7 @@ type Application struct {
 
 	ApplicationArn pulumi.StringOutput         `pulumi:"applicationArn"`
 	ApplicationId  pulumi.StringOutput         `pulumi:"applicationId"`
-	Definition     ApplicationDefinitionOutput `pulumi:"definition"`
+	Definition     pulumi.AnyOutput            `pulumi:"definition"`
 	Description    pulumi.StringPtrOutput      `pulumi:"description"`
 	EngineType     ApplicationEngineTypeOutput `pulumi:"engineType"`
 	// The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting application-related resources.
@@ -74,7 +74,7 @@ func (ApplicationState) ElementType() reflect.Type {
 }
 
 type applicationArgs struct {
-	Definition  ApplicationDefinition `pulumi:"definition"`
+	Definition  interface{}           `pulumi:"definition"`
 	Description *string               `pulumi:"description"`
 	EngineType  ApplicationEngineType `pulumi:"engineType"`
 	// The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting application-related resources.
@@ -86,7 +86,7 @@ type applicationArgs struct {
 
 // The set of arguments for constructing a Application resource.
 type ApplicationArgs struct {
-	Definition  ApplicationDefinitionInput
+	Definition  pulumi.Input
 	Description pulumi.StringPtrInput
 	EngineType  ApplicationEngineTypeInput
 	// The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting application-related resources.
@@ -141,8 +141,8 @@ func (o ApplicationOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
 }
 
-func (o ApplicationOutput) Definition() ApplicationDefinitionOutput {
-	return o.ApplyT(func(v *Application) ApplicationDefinitionOutput { return v.Definition }).(ApplicationDefinitionOutput)
+func (o ApplicationOutput) Definition() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Application) pulumi.AnyOutput { return v.Definition }).(pulumi.AnyOutput)
 }
 
 func (o ApplicationOutput) Description() pulumi.StringPtrOutput {

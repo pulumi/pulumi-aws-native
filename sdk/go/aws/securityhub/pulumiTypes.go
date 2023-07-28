@@ -374,8 +374,8 @@ func (o AutomationRuleMapFilterArrayOutput) Index(i pulumi.IntInput) AutomationR
 }
 
 type AutomationRuleNoteUpdate struct {
-	Text      string                `pulumi:"text"`
-	UpdatedBy AutomationRulearnOrId `pulumi:"updatedBy"`
+	Text      string `pulumi:"text"`
+	UpdatedBy string `pulumi:"updatedBy"`
 }
 
 // AutomationRuleNoteUpdateInput is an input type that accepts AutomationRuleNoteUpdateArgs and AutomationRuleNoteUpdateOutput values.
@@ -390,8 +390,8 @@ type AutomationRuleNoteUpdateInput interface {
 }
 
 type AutomationRuleNoteUpdateArgs struct {
-	Text      pulumi.StringInput         `pulumi:"text"`
-	UpdatedBy AutomationRulearnOrIdInput `pulumi:"updatedBy"`
+	Text      pulumi.StringInput `pulumi:"text"`
+	UpdatedBy pulumi.StringInput `pulumi:"updatedBy"`
 }
 
 func (AutomationRuleNoteUpdateArgs) ElementType() reflect.Type {
@@ -475,8 +475,8 @@ func (o AutomationRuleNoteUpdateOutput) Text() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationRuleNoteUpdate) string { return v.Text }).(pulumi.StringOutput)
 }
 
-func (o AutomationRuleNoteUpdateOutput) UpdatedBy() AutomationRulearnOrIdOutput {
-	return o.ApplyT(func(v AutomationRuleNoteUpdate) AutomationRulearnOrId { return v.UpdatedBy }).(AutomationRulearnOrIdOutput)
+func (o AutomationRuleNoteUpdateOutput) UpdatedBy() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleNoteUpdate) string { return v.UpdatedBy }).(pulumi.StringOutput)
 }
 
 type AutomationRuleNoteUpdatePtrOutput struct{ *pulumi.OutputState }
@@ -512,13 +512,13 @@ func (o AutomationRuleNoteUpdatePtrOutput) Text() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o AutomationRuleNoteUpdatePtrOutput) UpdatedBy() AutomationRulearnOrIdPtrOutput {
-	return o.ApplyT(func(v *AutomationRuleNoteUpdate) *AutomationRulearnOrId {
+func (o AutomationRuleNoteUpdatePtrOutput) UpdatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutomationRuleNoteUpdate) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.UpdatedBy
-	}).(AutomationRulearnOrIdPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 type AutomationRuleNumberFilter struct {
@@ -628,8 +628,8 @@ func (o AutomationRuleNumberFilterArrayOutput) Index(i pulumi.IntInput) Automati
 }
 
 type AutomationRuleRelatedFinding struct {
-	Id         AutomationRulearnOrId `pulumi:"id"`
-	ProductArn string                `pulumi:"productArn"`
+	Id         string `pulumi:"id"`
+	ProductArn string `pulumi:"productArn"`
 }
 
 // AutomationRuleRelatedFindingInput is an input type that accepts AutomationRuleRelatedFindingArgs and AutomationRuleRelatedFindingOutput values.
@@ -644,8 +644,8 @@ type AutomationRuleRelatedFindingInput interface {
 }
 
 type AutomationRuleRelatedFindingArgs struct {
-	Id         AutomationRulearnOrIdInput `pulumi:"id"`
-	ProductArn pulumi.StringInput         `pulumi:"productArn"`
+	Id         pulumi.StringInput `pulumi:"id"`
+	ProductArn pulumi.StringInput `pulumi:"productArn"`
 }
 
 func (AutomationRuleRelatedFindingArgs) ElementType() reflect.Type {
@@ -699,8 +699,8 @@ func (o AutomationRuleRelatedFindingOutput) ToAutomationRuleRelatedFindingOutput
 	return o
 }
 
-func (o AutomationRuleRelatedFindingOutput) Id() AutomationRulearnOrIdOutput {
-	return o.ApplyT(func(v AutomationRuleRelatedFinding) AutomationRulearnOrId { return v.Id }).(AutomationRulearnOrIdOutput)
+func (o AutomationRuleRelatedFindingOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleRelatedFinding) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o AutomationRuleRelatedFindingOutput) ProductArn() pulumi.StringOutput {
@@ -1242,124 +1242,6 @@ func (o AutomationRuleWorkflowUpdatePtrOutput) Status() AutomationRuleWorkflowUp
 		}
 		return &v.Status
 	}).(AutomationRuleWorkflowUpdateStatusPtrOutput)
-}
-
-type AutomationRulearnOrId struct {
-}
-
-// AutomationRulearnOrIdInput is an input type that accepts AutomationRulearnOrIdArgs and AutomationRulearnOrIdOutput values.
-// You can construct a concrete instance of `AutomationRulearnOrIdInput` via:
-//
-//	AutomationRulearnOrIdArgs{...}
-type AutomationRulearnOrIdInput interface {
-	pulumi.Input
-
-	ToAutomationRulearnOrIdOutput() AutomationRulearnOrIdOutput
-	ToAutomationRulearnOrIdOutputWithContext(context.Context) AutomationRulearnOrIdOutput
-}
-
-type AutomationRulearnOrIdArgs struct {
-}
-
-func (AutomationRulearnOrIdArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutomationRulearnOrId)(nil)).Elem()
-}
-
-func (i AutomationRulearnOrIdArgs) ToAutomationRulearnOrIdOutput() AutomationRulearnOrIdOutput {
-	return i.ToAutomationRulearnOrIdOutputWithContext(context.Background())
-}
-
-func (i AutomationRulearnOrIdArgs) ToAutomationRulearnOrIdOutputWithContext(ctx context.Context) AutomationRulearnOrIdOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutomationRulearnOrIdOutput)
-}
-
-func (i AutomationRulearnOrIdArgs) ToAutomationRulearnOrIdPtrOutput() AutomationRulearnOrIdPtrOutput {
-	return i.ToAutomationRulearnOrIdPtrOutputWithContext(context.Background())
-}
-
-func (i AutomationRulearnOrIdArgs) ToAutomationRulearnOrIdPtrOutputWithContext(ctx context.Context) AutomationRulearnOrIdPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutomationRulearnOrIdOutput).ToAutomationRulearnOrIdPtrOutputWithContext(ctx)
-}
-
-// AutomationRulearnOrIdPtrInput is an input type that accepts AutomationRulearnOrIdArgs, AutomationRulearnOrIdPtr and AutomationRulearnOrIdPtrOutput values.
-// You can construct a concrete instance of `AutomationRulearnOrIdPtrInput` via:
-//
-//	        AutomationRulearnOrIdArgs{...}
-//
-//	or:
-//
-//	        nil
-type AutomationRulearnOrIdPtrInput interface {
-	pulumi.Input
-
-	ToAutomationRulearnOrIdPtrOutput() AutomationRulearnOrIdPtrOutput
-	ToAutomationRulearnOrIdPtrOutputWithContext(context.Context) AutomationRulearnOrIdPtrOutput
-}
-
-type automationRulearnOrIdPtrType AutomationRulearnOrIdArgs
-
-func AutomationRulearnOrIdPtr(v *AutomationRulearnOrIdArgs) AutomationRulearnOrIdPtrInput {
-	return (*automationRulearnOrIdPtrType)(v)
-}
-
-func (*automationRulearnOrIdPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AutomationRulearnOrId)(nil)).Elem()
-}
-
-func (i *automationRulearnOrIdPtrType) ToAutomationRulearnOrIdPtrOutput() AutomationRulearnOrIdPtrOutput {
-	return i.ToAutomationRulearnOrIdPtrOutputWithContext(context.Background())
-}
-
-func (i *automationRulearnOrIdPtrType) ToAutomationRulearnOrIdPtrOutputWithContext(ctx context.Context) AutomationRulearnOrIdPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutomationRulearnOrIdPtrOutput)
-}
-
-type AutomationRulearnOrIdOutput struct{ *pulumi.OutputState }
-
-func (AutomationRulearnOrIdOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutomationRulearnOrId)(nil)).Elem()
-}
-
-func (o AutomationRulearnOrIdOutput) ToAutomationRulearnOrIdOutput() AutomationRulearnOrIdOutput {
-	return o
-}
-
-func (o AutomationRulearnOrIdOutput) ToAutomationRulearnOrIdOutputWithContext(ctx context.Context) AutomationRulearnOrIdOutput {
-	return o
-}
-
-func (o AutomationRulearnOrIdOutput) ToAutomationRulearnOrIdPtrOutput() AutomationRulearnOrIdPtrOutput {
-	return o.ToAutomationRulearnOrIdPtrOutputWithContext(context.Background())
-}
-
-func (o AutomationRulearnOrIdOutput) ToAutomationRulearnOrIdPtrOutputWithContext(ctx context.Context) AutomationRulearnOrIdPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutomationRulearnOrId) *AutomationRulearnOrId {
-		return &v
-	}).(AutomationRulearnOrIdPtrOutput)
-}
-
-type AutomationRulearnOrIdPtrOutput struct{ *pulumi.OutputState }
-
-func (AutomationRulearnOrIdPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AutomationRulearnOrId)(nil)).Elem()
-}
-
-func (o AutomationRulearnOrIdPtrOutput) ToAutomationRulearnOrIdPtrOutput() AutomationRulearnOrIdPtrOutput {
-	return o
-}
-
-func (o AutomationRulearnOrIdPtrOutput) ToAutomationRulearnOrIdPtrOutputWithContext(ctx context.Context) AutomationRulearnOrIdPtrOutput {
-	return o
-}
-
-func (o AutomationRulearnOrIdPtrOutput) Elem() AutomationRulearnOrIdOutput {
-	return o.ApplyT(func(v *AutomationRulearnOrId) AutomationRulearnOrId {
-		if v != nil {
-			return *v
-		}
-		var ret AutomationRulearnOrId
-		return ret
-	}).(AutomationRulearnOrIdOutput)
 }
 
 type AutomationRulemap struct {
@@ -2465,8 +2347,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleTagsPtrInput)(nil)).Elem(), AutomationRuleTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleWorkflowUpdateInput)(nil)).Elem(), AutomationRuleWorkflowUpdateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleWorkflowUpdatePtrInput)(nil)).Elem(), AutomationRuleWorkflowUpdateArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRulearnOrIdInput)(nil)).Elem(), AutomationRulearnOrIdArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRulearnOrIdPtrInput)(nil)).Elem(), AutomationRulearnOrIdArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRulemapInput)(nil)).Elem(), AutomationRulemapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRulemapPtrInput)(nil)).Elem(), AutomationRulemapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRulesActionInput)(nil)).Elem(), AutomationRulesActionArgs{})
@@ -2496,8 +2376,6 @@ func init() {
 	pulumi.RegisterOutputType(AutomationRuleTagsPtrOutput{})
 	pulumi.RegisterOutputType(AutomationRuleWorkflowUpdateOutput{})
 	pulumi.RegisterOutputType(AutomationRuleWorkflowUpdatePtrOutput{})
-	pulumi.RegisterOutputType(AutomationRulearnOrIdOutput{})
-	pulumi.RegisterOutputType(AutomationRulearnOrIdPtrOutput{})
 	pulumi.RegisterOutputType(AutomationRulemapOutput{})
 	pulumi.RegisterOutputType(AutomationRulemapPtrOutput{})
 	pulumi.RegisterOutputType(AutomationRulesActionOutput{})

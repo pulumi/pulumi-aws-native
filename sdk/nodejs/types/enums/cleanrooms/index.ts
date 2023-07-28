@@ -16,6 +16,22 @@ export const CollaborationQueryLogStatus = {
 
 export type CollaborationQueryLogStatus = (typeof CollaborationQueryLogStatus)[keyof typeof CollaborationQueryLogStatus];
 
+export const ConfiguredTableAggregateFunctionName = {
+    Sum: "SUM",
+    SumDistinct: "SUM_DISTINCT",
+    Count: "COUNT",
+    CountDistinct: "COUNT_DISTINCT",
+    Avg: "AVG",
+} as const;
+
+export type ConfiguredTableAggregateFunctionName = (typeof ConfiguredTableAggregateFunctionName)[keyof typeof ConfiguredTableAggregateFunctionName];
+
+export const ConfiguredTableAggregationType = {
+    CountDistinct: "COUNT_DISTINCT",
+} as const;
+
+export type ConfiguredTableAggregationType = (typeof ConfiguredTableAggregationType)[keyof typeof ConfiguredTableAggregationType];
+
 export const ConfiguredTableAnalysisMethod = {
     DirectQuery: "DIRECT_QUERY",
 } as const;
@@ -28,6 +44,37 @@ export const ConfiguredTableAnalysisRuleType = {
 } as const;
 
 export type ConfiguredTableAnalysisRuleType = (typeof ConfiguredTableAnalysisRuleType)[keyof typeof ConfiguredTableAnalysisRuleType];
+
+export const ConfiguredTableJoinOperator = {
+    Or: "OR",
+    And: "AND",
+} as const;
+
+export type ConfiguredTableJoinOperator = (typeof ConfiguredTableJoinOperator)[keyof typeof ConfiguredTableJoinOperator];
+
+export const ConfiguredTableJoinRequiredOption = {
+    QueryRunner: "QUERY_RUNNER",
+} as const;
+
+export type ConfiguredTableJoinRequiredOption = (typeof ConfiguredTableJoinRequiredOption)[keyof typeof ConfiguredTableJoinRequiredOption];
+
+export const ConfiguredTableScalarFunctions = {
+    Trunc: "TRUNC",
+    Abs: "ABS",
+    Ceiling: "CEILING",
+    Floor: "FLOOR",
+    Ln: "LN",
+    Log: "LOG",
+    Round: "ROUND",
+    Sqrt: "SQRT",
+    Cast: "CAST",
+    Lower: "LOWER",
+    Rtrim: "RTRIM",
+    Upper: "UPPER",
+    Coalesce: "COALESCE",
+} as const;
+
+export type ConfiguredTableScalarFunctions = (typeof ConfiguredTableScalarFunctions)[keyof typeof ConfiguredTableScalarFunctions];
 
 export const MembershipQueryLogStatus = {
     Enabled: "ENABLED",

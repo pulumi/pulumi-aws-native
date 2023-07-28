@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.Omics
         public Output<Pulumi.AwsNative.Omics.AnnotationStoreStoreFormat> StoreFormat { get; private set; } = null!;
 
         [Output("storeOptions")]
-        public Output<Outputs.AnnotationStoreStoreOptions?> StoreOptions { get; private set; } = null!;
+        public Output<Outputs.StoreOptionsProperties?> StoreOptions { get; private set; } = null!;
 
         [Output("storeSizeBytes")]
         public Output<double> StoreSizeBytes { get; private set; } = null!;
@@ -115,7 +115,7 @@ namespace Pulumi.AwsNative.Omics
         public Input<Pulumi.AwsNative.Omics.AnnotationStoreStoreFormat> StoreFormat { get; set; } = null!;
 
         [Input("storeOptions")]
-        public Input<Inputs.AnnotationStoreStoreOptionsArgs>? StoreOptions { get; set; }
+        public Input<Inputs.StoreOptionsPropertiesArgs>? StoreOptions { get; set; }
 
         [Input("tags")]
         public Input<Inputs.AnnotationStoreTagMapArgs>? Tags { get; set; }

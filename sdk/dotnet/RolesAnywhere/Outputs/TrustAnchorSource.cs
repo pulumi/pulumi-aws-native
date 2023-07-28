@@ -13,12 +13,12 @@ namespace Pulumi.AwsNative.RolesAnywhere.Outputs
     [OutputType]
     public sealed class TrustAnchorSource
     {
-        public readonly Outputs.TrustAnchorSourceData? SourceData;
+        public readonly Union<Outputs.SourceData0Properties, Outputs.SourceData1Properties>? SourceData;
         public readonly Pulumi.AwsNative.RolesAnywhere.TrustAnchorType? SourceType;
 
         [OutputConstructor]
         private TrustAnchorSource(
-            Outputs.TrustAnchorSourceData? sourceData,
+            Union<Outputs.SourceData0Properties, Outputs.SourceData1Properties>? sourceData,
 
             Pulumi.AwsNative.RolesAnywhere.TrustAnchorType? sourceType)
         {

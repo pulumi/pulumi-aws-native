@@ -383,6 +383,22 @@ func (in *collaborationQueryLogStatusPtr) ToCollaborationQueryLogStatusPtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(CollaborationQueryLogStatusPtrOutput)
 }
 
+type ConfiguredTableAggregateFunctionName string
+
+const (
+	ConfiguredTableAggregateFunctionNameSum           = ConfiguredTableAggregateFunctionName("SUM")
+	ConfiguredTableAggregateFunctionNameSumDistinct   = ConfiguredTableAggregateFunctionName("SUM_DISTINCT")
+	ConfiguredTableAggregateFunctionNameCount         = ConfiguredTableAggregateFunctionName("COUNT")
+	ConfiguredTableAggregateFunctionNameCountDistinct = ConfiguredTableAggregateFunctionName("COUNT_DISTINCT")
+	ConfiguredTableAggregateFunctionNameAvg           = ConfiguredTableAggregateFunctionName("AVG")
+)
+
+type ConfiguredTableAggregationType string
+
+const (
+	ConfiguredTableAggregationTypeCountDistinct = ConfiguredTableAggregationType("COUNT_DISTINCT")
+)
+
 type ConfiguredTableAnalysisMethod string
 
 const (
@@ -709,6 +725,37 @@ func (in *configuredTableAnalysisRuleTypePtr) ToConfiguredTableAnalysisRuleTypeP
 func (in *configuredTableAnalysisRuleTypePtr) ToConfiguredTableAnalysisRuleTypePtrOutputWithContext(ctx context.Context) ConfiguredTableAnalysisRuleTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ConfiguredTableAnalysisRuleTypePtrOutput)
 }
+
+type ConfiguredTableJoinOperator string
+
+const (
+	ConfiguredTableJoinOperatorOr  = ConfiguredTableJoinOperator("OR")
+	ConfiguredTableJoinOperatorAnd = ConfiguredTableJoinOperator("AND")
+)
+
+type ConfiguredTableJoinRequiredOption string
+
+const (
+	ConfiguredTableJoinRequiredOptionQueryRunner = ConfiguredTableJoinRequiredOption("QUERY_RUNNER")
+)
+
+type ConfiguredTableScalarFunctions string
+
+const (
+	ConfiguredTableScalarFunctionsTrunc    = ConfiguredTableScalarFunctions("TRUNC")
+	ConfiguredTableScalarFunctionsAbs      = ConfiguredTableScalarFunctions("ABS")
+	ConfiguredTableScalarFunctionsCeiling  = ConfiguredTableScalarFunctions("CEILING")
+	ConfiguredTableScalarFunctionsFloor    = ConfiguredTableScalarFunctions("FLOOR")
+	ConfiguredTableScalarFunctionsLn       = ConfiguredTableScalarFunctions("LN")
+	ConfiguredTableScalarFunctionsLog      = ConfiguredTableScalarFunctions("LOG")
+	ConfiguredTableScalarFunctionsRound    = ConfiguredTableScalarFunctions("ROUND")
+	ConfiguredTableScalarFunctionsSqrt     = ConfiguredTableScalarFunctions("SQRT")
+	ConfiguredTableScalarFunctionsCast     = ConfiguredTableScalarFunctions("CAST")
+	ConfiguredTableScalarFunctionsLower    = ConfiguredTableScalarFunctions("LOWER")
+	ConfiguredTableScalarFunctionsRtrim    = ConfiguredTableScalarFunctions("RTRIM")
+	ConfiguredTableScalarFunctionsUpper    = ConfiguredTableScalarFunctions("UPPER")
+	ConfiguredTableScalarFunctionsCoalesce = ConfiguredTableScalarFunctions("COALESCE")
+)
 
 type MembershipQueryLogStatus string
 

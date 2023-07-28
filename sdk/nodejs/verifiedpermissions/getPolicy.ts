@@ -25,7 +25,7 @@ export interface GetPolicyArgs {
 }
 
 export interface GetPolicyResult {
-    readonly definition?: outputs.verifiedpermissions.PolicyDefinition;
+    readonly definition?: outputs.verifiedpermissions.PolicyDefinition0Properties | outputs.verifiedpermissions.PolicyDefinition1Properties;
     readonly policyId?: string;
     readonly policyType?: enums.verifiedpermissions.PolicyType;
 }

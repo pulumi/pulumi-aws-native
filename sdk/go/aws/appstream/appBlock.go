@@ -25,7 +25,7 @@ type AppBlock struct {
 	PostSetupScriptDetails AppBlockScriptDetailsPtrOutput `pulumi:"postSetupScriptDetails"`
 	SetupScriptDetails     AppBlockScriptDetailsPtrOutput `pulumi:"setupScriptDetails"`
 	SourceS3Location       AppBlockS3LocationOutput       `pulumi:"sourceS3Location"`
-	Tags                   AppBlockTagArrayOutput         `pulumi:"tags"`
+	Tags                   pulumi.ArrayOutput             `pulumi:"tags"`
 }
 
 // NewAppBlock registers a new resource with the given unique name, arguments, and options.
@@ -78,7 +78,7 @@ type appBlockArgs struct {
 	PostSetupScriptDetails *AppBlockScriptDetails `pulumi:"postSetupScriptDetails"`
 	SetupScriptDetails     *AppBlockScriptDetails `pulumi:"setupScriptDetails"`
 	SourceS3Location       AppBlockS3Location     `pulumi:"sourceS3Location"`
-	Tags                   []AppBlockTag          `pulumi:"tags"`
+	Tags                   []interface{}          `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AppBlock resource.
@@ -90,7 +90,7 @@ type AppBlockArgs struct {
 	PostSetupScriptDetails AppBlockScriptDetailsPtrInput
 	SetupScriptDetails     AppBlockScriptDetailsPtrInput
 	SourceS3Location       AppBlockS3LocationInput
-	Tags                   AppBlockTagArrayInput
+	Tags                   pulumi.ArrayInput
 }
 
 func (AppBlockArgs) ElementType() reflect.Type {
@@ -166,8 +166,8 @@ func (o AppBlockOutput) SourceS3Location() AppBlockS3LocationOutput {
 	return o.ApplyT(func(v *AppBlock) AppBlockS3LocationOutput { return v.SourceS3Location }).(AppBlockS3LocationOutput)
 }
 
-func (o AppBlockOutput) Tags() AppBlockTagArrayOutput {
-	return o.ApplyT(func(v *AppBlock) AppBlockTagArrayOutput { return v.Tags }).(AppBlockTagArrayOutput)
+func (o AppBlockOutput) Tags() pulumi.ArrayOutput {
+	return o.ApplyT(func(v *AppBlock) pulumi.ArrayOutput { return v.Tags }).(pulumi.ArrayOutput)
 }
 
 func init() {

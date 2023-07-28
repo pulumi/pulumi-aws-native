@@ -2,6 +2,18 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const AnnotationStoreAnnotationType = {
+    Generic: "GENERIC",
+    ChrPos: "CHR_POS",
+    ChrPosRefAlt: "CHR_POS_REF_ALT",
+    ChrStartEndOneBase: "CHR_START_END_ONE_BASE",
+    ChrStartEndRefAltOneBase: "CHR_START_END_REF_ALT_ONE_BASE",
+    ChrStartEndZeroBase: "CHR_START_END_ZERO_BASE",
+    ChrStartEndRefAltZeroBase: "CHR_START_END_REF_ALT_ZERO_BASE",
+} as const;
+
+export type AnnotationStoreAnnotationType = (typeof AnnotationStoreAnnotationType)[keyof typeof AnnotationStoreAnnotationType];
+
 export const AnnotationStoreEncryptionType = {
     Kms: "KMS",
 } as const;

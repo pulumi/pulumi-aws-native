@@ -13,17 +13,17 @@ namespace Pulumi.AwsNative.AmplifyUIBuilder.Outputs
     [OutputType]
     public sealed class FormStyle
     {
-        public readonly Outputs.FormStyleConfig? HorizontalGap;
-        public readonly Outputs.FormStyleConfig? OuterPadding;
-        public readonly Outputs.FormStyleConfig? VerticalGap;
+        public readonly Union<Outputs.FormStyleConfig0Properties, Outputs.FormStyleConfig1Properties>? HorizontalGap;
+        public readonly Union<Outputs.FormStyleConfig0Properties, Outputs.FormStyleConfig1Properties>? OuterPadding;
+        public readonly Union<Outputs.FormStyleConfig0Properties, Outputs.FormStyleConfig1Properties>? VerticalGap;
 
         [OutputConstructor]
         private FormStyle(
-            Outputs.FormStyleConfig? horizontalGap,
+            Union<Outputs.FormStyleConfig0Properties, Outputs.FormStyleConfig1Properties>? horizontalGap,
 
-            Outputs.FormStyleConfig? outerPadding,
+            Union<Outputs.FormStyleConfig0Properties, Outputs.FormStyleConfig1Properties>? outerPadding,
 
-            Outputs.FormStyleConfig? verticalGap)
+            Union<Outputs.FormStyleConfig0Properties, Outputs.FormStyleConfig1Properties>? verticalGap)
         {
             HorizontalGap = horizontalGap;
             OuterPadding = outerPadding;

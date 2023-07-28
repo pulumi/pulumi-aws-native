@@ -13,49 +13,6 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
-type ApplicationDefinition struct {
-}
-
-// ApplicationDefinitionInput is an input type that accepts ApplicationDefinitionArgs and ApplicationDefinitionOutput values.
-// You can construct a concrete instance of `ApplicationDefinitionInput` via:
-//
-//	ApplicationDefinitionArgs{...}
-type ApplicationDefinitionInput interface {
-	pulumi.Input
-
-	ToApplicationDefinitionOutput() ApplicationDefinitionOutput
-	ToApplicationDefinitionOutputWithContext(context.Context) ApplicationDefinitionOutput
-}
-
-type ApplicationDefinitionArgs struct {
-}
-
-func (ApplicationDefinitionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationDefinition)(nil)).Elem()
-}
-
-func (i ApplicationDefinitionArgs) ToApplicationDefinitionOutput() ApplicationDefinitionOutput {
-	return i.ToApplicationDefinitionOutputWithContext(context.Background())
-}
-
-func (i ApplicationDefinitionArgs) ToApplicationDefinitionOutputWithContext(ctx context.Context) ApplicationDefinitionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDefinitionOutput)
-}
-
-type ApplicationDefinitionOutput struct{ *pulumi.OutputState }
-
-func (ApplicationDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationDefinition)(nil)).Elem()
-}
-
-func (o ApplicationDefinitionOutput) ToApplicationDefinitionOutput() ApplicationDefinitionOutput {
-	return o
-}
-
-func (o ApplicationDefinitionOutput) ToApplicationDefinitionOutputWithContext(ctx context.Context) ApplicationDefinitionOutput {
-	return o
-}
-
 type ApplicationTagMap struct {
 }
 
@@ -172,6 +129,14 @@ func (o ApplicationTagMapPtrOutput) Elem() ApplicationTagMapOutput {
 		var ret ApplicationTagMap
 		return ret
 	}).(ApplicationTagMapOutput)
+}
+
+type Definition0Properties struct {
+	S3Location string `pulumi:"s3Location"`
+}
+
+type Definition1Properties struct {
+	Content string `pulumi:"content"`
 }
 
 // Defines the details of a high availability configuration.
@@ -523,7 +488,6 @@ func (o EnvironmentTagMapPtrOutput) Elem() EnvironmentTagMapOutput {
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationDefinitionInput)(nil)).Elem(), ApplicationDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationTagMapInput)(nil)).Elem(), ApplicationTagMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationTagMapPtrInput)(nil)).Elem(), ApplicationTagMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentHighAvailabilityConfigInput)(nil)).Elem(), EnvironmentHighAvailabilityConfigArgs{})
@@ -532,7 +496,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentStorageConfigurationArrayInput)(nil)).Elem(), EnvironmentStorageConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentTagMapInput)(nil)).Elem(), EnvironmentTagMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentTagMapPtrInput)(nil)).Elem(), EnvironmentTagMapArgs{})
-	pulumi.RegisterOutputType(ApplicationDefinitionOutput{})
 	pulumi.RegisterOutputType(ApplicationTagMapOutput{})
 	pulumi.RegisterOutputType(ApplicationTagMapPtrOutput{})
 	pulumi.RegisterOutputType(EnvironmentHighAvailabilityConfigOutput{})

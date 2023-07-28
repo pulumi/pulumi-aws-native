@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'GetSignalCatalogResult',
@@ -69,7 +70,7 @@ class GetSignalCatalogResult:
 
     @property
     @pulumi.getter
-    def nodes(self) -> Optional[Sequence['outputs.SignalCatalogNode']]:
+    def nodes(self) -> Optional[Sequence[Any]]:
         return pulumi.get(self, "nodes")
 
     @property

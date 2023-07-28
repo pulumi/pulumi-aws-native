@@ -7,8 +7,13 @@ from enum import Enum
 __all__ = [
     'CollaborationMemberAbility',
     'CollaborationQueryLogStatus',
+    'ConfiguredTableAggregateFunctionName',
+    'ConfiguredTableAggregationType',
     'ConfiguredTableAnalysisMethod',
     'ConfiguredTableAnalysisRuleType',
+    'ConfiguredTableJoinOperator',
+    'ConfiguredTableJoinRequiredOption',
+    'ConfiguredTableScalarFunctions',
     'MembershipQueryLogStatus',
 ]
 
@@ -23,6 +28,18 @@ class CollaborationQueryLogStatus(str, Enum):
     DISABLED = "DISABLED"
 
 
+class ConfiguredTableAggregateFunctionName(str, Enum):
+    SUM = "SUM"
+    SUM_DISTINCT = "SUM_DISTINCT"
+    COUNT = "COUNT"
+    COUNT_DISTINCT = "COUNT_DISTINCT"
+    AVG = "AVG"
+
+
+class ConfiguredTableAggregationType(str, Enum):
+    COUNT_DISTINCT = "COUNT_DISTINCT"
+
+
 class ConfiguredTableAnalysisMethod(str, Enum):
     DIRECT_QUERY = "DIRECT_QUERY"
 
@@ -30,6 +47,31 @@ class ConfiguredTableAnalysisMethod(str, Enum):
 class ConfiguredTableAnalysisRuleType(str, Enum):
     AGGREGATION = "AGGREGATION"
     LIST = "LIST"
+
+
+class ConfiguredTableJoinOperator(str, Enum):
+    OR_ = "OR"
+    AND_ = "AND"
+
+
+class ConfiguredTableJoinRequiredOption(str, Enum):
+    QUERY_RUNNER = "QUERY_RUNNER"
+
+
+class ConfiguredTableScalarFunctions(str, Enum):
+    TRUNC = "TRUNC"
+    ABS = "ABS"
+    CEILING = "CEILING"
+    FLOOR = "FLOOR"
+    LN = "LN"
+    LOG = "LOG"
+    ROUND = "ROUND"
+    SQRT = "SQRT"
+    CAST = "CAST"
+    LOWER = "LOWER"
+    RTRIM = "RTRIM"
+    UPPER = "UPPER"
+    COALESCE = "COALESCE"
 
 
 class MembershipQueryLogStatus(str, Enum):

@@ -16,7 +16,7 @@ import (
 type StudioComponent struct {
 	pulumi.CustomResourceState
 
-	Configuration StudioComponentConfigurationPtrOutput `pulumi:"configuration"`
+	Configuration pulumi.AnyOutput `pulumi:"configuration"`
 	// <p>The description.</p>
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// <p>The EC2 security groups that control access to the studio component.</p>
@@ -83,7 +83,7 @@ func (StudioComponentState) ElementType() reflect.Type {
 }
 
 type studioComponentArgs struct {
-	Configuration *StudioComponentConfiguration `pulumi:"configuration"`
+	Configuration interface{} `pulumi:"configuration"`
 	// <p>The description.</p>
 	Description *string `pulumi:"description"`
 	// <p>The EC2 security groups that control access to the studio component.</p>
@@ -105,7 +105,7 @@ type studioComponentArgs struct {
 
 // The set of arguments for constructing a StudioComponent resource.
 type StudioComponentArgs struct {
-	Configuration StudioComponentConfigurationPtrInput
+	Configuration pulumi.Input
 	// <p>The description.</p>
 	Description pulumi.StringPtrInput
 	// <p>The EC2 security groups that control access to the studio component.</p>
@@ -162,8 +162,8 @@ func (o StudioComponentOutput) ToStudioComponentOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o StudioComponentOutput) Configuration() StudioComponentConfigurationPtrOutput {
-	return o.ApplyT(func(v *StudioComponent) StudioComponentConfigurationPtrOutput { return v.Configuration }).(StudioComponentConfigurationPtrOutput)
+func (o StudioComponentOutput) Configuration() pulumi.AnyOutput {
+	return o.ApplyT(func(v *StudioComponent) pulumi.AnyOutput { return v.Configuration }).(pulumi.AnyOutput)
 }
 
 // <p>The description.</p>

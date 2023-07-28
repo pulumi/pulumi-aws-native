@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Pipes.Outputs
     public sealed class PipeSourceRabbitMQBrokerParameters
     {
         public readonly int? BatchSize;
-        public readonly Outputs.PipeMQBrokerAccessCredentials Credentials;
+        public readonly Outputs.MQBrokerAccessCredentialsProperties Credentials;
         public readonly int? MaximumBatchingWindowInSeconds;
         public readonly string QueueName;
         public readonly string? VirtualHost;
@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.Pipes.Outputs
         private PipeSourceRabbitMQBrokerParameters(
             int? batchSize,
 
-            Outputs.PipeMQBrokerAccessCredentials credentials,
+            Outputs.MQBrokerAccessCredentialsProperties credentials,
 
             int? maximumBatchingWindowInSeconds,
 
