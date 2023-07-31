@@ -13,11 +13,16 @@ namespace Pulumi.AwsNative.BillingConductor.Outputs
     [OutputType]
     public sealed class BillingGroupAccountGrouping
     {
+        public readonly bool? AutoAssociate;
         public readonly ImmutableArray<string> LinkedAccountIds;
 
         [OutputConstructor]
-        private BillingGroupAccountGrouping(ImmutableArray<string> linkedAccountIds)
+        private BillingGroupAccountGrouping(
+            bool? autoAssociate,
+
+            ImmutableArray<string> linkedAccountIds)
         {
+            AutoAssociate = autoAssociate;
             LinkedAccountIds = linkedAccountIds;
         }
     }

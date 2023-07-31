@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetBrokerResult:
-    def __init__(__self__, amqp_endpoints=None, arn=None, auto_minor_version_upgrade=None, configuration=None, configuration_id=None, configuration_revision=None, engine_version=None, host_instance_type=None, id=None, ip_addresses=None, ldap_server_metadata=None, logs=None, maintenance_window_start_time=None, mqtt_endpoints=None, open_wire_endpoints=None, security_groups=None, stomp_endpoints=None, tags=None, users=None, wss_endpoints=None):
+    def __init__(__self__, amqp_endpoints=None, arn=None, auto_minor_version_upgrade=None, configuration=None, configuration_id=None, configuration_revision=None, data_replication_mode=None, data_replication_primary_broker_arn=None, engine_version=None, host_instance_type=None, id=None, ip_addresses=None, ldap_server_metadata=None, logs=None, maintenance_window_start_time=None, mqtt_endpoints=None, open_wire_endpoints=None, security_groups=None, stomp_endpoints=None, tags=None, users=None, wss_endpoints=None):
         if amqp_endpoints and not isinstance(amqp_endpoints, list):
             raise TypeError("Expected argument 'amqp_endpoints' to be a list")
         pulumi.set(__self__, "amqp_endpoints", amqp_endpoints)
@@ -38,6 +38,12 @@ class GetBrokerResult:
         if configuration_revision and not isinstance(configuration_revision, int):
             raise TypeError("Expected argument 'configuration_revision' to be a int")
         pulumi.set(__self__, "configuration_revision", configuration_revision)
+        if data_replication_mode and not isinstance(data_replication_mode, str):
+            raise TypeError("Expected argument 'data_replication_mode' to be a str")
+        pulumi.set(__self__, "data_replication_mode", data_replication_mode)
+        if data_replication_primary_broker_arn and not isinstance(data_replication_primary_broker_arn, str):
+            raise TypeError("Expected argument 'data_replication_primary_broker_arn' to be a str")
+        pulumi.set(__self__, "data_replication_primary_broker_arn", data_replication_primary_broker_arn)
         if engine_version and not isinstance(engine_version, str):
             raise TypeError("Expected argument 'engine_version' to be a str")
         pulumi.set(__self__, "engine_version", engine_version)
@@ -110,6 +116,16 @@ class GetBrokerResult:
     @pulumi.getter(name="configurationRevision")
     def configuration_revision(self) -> Optional[int]:
         return pulumi.get(self, "configuration_revision")
+
+    @property
+    @pulumi.getter(name="dataReplicationMode")
+    def data_replication_mode(self) -> Optional[str]:
+        return pulumi.get(self, "data_replication_mode")
+
+    @property
+    @pulumi.getter(name="dataReplicationPrimaryBrokerArn")
+    def data_replication_primary_broker_arn(self) -> Optional[str]:
+        return pulumi.get(self, "data_replication_primary_broker_arn")
 
     @property
     @pulumi.getter(name="engineVersion")
@@ -194,6 +210,8 @@ class AwaitableGetBrokerResult(GetBrokerResult):
             configuration=self.configuration,
             configuration_id=self.configuration_id,
             configuration_revision=self.configuration_revision,
+            data_replication_mode=self.data_replication_mode,
+            data_replication_primary_broker_arn=self.data_replication_primary_broker_arn,
             engine_version=self.engine_version,
             host_instance_type=self.host_instance_type,
             id=self.id,
@@ -227,6 +245,8 @@ def get_broker(id: Optional[str] = None,
         configuration=pulumi.get(__ret__, 'configuration'),
         configuration_id=pulumi.get(__ret__, 'configuration_id'),
         configuration_revision=pulumi.get(__ret__, 'configuration_revision'),
+        data_replication_mode=pulumi.get(__ret__, 'data_replication_mode'),
+        data_replication_primary_broker_arn=pulumi.get(__ret__, 'data_replication_primary_broker_arn'),
         engine_version=pulumi.get(__ret__, 'engine_version'),
         host_instance_type=pulumi.get(__ret__, 'host_instance_type'),
         id=pulumi.get(__ret__, 'id'),

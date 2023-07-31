@@ -621,6 +621,102 @@ namespace Pulumi.AwsNative.SageMaker
     }
 
     /// <summary>
+    /// Indicates SageMaker job type compatibility.
+    /// </summary>
+    [EnumType]
+    public readonly struct ImageVersionJobType : IEquatable<ImageVersionJobType>
+    {
+        private readonly string _value;
+
+        private ImageVersionJobType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ImageVersionJobType Training { get; } = new ImageVersionJobType("TRAINING");
+        public static ImageVersionJobType Inference { get; } = new ImageVersionJobType("INFERENCE");
+        public static ImageVersionJobType NotebookKernel { get; } = new ImageVersionJobType("NOTEBOOK_KERNEL");
+
+        public static bool operator ==(ImageVersionJobType left, ImageVersionJobType right) => left.Equals(right);
+        public static bool operator !=(ImageVersionJobType left, ImageVersionJobType right) => !left.Equals(right);
+
+        public static explicit operator string(ImageVersionJobType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ImageVersionJobType other && Equals(other);
+        public bool Equals(ImageVersionJobType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates CPU or GPU compatibility.
+    /// </summary>
+    [EnumType]
+    public readonly struct ImageVersionProcessor : IEquatable<ImageVersionProcessor>
+    {
+        private readonly string _value;
+
+        private ImageVersionProcessor(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ImageVersionProcessor Cpu { get; } = new ImageVersionProcessor("CPU");
+        public static ImageVersionProcessor Gpu { get; } = new ImageVersionProcessor("GPU");
+
+        public static bool operator ==(ImageVersionProcessor left, ImageVersionProcessor right) => left.Equals(right);
+        public static bool operator !=(ImageVersionProcessor left, ImageVersionProcessor right) => !left.Equals(right);
+
+        public static explicit operator string(ImageVersionProcessor value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ImageVersionProcessor other && Equals(other);
+        public bool Equals(ImageVersionProcessor other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The availability of the image version specified by the maintainer.
+    /// </summary>
+    [EnumType]
+    public readonly struct ImageVersionVendorGuidance : IEquatable<ImageVersionVendorGuidance>
+    {
+        private readonly string _value;
+
+        private ImageVersionVendorGuidance(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ImageVersionVendorGuidance NotProvided { get; } = new ImageVersionVendorGuidance("NOT_PROVIDED");
+        public static ImageVersionVendorGuidance Stable { get; } = new ImageVersionVendorGuidance("STABLE");
+        public static ImageVersionVendorGuidance ToBeArchived { get; } = new ImageVersionVendorGuidance("TO_BE_ARCHIVED");
+        public static ImageVersionVendorGuidance Archived { get; } = new ImageVersionVendorGuidance("ARCHIVED");
+
+        public static bool operator ==(ImageVersionVendorGuidance left, ImageVersionVendorGuidance right) => left.Equals(right);
+        public static bool operator !=(ImageVersionVendorGuidance left, ImageVersionVendorGuidance right) => !left.Equals(right);
+
+        public static explicit operator string(ImageVersionVendorGuidance value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ImageVersionVendorGuidance other && Equals(other);
+        public bool Equals(ImageVersionVendorGuidance other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The desired state of the experiment after starting or stopping operation.
     /// </summary>
     [EnumType]

@@ -26,6 +26,8 @@ class BrokerArgs:
                  authentication_strategy: Optional[pulumi.Input[str]] = None,
                  broker_name: Optional[pulumi.Input[str]] = None,
                  configuration: Optional[pulumi.Input['BrokerConfigurationIdArgs']] = None,
+                 data_replication_mode: Optional[pulumi.Input[str]] = None,
+                 data_replication_primary_broker_arn: Optional[pulumi.Input[str]] = None,
                  encryption_options: Optional[pulumi.Input['BrokerEncryptionOptionsArgs']] = None,
                  ldap_server_metadata: Optional[pulumi.Input['BrokerLdapServerMetadataArgs']] = None,
                  logs: Optional[pulumi.Input['BrokerLogListArgs']] = None,
@@ -50,6 +52,10 @@ class BrokerArgs:
             pulumi.set(__self__, "broker_name", broker_name)
         if configuration is not None:
             pulumi.set(__self__, "configuration", configuration)
+        if data_replication_mode is not None:
+            pulumi.set(__self__, "data_replication_mode", data_replication_mode)
+        if data_replication_primary_broker_arn is not None:
+            pulumi.set(__self__, "data_replication_primary_broker_arn", data_replication_primary_broker_arn)
         if encryption_options is not None:
             pulumi.set(__self__, "encryption_options", encryption_options)
         if ldap_server_metadata is not None:
@@ -158,6 +164,24 @@ class BrokerArgs:
         pulumi.set(self, "configuration", value)
 
     @property
+    @pulumi.getter(name="dataReplicationMode")
+    def data_replication_mode(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "data_replication_mode")
+
+    @data_replication_mode.setter
+    def data_replication_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_replication_mode", value)
+
+    @property
+    @pulumi.getter(name="dataReplicationPrimaryBrokerArn")
+    def data_replication_primary_broker_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "data_replication_primary_broker_arn")
+
+    @data_replication_primary_broker_arn.setter
+    def data_replication_primary_broker_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_replication_primary_broker_arn", value)
+
+    @property
     @pulumi.getter(name="encryptionOptions")
     def encryption_options(self) -> Optional[pulumi.Input['BrokerEncryptionOptionsArgs']]:
         return pulumi.get(self, "encryption_options")
@@ -244,6 +268,8 @@ class Broker(pulumi.CustomResource):
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  broker_name: Optional[pulumi.Input[str]] = None,
                  configuration: Optional[pulumi.Input[pulumi.InputType['BrokerConfigurationIdArgs']]] = None,
+                 data_replication_mode: Optional[pulumi.Input[str]] = None,
+                 data_replication_primary_broker_arn: Optional[pulumi.Input[str]] = None,
                  deployment_mode: Optional[pulumi.Input[str]] = None,
                  encryption_options: Optional[pulumi.Input[pulumi.InputType['BrokerEncryptionOptionsArgs']]] = None,
                  engine_type: Optional[pulumi.Input[str]] = None,
@@ -293,6 +319,8 @@ class Broker(pulumi.CustomResource):
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  broker_name: Optional[pulumi.Input[str]] = None,
                  configuration: Optional[pulumi.Input[pulumi.InputType['BrokerConfigurationIdArgs']]] = None,
+                 data_replication_mode: Optional[pulumi.Input[str]] = None,
+                 data_replication_primary_broker_arn: Optional[pulumi.Input[str]] = None,
                  deployment_mode: Optional[pulumi.Input[str]] = None,
                  encryption_options: Optional[pulumi.Input[pulumi.InputType['BrokerEncryptionOptionsArgs']]] = None,
                  engine_type: Optional[pulumi.Input[str]] = None,
@@ -323,6 +351,8 @@ class Broker(pulumi.CustomResource):
             __props__.__dict__["auto_minor_version_upgrade"] = auto_minor_version_upgrade
             __props__.__dict__["broker_name"] = broker_name
             __props__.__dict__["configuration"] = configuration
+            __props__.__dict__["data_replication_mode"] = data_replication_mode
+            __props__.__dict__["data_replication_primary_broker_arn"] = data_replication_primary_broker_arn
             if deployment_mode is None and not opts.urn:
                 raise TypeError("Missing required property 'deployment_mode'")
             __props__.__dict__["deployment_mode"] = deployment_mode
@@ -388,6 +418,8 @@ class Broker(pulumi.CustomResource):
         __props__.__dict__["configuration"] = None
         __props__.__dict__["configuration_id"] = None
         __props__.__dict__["configuration_revision"] = None
+        __props__.__dict__["data_replication_mode"] = None
+        __props__.__dict__["data_replication_primary_broker_arn"] = None
         __props__.__dict__["deployment_mode"] = None
         __props__.__dict__["encryption_options"] = None
         __props__.__dict__["engine_type"] = None
@@ -448,6 +480,16 @@ class Broker(pulumi.CustomResource):
     @pulumi.getter(name="configurationRevision")
     def configuration_revision(self) -> pulumi.Output[int]:
         return pulumi.get(self, "configuration_revision")
+
+    @property
+    @pulumi.getter(name="dataReplicationMode")
+    def data_replication_mode(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "data_replication_mode")
+
+    @property
+    @pulumi.getter(name="dataReplicationPrimaryBrokerArn")
+    def data_replication_primary_broker_arn(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "data_replication_primary_broker_arn")
 
     @property
     @pulumi.getter(name="deploymentMode")

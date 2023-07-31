@@ -122,10 +122,154 @@ func (o AggregationAuthorizationTagArrayOutput) Index(i pulumi.IntInput) Aggrega
 	}).(AggregationAuthorizationTagOutput)
 }
 
+// Compliance details of the Config rule
+type ComplianceProperties struct {
+	// Compliance type determined by the Config rule
+	Type *string `pulumi:"type"`
+}
+
+// CompliancePropertiesInput is an input type that accepts CompliancePropertiesArgs and CompliancePropertiesOutput values.
+// You can construct a concrete instance of `CompliancePropertiesInput` via:
+//
+//	CompliancePropertiesArgs{...}
+type CompliancePropertiesInput interface {
+	pulumi.Input
+
+	ToCompliancePropertiesOutput() CompliancePropertiesOutput
+	ToCompliancePropertiesOutputWithContext(context.Context) CompliancePropertiesOutput
+}
+
+// Compliance details of the Config rule
+type CompliancePropertiesArgs struct {
+	// Compliance type determined by the Config rule
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (CompliancePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComplianceProperties)(nil)).Elem()
+}
+
+func (i CompliancePropertiesArgs) ToCompliancePropertiesOutput() CompliancePropertiesOutput {
+	return i.ToCompliancePropertiesOutputWithContext(context.Background())
+}
+
+func (i CompliancePropertiesArgs) ToCompliancePropertiesOutputWithContext(ctx context.Context) CompliancePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CompliancePropertiesOutput)
+}
+
+func (i CompliancePropertiesArgs) ToCompliancePropertiesPtrOutput() CompliancePropertiesPtrOutput {
+	return i.ToCompliancePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i CompliancePropertiesArgs) ToCompliancePropertiesPtrOutputWithContext(ctx context.Context) CompliancePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CompliancePropertiesOutput).ToCompliancePropertiesPtrOutputWithContext(ctx)
+}
+
+// CompliancePropertiesPtrInput is an input type that accepts CompliancePropertiesArgs, CompliancePropertiesPtr and CompliancePropertiesPtrOutput values.
+// You can construct a concrete instance of `CompliancePropertiesPtrInput` via:
+//
+//	        CompliancePropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type CompliancePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToCompliancePropertiesPtrOutput() CompliancePropertiesPtrOutput
+	ToCompliancePropertiesPtrOutputWithContext(context.Context) CompliancePropertiesPtrOutput
+}
+
+type compliancePropertiesPtrType CompliancePropertiesArgs
+
+func CompliancePropertiesPtr(v *CompliancePropertiesArgs) CompliancePropertiesPtrInput {
+	return (*compliancePropertiesPtrType)(v)
+}
+
+func (*compliancePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComplianceProperties)(nil)).Elem()
+}
+
+func (i *compliancePropertiesPtrType) ToCompliancePropertiesPtrOutput() CompliancePropertiesPtrOutput {
+	return i.ToCompliancePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *compliancePropertiesPtrType) ToCompliancePropertiesPtrOutputWithContext(ctx context.Context) CompliancePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CompliancePropertiesPtrOutput)
+}
+
+// Compliance details of the Config rule
+type CompliancePropertiesOutput struct{ *pulumi.OutputState }
+
+func (CompliancePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComplianceProperties)(nil)).Elem()
+}
+
+func (o CompliancePropertiesOutput) ToCompliancePropertiesOutput() CompliancePropertiesOutput {
+	return o
+}
+
+func (o CompliancePropertiesOutput) ToCompliancePropertiesOutputWithContext(ctx context.Context) CompliancePropertiesOutput {
+	return o
+}
+
+func (o CompliancePropertiesOutput) ToCompliancePropertiesPtrOutput() CompliancePropertiesPtrOutput {
+	return o.ToCompliancePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o CompliancePropertiesOutput) ToCompliancePropertiesPtrOutputWithContext(ctx context.Context) CompliancePropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComplianceProperties) *ComplianceProperties {
+		return &v
+	}).(CompliancePropertiesPtrOutput)
+}
+
+// Compliance type determined by the Config rule
+func (o CompliancePropertiesOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComplianceProperties) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type CompliancePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (CompliancePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComplianceProperties)(nil)).Elem()
+}
+
+func (o CompliancePropertiesPtrOutput) ToCompliancePropertiesPtrOutput() CompliancePropertiesPtrOutput {
+	return o
+}
+
+func (o CompliancePropertiesPtrOutput) ToCompliancePropertiesPtrOutputWithContext(ctx context.Context) CompliancePropertiesPtrOutput {
+	return o
+}
+
+func (o CompliancePropertiesPtrOutput) Elem() CompliancePropertiesOutput {
+	return o.ApplyT(func(v *ComplianceProperties) ComplianceProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ComplianceProperties
+		return ret
+	}).(CompliancePropertiesOutput)
+}
+
+// Compliance type determined by the Config rule
+func (o CompliancePropertiesPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComplianceProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Custom policy details when rule is custom owned
 type ConfigRuleCustomPolicyDetails struct {
-	EnableDebugLogDelivery *bool   `pulumi:"enableDebugLogDelivery"`
-	PolicyRuntime          *string `pulumi:"policyRuntime"`
-	PolicyText             *string `pulumi:"policyText"`
+	// Logging toggle for custom policy rule
+	EnableDebugLogDelivery *bool `pulumi:"enableDebugLogDelivery"`
+	// Runtime system for custom policy rule
+	PolicyRuntime *string `pulumi:"policyRuntime"`
+	// Policy definition containing logic for custom policy rule
+	PolicyText *string `pulumi:"policyText"`
 }
 
 // ConfigRuleCustomPolicyDetailsInput is an input type that accepts ConfigRuleCustomPolicyDetailsArgs and ConfigRuleCustomPolicyDetailsOutput values.
@@ -139,10 +283,14 @@ type ConfigRuleCustomPolicyDetailsInput interface {
 	ToConfigRuleCustomPolicyDetailsOutputWithContext(context.Context) ConfigRuleCustomPolicyDetailsOutput
 }
 
+// Custom policy details when rule is custom owned
 type ConfigRuleCustomPolicyDetailsArgs struct {
-	EnableDebugLogDelivery pulumi.BoolPtrInput   `pulumi:"enableDebugLogDelivery"`
-	PolicyRuntime          pulumi.StringPtrInput `pulumi:"policyRuntime"`
-	PolicyText             pulumi.StringPtrInput `pulumi:"policyText"`
+	// Logging toggle for custom policy rule
+	EnableDebugLogDelivery pulumi.BoolPtrInput `pulumi:"enableDebugLogDelivery"`
+	// Runtime system for custom policy rule
+	PolicyRuntime pulumi.StringPtrInput `pulumi:"policyRuntime"`
+	// Policy definition containing logic for custom policy rule
+	PolicyText pulumi.StringPtrInput `pulumi:"policyText"`
 }
 
 func (ConfigRuleCustomPolicyDetailsArgs) ElementType() reflect.Type {
@@ -198,6 +346,7 @@ func (i *configRuleCustomPolicyDetailsPtrType) ToConfigRuleCustomPolicyDetailsPt
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigRuleCustomPolicyDetailsPtrOutput)
 }
 
+// Custom policy details when rule is custom owned
 type ConfigRuleCustomPolicyDetailsOutput struct{ *pulumi.OutputState }
 
 func (ConfigRuleCustomPolicyDetailsOutput) ElementType() reflect.Type {
@@ -222,14 +371,17 @@ func (o ConfigRuleCustomPolicyDetailsOutput) ToConfigRuleCustomPolicyDetailsPtrO
 	}).(ConfigRuleCustomPolicyDetailsPtrOutput)
 }
 
+// Logging toggle for custom policy rule
 func (o ConfigRuleCustomPolicyDetailsOutput) EnableDebugLogDelivery() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ConfigRuleCustomPolicyDetails) *bool { return v.EnableDebugLogDelivery }).(pulumi.BoolPtrOutput)
 }
 
+// Runtime system for custom policy rule
 func (o ConfigRuleCustomPolicyDetailsOutput) PolicyRuntime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigRuleCustomPolicyDetails) *string { return v.PolicyRuntime }).(pulumi.StringPtrOutput)
 }
 
+// Policy definition containing logic for custom policy rule
 func (o ConfigRuleCustomPolicyDetailsOutput) PolicyText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigRuleCustomPolicyDetails) *string { return v.PolicyText }).(pulumi.StringPtrOutput)
 }
@@ -258,6 +410,7 @@ func (o ConfigRuleCustomPolicyDetailsPtrOutput) Elem() ConfigRuleCustomPolicyDet
 	}).(ConfigRuleCustomPolicyDetailsOutput)
 }
 
+// Logging toggle for custom policy rule
 func (o ConfigRuleCustomPolicyDetailsPtrOutput) EnableDebugLogDelivery() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ConfigRuleCustomPolicyDetails) *bool {
 		if v == nil {
@@ -267,6 +420,7 @@ func (o ConfigRuleCustomPolicyDetailsPtrOutput) EnableDebugLogDelivery() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Runtime system for custom policy rule
 func (o ConfigRuleCustomPolicyDetailsPtrOutput) PolicyRuntime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigRuleCustomPolicyDetails) *string {
 		if v == nil {
@@ -276,6 +430,7 @@ func (o ConfigRuleCustomPolicyDetailsPtrOutput) PolicyRuntime() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// Policy definition containing logic for custom policy rule
 func (o ConfigRuleCustomPolicyDetailsPtrOutput) PolicyText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigRuleCustomPolicyDetails) *string {
 		if v == nil {
@@ -285,11 +440,116 @@ func (o ConfigRuleCustomPolicyDetailsPtrOutput) PolicyText() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// Evaluation mode for the AWS Config rule
+type ConfigRuleEvaluationModeConfiguration struct {
+	// Mode of evaluation of AWS Config rule
+	Mode *string `pulumi:"mode"`
+}
+
+// ConfigRuleEvaluationModeConfigurationInput is an input type that accepts ConfigRuleEvaluationModeConfigurationArgs and ConfigRuleEvaluationModeConfigurationOutput values.
+// You can construct a concrete instance of `ConfigRuleEvaluationModeConfigurationInput` via:
+//
+//	ConfigRuleEvaluationModeConfigurationArgs{...}
+type ConfigRuleEvaluationModeConfigurationInput interface {
+	pulumi.Input
+
+	ToConfigRuleEvaluationModeConfigurationOutput() ConfigRuleEvaluationModeConfigurationOutput
+	ToConfigRuleEvaluationModeConfigurationOutputWithContext(context.Context) ConfigRuleEvaluationModeConfigurationOutput
+}
+
+// Evaluation mode for the AWS Config rule
+type ConfigRuleEvaluationModeConfigurationArgs struct {
+	// Mode of evaluation of AWS Config rule
+	Mode pulumi.StringPtrInput `pulumi:"mode"`
+}
+
+func (ConfigRuleEvaluationModeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigRuleEvaluationModeConfiguration)(nil)).Elem()
+}
+
+func (i ConfigRuleEvaluationModeConfigurationArgs) ToConfigRuleEvaluationModeConfigurationOutput() ConfigRuleEvaluationModeConfigurationOutput {
+	return i.ToConfigRuleEvaluationModeConfigurationOutputWithContext(context.Background())
+}
+
+func (i ConfigRuleEvaluationModeConfigurationArgs) ToConfigRuleEvaluationModeConfigurationOutputWithContext(ctx context.Context) ConfigRuleEvaluationModeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigRuleEvaluationModeConfigurationOutput)
+}
+
+// ConfigRuleEvaluationModeConfigurationArrayInput is an input type that accepts ConfigRuleEvaluationModeConfigurationArray and ConfigRuleEvaluationModeConfigurationArrayOutput values.
+// You can construct a concrete instance of `ConfigRuleEvaluationModeConfigurationArrayInput` via:
+//
+//	ConfigRuleEvaluationModeConfigurationArray{ ConfigRuleEvaluationModeConfigurationArgs{...} }
+type ConfigRuleEvaluationModeConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToConfigRuleEvaluationModeConfigurationArrayOutput() ConfigRuleEvaluationModeConfigurationArrayOutput
+	ToConfigRuleEvaluationModeConfigurationArrayOutputWithContext(context.Context) ConfigRuleEvaluationModeConfigurationArrayOutput
+}
+
+type ConfigRuleEvaluationModeConfigurationArray []ConfigRuleEvaluationModeConfigurationInput
+
+func (ConfigRuleEvaluationModeConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfigRuleEvaluationModeConfiguration)(nil)).Elem()
+}
+
+func (i ConfigRuleEvaluationModeConfigurationArray) ToConfigRuleEvaluationModeConfigurationArrayOutput() ConfigRuleEvaluationModeConfigurationArrayOutput {
+	return i.ToConfigRuleEvaluationModeConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i ConfigRuleEvaluationModeConfigurationArray) ToConfigRuleEvaluationModeConfigurationArrayOutputWithContext(ctx context.Context) ConfigRuleEvaluationModeConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigRuleEvaluationModeConfigurationArrayOutput)
+}
+
+// Evaluation mode for the AWS Config rule
+type ConfigRuleEvaluationModeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ConfigRuleEvaluationModeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigRuleEvaluationModeConfiguration)(nil)).Elem()
+}
+
+func (o ConfigRuleEvaluationModeConfigurationOutput) ToConfigRuleEvaluationModeConfigurationOutput() ConfigRuleEvaluationModeConfigurationOutput {
+	return o
+}
+
+func (o ConfigRuleEvaluationModeConfigurationOutput) ToConfigRuleEvaluationModeConfigurationOutputWithContext(ctx context.Context) ConfigRuleEvaluationModeConfigurationOutput {
+	return o
+}
+
+// Mode of evaluation of AWS Config rule
+func (o ConfigRuleEvaluationModeConfigurationOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigRuleEvaluationModeConfiguration) *string { return v.Mode }).(pulumi.StringPtrOutput)
+}
+
+type ConfigRuleEvaluationModeConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (ConfigRuleEvaluationModeConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfigRuleEvaluationModeConfiguration)(nil)).Elem()
+}
+
+func (o ConfigRuleEvaluationModeConfigurationArrayOutput) ToConfigRuleEvaluationModeConfigurationArrayOutput() ConfigRuleEvaluationModeConfigurationArrayOutput {
+	return o
+}
+
+func (o ConfigRuleEvaluationModeConfigurationArrayOutput) ToConfigRuleEvaluationModeConfigurationArrayOutputWithContext(ctx context.Context) ConfigRuleEvaluationModeConfigurationArrayOutput {
+	return o
+}
+
+func (o ConfigRuleEvaluationModeConfigurationArrayOutput) Index(i pulumi.IntInput) ConfigRuleEvaluationModeConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfigRuleEvaluationModeConfiguration {
+		return vs[0].([]ConfigRuleEvaluationModeConfiguration)[vs[1].(int)]
+	}).(ConfigRuleEvaluationModeConfigurationOutput)
+}
+
+// Scope to constrain which resources can trigger the rule
 type ConfigRuleScope struct {
-	ComplianceResourceId    *string  `pulumi:"complianceResourceId"`
+	// ID of the only one resource which we want to trigger the rule
+	ComplianceResourceId *string `pulumi:"complianceResourceId"`
+	// Resource types of resources which we want to trigger the rule
 	ComplianceResourceTypes []string `pulumi:"complianceResourceTypes"`
-	TagKey                  *string  `pulumi:"tagKey"`
-	TagValue                *string  `pulumi:"tagValue"`
+	// Tag key applied only to resources which we want to trigger the rule
+	TagKey *string `pulumi:"tagKey"`
+	// Tag value applied only to resources which we want to trigger the rule
+	TagValue *string `pulumi:"tagValue"`
 }
 
 // ConfigRuleScopeInput is an input type that accepts ConfigRuleScopeArgs and ConfigRuleScopeOutput values.
@@ -303,11 +563,16 @@ type ConfigRuleScopeInput interface {
 	ToConfigRuleScopeOutputWithContext(context.Context) ConfigRuleScopeOutput
 }
 
+// Scope to constrain which resources can trigger the rule
 type ConfigRuleScopeArgs struct {
-	ComplianceResourceId    pulumi.StringPtrInput   `pulumi:"complianceResourceId"`
+	// ID of the only one resource which we want to trigger the rule
+	ComplianceResourceId pulumi.StringPtrInput `pulumi:"complianceResourceId"`
+	// Resource types of resources which we want to trigger the rule
 	ComplianceResourceTypes pulumi.StringArrayInput `pulumi:"complianceResourceTypes"`
-	TagKey                  pulumi.StringPtrInput   `pulumi:"tagKey"`
-	TagValue                pulumi.StringPtrInput   `pulumi:"tagValue"`
+	// Tag key applied only to resources which we want to trigger the rule
+	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
+	// Tag value applied only to resources which we want to trigger the rule
+	TagValue pulumi.StringPtrInput `pulumi:"tagValue"`
 }
 
 func (ConfigRuleScopeArgs) ElementType() reflect.Type {
@@ -363,6 +628,7 @@ func (i *configRuleScopePtrType) ToConfigRuleScopePtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigRuleScopePtrOutput)
 }
 
+// Scope to constrain which resources can trigger the rule
 type ConfigRuleScopeOutput struct{ *pulumi.OutputState }
 
 func (ConfigRuleScopeOutput) ElementType() reflect.Type {
@@ -387,18 +653,22 @@ func (o ConfigRuleScopeOutput) ToConfigRuleScopePtrOutputWithContext(ctx context
 	}).(ConfigRuleScopePtrOutput)
 }
 
+// ID of the only one resource which we want to trigger the rule
 func (o ConfigRuleScopeOutput) ComplianceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigRuleScope) *string { return v.ComplianceResourceId }).(pulumi.StringPtrOutput)
 }
 
+// Resource types of resources which we want to trigger the rule
 func (o ConfigRuleScopeOutput) ComplianceResourceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ConfigRuleScope) []string { return v.ComplianceResourceTypes }).(pulumi.StringArrayOutput)
 }
 
+// Tag key applied only to resources which we want to trigger the rule
 func (o ConfigRuleScopeOutput) TagKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigRuleScope) *string { return v.TagKey }).(pulumi.StringPtrOutput)
 }
 
+// Tag value applied only to resources which we want to trigger the rule
 func (o ConfigRuleScopeOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigRuleScope) *string { return v.TagValue }).(pulumi.StringPtrOutput)
 }
@@ -427,6 +697,7 @@ func (o ConfigRuleScopePtrOutput) Elem() ConfigRuleScopeOutput {
 	}).(ConfigRuleScopeOutput)
 }
 
+// ID of the only one resource which we want to trigger the rule
 func (o ConfigRuleScopePtrOutput) ComplianceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigRuleScope) *string {
 		if v == nil {
@@ -436,6 +707,7 @@ func (o ConfigRuleScopePtrOutput) ComplianceResourceId() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// Resource types of resources which we want to trigger the rule
 func (o ConfigRuleScopePtrOutput) ComplianceResourceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ConfigRuleScope) []string {
 		if v == nil {
@@ -445,6 +717,7 @@ func (o ConfigRuleScopePtrOutput) ComplianceResourceTypes() pulumi.StringArrayOu
 	}).(pulumi.StringArrayOutput)
 }
 
+// Tag key applied only to resources which we want to trigger the rule
 func (o ConfigRuleScopePtrOutput) TagKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigRuleScope) *string {
 		if v == nil {
@@ -454,6 +727,7 @@ func (o ConfigRuleScopePtrOutput) TagKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Tag value applied only to resources which we want to trigger the rule
 func (o ConfigRuleScopePtrOutput) TagValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigRuleScope) *string {
 		if v == nil {
@@ -463,11 +737,16 @@ func (o ConfigRuleScopePtrOutput) TagValue() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Source of events for the config rule
 type ConfigRuleSource struct {
+	// Custom policy details when rule is custom owned
 	CustomPolicyDetails *ConfigRuleCustomPolicyDetails `pulumi:"customPolicyDetails"`
-	Owner               string                         `pulumi:"owner"`
-	SourceDetails       []ConfigRuleSourceDetail       `pulumi:"sourceDetails"`
-	SourceIdentifier    *string                        `pulumi:"sourceIdentifier"`
+	// Owner of the config rule
+	Owner string `pulumi:"owner"`
+	// List of message types that can trigger the rule
+	SourceDetails []ConfigRuleSourceDetail `pulumi:"sourceDetails"`
+	// Identifier for the source of events
+	SourceIdentifier *string `pulumi:"sourceIdentifier"`
 }
 
 // ConfigRuleSourceInput is an input type that accepts ConfigRuleSourceArgs and ConfigRuleSourceOutput values.
@@ -481,11 +760,16 @@ type ConfigRuleSourceInput interface {
 	ToConfigRuleSourceOutputWithContext(context.Context) ConfigRuleSourceOutput
 }
 
+// Source of events for the config rule
 type ConfigRuleSourceArgs struct {
+	// Custom policy details when rule is custom owned
 	CustomPolicyDetails ConfigRuleCustomPolicyDetailsPtrInput `pulumi:"customPolicyDetails"`
-	Owner               pulumi.StringInput                    `pulumi:"owner"`
-	SourceDetails       ConfigRuleSourceDetailArrayInput      `pulumi:"sourceDetails"`
-	SourceIdentifier    pulumi.StringPtrInput                 `pulumi:"sourceIdentifier"`
+	// Owner of the config rule
+	Owner pulumi.StringInput `pulumi:"owner"`
+	// List of message types that can trigger the rule
+	SourceDetails ConfigRuleSourceDetailArrayInput `pulumi:"sourceDetails"`
+	// Identifier for the source of events
+	SourceIdentifier pulumi.StringPtrInput `pulumi:"sourceIdentifier"`
 }
 
 func (ConfigRuleSourceArgs) ElementType() reflect.Type {
@@ -500,6 +784,7 @@ func (i ConfigRuleSourceArgs) ToConfigRuleSourceOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigRuleSourceOutput)
 }
 
+// Source of events for the config rule
 type ConfigRuleSourceOutput struct{ *pulumi.OutputState }
 
 func (ConfigRuleSourceOutput) ElementType() reflect.Type {
@@ -514,18 +799,22 @@ func (o ConfigRuleSourceOutput) ToConfigRuleSourceOutputWithContext(ctx context.
 	return o
 }
 
+// Custom policy details when rule is custom owned
 func (o ConfigRuleSourceOutput) CustomPolicyDetails() ConfigRuleCustomPolicyDetailsPtrOutput {
 	return o.ApplyT(func(v ConfigRuleSource) *ConfigRuleCustomPolicyDetails { return v.CustomPolicyDetails }).(ConfigRuleCustomPolicyDetailsPtrOutput)
 }
 
+// Owner of the config rule
 func (o ConfigRuleSourceOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigRuleSource) string { return v.Owner }).(pulumi.StringOutput)
 }
 
+// List of message types that can trigger the rule
 func (o ConfigRuleSourceOutput) SourceDetails() ConfigRuleSourceDetailArrayOutput {
 	return o.ApplyT(func(v ConfigRuleSource) []ConfigRuleSourceDetail { return v.SourceDetails }).(ConfigRuleSourceDetailArrayOutput)
 }
 
+// Identifier for the source of events
 func (o ConfigRuleSourceOutput) SourceIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigRuleSource) *string { return v.SourceIdentifier }).(pulumi.StringPtrOutput)
 }
@@ -554,6 +843,7 @@ func (o ConfigRuleSourcePtrOutput) Elem() ConfigRuleSourceOutput {
 	}).(ConfigRuleSourceOutput)
 }
 
+// Custom policy details when rule is custom owned
 func (o ConfigRuleSourcePtrOutput) CustomPolicyDetails() ConfigRuleCustomPolicyDetailsPtrOutput {
 	return o.ApplyT(func(v *ConfigRuleSource) *ConfigRuleCustomPolicyDetails {
 		if v == nil {
@@ -563,6 +853,7 @@ func (o ConfigRuleSourcePtrOutput) CustomPolicyDetails() ConfigRuleCustomPolicyD
 	}).(ConfigRuleCustomPolicyDetailsPtrOutput)
 }
 
+// Owner of the config rule
 func (o ConfigRuleSourcePtrOutput) Owner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigRuleSource) *string {
 		if v == nil {
@@ -572,6 +863,7 @@ func (o ConfigRuleSourcePtrOutput) Owner() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// List of message types that can trigger the rule
 func (o ConfigRuleSourcePtrOutput) SourceDetails() ConfigRuleSourceDetailArrayOutput {
 	return o.ApplyT(func(v *ConfigRuleSource) []ConfigRuleSourceDetail {
 		if v == nil {
@@ -581,6 +873,7 @@ func (o ConfigRuleSourcePtrOutput) SourceDetails() ConfigRuleSourceDetailArrayOu
 	}).(ConfigRuleSourceDetailArrayOutput)
 }
 
+// Identifier for the source of events
 func (o ConfigRuleSourcePtrOutput) SourceIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigRuleSource) *string {
 		if v == nil {
@@ -590,10 +883,14 @@ func (o ConfigRuleSourcePtrOutput) SourceIdentifier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Source and message type that can trigger the rule
 type ConfigRuleSourceDetail struct {
-	EventSource               string  `pulumi:"eventSource"`
+	// Source of event that can trigger the rule
+	EventSource string `pulumi:"eventSource"`
+	// Frequency at which the rule has to be evaluated
 	MaximumExecutionFrequency *string `pulumi:"maximumExecutionFrequency"`
-	MessageType               string  `pulumi:"messageType"`
+	// Notification type that can trigger the rule
+	MessageType string `pulumi:"messageType"`
 }
 
 // ConfigRuleSourceDetailInput is an input type that accepts ConfigRuleSourceDetailArgs and ConfigRuleSourceDetailOutput values.
@@ -607,10 +904,14 @@ type ConfigRuleSourceDetailInput interface {
 	ToConfigRuleSourceDetailOutputWithContext(context.Context) ConfigRuleSourceDetailOutput
 }
 
+// Source and message type that can trigger the rule
 type ConfigRuleSourceDetailArgs struct {
-	EventSource               pulumi.StringInput    `pulumi:"eventSource"`
+	// Source of event that can trigger the rule
+	EventSource pulumi.StringInput `pulumi:"eventSource"`
+	// Frequency at which the rule has to be evaluated
 	MaximumExecutionFrequency pulumi.StringPtrInput `pulumi:"maximumExecutionFrequency"`
-	MessageType               pulumi.StringInput    `pulumi:"messageType"`
+	// Notification type that can trigger the rule
+	MessageType pulumi.StringInput `pulumi:"messageType"`
 }
 
 func (ConfigRuleSourceDetailArgs) ElementType() reflect.Type {
@@ -650,6 +951,7 @@ func (i ConfigRuleSourceDetailArray) ToConfigRuleSourceDetailArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigRuleSourceDetailArrayOutput)
 }
 
+// Source and message type that can trigger the rule
 type ConfigRuleSourceDetailOutput struct{ *pulumi.OutputState }
 
 func (ConfigRuleSourceDetailOutput) ElementType() reflect.Type {
@@ -664,14 +966,17 @@ func (o ConfigRuleSourceDetailOutput) ToConfigRuleSourceDetailOutputWithContext(
 	return o
 }
 
+// Source of event that can trigger the rule
 func (o ConfigRuleSourceDetailOutput) EventSource() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigRuleSourceDetail) string { return v.EventSource }).(pulumi.StringOutput)
 }
 
+// Frequency at which the rule has to be evaluated
 func (o ConfigRuleSourceDetailOutput) MaximumExecutionFrequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigRuleSourceDetail) *string { return v.MaximumExecutionFrequency }).(pulumi.StringPtrOutput)
 }
 
+// Notification type that can trigger the rule
 func (o ConfigRuleSourceDetailOutput) MessageType() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigRuleSourceDetail) string { return v.MessageType }).(pulumi.StringOutput)
 }
@@ -2910,8 +3215,12 @@ func (o TemplateSSMDocumentDetailsPropertiesPtrOutput) DocumentVersion() pulumi.
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AggregationAuthorizationTagInput)(nil)).Elem(), AggregationAuthorizationTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AggregationAuthorizationTagArrayInput)(nil)).Elem(), AggregationAuthorizationTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CompliancePropertiesInput)(nil)).Elem(), CompliancePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CompliancePropertiesPtrInput)(nil)).Elem(), CompliancePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigRuleCustomPolicyDetailsInput)(nil)).Elem(), ConfigRuleCustomPolicyDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigRuleCustomPolicyDetailsPtrInput)(nil)).Elem(), ConfigRuleCustomPolicyDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigRuleEvaluationModeConfigurationInput)(nil)).Elem(), ConfigRuleEvaluationModeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigRuleEvaluationModeConfigurationArrayInput)(nil)).Elem(), ConfigRuleEvaluationModeConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigRuleScopeInput)(nil)).Elem(), ConfigRuleScopeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigRuleScopePtrInput)(nil)).Elem(), ConfigRuleScopeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigRuleSourceInput)(nil)).Elem(), ConfigRuleSourceArgs{})
@@ -2947,8 +3256,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSSMDocumentDetailsPropertiesPtrInput)(nil)).Elem(), TemplateSSMDocumentDetailsPropertiesArgs{})
 	pulumi.RegisterOutputType(AggregationAuthorizationTagOutput{})
 	pulumi.RegisterOutputType(AggregationAuthorizationTagArrayOutput{})
+	pulumi.RegisterOutputType(CompliancePropertiesOutput{})
+	pulumi.RegisterOutputType(CompliancePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ConfigRuleCustomPolicyDetailsOutput{})
 	pulumi.RegisterOutputType(ConfigRuleCustomPolicyDetailsPtrOutput{})
+	pulumi.RegisterOutputType(ConfigRuleEvaluationModeConfigurationOutput{})
+	pulumi.RegisterOutputType(ConfigRuleEvaluationModeConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(ConfigRuleScopeOutput{})
 	pulumi.RegisterOutputType(ConfigRuleScopePtrOutput{})
 	pulumi.RegisterOutputType(ConfigRuleSourceOutput{})

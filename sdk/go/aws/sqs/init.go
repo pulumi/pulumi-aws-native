@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:sqs:Queue":
 		r = &Queue{}
+	case "aws-native:sqs:QueueInlinePolicy":
+		r = &QueueInlinePolicy{}
 	case "aws-native:sqs:QueuePolicy":
 		r = &QueuePolicy{}
 	default:

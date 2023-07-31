@@ -29,6 +29,8 @@ export interface GetBrokerResult {
     readonly configuration?: outputs.amazonmq.BrokerConfigurationId;
     readonly configurationId?: string;
     readonly configurationRevision?: number;
+    readonly dataReplicationMode?: string;
+    readonly dataReplicationPrimaryBrokerArn?: string;
     readonly engineVersion?: string;
     readonly hostInstanceType?: string;
     readonly id?: string;

@@ -52,23 +52,51 @@ namespace Pulumi.AwsNative.SageMaker
     public sealed class GetImageVersionResult
     {
         public readonly string? ContainerImage;
+        public readonly bool? Horovod;
         public readonly string? ImageArn;
         public readonly string? ImageVersionArn;
+        public readonly Pulumi.AwsNative.SageMaker.ImageVersionJobType? JobType;
+        public readonly string? MLFramework;
+        public readonly Pulumi.AwsNative.SageMaker.ImageVersionProcessor? Processor;
+        public readonly string? ProgrammingLang;
+        public readonly string? ReleaseNotes;
+        public readonly Pulumi.AwsNative.SageMaker.ImageVersionVendorGuidance? VendorGuidance;
         public readonly int? Version;
 
         [OutputConstructor]
         private GetImageVersionResult(
             string? containerImage,
 
+            bool? horovod,
+
             string? imageArn,
 
             string? imageVersionArn,
 
+            Pulumi.AwsNative.SageMaker.ImageVersionJobType? jobType,
+
+            string? mLFramework,
+
+            Pulumi.AwsNative.SageMaker.ImageVersionProcessor? processor,
+
+            string? programmingLang,
+
+            string? releaseNotes,
+
+            Pulumi.AwsNative.SageMaker.ImageVersionVendorGuidance? vendorGuidance,
+
             int? version)
         {
             ContainerImage = containerImage;
+            Horovod = horovod;
             ImageArn = imageArn;
             ImageVersionArn = imageVersionArn;
+            JobType = jobType;
+            MLFramework = mLFramework;
+            Processor = processor;
+            ProgrammingLang = programmingLang;
+            ReleaseNotes = releaseNotes;
+            VendorGuidance = vendorGuidance;
             Version = version;
         }
     }

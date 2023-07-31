@@ -5060,6 +5060,7 @@ export namespace batch {
 
 export namespace billingconductor {
     export interface BillingGroupAccountGrouping {
+        autoAssociate?: boolean;
         linkedAccountIds: string[];
     }
 
@@ -7973,29 +7974,103 @@ export namespace configuration {
         value: string;
     }
 
+    /**
+     * Compliance details of the Config rule
+     */
+    export interface ComplianceProperties {
+        /**
+         * Compliance type determined by the Config rule
+         */
+        type?: string;
+    }
+
+    /**
+     * Custom policy details when rule is custom owned
+     */
     export interface ConfigRuleCustomPolicyDetails {
+        /**
+         * Logging toggle for custom policy rule
+         */
         enableDebugLogDelivery?: boolean;
+        /**
+         * Runtime system for custom policy rule
+         */
         policyRuntime?: string;
+        /**
+         * Policy definition containing logic for custom policy rule
+         */
         policyText?: string;
     }
 
+    /**
+     * Evaluation mode for the AWS Config rule
+     */
+    export interface ConfigRuleEvaluationModeConfiguration {
+        /**
+         * Mode of evaluation of AWS Config rule
+         */
+        mode?: string;
+    }
+
+    /**
+     * Scope to constrain which resources can trigger the rule
+     */
     export interface ConfigRuleScope {
+        /**
+         * ID of the only one resource which we want to trigger the rule
+         */
         complianceResourceId?: string;
+        /**
+         * Resource types of resources which we want to trigger the rule
+         */
         complianceResourceTypes?: string[];
+        /**
+         * Tag key applied only to resources which we want to trigger the rule
+         */
         tagKey?: string;
+        /**
+         * Tag value applied only to resources which we want to trigger the rule
+         */
         tagValue?: string;
     }
 
+    /**
+     * Source of events for the config rule
+     */
     export interface ConfigRuleSource {
+        /**
+         * Custom policy details when rule is custom owned
+         */
         customPolicyDetails?: outputs.configuration.ConfigRuleCustomPolicyDetails;
+        /**
+         * Owner of the config rule
+         */
         owner: string;
+        /**
+         * List of message types that can trigger the rule
+         */
         sourceDetails?: outputs.configuration.ConfigRuleSourceDetail[];
+        /**
+         * Identifier for the source of events
+         */
         sourceIdentifier?: string;
     }
 
+    /**
+     * Source and message type that can trigger the rule
+     */
     export interface ConfigRuleSourceDetail {
+        /**
+         * Source of event that can trigger the rule
+         */
         eventSource: string;
+        /**
+         * Frequency at which the rule has to be evaluated
+         */
         maximumExecutionFrequency?: string;
+        /**
+         * Notification type that can trigger the rule
+         */
         messageType: string;
     }
 
@@ -10912,6 +10987,36 @@ export namespace dms {
 
     export interface EventSubscriptionTag {
         key: string;
+        value: string;
+    }
+
+    /**
+     * Configuration parameters for provisioning a AWS DMS Serverless replication
+     */
+    export interface ReplicationConfigComputeConfig {
+        availabilityZone?: string;
+        dnsNameServers?: string;
+        kmsKeyId?: string;
+        maxCapacityUnits: number;
+        minCapacityUnits?: number;
+        multiAZ?: boolean;
+        preferredMaintenanceWindow?: string;
+        replicationSubnetGroupId?: string;
+        vpcSecurityGroupIds?: string[];
+    }
+
+    /**
+     * <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
+     *             resource.</p>
+     */
+    export interface ReplicationConfigTag {
+        /**
+         * <p>Tag key.</p>
+         */
+        key: string;
+        /**
+         * <p>Tag value.</p>
+         */
         value: string;
     }
 
@@ -51501,9 +51606,21 @@ export namespace wafv2 {
     }
 
     /**
+     * Configures how to use the Account creation fraud prevention managed rule group in the web ACL
+     */
+    export interface WebACLAWSManagedRulesACFPRuleSet {
+        creationPath: string;
+        enableRegexInPath?: boolean;
+        registrationPagePath: string;
+        requestInspection: outputs.wafv2.WebACLRequestInspectionACFP;
+        responseInspection?: outputs.wafv2.WebACLResponseInspection;
+    }
+
+    /**
      * Configures how to use the Account Takeover Prevention managed rule group in the web ACL
      */
     export interface WebACLAWSManagedRulesATPRuleSet {
+        enableRegexInPath?: boolean;
         loginPath: string;
         requestInspection?: outputs.wafv2.WebACLRequestInspection;
         responseInspection?: outputs.wafv2.WebACLResponseInspection;
@@ -51514,6 +51631,9 @@ export namespace wafv2 {
      */
     export interface WebACLAWSManagedRulesBotControlRuleSet {
         inspectionLevel: enums.wafv2.WebACLAWSManagedRulesBotControlRuleSetInspectionLevel;
+    }
+
+    export interface WebACLAddressField {
     }
 
     /**
@@ -51789,6 +51909,7 @@ export namespace wafv2 {
      * ManagedRuleGroupConfig.
      */
     export interface WebACLManagedRuleGroupConfig {
+        aWSManagedRulesACFPRuleSet?: outputs.wafv2.WebACLAWSManagedRulesACFPRuleSet;
         aWSManagedRulesATPRuleSet?: outputs.wafv2.WebACLAWSManagedRulesATPRuleSet;
         aWSManagedRulesBotControlRuleSet?: outputs.wafv2.WebACLAWSManagedRulesBotControlRuleSet;
         loginPath?: string;
@@ -51833,6 +51954,9 @@ export namespace wafv2 {
          * Keep the RuleGroup or ManagedRuleGroup behavior as is.
          */
         none?: any;
+    }
+
+    export interface WebACLPhoneNumberField {
     }
 
     export interface WebACLRateBasedStatement {
@@ -51961,6 +52085,18 @@ export namespace wafv2 {
         passwordField: outputs.wafv2.WebACLFieldIdentifier;
         payloadType: enums.wafv2.WebACLRequestInspectionPayloadType;
         usernameField: outputs.wafv2.WebACLFieldIdentifier;
+    }
+
+    /**
+     * Configures the inspection of sign-up requests
+     */
+    export interface WebACLRequestInspectionACFP {
+        addressFields?: outputs.wafv2.WebACLAddressField[];
+        emailField?: outputs.wafv2.WebACLFieldIdentifier;
+        passwordField?: outputs.wafv2.WebACLFieldIdentifier;
+        payloadType: enums.wafv2.WebACLRequestInspectionACFPPayloadType;
+        phoneNumberFields?: outputs.wafv2.WebACLPhoneNumberField[];
+        usernameField?: outputs.wafv2.WebACLFieldIdentifier;
     }
 
     /**

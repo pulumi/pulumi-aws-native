@@ -186,7 +186,7 @@
   "writeOnlyProperties" : [ "/properties/InstanceId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "autoscaling:CreateLaunchConfiguration", "autoscaling:DescribeLaunchConfigurations" ]
+      "permissions" : [ "autoscaling:CreateLaunchConfiguration", "autoscaling:DescribeLaunchConfigurations", "iam:PassRole" ]
     },
     "read" : {
       "permissions" : [ "autoscaling:DescribeLaunchConfigurations" ]

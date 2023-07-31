@@ -10,14 +10,26 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Configuration.Inputs
 {
 
+    /// <summary>
+    /// Source and message type that can trigger the rule
+    /// </summary>
     public sealed class ConfigRuleSourceDetailArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Source of event that can trigger the rule
+        /// </summary>
         [Input("eventSource", required: true)]
         public Input<string> EventSource { get; set; } = null!;
 
+        /// <summary>
+        /// Frequency at which the rule has to be evaluated
+        /// </summary>
         [Input("maximumExecutionFrequency")]
         public Input<string>? MaximumExecutionFrequency { get; set; }
 
+        /// <summary>
+        /// Notification type that can trigger the rule
+        /// </summary>
         [Input("messageType", required: true)]
         public Input<string> MessageType { get; set; } = null!;
 

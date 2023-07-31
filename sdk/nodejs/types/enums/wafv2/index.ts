@@ -360,6 +360,13 @@ export const WebACLRateBasedStatementAggregateKeyType = {
 
 export type WebACLRateBasedStatementAggregateKeyType = (typeof WebACLRateBasedStatementAggregateKeyType)[keyof typeof WebACLRateBasedStatementAggregateKeyType];
 
+export const WebACLRequestInspectionACFPPayloadType = {
+    Json: "JSON",
+    FormEncoded: "FORM_ENCODED",
+} as const;
+
+export type WebACLRequestInspectionACFPPayloadType = (typeof WebACLRequestInspectionACFPPayloadType)[keyof typeof WebACLRequestInspectionACFPPayloadType];
+
 export const WebACLRequestInspectionPayloadType = {
     Json: "JSON",
     FormEncoded: "FORM_ENCODED",

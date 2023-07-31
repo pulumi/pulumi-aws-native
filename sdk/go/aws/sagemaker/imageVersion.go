@@ -16,12 +16,21 @@ import (
 type ImageVersion struct {
 	pulumi.CustomResourceState
 
-	BaseImage       pulumi.StringOutput `pulumi:"baseImage"`
-	ContainerImage  pulumi.StringOutput `pulumi:"containerImage"`
-	ImageArn        pulumi.StringOutput `pulumi:"imageArn"`
-	ImageName       pulumi.StringOutput `pulumi:"imageName"`
-	ImageVersionArn pulumi.StringOutput `pulumi:"imageVersionArn"`
-	Version         pulumi.IntOutput    `pulumi:"version"`
+	Alias           pulumi.StringPtrOutput              `pulumi:"alias"`
+	Aliases         pulumi.StringArrayOutput            `pulumi:"aliases"`
+	BaseImage       pulumi.StringOutput                 `pulumi:"baseImage"`
+	ContainerImage  pulumi.StringOutput                 `pulumi:"containerImage"`
+	Horovod         pulumi.BoolPtrOutput                `pulumi:"horovod"`
+	ImageArn        pulumi.StringOutput                 `pulumi:"imageArn"`
+	ImageName       pulumi.StringOutput                 `pulumi:"imageName"`
+	ImageVersionArn pulumi.StringOutput                 `pulumi:"imageVersionArn"`
+	JobType         ImageVersionJobTypePtrOutput        `pulumi:"jobType"`
+	MLFramework     pulumi.StringPtrOutput              `pulumi:"mLFramework"`
+	Processor       ImageVersionProcessorPtrOutput      `pulumi:"processor"`
+	ProgrammingLang pulumi.StringPtrOutput              `pulumi:"programmingLang"`
+	ReleaseNotes    pulumi.StringPtrOutput              `pulumi:"releaseNotes"`
+	VendorGuidance  ImageVersionVendorGuidancePtrOutput `pulumi:"vendorGuidance"`
+	Version         pulumi.IntOutput                    `pulumi:"version"`
 }
 
 // NewImageVersion registers a new resource with the given unique name, arguments, and options.
@@ -70,14 +79,32 @@ func (ImageVersionState) ElementType() reflect.Type {
 }
 
 type imageVersionArgs struct {
-	BaseImage string `pulumi:"baseImage"`
-	ImageName string `pulumi:"imageName"`
+	Alias           *string                     `pulumi:"alias"`
+	Aliases         []string                    `pulumi:"aliases"`
+	BaseImage       string                      `pulumi:"baseImage"`
+	Horovod         *bool                       `pulumi:"horovod"`
+	ImageName       string                      `pulumi:"imageName"`
+	JobType         *ImageVersionJobType        `pulumi:"jobType"`
+	MLFramework     *string                     `pulumi:"mLFramework"`
+	Processor       *ImageVersionProcessor      `pulumi:"processor"`
+	ProgrammingLang *string                     `pulumi:"programmingLang"`
+	ReleaseNotes    *string                     `pulumi:"releaseNotes"`
+	VendorGuidance  *ImageVersionVendorGuidance `pulumi:"vendorGuidance"`
 }
 
 // The set of arguments for constructing a ImageVersion resource.
 type ImageVersionArgs struct {
-	BaseImage pulumi.StringInput
-	ImageName pulumi.StringInput
+	Alias           pulumi.StringPtrInput
+	Aliases         pulumi.StringArrayInput
+	BaseImage       pulumi.StringInput
+	Horovod         pulumi.BoolPtrInput
+	ImageName       pulumi.StringInput
+	JobType         ImageVersionJobTypePtrInput
+	MLFramework     pulumi.StringPtrInput
+	Processor       ImageVersionProcessorPtrInput
+	ProgrammingLang pulumi.StringPtrInput
+	ReleaseNotes    pulumi.StringPtrInput
+	VendorGuidance  ImageVersionVendorGuidancePtrInput
 }
 
 func (ImageVersionArgs) ElementType() reflect.Type {
@@ -117,12 +144,24 @@ func (o ImageVersionOutput) ToImageVersionOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o ImageVersionOutput) Alias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageVersion) pulumi.StringPtrOutput { return v.Alias }).(pulumi.StringPtrOutput)
+}
+
+func (o ImageVersionOutput) Aliases() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ImageVersion) pulumi.StringArrayOutput { return v.Aliases }).(pulumi.StringArrayOutput)
+}
+
 func (o ImageVersionOutput) BaseImage() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImageVersion) pulumi.StringOutput { return v.BaseImage }).(pulumi.StringOutput)
 }
 
 func (o ImageVersionOutput) ContainerImage() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImageVersion) pulumi.StringOutput { return v.ContainerImage }).(pulumi.StringOutput)
+}
+
+func (o ImageVersionOutput) Horovod() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ImageVersion) pulumi.BoolPtrOutput { return v.Horovod }).(pulumi.BoolPtrOutput)
 }
 
 func (o ImageVersionOutput) ImageArn() pulumi.StringOutput {
@@ -135,6 +174,30 @@ func (o ImageVersionOutput) ImageName() pulumi.StringOutput {
 
 func (o ImageVersionOutput) ImageVersionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImageVersion) pulumi.StringOutput { return v.ImageVersionArn }).(pulumi.StringOutput)
+}
+
+func (o ImageVersionOutput) JobType() ImageVersionJobTypePtrOutput {
+	return o.ApplyT(func(v *ImageVersion) ImageVersionJobTypePtrOutput { return v.JobType }).(ImageVersionJobTypePtrOutput)
+}
+
+func (o ImageVersionOutput) MLFramework() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageVersion) pulumi.StringPtrOutput { return v.MLFramework }).(pulumi.StringPtrOutput)
+}
+
+func (o ImageVersionOutput) Processor() ImageVersionProcessorPtrOutput {
+	return o.ApplyT(func(v *ImageVersion) ImageVersionProcessorPtrOutput { return v.Processor }).(ImageVersionProcessorPtrOutput)
+}
+
+func (o ImageVersionOutput) ProgrammingLang() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageVersion) pulumi.StringPtrOutput { return v.ProgrammingLang }).(pulumi.StringPtrOutput)
+}
+
+func (o ImageVersionOutput) ReleaseNotes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageVersion) pulumi.StringPtrOutput { return v.ReleaseNotes }).(pulumi.StringPtrOutput)
+}
+
+func (o ImageVersionOutput) VendorGuidance() ImageVersionVendorGuidancePtrOutput {
+	return o.ApplyT(func(v *ImageVersion) ImageVersionVendorGuidancePtrOutput { return v.VendorGuidance }).(ImageVersionVendorGuidancePtrOutput)
 }
 
 func (o ImageVersionOutput) Version() pulumi.IntOutput {

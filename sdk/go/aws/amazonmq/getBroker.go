@@ -27,26 +27,28 @@ type LookupBrokerArgs struct {
 }
 
 type LookupBrokerResult struct {
-	AmqpEndpoints              []string                  `pulumi:"amqpEndpoints"`
-	Arn                        *string                   `pulumi:"arn"`
-	AutoMinorVersionUpgrade    *bool                     `pulumi:"autoMinorVersionUpgrade"`
-	Configuration              *BrokerConfigurationId    `pulumi:"configuration"`
-	ConfigurationId            *string                   `pulumi:"configurationId"`
-	ConfigurationRevision      *int                      `pulumi:"configurationRevision"`
-	EngineVersion              *string                   `pulumi:"engineVersion"`
-	HostInstanceType           *string                   `pulumi:"hostInstanceType"`
-	Id                         *string                   `pulumi:"id"`
-	IpAddresses                []string                  `pulumi:"ipAddresses"`
-	LdapServerMetadata         *BrokerLdapServerMetadata `pulumi:"ldapServerMetadata"`
-	Logs                       *BrokerLogList            `pulumi:"logs"`
-	MaintenanceWindowStartTime *BrokerMaintenanceWindow  `pulumi:"maintenanceWindowStartTime"`
-	MqttEndpoints              []string                  `pulumi:"mqttEndpoints"`
-	OpenWireEndpoints          []string                  `pulumi:"openWireEndpoints"`
-	SecurityGroups             []string                  `pulumi:"securityGroups"`
-	StompEndpoints             []string                  `pulumi:"stompEndpoints"`
-	Tags                       []BrokerTagsEntry         `pulumi:"tags"`
-	Users                      []BrokerUser              `pulumi:"users"`
-	WssEndpoints               []string                  `pulumi:"wssEndpoints"`
+	AmqpEndpoints                   []string                  `pulumi:"amqpEndpoints"`
+	Arn                             *string                   `pulumi:"arn"`
+	AutoMinorVersionUpgrade         *bool                     `pulumi:"autoMinorVersionUpgrade"`
+	Configuration                   *BrokerConfigurationId    `pulumi:"configuration"`
+	ConfigurationId                 *string                   `pulumi:"configurationId"`
+	ConfigurationRevision           *int                      `pulumi:"configurationRevision"`
+	DataReplicationMode             *string                   `pulumi:"dataReplicationMode"`
+	DataReplicationPrimaryBrokerArn *string                   `pulumi:"dataReplicationPrimaryBrokerArn"`
+	EngineVersion                   *string                   `pulumi:"engineVersion"`
+	HostInstanceType                *string                   `pulumi:"hostInstanceType"`
+	Id                              *string                   `pulumi:"id"`
+	IpAddresses                     []string                  `pulumi:"ipAddresses"`
+	LdapServerMetadata              *BrokerLdapServerMetadata `pulumi:"ldapServerMetadata"`
+	Logs                            *BrokerLogList            `pulumi:"logs"`
+	MaintenanceWindowStartTime      *BrokerMaintenanceWindow  `pulumi:"maintenanceWindowStartTime"`
+	MqttEndpoints                   []string                  `pulumi:"mqttEndpoints"`
+	OpenWireEndpoints               []string                  `pulumi:"openWireEndpoints"`
+	SecurityGroups                  []string                  `pulumi:"securityGroups"`
+	StompEndpoints                  []string                  `pulumi:"stompEndpoints"`
+	Tags                            []BrokerTagsEntry         `pulumi:"tags"`
+	Users                           []BrokerUser              `pulumi:"users"`
+	WssEndpoints                    []string                  `pulumi:"wssEndpoints"`
 }
 
 func LookupBrokerOutput(ctx *pulumi.Context, args LookupBrokerOutputArgs, opts ...pulumi.InvokeOption) LookupBrokerResultOutput {
@@ -106,6 +108,14 @@ func (o LookupBrokerResultOutput) ConfigurationId() pulumi.StringPtrOutput {
 
 func (o LookupBrokerResultOutput) ConfigurationRevision() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupBrokerResult) *int { return v.ConfigurationRevision }).(pulumi.IntPtrOutput)
+}
+
+func (o LookupBrokerResultOutput) DataReplicationMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBrokerResult) *string { return v.DataReplicationMode }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupBrokerResultOutput) DataReplicationPrimaryBrokerArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBrokerResult) *string { return v.DataReplicationPrimaryBrokerArn }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupBrokerResultOutput) EngineVersion() pulumi.StringPtrOutput {

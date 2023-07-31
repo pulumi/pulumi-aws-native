@@ -108,7 +108,7 @@
   "additionalIdentifiers" : [ [ "/properties/Arn" ] ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "macie2:CreateAllowList", "macie2:GetAllowList" ]
+      "permissions" : [ "macie2:CreateAllowList", "macie2:GetAllowList", "macie2:TagResource" ]
     },
     "read" : {
       "permissions" : [ "macie2:GetAllowList" ]

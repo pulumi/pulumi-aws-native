@@ -25,6 +25,7 @@ class CollectionType(str, Enum):
     """
     SEARCH = "SEARCH"
     TIMESERIES = "TIMESERIES"
+    VECTORSEARCH = "VECTORSEARCH"
 
 
 class SecurityConfigType(str, Enum):

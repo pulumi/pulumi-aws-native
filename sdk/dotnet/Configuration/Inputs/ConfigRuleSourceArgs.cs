@@ -10,22 +10,38 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Configuration.Inputs
 {
 
+    /// <summary>
+    /// Source of events for the config rule
+    /// </summary>
     public sealed class ConfigRuleSourceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Custom policy details when rule is custom owned
+        /// </summary>
         [Input("customPolicyDetails")]
         public Input<Inputs.ConfigRuleCustomPolicyDetailsArgs>? CustomPolicyDetails { get; set; }
 
+        /// <summary>
+        /// Owner of the config rule
+        /// </summary>
         [Input("owner", required: true)]
         public Input<string> Owner { get; set; } = null!;
 
         [Input("sourceDetails")]
         private InputList<Inputs.ConfigRuleSourceDetailArgs>? _sourceDetails;
+
+        /// <summary>
+        /// List of message types that can trigger the rule
+        /// </summary>
         public InputList<Inputs.ConfigRuleSourceDetailArgs> SourceDetails
         {
             get => _sourceDetails ?? (_sourceDetails = new InputList<Inputs.ConfigRuleSourceDetailArgs>());
             set => _sourceDetails = value;
         }
 
+        /// <summary>
+        /// Identifier for the source of events
+        /// </summary>
         [Input("sourceIdentifier")]
         public Input<string>? SourceIdentifier { get; set; }
 

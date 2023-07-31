@@ -27,10 +27,17 @@ type LookupImageVersionArgs struct {
 }
 
 type LookupImageVersionResult struct {
-	ContainerImage  *string `pulumi:"containerImage"`
-	ImageArn        *string `pulumi:"imageArn"`
-	ImageVersionArn *string `pulumi:"imageVersionArn"`
-	Version         *int    `pulumi:"version"`
+	ContainerImage  *string                     `pulumi:"containerImage"`
+	Horovod         *bool                       `pulumi:"horovod"`
+	ImageArn        *string                     `pulumi:"imageArn"`
+	ImageVersionArn *string                     `pulumi:"imageVersionArn"`
+	JobType         *ImageVersionJobType        `pulumi:"jobType"`
+	MLFramework     *string                     `pulumi:"mLFramework"`
+	Processor       *ImageVersionProcessor      `pulumi:"processor"`
+	ProgrammingLang *string                     `pulumi:"programmingLang"`
+	ReleaseNotes    *string                     `pulumi:"releaseNotes"`
+	VendorGuidance  *ImageVersionVendorGuidance `pulumi:"vendorGuidance"`
+	Version         *int                        `pulumi:"version"`
 }
 
 func LookupImageVersionOutput(ctx *pulumi.Context, args LookupImageVersionOutputArgs, opts ...pulumi.InvokeOption) LookupImageVersionResultOutput {
@@ -72,12 +79,40 @@ func (o LookupImageVersionResultOutput) ContainerImage() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v LookupImageVersionResult) *string { return v.ContainerImage }).(pulumi.StringPtrOutput)
 }
 
+func (o LookupImageVersionResultOutput) Horovod() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupImageVersionResult) *bool { return v.Horovod }).(pulumi.BoolPtrOutput)
+}
+
 func (o LookupImageVersionResultOutput) ImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupImageVersionResult) *string { return v.ImageArn }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupImageVersionResultOutput) ImageVersionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupImageVersionResult) *string { return v.ImageVersionArn }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupImageVersionResultOutput) JobType() ImageVersionJobTypePtrOutput {
+	return o.ApplyT(func(v LookupImageVersionResult) *ImageVersionJobType { return v.JobType }).(ImageVersionJobTypePtrOutput)
+}
+
+func (o LookupImageVersionResultOutput) MLFramework() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupImageVersionResult) *string { return v.MLFramework }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupImageVersionResultOutput) Processor() ImageVersionProcessorPtrOutput {
+	return o.ApplyT(func(v LookupImageVersionResult) *ImageVersionProcessor { return v.Processor }).(ImageVersionProcessorPtrOutput)
+}
+
+func (o LookupImageVersionResultOutput) ProgrammingLang() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupImageVersionResult) *string { return v.ProgrammingLang }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupImageVersionResultOutput) ReleaseNotes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupImageVersionResult) *string { return v.ReleaseNotes }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupImageVersionResultOutput) VendorGuidance() ImageVersionVendorGuidancePtrOutput {
+	return o.ApplyT(func(v LookupImageVersionResult) *ImageVersionVendorGuidance { return v.VendorGuidance }).(ImageVersionVendorGuidancePtrOutput)
 }
 
 func (o LookupImageVersionResultOutput) Version() pulumi.IntPtrOutput {

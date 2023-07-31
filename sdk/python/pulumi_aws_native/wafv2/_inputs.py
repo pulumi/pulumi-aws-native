@@ -77,8 +77,10 @@ __all__ = [
     'RuleGroupTextTransformationArgs',
     'RuleGroupVisibilityConfigArgs',
     'RuleGroupXssMatchStatementArgs',
+    'WebACLAWSManagedRulesACFPRuleSetArgs',
     'WebACLAWSManagedRulesATPRuleSetArgs',
     'WebACLAWSManagedRulesBotControlRuleSetArgs',
+    'WebACLAddressFieldArgs',
     'WebACLAllowActionArgs',
     'WebACLAndStatementArgs',
     'WebACLAssociationConfigArgs',
@@ -118,6 +120,7 @@ __all__ = [
     'WebACLNotStatementArgs',
     'WebACLOrStatementArgs',
     'WebACLOverrideActionArgs',
+    'WebACLPhoneNumberFieldArgs',
     'WebACLRateBasedStatementCustomKeyArgs',
     'WebACLRateBasedStatementArgs',
     'WebACLRateLimitCookieArgs',
@@ -132,6 +135,7 @@ __all__ = [
     'WebACLRegexMatchStatementArgs',
     'WebACLRegexPatternSetReferenceStatementArgs',
     'WebACLRequestBodyArgs',
+    'WebACLRequestInspectionACFPArgs',
     'WebACLRequestInspectionArgs',
     'WebACLResponseInspectionBodyContainsArgs',
     'WebACLResponseInspectionHeaderArgs',
@@ -2630,15 +2634,83 @@ class RuleGroupXssMatchStatementArgs:
 
 
 @pulumi.input_type
+class WebACLAWSManagedRulesACFPRuleSetArgs:
+    def __init__(__self__, *,
+                 creation_path: pulumi.Input[str],
+                 registration_page_path: pulumi.Input[str],
+                 request_inspection: pulumi.Input['WebACLRequestInspectionACFPArgs'],
+                 enable_regex_in_path: Optional[pulumi.Input[bool]] = None,
+                 response_inspection: Optional[pulumi.Input['WebACLResponseInspectionArgs']] = None):
+        """
+        Configures how to use the Account creation fraud prevention managed rule group in the web ACL
+        """
+        pulumi.set(__self__, "creation_path", creation_path)
+        pulumi.set(__self__, "registration_page_path", registration_page_path)
+        pulumi.set(__self__, "request_inspection", request_inspection)
+        if enable_regex_in_path is not None:
+            pulumi.set(__self__, "enable_regex_in_path", enable_regex_in_path)
+        if response_inspection is not None:
+            pulumi.set(__self__, "response_inspection", response_inspection)
+
+    @property
+    @pulumi.getter(name="creationPath")
+    def creation_path(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "creation_path")
+
+    @creation_path.setter
+    def creation_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "creation_path", value)
+
+    @property
+    @pulumi.getter(name="registrationPagePath")
+    def registration_page_path(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "registration_page_path")
+
+    @registration_page_path.setter
+    def registration_page_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "registration_page_path", value)
+
+    @property
+    @pulumi.getter(name="requestInspection")
+    def request_inspection(self) -> pulumi.Input['WebACLRequestInspectionACFPArgs']:
+        return pulumi.get(self, "request_inspection")
+
+    @request_inspection.setter
+    def request_inspection(self, value: pulumi.Input['WebACLRequestInspectionACFPArgs']):
+        pulumi.set(self, "request_inspection", value)
+
+    @property
+    @pulumi.getter(name="enableRegexInPath")
+    def enable_regex_in_path(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enable_regex_in_path")
+
+    @enable_regex_in_path.setter
+    def enable_regex_in_path(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_regex_in_path", value)
+
+    @property
+    @pulumi.getter(name="responseInspection")
+    def response_inspection(self) -> Optional[pulumi.Input['WebACLResponseInspectionArgs']]:
+        return pulumi.get(self, "response_inspection")
+
+    @response_inspection.setter
+    def response_inspection(self, value: Optional[pulumi.Input['WebACLResponseInspectionArgs']]):
+        pulumi.set(self, "response_inspection", value)
+
+
+@pulumi.input_type
 class WebACLAWSManagedRulesATPRuleSetArgs:
     def __init__(__self__, *,
                  login_path: pulumi.Input[str],
+                 enable_regex_in_path: Optional[pulumi.Input[bool]] = None,
                  request_inspection: Optional[pulumi.Input['WebACLRequestInspectionArgs']] = None,
                  response_inspection: Optional[pulumi.Input['WebACLResponseInspectionArgs']] = None):
         """
         Configures how to use the Account Takeover Prevention managed rule group in the web ACL
         """
         pulumi.set(__self__, "login_path", login_path)
+        if enable_regex_in_path is not None:
+            pulumi.set(__self__, "enable_regex_in_path", enable_regex_in_path)
         if request_inspection is not None:
             pulumi.set(__self__, "request_inspection", request_inspection)
         if response_inspection is not None:
@@ -2652,6 +2724,15 @@ class WebACLAWSManagedRulesATPRuleSetArgs:
     @login_path.setter
     def login_path(self, value: pulumi.Input[str]):
         pulumi.set(self, "login_path", value)
+
+    @property
+    @pulumi.getter(name="enableRegexInPath")
+    def enable_regex_in_path(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enable_regex_in_path")
+
+    @enable_regex_in_path.setter
+    def enable_regex_in_path(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_regex_in_path", value)
 
     @property
     @pulumi.getter(name="requestInspection")
@@ -2689,6 +2770,12 @@ class WebACLAWSManagedRulesBotControlRuleSetArgs:
     @inspection_level.setter
     def inspection_level(self, value: pulumi.Input['WebACLAWSManagedRulesBotControlRuleSetInspectionLevel']):
         pulumi.set(self, "inspection_level", value)
+
+
+@pulumi.input_type
+class WebACLAddressFieldArgs:
+    def __init__(__self__):
+        pass
 
 
 @pulumi.input_type
@@ -3761,6 +3848,7 @@ class WebACLLabelArgs:
 @pulumi.input_type
 class WebACLManagedRuleGroupConfigArgs:
     def __init__(__self__, *,
+                 a_ws_managed_rules_acfp_rule_set: Optional[pulumi.Input['WebACLAWSManagedRulesACFPRuleSetArgs']] = None,
                  a_ws_managed_rules_atp_rule_set: Optional[pulumi.Input['WebACLAWSManagedRulesATPRuleSetArgs']] = None,
                  a_ws_managed_rules_bot_control_rule_set: Optional[pulumi.Input['WebACLAWSManagedRulesBotControlRuleSetArgs']] = None,
                  login_path: Optional[pulumi.Input[str]] = None,
@@ -3770,6 +3858,8 @@ class WebACLManagedRuleGroupConfigArgs:
         """
         ManagedRuleGroupConfig.
         """
+        if a_ws_managed_rules_acfp_rule_set is not None:
+            pulumi.set(__self__, "a_ws_managed_rules_acfp_rule_set", a_ws_managed_rules_acfp_rule_set)
         if a_ws_managed_rules_atp_rule_set is not None:
             pulumi.set(__self__, "a_ws_managed_rules_atp_rule_set", a_ws_managed_rules_atp_rule_set)
         if a_ws_managed_rules_bot_control_rule_set is not None:
@@ -3782,6 +3872,15 @@ class WebACLManagedRuleGroupConfigArgs:
             pulumi.set(__self__, "payload_type", payload_type)
         if username_field is not None:
             pulumi.set(__self__, "username_field", username_field)
+
+    @property
+    @pulumi.getter(name="aWSManagedRulesACFPRuleSet")
+    def a_ws_managed_rules_acfp_rule_set(self) -> Optional[pulumi.Input['WebACLAWSManagedRulesACFPRuleSetArgs']]:
+        return pulumi.get(self, "a_ws_managed_rules_acfp_rule_set")
+
+    @a_ws_managed_rules_acfp_rule_set.setter
+    def a_ws_managed_rules_acfp_rule_set(self, value: Optional[pulumi.Input['WebACLAWSManagedRulesACFPRuleSetArgs']]):
+        pulumi.set(self, "a_ws_managed_rules_acfp_rule_set", value)
 
     @property
     @pulumi.getter(name="aWSManagedRulesATPRuleSet")
@@ -4005,6 +4104,12 @@ class WebACLOverrideActionArgs:
     @none.setter
     def none(self, value: Optional[Any]):
         pulumi.set(self, "none", value)
+
+
+@pulumi.input_type
+class WebACLPhoneNumberFieldArgs:
+    def __init__(__self__):
+        pass
 
 
 @pulumi.input_type
@@ -4465,6 +4570,85 @@ class WebACLRequestBodyArgs:
         Map of AssociatedResourceType and RequestBodyAssociatedResourceTypeConfig
         """
         pass
+
+
+@pulumi.input_type
+class WebACLRequestInspectionACFPArgs:
+    def __init__(__self__, *,
+                 payload_type: pulumi.Input['WebACLRequestInspectionACFPPayloadType'],
+                 address_fields: Optional[pulumi.Input[Sequence[pulumi.Input['WebACLAddressFieldArgs']]]] = None,
+                 email_field: Optional[pulumi.Input['WebACLFieldIdentifierArgs']] = None,
+                 password_field: Optional[pulumi.Input['WebACLFieldIdentifierArgs']] = None,
+                 phone_number_fields: Optional[pulumi.Input[Sequence[pulumi.Input['WebACLPhoneNumberFieldArgs']]]] = None,
+                 username_field: Optional[pulumi.Input['WebACLFieldIdentifierArgs']] = None):
+        """
+        Configures the inspection of sign-up requests
+        """
+        pulumi.set(__self__, "payload_type", payload_type)
+        if address_fields is not None:
+            pulumi.set(__self__, "address_fields", address_fields)
+        if email_field is not None:
+            pulumi.set(__self__, "email_field", email_field)
+        if password_field is not None:
+            pulumi.set(__self__, "password_field", password_field)
+        if phone_number_fields is not None:
+            pulumi.set(__self__, "phone_number_fields", phone_number_fields)
+        if username_field is not None:
+            pulumi.set(__self__, "username_field", username_field)
+
+    @property
+    @pulumi.getter(name="payloadType")
+    def payload_type(self) -> pulumi.Input['WebACLRequestInspectionACFPPayloadType']:
+        return pulumi.get(self, "payload_type")
+
+    @payload_type.setter
+    def payload_type(self, value: pulumi.Input['WebACLRequestInspectionACFPPayloadType']):
+        pulumi.set(self, "payload_type", value)
+
+    @property
+    @pulumi.getter(name="addressFields")
+    def address_fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebACLAddressFieldArgs']]]]:
+        return pulumi.get(self, "address_fields")
+
+    @address_fields.setter
+    def address_fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebACLAddressFieldArgs']]]]):
+        pulumi.set(self, "address_fields", value)
+
+    @property
+    @pulumi.getter(name="emailField")
+    def email_field(self) -> Optional[pulumi.Input['WebACLFieldIdentifierArgs']]:
+        return pulumi.get(self, "email_field")
+
+    @email_field.setter
+    def email_field(self, value: Optional[pulumi.Input['WebACLFieldIdentifierArgs']]):
+        pulumi.set(self, "email_field", value)
+
+    @property
+    @pulumi.getter(name="passwordField")
+    def password_field(self) -> Optional[pulumi.Input['WebACLFieldIdentifierArgs']]:
+        return pulumi.get(self, "password_field")
+
+    @password_field.setter
+    def password_field(self, value: Optional[pulumi.Input['WebACLFieldIdentifierArgs']]):
+        pulumi.set(self, "password_field", value)
+
+    @property
+    @pulumi.getter(name="phoneNumberFields")
+    def phone_number_fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebACLPhoneNumberFieldArgs']]]]:
+        return pulumi.get(self, "phone_number_fields")
+
+    @phone_number_fields.setter
+    def phone_number_fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebACLPhoneNumberFieldArgs']]]]):
+        pulumi.set(self, "phone_number_fields", value)
+
+    @property
+    @pulumi.getter(name="usernameField")
+    def username_field(self) -> Optional[pulumi.Input['WebACLFieldIdentifierArgs']]:
+        return pulumi.get(self, "username_field")
+
+    @username_field.setter
+    def username_field(self, value: Optional[pulumi.Input['WebACLFieldIdentifierArgs']]):
+        pulumi.set(self, "username_field", value)
 
 
 @pulumi.input_type

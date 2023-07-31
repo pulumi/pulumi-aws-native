@@ -48,6 +48,8 @@ export class Broker extends pulumi.CustomResource {
     public readonly configuration!: pulumi.Output<outputs.amazonmq.BrokerConfigurationId | undefined>;
     public /*out*/ readonly configurationId!: pulumi.Output<string>;
     public /*out*/ readonly configurationRevision!: pulumi.Output<number>;
+    public readonly dataReplicationMode!: pulumi.Output<string | undefined>;
+    public readonly dataReplicationPrimaryBrokerArn!: pulumi.Output<string | undefined>;
     public readonly deploymentMode!: pulumi.Output<string>;
     public readonly encryptionOptions!: pulumi.Output<outputs.amazonmq.BrokerEncryptionOptions | undefined>;
     public readonly engineType!: pulumi.Output<string>;
@@ -106,6 +108,8 @@ export class Broker extends pulumi.CustomResource {
             resourceInputs["autoMinorVersionUpgrade"] = args ? args.autoMinorVersionUpgrade : undefined;
             resourceInputs["brokerName"] = args ? args.brokerName : undefined;
             resourceInputs["configuration"] = args ? args.configuration : undefined;
+            resourceInputs["dataReplicationMode"] = args ? args.dataReplicationMode : undefined;
+            resourceInputs["dataReplicationPrimaryBrokerArn"] = args ? args.dataReplicationPrimaryBrokerArn : undefined;
             resourceInputs["deploymentMode"] = args ? args.deploymentMode : undefined;
             resourceInputs["encryptionOptions"] = args ? args.encryptionOptions : undefined;
             resourceInputs["engineType"] = args ? args.engineType : undefined;
@@ -138,6 +142,8 @@ export class Broker extends pulumi.CustomResource {
             resourceInputs["configuration"] = undefined /*out*/;
             resourceInputs["configurationId"] = undefined /*out*/;
             resourceInputs["configurationRevision"] = undefined /*out*/;
+            resourceInputs["dataReplicationMode"] = undefined /*out*/;
+            resourceInputs["dataReplicationPrimaryBrokerArn"] = undefined /*out*/;
             resourceInputs["deploymentMode"] = undefined /*out*/;
             resourceInputs["encryptionOptions"] = undefined /*out*/;
             resourceInputs["engineType"] = undefined /*out*/;
@@ -171,6 +177,8 @@ export interface BrokerArgs {
     autoMinorVersionUpgrade: pulumi.Input<boolean>;
     brokerName?: pulumi.Input<string>;
     configuration?: pulumi.Input<inputs.amazonmq.BrokerConfigurationIdArgs>;
+    dataReplicationMode?: pulumi.Input<string>;
+    dataReplicationPrimaryBrokerArn?: pulumi.Input<string>;
     deploymentMode: pulumi.Input<string>;
     encryptionOptions?: pulumi.Input<inputs.amazonmq.BrokerEncryptionOptionsArgs>;
     engineType: pulumi.Input<string>;

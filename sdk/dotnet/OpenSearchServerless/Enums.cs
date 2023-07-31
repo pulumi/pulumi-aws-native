@@ -52,6 +52,7 @@ namespace Pulumi.AwsNative.OpenSearchServerless
 
         public static CollectionType Search { get; } = new CollectionType("SEARCH");
         public static CollectionType Timeseries { get; } = new CollectionType("TIMESERIES");
+        public static CollectionType Vectorsearch { get; } = new CollectionType("VECTORSEARCH");
 
         public static bool operator ==(CollectionType left, CollectionType right) => left.Equals(right);
         public static bool operator !=(CollectionType left, CollectionType right) => !left.Equals(right);

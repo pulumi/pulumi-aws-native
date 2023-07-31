@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'EndpointDocDbSettingsArgs',
@@ -29,6 +30,8 @@ __all__ = [
     'EndpointSybaseSettingsArgs',
     'EndpointTagArgs',
     'EventSubscriptionTagArgs',
+    'ReplicationConfigComputeConfigArgs',
+    'ReplicationConfigTagArgs',
     'ReplicationInstanceTagArgs',
     'ReplicationSubnetGroupTagArgs',
     'ReplicationTaskTagArgs',
@@ -2758,6 +2761,160 @@ class EventSubscriptionTagArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ReplicationConfigComputeConfigArgs:
+    def __init__(__self__, *,
+                 max_capacity_units: pulumi.Input[int],
+                 availability_zone: Optional[pulumi.Input[str]] = None,
+                 dns_name_servers: Optional[pulumi.Input[str]] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
+                 min_capacity_units: Optional[pulumi.Input[int]] = None,
+                 multi_az: Optional[pulumi.Input[bool]] = None,
+                 preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
+                 replication_subnet_group_id: Optional[pulumi.Input[str]] = None,
+                 vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Configuration parameters for provisioning a AWS DMS Serverless replication
+        """
+        pulumi.set(__self__, "max_capacity_units", max_capacity_units)
+        if availability_zone is not None:
+            pulumi.set(__self__, "availability_zone", availability_zone)
+        if dns_name_servers is not None:
+            pulumi.set(__self__, "dns_name_servers", dns_name_servers)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if min_capacity_units is not None:
+            pulumi.set(__self__, "min_capacity_units", min_capacity_units)
+        if multi_az is not None:
+            pulumi.set(__self__, "multi_az", multi_az)
+        if preferred_maintenance_window is not None:
+            pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
+        if replication_subnet_group_id is not None:
+            pulumi.set(__self__, "replication_subnet_group_id", replication_subnet_group_id)
+        if vpc_security_group_ids is not None:
+            pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
+
+    @property
+    @pulumi.getter(name="maxCapacityUnits")
+    def max_capacity_units(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "max_capacity_units")
+
+    @max_capacity_units.setter
+    def max_capacity_units(self, value: pulumi.Input[int]):
+        pulumi.set(self, "max_capacity_units", value)
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "availability_zone")
+
+    @availability_zone.setter
+    def availability_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "availability_zone", value)
+
+    @property
+    @pulumi.getter(name="dnsNameServers")
+    def dns_name_servers(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "dns_name_servers")
+
+    @dns_name_servers.setter
+    def dns_name_servers(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dns_name_servers", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_id", value)
+
+    @property
+    @pulumi.getter(name="minCapacityUnits")
+    def min_capacity_units(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "min_capacity_units")
+
+    @min_capacity_units.setter
+    def min_capacity_units(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min_capacity_units", value)
+
+    @property
+    @pulumi.getter(name="multiAZ")
+    def multi_az(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "multi_az")
+
+    @multi_az.setter
+    def multi_az(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "multi_az", value)
+
+    @property
+    @pulumi.getter(name="preferredMaintenanceWindow")
+    def preferred_maintenance_window(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "preferred_maintenance_window")
+
+    @preferred_maintenance_window.setter
+    def preferred_maintenance_window(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "preferred_maintenance_window", value)
+
+    @property
+    @pulumi.getter(name="replicationSubnetGroupId")
+    def replication_subnet_group_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "replication_subnet_group_id")
+
+    @replication_subnet_group_id.setter
+    def replication_subnet_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "replication_subnet_group_id", value)
+
+    @property
+    @pulumi.getter(name="vpcSecurityGroupIds")
+    def vpc_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "vpc_security_group_ids")
+
+    @vpc_security_group_ids.setter
+    def vpc_security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "vpc_security_group_ids", value)
+
+
+@pulumi.input_type
+class ReplicationConfigTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
+                    resource.</p>
+        :param pulumi.Input[str] key: <p>Tag key.</p>
+        :param pulumi.Input[str] value: <p>Tag value.</p>
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        <p>Tag key.</p>
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        <p>Tag value.</p>
+        """
         return pulumi.get(self, "value")
 
     @value.setter

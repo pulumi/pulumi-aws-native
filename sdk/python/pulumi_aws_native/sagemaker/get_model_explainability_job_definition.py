@@ -18,13 +18,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetModelExplainabilityJobDefinitionResult:
-    def __init__(__self__, creation_time=None, endpoint_name=None, job_definition_arn=None):
+    def __init__(__self__, creation_time=None, job_definition_arn=None):
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
-        if endpoint_name and not isinstance(endpoint_name, str):
-            raise TypeError("Expected argument 'endpoint_name' to be a str")
-        pulumi.set(__self__, "endpoint_name", endpoint_name)
         if job_definition_arn and not isinstance(job_definition_arn, str):
             raise TypeError("Expected argument 'job_definition_arn' to be a str")
         pulumi.set(__self__, "job_definition_arn", job_definition_arn)
@@ -36,11 +33,6 @@ class GetModelExplainabilityJobDefinitionResult:
         The time at which the job definition was created.
         """
         return pulumi.get(self, "creation_time")
-
-    @property
-    @pulumi.getter(name="endpointName")
-    def endpoint_name(self) -> Optional[str]:
-        return pulumi.get(self, "endpoint_name")
 
     @property
     @pulumi.getter(name="jobDefinitionArn")
@@ -58,7 +50,6 @@ class AwaitableGetModelExplainabilityJobDefinitionResult(GetModelExplainabilityJ
             yield self
         return GetModelExplainabilityJobDefinitionResult(
             creation_time=self.creation_time,
-            endpoint_name=self.endpoint_name,
             job_definition_arn=self.job_definition_arn)
 
 
@@ -77,7 +68,6 @@ def get_model_explainability_job_definition(job_definition_arn: Optional[str] = 
 
     return AwaitableGetModelExplainabilityJobDefinitionResult(
         creation_time=pulumi.get(__ret__, 'creation_time'),
-        endpoint_name=pulumi.get(__ret__, 'endpoint_name'),
         job_definition_arn=pulumi.get(__ret__, 'job_definition_arn'))
 
 

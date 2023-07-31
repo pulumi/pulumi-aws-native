@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::Config::ConfigRule
+ * Schema for AWS Config ConfigRule
  */
 export class ConfigRule extends pulumi.CustomResource {
     /**
@@ -37,14 +37,45 @@ export class ConfigRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === ConfigRule.__pulumiType;
     }
 
+    /**
+     * ARN generated for the AWS Config rule 
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    public readonly complianceType!: pulumi.Output<string | undefined>;
+    /**
+     * Compliance details of the Config rule
+     */
+    public readonly compliance!: pulumi.Output<outputs.configuration.ComplianceProperties | undefined>;
+    /**
+     * ID of the config rule
+     */
     public /*out*/ readonly configRuleId!: pulumi.Output<string>;
+    /**
+     * Name for the AWS Config rule
+     */
     public readonly configRuleName!: pulumi.Output<string | undefined>;
+    /**
+     * Description provided for the AWS Config rule
+     */
     public readonly description!: pulumi.Output<string | undefined>;
-    public readonly inputParameters!: pulumi.Output<any | undefined>;
+    /**
+     * List of EvaluationModeConfiguration objects
+     */
+    public readonly evaluationModes!: pulumi.Output<outputs.configuration.ConfigRuleEvaluationModeConfiguration[] | undefined>;
+    /**
+     * JSON string passed the Lambda function
+     */
+    public readonly inputParameters!: pulumi.Output<string | undefined>;
+    /**
+     * Maximum frequency at which the rule has to be evaluated
+     */
     public readonly maximumExecutionFrequency!: pulumi.Output<string | undefined>;
+    /**
+     * Scope to constrain which resources can trigger the AWS Config rule
+     */
     public readonly scope!: pulumi.Output<outputs.configuration.ConfigRuleScope | undefined>;
+    /**
+     * Source of events for the AWS Config rule
+     */
     public readonly source!: pulumi.Output<outputs.configuration.ConfigRuleSource>;
 
     /**
@@ -61,9 +92,10 @@ export class ConfigRule extends pulumi.CustomResource {
             if ((!args || args.source === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
-            resourceInputs["complianceType"] = args ? args.complianceType : undefined;
+            resourceInputs["compliance"] = args ? args.compliance : undefined;
             resourceInputs["configRuleName"] = args ? args.configRuleName : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["evaluationModes"] = args ? args.evaluationModes : undefined;
             resourceInputs["inputParameters"] = args ? args.inputParameters : undefined;
             resourceInputs["maximumExecutionFrequency"] = args ? args.maximumExecutionFrequency : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
@@ -72,10 +104,11 @@ export class ConfigRule extends pulumi.CustomResource {
             resourceInputs["configRuleId"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
-            resourceInputs["complianceType"] = undefined /*out*/;
+            resourceInputs["compliance"] = undefined /*out*/;
             resourceInputs["configRuleId"] = undefined /*out*/;
             resourceInputs["configRuleName"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["evaluationModes"] = undefined /*out*/;
             resourceInputs["inputParameters"] = undefined /*out*/;
             resourceInputs["maximumExecutionFrequency"] = undefined /*out*/;
             resourceInputs["scope"] = undefined /*out*/;
@@ -90,11 +123,36 @@ export class ConfigRule extends pulumi.CustomResource {
  * The set of arguments for constructing a ConfigRule resource.
  */
 export interface ConfigRuleArgs {
-    complianceType?: pulumi.Input<string>;
+    /**
+     * Compliance details of the Config rule
+     */
+    compliance?: pulumi.Input<inputs.configuration.CompliancePropertiesArgs>;
+    /**
+     * Name for the AWS Config rule
+     */
     configRuleName?: pulumi.Input<string>;
+    /**
+     * Description provided for the AWS Config rule
+     */
     description?: pulumi.Input<string>;
-    inputParameters?: any;
+    /**
+     * List of EvaluationModeConfiguration objects
+     */
+    evaluationModes?: pulumi.Input<pulumi.Input<inputs.configuration.ConfigRuleEvaluationModeConfigurationArgs>[]>;
+    /**
+     * JSON string passed the Lambda function
+     */
+    inputParameters?: pulumi.Input<string>;
+    /**
+     * Maximum frequency at which the rule has to be evaluated
+     */
     maximumExecutionFrequency?: pulumi.Input<string>;
+    /**
+     * Scope to constrain which resources can trigger the AWS Config rule
+     */
     scope?: pulumi.Input<inputs.configuration.ConfigRuleScopeArgs>;
+    /**
+     * Source of events for the AWS Config rule
+     */
     source: pulumi.Input<inputs.configuration.ConfigRuleSourceArgs>;
 }

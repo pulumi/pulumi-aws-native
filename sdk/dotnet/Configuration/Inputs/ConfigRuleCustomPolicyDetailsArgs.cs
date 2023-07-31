@@ -10,14 +10,26 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Configuration.Inputs
 {
 
+    /// <summary>
+    /// Custom policy details when rule is custom owned
+    /// </summary>
     public sealed class ConfigRuleCustomPolicyDetailsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Logging toggle for custom policy rule
+        /// </summary>
         [Input("enableDebugLogDelivery")]
         public Input<bool>? EnableDebugLogDelivery { get; set; }
 
+        /// <summary>
+        /// Runtime system for custom policy rule
+        /// </summary>
         [Input("policyRuntime")]
         public Input<string>? PolicyRuntime { get; set; }
 
+        /// <summary>
+        /// Policy definition containing logic for custom policy rule
+        /// </summary>
         [Input("policyText")]
         public Input<string>? PolicyText { get; set; }
 

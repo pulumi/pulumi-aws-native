@@ -71,7 +71,7 @@
     "MapFilter" : {
       "properties" : {
         "Comparison" : {
-          "enum" : [ "EQUALS", "NOT_EQUALS" ],
+          "enum" : [ "EQUALS", "NOT_EQUALS", "CONTAINS", "NOT_CONTAINS" ],
           "type" : "string"
         },
         "Key" : {
@@ -123,7 +123,7 @@
       "additionalProperties" : false
     },
     "StringFilterComparison" : {
-      "enum" : [ "EQUALS", "PREFIX", "NOT_EQUALS", "PREFIX_NOT_EQUALS" ],
+      "enum" : [ "EQUALS", "PREFIX", "NOT_EQUALS", "PREFIX_NOT_EQUALS", "CONTAINS", "NOT_CONTAINS" ],
       "type" : "string"
     },
     "ISO8601DateString" : {

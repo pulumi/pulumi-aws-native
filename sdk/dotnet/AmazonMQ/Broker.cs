@@ -40,6 +40,12 @@ namespace Pulumi.AwsNative.AmazonMQ
         [Output("configurationRevision")]
         public Output<int> ConfigurationRevision { get; private set; } = null!;
 
+        [Output("dataReplicationMode")]
+        public Output<string?> DataReplicationMode { get; private set; } = null!;
+
+        [Output("dataReplicationPrimaryBrokerArn")]
+        public Output<string?> DataReplicationPrimaryBrokerArn { get; private set; } = null!;
+
         [Output("deploymentMode")]
         public Output<string> DeploymentMode { get; private set; } = null!;
 
@@ -153,6 +159,12 @@ namespace Pulumi.AwsNative.AmazonMQ
 
         [Input("configuration")]
         public Input<Inputs.BrokerConfigurationIdArgs>? Configuration { get; set; }
+
+        [Input("dataReplicationMode")]
+        public Input<string>? DataReplicationMode { get; set; }
+
+        [Input("dataReplicationPrimaryBrokerArn")]
+        public Input<string>? DataReplicationPrimaryBrokerArn { get; set; }
 
         [Input("deploymentMode", required: true)]
         public Input<string> DeploymentMode { get; set; } = null!;

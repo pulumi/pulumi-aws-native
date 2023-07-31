@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
     /// </summary>
     public sealed class WebACLAWSManagedRulesATPRuleSetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("enableRegexInPath")]
+        public Input<bool>? EnableRegexInPath { get; set; }
+
         [Input("loginPath", required: true)]
         public Input<string> LoginPath { get; set; } = null!;
 

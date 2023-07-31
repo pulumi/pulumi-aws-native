@@ -3,6 +3,7 @@ AWS::GameCast::Application
 AWS::GameCast::StreamGroup
 AWS::Lambda::EventInvokeConfig
 AWS::Lambda::LayerVersionPermission
+AWS::Lambda::Permission
 AWSQS::EKS::Cluster
 AWSQS::Kubernetes::Get
 AWSQS::Kubernetes::Helm

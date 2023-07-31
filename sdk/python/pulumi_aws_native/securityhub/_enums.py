@@ -23,6 +23,8 @@ class AutomationRuleDateRangeUnit(str, Enum):
 class AutomationRuleMapFilterComparison(str, Enum):
     EQUALS = "EQUALS"
     NOT_EQUALS = "NOT_EQUALS"
+    CONTAINS = "CONTAINS"
+    NOT_CONTAINS = "NOT_CONTAINS"
 
 
 class AutomationRuleRuleStatus(str, Enum):
@@ -46,6 +48,8 @@ class AutomationRuleStringFilterComparison(str, Enum):
     PREFIX = "PREFIX"
     NOT_EQUALS = "NOT_EQUALS"
     PREFIX_NOT_EQUALS = "PREFIX_NOT_EQUALS"
+    CONTAINS = "CONTAINS"
+    NOT_CONTAINS = "NOT_CONTAINS"
 
 
 class AutomationRuleWorkflowUpdateStatus(str, Enum):

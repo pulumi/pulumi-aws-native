@@ -176,8 +176,10 @@ func (in *automationRuleDateRangeUnitPtr) ToAutomationRuleDateRangeUnitPtrOutput
 type AutomationRuleMapFilterComparison string
 
 const (
-	AutomationRuleMapFilterComparisonEquals    = AutomationRuleMapFilterComparison("EQUALS")
-	AutomationRuleMapFilterComparisonNotEquals = AutomationRuleMapFilterComparison("NOT_EQUALS")
+	AutomationRuleMapFilterComparisonEquals      = AutomationRuleMapFilterComparison("EQUALS")
+	AutomationRuleMapFilterComparisonNotEquals   = AutomationRuleMapFilterComparison("NOT_EQUALS")
+	AutomationRuleMapFilterComparisonContains    = AutomationRuleMapFilterComparison("CONTAINS")
+	AutomationRuleMapFilterComparisonNotContains = AutomationRuleMapFilterComparison("NOT_CONTAINS")
 )
 
 func (AutomationRuleMapFilterComparison) ElementType() reflect.Type {
@@ -676,6 +678,8 @@ const (
 	AutomationRuleStringFilterComparisonPrefix          = AutomationRuleStringFilterComparison("PREFIX")
 	AutomationRuleStringFilterComparisonNotEquals       = AutomationRuleStringFilterComparison("NOT_EQUALS")
 	AutomationRuleStringFilterComparisonPrefixNotEquals = AutomationRuleStringFilterComparison("PREFIX_NOT_EQUALS")
+	AutomationRuleStringFilterComparisonContains        = AutomationRuleStringFilterComparison("CONTAINS")
+	AutomationRuleStringFilterComparisonNotContains     = AutomationRuleStringFilterComparison("NOT_CONTAINS")
 )
 
 func (AutomationRuleStringFilterComparison) ElementType() reflect.Type {

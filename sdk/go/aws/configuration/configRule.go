@@ -12,19 +12,30 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::Config::ConfigRule
+// Schema for AWS Config ConfigRule
 type ConfigRule struct {
 	pulumi.CustomResourceState
 
-	Arn                       pulumi.StringOutput      `pulumi:"arn"`
-	ComplianceType            pulumi.StringPtrOutput   `pulumi:"complianceType"`
-	ConfigRuleId              pulumi.StringOutput      `pulumi:"configRuleId"`
-	ConfigRuleName            pulumi.StringPtrOutput   `pulumi:"configRuleName"`
-	Description               pulumi.StringPtrOutput   `pulumi:"description"`
-	InputParameters           pulumi.AnyOutput         `pulumi:"inputParameters"`
-	MaximumExecutionFrequency pulumi.StringPtrOutput   `pulumi:"maximumExecutionFrequency"`
-	Scope                     ConfigRuleScopePtrOutput `pulumi:"scope"`
-	Source                    ConfigRuleSourceOutput   `pulumi:"source"`
+	// ARN generated for the AWS Config rule
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Compliance details of the Config rule
+	Compliance CompliancePropertiesPtrOutput `pulumi:"compliance"`
+	// ID of the config rule
+	ConfigRuleId pulumi.StringOutput `pulumi:"configRuleId"`
+	// Name for the AWS Config rule
+	ConfigRuleName pulumi.StringPtrOutput `pulumi:"configRuleName"`
+	// Description provided for the AWS Config rule
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// List of EvaluationModeConfiguration objects
+	EvaluationModes ConfigRuleEvaluationModeConfigurationArrayOutput `pulumi:"evaluationModes"`
+	// JSON string passed the Lambda function
+	InputParameters pulumi.StringPtrOutput `pulumi:"inputParameters"`
+	// Maximum frequency at which the rule has to be evaluated
+	MaximumExecutionFrequency pulumi.StringPtrOutput `pulumi:"maximumExecutionFrequency"`
+	// Scope to constrain which resources can trigger the AWS Config rule
+	Scope ConfigRuleScopePtrOutput `pulumi:"scope"`
+	// Source of events for the AWS Config rule
+	Source ConfigRuleSourceOutput `pulumi:"source"`
 }
 
 // NewConfigRule registers a new resource with the given unique name, arguments, and options.
@@ -70,24 +81,42 @@ func (ConfigRuleState) ElementType() reflect.Type {
 }
 
 type configRuleArgs struct {
-	ComplianceType            *string          `pulumi:"complianceType"`
-	ConfigRuleName            *string          `pulumi:"configRuleName"`
-	Description               *string          `pulumi:"description"`
-	InputParameters           interface{}      `pulumi:"inputParameters"`
-	MaximumExecutionFrequency *string          `pulumi:"maximumExecutionFrequency"`
-	Scope                     *ConfigRuleScope `pulumi:"scope"`
-	Source                    ConfigRuleSource `pulumi:"source"`
+	// Compliance details of the Config rule
+	Compliance *ComplianceProperties `pulumi:"compliance"`
+	// Name for the AWS Config rule
+	ConfigRuleName *string `pulumi:"configRuleName"`
+	// Description provided for the AWS Config rule
+	Description *string `pulumi:"description"`
+	// List of EvaluationModeConfiguration objects
+	EvaluationModes []ConfigRuleEvaluationModeConfiguration `pulumi:"evaluationModes"`
+	// JSON string passed the Lambda function
+	InputParameters *string `pulumi:"inputParameters"`
+	// Maximum frequency at which the rule has to be evaluated
+	MaximumExecutionFrequency *string `pulumi:"maximumExecutionFrequency"`
+	// Scope to constrain which resources can trigger the AWS Config rule
+	Scope *ConfigRuleScope `pulumi:"scope"`
+	// Source of events for the AWS Config rule
+	Source ConfigRuleSource `pulumi:"source"`
 }
 
 // The set of arguments for constructing a ConfigRule resource.
 type ConfigRuleArgs struct {
-	ComplianceType            pulumi.StringPtrInput
-	ConfigRuleName            pulumi.StringPtrInput
-	Description               pulumi.StringPtrInput
-	InputParameters           pulumi.Input
+	// Compliance details of the Config rule
+	Compliance CompliancePropertiesPtrInput
+	// Name for the AWS Config rule
+	ConfigRuleName pulumi.StringPtrInput
+	// Description provided for the AWS Config rule
+	Description pulumi.StringPtrInput
+	// List of EvaluationModeConfiguration objects
+	EvaluationModes ConfigRuleEvaluationModeConfigurationArrayInput
+	// JSON string passed the Lambda function
+	InputParameters pulumi.StringPtrInput
+	// Maximum frequency at which the rule has to be evaluated
 	MaximumExecutionFrequency pulumi.StringPtrInput
-	Scope                     ConfigRuleScopePtrInput
-	Source                    ConfigRuleSourceInput
+	// Scope to constrain which resources can trigger the AWS Config rule
+	Scope ConfigRuleScopePtrInput
+	// Source of events for the AWS Config rule
+	Source ConfigRuleSourceInput
 }
 
 func (ConfigRuleArgs) ElementType() reflect.Type {
@@ -127,38 +156,52 @@ func (o ConfigRuleOutput) ToConfigRuleOutputWithContext(ctx context.Context) Con
 	return o
 }
 
+// ARN generated for the AWS Config rule
 func (o ConfigRuleOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigRule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-func (o ConfigRuleOutput) ComplianceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConfigRule) pulumi.StringPtrOutput { return v.ComplianceType }).(pulumi.StringPtrOutput)
+// Compliance details of the Config rule
+func (o ConfigRuleOutput) Compliance() CompliancePropertiesPtrOutput {
+	return o.ApplyT(func(v *ConfigRule) CompliancePropertiesPtrOutput { return v.Compliance }).(CompliancePropertiesPtrOutput)
 }
 
+// ID of the config rule
 func (o ConfigRuleOutput) ConfigRuleId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigRule) pulumi.StringOutput { return v.ConfigRuleId }).(pulumi.StringOutput)
 }
 
+// Name for the AWS Config rule
 func (o ConfigRuleOutput) ConfigRuleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigRule) pulumi.StringPtrOutput { return v.ConfigRuleName }).(pulumi.StringPtrOutput)
 }
 
+// Description provided for the AWS Config rule
 func (o ConfigRuleOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigRule) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o ConfigRuleOutput) InputParameters() pulumi.AnyOutput {
-	return o.ApplyT(func(v *ConfigRule) pulumi.AnyOutput { return v.InputParameters }).(pulumi.AnyOutput)
+// List of EvaluationModeConfiguration objects
+func (o ConfigRuleOutput) EvaluationModes() ConfigRuleEvaluationModeConfigurationArrayOutput {
+	return o.ApplyT(func(v *ConfigRule) ConfigRuleEvaluationModeConfigurationArrayOutput { return v.EvaluationModes }).(ConfigRuleEvaluationModeConfigurationArrayOutput)
 }
 
+// JSON string passed the Lambda function
+func (o ConfigRuleOutput) InputParameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigRule) pulumi.StringPtrOutput { return v.InputParameters }).(pulumi.StringPtrOutput)
+}
+
+// Maximum frequency at which the rule has to be evaluated
 func (o ConfigRuleOutput) MaximumExecutionFrequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigRule) pulumi.StringPtrOutput { return v.MaximumExecutionFrequency }).(pulumi.StringPtrOutput)
 }
 
+// Scope to constrain which resources can trigger the AWS Config rule
 func (o ConfigRuleOutput) Scope() ConfigRuleScopePtrOutput {
 	return o.ApplyT(func(v *ConfigRule) ConfigRuleScopePtrOutput { return v.Scope }).(ConfigRuleScopePtrOutput)
 }
 
+// Source of events for the AWS Config rule
 func (o ConfigRuleOutput) Source() ConfigRuleSourceOutput {
 	return o.ApplyT(func(v *ConfigRule) ConfigRuleSourceOutput { return v.Source }).(ConfigRuleSourceOutput)
 }

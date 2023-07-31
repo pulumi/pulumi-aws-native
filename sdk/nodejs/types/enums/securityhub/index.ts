@@ -11,6 +11,8 @@ export type AutomationRuleDateRangeUnit = (typeof AutomationRuleDateRangeUnit)[k
 export const AutomationRuleMapFilterComparison = {
     Equals: "EQUALS",
     NotEquals: "NOT_EQUALS",
+    Contains: "CONTAINS",
+    NotContains: "NOT_CONTAINS",
 } as const;
 
 export type AutomationRuleMapFilterComparison = (typeof AutomationRuleMapFilterComparison)[keyof typeof AutomationRuleMapFilterComparison];
@@ -40,6 +42,8 @@ export const AutomationRuleStringFilterComparison = {
     Prefix: "PREFIX",
     NotEquals: "NOT_EQUALS",
     PrefixNotEquals: "PREFIX_NOT_EQUALS",
+    Contains: "CONTAINS",
+    NotContains: "NOT_CONTAINS",
 } as const;
 
 export type AutomationRuleStringFilterComparison = (typeof AutomationRuleStringFilterComparison)[keyof typeof AutomationRuleStringFilterComparison];

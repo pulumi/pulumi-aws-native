@@ -10,12 +10,27 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Configuration.Outputs
 {
 
+    /// <summary>
+    /// Scope to constrain which resources can trigger the rule
+    /// </summary>
     [OutputType]
     public sealed class ConfigRuleScope
     {
+        /// <summary>
+        /// ID of the only one resource which we want to trigger the rule
+        /// </summary>
         public readonly string? ComplianceResourceId;
+        /// <summary>
+        /// Resource types of resources which we want to trigger the rule
+        /// </summary>
         public readonly ImmutableArray<string> ComplianceResourceTypes;
+        /// <summary>
+        /// Tag key applied only to resources which we want to trigger the rule
+        /// </summary>
         public readonly string? TagKey;
+        /// <summary>
+        /// Tag value applied only to resources which we want to trigger the rule
+        /// </summary>
         public readonly string? TagValue;
 
         [OutputConstructor]

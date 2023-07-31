@@ -12,7 +12,9 @@ from . import outputs
 
 __all__ = [
     'AggregationAuthorizationTag',
+    'ComplianceProperties',
     'ConfigRuleCustomPolicyDetails',
+    'ConfigRuleEvaluationModeConfiguration',
     'ConfigRuleScope',
     'ConfigRuleSource',
     'ConfigRuleSourceDetail',
@@ -66,7 +68,33 @@ class AggregationAuthorizationTag(dict):
 
 
 @pulumi.output_type
+class ComplianceProperties(dict):
+    """
+    Compliance details of the Config rule
+    """
+    def __init__(__self__, *,
+                 type: Optional[str] = None):
+        """
+        Compliance details of the Config rule
+        :param str type: Compliance type determined by the Config rule
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Compliance type determined by the Config rule
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class ConfigRuleCustomPolicyDetails(dict):
+    """
+    Custom policy details when rule is custom owned
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -92,6 +120,12 @@ class ConfigRuleCustomPolicyDetails(dict):
                  enable_debug_log_delivery: Optional[bool] = None,
                  policy_runtime: Optional[str] = None,
                  policy_text: Optional[str] = None):
+        """
+        Custom policy details when rule is custom owned
+        :param bool enable_debug_log_delivery: Logging toggle for custom policy rule
+        :param str policy_runtime: Runtime system for custom policy rule
+        :param str policy_text: Policy definition containing logic for custom policy rule
+        """
         if enable_debug_log_delivery is not None:
             pulumi.set(__self__, "enable_debug_log_delivery", enable_debug_log_delivery)
         if policy_runtime is not None:
@@ -102,21 +136,56 @@ class ConfigRuleCustomPolicyDetails(dict):
     @property
     @pulumi.getter(name="enableDebugLogDelivery")
     def enable_debug_log_delivery(self) -> Optional[bool]:
+        """
+        Logging toggle for custom policy rule
+        """
         return pulumi.get(self, "enable_debug_log_delivery")
 
     @property
     @pulumi.getter(name="policyRuntime")
     def policy_runtime(self) -> Optional[str]:
+        """
+        Runtime system for custom policy rule
+        """
         return pulumi.get(self, "policy_runtime")
 
     @property
     @pulumi.getter(name="policyText")
     def policy_text(self) -> Optional[str]:
+        """
+        Policy definition containing logic for custom policy rule
+        """
         return pulumi.get(self, "policy_text")
 
 
 @pulumi.output_type
+class ConfigRuleEvaluationModeConfiguration(dict):
+    """
+    Evaluation mode for the AWS Config rule
+    """
+    def __init__(__self__, *,
+                 mode: Optional[str] = None):
+        """
+        Evaluation mode for the AWS Config rule
+        :param str mode: Mode of evaluation of AWS Config rule
+        """
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[str]:
+        """
+        Mode of evaluation of AWS Config rule
+        """
+        return pulumi.get(self, "mode")
+
+
+@pulumi.output_type
 class ConfigRuleScope(dict):
+    """
+    Scope to constrain which resources can trigger the rule
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -145,6 +214,13 @@ class ConfigRuleScope(dict):
                  compliance_resource_types: Optional[Sequence[str]] = None,
                  tag_key: Optional[str] = None,
                  tag_value: Optional[str] = None):
+        """
+        Scope to constrain which resources can trigger the rule
+        :param str compliance_resource_id: ID of the only one resource which we want to trigger the rule
+        :param Sequence[str] compliance_resource_types: Resource types of resources which we want to trigger the rule
+        :param str tag_key: Tag key applied only to resources which we want to trigger the rule
+        :param str tag_value: Tag value applied only to resources which we want to trigger the rule
+        """
         if compliance_resource_id is not None:
             pulumi.set(__self__, "compliance_resource_id", compliance_resource_id)
         if compliance_resource_types is not None:
@@ -157,26 +233,41 @@ class ConfigRuleScope(dict):
     @property
     @pulumi.getter(name="complianceResourceId")
     def compliance_resource_id(self) -> Optional[str]:
+        """
+        ID of the only one resource which we want to trigger the rule
+        """
         return pulumi.get(self, "compliance_resource_id")
 
     @property
     @pulumi.getter(name="complianceResourceTypes")
     def compliance_resource_types(self) -> Optional[Sequence[str]]:
+        """
+        Resource types of resources which we want to trigger the rule
+        """
         return pulumi.get(self, "compliance_resource_types")
 
     @property
     @pulumi.getter(name="tagKey")
     def tag_key(self) -> Optional[str]:
+        """
+        Tag key applied only to resources which we want to trigger the rule
+        """
         return pulumi.get(self, "tag_key")
 
     @property
     @pulumi.getter(name="tagValue")
     def tag_value(self) -> Optional[str]:
+        """
+        Tag value applied only to resources which we want to trigger the rule
+        """
         return pulumi.get(self, "tag_value")
 
 
 @pulumi.output_type
 class ConfigRuleSource(dict):
+    """
+    Source of events for the config rule
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -203,6 +294,13 @@ class ConfigRuleSource(dict):
                  custom_policy_details: Optional['outputs.ConfigRuleCustomPolicyDetails'] = None,
                  source_details: Optional[Sequence['outputs.ConfigRuleSourceDetail']] = None,
                  source_identifier: Optional[str] = None):
+        """
+        Source of events for the config rule
+        :param str owner: Owner of the config rule
+        :param 'ConfigRuleCustomPolicyDetails' custom_policy_details: Custom policy details when rule is custom owned
+        :param Sequence['ConfigRuleSourceDetail'] source_details: List of message types that can trigger the rule
+        :param str source_identifier: Identifier for the source of events
+        """
         pulumi.set(__self__, "owner", owner)
         if custom_policy_details is not None:
             pulumi.set(__self__, "custom_policy_details", custom_policy_details)
@@ -214,26 +312,41 @@ class ConfigRuleSource(dict):
     @property
     @pulumi.getter
     def owner(self) -> str:
+        """
+        Owner of the config rule
+        """
         return pulumi.get(self, "owner")
 
     @property
     @pulumi.getter(name="customPolicyDetails")
     def custom_policy_details(self) -> Optional['outputs.ConfigRuleCustomPolicyDetails']:
+        """
+        Custom policy details when rule is custom owned
+        """
         return pulumi.get(self, "custom_policy_details")
 
     @property
     @pulumi.getter(name="sourceDetails")
     def source_details(self) -> Optional[Sequence['outputs.ConfigRuleSourceDetail']]:
+        """
+        List of message types that can trigger the rule
+        """
         return pulumi.get(self, "source_details")
 
     @property
     @pulumi.getter(name="sourceIdentifier")
     def source_identifier(self) -> Optional[str]:
+        """
+        Identifier for the source of events
+        """
         return pulumi.get(self, "source_identifier")
 
 
 @pulumi.output_type
 class ConfigRuleSourceDetail(dict):
+    """
+    Source and message type that can trigger the rule
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -259,6 +372,12 @@ class ConfigRuleSourceDetail(dict):
                  event_source: str,
                  message_type: str,
                  maximum_execution_frequency: Optional[str] = None):
+        """
+        Source and message type that can trigger the rule
+        :param str event_source: Source of event that can trigger the rule
+        :param str message_type: Notification type that can trigger the rule
+        :param str maximum_execution_frequency: Frequency at which the rule has to be evaluated
+        """
         pulumi.set(__self__, "event_source", event_source)
         pulumi.set(__self__, "message_type", message_type)
         if maximum_execution_frequency is not None:
@@ -267,16 +386,25 @@ class ConfigRuleSourceDetail(dict):
     @property
     @pulumi.getter(name="eventSource")
     def event_source(self) -> str:
+        """
+        Source of event that can trigger the rule
+        """
         return pulumi.get(self, "event_source")
 
     @property
     @pulumi.getter(name="messageType")
     def message_type(self) -> str:
+        """
+        Notification type that can trigger the rule
+        """
         return pulumi.get(self, "message_type")
 
     @property
     @pulumi.getter(name="maximumExecutionFrequency")
     def maximum_execution_frequency(self) -> Optional[str]:
+        """
+        Frequency at which the rule has to be evaluated
+        """
         return pulumi.get(self, "maximum_execution_frequency")
 
 

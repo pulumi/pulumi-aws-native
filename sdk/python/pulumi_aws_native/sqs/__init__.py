@@ -6,8 +6,10 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .get_queue import *
+from .get_queue_inline_policy import *
 from .get_queue_policy import *
 from .queue import *
+from .queue_inline_policy import *
 from .queue_policy import *
 from ._inputs import *
 from . import outputs

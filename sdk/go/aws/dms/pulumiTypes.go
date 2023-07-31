@@ -5459,6 +5459,377 @@ func (o EventSubscriptionTagArrayOutput) Index(i pulumi.IntInput) EventSubscript
 	}).(EventSubscriptionTagOutput)
 }
 
+// Configuration parameters for provisioning a AWS DMS Serverless replication
+type ReplicationConfigComputeConfig struct {
+	AvailabilityZone           *string  `pulumi:"availabilityZone"`
+	DnsNameServers             *string  `pulumi:"dnsNameServers"`
+	KmsKeyId                   *string  `pulumi:"kmsKeyId"`
+	MaxCapacityUnits           int      `pulumi:"maxCapacityUnits"`
+	MinCapacityUnits           *int     `pulumi:"minCapacityUnits"`
+	MultiAZ                    *bool    `pulumi:"multiAZ"`
+	PreferredMaintenanceWindow *string  `pulumi:"preferredMaintenanceWindow"`
+	ReplicationSubnetGroupId   *string  `pulumi:"replicationSubnetGroupId"`
+	VpcSecurityGroupIds        []string `pulumi:"vpcSecurityGroupIds"`
+}
+
+// ReplicationConfigComputeConfigInput is an input type that accepts ReplicationConfigComputeConfigArgs and ReplicationConfigComputeConfigOutput values.
+// You can construct a concrete instance of `ReplicationConfigComputeConfigInput` via:
+//
+//	ReplicationConfigComputeConfigArgs{...}
+type ReplicationConfigComputeConfigInput interface {
+	pulumi.Input
+
+	ToReplicationConfigComputeConfigOutput() ReplicationConfigComputeConfigOutput
+	ToReplicationConfigComputeConfigOutputWithContext(context.Context) ReplicationConfigComputeConfigOutput
+}
+
+// Configuration parameters for provisioning a AWS DMS Serverless replication
+type ReplicationConfigComputeConfigArgs struct {
+	AvailabilityZone           pulumi.StringPtrInput   `pulumi:"availabilityZone"`
+	DnsNameServers             pulumi.StringPtrInput   `pulumi:"dnsNameServers"`
+	KmsKeyId                   pulumi.StringPtrInput   `pulumi:"kmsKeyId"`
+	MaxCapacityUnits           pulumi.IntInput         `pulumi:"maxCapacityUnits"`
+	MinCapacityUnits           pulumi.IntPtrInput      `pulumi:"minCapacityUnits"`
+	MultiAZ                    pulumi.BoolPtrInput     `pulumi:"multiAZ"`
+	PreferredMaintenanceWindow pulumi.StringPtrInput   `pulumi:"preferredMaintenanceWindow"`
+	ReplicationSubnetGroupId   pulumi.StringPtrInput   `pulumi:"replicationSubnetGroupId"`
+	VpcSecurityGroupIds        pulumi.StringArrayInput `pulumi:"vpcSecurityGroupIds"`
+}
+
+func (ReplicationConfigComputeConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationConfigComputeConfig)(nil)).Elem()
+}
+
+func (i ReplicationConfigComputeConfigArgs) ToReplicationConfigComputeConfigOutput() ReplicationConfigComputeConfigOutput {
+	return i.ToReplicationConfigComputeConfigOutputWithContext(context.Background())
+}
+
+func (i ReplicationConfigComputeConfigArgs) ToReplicationConfigComputeConfigOutputWithContext(ctx context.Context) ReplicationConfigComputeConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigComputeConfigOutput)
+}
+
+func (i ReplicationConfigComputeConfigArgs) ToReplicationConfigComputeConfigPtrOutput() ReplicationConfigComputeConfigPtrOutput {
+	return i.ToReplicationConfigComputeConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ReplicationConfigComputeConfigArgs) ToReplicationConfigComputeConfigPtrOutputWithContext(ctx context.Context) ReplicationConfigComputeConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigComputeConfigOutput).ToReplicationConfigComputeConfigPtrOutputWithContext(ctx)
+}
+
+// ReplicationConfigComputeConfigPtrInput is an input type that accepts ReplicationConfigComputeConfigArgs, ReplicationConfigComputeConfigPtr and ReplicationConfigComputeConfigPtrOutput values.
+// You can construct a concrete instance of `ReplicationConfigComputeConfigPtrInput` via:
+//
+//	        ReplicationConfigComputeConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReplicationConfigComputeConfigPtrInput interface {
+	pulumi.Input
+
+	ToReplicationConfigComputeConfigPtrOutput() ReplicationConfigComputeConfigPtrOutput
+	ToReplicationConfigComputeConfigPtrOutputWithContext(context.Context) ReplicationConfigComputeConfigPtrOutput
+}
+
+type replicationConfigComputeConfigPtrType ReplicationConfigComputeConfigArgs
+
+func ReplicationConfigComputeConfigPtr(v *ReplicationConfigComputeConfigArgs) ReplicationConfigComputeConfigPtrInput {
+	return (*replicationConfigComputeConfigPtrType)(v)
+}
+
+func (*replicationConfigComputeConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicationConfigComputeConfig)(nil)).Elem()
+}
+
+func (i *replicationConfigComputeConfigPtrType) ToReplicationConfigComputeConfigPtrOutput() ReplicationConfigComputeConfigPtrOutput {
+	return i.ToReplicationConfigComputeConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *replicationConfigComputeConfigPtrType) ToReplicationConfigComputeConfigPtrOutputWithContext(ctx context.Context) ReplicationConfigComputeConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigComputeConfigPtrOutput)
+}
+
+// Configuration parameters for provisioning a AWS DMS Serverless replication
+type ReplicationConfigComputeConfigOutput struct{ *pulumi.OutputState }
+
+func (ReplicationConfigComputeConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationConfigComputeConfig)(nil)).Elem()
+}
+
+func (o ReplicationConfigComputeConfigOutput) ToReplicationConfigComputeConfigOutput() ReplicationConfigComputeConfigOutput {
+	return o
+}
+
+func (o ReplicationConfigComputeConfigOutput) ToReplicationConfigComputeConfigOutputWithContext(ctx context.Context) ReplicationConfigComputeConfigOutput {
+	return o
+}
+
+func (o ReplicationConfigComputeConfigOutput) ToReplicationConfigComputeConfigPtrOutput() ReplicationConfigComputeConfigPtrOutput {
+	return o.ToReplicationConfigComputeConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicationConfigComputeConfigOutput) ToReplicationConfigComputeConfigPtrOutputWithContext(ctx context.Context) ReplicationConfigComputeConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationConfigComputeConfig) *ReplicationConfigComputeConfig {
+		return &v
+	}).(ReplicationConfigComputeConfigPtrOutput)
+}
+
+func (o ReplicationConfigComputeConfigOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationConfigComputeConfig) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+func (o ReplicationConfigComputeConfigOutput) DnsNameServers() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationConfigComputeConfig) *string { return v.DnsNameServers }).(pulumi.StringPtrOutput)
+}
+
+func (o ReplicationConfigComputeConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationConfigComputeConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+func (o ReplicationConfigComputeConfigOutput) MaxCapacityUnits() pulumi.IntOutput {
+	return o.ApplyT(func(v ReplicationConfigComputeConfig) int { return v.MaxCapacityUnits }).(pulumi.IntOutput)
+}
+
+func (o ReplicationConfigComputeConfigOutput) MinCapacityUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ReplicationConfigComputeConfig) *int { return v.MinCapacityUnits }).(pulumi.IntPtrOutput)
+}
+
+func (o ReplicationConfigComputeConfigOutput) MultiAZ() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ReplicationConfigComputeConfig) *bool { return v.MultiAZ }).(pulumi.BoolPtrOutput)
+}
+
+func (o ReplicationConfigComputeConfigOutput) PreferredMaintenanceWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationConfigComputeConfig) *string { return v.PreferredMaintenanceWindow }).(pulumi.StringPtrOutput)
+}
+
+func (o ReplicationConfigComputeConfigOutput) ReplicationSubnetGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationConfigComputeConfig) *string { return v.ReplicationSubnetGroupId }).(pulumi.StringPtrOutput)
+}
+
+func (o ReplicationConfigComputeConfigOutput) VpcSecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ReplicationConfigComputeConfig) []string { return v.VpcSecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+type ReplicationConfigComputeConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicationConfigComputeConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicationConfigComputeConfig)(nil)).Elem()
+}
+
+func (o ReplicationConfigComputeConfigPtrOutput) ToReplicationConfigComputeConfigPtrOutput() ReplicationConfigComputeConfigPtrOutput {
+	return o
+}
+
+func (o ReplicationConfigComputeConfigPtrOutput) ToReplicationConfigComputeConfigPtrOutputWithContext(ctx context.Context) ReplicationConfigComputeConfigPtrOutput {
+	return o
+}
+
+func (o ReplicationConfigComputeConfigPtrOutput) Elem() ReplicationConfigComputeConfigOutput {
+	return o.ApplyT(func(v *ReplicationConfigComputeConfig) ReplicationConfigComputeConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicationConfigComputeConfig
+		return ret
+	}).(ReplicationConfigComputeConfigOutput)
+}
+
+func (o ReplicationConfigComputeConfigPtrOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationConfigComputeConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AvailabilityZone
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ReplicationConfigComputeConfigPtrOutput) DnsNameServers() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationConfigComputeConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DnsNameServers
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ReplicationConfigComputeConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationConfigComputeConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ReplicationConfigComputeConfigPtrOutput) MaxCapacityUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ReplicationConfigComputeConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxCapacityUnits
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o ReplicationConfigComputeConfigPtrOutput) MinCapacityUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ReplicationConfigComputeConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinCapacityUnits
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o ReplicationConfigComputeConfigPtrOutput) MultiAZ() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ReplicationConfigComputeConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.MultiAZ
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o ReplicationConfigComputeConfigPtrOutput) PreferredMaintenanceWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationConfigComputeConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PreferredMaintenanceWindow
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ReplicationConfigComputeConfigPtrOutput) ReplicationSubnetGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationConfigComputeConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ReplicationSubnetGroupId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ReplicationConfigComputeConfigPtrOutput) VpcSecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ReplicationConfigComputeConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.VpcSecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
+//
+//	resource.</p>
+type ReplicationConfigTag struct {
+	// <p>Tag key.</p>
+	Key string `pulumi:"key"`
+	// <p>Tag value.</p>
+	Value string `pulumi:"value"`
+}
+
+// ReplicationConfigTagInput is an input type that accepts ReplicationConfigTagArgs and ReplicationConfigTagOutput values.
+// You can construct a concrete instance of `ReplicationConfigTagInput` via:
+//
+//	ReplicationConfigTagArgs{...}
+type ReplicationConfigTagInput interface {
+	pulumi.Input
+
+	ToReplicationConfigTagOutput() ReplicationConfigTagOutput
+	ToReplicationConfigTagOutputWithContext(context.Context) ReplicationConfigTagOutput
+}
+
+// <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
+//
+//	resource.</p>
+type ReplicationConfigTagArgs struct {
+	// <p>Tag key.</p>
+	Key pulumi.StringInput `pulumi:"key"`
+	// <p>Tag value.</p>
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ReplicationConfigTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationConfigTag)(nil)).Elem()
+}
+
+func (i ReplicationConfigTagArgs) ToReplicationConfigTagOutput() ReplicationConfigTagOutput {
+	return i.ToReplicationConfigTagOutputWithContext(context.Background())
+}
+
+func (i ReplicationConfigTagArgs) ToReplicationConfigTagOutputWithContext(ctx context.Context) ReplicationConfigTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigTagOutput)
+}
+
+// ReplicationConfigTagArrayInput is an input type that accepts ReplicationConfigTagArray and ReplicationConfigTagArrayOutput values.
+// You can construct a concrete instance of `ReplicationConfigTagArrayInput` via:
+//
+//	ReplicationConfigTagArray{ ReplicationConfigTagArgs{...} }
+type ReplicationConfigTagArrayInput interface {
+	pulumi.Input
+
+	ToReplicationConfigTagArrayOutput() ReplicationConfigTagArrayOutput
+	ToReplicationConfigTagArrayOutputWithContext(context.Context) ReplicationConfigTagArrayOutput
+}
+
+type ReplicationConfigTagArray []ReplicationConfigTagInput
+
+func (ReplicationConfigTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReplicationConfigTag)(nil)).Elem()
+}
+
+func (i ReplicationConfigTagArray) ToReplicationConfigTagArrayOutput() ReplicationConfigTagArrayOutput {
+	return i.ToReplicationConfigTagArrayOutputWithContext(context.Background())
+}
+
+func (i ReplicationConfigTagArray) ToReplicationConfigTagArrayOutputWithContext(ctx context.Context) ReplicationConfigTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigTagArrayOutput)
+}
+
+// <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
+//
+//	resource.</p>
+type ReplicationConfigTagOutput struct{ *pulumi.OutputState }
+
+func (ReplicationConfigTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationConfigTag)(nil)).Elem()
+}
+
+func (o ReplicationConfigTagOutput) ToReplicationConfigTagOutput() ReplicationConfigTagOutput {
+	return o
+}
+
+func (o ReplicationConfigTagOutput) ToReplicationConfigTagOutputWithContext(ctx context.Context) ReplicationConfigTagOutput {
+	return o
+}
+
+// <p>Tag key.</p>
+func (o ReplicationConfigTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicationConfigTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// <p>Tag value.</p>
+func (o ReplicationConfigTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicationConfigTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ReplicationConfigTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ReplicationConfigTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReplicationConfigTag)(nil)).Elem()
+}
+
+func (o ReplicationConfigTagArrayOutput) ToReplicationConfigTagArrayOutput() ReplicationConfigTagArrayOutput {
+	return o
+}
+
+func (o ReplicationConfigTagArrayOutput) ToReplicationConfigTagArrayOutputWithContext(ctx context.Context) ReplicationConfigTagArrayOutput {
+	return o
+}
+
+func (o ReplicationConfigTagArrayOutput) Index(i pulumi.IntInput) ReplicationConfigTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReplicationConfigTag {
+		return vs[0].([]ReplicationConfigTag)[vs[1].(int)]
+	}).(ReplicationConfigTagOutput)
+}
+
 type ReplicationInstanceTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -5798,6 +6169,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointTagArrayInput)(nil)).Elem(), EndpointTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionTagInput)(nil)).Elem(), EventSubscriptionTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionTagArrayInput)(nil)).Elem(), EventSubscriptionTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigComputeConfigInput)(nil)).Elem(), ReplicationConfigComputeConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigComputeConfigPtrInput)(nil)).Elem(), ReplicationConfigComputeConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigTagInput)(nil)).Elem(), ReplicationConfigTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigTagArrayInput)(nil)).Elem(), ReplicationConfigTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationInstanceTagInput)(nil)).Elem(), ReplicationInstanceTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationInstanceTagArrayInput)(nil)).Elem(), ReplicationInstanceTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationSubnetGroupTagInput)(nil)).Elem(), ReplicationSubnetGroupTagArgs{})
@@ -5842,6 +6217,10 @@ func init() {
 	pulumi.RegisterOutputType(EndpointTagArrayOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionTagOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionTagArrayOutput{})
+	pulumi.RegisterOutputType(ReplicationConfigComputeConfigOutput{})
+	pulumi.RegisterOutputType(ReplicationConfigComputeConfigPtrOutput{})
+	pulumi.RegisterOutputType(ReplicationConfigTagOutput{})
+	pulumi.RegisterOutputType(ReplicationConfigTagArrayOutput{})
 	pulumi.RegisterOutputType(ReplicationInstanceTagOutput{})
 	pulumi.RegisterOutputType(ReplicationInstanceTagArrayOutput{})
 	pulumi.RegisterOutputType(ReplicationSubnetGroupTagOutput{})

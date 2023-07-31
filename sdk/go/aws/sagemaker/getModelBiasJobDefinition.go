@@ -30,7 +30,6 @@ type LookupModelBiasJobDefinitionArgs struct {
 type LookupModelBiasJobDefinitionResult struct {
 	// The time at which the job definition was created.
 	CreationTime *string `pulumi:"creationTime"`
-	EndpointName *string `pulumi:"endpointName"`
 	// The Amazon Resource Name (ARN) of job definition.
 	JobDefinitionArn *string `pulumi:"jobDefinitionArn"`
 }
@@ -74,10 +73,6 @@ func (o LookupModelBiasJobDefinitionResultOutput) ToLookupModelBiasJobDefinition
 // The time at which the job definition was created.
 func (o LookupModelBiasJobDefinitionResultOutput) CreationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupModelBiasJobDefinitionResult) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
-}
-
-func (o LookupModelBiasJobDefinitionResultOutput) EndpointName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupModelBiasJobDefinitionResult) *string { return v.EndpointName }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of job definition.

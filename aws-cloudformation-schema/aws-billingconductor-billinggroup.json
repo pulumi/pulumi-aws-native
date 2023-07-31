@@ -32,6 +32,9 @@
             "pattern" : "[0-9]{12}"
           },
           "minItems" : 1
+        },
+        "AutoAssociate" : {
+          "type" : "boolean"
         }
       },
       "required" : [ "LinkedAccountIds" ]
@@ -134,7 +137,7 @@
       "permissions" : [ "billingconductor:UpdateBillingGroup", "billingconductor:ListAccountAssociations", "organizations:ListAccounts", "billingconductor:AssociateAccounts", "billingconductor:DisassociateAccounts", "billingconductor:ListBillingGroups", "billingconductor:TagResource", "billingconductor:UntagResource" ]
     },
     "delete" : {
-      "permissions" : [ "billingconductor:DeleteBillingGroup", "billingconductor:ListBillingGroups", "billingconductor:UntagResource" ]
+      "permissions" : [ "billingconductor:DeleteBillingGroup", "billingconductor:ListBillingGroups", "billingconductor:UntagResource", "billingconductor:UpdateBillingGroup" ]
     }
   }
 }

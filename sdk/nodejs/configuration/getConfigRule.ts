@@ -8,37 +8,71 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::Config::ConfigRule
+ * Schema for AWS Config ConfigRule
  */
 export function getConfigRule(args: GetConfigRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigRuleResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:configuration:getConfigRule", {
-        "configRuleId": args.configRuleId,
+        "configRuleName": args.configRuleName,
     }, opts);
 }
 
 export interface GetConfigRuleArgs {
-    configRuleId: string;
+    /**
+     * Name for the AWS Config rule
+     */
+    configRuleName: string;
 }
 
 export interface GetConfigRuleResult {
+    /**
+     * ARN generated for the AWS Config rule 
+     */
     readonly arn?: string;
-    readonly complianceType?: string;
+    /**
+     * Compliance details of the Config rule
+     */
+    readonly compliance?: outputs.configuration.ComplianceProperties;
+    /**
+     * ID of the config rule
+     */
     readonly configRuleId?: string;
+    /**
+     * Description provided for the AWS Config rule
+     */
     readonly description?: string;
-    readonly inputParameters?: any;
+    /**
+     * List of EvaluationModeConfiguration objects
+     */
+    readonly evaluationModes?: outputs.configuration.ConfigRuleEvaluationModeConfiguration[];
+    /**
+     * JSON string passed the Lambda function
+     */
+    readonly inputParameters?: string;
+    /**
+     * Maximum frequency at which the rule has to be evaluated
+     */
     readonly maximumExecutionFrequency?: string;
+    /**
+     * Scope to constrain which resources can trigger the AWS Config rule
+     */
     readonly scope?: outputs.configuration.ConfigRuleScope;
+    /**
+     * Source of events for the AWS Config rule
+     */
     readonly source?: outputs.configuration.ConfigRuleSource;
 }
 /**
- * Resource Type definition for AWS::Config::ConfigRule
+ * Schema for AWS Config ConfigRule
  */
 export function getConfigRuleOutput(args: GetConfigRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigRuleResult> {
     return pulumi.output(args).apply((a: any) => getConfigRule(a, opts))
 }
 
 export interface GetConfigRuleOutputArgs {
-    configRuleId: pulumi.Input<string>;
+    /**
+     * Name for the AWS Config rule
+     */
+    configRuleName: pulumi.Input<string>;
 }

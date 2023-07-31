@@ -18,11 +18,16 @@ import (
 type Policy struct {
 	pulumi.CustomResourceState
 
-	Groups         pulumi.StringArrayOutput `pulumi:"groups"`
-	PolicyDocument pulumi.AnyOutput         `pulumi:"policyDocument"`
-	PolicyName     pulumi.StringOutput      `pulumi:"policyName"`
-	Roles          pulumi.StringArrayOutput `pulumi:"roles"`
-	Users          pulumi.StringArrayOutput `pulumi:"users"`
+	// The name of the group to associate the policy with. This parameter allows (through its regex pattern) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-.
+	Groups pulumi.StringArrayOutput `pulumi:"groups"`
+	// The policy document. You must provide policies in JSON format in IAM. However, for AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.
+	PolicyDocument pulumi.AnyOutput `pulumi:"policyDocument"`
+	// The name of the policy document. This parameter allows (through its regex pattern) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+	PolicyName pulumi.StringOutput `pulumi:"policyName"`
+	// The name of the role to associate the policy with. This parameter allows (per its regex pattern) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+	Roles pulumi.StringArrayOutput `pulumi:"roles"`
+	// The name of the user to associate the policy with. This parameter allows (through its regex pattern) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+	Users pulumi.StringArrayOutput `pulumi:"users"`
 }
 
 // NewPolicy registers a new resource with the given unique name, arguments, and options.
@@ -68,20 +73,30 @@ func (PolicyState) ElementType() reflect.Type {
 }
 
 type policyArgs struct {
-	Groups         []string    `pulumi:"groups"`
+	// The name of the group to associate the policy with. This parameter allows (through its regex pattern) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-.
+	Groups []string `pulumi:"groups"`
+	// The policy document. You must provide policies in JSON format in IAM. However, for AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.
 	PolicyDocument interface{} `pulumi:"policyDocument"`
-	PolicyName     *string     `pulumi:"policyName"`
-	Roles          []string    `pulumi:"roles"`
-	Users          []string    `pulumi:"users"`
+	// The name of the policy document. This parameter allows (through its regex pattern) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+	PolicyName *string `pulumi:"policyName"`
+	// The name of the role to associate the policy with. This parameter allows (per its regex pattern) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+	Roles []string `pulumi:"roles"`
+	// The name of the user to associate the policy with. This parameter allows (through its regex pattern) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+	Users []string `pulumi:"users"`
 }
 
 // The set of arguments for constructing a Policy resource.
 type PolicyArgs struct {
-	Groups         pulumi.StringArrayInput
+	// The name of the group to associate the policy with. This parameter allows (through its regex pattern) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-.
+	Groups pulumi.StringArrayInput
+	// The policy document. You must provide policies in JSON format in IAM. However, for AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.
 	PolicyDocument pulumi.Input
-	PolicyName     pulumi.StringPtrInput
-	Roles          pulumi.StringArrayInput
-	Users          pulumi.StringArrayInput
+	// The name of the policy document. This parameter allows (through its regex pattern) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+	PolicyName pulumi.StringPtrInput
+	// The name of the role to associate the policy with. This parameter allows (per its regex pattern) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+	Roles pulumi.StringArrayInput
+	// The name of the user to associate the policy with. This parameter allows (through its regex pattern) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+	Users pulumi.StringArrayInput
 }
 
 func (PolicyArgs) ElementType() reflect.Type {
@@ -121,22 +136,27 @@ func (o PolicyOutput) ToPolicyOutputWithContext(ctx context.Context) PolicyOutpu
 	return o
 }
 
+// The name of the group to associate the policy with. This parameter allows (through its regex pattern) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-.
 func (o PolicyOutput) Groups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringArrayOutput { return v.Groups }).(pulumi.StringArrayOutput)
 }
 
+// The policy document. You must provide policies in JSON format in IAM. However, for AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.
 func (o PolicyOutput) PolicyDocument() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Policy) pulumi.AnyOutput { return v.PolicyDocument }).(pulumi.AnyOutput)
 }
 
+// The name of the policy document. This parameter allows (through its regex pattern) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 func (o PolicyOutput) PolicyName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.PolicyName }).(pulumi.StringOutput)
 }
 
+// The name of the role to associate the policy with. This parameter allows (per its regex pattern) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 func (o PolicyOutput) Roles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringArrayOutput { return v.Roles }).(pulumi.StringArrayOutput)
 }
 
+// The name of the user to associate the policy with. This parameter allows (through its regex pattern) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 func (o PolicyOutput) Users() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringArrayOutput { return v.Users }).(pulumi.StringArrayOutput)
 }

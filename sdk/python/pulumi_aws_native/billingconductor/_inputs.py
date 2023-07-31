@@ -28,8 +28,11 @@ __all__ = [
 @pulumi.input_type
 class BillingGroupAccountGroupingArgs:
     def __init__(__self__, *,
-                 linked_account_ids: pulumi.Input[Sequence[pulumi.Input[str]]]):
+                 linked_account_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 auto_associate: Optional[pulumi.Input[bool]] = None):
         pulumi.set(__self__, "linked_account_ids", linked_account_ids)
+        if auto_associate is not None:
+            pulumi.set(__self__, "auto_associate", auto_associate)
 
     @property
     @pulumi.getter(name="linkedAccountIds")
@@ -39,6 +42,15 @@ class BillingGroupAccountGroupingArgs:
     @linked_account_ids.setter
     def linked_account_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "linked_account_ids", value)
+
+    @property
+    @pulumi.getter(name="autoAssociate")
+    def auto_associate(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "auto_associate")
+
+    @auto_associate.setter
+    def auto_associate(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_associate", value)
 
 
 @pulumi.input_type

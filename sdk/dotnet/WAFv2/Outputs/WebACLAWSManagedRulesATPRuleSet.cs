@@ -16,18 +16,22 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
     [OutputType]
     public sealed class WebACLAWSManagedRulesATPRuleSet
     {
+        public readonly bool? EnableRegexInPath;
         public readonly string LoginPath;
         public readonly Outputs.WebACLRequestInspection? RequestInspection;
         public readonly Outputs.WebACLResponseInspection? ResponseInspection;
 
         [OutputConstructor]
         private WebACLAWSManagedRulesATPRuleSet(
+            bool? enableRegexInPath,
+
             string loginPath,
 
             Outputs.WebACLRequestInspection? requestInspection,
 
             Outputs.WebACLResponseInspection? responseInspection)
         {
+            EnableRegexInPath = enableRegexInPath;
             LoginPath = loginPath;
             RequestInspection = requestInspection;
             ResponseInspection = responseInspection;

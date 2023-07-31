@@ -14,6 +14,7 @@ export type AccessPolicyType = (typeof AccessPolicyType)[keyof typeof AccessPoli
 export const CollectionType = {
     Search: "SEARCH",
     Timeseries: "TIMESERIES",
+    Vectorsearch: "VECTORSEARCH",
 } as const;
 
 /**

@@ -40,6 +40,7 @@ __all__ = [
     'WebACLOversizeHandling',
     'WebACLPositionalConstraint',
     'WebACLRateBasedStatementAggregateKeyType',
+    'WebACLRequestInspectionACFPPayloadType',
     'WebACLRequestInspectionPayloadType',
     'WebACLScope',
     'WebACLSensitivityLevel',
@@ -334,6 +335,11 @@ class WebACLRateBasedStatementAggregateKeyType(str, Enum):
     IP = "IP"
     FORWARDED_IP = "FORWARDED_IP"
     CUSTOM_KEYS = "CUSTOM_KEYS"
+
+
+class WebACLRequestInspectionACFPPayloadType(str, Enum):
+    JSON = "JSON"
+    FORM_ENCODED = "FORM_ENCODED"
 
 
 class WebACLRequestInspectionPayloadType(str, Enum):

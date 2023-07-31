@@ -5738,6 +5738,7 @@ export namespace batch {
 
 export namespace billingconductor {
     export interface BillingGroupAccountGroupingArgs {
+        autoAssociate?: pulumi.Input<boolean>;
         linkedAccountIds: pulumi.Input<pulumi.Input<string>[]>;
     }
 
@@ -7924,29 +7925,103 @@ export namespace configuration {
         value: pulumi.Input<string>;
     }
 
+    /**
+     * Compliance details of the Config rule
+     */
+    export interface CompliancePropertiesArgs {
+        /**
+         * Compliance type determined by the Config rule
+         */
+        type?: pulumi.Input<string>;
+    }
+
+    /**
+     * Custom policy details when rule is custom owned
+     */
     export interface ConfigRuleCustomPolicyDetailsArgs {
+        /**
+         * Logging toggle for custom policy rule
+         */
         enableDebugLogDelivery?: pulumi.Input<boolean>;
+        /**
+         * Runtime system for custom policy rule
+         */
         policyRuntime?: pulumi.Input<string>;
+        /**
+         * Policy definition containing logic for custom policy rule
+         */
         policyText?: pulumi.Input<string>;
     }
 
+    /**
+     * Evaluation mode for the AWS Config rule
+     */
+    export interface ConfigRuleEvaluationModeConfigurationArgs {
+        /**
+         * Mode of evaluation of AWS Config rule
+         */
+        mode?: pulumi.Input<string>;
+    }
+
+    /**
+     * Scope to constrain which resources can trigger the rule
+     */
     export interface ConfigRuleScopeArgs {
+        /**
+         * ID of the only one resource which we want to trigger the rule
+         */
         complianceResourceId?: pulumi.Input<string>;
+        /**
+         * Resource types of resources which we want to trigger the rule
+         */
         complianceResourceTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Tag key applied only to resources which we want to trigger the rule
+         */
         tagKey?: pulumi.Input<string>;
+        /**
+         * Tag value applied only to resources which we want to trigger the rule
+         */
         tagValue?: pulumi.Input<string>;
     }
 
+    /**
+     * Source of events for the config rule
+     */
     export interface ConfigRuleSourceArgs {
+        /**
+         * Custom policy details when rule is custom owned
+         */
         customPolicyDetails?: pulumi.Input<inputs.configuration.ConfigRuleCustomPolicyDetailsArgs>;
+        /**
+         * Owner of the config rule
+         */
         owner: pulumi.Input<string>;
+        /**
+         * List of message types that can trigger the rule
+         */
         sourceDetails?: pulumi.Input<pulumi.Input<inputs.configuration.ConfigRuleSourceDetailArgs>[]>;
+        /**
+         * Identifier for the source of events
+         */
         sourceIdentifier?: pulumi.Input<string>;
     }
 
+    /**
+     * Source and message type that can trigger the rule
+     */
     export interface ConfigRuleSourceDetailArgs {
+        /**
+         * Source of event that can trigger the rule
+         */
         eventSource: pulumi.Input<string>;
+        /**
+         * Frequency at which the rule has to be evaluated
+         */
         maximumExecutionFrequency?: pulumi.Input<string>;
+        /**
+         * Notification type that can trigger the rule
+         */
         messageType: pulumi.Input<string>;
     }
 
@@ -10842,6 +10917,36 @@ export namespace dms {
 
     export interface EventSubscriptionTagArgs {
         key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * Configuration parameters for provisioning a AWS DMS Serverless replication
+     */
+    export interface ReplicationConfigComputeConfigArgs {
+        availabilityZone?: pulumi.Input<string>;
+        dnsNameServers?: pulumi.Input<string>;
+        kmsKeyId?: pulumi.Input<string>;
+        maxCapacityUnits: pulumi.Input<number>;
+        minCapacityUnits?: pulumi.Input<number>;
+        multiAZ?: pulumi.Input<boolean>;
+        preferredMaintenanceWindow?: pulumi.Input<string>;
+        replicationSubnetGroupId?: pulumi.Input<string>;
+        vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
+     *             resource.</p>
+     */
+    export interface ReplicationConfigTagArgs {
+        /**
+         * <p>Tag key.</p>
+         */
+        key: pulumi.Input<string>;
+        /**
+         * <p>Tag value.</p>
+         */
         value: pulumi.Input<string>;
     }
 
@@ -50648,9 +50753,21 @@ export namespace wafv2 {
     }
 
     /**
+     * Configures how to use the Account creation fraud prevention managed rule group in the web ACL
+     */
+    export interface WebACLAWSManagedRulesACFPRuleSetArgs {
+        creationPath: pulumi.Input<string>;
+        enableRegexInPath?: pulumi.Input<boolean>;
+        registrationPagePath: pulumi.Input<string>;
+        requestInspection: pulumi.Input<inputs.wafv2.WebACLRequestInspectionACFPArgs>;
+        responseInspection?: pulumi.Input<inputs.wafv2.WebACLResponseInspectionArgs>;
+    }
+
+    /**
      * Configures how to use the Account Takeover Prevention managed rule group in the web ACL
      */
     export interface WebACLAWSManagedRulesATPRuleSetArgs {
+        enableRegexInPath?: pulumi.Input<boolean>;
         loginPath: pulumi.Input<string>;
         requestInspection?: pulumi.Input<inputs.wafv2.WebACLRequestInspectionArgs>;
         responseInspection?: pulumi.Input<inputs.wafv2.WebACLResponseInspectionArgs>;
@@ -50661,6 +50778,9 @@ export namespace wafv2 {
      */
     export interface WebACLAWSManagedRulesBotControlRuleSetArgs {
         inspectionLevel: pulumi.Input<enums.wafv2.WebACLAWSManagedRulesBotControlRuleSetInspectionLevel>;
+    }
+
+    export interface WebACLAddressFieldArgs {
     }
 
     /**
@@ -50936,6 +51056,7 @@ export namespace wafv2 {
      * ManagedRuleGroupConfig.
      */
     export interface WebACLManagedRuleGroupConfigArgs {
+        aWSManagedRulesACFPRuleSet?: pulumi.Input<inputs.wafv2.WebACLAWSManagedRulesACFPRuleSetArgs>;
         aWSManagedRulesATPRuleSet?: pulumi.Input<inputs.wafv2.WebACLAWSManagedRulesATPRuleSetArgs>;
         aWSManagedRulesBotControlRuleSet?: pulumi.Input<inputs.wafv2.WebACLAWSManagedRulesBotControlRuleSetArgs>;
         loginPath?: pulumi.Input<string>;
@@ -50980,6 +51101,9 @@ export namespace wafv2 {
          * Keep the RuleGroup or ManagedRuleGroup behavior as is.
          */
         none?: any;
+    }
+
+    export interface WebACLPhoneNumberFieldArgs {
     }
 
     export interface WebACLRateBasedStatementArgs {
@@ -51108,6 +51232,18 @@ export namespace wafv2 {
         passwordField: pulumi.Input<inputs.wafv2.WebACLFieldIdentifierArgs>;
         payloadType: pulumi.Input<enums.wafv2.WebACLRequestInspectionPayloadType>;
         usernameField: pulumi.Input<inputs.wafv2.WebACLFieldIdentifierArgs>;
+    }
+
+    /**
+     * Configures the inspection of sign-up requests
+     */
+    export interface WebACLRequestInspectionACFPArgs {
+        addressFields?: pulumi.Input<pulumi.Input<inputs.wafv2.WebACLAddressFieldArgs>[]>;
+        emailField?: pulumi.Input<inputs.wafv2.WebACLFieldIdentifierArgs>;
+        passwordField?: pulumi.Input<inputs.wafv2.WebACLFieldIdentifierArgs>;
+        payloadType: pulumi.Input<enums.wafv2.WebACLRequestInspectionACFPPayloadType>;
+        phoneNumberFields?: pulumi.Input<pulumi.Input<inputs.wafv2.WebACLPhoneNumberFieldArgs>[]>;
+        usernameField?: pulumi.Input<inputs.wafv2.WebACLFieldIdentifierArgs>;
     }
 
     /**

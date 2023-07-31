@@ -19,21 +19,24 @@ __all__ = [
 
 @pulumi.output_type
 class GetConfigRuleResult:
-    def __init__(__self__, arn=None, compliance_type=None, config_rule_id=None, description=None, input_parameters=None, maximum_execution_frequency=None, scope=None, source=None):
+    def __init__(__self__, arn=None, compliance=None, config_rule_id=None, description=None, evaluation_modes=None, input_parameters=None, maximum_execution_frequency=None, scope=None, source=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
-        if compliance_type and not isinstance(compliance_type, str):
-            raise TypeError("Expected argument 'compliance_type' to be a str")
-        pulumi.set(__self__, "compliance_type", compliance_type)
+        if compliance and not isinstance(compliance, dict):
+            raise TypeError("Expected argument 'compliance' to be a dict")
+        pulumi.set(__self__, "compliance", compliance)
         if config_rule_id and not isinstance(config_rule_id, str):
             raise TypeError("Expected argument 'config_rule_id' to be a str")
         pulumi.set(__self__, "config_rule_id", config_rule_id)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
-        if input_parameters and not isinstance(input_parameters, dict):
-            raise TypeError("Expected argument 'input_parameters' to be a dict")
+        if evaluation_modes and not isinstance(evaluation_modes, list):
+            raise TypeError("Expected argument 'evaluation_modes' to be a list")
+        pulumi.set(__self__, "evaluation_modes", evaluation_modes)
+        if input_parameters and not isinstance(input_parameters, str):
+            raise TypeError("Expected argument 'input_parameters' to be a str")
         pulumi.set(__self__, "input_parameters", input_parameters)
         if maximum_execution_frequency and not isinstance(maximum_execution_frequency, str):
             raise TypeError("Expected argument 'maximum_execution_frequency' to be a str")
@@ -48,41 +51,73 @@ class GetConfigRuleResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        ARN generated for the AWS Config rule 
+        """
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="complianceType")
-    def compliance_type(self) -> Optional[str]:
-        return pulumi.get(self, "compliance_type")
+    @pulumi.getter
+    def compliance(self) -> Optional['outputs.ComplianceProperties']:
+        """
+        Compliance details of the Config rule
+        """
+        return pulumi.get(self, "compliance")
 
     @property
     @pulumi.getter(name="configRuleId")
     def config_rule_id(self) -> Optional[str]:
+        """
+        ID of the config rule
+        """
         return pulumi.get(self, "config_rule_id")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        Description provided for the AWS Config rule
+        """
         return pulumi.get(self, "description")
 
     @property
+    @pulumi.getter(name="evaluationModes")
+    def evaluation_modes(self) -> Optional[Sequence['outputs.ConfigRuleEvaluationModeConfiguration']]:
+        """
+        List of EvaluationModeConfiguration objects
+        """
+        return pulumi.get(self, "evaluation_modes")
+
+    @property
     @pulumi.getter(name="inputParameters")
-    def input_parameters(self) -> Optional[Any]:
+    def input_parameters(self) -> Optional[str]:
+        """
+        JSON string passed the Lambda function
+        """
         return pulumi.get(self, "input_parameters")
 
     @property
     @pulumi.getter(name="maximumExecutionFrequency")
     def maximum_execution_frequency(self) -> Optional[str]:
+        """
+        Maximum frequency at which the rule has to be evaluated
+        """
         return pulumi.get(self, "maximum_execution_frequency")
 
     @property
     @pulumi.getter
     def scope(self) -> Optional['outputs.ConfigRuleScope']:
+        """
+        Scope to constrain which resources can trigger the AWS Config rule
+        """
         return pulumi.get(self, "scope")
 
     @property
     @pulumi.getter
     def source(self) -> Optional['outputs.ConfigRuleSource']:
+        """
+        Source of events for the AWS Config rule
+        """
         return pulumi.get(self, "source")
 
 
@@ -93,30 +128,35 @@ class AwaitableGetConfigRuleResult(GetConfigRuleResult):
             yield self
         return GetConfigRuleResult(
             arn=self.arn,
-            compliance_type=self.compliance_type,
+            compliance=self.compliance,
             config_rule_id=self.config_rule_id,
             description=self.description,
+            evaluation_modes=self.evaluation_modes,
             input_parameters=self.input_parameters,
             maximum_execution_frequency=self.maximum_execution_frequency,
             scope=self.scope,
             source=self.source)
 
 
-def get_config_rule(config_rule_id: Optional[str] = None,
+def get_config_rule(config_rule_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigRuleResult:
     """
-    Resource Type definition for AWS::Config::ConfigRule
+    Schema for AWS Config ConfigRule
+
+
+    :param str config_rule_name: Name for the AWS Config rule
     """
     __args__ = dict()
-    __args__['configRuleId'] = config_rule_id
+    __args__['configRuleName'] = config_rule_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:configuration:getConfigRule', __args__, opts=opts, typ=GetConfigRuleResult).value
 
     return AwaitableGetConfigRuleResult(
         arn=pulumi.get(__ret__, 'arn'),
-        compliance_type=pulumi.get(__ret__, 'compliance_type'),
+        compliance=pulumi.get(__ret__, 'compliance'),
         config_rule_id=pulumi.get(__ret__, 'config_rule_id'),
         description=pulumi.get(__ret__, 'description'),
+        evaluation_modes=pulumi.get(__ret__, 'evaluation_modes'),
         input_parameters=pulumi.get(__ret__, 'input_parameters'),
         maximum_execution_frequency=pulumi.get(__ret__, 'maximum_execution_frequency'),
         scope=pulumi.get(__ret__, 'scope'),
@@ -124,9 +164,12 @@ def get_config_rule(config_rule_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_config_rule)
-def get_config_rule_output(config_rule_id: Optional[pulumi.Input[str]] = None,
+def get_config_rule_output(config_rule_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigRuleResult]:
     """
-    Resource Type definition for AWS::Config::ConfigRule
+    Schema for AWS Config ConfigRule
+
+
+    :param str config_rule_name: Name for the AWS Config rule
     """
     ...

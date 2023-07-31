@@ -279,6 +279,39 @@ export const FeatureGroupTableFormat = {
  */
 export type FeatureGroupTableFormat = (typeof FeatureGroupTableFormat)[keyof typeof FeatureGroupTableFormat];
 
+export const ImageVersionJobType = {
+    Training: "TRAINING",
+    Inference: "INFERENCE",
+    NotebookKernel: "NOTEBOOK_KERNEL",
+} as const;
+
+/**
+ * Indicates SageMaker job type compatibility.
+ */
+export type ImageVersionJobType = (typeof ImageVersionJobType)[keyof typeof ImageVersionJobType];
+
+export const ImageVersionProcessor = {
+    Cpu: "CPU",
+    Gpu: "GPU",
+} as const;
+
+/**
+ * Indicates CPU or GPU compatibility.
+ */
+export type ImageVersionProcessor = (typeof ImageVersionProcessor)[keyof typeof ImageVersionProcessor];
+
+export const ImageVersionVendorGuidance = {
+    NotProvided: "NOT_PROVIDED",
+    Stable: "STABLE",
+    ToBeArchived: "TO_BE_ARCHIVED",
+    Archived: "ARCHIVED",
+} as const;
+
+/**
+ * The availability of the image version specified by the maintainer.
+ */
+export type ImageVersionVendorGuidance = (typeof ImageVersionVendorGuidance)[keyof typeof ImageVersionVendorGuidance];
+
 export const InferenceExperimentDesiredState = {
     Running: "Running",
     Completed: "Completed",

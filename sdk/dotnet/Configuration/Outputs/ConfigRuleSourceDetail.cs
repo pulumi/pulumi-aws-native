@@ -10,11 +10,23 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Configuration.Outputs
 {
 
+    /// <summary>
+    /// Source and message type that can trigger the rule
+    /// </summary>
     [OutputType]
     public sealed class ConfigRuleSourceDetail
     {
+        /// <summary>
+        /// Source of event that can trigger the rule
+        /// </summary>
         public readonly string EventSource;
+        /// <summary>
+        /// Frequency at which the rule has to be evaluated
+        /// </summary>
         public readonly string? MaximumExecutionFrequency;
+        /// <summary>
+        /// Notification type that can trigger the rule
+        /// </summary>
         public readonly string MessageType;
 
         [OutputConstructor]

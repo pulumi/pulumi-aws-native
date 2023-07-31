@@ -78,8 +78,10 @@ __all__ = [
     'RuleGroupTextTransformation',
     'RuleGroupVisibilityConfig',
     'RuleGroupXssMatchStatement',
+    'WebACLAWSManagedRulesACFPRuleSet',
     'WebACLAWSManagedRulesATPRuleSet',
     'WebACLAWSManagedRulesBotControlRuleSet',
+    'WebACLAddressField',
     'WebACLAllowAction',
     'WebACLAndStatement',
     'WebACLAssociationConfig',
@@ -119,6 +121,7 @@ __all__ = [
     'WebACLNotStatement',
     'WebACLOrStatement',
     'WebACLOverrideAction',
+    'WebACLPhoneNumberField',
     'WebACLRateBasedStatement',
     'WebACLRateBasedStatementCustomKey',
     'WebACLRateLimitCookie',
@@ -134,6 +137,7 @@ __all__ = [
     'WebACLRegexPatternSetReferenceStatement',
     'WebACLRequestBody',
     'WebACLRequestInspection',
+    'WebACLRequestInspectionACFP',
     'WebACLResponseInspection',
     'WebACLResponseInspectionBodyContains',
     'WebACLResponseInspectionHeader',
@@ -2993,6 +2997,79 @@ class RuleGroupXssMatchStatement(dict):
 
 
 @pulumi.output_type
+class WebACLAWSManagedRulesACFPRuleSet(dict):
+    """
+    Configures how to use the Account creation fraud prevention managed rule group in the web ACL
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "creationPath":
+            suggest = "creation_path"
+        elif key == "registrationPagePath":
+            suggest = "registration_page_path"
+        elif key == "requestInspection":
+            suggest = "request_inspection"
+        elif key == "enableRegexInPath":
+            suggest = "enable_regex_in_path"
+        elif key == "responseInspection":
+            suggest = "response_inspection"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebACLAWSManagedRulesACFPRuleSet. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebACLAWSManagedRulesACFPRuleSet.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebACLAWSManagedRulesACFPRuleSet.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 creation_path: str,
+                 registration_page_path: str,
+                 request_inspection: 'outputs.WebACLRequestInspectionACFP',
+                 enable_regex_in_path: Optional[bool] = None,
+                 response_inspection: Optional['outputs.WebACLResponseInspection'] = None):
+        """
+        Configures how to use the Account creation fraud prevention managed rule group in the web ACL
+        """
+        pulumi.set(__self__, "creation_path", creation_path)
+        pulumi.set(__self__, "registration_page_path", registration_page_path)
+        pulumi.set(__self__, "request_inspection", request_inspection)
+        if enable_regex_in_path is not None:
+            pulumi.set(__self__, "enable_regex_in_path", enable_regex_in_path)
+        if response_inspection is not None:
+            pulumi.set(__self__, "response_inspection", response_inspection)
+
+    @property
+    @pulumi.getter(name="creationPath")
+    def creation_path(self) -> str:
+        return pulumi.get(self, "creation_path")
+
+    @property
+    @pulumi.getter(name="registrationPagePath")
+    def registration_page_path(self) -> str:
+        return pulumi.get(self, "registration_page_path")
+
+    @property
+    @pulumi.getter(name="requestInspection")
+    def request_inspection(self) -> 'outputs.WebACLRequestInspectionACFP':
+        return pulumi.get(self, "request_inspection")
+
+    @property
+    @pulumi.getter(name="enableRegexInPath")
+    def enable_regex_in_path(self) -> Optional[bool]:
+        return pulumi.get(self, "enable_regex_in_path")
+
+    @property
+    @pulumi.getter(name="responseInspection")
+    def response_inspection(self) -> Optional['outputs.WebACLResponseInspection']:
+        return pulumi.get(self, "response_inspection")
+
+
+@pulumi.output_type
 class WebACLAWSManagedRulesATPRuleSet(dict):
     """
     Configures how to use the Account Takeover Prevention managed rule group in the web ACL
@@ -3002,6 +3079,8 @@ class WebACLAWSManagedRulesATPRuleSet(dict):
         suggest = None
         if key == "loginPath":
             suggest = "login_path"
+        elif key == "enableRegexInPath":
+            suggest = "enable_regex_in_path"
         elif key == "requestInspection":
             suggest = "request_inspection"
         elif key == "responseInspection":
@@ -3020,12 +3099,15 @@ class WebACLAWSManagedRulesATPRuleSet(dict):
 
     def __init__(__self__, *,
                  login_path: str,
+                 enable_regex_in_path: Optional[bool] = None,
                  request_inspection: Optional['outputs.WebACLRequestInspection'] = None,
                  response_inspection: Optional['outputs.WebACLResponseInspection'] = None):
         """
         Configures how to use the Account Takeover Prevention managed rule group in the web ACL
         """
         pulumi.set(__self__, "login_path", login_path)
+        if enable_regex_in_path is not None:
+            pulumi.set(__self__, "enable_regex_in_path", enable_regex_in_path)
         if request_inspection is not None:
             pulumi.set(__self__, "request_inspection", request_inspection)
         if response_inspection is not None:
@@ -3035,6 +3117,11 @@ class WebACLAWSManagedRulesATPRuleSet(dict):
     @pulumi.getter(name="loginPath")
     def login_path(self) -> str:
         return pulumi.get(self, "login_path")
+
+    @property
+    @pulumi.getter(name="enableRegexInPath")
+    def enable_regex_in_path(self) -> Optional[bool]:
+        return pulumi.get(self, "enable_regex_in_path")
 
     @property
     @pulumi.getter(name="requestInspection")
@@ -3080,6 +3167,12 @@ class WebACLAWSManagedRulesBotControlRuleSet(dict):
     @pulumi.getter(name="inspectionLevel")
     def inspection_level(self) -> 'WebACLAWSManagedRulesBotControlRuleSetInspectionLevel':
         return pulumi.get(self, "inspection_level")
+
+
+@pulumi.output_type
+class WebACLAddressField(dict):
+    def __init__(__self__):
+        pass
 
 
 @pulumi.output_type
@@ -4405,7 +4498,9 @@ class WebACLManagedRuleGroupConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "aWSManagedRulesATPRuleSet":
+        if key == "aWSManagedRulesACFPRuleSet":
+            suggest = "a_ws_managed_rules_acfp_rule_set"
+        elif key == "aWSManagedRulesATPRuleSet":
             suggest = "a_ws_managed_rules_atp_rule_set"
         elif key == "aWSManagedRulesBotControlRuleSet":
             suggest = "a_ws_managed_rules_bot_control_rule_set"
@@ -4430,6 +4525,7 @@ class WebACLManagedRuleGroupConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 a_ws_managed_rules_acfp_rule_set: Optional['outputs.WebACLAWSManagedRulesACFPRuleSet'] = None,
                  a_ws_managed_rules_atp_rule_set: Optional['outputs.WebACLAWSManagedRulesATPRuleSet'] = None,
                  a_ws_managed_rules_bot_control_rule_set: Optional['outputs.WebACLAWSManagedRulesBotControlRuleSet'] = None,
                  login_path: Optional[str] = None,
@@ -4439,6 +4535,8 @@ class WebACLManagedRuleGroupConfig(dict):
         """
         ManagedRuleGroupConfig.
         """
+        if a_ws_managed_rules_acfp_rule_set is not None:
+            pulumi.set(__self__, "a_ws_managed_rules_acfp_rule_set", a_ws_managed_rules_acfp_rule_set)
         if a_ws_managed_rules_atp_rule_set is not None:
             pulumi.set(__self__, "a_ws_managed_rules_atp_rule_set", a_ws_managed_rules_atp_rule_set)
         if a_ws_managed_rules_bot_control_rule_set is not None:
@@ -4451,6 +4549,11 @@ class WebACLManagedRuleGroupConfig(dict):
             pulumi.set(__self__, "payload_type", payload_type)
         if username_field is not None:
             pulumi.set(__self__, "username_field", username_field)
+
+    @property
+    @pulumi.getter(name="aWSManagedRulesACFPRuleSet")
+    def a_ws_managed_rules_acfp_rule_set(self) -> Optional['outputs.WebACLAWSManagedRulesACFPRuleSet']:
+        return pulumi.get(self, "a_ws_managed_rules_acfp_rule_set")
 
     @property
     @pulumi.getter(name="aWSManagedRulesATPRuleSet")
@@ -4634,6 +4737,12 @@ class WebACLOverrideAction(dict):
         Keep the RuleGroup or ManagedRuleGroup behavior as is.
         """
         return pulumi.get(self, "none")
+
+
+@pulumi.output_type
+class WebACLPhoneNumberField(dict):
+    def __init__(__self__):
+        pass
 
 
 @pulumi.output_type
@@ -5240,6 +5349,91 @@ class WebACLRequestInspection(dict):
     @property
     @pulumi.getter(name="usernameField")
     def username_field(self) -> 'outputs.WebACLFieldIdentifier':
+        return pulumi.get(self, "username_field")
+
+
+@pulumi.output_type
+class WebACLRequestInspectionACFP(dict):
+    """
+    Configures the inspection of sign-up requests
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "payloadType":
+            suggest = "payload_type"
+        elif key == "addressFields":
+            suggest = "address_fields"
+        elif key == "emailField":
+            suggest = "email_field"
+        elif key == "passwordField":
+            suggest = "password_field"
+        elif key == "phoneNumberFields":
+            suggest = "phone_number_fields"
+        elif key == "usernameField":
+            suggest = "username_field"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebACLRequestInspectionACFP. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebACLRequestInspectionACFP.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebACLRequestInspectionACFP.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 payload_type: 'WebACLRequestInspectionACFPPayloadType',
+                 address_fields: Optional[Sequence['outputs.WebACLAddressField']] = None,
+                 email_field: Optional['outputs.WebACLFieldIdentifier'] = None,
+                 password_field: Optional['outputs.WebACLFieldIdentifier'] = None,
+                 phone_number_fields: Optional[Sequence['outputs.WebACLPhoneNumberField']] = None,
+                 username_field: Optional['outputs.WebACLFieldIdentifier'] = None):
+        """
+        Configures the inspection of sign-up requests
+        """
+        pulumi.set(__self__, "payload_type", payload_type)
+        if address_fields is not None:
+            pulumi.set(__self__, "address_fields", address_fields)
+        if email_field is not None:
+            pulumi.set(__self__, "email_field", email_field)
+        if password_field is not None:
+            pulumi.set(__self__, "password_field", password_field)
+        if phone_number_fields is not None:
+            pulumi.set(__self__, "phone_number_fields", phone_number_fields)
+        if username_field is not None:
+            pulumi.set(__self__, "username_field", username_field)
+
+    @property
+    @pulumi.getter(name="payloadType")
+    def payload_type(self) -> 'WebACLRequestInspectionACFPPayloadType':
+        return pulumi.get(self, "payload_type")
+
+    @property
+    @pulumi.getter(name="addressFields")
+    def address_fields(self) -> Optional[Sequence['outputs.WebACLAddressField']]:
+        return pulumi.get(self, "address_fields")
+
+    @property
+    @pulumi.getter(name="emailField")
+    def email_field(self) -> Optional['outputs.WebACLFieldIdentifier']:
+        return pulumi.get(self, "email_field")
+
+    @property
+    @pulumi.getter(name="passwordField")
+    def password_field(self) -> Optional['outputs.WebACLFieldIdentifier']:
+        return pulumi.get(self, "password_field")
+
+    @property
+    @pulumi.getter(name="phoneNumberFields")
+    def phone_number_fields(self) -> Optional[Sequence['outputs.WebACLPhoneNumberField']]:
+        return pulumi.get(self, "phone_number_fields")
+
+    @property
+    @pulumi.getter(name="usernameField")
+    def username_field(self) -> Optional['outputs.WebACLFieldIdentifier']:
         return pulumi.get(self, "username_field")
 
 

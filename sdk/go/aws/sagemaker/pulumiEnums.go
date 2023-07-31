@@ -2769,6 +2769,504 @@ func (in *featureGroupTableFormatPtr) ToFeatureGroupTableFormatPtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(FeatureGroupTableFormatPtrOutput)
 }
 
+// Indicates SageMaker job type compatibility.
+type ImageVersionJobType string
+
+const (
+	ImageVersionJobTypeTraining       = ImageVersionJobType("TRAINING")
+	ImageVersionJobTypeInference      = ImageVersionJobType("INFERENCE")
+	ImageVersionJobTypeNotebookKernel = ImageVersionJobType("NOTEBOOK_KERNEL")
+)
+
+func (ImageVersionJobType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageVersionJobType)(nil)).Elem()
+}
+
+func (e ImageVersionJobType) ToImageVersionJobTypeOutput() ImageVersionJobTypeOutput {
+	return pulumi.ToOutput(e).(ImageVersionJobTypeOutput)
+}
+
+func (e ImageVersionJobType) ToImageVersionJobTypeOutputWithContext(ctx context.Context) ImageVersionJobTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ImageVersionJobTypeOutput)
+}
+
+func (e ImageVersionJobType) ToImageVersionJobTypePtrOutput() ImageVersionJobTypePtrOutput {
+	return e.ToImageVersionJobTypePtrOutputWithContext(context.Background())
+}
+
+func (e ImageVersionJobType) ToImageVersionJobTypePtrOutputWithContext(ctx context.Context) ImageVersionJobTypePtrOutput {
+	return ImageVersionJobType(e).ToImageVersionJobTypeOutputWithContext(ctx).ToImageVersionJobTypePtrOutputWithContext(ctx)
+}
+
+func (e ImageVersionJobType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ImageVersionJobType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ImageVersionJobType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ImageVersionJobType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ImageVersionJobTypeOutput struct{ *pulumi.OutputState }
+
+func (ImageVersionJobTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageVersionJobType)(nil)).Elem()
+}
+
+func (o ImageVersionJobTypeOutput) ToImageVersionJobTypeOutput() ImageVersionJobTypeOutput {
+	return o
+}
+
+func (o ImageVersionJobTypeOutput) ToImageVersionJobTypeOutputWithContext(ctx context.Context) ImageVersionJobTypeOutput {
+	return o
+}
+
+func (o ImageVersionJobTypeOutput) ToImageVersionJobTypePtrOutput() ImageVersionJobTypePtrOutput {
+	return o.ToImageVersionJobTypePtrOutputWithContext(context.Background())
+}
+
+func (o ImageVersionJobTypeOutput) ToImageVersionJobTypePtrOutputWithContext(ctx context.Context) ImageVersionJobTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageVersionJobType) *ImageVersionJobType {
+		return &v
+	}).(ImageVersionJobTypePtrOutput)
+}
+
+func (o ImageVersionJobTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ImageVersionJobTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ImageVersionJobType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ImageVersionJobTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ImageVersionJobTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ImageVersionJobType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ImageVersionJobTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ImageVersionJobTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageVersionJobType)(nil)).Elem()
+}
+
+func (o ImageVersionJobTypePtrOutput) ToImageVersionJobTypePtrOutput() ImageVersionJobTypePtrOutput {
+	return o
+}
+
+func (o ImageVersionJobTypePtrOutput) ToImageVersionJobTypePtrOutputWithContext(ctx context.Context) ImageVersionJobTypePtrOutput {
+	return o
+}
+
+func (o ImageVersionJobTypePtrOutput) Elem() ImageVersionJobTypeOutput {
+	return o.ApplyT(func(v *ImageVersionJobType) ImageVersionJobType {
+		if v != nil {
+			return *v
+		}
+		var ret ImageVersionJobType
+		return ret
+	}).(ImageVersionJobTypeOutput)
+}
+
+func (o ImageVersionJobTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ImageVersionJobTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ImageVersionJobType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ImageVersionJobTypeInput is an input type that accepts ImageVersionJobTypeArgs and ImageVersionJobTypeOutput values.
+// You can construct a concrete instance of `ImageVersionJobTypeInput` via:
+//
+//	ImageVersionJobTypeArgs{...}
+type ImageVersionJobTypeInput interface {
+	pulumi.Input
+
+	ToImageVersionJobTypeOutput() ImageVersionJobTypeOutput
+	ToImageVersionJobTypeOutputWithContext(context.Context) ImageVersionJobTypeOutput
+}
+
+var imageVersionJobTypePtrType = reflect.TypeOf((**ImageVersionJobType)(nil)).Elem()
+
+type ImageVersionJobTypePtrInput interface {
+	pulumi.Input
+
+	ToImageVersionJobTypePtrOutput() ImageVersionJobTypePtrOutput
+	ToImageVersionJobTypePtrOutputWithContext(context.Context) ImageVersionJobTypePtrOutput
+}
+
+type imageVersionJobTypePtr string
+
+func ImageVersionJobTypePtr(v string) ImageVersionJobTypePtrInput {
+	return (*imageVersionJobTypePtr)(&v)
+}
+
+func (*imageVersionJobTypePtr) ElementType() reflect.Type {
+	return imageVersionJobTypePtrType
+}
+
+func (in *imageVersionJobTypePtr) ToImageVersionJobTypePtrOutput() ImageVersionJobTypePtrOutput {
+	return pulumi.ToOutput(in).(ImageVersionJobTypePtrOutput)
+}
+
+func (in *imageVersionJobTypePtr) ToImageVersionJobTypePtrOutputWithContext(ctx context.Context) ImageVersionJobTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ImageVersionJobTypePtrOutput)
+}
+
+// Indicates CPU or GPU compatibility.
+type ImageVersionProcessor string
+
+const (
+	ImageVersionProcessorCpu = ImageVersionProcessor("CPU")
+	ImageVersionProcessorGpu = ImageVersionProcessor("GPU")
+)
+
+func (ImageVersionProcessor) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageVersionProcessor)(nil)).Elem()
+}
+
+func (e ImageVersionProcessor) ToImageVersionProcessorOutput() ImageVersionProcessorOutput {
+	return pulumi.ToOutput(e).(ImageVersionProcessorOutput)
+}
+
+func (e ImageVersionProcessor) ToImageVersionProcessorOutputWithContext(ctx context.Context) ImageVersionProcessorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ImageVersionProcessorOutput)
+}
+
+func (e ImageVersionProcessor) ToImageVersionProcessorPtrOutput() ImageVersionProcessorPtrOutput {
+	return e.ToImageVersionProcessorPtrOutputWithContext(context.Background())
+}
+
+func (e ImageVersionProcessor) ToImageVersionProcessorPtrOutputWithContext(ctx context.Context) ImageVersionProcessorPtrOutput {
+	return ImageVersionProcessor(e).ToImageVersionProcessorOutputWithContext(ctx).ToImageVersionProcessorPtrOutputWithContext(ctx)
+}
+
+func (e ImageVersionProcessor) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ImageVersionProcessor) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ImageVersionProcessor) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ImageVersionProcessor) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ImageVersionProcessorOutput struct{ *pulumi.OutputState }
+
+func (ImageVersionProcessorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageVersionProcessor)(nil)).Elem()
+}
+
+func (o ImageVersionProcessorOutput) ToImageVersionProcessorOutput() ImageVersionProcessorOutput {
+	return o
+}
+
+func (o ImageVersionProcessorOutput) ToImageVersionProcessorOutputWithContext(ctx context.Context) ImageVersionProcessorOutput {
+	return o
+}
+
+func (o ImageVersionProcessorOutput) ToImageVersionProcessorPtrOutput() ImageVersionProcessorPtrOutput {
+	return o.ToImageVersionProcessorPtrOutputWithContext(context.Background())
+}
+
+func (o ImageVersionProcessorOutput) ToImageVersionProcessorPtrOutputWithContext(ctx context.Context) ImageVersionProcessorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageVersionProcessor) *ImageVersionProcessor {
+		return &v
+	}).(ImageVersionProcessorPtrOutput)
+}
+
+func (o ImageVersionProcessorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ImageVersionProcessorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ImageVersionProcessor) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ImageVersionProcessorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ImageVersionProcessorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ImageVersionProcessor) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ImageVersionProcessorPtrOutput struct{ *pulumi.OutputState }
+
+func (ImageVersionProcessorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageVersionProcessor)(nil)).Elem()
+}
+
+func (o ImageVersionProcessorPtrOutput) ToImageVersionProcessorPtrOutput() ImageVersionProcessorPtrOutput {
+	return o
+}
+
+func (o ImageVersionProcessorPtrOutput) ToImageVersionProcessorPtrOutputWithContext(ctx context.Context) ImageVersionProcessorPtrOutput {
+	return o
+}
+
+func (o ImageVersionProcessorPtrOutput) Elem() ImageVersionProcessorOutput {
+	return o.ApplyT(func(v *ImageVersionProcessor) ImageVersionProcessor {
+		if v != nil {
+			return *v
+		}
+		var ret ImageVersionProcessor
+		return ret
+	}).(ImageVersionProcessorOutput)
+}
+
+func (o ImageVersionProcessorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ImageVersionProcessorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ImageVersionProcessor) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ImageVersionProcessorInput is an input type that accepts ImageVersionProcessorArgs and ImageVersionProcessorOutput values.
+// You can construct a concrete instance of `ImageVersionProcessorInput` via:
+//
+//	ImageVersionProcessorArgs{...}
+type ImageVersionProcessorInput interface {
+	pulumi.Input
+
+	ToImageVersionProcessorOutput() ImageVersionProcessorOutput
+	ToImageVersionProcessorOutputWithContext(context.Context) ImageVersionProcessorOutput
+}
+
+var imageVersionProcessorPtrType = reflect.TypeOf((**ImageVersionProcessor)(nil)).Elem()
+
+type ImageVersionProcessorPtrInput interface {
+	pulumi.Input
+
+	ToImageVersionProcessorPtrOutput() ImageVersionProcessorPtrOutput
+	ToImageVersionProcessorPtrOutputWithContext(context.Context) ImageVersionProcessorPtrOutput
+}
+
+type imageVersionProcessorPtr string
+
+func ImageVersionProcessorPtr(v string) ImageVersionProcessorPtrInput {
+	return (*imageVersionProcessorPtr)(&v)
+}
+
+func (*imageVersionProcessorPtr) ElementType() reflect.Type {
+	return imageVersionProcessorPtrType
+}
+
+func (in *imageVersionProcessorPtr) ToImageVersionProcessorPtrOutput() ImageVersionProcessorPtrOutput {
+	return pulumi.ToOutput(in).(ImageVersionProcessorPtrOutput)
+}
+
+func (in *imageVersionProcessorPtr) ToImageVersionProcessorPtrOutputWithContext(ctx context.Context) ImageVersionProcessorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ImageVersionProcessorPtrOutput)
+}
+
+// The availability of the image version specified by the maintainer.
+type ImageVersionVendorGuidance string
+
+const (
+	ImageVersionVendorGuidanceNotProvided  = ImageVersionVendorGuidance("NOT_PROVIDED")
+	ImageVersionVendorGuidanceStable       = ImageVersionVendorGuidance("STABLE")
+	ImageVersionVendorGuidanceToBeArchived = ImageVersionVendorGuidance("TO_BE_ARCHIVED")
+	ImageVersionVendorGuidanceArchived     = ImageVersionVendorGuidance("ARCHIVED")
+)
+
+func (ImageVersionVendorGuidance) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageVersionVendorGuidance)(nil)).Elem()
+}
+
+func (e ImageVersionVendorGuidance) ToImageVersionVendorGuidanceOutput() ImageVersionVendorGuidanceOutput {
+	return pulumi.ToOutput(e).(ImageVersionVendorGuidanceOutput)
+}
+
+func (e ImageVersionVendorGuidance) ToImageVersionVendorGuidanceOutputWithContext(ctx context.Context) ImageVersionVendorGuidanceOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ImageVersionVendorGuidanceOutput)
+}
+
+func (e ImageVersionVendorGuidance) ToImageVersionVendorGuidancePtrOutput() ImageVersionVendorGuidancePtrOutput {
+	return e.ToImageVersionVendorGuidancePtrOutputWithContext(context.Background())
+}
+
+func (e ImageVersionVendorGuidance) ToImageVersionVendorGuidancePtrOutputWithContext(ctx context.Context) ImageVersionVendorGuidancePtrOutput {
+	return ImageVersionVendorGuidance(e).ToImageVersionVendorGuidanceOutputWithContext(ctx).ToImageVersionVendorGuidancePtrOutputWithContext(ctx)
+}
+
+func (e ImageVersionVendorGuidance) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ImageVersionVendorGuidance) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ImageVersionVendorGuidance) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ImageVersionVendorGuidance) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ImageVersionVendorGuidanceOutput struct{ *pulumi.OutputState }
+
+func (ImageVersionVendorGuidanceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageVersionVendorGuidance)(nil)).Elem()
+}
+
+func (o ImageVersionVendorGuidanceOutput) ToImageVersionVendorGuidanceOutput() ImageVersionVendorGuidanceOutput {
+	return o
+}
+
+func (o ImageVersionVendorGuidanceOutput) ToImageVersionVendorGuidanceOutputWithContext(ctx context.Context) ImageVersionVendorGuidanceOutput {
+	return o
+}
+
+func (o ImageVersionVendorGuidanceOutput) ToImageVersionVendorGuidancePtrOutput() ImageVersionVendorGuidancePtrOutput {
+	return o.ToImageVersionVendorGuidancePtrOutputWithContext(context.Background())
+}
+
+func (o ImageVersionVendorGuidanceOutput) ToImageVersionVendorGuidancePtrOutputWithContext(ctx context.Context) ImageVersionVendorGuidancePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageVersionVendorGuidance) *ImageVersionVendorGuidance {
+		return &v
+	}).(ImageVersionVendorGuidancePtrOutput)
+}
+
+func (o ImageVersionVendorGuidanceOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ImageVersionVendorGuidanceOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ImageVersionVendorGuidance) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ImageVersionVendorGuidanceOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ImageVersionVendorGuidanceOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ImageVersionVendorGuidance) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ImageVersionVendorGuidancePtrOutput struct{ *pulumi.OutputState }
+
+func (ImageVersionVendorGuidancePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageVersionVendorGuidance)(nil)).Elem()
+}
+
+func (o ImageVersionVendorGuidancePtrOutput) ToImageVersionVendorGuidancePtrOutput() ImageVersionVendorGuidancePtrOutput {
+	return o
+}
+
+func (o ImageVersionVendorGuidancePtrOutput) ToImageVersionVendorGuidancePtrOutputWithContext(ctx context.Context) ImageVersionVendorGuidancePtrOutput {
+	return o
+}
+
+func (o ImageVersionVendorGuidancePtrOutput) Elem() ImageVersionVendorGuidanceOutput {
+	return o.ApplyT(func(v *ImageVersionVendorGuidance) ImageVersionVendorGuidance {
+		if v != nil {
+			return *v
+		}
+		var ret ImageVersionVendorGuidance
+		return ret
+	}).(ImageVersionVendorGuidanceOutput)
+}
+
+func (o ImageVersionVendorGuidancePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ImageVersionVendorGuidancePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ImageVersionVendorGuidance) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ImageVersionVendorGuidanceInput is an input type that accepts ImageVersionVendorGuidanceArgs and ImageVersionVendorGuidanceOutput values.
+// You can construct a concrete instance of `ImageVersionVendorGuidanceInput` via:
+//
+//	ImageVersionVendorGuidanceArgs{...}
+type ImageVersionVendorGuidanceInput interface {
+	pulumi.Input
+
+	ToImageVersionVendorGuidanceOutput() ImageVersionVendorGuidanceOutput
+	ToImageVersionVendorGuidanceOutputWithContext(context.Context) ImageVersionVendorGuidanceOutput
+}
+
+var imageVersionVendorGuidancePtrType = reflect.TypeOf((**ImageVersionVendorGuidance)(nil)).Elem()
+
+type ImageVersionVendorGuidancePtrInput interface {
+	pulumi.Input
+
+	ToImageVersionVendorGuidancePtrOutput() ImageVersionVendorGuidancePtrOutput
+	ToImageVersionVendorGuidancePtrOutputWithContext(context.Context) ImageVersionVendorGuidancePtrOutput
+}
+
+type imageVersionVendorGuidancePtr string
+
+func ImageVersionVendorGuidancePtr(v string) ImageVersionVendorGuidancePtrInput {
+	return (*imageVersionVendorGuidancePtr)(&v)
+}
+
+func (*imageVersionVendorGuidancePtr) ElementType() reflect.Type {
+	return imageVersionVendorGuidancePtrType
+}
+
+func (in *imageVersionVendorGuidancePtr) ToImageVersionVendorGuidancePtrOutput() ImageVersionVendorGuidancePtrOutput {
+	return pulumi.ToOutput(in).(ImageVersionVendorGuidancePtrOutput)
+}
+
+func (in *imageVersionVendorGuidancePtr) ToImageVersionVendorGuidancePtrOutputWithContext(ctx context.Context) ImageVersionVendorGuidancePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ImageVersionVendorGuidancePtrOutput)
+}
+
 // The desired state of the experiment after starting or stopping operation.
 type InferenceExperimentDesiredState string
 
@@ -10801,6 +11299,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupFeatureDefinitionFeatureTypePtrInput)(nil)).Elem(), FeatureGroupFeatureDefinitionFeatureType("Integral"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupTableFormatInput)(nil)).Elem(), FeatureGroupTableFormat("Iceberg"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupTableFormatPtrInput)(nil)).Elem(), FeatureGroupTableFormat("Iceberg"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageVersionJobTypeInput)(nil)).Elem(), ImageVersionJobType("TRAINING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageVersionJobTypePtrInput)(nil)).Elem(), ImageVersionJobType("TRAINING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageVersionProcessorInput)(nil)).Elem(), ImageVersionProcessor("CPU"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageVersionProcessorPtrInput)(nil)).Elem(), ImageVersionProcessor("CPU"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageVersionVendorGuidanceInput)(nil)).Elem(), ImageVersionVendorGuidance("NOT_PROVIDED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageVersionVendorGuidancePtrInput)(nil)).Elem(), ImageVersionVendorGuidance("NOT_PROVIDED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InferenceExperimentDesiredStateInput)(nil)).Elem(), InferenceExperimentDesiredState("Running"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InferenceExperimentDesiredStatePtrInput)(nil)).Elem(), InferenceExperimentDesiredState("Running"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InferenceExperimentModelInfrastructureConfigInfrastructureTypeInput)(nil)).Elem(), InferenceExperimentModelInfrastructureConfigInfrastructureType("RealTimeInference"))
@@ -10921,6 +11425,12 @@ func init() {
 	pulumi.RegisterOutputType(FeatureGroupFeatureDefinitionFeatureTypePtrOutput{})
 	pulumi.RegisterOutputType(FeatureGroupTableFormatOutput{})
 	pulumi.RegisterOutputType(FeatureGroupTableFormatPtrOutput{})
+	pulumi.RegisterOutputType(ImageVersionJobTypeOutput{})
+	pulumi.RegisterOutputType(ImageVersionJobTypePtrOutput{})
+	pulumi.RegisterOutputType(ImageVersionProcessorOutput{})
+	pulumi.RegisterOutputType(ImageVersionProcessorPtrOutput{})
+	pulumi.RegisterOutputType(ImageVersionVendorGuidanceOutput{})
+	pulumi.RegisterOutputType(ImageVersionVendorGuidancePtrOutput{})
 	pulumi.RegisterOutputType(InferenceExperimentDesiredStateOutput{})
 	pulumi.RegisterOutputType(InferenceExperimentDesiredStatePtrOutput{})
 	pulumi.RegisterOutputType(InferenceExperimentEndpointMetadataEndpointStatusOutput{})

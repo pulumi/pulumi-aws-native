@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.IAM
 
     public sealed class GetPolicyArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The provider-assigned unique ID for this resource
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.IAM
 
     public sealed class GetPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The provider-assigned unique ID for this resource
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -51,11 +57,29 @@ namespace Pulumi.AwsNative.IAM
     [OutputType]
     public sealed class GetPolicyResult
     {
+        /// <summary>
+        /// The name of the group to associate the policy with. This parameter allows (through its regex pattern) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-.
+        /// </summary>
         public readonly ImmutableArray<string> Groups;
+        /// <summary>
+        /// The provider-assigned unique ID for this resource
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The policy document. You must provide policies in JSON format in IAM. However, for AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.
+        /// </summary>
         public readonly object? PolicyDocument;
+        /// <summary>
+        /// The name of the policy document. This parameter allows (through its regex pattern) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+        /// </summary>
         public readonly string? PolicyName;
+        /// <summary>
+        /// The name of the role to associate the policy with. This parameter allows (per its regex pattern) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+        /// </summary>
         public readonly ImmutableArray<string> Roles;
+        /// <summary>
+        /// The name of the user to associate the policy with. This parameter allows (through its regex pattern) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+        /// </summary>
         public readonly ImmutableArray<string> Users;
 
         [OutputConstructor]

@@ -27,7 +27,6 @@ export interface GetModelQualityJobDefinitionResult {
      * The time at which the job definition was created.
      */
     readonly creationTime?: string;
-    readonly endpointName?: string;
     /**
      * The Amazon Resource Name (ARN) of job definition.
      */

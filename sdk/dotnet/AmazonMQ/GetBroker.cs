@@ -57,6 +57,8 @@ namespace Pulumi.AwsNative.AmazonMQ
         public readonly Outputs.BrokerConfigurationId? Configuration;
         public readonly string? ConfigurationId;
         public readonly int? ConfigurationRevision;
+        public readonly string? DataReplicationMode;
+        public readonly string? DataReplicationPrimaryBrokerArn;
         public readonly string? EngineVersion;
         public readonly string? HostInstanceType;
         public readonly string? Id;
@@ -85,6 +87,10 @@ namespace Pulumi.AwsNative.AmazonMQ
             string? configurationId,
 
             int? configurationRevision,
+
+            string? dataReplicationMode,
+
+            string? dataReplicationPrimaryBrokerArn,
 
             string? engineVersion,
 
@@ -120,6 +126,8 @@ namespace Pulumi.AwsNative.AmazonMQ
             Configuration = configuration;
             ConfigurationId = configurationId;
             ConfigurationRevision = configurationRevision;
+            DataReplicationMode = dataReplicationMode;
+            DataReplicationPrimaryBrokerArn = dataReplicationPrimaryBrokerArn;
             EngineVersion = engineVersion;
             HostInstanceType = hostInstanceType;
             Id = id;

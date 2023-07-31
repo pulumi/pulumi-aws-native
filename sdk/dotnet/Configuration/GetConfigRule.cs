@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.Configuration
     public static class GetConfigRule
     {
         /// <summary>
-        /// Resource Type definition for AWS::Config::ConfigRule
+        /// Schema for AWS Config ConfigRule
         /// </summary>
         public static Task<GetConfigRuleResult> InvokeAsync(GetConfigRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigRuleResult>("aws-native:configuration:getConfigRule", args ?? new GetConfigRuleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::Config::ConfigRule
+        /// Schema for AWS Config ConfigRule
         /// </summary>
         public static Output<GetConfigRuleResult> Invoke(GetConfigRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigRuleResult>("aws-native:configuration:getConfigRule", args ?? new GetConfigRuleInvokeArgs(), options.WithDefaults());
@@ -27,8 +27,11 @@ namespace Pulumi.AwsNative.Configuration
 
     public sealed class GetConfigRuleArgs : global::Pulumi.InvokeArgs
     {
-        [Input("configRuleId", required: true)]
-        public string ConfigRuleId { get; set; } = null!;
+        /// <summary>
+        /// Name for the AWS Config rule
+        /// </summary>
+        [Input("configRuleName", required: true)]
+        public string ConfigRuleName { get; set; } = null!;
 
         public GetConfigRuleArgs()
         {
@@ -38,8 +41,11 @@ namespace Pulumi.AwsNative.Configuration
 
     public sealed class GetConfigRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("configRuleId", required: true)]
-        public Input<string> ConfigRuleId { get; set; } = null!;
+        /// <summary>
+        /// Name for the AWS Config rule
+        /// </summary>
+        [Input("configRuleName", required: true)]
+        public Input<string> ConfigRuleName { get; set; } = null!;
 
         public GetConfigRuleInvokeArgs()
         {
@@ -51,26 +57,56 @@ namespace Pulumi.AwsNative.Configuration
     [OutputType]
     public sealed class GetConfigRuleResult
     {
+        /// <summary>
+        /// ARN generated for the AWS Config rule 
+        /// </summary>
         public readonly string? Arn;
-        public readonly string? ComplianceType;
+        /// <summary>
+        /// Compliance details of the Config rule
+        /// </summary>
+        public readonly Outputs.ComplianceProperties? Compliance;
+        /// <summary>
+        /// ID of the config rule
+        /// </summary>
         public readonly string? ConfigRuleId;
+        /// <summary>
+        /// Description provided for the AWS Config rule
+        /// </summary>
         public readonly string? Description;
-        public readonly object? InputParameters;
+        /// <summary>
+        /// List of EvaluationModeConfiguration objects
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ConfigRuleEvaluationModeConfiguration> EvaluationModes;
+        /// <summary>
+        /// JSON string passed the Lambda function
+        /// </summary>
+        public readonly string? InputParameters;
+        /// <summary>
+        /// Maximum frequency at which the rule has to be evaluated
+        /// </summary>
         public readonly string? MaximumExecutionFrequency;
+        /// <summary>
+        /// Scope to constrain which resources can trigger the AWS Config rule
+        /// </summary>
         public readonly Outputs.ConfigRuleScope? Scope;
+        /// <summary>
+        /// Source of events for the AWS Config rule
+        /// </summary>
         public readonly Outputs.ConfigRuleSource? Source;
 
         [OutputConstructor]
         private GetConfigRuleResult(
             string? arn,
 
-            string? complianceType,
+            Outputs.ComplianceProperties? compliance,
 
             string? configRuleId,
 
             string? description,
 
-            object? inputParameters,
+            ImmutableArray<Outputs.ConfigRuleEvaluationModeConfiguration> evaluationModes,
+
+            string? inputParameters,
 
             string? maximumExecutionFrequency,
 
@@ -79,9 +115,10 @@ namespace Pulumi.AwsNative.Configuration
             Outputs.ConfigRuleSource? source)
         {
             Arn = arn;
-            ComplianceType = complianceType;
+            Compliance = compliance;
             ConfigRuleId = configRuleId;
             Description = description;
+            EvaluationModes = evaluationModes;
             InputParameters = inputParameters;
             MaximumExecutionFrequency = maximumExecutionFrequency;
             Scope = scope;

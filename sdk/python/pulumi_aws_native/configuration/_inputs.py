@@ -11,7 +11,9 @@ from .. import _utilities
 
 __all__ = [
     'AggregationAuthorizationTagArgs',
+    'CompliancePropertiesArgs',
     'ConfigRuleCustomPolicyDetailsArgs',
+    'ConfigRuleEvaluationModeConfigurationArgs',
     'ConfigRuleScopeArgs',
     'ConfigRuleSourceDetailArgs',
     'ConfigRuleSourceArgs',
@@ -70,11 +72,41 @@ class AggregationAuthorizationTagArgs:
 
 
 @pulumi.input_type
+class CompliancePropertiesArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        Compliance details of the Config rule
+        :param pulumi.Input[str] type: Compliance type determined by the Config rule
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Compliance type determined by the Config rule
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
 class ConfigRuleCustomPolicyDetailsArgs:
     def __init__(__self__, *,
                  enable_debug_log_delivery: Optional[pulumi.Input[bool]] = None,
                  policy_runtime: Optional[pulumi.Input[str]] = None,
                  policy_text: Optional[pulumi.Input[str]] = None):
+        """
+        Custom policy details when rule is custom owned
+        :param pulumi.Input[bool] enable_debug_log_delivery: Logging toggle for custom policy rule
+        :param pulumi.Input[str] policy_runtime: Runtime system for custom policy rule
+        :param pulumi.Input[str] policy_text: Policy definition containing logic for custom policy rule
+        """
         if enable_debug_log_delivery is not None:
             pulumi.set(__self__, "enable_debug_log_delivery", enable_debug_log_delivery)
         if policy_runtime is not None:
@@ -85,6 +117,9 @@ class ConfigRuleCustomPolicyDetailsArgs:
     @property
     @pulumi.getter(name="enableDebugLogDelivery")
     def enable_debug_log_delivery(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Logging toggle for custom policy rule
+        """
         return pulumi.get(self, "enable_debug_log_delivery")
 
     @enable_debug_log_delivery.setter
@@ -94,6 +129,9 @@ class ConfigRuleCustomPolicyDetailsArgs:
     @property
     @pulumi.getter(name="policyRuntime")
     def policy_runtime(self) -> Optional[pulumi.Input[str]]:
+        """
+        Runtime system for custom policy rule
+        """
         return pulumi.get(self, "policy_runtime")
 
     @policy_runtime.setter
@@ -103,11 +141,38 @@ class ConfigRuleCustomPolicyDetailsArgs:
     @property
     @pulumi.getter(name="policyText")
     def policy_text(self) -> Optional[pulumi.Input[str]]:
+        """
+        Policy definition containing logic for custom policy rule
+        """
         return pulumi.get(self, "policy_text")
 
     @policy_text.setter
     def policy_text(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "policy_text", value)
+
+
+@pulumi.input_type
+class ConfigRuleEvaluationModeConfigurationArgs:
+    def __init__(__self__, *,
+                 mode: Optional[pulumi.Input[str]] = None):
+        """
+        Evaluation mode for the AWS Config rule
+        :param pulumi.Input[str] mode: Mode of evaluation of AWS Config rule
+        """
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Mode of evaluation of AWS Config rule
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mode", value)
 
 
 @pulumi.input_type
@@ -117,6 +182,13 @@ class ConfigRuleScopeArgs:
                  compliance_resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tag_key: Optional[pulumi.Input[str]] = None,
                  tag_value: Optional[pulumi.Input[str]] = None):
+        """
+        Scope to constrain which resources can trigger the rule
+        :param pulumi.Input[str] compliance_resource_id: ID of the only one resource which we want to trigger the rule
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] compliance_resource_types: Resource types of resources which we want to trigger the rule
+        :param pulumi.Input[str] tag_key: Tag key applied only to resources which we want to trigger the rule
+        :param pulumi.Input[str] tag_value: Tag value applied only to resources which we want to trigger the rule
+        """
         if compliance_resource_id is not None:
             pulumi.set(__self__, "compliance_resource_id", compliance_resource_id)
         if compliance_resource_types is not None:
@@ -129,6 +201,9 @@ class ConfigRuleScopeArgs:
     @property
     @pulumi.getter(name="complianceResourceId")
     def compliance_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the only one resource which we want to trigger the rule
+        """
         return pulumi.get(self, "compliance_resource_id")
 
     @compliance_resource_id.setter
@@ -138,6 +213,9 @@ class ConfigRuleScopeArgs:
     @property
     @pulumi.getter(name="complianceResourceTypes")
     def compliance_resource_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Resource types of resources which we want to trigger the rule
+        """
         return pulumi.get(self, "compliance_resource_types")
 
     @compliance_resource_types.setter
@@ -147,6 +225,9 @@ class ConfigRuleScopeArgs:
     @property
     @pulumi.getter(name="tagKey")
     def tag_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Tag key applied only to resources which we want to trigger the rule
+        """
         return pulumi.get(self, "tag_key")
 
     @tag_key.setter
@@ -156,6 +237,9 @@ class ConfigRuleScopeArgs:
     @property
     @pulumi.getter(name="tagValue")
     def tag_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Tag value applied only to resources which we want to trigger the rule
+        """
         return pulumi.get(self, "tag_value")
 
     @tag_value.setter
@@ -169,6 +253,12 @@ class ConfigRuleSourceDetailArgs:
                  event_source: pulumi.Input[str],
                  message_type: pulumi.Input[str],
                  maximum_execution_frequency: Optional[pulumi.Input[str]] = None):
+        """
+        Source and message type that can trigger the rule
+        :param pulumi.Input[str] event_source: Source of event that can trigger the rule
+        :param pulumi.Input[str] message_type: Notification type that can trigger the rule
+        :param pulumi.Input[str] maximum_execution_frequency: Frequency at which the rule has to be evaluated
+        """
         pulumi.set(__self__, "event_source", event_source)
         pulumi.set(__self__, "message_type", message_type)
         if maximum_execution_frequency is not None:
@@ -177,6 +267,9 @@ class ConfigRuleSourceDetailArgs:
     @property
     @pulumi.getter(name="eventSource")
     def event_source(self) -> pulumi.Input[str]:
+        """
+        Source of event that can trigger the rule
+        """
         return pulumi.get(self, "event_source")
 
     @event_source.setter
@@ -186,6 +279,9 @@ class ConfigRuleSourceDetailArgs:
     @property
     @pulumi.getter(name="messageType")
     def message_type(self) -> pulumi.Input[str]:
+        """
+        Notification type that can trigger the rule
+        """
         return pulumi.get(self, "message_type")
 
     @message_type.setter
@@ -195,6 +291,9 @@ class ConfigRuleSourceDetailArgs:
     @property
     @pulumi.getter(name="maximumExecutionFrequency")
     def maximum_execution_frequency(self) -> Optional[pulumi.Input[str]]:
+        """
+        Frequency at which the rule has to be evaluated
+        """
         return pulumi.get(self, "maximum_execution_frequency")
 
     @maximum_execution_frequency.setter
@@ -209,6 +308,13 @@ class ConfigRuleSourceArgs:
                  custom_policy_details: Optional[pulumi.Input['ConfigRuleCustomPolicyDetailsArgs']] = None,
                  source_details: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigRuleSourceDetailArgs']]]] = None,
                  source_identifier: Optional[pulumi.Input[str]] = None):
+        """
+        Source of events for the config rule
+        :param pulumi.Input[str] owner: Owner of the config rule
+        :param pulumi.Input['ConfigRuleCustomPolicyDetailsArgs'] custom_policy_details: Custom policy details when rule is custom owned
+        :param pulumi.Input[Sequence[pulumi.Input['ConfigRuleSourceDetailArgs']]] source_details: List of message types that can trigger the rule
+        :param pulumi.Input[str] source_identifier: Identifier for the source of events
+        """
         pulumi.set(__self__, "owner", owner)
         if custom_policy_details is not None:
             pulumi.set(__self__, "custom_policy_details", custom_policy_details)
@@ -220,6 +326,9 @@ class ConfigRuleSourceArgs:
     @property
     @pulumi.getter
     def owner(self) -> pulumi.Input[str]:
+        """
+        Owner of the config rule
+        """
         return pulumi.get(self, "owner")
 
     @owner.setter
@@ -229,6 +338,9 @@ class ConfigRuleSourceArgs:
     @property
     @pulumi.getter(name="customPolicyDetails")
     def custom_policy_details(self) -> Optional[pulumi.Input['ConfigRuleCustomPolicyDetailsArgs']]:
+        """
+        Custom policy details when rule is custom owned
+        """
         return pulumi.get(self, "custom_policy_details")
 
     @custom_policy_details.setter
@@ -238,6 +350,9 @@ class ConfigRuleSourceArgs:
     @property
     @pulumi.getter(name="sourceDetails")
     def source_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigRuleSourceDetailArgs']]]]:
+        """
+        List of message types that can trigger the rule
+        """
         return pulumi.get(self, "source_details")
 
     @source_details.setter
@@ -247,6 +362,9 @@ class ConfigRuleSourceArgs:
     @property
     @pulumi.getter(name="sourceIdentifier")
     def source_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identifier for the source of events
+        """
         return pulumi.get(self, "source_identifier")
 
     @source_identifier.setter

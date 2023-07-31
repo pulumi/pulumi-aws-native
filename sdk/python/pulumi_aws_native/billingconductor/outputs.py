@@ -33,6 +33,8 @@ class BillingGroupAccountGrouping(dict):
         suggest = None
         if key == "linkedAccountIds":
             suggest = "linked_account_ids"
+        elif key == "autoAssociate":
+            suggest = "auto_associate"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in BillingGroupAccountGrouping. Access the value via the '{suggest}' property getter instead.")
@@ -46,13 +48,21 @@ class BillingGroupAccountGrouping(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 linked_account_ids: Sequence[str]):
+                 linked_account_ids: Sequence[str],
+                 auto_associate: Optional[bool] = None):
         pulumi.set(__self__, "linked_account_ids", linked_account_ids)
+        if auto_associate is not None:
+            pulumi.set(__self__, "auto_associate", auto_associate)
 
     @property
     @pulumi.getter(name="linkedAccountIds")
     def linked_account_ids(self) -> Sequence[str]:
         return pulumi.get(self, "linked_account_ids")
+
+    @property
+    @pulumi.getter(name="autoAssociate")
+    def auto_associate(self) -> Optional[bool]:
+        return pulumi.get(self, "auto_associate")
 
 
 @pulumi.output_type

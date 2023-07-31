@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Endpoint{}
 	case "aws-native:dms:EventSubscription":
 		r = &EventSubscription{}
+	case "aws-native:dms:ReplicationConfig":
+		r = &ReplicationConfig{}
 	case "aws-native:dms:ReplicationInstance":
 		r = &ReplicationInstance{}
 	case "aws-native:dms:ReplicationSubnetGroup":

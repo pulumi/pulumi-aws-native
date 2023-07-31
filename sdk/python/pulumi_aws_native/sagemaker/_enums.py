@@ -21,6 +21,9 @@ __all__ = [
     'DomainSharingSettingsNotebookOutputOption',
     'FeatureGroupFeatureDefinitionFeatureType',
     'FeatureGroupTableFormat',
+    'ImageVersionJobType',
+    'ImageVersionProcessor',
+    'ImageVersionVendorGuidance',
     'InferenceExperimentDesiredState',
     'InferenceExperimentEndpointMetadataEndpointStatus',
     'InferenceExperimentModelInfrastructureConfigInfrastructureType',
@@ -321,6 +324,33 @@ class FeatureGroupTableFormat(str, Enum):
     """
     ICEBERG = "Iceberg"
     GLUE = "Glue"
+
+
+class ImageVersionJobType(str, Enum):
+    """
+    Indicates SageMaker job type compatibility.
+    """
+    TRAINING = "TRAINING"
+    INFERENCE = "INFERENCE"
+    NOTEBOOK_KERNEL = "NOTEBOOK_KERNEL"
+
+
+class ImageVersionProcessor(str, Enum):
+    """
+    Indicates CPU or GPU compatibility.
+    """
+    CPU = "CPU"
+    GPU = "GPU"
+
+
+class ImageVersionVendorGuidance(str, Enum):
+    """
+    The availability of the image version specified by the maintainer.
+    """
+    NOT_PROVIDED = "NOT_PROVIDED"
+    STABLE = "STABLE"
+    TO_BE_ARCHIVED = "TO_BE_ARCHIVED"
+    ARCHIVED = "ARCHIVED"
 
 
 class InferenceExperimentDesiredState(str, Enum):

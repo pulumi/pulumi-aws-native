@@ -178,8 +178,9 @@ func (in *accessPolicyTypePtr) ToAccessPolicyTypePtrOutputWithContext(ctx contex
 type CollectionType string
 
 const (
-	CollectionTypeSearch     = CollectionType("SEARCH")
-	CollectionTypeTimeseries = CollectionType("TIMESERIES")
+	CollectionTypeSearch       = CollectionType("SEARCH")
+	CollectionTypeTimeseries   = CollectionType("TIMESERIES")
+	CollectionTypeVectorsearch = CollectionType("VECTORSEARCH")
 )
 
 func (CollectionType) ElementType() reflect.Type {

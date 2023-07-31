@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.BillingConductor.Inputs
 
     public sealed class BillingGroupAccountGroupingArgs : global::Pulumi.ResourceArgs
     {
+        [Input("autoAssociate")]
+        public Input<bool>? AutoAssociate { get; set; }
+
         [Input("linkedAccountIds", required: true)]
         private InputList<string>? _linkedAccountIds;
         public InputList<string> LinkedAccountIds

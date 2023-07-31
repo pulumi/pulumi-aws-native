@@ -15,11 +15,20 @@ namespace Pulumi.AwsNative.SageMaker
     [AwsNativeResourceType("aws-native:sagemaker:ImageVersion")]
     public partial class ImageVersion : global::Pulumi.CustomResource
     {
+        [Output("alias")]
+        public Output<string?> Alias { get; private set; } = null!;
+
+        [Output("aliases")]
+        public Output<ImmutableArray<string>> Aliases { get; private set; } = null!;
+
         [Output("baseImage")]
         public Output<string> BaseImage { get; private set; } = null!;
 
         [Output("containerImage")]
         public Output<string> ContainerImage { get; private set; } = null!;
+
+        [Output("horovod")]
+        public Output<bool?> Horovod { get; private set; } = null!;
 
         [Output("imageArn")]
         public Output<string> ImageArn { get; private set; } = null!;
@@ -29,6 +38,24 @@ namespace Pulumi.AwsNative.SageMaker
 
         [Output("imageVersionArn")]
         public Output<string> ImageVersionArn { get; private set; } = null!;
+
+        [Output("jobType")]
+        public Output<Pulumi.AwsNative.SageMaker.ImageVersionJobType?> JobType { get; private set; } = null!;
+
+        [Output("mLFramework")]
+        public Output<string?> MLFramework { get; private set; } = null!;
+
+        [Output("processor")]
+        public Output<Pulumi.AwsNative.SageMaker.ImageVersionProcessor?> Processor { get; private set; } = null!;
+
+        [Output("programmingLang")]
+        public Output<string?> ProgrammingLang { get; private set; } = null!;
+
+        [Output("releaseNotes")]
+        public Output<string?> ReleaseNotes { get; private set; } = null!;
+
+        [Output("vendorGuidance")]
+        public Output<Pulumi.AwsNative.SageMaker.ImageVersionVendorGuidance?> VendorGuidance { get; private set; } = null!;
 
         [Output("version")]
         public Output<int> Version { get; private set; } = null!;
@@ -78,11 +105,43 @@ namespace Pulumi.AwsNative.SageMaker
 
     public sealed class ImageVersionArgs : global::Pulumi.ResourceArgs
     {
+        [Input("alias")]
+        public Input<string>? Alias { get; set; }
+
+        [Input("aliases")]
+        private InputList<string>? _aliases;
+        public InputList<string> Aliases
+        {
+            get => _aliases ?? (_aliases = new InputList<string>());
+            set => _aliases = value;
+        }
+
         [Input("baseImage", required: true)]
         public Input<string> BaseImage { get; set; } = null!;
 
+        [Input("horovod")]
+        public Input<bool>? Horovod { get; set; }
+
         [Input("imageName", required: true)]
         public Input<string> ImageName { get; set; } = null!;
+
+        [Input("jobType")]
+        public Input<Pulumi.AwsNative.SageMaker.ImageVersionJobType>? JobType { get; set; }
+
+        [Input("mLFramework")]
+        public Input<string>? MLFramework { get; set; }
+
+        [Input("processor")]
+        public Input<Pulumi.AwsNative.SageMaker.ImageVersionProcessor>? Processor { get; set; }
+
+        [Input("programmingLang")]
+        public Input<string>? ProgrammingLang { get; set; }
+
+        [Input("releaseNotes")]
+        public Input<string>? ReleaseNotes { get; set; }
+
+        [Input("vendorGuidance")]
+        public Input<Pulumi.AwsNative.SageMaker.ImageVersionVendorGuidance>? VendorGuidance { get; set; }
 
         public ImageVersionArgs()
         {

@@ -1101,6 +1101,34 @@ namespace Pulumi.AwsNative.WAFv2
     }
 
     [EnumType]
+    public readonly struct WebACLRequestInspectionACFPPayloadType : IEquatable<WebACLRequestInspectionACFPPayloadType>
+    {
+        private readonly string _value;
+
+        private WebACLRequestInspectionACFPPayloadType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WebACLRequestInspectionACFPPayloadType Json { get; } = new WebACLRequestInspectionACFPPayloadType("JSON");
+        public static WebACLRequestInspectionACFPPayloadType FormEncoded { get; } = new WebACLRequestInspectionACFPPayloadType("FORM_ENCODED");
+
+        public static bool operator ==(WebACLRequestInspectionACFPPayloadType left, WebACLRequestInspectionACFPPayloadType right) => left.Equals(right);
+        public static bool operator !=(WebACLRequestInspectionACFPPayloadType left, WebACLRequestInspectionACFPPayloadType right) => !left.Equals(right);
+
+        public static explicit operator string(WebACLRequestInspectionACFPPayloadType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WebACLRequestInspectionACFPPayloadType other && Equals(other);
+        public bool Equals(WebACLRequestInspectionACFPPayloadType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct WebACLRequestInspectionPayloadType : IEquatable<WebACLRequestInspectionPayloadType>
     {
         private readonly string _value;

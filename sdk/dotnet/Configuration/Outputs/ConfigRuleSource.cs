@@ -10,12 +10,27 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Configuration.Outputs
 {
 
+    /// <summary>
+    /// Source of events for the config rule
+    /// </summary>
     [OutputType]
     public sealed class ConfigRuleSource
     {
+        /// <summary>
+        /// Custom policy details when rule is custom owned
+        /// </summary>
         public readonly Outputs.ConfigRuleCustomPolicyDetails? CustomPolicyDetails;
+        /// <summary>
+        /// Owner of the config rule
+        /// </summary>
         public readonly string Owner;
+        /// <summary>
+        /// List of message types that can trigger the rule
+        /// </summary>
         public readonly ImmutableArray<Outputs.ConfigRuleSourceDetail> SourceDetails;
+        /// <summary>
+        /// Identifier for the source of events
+        /// </summary>
         public readonly string? SourceIdentifier;
 
         [OutputConstructor]

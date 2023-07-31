@@ -362,13 +362,13 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "autoscaling:DescribePolicies", "autoscaling:PutScalingPolicy" ]
+      "permissions" : [ "autoscaling:DescribePolicies", "autoscaling:PutScalingPolicy", "cloudwatch:GetMetricData" ]
     },
     "read" : {
       "permissions" : [ "autoscaling:DescribePolicies" ]
     },
     "update" : {
-      "permissions" : [ "autoscaling:DescribePolicies", "autoscaling:PutScalingPolicy" ]
+      "permissions" : [ "autoscaling:DescribePolicies", "autoscaling:PutScalingPolicy", "cloudwatch:GetMetricData" ]
     },
     "delete" : {
       "permissions" : [ "autoscaling:DeletePolicy", "autoscaling:DescribePolicies" ]

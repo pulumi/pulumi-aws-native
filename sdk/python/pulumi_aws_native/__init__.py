@@ -1436,6 +1436,7 @@ _utilities.register(
    "aws-native:dms:Certificate": "Certificate",
    "aws-native:dms:Endpoint": "Endpoint",
    "aws-native:dms:EventSubscription": "EventSubscription",
+   "aws-native:dms:ReplicationConfig": "ReplicationConfig",
    "aws-native:dms:ReplicationInstance": "ReplicationInstance",
    "aws-native:dms:ReplicationSubnetGroup": "ReplicationSubnetGroup",
    "aws-native:dms:ReplicationTask": "ReplicationTask"
@@ -3137,6 +3138,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.sqs",
   "classes": {
    "aws-native:sqs:Queue": "Queue",
+   "aws-native:sqs:QueueInlinePolicy": "QueueInlinePolicy",
    "aws-native:sqs:QueuePolicy": "QueuePolicy"
   }
  },

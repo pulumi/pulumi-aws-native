@@ -10,35 +10,68 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Configuration
 {
     /// <summary>
-    /// Resource Type definition for AWS::Config::ConfigRule
+    /// Schema for AWS Config ConfigRule
     /// </summary>
     [AwsNativeResourceType("aws-native:configuration:ConfigRule")]
     public partial class ConfigRule : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// ARN generated for the AWS Config rule 
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        [Output("complianceType")]
-        public Output<string?> ComplianceType { get; private set; } = null!;
+        /// <summary>
+        /// Compliance details of the Config rule
+        /// </summary>
+        [Output("compliance")]
+        public Output<Outputs.ComplianceProperties?> Compliance { get; private set; } = null!;
 
+        /// <summary>
+        /// ID of the config rule
+        /// </summary>
         [Output("configRuleId")]
         public Output<string> ConfigRuleId { get; private set; } = null!;
 
+        /// <summary>
+        /// Name for the AWS Config rule
+        /// </summary>
         [Output("configRuleName")]
         public Output<string?> ConfigRuleName { get; private set; } = null!;
 
+        /// <summary>
+        /// Description provided for the AWS Config rule
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        [Output("inputParameters")]
-        public Output<object?> InputParameters { get; private set; } = null!;
+        /// <summary>
+        /// List of EvaluationModeConfiguration objects
+        /// </summary>
+        [Output("evaluationModes")]
+        public Output<ImmutableArray<Outputs.ConfigRuleEvaluationModeConfiguration>> EvaluationModes { get; private set; } = null!;
 
+        /// <summary>
+        /// JSON string passed the Lambda function
+        /// </summary>
+        [Output("inputParameters")]
+        public Output<string?> InputParameters { get; private set; } = null!;
+
+        /// <summary>
+        /// Maximum frequency at which the rule has to be evaluated
+        /// </summary>
         [Output("maximumExecutionFrequency")]
         public Output<string?> MaximumExecutionFrequency { get; private set; } = null!;
 
+        /// <summary>
+        /// Scope to constrain which resources can trigger the AWS Config rule
+        /// </summary>
         [Output("scope")]
         public Output<Outputs.ConfigRuleScope?> Scope { get; private set; } = null!;
 
+        /// <summary>
+        /// Source of events for the AWS Config rule
+        /// </summary>
         [Output("source")]
         public Output<Outputs.ConfigRuleSource> Source { get; private set; } = null!;
 
@@ -87,24 +120,57 @@ namespace Pulumi.AwsNative.Configuration
 
     public sealed class ConfigRuleArgs : global::Pulumi.ResourceArgs
     {
-        [Input("complianceType")]
-        public Input<string>? ComplianceType { get; set; }
+        /// <summary>
+        /// Compliance details of the Config rule
+        /// </summary>
+        [Input("compliance")]
+        public Input<Inputs.CompliancePropertiesArgs>? Compliance { get; set; }
 
+        /// <summary>
+        /// Name for the AWS Config rule
+        /// </summary>
         [Input("configRuleName")]
         public Input<string>? ConfigRuleName { get; set; }
 
+        /// <summary>
+        /// Description provided for the AWS Config rule
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("inputParameters")]
-        public Input<object>? InputParameters { get; set; }
+        [Input("evaluationModes")]
+        private InputList<Inputs.ConfigRuleEvaluationModeConfigurationArgs>? _evaluationModes;
 
+        /// <summary>
+        /// List of EvaluationModeConfiguration objects
+        /// </summary>
+        public InputList<Inputs.ConfigRuleEvaluationModeConfigurationArgs> EvaluationModes
+        {
+            get => _evaluationModes ?? (_evaluationModes = new InputList<Inputs.ConfigRuleEvaluationModeConfigurationArgs>());
+            set => _evaluationModes = value;
+        }
+
+        /// <summary>
+        /// JSON string passed the Lambda function
+        /// </summary>
+        [Input("inputParameters")]
+        public Input<string>? InputParameters { get; set; }
+
+        /// <summary>
+        /// Maximum frequency at which the rule has to be evaluated
+        /// </summary>
         [Input("maximumExecutionFrequency")]
         public Input<string>? MaximumExecutionFrequency { get; set; }
 
+        /// <summary>
+        /// Scope to constrain which resources can trigger the AWS Config rule
+        /// </summary>
         [Input("scope")]
         public Input<Inputs.ConfigRuleScopeArgs>? Scope { get; set; }
 
+        /// <summary>
+        /// Source of events for the AWS Config rule
+        /// </summary>
         [Input("source", required: true)]
         public Input<Inputs.ConfigRuleSourceArgs> Source { get; set; } = null!;
 

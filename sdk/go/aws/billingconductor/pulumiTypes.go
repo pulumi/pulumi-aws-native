@@ -14,6 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type BillingGroupAccountGrouping struct {
+	AutoAssociate    *bool    `pulumi:"autoAssociate"`
 	LinkedAccountIds []string `pulumi:"linkedAccountIds"`
 }
 
@@ -29,6 +30,7 @@ type BillingGroupAccountGroupingInput interface {
 }
 
 type BillingGroupAccountGroupingArgs struct {
+	AutoAssociate    pulumi.BoolPtrInput     `pulumi:"autoAssociate"`
 	LinkedAccountIds pulumi.StringArrayInput `pulumi:"linkedAccountIds"`
 }
 
@@ -58,6 +60,10 @@ func (o BillingGroupAccountGroupingOutput) ToBillingGroupAccountGroupingOutputWi
 	return o
 }
 
+func (o BillingGroupAccountGroupingOutput) AutoAssociate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BillingGroupAccountGrouping) *bool { return v.AutoAssociate }).(pulumi.BoolPtrOutput)
+}
+
 func (o BillingGroupAccountGroupingOutput) LinkedAccountIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BillingGroupAccountGrouping) []string { return v.LinkedAccountIds }).(pulumi.StringArrayOutput)
 }
@@ -84,6 +90,15 @@ func (o BillingGroupAccountGroupingPtrOutput) Elem() BillingGroupAccountGrouping
 		var ret BillingGroupAccountGrouping
 		return ret
 	}).(BillingGroupAccountGroupingOutput)
+}
+
+func (o BillingGroupAccountGroupingPtrOutput) AutoAssociate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BillingGroupAccountGrouping) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AutoAssociate
+	}).(pulumi.BoolPtrOutput)
 }
 
 func (o BillingGroupAccountGroupingPtrOutput) LinkedAccountIds() pulumi.StringArrayOutput {

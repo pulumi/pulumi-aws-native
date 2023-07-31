@@ -9810,8 +9810,205 @@ func (o RuleGroupXssMatchStatementPtrOutput) TextTransformations() RuleGroupText
 	}).(RuleGroupTextTransformationArrayOutput)
 }
 
+// Configures how to use the Account creation fraud prevention managed rule group in the web ACL
+type WebACLAWSManagedRulesACFPRuleSet struct {
+	CreationPath         string                      `pulumi:"creationPath"`
+	EnableRegexInPath    *bool                       `pulumi:"enableRegexInPath"`
+	RegistrationPagePath string                      `pulumi:"registrationPagePath"`
+	RequestInspection    WebACLRequestInspectionACFP `pulumi:"requestInspection"`
+	ResponseInspection   *WebACLResponseInspection   `pulumi:"responseInspection"`
+}
+
+// WebACLAWSManagedRulesACFPRuleSetInput is an input type that accepts WebACLAWSManagedRulesACFPRuleSetArgs and WebACLAWSManagedRulesACFPRuleSetOutput values.
+// You can construct a concrete instance of `WebACLAWSManagedRulesACFPRuleSetInput` via:
+//
+//	WebACLAWSManagedRulesACFPRuleSetArgs{...}
+type WebACLAWSManagedRulesACFPRuleSetInput interface {
+	pulumi.Input
+
+	ToWebACLAWSManagedRulesACFPRuleSetOutput() WebACLAWSManagedRulesACFPRuleSetOutput
+	ToWebACLAWSManagedRulesACFPRuleSetOutputWithContext(context.Context) WebACLAWSManagedRulesACFPRuleSetOutput
+}
+
+// Configures how to use the Account creation fraud prevention managed rule group in the web ACL
+type WebACLAWSManagedRulesACFPRuleSetArgs struct {
+	CreationPath         pulumi.StringInput               `pulumi:"creationPath"`
+	EnableRegexInPath    pulumi.BoolPtrInput              `pulumi:"enableRegexInPath"`
+	RegistrationPagePath pulumi.StringInput               `pulumi:"registrationPagePath"`
+	RequestInspection    WebACLRequestInspectionACFPInput `pulumi:"requestInspection"`
+	ResponseInspection   WebACLResponseInspectionPtrInput `pulumi:"responseInspection"`
+}
+
+func (WebACLAWSManagedRulesACFPRuleSetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLAWSManagedRulesACFPRuleSet)(nil)).Elem()
+}
+
+func (i WebACLAWSManagedRulesACFPRuleSetArgs) ToWebACLAWSManagedRulesACFPRuleSetOutput() WebACLAWSManagedRulesACFPRuleSetOutput {
+	return i.ToWebACLAWSManagedRulesACFPRuleSetOutputWithContext(context.Background())
+}
+
+func (i WebACLAWSManagedRulesACFPRuleSetArgs) ToWebACLAWSManagedRulesACFPRuleSetOutputWithContext(ctx context.Context) WebACLAWSManagedRulesACFPRuleSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLAWSManagedRulesACFPRuleSetOutput)
+}
+
+func (i WebACLAWSManagedRulesACFPRuleSetArgs) ToWebACLAWSManagedRulesACFPRuleSetPtrOutput() WebACLAWSManagedRulesACFPRuleSetPtrOutput {
+	return i.ToWebACLAWSManagedRulesACFPRuleSetPtrOutputWithContext(context.Background())
+}
+
+func (i WebACLAWSManagedRulesACFPRuleSetArgs) ToWebACLAWSManagedRulesACFPRuleSetPtrOutputWithContext(ctx context.Context) WebACLAWSManagedRulesACFPRuleSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLAWSManagedRulesACFPRuleSetOutput).ToWebACLAWSManagedRulesACFPRuleSetPtrOutputWithContext(ctx)
+}
+
+// WebACLAWSManagedRulesACFPRuleSetPtrInput is an input type that accepts WebACLAWSManagedRulesACFPRuleSetArgs, WebACLAWSManagedRulesACFPRuleSetPtr and WebACLAWSManagedRulesACFPRuleSetPtrOutput values.
+// You can construct a concrete instance of `WebACLAWSManagedRulesACFPRuleSetPtrInput` via:
+//
+//	        WebACLAWSManagedRulesACFPRuleSetArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebACLAWSManagedRulesACFPRuleSetPtrInput interface {
+	pulumi.Input
+
+	ToWebACLAWSManagedRulesACFPRuleSetPtrOutput() WebACLAWSManagedRulesACFPRuleSetPtrOutput
+	ToWebACLAWSManagedRulesACFPRuleSetPtrOutputWithContext(context.Context) WebACLAWSManagedRulesACFPRuleSetPtrOutput
+}
+
+type webACLAWSManagedRulesACFPRuleSetPtrType WebACLAWSManagedRulesACFPRuleSetArgs
+
+func WebACLAWSManagedRulesACFPRuleSetPtr(v *WebACLAWSManagedRulesACFPRuleSetArgs) WebACLAWSManagedRulesACFPRuleSetPtrInput {
+	return (*webACLAWSManagedRulesACFPRuleSetPtrType)(v)
+}
+
+func (*webACLAWSManagedRulesACFPRuleSetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLAWSManagedRulesACFPRuleSet)(nil)).Elem()
+}
+
+func (i *webACLAWSManagedRulesACFPRuleSetPtrType) ToWebACLAWSManagedRulesACFPRuleSetPtrOutput() WebACLAWSManagedRulesACFPRuleSetPtrOutput {
+	return i.ToWebACLAWSManagedRulesACFPRuleSetPtrOutputWithContext(context.Background())
+}
+
+func (i *webACLAWSManagedRulesACFPRuleSetPtrType) ToWebACLAWSManagedRulesACFPRuleSetPtrOutputWithContext(ctx context.Context) WebACLAWSManagedRulesACFPRuleSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLAWSManagedRulesACFPRuleSetPtrOutput)
+}
+
+// Configures how to use the Account creation fraud prevention managed rule group in the web ACL
+type WebACLAWSManagedRulesACFPRuleSetOutput struct{ *pulumi.OutputState }
+
+func (WebACLAWSManagedRulesACFPRuleSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLAWSManagedRulesACFPRuleSet)(nil)).Elem()
+}
+
+func (o WebACLAWSManagedRulesACFPRuleSetOutput) ToWebACLAWSManagedRulesACFPRuleSetOutput() WebACLAWSManagedRulesACFPRuleSetOutput {
+	return o
+}
+
+func (o WebACLAWSManagedRulesACFPRuleSetOutput) ToWebACLAWSManagedRulesACFPRuleSetOutputWithContext(ctx context.Context) WebACLAWSManagedRulesACFPRuleSetOutput {
+	return o
+}
+
+func (o WebACLAWSManagedRulesACFPRuleSetOutput) ToWebACLAWSManagedRulesACFPRuleSetPtrOutput() WebACLAWSManagedRulesACFPRuleSetPtrOutput {
+	return o.ToWebACLAWSManagedRulesACFPRuleSetPtrOutputWithContext(context.Background())
+}
+
+func (o WebACLAWSManagedRulesACFPRuleSetOutput) ToWebACLAWSManagedRulesACFPRuleSetPtrOutputWithContext(ctx context.Context) WebACLAWSManagedRulesACFPRuleSetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLAWSManagedRulesACFPRuleSet) *WebACLAWSManagedRulesACFPRuleSet {
+		return &v
+	}).(WebACLAWSManagedRulesACFPRuleSetPtrOutput)
+}
+
+func (o WebACLAWSManagedRulesACFPRuleSetOutput) CreationPath() pulumi.StringOutput {
+	return o.ApplyT(func(v WebACLAWSManagedRulesACFPRuleSet) string { return v.CreationPath }).(pulumi.StringOutput)
+}
+
+func (o WebACLAWSManagedRulesACFPRuleSetOutput) EnableRegexInPath() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WebACLAWSManagedRulesACFPRuleSet) *bool { return v.EnableRegexInPath }).(pulumi.BoolPtrOutput)
+}
+
+func (o WebACLAWSManagedRulesACFPRuleSetOutput) RegistrationPagePath() pulumi.StringOutput {
+	return o.ApplyT(func(v WebACLAWSManagedRulesACFPRuleSet) string { return v.RegistrationPagePath }).(pulumi.StringOutput)
+}
+
+func (o WebACLAWSManagedRulesACFPRuleSetOutput) RequestInspection() WebACLRequestInspectionACFPOutput {
+	return o.ApplyT(func(v WebACLAWSManagedRulesACFPRuleSet) WebACLRequestInspectionACFP { return v.RequestInspection }).(WebACLRequestInspectionACFPOutput)
+}
+
+func (o WebACLAWSManagedRulesACFPRuleSetOutput) ResponseInspection() WebACLResponseInspectionPtrOutput {
+	return o.ApplyT(func(v WebACLAWSManagedRulesACFPRuleSet) *WebACLResponseInspection { return v.ResponseInspection }).(WebACLResponseInspectionPtrOutput)
+}
+
+type WebACLAWSManagedRulesACFPRuleSetPtrOutput struct{ *pulumi.OutputState }
+
+func (WebACLAWSManagedRulesACFPRuleSetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLAWSManagedRulesACFPRuleSet)(nil)).Elem()
+}
+
+func (o WebACLAWSManagedRulesACFPRuleSetPtrOutput) ToWebACLAWSManagedRulesACFPRuleSetPtrOutput() WebACLAWSManagedRulesACFPRuleSetPtrOutput {
+	return o
+}
+
+func (o WebACLAWSManagedRulesACFPRuleSetPtrOutput) ToWebACLAWSManagedRulesACFPRuleSetPtrOutputWithContext(ctx context.Context) WebACLAWSManagedRulesACFPRuleSetPtrOutput {
+	return o
+}
+
+func (o WebACLAWSManagedRulesACFPRuleSetPtrOutput) Elem() WebACLAWSManagedRulesACFPRuleSetOutput {
+	return o.ApplyT(func(v *WebACLAWSManagedRulesACFPRuleSet) WebACLAWSManagedRulesACFPRuleSet {
+		if v != nil {
+			return *v
+		}
+		var ret WebACLAWSManagedRulesACFPRuleSet
+		return ret
+	}).(WebACLAWSManagedRulesACFPRuleSetOutput)
+}
+
+func (o WebACLAWSManagedRulesACFPRuleSetPtrOutput) CreationPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebACLAWSManagedRulesACFPRuleSet) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CreationPath
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WebACLAWSManagedRulesACFPRuleSetPtrOutput) EnableRegexInPath() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WebACLAWSManagedRulesACFPRuleSet) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableRegexInPath
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o WebACLAWSManagedRulesACFPRuleSetPtrOutput) RegistrationPagePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebACLAWSManagedRulesACFPRuleSet) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RegistrationPagePath
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WebACLAWSManagedRulesACFPRuleSetPtrOutput) RequestInspection() WebACLRequestInspectionACFPPtrOutput {
+	return o.ApplyT(func(v *WebACLAWSManagedRulesACFPRuleSet) *WebACLRequestInspectionACFP {
+		if v == nil {
+			return nil
+		}
+		return &v.RequestInspection
+	}).(WebACLRequestInspectionACFPPtrOutput)
+}
+
+func (o WebACLAWSManagedRulesACFPRuleSetPtrOutput) ResponseInspection() WebACLResponseInspectionPtrOutput {
+	return o.ApplyT(func(v *WebACLAWSManagedRulesACFPRuleSet) *WebACLResponseInspection {
+		if v == nil {
+			return nil
+		}
+		return v.ResponseInspection
+	}).(WebACLResponseInspectionPtrOutput)
+}
+
 // Configures how to use the Account Takeover Prevention managed rule group in the web ACL
 type WebACLAWSManagedRulesATPRuleSet struct {
+	EnableRegexInPath  *bool                     `pulumi:"enableRegexInPath"`
 	LoginPath          string                    `pulumi:"loginPath"`
 	RequestInspection  *WebACLRequestInspection  `pulumi:"requestInspection"`
 	ResponseInspection *WebACLResponseInspection `pulumi:"responseInspection"`
@@ -9830,6 +10027,7 @@ type WebACLAWSManagedRulesATPRuleSetInput interface {
 
 // Configures how to use the Account Takeover Prevention managed rule group in the web ACL
 type WebACLAWSManagedRulesATPRuleSetArgs struct {
+	EnableRegexInPath  pulumi.BoolPtrInput              `pulumi:"enableRegexInPath"`
 	LoginPath          pulumi.StringInput               `pulumi:"loginPath"`
 	RequestInspection  WebACLRequestInspectionPtrInput  `pulumi:"requestInspection"`
 	ResponseInspection WebACLResponseInspectionPtrInput `pulumi:"responseInspection"`
@@ -9913,6 +10111,10 @@ func (o WebACLAWSManagedRulesATPRuleSetOutput) ToWebACLAWSManagedRulesATPRuleSet
 	}).(WebACLAWSManagedRulesATPRuleSetPtrOutput)
 }
 
+func (o WebACLAWSManagedRulesATPRuleSetOutput) EnableRegexInPath() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WebACLAWSManagedRulesATPRuleSet) *bool { return v.EnableRegexInPath }).(pulumi.BoolPtrOutput)
+}
+
 func (o WebACLAWSManagedRulesATPRuleSetOutput) LoginPath() pulumi.StringOutput {
 	return o.ApplyT(func(v WebACLAWSManagedRulesATPRuleSet) string { return v.LoginPath }).(pulumi.StringOutput)
 }
@@ -9947,6 +10149,15 @@ func (o WebACLAWSManagedRulesATPRuleSetPtrOutput) Elem() WebACLAWSManagedRulesAT
 		var ret WebACLAWSManagedRulesATPRuleSet
 		return ret
 	}).(WebACLAWSManagedRulesATPRuleSetOutput)
+}
+
+func (o WebACLAWSManagedRulesATPRuleSetPtrOutput) EnableRegexInPath() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WebACLAWSManagedRulesATPRuleSet) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableRegexInPath
+	}).(pulumi.BoolPtrOutput)
 }
 
 func (o WebACLAWSManagedRulesATPRuleSetPtrOutput) LoginPath() pulumi.StringPtrOutput {
@@ -10112,6 +10323,94 @@ func (o WebACLAWSManagedRulesBotControlRuleSetPtrOutput) InspectionLevel() WebAC
 		}
 		return &v.InspectionLevel
 	}).(WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput)
+}
+
+type WebACLAddressField struct {
+}
+
+// WebACLAddressFieldInput is an input type that accepts WebACLAddressFieldArgs and WebACLAddressFieldOutput values.
+// You can construct a concrete instance of `WebACLAddressFieldInput` via:
+//
+//	WebACLAddressFieldArgs{...}
+type WebACLAddressFieldInput interface {
+	pulumi.Input
+
+	ToWebACLAddressFieldOutput() WebACLAddressFieldOutput
+	ToWebACLAddressFieldOutputWithContext(context.Context) WebACLAddressFieldOutput
+}
+
+type WebACLAddressFieldArgs struct {
+}
+
+func (WebACLAddressFieldArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLAddressField)(nil)).Elem()
+}
+
+func (i WebACLAddressFieldArgs) ToWebACLAddressFieldOutput() WebACLAddressFieldOutput {
+	return i.ToWebACLAddressFieldOutputWithContext(context.Background())
+}
+
+func (i WebACLAddressFieldArgs) ToWebACLAddressFieldOutputWithContext(ctx context.Context) WebACLAddressFieldOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLAddressFieldOutput)
+}
+
+// WebACLAddressFieldArrayInput is an input type that accepts WebACLAddressFieldArray and WebACLAddressFieldArrayOutput values.
+// You can construct a concrete instance of `WebACLAddressFieldArrayInput` via:
+//
+//	WebACLAddressFieldArray{ WebACLAddressFieldArgs{...} }
+type WebACLAddressFieldArrayInput interface {
+	pulumi.Input
+
+	ToWebACLAddressFieldArrayOutput() WebACLAddressFieldArrayOutput
+	ToWebACLAddressFieldArrayOutputWithContext(context.Context) WebACLAddressFieldArrayOutput
+}
+
+type WebACLAddressFieldArray []WebACLAddressFieldInput
+
+func (WebACLAddressFieldArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebACLAddressField)(nil)).Elem()
+}
+
+func (i WebACLAddressFieldArray) ToWebACLAddressFieldArrayOutput() WebACLAddressFieldArrayOutput {
+	return i.ToWebACLAddressFieldArrayOutputWithContext(context.Background())
+}
+
+func (i WebACLAddressFieldArray) ToWebACLAddressFieldArrayOutputWithContext(ctx context.Context) WebACLAddressFieldArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLAddressFieldArrayOutput)
+}
+
+type WebACLAddressFieldOutput struct{ *pulumi.OutputState }
+
+func (WebACLAddressFieldOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLAddressField)(nil)).Elem()
+}
+
+func (o WebACLAddressFieldOutput) ToWebACLAddressFieldOutput() WebACLAddressFieldOutput {
+	return o
+}
+
+func (o WebACLAddressFieldOutput) ToWebACLAddressFieldOutputWithContext(ctx context.Context) WebACLAddressFieldOutput {
+	return o
+}
+
+type WebACLAddressFieldArrayOutput struct{ *pulumi.OutputState }
+
+func (WebACLAddressFieldArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebACLAddressField)(nil)).Elem()
+}
+
+func (o WebACLAddressFieldArrayOutput) ToWebACLAddressFieldArrayOutput() WebACLAddressFieldArrayOutput {
+	return o
+}
+
+func (o WebACLAddressFieldArrayOutput) ToWebACLAddressFieldArrayOutputWithContext(ctx context.Context) WebACLAddressFieldArrayOutput {
+	return o
+}
+
+func (o WebACLAddressFieldArrayOutput) Index(i pulumi.IntInput) WebACLAddressFieldOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebACLAddressField {
+		return vs[0].([]WebACLAddressField)[vs[1].(int)]
+	}).(WebACLAddressFieldOutput)
 }
 
 // Allow traffic towards application.
@@ -15091,6 +15390,7 @@ func (o WebACLLabelMatchStatementPtrOutput) Scope() WebACLLabelMatchScopePtrOutp
 
 // ManagedRuleGroupConfig.
 type WebACLManagedRuleGroupConfig struct {
+	AWSManagedRulesACFPRuleSet       *WebACLAWSManagedRulesACFPRuleSet        `pulumi:"aWSManagedRulesACFPRuleSet"`
 	AWSManagedRulesATPRuleSet        *WebACLAWSManagedRulesATPRuleSet         `pulumi:"aWSManagedRulesATPRuleSet"`
 	AWSManagedRulesBotControlRuleSet *WebACLAWSManagedRulesBotControlRuleSet  `pulumi:"aWSManagedRulesBotControlRuleSet"`
 	LoginPath                        *string                                  `pulumi:"loginPath"`
@@ -15112,6 +15412,7 @@ type WebACLManagedRuleGroupConfigInput interface {
 
 // ManagedRuleGroupConfig.
 type WebACLManagedRuleGroupConfigArgs struct {
+	AWSManagedRulesACFPRuleSet       WebACLAWSManagedRulesACFPRuleSetPtrInput        `pulumi:"aWSManagedRulesACFPRuleSet"`
 	AWSManagedRulesATPRuleSet        WebACLAWSManagedRulesATPRuleSetPtrInput         `pulumi:"aWSManagedRulesATPRuleSet"`
 	AWSManagedRulesBotControlRuleSet WebACLAWSManagedRulesBotControlRuleSetPtrInput  `pulumi:"aWSManagedRulesBotControlRuleSet"`
 	LoginPath                        pulumi.StringPtrInput                           `pulumi:"loginPath"`
@@ -15170,6 +15471,12 @@ func (o WebACLManagedRuleGroupConfigOutput) ToWebACLManagedRuleGroupConfigOutput
 
 func (o WebACLManagedRuleGroupConfigOutput) ToWebACLManagedRuleGroupConfigOutputWithContext(ctx context.Context) WebACLManagedRuleGroupConfigOutput {
 	return o
+}
+
+func (o WebACLManagedRuleGroupConfigOutput) AWSManagedRulesACFPRuleSet() WebACLAWSManagedRulesACFPRuleSetPtrOutput {
+	return o.ApplyT(func(v WebACLManagedRuleGroupConfig) *WebACLAWSManagedRulesACFPRuleSet {
+		return v.AWSManagedRulesACFPRuleSet
+	}).(WebACLAWSManagedRulesACFPRuleSetPtrOutput)
 }
 
 func (o WebACLManagedRuleGroupConfigOutput) AWSManagedRulesATPRuleSet() WebACLAWSManagedRulesATPRuleSetPtrOutput {
@@ -15876,6 +16183,94 @@ func (o WebACLOverrideActionPtrOutput) None() pulumi.AnyOutput {
 		}
 		return v.None
 	}).(pulumi.AnyOutput)
+}
+
+type WebACLPhoneNumberField struct {
+}
+
+// WebACLPhoneNumberFieldInput is an input type that accepts WebACLPhoneNumberFieldArgs and WebACLPhoneNumberFieldOutput values.
+// You can construct a concrete instance of `WebACLPhoneNumberFieldInput` via:
+//
+//	WebACLPhoneNumberFieldArgs{...}
+type WebACLPhoneNumberFieldInput interface {
+	pulumi.Input
+
+	ToWebACLPhoneNumberFieldOutput() WebACLPhoneNumberFieldOutput
+	ToWebACLPhoneNumberFieldOutputWithContext(context.Context) WebACLPhoneNumberFieldOutput
+}
+
+type WebACLPhoneNumberFieldArgs struct {
+}
+
+func (WebACLPhoneNumberFieldArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLPhoneNumberField)(nil)).Elem()
+}
+
+func (i WebACLPhoneNumberFieldArgs) ToWebACLPhoneNumberFieldOutput() WebACLPhoneNumberFieldOutput {
+	return i.ToWebACLPhoneNumberFieldOutputWithContext(context.Background())
+}
+
+func (i WebACLPhoneNumberFieldArgs) ToWebACLPhoneNumberFieldOutputWithContext(ctx context.Context) WebACLPhoneNumberFieldOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLPhoneNumberFieldOutput)
+}
+
+// WebACLPhoneNumberFieldArrayInput is an input type that accepts WebACLPhoneNumberFieldArray and WebACLPhoneNumberFieldArrayOutput values.
+// You can construct a concrete instance of `WebACLPhoneNumberFieldArrayInput` via:
+//
+//	WebACLPhoneNumberFieldArray{ WebACLPhoneNumberFieldArgs{...} }
+type WebACLPhoneNumberFieldArrayInput interface {
+	pulumi.Input
+
+	ToWebACLPhoneNumberFieldArrayOutput() WebACLPhoneNumberFieldArrayOutput
+	ToWebACLPhoneNumberFieldArrayOutputWithContext(context.Context) WebACLPhoneNumberFieldArrayOutput
+}
+
+type WebACLPhoneNumberFieldArray []WebACLPhoneNumberFieldInput
+
+func (WebACLPhoneNumberFieldArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebACLPhoneNumberField)(nil)).Elem()
+}
+
+func (i WebACLPhoneNumberFieldArray) ToWebACLPhoneNumberFieldArrayOutput() WebACLPhoneNumberFieldArrayOutput {
+	return i.ToWebACLPhoneNumberFieldArrayOutputWithContext(context.Background())
+}
+
+func (i WebACLPhoneNumberFieldArray) ToWebACLPhoneNumberFieldArrayOutputWithContext(ctx context.Context) WebACLPhoneNumberFieldArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLPhoneNumberFieldArrayOutput)
+}
+
+type WebACLPhoneNumberFieldOutput struct{ *pulumi.OutputState }
+
+func (WebACLPhoneNumberFieldOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLPhoneNumberField)(nil)).Elem()
+}
+
+func (o WebACLPhoneNumberFieldOutput) ToWebACLPhoneNumberFieldOutput() WebACLPhoneNumberFieldOutput {
+	return o
+}
+
+func (o WebACLPhoneNumberFieldOutput) ToWebACLPhoneNumberFieldOutputWithContext(ctx context.Context) WebACLPhoneNumberFieldOutput {
+	return o
+}
+
+type WebACLPhoneNumberFieldArrayOutput struct{ *pulumi.OutputState }
+
+func (WebACLPhoneNumberFieldArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebACLPhoneNumberField)(nil)).Elem()
+}
+
+func (o WebACLPhoneNumberFieldArrayOutput) ToWebACLPhoneNumberFieldArrayOutput() WebACLPhoneNumberFieldArrayOutput {
+	return o
+}
+
+func (o WebACLPhoneNumberFieldArrayOutput) ToWebACLPhoneNumberFieldArrayOutputWithContext(ctx context.Context) WebACLPhoneNumberFieldArrayOutput {
+	return o
+}
+
+func (o WebACLPhoneNumberFieldArrayOutput) Index(i pulumi.IntInput) WebACLPhoneNumberFieldOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebACLPhoneNumberField {
+		return vs[0].([]WebACLPhoneNumberField)[vs[1].(int)]
+	}).(WebACLPhoneNumberFieldOutput)
 }
 
 type WebACLRateBasedStatement struct {
@@ -18072,6 +18467,217 @@ func (o WebACLRequestInspectionPtrOutput) UsernameField() WebACLFieldIdentifierP
 			return nil
 		}
 		return &v.UsernameField
+	}).(WebACLFieldIdentifierPtrOutput)
+}
+
+// Configures the inspection of sign-up requests
+type WebACLRequestInspectionACFP struct {
+	AddressFields     []WebACLAddressField                   `pulumi:"addressFields"`
+	EmailField        *WebACLFieldIdentifier                 `pulumi:"emailField"`
+	PasswordField     *WebACLFieldIdentifier                 `pulumi:"passwordField"`
+	PayloadType       WebACLRequestInspectionACFPPayloadType `pulumi:"payloadType"`
+	PhoneNumberFields []WebACLPhoneNumberField               `pulumi:"phoneNumberFields"`
+	UsernameField     *WebACLFieldIdentifier                 `pulumi:"usernameField"`
+}
+
+// WebACLRequestInspectionACFPInput is an input type that accepts WebACLRequestInspectionACFPArgs and WebACLRequestInspectionACFPOutput values.
+// You can construct a concrete instance of `WebACLRequestInspectionACFPInput` via:
+//
+//	WebACLRequestInspectionACFPArgs{...}
+type WebACLRequestInspectionACFPInput interface {
+	pulumi.Input
+
+	ToWebACLRequestInspectionACFPOutput() WebACLRequestInspectionACFPOutput
+	ToWebACLRequestInspectionACFPOutputWithContext(context.Context) WebACLRequestInspectionACFPOutput
+}
+
+// Configures the inspection of sign-up requests
+type WebACLRequestInspectionACFPArgs struct {
+	AddressFields     WebACLAddressFieldArrayInput                `pulumi:"addressFields"`
+	EmailField        WebACLFieldIdentifierPtrInput               `pulumi:"emailField"`
+	PasswordField     WebACLFieldIdentifierPtrInput               `pulumi:"passwordField"`
+	PayloadType       WebACLRequestInspectionACFPPayloadTypeInput `pulumi:"payloadType"`
+	PhoneNumberFields WebACLPhoneNumberFieldArrayInput            `pulumi:"phoneNumberFields"`
+	UsernameField     WebACLFieldIdentifierPtrInput               `pulumi:"usernameField"`
+}
+
+func (WebACLRequestInspectionACFPArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLRequestInspectionACFP)(nil)).Elem()
+}
+
+func (i WebACLRequestInspectionACFPArgs) ToWebACLRequestInspectionACFPOutput() WebACLRequestInspectionACFPOutput {
+	return i.ToWebACLRequestInspectionACFPOutputWithContext(context.Background())
+}
+
+func (i WebACLRequestInspectionACFPArgs) ToWebACLRequestInspectionACFPOutputWithContext(ctx context.Context) WebACLRequestInspectionACFPOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLRequestInspectionACFPOutput)
+}
+
+func (i WebACLRequestInspectionACFPArgs) ToWebACLRequestInspectionACFPPtrOutput() WebACLRequestInspectionACFPPtrOutput {
+	return i.ToWebACLRequestInspectionACFPPtrOutputWithContext(context.Background())
+}
+
+func (i WebACLRequestInspectionACFPArgs) ToWebACLRequestInspectionACFPPtrOutputWithContext(ctx context.Context) WebACLRequestInspectionACFPPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLRequestInspectionACFPOutput).ToWebACLRequestInspectionACFPPtrOutputWithContext(ctx)
+}
+
+// WebACLRequestInspectionACFPPtrInput is an input type that accepts WebACLRequestInspectionACFPArgs, WebACLRequestInspectionACFPPtr and WebACLRequestInspectionACFPPtrOutput values.
+// You can construct a concrete instance of `WebACLRequestInspectionACFPPtrInput` via:
+//
+//	        WebACLRequestInspectionACFPArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebACLRequestInspectionACFPPtrInput interface {
+	pulumi.Input
+
+	ToWebACLRequestInspectionACFPPtrOutput() WebACLRequestInspectionACFPPtrOutput
+	ToWebACLRequestInspectionACFPPtrOutputWithContext(context.Context) WebACLRequestInspectionACFPPtrOutput
+}
+
+type webACLRequestInspectionACFPPtrType WebACLRequestInspectionACFPArgs
+
+func WebACLRequestInspectionACFPPtr(v *WebACLRequestInspectionACFPArgs) WebACLRequestInspectionACFPPtrInput {
+	return (*webACLRequestInspectionACFPPtrType)(v)
+}
+
+func (*webACLRequestInspectionACFPPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLRequestInspectionACFP)(nil)).Elem()
+}
+
+func (i *webACLRequestInspectionACFPPtrType) ToWebACLRequestInspectionACFPPtrOutput() WebACLRequestInspectionACFPPtrOutput {
+	return i.ToWebACLRequestInspectionACFPPtrOutputWithContext(context.Background())
+}
+
+func (i *webACLRequestInspectionACFPPtrType) ToWebACLRequestInspectionACFPPtrOutputWithContext(ctx context.Context) WebACLRequestInspectionACFPPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLRequestInspectionACFPPtrOutput)
+}
+
+// Configures the inspection of sign-up requests
+type WebACLRequestInspectionACFPOutput struct{ *pulumi.OutputState }
+
+func (WebACLRequestInspectionACFPOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLRequestInspectionACFP)(nil)).Elem()
+}
+
+func (o WebACLRequestInspectionACFPOutput) ToWebACLRequestInspectionACFPOutput() WebACLRequestInspectionACFPOutput {
+	return o
+}
+
+func (o WebACLRequestInspectionACFPOutput) ToWebACLRequestInspectionACFPOutputWithContext(ctx context.Context) WebACLRequestInspectionACFPOutput {
+	return o
+}
+
+func (o WebACLRequestInspectionACFPOutput) ToWebACLRequestInspectionACFPPtrOutput() WebACLRequestInspectionACFPPtrOutput {
+	return o.ToWebACLRequestInspectionACFPPtrOutputWithContext(context.Background())
+}
+
+func (o WebACLRequestInspectionACFPOutput) ToWebACLRequestInspectionACFPPtrOutputWithContext(ctx context.Context) WebACLRequestInspectionACFPPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLRequestInspectionACFP) *WebACLRequestInspectionACFP {
+		return &v
+	}).(WebACLRequestInspectionACFPPtrOutput)
+}
+
+func (o WebACLRequestInspectionACFPOutput) AddressFields() WebACLAddressFieldArrayOutput {
+	return o.ApplyT(func(v WebACLRequestInspectionACFP) []WebACLAddressField { return v.AddressFields }).(WebACLAddressFieldArrayOutput)
+}
+
+func (o WebACLRequestInspectionACFPOutput) EmailField() WebACLFieldIdentifierPtrOutput {
+	return o.ApplyT(func(v WebACLRequestInspectionACFP) *WebACLFieldIdentifier { return v.EmailField }).(WebACLFieldIdentifierPtrOutput)
+}
+
+func (o WebACLRequestInspectionACFPOutput) PasswordField() WebACLFieldIdentifierPtrOutput {
+	return o.ApplyT(func(v WebACLRequestInspectionACFP) *WebACLFieldIdentifier { return v.PasswordField }).(WebACLFieldIdentifierPtrOutput)
+}
+
+func (o WebACLRequestInspectionACFPOutput) PayloadType() WebACLRequestInspectionACFPPayloadTypeOutput {
+	return o.ApplyT(func(v WebACLRequestInspectionACFP) WebACLRequestInspectionACFPPayloadType { return v.PayloadType }).(WebACLRequestInspectionACFPPayloadTypeOutput)
+}
+
+func (o WebACLRequestInspectionACFPOutput) PhoneNumberFields() WebACLPhoneNumberFieldArrayOutput {
+	return o.ApplyT(func(v WebACLRequestInspectionACFP) []WebACLPhoneNumberField { return v.PhoneNumberFields }).(WebACLPhoneNumberFieldArrayOutput)
+}
+
+func (o WebACLRequestInspectionACFPOutput) UsernameField() WebACLFieldIdentifierPtrOutput {
+	return o.ApplyT(func(v WebACLRequestInspectionACFP) *WebACLFieldIdentifier { return v.UsernameField }).(WebACLFieldIdentifierPtrOutput)
+}
+
+type WebACLRequestInspectionACFPPtrOutput struct{ *pulumi.OutputState }
+
+func (WebACLRequestInspectionACFPPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLRequestInspectionACFP)(nil)).Elem()
+}
+
+func (o WebACLRequestInspectionACFPPtrOutput) ToWebACLRequestInspectionACFPPtrOutput() WebACLRequestInspectionACFPPtrOutput {
+	return o
+}
+
+func (o WebACLRequestInspectionACFPPtrOutput) ToWebACLRequestInspectionACFPPtrOutputWithContext(ctx context.Context) WebACLRequestInspectionACFPPtrOutput {
+	return o
+}
+
+func (o WebACLRequestInspectionACFPPtrOutput) Elem() WebACLRequestInspectionACFPOutput {
+	return o.ApplyT(func(v *WebACLRequestInspectionACFP) WebACLRequestInspectionACFP {
+		if v != nil {
+			return *v
+		}
+		var ret WebACLRequestInspectionACFP
+		return ret
+	}).(WebACLRequestInspectionACFPOutput)
+}
+
+func (o WebACLRequestInspectionACFPPtrOutput) AddressFields() WebACLAddressFieldArrayOutput {
+	return o.ApplyT(func(v *WebACLRequestInspectionACFP) []WebACLAddressField {
+		if v == nil {
+			return nil
+		}
+		return v.AddressFields
+	}).(WebACLAddressFieldArrayOutput)
+}
+
+func (o WebACLRequestInspectionACFPPtrOutput) EmailField() WebACLFieldIdentifierPtrOutput {
+	return o.ApplyT(func(v *WebACLRequestInspectionACFP) *WebACLFieldIdentifier {
+		if v == nil {
+			return nil
+		}
+		return v.EmailField
+	}).(WebACLFieldIdentifierPtrOutput)
+}
+
+func (o WebACLRequestInspectionACFPPtrOutput) PasswordField() WebACLFieldIdentifierPtrOutput {
+	return o.ApplyT(func(v *WebACLRequestInspectionACFP) *WebACLFieldIdentifier {
+		if v == nil {
+			return nil
+		}
+		return v.PasswordField
+	}).(WebACLFieldIdentifierPtrOutput)
+}
+
+func (o WebACLRequestInspectionACFPPtrOutput) PayloadType() WebACLRequestInspectionACFPPayloadTypePtrOutput {
+	return o.ApplyT(func(v *WebACLRequestInspectionACFP) *WebACLRequestInspectionACFPPayloadType {
+		if v == nil {
+			return nil
+		}
+		return &v.PayloadType
+	}).(WebACLRequestInspectionACFPPayloadTypePtrOutput)
+}
+
+func (o WebACLRequestInspectionACFPPtrOutput) PhoneNumberFields() WebACLPhoneNumberFieldArrayOutput {
+	return o.ApplyT(func(v *WebACLRequestInspectionACFP) []WebACLPhoneNumberField {
+		if v == nil {
+			return nil
+		}
+		return v.PhoneNumberFields
+	}).(WebACLPhoneNumberFieldArrayOutput)
+}
+
+func (o WebACLRequestInspectionACFPPtrOutput) UsernameField() WebACLFieldIdentifierPtrOutput {
+	return o.ApplyT(func(v *WebACLRequestInspectionACFP) *WebACLFieldIdentifier {
+		if v == nil {
+			return nil
+		}
+		return v.UsernameField
 	}).(WebACLFieldIdentifierPtrOutput)
 }
 
@@ -20848,10 +21454,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupVisibilityConfigInput)(nil)).Elem(), RuleGroupVisibilityConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupXssMatchStatementInput)(nil)).Elem(), RuleGroupXssMatchStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupXssMatchStatementPtrInput)(nil)).Elem(), RuleGroupXssMatchStatementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLAWSManagedRulesACFPRuleSetInput)(nil)).Elem(), WebACLAWSManagedRulesACFPRuleSetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLAWSManagedRulesACFPRuleSetPtrInput)(nil)).Elem(), WebACLAWSManagedRulesACFPRuleSetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLAWSManagedRulesATPRuleSetInput)(nil)).Elem(), WebACLAWSManagedRulesATPRuleSetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLAWSManagedRulesATPRuleSetPtrInput)(nil)).Elem(), WebACLAWSManagedRulesATPRuleSetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLAWSManagedRulesBotControlRuleSetInput)(nil)).Elem(), WebACLAWSManagedRulesBotControlRuleSetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLAWSManagedRulesBotControlRuleSetPtrInput)(nil)).Elem(), WebACLAWSManagedRulesBotControlRuleSetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLAddressFieldInput)(nil)).Elem(), WebACLAddressFieldArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLAddressFieldArrayInput)(nil)).Elem(), WebACLAddressFieldArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLAllowActionInput)(nil)).Elem(), WebACLAllowActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLAllowActionPtrInput)(nil)).Elem(), WebACLAllowActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLAndStatementInput)(nil)).Elem(), WebACLAndStatementArgs{})
@@ -20929,6 +21539,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLOrStatementPtrInput)(nil)).Elem(), WebACLOrStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLOverrideActionInput)(nil)).Elem(), WebACLOverrideActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLOverrideActionPtrInput)(nil)).Elem(), WebACLOverrideActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLPhoneNumberFieldInput)(nil)).Elem(), WebACLPhoneNumberFieldArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLPhoneNumberFieldArrayInput)(nil)).Elem(), WebACLPhoneNumberFieldArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRateBasedStatementInput)(nil)).Elem(), WebACLRateBasedStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRateBasedStatementPtrInput)(nil)).Elem(), WebACLRateBasedStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRateBasedStatementCustomKeyInput)(nil)).Elem(), WebACLRateBasedStatementCustomKeyArgs{})
@@ -20959,6 +21571,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRequestBodyPtrInput)(nil)).Elem(), WebACLRequestBodyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRequestInspectionInput)(nil)).Elem(), WebACLRequestInspectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRequestInspectionPtrInput)(nil)).Elem(), WebACLRequestInspectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRequestInspectionACFPInput)(nil)).Elem(), WebACLRequestInspectionACFPArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRequestInspectionACFPPtrInput)(nil)).Elem(), WebACLRequestInspectionACFPArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLResponseInspectionInput)(nil)).Elem(), WebACLResponseInspectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLResponseInspectionPtrInput)(nil)).Elem(), WebACLResponseInspectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLResponseInspectionBodyContainsInput)(nil)).Elem(), WebACLResponseInspectionBodyContainsArgs{})
@@ -21124,10 +21738,14 @@ func init() {
 	pulumi.RegisterOutputType(RuleGroupVisibilityConfigPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupXssMatchStatementOutput{})
 	pulumi.RegisterOutputType(RuleGroupXssMatchStatementPtrOutput{})
+	pulumi.RegisterOutputType(WebACLAWSManagedRulesACFPRuleSetOutput{})
+	pulumi.RegisterOutputType(WebACLAWSManagedRulesACFPRuleSetPtrOutput{})
 	pulumi.RegisterOutputType(WebACLAWSManagedRulesATPRuleSetOutput{})
 	pulumi.RegisterOutputType(WebACLAWSManagedRulesATPRuleSetPtrOutput{})
 	pulumi.RegisterOutputType(WebACLAWSManagedRulesBotControlRuleSetOutput{})
 	pulumi.RegisterOutputType(WebACLAWSManagedRulesBotControlRuleSetPtrOutput{})
+	pulumi.RegisterOutputType(WebACLAddressFieldOutput{})
+	pulumi.RegisterOutputType(WebACLAddressFieldArrayOutput{})
 	pulumi.RegisterOutputType(WebACLAllowActionOutput{})
 	pulumi.RegisterOutputType(WebACLAllowActionPtrOutput{})
 	pulumi.RegisterOutputType(WebACLAndStatementOutput{})
@@ -21206,6 +21824,8 @@ func init() {
 	pulumi.RegisterOutputType(WebACLOrStatementPtrOutput{})
 	pulumi.RegisterOutputType(WebACLOverrideActionOutput{})
 	pulumi.RegisterOutputType(WebACLOverrideActionPtrOutput{})
+	pulumi.RegisterOutputType(WebACLPhoneNumberFieldOutput{})
+	pulumi.RegisterOutputType(WebACLPhoneNumberFieldArrayOutput{})
 	pulumi.RegisterOutputType(WebACLRateBasedStatementOutput{})
 	pulumi.RegisterOutputType(WebACLRateBasedStatementPtrOutput{})
 	pulumi.RegisterOutputType(WebACLRateBasedStatementCustomKeyOutput{})
@@ -21236,6 +21856,8 @@ func init() {
 	pulumi.RegisterOutputType(WebACLRequestBodyPtrOutput{})
 	pulumi.RegisterOutputType(WebACLRequestInspectionOutput{})
 	pulumi.RegisterOutputType(WebACLRequestInspectionPtrOutput{})
+	pulumi.RegisterOutputType(WebACLRequestInspectionACFPOutput{})
+	pulumi.RegisterOutputType(WebACLRequestInspectionACFPPtrOutput{})
 	pulumi.RegisterOutputType(WebACLResponseInspectionOutput{})
 	pulumi.RegisterOutputType(WebACLResponseInspectionPtrOutput{})
 	pulumi.RegisterOutputType(WebACLResponseInspectionBodyContainsOutput{})

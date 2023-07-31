@@ -46,6 +46,8 @@ namespace Pulumi.AwsNative.SecurityHub
 
         public static AutomationRuleMapFilterComparison EqualsValue { get; } = new AutomationRuleMapFilterComparison("EQUALS");
         public static AutomationRuleMapFilterComparison NotEquals { get; } = new AutomationRuleMapFilterComparison("NOT_EQUALS");
+        public static AutomationRuleMapFilterComparison Contains { get; } = new AutomationRuleMapFilterComparison("CONTAINS");
+        public static AutomationRuleMapFilterComparison NotContains { get; } = new AutomationRuleMapFilterComparison("NOT_CONTAINS");
 
         public static bool operator ==(AutomationRuleMapFilterComparison left, AutomationRuleMapFilterComparison right) => left.Equals(right);
         public static bool operator !=(AutomationRuleMapFilterComparison left, AutomationRuleMapFilterComparison right) => !left.Equals(right);
@@ -138,6 +140,8 @@ namespace Pulumi.AwsNative.SecurityHub
         public static AutomationRuleStringFilterComparison Prefix { get; } = new AutomationRuleStringFilterComparison("PREFIX");
         public static AutomationRuleStringFilterComparison NotEquals { get; } = new AutomationRuleStringFilterComparison("NOT_EQUALS");
         public static AutomationRuleStringFilterComparison PrefixNotEquals { get; } = new AutomationRuleStringFilterComparison("PREFIX_NOT_EQUALS");
+        public static AutomationRuleStringFilterComparison Contains { get; } = new AutomationRuleStringFilterComparison("CONTAINS");
+        public static AutomationRuleStringFilterComparison NotContains { get; } = new AutomationRuleStringFilterComparison("NOT_CONTAINS");
 
         public static bool operator ==(AutomationRuleStringFilterComparison left, AutomationRuleStringFilterComparison right) => left.Equals(right);
         public static bool operator !=(AutomationRuleStringFilterComparison left, AutomationRuleStringFilterComparison right) => !left.Equals(right);

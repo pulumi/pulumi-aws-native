@@ -23,16 +23,23 @@ func LookupPolicy(ctx *pulumi.Context, args *LookupPolicyArgs, opts ...pulumi.In
 }
 
 type LookupPolicyArgs struct {
+	// The provider-assigned unique ID for this resource
 	Id string `pulumi:"id"`
 }
 
 type LookupPolicyResult struct {
-	Groups         []string    `pulumi:"groups"`
-	Id             *string     `pulumi:"id"`
+	// The name of the group to associate the policy with. This parameter allows (through its regex pattern) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-.
+	Groups []string `pulumi:"groups"`
+	// The provider-assigned unique ID for this resource
+	Id *string `pulumi:"id"`
+	// The policy document. You must provide policies in JSON format in IAM. However, for AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.
 	PolicyDocument interface{} `pulumi:"policyDocument"`
-	PolicyName     *string     `pulumi:"policyName"`
-	Roles          []string    `pulumi:"roles"`
-	Users          []string    `pulumi:"users"`
+	// The name of the policy document. This parameter allows (through its regex pattern) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+	PolicyName *string `pulumi:"policyName"`
+	// The name of the role to associate the policy with. This parameter allows (per its regex pattern) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+	Roles []string `pulumi:"roles"`
+	// The name of the user to associate the policy with. This parameter allows (through its regex pattern) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+	Users []string `pulumi:"users"`
 }
 
 func LookupPolicyOutput(ctx *pulumi.Context, args LookupPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupPolicyResultOutput {
@@ -49,6 +56,7 @@ func LookupPolicyOutput(ctx *pulumi.Context, args LookupPolicyOutputArgs, opts .
 }
 
 type LookupPolicyOutputArgs struct {
+	// The provider-assigned unique ID for this resource
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -70,26 +78,32 @@ func (o LookupPolicyResultOutput) ToLookupPolicyResultOutputWithContext(ctx cont
 	return o
 }
 
+// The name of the group to associate the policy with. This parameter allows (through its regex pattern) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-.
 func (o LookupPolicyResultOutput) Groups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupPolicyResult) []string { return v.Groups }).(pulumi.StringArrayOutput)
 }
 
+// The provider-assigned unique ID for this resource
 func (o LookupPolicyResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPolicyResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The policy document. You must provide policies in JSON format in IAM. However, for AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.
 func (o LookupPolicyResultOutput) PolicyDocument() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupPolicyResult) interface{} { return v.PolicyDocument }).(pulumi.AnyOutput)
 }
 
+// The name of the policy document. This parameter allows (through its regex pattern) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 func (o LookupPolicyResultOutput) PolicyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPolicyResult) *string { return v.PolicyName }).(pulumi.StringPtrOutput)
 }
 
+// The name of the role to associate the policy with. This parameter allows (per its regex pattern) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 func (o LookupPolicyResultOutput) Roles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupPolicyResult) []string { return v.Roles }).(pulumi.StringArrayOutput)
 }
 
+// The name of the user to associate the policy with. This parameter allows (through its regex pattern) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 func (o LookupPolicyResultOutput) Users() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupPolicyResult) []string { return v.Users }).(pulumi.StringArrayOutput)
 }

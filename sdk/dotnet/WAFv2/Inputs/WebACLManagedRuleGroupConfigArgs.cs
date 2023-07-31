@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
     /// </summary>
     public sealed class WebACLManagedRuleGroupConfigArgs : global::Pulumi.ResourceArgs
     {
+        [Input("aWSManagedRulesACFPRuleSet")]
+        public Input<Inputs.WebACLAWSManagedRulesACFPRuleSetArgs>? AWSManagedRulesACFPRuleSet { get; set; }
+
         [Input("aWSManagedRulesATPRuleSet")]
         public Input<Inputs.WebACLAWSManagedRulesATPRuleSetArgs>? AWSManagedRulesATPRuleSet { get; set; }
 

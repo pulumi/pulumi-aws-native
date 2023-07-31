@@ -35,6 +35,11 @@ export const getEventSubscription: typeof import("./getEventSubscription").getEv
 export const getEventSubscriptionOutput: typeof import("./getEventSubscription").getEventSubscriptionOutput = null as any;
 utilities.lazyLoad(exports, ["getEventSubscription","getEventSubscriptionOutput"], () => require("./getEventSubscription"));
 
+export { GetReplicationConfigArgs, GetReplicationConfigResult, GetReplicationConfigOutputArgs } from "./getReplicationConfig";
+export const getReplicationConfig: typeof import("./getReplicationConfig").getReplicationConfig = null as any;
+export const getReplicationConfigOutput: typeof import("./getReplicationConfig").getReplicationConfigOutput = null as any;
+utilities.lazyLoad(exports, ["getReplicationConfig","getReplicationConfigOutput"], () => require("./getReplicationConfig"));
+
 export { GetReplicationInstanceArgs, GetReplicationInstanceResult, GetReplicationInstanceOutputArgs } from "./getReplicationInstance";
 export const getReplicationInstance: typeof import("./getReplicationInstance").getReplicationInstance = null as any;
 export const getReplicationInstanceOutput: typeof import("./getReplicationInstance").getReplicationInstanceOutput = null as any;
@@ -49,6 +54,11 @@ export { GetReplicationTaskArgs, GetReplicationTaskResult, GetReplicationTaskOut
 export const getReplicationTask: typeof import("./getReplicationTask").getReplicationTask = null as any;
 export const getReplicationTaskOutput: typeof import("./getReplicationTask").getReplicationTaskOutput = null as any;
 utilities.lazyLoad(exports, ["getReplicationTask","getReplicationTaskOutput"], () => require("./getReplicationTask"));
+
+export { ReplicationConfigArgs } from "./replicationConfig";
+export type ReplicationConfig = import("./replicationConfig").ReplicationConfig;
+export const ReplicationConfig: typeof import("./replicationConfig").ReplicationConfig = null as any;
+utilities.lazyLoad(exports, ["ReplicationConfig"], () => require("./replicationConfig"));
 
 export { ReplicationInstanceArgs } from "./replicationInstance";
 export type ReplicationInstance = import("./replicationInstance").ReplicationInstance;
@@ -66,6 +76,9 @@ export const ReplicationTask: typeof import("./replicationTask").ReplicationTask
 utilities.lazyLoad(exports, ["ReplicationTask"], () => require("./replicationTask"));
 
 
+// Export enums:
+export * from "../types/enums/dms";
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
@@ -76,6 +89,8 @@ const _module = {
                 return new Endpoint(name, <any>undefined, { urn })
             case "aws-native:dms:EventSubscription":
                 return new EventSubscription(name, <any>undefined, { urn })
+            case "aws-native:dms:ReplicationConfig":
+                return new ReplicationConfig(name, <any>undefined, { urn })
             case "aws-native:dms:ReplicationInstance":
                 return new ReplicationInstance(name, <any>undefined, { urn })
             case "aws-native:dms:ReplicationSubnetGroup":

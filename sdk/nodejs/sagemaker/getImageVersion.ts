@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -21,8 +24,15 @@ export interface GetImageVersionArgs {
 
 export interface GetImageVersionResult {
     readonly containerImage?: string;
+    readonly horovod?: boolean;
     readonly imageArn?: string;
     readonly imageVersionArn?: string;
+    readonly jobType?: enums.sagemaker.ImageVersionJobType;
+    readonly mLFramework?: string;
+    readonly processor?: enums.sagemaker.ImageVersionProcessor;
+    readonly programmingLang?: string;
+    readonly releaseNotes?: string;
+    readonly vendorGuidance?: enums.sagemaker.ImageVersionVendorGuidance;
     readonly version?: number;
 }
 /**

@@ -10,6 +10,11 @@ export const getQueue: typeof import("./getQueue").getQueue = null as any;
 export const getQueueOutput: typeof import("./getQueue").getQueueOutput = null as any;
 utilities.lazyLoad(exports, ["getQueue","getQueueOutput"], () => require("./getQueue"));
 
+export { GetQueueInlinePolicyArgs, GetQueueInlinePolicyResult, GetQueueInlinePolicyOutputArgs } from "./getQueueInlinePolicy";
+export const getQueueInlinePolicy: typeof import("./getQueueInlinePolicy").getQueueInlinePolicy = null as any;
+export const getQueueInlinePolicyOutput: typeof import("./getQueueInlinePolicy").getQueueInlinePolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getQueueInlinePolicy","getQueueInlinePolicyOutput"], () => require("./getQueueInlinePolicy"));
+
 export { GetQueuePolicyArgs, GetQueuePolicyResult, GetQueuePolicyOutputArgs } from "./getQueuePolicy";
 export const getQueuePolicy: typeof import("./getQueuePolicy").getQueuePolicy = null as any;
 export const getQueuePolicyOutput: typeof import("./getQueuePolicy").getQueuePolicyOutput = null as any;
@@ -19,6 +24,11 @@ export { QueueArgs } from "./queue";
 export type Queue = import("./queue").Queue;
 export const Queue: typeof import("./queue").Queue = null as any;
 utilities.lazyLoad(exports, ["Queue"], () => require("./queue"));
+
+export { QueueInlinePolicyArgs } from "./queueInlinePolicy";
+export type QueueInlinePolicy = import("./queueInlinePolicy").QueueInlinePolicy;
+export const QueueInlinePolicy: typeof import("./queueInlinePolicy").QueueInlinePolicy = null as any;
+utilities.lazyLoad(exports, ["QueueInlinePolicy"], () => require("./queueInlinePolicy"));
 
 export { QueuePolicyArgs } from "./queuePolicy";
 export type QueuePolicy = import("./queuePolicy").QueuePolicy;
@@ -32,6 +42,8 @@ const _module = {
         switch (type) {
             case "aws-native:sqs:Queue":
                 return new Queue(name, <any>undefined, { urn })
+            case "aws-native:sqs:QueueInlinePolicy":
+                return new QueueInlinePolicy(name, <any>undefined, { urn })
             case "aws-native:sqs:QueuePolicy":
                 return new QueuePolicy(name, <any>undefined, { urn })
             default:
