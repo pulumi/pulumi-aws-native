@@ -57,7 +57,7 @@ jobs:
     - name: Unshallow clone for tags
       run: git fetch --prune --unshallow --tags
     - name: Install Go
-        uses: actions/setup-go@v2
+      uses: actions/setup-go@v2
       with:
         go-version: ${{ env.GOVERSION }}
     - name: Install pulumictl
@@ -87,14 +87,14 @@ jobs:
         echo 'EOF' >> $GITHUB_ENV
     - if: github.event_name == 'pull_request'
       name: Comment on PR with Details of Schema Check
-        uses: thollander/actions-comment-pull-request@v1
+      uses: thollander/actions-comment-pull-request@v1
       with:
         message: |
           ### Does the PR have any schema changes?
 
           ${{ env.SCHEMA_CHANGES }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - if:
+    - if:
           contains(env.SCHEMA_CHANGES, 'Looking good! No breaking changes found.') &&
         github.actor == 'pulumi-bot'
       name: Add label if no breaking changes
@@ -152,7 +152,7 @@ jobs:
     - name: Unshallow clone for tags
       run: git fetch --prune --unshallow --tags
     - name: Install Go
-        uses: actions/setup-go@v2
+      uses: actions/setup-go@v2
       with:
         go-version: ${{ env.GOVERSION }}
     - name: Install pulumictl
@@ -194,7 +194,7 @@ jobs:
       run: tar -zxf ${{ github.workspace }}/bin/provider.tar.gz -C ${{
         github.workspace}}/bin
     - name: Restore Binary Permissions
-        run:
+      run:
           find ${{ github.workspace }} -name "pulumi-*-${{ env.PROVIDER }}" -print
         -exec chmod +x {} \;
     - name: Initialize submodules
@@ -250,7 +250,7 @@ jobs:
     - name: Unshallow clone for tags
       run: git fetch --prune --unshallow --tags
     - name: Install Go
-        uses: actions/setup-go@v2
+      uses: actions/setup-go@v2
       with:
         go-version: ${{ env.GOVERSION }}
     - name: Install pulumictl
@@ -292,7 +292,7 @@ jobs:
       run: tar -zxf ${{ github.workspace }}/bin/provider.tar.gz -C ${{
         github.workspace}}/bin
     - name: Restore Binary Permissions
-        run:
+      run:
           find ${{ github.workspace }} -name "pulumi-*-${{ env.PROVIDER }}" -print
         -exec chmod +x {} \;
     - name: Download SDK
@@ -301,7 +301,7 @@ jobs:
         name: ${{ matrix.language }}-sdk.tar.gz
         path: ${{ github.workspace}}/sdk/
     - name: UnTar SDK folder
-        run:
+      run:
           tar -zxf ${{ github.workspace}}/sdk/${{ matrix.language}}.tar.gz -C ${{
         github.workspace}}/sdk/${{ matrix.language}}
     - name: Update path
@@ -353,7 +353,7 @@ jobs:
     - name: Unshallow clone for tags
       run: git fetch --prune --unshallow --tags
     - name: Install Go
-        uses: actions/setup-go@v2
+      uses: actions/setup-go@v2
       with:
         go-version: ${{ env.GOVERSION }}
     - name: Install pulumictl
@@ -373,13 +373,13 @@ jobs:
         role-external-id: upload-pulumi-release
         role-to-assume: ${{ secrets.AWS_UPLOAD_ROLE_ARN }}
     - name: Set PreRelease Version
-        run:
+      run:
           echo "GORELEASER_CURRENT_TAG=v$(pulumictl get version --language generic)"
         >> $GITHUB_ENV
     - name: Run GoReleaser
       uses: goreleaser/goreleaser-action@v2
       with:
-          args:
+        args:
             -p 3 -f .goreleaser.prerelease.yml --rm-dist --skip-validate --timeout
           60m0s
         version: latest
@@ -407,7 +407,7 @@ jobs:
     - name: Unshallow clone for tags
       run: git fetch --prune --unshallow --tags
     - name: Install Go
-        uses: actions/setup-go@v2
+      uses: actions/setup-go@v2
       with:
         go-version: ${{ env.GOVERSION }}
     - name: Install pulumictl
@@ -484,7 +484,7 @@ jobs:
     - name: Unshallow clone for tags
       run: git fetch --prune --unshallow --tags
     - name: Install Go
-        uses: actions/setup-go@v2
+      uses: actions/setup-go@v2
       with:
         go-version: ${{ env.GOVERSION }}
     - name: Install pulumictl
@@ -513,11 +513,11 @@ jobs:
       run: tar -zxf ${{github.workspace}}/sdk/java.tar.gz -C
         ${{github.workspace}}/sdk/java
     - name: Set PACKAGE_VERSION to Env
-        run:
+      run:
           echo "PACKAGE_VERSION=$(pulumictl get version --language generic)" >>
         $GITHUB_ENV
     - name: Publish Java SDK
-        uses: gradle/gradle-build-action@v2
+      uses: gradle/gradle-build-action@v2
       with:
         arguments: publishToSonatype closeAndReleaseSonatypeStagingRepository
         build-root-directory: ./sdk/java
