@@ -133,7 +133,7 @@ class ServiceArgs:
         pulumi.set(self, "desired_count", value)
 
     @property
-    @pulumi.getter(name="enableECSManagedTags")
+    @pulumi.getter(name="enableEcsManagedTags")
     def enable_ecs_managed_tags(self) -> Optional[pulumi.Input[bool]]:
         return pulumi.get(self, "enable_ecs_managed_tags")
 
@@ -473,7 +473,7 @@ class Service(pulumi.CustomResource):
         return pulumi.get(self, "desired_count")
 
     @property
-    @pulumi.getter(name="enableECSManagedTags")
+    @pulumi.getter(name="enableEcsManagedTags")
     def enable_ecs_managed_tags(self) -> pulumi.Output[Optional[bool]]:
         return pulumi.get(self, "enable_ecs_managed_tags")
 

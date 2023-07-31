@@ -18,8 +18,8 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
         /// <summary>
         /// The Amazon Resource Name (ARN) of the database.
         /// </summary>
-        [Input("databaseARN")]
-        public Input<string>? DatabaseARN { get; set; }
+        [Input("databaseArn")]
+        public Input<string>? DatabaseArn { get; set; }
 
         public ApplicationGlueDataCatalogConfigurationArgs()
         {

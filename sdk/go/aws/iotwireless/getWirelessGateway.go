@@ -37,7 +37,7 @@ type LookupWirelessGatewayResult struct {
 	// The date and time when the most recent uplink was received.
 	LastUplinkReceivedAt *string `pulumi:"lastUplinkReceivedAt"`
 	// The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Gateway.
-	LoRaWAN *WirelessGatewayLoRaWANGateway `pulumi:"loRaWAN"`
+	LoRaWan *WirelessGatewayLoRaWANGateway `pulumi:"loRaWan"`
 	// Name of Wireless Gateway.
 	Name *string `pulumi:"name"`
 	// A list of key-value pairs that contain metadata for the gateway.
@@ -105,8 +105,8 @@ func (o LookupWirelessGatewayResultOutput) LastUplinkReceivedAt() pulumi.StringP
 }
 
 // The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Gateway.
-func (o LookupWirelessGatewayResultOutput) LoRaWAN() WirelessGatewayLoRaWANGatewayPtrOutput {
-	return o.ApplyT(func(v LookupWirelessGatewayResult) *WirelessGatewayLoRaWANGateway { return v.LoRaWAN }).(WirelessGatewayLoRaWANGatewayPtrOutput)
+func (o LookupWirelessGatewayResultOutput) LoRaWan() WirelessGatewayLoRaWANGatewayPtrOutput {
+	return o.ApplyT(func(v LookupWirelessGatewayResult) *WirelessGatewayLoRaWANGateway { return v.LoRaWan }).(WirelessGatewayLoRaWANGatewayPtrOutput)
 }
 
 // Name of Wireless Gateway.

@@ -41,7 +41,7 @@ export class Snapshot extends pulumi.CustomResource {
     }
 
     public readonly name!: pulumi.Output<string>;
-    public /*out*/ readonly resourceARN!: pulumi.Output<string>;
+    public /*out*/ readonly resourceArn!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<outputs.fsx.SnapshotTag[] | undefined>;
     public readonly volumeId!: pulumi.Output<string>;
 
@@ -64,10 +64,10 @@ export class Snapshot extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["volumeId"] = args ? args.volumeId : undefined;
-            resourceInputs["resourceARN"] = undefined /*out*/;
+            resourceInputs["resourceArn"] = undefined /*out*/;
         } else {
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["resourceARN"] = undefined /*out*/;
+            resourceInputs["resourceArn"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["volumeId"] = undefined /*out*/;
         }

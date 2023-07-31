@@ -1021,7 +1021,7 @@ class DistributionCacheSettingsArgs:
             pulumi.set(__self__, "minimum_ttl", minimum_ttl)
 
     @property
-    @pulumi.getter(name="allowedHTTPMethods")
+    @pulumi.getter(name="allowedHttpMethods")
     def allowed_http_methods(self) -> Optional[pulumi.Input[str]]:
         """
         The HTTP methods that are processed and forwarded to the distribution's origin.
@@ -1033,7 +1033,7 @@ class DistributionCacheSettingsArgs:
         pulumi.set(self, "allowed_http_methods", value)
 
     @property
-    @pulumi.getter(name="cachedHTTPMethods")
+    @pulumi.getter(name="cachedHttpMethods")
     def cached_http_methods(self) -> Optional[pulumi.Input[str]]:
         """
         The HTTP method responses that are cached by your distribution.
@@ -1045,7 +1045,7 @@ class DistributionCacheSettingsArgs:
         pulumi.set(self, "cached_http_methods", value)
 
     @property
-    @pulumi.getter(name="defaultTTL")
+    @pulumi.getter(name="defaultTtl")
     def default_ttl(self) -> Optional[pulumi.Input[int]]:
         """
         The default amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the content has been updated.
@@ -1093,7 +1093,7 @@ class DistributionCacheSettingsArgs:
         pulumi.set(self, "forwarded_query_strings", value)
 
     @property
-    @pulumi.getter(name="maximumTTL")
+    @pulumi.getter(name="maximumTtl")
     def maximum_ttl(self) -> Optional[pulumi.Input[int]]:
         """
         The maximum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
@@ -1105,7 +1105,7 @@ class DistributionCacheSettingsArgs:
         pulumi.set(self, "maximum_ttl", value)
 
     @property
-    @pulumi.getter(name="minimumTTL")
+    @pulumi.getter(name="minimumTtl")
     def minimum_ttl(self) -> Optional[pulumi.Input[int]]:
         """
         The minimum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
@@ -1414,7 +1414,7 @@ class InstanceDiskArgs:
                  path: pulumi.Input[str],
                  attached_to: Optional[pulumi.Input[str]] = None,
                  attachment_state: Optional[pulumi.Input[str]] = None,
-                 i_ops: Optional[pulumi.Input[int]] = None,
+                 iops: Optional[pulumi.Input[int]] = None,
                  is_system_disk: Optional[pulumi.Input[bool]] = None,
                  size_in_gb: Optional[pulumi.Input[str]] = None):
         """
@@ -1423,7 +1423,7 @@ class InstanceDiskArgs:
         :param pulumi.Input[str] path: Path of the disk attached to the instance.
         :param pulumi.Input[str] attached_to: Instance attached to the disk.
         :param pulumi.Input[str] attachment_state: Attachment state of the disk.
-        :param pulumi.Input[int] i_ops: IOPS of disk.
+        :param pulumi.Input[int] iops: IOPS of disk.
         :param pulumi.Input[bool] is_system_disk: Is the Attached disk is the system disk of the Instance.
         :param pulumi.Input[str] size_in_gb: Size of the disk attached to the Instance.
         """
@@ -1433,8 +1433,8 @@ class InstanceDiskArgs:
             pulumi.set(__self__, "attached_to", attached_to)
         if attachment_state is not None:
             pulumi.set(__self__, "attachment_state", attachment_state)
-        if i_ops is not None:
-            pulumi.set(__self__, "i_ops", i_ops)
+        if iops is not None:
+            pulumi.set(__self__, "iops", iops)
         if is_system_disk is not None:
             pulumi.set(__self__, "is_system_disk", is_system_disk)
         if size_in_gb is not None:
@@ -1489,16 +1489,16 @@ class InstanceDiskArgs:
         pulumi.set(self, "attachment_state", value)
 
     @property
-    @pulumi.getter(name="iOPS")
-    def i_ops(self) -> Optional[pulumi.Input[int]]:
+    @pulumi.getter
+    def iops(self) -> Optional[pulumi.Input[int]]:
         """
         IOPS of disk.
         """
-        return pulumi.get(self, "i_ops")
+        return pulumi.get(self, "iops")
 
-    @i_ops.setter
-    def i_ops(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "i_ops", value)
+    @iops.setter
+    def iops(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "iops", value)
 
     @property
     @pulumi.getter(name="isSystemDisk")

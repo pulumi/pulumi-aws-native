@@ -12,8 +12,8 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
 
     public sealed class DeliveryStreamEncryptionConfigurationInputArgs : global::Pulumi.ResourceArgs
     {
-        [Input("keyARN")]
-        public Input<string>? KeyARN { get; set; }
+        [Input("keyArn")]
+        public Input<string>? KeyArn { get; set; }
 
         [Input("keyType", required: true)]
         public Input<Pulumi.AwsNative.KinesisFirehose.DeliveryStreamEncryptionConfigurationInputKeyType> KeyType { get; set; } = null!;

@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDBClusterResult:
-    def __init__(__self__, associated_roles=None, backup_retention_period=None, cluster_resource_id=None, copy_tags_to_snapshot=None, d_b_cluster_parameter_group_name=None, deletion_protection=None, enable_cloudwatch_logs_exports=None, endpoint=None, engine_version=None, iam_auth_enabled=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, read_endpoint=None, serverless_scaling_configuration=None, tags=None, vpc_security_group_ids=None):
+    def __init__(__self__, associated_roles=None, backup_retention_period=None, cluster_resource_id=None, copy_tags_to_snapshot=None, db_cluster_parameter_group_name=None, deletion_protection=None, enable_cloudwatch_logs_exports=None, endpoint=None, engine_version=None, iam_auth_enabled=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, read_endpoint=None, serverless_scaling_configuration=None, tags=None, vpc_security_group_ids=None):
         if associated_roles and not isinstance(associated_roles, list):
             raise TypeError("Expected argument 'associated_roles' to be a list")
         pulumi.set(__self__, "associated_roles", associated_roles)
@@ -32,9 +32,9 @@ class GetDBClusterResult:
         if copy_tags_to_snapshot and not isinstance(copy_tags_to_snapshot, bool):
             raise TypeError("Expected argument 'copy_tags_to_snapshot' to be a bool")
         pulumi.set(__self__, "copy_tags_to_snapshot", copy_tags_to_snapshot)
-        if d_b_cluster_parameter_group_name and not isinstance(d_b_cluster_parameter_group_name, str):
-            raise TypeError("Expected argument 'd_b_cluster_parameter_group_name' to be a str")
-        pulumi.set(__self__, "d_b_cluster_parameter_group_name", d_b_cluster_parameter_group_name)
+        if db_cluster_parameter_group_name and not isinstance(db_cluster_parameter_group_name, str):
+            raise TypeError("Expected argument 'db_cluster_parameter_group_name' to be a str")
+        pulumi.set(__self__, "db_cluster_parameter_group_name", db_cluster_parameter_group_name)
         if deletion_protection and not isinstance(deletion_protection, bool):
             raise TypeError("Expected argument 'deletion_protection' to be a bool")
         pulumi.set(__self__, "deletion_protection", deletion_protection)
@@ -105,12 +105,12 @@ class GetDBClusterResult:
         return pulumi.get(self, "copy_tags_to_snapshot")
 
     @property
-    @pulumi.getter(name="dBClusterParameterGroupName")
-    def d_b_cluster_parameter_group_name(self) -> Optional[str]:
+    @pulumi.getter(name="dbClusterParameterGroupName")
+    def db_cluster_parameter_group_name(self) -> Optional[str]:
         """
         Provides the name of the DB cluster parameter group.
         """
-        return pulumi.get(self, "d_b_cluster_parameter_group_name")
+        return pulumi.get(self, "db_cluster_parameter_group_name")
 
     @property
     @pulumi.getter(name="deletionProtection")
@@ -219,7 +219,7 @@ class AwaitableGetDBClusterResult(GetDBClusterResult):
             backup_retention_period=self.backup_retention_period,
             cluster_resource_id=self.cluster_resource_id,
             copy_tags_to_snapshot=self.copy_tags_to_snapshot,
-            d_b_cluster_parameter_group_name=self.d_b_cluster_parameter_group_name,
+            db_cluster_parameter_group_name=self.db_cluster_parameter_group_name,
             deletion_protection=self.deletion_protection,
             enable_cloudwatch_logs_exports=self.enable_cloudwatch_logs_exports,
             endpoint=self.endpoint,
@@ -234,16 +234,16 @@ class AwaitableGetDBClusterResult(GetDBClusterResult):
             vpc_security_group_ids=self.vpc_security_group_ids)
 
 
-def get_db_cluster(d_b_cluster_identifier: Optional[str] = None,
+def get_db_cluster(db_cluster_identifier: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDBClusterResult:
     """
     The AWS::Neptune::DBCluster resource creates an Amazon Neptune DB cluster.
 
 
-    :param str d_b_cluster_identifier: The DB cluster identifier. Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster stored as a lowercase string.
+    :param str db_cluster_identifier: The DB cluster identifier. Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster stored as a lowercase string.
     """
     __args__ = dict()
-    __args__['dBClusterIdentifier'] = d_b_cluster_identifier
+    __args__['dbClusterIdentifier'] = db_cluster_identifier
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:neptune:getDBCluster', __args__, opts=opts, typ=GetDBClusterResult).value
 
@@ -252,7 +252,7 @@ def get_db_cluster(d_b_cluster_identifier: Optional[str] = None,
         backup_retention_period=pulumi.get(__ret__, 'backup_retention_period'),
         cluster_resource_id=pulumi.get(__ret__, 'cluster_resource_id'),
         copy_tags_to_snapshot=pulumi.get(__ret__, 'copy_tags_to_snapshot'),
-        d_b_cluster_parameter_group_name=pulumi.get(__ret__, 'd_b_cluster_parameter_group_name'),
+        db_cluster_parameter_group_name=pulumi.get(__ret__, 'db_cluster_parameter_group_name'),
         deletion_protection=pulumi.get(__ret__, 'deletion_protection'),
         enable_cloudwatch_logs_exports=pulumi.get(__ret__, 'enable_cloudwatch_logs_exports'),
         endpoint=pulumi.get(__ret__, 'endpoint'),
@@ -268,12 +268,12 @@ def get_db_cluster(d_b_cluster_identifier: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_db_cluster)
-def get_db_cluster_output(d_b_cluster_identifier: Optional[pulumi.Input[str]] = None,
+def get_db_cluster_output(db_cluster_identifier: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDBClusterResult]:
     """
     The AWS::Neptune::DBCluster resource creates an Amazon Neptune DB cluster.
 
 
-    :param str d_b_cluster_identifier: The DB cluster identifier. Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster stored as a lowercase string.
+    :param str db_cluster_identifier: The DB cluster identifier. Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster stored as a lowercase string.
     """
     ...

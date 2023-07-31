@@ -25,7 +25,7 @@ export interface GetSnapshotArgs {
 export interface GetSnapshotResult {
     readonly id?: string;
     readonly name?: string;
-    readonly resourceARN?: string;
+    readonly resourceArn?: string;
     readonly tags?: outputs.fsx.SnapshotTag[];
 }
 /**

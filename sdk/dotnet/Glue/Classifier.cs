@@ -25,8 +25,8 @@ namespace Pulumi.AwsNative.Glue
         [Output("jsonClassifier")]
         public Output<Outputs.ClassifierJsonClassifier?> JsonClassifier { get; private set; } = null!;
 
-        [Output("xMLClassifier")]
-        public Output<Outputs.ClassifierXMLClassifier?> XMLClassifier { get; private set; } = null!;
+        [Output("xmlClassifier")]
+        public Output<Outputs.ClassifierXMLClassifier?> XmlClassifier { get; private set; } = null!;
 
 
         /// <summary>
@@ -82,8 +82,8 @@ namespace Pulumi.AwsNative.Glue
         [Input("jsonClassifier")]
         public Input<Inputs.ClassifierJsonClassifierArgs>? JsonClassifier { get; set; }
 
-        [Input("xMLClassifier")]
-        public Input<Inputs.ClassifierXMLClassifierArgs>? XMLClassifier { get; set; }
+        [Input("xmlClassifier")]
+        public Input<Inputs.ClassifierXMLClassifierArgs>? XmlClassifier { get; set; }
 
         public ClassifierArgs()
         {

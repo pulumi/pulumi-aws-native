@@ -30,7 +30,7 @@ export interface GetEnvironmentResult {
      * Your description for this environment.
      */
     readonly description?: string;
-    readonly endpointURL?: string;
+    readonly endpointUrl?: string;
     /**
      * The Amazon Resource Name (ARN) of an existing IAM role to be used as the environment's operations role.
      */

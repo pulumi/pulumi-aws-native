@@ -83,7 +83,7 @@ class DeliveryChannelArgs:
         pulumi.set(self, "s3_kms_key_arn", value)
 
     @property
-    @pulumi.getter(name="snsTopicARN")
+    @pulumi.getter(name="snsTopicArn")
     def sns_topic_arn(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "sns_topic_arn")
 
@@ -219,7 +219,7 @@ class DeliveryChannel(pulumi.CustomResource):
         return pulumi.get(self, "s3_kms_key_arn")
 
     @property
-    @pulumi.getter(name="snsTopicARN")
+    @pulumi.getter(name="snsTopicArn")
     def sns_topic_arn(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "sns_topic_arn")
 

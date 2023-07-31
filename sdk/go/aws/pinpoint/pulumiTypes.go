@@ -1972,7 +1972,7 @@ func (o CampaignInAppMessageBodyConfigPtrOutput) TextColor() pulumi.StringPtrOut
 type CampaignInAppMessageButton struct {
 	Android       *CampaignOverrideButtonConfiguration `pulumi:"android"`
 	DefaultConfig *CampaignDefaultButtonConfiguration  `pulumi:"defaultConfig"`
-	IOS           *CampaignOverrideButtonConfiguration `pulumi:"iOS"`
+	Ios           *CampaignOverrideButtonConfiguration `pulumi:"ios"`
 	Web           *CampaignOverrideButtonConfiguration `pulumi:"web"`
 }
 
@@ -1990,7 +1990,7 @@ type CampaignInAppMessageButtonInput interface {
 type CampaignInAppMessageButtonArgs struct {
 	Android       CampaignOverrideButtonConfigurationPtrInput `pulumi:"android"`
 	DefaultConfig CampaignDefaultButtonConfigurationPtrInput  `pulumi:"defaultConfig"`
-	IOS           CampaignOverrideButtonConfigurationPtrInput `pulumi:"iOS"`
+	Ios           CampaignOverrideButtonConfigurationPtrInput `pulumi:"ios"`
 	Web           CampaignOverrideButtonConfigurationPtrInput `pulumi:"web"`
 }
 
@@ -2079,8 +2079,8 @@ func (o CampaignInAppMessageButtonOutput) DefaultConfig() CampaignDefaultButtonC
 	return o.ApplyT(func(v CampaignInAppMessageButton) *CampaignDefaultButtonConfiguration { return v.DefaultConfig }).(CampaignDefaultButtonConfigurationPtrOutput)
 }
 
-func (o CampaignInAppMessageButtonOutput) IOS() CampaignOverrideButtonConfigurationPtrOutput {
-	return o.ApplyT(func(v CampaignInAppMessageButton) *CampaignOverrideButtonConfiguration { return v.IOS }).(CampaignOverrideButtonConfigurationPtrOutput)
+func (o CampaignInAppMessageButtonOutput) Ios() CampaignOverrideButtonConfigurationPtrOutput {
+	return o.ApplyT(func(v CampaignInAppMessageButton) *CampaignOverrideButtonConfiguration { return v.Ios }).(CampaignOverrideButtonConfigurationPtrOutput)
 }
 
 func (o CampaignInAppMessageButtonOutput) Web() CampaignOverrideButtonConfigurationPtrOutput {
@@ -2129,12 +2129,12 @@ func (o CampaignInAppMessageButtonPtrOutput) DefaultConfig() CampaignDefaultButt
 	}).(CampaignDefaultButtonConfigurationPtrOutput)
 }
 
-func (o CampaignInAppMessageButtonPtrOutput) IOS() CampaignOverrideButtonConfigurationPtrOutput {
+func (o CampaignInAppMessageButtonPtrOutput) Ios() CampaignOverrideButtonConfigurationPtrOutput {
 	return o.ApplyT(func(v *CampaignInAppMessageButton) *CampaignOverrideButtonConfiguration {
 		if v == nil {
 			return nil
 		}
-		return v.IOS
+		return v.Ios
 	}).(CampaignOverrideButtonConfigurationPtrOutput)
 }
 
@@ -2926,15 +2926,15 @@ func (o CampaignMessagePtrOutput) Url() pulumi.StringPtrOutput {
 }
 
 type CampaignMessageConfiguration struct {
-	ADMMessage     *CampaignMessage       `pulumi:"aDMMessage"`
-	APNSMessage    *CampaignMessage       `pulumi:"aPNSMessage"`
+	AdmMessage     *CampaignMessage       `pulumi:"admMessage"`
+	ApnsMessage    *CampaignMessage       `pulumi:"apnsMessage"`
 	BaiduMessage   *CampaignMessage       `pulumi:"baiduMessage"`
 	CustomMessage  *CampaignCustomMessage `pulumi:"customMessage"`
 	DefaultMessage *CampaignMessage       `pulumi:"defaultMessage"`
 	EmailMessage   *CampaignEmailMessage  `pulumi:"emailMessage"`
-	GCMMessage     *CampaignMessage       `pulumi:"gCMMessage"`
+	GcmMessage     *CampaignMessage       `pulumi:"gcmMessage"`
 	InAppMessage   *CampaignInAppMessage  `pulumi:"inAppMessage"`
-	SMSMessage     *CampaignSmsMessage    `pulumi:"sMSMessage"`
+	SmsMessage     *CampaignSmsMessage    `pulumi:"smsMessage"`
 }
 
 // CampaignMessageConfigurationInput is an input type that accepts CampaignMessageConfigurationArgs and CampaignMessageConfigurationOutput values.
@@ -2949,15 +2949,15 @@ type CampaignMessageConfigurationInput interface {
 }
 
 type CampaignMessageConfigurationArgs struct {
-	ADMMessage     CampaignMessagePtrInput       `pulumi:"aDMMessage"`
-	APNSMessage    CampaignMessagePtrInput       `pulumi:"aPNSMessage"`
+	AdmMessage     CampaignMessagePtrInput       `pulumi:"admMessage"`
+	ApnsMessage    CampaignMessagePtrInput       `pulumi:"apnsMessage"`
 	BaiduMessage   CampaignMessagePtrInput       `pulumi:"baiduMessage"`
 	CustomMessage  CampaignCustomMessagePtrInput `pulumi:"customMessage"`
 	DefaultMessage CampaignMessagePtrInput       `pulumi:"defaultMessage"`
 	EmailMessage   CampaignEmailMessagePtrInput  `pulumi:"emailMessage"`
-	GCMMessage     CampaignMessagePtrInput       `pulumi:"gCMMessage"`
+	GcmMessage     CampaignMessagePtrInput       `pulumi:"gcmMessage"`
 	InAppMessage   CampaignInAppMessagePtrInput  `pulumi:"inAppMessage"`
-	SMSMessage     CampaignSmsMessagePtrInput    `pulumi:"sMSMessage"`
+	SmsMessage     CampaignSmsMessagePtrInput    `pulumi:"smsMessage"`
 }
 
 func (CampaignMessageConfigurationArgs) ElementType() reflect.Type {
@@ -3037,12 +3037,12 @@ func (o CampaignMessageConfigurationOutput) ToCampaignMessageConfigurationPtrOut
 	}).(CampaignMessageConfigurationPtrOutput)
 }
 
-func (o CampaignMessageConfigurationOutput) ADMMessage() CampaignMessagePtrOutput {
-	return o.ApplyT(func(v CampaignMessageConfiguration) *CampaignMessage { return v.ADMMessage }).(CampaignMessagePtrOutput)
+func (o CampaignMessageConfigurationOutput) AdmMessage() CampaignMessagePtrOutput {
+	return o.ApplyT(func(v CampaignMessageConfiguration) *CampaignMessage { return v.AdmMessage }).(CampaignMessagePtrOutput)
 }
 
-func (o CampaignMessageConfigurationOutput) APNSMessage() CampaignMessagePtrOutput {
-	return o.ApplyT(func(v CampaignMessageConfiguration) *CampaignMessage { return v.APNSMessage }).(CampaignMessagePtrOutput)
+func (o CampaignMessageConfigurationOutput) ApnsMessage() CampaignMessagePtrOutput {
+	return o.ApplyT(func(v CampaignMessageConfiguration) *CampaignMessage { return v.ApnsMessage }).(CampaignMessagePtrOutput)
 }
 
 func (o CampaignMessageConfigurationOutput) BaiduMessage() CampaignMessagePtrOutput {
@@ -3061,16 +3061,16 @@ func (o CampaignMessageConfigurationOutput) EmailMessage() CampaignEmailMessageP
 	return o.ApplyT(func(v CampaignMessageConfiguration) *CampaignEmailMessage { return v.EmailMessage }).(CampaignEmailMessagePtrOutput)
 }
 
-func (o CampaignMessageConfigurationOutput) GCMMessage() CampaignMessagePtrOutput {
-	return o.ApplyT(func(v CampaignMessageConfiguration) *CampaignMessage { return v.GCMMessage }).(CampaignMessagePtrOutput)
+func (o CampaignMessageConfigurationOutput) GcmMessage() CampaignMessagePtrOutput {
+	return o.ApplyT(func(v CampaignMessageConfiguration) *CampaignMessage { return v.GcmMessage }).(CampaignMessagePtrOutput)
 }
 
 func (o CampaignMessageConfigurationOutput) InAppMessage() CampaignInAppMessagePtrOutput {
 	return o.ApplyT(func(v CampaignMessageConfiguration) *CampaignInAppMessage { return v.InAppMessage }).(CampaignInAppMessagePtrOutput)
 }
 
-func (o CampaignMessageConfigurationOutput) SMSMessage() CampaignSmsMessagePtrOutput {
-	return o.ApplyT(func(v CampaignMessageConfiguration) *CampaignSmsMessage { return v.SMSMessage }).(CampaignSmsMessagePtrOutput)
+func (o CampaignMessageConfigurationOutput) SmsMessage() CampaignSmsMessagePtrOutput {
+	return o.ApplyT(func(v CampaignMessageConfiguration) *CampaignSmsMessage { return v.SmsMessage }).(CampaignSmsMessagePtrOutput)
 }
 
 type CampaignMessageConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -3097,21 +3097,21 @@ func (o CampaignMessageConfigurationPtrOutput) Elem() CampaignMessageConfigurati
 	}).(CampaignMessageConfigurationOutput)
 }
 
-func (o CampaignMessageConfigurationPtrOutput) ADMMessage() CampaignMessagePtrOutput {
+func (o CampaignMessageConfigurationPtrOutput) AdmMessage() CampaignMessagePtrOutput {
 	return o.ApplyT(func(v *CampaignMessageConfiguration) *CampaignMessage {
 		if v == nil {
 			return nil
 		}
-		return v.ADMMessage
+		return v.AdmMessage
 	}).(CampaignMessagePtrOutput)
 }
 
-func (o CampaignMessageConfigurationPtrOutput) APNSMessage() CampaignMessagePtrOutput {
+func (o CampaignMessageConfigurationPtrOutput) ApnsMessage() CampaignMessagePtrOutput {
 	return o.ApplyT(func(v *CampaignMessageConfiguration) *CampaignMessage {
 		if v == nil {
 			return nil
 		}
-		return v.APNSMessage
+		return v.ApnsMessage
 	}).(CampaignMessagePtrOutput)
 }
 
@@ -3151,12 +3151,12 @@ func (o CampaignMessageConfigurationPtrOutput) EmailMessage() CampaignEmailMessa
 	}).(CampaignEmailMessagePtrOutput)
 }
 
-func (o CampaignMessageConfigurationPtrOutput) GCMMessage() CampaignMessagePtrOutput {
+func (o CampaignMessageConfigurationPtrOutput) GcmMessage() CampaignMessagePtrOutput {
 	return o.ApplyT(func(v *CampaignMessageConfiguration) *CampaignMessage {
 		if v == nil {
 			return nil
 		}
-		return v.GCMMessage
+		return v.GcmMessage
 	}).(CampaignMessagePtrOutput)
 }
 
@@ -3169,12 +3169,12 @@ func (o CampaignMessageConfigurationPtrOutput) InAppMessage() CampaignInAppMessa
 	}).(CampaignInAppMessagePtrOutput)
 }
 
-func (o CampaignMessageConfigurationPtrOutput) SMSMessage() CampaignSmsMessagePtrOutput {
+func (o CampaignMessageConfigurationPtrOutput) SmsMessage() CampaignSmsMessagePtrOutput {
 	return o.ApplyT(func(v *CampaignMessageConfiguration) *CampaignSmsMessage {
 		if v == nil {
 			return nil
 		}
-		return v.SMSMessage
+		return v.SmsMessage
 	}).(CampaignSmsMessagePtrOutput)
 }
 
@@ -4204,7 +4204,7 @@ func (o CampaignTemplatePtrOutput) Version() pulumi.StringPtrOutput {
 type CampaignTemplateConfiguration struct {
 	EmailTemplate *CampaignTemplate `pulumi:"emailTemplate"`
 	PushTemplate  *CampaignTemplate `pulumi:"pushTemplate"`
-	SMSTemplate   *CampaignTemplate `pulumi:"sMSTemplate"`
+	SmsTemplate   *CampaignTemplate `pulumi:"smsTemplate"`
 	VoiceTemplate *CampaignTemplate `pulumi:"voiceTemplate"`
 }
 
@@ -4222,7 +4222,7 @@ type CampaignTemplateConfigurationInput interface {
 type CampaignTemplateConfigurationArgs struct {
 	EmailTemplate CampaignTemplatePtrInput `pulumi:"emailTemplate"`
 	PushTemplate  CampaignTemplatePtrInput `pulumi:"pushTemplate"`
-	SMSTemplate   CampaignTemplatePtrInput `pulumi:"sMSTemplate"`
+	SmsTemplate   CampaignTemplatePtrInput `pulumi:"smsTemplate"`
 	VoiceTemplate CampaignTemplatePtrInput `pulumi:"voiceTemplate"`
 }
 
@@ -4311,8 +4311,8 @@ func (o CampaignTemplateConfigurationOutput) PushTemplate() CampaignTemplatePtrO
 	return o.ApplyT(func(v CampaignTemplateConfiguration) *CampaignTemplate { return v.PushTemplate }).(CampaignTemplatePtrOutput)
 }
 
-func (o CampaignTemplateConfigurationOutput) SMSTemplate() CampaignTemplatePtrOutput {
-	return o.ApplyT(func(v CampaignTemplateConfiguration) *CampaignTemplate { return v.SMSTemplate }).(CampaignTemplatePtrOutput)
+func (o CampaignTemplateConfigurationOutput) SmsTemplate() CampaignTemplatePtrOutput {
+	return o.ApplyT(func(v CampaignTemplateConfiguration) *CampaignTemplate { return v.SmsTemplate }).(CampaignTemplatePtrOutput)
 }
 
 func (o CampaignTemplateConfigurationOutput) VoiceTemplate() CampaignTemplatePtrOutput {
@@ -4361,12 +4361,12 @@ func (o CampaignTemplateConfigurationPtrOutput) PushTemplate() CampaignTemplateP
 	}).(CampaignTemplatePtrOutput)
 }
 
-func (o CampaignTemplateConfigurationPtrOutput) SMSTemplate() CampaignTemplatePtrOutput {
+func (o CampaignTemplateConfigurationPtrOutput) SmsTemplate() CampaignTemplatePtrOutput {
 	return o.ApplyT(func(v *CampaignTemplateConfiguration) *CampaignTemplate {
 		if v == nil {
 			return nil
 		}
-		return v.SMSTemplate
+		return v.SmsTemplate
 	}).(CampaignTemplatePtrOutput)
 }
 
@@ -4789,7 +4789,7 @@ func (o InAppTemplateBodyConfigPtrOutput) TextColor() pulumi.StringPtrOutput {
 type InAppTemplateButtonConfig struct {
 	Android       *InAppTemplateOverrideButtonConfiguration `pulumi:"android"`
 	DefaultConfig *InAppTemplateDefaultButtonConfiguration  `pulumi:"defaultConfig"`
-	IOS           *InAppTemplateOverrideButtonConfiguration `pulumi:"iOS"`
+	Ios           *InAppTemplateOverrideButtonConfiguration `pulumi:"ios"`
 	Web           *InAppTemplateOverrideButtonConfiguration `pulumi:"web"`
 }
 
@@ -4807,7 +4807,7 @@ type InAppTemplateButtonConfigInput interface {
 type InAppTemplateButtonConfigArgs struct {
 	Android       InAppTemplateOverrideButtonConfigurationPtrInput `pulumi:"android"`
 	DefaultConfig InAppTemplateDefaultButtonConfigurationPtrInput  `pulumi:"defaultConfig"`
-	IOS           InAppTemplateOverrideButtonConfigurationPtrInput `pulumi:"iOS"`
+	Ios           InAppTemplateOverrideButtonConfigurationPtrInput `pulumi:"ios"`
 	Web           InAppTemplateOverrideButtonConfigurationPtrInput `pulumi:"web"`
 }
 
@@ -4896,8 +4896,8 @@ func (o InAppTemplateButtonConfigOutput) DefaultConfig() InAppTemplateDefaultBut
 	return o.ApplyT(func(v InAppTemplateButtonConfig) *InAppTemplateDefaultButtonConfiguration { return v.DefaultConfig }).(InAppTemplateDefaultButtonConfigurationPtrOutput)
 }
 
-func (o InAppTemplateButtonConfigOutput) IOS() InAppTemplateOverrideButtonConfigurationPtrOutput {
-	return o.ApplyT(func(v InAppTemplateButtonConfig) *InAppTemplateOverrideButtonConfiguration { return v.IOS }).(InAppTemplateOverrideButtonConfigurationPtrOutput)
+func (o InAppTemplateButtonConfigOutput) Ios() InAppTemplateOverrideButtonConfigurationPtrOutput {
+	return o.ApplyT(func(v InAppTemplateButtonConfig) *InAppTemplateOverrideButtonConfiguration { return v.Ios }).(InAppTemplateOverrideButtonConfigurationPtrOutput)
 }
 
 func (o InAppTemplateButtonConfigOutput) Web() InAppTemplateOverrideButtonConfigurationPtrOutput {
@@ -4946,12 +4946,12 @@ func (o InAppTemplateButtonConfigPtrOutput) DefaultConfig() InAppTemplateDefault
 	}).(InAppTemplateDefaultButtonConfigurationPtrOutput)
 }
 
-func (o InAppTemplateButtonConfigPtrOutput) IOS() InAppTemplateOverrideButtonConfigurationPtrOutput {
+func (o InAppTemplateButtonConfigPtrOutput) Ios() InAppTemplateOverrideButtonConfigurationPtrOutput {
 	return o.ApplyT(func(v *InAppTemplateButtonConfig) *InAppTemplateOverrideButtonConfiguration {
 		if v == nil {
 			return nil
 		}
-		return v.IOS
+		return v.Ios
 	}).(InAppTemplateOverrideButtonConfigurationPtrOutput)
 }
 
@@ -7286,7 +7286,7 @@ func (o SegmentGroupsPtrOutput) Include() pulumi.StringPtrOutput {
 
 type SegmentLocation struct {
 	Country  *SegmentSetDimension `pulumi:"country"`
-	GPSPoint *SegmentGPSPoint     `pulumi:"gPSPoint"`
+	GpsPoint *SegmentGPSPoint     `pulumi:"gpsPoint"`
 }
 
 // SegmentLocationInput is an input type that accepts SegmentLocationArgs and SegmentLocationOutput values.
@@ -7302,7 +7302,7 @@ type SegmentLocationInput interface {
 
 type SegmentLocationArgs struct {
 	Country  SegmentSetDimensionPtrInput `pulumi:"country"`
-	GPSPoint SegmentGPSPointPtrInput     `pulumi:"gPSPoint"`
+	GpsPoint SegmentGPSPointPtrInput     `pulumi:"gpsPoint"`
 }
 
 func (SegmentLocationArgs) ElementType() reflect.Type {
@@ -7386,8 +7386,8 @@ func (o SegmentLocationOutput) Country() SegmentSetDimensionPtrOutput {
 	return o.ApplyT(func(v SegmentLocation) *SegmentSetDimension { return v.Country }).(SegmentSetDimensionPtrOutput)
 }
 
-func (o SegmentLocationOutput) GPSPoint() SegmentGPSPointPtrOutput {
-	return o.ApplyT(func(v SegmentLocation) *SegmentGPSPoint { return v.GPSPoint }).(SegmentGPSPointPtrOutput)
+func (o SegmentLocationOutput) GpsPoint() SegmentGPSPointPtrOutput {
+	return o.ApplyT(func(v SegmentLocation) *SegmentGPSPoint { return v.GpsPoint }).(SegmentGPSPointPtrOutput)
 }
 
 type SegmentLocationPtrOutput struct{ *pulumi.OutputState }
@@ -7423,12 +7423,12 @@ func (o SegmentLocationPtrOutput) Country() SegmentSetDimensionPtrOutput {
 	}).(SegmentSetDimensionPtrOutput)
 }
 
-func (o SegmentLocationPtrOutput) GPSPoint() SegmentGPSPointPtrOutput {
+func (o SegmentLocationPtrOutput) GpsPoint() SegmentGPSPointPtrOutput {
 	return o.ApplyT(func(v *SegmentLocation) *SegmentGPSPoint {
 		if v == nil {
 			return nil
 		}
-		return v.GPSPoint
+		return v.GpsPoint
 	}).(SegmentGPSPointPtrOutput)
 }
 

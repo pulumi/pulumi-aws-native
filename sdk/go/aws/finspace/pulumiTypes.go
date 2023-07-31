@@ -16,17 +16,17 @@ var _ = internal.GetEnvOrDefault
 // Additional parameters to identify Federation mode
 type EnvironmentFederationParameters struct {
 	// SAML metadata URL to link with the Environment
-	ApplicationCallBackURL *string `pulumi:"applicationCallBackURL"`
+	ApplicationCallBackUrl *string `pulumi:"applicationCallBackUrl"`
 	// Attribute map for SAML configuration
 	AttributeMap []EnvironmentFederationParametersAttributeMapItemProperties `pulumi:"attributeMap"`
 	// Federation provider name to link with the Environment
 	FederationProviderName *string `pulumi:"federationProviderName"`
 	// SAML metadata URL to link with the Environment
-	FederationURN *string `pulumi:"federationURN"`
+	FederationUrn *string `pulumi:"federationUrn"`
 	// SAML metadata document to link the federation provider to the Environment
 	SamlMetadataDocument *string `pulumi:"samlMetadataDocument"`
 	// SAML metadata URL to link with the Environment
-	SamlMetadataURL *string `pulumi:"samlMetadataURL"`
+	SamlMetadataUrl *string `pulumi:"samlMetadataUrl"`
 }
 
 // EnvironmentFederationParametersInput is an input type that accepts EnvironmentFederationParametersArgs and EnvironmentFederationParametersOutput values.
@@ -43,17 +43,17 @@ type EnvironmentFederationParametersInput interface {
 // Additional parameters to identify Federation mode
 type EnvironmentFederationParametersArgs struct {
 	// SAML metadata URL to link with the Environment
-	ApplicationCallBackURL pulumi.StringPtrInput `pulumi:"applicationCallBackURL"`
+	ApplicationCallBackUrl pulumi.StringPtrInput `pulumi:"applicationCallBackUrl"`
 	// Attribute map for SAML configuration
 	AttributeMap EnvironmentFederationParametersAttributeMapItemPropertiesArrayInput `pulumi:"attributeMap"`
 	// Federation provider name to link with the Environment
 	FederationProviderName pulumi.StringPtrInput `pulumi:"federationProviderName"`
 	// SAML metadata URL to link with the Environment
-	FederationURN pulumi.StringPtrInput `pulumi:"federationURN"`
+	FederationUrn pulumi.StringPtrInput `pulumi:"federationUrn"`
 	// SAML metadata document to link the federation provider to the Environment
 	SamlMetadataDocument pulumi.StringPtrInput `pulumi:"samlMetadataDocument"`
 	// SAML metadata URL to link with the Environment
-	SamlMetadataURL pulumi.StringPtrInput `pulumi:"samlMetadataURL"`
+	SamlMetadataUrl pulumi.StringPtrInput `pulumi:"samlMetadataUrl"`
 }
 
 func (EnvironmentFederationParametersArgs) ElementType() reflect.Type {
@@ -135,8 +135,8 @@ func (o EnvironmentFederationParametersOutput) ToEnvironmentFederationParameters
 }
 
 // SAML metadata URL to link with the Environment
-func (o EnvironmentFederationParametersOutput) ApplicationCallBackURL() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EnvironmentFederationParameters) *string { return v.ApplicationCallBackURL }).(pulumi.StringPtrOutput)
+func (o EnvironmentFederationParametersOutput) ApplicationCallBackUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnvironmentFederationParameters) *string { return v.ApplicationCallBackUrl }).(pulumi.StringPtrOutput)
 }
 
 // Attribute map for SAML configuration
@@ -152,8 +152,8 @@ func (o EnvironmentFederationParametersOutput) FederationProviderName() pulumi.S
 }
 
 // SAML metadata URL to link with the Environment
-func (o EnvironmentFederationParametersOutput) FederationURN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EnvironmentFederationParameters) *string { return v.FederationURN }).(pulumi.StringPtrOutput)
+func (o EnvironmentFederationParametersOutput) FederationUrn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnvironmentFederationParameters) *string { return v.FederationUrn }).(pulumi.StringPtrOutput)
 }
 
 // SAML metadata document to link the federation provider to the Environment
@@ -162,8 +162,8 @@ func (o EnvironmentFederationParametersOutput) SamlMetadataDocument() pulumi.Str
 }
 
 // SAML metadata URL to link with the Environment
-func (o EnvironmentFederationParametersOutput) SamlMetadataURL() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EnvironmentFederationParameters) *string { return v.SamlMetadataURL }).(pulumi.StringPtrOutput)
+func (o EnvironmentFederationParametersOutput) SamlMetadataUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnvironmentFederationParameters) *string { return v.SamlMetadataUrl }).(pulumi.StringPtrOutput)
 }
 
 type EnvironmentFederationParametersPtrOutput struct{ *pulumi.OutputState }
@@ -191,12 +191,12 @@ func (o EnvironmentFederationParametersPtrOutput) Elem() EnvironmentFederationPa
 }
 
 // SAML metadata URL to link with the Environment
-func (o EnvironmentFederationParametersPtrOutput) ApplicationCallBackURL() pulumi.StringPtrOutput {
+func (o EnvironmentFederationParametersPtrOutput) ApplicationCallBackUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnvironmentFederationParameters) *string {
 		if v == nil {
 			return nil
 		}
-		return v.ApplicationCallBackURL
+		return v.ApplicationCallBackUrl
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -221,12 +221,12 @@ func (o EnvironmentFederationParametersPtrOutput) FederationProviderName() pulum
 }
 
 // SAML metadata URL to link with the Environment
-func (o EnvironmentFederationParametersPtrOutput) FederationURN() pulumi.StringPtrOutput {
+func (o EnvironmentFederationParametersPtrOutput) FederationUrn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnvironmentFederationParameters) *string {
 		if v == nil {
 			return nil
 		}
-		return v.FederationURN
+		return v.FederationUrn
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -241,12 +241,12 @@ func (o EnvironmentFederationParametersPtrOutput) SamlMetadataDocument() pulumi.
 }
 
 // SAML metadata URL to link with the Environment
-func (o EnvironmentFederationParametersPtrOutput) SamlMetadataURL() pulumi.StringPtrOutput {
+func (o EnvironmentFederationParametersPtrOutput) SamlMetadataUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnvironmentFederationParameters) *string {
 		if v == nil {
 			return nil
 		}
-		return v.SamlMetadataURL
+		return v.SamlMetadataUrl
 	}).(pulumi.StringPtrOutput)
 }
 

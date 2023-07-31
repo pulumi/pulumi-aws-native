@@ -95,7 +95,7 @@ namespace Pulumi.AwsNative.ApiGateway
         /// <summary>
         /// A list of the Amazon Cognito user pool ARNs for the COGNITO_USER_POOLS authorizer.
         /// </summary>
-        public readonly ImmutableArray<string> ProviderARNs;
+        public readonly ImmutableArray<string> ProviderArns;
         /// <summary>
         /// The authorizer type.
         /// </summary>
@@ -119,7 +119,7 @@ namespace Pulumi.AwsNative.ApiGateway
 
             string? name,
 
-            ImmutableArray<string> providerARNs,
+            ImmutableArray<string> providerArns,
 
             string? type)
         {
@@ -131,7 +131,7 @@ namespace Pulumi.AwsNative.ApiGateway
             IdentitySource = identitySource;
             IdentityValidationExpression = identityValidationExpression;
             Name = name;
-            ProviderARNs = providerARNs;
+            ProviderArns = providerArns;
             Type = type;
         }
     }

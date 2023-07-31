@@ -14,7 +14,7 @@ export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promi
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:xray:getGroup", {
-        "groupARN": args.groupARN,
+        "groupArn": args.groupArn,
     }, opts);
 }
 
@@ -22,7 +22,7 @@ export interface GetGroupArgs {
     /**
      * The ARN of the group that was generated on creation.
      */
-    groupARN: string;
+    groupArn: string;
 }
 
 export interface GetGroupResult {
@@ -33,7 +33,7 @@ export interface GetGroupResult {
     /**
      * The ARN of the group that was generated on creation.
      */
-    readonly groupARN?: string;
+    readonly groupArn?: string;
     /**
      * The case-sensitive name of the new group. Names must be unique.
      */
@@ -52,5 +52,5 @@ export interface GetGroupOutputArgs {
     /**
      * The ARN of the group that was generated on creation.
      */
-    groupARN: pulumi.Input<string>;
+    groupArn: pulumi.Input<string>;
 }

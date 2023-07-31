@@ -15,16 +15,16 @@ __all__ = ['ResolverRuleAssociationArgs', 'ResolverRuleAssociation']
 class ResolverRuleAssociationArgs:
     def __init__(__self__, *,
                  resolver_rule_id: pulumi.Input[str],
-                 v_pc_id: pulumi.Input[str],
+                 vpc_id: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ResolverRuleAssociation resource.
         :param pulumi.Input[str] resolver_rule_id: The ID of the Resolver rule that you associated with the VPC that is specified by VPCId.
-        :param pulumi.Input[str] v_pc_id: The ID of the VPC that you associated the Resolver rule with.
+        :param pulumi.Input[str] vpc_id: The ID of the VPC that you associated the Resolver rule with.
         :param pulumi.Input[str] name: The name of an association between a Resolver rule and a VPC.
         """
         pulumi.set(__self__, "resolver_rule_id", resolver_rule_id)
-        pulumi.set(__self__, "v_pc_id", v_pc_id)
+        pulumi.set(__self__, "vpc_id", vpc_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
 
@@ -41,16 +41,16 @@ class ResolverRuleAssociationArgs:
         pulumi.set(self, "resolver_rule_id", value)
 
     @property
-    @pulumi.getter(name="vPCId")
-    def v_pc_id(self) -> pulumi.Input[str]:
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> pulumi.Input[str]:
         """
         The ID of the VPC that you associated the Resolver rule with.
         """
-        return pulumi.get(self, "v_pc_id")
+        return pulumi.get(self, "vpc_id")
 
-    @v_pc_id.setter
-    def v_pc_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "v_pc_id", value)
+    @vpc_id.setter
+    def vpc_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vpc_id", value)
 
     @property
     @pulumi.getter
@@ -72,7 +72,7 @@ class ResolverRuleAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resolver_rule_id: Optional[pulumi.Input[str]] = None,
-                 v_pc_id: Optional[pulumi.Input[str]] = None,
+                 vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Route53Resolver::ResolverRuleAssociation
@@ -81,7 +81,7 @@ class ResolverRuleAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of an association between a Resolver rule and a VPC.
         :param pulumi.Input[str] resolver_rule_id: The ID of the Resolver rule that you associated with the VPC that is specified by VPCId.
-        :param pulumi.Input[str] v_pc_id: The ID of the VPC that you associated the Resolver rule with.
+        :param pulumi.Input[str] vpc_id: The ID of the VPC that you associated the Resolver rule with.
         """
         ...
     @overload
@@ -109,7 +109,7 @@ class ResolverRuleAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resolver_rule_id: Optional[pulumi.Input[str]] = None,
-                 v_pc_id: Optional[pulumi.Input[str]] = None,
+                 vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -123,9 +123,9 @@ class ResolverRuleAssociation(pulumi.CustomResource):
             if resolver_rule_id is None and not opts.urn:
                 raise TypeError("Missing required property 'resolver_rule_id'")
             __props__.__dict__["resolver_rule_id"] = resolver_rule_id
-            if v_pc_id is None and not opts.urn:
-                raise TypeError("Missing required property 'v_pc_id'")
-            __props__.__dict__["v_pc_id"] = v_pc_id
+            if vpc_id is None and not opts.urn:
+                raise TypeError("Missing required property 'vpc_id'")
+            __props__.__dict__["vpc_id"] = vpc_id
             __props__.__dict__["resolver_rule_association_id"] = None
         super(ResolverRuleAssociation, __self__).__init__(
             'aws-native:route53resolver:ResolverRuleAssociation',
@@ -152,7 +152,7 @@ class ResolverRuleAssociation(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["resolver_rule_association_id"] = None
         __props__.__dict__["resolver_rule_id"] = None
-        __props__.__dict__["v_pc_id"] = None
+        __props__.__dict__["vpc_id"] = None
         return ResolverRuleAssociation(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -180,10 +180,10 @@ class ResolverRuleAssociation(pulumi.CustomResource):
         return pulumi.get(self, "resolver_rule_id")
 
     @property
-    @pulumi.getter(name="vPCId")
-    def v_pc_id(self) -> pulumi.Output[str]:
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> pulumi.Output[str]:
         """
         The ID of the VPC that you associated the Resolver rule with.
         """
-        return pulumi.get(self, "v_pc_id")
+        return pulumi.get(self, "vpc_id")
 

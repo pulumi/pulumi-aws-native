@@ -599,8 +599,6 @@ class CampaignInAppMessageButton(dict):
         suggest = None
         if key == "defaultConfig":
             suggest = "default_config"
-        elif key == "iOS":
-            suggest = "i_os"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in CampaignInAppMessageButton. Access the value via the '{suggest}' property getter instead.")
@@ -616,14 +614,14 @@ class CampaignInAppMessageButton(dict):
     def __init__(__self__, *,
                  android: Optional['outputs.CampaignOverrideButtonConfiguration'] = None,
                  default_config: Optional['outputs.CampaignDefaultButtonConfiguration'] = None,
-                 i_os: Optional['outputs.CampaignOverrideButtonConfiguration'] = None,
+                 ios: Optional['outputs.CampaignOverrideButtonConfiguration'] = None,
                  web: Optional['outputs.CampaignOverrideButtonConfiguration'] = None):
         if android is not None:
             pulumi.set(__self__, "android", android)
         if default_config is not None:
             pulumi.set(__self__, "default_config", default_config)
-        if i_os is not None:
-            pulumi.set(__self__, "i_os", i_os)
+        if ios is not None:
+            pulumi.set(__self__, "ios", ios)
         if web is not None:
             pulumi.set(__self__, "web", web)
 
@@ -638,9 +636,9 @@ class CampaignInAppMessageButton(dict):
         return pulumi.get(self, "default_config")
 
     @property
-    @pulumi.getter(name="iOS")
-    def i_os(self) -> Optional['outputs.CampaignOverrideButtonConfiguration']:
-        return pulumi.get(self, "i_os")
+    @pulumi.getter
+    def ios(self) -> Optional['outputs.CampaignOverrideButtonConfiguration']:
+        return pulumi.get(self, "ios")
 
     @property
     @pulumi.getter
@@ -975,10 +973,10 @@ class CampaignMessageConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "aDMMessage":
-            suggest = "a_dm_message"
-        elif key == "aPNSMessage":
-            suggest = "a_pns_message"
+        if key == "admMessage":
+            suggest = "adm_message"
+        elif key == "apnsMessage":
+            suggest = "apns_message"
         elif key == "baiduMessage":
             suggest = "baidu_message"
         elif key == "customMessage":
@@ -987,12 +985,12 @@ class CampaignMessageConfiguration(dict):
             suggest = "default_message"
         elif key == "emailMessage":
             suggest = "email_message"
-        elif key == "gCMMessage":
-            suggest = "g_cm_message"
+        elif key == "gcmMessage":
+            suggest = "gcm_message"
         elif key == "inAppMessage":
             suggest = "in_app_message"
-        elif key == "sMSMessage":
-            suggest = "s_ms_message"
+        elif key == "smsMessage":
+            suggest = "sms_message"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in CampaignMessageConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -1006,19 +1004,19 @@ class CampaignMessageConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 a_dm_message: Optional['outputs.CampaignMessage'] = None,
-                 a_pns_message: Optional['outputs.CampaignMessage'] = None,
+                 adm_message: Optional['outputs.CampaignMessage'] = None,
+                 apns_message: Optional['outputs.CampaignMessage'] = None,
                  baidu_message: Optional['outputs.CampaignMessage'] = None,
                  custom_message: Optional['outputs.CampaignCustomMessage'] = None,
                  default_message: Optional['outputs.CampaignMessage'] = None,
                  email_message: Optional['outputs.CampaignEmailMessage'] = None,
-                 g_cm_message: Optional['outputs.CampaignMessage'] = None,
+                 gcm_message: Optional['outputs.CampaignMessage'] = None,
                  in_app_message: Optional['outputs.CampaignInAppMessage'] = None,
-                 s_ms_message: Optional['outputs.CampaignSmsMessage'] = None):
-        if a_dm_message is not None:
-            pulumi.set(__self__, "a_dm_message", a_dm_message)
-        if a_pns_message is not None:
-            pulumi.set(__self__, "a_pns_message", a_pns_message)
+                 sms_message: Optional['outputs.CampaignSmsMessage'] = None):
+        if adm_message is not None:
+            pulumi.set(__self__, "adm_message", adm_message)
+        if apns_message is not None:
+            pulumi.set(__self__, "apns_message", apns_message)
         if baidu_message is not None:
             pulumi.set(__self__, "baidu_message", baidu_message)
         if custom_message is not None:
@@ -1027,22 +1025,22 @@ class CampaignMessageConfiguration(dict):
             pulumi.set(__self__, "default_message", default_message)
         if email_message is not None:
             pulumi.set(__self__, "email_message", email_message)
-        if g_cm_message is not None:
-            pulumi.set(__self__, "g_cm_message", g_cm_message)
+        if gcm_message is not None:
+            pulumi.set(__self__, "gcm_message", gcm_message)
         if in_app_message is not None:
             pulumi.set(__self__, "in_app_message", in_app_message)
-        if s_ms_message is not None:
-            pulumi.set(__self__, "s_ms_message", s_ms_message)
+        if sms_message is not None:
+            pulumi.set(__self__, "sms_message", sms_message)
 
     @property
-    @pulumi.getter(name="aDMMessage")
-    def a_dm_message(self) -> Optional['outputs.CampaignMessage']:
-        return pulumi.get(self, "a_dm_message")
+    @pulumi.getter(name="admMessage")
+    def adm_message(self) -> Optional['outputs.CampaignMessage']:
+        return pulumi.get(self, "adm_message")
 
     @property
-    @pulumi.getter(name="aPNSMessage")
-    def a_pns_message(self) -> Optional['outputs.CampaignMessage']:
-        return pulumi.get(self, "a_pns_message")
+    @pulumi.getter(name="apnsMessage")
+    def apns_message(self) -> Optional['outputs.CampaignMessage']:
+        return pulumi.get(self, "apns_message")
 
     @property
     @pulumi.getter(name="baiduMessage")
@@ -1065,9 +1063,9 @@ class CampaignMessageConfiguration(dict):
         return pulumi.get(self, "email_message")
 
     @property
-    @pulumi.getter(name="gCMMessage")
-    def g_cm_message(self) -> Optional['outputs.CampaignMessage']:
-        return pulumi.get(self, "g_cm_message")
+    @pulumi.getter(name="gcmMessage")
+    def gcm_message(self) -> Optional['outputs.CampaignMessage']:
+        return pulumi.get(self, "gcm_message")
 
     @property
     @pulumi.getter(name="inAppMessage")
@@ -1075,9 +1073,9 @@ class CampaignMessageConfiguration(dict):
         return pulumi.get(self, "in_app_message")
 
     @property
-    @pulumi.getter(name="sMSMessage")
-    def s_ms_message(self) -> Optional['outputs.CampaignSmsMessage']:
-        return pulumi.get(self, "s_ms_message")
+    @pulumi.getter(name="smsMessage")
+    def sms_message(self) -> Optional['outputs.CampaignSmsMessage']:
+        return pulumi.get(self, "sms_message")
 
 
 @pulumi.output_type
@@ -1371,8 +1369,8 @@ class CampaignTemplateConfiguration(dict):
             suggest = "email_template"
         elif key == "pushTemplate":
             suggest = "push_template"
-        elif key == "sMSTemplate":
-            suggest = "s_ms_template"
+        elif key == "smsTemplate":
+            suggest = "sms_template"
         elif key == "voiceTemplate":
             suggest = "voice_template"
 
@@ -1390,14 +1388,14 @@ class CampaignTemplateConfiguration(dict):
     def __init__(__self__, *,
                  email_template: Optional['outputs.CampaignTemplate'] = None,
                  push_template: Optional['outputs.CampaignTemplate'] = None,
-                 s_ms_template: Optional['outputs.CampaignTemplate'] = None,
+                 sms_template: Optional['outputs.CampaignTemplate'] = None,
                  voice_template: Optional['outputs.CampaignTemplate'] = None):
         if email_template is not None:
             pulumi.set(__self__, "email_template", email_template)
         if push_template is not None:
             pulumi.set(__self__, "push_template", push_template)
-        if s_ms_template is not None:
-            pulumi.set(__self__, "s_ms_template", s_ms_template)
+        if sms_template is not None:
+            pulumi.set(__self__, "sms_template", sms_template)
         if voice_template is not None:
             pulumi.set(__self__, "voice_template", voice_template)
 
@@ -1412,9 +1410,9 @@ class CampaignTemplateConfiguration(dict):
         return pulumi.get(self, "push_template")
 
     @property
-    @pulumi.getter(name="sMSTemplate")
-    def s_ms_template(self) -> Optional['outputs.CampaignTemplate']:
-        return pulumi.get(self, "s_ms_template")
+    @pulumi.getter(name="smsTemplate")
+    def sms_template(self) -> Optional['outputs.CampaignTemplate']:
+        return pulumi.get(self, "sms_template")
 
     @property
     @pulumi.getter(name="voiceTemplate")
@@ -1619,8 +1617,6 @@ class InAppTemplateButtonConfig(dict):
         suggest = None
         if key == "defaultConfig":
             suggest = "default_config"
-        elif key == "iOS":
-            suggest = "i_os"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in InAppTemplateButtonConfig. Access the value via the '{suggest}' property getter instead.")
@@ -1636,14 +1632,14 @@ class InAppTemplateButtonConfig(dict):
     def __init__(__self__, *,
                  android: Optional['outputs.InAppTemplateOverrideButtonConfiguration'] = None,
                  default_config: Optional['outputs.InAppTemplateDefaultButtonConfiguration'] = None,
-                 i_os: Optional['outputs.InAppTemplateOverrideButtonConfiguration'] = None,
+                 ios: Optional['outputs.InAppTemplateOverrideButtonConfiguration'] = None,
                  web: Optional['outputs.InAppTemplateOverrideButtonConfiguration'] = None):
         if android is not None:
             pulumi.set(__self__, "android", android)
         if default_config is not None:
             pulumi.set(__self__, "default_config", default_config)
-        if i_os is not None:
-            pulumi.set(__self__, "i_os", i_os)
+        if ios is not None:
+            pulumi.set(__self__, "ios", ios)
         if web is not None:
             pulumi.set(__self__, "web", web)
 
@@ -1658,9 +1654,9 @@ class InAppTemplateButtonConfig(dict):
         return pulumi.get(self, "default_config")
 
     @property
-    @pulumi.getter(name="iOS")
-    def i_os(self) -> Optional['outputs.InAppTemplateOverrideButtonConfiguration']:
-        return pulumi.get(self, "i_os")
+    @pulumi.getter
+    def ios(self) -> Optional['outputs.InAppTemplateOverrideButtonConfiguration']:
+        return pulumi.get(self, "ios")
 
     @property
     @pulumi.getter
@@ -2349,8 +2345,8 @@ class SegmentLocation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "gPSPoint":
-            suggest = "g_ps_point"
+        if key == "gpsPoint":
+            suggest = "gps_point"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in SegmentLocation. Access the value via the '{suggest}' property getter instead.")
@@ -2365,11 +2361,11 @@ class SegmentLocation(dict):
 
     def __init__(__self__, *,
                  country: Optional['outputs.SegmentSetDimension'] = None,
-                 g_ps_point: Optional['outputs.SegmentGPSPoint'] = None):
+                 gps_point: Optional['outputs.SegmentGPSPoint'] = None):
         if country is not None:
             pulumi.set(__self__, "country", country)
-        if g_ps_point is not None:
-            pulumi.set(__self__, "g_ps_point", g_ps_point)
+        if gps_point is not None:
+            pulumi.set(__self__, "gps_point", gps_point)
 
     @property
     @pulumi.getter
@@ -2377,9 +2373,9 @@ class SegmentLocation(dict):
         return pulumi.get(self, "country")
 
     @property
-    @pulumi.getter(name="gPSPoint")
-    def g_ps_point(self) -> Optional['outputs.SegmentGPSPoint']:
-        return pulumi.get(self, "g_ps_point")
+    @pulumi.getter(name="gpsPoint")
+    def gps_point(self) -> Optional['outputs.SegmentGPSPoint']:
+        return pulumi.get(self, "gps_point")
 
 
 @pulumi.output_type

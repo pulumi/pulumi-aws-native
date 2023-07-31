@@ -762,9 +762,9 @@ func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) SnsDestinatio
 // An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.
 type ConfigurationSetEventDestinationKinesisFirehoseDestination struct {
 	// The ARN of the Amazon Kinesis Firehose stream that email sending events should be published to.
-	DeliveryStreamARN string `pulumi:"deliveryStreamARN"`
+	DeliveryStreamArn string `pulumi:"deliveryStreamArn"`
 	// The ARN of the IAM role under which Amazon SES publishes email sending events to the Amazon Kinesis Firehose stream.
-	IAMRoleARN string `pulumi:"iAMRoleARN"`
+	IamRoleArn string `pulumi:"iamRoleArn"`
 }
 
 // ConfigurationSetEventDestinationKinesisFirehoseDestinationInput is an input type that accepts ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs and ConfigurationSetEventDestinationKinesisFirehoseDestinationOutput values.
@@ -781,9 +781,9 @@ type ConfigurationSetEventDestinationKinesisFirehoseDestinationInput interface {
 // An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.
 type ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs struct {
 	// The ARN of the Amazon Kinesis Firehose stream that email sending events should be published to.
-	DeliveryStreamARN pulumi.StringInput `pulumi:"deliveryStreamARN"`
+	DeliveryStreamArn pulumi.StringInput `pulumi:"deliveryStreamArn"`
 	// The ARN of the IAM role under which Amazon SES publishes email sending events to the Amazon Kinesis Firehose stream.
-	IAMRoleARN pulumi.StringInput `pulumi:"iAMRoleARN"`
+	IamRoleArn pulumi.StringInput `pulumi:"iamRoleArn"`
 }
 
 func (ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs) ElementType() reflect.Type {
@@ -865,13 +865,13 @@ func (o ConfigurationSetEventDestinationKinesisFirehoseDestinationOutput) ToConf
 }
 
 // The ARN of the Amazon Kinesis Firehose stream that email sending events should be published to.
-func (o ConfigurationSetEventDestinationKinesisFirehoseDestinationOutput) DeliveryStreamARN() pulumi.StringOutput {
-	return o.ApplyT(func(v ConfigurationSetEventDestinationKinesisFirehoseDestination) string { return v.DeliveryStreamARN }).(pulumi.StringOutput)
+func (o ConfigurationSetEventDestinationKinesisFirehoseDestinationOutput) DeliveryStreamArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationSetEventDestinationKinesisFirehoseDestination) string { return v.DeliveryStreamArn }).(pulumi.StringOutput)
 }
 
 // The ARN of the IAM role under which Amazon SES publishes email sending events to the Amazon Kinesis Firehose stream.
-func (o ConfigurationSetEventDestinationKinesisFirehoseDestinationOutput) IAMRoleARN() pulumi.StringOutput {
-	return o.ApplyT(func(v ConfigurationSetEventDestinationKinesisFirehoseDestination) string { return v.IAMRoleARN }).(pulumi.StringOutput)
+func (o ConfigurationSetEventDestinationKinesisFirehoseDestinationOutput) IamRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationSetEventDestinationKinesisFirehoseDestination) string { return v.IamRoleArn }).(pulumi.StringOutput)
 }
 
 type ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput struct{ *pulumi.OutputState }
@@ -899,28 +899,28 @@ func (o ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput) Ele
 }
 
 // The ARN of the Amazon Kinesis Firehose stream that email sending events should be published to.
-func (o ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput) DeliveryStreamARN() pulumi.StringPtrOutput {
+func (o ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput) DeliveryStreamArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSetEventDestinationKinesisFirehoseDestination) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.DeliveryStreamARN
+		return &v.DeliveryStreamArn
 	}).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the IAM role under which Amazon SES publishes email sending events to the Amazon Kinesis Firehose stream.
-func (o ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput) IAMRoleARN() pulumi.StringPtrOutput {
+func (o ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput) IamRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSetEventDestinationKinesisFirehoseDestination) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.IAMRoleARN
+		return &v.IamRoleArn
 	}).(pulumi.StringPtrOutput)
 }
 
 // An object that contains SNS topic ARN associated event destination.
 type ConfigurationSetEventDestinationSnsDestination struct {
-	TopicARN string `pulumi:"topicARN"`
+	TopicArn string `pulumi:"topicArn"`
 }
 
 // ConfigurationSetEventDestinationSnsDestinationInput is an input type that accepts ConfigurationSetEventDestinationSnsDestinationArgs and ConfigurationSetEventDestinationSnsDestinationOutput values.
@@ -936,7 +936,7 @@ type ConfigurationSetEventDestinationSnsDestinationInput interface {
 
 // An object that contains SNS topic ARN associated event destination.
 type ConfigurationSetEventDestinationSnsDestinationArgs struct {
-	TopicARN pulumi.StringInput `pulumi:"topicARN"`
+	TopicArn pulumi.StringInput `pulumi:"topicArn"`
 }
 
 func (ConfigurationSetEventDestinationSnsDestinationArgs) ElementType() reflect.Type {
@@ -1017,8 +1017,8 @@ func (o ConfigurationSetEventDestinationSnsDestinationOutput) ToConfigurationSet
 	}).(ConfigurationSetEventDestinationSnsDestinationPtrOutput)
 }
 
-func (o ConfigurationSetEventDestinationSnsDestinationOutput) TopicARN() pulumi.StringOutput {
-	return o.ApplyT(func(v ConfigurationSetEventDestinationSnsDestination) string { return v.TopicARN }).(pulumi.StringOutput)
+func (o ConfigurationSetEventDestinationSnsDestinationOutput) TopicArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationSetEventDestinationSnsDestination) string { return v.TopicArn }).(pulumi.StringOutput)
 }
 
 type ConfigurationSetEventDestinationSnsDestinationPtrOutput struct{ *pulumi.OutputState }
@@ -1045,12 +1045,12 @@ func (o ConfigurationSetEventDestinationSnsDestinationPtrOutput) Elem() Configur
 	}).(ConfigurationSetEventDestinationSnsDestinationOutput)
 }
 
-func (o ConfigurationSetEventDestinationSnsDestinationPtrOutput) TopicARN() pulumi.StringPtrOutput {
+func (o ConfigurationSetEventDestinationSnsDestinationPtrOutput) TopicArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSetEventDestinationSnsDestination) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.TopicARN
+		return &v.TopicArn
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2994,7 +2994,7 @@ type ReceiptRuleAction struct {
 	BounceAction    *ReceiptRuleBounceAction    `pulumi:"bounceAction"`
 	LambdaAction    *ReceiptRuleLambdaAction    `pulumi:"lambdaAction"`
 	S3Action        *ReceiptRuleS3Action        `pulumi:"s3Action"`
-	SNSAction       *ReceiptRuleSNSAction       `pulumi:"sNSAction"`
+	SnsAction       *ReceiptRuleSNSAction       `pulumi:"snsAction"`
 	StopAction      *ReceiptRuleStopAction      `pulumi:"stopAction"`
 	WorkmailAction  *ReceiptRuleWorkmailAction  `pulumi:"workmailAction"`
 }
@@ -3015,7 +3015,7 @@ type ReceiptRuleActionArgs struct {
 	BounceAction    ReceiptRuleBounceActionPtrInput    `pulumi:"bounceAction"`
 	LambdaAction    ReceiptRuleLambdaActionPtrInput    `pulumi:"lambdaAction"`
 	S3Action        ReceiptRuleS3ActionPtrInput        `pulumi:"s3Action"`
-	SNSAction       ReceiptRuleSNSActionPtrInput       `pulumi:"sNSAction"`
+	SnsAction       ReceiptRuleSNSActionPtrInput       `pulumi:"snsAction"`
 	StopAction      ReceiptRuleStopActionPtrInput      `pulumi:"stopAction"`
 	WorkmailAction  ReceiptRuleWorkmailActionPtrInput  `pulumi:"workmailAction"`
 }
@@ -3087,8 +3087,8 @@ func (o ReceiptRuleActionOutput) S3Action() ReceiptRuleS3ActionPtrOutput {
 	return o.ApplyT(func(v ReceiptRuleAction) *ReceiptRuleS3Action { return v.S3Action }).(ReceiptRuleS3ActionPtrOutput)
 }
 
-func (o ReceiptRuleActionOutput) SNSAction() ReceiptRuleSNSActionPtrOutput {
-	return o.ApplyT(func(v ReceiptRuleAction) *ReceiptRuleSNSAction { return v.SNSAction }).(ReceiptRuleSNSActionPtrOutput)
+func (o ReceiptRuleActionOutput) SnsAction() ReceiptRuleSNSActionPtrOutput {
+	return o.ApplyT(func(v ReceiptRuleAction) *ReceiptRuleSNSAction { return v.SnsAction }).(ReceiptRuleSNSActionPtrOutput)
 }
 
 func (o ReceiptRuleActionOutput) StopAction() ReceiptRuleStopActionPtrOutput {

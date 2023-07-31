@@ -71,7 +71,7 @@ class GetTaskDefinitionResult:
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="loRaWANUpdateGatewayTaskEntry")
+    @pulumi.getter(name="loRaWanUpdateGatewayTaskEntry")
     def lo_ra_wan_update_gateway_task_entry(self) -> Optional['outputs.TaskDefinitionLoRaWANUpdateGatewayTaskEntry']:
         """
         The list of task definitions.

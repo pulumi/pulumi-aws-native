@@ -14,16 +14,16 @@ export function getFunction(args: GetFunctionArgs, opts?: pulumi.InvokeOptions):
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cloudfront:getFunction", {
-        "functionARN": args.functionARN,
+        "functionArn": args.functionArn,
     }, opts);
 }
 
 export interface GetFunctionArgs {
-    functionARN: string;
+    functionArn: string;
 }
 
 export interface GetFunctionResult {
-    readonly functionARN?: string;
+    readonly functionArn?: string;
     readonly functionCode?: string;
     readonly functionConfig?: outputs.cloudfront.FunctionConfig;
     readonly functionMetadata?: outputs.cloudfront.FunctionMetadata;
@@ -38,5 +38,5 @@ export function getFunctionOutput(args: GetFunctionOutputArgs, opts?: pulumi.Inv
 }
 
 export interface GetFunctionOutputArgs {
-    functionARN: pulumi.Input<string>;
+    functionArn: pulumi.Input<string>;
 }

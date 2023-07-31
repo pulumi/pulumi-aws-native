@@ -215,32 +215,32 @@ class EmailIdentity(pulumi.CustomResource):
         return pulumi.get(self, "dkim_attributes")
 
     @property
-    @pulumi.getter(name="dkimDNSTokenName1")
+    @pulumi.getter(name="dkimDnsTokenName1")
     def dkim_dns_token_name1(self) -> pulumi.Output[str]:
         return pulumi.get(self, "dkim_dns_token_name1")
 
     @property
-    @pulumi.getter(name="dkimDNSTokenName2")
+    @pulumi.getter(name="dkimDnsTokenName2")
     def dkim_dns_token_name2(self) -> pulumi.Output[str]:
         return pulumi.get(self, "dkim_dns_token_name2")
 
     @property
-    @pulumi.getter(name="dkimDNSTokenName3")
+    @pulumi.getter(name="dkimDnsTokenName3")
     def dkim_dns_token_name3(self) -> pulumi.Output[str]:
         return pulumi.get(self, "dkim_dns_token_name3")
 
     @property
-    @pulumi.getter(name="dkimDNSTokenValue1")
+    @pulumi.getter(name="dkimDnsTokenValue1")
     def dkim_dns_token_value1(self) -> pulumi.Output[str]:
         return pulumi.get(self, "dkim_dns_token_value1")
 
     @property
-    @pulumi.getter(name="dkimDNSTokenValue2")
+    @pulumi.getter(name="dkimDnsTokenValue2")
     def dkim_dns_token_value2(self) -> pulumi.Output[str]:
         return pulumi.get(self, "dkim_dns_token_value2")
 
     @property
-    @pulumi.getter(name="dkimDNSTokenValue3")
+    @pulumi.getter(name="dkimDnsTokenValue3")
     def dkim_dns_token_value3(self) -> pulumi.Output[str]:
         return pulumi.get(self, "dkim_dns_token_value3")
 

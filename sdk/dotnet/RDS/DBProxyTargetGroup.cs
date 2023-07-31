@@ -18,17 +18,17 @@ namespace Pulumi.AwsNative.RDS
         [Output("connectionPoolConfigurationInfo")]
         public Output<Outputs.DBProxyTargetGroupConnectionPoolConfigurationInfoFormat?> ConnectionPoolConfigurationInfo { get; private set; } = null!;
 
-        [Output("dBClusterIdentifiers")]
-        public Output<ImmutableArray<string>> DBClusterIdentifiers { get; private set; } = null!;
+        [Output("dbClusterIdentifiers")]
+        public Output<ImmutableArray<string>> DbClusterIdentifiers { get; private set; } = null!;
 
-        [Output("dBInstanceIdentifiers")]
-        public Output<ImmutableArray<string>> DBInstanceIdentifiers { get; private set; } = null!;
+        [Output("dbInstanceIdentifiers")]
+        public Output<ImmutableArray<string>> DbInstanceIdentifiers { get; private set; } = null!;
 
         /// <summary>
         /// The identifier for the proxy.
         /// </summary>
-        [Output("dBProxyName")]
-        public Output<string> DBProxyName { get; private set; } = null!;
+        [Output("dbProxyName")]
+        public Output<string> DbProxyName { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) representing the target group.
@@ -90,27 +90,27 @@ namespace Pulumi.AwsNative.RDS
         [Input("connectionPoolConfigurationInfo")]
         public Input<Inputs.DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs>? ConnectionPoolConfigurationInfo { get; set; }
 
-        [Input("dBClusterIdentifiers")]
-        private InputList<string>? _dBClusterIdentifiers;
-        public InputList<string> DBClusterIdentifiers
+        [Input("dbClusterIdentifiers")]
+        private InputList<string>? _dbClusterIdentifiers;
+        public InputList<string> DbClusterIdentifiers
         {
-            get => _dBClusterIdentifiers ?? (_dBClusterIdentifiers = new InputList<string>());
-            set => _dBClusterIdentifiers = value;
+            get => _dbClusterIdentifiers ?? (_dbClusterIdentifiers = new InputList<string>());
+            set => _dbClusterIdentifiers = value;
         }
 
-        [Input("dBInstanceIdentifiers")]
-        private InputList<string>? _dBInstanceIdentifiers;
-        public InputList<string> DBInstanceIdentifiers
+        [Input("dbInstanceIdentifiers")]
+        private InputList<string>? _dbInstanceIdentifiers;
+        public InputList<string> DbInstanceIdentifiers
         {
-            get => _dBInstanceIdentifiers ?? (_dBInstanceIdentifiers = new InputList<string>());
-            set => _dBInstanceIdentifiers = value;
+            get => _dbInstanceIdentifiers ?? (_dbInstanceIdentifiers = new InputList<string>());
+            set => _dbInstanceIdentifiers = value;
         }
 
         /// <summary>
         /// The identifier for the proxy.
         /// </summary>
-        [Input("dBProxyName", required: true)]
-        public Input<string> DBProxyName { get; set; } = null!;
+        [Input("dbProxyName", required: true)]
+        public Input<string> DbProxyName { get; set; } = null!;
 
         /// <summary>
         /// The identifier for the DBProxyTargetGroup

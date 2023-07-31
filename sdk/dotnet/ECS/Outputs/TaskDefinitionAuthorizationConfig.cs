@@ -14,16 +14,16 @@ namespace Pulumi.AwsNative.ECS.Outputs
     public sealed class TaskDefinitionAuthorizationConfig
     {
         public readonly string? AccessPointId;
-        public readonly Pulumi.AwsNative.ECS.TaskDefinitionAuthorizationConfigIAM? IAM;
+        public readonly Pulumi.AwsNative.ECS.TaskDefinitionAuthorizationConfigIAM? Iam;
 
         [OutputConstructor]
         private TaskDefinitionAuthorizationConfig(
             string? accessPointId,
 
-            Pulumi.AwsNative.ECS.TaskDefinitionAuthorizationConfigIAM? iAM)
+            Pulumi.AwsNative.ECS.TaskDefinitionAuthorizationConfigIAM? iam)
         {
             AccessPointId = accessPointId;
-            IAM = iAM;
+            Iam = iam;
         }
     }
 }

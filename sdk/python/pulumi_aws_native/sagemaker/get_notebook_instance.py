@@ -105,7 +105,7 @@ class GetNotebookInstanceResult:
         return pulumi.get(self, "tags")
 
     @property
-    @pulumi.getter(name="volumeSizeInGB")
+    @pulumi.getter(name="volumeSizeInGb")
     def volume_size_in_gb(self) -> Optional[int]:
         return pulumi.get(self, "volume_size_in_gb")
 

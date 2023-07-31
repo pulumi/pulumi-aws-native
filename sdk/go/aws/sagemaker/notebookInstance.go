@@ -33,7 +33,7 @@ type NotebookInstance struct {
 	SecurityGroupIds                     pulumi.StringArrayOutput                                      `pulumi:"securityGroupIds"`
 	SubnetId                             pulumi.StringPtrOutput                                        `pulumi:"subnetId"`
 	Tags                                 NotebookInstanceTagArrayOutput                                `pulumi:"tags"`
-	VolumeSizeInGB                       pulumi.IntPtrOutput                                           `pulumi:"volumeSizeInGB"`
+	VolumeSizeInGb                       pulumi.IntPtrOutput                                           `pulumi:"volumeSizeInGb"`
 }
 
 // NewNotebookInstance registers a new resource with the given unique name, arguments, and options.
@@ -97,7 +97,7 @@ type notebookInstanceArgs struct {
 	SecurityGroupIds                     []string                                              `pulumi:"securityGroupIds"`
 	SubnetId                             *string                                               `pulumi:"subnetId"`
 	Tags                                 []NotebookInstanceTag                                 `pulumi:"tags"`
-	VolumeSizeInGB                       *int                                                  `pulumi:"volumeSizeInGB"`
+	VolumeSizeInGb                       *int                                                  `pulumi:"volumeSizeInGb"`
 }
 
 // The set of arguments for constructing a NotebookInstance resource.
@@ -117,7 +117,7 @@ type NotebookInstanceArgs struct {
 	SecurityGroupIds                     pulumi.StringArrayInput
 	SubnetId                             pulumi.StringPtrInput
 	Tags                                 NotebookInstanceTagArrayInput
-	VolumeSizeInGB                       pulumi.IntPtrInput
+	VolumeSizeInGb                       pulumi.IntPtrInput
 }
 
 func (NotebookInstanceArgs) ElementType() reflect.Type {
@@ -219,8 +219,8 @@ func (o NotebookInstanceOutput) Tags() NotebookInstanceTagArrayOutput {
 	return o.ApplyT(func(v *NotebookInstance) NotebookInstanceTagArrayOutput { return v.Tags }).(NotebookInstanceTagArrayOutput)
 }
 
-func (o NotebookInstanceOutput) VolumeSizeInGB() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *NotebookInstance) pulumi.IntPtrOutput { return v.VolumeSizeInGB }).(pulumi.IntPtrOutput)
+func (o NotebookInstanceOutput) VolumeSizeInGb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NotebookInstance) pulumi.IntPtrOutput { return v.VolumeSizeInGb }).(pulumi.IntPtrOutput)
 }
 
 func init() {

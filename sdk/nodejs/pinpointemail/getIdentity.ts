@@ -26,12 +26,12 @@ export interface GetIdentityResult {
     readonly dkimSigningEnabled?: boolean;
     readonly feedbackForwardingEnabled?: boolean;
     readonly id?: string;
-    readonly identityDNSRecordName1?: string;
-    readonly identityDNSRecordName2?: string;
-    readonly identityDNSRecordName3?: string;
-    readonly identityDNSRecordValue1?: string;
-    readonly identityDNSRecordValue2?: string;
-    readonly identityDNSRecordValue3?: string;
+    readonly identityDnsRecordName1?: string;
+    readonly identityDnsRecordName2?: string;
+    readonly identityDnsRecordName3?: string;
+    readonly identityDnsRecordValue1?: string;
+    readonly identityDnsRecordValue2?: string;
+    readonly identityDnsRecordValue3?: string;
     readonly mailFromAttributes?: outputs.pinpointemail.IdentityMailFromAttributes;
     readonly tags?: outputs.pinpointemail.IdentityTags[];
 }

@@ -20,7 +20,7 @@ class ResourceDataSyncArgs:
                  bucket_name: Optional[pulumi.Input[str]] = None,
                  bucket_prefix: Optional[pulumi.Input[str]] = None,
                  bucket_region: Optional[pulumi.Input[str]] = None,
-                 k_ms_key_arn: Optional[pulumi.Input[str]] = None,
+                 kms_key_arn: Optional[pulumi.Input[str]] = None,
                  s3_destination: Optional[pulumi.Input['ResourceDataSyncS3DestinationArgs']] = None,
                  sync_format: Optional[pulumi.Input[str]] = None,
                  sync_source: Optional[pulumi.Input['ResourceDataSyncSyncSourceArgs']] = None,
@@ -35,8 +35,8 @@ class ResourceDataSyncArgs:
             pulumi.set(__self__, "bucket_prefix", bucket_prefix)
         if bucket_region is not None:
             pulumi.set(__self__, "bucket_region", bucket_region)
-        if k_ms_key_arn is not None:
-            pulumi.set(__self__, "k_ms_key_arn", k_ms_key_arn)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if s3_destination is not None:
             pulumi.set(__self__, "s3_destination", s3_destination)
         if sync_format is not None:
@@ -83,13 +83,13 @@ class ResourceDataSyncArgs:
         pulumi.set(self, "bucket_region", value)
 
     @property
-    @pulumi.getter(name="kMSKeyArn")
-    def k_ms_key_arn(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "k_ms_key_arn")
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "kms_key_arn")
 
-    @k_ms_key_arn.setter
-    def k_ms_key_arn(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "k_ms_key_arn", value)
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_arn", value)
 
     @property
     @pulumi.getter(name="s3Destination")
@@ -136,7 +136,7 @@ class ResourceDataSync(pulumi.CustomResource):
                  bucket_name: Optional[pulumi.Input[str]] = None,
                  bucket_prefix: Optional[pulumi.Input[str]] = None,
                  bucket_region: Optional[pulumi.Input[str]] = None,
-                 k_ms_key_arn: Optional[pulumi.Input[str]] = None,
+                 kms_key_arn: Optional[pulumi.Input[str]] = None,
                  s3_destination: Optional[pulumi.Input[pulumi.InputType['ResourceDataSyncS3DestinationArgs']]] = None,
                  sync_format: Optional[pulumi.Input[str]] = None,
                  sync_name: Optional[pulumi.Input[str]] = None,
@@ -176,7 +176,7 @@ class ResourceDataSync(pulumi.CustomResource):
                  bucket_name: Optional[pulumi.Input[str]] = None,
                  bucket_prefix: Optional[pulumi.Input[str]] = None,
                  bucket_region: Optional[pulumi.Input[str]] = None,
-                 k_ms_key_arn: Optional[pulumi.Input[str]] = None,
+                 kms_key_arn: Optional[pulumi.Input[str]] = None,
                  s3_destination: Optional[pulumi.Input[pulumi.InputType['ResourceDataSyncS3DestinationArgs']]] = None,
                  sync_format: Optional[pulumi.Input[str]] = None,
                  sync_name: Optional[pulumi.Input[str]] = None,
@@ -194,7 +194,7 @@ class ResourceDataSync(pulumi.CustomResource):
             __props__.__dict__["bucket_name"] = bucket_name
             __props__.__dict__["bucket_prefix"] = bucket_prefix
             __props__.__dict__["bucket_region"] = bucket_region
-            __props__.__dict__["k_ms_key_arn"] = k_ms_key_arn
+            __props__.__dict__["kms_key_arn"] = kms_key_arn
             __props__.__dict__["s3_destination"] = s3_destination
             __props__.__dict__["sync_format"] = sync_format
             if sync_name is None and not opts.urn:
@@ -227,7 +227,7 @@ class ResourceDataSync(pulumi.CustomResource):
         __props__.__dict__["bucket_name"] = None
         __props__.__dict__["bucket_prefix"] = None
         __props__.__dict__["bucket_region"] = None
-        __props__.__dict__["k_ms_key_arn"] = None
+        __props__.__dict__["kms_key_arn"] = None
         __props__.__dict__["s3_destination"] = None
         __props__.__dict__["sync_format"] = None
         __props__.__dict__["sync_name"] = None
@@ -251,9 +251,9 @@ class ResourceDataSync(pulumi.CustomResource):
         return pulumi.get(self, "bucket_region")
 
     @property
-    @pulumi.getter(name="kMSKeyArn")
-    def k_ms_key_arn(self) -> pulumi.Output[Optional[str]]:
-        return pulumi.get(self, "k_ms_key_arn")
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "kms_key_arn")
 
     @property
     @pulumi.getter(name="s3Destination")

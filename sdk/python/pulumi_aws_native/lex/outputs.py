@@ -2682,8 +2682,8 @@ class BotMessage(dict):
             suggest = "image_response_card"
         elif key == "plainTextMessage":
             suggest = "plain_text_message"
-        elif key == "sSMLMessage":
-            suggest = "s_sml_message"
+        elif key == "ssmlMessage":
+            suggest = "ssml_message"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in BotMessage. Access the value via the '{suggest}' property getter instead.")
@@ -2700,7 +2700,7 @@ class BotMessage(dict):
                  custom_payload: Optional['outputs.BotCustomPayload'] = None,
                  image_response_card: Optional['outputs.BotImageResponseCard'] = None,
                  plain_text_message: Optional['outputs.BotPlainTextMessage'] = None,
-                 s_sml_message: Optional['outputs.BotSSMLMessage'] = None):
+                 ssml_message: Optional['outputs.BotSSMLMessage'] = None):
         """
         The primary message that Amazon Lex should send to the user.
         """
@@ -2710,8 +2710,8 @@ class BotMessage(dict):
             pulumi.set(__self__, "image_response_card", image_response_card)
         if plain_text_message is not None:
             pulumi.set(__self__, "plain_text_message", plain_text_message)
-        if s_sml_message is not None:
-            pulumi.set(__self__, "s_sml_message", s_sml_message)
+        if ssml_message is not None:
+            pulumi.set(__self__, "ssml_message", ssml_message)
 
     @property
     @pulumi.getter(name="customPayload")
@@ -2729,9 +2729,9 @@ class BotMessage(dict):
         return pulumi.get(self, "plain_text_message")
 
     @property
-    @pulumi.getter(name="sSMLMessage")
-    def s_sml_message(self) -> Optional['outputs.BotSSMLMessage']:
-        return pulumi.get(self, "s_sml_message")
+    @pulumi.getter(name="ssmlMessage")
+    def ssml_message(self) -> Optional['outputs.BotSSMLMessage']:
+        return pulumi.get(self, "ssml_message")
 
 
 @pulumi.output_type

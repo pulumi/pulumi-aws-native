@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.XRay
         /// <summary>
         /// The ARN of the group that was generated on creation.
         /// </summary>
-        [Input("groupARN", required: true)]
-        public string GroupARN { get; set; } = null!;
+        [Input("groupArn", required: true)]
+        public string GroupArn { get; set; } = null!;
 
         public GetGroupArgs()
         {
@@ -44,8 +44,8 @@ namespace Pulumi.AwsNative.XRay
         /// <summary>
         /// The ARN of the group that was generated on creation.
         /// </summary>
-        [Input("groupARN", required: true)]
-        public Input<string> GroupARN { get; set; } = null!;
+        [Input("groupArn", required: true)]
+        public Input<string> GroupArn { get; set; } = null!;
 
         public GetGroupInvokeArgs()
         {
@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.XRay
         /// <summary>
         /// The ARN of the group that was generated on creation.
         /// </summary>
-        public readonly string? GroupARN;
+        public readonly string? GroupArn;
         /// <summary>
         /// The case-sensitive name of the new group. Names must be unique.
         /// </summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.XRay
         private GetGroupResult(
             string? filterExpression,
 
-            string? groupARN,
+            string? groupArn,
 
             string? groupName,
 
@@ -85,7 +85,7 @@ namespace Pulumi.AwsNative.XRay
             ImmutableArray<Outputs.GroupTag> tags)
         {
             FilterExpression = filterExpression;
-            GroupARN = groupARN;
+            GroupArn = groupArn;
             GroupName = groupName;
             InsightsConfiguration = insightsConfiguration;
             Tags = tags;

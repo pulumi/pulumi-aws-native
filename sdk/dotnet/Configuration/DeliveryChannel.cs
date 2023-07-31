@@ -31,8 +31,8 @@ namespace Pulumi.AwsNative.Configuration
         [Output("s3KmsKeyArn")]
         public Output<string?> S3KmsKeyArn { get; private set; } = null!;
 
-        [Output("snsTopicARN")]
-        public Output<string?> SnsTopicARN { get; private set; } = null!;
+        [Output("snsTopicArn")]
+        public Output<string?> SnsTopicArn { get; private set; } = null!;
 
 
         /// <summary>
@@ -94,8 +94,8 @@ namespace Pulumi.AwsNative.Configuration
         [Input("s3KmsKeyArn")]
         public Input<string>? S3KmsKeyArn { get; set; }
 
-        [Input("snsTopicARN")]
-        public Input<string>? SnsTopicARN { get; set; }
+        [Input("snsTopicArn")]
+        public Input<string>? SnsTopicArn { get; set; }
 
         public DeliveryChannelArgs()
         {

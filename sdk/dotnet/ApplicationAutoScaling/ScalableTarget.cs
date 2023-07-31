@@ -36,8 +36,8 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling
         /// <summary>
         /// Specify the Amazon Resource Name (ARN) of an Identity and Access Management (IAM) role that allows Application Auto Scaling to modify the scalable target on your behalf. 
         /// </summary>
-        [Output("roleARN")]
-        public Output<string?> RoleARN { get; private set; } = null!;
+        [Output("roleArn")]
+        public Output<string?> RoleArn { get; private set; } = null!;
 
         /// <summary>
         /// The scalable dimension associated with the scalable target. This string consists of the service namespace, resource type, and scaling property
@@ -129,8 +129,8 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling
         /// <summary>
         /// Specify the Amazon Resource Name (ARN) of an Identity and Access Management (IAM) role that allows Application Auto Scaling to modify the scalable target on your behalf. 
         /// </summary>
-        [Input("roleARN")]
-        public Input<string>? RoleARN { get; set; }
+        [Input("roleArn")]
+        public Input<string>? RoleArn { get; set; }
 
         /// <summary>
         /// The scalable dimension associated with the scalable target. This string consists of the service namespace, resource type, and scaling property

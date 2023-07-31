@@ -192,7 +192,7 @@ class CanaryRunConfig(dict):
             suggest = "active_tracing"
         elif key == "environmentVariables":
             suggest = "environment_variables"
-        elif key == "memoryInMB":
+        elif key == "memoryInMb":
             suggest = "memory_in_mb"
         elif key == "timeoutInSeconds":
             suggest = "timeout_in_seconds"
@@ -245,7 +245,7 @@ class CanaryRunConfig(dict):
         return pulumi.get(self, "environment_variables")
 
     @property
-    @pulumi.getter(name="memoryInMB")
+    @pulumi.getter(name="memoryInMb")
     def memory_in_mb(self) -> Optional[int]:
         """
         Provide maximum memory available for canary in MB

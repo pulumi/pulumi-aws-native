@@ -50,7 +50,7 @@ export class Endpoint extends pulumi.CustomResource {
     public readonly engineName!: pulumi.Output<string>;
     public /*out*/ readonly externalId!: pulumi.Output<string>;
     public readonly extraConnectionAttributes!: pulumi.Output<string | undefined>;
-    public readonly gcpMySQLSettings!: pulumi.Output<outputs.dms.EndpointGcpMySQLSettings | undefined>;
+    public readonly gcpMySqlSettings!: pulumi.Output<outputs.dms.EndpointGcpMySQLSettings | undefined>;
     public readonly ibmDb2Settings!: pulumi.Output<outputs.dms.EndpointIbmDb2Settings | undefined>;
     public readonly kafkaSettings!: pulumi.Output<outputs.dms.EndpointKafkaSettings | undefined>;
     public readonly kinesisSettings!: pulumi.Output<outputs.dms.EndpointKinesisSettings | undefined>;
@@ -101,7 +101,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["endpointType"] = args ? args.endpointType : undefined;
             resourceInputs["engineName"] = args ? args.engineName : undefined;
             resourceInputs["extraConnectionAttributes"] = args ? args.extraConnectionAttributes : undefined;
-            resourceInputs["gcpMySQLSettings"] = args ? args.gcpMySQLSettings : undefined;
+            resourceInputs["gcpMySqlSettings"] = args ? args.gcpMySqlSettings : undefined;
             resourceInputs["ibmDb2Settings"] = args ? args.ibmDb2Settings : undefined;
             resourceInputs["kafkaSettings"] = args ? args.kafkaSettings : undefined;
             resourceInputs["kinesisSettings"] = args ? args.kinesisSettings : undefined;
@@ -135,7 +135,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["engineName"] = undefined /*out*/;
             resourceInputs["externalId"] = undefined /*out*/;
             resourceInputs["extraConnectionAttributes"] = undefined /*out*/;
-            resourceInputs["gcpMySQLSettings"] = undefined /*out*/;
+            resourceInputs["gcpMySqlSettings"] = undefined /*out*/;
             resourceInputs["ibmDb2Settings"] = undefined /*out*/;
             resourceInputs["kafkaSettings"] = undefined /*out*/;
             resourceInputs["kinesisSettings"] = undefined /*out*/;
@@ -176,7 +176,7 @@ export interface EndpointArgs {
     endpointType: pulumi.Input<string>;
     engineName: pulumi.Input<string>;
     extraConnectionAttributes?: pulumi.Input<string>;
-    gcpMySQLSettings?: pulumi.Input<inputs.dms.EndpointGcpMySQLSettingsArgs>;
+    gcpMySqlSettings?: pulumi.Input<inputs.dms.EndpointGcpMySQLSettingsArgs>;
     ibmDb2Settings?: pulumi.Input<inputs.dms.EndpointIbmDb2SettingsArgs>;
     kafkaSettings?: pulumi.Input<inputs.dms.EndpointKafkaSettingsArgs>;
     kinesisSettings?: pulumi.Input<inputs.dms.EndpointKinesisSettingsArgs>;

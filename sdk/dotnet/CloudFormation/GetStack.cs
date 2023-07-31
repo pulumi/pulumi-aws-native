@@ -52,31 +52,31 @@ namespace Pulumi.AwsNative.CloudFormation
     public sealed class GetStackResult
     {
         public readonly string? Id;
-        public readonly ImmutableArray<string> NotificationARNs;
+        public readonly ImmutableArray<string> NotificationArns;
         public readonly object? Parameters;
         public readonly ImmutableArray<Outputs.StackTag> Tags;
-        public readonly string? TemplateURL;
+        public readonly string? TemplateUrl;
         public readonly int? TimeoutInMinutes;
 
         [OutputConstructor]
         private GetStackResult(
             string? id,
 
-            ImmutableArray<string> notificationARNs,
+            ImmutableArray<string> notificationArns,
 
             object? parameters,
 
             ImmutableArray<Outputs.StackTag> tags,
 
-            string? templateURL,
+            string? templateUrl,
 
             int? timeoutInMinutes)
         {
             Id = id;
-            NotificationARNs = notificationARNs;
+            NotificationArns = notificationArns;
             Parameters = parameters;
             Tags = tags;
-            TemplateURL = templateURL;
+            TemplateUrl = templateUrl;
             TimeoutInMinutes = timeoutInMinutes;
         }
     }

@@ -27,7 +27,7 @@ export interface GetClusterResult {
     readonly id?: string;
     readonly instances?: outputs.emr.ClusterJobFlowInstancesConfig;
     readonly managedScalingPolicy?: outputs.emr.ClusterManagedScalingPolicy;
-    readonly masterPublicDNS?: string;
+    readonly masterPublicDns?: string;
     readonly stepConcurrencyLevel?: number;
     readonly tags?: outputs.emr.ClusterTag[];
     readonly visibleToAllUsers?: boolean;

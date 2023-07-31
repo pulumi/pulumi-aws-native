@@ -37,7 +37,7 @@ type LookupEndpointResult struct {
 	EngineName                 *string                             `pulumi:"engineName"`
 	ExternalId                 *string                             `pulumi:"externalId"`
 	ExtraConnectionAttributes  *string                             `pulumi:"extraConnectionAttributes"`
-	GcpMySQLSettings           *EndpointGcpMySQLSettings           `pulumi:"gcpMySQLSettings"`
+	GcpMySqlSettings           *EndpointGcpMySQLSettings           `pulumi:"gcpMySqlSettings"`
 	IbmDb2Settings             *EndpointIbmDb2Settings             `pulumi:"ibmDb2Settings"`
 	Id                         *string                             `pulumi:"id"`
 	KafkaSettings              *EndpointKafkaSettings              `pulumi:"kafkaSettings"`
@@ -135,8 +135,8 @@ func (o LookupEndpointResultOutput) ExtraConnectionAttributes() pulumi.StringPtr
 	return o.ApplyT(func(v LookupEndpointResult) *string { return v.ExtraConnectionAttributes }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupEndpointResultOutput) GcpMySQLSettings() EndpointGcpMySQLSettingsPtrOutput {
-	return o.ApplyT(func(v LookupEndpointResult) *EndpointGcpMySQLSettings { return v.GcpMySQLSettings }).(EndpointGcpMySQLSettingsPtrOutput)
+func (o LookupEndpointResultOutput) GcpMySqlSettings() EndpointGcpMySQLSettingsPtrOutput {
+	return o.ApplyT(func(v LookupEndpointResult) *EndpointGcpMySQLSettings { return v.GcpMySqlSettings }).(EndpointGcpMySQLSettingsPtrOutput)
 }
 
 func (o LookupEndpointResultOutput) IbmDb2Settings() EndpointIbmDb2SettingsPtrOutput {

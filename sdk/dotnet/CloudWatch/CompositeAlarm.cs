@@ -78,8 +78,8 @@ namespace Pulumi.AwsNative.CloudWatch
         /// <summary>
         /// The actions to execute when this alarm transitions to the OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         /// </summary>
-        [Output("oKActions")]
-        public Output<ImmutableArray<string>> OKActions { get; private set; } = null!;
+        [Output("okActions")]
+        public Output<ImmutableArray<string>> OkActions { get; private set; } = null!;
 
 
         /// <summary>
@@ -192,16 +192,16 @@ namespace Pulumi.AwsNative.CloudWatch
             set => _insufficientDataActions = value;
         }
 
-        [Input("oKActions")]
-        private InputList<string>? _oKActions;
+        [Input("okActions")]
+        private InputList<string>? _okActions;
 
         /// <summary>
         /// The actions to execute when this alarm transitions to the OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         /// </summary>
-        public InputList<string> OKActions
+        public InputList<string> OkActions
         {
-            get => _oKActions ?? (_oKActions = new InputList<string>());
-            set => _oKActions = value;
+            get => _okActions ?? (_okActions = new InputList<string>());
+            set => _okActions = value;
         }
 
         public CompositeAlarmArgs()

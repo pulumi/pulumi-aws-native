@@ -36,8 +36,8 @@ namespace Pulumi.AwsNative.DynamoDB
         [Output("replicas")]
         public Output<ImmutableArray<Outputs.GlobalTableReplicaSpecification>> Replicas { get; private set; } = null!;
 
-        [Output("sSESpecification")]
-        public Output<Outputs.GlobalTableSSESpecification?> SSESpecification { get; private set; } = null!;
+        [Output("sseSpecification")]
+        public Output<Outputs.GlobalTableSSESpecification?> SseSpecification { get; private set; } = null!;
 
         [Output("streamArn")]
         public Output<string> StreamArn { get; private set; } = null!;
@@ -145,8 +145,8 @@ namespace Pulumi.AwsNative.DynamoDB
             set => _replicas = value;
         }
 
-        [Input("sSESpecification")]
-        public Input<Inputs.GlobalTableSSESpecificationArgs>? SSESpecification { get; set; }
+        [Input("sseSpecification")]
+        public Input<Inputs.GlobalTableSSESpecificationArgs>? SseSpecification { get; set; }
 
         [Input("streamSpecification")]
         public Input<Inputs.GlobalTableStreamSpecificationArgs>? StreamSpecification { get; set; }

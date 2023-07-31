@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.DMS
         public readonly string? EngineName;
         public readonly string? ExternalId;
         public readonly string? ExtraConnectionAttributes;
-        public readonly Outputs.EndpointGcpMySQLSettings? GcpMySQLSettings;
+        public readonly Outputs.EndpointGcpMySQLSettings? GcpMySqlSettings;
         public readonly Outputs.EndpointIbmDb2Settings? IbmDb2Settings;
         public readonly string? Id;
         public readonly Outputs.EndpointKafkaSettings? KafkaSettings;
@@ -105,7 +105,7 @@ namespace Pulumi.AwsNative.DMS
 
             string? extraConnectionAttributes,
 
-            Outputs.EndpointGcpMySQLSettings? gcpMySQLSettings,
+            Outputs.EndpointGcpMySQLSettings? gcpMySqlSettings,
 
             Outputs.EndpointIbmDb2Settings? ibmDb2Settings,
 
@@ -157,7 +157,7 @@ namespace Pulumi.AwsNative.DMS
             EngineName = engineName;
             ExternalId = externalId;
             ExtraConnectionAttributes = extraConnectionAttributes;
-            GcpMySQLSettings = gcpMySQLSettings;
+            GcpMySqlSettings = gcpMySqlSettings;
             IbmDb2Settings = ibmDb2Settings;
             Id = id;
             KafkaSettings = kafkaSettings;

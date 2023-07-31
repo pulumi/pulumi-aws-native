@@ -19,22 +19,22 @@ namespace Pulumi.AwsNative.ApplicationInsights.Outputs
         /// <summary>
         /// A flag which indicates agreeing to install SAP HANA DB client.
         /// </summary>
-        public readonly bool AgreeToInstallHANADBClient;
+        public readonly bool AgreeToInstallHanadbClient;
         /// <summary>
         /// The HANA DB port.
         /// </summary>
-        public readonly string HANAPort;
-        /// <summary>
-        /// HANA DB SID.
-        /// </summary>
-        public readonly string HANASID;
+        public readonly string HanaPort;
         /// <summary>
         /// The secret name which manages the HANA DB credentials e.g. {
         ///   "username": "&lt;&gt;",
         ///   "password": "&lt;&gt;"
         /// }.
         /// </summary>
-        public readonly string HANASecretName;
+        public readonly string HanaSecretName;
+        /// <summary>
+        /// HANA DB SID.
+        /// </summary>
+        public readonly string Hanasid;
         /// <summary>
         /// Prometheus exporter port.
         /// </summary>
@@ -42,20 +42,20 @@ namespace Pulumi.AwsNative.ApplicationInsights.Outputs
 
         [OutputConstructor]
         private ApplicationHANAPrometheusExporter(
-            bool agreeToInstallHANADBClient,
+            bool agreeToInstallHanadbClient,
 
-            string hANAPort,
+            string hanaPort,
 
-            string hANASID,
+            string hanaSecretName,
 
-            string hANASecretName,
+            string hanasid,
 
             string? prometheusPort)
         {
-            AgreeToInstallHANADBClient = agreeToInstallHANADBClient;
-            HANAPort = hANAPort;
-            HANASID = hANASID;
-            HANASecretName = hANASecretName;
+            AgreeToInstallHanadbClient = agreeToInstallHanadbClient;
+            HanaPort = hanaPort;
+            HanaSecretName = hanaSecretName;
+            Hanasid = hanasid;
             PrometheusPort = prometheusPort;
         }
     }

@@ -20,7 +20,7 @@ type PortfolioPrincipalAssociation struct {
 
 	AcceptLanguage pulumi.StringPtrOutput `pulumi:"acceptLanguage"`
 	PortfolioId    pulumi.StringOutput    `pulumi:"portfolioId"`
-	PrincipalARN   pulumi.StringOutput    `pulumi:"principalARN"`
+	PrincipalArn   pulumi.StringOutput    `pulumi:"principalArn"`
 	PrincipalType  pulumi.StringOutput    `pulumi:"principalType"`
 }
 
@@ -34,8 +34,8 @@ func NewPortfolioPrincipalAssociation(ctx *pulumi.Context,
 	if args.PortfolioId == nil {
 		return nil, errors.New("invalid value for required argument 'PortfolioId'")
 	}
-	if args.PrincipalARN == nil {
-		return nil, errors.New("invalid value for required argument 'PrincipalARN'")
+	if args.PrincipalArn == nil {
+		return nil, errors.New("invalid value for required argument 'PrincipalArn'")
 	}
 	if args.PrincipalType == nil {
 		return nil, errors.New("invalid value for required argument 'PrincipalType'")
@@ -75,7 +75,7 @@ func (PortfolioPrincipalAssociationState) ElementType() reflect.Type {
 type portfolioPrincipalAssociationArgs struct {
 	AcceptLanguage *string `pulumi:"acceptLanguage"`
 	PortfolioId    string  `pulumi:"portfolioId"`
-	PrincipalARN   string  `pulumi:"principalARN"`
+	PrincipalArn   string  `pulumi:"principalArn"`
 	PrincipalType  string  `pulumi:"principalType"`
 }
 
@@ -83,7 +83,7 @@ type portfolioPrincipalAssociationArgs struct {
 type PortfolioPrincipalAssociationArgs struct {
 	AcceptLanguage pulumi.StringPtrInput
 	PortfolioId    pulumi.StringInput
-	PrincipalARN   pulumi.StringInput
+	PrincipalArn   pulumi.StringInput
 	PrincipalType  pulumi.StringInput
 }
 
@@ -132,8 +132,8 @@ func (o PortfolioPrincipalAssociationOutput) PortfolioId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PortfolioPrincipalAssociation) pulumi.StringOutput { return v.PortfolioId }).(pulumi.StringOutput)
 }
 
-func (o PortfolioPrincipalAssociationOutput) PrincipalARN() pulumi.StringOutput {
-	return o.ApplyT(func(v *PortfolioPrincipalAssociation) pulumi.StringOutput { return v.PrincipalARN }).(pulumi.StringOutput)
+func (o PortfolioPrincipalAssociationOutput) PrincipalArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *PortfolioPrincipalAssociation) pulumi.StringOutput { return v.PrincipalArn }).(pulumi.StringOutput)
 }
 
 func (o PortfolioPrincipalAssociationOutput) PrincipalType() pulumi.StringOutput {

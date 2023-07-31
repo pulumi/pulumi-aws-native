@@ -17,7 +17,7 @@ class VPCEndpointConnectionNotificationArgs:
                  connection_events: pulumi.Input[Sequence[pulumi.Input[str]]],
                  connection_notification_arn: pulumi.Input[str],
                  service_id: Optional[pulumi.Input[str]] = None,
-                 v_pc_endpoint_id: Optional[pulumi.Input[str]] = None):
+                 vpc_endpoint_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a VPCEndpointConnectionNotification resource.
         """
@@ -25,8 +25,8 @@ class VPCEndpointConnectionNotificationArgs:
         pulumi.set(__self__, "connection_notification_arn", connection_notification_arn)
         if service_id is not None:
             pulumi.set(__self__, "service_id", service_id)
-        if v_pc_endpoint_id is not None:
-            pulumi.set(__self__, "v_pc_endpoint_id", v_pc_endpoint_id)
+        if vpc_endpoint_id is not None:
+            pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
 
     @property
     @pulumi.getter(name="connectionEvents")
@@ -56,13 +56,13 @@ class VPCEndpointConnectionNotificationArgs:
         pulumi.set(self, "service_id", value)
 
     @property
-    @pulumi.getter(name="vPCEndpointId")
-    def v_pc_endpoint_id(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "v_pc_endpoint_id")
+    @pulumi.getter(name="vpcEndpointId")
+    def vpc_endpoint_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "vpc_endpoint_id")
 
-    @v_pc_endpoint_id.setter
-    def v_pc_endpoint_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "v_pc_endpoint_id", value)
+    @vpc_endpoint_id.setter
+    def vpc_endpoint_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vpc_endpoint_id", value)
 
 
 warnings.warn("""VPCEndpointConnectionNotification is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
@@ -78,7 +78,7 @@ class VPCEndpointConnectionNotification(pulumi.CustomResource):
                  connection_events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  connection_notification_arn: Optional[pulumi.Input[str]] = None,
                  service_id: Optional[pulumi.Input[str]] = None,
-                 v_pc_endpoint_id: Optional[pulumi.Input[str]] = None,
+                 vpc_endpoint_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::EC2::VPCEndpointConnectionNotification
@@ -113,7 +113,7 @@ class VPCEndpointConnectionNotification(pulumi.CustomResource):
                  connection_events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  connection_notification_arn: Optional[pulumi.Input[str]] = None,
                  service_id: Optional[pulumi.Input[str]] = None,
-                 v_pc_endpoint_id: Optional[pulumi.Input[str]] = None,
+                 vpc_endpoint_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         pulumi.log.warn("""VPCEndpointConnectionNotification is deprecated: VPCEndpointConnectionNotification is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -131,7 +131,7 @@ class VPCEndpointConnectionNotification(pulumi.CustomResource):
                 raise TypeError("Missing required property 'connection_notification_arn'")
             __props__.__dict__["connection_notification_arn"] = connection_notification_arn
             __props__.__dict__["service_id"] = service_id
-            __props__.__dict__["v_pc_endpoint_id"] = v_pc_endpoint_id
+            __props__.__dict__["vpc_endpoint_id"] = vpc_endpoint_id
         super(VPCEndpointConnectionNotification, __self__).__init__(
             'aws-native:ec2:VPCEndpointConnectionNotification',
             resource_name,
@@ -157,7 +157,7 @@ class VPCEndpointConnectionNotification(pulumi.CustomResource):
         __props__.__dict__["connection_events"] = None
         __props__.__dict__["connection_notification_arn"] = None
         __props__.__dict__["service_id"] = None
-        __props__.__dict__["v_pc_endpoint_id"] = None
+        __props__.__dict__["vpc_endpoint_id"] = None
         return VPCEndpointConnectionNotification(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -176,7 +176,7 @@ class VPCEndpointConnectionNotification(pulumi.CustomResource):
         return pulumi.get(self, "service_id")
 
     @property
-    @pulumi.getter(name="vPCEndpointId")
-    def v_pc_endpoint_id(self) -> pulumi.Output[Optional[str]]:
-        return pulumi.get(self, "v_pc_endpoint_id")
+    @pulumi.getter(name="vpcEndpointId")
+    def vpc_endpoint_id(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "vpc_endpoint_id")
 

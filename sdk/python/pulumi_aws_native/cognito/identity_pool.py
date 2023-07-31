@@ -116,7 +116,7 @@ class IdentityPoolArgs:
         pulumi.set(self, "identity_pool_name", value)
 
     @property
-    @pulumi.getter(name="openIdConnectProviderARNs")
+    @pulumi.getter(name="openIdConnectProviderArns")
     def open_id_connect_provider_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         return pulumi.get(self, "open_id_connect_provider_arns")
 
@@ -134,7 +134,7 @@ class IdentityPoolArgs:
         pulumi.set(self, "push_sync", value)
 
     @property
-    @pulumi.getter(name="samlProviderARNs")
+    @pulumi.getter(name="samlProviderArns")
     def saml_provider_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         return pulumi.get(self, "saml_provider_arns")
 
@@ -316,7 +316,7 @@ class IdentityPool(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="openIdConnectProviderARNs")
+    @pulumi.getter(name="openIdConnectProviderArns")
     def open_id_connect_provider_arns(self) -> pulumi.Output[Optional[Sequence[str]]]:
         return pulumi.get(self, "open_id_connect_provider_arns")
 
@@ -326,7 +326,7 @@ class IdentityPool(pulumi.CustomResource):
         return pulumi.get(self, "push_sync")
 
     @property
-    @pulumi.getter(name="samlProviderARNs")
+    @pulumi.getter(name="samlProviderArns")
     def saml_provider_arns(self) -> pulumi.Output[Optional[Sequence[str]]]:
         return pulumi.get(self, "saml_provider_arns")
 

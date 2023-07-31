@@ -48,8 +48,8 @@ namespace Pulumi.AwsNative.OpenSearchService
         [Output("domainName")]
         public Output<string?> DomainName { get; private set; } = null!;
 
-        [Output("eBSOptions")]
-        public Output<Outputs.DomainEBSOptions?> EBSOptions { get; private set; } = null!;
+        [Output("ebsOptions")]
+        public Output<Outputs.DomainEBSOptions?> EbsOptions { get; private set; } = null!;
 
         [Output("encryptionAtRestOptions")]
         public Output<Outputs.DomainEncryptionAtRestOptions?> EncryptionAtRestOptions { get; private set; } = null!;
@@ -81,8 +81,8 @@ namespace Pulumi.AwsNative.OpenSearchService
         [Output("tags")]
         public Output<ImmutableArray<Outputs.DomainTag>> Tags { get; private set; } = null!;
 
-        [Output("vPCOptions")]
-        public Output<Outputs.DomainVPCOptions?> VPCOptions { get; private set; } = null!;
+        [Output("vpcOptions")]
+        public Output<Outputs.DomainVPCOptions?> VpcOptions { get; private set; } = null!;
 
 
         /// <summary>
@@ -150,8 +150,8 @@ namespace Pulumi.AwsNative.OpenSearchService
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
 
-        [Input("eBSOptions")]
-        public Input<Inputs.DomainEBSOptionsArgs>? EBSOptions { get; set; }
+        [Input("ebsOptions")]
+        public Input<Inputs.DomainEBSOptionsArgs>? EbsOptions { get; set; }
 
         [Input("encryptionAtRestOptions")]
         public Input<Inputs.DomainEncryptionAtRestOptionsArgs>? EncryptionAtRestOptions { get; set; }
@@ -186,8 +186,8 @@ namespace Pulumi.AwsNative.OpenSearchService
             set => _tags = value;
         }
 
-        [Input("vPCOptions")]
-        public Input<Inputs.DomainVPCOptionsArgs>? VPCOptions { get; set; }
+        [Input("vpcOptions")]
+        public Input<Inputs.DomainVPCOptionsArgs>? VpcOptions { get; set; }
 
         public DomainArgs()
         {

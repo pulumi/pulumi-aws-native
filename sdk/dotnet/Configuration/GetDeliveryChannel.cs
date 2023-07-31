@@ -56,7 +56,7 @@ namespace Pulumi.AwsNative.Configuration
         public readonly string? S3BucketName;
         public readonly string? S3KeyPrefix;
         public readonly string? S3KmsKeyArn;
-        public readonly string? SnsTopicARN;
+        public readonly string? SnsTopicArn;
 
         [OutputConstructor]
         private GetDeliveryChannelResult(
@@ -70,14 +70,14 @@ namespace Pulumi.AwsNative.Configuration
 
             string? s3KmsKeyArn,
 
-            string? snsTopicARN)
+            string? snsTopicArn)
         {
             ConfigSnapshotDeliveryProperties = configSnapshotDeliveryProperties;
             Id = id;
             S3BucketName = s3BucketName;
             S3KeyPrefix = s3KeyPrefix;
             S3KmsKeyArn = s3KmsKeyArn;
-            SnsTopicARN = snsTopicARN;
+            SnsTopicArn = snsTopicArn;
         }
     }
 }

@@ -15,8 +15,8 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         [Input("cloudWatchLoggingOptions")]
         public Input<Inputs.DeliveryStreamCloudWatchLoggingOptionsArgs>? CloudWatchLoggingOptions { get; set; }
 
-        [Input("clusterJDBCURL", required: true)]
-        public Input<string> ClusterJDBCURL { get; set; } = null!;
+        [Input("clusterJdbcurl", required: true)]
+        public Input<string> ClusterJdbcurl { get; set; } = null!;
 
         [Input("copyCommand", required: true)]
         public Input<Inputs.DeliveryStreamCopyCommandArgs> CopyCommand { get; set; } = null!;
@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         [Input("retryOptions")]
         public Input<Inputs.DeliveryStreamRedshiftRetryOptionsArgs>? RetryOptions { get; set; }
 
-        [Input("roleARN", required: true)]
-        public Input<string> RoleARN { get; set; } = null!;
+        [Input("roleArn", required: true)]
+        public Input<string> RoleArn { get; set; } = null!;
 
         [Input("s3BackupConfiguration")]
         public Input<Inputs.DeliveryStreamS3DestinationConfigurationArgs>? S3BackupConfiguration { get; set; }

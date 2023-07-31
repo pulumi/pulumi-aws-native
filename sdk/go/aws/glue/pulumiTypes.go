@@ -2118,9 +2118,9 @@ func (o CrawlerSchemaChangePolicyPtrOutput) UpdateBehavior() pulumi.StringPtrOut
 type CrawlerTargets struct {
 	CatalogTargets  []CrawlerCatalogTarget  `pulumi:"catalogTargets"`
 	DeltaTargets    []CrawlerDeltaTarget    `pulumi:"deltaTargets"`
-	DynamoDBTargets []CrawlerDynamoDBTarget `pulumi:"dynamoDBTargets"`
+	DynamoDbTargets []CrawlerDynamoDBTarget `pulumi:"dynamoDbTargets"`
 	JdbcTargets     []CrawlerJdbcTarget     `pulumi:"jdbcTargets"`
-	MongoDBTargets  []CrawlerMongoDBTarget  `pulumi:"mongoDBTargets"`
+	MongoDbTargets  []CrawlerMongoDBTarget  `pulumi:"mongoDbTargets"`
 	S3Targets       []CrawlerS3Target       `pulumi:"s3Targets"`
 }
 
@@ -2138,9 +2138,9 @@ type CrawlerTargetsInput interface {
 type CrawlerTargetsArgs struct {
 	CatalogTargets  CrawlerCatalogTargetArrayInput  `pulumi:"catalogTargets"`
 	DeltaTargets    CrawlerDeltaTargetArrayInput    `pulumi:"deltaTargets"`
-	DynamoDBTargets CrawlerDynamoDBTargetArrayInput `pulumi:"dynamoDBTargets"`
+	DynamoDbTargets CrawlerDynamoDBTargetArrayInput `pulumi:"dynamoDbTargets"`
 	JdbcTargets     CrawlerJdbcTargetArrayInput     `pulumi:"jdbcTargets"`
-	MongoDBTargets  CrawlerMongoDBTargetArrayInput  `pulumi:"mongoDBTargets"`
+	MongoDbTargets  CrawlerMongoDBTargetArrayInput  `pulumi:"mongoDbTargets"`
 	S3Targets       CrawlerS3TargetArrayInput       `pulumi:"s3Targets"`
 }
 
@@ -2178,16 +2178,16 @@ func (o CrawlerTargetsOutput) DeltaTargets() CrawlerDeltaTargetArrayOutput {
 	return o.ApplyT(func(v CrawlerTargets) []CrawlerDeltaTarget { return v.DeltaTargets }).(CrawlerDeltaTargetArrayOutput)
 }
 
-func (o CrawlerTargetsOutput) DynamoDBTargets() CrawlerDynamoDBTargetArrayOutput {
-	return o.ApplyT(func(v CrawlerTargets) []CrawlerDynamoDBTarget { return v.DynamoDBTargets }).(CrawlerDynamoDBTargetArrayOutput)
+func (o CrawlerTargetsOutput) DynamoDbTargets() CrawlerDynamoDBTargetArrayOutput {
+	return o.ApplyT(func(v CrawlerTargets) []CrawlerDynamoDBTarget { return v.DynamoDbTargets }).(CrawlerDynamoDBTargetArrayOutput)
 }
 
 func (o CrawlerTargetsOutput) JdbcTargets() CrawlerJdbcTargetArrayOutput {
 	return o.ApplyT(func(v CrawlerTargets) []CrawlerJdbcTarget { return v.JdbcTargets }).(CrawlerJdbcTargetArrayOutput)
 }
 
-func (o CrawlerTargetsOutput) MongoDBTargets() CrawlerMongoDBTargetArrayOutput {
-	return o.ApplyT(func(v CrawlerTargets) []CrawlerMongoDBTarget { return v.MongoDBTargets }).(CrawlerMongoDBTargetArrayOutput)
+func (o CrawlerTargetsOutput) MongoDbTargets() CrawlerMongoDBTargetArrayOutput {
+	return o.ApplyT(func(v CrawlerTargets) []CrawlerMongoDBTarget { return v.MongoDbTargets }).(CrawlerMongoDBTargetArrayOutput)
 }
 
 func (o CrawlerTargetsOutput) S3Targets() CrawlerS3TargetArrayOutput {
@@ -2236,12 +2236,12 @@ func (o CrawlerTargetsPtrOutput) DeltaTargets() CrawlerDeltaTargetArrayOutput {
 	}).(CrawlerDeltaTargetArrayOutput)
 }
 
-func (o CrawlerTargetsPtrOutput) DynamoDBTargets() CrawlerDynamoDBTargetArrayOutput {
+func (o CrawlerTargetsPtrOutput) DynamoDbTargets() CrawlerDynamoDBTargetArrayOutput {
 	return o.ApplyT(func(v *CrawlerTargets) []CrawlerDynamoDBTarget {
 		if v == nil {
 			return nil
 		}
-		return v.DynamoDBTargets
+		return v.DynamoDbTargets
 	}).(CrawlerDynamoDBTargetArrayOutput)
 }
 
@@ -2254,12 +2254,12 @@ func (o CrawlerTargetsPtrOutput) JdbcTargets() CrawlerJdbcTargetArrayOutput {
 	}).(CrawlerJdbcTargetArrayOutput)
 }
 
-func (o CrawlerTargetsPtrOutput) MongoDBTargets() CrawlerMongoDBTargetArrayOutput {
+func (o CrawlerTargetsPtrOutput) MongoDbTargets() CrawlerMongoDBTargetArrayOutput {
 	return o.ApplyT(func(v *CrawlerTargets) []CrawlerMongoDBTarget {
 		if v == nil {
 			return nil
 		}
-		return v.MongoDBTargets
+		return v.MongoDbTargets
 	}).(CrawlerMongoDBTargetArrayOutput)
 }
 
@@ -4387,7 +4387,7 @@ func (o MLTransformInputRecordTablesOutput) GlueTables() MLTransformGlueTablesAr
 
 type MLTransformMLUserDataEncryption struct {
 	KmsKeyId                 *string `pulumi:"kmsKeyId"`
-	MLUserDataEncryptionMode string  `pulumi:"mLUserDataEncryptionMode"`
+	MlUserDataEncryptionMode string  `pulumi:"mlUserDataEncryptionMode"`
 }
 
 // MLTransformMLUserDataEncryptionInput is an input type that accepts MLTransformMLUserDataEncryptionArgs and MLTransformMLUserDataEncryptionOutput values.
@@ -4403,7 +4403,7 @@ type MLTransformMLUserDataEncryptionInput interface {
 
 type MLTransformMLUserDataEncryptionArgs struct {
 	KmsKeyId                 pulumi.StringPtrInput `pulumi:"kmsKeyId"`
-	MLUserDataEncryptionMode pulumi.StringInput    `pulumi:"mLUserDataEncryptionMode"`
+	MlUserDataEncryptionMode pulumi.StringInput    `pulumi:"mlUserDataEncryptionMode"`
 }
 
 func (MLTransformMLUserDataEncryptionArgs) ElementType() reflect.Type {
@@ -4487,8 +4487,8 @@ func (o MLTransformMLUserDataEncryptionOutput) KmsKeyId() pulumi.StringPtrOutput
 	return o.ApplyT(func(v MLTransformMLUserDataEncryption) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-func (o MLTransformMLUserDataEncryptionOutput) MLUserDataEncryptionMode() pulumi.StringOutput {
-	return o.ApplyT(func(v MLTransformMLUserDataEncryption) string { return v.MLUserDataEncryptionMode }).(pulumi.StringOutput)
+func (o MLTransformMLUserDataEncryptionOutput) MlUserDataEncryptionMode() pulumi.StringOutput {
+	return o.ApplyT(func(v MLTransformMLUserDataEncryption) string { return v.MlUserDataEncryptionMode }).(pulumi.StringOutput)
 }
 
 type MLTransformMLUserDataEncryptionPtrOutput struct{ *pulumi.OutputState }
@@ -4524,17 +4524,17 @@ func (o MLTransformMLUserDataEncryptionPtrOutput) KmsKeyId() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o MLTransformMLUserDataEncryptionPtrOutput) MLUserDataEncryptionMode() pulumi.StringPtrOutput {
+func (o MLTransformMLUserDataEncryptionPtrOutput) MlUserDataEncryptionMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MLTransformMLUserDataEncryption) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.MLUserDataEncryptionMode
+		return &v.MlUserDataEncryptionMode
 	}).(pulumi.StringPtrOutput)
 }
 
 type MLTransformTransformEncryption struct {
-	MLUserDataEncryption             *MLTransformMLUserDataEncryption `pulumi:"mLUserDataEncryption"`
+	MlUserDataEncryption             *MLTransformMLUserDataEncryption `pulumi:"mlUserDataEncryption"`
 	TaskRunSecurityConfigurationName *string                          `pulumi:"taskRunSecurityConfigurationName"`
 }
 
@@ -4550,7 +4550,7 @@ type MLTransformTransformEncryptionInput interface {
 }
 
 type MLTransformTransformEncryptionArgs struct {
-	MLUserDataEncryption             MLTransformMLUserDataEncryptionPtrInput `pulumi:"mLUserDataEncryption"`
+	MlUserDataEncryption             MLTransformMLUserDataEncryptionPtrInput `pulumi:"mlUserDataEncryption"`
 	TaskRunSecurityConfigurationName pulumi.StringPtrInput                   `pulumi:"taskRunSecurityConfigurationName"`
 }
 
@@ -4631,8 +4631,8 @@ func (o MLTransformTransformEncryptionOutput) ToMLTransformTransformEncryptionPt
 	}).(MLTransformTransformEncryptionPtrOutput)
 }
 
-func (o MLTransformTransformEncryptionOutput) MLUserDataEncryption() MLTransformMLUserDataEncryptionPtrOutput {
-	return o.ApplyT(func(v MLTransformTransformEncryption) *MLTransformMLUserDataEncryption { return v.MLUserDataEncryption }).(MLTransformMLUserDataEncryptionPtrOutput)
+func (o MLTransformTransformEncryptionOutput) MlUserDataEncryption() MLTransformMLUserDataEncryptionPtrOutput {
+	return o.ApplyT(func(v MLTransformTransformEncryption) *MLTransformMLUserDataEncryption { return v.MlUserDataEncryption }).(MLTransformMLUserDataEncryptionPtrOutput)
 }
 
 func (o MLTransformTransformEncryptionOutput) TaskRunSecurityConfigurationName() pulumi.StringPtrOutput {
@@ -4663,12 +4663,12 @@ func (o MLTransformTransformEncryptionPtrOutput) Elem() MLTransformTransformEncr
 	}).(MLTransformTransformEncryptionOutput)
 }
 
-func (o MLTransformTransformEncryptionPtrOutput) MLUserDataEncryption() MLTransformMLUserDataEncryptionPtrOutput {
+func (o MLTransformTransformEncryptionPtrOutput) MlUserDataEncryption() MLTransformMLUserDataEncryptionPtrOutput {
 	return o.ApplyT(func(v *MLTransformTransformEncryption) *MLTransformMLUserDataEncryption {
 		if v == nil {
 			return nil
 		}
-		return v.MLUserDataEncryption
+		return v.MlUserDataEncryption
 	}).(MLTransformMLUserDataEncryptionPtrOutput)
 }
 

@@ -54,8 +54,8 @@ namespace Pulumi.AwsNative.Amplify
         [Output("environmentVariables")]
         public Output<ImmutableArray<Outputs.AppEnvironmentVariable>> EnvironmentVariables { get; private set; } = null!;
 
-        [Output("iAMServiceRole")]
-        public Output<string?> IAMServiceRole { get; private set; } = null!;
+        [Output("iamServiceRole")]
+        public Output<string?> IamServiceRole { get; private set; } = null!;
 
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -154,8 +154,8 @@ namespace Pulumi.AwsNative.Amplify
             set => _environmentVariables = value;
         }
 
-        [Input("iAMServiceRole")]
-        public Input<string>? IAMServiceRole { get; set; }
+        [Input("iamServiceRole")]
+        public Input<string>? IamServiceRole { get; set; }
 
         [Input("name")]
         public Input<string>? Name { get; set; }

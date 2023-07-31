@@ -244,7 +244,7 @@ class ScheduleEcsParametersArgs:
         pulumi.set(self, "capacity_provider_strategy", value)
 
     @property
-    @pulumi.getter(name="enableECSManagedTags")
+    @pulumi.getter(name="enableEcsManagedTags")
     def enable_ecs_managed_tags(self) -> Optional[pulumi.Input[bool]]:
         """
         Specifies whether to enable Amazon ECS managed tags for the task. For more information, see Tagging Your Amazon ECS Resources in the Amazon Elastic Container Service Developer Guide.

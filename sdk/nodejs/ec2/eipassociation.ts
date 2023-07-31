@@ -35,7 +35,7 @@ export class EIPAssociation extends pulumi.CustomResource {
     }
 
     public readonly allocationId!: pulumi.Output<string | undefined>;
-    public readonly eIP!: pulumi.Output<string | undefined>;
+    public readonly eip!: pulumi.Output<string | undefined>;
     public readonly instanceId!: pulumi.Output<string | undefined>;
     public readonly networkInterfaceId!: pulumi.Output<string | undefined>;
     public readonly privateIpAddress!: pulumi.Output<string | undefined>;
@@ -52,13 +52,13 @@ export class EIPAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["allocationId"] = args ? args.allocationId : undefined;
-            resourceInputs["eIP"] = args ? args.eIP : undefined;
+            resourceInputs["eip"] = args ? args.eip : undefined;
             resourceInputs["instanceId"] = args ? args.instanceId : undefined;
             resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
             resourceInputs["privateIpAddress"] = args ? args.privateIpAddress : undefined;
         } else {
             resourceInputs["allocationId"] = undefined /*out*/;
-            resourceInputs["eIP"] = undefined /*out*/;
+            resourceInputs["eip"] = undefined /*out*/;
             resourceInputs["instanceId"] = undefined /*out*/;
             resourceInputs["networkInterfaceId"] = undefined /*out*/;
             resourceInputs["privateIpAddress"] = undefined /*out*/;
@@ -73,7 +73,7 @@ export class EIPAssociation extends pulumi.CustomResource {
  */
 export interface EIPAssociationArgs {
     allocationId?: pulumi.Input<string>;
-    eIP?: pulumi.Input<string>;
+    eip?: pulumi.Input<string>;
     instanceId?: pulumi.Input<string>;
     networkInterfaceId?: pulumi.Input<string>;
     privateIpAddress?: pulumi.Input<string>;

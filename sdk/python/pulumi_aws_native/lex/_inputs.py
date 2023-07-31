@@ -2372,7 +2372,7 @@ class BotMessageArgs:
                  custom_payload: Optional[pulumi.Input['BotCustomPayloadArgs']] = None,
                  image_response_card: Optional[pulumi.Input['BotImageResponseCardArgs']] = None,
                  plain_text_message: Optional[pulumi.Input['BotPlainTextMessageArgs']] = None,
-                 s_sml_message: Optional[pulumi.Input['BotSSMLMessageArgs']] = None):
+                 ssml_message: Optional[pulumi.Input['BotSSMLMessageArgs']] = None):
         """
         The primary message that Amazon Lex should send to the user.
         """
@@ -2382,8 +2382,8 @@ class BotMessageArgs:
             pulumi.set(__self__, "image_response_card", image_response_card)
         if plain_text_message is not None:
             pulumi.set(__self__, "plain_text_message", plain_text_message)
-        if s_sml_message is not None:
-            pulumi.set(__self__, "s_sml_message", s_sml_message)
+        if ssml_message is not None:
+            pulumi.set(__self__, "ssml_message", ssml_message)
 
     @property
     @pulumi.getter(name="customPayload")
@@ -2413,13 +2413,13 @@ class BotMessageArgs:
         pulumi.set(self, "plain_text_message", value)
 
     @property
-    @pulumi.getter(name="sSMLMessage")
-    def s_sml_message(self) -> Optional[pulumi.Input['BotSSMLMessageArgs']]:
-        return pulumi.get(self, "s_sml_message")
+    @pulumi.getter(name="ssmlMessage")
+    def ssml_message(self) -> Optional[pulumi.Input['BotSSMLMessageArgs']]:
+        return pulumi.get(self, "ssml_message")
 
-    @s_sml_message.setter
-    def s_sml_message(self, value: Optional[pulumi.Input['BotSSMLMessageArgs']]):
-        pulumi.set(self, "s_sml_message", value)
+    @ssml_message.setter
+    def ssml_message(self, value: Optional[pulumi.Input['BotSSMLMessageArgs']]):
+        pulumi.set(self, "ssml_message", value)
 
 
 @pulumi.input_type

@@ -12,8 +12,8 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
 
     public sealed class DistributionCustomErrorResponseArgs : global::Pulumi.ResourceArgs
     {
-        [Input("errorCachingMinTTL")]
-        public Input<double>? ErrorCachingMinTTL { get; set; }
+        [Input("errorCachingMinTtl")]
+        public Input<double>? ErrorCachingMinTtl { get; set; }
 
         [Input("errorCode", required: true)]
         public Input<int> ErrorCode { get; set; } = null!;

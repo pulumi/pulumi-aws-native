@@ -24,14 +24,14 @@ namespace Pulumi.AwsNative.Redshift
         /// <summary>
         /// Indicates whether all VPCs in the grantee account are allowed access to the cluster.
         /// </summary>
-        [Output("allowedAllVPCs")]
-        public Output<bool> AllowedAllVPCs { get; private set; } = null!;
+        [Output("allowedAllVpcs")]
+        public Output<bool> AllowedAllVpcs { get; private set; } = null!;
 
         /// <summary>
         /// The VPCs allowed access to the cluster.
         /// </summary>
-        [Output("allowedVPCs")]
-        public Output<ImmutableArray<string>> AllowedVPCs { get; private set; } = null!;
+        [Output("allowedVpcs")]
+        public Output<ImmutableArray<string>> AllowedVpcs { get; private set; } = null!;
 
         /// <summary>
         /// The time (UTC) when the authorization was created.

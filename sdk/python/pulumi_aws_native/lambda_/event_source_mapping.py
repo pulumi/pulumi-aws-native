@@ -173,7 +173,7 @@ class EventSourceMappingArgs:
         pulumi.set(self, "destination_config", value)
 
     @property
-    @pulumi.getter(name="documentDBEventSourceConfig")
+    @pulumi.getter(name="documentDbEventSourceConfig")
     def document_db_event_source_config(self) -> Optional[pulumi.Input['EventSourceMappingDocumentDBEventSourceConfigArgs']]:
         """
         Document db event source config.
@@ -608,7 +608,7 @@ class EventSourceMapping(pulumi.CustomResource):
         return pulumi.get(self, "destination_config")
 
     @property
-    @pulumi.getter(name="documentDBEventSourceConfig")
+    @pulumi.getter(name="documentDbEventSourceConfig")
     def document_db_event_source_config(self) -> pulumi.Output[Optional['outputs.EventSourceMappingDocumentDBEventSourceConfig']]:
         """
         Document db event source config.

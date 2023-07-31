@@ -53,7 +53,7 @@ export interface GetLicenseResult {
     /**
      * ProductSKU of the license.
      */
-    readonly productSKU?: string;
+    readonly productSku?: string;
     readonly validity?: outputs.licensemanager.LicenseValidityDateFormat;
     /**
      * The version of the license.

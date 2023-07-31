@@ -13,16 +13,16 @@ namespace Pulumi.AwsNative.Events.Outputs
     [OutputType]
     public sealed class ConnectionClientParameters
     {
-        public readonly string ClientID;
+        public readonly string ClientId;
         public readonly string ClientSecret;
 
         [OutputConstructor]
         private ConnectionClientParameters(
-            string clientID,
+            string clientId,
 
             string clientSecret)
         {
-            ClientID = clientID;
+            ClientId = clientId;
             ClientSecret = clientSecret;
         }
     }

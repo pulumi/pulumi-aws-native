@@ -1031,15 +1031,15 @@ class ClusterKerberosAttributesArgs:
     def __init__(__self__, *,
                  kdc_admin_password: pulumi.Input[str],
                  realm: pulumi.Input[str],
-                 a_d_domain_join_password: Optional[pulumi.Input[str]] = None,
-                 a_d_domain_join_user: Optional[pulumi.Input[str]] = None,
+                 ad_domain_join_password: Optional[pulumi.Input[str]] = None,
+                 ad_domain_join_user: Optional[pulumi.Input[str]] = None,
                  cross_realm_trust_principal_password: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "kdc_admin_password", kdc_admin_password)
         pulumi.set(__self__, "realm", realm)
-        if a_d_domain_join_password is not None:
-            pulumi.set(__self__, "a_d_domain_join_password", a_d_domain_join_password)
-        if a_d_domain_join_user is not None:
-            pulumi.set(__self__, "a_d_domain_join_user", a_d_domain_join_user)
+        if ad_domain_join_password is not None:
+            pulumi.set(__self__, "ad_domain_join_password", ad_domain_join_password)
+        if ad_domain_join_user is not None:
+            pulumi.set(__self__, "ad_domain_join_user", ad_domain_join_user)
         if cross_realm_trust_principal_password is not None:
             pulumi.set(__self__, "cross_realm_trust_principal_password", cross_realm_trust_principal_password)
 
@@ -1062,22 +1062,22 @@ class ClusterKerberosAttributesArgs:
         pulumi.set(self, "realm", value)
 
     @property
-    @pulumi.getter(name="aDDomainJoinPassword")
-    def a_d_domain_join_password(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "a_d_domain_join_password")
+    @pulumi.getter(name="adDomainJoinPassword")
+    def ad_domain_join_password(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ad_domain_join_password")
 
-    @a_d_domain_join_password.setter
-    def a_d_domain_join_password(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "a_d_domain_join_password", value)
+    @ad_domain_join_password.setter
+    def ad_domain_join_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ad_domain_join_password", value)
 
     @property
-    @pulumi.getter(name="aDDomainJoinUser")
-    def a_d_domain_join_user(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "a_d_domain_join_user")
+    @pulumi.getter(name="adDomainJoinUser")
+    def ad_domain_join_user(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ad_domain_join_user")
 
-    @a_d_domain_join_user.setter
-    def a_d_domain_join_user(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "a_d_domain_join_user", value)
+    @ad_domain_join_user.setter
+    def ad_domain_join_user(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ad_domain_join_user", value)
 
     @property
     @pulumi.getter(name="crossRealmTrustPrincipalPassword")
@@ -1512,7 +1512,7 @@ class ClusterVolumeSpecificationArgs:
             pulumi.set(__self__, "iops", iops)
 
     @property
-    @pulumi.getter(name="sizeInGB")
+    @pulumi.getter(name="sizeInGb")
     def size_in_gb(self) -> pulumi.Input[int]:
         return pulumi.get(self, "size_in_gb")
 
@@ -1833,7 +1833,7 @@ class InstanceFleetConfigVolumeSpecificationArgs:
             pulumi.set(__self__, "iops", iops)
 
     @property
-    @pulumi.getter(name="sizeInGB")
+    @pulumi.getter(name="sizeInGb")
     def size_in_gb(self) -> pulumi.Input[int]:
         return pulumi.get(self, "size_in_gb")
 
@@ -2294,7 +2294,7 @@ class InstanceGroupConfigVolumeSpecificationArgs:
             pulumi.set(__self__, "iops", iops)
 
     @property
-    @pulumi.getter(name="sizeInGB")
+    @pulumi.getter(name="sizeInGb")
     def size_in_gb(self) -> pulumi.Input[int]:
         return pulumi.get(self, "size_in_gb")
 

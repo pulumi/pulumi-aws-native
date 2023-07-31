@@ -20,7 +20,7 @@ export interface GetStreamConsumerArgs {
 }
 
 export interface GetStreamConsumerResult {
-    readonly consumerARN?: string;
+    readonly consumerArn?: string;
     readonly consumerCreationTimestamp?: string;
     readonly consumerStatus?: string;
     readonly id?: string;

@@ -682,8 +682,8 @@ func (o LocationFSxONTAPNfsMountOptionsPtrOutput) Version() LocationFSxONTAPNfsM
 
 // Configuration settings for NFS or SMB protocol.
 type LocationFSxONTAPProtocol struct {
-	NFS *LocationFSxONTAPNFS `pulumi:"nFS"`
-	SMB *LocationFSxONTAPSMB `pulumi:"sMB"`
+	Nfs *LocationFSxONTAPNFS `pulumi:"nfs"`
+	Smb *LocationFSxONTAPSMB `pulumi:"smb"`
 }
 
 // LocationFSxONTAPProtocolInput is an input type that accepts LocationFSxONTAPProtocolArgs and LocationFSxONTAPProtocolOutput values.
@@ -699,8 +699,8 @@ type LocationFSxONTAPProtocolInput interface {
 
 // Configuration settings for NFS or SMB protocol.
 type LocationFSxONTAPProtocolArgs struct {
-	NFS LocationFSxONTAPNFSPtrInput `pulumi:"nFS"`
-	SMB LocationFSxONTAPSMBPtrInput `pulumi:"sMB"`
+	Nfs LocationFSxONTAPNFSPtrInput `pulumi:"nfs"`
+	Smb LocationFSxONTAPSMBPtrInput `pulumi:"smb"`
 }
 
 func (LocationFSxONTAPProtocolArgs) ElementType() reflect.Type {
@@ -781,12 +781,12 @@ func (o LocationFSxONTAPProtocolOutput) ToLocationFSxONTAPProtocolPtrOutputWithC
 	}).(LocationFSxONTAPProtocolPtrOutput)
 }
 
-func (o LocationFSxONTAPProtocolOutput) NFS() LocationFSxONTAPNFSPtrOutput {
-	return o.ApplyT(func(v LocationFSxONTAPProtocol) *LocationFSxONTAPNFS { return v.NFS }).(LocationFSxONTAPNFSPtrOutput)
+func (o LocationFSxONTAPProtocolOutput) Nfs() LocationFSxONTAPNFSPtrOutput {
+	return o.ApplyT(func(v LocationFSxONTAPProtocol) *LocationFSxONTAPNFS { return v.Nfs }).(LocationFSxONTAPNFSPtrOutput)
 }
 
-func (o LocationFSxONTAPProtocolOutput) SMB() LocationFSxONTAPSMBPtrOutput {
-	return o.ApplyT(func(v LocationFSxONTAPProtocol) *LocationFSxONTAPSMB { return v.SMB }).(LocationFSxONTAPSMBPtrOutput)
+func (o LocationFSxONTAPProtocolOutput) Smb() LocationFSxONTAPSMBPtrOutput {
+	return o.ApplyT(func(v LocationFSxONTAPProtocol) *LocationFSxONTAPSMB { return v.Smb }).(LocationFSxONTAPSMBPtrOutput)
 }
 
 type LocationFSxONTAPProtocolPtrOutput struct{ *pulumi.OutputState }
@@ -813,21 +813,21 @@ func (o LocationFSxONTAPProtocolPtrOutput) Elem() LocationFSxONTAPProtocolOutput
 	}).(LocationFSxONTAPProtocolOutput)
 }
 
-func (o LocationFSxONTAPProtocolPtrOutput) NFS() LocationFSxONTAPNFSPtrOutput {
+func (o LocationFSxONTAPProtocolPtrOutput) Nfs() LocationFSxONTAPNFSPtrOutput {
 	return o.ApplyT(func(v *LocationFSxONTAPProtocol) *LocationFSxONTAPNFS {
 		if v == nil {
 			return nil
 		}
-		return v.NFS
+		return v.Nfs
 	}).(LocationFSxONTAPNFSPtrOutput)
 }
 
-func (o LocationFSxONTAPProtocolPtrOutput) SMB() LocationFSxONTAPSMBPtrOutput {
+func (o LocationFSxONTAPProtocolPtrOutput) Smb() LocationFSxONTAPSMBPtrOutput {
 	return o.ApplyT(func(v *LocationFSxONTAPProtocol) *LocationFSxONTAPSMB {
 		if v == nil {
 			return nil
 		}
-		return v.SMB
+		return v.Smb
 	}).(LocationFSxONTAPSMBPtrOutput)
 }
 
@@ -1551,7 +1551,7 @@ func (o LocationFSxOpenZFSNFSPtrOutput) MountOptions() LocationFSxOpenZFSMountOp
 
 // Configuration settings for an NFS or SMB protocol, currently only support NFS
 type LocationFSxOpenZFSProtocol struct {
-	NFS *LocationFSxOpenZFSNFS `pulumi:"nFS"`
+	Nfs *LocationFSxOpenZFSNFS `pulumi:"nfs"`
 }
 
 // LocationFSxOpenZFSProtocolInput is an input type that accepts LocationFSxOpenZFSProtocolArgs and LocationFSxOpenZFSProtocolOutput values.
@@ -1567,7 +1567,7 @@ type LocationFSxOpenZFSProtocolInput interface {
 
 // Configuration settings for an NFS or SMB protocol, currently only support NFS
 type LocationFSxOpenZFSProtocolArgs struct {
-	NFS LocationFSxOpenZFSNFSPtrInput `pulumi:"nFS"`
+	Nfs LocationFSxOpenZFSNFSPtrInput `pulumi:"nfs"`
 }
 
 func (LocationFSxOpenZFSProtocolArgs) ElementType() reflect.Type {
@@ -1597,8 +1597,8 @@ func (o LocationFSxOpenZFSProtocolOutput) ToLocationFSxOpenZFSProtocolOutputWith
 	return o
 }
 
-func (o LocationFSxOpenZFSProtocolOutput) NFS() LocationFSxOpenZFSNFSPtrOutput {
-	return o.ApplyT(func(v LocationFSxOpenZFSProtocol) *LocationFSxOpenZFSNFS { return v.NFS }).(LocationFSxOpenZFSNFSPtrOutput)
+func (o LocationFSxOpenZFSProtocolOutput) Nfs() LocationFSxOpenZFSNFSPtrOutput {
+	return o.ApplyT(func(v LocationFSxOpenZFSProtocol) *LocationFSxOpenZFSNFS { return v.Nfs }).(LocationFSxOpenZFSNFSPtrOutput)
 }
 
 // A key-value pair to associate with a resource.

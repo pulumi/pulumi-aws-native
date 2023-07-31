@@ -13,17 +13,17 @@ namespace Pulumi.AwsNative.Cognito.Outputs
     [OutputType]
     public sealed class UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType
     {
-        public readonly ImmutableArray<string> BlockedIPRangeList;
-        public readonly ImmutableArray<string> SkippedIPRangeList;
+        public readonly ImmutableArray<string> BlockedIpRangeList;
+        public readonly ImmutableArray<string> SkippedIpRangeList;
 
         [OutputConstructor]
         private UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType(
-            ImmutableArray<string> blockedIPRangeList,
+            ImmutableArray<string> blockedIpRangeList,
 
-            ImmutableArray<string> skippedIPRangeList)
+            ImmutableArray<string> skippedIpRangeList)
         {
-            BlockedIPRangeList = blockedIPRangeList;
-            SkippedIPRangeList = skippedIPRangeList;
+            BlockedIpRangeList = blockedIpRangeList;
+            SkippedIpRangeList = skippedIpRangeList;
         }
     }
 }

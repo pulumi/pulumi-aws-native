@@ -35,7 +35,7 @@ type LookupTaskDefinitionResult struct {
 	// The ID of the new wireless gateway task definition
 	Id *string `pulumi:"id"`
 	// The list of task definitions.
-	LoRaWANUpdateGatewayTaskEntry *TaskDefinitionLoRaWANUpdateGatewayTaskEntry `pulumi:"loRaWANUpdateGatewayTaskEntry"`
+	LoRaWanUpdateGatewayTaskEntry *TaskDefinitionLoRaWANUpdateGatewayTaskEntry `pulumi:"loRaWanUpdateGatewayTaskEntry"`
 	// The name of the new resource.
 	Name *string `pulumi:"name"`
 	// A list of key-value pairs that contain metadata for the destination.
@@ -98,9 +98,9 @@ func (o LookupTaskDefinitionResultOutput) Id() pulumi.StringPtrOutput {
 }
 
 // The list of task definitions.
-func (o LookupTaskDefinitionResultOutput) LoRaWANUpdateGatewayTaskEntry() TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutput {
+func (o LookupTaskDefinitionResultOutput) LoRaWanUpdateGatewayTaskEntry() TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutput {
 	return o.ApplyT(func(v LookupTaskDefinitionResult) *TaskDefinitionLoRaWANUpdateGatewayTaskEntry {
-		return v.LoRaWANUpdateGatewayTaskEntry
+		return v.LoRaWanUpdateGatewayTaskEntry
 	}).(TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutput)
 }
 

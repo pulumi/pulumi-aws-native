@@ -24,12 +24,12 @@ func LookupDBProxyEndpoint(ctx *pulumi.Context, args *LookupDBProxyEndpointArgs,
 
 type LookupDBProxyEndpointArgs struct {
 	// The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.
-	DBProxyEndpointName string `pulumi:"dBProxyEndpointName"`
+	DbProxyEndpointName string `pulumi:"dbProxyEndpointName"`
 }
 
 type LookupDBProxyEndpointResult struct {
 	// The Amazon Resource Name (ARN) for the DB proxy endpoint.
-	DBProxyEndpointArn *string `pulumi:"dBProxyEndpointArn"`
+	DbProxyEndpointArn *string `pulumi:"dbProxyEndpointArn"`
 	// The endpoint that you can use to connect to the DB proxy. You include the endpoint value in the connection string for a database client application.
 	Endpoint *string `pulumi:"endpoint"`
 	// A value that indicates whether this endpoint is the default endpoint for the associated DB proxy. Default DB proxy endpoints always have read/write capability. Other endpoints that you associate with the DB proxy can be either read/write or read-only.
@@ -59,7 +59,7 @@ func LookupDBProxyEndpointOutput(ctx *pulumi.Context, args LookupDBProxyEndpoint
 
 type LookupDBProxyEndpointOutputArgs struct {
 	// The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.
-	DBProxyEndpointName pulumi.StringInput `pulumi:"dBProxyEndpointName"`
+	DbProxyEndpointName pulumi.StringInput `pulumi:"dbProxyEndpointName"`
 }
 
 func (LookupDBProxyEndpointOutputArgs) ElementType() reflect.Type {
@@ -81,8 +81,8 @@ func (o LookupDBProxyEndpointResultOutput) ToLookupDBProxyEndpointResultOutputWi
 }
 
 // The Amazon Resource Name (ARN) for the DB proxy endpoint.
-func (o LookupDBProxyEndpointResultOutput) DBProxyEndpointArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupDBProxyEndpointResult) *string { return v.DBProxyEndpointArn }).(pulumi.StringPtrOutput)
+func (o LookupDBProxyEndpointResultOutput) DbProxyEndpointArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDBProxyEndpointResult) *string { return v.DbProxyEndpointArn }).(pulumi.StringPtrOutput)
 }
 
 // The endpoint that you can use to connect to the DB proxy. You include the endpoint value in the connection string for a database client application.

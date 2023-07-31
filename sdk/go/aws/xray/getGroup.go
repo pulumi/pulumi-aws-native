@@ -24,14 +24,14 @@ func LookupGroup(ctx *pulumi.Context, args *LookupGroupArgs, opts ...pulumi.Invo
 
 type LookupGroupArgs struct {
 	// The ARN of the group that was generated on creation.
-	GroupARN string `pulumi:"groupARN"`
+	GroupArn string `pulumi:"groupArn"`
 }
 
 type LookupGroupResult struct {
 	// The filter expression defining criteria by which to group traces.
 	FilterExpression *string `pulumi:"filterExpression"`
 	// The ARN of the group that was generated on creation.
-	GroupARN *string `pulumi:"groupARN"`
+	GroupArn *string `pulumi:"groupArn"`
 	// The case-sensitive name of the new group. Names must be unique.
 	GroupName             *string                     `pulumi:"groupName"`
 	InsightsConfiguration *GroupInsightsConfiguration `pulumi:"insightsConfiguration"`
@@ -53,7 +53,7 @@ func LookupGroupOutput(ctx *pulumi.Context, args LookupGroupOutputArgs, opts ...
 
 type LookupGroupOutputArgs struct {
 	// The ARN of the group that was generated on creation.
-	GroupARN pulumi.StringInput `pulumi:"groupARN"`
+	GroupArn pulumi.StringInput `pulumi:"groupArn"`
 }
 
 func (LookupGroupOutputArgs) ElementType() reflect.Type {
@@ -80,8 +80,8 @@ func (o LookupGroupResultOutput) FilterExpression() pulumi.StringPtrOutput {
 }
 
 // The ARN of the group that was generated on creation.
-func (o LookupGroupResultOutput) GroupARN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupGroupResult) *string { return v.GroupARN }).(pulumi.StringPtrOutput)
+func (o LookupGroupResultOutput) GroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupGroupResult) *string { return v.GroupArn }).(pulumi.StringPtrOutput)
 }
 
 // The case-sensitive name of the new group. Names must be unique.

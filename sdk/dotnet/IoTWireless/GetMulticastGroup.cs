@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.IoTWireless
         /// <summary>
         /// Multicast group LoRaWAN
         /// </summary>
-        public readonly Outputs.MulticastGroupLoRaWAN? LoRaWAN;
+        public readonly Outputs.MulticastGroupLoRaWAN? LoRaWan;
         /// <summary>
         /// Name of Multicast group
         /// </summary>
@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.IoTWireless
 
             string? id,
 
-            Outputs.MulticastGroupLoRaWAN? loRaWAN,
+            Outputs.MulticastGroupLoRaWAN? loRaWan,
 
             string? name,
 
@@ -119,7 +119,7 @@ namespace Pulumi.AwsNative.IoTWireless
             Description = description;
             DisassociateWirelessDevice = disassociateWirelessDevice;
             Id = id;
-            LoRaWAN = loRaWAN;
+            LoRaWan = loRaWan;
             Name = name;
             Status = status;
             Tags = tags;

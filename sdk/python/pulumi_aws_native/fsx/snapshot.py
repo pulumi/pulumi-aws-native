@@ -153,7 +153,7 @@ class Snapshot(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="resourceARN")
+    @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "resource_arn")
 

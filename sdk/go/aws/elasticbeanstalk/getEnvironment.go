@@ -30,7 +30,7 @@ type LookupEnvironmentArgs struct {
 type LookupEnvironmentResult struct {
 	// Your description for this environment.
 	Description *string `pulumi:"description"`
-	EndpointURL *string `pulumi:"endpointURL"`
+	EndpointUrl *string `pulumi:"endpointUrl"`
 	// The Amazon Resource Name (ARN) of an existing IAM role to be used as the environment's operations role.
 	OperationsRole *string `pulumi:"operationsRole"`
 	// The Amazon Resource Name (ARN) of the custom platform to use with the environment.
@@ -84,8 +84,8 @@ func (o LookupEnvironmentResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEnvironmentResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupEnvironmentResultOutput) EndpointURL() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupEnvironmentResult) *string { return v.EndpointURL }).(pulumi.StringPtrOutput)
+func (o LookupEnvironmentResultOutput) EndpointUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEnvironmentResult) *string { return v.EndpointUrl }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of an existing IAM role to be used as the environment's operations role.

@@ -13,12 +13,12 @@ namespace Pulumi.AwsNative.GroundStation.Outputs
     [OutputType]
     public sealed class ConfigDecodeConfig
     {
-        public readonly string? UnvalidatedJSON;
+        public readonly string? UnvalidatedJson;
 
         [OutputConstructor]
-        private ConfigDecodeConfig(string? unvalidatedJSON)
+        private ConfigDecodeConfig(string? unvalidatedJson)
         {
-            UnvalidatedJSON = unvalidatedJSON;
+            UnvalidatedJson = unvalidatedJson;
         }
     }
 }

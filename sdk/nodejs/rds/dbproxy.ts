@@ -44,11 +44,11 @@ export class DBProxy extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) for the proxy.
      */
-    public /*out*/ readonly dBProxyArn!: pulumi.Output<string>;
+    public /*out*/ readonly dbProxyArn!: pulumi.Output<string>;
     /**
      * The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
      */
-    public readonly dBProxyName!: pulumi.Output<string>;
+    public readonly dbProxyName!: pulumi.Output<string>;
     /**
      * Whether the proxy includes detailed information about SQL statements in its logs.
      */
@@ -68,7 +68,7 @@ export class DBProxy extends pulumi.CustomResource {
     /**
      * A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
      */
-    public readonly requireTLS!: pulumi.Output<boolean | undefined>;
+    public readonly requireTls!: pulumi.Output<boolean | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
      */
@@ -114,27 +114,27 @@ export class DBProxy extends pulumi.CustomResource {
                 throw new Error("Missing required property 'vpcSubnetIds'");
             }
             resourceInputs["auth"] = args ? args.auth : undefined;
-            resourceInputs["dBProxyName"] = args ? args.dBProxyName : undefined;
+            resourceInputs["dbProxyName"] = args ? args.dbProxyName : undefined;
             resourceInputs["debugLogging"] = args ? args.debugLogging : undefined;
             resourceInputs["engineFamily"] = args ? args.engineFamily : undefined;
             resourceInputs["idleClientTimeout"] = args ? args.idleClientTimeout : undefined;
-            resourceInputs["requireTLS"] = args ? args.requireTLS : undefined;
+            resourceInputs["requireTls"] = args ? args.requireTls : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
             resourceInputs["vpcSubnetIds"] = args ? args.vpcSubnetIds : undefined;
-            resourceInputs["dBProxyArn"] = undefined /*out*/;
+            resourceInputs["dbProxyArn"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["vpcId"] = undefined /*out*/;
         } else {
             resourceInputs["auth"] = undefined /*out*/;
-            resourceInputs["dBProxyArn"] = undefined /*out*/;
-            resourceInputs["dBProxyName"] = undefined /*out*/;
+            resourceInputs["dbProxyArn"] = undefined /*out*/;
+            resourceInputs["dbProxyName"] = undefined /*out*/;
             resourceInputs["debugLogging"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["engineFamily"] = undefined /*out*/;
             resourceInputs["idleClientTimeout"] = undefined /*out*/;
-            resourceInputs["requireTLS"] = undefined /*out*/;
+            resourceInputs["requireTls"] = undefined /*out*/;
             resourceInputs["roleArn"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["vpcId"] = undefined /*out*/;
@@ -157,7 +157,7 @@ export interface DBProxyArgs {
     /**
      * The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
      */
-    dBProxyName?: pulumi.Input<string>;
+    dbProxyName?: pulumi.Input<string>;
     /**
      * Whether the proxy includes detailed information about SQL statements in its logs.
      */
@@ -173,7 +173,7 @@ export interface DBProxyArgs {
     /**
      * A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
      */
-    requireTLS?: pulumi.Input<boolean>;
+    requireTls?: pulumi.Input<boolean>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
      */

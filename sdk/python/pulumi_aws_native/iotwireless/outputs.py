@@ -1091,7 +1091,7 @@ class TaskDefinitionUpdateWirelessGatewayTaskCreate(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "loRaWAN":
+        if key == "loRaWan":
             suggest = "lo_ra_wan"
         elif key == "updateDataRole":
             suggest = "update_data_role"
@@ -1121,7 +1121,7 @@ class TaskDefinitionUpdateWirelessGatewayTaskCreate(dict):
             pulumi.set(__self__, "update_data_source", update_data_source)
 
     @property
-    @pulumi.getter(name="loRaWAN")
+    @pulumi.getter(name="loRaWan")
     def lo_ra_wan(self) -> Optional['outputs.TaskDefinitionLoRaWANUpdateGatewayTaskCreate']:
         return pulumi.get(self, "lo_ra_wan")
 

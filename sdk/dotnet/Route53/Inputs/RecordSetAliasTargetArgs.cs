@@ -12,8 +12,8 @@ namespace Pulumi.AwsNative.Route53.Inputs
 
     public sealed class RecordSetAliasTargetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("dNSName", required: true)]
-        public Input<string> DNSName { get; set; } = null!;
+        [Input("dnsName", required: true)]
+        public Input<string> DnsName { get; set; } = null!;
 
         [Input("evaluateTargetHealth")]
         public Input<bool>? EvaluateTargetHealth { get; set; }

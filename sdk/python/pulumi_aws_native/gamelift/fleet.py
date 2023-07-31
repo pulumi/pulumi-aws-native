@@ -23,8 +23,8 @@ class FleetArgs:
                  compute_type: Optional[pulumi.Input['FleetComputeType']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  desired_ec2_instances: Optional[pulumi.Input[int]] = None,
-                 e_c2_inbound_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['FleetIpPermissionArgs']]]] = None,
-                 e_c2_instance_type: Optional[pulumi.Input[str]] = None,
+                 ec2_inbound_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['FleetIpPermissionArgs']]]] = None,
+                 ec2_instance_type: Optional[pulumi.Input[str]] = None,
                  fleet_type: Optional[pulumi.Input['FleetType']] = None,
                  instance_role_arn: Optional[pulumi.Input[str]] = None,
                  locations: Optional[pulumi.Input[Sequence[pulumi.Input['FleetLocationConfigurationArgs']]]] = None,
@@ -49,8 +49,8 @@ class FleetArgs:
         :param pulumi.Input['FleetComputeType'] compute_type: ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
         :param pulumi.Input[str] description: A human-readable description of a fleet.
         :param pulumi.Input[int] desired_ec2_instances: [DEPRECATED] The number of EC2 instances that you want this fleet to host. When creating a new fleet, GameLift automatically sets this value to "1" and initiates a single instance. Once the fleet is active, update this value to trigger GameLift to add or remove instances from the fleet.
-        :param pulumi.Input[Sequence[pulumi.Input['FleetIpPermissionArgs']]] e_c2_inbound_permissions: A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift server.
-        :param pulumi.Input[str] e_c2_instance_type: The name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See Amazon EC2 Instance Types for detailed descriptions.
+        :param pulumi.Input[Sequence[pulumi.Input['FleetIpPermissionArgs']]] ec2_inbound_permissions: A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift server.
+        :param pulumi.Input[str] ec2_instance_type: The name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See Amazon EC2 Instance Types for detailed descriptions.
         :param pulumi.Input['FleetType'] fleet_type: Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
         :param pulumi.Input[str] instance_role_arn: A unique identifier for an AWS IAM role that manages access to your AWS services. With an instance role ARN set, any application that runs on an instance in this fleet can assume the role, including install scripts, server processes, and daemons (background processes). Create a role or look up a role's ARN from the IAM dashboard in the AWS Management Console.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] log_paths: This parameter is no longer used. When hosting a custom game build, specify where Amazon GameLift should store log files using the Amazon GameLift server API call ProcessReady()
@@ -83,10 +83,10 @@ class FleetArgs:
             pulumi.set(__self__, "description", description)
         if desired_ec2_instances is not None:
             pulumi.set(__self__, "desired_ec2_instances", desired_ec2_instances)
-        if e_c2_inbound_permissions is not None:
-            pulumi.set(__self__, "e_c2_inbound_permissions", e_c2_inbound_permissions)
-        if e_c2_instance_type is not None:
-            pulumi.set(__self__, "e_c2_instance_type", e_c2_instance_type)
+        if ec2_inbound_permissions is not None:
+            pulumi.set(__self__, "ec2_inbound_permissions", ec2_inbound_permissions)
+        if ec2_instance_type is not None:
+            pulumi.set(__self__, "ec2_instance_type", ec2_instance_type)
         if fleet_type is not None:
             pulumi.set(__self__, "fleet_type", fleet_type)
         if instance_role_arn is not None:
@@ -181,7 +181,7 @@ class FleetArgs:
         pulumi.set(self, "description", value)
 
     @property
-    @pulumi.getter(name="desiredEC2Instances")
+    @pulumi.getter(name="desiredEc2Instances")
     def desired_ec2_instances(self) -> Optional[pulumi.Input[int]]:
         """
         [DEPRECATED] The number of EC2 instances that you want this fleet to host. When creating a new fleet, GameLift automatically sets this value to "1" and initiates a single instance. Once the fleet is active, update this value to trigger GameLift to add or remove instances from the fleet.
@@ -193,28 +193,28 @@ class FleetArgs:
         pulumi.set(self, "desired_ec2_instances", value)
 
     @property
-    @pulumi.getter(name="eC2InboundPermissions")
-    def e_c2_inbound_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FleetIpPermissionArgs']]]]:
+    @pulumi.getter(name="ec2InboundPermissions")
+    def ec2_inbound_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FleetIpPermissionArgs']]]]:
         """
         A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift server.
         """
-        return pulumi.get(self, "e_c2_inbound_permissions")
+        return pulumi.get(self, "ec2_inbound_permissions")
 
-    @e_c2_inbound_permissions.setter
-    def e_c2_inbound_permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FleetIpPermissionArgs']]]]):
-        pulumi.set(self, "e_c2_inbound_permissions", value)
+    @ec2_inbound_permissions.setter
+    def ec2_inbound_permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FleetIpPermissionArgs']]]]):
+        pulumi.set(self, "ec2_inbound_permissions", value)
 
     @property
-    @pulumi.getter(name="eC2InstanceType")
-    def e_c2_instance_type(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="ec2InstanceType")
+    def ec2_instance_type(self) -> Optional[pulumi.Input[str]]:
         """
         The name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See Amazon EC2 Instance Types for detailed descriptions.
         """
-        return pulumi.get(self, "e_c2_instance_type")
+        return pulumi.get(self, "ec2_instance_type")
 
-    @e_c2_instance_type.setter
-    def e_c2_instance_type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "e_c2_instance_type", value)
+    @ec2_instance_type.setter
+    def ec2_instance_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ec2_instance_type", value)
 
     @property
     @pulumi.getter(name="fleetType")
@@ -229,7 +229,7 @@ class FleetArgs:
         pulumi.set(self, "fleet_type", value)
 
     @property
-    @pulumi.getter(name="instanceRoleARN")
+    @pulumi.getter(name="instanceRoleArn")
     def instance_role_arn(self) -> Optional[pulumi.Input[str]]:
         """
         A unique identifier for an AWS IAM role that manages access to your AWS services. With an instance role ARN set, any application that runs on an instance in this fleet can assume the role, including install scripts, server processes, and daemons (background processes). Create a role or look up a role's ARN from the IAM dashboard in the AWS Management Console.
@@ -421,8 +421,8 @@ class Fleet(pulumi.CustomResource):
                  compute_type: Optional[pulumi.Input['FleetComputeType']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  desired_ec2_instances: Optional[pulumi.Input[int]] = None,
-                 e_c2_inbound_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetIpPermissionArgs']]]]] = None,
-                 e_c2_instance_type: Optional[pulumi.Input[str]] = None,
+                 ec2_inbound_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetIpPermissionArgs']]]]] = None,
+                 ec2_instance_type: Optional[pulumi.Input[str]] = None,
                  fleet_type: Optional[pulumi.Input['FleetType']] = None,
                  instance_role_arn: Optional[pulumi.Input[str]] = None,
                  locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetLocationConfigurationArgs']]]]] = None,
@@ -451,8 +451,8 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input['FleetComputeType'] compute_type: ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
         :param pulumi.Input[str] description: A human-readable description of a fleet.
         :param pulumi.Input[int] desired_ec2_instances: [DEPRECATED] The number of EC2 instances that you want this fleet to host. When creating a new fleet, GameLift automatically sets this value to "1" and initiates a single instance. Once the fleet is active, update this value to trigger GameLift to add or remove instances from the fleet.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetIpPermissionArgs']]]] e_c2_inbound_permissions: A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift server.
-        :param pulumi.Input[str] e_c2_instance_type: The name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See Amazon EC2 Instance Types for detailed descriptions.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetIpPermissionArgs']]]] ec2_inbound_permissions: A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift server.
+        :param pulumi.Input[str] ec2_instance_type: The name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See Amazon EC2 Instance Types for detailed descriptions.
         :param pulumi.Input['FleetType'] fleet_type: Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
         :param pulumi.Input[str] instance_role_arn: A unique identifier for an AWS IAM role that manages access to your AWS services. With an instance role ARN set, any application that runs on an instance in this fleet can assume the role, including install scripts, server processes, and daemons (background processes). Create a role or look up a role's ARN from the IAM dashboard in the AWS Management Console.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] log_paths: This parameter is no longer used. When hosting a custom game build, specify where Amazon GameLift should store log files using the Amazon GameLift server API call ProcessReady()
@@ -503,8 +503,8 @@ class Fleet(pulumi.CustomResource):
                  compute_type: Optional[pulumi.Input['FleetComputeType']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  desired_ec2_instances: Optional[pulumi.Input[int]] = None,
-                 e_c2_inbound_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetIpPermissionArgs']]]]] = None,
-                 e_c2_instance_type: Optional[pulumi.Input[str]] = None,
+                 ec2_inbound_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetIpPermissionArgs']]]]] = None,
+                 ec2_instance_type: Optional[pulumi.Input[str]] = None,
                  fleet_type: Optional[pulumi.Input['FleetType']] = None,
                  instance_role_arn: Optional[pulumi.Input[str]] = None,
                  locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetLocationConfigurationArgs']]]]] = None,
@@ -536,8 +536,8 @@ class Fleet(pulumi.CustomResource):
             __props__.__dict__["compute_type"] = compute_type
             __props__.__dict__["description"] = description
             __props__.__dict__["desired_ec2_instances"] = desired_ec2_instances
-            __props__.__dict__["e_c2_inbound_permissions"] = e_c2_inbound_permissions
-            __props__.__dict__["e_c2_instance_type"] = e_c2_instance_type
+            __props__.__dict__["ec2_inbound_permissions"] = ec2_inbound_permissions
+            __props__.__dict__["ec2_instance_type"] = ec2_instance_type
             __props__.__dict__["fleet_type"] = fleet_type
             __props__.__dict__["instance_role_arn"] = instance_role_arn
             __props__.__dict__["locations"] = locations
@@ -583,8 +583,8 @@ class Fleet(pulumi.CustomResource):
         __props__.__dict__["compute_type"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["desired_ec2_instances"] = None
-        __props__.__dict__["e_c2_inbound_permissions"] = None
-        __props__.__dict__["e_c2_instance_type"] = None
+        __props__.__dict__["ec2_inbound_permissions"] = None
+        __props__.__dict__["ec2_instance_type"] = None
         __props__.__dict__["fleet_id"] = None
         __props__.__dict__["fleet_type"] = None
         __props__.__dict__["instance_role_arn"] = None
@@ -645,7 +645,7 @@ class Fleet(pulumi.CustomResource):
         return pulumi.get(self, "description")
 
     @property
-    @pulumi.getter(name="desiredEC2Instances")
+    @pulumi.getter(name="desiredEc2Instances")
     def desired_ec2_instances(self) -> pulumi.Output[Optional[int]]:
         """
         [DEPRECATED] The number of EC2 instances that you want this fleet to host. When creating a new fleet, GameLift automatically sets this value to "1" and initiates a single instance. Once the fleet is active, update this value to trigger GameLift to add or remove instances from the fleet.
@@ -653,20 +653,20 @@ class Fleet(pulumi.CustomResource):
         return pulumi.get(self, "desired_ec2_instances")
 
     @property
-    @pulumi.getter(name="eC2InboundPermissions")
-    def e_c2_inbound_permissions(self) -> pulumi.Output[Optional[Sequence['outputs.FleetIpPermission']]]:
+    @pulumi.getter(name="ec2InboundPermissions")
+    def ec2_inbound_permissions(self) -> pulumi.Output[Optional[Sequence['outputs.FleetIpPermission']]]:
         """
         A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift server.
         """
-        return pulumi.get(self, "e_c2_inbound_permissions")
+        return pulumi.get(self, "ec2_inbound_permissions")
 
     @property
-    @pulumi.getter(name="eC2InstanceType")
-    def e_c2_instance_type(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="ec2InstanceType")
+    def ec2_instance_type(self) -> pulumi.Output[Optional[str]]:
         """
         The name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See Amazon EC2 Instance Types for detailed descriptions.
         """
-        return pulumi.get(self, "e_c2_instance_type")
+        return pulumi.get(self, "ec2_instance_type")
 
     @property
     @pulumi.getter(name="fleetId")
@@ -685,7 +685,7 @@ class Fleet(pulumi.CustomResource):
         return pulumi.get(self, "fleet_type")
 
     @property
-    @pulumi.getter(name="instanceRoleARN")
+    @pulumi.getter(name="instanceRoleArn")
     def instance_role_arn(self) -> pulumi.Output[Optional[str]]:
         """
         A unique identifier for an AWS IAM role that manages access to your AWS services. With an instance role ARN set, any application that runs on an instance in this fleet can assume the role, including install scripts, server processes, and daemons (background processes). Create a role or look up a role's ARN from the IAM dashboard in the AWS Management Console.

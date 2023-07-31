@@ -29,11 +29,11 @@ export interface GetClusterResult {
     /**
      * The name of the Access Control List to associate with the cluster.
      */
-    readonly aCLName?: string;
+    readonly aclName?: string;
     /**
      * The Amazon Resource Name (ARN) of the cluster.
      */
-    readonly aRN?: string;
+    readonly arn?: string;
     /**
      * A flag that enables automatic minor version upgrade when set to true.
      *

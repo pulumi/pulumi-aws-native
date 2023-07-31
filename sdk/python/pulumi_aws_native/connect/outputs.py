@@ -1223,7 +1223,7 @@ class InstanceAttributes(dict):
             suggest = "contactflow_logs"
         elif key == "earlyMedia":
             suggest = "early_media"
-        elif key == "useCustomTTSVoices":
+        elif key == "useCustomTtsVoices":
             suggest = "use_custom_tts_voices"
 
         if suggest:
@@ -1289,7 +1289,7 @@ class InstanceAttributes(dict):
         return pulumi.get(self, "early_media")
 
     @property
-    @pulumi.getter(name="useCustomTTSVoices")
+    @pulumi.getter(name="useCustomTtsVoices")
     def use_custom_tts_voices(self) -> Optional[bool]:
         return pulumi.get(self, "use_custom_tts_voices")
 

@@ -190,7 +190,7 @@ class GetReplicationGroupResult:
         return pulumi.get(self, "log_delivery_configurations")
 
     @property
-    @pulumi.getter(name="multiAZEnabled")
+    @pulumi.getter(name="multiAzEnabled")
     def multi_az_enabled(self) -> Optional[bool]:
         return pulumi.get(self, "multi_az_enabled")
 

@@ -12,8 +12,8 @@ namespace Pulumi.AwsNative.ServiceDiscovery.Inputs
 
     public sealed class PrivateDnsNamespaceSOAArgs : global::Pulumi.ResourceArgs
     {
-        [Input("tTL")]
-        public Input<double>? TTL { get; set; }
+        [Input("ttl")]
+        public Input<double>? Ttl { get; set; }
 
         public PrivateDnsNamespaceSOAArgs()
         {

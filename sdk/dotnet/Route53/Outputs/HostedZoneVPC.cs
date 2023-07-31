@@ -19,20 +19,20 @@ namespace Pulumi.AwsNative.Route53.Outputs
         /// <summary>
         /// The ID of an Amazon VPC.
         /// </summary>
-        public readonly string VPCId;
+        public readonly string VpcId;
         /// <summary>
         /// The region that an Amazon VPC was created in. See https://docs.aws.amazon.com/general/latest/gr/rande.html for a list of up to date regions.
         /// </summary>
-        public readonly string VPCRegion;
+        public readonly string VpcRegion;
 
         [OutputConstructor]
         private HostedZoneVPC(
-            string vPCId,
+            string vpcId,
 
-            string vPCRegion)
+            string vpcRegion)
         {
-            VPCId = vPCId;
-            VPCRegion = vPCRegion;
+            VpcId = vpcId;
+            VpcRegion = vpcRegion;
         }
     }
 }

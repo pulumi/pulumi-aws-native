@@ -80,7 +80,6 @@ __all__ = [
     'WebACLAWSManagedRulesACFPRuleSetArgs',
     'WebACLAWSManagedRulesATPRuleSetArgs',
     'WebACLAWSManagedRulesBotControlRuleSetArgs',
-    'WebACLAddressFieldArgs',
     'WebACLAllowActionArgs',
     'WebACLAndStatementArgs',
     'WebACLAssociationConfigArgs',
@@ -120,7 +119,6 @@ __all__ = [
     'WebACLNotStatementArgs',
     'WebACLOrStatementArgs',
     'WebACLOverrideActionArgs',
-    'WebACLPhoneNumberFieldArgs',
     'WebACLRateBasedStatementCustomKeyArgs',
     'WebACLRateBasedStatementArgs',
     'WebACLRateLimitCookieArgs',
@@ -1260,7 +1258,7 @@ class RuleGroupGeoMatchStatementArgs:
         pulumi.set(self, "country_codes", value)
 
     @property
-    @pulumi.getter(name="forwardedIPConfig")
+    @pulumi.getter(name="forwardedIpConfig")
     def forwarded_ip_config(self) -> Optional[pulumi.Input['RuleGroupForwardedIPConfigurationArgs']]:
         return pulumi.get(self, "forwarded_ip_config")
 
@@ -1400,10 +1398,10 @@ class RuleGroupIPSetForwardedIPConfigurationArgs:
 class RuleGroupIPSetReferenceStatementArgs:
     def __init__(__self__, *,
                  arn: pulumi.Input[str],
-                 i_p_set_forwarded_ip_config: Optional[pulumi.Input['RuleGroupIPSetForwardedIPConfigurationArgs']] = None):
+                 ip_set_forwarded_ip_config: Optional[pulumi.Input['RuleGroupIPSetForwardedIPConfigurationArgs']] = None):
         pulumi.set(__self__, "arn", arn)
-        if i_p_set_forwarded_ip_config is not None:
-            pulumi.set(__self__, "i_p_set_forwarded_ip_config", i_p_set_forwarded_ip_config)
+        if ip_set_forwarded_ip_config is not None:
+            pulumi.set(__self__, "ip_set_forwarded_ip_config", ip_set_forwarded_ip_config)
 
     @property
     @pulumi.getter
@@ -1415,13 +1413,13 @@ class RuleGroupIPSetReferenceStatementArgs:
         pulumi.set(self, "arn", value)
 
     @property
-    @pulumi.getter(name="iPSetForwardedIPConfig")
-    def i_p_set_forwarded_ip_config(self) -> Optional[pulumi.Input['RuleGroupIPSetForwardedIPConfigurationArgs']]:
-        return pulumi.get(self, "i_p_set_forwarded_ip_config")
+    @pulumi.getter(name="ipSetForwardedIpConfig")
+    def ip_set_forwarded_ip_config(self) -> Optional[pulumi.Input['RuleGroupIPSetForwardedIPConfigurationArgs']]:
+        return pulumi.get(self, "ip_set_forwarded_ip_config")
 
-    @i_p_set_forwarded_ip_config.setter
-    def i_p_set_forwarded_ip_config(self, value: Optional[pulumi.Input['RuleGroupIPSetForwardedIPConfigurationArgs']]):
-        pulumi.set(self, "i_p_set_forwarded_ip_config", value)
+    @ip_set_forwarded_ip_config.setter
+    def ip_set_forwarded_ip_config(self, value: Optional[pulumi.Input['RuleGroupIPSetForwardedIPConfigurationArgs']]):
+        pulumi.set(self, "ip_set_forwarded_ip_config", value)
 
 
 @pulumi.input_type
@@ -1627,9 +1625,9 @@ class RuleGroupRateBasedStatementCustomKeyArgs:
     def __init__(__self__, *,
                  cookie: Optional[pulumi.Input['RuleGroupRateLimitCookieArgs']] = None,
                  forwarded_ip: Optional[pulumi.Input['RuleGroupRateLimitForwardedIPArgs']] = None,
-                 h_ttp_method: Optional[pulumi.Input['RuleGroupRateLimitHTTPMethodArgs']] = None,
                  header: Optional[pulumi.Input['RuleGroupRateLimitHeaderArgs']] = None,
-                 i_p: Optional[pulumi.Input['RuleGroupRateLimitIPArgs']] = None,
+                 http_method: Optional[pulumi.Input['RuleGroupRateLimitHTTPMethodArgs']] = None,
+                 ip: Optional[pulumi.Input['RuleGroupRateLimitIPArgs']] = None,
                  label_namespace: Optional[pulumi.Input['RuleGroupRateLimitLabelNamespaceArgs']] = None,
                  query_argument: Optional[pulumi.Input['RuleGroupRateLimitQueryArgumentArgs']] = None,
                  query_string: Optional[pulumi.Input['RuleGroupRateLimitQueryStringArgs']] = None,
@@ -1641,12 +1639,12 @@ class RuleGroupRateBasedStatementCustomKeyArgs:
             pulumi.set(__self__, "cookie", cookie)
         if forwarded_ip is not None:
             pulumi.set(__self__, "forwarded_ip", forwarded_ip)
-        if h_ttp_method is not None:
-            pulumi.set(__self__, "h_ttp_method", h_ttp_method)
         if header is not None:
             pulumi.set(__self__, "header", header)
-        if i_p is not None:
-            pulumi.set(__self__, "i_p", i_p)
+        if http_method is not None:
+            pulumi.set(__self__, "http_method", http_method)
+        if ip is not None:
+            pulumi.set(__self__, "ip", ip)
         if label_namespace is not None:
             pulumi.set(__self__, "label_namespace", label_namespace)
         if query_argument is not None:
@@ -1666,22 +1664,13 @@ class RuleGroupRateBasedStatementCustomKeyArgs:
         pulumi.set(self, "cookie", value)
 
     @property
-    @pulumi.getter(name="forwardedIP")
+    @pulumi.getter(name="forwardedIp")
     def forwarded_ip(self) -> Optional[pulumi.Input['RuleGroupRateLimitForwardedIPArgs']]:
         return pulumi.get(self, "forwarded_ip")
 
     @forwarded_ip.setter
     def forwarded_ip(self, value: Optional[pulumi.Input['RuleGroupRateLimitForwardedIPArgs']]):
         pulumi.set(self, "forwarded_ip", value)
-
-    @property
-    @pulumi.getter(name="hTTPMethod")
-    def h_ttp_method(self) -> Optional[pulumi.Input['RuleGroupRateLimitHTTPMethodArgs']]:
-        return pulumi.get(self, "h_ttp_method")
-
-    @h_ttp_method.setter
-    def h_ttp_method(self, value: Optional[pulumi.Input['RuleGroupRateLimitHTTPMethodArgs']]):
-        pulumi.set(self, "h_ttp_method", value)
 
     @property
     @pulumi.getter
@@ -1693,13 +1682,22 @@ class RuleGroupRateBasedStatementCustomKeyArgs:
         pulumi.set(self, "header", value)
 
     @property
-    @pulumi.getter(name="iP")
-    def i_p(self) -> Optional[pulumi.Input['RuleGroupRateLimitIPArgs']]:
-        return pulumi.get(self, "i_p")
+    @pulumi.getter(name="httpMethod")
+    def http_method(self) -> Optional[pulumi.Input['RuleGroupRateLimitHTTPMethodArgs']]:
+        return pulumi.get(self, "http_method")
 
-    @i_p.setter
-    def i_p(self, value: Optional[pulumi.Input['RuleGroupRateLimitIPArgs']]):
-        pulumi.set(self, "i_p", value)
+    @http_method.setter
+    def http_method(self, value: Optional[pulumi.Input['RuleGroupRateLimitHTTPMethodArgs']]):
+        pulumi.set(self, "http_method", value)
+
+    @property
+    @pulumi.getter
+    def ip(self) -> Optional[pulumi.Input['RuleGroupRateLimitIPArgs']]:
+        return pulumi.get(self, "ip")
+
+    @ip.setter
+    def ip(self, value: Optional[pulumi.Input['RuleGroupRateLimitIPArgs']]):
+        pulumi.set(self, "ip", value)
 
     @property
     @pulumi.getter(name="labelNamespace")
@@ -1789,7 +1787,7 @@ class RuleGroupRateBasedStatementArgs:
         pulumi.set(self, "custom_keys", value)
 
     @property
-    @pulumi.getter(name="forwardedIPConfig")
+    @pulumi.getter(name="forwardedIpConfig")
     def forwarded_ip_config(self) -> Optional[pulumi.Input['RuleGroupForwardedIPConfigurationArgs']]:
         return pulumi.get(self, "forwarded_ip_config")
 
@@ -2345,7 +2343,7 @@ class RuleGroupStatementArgs:
                  and_statement: Optional[pulumi.Input['RuleGroupAndStatementArgs']] = None,
                  byte_match_statement: Optional[pulumi.Input['RuleGroupByteMatchStatementArgs']] = None,
                  geo_match_statement: Optional[pulumi.Input['RuleGroupGeoMatchStatementArgs']] = None,
-                 i_p_set_reference_statement: Optional[pulumi.Input['RuleGroupIPSetReferenceStatementArgs']] = None,
+                 ip_set_reference_statement: Optional[pulumi.Input['RuleGroupIPSetReferenceStatementArgs']] = None,
                  label_match_statement: Optional[pulumi.Input['RuleGroupLabelMatchStatementArgs']] = None,
                  not_statement: Optional[pulumi.Input['RuleGroupNotStatementArgs']] = None,
                  or_statement: Optional[pulumi.Input['RuleGroupOrStatementArgs']] = None,
@@ -2364,8 +2362,8 @@ class RuleGroupStatementArgs:
             pulumi.set(__self__, "byte_match_statement", byte_match_statement)
         if geo_match_statement is not None:
             pulumi.set(__self__, "geo_match_statement", geo_match_statement)
-        if i_p_set_reference_statement is not None:
-            pulumi.set(__self__, "i_p_set_reference_statement", i_p_set_reference_statement)
+        if ip_set_reference_statement is not None:
+            pulumi.set(__self__, "ip_set_reference_statement", ip_set_reference_statement)
         if label_match_statement is not None:
             pulumi.set(__self__, "label_match_statement", label_match_statement)
         if not_statement is not None:
@@ -2413,13 +2411,13 @@ class RuleGroupStatementArgs:
         pulumi.set(self, "geo_match_statement", value)
 
     @property
-    @pulumi.getter(name="iPSetReferenceStatement")
-    def i_p_set_reference_statement(self) -> Optional[pulumi.Input['RuleGroupIPSetReferenceStatementArgs']]:
-        return pulumi.get(self, "i_p_set_reference_statement")
+    @pulumi.getter(name="ipSetReferenceStatement")
+    def ip_set_reference_statement(self) -> Optional[pulumi.Input['RuleGroupIPSetReferenceStatementArgs']]:
+        return pulumi.get(self, "ip_set_reference_statement")
 
-    @i_p_set_reference_statement.setter
-    def i_p_set_reference_statement(self, value: Optional[pulumi.Input['RuleGroupIPSetReferenceStatementArgs']]):
-        pulumi.set(self, "i_p_set_reference_statement", value)
+    @ip_set_reference_statement.setter
+    def ip_set_reference_statement(self, value: Optional[pulumi.Input['RuleGroupIPSetReferenceStatementArgs']]):
+        pulumi.set(self, "ip_set_reference_statement", value)
 
     @property
     @pulumi.getter(name="labelMatchStatement")
@@ -2770,12 +2768,6 @@ class WebACLAWSManagedRulesBotControlRuleSetArgs:
     @inspection_level.setter
     def inspection_level(self, value: pulumi.Input['WebACLAWSManagedRulesBotControlRuleSetInspectionLevel']):
         pulumi.set(self, "inspection_level", value)
-
-
-@pulumi.input_type
-class WebACLAddressFieldArgs:
-    def __init__(__self__):
-        pass
 
 
 @pulumi.input_type
@@ -3532,7 +3524,7 @@ class WebACLGeoMatchStatementArgs:
         pulumi.set(self, "country_codes", value)
 
     @property
-    @pulumi.getter(name="forwardedIPConfig")
+    @pulumi.getter(name="forwardedIpConfig")
     def forwarded_ip_config(self) -> Optional[pulumi.Input['WebACLForwardedIPConfigurationArgs']]:
         return pulumi.get(self, "forwarded_ip_config")
 
@@ -3672,10 +3664,10 @@ class WebACLIPSetForwardedIPConfigurationArgs:
 class WebACLIPSetReferenceStatementArgs:
     def __init__(__self__, *,
                  arn: pulumi.Input[str],
-                 i_p_set_forwarded_ip_config: Optional[pulumi.Input['WebACLIPSetForwardedIPConfigurationArgs']] = None):
+                 ip_set_forwarded_ip_config: Optional[pulumi.Input['WebACLIPSetForwardedIPConfigurationArgs']] = None):
         pulumi.set(__self__, "arn", arn)
-        if i_p_set_forwarded_ip_config is not None:
-            pulumi.set(__self__, "i_p_set_forwarded_ip_config", i_p_set_forwarded_ip_config)
+        if ip_set_forwarded_ip_config is not None:
+            pulumi.set(__self__, "ip_set_forwarded_ip_config", ip_set_forwarded_ip_config)
 
     @property
     @pulumi.getter
@@ -3687,13 +3679,13 @@ class WebACLIPSetReferenceStatementArgs:
         pulumi.set(self, "arn", value)
 
     @property
-    @pulumi.getter(name="iPSetForwardedIPConfig")
-    def i_p_set_forwarded_ip_config(self) -> Optional[pulumi.Input['WebACLIPSetForwardedIPConfigurationArgs']]:
-        return pulumi.get(self, "i_p_set_forwarded_ip_config")
+    @pulumi.getter(name="ipSetForwardedIpConfig")
+    def ip_set_forwarded_ip_config(self) -> Optional[pulumi.Input['WebACLIPSetForwardedIPConfigurationArgs']]:
+        return pulumi.get(self, "ip_set_forwarded_ip_config")
 
-    @i_p_set_forwarded_ip_config.setter
-    def i_p_set_forwarded_ip_config(self, value: Optional[pulumi.Input['WebACLIPSetForwardedIPConfigurationArgs']]):
-        pulumi.set(self, "i_p_set_forwarded_ip_config", value)
+    @ip_set_forwarded_ip_config.setter
+    def ip_set_forwarded_ip_config(self, value: Optional[pulumi.Input['WebACLIPSetForwardedIPConfigurationArgs']]):
+        pulumi.set(self, "ip_set_forwarded_ip_config", value)
 
 
 @pulumi.input_type
@@ -3848,9 +3840,9 @@ class WebACLLabelArgs:
 @pulumi.input_type
 class WebACLManagedRuleGroupConfigArgs:
     def __init__(__self__, *,
-                 a_ws_managed_rules_acfp_rule_set: Optional[pulumi.Input['WebACLAWSManagedRulesACFPRuleSetArgs']] = None,
-                 a_ws_managed_rules_atp_rule_set: Optional[pulumi.Input['WebACLAWSManagedRulesATPRuleSetArgs']] = None,
-                 a_ws_managed_rules_bot_control_rule_set: Optional[pulumi.Input['WebACLAWSManagedRulesBotControlRuleSetArgs']] = None,
+                 aws_managed_rules_acfp_rule_set: Optional[pulumi.Input['WebACLAWSManagedRulesACFPRuleSetArgs']] = None,
+                 aws_managed_rules_atp_rule_set: Optional[pulumi.Input['WebACLAWSManagedRulesATPRuleSetArgs']] = None,
+                 aws_managed_rules_bot_control_rule_set: Optional[pulumi.Input['WebACLAWSManagedRulesBotControlRuleSetArgs']] = None,
                  login_path: Optional[pulumi.Input[str]] = None,
                  password_field: Optional[pulumi.Input['WebACLFieldIdentifierArgs']] = None,
                  payload_type: Optional[pulumi.Input['WebACLManagedRuleGroupConfigPayloadType']] = None,
@@ -3858,12 +3850,12 @@ class WebACLManagedRuleGroupConfigArgs:
         """
         ManagedRuleGroupConfig.
         """
-        if a_ws_managed_rules_acfp_rule_set is not None:
-            pulumi.set(__self__, "a_ws_managed_rules_acfp_rule_set", a_ws_managed_rules_acfp_rule_set)
-        if a_ws_managed_rules_atp_rule_set is not None:
-            pulumi.set(__self__, "a_ws_managed_rules_atp_rule_set", a_ws_managed_rules_atp_rule_set)
-        if a_ws_managed_rules_bot_control_rule_set is not None:
-            pulumi.set(__self__, "a_ws_managed_rules_bot_control_rule_set", a_ws_managed_rules_bot_control_rule_set)
+        if aws_managed_rules_acfp_rule_set is not None:
+            pulumi.set(__self__, "aws_managed_rules_acfp_rule_set", aws_managed_rules_acfp_rule_set)
+        if aws_managed_rules_atp_rule_set is not None:
+            pulumi.set(__self__, "aws_managed_rules_atp_rule_set", aws_managed_rules_atp_rule_set)
+        if aws_managed_rules_bot_control_rule_set is not None:
+            pulumi.set(__self__, "aws_managed_rules_bot_control_rule_set", aws_managed_rules_bot_control_rule_set)
         if login_path is not None:
             pulumi.set(__self__, "login_path", login_path)
         if password_field is not None:
@@ -3874,31 +3866,31 @@ class WebACLManagedRuleGroupConfigArgs:
             pulumi.set(__self__, "username_field", username_field)
 
     @property
-    @pulumi.getter(name="aWSManagedRulesACFPRuleSet")
-    def a_ws_managed_rules_acfp_rule_set(self) -> Optional[pulumi.Input['WebACLAWSManagedRulesACFPRuleSetArgs']]:
-        return pulumi.get(self, "a_ws_managed_rules_acfp_rule_set")
+    @pulumi.getter(name="awsManagedRulesAcfpRuleSet")
+    def aws_managed_rules_acfp_rule_set(self) -> Optional[pulumi.Input['WebACLAWSManagedRulesACFPRuleSetArgs']]:
+        return pulumi.get(self, "aws_managed_rules_acfp_rule_set")
 
-    @a_ws_managed_rules_acfp_rule_set.setter
-    def a_ws_managed_rules_acfp_rule_set(self, value: Optional[pulumi.Input['WebACLAWSManagedRulesACFPRuleSetArgs']]):
-        pulumi.set(self, "a_ws_managed_rules_acfp_rule_set", value)
-
-    @property
-    @pulumi.getter(name="aWSManagedRulesATPRuleSet")
-    def a_ws_managed_rules_atp_rule_set(self) -> Optional[pulumi.Input['WebACLAWSManagedRulesATPRuleSetArgs']]:
-        return pulumi.get(self, "a_ws_managed_rules_atp_rule_set")
-
-    @a_ws_managed_rules_atp_rule_set.setter
-    def a_ws_managed_rules_atp_rule_set(self, value: Optional[pulumi.Input['WebACLAWSManagedRulesATPRuleSetArgs']]):
-        pulumi.set(self, "a_ws_managed_rules_atp_rule_set", value)
+    @aws_managed_rules_acfp_rule_set.setter
+    def aws_managed_rules_acfp_rule_set(self, value: Optional[pulumi.Input['WebACLAWSManagedRulesACFPRuleSetArgs']]):
+        pulumi.set(self, "aws_managed_rules_acfp_rule_set", value)
 
     @property
-    @pulumi.getter(name="aWSManagedRulesBotControlRuleSet")
-    def a_ws_managed_rules_bot_control_rule_set(self) -> Optional[pulumi.Input['WebACLAWSManagedRulesBotControlRuleSetArgs']]:
-        return pulumi.get(self, "a_ws_managed_rules_bot_control_rule_set")
+    @pulumi.getter(name="awsManagedRulesAtpRuleSet")
+    def aws_managed_rules_atp_rule_set(self) -> Optional[pulumi.Input['WebACLAWSManagedRulesATPRuleSetArgs']]:
+        return pulumi.get(self, "aws_managed_rules_atp_rule_set")
 
-    @a_ws_managed_rules_bot_control_rule_set.setter
-    def a_ws_managed_rules_bot_control_rule_set(self, value: Optional[pulumi.Input['WebACLAWSManagedRulesBotControlRuleSetArgs']]):
-        pulumi.set(self, "a_ws_managed_rules_bot_control_rule_set", value)
+    @aws_managed_rules_atp_rule_set.setter
+    def aws_managed_rules_atp_rule_set(self, value: Optional[pulumi.Input['WebACLAWSManagedRulesATPRuleSetArgs']]):
+        pulumi.set(self, "aws_managed_rules_atp_rule_set", value)
+
+    @property
+    @pulumi.getter(name="awsManagedRulesBotControlRuleSet")
+    def aws_managed_rules_bot_control_rule_set(self) -> Optional[pulumi.Input['WebACLAWSManagedRulesBotControlRuleSetArgs']]:
+        return pulumi.get(self, "aws_managed_rules_bot_control_rule_set")
+
+    @aws_managed_rules_bot_control_rule_set.setter
+    def aws_managed_rules_bot_control_rule_set(self, value: Optional[pulumi.Input['WebACLAWSManagedRulesBotControlRuleSetArgs']]):
+        pulumi.set(self, "aws_managed_rules_bot_control_rule_set", value)
 
     @property
     @pulumi.getter(name="loginPath")
@@ -4107,19 +4099,13 @@ class WebACLOverrideActionArgs:
 
 
 @pulumi.input_type
-class WebACLPhoneNumberFieldArgs:
-    def __init__(__self__):
-        pass
-
-
-@pulumi.input_type
 class WebACLRateBasedStatementCustomKeyArgs:
     def __init__(__self__, *,
                  cookie: Optional[pulumi.Input['WebACLRateLimitCookieArgs']] = None,
                  forwarded_ip: Optional[pulumi.Input['WebACLRateLimitForwardedIPArgs']] = None,
-                 h_ttp_method: Optional[pulumi.Input['WebACLRateLimitHTTPMethodArgs']] = None,
                  header: Optional[pulumi.Input['WebACLRateLimitHeaderArgs']] = None,
-                 i_p: Optional[pulumi.Input['WebACLRateLimitIPArgs']] = None,
+                 http_method: Optional[pulumi.Input['WebACLRateLimitHTTPMethodArgs']] = None,
+                 ip: Optional[pulumi.Input['WebACLRateLimitIPArgs']] = None,
                  label_namespace: Optional[pulumi.Input['WebACLRateLimitLabelNamespaceArgs']] = None,
                  query_argument: Optional[pulumi.Input['WebACLRateLimitQueryArgumentArgs']] = None,
                  query_string: Optional[pulumi.Input['WebACLRateLimitQueryStringArgs']] = None,
@@ -4131,12 +4117,12 @@ class WebACLRateBasedStatementCustomKeyArgs:
             pulumi.set(__self__, "cookie", cookie)
         if forwarded_ip is not None:
             pulumi.set(__self__, "forwarded_ip", forwarded_ip)
-        if h_ttp_method is not None:
-            pulumi.set(__self__, "h_ttp_method", h_ttp_method)
         if header is not None:
             pulumi.set(__self__, "header", header)
-        if i_p is not None:
-            pulumi.set(__self__, "i_p", i_p)
+        if http_method is not None:
+            pulumi.set(__self__, "http_method", http_method)
+        if ip is not None:
+            pulumi.set(__self__, "ip", ip)
         if label_namespace is not None:
             pulumi.set(__self__, "label_namespace", label_namespace)
         if query_argument is not None:
@@ -4156,22 +4142,13 @@ class WebACLRateBasedStatementCustomKeyArgs:
         pulumi.set(self, "cookie", value)
 
     @property
-    @pulumi.getter(name="forwardedIP")
+    @pulumi.getter(name="forwardedIp")
     def forwarded_ip(self) -> Optional[pulumi.Input['WebACLRateLimitForwardedIPArgs']]:
         return pulumi.get(self, "forwarded_ip")
 
     @forwarded_ip.setter
     def forwarded_ip(self, value: Optional[pulumi.Input['WebACLRateLimitForwardedIPArgs']]):
         pulumi.set(self, "forwarded_ip", value)
-
-    @property
-    @pulumi.getter(name="hTTPMethod")
-    def h_ttp_method(self) -> Optional[pulumi.Input['WebACLRateLimitHTTPMethodArgs']]:
-        return pulumi.get(self, "h_ttp_method")
-
-    @h_ttp_method.setter
-    def h_ttp_method(self, value: Optional[pulumi.Input['WebACLRateLimitHTTPMethodArgs']]):
-        pulumi.set(self, "h_ttp_method", value)
 
     @property
     @pulumi.getter
@@ -4183,13 +4160,22 @@ class WebACLRateBasedStatementCustomKeyArgs:
         pulumi.set(self, "header", value)
 
     @property
-    @pulumi.getter(name="iP")
-    def i_p(self) -> Optional[pulumi.Input['WebACLRateLimitIPArgs']]:
-        return pulumi.get(self, "i_p")
+    @pulumi.getter(name="httpMethod")
+    def http_method(self) -> Optional[pulumi.Input['WebACLRateLimitHTTPMethodArgs']]:
+        return pulumi.get(self, "http_method")
 
-    @i_p.setter
-    def i_p(self, value: Optional[pulumi.Input['WebACLRateLimitIPArgs']]):
-        pulumi.set(self, "i_p", value)
+    @http_method.setter
+    def http_method(self, value: Optional[pulumi.Input['WebACLRateLimitHTTPMethodArgs']]):
+        pulumi.set(self, "http_method", value)
+
+    @property
+    @pulumi.getter
+    def ip(self) -> Optional[pulumi.Input['WebACLRateLimitIPArgs']]:
+        return pulumi.get(self, "ip")
+
+    @ip.setter
+    def ip(self, value: Optional[pulumi.Input['WebACLRateLimitIPArgs']]):
+        pulumi.set(self, "ip", value)
 
     @property
     @pulumi.getter(name="labelNamespace")
@@ -4279,7 +4265,7 @@ class WebACLRateBasedStatementArgs:
         pulumi.set(self, "custom_keys", value)
 
     @property
-    @pulumi.getter(name="forwardedIPConfig")
+    @pulumi.getter(name="forwardedIpConfig")
     def forwarded_ip_config(self) -> Optional[pulumi.Input['WebACLForwardedIPConfigurationArgs']]:
         return pulumi.get(self, "forwarded_ip_config")
 
@@ -4576,10 +4562,10 @@ class WebACLRequestBodyArgs:
 class WebACLRequestInspectionACFPArgs:
     def __init__(__self__, *,
                  payload_type: pulumi.Input['WebACLRequestInspectionACFPPayloadType'],
-                 address_fields: Optional[pulumi.Input[Sequence[pulumi.Input['WebACLAddressFieldArgs']]]] = None,
+                 address_fields: Optional[pulumi.Input[Sequence[pulumi.Input['WebACLFieldIdentifierArgs']]]] = None,
                  email_field: Optional[pulumi.Input['WebACLFieldIdentifierArgs']] = None,
                  password_field: Optional[pulumi.Input['WebACLFieldIdentifierArgs']] = None,
-                 phone_number_fields: Optional[pulumi.Input[Sequence[pulumi.Input['WebACLPhoneNumberFieldArgs']]]] = None,
+                 phone_number_fields: Optional[pulumi.Input[Sequence[pulumi.Input['WebACLFieldIdentifierArgs']]]] = None,
                  username_field: Optional[pulumi.Input['WebACLFieldIdentifierArgs']] = None):
         """
         Configures the inspection of sign-up requests
@@ -4607,11 +4593,11 @@ class WebACLRequestInspectionACFPArgs:
 
     @property
     @pulumi.getter(name="addressFields")
-    def address_fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebACLAddressFieldArgs']]]]:
+    def address_fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebACLFieldIdentifierArgs']]]]:
         return pulumi.get(self, "address_fields")
 
     @address_fields.setter
-    def address_fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebACLAddressFieldArgs']]]]):
+    def address_fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebACLFieldIdentifierArgs']]]]):
         pulumi.set(self, "address_fields", value)
 
     @property
@@ -4634,11 +4620,11 @@ class WebACLRequestInspectionACFPArgs:
 
     @property
     @pulumi.getter(name="phoneNumberFields")
-    def phone_number_fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebACLPhoneNumberFieldArgs']]]]:
+    def phone_number_fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebACLFieldIdentifierArgs']]]]:
         return pulumi.get(self, "phone_number_fields")
 
     @phone_number_fields.setter
-    def phone_number_fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebACLPhoneNumberFieldArgs']]]]):
+    def phone_number_fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebACLFieldIdentifierArgs']]]]):
         pulumi.set(self, "phone_number_fields", value)
 
     @property
@@ -5250,7 +5236,7 @@ class WebACLStatementArgs:
                  and_statement: Optional[pulumi.Input['WebACLAndStatementArgs']] = None,
                  byte_match_statement: Optional[pulumi.Input['WebACLByteMatchStatementArgs']] = None,
                  geo_match_statement: Optional[pulumi.Input['WebACLGeoMatchStatementArgs']] = None,
-                 i_p_set_reference_statement: Optional[pulumi.Input['WebACLIPSetReferenceStatementArgs']] = None,
+                 ip_set_reference_statement: Optional[pulumi.Input['WebACLIPSetReferenceStatementArgs']] = None,
                  label_match_statement: Optional[pulumi.Input['WebACLLabelMatchStatementArgs']] = None,
                  managed_rule_group_statement: Optional[pulumi.Input['WebACLManagedRuleGroupStatementArgs']] = None,
                  not_statement: Optional[pulumi.Input['WebACLNotStatementArgs']] = None,
@@ -5271,8 +5257,8 @@ class WebACLStatementArgs:
             pulumi.set(__self__, "byte_match_statement", byte_match_statement)
         if geo_match_statement is not None:
             pulumi.set(__self__, "geo_match_statement", geo_match_statement)
-        if i_p_set_reference_statement is not None:
-            pulumi.set(__self__, "i_p_set_reference_statement", i_p_set_reference_statement)
+        if ip_set_reference_statement is not None:
+            pulumi.set(__self__, "ip_set_reference_statement", ip_set_reference_statement)
         if label_match_statement is not None:
             pulumi.set(__self__, "label_match_statement", label_match_statement)
         if managed_rule_group_statement is not None:
@@ -5324,13 +5310,13 @@ class WebACLStatementArgs:
         pulumi.set(self, "geo_match_statement", value)
 
     @property
-    @pulumi.getter(name="iPSetReferenceStatement")
-    def i_p_set_reference_statement(self) -> Optional[pulumi.Input['WebACLIPSetReferenceStatementArgs']]:
-        return pulumi.get(self, "i_p_set_reference_statement")
+    @pulumi.getter(name="ipSetReferenceStatement")
+    def ip_set_reference_statement(self) -> Optional[pulumi.Input['WebACLIPSetReferenceStatementArgs']]:
+        return pulumi.get(self, "ip_set_reference_statement")
 
-    @i_p_set_reference_statement.setter
-    def i_p_set_reference_statement(self, value: Optional[pulumi.Input['WebACLIPSetReferenceStatementArgs']]):
-        pulumi.set(self, "i_p_set_reference_statement", value)
+    @ip_set_reference_statement.setter
+    def ip_set_reference_statement(self, value: Optional[pulumi.Input['WebACLIPSetReferenceStatementArgs']]):
+        pulumi.set(self, "ip_set_reference_statement", value)
 
     @property
     @pulumi.getter(name="labelMatchStatement")

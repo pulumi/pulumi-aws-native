@@ -24,8 +24,8 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("dataPointTooltipOption")]
         public Input<Inputs.DashboardDataPointTooltipOptionArgs>? DataPointTooltipOption { get; set; }
 
-        [Input("exportToCSVOption")]
-        public Input<Inputs.DashboardExportToCSVOptionArgs>? ExportToCSVOption { get; set; }
+        [Input("exportToCsvOption")]
+        public Input<Inputs.DashboardExportToCSVOptionArgs>? ExportToCsvOption { get; set; }
 
         [Input("exportWithHiddenFieldsOption")]
         public Input<Inputs.DashboardExportWithHiddenFieldsOptionArgs>? ExportWithHiddenFieldsOption { get; set; }

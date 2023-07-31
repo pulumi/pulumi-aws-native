@@ -923,8 +923,8 @@ type ConnectorProfileCredentials struct {
 	Marketo         *ConnectorProfileMarketoConnectorProfileCredentials         `pulumi:"marketo"`
 	Pardot          *ConnectorProfilePardotConnectorProfileCredentials          `pulumi:"pardot"`
 	Redshift        *ConnectorProfileRedshiftConnectorProfileCredentials        `pulumi:"redshift"`
-	SAPOData        *ConnectorProfileSAPODataConnectorProfileCredentials        `pulumi:"sAPOData"`
 	Salesforce      *ConnectorProfileSalesforceConnectorProfileCredentials      `pulumi:"salesforce"`
+	SapoData        *ConnectorProfileSAPODataConnectorProfileCredentials        `pulumi:"sapoData"`
 	ServiceNow      *ConnectorProfileServiceNowConnectorProfileCredentials      `pulumi:"serviceNow"`
 	Singular        *ConnectorProfileSingularConnectorProfileCredentials        `pulumi:"singular"`
 	Slack           *ConnectorProfileSlackConnectorProfileCredentials           `pulumi:"slack"`
@@ -956,8 +956,8 @@ type ConnectorProfileCredentialsArgs struct {
 	Marketo         ConnectorProfileMarketoConnectorProfileCredentialsPtrInput         `pulumi:"marketo"`
 	Pardot          ConnectorProfilePardotConnectorProfileCredentialsPtrInput          `pulumi:"pardot"`
 	Redshift        ConnectorProfileRedshiftConnectorProfileCredentialsPtrInput        `pulumi:"redshift"`
-	SAPOData        ConnectorProfileSAPODataConnectorProfileCredentialsPtrInput        `pulumi:"sAPOData"`
 	Salesforce      ConnectorProfileSalesforceConnectorProfileCredentialsPtrInput      `pulumi:"salesforce"`
+	SapoData        ConnectorProfileSAPODataConnectorProfileCredentialsPtrInput        `pulumi:"sapoData"`
 	ServiceNow      ConnectorProfileServiceNowConnectorProfileCredentialsPtrInput      `pulumi:"serviceNow"`
 	Singular        ConnectorProfileSingularConnectorProfileCredentialsPtrInput        `pulumi:"singular"`
 	Slack           ConnectorProfileSlackConnectorProfileCredentialsPtrInput           `pulumi:"slack"`
@@ -1099,16 +1099,16 @@ func (o ConnectorProfileCredentialsOutput) Redshift() ConnectorProfileRedshiftCo
 	}).(ConnectorProfileRedshiftConnectorProfileCredentialsPtrOutput)
 }
 
-func (o ConnectorProfileCredentialsOutput) SAPOData() ConnectorProfileSAPODataConnectorProfileCredentialsPtrOutput {
-	return o.ApplyT(func(v ConnectorProfileCredentials) *ConnectorProfileSAPODataConnectorProfileCredentials {
-		return v.SAPOData
-	}).(ConnectorProfileSAPODataConnectorProfileCredentialsPtrOutput)
-}
-
 func (o ConnectorProfileCredentialsOutput) Salesforce() ConnectorProfileSalesforceConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileCredentials) *ConnectorProfileSalesforceConnectorProfileCredentials {
 		return v.Salesforce
 	}).(ConnectorProfileSalesforceConnectorProfileCredentialsPtrOutput)
+}
+
+func (o ConnectorProfileCredentialsOutput) SapoData() ConnectorProfileSAPODataConnectorProfileCredentialsPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileCredentials) *ConnectorProfileSAPODataConnectorProfileCredentials {
+		return v.SapoData
+	}).(ConnectorProfileSAPODataConnectorProfileCredentialsPtrOutput)
 }
 
 func (o ConnectorProfileCredentialsOutput) ServiceNow() ConnectorProfileServiceNowConnectorProfileCredentialsPtrOutput {
@@ -1254,15 +1254,6 @@ func (o ConnectorProfileCredentialsPtrOutput) Redshift() ConnectorProfileRedshif
 	}).(ConnectorProfileRedshiftConnectorProfileCredentialsPtrOutput)
 }
 
-func (o ConnectorProfileCredentialsPtrOutput) SAPOData() ConnectorProfileSAPODataConnectorProfileCredentialsPtrOutput {
-	return o.ApplyT(func(v *ConnectorProfileCredentials) *ConnectorProfileSAPODataConnectorProfileCredentials {
-		if v == nil {
-			return nil
-		}
-		return v.SAPOData
-	}).(ConnectorProfileSAPODataConnectorProfileCredentialsPtrOutput)
-}
-
 func (o ConnectorProfileCredentialsPtrOutput) Salesforce() ConnectorProfileSalesforceConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileCredentials) *ConnectorProfileSalesforceConnectorProfileCredentials {
 		if v == nil {
@@ -1270,6 +1261,15 @@ func (o ConnectorProfileCredentialsPtrOutput) Salesforce() ConnectorProfileSales
 		}
 		return v.Salesforce
 	}).(ConnectorProfileSalesforceConnectorProfileCredentialsPtrOutput)
+}
+
+func (o ConnectorProfileCredentialsPtrOutput) SapoData() ConnectorProfileSAPODataConnectorProfileCredentialsPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileCredentials) *ConnectorProfileSAPODataConnectorProfileCredentials {
+		if v == nil {
+			return nil
+		}
+		return v.SapoData
+	}).(ConnectorProfileSAPODataConnectorProfileCredentialsPtrOutput)
 }
 
 func (o ConnectorProfileCredentialsPtrOutput) ServiceNow() ConnectorProfileServiceNowConnectorProfileCredentialsPtrOutput {
@@ -4429,8 +4429,8 @@ type ConnectorProfileProperties struct {
 	Marketo         *ConnectorProfileMarketoConnectorProfileProperties    `pulumi:"marketo"`
 	Pardot          *ConnectorProfilePardotConnectorProfileProperties     `pulumi:"pardot"`
 	Redshift        *ConnectorProfileRedshiftConnectorProfileProperties   `pulumi:"redshift"`
-	SAPOData        *ConnectorProfileSAPODataConnectorProfileProperties   `pulumi:"sAPOData"`
 	Salesforce      *ConnectorProfileSalesforceConnectorProfileProperties `pulumi:"salesforce"`
+	SapoData        *ConnectorProfileSAPODataConnectorProfileProperties   `pulumi:"sapoData"`
 	ServiceNow      *ConnectorProfileServiceNowConnectorProfileProperties `pulumi:"serviceNow"`
 	Slack           *ConnectorProfileSlackConnectorProfileProperties      `pulumi:"slack"`
 	Snowflake       *ConnectorProfileSnowflakeConnectorProfileProperties  `pulumi:"snowflake"`
@@ -4458,8 +4458,8 @@ type ConnectorProfilePropertiesArgs struct {
 	Marketo         ConnectorProfileMarketoConnectorProfilePropertiesPtrInput    `pulumi:"marketo"`
 	Pardot          ConnectorProfilePardotConnectorProfilePropertiesPtrInput     `pulumi:"pardot"`
 	Redshift        ConnectorProfileRedshiftConnectorProfilePropertiesPtrInput   `pulumi:"redshift"`
-	SAPOData        ConnectorProfileSAPODataConnectorProfilePropertiesPtrInput   `pulumi:"sAPOData"`
 	Salesforce      ConnectorProfileSalesforceConnectorProfilePropertiesPtrInput `pulumi:"salesforce"`
+	SapoData        ConnectorProfileSAPODataConnectorProfilePropertiesPtrInput   `pulumi:"sapoData"`
 	ServiceNow      ConnectorProfileServiceNowConnectorProfilePropertiesPtrInput `pulumi:"serviceNow"`
 	Slack           ConnectorProfileSlackConnectorProfilePropertiesPtrInput      `pulumi:"slack"`
 	Snowflake       ConnectorProfileSnowflakeConnectorProfilePropertiesPtrInput  `pulumi:"snowflake"`
@@ -4585,16 +4585,16 @@ func (o ConnectorProfilePropertiesOutput) Redshift() ConnectorProfileRedshiftCon
 	}).(ConnectorProfileRedshiftConnectorProfilePropertiesPtrOutput)
 }
 
-func (o ConnectorProfilePropertiesOutput) SAPOData() ConnectorProfileSAPODataConnectorProfilePropertiesPtrOutput {
-	return o.ApplyT(func(v ConnectorProfileProperties) *ConnectorProfileSAPODataConnectorProfileProperties {
-		return v.SAPOData
-	}).(ConnectorProfileSAPODataConnectorProfilePropertiesPtrOutput)
-}
-
 func (o ConnectorProfilePropertiesOutput) Salesforce() ConnectorProfileSalesforceConnectorProfilePropertiesPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileProperties) *ConnectorProfileSalesforceConnectorProfileProperties {
 		return v.Salesforce
 	}).(ConnectorProfileSalesforceConnectorProfilePropertiesPtrOutput)
+}
+
+func (o ConnectorProfilePropertiesOutput) SapoData() ConnectorProfileSAPODataConnectorProfilePropertiesPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileProperties) *ConnectorProfileSAPODataConnectorProfileProperties {
+		return v.SapoData
+	}).(ConnectorProfileSAPODataConnectorProfilePropertiesPtrOutput)
 }
 
 func (o ConnectorProfilePropertiesOutput) ServiceNow() ConnectorProfileServiceNowConnectorProfilePropertiesPtrOutput {
@@ -4710,15 +4710,6 @@ func (o ConnectorProfilePropertiesPtrOutput) Redshift() ConnectorProfileRedshift
 	}).(ConnectorProfileRedshiftConnectorProfilePropertiesPtrOutput)
 }
 
-func (o ConnectorProfilePropertiesPtrOutput) SAPOData() ConnectorProfileSAPODataConnectorProfilePropertiesPtrOutput {
-	return o.ApplyT(func(v *ConnectorProfileProperties) *ConnectorProfileSAPODataConnectorProfileProperties {
-		if v == nil {
-			return nil
-		}
-		return v.SAPOData
-	}).(ConnectorProfileSAPODataConnectorProfilePropertiesPtrOutput)
-}
-
 func (o ConnectorProfilePropertiesPtrOutput) Salesforce() ConnectorProfileSalesforceConnectorProfilePropertiesPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileProperties) *ConnectorProfileSalesforceConnectorProfileProperties {
 		if v == nil {
@@ -4726,6 +4717,15 @@ func (o ConnectorProfilePropertiesPtrOutput) Salesforce() ConnectorProfileSalesf
 		}
 		return v.Salesforce
 	}).(ConnectorProfileSalesforceConnectorProfilePropertiesPtrOutput)
+}
+
+func (o ConnectorProfilePropertiesPtrOutput) SapoData() ConnectorProfileSAPODataConnectorProfilePropertiesPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileProperties) *ConnectorProfileSAPODataConnectorProfileProperties {
+		if v == nil {
+			return nil
+		}
+		return v.SapoData
+	}).(ConnectorProfileSAPODataConnectorProfilePropertiesPtrOutput)
 }
 
 func (o ConnectorProfilePropertiesPtrOutput) ServiceNow() ConnectorProfileServiceNowConnectorProfilePropertiesPtrOutput {
@@ -8650,8 +8650,8 @@ type FlowConnectorOperator struct {
 	Marketo         *FlowMarketoConnectorOperator         `pulumi:"marketo"`
 	Pardot          *FlowPardotConnectorOperator          `pulumi:"pardot"`
 	S3              *FlowS3ConnectorOperator              `pulumi:"s3"`
-	SAPOData        *FlowSAPODataConnectorOperator        `pulumi:"sAPOData"`
 	Salesforce      *FlowSalesforceConnectorOperator      `pulumi:"salesforce"`
+	SapoData        *FlowSAPODataConnectorOperator        `pulumi:"sapoData"`
 	ServiceNow      *FlowServiceNowConnectorOperator      `pulumi:"serviceNow"`
 	Singular        *FlowSingularConnectorOperator        `pulumi:"singular"`
 	Slack           *FlowSlackConnectorOperator           `pulumi:"slack"`
@@ -8682,8 +8682,8 @@ type FlowConnectorOperatorArgs struct {
 	Marketo         FlowMarketoConnectorOperatorPtrInput         `pulumi:"marketo"`
 	Pardot          FlowPardotConnectorOperatorPtrInput          `pulumi:"pardot"`
 	S3              FlowS3ConnectorOperatorPtrInput              `pulumi:"s3"`
-	SAPOData        FlowSAPODataConnectorOperatorPtrInput        `pulumi:"sAPOData"`
 	Salesforce      FlowSalesforceConnectorOperatorPtrInput      `pulumi:"salesforce"`
+	SapoData        FlowSAPODataConnectorOperatorPtrInput        `pulumi:"sapoData"`
 	ServiceNow      FlowServiceNowConnectorOperatorPtrInput      `pulumi:"serviceNow"`
 	Singular        FlowSingularConnectorOperatorPtrInput        `pulumi:"singular"`
 	Slack           FlowSlackConnectorOperatorPtrInput           `pulumi:"slack"`
@@ -8806,12 +8806,12 @@ func (o FlowConnectorOperatorOutput) S3() FlowS3ConnectorOperatorPtrOutput {
 	return o.ApplyT(func(v FlowConnectorOperator) *FlowS3ConnectorOperator { return v.S3 }).(FlowS3ConnectorOperatorPtrOutput)
 }
 
-func (o FlowConnectorOperatorOutput) SAPOData() FlowSAPODataConnectorOperatorPtrOutput {
-	return o.ApplyT(func(v FlowConnectorOperator) *FlowSAPODataConnectorOperator { return v.SAPOData }).(FlowSAPODataConnectorOperatorPtrOutput)
-}
-
 func (o FlowConnectorOperatorOutput) Salesforce() FlowSalesforceConnectorOperatorPtrOutput {
 	return o.ApplyT(func(v FlowConnectorOperator) *FlowSalesforceConnectorOperator { return v.Salesforce }).(FlowSalesforceConnectorOperatorPtrOutput)
+}
+
+func (o FlowConnectorOperatorOutput) SapoData() FlowSAPODataConnectorOperatorPtrOutput {
+	return o.ApplyT(func(v FlowConnectorOperator) *FlowSAPODataConnectorOperator { return v.SapoData }).(FlowSAPODataConnectorOperatorPtrOutput)
 }
 
 func (o FlowConnectorOperatorOutput) ServiceNow() FlowServiceNowConnectorOperatorPtrOutput {
@@ -8943,15 +8943,6 @@ func (o FlowConnectorOperatorPtrOutput) S3() FlowS3ConnectorOperatorPtrOutput {
 	}).(FlowS3ConnectorOperatorPtrOutput)
 }
 
-func (o FlowConnectorOperatorPtrOutput) SAPOData() FlowSAPODataConnectorOperatorPtrOutput {
-	return o.ApplyT(func(v *FlowConnectorOperator) *FlowSAPODataConnectorOperator {
-		if v == nil {
-			return nil
-		}
-		return v.SAPOData
-	}).(FlowSAPODataConnectorOperatorPtrOutput)
-}
-
 func (o FlowConnectorOperatorPtrOutput) Salesforce() FlowSalesforceConnectorOperatorPtrOutput {
 	return o.ApplyT(func(v *FlowConnectorOperator) *FlowSalesforceConnectorOperator {
 		if v == nil {
@@ -8959,6 +8950,15 @@ func (o FlowConnectorOperatorPtrOutput) Salesforce() FlowSalesforceConnectorOper
 		}
 		return v.Salesforce
 	}).(FlowSalesforceConnectorOperatorPtrOutput)
+}
+
+func (o FlowConnectorOperatorPtrOutput) SapoData() FlowSAPODataConnectorOperatorPtrOutput {
+	return o.ApplyT(func(v *FlowConnectorOperator) *FlowSAPODataConnectorOperator {
+		if v == nil {
+			return nil
+		}
+		return v.SapoData
+	}).(FlowSAPODataConnectorOperatorPtrOutput)
 }
 
 func (o FlowConnectorOperatorPtrOutput) ServiceNow() FlowServiceNowConnectorOperatorPtrOutput {
@@ -9791,8 +9791,8 @@ type FlowDestinationConnectorProperties struct {
 	Marketo         *FlowMarketoDestinationProperties         `pulumi:"marketo"`
 	Redshift        *FlowRedshiftDestinationProperties        `pulumi:"redshift"`
 	S3              *FlowS3DestinationProperties              `pulumi:"s3"`
-	SAPOData        *FlowSAPODataDestinationProperties        `pulumi:"sAPOData"`
 	Salesforce      *FlowSalesforceDestinationProperties      `pulumi:"salesforce"`
+	SapoData        *FlowSAPODataDestinationProperties        `pulumi:"sapoData"`
 	Snowflake       *FlowSnowflakeDestinationProperties       `pulumi:"snowflake"`
 	Upsolver        *FlowUpsolverDestinationProperties        `pulumi:"upsolver"`
 	Zendesk         *FlowZendeskDestinationProperties         `pulumi:"zendesk"`
@@ -9817,8 +9817,8 @@ type FlowDestinationConnectorPropertiesArgs struct {
 	Marketo         FlowMarketoDestinationPropertiesPtrInput         `pulumi:"marketo"`
 	Redshift        FlowRedshiftDestinationPropertiesPtrInput        `pulumi:"redshift"`
 	S3              FlowS3DestinationPropertiesPtrInput              `pulumi:"s3"`
-	SAPOData        FlowSAPODataDestinationPropertiesPtrInput        `pulumi:"sAPOData"`
 	Salesforce      FlowSalesforceDestinationPropertiesPtrInput      `pulumi:"salesforce"`
+	SapoData        FlowSAPODataDestinationPropertiesPtrInput        `pulumi:"sapoData"`
 	Snowflake       FlowSnowflakeDestinationPropertiesPtrInput       `pulumi:"snowflake"`
 	Upsolver        FlowUpsolverDestinationPropertiesPtrInput        `pulumi:"upsolver"`
 	Zendesk         FlowZendeskDestinationPropertiesPtrInput         `pulumi:"zendesk"`
@@ -9879,12 +9879,12 @@ func (o FlowDestinationConnectorPropertiesOutput) S3() FlowS3DestinationProperti
 	return o.ApplyT(func(v FlowDestinationConnectorProperties) *FlowS3DestinationProperties { return v.S3 }).(FlowS3DestinationPropertiesPtrOutput)
 }
 
-func (o FlowDestinationConnectorPropertiesOutput) SAPOData() FlowSAPODataDestinationPropertiesPtrOutput {
-	return o.ApplyT(func(v FlowDestinationConnectorProperties) *FlowSAPODataDestinationProperties { return v.SAPOData }).(FlowSAPODataDestinationPropertiesPtrOutput)
-}
-
 func (o FlowDestinationConnectorPropertiesOutput) Salesforce() FlowSalesforceDestinationPropertiesPtrOutput {
 	return o.ApplyT(func(v FlowDestinationConnectorProperties) *FlowSalesforceDestinationProperties { return v.Salesforce }).(FlowSalesforceDestinationPropertiesPtrOutput)
+}
+
+func (o FlowDestinationConnectorPropertiesOutput) SapoData() FlowSAPODataDestinationPropertiesPtrOutput {
+	return o.ApplyT(func(v FlowDestinationConnectorProperties) *FlowSAPODataDestinationProperties { return v.SapoData }).(FlowSAPODataDestinationPropertiesPtrOutput)
 }
 
 func (o FlowDestinationConnectorPropertiesOutput) Snowflake() FlowSnowflakeDestinationPropertiesPtrOutput {
@@ -14255,8 +14255,8 @@ type FlowSourceConnectorProperties struct {
 	Marketo         *FlowMarketoSourceProperties         `pulumi:"marketo"`
 	Pardot          *FlowPardotSourceProperties          `pulumi:"pardot"`
 	S3              *FlowS3SourceProperties              `pulumi:"s3"`
-	SAPOData        *FlowSAPODataSourceProperties        `pulumi:"sAPOData"`
 	Salesforce      *FlowSalesforceSourceProperties      `pulumi:"salesforce"`
+	SapoData        *FlowSAPODataSourceProperties        `pulumi:"sapoData"`
 	ServiceNow      *FlowServiceNowSourceProperties      `pulumi:"serviceNow"`
 	Singular        *FlowSingularSourceProperties        `pulumi:"singular"`
 	Slack           *FlowSlackSourceProperties           `pulumi:"slack"`
@@ -14287,8 +14287,8 @@ type FlowSourceConnectorPropertiesArgs struct {
 	Marketo         FlowMarketoSourcePropertiesPtrInput         `pulumi:"marketo"`
 	Pardot          FlowPardotSourcePropertiesPtrInput          `pulumi:"pardot"`
 	S3              FlowS3SourcePropertiesPtrInput              `pulumi:"s3"`
-	SAPOData        FlowSAPODataSourcePropertiesPtrInput        `pulumi:"sAPOData"`
 	Salesforce      FlowSalesforceSourcePropertiesPtrInput      `pulumi:"salesforce"`
+	SapoData        FlowSAPODataSourcePropertiesPtrInput        `pulumi:"sapoData"`
 	ServiceNow      FlowServiceNowSourcePropertiesPtrInput      `pulumi:"serviceNow"`
 	Singular        FlowSingularSourcePropertiesPtrInput        `pulumi:"singular"`
 	Slack           FlowSlackSourcePropertiesPtrInput           `pulumi:"slack"`
@@ -14360,12 +14360,12 @@ func (o FlowSourceConnectorPropertiesOutput) S3() FlowS3SourcePropertiesPtrOutpu
 	return o.ApplyT(func(v FlowSourceConnectorProperties) *FlowS3SourceProperties { return v.S3 }).(FlowS3SourcePropertiesPtrOutput)
 }
 
-func (o FlowSourceConnectorPropertiesOutput) SAPOData() FlowSAPODataSourcePropertiesPtrOutput {
-	return o.ApplyT(func(v FlowSourceConnectorProperties) *FlowSAPODataSourceProperties { return v.SAPOData }).(FlowSAPODataSourcePropertiesPtrOutput)
-}
-
 func (o FlowSourceConnectorPropertiesOutput) Salesforce() FlowSalesforceSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v FlowSourceConnectorProperties) *FlowSalesforceSourceProperties { return v.Salesforce }).(FlowSalesforceSourcePropertiesPtrOutput)
+}
+
+func (o FlowSourceConnectorPropertiesOutput) SapoData() FlowSAPODataSourcePropertiesPtrOutput {
+	return o.ApplyT(func(v FlowSourceConnectorProperties) *FlowSAPODataSourceProperties { return v.SapoData }).(FlowSAPODataSourcePropertiesPtrOutput)
 }
 
 func (o FlowSourceConnectorPropertiesOutput) ServiceNow() FlowServiceNowSourcePropertiesPtrOutput {
@@ -14497,15 +14497,6 @@ func (o FlowSourceConnectorPropertiesPtrOutput) S3() FlowS3SourcePropertiesPtrOu
 	}).(FlowS3SourcePropertiesPtrOutput)
 }
 
-func (o FlowSourceConnectorPropertiesPtrOutput) SAPOData() FlowSAPODataSourcePropertiesPtrOutput {
-	return o.ApplyT(func(v *FlowSourceConnectorProperties) *FlowSAPODataSourceProperties {
-		if v == nil {
-			return nil
-		}
-		return v.SAPOData
-	}).(FlowSAPODataSourcePropertiesPtrOutput)
-}
-
 func (o FlowSourceConnectorPropertiesPtrOutput) Salesforce() FlowSalesforceSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v *FlowSourceConnectorProperties) *FlowSalesforceSourceProperties {
 		if v == nil {
@@ -14513,6 +14504,15 @@ func (o FlowSourceConnectorPropertiesPtrOutput) Salesforce() FlowSalesforceSourc
 		}
 		return v.Salesforce
 	}).(FlowSalesforceSourcePropertiesPtrOutput)
+}
+
+func (o FlowSourceConnectorPropertiesPtrOutput) SapoData() FlowSAPODataSourcePropertiesPtrOutput {
+	return o.ApplyT(func(v *FlowSourceConnectorProperties) *FlowSAPODataSourceProperties {
+		if v == nil {
+			return nil
+		}
+		return v.SapoData
+	}).(FlowSAPODataSourcePropertiesPtrOutput)
 }
 
 func (o FlowSourceConnectorPropertiesPtrOutput) ServiceNow() FlowServiceNowSourcePropertiesPtrOutput {

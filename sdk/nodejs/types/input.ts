@@ -822,7 +822,7 @@ export namespace acmpca {
      * Structure that contains X.509 KeyUsage information.
      */
     export interface CertificateAuthorityKeyUsageArgs {
-        cRLSign?: pulumi.Input<boolean>;
+        crlSign?: pulumi.Input<boolean>;
         dataEncipherment?: pulumi.Input<boolean>;
         decipherOnly?: pulumi.Input<boolean>;
         digitalSignature?: pulumi.Input<boolean>;
@@ -945,7 +945,7 @@ export namespace acmpca {
      * Structure that contains X.509 KeyUsage information.
      */
     export interface CertificateKeyUsageArgs {
-        cRLSign?: pulumi.Input<boolean>;
+        crlSign?: pulumi.Input<boolean>;
         dataEncipherment?: pulumi.Input<boolean>;
         decipherOnly?: pulumi.Input<boolean>;
         digitalSignature?: pulumi.Input<boolean>;
@@ -1965,8 +1965,8 @@ export namespace appflow {
         marketo?: pulumi.Input<inputs.appflow.ConnectorProfileMarketoConnectorProfileCredentialsArgs>;
         pardot?: pulumi.Input<inputs.appflow.ConnectorProfilePardotConnectorProfileCredentialsArgs>;
         redshift?: pulumi.Input<inputs.appflow.ConnectorProfileRedshiftConnectorProfileCredentialsArgs>;
-        sAPOData?: pulumi.Input<inputs.appflow.ConnectorProfileSAPODataConnectorProfileCredentialsArgs>;
         salesforce?: pulumi.Input<inputs.appflow.ConnectorProfileSalesforceConnectorProfileCredentialsArgs>;
+        sapoData?: pulumi.Input<inputs.appflow.ConnectorProfileSAPODataConnectorProfileCredentialsArgs>;
         serviceNow?: pulumi.Input<inputs.appflow.ConnectorProfileServiceNowConnectorProfileCredentialsArgs>;
         singular?: pulumi.Input<inputs.appflow.ConnectorProfileSingularConnectorProfileCredentialsArgs>;
         slack?: pulumi.Input<inputs.appflow.ConnectorProfileSlackConnectorProfileCredentialsArgs>;
@@ -2178,8 +2178,8 @@ export namespace appflow {
         marketo?: pulumi.Input<inputs.appflow.ConnectorProfileMarketoConnectorProfilePropertiesArgs>;
         pardot?: pulumi.Input<inputs.appflow.ConnectorProfilePardotConnectorProfilePropertiesArgs>;
         redshift?: pulumi.Input<inputs.appflow.ConnectorProfileRedshiftConnectorProfilePropertiesArgs>;
-        sAPOData?: pulumi.Input<inputs.appflow.ConnectorProfileSAPODataConnectorProfilePropertiesArgs>;
         salesforce?: pulumi.Input<inputs.appflow.ConnectorProfileSalesforceConnectorProfilePropertiesArgs>;
+        sapoData?: pulumi.Input<inputs.appflow.ConnectorProfileSAPODataConnectorProfilePropertiesArgs>;
         serviceNow?: pulumi.Input<inputs.appflow.ConnectorProfileServiceNowConnectorProfilePropertiesArgs>;
         slack?: pulumi.Input<inputs.appflow.ConnectorProfileSlackConnectorProfilePropertiesArgs>;
         snowflake?: pulumi.Input<inputs.appflow.ConnectorProfileSnowflakeConnectorProfilePropertiesArgs>;
@@ -2485,8 +2485,8 @@ export namespace appflow {
         marketo?: pulumi.Input<enums.appflow.FlowMarketoConnectorOperator>;
         pardot?: pulumi.Input<enums.appflow.FlowPardotConnectorOperator>;
         s3?: pulumi.Input<enums.appflow.FlowS3ConnectorOperator>;
-        sAPOData?: pulumi.Input<enums.appflow.FlowSAPODataConnectorOperator>;
         salesforce?: pulumi.Input<enums.appflow.FlowSalesforceConnectorOperator>;
+        sapoData?: pulumi.Input<enums.appflow.FlowSAPODataConnectorOperator>;
         serviceNow?: pulumi.Input<enums.appflow.FlowServiceNowConnectorOperator>;
         singular?: pulumi.Input<enums.appflow.FlowSingularConnectorOperator>;
         slack?: pulumi.Input<enums.appflow.FlowSlackConnectorOperator>;
@@ -2537,8 +2537,8 @@ export namespace appflow {
         marketo?: pulumi.Input<inputs.appflow.FlowMarketoDestinationPropertiesArgs>;
         redshift?: pulumi.Input<inputs.appflow.FlowRedshiftDestinationPropertiesArgs>;
         s3?: pulumi.Input<inputs.appflow.FlowS3DestinationPropertiesArgs>;
-        sAPOData?: pulumi.Input<inputs.appflow.FlowSAPODataDestinationPropertiesArgs>;
         salesforce?: pulumi.Input<inputs.appflow.FlowSalesforceDestinationPropertiesArgs>;
+        sapoData?: pulumi.Input<inputs.appflow.FlowSAPODataDestinationPropertiesArgs>;
         snowflake?: pulumi.Input<inputs.appflow.FlowSnowflakeDestinationPropertiesArgs>;
         upsolver?: pulumi.Input<inputs.appflow.FlowUpsolverDestinationPropertiesArgs>;
         zendesk?: pulumi.Input<inputs.appflow.FlowZendeskDestinationPropertiesArgs>;
@@ -2756,8 +2756,8 @@ export namespace appflow {
         marketo?: pulumi.Input<inputs.appflow.FlowMarketoSourcePropertiesArgs>;
         pardot?: pulumi.Input<inputs.appflow.FlowPardotSourcePropertiesArgs>;
         s3?: pulumi.Input<inputs.appflow.FlowS3SourcePropertiesArgs>;
-        sAPOData?: pulumi.Input<inputs.appflow.FlowSAPODataSourcePropertiesArgs>;
         salesforce?: pulumi.Input<inputs.appflow.FlowSalesforceSourcePropertiesArgs>;
+        sapoData?: pulumi.Input<inputs.appflow.FlowSAPODataSourcePropertiesArgs>;
         serviceNow?: pulumi.Input<inputs.appflow.FlowServiceNowSourcePropertiesArgs>;
         singular?: pulumi.Input<inputs.appflow.FlowSingularSourcePropertiesArgs>;
         slack?: pulumi.Input<inputs.appflow.FlowSlackSourcePropertiesArgs>;
@@ -3082,7 +3082,7 @@ export namespace applicationinsights {
         /**
          * The ARN of the compnonent.
          */
-        componentARN?: pulumi.Input<string>;
+        componentArn?: pulumi.Input<string>;
         /**
          * The component monitoring configuration mode.
          */
@@ -3120,15 +3120,15 @@ export namespace applicationinsights {
         /**
          * The HA cluster Prometheus Exporter settings.
          */
-        hAClusterPrometheusExporter?: pulumi.Input<inputs.applicationinsights.ApplicationHAClusterPrometheusExporterArgs>;
+        haClusterPrometheusExporter?: pulumi.Input<inputs.applicationinsights.ApplicationHAClusterPrometheusExporterArgs>;
         /**
          * The HANA DB Prometheus Exporter settings.
          */
-        hANAPrometheusExporter?: pulumi.Input<inputs.applicationinsights.ApplicationHANAPrometheusExporterArgs>;
+        hanaPrometheusExporter?: pulumi.Input<inputs.applicationinsights.ApplicationHANAPrometheusExporterArgs>;
         /**
          * The JMX Prometheus Exporter settings.
          */
-        jMXPrometheusExporter?: pulumi.Input<inputs.applicationinsights.ApplicationJMXPrometheusExporterArgs>;
+        jmxPrometheusExporter?: pulumi.Input<inputs.applicationinsights.ApplicationJMXPrometheusExporterArgs>;
         /**
          * A list of logs to monitor for the component.
          */
@@ -3170,22 +3170,22 @@ export namespace applicationinsights {
         /**
          * A flag which indicates agreeing to install SAP HANA DB client.
          */
-        agreeToInstallHANADBClient: pulumi.Input<boolean>;
+        agreeToInstallHanadbClient: pulumi.Input<boolean>;
         /**
          * The HANA DB port.
          */
-        hANAPort: pulumi.Input<string>;
-        /**
-         * HANA DB SID.
-         */
-        hANASID: pulumi.Input<string>;
+        hanaPort: pulumi.Input<string>;
         /**
          * The secret name which manages the HANA DB credentials e.g. {
          *   "username": "<>",
          *   "password": "<>"
          * }.
          */
-        hANASecretName: pulumi.Input<string>;
+        hanaSecretName: pulumi.Input<string>;
+        /**
+         * HANA DB SID.
+         */
+        hanasid: pulumi.Input<string>;
         /**
          * Prometheus exporter port.
          */
@@ -3203,7 +3203,7 @@ export namespace applicationinsights {
         /**
          * JMX service URL.
          */
-        jMXURL?: pulumi.Input<string>;
+        jmxurl?: pulumi.Input<string>;
         /**
          * Prometheus exporter port.
          */
@@ -3651,7 +3651,7 @@ export namespace appmesh {
     }
 
     export interface VirtualGatewayClientPolicyArgs {
-        tLS?: pulumi.Input<inputs.appmesh.VirtualGatewayClientPolicyTlsArgs>;
+        tls?: pulumi.Input<inputs.appmesh.VirtualGatewayClientPolicyTlsArgs>;
     }
 
     export interface VirtualGatewayClientPolicyTlsArgs {
@@ -3663,13 +3663,13 @@ export namespace appmesh {
 
     export interface VirtualGatewayClientTlsCertificateArgs {
         file?: pulumi.Input<inputs.appmesh.VirtualGatewayListenerTlsFileCertificateArgs>;
-        sDS?: pulumi.Input<inputs.appmesh.VirtualGatewayListenerTlsSdsCertificateArgs>;
+        sds?: pulumi.Input<inputs.appmesh.VirtualGatewayListenerTlsSdsCertificateArgs>;
     }
 
     export interface VirtualGatewayConnectionPoolArgs {
-        gRPC?: pulumi.Input<inputs.appmesh.VirtualGatewayGrpcConnectionPoolArgs>;
-        hTTP?: pulumi.Input<inputs.appmesh.VirtualGatewayHttpConnectionPoolArgs>;
-        hTTP2?: pulumi.Input<inputs.appmesh.VirtualGatewayHttp2ConnectionPoolArgs>;
+        grpc?: pulumi.Input<inputs.appmesh.VirtualGatewayGrpcConnectionPoolArgs>;
+        http?: pulumi.Input<inputs.appmesh.VirtualGatewayHttpConnectionPoolArgs>;
+        http2?: pulumi.Input<inputs.appmesh.VirtualGatewayHttp2ConnectionPoolArgs>;
     }
 
     export interface VirtualGatewayFileAccessLogArgs {
@@ -3709,7 +3709,7 @@ export namespace appmesh {
         connectionPool?: pulumi.Input<inputs.appmesh.VirtualGatewayConnectionPoolArgs>;
         healthCheck?: pulumi.Input<inputs.appmesh.VirtualGatewayHealthCheckPolicyArgs>;
         portMapping: pulumi.Input<inputs.appmesh.VirtualGatewayPortMappingArgs>;
-        tLS?: pulumi.Input<inputs.appmesh.VirtualGatewayListenerTlsArgs>;
+        tls?: pulumi.Input<inputs.appmesh.VirtualGatewayListenerTlsArgs>;
     }
 
     export interface VirtualGatewayListenerTlsArgs {
@@ -3723,9 +3723,9 @@ export namespace appmesh {
     }
 
     export interface VirtualGatewayListenerTlsCertificateArgs {
-        aCM?: pulumi.Input<inputs.appmesh.VirtualGatewayListenerTlsAcmCertificateArgs>;
+        acm?: pulumi.Input<inputs.appmesh.VirtualGatewayListenerTlsAcmCertificateArgs>;
         file?: pulumi.Input<inputs.appmesh.VirtualGatewayListenerTlsFileCertificateArgs>;
-        sDS?: pulumi.Input<inputs.appmesh.VirtualGatewayListenerTlsSdsCertificateArgs>;
+        sds?: pulumi.Input<inputs.appmesh.VirtualGatewayListenerTlsSdsCertificateArgs>;
     }
 
     export interface VirtualGatewayListenerTlsFileCertificateArgs {
@@ -3744,7 +3744,7 @@ export namespace appmesh {
 
     export interface VirtualGatewayListenerTlsValidationContextTrustArgs {
         file?: pulumi.Input<inputs.appmesh.VirtualGatewayTlsValidationContextFileTrustArgs>;
-        sDS?: pulumi.Input<inputs.appmesh.VirtualGatewayTlsValidationContextSdsTrustArgs>;
+        sds?: pulumi.Input<inputs.appmesh.VirtualGatewayTlsValidationContextSdsTrustArgs>;
     }
 
     export interface VirtualGatewayLoggingArgs {
@@ -3798,9 +3798,9 @@ export namespace appmesh {
     }
 
     export interface VirtualGatewayTlsValidationContextTrustArgs {
-        aCM?: pulumi.Input<inputs.appmesh.VirtualGatewayTlsValidationContextAcmTrustArgs>;
+        acm?: pulumi.Input<inputs.appmesh.VirtualGatewayTlsValidationContextAcmTrustArgs>;
         file?: pulumi.Input<inputs.appmesh.VirtualGatewayTlsValidationContextFileTrustArgs>;
-        sDS?: pulumi.Input<inputs.appmesh.VirtualGatewayTlsValidationContextSdsTrustArgs>;
+        sds?: pulumi.Input<inputs.appmesh.VirtualGatewayTlsValidationContextSdsTrustArgs>;
     }
 
     export interface VirtualNodeAccessLogArgs {
@@ -3828,7 +3828,7 @@ export namespace appmesh {
     }
 
     export interface VirtualNodeClientPolicyArgs {
-        tLS?: pulumi.Input<inputs.appmesh.VirtualNodeClientPolicyTlsArgs>;
+        tls?: pulumi.Input<inputs.appmesh.VirtualNodeClientPolicyTlsArgs>;
     }
 
     export interface VirtualNodeClientPolicyTlsArgs {
@@ -3840,14 +3840,14 @@ export namespace appmesh {
 
     export interface VirtualNodeClientTlsCertificateArgs {
         file?: pulumi.Input<inputs.appmesh.VirtualNodeListenerTlsFileCertificateArgs>;
-        sDS?: pulumi.Input<inputs.appmesh.VirtualNodeListenerTlsSdsCertificateArgs>;
+        sds?: pulumi.Input<inputs.appmesh.VirtualNodeListenerTlsSdsCertificateArgs>;
     }
 
     export interface VirtualNodeConnectionPoolArgs {
-        gRPC?: pulumi.Input<inputs.appmesh.VirtualNodeGrpcConnectionPoolArgs>;
-        hTTP?: pulumi.Input<inputs.appmesh.VirtualNodeHttpConnectionPoolArgs>;
-        hTTP2?: pulumi.Input<inputs.appmesh.VirtualNodeHttp2ConnectionPoolArgs>;
-        tCP?: pulumi.Input<inputs.appmesh.VirtualNodeTcpConnectionPoolArgs>;
+        grpc?: pulumi.Input<inputs.appmesh.VirtualNodeGrpcConnectionPoolArgs>;
+        http?: pulumi.Input<inputs.appmesh.VirtualNodeHttpConnectionPoolArgs>;
+        http2?: pulumi.Input<inputs.appmesh.VirtualNodeHttp2ConnectionPoolArgs>;
+        tcp?: pulumi.Input<inputs.appmesh.VirtualNodeTcpConnectionPoolArgs>;
     }
 
     export interface VirtualNodeDnsServiceDiscoveryArgs {
@@ -3909,15 +3909,15 @@ export namespace appmesh {
         healthCheck?: pulumi.Input<inputs.appmesh.VirtualNodeHealthCheckArgs>;
         outlierDetection?: pulumi.Input<inputs.appmesh.VirtualNodeOutlierDetectionArgs>;
         portMapping: pulumi.Input<inputs.appmesh.VirtualNodePortMappingArgs>;
-        tLS?: pulumi.Input<inputs.appmesh.VirtualNodeListenerTlsArgs>;
         timeout?: pulumi.Input<inputs.appmesh.VirtualNodeListenerTimeoutArgs>;
+        tls?: pulumi.Input<inputs.appmesh.VirtualNodeListenerTlsArgs>;
     }
 
     export interface VirtualNodeListenerTimeoutArgs {
-        gRPC?: pulumi.Input<inputs.appmesh.VirtualNodeGrpcTimeoutArgs>;
-        hTTP?: pulumi.Input<inputs.appmesh.VirtualNodeHttpTimeoutArgs>;
-        hTTP2?: pulumi.Input<inputs.appmesh.VirtualNodeHttpTimeoutArgs>;
-        tCP?: pulumi.Input<inputs.appmesh.VirtualNodeTcpTimeoutArgs>;
+        grpc?: pulumi.Input<inputs.appmesh.VirtualNodeGrpcTimeoutArgs>;
+        http?: pulumi.Input<inputs.appmesh.VirtualNodeHttpTimeoutArgs>;
+        http2?: pulumi.Input<inputs.appmesh.VirtualNodeHttpTimeoutArgs>;
+        tcp?: pulumi.Input<inputs.appmesh.VirtualNodeTcpTimeoutArgs>;
     }
 
     export interface VirtualNodeListenerTlsArgs {
@@ -3931,9 +3931,9 @@ export namespace appmesh {
     }
 
     export interface VirtualNodeListenerTlsCertificateArgs {
-        aCM?: pulumi.Input<inputs.appmesh.VirtualNodeListenerTlsAcmCertificateArgs>;
+        acm?: pulumi.Input<inputs.appmesh.VirtualNodeListenerTlsAcmCertificateArgs>;
         file?: pulumi.Input<inputs.appmesh.VirtualNodeListenerTlsFileCertificateArgs>;
-        sDS?: pulumi.Input<inputs.appmesh.VirtualNodeListenerTlsSdsCertificateArgs>;
+        sds?: pulumi.Input<inputs.appmesh.VirtualNodeListenerTlsSdsCertificateArgs>;
     }
 
     export interface VirtualNodeListenerTlsFileCertificateArgs {
@@ -3952,7 +3952,7 @@ export namespace appmesh {
 
     export interface VirtualNodeListenerTlsValidationContextTrustArgs {
         file?: pulumi.Input<inputs.appmesh.VirtualNodeTlsValidationContextFileTrustArgs>;
-        sDS?: pulumi.Input<inputs.appmesh.VirtualNodeTlsValidationContextSdsTrustArgs>;
+        sds?: pulumi.Input<inputs.appmesh.VirtualNodeTlsValidationContextSdsTrustArgs>;
     }
 
     export interface VirtualNodeLoggingArgs {
@@ -3977,8 +3977,8 @@ export namespace appmesh {
     }
 
     export interface VirtualNodeServiceDiscoveryArgs {
-        aWSCloudMap?: pulumi.Input<inputs.appmesh.VirtualNodeAwsCloudMapServiceDiscoveryArgs>;
-        dNS?: pulumi.Input<inputs.appmesh.VirtualNodeDnsServiceDiscoveryArgs>;
+        awsCloudMap?: pulumi.Input<inputs.appmesh.VirtualNodeAwsCloudMapServiceDiscoveryArgs>;
+        dns?: pulumi.Input<inputs.appmesh.VirtualNodeDnsServiceDiscoveryArgs>;
     }
 
     export interface VirtualNodeSpecArgs {
@@ -4028,9 +4028,9 @@ export namespace appmesh {
     }
 
     export interface VirtualNodeTlsValidationContextTrustArgs {
-        aCM?: pulumi.Input<inputs.appmesh.VirtualNodeTlsValidationContextAcmTrustArgs>;
+        acm?: pulumi.Input<inputs.appmesh.VirtualNodeTlsValidationContextAcmTrustArgs>;
         file?: pulumi.Input<inputs.appmesh.VirtualNodeTlsValidationContextFileTrustArgs>;
-        sDS?: pulumi.Input<inputs.appmesh.VirtualNodeTlsValidationContextSdsTrustArgs>;
+        sds?: pulumi.Input<inputs.appmesh.VirtualNodeTlsValidationContextSdsTrustArgs>;
     }
 
     export interface VirtualNodeVirtualServiceBackendArgs {
@@ -4509,9 +4509,9 @@ export namespace appsync {
     }
 
     export interface DataSourceDeltaSyncConfigArgs {
-        baseTableTTL: pulumi.Input<string>;
+        baseTableTtl: pulumi.Input<string>;
         deltaSyncTableName: pulumi.Input<string>;
-        deltaSyncTableTTL: pulumi.Input<string>;
+        deltaSyncTableTtl: pulumi.Input<string>;
     }
 
     export interface DataSourceDynamoDBConfigArgs {
@@ -4576,7 +4576,7 @@ export namespace appsync {
     export interface GraphQLApiAdditionalAuthenticationProviderArgs {
         authenticationType: pulumi.Input<string>;
         lambdaAuthorizerConfig?: pulumi.Input<inputs.appsync.GraphQLApiLambdaAuthorizerConfigArgs>;
-        openIDConnectConfig?: pulumi.Input<inputs.appsync.GraphQLApiOpenIDConnectConfigArgs>;
+        openIdConnectConfig?: pulumi.Input<inputs.appsync.GraphQLApiOpenIDConnectConfigArgs>;
         userPoolConfig?: pulumi.Input<inputs.appsync.GraphQLApiCognitoUserPoolConfigArgs>;
     }
 
@@ -4599,9 +4599,9 @@ export namespace appsync {
     }
 
     export interface GraphQLApiOpenIDConnectConfigArgs {
-        authTTL?: pulumi.Input<number>;
+        authTtl?: pulumi.Input<number>;
         clientId?: pulumi.Input<string>;
-        iatTTL?: pulumi.Input<number>;
+        iatTtl?: pulumi.Input<number>;
         issuer?: pulumi.Input<string>;
     }
 
@@ -4937,7 +4937,7 @@ export namespace autoscaling {
         onDemandMaxPricePercentageOverLowestPrice?: pulumi.Input<number>;
         requireHibernateSupport?: pulumi.Input<boolean>;
         spotMaxPricePercentageOverLowestPrice?: pulumi.Input<number>;
-        totalLocalStorageGB?: pulumi.Input<inputs.autoscaling.AutoScalingGroupTotalLocalStorageGBRequestArgs>;
+        totalLocalStorageGb?: pulumi.Input<inputs.autoscaling.AutoScalingGroupTotalLocalStorageGBRequestArgs>;
         vCpuCount?: pulumi.Input<inputs.autoscaling.AutoScalingGroupVCpuCountRequestArgs>;
     }
 
@@ -4974,8 +4974,8 @@ export namespace autoscaling {
         lifecycleHookName: pulumi.Input<string>;
         lifecycleTransition: pulumi.Input<string>;
         notificationMetadata?: pulumi.Input<string>;
-        notificationTargetARN?: pulumi.Input<string>;
-        roleARN?: pulumi.Input<string>;
+        notificationTargetArn?: pulumi.Input<string>;
+        roleArn?: pulumi.Input<string>;
     }
 
     export interface AutoScalingGroupMemoryGiBPerVCpuRequestArgs {
@@ -5010,7 +5010,7 @@ export namespace autoscaling {
 
     export interface AutoScalingGroupNotificationConfigurationArgs {
         notificationTypes?: pulumi.Input<pulumi.Input<string>[]>;
-        topicARN: pulumi.Input<string>;
+        topicArn: pulumi.Input<string>;
     }
 
     export interface AutoScalingGroupTagPropertyArgs {
@@ -5206,7 +5206,7 @@ export namespace autoscaling {
 
 export namespace autoscalingplans {
     export interface ScalingPlanApplicationSourceArgs {
-        cloudFormationStackARN?: pulumi.Input<string>;
+        cloudFormationStackArn?: pulumi.Input<string>;
         tagFilters?: pulumi.Input<pulumi.Input<inputs.autoscalingplans.ScalingPlanTagFilterArgs>[]>;
     }
 
@@ -5343,7 +5343,7 @@ export namespace backup {
 
     export interface BackupVaultNotificationObjectTypeArgs {
         backupVaultEvents: pulumi.Input<pulumi.Input<string>[]>;
-        sNSTopicArn: pulumi.Input<string>;
+        snsTopicArn: pulumi.Input<string>;
     }
 
     export interface FrameworkControlArgs {
@@ -6255,9 +6255,9 @@ export namespace cloudformation {
 export namespace cloudfront {
     export interface CachePolicyConfigArgs {
         comment?: pulumi.Input<string>;
-        defaultTTL: pulumi.Input<number>;
-        maxTTL: pulumi.Input<number>;
-        minTTL: pulumi.Input<number>;
+        defaultTtl: pulumi.Input<number>;
+        maxTtl: pulumi.Input<number>;
+        minTtl: pulumi.Input<number>;
         name: pulumi.Input<string>;
         parametersInCacheKeyAndForwardedToOrigin: pulumi.Input<inputs.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginArgs>;
     }
@@ -6296,8 +6296,8 @@ export namespace cloudfront {
     }
 
     export interface ContinuousDeploymentPolicySessionStickinessConfigArgs {
-        idleTTL: pulumi.Input<number>;
-        maximumTTL: pulumi.Input<number>;
+        idleTtl: pulumi.Input<number>;
+        maximumTtl: pulumi.Input<number>;
     }
 
     export interface ContinuousDeploymentPolicySingleHeaderConfigArgs {
@@ -6321,13 +6321,13 @@ export namespace cloudfront {
         cachePolicyId?: pulumi.Input<string>;
         cachedMethods?: pulumi.Input<pulumi.Input<string>[]>;
         compress?: pulumi.Input<boolean>;
-        defaultTTL?: pulumi.Input<number>;
+        defaultTtl?: pulumi.Input<number>;
         fieldLevelEncryptionId?: pulumi.Input<string>;
         forwardedValues?: pulumi.Input<inputs.cloudfront.DistributionForwardedValuesArgs>;
         functionAssociations?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionFunctionAssociationArgs>[]>;
         lambdaFunctionAssociations?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionLambdaFunctionAssociationArgs>[]>;
-        maxTTL?: pulumi.Input<number>;
-        minTTL?: pulumi.Input<number>;
+        maxTtl?: pulumi.Input<number>;
+        minTtl?: pulumi.Input<number>;
         originRequestPolicyId?: pulumi.Input<string>;
         pathPattern: pulumi.Input<string>;
         realtimeLogConfigArn?: pulumi.Input<string>;
@@ -6341,8 +6341,8 @@ export namespace cloudfront {
 
     export interface DistributionConfigArgs {
         aliases?: pulumi.Input<pulumi.Input<string>[]>;
-        cNAMEs?: pulumi.Input<pulumi.Input<string>[]>;
         cacheBehaviors?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionCacheBehaviorArgs>[]>;
+        cnames?: pulumi.Input<pulumi.Input<string>[]>;
         comment?: pulumi.Input<string>;
         continuousDeploymentPolicyId?: pulumi.Input<string>;
         customErrorResponses?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionCustomErrorResponseArgs>[]>;
@@ -6351,7 +6351,7 @@ export namespace cloudfront {
         defaultRootObject?: pulumi.Input<string>;
         enabled: pulumi.Input<boolean>;
         httpVersion?: pulumi.Input<string>;
-        iPV6Enabled?: pulumi.Input<boolean>;
+        ipv6Enabled?: pulumi.Input<boolean>;
         logging?: pulumi.Input<inputs.cloudfront.DistributionLoggingArgs>;
         originGroups?: pulumi.Input<inputs.cloudfront.DistributionOriginGroupsArgs>;
         origins?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionOriginArgs>[]>;
@@ -6360,7 +6360,7 @@ export namespace cloudfront {
         s3Origin?: pulumi.Input<inputs.cloudfront.DistributionLegacyS3OriginArgs>;
         staging?: pulumi.Input<boolean>;
         viewerCertificate?: pulumi.Input<inputs.cloudfront.DistributionViewerCertificateArgs>;
-        webACLId?: pulumi.Input<string>;
+        webAclId?: pulumi.Input<string>;
     }
 
     export interface DistributionCookiesArgs {
@@ -6369,19 +6369,19 @@ export namespace cloudfront {
     }
 
     export interface DistributionCustomErrorResponseArgs {
-        errorCachingMinTTL?: pulumi.Input<number>;
+        errorCachingMinTtl?: pulumi.Input<number>;
         errorCode: pulumi.Input<number>;
         responseCode?: pulumi.Input<number>;
         responsePagePath?: pulumi.Input<string>;
     }
 
     export interface DistributionCustomOriginConfigArgs {
-        hTTPPort?: pulumi.Input<number>;
-        hTTPSPort?: pulumi.Input<number>;
+        httpPort?: pulumi.Input<number>;
+        httpsPort?: pulumi.Input<number>;
         originKeepaliveTimeout?: pulumi.Input<number>;
         originProtocolPolicy: pulumi.Input<string>;
         originReadTimeout?: pulumi.Input<number>;
-        originSSLProtocols?: pulumi.Input<pulumi.Input<string>[]>;
+        originSslProtocols?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface DistributionDefaultCacheBehaviorArgs {
@@ -6389,13 +6389,13 @@ export namespace cloudfront {
         cachePolicyId?: pulumi.Input<string>;
         cachedMethods?: pulumi.Input<pulumi.Input<string>[]>;
         compress?: pulumi.Input<boolean>;
-        defaultTTL?: pulumi.Input<number>;
+        defaultTtl?: pulumi.Input<number>;
         fieldLevelEncryptionId?: pulumi.Input<string>;
         forwardedValues?: pulumi.Input<inputs.cloudfront.DistributionForwardedValuesArgs>;
         functionAssociations?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionFunctionAssociationArgs>[]>;
         lambdaFunctionAssociations?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionLambdaFunctionAssociationArgs>[]>;
-        maxTTL?: pulumi.Input<number>;
-        minTTL?: pulumi.Input<number>;
+        maxTtl?: pulumi.Input<number>;
+        minTtl?: pulumi.Input<number>;
         originRequestPolicyId?: pulumi.Input<string>;
         realtimeLogConfigArn?: pulumi.Input<string>;
         responseHeadersPolicyId?: pulumi.Input<string>;
@@ -6415,7 +6415,7 @@ export namespace cloudfront {
 
     export interface DistributionFunctionAssociationArgs {
         eventType?: pulumi.Input<string>;
-        functionARN?: pulumi.Input<string>;
+        functionArn?: pulumi.Input<string>;
     }
 
     export interface DistributionGeoRestrictionArgs {
@@ -6426,19 +6426,19 @@ export namespace cloudfront {
     export interface DistributionLambdaFunctionAssociationArgs {
         eventType?: pulumi.Input<string>;
         includeBody?: pulumi.Input<boolean>;
-        lambdaFunctionARN?: pulumi.Input<string>;
+        lambdaFunctionArn?: pulumi.Input<string>;
     }
 
     export interface DistributionLegacyCustomOriginArgs {
-        dNSName: pulumi.Input<string>;
-        hTTPPort?: pulumi.Input<number>;
-        hTTPSPort?: pulumi.Input<number>;
+        dnsName: pulumi.Input<string>;
+        httpPort?: pulumi.Input<number>;
+        httpsPort?: pulumi.Input<number>;
         originProtocolPolicy: pulumi.Input<string>;
-        originSSLProtocols: pulumi.Input<pulumi.Input<string>[]>;
+        originSslProtocols: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface DistributionLegacyS3OriginArgs {
-        dNSName: pulumi.Input<string>;
+        dnsName: pulumi.Input<string>;
         originAccessIdentity?: pulumi.Input<string>;
     }
 
@@ -6527,7 +6527,7 @@ export namespace cloudfront {
     }
 
     export interface FunctionMetadataArgs {
-        functionARN?: pulumi.Input<string>;
+        functionArn?: pulumi.Input<string>;
     }
 
     export interface KeyGroupConfigArgs {
@@ -6671,7 +6671,7 @@ export namespace cloudfront {
         frameOptions?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyFrameOptionsArgs>;
         referrerPolicy?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyReferrerPolicyArgs>;
         strictTransportSecurity?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyStrictTransportSecurityArgs>;
-        xSSProtection?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyXSSProtectionArgs>;
+        xssProtection?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyXSSProtectionArgs>;
     }
 
     export interface ResponseHeadersPolicyServerTimingHeadersConfigArgs {
@@ -7619,7 +7619,7 @@ export namespace codepipeline {
     }
 
     export interface WebhookAuthConfigurationArgs {
-        allowedIPRange?: pulumi.Input<string>;
+        allowedIpRange?: pulumi.Input<string>;
         secretToken?: pulumi.Input<string>;
     }
 
@@ -7740,16 +7740,16 @@ export namespace cognito {
     export interface UserPoolInviteMessageTemplateArgs {
         emailMessage?: pulumi.Input<string>;
         emailSubject?: pulumi.Input<string>;
-        sMSMessage?: pulumi.Input<string>;
+        smsMessage?: pulumi.Input<string>;
     }
 
     export interface UserPoolLambdaConfigArgs {
         createAuthChallenge?: pulumi.Input<string>;
         customEmailSender?: pulumi.Input<inputs.cognito.UserPoolCustomEmailSenderArgs>;
         customMessage?: pulumi.Input<string>;
-        customSMSSender?: pulumi.Input<inputs.cognito.UserPoolCustomSMSSenderArgs>;
+        customSmsSender?: pulumi.Input<inputs.cognito.UserPoolCustomSMSSenderArgs>;
         defineAuthChallenge?: pulumi.Input<string>;
-        kMSKeyID?: pulumi.Input<string>;
+        kmsKeyId?: pulumi.Input<string>;
         postAuthentication?: pulumi.Input<string>;
         postConfirmation?: pulumi.Input<string>;
         preAuthentication?: pulumi.Input<string>;
@@ -7828,8 +7828,8 @@ export namespace cognito {
     }
 
     export interface UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgs {
-        blockedIPRangeList?: pulumi.Input<pulumi.Input<string>[]>;
-        skippedIPRangeList?: pulumi.Input<pulumi.Input<string>[]>;
+        blockedIpRangeList?: pulumi.Input<pulumi.Input<string>[]>;
+        skippedIpRangeList?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface UserPoolSchemaAttributeArgs {
@@ -8559,7 +8559,7 @@ export namespace connect {
         earlyMedia?: pulumi.Input<boolean>;
         inboundCalls: pulumi.Input<boolean>;
         outboundCalls: pulumi.Input<boolean>;
-        useCustomTTSVoices?: pulumi.Input<boolean>;
+        useCustomTtsVoices?: pulumi.Input<boolean>;
     }
 
     export interface InstanceStorageConfigEncryptionConfigArgs {
@@ -9996,8 +9996,8 @@ export namespace datasync {
      * Configuration settings for NFS or SMB protocol.
      */
     export interface LocationFSxONTAPProtocolArgs {
-        nFS?: pulumi.Input<inputs.datasync.LocationFSxONTAPNFSArgs>;
-        sMB?: pulumi.Input<inputs.datasync.LocationFSxONTAPSMBArgs>;
+        nfs?: pulumi.Input<inputs.datasync.LocationFSxONTAPNFSArgs>;
+        smb?: pulumi.Input<inputs.datasync.LocationFSxONTAPSMBArgs>;
     }
 
     /**
@@ -10064,7 +10064,7 @@ export namespace datasync {
      * Configuration settings for an NFS or SMB protocol, currently only support NFS
      */
     export interface LocationFSxOpenZFSProtocolArgs {
-        nFS?: pulumi.Input<inputs.datasync.LocationFSxOpenZFSNFSArgs>;
+        nfs?: pulumi.Input<inputs.datasync.LocationFSxOpenZFSNFSArgs>;
     }
 
     /**
@@ -10382,7 +10382,7 @@ export namespace datasync {
 
 export namespace dax {
     export interface ClusterSSESpecificationArgs {
-        sSEEnabled?: pulumi.Input<boolean>;
+        sseEnabled?: pulumi.Input<boolean>;
     }
 }
 
@@ -10979,7 +10979,7 @@ export namespace dms {
         kmsKeyId?: pulumi.Input<string>;
         maxCapacityUnits: pulumi.Input<number>;
         minCapacityUnits?: pulumi.Input<number>;
-        multiAZ?: pulumi.Input<boolean>;
+        multiAz?: pulumi.Input<boolean>;
         preferredMaintenanceWindow?: pulumi.Input<string>;
         replicationSubnetGroupId?: pulumi.Input<string>;
         vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
@@ -11105,7 +11105,7 @@ export namespace dynamodb {
     }
 
     export interface GlobalTableReplicaSSESpecificationArgs {
-        kMSMasterKeyId: pulumi.Input<string>;
+        kmsMasterKeyId: pulumi.Input<string>;
     }
 
     export interface GlobalTableReplicaSpecificationArgs {
@@ -11116,14 +11116,14 @@ export namespace dynamodb {
         pointInTimeRecoverySpecification?: pulumi.Input<inputs.dynamodb.GlobalTablePointInTimeRecoverySpecificationArgs>;
         readProvisionedThroughputSettings?: pulumi.Input<inputs.dynamodb.GlobalTableReadProvisionedThroughputSettingsArgs>;
         region: pulumi.Input<string>;
-        sSESpecification?: pulumi.Input<inputs.dynamodb.GlobalTableReplicaSSESpecificationArgs>;
+        sseSpecification?: pulumi.Input<inputs.dynamodb.GlobalTableReplicaSSESpecificationArgs>;
         tableClass?: pulumi.Input<string>;
         tags?: pulumi.Input<pulumi.Input<inputs.dynamodb.GlobalTableTagArgs>[]>;
     }
 
     export interface GlobalTableSSESpecificationArgs {
-        sSEEnabled: pulumi.Input<boolean>;
-        sSEType?: pulumi.Input<string>;
+        sseEnabled: pulumi.Input<boolean>;
+        sseType?: pulumi.Input<string>;
     }
 
     export interface GlobalTableStreamSpecificationArgs {
@@ -11220,9 +11220,9 @@ export namespace dynamodb {
     }
 
     export interface TableSSESpecificationArgs {
-        kMSMasterKeyId?: pulumi.Input<string>;
-        sSEEnabled: pulumi.Input<boolean>;
-        sSEType?: pulumi.Input<string>;
+        kmsMasterKeyId?: pulumi.Input<string>;
+        sseEnabled: pulumi.Input<boolean>;
+        sseType?: pulumi.Input<string>;
     }
 
     export interface TableStreamSpecificationArgs {
@@ -11308,8 +11308,8 @@ export namespace ec2 {
     }
 
     export interface ClientVpnEndpointFederatedAuthenticationRequestArgs {
-        sAMLProviderArn: pulumi.Input<string>;
-        selfServiceSAMLProviderArn?: pulumi.Input<string>;
+        samlProviderArn: pulumi.Input<string>;
+        selfServiceSamlProviderArn?: pulumi.Input<string>;
     }
 
     export interface ClientVpnEndpointTagArgs {
@@ -11406,7 +11406,7 @@ export namespace ec2 {
         onDemandMaxPricePercentageOverLowestPrice?: pulumi.Input<number>;
         requireHibernateSupport?: pulumi.Input<boolean>;
         spotMaxPricePercentageOverLowestPrice?: pulumi.Input<number>;
-        totalLocalStorageGB?: pulumi.Input<inputs.ec2.EC2FleetTotalLocalStorageGBRequestArgs>;
+        totalLocalStorageGb?: pulumi.Input<inputs.ec2.EC2FleetTotalLocalStorageGBRequestArgs>;
         vCpuCount?: pulumi.Input<inputs.ec2.EC2FleetVCpuCountRangeRequestArgs>;
     }
 
@@ -11618,7 +11618,7 @@ export namespace ec2 {
     }
 
     export interface InstanceCreditSpecificationArgs {
-        cPUCredits?: pulumi.Input<string>;
+        cpuCredits?: pulumi.Input<string>;
     }
 
     export interface InstanceEbsArgs {
@@ -11682,8 +11682,8 @@ export namespace ec2 {
     }
 
     export interface InstancePrivateDnsNameOptionsArgs {
-        enableResourceNameDnsAAAARecord?: pulumi.Input<boolean>;
         enableResourceNameDnsARecord?: pulumi.Input<boolean>;
+        enableResourceNameDnsAaaaRecord?: pulumi.Input<boolean>;
         hostnameType?: pulumi.Input<string>;
     }
 
@@ -12096,7 +12096,7 @@ export namespace ec2 {
          * The price protection threshold for Spot Instances.
          */
         spotMaxPricePercentageOverLowestPrice?: pulumi.Input<number>;
-        totalLocalStorageGB?: pulumi.Input<inputs.ec2.LaunchTemplateTotalLocalStorageGBArgs>;
+        totalLocalStorageGb?: pulumi.Input<inputs.ec2.LaunchTemplateTotalLocalStorageGBArgs>;
         vCpuCount?: pulumi.Input<inputs.ec2.LaunchTemplateVCpuCountArgs>;
     }
 
@@ -12359,13 +12359,13 @@ export namespace ec2 {
      */
     export interface LaunchTemplatePrivateDnsNameOptionsArgs {
         /**
-         * Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
-         */
-        enableResourceNameDnsAAAARecord?: pulumi.Input<boolean>;
-        /**
          * Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
          */
         enableResourceNameDnsARecord?: pulumi.Input<boolean>;
+        /**
+         * Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
+         */
+        enableResourceNameDnsAaaaRecord?: pulumi.Input<boolean>;
         /**
          * The type of hostname for EC2 instances.
          */
@@ -12610,8 +12610,8 @@ export namespace ec2 {
     }
 
     export interface PrivateDnsNameOptionsOnLaunchPropertiesArgs {
-        enableResourceNameDnsAAAARecord?: pulumi.Input<boolean>;
         enableResourceNameDnsARecord?: pulumi.Input<boolean>;
+        enableResourceNameDnsAaaaRecord?: pulumi.Input<boolean>;
         hostnameType?: pulumi.Input<string>;
     }
 
@@ -12742,7 +12742,7 @@ export namespace ec2 {
         onDemandMaxPricePercentageOverLowestPrice?: pulumi.Input<number>;
         requireHibernateSupport?: pulumi.Input<boolean>;
         spotMaxPricePercentageOverLowestPrice?: pulumi.Input<number>;
-        totalLocalStorageGB?: pulumi.Input<inputs.ec2.SpotFleetTotalLocalStorageGBRequestArgs>;
+        totalLocalStorageGb?: pulumi.Input<inputs.ec2.SpotFleetTotalLocalStorageGBRequestArgs>;
         vCpuCount?: pulumi.Input<inputs.ec2.SpotFleetVCpuCountRangeRequestArgs>;
     }
 
@@ -13570,7 +13570,7 @@ export namespace ecs {
 
     export interface TaskDefinitionAuthorizationConfigArgs {
         accessPointId?: pulumi.Input<string>;
-        iAM?: pulumi.Input<enums.ecs.TaskDefinitionAuthorizationConfigIAM>;
+        iam?: pulumi.Input<enums.ecs.TaskDefinitionAuthorizationConfigIAM>;
     }
 
     /**
@@ -13812,7 +13812,7 @@ export namespace ecs {
 
     export interface TaskDefinitionVolumeArgs {
         dockerVolumeConfiguration?: pulumi.Input<inputs.ecs.TaskDefinitionDockerVolumeConfigurationArgs>;
-        eFSVolumeConfiguration?: pulumi.Input<inputs.ecs.TaskDefinitionEFSVolumeConfigurationArgs>;
+        efsVolumeConfiguration?: pulumi.Input<inputs.ecs.TaskDefinitionEFSVolumeConfigurationArgs>;
         host?: pulumi.Input<inputs.ecs.TaskDefinitionHostVolumePropertiesArgs>;
         name?: pulumi.Input<string>;
     }
@@ -13953,7 +13953,7 @@ export namespace efs {
     }
 
     export interface FileSystemLifecyclePolicyArgs {
-        transitionToIA?: pulumi.Input<string>;
+        transitionToIa?: pulumi.Input<string>;
         transitionToPrimaryStorageClass?: pulumi.Input<string>;
     }
 }
@@ -14588,7 +14588,7 @@ export namespace elasticloadbalancing {
         loadBalancerPort: pulumi.Input<string>;
         policyNames?: pulumi.Input<pulumi.Input<string>[]>;
         protocol: pulumi.Input<string>;
-        sSLCertificateId?: pulumi.Input<string>;
+        sslCertificateId?: pulumi.Input<string>;
     }
 
     export interface LoadBalancerPoliciesArgs {
@@ -14875,7 +14875,7 @@ export namespace elasticsearch {
     }
 
     export interface DomainEBSOptionsArgs {
-        eBSEnabled?: pulumi.Input<boolean>;
+        ebsEnabled?: pulumi.Input<boolean>;
         iops?: pulumi.Input<number>;
         volumeSize?: pulumi.Input<number>;
         volumeType?: pulumi.Input<string>;
@@ -14904,12 +14904,12 @@ export namespace elasticsearch {
         customEndpoint?: pulumi.Input<string>;
         customEndpointCertificateArn?: pulumi.Input<string>;
         customEndpointEnabled?: pulumi.Input<boolean>;
-        enforceHTTPS?: pulumi.Input<boolean>;
-        tLSSecurityPolicy?: pulumi.Input<string>;
+        enforceHttps?: pulumi.Input<boolean>;
+        tlsSecurityPolicy?: pulumi.Input<string>;
     }
 
     export interface DomainMasterUserOptionsArgs {
-        masterUserARN?: pulumi.Input<string>;
+        masterUserArn?: pulumi.Input<string>;
         masterUserName?: pulumi.Input<string>;
         masterUserPassword?: pulumi.Input<string>;
     }
@@ -15059,8 +15059,8 @@ export namespace emr {
     }
 
     export interface ClusterKerberosAttributesArgs {
-        aDDomainJoinPassword?: pulumi.Input<string>;
-        aDDomainJoinUser?: pulumi.Input<string>;
+        adDomainJoinPassword?: pulumi.Input<string>;
+        adDomainJoinUser?: pulumi.Input<string>;
         crossRealmTrustPrincipalPassword?: pulumi.Input<string>;
         kdcAdminPassword: pulumi.Input<string>;
         realm: pulumi.Input<string>;
@@ -15140,7 +15140,7 @@ export namespace emr {
 
     export interface ClusterVolumeSpecificationArgs {
         iops?: pulumi.Input<number>;
-        sizeInGB: pulumi.Input<number>;
+        sizeInGb: pulumi.Input<number>;
         volumeType: pulumi.Input<string>;
     }
 
@@ -15188,7 +15188,7 @@ export namespace emr {
 
     export interface InstanceFleetConfigVolumeSpecificationArgs {
         iops?: pulumi.Input<number>;
-        sizeInGB: pulumi.Input<number>;
+        sizeInGb: pulumi.Input<number>;
         volumeType: pulumi.Input<string>;
     }
 
@@ -15259,7 +15259,7 @@ export namespace emr {
 
     export interface InstanceGroupConfigVolumeSpecificationArgs {
         iops?: pulumi.Input<number>;
-        sizeInGB: pulumi.Input<number>;
+        sizeInGb: pulumi.Input<number>;
         volumeType: pulumi.Input<string>;
     }
 
@@ -15455,7 +15455,7 @@ export namespace events {
     }
 
     export interface ConnectionClientParametersArgs {
-        clientID: pulumi.Input<string>;
+        clientId: pulumi.Input<string>;
         clientSecret: pulumi.Input<string>;
     }
 
@@ -15547,7 +15547,7 @@ export namespace events {
 
     export interface RuleEcsParametersArgs {
         capacityProviderStrategy?: pulumi.Input<pulumi.Input<inputs.events.RuleCapacityProviderStrategyItemArgs>[]>;
-        enableECSManagedTags?: pulumi.Input<boolean>;
+        enableEcsManagedTags?: pulumi.Input<boolean>;
         enableExecuteCommand?: pulumi.Input<boolean>;
         group?: pulumi.Input<string>;
         launchType?: pulumi.Input<string>;
@@ -15890,7 +15890,7 @@ export namespace finspace {
         /**
          * SAML metadata URL to link with the Environment
          */
-        applicationCallBackURL?: pulumi.Input<string>;
+        applicationCallBackUrl?: pulumi.Input<string>;
         /**
          * Attribute map for SAML configuration
          */
@@ -15902,7 +15902,7 @@ export namespace finspace {
         /**
          * SAML metadata URL to link with the Environment
          */
-        federationURN?: pulumi.Input<string>;
+        federationUrn?: pulumi.Input<string>;
         /**
          * SAML metadata document to link the federation provider to the Environment
          */
@@ -15910,7 +15910,7 @@ export namespace finspace {
         /**
          * SAML metadata URL to link with the Environment
          */
-        samlMetadataURL?: pulumi.Input<string>;
+        samlMetadataUrl?: pulumi.Input<string>;
     }
 
     export interface EnvironmentFederationParametersAttributeMapItemPropertiesArgs {
@@ -15996,8 +15996,8 @@ export namespace fms {
      * An FMS includeMap or excludeMap.
      */
     export interface PolicyIEMapArgs {
-        aCCOUNT?: pulumi.Input<pulumi.Input<string>[]>;
-        oRGUNIT?: pulumi.Input<pulumi.Input<string>[]>;
+        account?: pulumi.Input<pulumi.Input<string>[]>;
+        orgunit?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     /**
@@ -16580,7 +16580,7 @@ export namespace fsx {
 
     export interface VolumeOriginSnapshotArgs {
         copyStrategy: pulumi.Input<string>;
-        snapshotARN: pulumi.Input<string>;
+        snapshotArn: pulumi.Input<string>;
     }
 
     export interface VolumeRetentionPeriodArgs {
@@ -16701,7 +16701,7 @@ export namespace gamelift {
         /**
          * The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits.
          */
-        desiredEC2Instances: pulumi.Input<number>;
+        desiredEc2Instances: pulumi.Input<number>;
         /**
          * The maximum value that is allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.
          */
@@ -16910,7 +16910,7 @@ export namespace globalaccelerator {
         /**
          * true if client ip should be preserved
          */
-        clientIPPreservationEnabled?: pulumi.Input<boolean>;
+        clientIpPreservationEnabled?: pulumi.Input<boolean>;
         /**
          * Id of the endpoint. For Network/Application Load Balancer this value is the ARN.  For EIP, this value is the allocation ID.  For EC2 instances, this is the EC2 instance ID
          */
@@ -17037,9 +17037,9 @@ export namespace glue {
     export interface CrawlerTargetsArgs {
         catalogTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerCatalogTargetArgs>[]>;
         deltaTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerDeltaTargetArgs>[]>;
-        dynamoDBTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerDynamoDBTargetArgs>[]>;
+        dynamoDbTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerDynamoDBTargetArgs>[]>;
         jdbcTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerJdbcTargetArgs>[]>;
-        mongoDBTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerMongoDBTargetArgs>[]>;
+        mongoDbTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerMongoDBTargetArgs>[]>;
         s3Targets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerS3TargetArgs>[]>;
     }
 
@@ -17131,11 +17131,11 @@ export namespace glue {
 
     export interface MLTransformMLUserDataEncryptionArgs {
         kmsKeyId?: pulumi.Input<string>;
-        mLUserDataEncryptionMode: pulumi.Input<string>;
+        mlUserDataEncryptionMode: pulumi.Input<string>;
     }
 
     export interface MLTransformTransformEncryptionArgs {
-        mLUserDataEncryption?: pulumi.Input<inputs.glue.MLTransformMLUserDataEncryptionArgs>;
+        mlUserDataEncryption?: pulumi.Input<inputs.glue.MLTransformMLUserDataEncryptionArgs>;
         taskRunSecurityConfigurationName?: pulumi.Input<string>;
     }
 
@@ -17716,8 +17716,8 @@ export namespace greengrass {
     }
 
     export interface ResourceDefinitionSecretsManagerSecretResourceDataArgs {
-        aRN: pulumi.Input<string>;
         additionalStagingLabelsToDownload?: pulumi.Input<pulumi.Input<string>[]>;
+        arn: pulumi.Input<string>;
     }
 
     export interface ResourceDefinitionVersionArgs {
@@ -17772,8 +17772,8 @@ export namespace greengrass {
     }
 
     export interface ResourceDefinitionVersionSecretsManagerSecretResourceDataArgs {
-        aRN: pulumi.Input<string>;
         additionalStagingLabelsToDownload?: pulumi.Input<pulumi.Input<string>[]>;
+        arn: pulumi.Input<string>;
     }
 
     export interface SubscriptionDefinitionSubscriptionArgs {
@@ -17803,8 +17803,8 @@ export namespace greengrassv2 {
 
     export interface ComponentVersionLambdaContainerParamsArgs {
         devices?: pulumi.Input<pulumi.Input<inputs.greengrassv2.ComponentVersionLambdaDeviceMountArgs>[]>;
-        memorySizeInKB?: pulumi.Input<number>;
-        mountROSysfs?: pulumi.Input<boolean>;
+        memorySizeInKb?: pulumi.Input<number>;
+        mountRoSysfs?: pulumi.Input<boolean>;
         volumes?: pulumi.Input<pulumi.Input<inputs.greengrassv2.ComponentVersionLambdaVolumeMountArgs>[]>;
     }
 
@@ -17938,11 +17938,11 @@ export namespace groundstation {
     }
 
     export interface ConfigDecodeConfigArgs {
-        unvalidatedJSON?: pulumi.Input<string>;
+        unvalidatedJson?: pulumi.Input<string>;
     }
 
     export interface ConfigDemodulationConfigArgs {
-        unvalidatedJSON?: pulumi.Input<string>;
+        unvalidatedJson?: pulumi.Input<string>;
     }
 
     export interface ConfigEirpArgs {
@@ -19286,7 +19286,7 @@ export namespace iot {
         enableIoTLoggingParams?: pulumi.Input<inputs.iot.MitigationActionEnableIoTLoggingParamsArgs>;
         publishFindingToSnsParams?: pulumi.Input<inputs.iot.MitigationActionPublishFindingToSnsParamsArgs>;
         replaceDefaultPolicyVersionParams?: pulumi.Input<inputs.iot.MitigationActionReplaceDefaultPolicyVersionParamsArgs>;
-        updateCACertificateParams?: pulumi.Input<inputs.iot.MitigationActionUpdateCACertificateParamsArgs>;
+        updateCaCertificateParams?: pulumi.Input<inputs.iot.MitigationActionUpdateCACertificateParamsArgs>;
         updateDeviceCertificateParams?: pulumi.Input<inputs.iot.MitigationActionUpdateDeviceCertificateParamsArgs>;
     }
 
@@ -19600,8 +19600,8 @@ export namespace iot {
         cloudwatchAlarm?: pulumi.Input<inputs.iot.TopicRuleCloudwatchAlarmActionArgs>;
         cloudwatchLogs?: pulumi.Input<inputs.iot.TopicRuleCloudwatchLogsActionArgs>;
         cloudwatchMetric?: pulumi.Input<inputs.iot.TopicRuleCloudwatchMetricActionArgs>;
-        dynamoDB?: pulumi.Input<inputs.iot.TopicRuleDynamoDBActionArgs>;
         dynamoDBv2?: pulumi.Input<inputs.iot.TopicRuleDynamoDBv2ActionArgs>;
+        dynamoDb?: pulumi.Input<inputs.iot.TopicRuleDynamoDBActionArgs>;
         elasticsearch?: pulumi.Input<inputs.iot.TopicRuleElasticsearchActionArgs>;
         firehose?: pulumi.Input<inputs.iot.TopicRuleFirehoseActionArgs>;
         http?: pulumi.Input<inputs.iot.TopicRuleHttpActionArgs>;
@@ -19977,7 +19977,7 @@ export namespace iotanalytics {
 
     export interface DatasetResourceConfigurationArgs {
         computeType: pulumi.Input<enums.iotanalytics.DatasetResourceConfigurationComputeType>;
-        volumeSizeInGB: pulumi.Input<number>;
+        volumeSizeInGb: pulumi.Input<number>;
     }
 
     export interface DatasetRetentionPeriodArgs {
@@ -20224,8 +20224,8 @@ export namespace iotevents {
      * The actions to be performed.
      */
     export interface AlarmModelAlarmActionArgs {
-        dynamoDB?: pulumi.Input<inputs.iotevents.AlarmModelDynamoDBArgs>;
         dynamoDBv2?: pulumi.Input<inputs.iotevents.AlarmModelDynamoDBv2Args>;
+        dynamoDb?: pulumi.Input<inputs.iotevents.AlarmModelDynamoDBArgs>;
         firehose?: pulumi.Input<inputs.iotevents.AlarmModelFirehoseArgs>;
         iotEvents?: pulumi.Input<inputs.iotevents.AlarmModelIotEventsArgs>;
         iotSiteWise?: pulumi.Input<inputs.iotevents.AlarmModelIotSiteWiseArgs>;
@@ -20537,8 +20537,8 @@ export namespace iotevents {
      */
     export interface DetectorModelActionArgs {
         clearTimer?: pulumi.Input<inputs.iotevents.DetectorModelClearTimerArgs>;
-        dynamoDB?: pulumi.Input<inputs.iotevents.DetectorModelDynamoDBArgs>;
         dynamoDBv2?: pulumi.Input<inputs.iotevents.DetectorModelDynamoDBv2Args>;
+        dynamoDb?: pulumi.Input<inputs.iotevents.DetectorModelDynamoDBArgs>;
         firehose?: pulumi.Input<inputs.iotevents.DetectorModelFirehoseArgs>;
         iotEvents?: pulumi.Input<inputs.iotevents.DetectorModelIotEventsArgs>;
         iotSiteWise?: pulumi.Input<inputs.iotevents.DetectorModelIotSiteWiseArgs>;
@@ -21729,7 +21729,7 @@ export namespace iotwireless {
     }
 
     export interface TaskDefinitionUpdateWirelessGatewayTaskCreateArgs {
-        loRaWAN?: pulumi.Input<inputs.iotwireless.TaskDefinitionLoRaWANUpdateGatewayTaskCreateArgs>;
+        loRaWan?: pulumi.Input<inputs.iotwireless.TaskDefinitionLoRaWANUpdateGatewayTaskCreateArgs>;
         updateDataRole?: pulumi.Input<string>;
         updateDataSource?: pulumi.Input<string>;
     }
@@ -22562,7 +22562,7 @@ export namespace kendra {
         issuer?: pulumi.Input<string>;
         keyLocation: pulumi.Input<enums.kendra.IndexKeyLocation>;
         secretManagerArn?: pulumi.Input<string>;
-        uRL?: pulumi.Input<string>;
+        url?: pulumi.Input<string>;
         userNameAttributeField?: pulumi.Input<string>;
     }
 
@@ -22686,8 +22686,8 @@ export namespace kinesisanalytics {
     }
 
     export interface ApplicationInputLambdaProcessorArgs {
-        resourceARN: pulumi.Input<string>;
-        roleARN: pulumi.Input<string>;
+        resourceArn: pulumi.Input<string>;
+        roleArn: pulumi.Input<string>;
     }
 
     export interface ApplicationInputParallelismArgs {
@@ -22709,18 +22709,18 @@ export namespace kinesisanalytics {
     }
 
     export interface ApplicationKinesisFirehoseInputArgs {
-        resourceARN: pulumi.Input<string>;
-        roleARN: pulumi.Input<string>;
+        resourceArn: pulumi.Input<string>;
+        roleArn: pulumi.Input<string>;
     }
 
     export interface ApplicationKinesisStreamsInputArgs {
-        resourceARN: pulumi.Input<string>;
-        roleARN: pulumi.Input<string>;
+        resourceArn: pulumi.Input<string>;
+        roleArn: pulumi.Input<string>;
     }
 
     export interface ApplicationMappingParametersArgs {
-        cSVMappingParameters?: pulumi.Input<inputs.kinesisanalytics.ApplicationCSVMappingParametersArgs>;
-        jSONMappingParameters?: pulumi.Input<inputs.kinesisanalytics.ApplicationJSONMappingParametersArgs>;
+        csvMappingParameters?: pulumi.Input<inputs.kinesisanalytics.ApplicationCSVMappingParametersArgs>;
+        jsonMappingParameters?: pulumi.Input<inputs.kinesisanalytics.ApplicationJSONMappingParametersArgs>;
     }
 
     export interface ApplicationOutputResourceDestinationSchemaArgs {
@@ -22728,18 +22728,18 @@ export namespace kinesisanalytics {
     }
 
     export interface ApplicationOutputResourceKinesisFirehoseOutputArgs {
-        resourceARN: pulumi.Input<string>;
-        roleARN: pulumi.Input<string>;
+        resourceArn: pulumi.Input<string>;
+        roleArn: pulumi.Input<string>;
     }
 
     export interface ApplicationOutputResourceKinesisStreamsOutputArgs {
-        resourceARN: pulumi.Input<string>;
-        roleARN: pulumi.Input<string>;
+        resourceArn: pulumi.Input<string>;
+        roleArn: pulumi.Input<string>;
     }
 
     export interface ApplicationOutputResourceLambdaOutputArgs {
-        resourceARN: pulumi.Input<string>;
-        roleARN: pulumi.Input<string>;
+        resourceArn: pulumi.Input<string>;
+        roleArn: pulumi.Input<string>;
     }
 
     export interface ApplicationOutputResourceOutputArgs {
@@ -22771,8 +22771,8 @@ export namespace kinesisanalytics {
     }
 
     export interface ApplicationReferenceDataSourceMappingParametersArgs {
-        cSVMappingParameters?: pulumi.Input<inputs.kinesisanalytics.ApplicationReferenceDataSourceCSVMappingParametersArgs>;
-        jSONMappingParameters?: pulumi.Input<inputs.kinesisanalytics.ApplicationReferenceDataSourceJSONMappingParametersArgs>;
+        csvMappingParameters?: pulumi.Input<inputs.kinesisanalytics.ApplicationReferenceDataSourceCSVMappingParametersArgs>;
+        jsonMappingParameters?: pulumi.Input<inputs.kinesisanalytics.ApplicationReferenceDataSourceJSONMappingParametersArgs>;
     }
 
     export interface ApplicationReferenceDataSourceRecordColumnArgs {
@@ -22799,9 +22799,9 @@ export namespace kinesisanalytics {
     }
 
     export interface ApplicationReferenceDataSourceS3ReferenceDataSourceArgs {
-        bucketARN: pulumi.Input<string>;
+        bucketArn: pulumi.Input<string>;
         fileKey: pulumi.Input<string>;
-        referenceRoleARN: pulumi.Input<string>;
+        referenceRoleArn: pulumi.Input<string>;
     }
 }
 
@@ -22855,7 +22855,7 @@ export namespace kinesisanalyticsv2 {
     }
 
     export interface ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionArgs {
-        logStreamARN: pulumi.Input<string>;
+        logStreamArn: pulumi.Input<string>;
     }
 
     /**
@@ -22997,7 +22997,7 @@ export namespace kinesisanalyticsv2 {
         /**
          * The Amazon Resource Name (ARN) of the database.
          */
-        databaseARN?: pulumi.Input<string>;
+        databaseArn?: pulumi.Input<string>;
     }
 
     /**
@@ -23037,7 +23037,7 @@ export namespace kinesisanalyticsv2 {
         /**
          * The ARN of the Amazon Lambda function that operates on records in the stream.
          */
-        resourceARN: pulumi.Input<string>;
+        resourceArn: pulumi.Input<string>;
     }
 
     /**
@@ -23095,7 +23095,7 @@ export namespace kinesisanalyticsv2 {
         /**
          * The Amazon Resource Name (ARN) of the delivery stream.
          */
-        resourceARN: pulumi.Input<string>;
+        resourceArn: pulumi.Input<string>;
     }
 
     /**
@@ -23105,7 +23105,7 @@ export namespace kinesisanalyticsv2 {
         /**
          * The ARN of the input Kinesis data stream to read.
          */
-        resourceARN: pulumi.Input<string>;
+        resourceArn: pulumi.Input<string>;
     }
 
     /**
@@ -23125,11 +23125,11 @@ export namespace kinesisanalyticsv2 {
         /**
          * Provides additional mapping information when the record format uses delimiters (for example, CSV).
          */
-        cSVMappingParameters?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationCSVMappingParametersArgs>;
+        csvMappingParameters?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationCSVMappingParametersArgs>;
         /**
          * Provides additional mapping information when JSON is the record format on the streaming source.
          */
-        jSONMappingParameters?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationJSONMappingParametersArgs>;
+        jsonMappingParameters?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationJSONMappingParametersArgs>;
     }
 
     /**
@@ -23173,15 +23173,15 @@ export namespace kinesisanalyticsv2 {
     }
 
     export interface ApplicationOutputResourceKinesisFirehoseOutputArgs {
-        resourceARN: pulumi.Input<string>;
+        resourceArn: pulumi.Input<string>;
     }
 
     export interface ApplicationOutputResourceKinesisStreamsOutputArgs {
-        resourceARN: pulumi.Input<string>;
+        resourceArn: pulumi.Input<string>;
     }
 
     export interface ApplicationOutputResourceLambdaOutputArgs {
-        resourceARN: pulumi.Input<string>;
+        resourceArn: pulumi.Input<string>;
     }
 
     export interface ApplicationOutputResourceOutputArgs {
@@ -23211,7 +23211,7 @@ export namespace kinesisanalyticsv2 {
         /**
          * Describes the number of parallel tasks that a Java-based Kinesis Data Analytics application can perform per Kinesis Processing Unit (KPU) used by the application. For more information about KPUs, see Amazon Kinesis Data Analytics Pricing.
          */
-        parallelismPerKPU?: pulumi.Input<number>;
+        parallelismPerKpu?: pulumi.Input<number>;
     }
 
     /**
@@ -23271,8 +23271,8 @@ export namespace kinesisanalyticsv2 {
     }
 
     export interface ApplicationReferenceDataSourceMappingParametersArgs {
-        cSVMappingParameters?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationReferenceDataSourceCSVMappingParametersArgs>;
-        jSONMappingParameters?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationReferenceDataSourceJSONMappingParametersArgs>;
+        csvMappingParameters?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationReferenceDataSourceCSVMappingParametersArgs>;
+        jsonMappingParameters?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationReferenceDataSourceJSONMappingParametersArgs>;
     }
 
     export interface ApplicationReferenceDataSourceRecordColumnArgs {
@@ -23299,7 +23299,7 @@ export namespace kinesisanalyticsv2 {
     }
 
     export interface ApplicationReferenceDataSourceS3ReferenceDataSourceArgs {
-        bucketARN: pulumi.Input<string>;
+        bucketArn: pulumi.Input<string>;
         fileKey: pulumi.Input<string>;
     }
 
@@ -23342,7 +23342,7 @@ export namespace kinesisanalyticsv2 {
         /**
          * The Amazon Resource Name (ARN) of the S3 bucket.
          */
-        bucketARN: pulumi.Input<string>;
+        bucketArn: pulumi.Input<string>;
     }
 
     /**
@@ -23352,7 +23352,7 @@ export namespace kinesisanalyticsv2 {
         /**
          * The Amazon Resource Name (ARN) for the S3 bucket containing the application code.
          */
-        bucketARN: pulumi.Input<string>;
+        bucketArn: pulumi.Input<string>;
         /**
          * The file key for the object containing the application code.
          */
@@ -23447,7 +23447,7 @@ export namespace kinesisanalyticsv2 {
 export namespace kinesisfirehose {
     export interface DeliveryStreamAmazonOpenSearchServerlessBufferingHintsArgs {
         intervalInSeconds?: pulumi.Input<number>;
-        sizeInMBs?: pulumi.Input<number>;
+        sizeInMbs?: pulumi.Input<number>;
     }
 
     export interface DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationArgs {
@@ -23457,7 +23457,7 @@ export namespace kinesisfirehose {
         indexName: pulumi.Input<string>;
         processingConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamProcessingConfigurationArgs>;
         retryOptions?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamAmazonOpenSearchServerlessRetryOptionsArgs>;
-        roleARN: pulumi.Input<string>;
+        roleArn: pulumi.Input<string>;
         s3BackupMode?: pulumi.Input<enums.kinesisfirehose.DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode>;
         s3Configuration: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamS3DestinationConfigurationArgs>;
         vpcConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamVpcConfigurationArgs>;
@@ -23469,7 +23469,7 @@ export namespace kinesisfirehose {
 
     export interface DeliveryStreamAmazonopensearchserviceBufferingHintsArgs {
         intervalInSeconds?: pulumi.Input<number>;
-        sizeInMBs?: pulumi.Input<number>;
+        sizeInMbs?: pulumi.Input<number>;
     }
 
     export interface DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgs {
@@ -23477,12 +23477,12 @@ export namespace kinesisfirehose {
         cloudWatchLoggingOptions?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamCloudWatchLoggingOptionsArgs>;
         clusterEndpoint?: pulumi.Input<string>;
         documentIdOptions?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamDocumentIdOptionsArgs>;
-        domainARN?: pulumi.Input<string>;
+        domainArn?: pulumi.Input<string>;
         indexName: pulumi.Input<string>;
         indexRotationPeriod?: pulumi.Input<enums.kinesisfirehose.DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod>;
         processingConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamProcessingConfigurationArgs>;
         retryOptions?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamAmazonopensearchserviceRetryOptionsArgs>;
-        roleARN: pulumi.Input<string>;
+        roleArn: pulumi.Input<string>;
         s3BackupMode?: pulumi.Input<enums.kinesisfirehose.DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode>;
         s3Configuration: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamS3DestinationConfigurationArgs>;
         typeName?: pulumi.Input<string>;
@@ -23495,7 +23495,7 @@ export namespace kinesisfirehose {
 
     export interface DeliveryStreamBufferingHintsArgs {
         intervalInSeconds?: pulumi.Input<number>;
-        sizeInMBs?: pulumi.Input<number>;
+        sizeInMbs?: pulumi.Input<number>;
     }
 
     export interface DeliveryStreamCloudWatchLoggingOptionsArgs {
@@ -23533,7 +23533,7 @@ export namespace kinesisfirehose {
 
     export interface DeliveryStreamElasticsearchBufferingHintsArgs {
         intervalInSeconds?: pulumi.Input<number>;
-        sizeInMBs?: pulumi.Input<number>;
+        sizeInMbs?: pulumi.Input<number>;
     }
 
     export interface DeliveryStreamElasticsearchDestinationConfigurationArgs {
@@ -23541,12 +23541,12 @@ export namespace kinesisfirehose {
         cloudWatchLoggingOptions?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamCloudWatchLoggingOptionsArgs>;
         clusterEndpoint?: pulumi.Input<string>;
         documentIdOptions?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamDocumentIdOptionsArgs>;
-        domainARN?: pulumi.Input<string>;
+        domainArn?: pulumi.Input<string>;
         indexName: pulumi.Input<string>;
         indexRotationPeriod?: pulumi.Input<enums.kinesisfirehose.DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod>;
         processingConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamProcessingConfigurationArgs>;
         retryOptions?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamElasticsearchRetryOptionsArgs>;
-        roleARN: pulumi.Input<string>;
+        roleArn: pulumi.Input<string>;
         s3BackupMode?: pulumi.Input<enums.kinesisfirehose.DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode>;
         s3Configuration: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamS3DestinationConfigurationArgs>;
         typeName?: pulumi.Input<string>;
@@ -23558,17 +23558,17 @@ export namespace kinesisfirehose {
     }
 
     export interface DeliveryStreamEncryptionConfigurationArgs {
-        kMSEncryptionConfig?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamKMSEncryptionConfigArgs>;
+        kmsEncryptionConfig?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamKMSEncryptionConfigArgs>;
         noEncryptionConfig?: pulumi.Input<enums.kinesisfirehose.DeliveryStreamEncryptionConfigurationNoEncryptionConfig>;
     }
 
     export interface DeliveryStreamEncryptionConfigurationInputArgs {
-        keyARN?: pulumi.Input<string>;
+        keyArn?: pulumi.Input<string>;
         keyType: pulumi.Input<enums.kinesisfirehose.DeliveryStreamEncryptionConfigurationInputKeyType>;
     }
 
     export interface DeliveryStreamExtendedS3DestinationConfigurationArgs {
-        bucketARN: pulumi.Input<string>;
+        bucketArn: pulumi.Input<string>;
         bufferingHints?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamBufferingHintsArgs>;
         cloudWatchLoggingOptions?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamCloudWatchLoggingOptionsArgs>;
         compressionFormat?: pulumi.Input<enums.kinesisfirehose.DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat>;
@@ -23578,7 +23578,7 @@ export namespace kinesisfirehose {
         errorOutputPrefix?: pulumi.Input<string>;
         prefix?: pulumi.Input<string>;
         processingConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamProcessingConfigurationArgs>;
-        roleARN: pulumi.Input<string>;
+        roleArn: pulumi.Input<string>;
         s3BackupConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamS3DestinationConfigurationArgs>;
         s3BackupMode?: pulumi.Input<enums.kinesisfirehose.DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode>;
     }
@@ -23605,7 +23605,7 @@ export namespace kinesisfirehose {
         processingConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamProcessingConfigurationArgs>;
         requestConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamHttpEndpointRequestConfigurationArgs>;
         retryOptions?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamRetryOptionsArgs>;
-        roleARN?: pulumi.Input<string>;
+        roleArn?: pulumi.Input<string>;
         s3BackupMode?: pulumi.Input<string>;
         s3Configuration: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamS3DestinationConfigurationArgs>;
     }
@@ -23620,12 +23620,12 @@ export namespace kinesisfirehose {
     }
 
     export interface DeliveryStreamKMSEncryptionConfigArgs {
-        aWSKMSKeyARN: pulumi.Input<string>;
+        awskmsKeyArn: pulumi.Input<string>;
     }
 
     export interface DeliveryStreamKinesisStreamSourceConfigurationArgs {
-        kinesisStreamARN: pulumi.Input<string>;
-        roleARN: pulumi.Input<string>;
+        kinesisStreamArn: pulumi.Input<string>;
+        roleArn: pulumi.Input<string>;
     }
 
     export interface DeliveryStreamOpenXJsonSerDeArgs {
@@ -23677,12 +23677,12 @@ export namespace kinesisfirehose {
 
     export interface DeliveryStreamRedshiftDestinationConfigurationArgs {
         cloudWatchLoggingOptions?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamCloudWatchLoggingOptionsArgs>;
-        clusterJDBCURL: pulumi.Input<string>;
+        clusterJdbcurl: pulumi.Input<string>;
         copyCommand: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamCopyCommandArgs>;
         password: pulumi.Input<string>;
         processingConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamProcessingConfigurationArgs>;
         retryOptions?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamRedshiftRetryOptionsArgs>;
-        roleARN: pulumi.Input<string>;
+        roleArn: pulumi.Input<string>;
         s3BackupConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamS3DestinationConfigurationArgs>;
         s3BackupMode?: pulumi.Input<enums.kinesisfirehose.DeliveryStreamRedshiftDestinationConfigurationS3BackupMode>;
         s3Configuration: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamS3DestinationConfigurationArgs>;
@@ -23698,21 +23698,21 @@ export namespace kinesisfirehose {
     }
 
     export interface DeliveryStreamS3DestinationConfigurationArgs {
-        bucketARN: pulumi.Input<string>;
+        bucketArn: pulumi.Input<string>;
         bufferingHints?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamBufferingHintsArgs>;
         cloudWatchLoggingOptions?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamCloudWatchLoggingOptionsArgs>;
         compressionFormat?: pulumi.Input<enums.kinesisfirehose.DeliveryStreamS3DestinationConfigurationCompressionFormat>;
         encryptionConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamEncryptionConfigurationArgs>;
         errorOutputPrefix?: pulumi.Input<string>;
         prefix?: pulumi.Input<string>;
-        roleARN: pulumi.Input<string>;
+        roleArn: pulumi.Input<string>;
     }
 
     export interface DeliveryStreamSchemaConfigurationArgs {
         catalogId?: pulumi.Input<string>;
         databaseName?: pulumi.Input<string>;
         region?: pulumi.Input<string>;
-        roleARN?: pulumi.Input<string>;
+        roleArn?: pulumi.Input<string>;
         tableName?: pulumi.Input<string>;
         versionId?: pulumi.Input<string>;
     }
@@ -23724,10 +23724,10 @@ export namespace kinesisfirehose {
 
     export interface DeliveryStreamSplunkDestinationConfigurationArgs {
         cloudWatchLoggingOptions?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamCloudWatchLoggingOptionsArgs>;
-        hECAcknowledgmentTimeoutInSeconds?: pulumi.Input<number>;
-        hECEndpoint: pulumi.Input<string>;
-        hECEndpointType: pulumi.Input<enums.kinesisfirehose.DeliveryStreamSplunkDestinationConfigurationHECEndpointType>;
-        hECToken: pulumi.Input<string>;
+        hecAcknowledgmentTimeoutInSeconds?: pulumi.Input<number>;
+        hecEndpoint: pulumi.Input<string>;
+        hecEndpointType: pulumi.Input<enums.kinesisfirehose.DeliveryStreamSplunkDestinationConfigurationHECEndpointType>;
+        hecToken: pulumi.Input<string>;
         processingConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamProcessingConfigurationArgs>;
         retryOptions?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamSplunkRetryOptionsArgs>;
         s3BackupMode?: pulumi.Input<string>;
@@ -23744,7 +23744,7 @@ export namespace kinesisfirehose {
     }
 
     export interface DeliveryStreamVpcConfigurationArgs {
-        roleARN: pulumi.Input<string>;
+        roleArn: pulumi.Input<string>;
         securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
         subnetIds: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -23940,8 +23940,8 @@ export namespace lakeformation {
         dataCellsFilter?: pulumi.Input<inputs.lakeformation.PrincipalPermissionsDataCellsFilterResourceArgs>;
         dataLocation?: pulumi.Input<inputs.lakeformation.PrincipalPermissionsDataLocationResourceArgs>;
         database?: pulumi.Input<inputs.lakeformation.PrincipalPermissionsDatabaseResourceArgs>;
-        lFTag?: pulumi.Input<inputs.lakeformation.PrincipalPermissionsLFTagKeyResourceArgs>;
-        lFTagPolicy?: pulumi.Input<inputs.lakeformation.PrincipalPermissionsLFTagPolicyResourceArgs>;
+        lfTag?: pulumi.Input<inputs.lakeformation.PrincipalPermissionsLFTagKeyResourceArgs>;
+        lfTagPolicy?: pulumi.Input<inputs.lakeformation.PrincipalPermissionsLFTagPolicyResourceArgs>;
         table?: pulumi.Input<inputs.lakeformation.PrincipalPermissionsTableResourceArgs>;
         tableWithColumns?: pulumi.Input<inputs.lakeformation.PrincipalPermissionsTableWithColumnsResourceArgs>;
     }
@@ -24169,7 +24169,7 @@ export namespace lambda {
         /**
          * The URI for the source access configuration resource.
          */
-        uRI?: pulumi.Input<string>;
+        uri?: pulumi.Input<string>;
     }
 
     export interface FunctionCodeArgs {
@@ -25021,7 +25021,7 @@ export namespace lex {
         customPayload?: pulumi.Input<inputs.lex.BotCustomPayloadArgs>;
         imageResponseCard?: pulumi.Input<inputs.lex.BotImageResponseCardArgs>;
         plainTextMessage?: pulumi.Input<inputs.lex.BotPlainTextMessageArgs>;
-        sSMLMessage?: pulumi.Input<inputs.lex.BotSSMLMessageArgs>;
+        ssmlMessage?: pulumi.Input<inputs.lex.BotSSMLMessageArgs>;
     }
 
     /**
@@ -25926,15 +25926,15 @@ export namespace lightsail {
         /**
          * The HTTP methods that are processed and forwarded to the distribution's origin.
          */
-        allowedHTTPMethods?: pulumi.Input<string>;
+        allowedHttpMethods?: pulumi.Input<string>;
         /**
          * The HTTP method responses that are cached by your distribution.
          */
-        cachedHTTPMethods?: pulumi.Input<string>;
+        cachedHttpMethods?: pulumi.Input<string>;
         /**
          * The default amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the content has been updated.
          */
-        defaultTTL?: pulumi.Input<number>;
+        defaultTtl?: pulumi.Input<number>;
         /**
          * An object that describes the cookies that are forwarded to the origin. Your content is cached based on the cookies that are forwarded.
          */
@@ -25950,11 +25950,11 @@ export namespace lightsail {
         /**
          * The maximum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
          */
-        maximumTTL?: pulumi.Input<number>;
+        maximumTtl?: pulumi.Input<number>;
         /**
          * The minimum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
          */
-        minimumTTL?: pulumi.Input<number>;
+        minimumTtl?: pulumi.Input<number>;
     }
 
     /**
@@ -26075,7 +26075,7 @@ export namespace lightsail {
         /**
          * IOPS of disk.
          */
-        iOPS?: pulumi.Input<number>;
+        iops?: pulumi.Input<number>;
         /**
          * Is the Attached disk is the system disk of the Instance.
          */
@@ -26362,7 +26362,7 @@ export namespace lookoutequipment {
 export namespace lookoutmetrics {
     export interface AlertActionArgs {
         lambdaConfiguration?: pulumi.Input<inputs.lookoutmetrics.AlertLambdaConfigurationArgs>;
-        sNSConfiguration?: pulumi.Input<inputs.lookoutmetrics.AlertSNSConfigurationArgs>;
+        snsConfiguration?: pulumi.Input<inputs.lookoutmetrics.AlertSNSConfigurationArgs>;
     }
 
     /**
@@ -26470,16 +26470,16 @@ export namespace lookoutmetrics {
     export interface AnomalyDetectorMetricSourceArgs {
         appFlowConfig?: pulumi.Input<inputs.lookoutmetrics.AnomalyDetectorAppFlowConfigArgs>;
         cloudwatchConfig?: pulumi.Input<inputs.lookoutmetrics.AnomalyDetectorCloudwatchConfigArgs>;
-        rDSSourceConfig?: pulumi.Input<inputs.lookoutmetrics.AnomalyDetectorRDSSourceConfigArgs>;
+        rdsSourceConfig?: pulumi.Input<inputs.lookoutmetrics.AnomalyDetectorRDSSourceConfigArgs>;
         redshiftSourceConfig?: pulumi.Input<inputs.lookoutmetrics.AnomalyDetectorRedshiftSourceConfigArgs>;
         s3SourceConfig?: pulumi.Input<inputs.lookoutmetrics.AnomalyDetectorS3SourceConfigArgs>;
     }
 
     export interface AnomalyDetectorRDSSourceConfigArgs {
-        dBInstanceIdentifier: pulumi.Input<string>;
         databaseHost: pulumi.Input<string>;
         databaseName: pulumi.Input<string>;
         databasePort: pulumi.Input<number>;
+        dbInstanceIdentifier: pulumi.Input<string>;
         roleArn: pulumi.Input<string>;
         secretManagerArn: pulumi.Input<string>;
         tableName: pulumi.Input<string>;
@@ -29253,7 +29253,7 @@ export namespace msk {
     }
 
     export interface ClusterBrokerNodeGroupInfoArgs {
-        brokerAZDistribution?: pulumi.Input<string>;
+        brokerAzDistribution?: pulumi.Input<string>;
         clientSubnets: pulumi.Input<pulumi.Input<string>[]>;
         connectivityInfo?: pulumi.Input<inputs.msk.ClusterConnectivityInfoArgs>;
         instanceType: pulumi.Input<string>;
@@ -29288,7 +29288,7 @@ export namespace msk {
     }
 
     export interface ClusterEncryptionAtRestArgs {
-        dataVolumeKMSKeyId: pulumi.Input<string>;
+        dataVolumeKmsKeyId: pulumi.Input<string>;
     }
 
     export interface ClusterEncryptionInTransitArgs {
@@ -29356,7 +29356,7 @@ export namespace msk {
     }
 
     export interface ClusterStorageInfoArgs {
-        eBSStorageInfo?: pulumi.Input<inputs.msk.ClusterEBSStorageInfoArgs>;
+        ebsStorageInfo?: pulumi.Input<inputs.msk.ClusterEBSStorageInfoArgs>;
     }
 
     export interface ClusterTlsArgs {
@@ -29583,7 +29583,7 @@ export namespace networkfirewall {
         /**
          * A IPAddressType
          */
-        iPAddressType?: pulumi.Input<string>;
+        ipAddressType?: pulumi.Input<string>;
         /**
          * A SubnetId.
          */
@@ -29647,7 +29647,7 @@ export namespace networkfirewall {
         protocols?: pulumi.Input<pulumi.Input<number>[]>;
         sourcePorts?: pulumi.Input<pulumi.Input<inputs.networkfirewall.RuleGroupPortRangeArgs>[]>;
         sources?: pulumi.Input<pulumi.Input<inputs.networkfirewall.RuleGroupAddressArgs>[]>;
-        tCPFlags?: pulumi.Input<pulumi.Input<inputs.networkfirewall.RuleGroupTCPFlagFieldArgs>[]>;
+        tcpFlags?: pulumi.Input<pulumi.Input<inputs.networkfirewall.RuleGroupTCPFlagFieldArgs>[]>;
     }
 
     export interface RuleGroupPortRangeArgs {
@@ -29660,7 +29660,7 @@ export namespace networkfirewall {
     }
 
     export interface RuleGroupReferenceSetsArgs {
-        iPSetReferences?: any;
+        ipSetReferences?: any;
     }
 
     export interface RuleGroupRuleDefinitionArgs {
@@ -29674,7 +29674,7 @@ export namespace networkfirewall {
     }
 
     export interface RuleGroupRuleVariablesArgs {
-        iPSets?: any;
+        ipSets?: any;
         portSets?: any;
     }
 
@@ -30451,7 +30451,7 @@ export namespace opensearchservice {
         enabled?: pulumi.Input<boolean>;
         internalUserDatabaseEnabled?: pulumi.Input<boolean>;
         masterUserOptions?: pulumi.Input<inputs.opensearchservice.DomainMasterUserOptionsArgs>;
-        sAMLOptions?: pulumi.Input<inputs.opensearchservice.DomainSAMLOptionsArgs>;
+        samlOptions?: pulumi.Input<inputs.opensearchservice.DomainSAMLOptionsArgs>;
     }
 
     export interface DomainClusterConfigArgs {
@@ -30460,7 +30460,7 @@ export namespace opensearchservice {
         dedicatedMasterType?: pulumi.Input<string>;
         instanceCount?: pulumi.Input<number>;
         instanceType?: pulumi.Input<string>;
-        multiAZWithStandbyEnabled?: pulumi.Input<boolean>;
+        multiAzWithStandbyEnabled?: pulumi.Input<boolean>;
         warmCount?: pulumi.Input<number>;
         warmEnabled?: pulumi.Input<boolean>;
         warmType?: pulumi.Input<string>;
@@ -30476,7 +30476,7 @@ export namespace opensearchservice {
     }
 
     export interface DomainEBSOptionsArgs {
-        eBSEnabled?: pulumi.Input<boolean>;
+        ebsEnabled?: pulumi.Input<boolean>;
         iops?: pulumi.Input<number>;
         throughput?: pulumi.Input<number>;
         volumeSize?: pulumi.Input<number>;
@@ -30492,8 +30492,8 @@ export namespace opensearchservice {
         customEndpoint?: pulumi.Input<string>;
         customEndpointCertificateArn?: pulumi.Input<string>;
         customEndpointEnabled?: pulumi.Input<boolean>;
-        enforceHTTPS?: pulumi.Input<boolean>;
-        tLSSecurityPolicy?: pulumi.Input<string>;
+        enforceHttps?: pulumi.Input<boolean>;
+        tlsSecurityPolicy?: pulumi.Input<string>;
     }
 
     export interface DomainIdpArgs {
@@ -30502,7 +30502,7 @@ export namespace opensearchservice {
     }
 
     export interface DomainMasterUserOptionsArgs {
-        masterUserARN?: pulumi.Input<string>;
+        masterUserArn?: pulumi.Input<string>;
         masterUserName?: pulumi.Input<string>;
         masterUserPassword?: pulumi.Input<string>;
     }
@@ -30917,7 +30917,7 @@ export namespace personalize {
         /**
          * The AutoMLConfig object containing a list of recipes to search when AutoML is performed.
          */
-        autoMLConfig?: pulumi.Input<inputs.personalize.SolutionConfigAutoMLConfigPropertiesArgs>;
+        autoMlConfig?: pulumi.Input<inputs.personalize.SolutionConfigAutoMLConfigPropertiesArgs>;
         /**
          * Only events with a value greater than or equal to this threshold are used for training a model.
          */
@@ -31127,7 +31127,7 @@ export namespace pinpoint {
     export interface CampaignInAppMessageButtonArgs {
         android?: pulumi.Input<inputs.pinpoint.CampaignOverrideButtonConfigurationArgs>;
         defaultConfig?: pulumi.Input<inputs.pinpoint.CampaignDefaultButtonConfigurationArgs>;
-        iOS?: pulumi.Input<inputs.pinpoint.CampaignOverrideButtonConfigurationArgs>;
+        ios?: pulumi.Input<inputs.pinpoint.CampaignOverrideButtonConfigurationArgs>;
         web?: pulumi.Input<inputs.pinpoint.CampaignOverrideButtonConfigurationArgs>;
     }
 
@@ -31170,15 +31170,15 @@ export namespace pinpoint {
     }
 
     export interface CampaignMessageConfigurationArgs {
-        aDMMessage?: pulumi.Input<inputs.pinpoint.CampaignMessageArgs>;
-        aPNSMessage?: pulumi.Input<inputs.pinpoint.CampaignMessageArgs>;
+        admMessage?: pulumi.Input<inputs.pinpoint.CampaignMessageArgs>;
+        apnsMessage?: pulumi.Input<inputs.pinpoint.CampaignMessageArgs>;
         baiduMessage?: pulumi.Input<inputs.pinpoint.CampaignMessageArgs>;
         customMessage?: pulumi.Input<inputs.pinpoint.CampaignCustomMessageArgs>;
         defaultMessage?: pulumi.Input<inputs.pinpoint.CampaignMessageArgs>;
         emailMessage?: pulumi.Input<inputs.pinpoint.CampaignEmailMessageArgs>;
-        gCMMessage?: pulumi.Input<inputs.pinpoint.CampaignMessageArgs>;
+        gcmMessage?: pulumi.Input<inputs.pinpoint.CampaignMessageArgs>;
         inAppMessage?: pulumi.Input<inputs.pinpoint.CampaignInAppMessageArgs>;
-        sMSMessage?: pulumi.Input<inputs.pinpoint.CampaignSmsMessageArgs>;
+        smsMessage?: pulumi.Input<inputs.pinpoint.CampaignSmsMessageArgs>;
     }
 
     export interface CampaignOverrideButtonConfigurationArgs {
@@ -31223,7 +31223,7 @@ export namespace pinpoint {
     export interface CampaignTemplateConfigurationArgs {
         emailTemplate?: pulumi.Input<inputs.pinpoint.CampaignTemplateArgs>;
         pushTemplate?: pulumi.Input<inputs.pinpoint.CampaignTemplateArgs>;
-        sMSTemplate?: pulumi.Input<inputs.pinpoint.CampaignTemplateArgs>;
+        smsTemplate?: pulumi.Input<inputs.pinpoint.CampaignTemplateArgs>;
         voiceTemplate?: pulumi.Input<inputs.pinpoint.CampaignTemplateArgs>;
     }
 
@@ -31253,7 +31253,7 @@ export namespace pinpoint {
     export interface InAppTemplateButtonConfigArgs {
         android?: pulumi.Input<inputs.pinpoint.InAppTemplateOverrideButtonConfigurationArgs>;
         defaultConfig?: pulumi.Input<inputs.pinpoint.InAppTemplateDefaultButtonConfigurationArgs>;
-        iOS?: pulumi.Input<inputs.pinpoint.InAppTemplateOverrideButtonConfigurationArgs>;
+        ios?: pulumi.Input<inputs.pinpoint.InAppTemplateOverrideButtonConfigurationArgs>;
         web?: pulumi.Input<inputs.pinpoint.InAppTemplateOverrideButtonConfigurationArgs>;
     }
 
@@ -31353,7 +31353,7 @@ export namespace pinpoint {
 
     export interface SegmentLocationArgs {
         country?: pulumi.Input<inputs.pinpoint.SegmentSetDimensionArgs>;
-        gPSPoint?: pulumi.Input<inputs.pinpoint.SegmentGPSPointArgs>;
+        gpsPoint?: pulumi.Input<inputs.pinpoint.SegmentGPSPointArgs>;
     }
 
     export interface SegmentRecencyArgs {
@@ -31645,7 +31645,7 @@ export namespace pipes {
 
     export interface PipeSourceManagedStreamingKafkaParametersArgs {
         batchSize?: pulumi.Input<number>;
-        consumerGroupID?: pulumi.Input<string>;
+        consumerGroupId?: pulumi.Input<string>;
         credentials?: pulumi.Input<inputs.pipes.MSKAccessCredentials0PropertiesArgs | inputs.pipes.MSKAccessCredentials1PropertiesArgs>;
         maximumBatchingWindowInSeconds?: pulumi.Input<number>;
         startingPosition?: pulumi.Input<enums.pipes.PipeMSKStartPosition>;
@@ -31653,12 +31653,12 @@ export namespace pipes {
     }
 
     export interface PipeSourceParametersArgs {
-        activeMQBrokerParameters?: pulumi.Input<inputs.pipes.PipeSourceActiveMQBrokerParametersArgs>;
-        dynamoDBStreamParameters?: pulumi.Input<inputs.pipes.PipeSourceDynamoDBStreamParametersArgs>;
+        activeMqBrokerParameters?: pulumi.Input<inputs.pipes.PipeSourceActiveMQBrokerParametersArgs>;
+        dynamoDbStreamParameters?: pulumi.Input<inputs.pipes.PipeSourceDynamoDBStreamParametersArgs>;
         filterCriteria?: pulumi.Input<inputs.pipes.PipeFilterCriteriaArgs>;
         kinesisStreamParameters?: pulumi.Input<inputs.pipes.PipeSourceKinesisStreamParametersArgs>;
         managedStreamingKafkaParameters?: pulumi.Input<inputs.pipes.PipeSourceManagedStreamingKafkaParametersArgs>;
-        rabbitMQBrokerParameters?: pulumi.Input<inputs.pipes.PipeSourceRabbitMQBrokerParametersArgs>;
+        rabbitMqBrokerParameters?: pulumi.Input<inputs.pipes.PipeSourceRabbitMQBrokerParametersArgs>;
         selfManagedKafkaParameters?: pulumi.Input<inputs.pipes.PipeSourceSelfManagedKafkaParametersArgs>;
         sqsQueueParameters?: pulumi.Input<inputs.pipes.PipeSourceSqsQueueParametersArgs>;
     }
@@ -31674,7 +31674,7 @@ export namespace pipes {
     export interface PipeSourceSelfManagedKafkaParametersArgs {
         additionalBootstrapServers?: pulumi.Input<pulumi.Input<string>[]>;
         batchSize?: pulumi.Input<number>;
-        consumerGroupID?: pulumi.Input<string>;
+        consumerGroupId?: pulumi.Input<string>;
         credentials?: pulumi.Input<inputs.pipes.SelfManagedKafkaAccessConfigurationCredentials0PropertiesArgs | inputs.pipes.SelfManagedKafkaAccessConfigurationCredentials1PropertiesArgs | inputs.pipes.SelfManagedKafkaAccessConfigurationCredentials2PropertiesArgs | inputs.pipes.SelfManagedKafkaAccessConfigurationCredentials3PropertiesArgs>;
         maximumBatchingWindowInSeconds?: pulumi.Input<number>;
         /**
@@ -31716,7 +31716,7 @@ export namespace pipes {
 
     export interface PipeTargetEcsTaskParametersArgs {
         capacityProviderStrategy?: pulumi.Input<pulumi.Input<inputs.pipes.PipeCapacityProviderStrategyItemArgs>[]>;
-        enableECSManagedTags?: pulumi.Input<boolean>;
+        enableEcsManagedTags?: pulumi.Input<boolean>;
         enableExecuteCommand?: pulumi.Input<boolean>;
         group?: pulumi.Input<string>;
         launchType?: pulumi.Input<enums.pipes.PipeLaunchType>;
@@ -32363,8 +32363,8 @@ export namespace quicksight {
     }
 
     export interface AnalysisCustomActionURLOperationArgs {
-        uRLTarget: pulumi.Input<enums.quicksight.AnalysisURLTargetConfiguration>;
-        uRLTemplate: pulumi.Input<string>;
+        urlTarget: pulumi.Input<enums.quicksight.AnalysisURLTargetConfiguration>;
+        urlTemplate: pulumi.Input<string>;
     }
 
     export interface AnalysisCustomColorArgs {
@@ -33302,7 +33302,7 @@ export namespace quicksight {
 
     export interface AnalysisKPIConfigurationArgs {
         fieldWells?: pulumi.Input<inputs.quicksight.AnalysisKPIFieldWellsArgs>;
-        kPIOptions?: pulumi.Input<inputs.quicksight.AnalysisKPIOptionsArgs>;
+        kpiOptions?: pulumi.Input<inputs.quicksight.AnalysisKPIOptionsArgs>;
         sortConfiguration?: pulumi.Input<inputs.quicksight.AnalysisKPISortConfigurationArgs>;
     }
 
@@ -34421,7 +34421,7 @@ export namespace quicksight {
     export interface AnalysisTableFieldOptionArgs {
         customLabel?: pulumi.Input<string>;
         fieldId: pulumi.Input<string>;
-        uRLStyling?: pulumi.Input<inputs.quicksight.AnalysisTableFieldURLConfigurationArgs>;
+        urlStyling?: pulumi.Input<inputs.quicksight.AnalysisTableFieldURLConfigurationArgs>;
         visibility?: pulumi.Input<enums.quicksight.AnalysisVisibility>;
         /**
          * String based length that is composed of value and unit in px
@@ -34687,7 +34687,7 @@ export namespace quicksight {
         heatMapVisual?: pulumi.Input<inputs.quicksight.AnalysisHeatMapVisualArgs>;
         histogramVisual?: pulumi.Input<inputs.quicksight.AnalysisHistogramVisualArgs>;
         insightVisual?: pulumi.Input<inputs.quicksight.AnalysisInsightVisualArgs>;
-        kPIVisual?: pulumi.Input<inputs.quicksight.AnalysisKPIVisualArgs>;
+        kpiVisual?: pulumi.Input<inputs.quicksight.AnalysisKPIVisualArgs>;
         lineChartVisual?: pulumi.Input<inputs.quicksight.AnalysisLineChartVisualArgs>;
         pieChartVisual?: pulumi.Input<inputs.quicksight.AnalysisPieChartVisualArgs>;
         pivotTableVisual?: pulumi.Input<inputs.quicksight.AnalysisPivotTableVisualArgs>;
@@ -34712,7 +34712,7 @@ export namespace quicksight {
         filterOperation?: pulumi.Input<inputs.quicksight.AnalysisCustomActionFilterOperationArgs>;
         navigationOperation?: pulumi.Input<inputs.quicksight.AnalysisCustomActionNavigationOperationArgs>;
         setParametersOperation?: pulumi.Input<inputs.quicksight.AnalysisCustomActionSetParametersOperationArgs>;
-        uRLOperation?: pulumi.Input<inputs.quicksight.AnalysisCustomActionURLOperationArgs>;
+        urlOperation?: pulumi.Input<inputs.quicksight.AnalysisCustomActionURLOperationArgs>;
     }
 
     export interface AnalysisVisualPaletteArgs {
@@ -35286,8 +35286,8 @@ export namespace quicksight {
     }
 
     export interface DashboardCustomActionURLOperationArgs {
-        uRLTarget: pulumi.Input<enums.quicksight.DashboardURLTargetConfiguration>;
-        uRLTemplate: pulumi.Input<string>;
+        urlTarget: pulumi.Input<enums.quicksight.DashboardURLTargetConfiguration>;
+        urlTemplate: pulumi.Input<string>;
     }
 
     export interface DashboardCustomColorArgs {
@@ -36235,7 +36235,7 @@ export namespace quicksight {
 
     export interface DashboardKPIConfigurationArgs {
         fieldWells?: pulumi.Input<inputs.quicksight.DashboardKPIFieldWellsArgs>;
-        kPIOptions?: pulumi.Input<inputs.quicksight.DashboardKPIOptionsArgs>;
+        kpiOptions?: pulumi.Input<inputs.quicksight.DashboardKPIOptionsArgs>;
         sortConfiguration?: pulumi.Input<inputs.quicksight.DashboardKPISortConfigurationArgs>;
     }
 
@@ -36879,7 +36879,7 @@ export namespace quicksight {
         dataPointDrillUpDownOption?: pulumi.Input<inputs.quicksight.DashboardDataPointDrillUpDownOptionArgs>;
         dataPointMenuLabelOption?: pulumi.Input<inputs.quicksight.DashboardDataPointMenuLabelOptionArgs>;
         dataPointTooltipOption?: pulumi.Input<inputs.quicksight.DashboardDataPointTooltipOptionArgs>;
-        exportToCSVOption?: pulumi.Input<inputs.quicksight.DashboardExportToCSVOptionArgs>;
+        exportToCsvOption?: pulumi.Input<inputs.quicksight.DashboardExportToCSVOptionArgs>;
         exportWithHiddenFieldsOption?: pulumi.Input<inputs.quicksight.DashboardExportWithHiddenFieldsOptionArgs>;
         sheetControlsOption?: pulumi.Input<inputs.quicksight.DashboardSheetControlsOptionArgs>;
         sheetLayoutElementMaximizationOption?: pulumi.Input<inputs.quicksight.DashboardSheetLayoutElementMaximizationOptionArgs>;
@@ -37376,7 +37376,7 @@ export namespace quicksight {
     export interface DashboardTableFieldOptionArgs {
         customLabel?: pulumi.Input<string>;
         fieldId: pulumi.Input<string>;
-        uRLStyling?: pulumi.Input<inputs.quicksight.DashboardTableFieldURLConfigurationArgs>;
+        urlStyling?: pulumi.Input<inputs.quicksight.DashboardTableFieldURLConfigurationArgs>;
         visibility?: pulumi.Input<enums.quicksight.DashboardVisibility>;
         /**
          * String based length that is composed of value and unit in px
@@ -37652,7 +37652,7 @@ export namespace quicksight {
         heatMapVisual?: pulumi.Input<inputs.quicksight.DashboardHeatMapVisualArgs>;
         histogramVisual?: pulumi.Input<inputs.quicksight.DashboardHistogramVisualArgs>;
         insightVisual?: pulumi.Input<inputs.quicksight.DashboardInsightVisualArgs>;
-        kPIVisual?: pulumi.Input<inputs.quicksight.DashboardKPIVisualArgs>;
+        kpiVisual?: pulumi.Input<inputs.quicksight.DashboardKPIVisualArgs>;
         lineChartVisual?: pulumi.Input<inputs.quicksight.DashboardLineChartVisualArgs>;
         pieChartVisual?: pulumi.Input<inputs.quicksight.DashboardPieChartVisualArgs>;
         pivotTableVisual?: pulumi.Input<inputs.quicksight.DashboardPivotTableVisualArgs>;
@@ -37681,7 +37681,7 @@ export namespace quicksight {
         filterOperation?: pulumi.Input<inputs.quicksight.DashboardCustomActionFilterOperationArgs>;
         navigationOperation?: pulumi.Input<inputs.quicksight.DashboardCustomActionNavigationOperationArgs>;
         setParametersOperation?: pulumi.Input<inputs.quicksight.DashboardCustomActionSetParametersOperationArgs>;
-        uRLOperation?: pulumi.Input<inputs.quicksight.DashboardCustomActionURLOperationArgs>;
+        urlOperation?: pulumi.Input<inputs.quicksight.DashboardCustomActionURLOperationArgs>;
     }
 
     export interface DashboardVisualMenuOptionArgs {
@@ -39047,8 +39047,8 @@ export namespace quicksight {
     }
 
     export interface TemplateCustomActionURLOperationArgs {
-        uRLTarget: pulumi.Input<enums.quicksight.TemplateURLTargetConfiguration>;
-        uRLTemplate: pulumi.Input<string>;
+        urlTarget: pulumi.Input<enums.quicksight.TemplateURLTargetConfiguration>;
+        urlTemplate: pulumi.Input<string>;
     }
 
     export interface TemplateCustomColorArgs {
@@ -39962,7 +39962,7 @@ export namespace quicksight {
 
     export interface TemplateKPIConfigurationArgs {
         fieldWells?: pulumi.Input<inputs.quicksight.TemplateKPIFieldWellsArgs>;
-        kPIOptions?: pulumi.Input<inputs.quicksight.TemplateKPIOptionsArgs>;
+        kpiOptions?: pulumi.Input<inputs.quicksight.TemplateKPIOptionsArgs>;
         sortConfiguration?: pulumi.Input<inputs.quicksight.TemplateKPISortConfigurationArgs>;
     }
 
@@ -41074,7 +41074,7 @@ export namespace quicksight {
     export interface TemplateTableFieldOptionArgs {
         customLabel?: pulumi.Input<string>;
         fieldId: pulumi.Input<string>;
-        uRLStyling?: pulumi.Input<inputs.quicksight.TemplateTableFieldURLConfigurationArgs>;
+        urlStyling?: pulumi.Input<inputs.quicksight.TemplateTableFieldURLConfigurationArgs>;
         visibility?: pulumi.Input<enums.quicksight.TemplateVisibility>;
         /**
          * String based length that is composed of value and unit in px
@@ -41350,7 +41350,7 @@ export namespace quicksight {
         heatMapVisual?: pulumi.Input<inputs.quicksight.TemplateHeatMapVisualArgs>;
         histogramVisual?: pulumi.Input<inputs.quicksight.TemplateHistogramVisualArgs>;
         insightVisual?: pulumi.Input<inputs.quicksight.TemplateInsightVisualArgs>;
-        kPIVisual?: pulumi.Input<inputs.quicksight.TemplateKPIVisualArgs>;
+        kpiVisual?: pulumi.Input<inputs.quicksight.TemplateKPIVisualArgs>;
         lineChartVisual?: pulumi.Input<inputs.quicksight.TemplateLineChartVisualArgs>;
         pieChartVisual?: pulumi.Input<inputs.quicksight.TemplatePieChartVisualArgs>;
         pivotTableVisual?: pulumi.Input<inputs.quicksight.TemplatePivotTableVisualArgs>;
@@ -41375,7 +41375,7 @@ export namespace quicksight {
         filterOperation?: pulumi.Input<inputs.quicksight.TemplateCustomActionFilterOperationArgs>;
         navigationOperation?: pulumi.Input<inputs.quicksight.TemplateCustomActionNavigationOperationArgs>;
         setParametersOperation?: pulumi.Input<inputs.quicksight.TemplateCustomActionSetParametersOperationArgs>;
-        uRLOperation?: pulumi.Input<inputs.quicksight.TemplateCustomActionURLOperationArgs>;
+        urlOperation?: pulumi.Input<inputs.quicksight.TemplateCustomActionURLOperationArgs>;
     }
 
     export interface TemplateVisualPaletteArgs {
@@ -41492,7 +41492,7 @@ export namespace quicksight {
         dataColorPalette?: pulumi.Input<inputs.quicksight.ThemeDataColorPaletteArgs>;
         sheet?: pulumi.Input<inputs.quicksight.ThemeSheetStyleArgs>;
         typography?: pulumi.Input<inputs.quicksight.ThemeTypographyArgs>;
-        uIColorPalette?: pulumi.Input<inputs.quicksight.ThemeUIColorPaletteArgs>;
+        uiColorPalette?: pulumi.Input<inputs.quicksight.ThemeUIColorPaletteArgs>;
     }
 
     export interface ThemeDataColorPaletteArgs {
@@ -41918,7 +41918,7 @@ export namespace rds {
         /**
          * The CA identifier of the CA certificate used for the DB instance's server certificate.
          */
-        cAIdentifier?: pulumi.Input<string>;
+        caIdentifier?: pulumi.Input<string>;
         /**
          * The expiration date of the DB instance’s server certificate.
          */
@@ -42017,7 +42017,7 @@ export namespace rds {
         /**
          * Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy. The ENABLED value is valid only for proxies with RDS for Microsoft SQL Server.
          */
-        iAMAuth?: pulumi.Input<enums.rds.DBProxyAuthFormatIAMAuth>;
+        iamAuth?: pulumi.Input<enums.rds.DBProxyAuthFormatIAMAuth>;
         /**
          * The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager. 
          */
@@ -42058,10 +42058,10 @@ export namespace rds {
     }
 
     export interface DBSecurityGroupIngressArgs {
-        cIDRIP?: pulumi.Input<string>;
-        eC2SecurityGroupId?: pulumi.Input<string>;
-        eC2SecurityGroupName?: pulumi.Input<string>;
-        eC2SecurityGroupOwnerId?: pulumi.Input<string>;
+        cidrip?: pulumi.Input<string>;
+        ec2SecurityGroupId?: pulumi.Input<string>;
+        ec2SecurityGroupName?: pulumi.Input<string>;
+        ec2SecurityGroupOwnerId?: pulumi.Input<string>;
     }
 
     export interface DBSecurityGroupTagArgs {
@@ -42104,7 +42104,7 @@ export namespace rds {
         /**
          * A list of DBSecurityGroupMembership name strings used for this option.
          */
-        dBSecurityGroupMemberships?: pulumi.Input<pulumi.Input<string>[]>;
+        dbSecurityGroupMemberships?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The configuration of options to include in a group.
          */
@@ -42735,13 +42735,13 @@ export namespace route53 {
     export interface HealthCheckConfigPropertiesArgs {
         alarmIdentifier?: pulumi.Input<inputs.route53.HealthCheckAlarmIdentifierArgs>;
         childHealthChecks?: pulumi.Input<pulumi.Input<string>[]>;
-        enableSNI?: pulumi.Input<boolean>;
+        enableSni?: pulumi.Input<boolean>;
         failureThreshold?: pulumi.Input<number>;
         fullyQualifiedDomainName?: pulumi.Input<string>;
         healthThreshold?: pulumi.Input<number>;
-        iPAddress?: pulumi.Input<string>;
         insufficientDataHealthStatus?: pulumi.Input<enums.route53.HealthCheckConfigPropertiesInsufficientDataHealthStatus>;
         inverted?: pulumi.Input<boolean>;
+        ipAddress?: pulumi.Input<string>;
         measureLatency?: pulumi.Input<boolean>;
         port?: pulumi.Input<number>;
         regions?: pulumi.Input<pulumi.Input<string>[]>;
@@ -42809,15 +42809,15 @@ export namespace route53 {
         /**
          * The ID of an Amazon VPC.
          */
-        vPCId: pulumi.Input<string>;
+        vpcId: pulumi.Input<string>;
         /**
          * The region that an Amazon VPC was created in. See https://docs.aws.amazon.com/general/latest/gr/rande.html for a list of up to date regions.
          */
-        vPCRegion: pulumi.Input<string>;
+        vpcRegion: pulumi.Input<string>;
     }
 
     export interface RecordSetAliasTargetArgs {
-        dNSName: pulumi.Input<string>;
+        dnsName: pulumi.Input<string>;
         evaluateTargetHealth?: pulumi.Input<boolean>;
         hostedZoneId: pulumi.Input<string>;
     }
@@ -42834,7 +42834,7 @@ export namespace route53 {
     }
 
     export interface RecordSetGroupAliasTargetArgs {
-        dNSName: pulumi.Input<string>;
+        dnsName: pulumi.Input<string>;
         evaluateTargetHealth?: pulumi.Input<boolean>;
         hostedZoneId: pulumi.Input<string>;
     }
@@ -42863,7 +42863,7 @@ export namespace route53 {
         region?: pulumi.Input<string>;
         resourceRecords?: pulumi.Input<pulumi.Input<string>[]>;
         setIdentifier?: pulumi.Input<string>;
-        tTL?: pulumi.Input<string>;
+        ttl?: pulumi.Input<string>;
         type: pulumi.Input<string>;
         weight?: pulumi.Input<number>;
     }
@@ -43025,7 +43025,7 @@ export namespace route53recoveryreadiness {
      * The target resource that the Route 53 record points to.
      */
     export interface ResourceSetTargetResourceArgs {
-        nLBResource?: pulumi.Input<inputs.route53recoveryreadiness.ResourceSetNLBResourceArgs>;
+        nlbResource?: pulumi.Input<inputs.route53recoveryreadiness.ResourceSetNLBResourceArgs>;
         r53Resource?: pulumi.Input<inputs.route53recoveryreadiness.ResourceSetR53ResourceRecordArgs>;
     }
 }
@@ -43497,7 +43497,7 @@ export namespace s3 {
         /**
          * Specifies the ID (Key ARN or Alias ARN) of the customer managed customer master key (CMK) stored in AWS Key Management Service (KMS) for the destination bucket.
          */
-        replicaKmsKeyID: pulumi.Input<string>;
+        replicaKmsKeyId: pulumi.Input<string>;
     }
 
     /**
@@ -43913,8 +43913,8 @@ export namespace s3 {
         /**
          * "KMSMasterKeyID" can only be used when you set the value of SSEAlgorithm as aws:kms or aws:kms:dsse.
          */
-        kMSMasterKeyID?: pulumi.Input<string>;
-        sSEAlgorithm: pulumi.Input<enums.s3.BucketServerSideEncryptionByDefaultSSEAlgorithm>;
+        kmsMasterKeyId?: pulumi.Input<string>;
+        sseAlgorithm: pulumi.Input<enums.s3.BucketServerSideEncryptionByDefaultSSEAlgorithm>;
     }
 
     /**
@@ -44509,7 +44509,7 @@ export namespace sagemaker {
         /**
          * The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
          */
-        volumeSizeInGB: pulumi.Input<number>;
+        volumeSizeInGb: pulumi.Input<number>;
     }
 
     /**
@@ -45036,7 +45036,7 @@ export namespace sagemaker {
         labelAttribute?: pulumi.Input<string>;
         labelHeaders?: pulumi.Input<pulumi.Input<inputs.sagemaker.EndpointConfigClarifyHeaderArgs>[]>;
         labelIndex?: pulumi.Input<number>;
-        maxPayloadInMB?: pulumi.Input<number>;
+        maxPayloadInMb?: pulumi.Input<number>;
         maxRecordCount?: pulumi.Input<number>;
         probabilityAttribute?: pulumi.Input<string>;
         probabilityIndex?: pulumi.Input<number>;
@@ -45077,7 +45077,7 @@ export namespace sagemaker {
     export interface EndpointConfigProductionVariantArgs {
         acceleratorType?: pulumi.Input<string>;
         containerStartupHealthCheckTimeoutInSeconds?: pulumi.Input<number>;
-        enableSSMAccess?: pulumi.Input<boolean>;
+        enableSsmAccess?: pulumi.Input<boolean>;
         initialInstanceCount?: pulumi.Input<number>;
         initialVariantWeight: pulumi.Input<number>;
         instanceType?: pulumi.Input<string>;
@@ -45085,12 +45085,12 @@ export namespace sagemaker {
         modelName: pulumi.Input<string>;
         serverlessConfig?: pulumi.Input<inputs.sagemaker.EndpointConfigServerlessConfigArgs>;
         variantName: pulumi.Input<string>;
-        volumeSizeInGB?: pulumi.Input<number>;
+        volumeSizeInGb?: pulumi.Input<number>;
     }
 
     export interface EndpointConfigServerlessConfigArgs {
         maxConcurrency: pulumi.Input<number>;
-        memorySizeInMB: pulumi.Input<number>;
+        memorySizeInMb: pulumi.Input<number>;
         provisionedConcurrency?: pulumi.Input<number>;
     }
 
@@ -45358,7 +45358,7 @@ export namespace sagemaker {
         /**
          * The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
          */
-        volumeSizeInGB: pulumi.Input<number>;
+        volumeSizeInGb: pulumi.Input<number>;
     }
 
     /**
@@ -46043,7 +46043,7 @@ export namespace sagemaker {
         /**
          * The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
          */
-        volumeSizeInGB: pulumi.Input<number>;
+        volumeSizeInGb: pulumi.Input<number>;
     }
 
     /**
@@ -46289,7 +46289,7 @@ export namespace sagemaker {
         /**
          * The supported MIME types for the output data.
          */
-        supportedResponseMIMETypes?: pulumi.Input<pulumi.Input<string>[]>;
+        supportedResponseMimeTypes?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * A list of the instance types on which a transformation job can be run or on which an endpoint can be deployed.
          */
@@ -46468,7 +46468,7 @@ export namespace sagemaker {
         /**
          * The supported MIME types for the output data.
          */
-        supportedResponseMIMETypes: pulumi.Input<pulumi.Input<string>[]>;
+        supportedResponseMimeTypes: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * A list of the instance types on which a transformation job can be run or on which an endpoint can be deployed.
          */
@@ -46653,7 +46653,7 @@ export namespace sagemaker {
         /**
          * The maximum payload size allowed, in MB. A payload is the data portion of a record (without metadata).
          */
-        maxPayloadInMB?: pulumi.Input<number>;
+        maxPayloadInMb?: pulumi.Input<number>;
         transformInput: pulumi.Input<inputs.sagemaker.ModelPackageTransformInputArgs>;
         transformOutput: pulumi.Input<inputs.sagemaker.ModelPackageTransformOutputArgs>;
         transformResources: pulumi.Input<inputs.sagemaker.ModelPackageTransformResourcesArgs>;
@@ -46780,7 +46780,7 @@ export namespace sagemaker {
         /**
          * The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
          */
-        volumeSizeInGB: pulumi.Input<number>;
+        volumeSizeInGb: pulumi.Input<number>;
     }
 
     /**
@@ -47079,7 +47079,7 @@ export namespace sagemaker {
         /**
          * The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
          */
-        volumeSizeInGB: pulumi.Input<number>;
+        volumeSizeInGb: pulumi.Input<number>;
     }
 
     /**
@@ -47746,7 +47746,7 @@ export namespace scheduler {
         /**
          * Specifies whether to enable Amazon ECS managed tags for the task. For more information, see Tagging Your Amazon ECS Resources in the Amazon Elastic Container Service Developer Guide.
          */
-        enableECSManagedTags?: pulumi.Input<boolean>;
+        enableEcsManagedTags?: pulumi.Input<boolean>;
         /**
          * Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task.
          */
@@ -48249,7 +48249,7 @@ export namespace servicediscovery {
     }
 
     export interface PrivateDnsNamespacePrivateDnsPropertiesMutableArgs {
-        sOA?: pulumi.Input<inputs.servicediscovery.PrivateDnsNamespaceSOAArgs>;
+        soa?: pulumi.Input<inputs.servicediscovery.PrivateDnsNamespaceSOAArgs>;
     }
 
     export interface PrivateDnsNamespacePropertiesArgs {
@@ -48257,7 +48257,7 @@ export namespace servicediscovery {
     }
 
     export interface PrivateDnsNamespaceSOAArgs {
-        tTL?: pulumi.Input<number>;
+        ttl?: pulumi.Input<number>;
     }
 
     export interface PrivateDnsNamespaceTagArgs {
@@ -48270,11 +48270,11 @@ export namespace servicediscovery {
     }
 
     export interface PublicDnsNamespacePublicDnsPropertiesMutableArgs {
-        sOA?: pulumi.Input<inputs.servicediscovery.PublicDnsNamespaceSOAArgs>;
+        soa?: pulumi.Input<inputs.servicediscovery.PublicDnsNamespaceSOAArgs>;
     }
 
     export interface PublicDnsNamespaceSOAArgs {
-        tTL?: pulumi.Input<number>;
+        ttl?: pulumi.Input<number>;
     }
 
     export interface PublicDnsNamespaceTagArgs {
@@ -48289,7 +48289,7 @@ export namespace servicediscovery {
     }
 
     export interface ServiceDnsRecordArgs {
-        tTL: pulumi.Input<number>;
+        ttl: pulumi.Input<number>;
         type: pulumi.Input<string>;
     }
 
@@ -48396,18 +48396,18 @@ export namespace ses {
         /**
          * The ARN of the Amazon Kinesis Firehose stream that email sending events should be published to.
          */
-        deliveryStreamARN: pulumi.Input<string>;
+        deliveryStreamArn: pulumi.Input<string>;
         /**
          * The ARN of the IAM role under which Amazon SES publishes email sending events to the Amazon Kinesis Firehose stream.
          */
-        iAMRoleARN: pulumi.Input<string>;
+        iamRoleArn: pulumi.Input<string>;
     }
 
     /**
      * An object that contains SNS topic ARN associated event destination.
      */
     export interface ConfigurationSetEventDestinationSnsDestinationArgs {
-        topicARN: pulumi.Input<string>;
+        topicArn: pulumi.Input<string>;
     }
 
     /**
@@ -48563,7 +48563,7 @@ export namespace ses {
         bounceAction?: pulumi.Input<inputs.ses.ReceiptRuleBounceActionArgs>;
         lambdaAction?: pulumi.Input<inputs.ses.ReceiptRuleLambdaActionArgs>;
         s3Action?: pulumi.Input<inputs.ses.ReceiptRuleS3ActionArgs>;
-        sNSAction?: pulumi.Input<inputs.ses.ReceiptRuleSNSActionArgs>;
+        snsAction?: pulumi.Input<inputs.ses.ReceiptRuleSNSActionArgs>;
         stopAction?: pulumi.Input<inputs.ses.ReceiptRuleStopActionArgs>;
         workmailAction?: pulumi.Input<inputs.ses.ReceiptRuleWorkmailActionArgs>;
     }
@@ -48967,7 +48967,7 @@ export namespace ssm {
         bucketName: pulumi.Input<string>;
         bucketPrefix?: pulumi.Input<string>;
         bucketRegion: pulumi.Input<string>;
-        kMSKeyArn?: pulumi.Input<string>;
+        kmsKeyArn?: pulumi.Input<string>;
         syncFormat: pulumi.Input<string>;
     }
 
@@ -49485,7 +49485,7 @@ export namespace synthetics {
         /**
          * Provide maximum memory available for canary in MB
          */
-        memoryInMB?: pulumi.Input<number>;
+        memoryInMb?: pulumi.Input<number>;
         /**
          * Provide maximum canary timeout per run in seconds
          */
@@ -50792,7 +50792,7 @@ export namespace wafv2 {
 
     export interface RuleGroupGeoMatchStatementArgs {
         countryCodes?: pulumi.Input<pulumi.Input<string>[]>;
-        forwardedIPConfig?: pulumi.Input<inputs.wafv2.RuleGroupForwardedIPConfigurationArgs>;
+        forwardedIpConfig?: pulumi.Input<inputs.wafv2.RuleGroupForwardedIPConfigurationArgs>;
     }
 
     /**
@@ -50824,7 +50824,7 @@ export namespace wafv2 {
 
     export interface RuleGroupIPSetReferenceStatementArgs {
         arn: pulumi.Input<string>;
-        iPSetForwardedIPConfig?: pulumi.Input<inputs.wafv2.RuleGroupIPSetForwardedIPConfigurationArgs>;
+        ipSetForwardedIpConfig?: pulumi.Input<inputs.wafv2.RuleGroupIPSetForwardedIPConfigurationArgs>;
     }
 
     export interface RuleGroupImmunityTimePropertyArgs {
@@ -50879,7 +50879,7 @@ export namespace wafv2 {
          * Specifies the aggregate keys to use in a rate-base rule.
          */
         customKeys?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRateBasedStatementCustomKeyArgs>[]>;
-        forwardedIPConfig?: pulumi.Input<inputs.wafv2.RuleGroupForwardedIPConfigurationArgs>;
+        forwardedIpConfig?: pulumi.Input<inputs.wafv2.RuleGroupForwardedIPConfigurationArgs>;
         limit: pulumi.Input<number>;
         scopeDownStatement?: pulumi.Input<inputs.wafv2.RuleGroupStatementArgs>;
     }
@@ -50889,10 +50889,10 @@ export namespace wafv2 {
      */
     export interface RuleGroupRateBasedStatementCustomKeyArgs {
         cookie?: pulumi.Input<inputs.wafv2.RuleGroupRateLimitCookieArgs>;
-        forwardedIP?: pulumi.Input<inputs.wafv2.RuleGroupRateLimitForwardedIPArgs>;
-        hTTPMethod?: pulumi.Input<inputs.wafv2.RuleGroupRateLimitHTTPMethodArgs>;
+        forwardedIp?: pulumi.Input<inputs.wafv2.RuleGroupRateLimitForwardedIPArgs>;
         header?: pulumi.Input<inputs.wafv2.RuleGroupRateLimitHeaderArgs>;
-        iP?: pulumi.Input<inputs.wafv2.RuleGroupRateLimitIPArgs>;
+        httpMethod?: pulumi.Input<inputs.wafv2.RuleGroupRateLimitHTTPMethodArgs>;
+        ip?: pulumi.Input<inputs.wafv2.RuleGroupRateLimitIPArgs>;
         labelNamespace?: pulumi.Input<inputs.wafv2.RuleGroupRateLimitLabelNamespaceArgs>;
         queryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRateLimitQueryArgumentArgs>;
         queryString?: pulumi.Input<inputs.wafv2.RuleGroupRateLimitQueryStringArgs>;
@@ -51040,7 +51040,7 @@ export namespace wafv2 {
         andStatement?: pulumi.Input<inputs.wafv2.RuleGroupAndStatementArgs>;
         byteMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupByteMatchStatementArgs>;
         geoMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupGeoMatchStatementArgs>;
-        iPSetReferenceStatement?: pulumi.Input<inputs.wafv2.RuleGroupIPSetReferenceStatementArgs>;
+        ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.RuleGroupIPSetReferenceStatementArgs>;
         labelMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupLabelMatchStatementArgs>;
         notStatement?: pulumi.Input<inputs.wafv2.RuleGroupNotStatementArgs>;
         orStatement?: pulumi.Input<inputs.wafv2.RuleGroupOrStatementArgs>;
@@ -51108,9 +51108,6 @@ export namespace wafv2 {
      */
     export interface WebACLAWSManagedRulesBotControlRuleSetArgs {
         inspectionLevel: pulumi.Input<enums.wafv2.WebACLAWSManagedRulesBotControlRuleSetInspectionLevel>;
-    }
-
-    export interface WebACLAddressFieldArgs {
     }
 
     /**
@@ -51313,7 +51310,7 @@ export namespace wafv2 {
 
     export interface WebACLGeoMatchStatementArgs {
         countryCodes?: pulumi.Input<pulumi.Input<string>[]>;
-        forwardedIPConfig?: pulumi.Input<inputs.wafv2.WebACLForwardedIPConfigurationArgs>;
+        forwardedIpConfig?: pulumi.Input<inputs.wafv2.WebACLForwardedIPConfigurationArgs>;
     }
 
     /**
@@ -51345,7 +51342,7 @@ export namespace wafv2 {
 
     export interface WebACLIPSetReferenceStatementArgs {
         arn: pulumi.Input<string>;
-        iPSetForwardedIPConfig?: pulumi.Input<inputs.wafv2.WebACLIPSetForwardedIPConfigurationArgs>;
+        ipSetForwardedIpConfig?: pulumi.Input<inputs.wafv2.WebACLIPSetForwardedIPConfigurationArgs>;
     }
 
     export interface WebACLImmunityTimePropertyArgs {
@@ -51386,9 +51383,9 @@ export namespace wafv2 {
      * ManagedRuleGroupConfig.
      */
     export interface WebACLManagedRuleGroupConfigArgs {
-        aWSManagedRulesACFPRuleSet?: pulumi.Input<inputs.wafv2.WebACLAWSManagedRulesACFPRuleSetArgs>;
-        aWSManagedRulesATPRuleSet?: pulumi.Input<inputs.wafv2.WebACLAWSManagedRulesATPRuleSetArgs>;
-        aWSManagedRulesBotControlRuleSet?: pulumi.Input<inputs.wafv2.WebACLAWSManagedRulesBotControlRuleSetArgs>;
+        awsManagedRulesAcfpRuleSet?: pulumi.Input<inputs.wafv2.WebACLAWSManagedRulesACFPRuleSetArgs>;
+        awsManagedRulesAtpRuleSet?: pulumi.Input<inputs.wafv2.WebACLAWSManagedRulesATPRuleSetArgs>;
+        awsManagedRulesBotControlRuleSet?: pulumi.Input<inputs.wafv2.WebACLAWSManagedRulesBotControlRuleSetArgs>;
         loginPath?: pulumi.Input<string>;
         passwordField?: pulumi.Input<inputs.wafv2.WebACLFieldIdentifierArgs>;
         payloadType?: pulumi.Input<enums.wafv2.WebACLManagedRuleGroupConfigPayloadType>;
@@ -51433,16 +51430,13 @@ export namespace wafv2 {
         none?: any;
     }
 
-    export interface WebACLPhoneNumberFieldArgs {
-    }
-
     export interface WebACLRateBasedStatementArgs {
         aggregateKeyType: pulumi.Input<enums.wafv2.WebACLRateBasedStatementAggregateKeyType>;
         /**
          * Specifies the aggregate keys to use in a rate-base rule.
          */
         customKeys?: pulumi.Input<pulumi.Input<inputs.wafv2.WebACLRateBasedStatementCustomKeyArgs>[]>;
-        forwardedIPConfig?: pulumi.Input<inputs.wafv2.WebACLForwardedIPConfigurationArgs>;
+        forwardedIpConfig?: pulumi.Input<inputs.wafv2.WebACLForwardedIPConfigurationArgs>;
         limit: pulumi.Input<number>;
         scopeDownStatement?: pulumi.Input<inputs.wafv2.WebACLStatementArgs>;
     }
@@ -51452,10 +51446,10 @@ export namespace wafv2 {
      */
     export interface WebACLRateBasedStatementCustomKeyArgs {
         cookie?: pulumi.Input<inputs.wafv2.WebACLRateLimitCookieArgs>;
-        forwardedIP?: pulumi.Input<inputs.wafv2.WebACLRateLimitForwardedIPArgs>;
-        hTTPMethod?: pulumi.Input<inputs.wafv2.WebACLRateLimitHTTPMethodArgs>;
+        forwardedIp?: pulumi.Input<inputs.wafv2.WebACLRateLimitForwardedIPArgs>;
         header?: pulumi.Input<inputs.wafv2.WebACLRateLimitHeaderArgs>;
-        iP?: pulumi.Input<inputs.wafv2.WebACLRateLimitIPArgs>;
+        httpMethod?: pulumi.Input<inputs.wafv2.WebACLRateLimitHTTPMethodArgs>;
+        ip?: pulumi.Input<inputs.wafv2.WebACLRateLimitIPArgs>;
         labelNamespace?: pulumi.Input<inputs.wafv2.WebACLRateLimitLabelNamespaceArgs>;
         queryArgument?: pulumi.Input<inputs.wafv2.WebACLRateLimitQueryArgumentArgs>;
         queryString?: pulumi.Input<inputs.wafv2.WebACLRateLimitQueryStringArgs>;
@@ -51568,11 +51562,11 @@ export namespace wafv2 {
      * Configures the inspection of sign-up requests
      */
     export interface WebACLRequestInspectionACFPArgs {
-        addressFields?: pulumi.Input<pulumi.Input<inputs.wafv2.WebACLAddressFieldArgs>[]>;
+        addressFields?: pulumi.Input<pulumi.Input<inputs.wafv2.WebACLFieldIdentifierArgs>[]>;
         emailField?: pulumi.Input<inputs.wafv2.WebACLFieldIdentifierArgs>;
         passwordField?: pulumi.Input<inputs.wafv2.WebACLFieldIdentifierArgs>;
         payloadType: pulumi.Input<enums.wafv2.WebACLRequestInspectionACFPPayloadType>;
-        phoneNumberFields?: pulumi.Input<pulumi.Input<inputs.wafv2.WebACLPhoneNumberFieldArgs>[]>;
+        phoneNumberFields?: pulumi.Input<pulumi.Input<inputs.wafv2.WebACLFieldIdentifierArgs>[]>;
         usernameField?: pulumi.Input<inputs.wafv2.WebACLFieldIdentifierArgs>;
     }
 
@@ -51692,7 +51686,7 @@ export namespace wafv2 {
         andStatement?: pulumi.Input<inputs.wafv2.WebACLAndStatementArgs>;
         byteMatchStatement?: pulumi.Input<inputs.wafv2.WebACLByteMatchStatementArgs>;
         geoMatchStatement?: pulumi.Input<inputs.wafv2.WebACLGeoMatchStatementArgs>;
-        iPSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebACLIPSetReferenceStatementArgs>;
+        ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebACLIPSetReferenceStatementArgs>;
         labelMatchStatement?: pulumi.Input<inputs.wafv2.WebACLLabelMatchStatementArgs>;
         managedRuleGroupStatement?: pulumi.Input<inputs.wafv2.WebACLManagedRuleGroupStatementArgs>;
         notStatement?: pulumi.Input<inputs.wafv2.WebACLNotStatementArgs>;
@@ -51832,13 +51826,13 @@ export namespace xray {
          */
         fixedRate: pulumi.Input<number>;
         /**
-         * Matches the HTTP method from a request URL.
-         */
-        hTTPMethod: pulumi.Input<string>;
-        /**
          * Matches the hostname from a request URL.
          */
         host: pulumi.Input<string>;
+        /**
+         * Matches the HTTP method from a request URL.
+         */
+        httpMethod: pulumi.Input<string>;
         /**
          * The priority of the sampling rule.
          */
@@ -51850,8 +51844,8 @@ export namespace xray {
         /**
          * Matches the ARN of the AWS resource on which the service runs.
          */
-        resourceARN: pulumi.Input<string>;
-        ruleARN?: pulumi.Input<string>;
+        resourceArn: pulumi.Input<string>;
+        ruleArn?: pulumi.Input<string>;
         ruleName?: pulumi.Input<string>;
         /**
          * Matches the name that the service uses to identify itself in segments.
@@ -51864,7 +51858,7 @@ export namespace xray {
         /**
          * Matches the path from a request URL.
          */
-        uRLPath: pulumi.Input<string>;
+        urlPath: pulumi.Input<string>;
         /**
          * The version of the sampling rule format (1)
          */
@@ -51904,13 +51898,13 @@ export namespace xray {
          */
         fixedRate?: pulumi.Input<number>;
         /**
-         * Matches the HTTP method from a request URL.
-         */
-        hTTPMethod?: pulumi.Input<string>;
-        /**
          * Matches the hostname from a request URL.
          */
         host?: pulumi.Input<string>;
+        /**
+         * Matches the HTTP method from a request URL.
+         */
+        httpMethod?: pulumi.Input<string>;
         /**
          * The priority of the sampling rule.
          */
@@ -51922,8 +51916,8 @@ export namespace xray {
         /**
          * Matches the ARN of the AWS resource on which the service runs.
          */
-        resourceARN?: pulumi.Input<string>;
-        ruleARN?: pulumi.Input<string>;
+        resourceArn?: pulumi.Input<string>;
+        ruleArn?: pulumi.Input<string>;
         ruleName?: pulumi.Input<string>;
         /**
          * Matches the name that the service uses to identify itself in segments.
@@ -51936,6 +51930,6 @@ export namespace xray {
         /**
          * Matches the path from a request URL.
          */
-        uRLPath?: pulumi.Input<string>;
+        urlPath?: pulumi.Input<string>;
     }
 }

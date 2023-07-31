@@ -13,12 +13,12 @@ namespace Pulumi.AwsNative.ServiceDiscovery.Outputs
     [OutputType]
     public sealed class PrivateDnsNamespaceSOA
     {
-        public readonly double? TTL;
+        public readonly double? Ttl;
 
         [OutputConstructor]
-        private PrivateDnsNamespaceSOA(double? tTL)
+        private PrivateDnsNamespaceSOA(double? ttl)
         {
-            TTL = tTL;
+            Ttl = ttl;
         }
     }
 }

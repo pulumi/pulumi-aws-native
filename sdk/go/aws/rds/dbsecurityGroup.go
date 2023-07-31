@@ -18,8 +18,8 @@ import (
 type DBSecurityGroup struct {
 	pulumi.CustomResourceState
 
-	DBSecurityGroupIngress DBSecurityGroupIngressTypeArrayOutput `pulumi:"dBSecurityGroupIngress"`
-	EC2VpcId               pulumi.StringPtrOutput                `pulumi:"eC2VpcId"`
+	DbSecurityGroupIngress DBSecurityGroupIngressTypeArrayOutput `pulumi:"dbSecurityGroupIngress"`
+	Ec2VpcId               pulumi.StringPtrOutput                `pulumi:"ec2VpcId"`
 	GroupDescription       pulumi.StringOutput                   `pulumi:"groupDescription"`
 	Tags                   DBSecurityGroupTagArrayOutput         `pulumi:"tags"`
 }
@@ -31,8 +31,8 @@ func NewDBSecurityGroup(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DBSecurityGroupIngress == nil {
-		return nil, errors.New("invalid value for required argument 'DBSecurityGroupIngress'")
+	if args.DbSecurityGroupIngress == nil {
+		return nil, errors.New("invalid value for required argument 'DbSecurityGroupIngress'")
 	}
 	if args.GroupDescription == nil {
 		return nil, errors.New("invalid value for required argument 'GroupDescription'")
@@ -70,16 +70,16 @@ func (DBSecurityGroupState) ElementType() reflect.Type {
 }
 
 type dbsecurityGroupArgs struct {
-	DBSecurityGroupIngress []DBSecurityGroupIngressType `pulumi:"dBSecurityGroupIngress"`
-	EC2VpcId               *string                      `pulumi:"eC2VpcId"`
+	DbSecurityGroupIngress []DBSecurityGroupIngressType `pulumi:"dbSecurityGroupIngress"`
+	Ec2VpcId               *string                      `pulumi:"ec2VpcId"`
 	GroupDescription       string                       `pulumi:"groupDescription"`
 	Tags                   []DBSecurityGroupTag         `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DBSecurityGroup resource.
 type DBSecurityGroupArgs struct {
-	DBSecurityGroupIngress DBSecurityGroupIngressTypeArrayInput
-	EC2VpcId               pulumi.StringPtrInput
+	DbSecurityGroupIngress DBSecurityGroupIngressTypeArrayInput
+	Ec2VpcId               pulumi.StringPtrInput
 	GroupDescription       pulumi.StringInput
 	Tags                   DBSecurityGroupTagArrayInput
 }
@@ -121,12 +121,12 @@ func (o DBSecurityGroupOutput) ToDBSecurityGroupOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o DBSecurityGroupOutput) DBSecurityGroupIngress() DBSecurityGroupIngressTypeArrayOutput {
-	return o.ApplyT(func(v *DBSecurityGroup) DBSecurityGroupIngressTypeArrayOutput { return v.DBSecurityGroupIngress }).(DBSecurityGroupIngressTypeArrayOutput)
+func (o DBSecurityGroupOutput) DbSecurityGroupIngress() DBSecurityGroupIngressTypeArrayOutput {
+	return o.ApplyT(func(v *DBSecurityGroup) DBSecurityGroupIngressTypeArrayOutput { return v.DbSecurityGroupIngress }).(DBSecurityGroupIngressTypeArrayOutput)
 }
 
-func (o DBSecurityGroupOutput) EC2VpcId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBSecurityGroup) pulumi.StringPtrOutput { return v.EC2VpcId }).(pulumi.StringPtrOutput)
+func (o DBSecurityGroupOutput) Ec2VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBSecurityGroup) pulumi.StringPtrOutput { return v.Ec2VpcId }).(pulumi.StringPtrOutput)
 }
 
 func (o DBSecurityGroupOutput) GroupDescription() pulumi.StringOutput {

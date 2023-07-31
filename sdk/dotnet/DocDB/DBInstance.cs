@@ -22,14 +22,14 @@ namespace Pulumi.AwsNative.DocDB
         [Output("availabilityZone")]
         public Output<string?> AvailabilityZone { get; private set; } = null!;
 
-        [Output("dBClusterIdentifier")]
-        public Output<string> DBClusterIdentifier { get; private set; } = null!;
+        [Output("dbClusterIdentifier")]
+        public Output<string> DbClusterIdentifier { get; private set; } = null!;
 
-        [Output("dBInstanceClass")]
-        public Output<string> DBInstanceClass { get; private set; } = null!;
+        [Output("dbInstanceClass")]
+        public Output<string> DbInstanceClass { get; private set; } = null!;
 
-        [Output("dBInstanceIdentifier")]
-        public Output<string?> DBInstanceIdentifier { get; private set; } = null!;
+        [Output("dbInstanceIdentifier")]
+        public Output<string?> DbInstanceIdentifier { get; private set; } = null!;
 
         [Output("enablePerformanceInsights")]
         public Output<bool?> EnablePerformanceInsights { get; private set; } = null!;
@@ -97,14 +97,14 @@ namespace Pulumi.AwsNative.DocDB
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
 
-        [Input("dBClusterIdentifier", required: true)]
-        public Input<string> DBClusterIdentifier { get; set; } = null!;
+        [Input("dbClusterIdentifier", required: true)]
+        public Input<string> DbClusterIdentifier { get; set; } = null!;
 
-        [Input("dBInstanceClass", required: true)]
-        public Input<string> DBInstanceClass { get; set; } = null!;
+        [Input("dbInstanceClass", required: true)]
+        public Input<string> DbInstanceClass { get; set; } = null!;
 
-        [Input("dBInstanceIdentifier")]
-        public Input<string>? DBInstanceIdentifier { get; set; }
+        [Input("dbInstanceIdentifier")]
+        public Input<string>? DbInstanceIdentifier { get; set; }
 
         [Input("enablePerformanceInsights")]
         public Input<bool>? EnablePerformanceInsights { get; set; }

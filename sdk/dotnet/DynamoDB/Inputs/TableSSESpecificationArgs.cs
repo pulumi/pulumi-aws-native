@@ -12,14 +12,14 @@ namespace Pulumi.AwsNative.DynamoDB.Inputs
 
     public sealed class TableSSESpecificationArgs : global::Pulumi.ResourceArgs
     {
-        [Input("kMSMasterKeyId")]
-        public Input<string>? KMSMasterKeyId { get; set; }
+        [Input("kmsMasterKeyId")]
+        public Input<string>? KmsMasterKeyId { get; set; }
 
-        [Input("sSEEnabled", required: true)]
-        public Input<bool> SSEEnabled { get; set; } = null!;
+        [Input("sseEnabled", required: true)]
+        public Input<bool> SseEnabled { get; set; } = null!;
 
-        [Input("sSEType")]
-        public Input<string>? SSEType { get; set; }
+        [Input("sseType")]
+        public Input<string>? SseType { get; set; }
 
         public TableSSESpecificationArgs()
         {

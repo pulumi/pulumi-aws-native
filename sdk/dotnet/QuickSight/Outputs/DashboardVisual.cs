@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         public readonly Outputs.DashboardHeatMapVisual? HeatMapVisual;
         public readonly Outputs.DashboardHistogramVisual? HistogramVisual;
         public readonly Outputs.DashboardInsightVisual? InsightVisual;
-        public readonly Outputs.DashboardKPIVisual? KPIVisual;
+        public readonly Outputs.DashboardKPIVisual? KpiVisual;
         public readonly Outputs.DashboardLineChartVisual? LineChartVisual;
         public readonly Outputs.DashboardPieChartVisual? PieChartVisual;
         public readonly Outputs.DashboardPivotTableVisual? PivotTableVisual;
@@ -63,7 +63,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.DashboardInsightVisual? insightVisual,
 
-            Outputs.DashboardKPIVisual? kPIVisual,
+            Outputs.DashboardKPIVisual? kpiVisual,
 
             Outputs.DashboardLineChartVisual? lineChartVisual,
 
@@ -97,7 +97,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             HeatMapVisual = heatMapVisual;
             HistogramVisual = histogramVisual;
             InsightVisual = insightVisual;
-            KPIVisual = kPIVisual;
+            KpiVisual = kpiVisual;
             LineChartVisual = lineChartVisual;
             PieChartVisual = pieChartVisual;
             PivotTableVisual = pivotTableVisual;

@@ -12,9 +12,6 @@ namespace Pulumi.AwsNative.Greengrass.Inputs
 
     public sealed class ResourceDefinitionSecretsManagerSecretResourceDataArgs : global::Pulumi.ResourceArgs
     {
-        [Input("aRN", required: true)]
-        public Input<string> ARN { get; set; } = null!;
-
         [Input("additionalStagingLabelsToDownload")]
         private InputList<string>? _additionalStagingLabelsToDownload;
         public InputList<string> AdditionalStagingLabelsToDownload
@@ -22,6 +19,9 @@ namespace Pulumi.AwsNative.Greengrass.Inputs
             get => _additionalStagingLabelsToDownload ?? (_additionalStagingLabelsToDownload = new InputList<string>());
             set => _additionalStagingLabelsToDownload = value;
         }
+
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public ResourceDefinitionSecretsManagerSecretResourceDataArgs()
         {

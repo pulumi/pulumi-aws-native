@@ -32,7 +32,7 @@ type UserPool struct {
 	MfaConfiguration            pulumi.StringPtrOutput                       `pulumi:"mfaConfiguration"`
 	Policies                    UserPoolPoliciesPtrOutput                    `pulumi:"policies"`
 	ProviderName                pulumi.StringOutput                          `pulumi:"providerName"`
-	ProviderURL                 pulumi.StringOutput                          `pulumi:"providerURL"`
+	ProviderUrl                 pulumi.StringOutput                          `pulumi:"providerUrl"`
 	Schema                      UserPoolSchemaAttributeArrayOutput           `pulumi:"schema"`
 	SmsAuthenticationMessage    pulumi.StringPtrOutput                       `pulumi:"smsAuthenticationMessage"`
 	SmsConfiguration            UserPoolSmsConfigurationPtrOutput            `pulumi:"smsConfiguration"`
@@ -237,8 +237,8 @@ func (o UserPoolOutput) ProviderName() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPool) pulumi.StringOutput { return v.ProviderName }).(pulumi.StringOutput)
 }
 
-func (o UserPoolOutput) ProviderURL() pulumi.StringOutput {
-	return o.ApplyT(func(v *UserPool) pulumi.StringOutput { return v.ProviderURL }).(pulumi.StringOutput)
+func (o UserPoolOutput) ProviderUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserPool) pulumi.StringOutput { return v.ProviderUrl }).(pulumi.StringOutput)
 }
 
 func (o UserPoolOutput) Schema() UserPoolSchemaAttributeArrayOutput {

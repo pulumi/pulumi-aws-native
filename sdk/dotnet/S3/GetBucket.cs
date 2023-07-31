@@ -132,7 +132,7 @@ namespace Pulumi.AwsNative.S3
         /// <summary>
         /// The Amazon S3 website endpoint for the specified bucket.
         /// </summary>
-        public readonly string? WebsiteURL;
+        public readonly string? WebsiteUrl;
 
         [OutputConstructor]
         private GetBucketResult(
@@ -178,7 +178,7 @@ namespace Pulumi.AwsNative.S3
 
             Outputs.BucketWebsiteConfiguration? websiteConfiguration,
 
-            string? websiteURL)
+            string? websiteUrl)
         {
             AccelerateConfiguration = accelerateConfiguration;
             AnalyticsConfigurations = analyticsConfigurations;
@@ -201,7 +201,7 @@ namespace Pulumi.AwsNative.S3
             Tags = tags;
             VersioningConfiguration = versioningConfiguration;
             WebsiteConfiguration = websiteConfiguration;
-            WebsiteURL = websiteURL;
+            WebsiteUrl = websiteUrl;
         }
     }
 }

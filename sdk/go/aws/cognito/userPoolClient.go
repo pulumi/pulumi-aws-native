@@ -24,16 +24,16 @@ type UserPoolClient struct {
 	AllowedOAuthScopes                       pulumi.StringArrayOutput                      `pulumi:"allowedOAuthScopes"`
 	AnalyticsConfiguration                   UserPoolClientAnalyticsConfigurationPtrOutput `pulumi:"analyticsConfiguration"`
 	AuthSessionValidity                      pulumi.IntPtrOutput                           `pulumi:"authSessionValidity"`
-	CallbackURLs                             pulumi.StringArrayOutput                      `pulumi:"callbackURLs"`
+	CallbackUrls                             pulumi.StringArrayOutput                      `pulumi:"callbackUrls"`
 	ClientName                               pulumi.StringPtrOutput                        `pulumi:"clientName"`
 	ClientSecret                             pulumi.StringOutput                           `pulumi:"clientSecret"`
-	DefaultRedirectURI                       pulumi.StringPtrOutput                        `pulumi:"defaultRedirectURI"`
+	DefaultRedirectUri                       pulumi.StringPtrOutput                        `pulumi:"defaultRedirectUri"`
 	EnablePropagateAdditionalUserContextData pulumi.BoolPtrOutput                          `pulumi:"enablePropagateAdditionalUserContextData"`
 	EnableTokenRevocation                    pulumi.BoolPtrOutput                          `pulumi:"enableTokenRevocation"`
 	ExplicitAuthFlows                        pulumi.StringArrayOutput                      `pulumi:"explicitAuthFlows"`
 	GenerateSecret                           pulumi.BoolPtrOutput                          `pulumi:"generateSecret"`
 	IdTokenValidity                          pulumi.IntPtrOutput                           `pulumi:"idTokenValidity"`
-	LogoutURLs                               pulumi.StringArrayOutput                      `pulumi:"logoutURLs"`
+	LogoutUrls                               pulumi.StringArrayOutput                      `pulumi:"logoutUrls"`
 	Name                                     pulumi.StringOutput                           `pulumi:"name"`
 	PreventUserExistenceErrors               pulumi.StringPtrOutput                        `pulumi:"preventUserExistenceErrors"`
 	ReadAttributes                           pulumi.StringArrayOutput                      `pulumi:"readAttributes"`
@@ -93,15 +93,15 @@ type userPoolClientArgs struct {
 	AllowedOAuthScopes                       []string                              `pulumi:"allowedOAuthScopes"`
 	AnalyticsConfiguration                   *UserPoolClientAnalyticsConfiguration `pulumi:"analyticsConfiguration"`
 	AuthSessionValidity                      *int                                  `pulumi:"authSessionValidity"`
-	CallbackURLs                             []string                              `pulumi:"callbackURLs"`
+	CallbackUrls                             []string                              `pulumi:"callbackUrls"`
 	ClientName                               *string                               `pulumi:"clientName"`
-	DefaultRedirectURI                       *string                               `pulumi:"defaultRedirectURI"`
+	DefaultRedirectUri                       *string                               `pulumi:"defaultRedirectUri"`
 	EnablePropagateAdditionalUserContextData *bool                                 `pulumi:"enablePropagateAdditionalUserContextData"`
 	EnableTokenRevocation                    *bool                                 `pulumi:"enableTokenRevocation"`
 	ExplicitAuthFlows                        []string                              `pulumi:"explicitAuthFlows"`
 	GenerateSecret                           *bool                                 `pulumi:"generateSecret"`
 	IdTokenValidity                          *int                                  `pulumi:"idTokenValidity"`
-	LogoutURLs                               []string                              `pulumi:"logoutURLs"`
+	LogoutUrls                               []string                              `pulumi:"logoutUrls"`
 	PreventUserExistenceErrors               *string                               `pulumi:"preventUserExistenceErrors"`
 	ReadAttributes                           []string                              `pulumi:"readAttributes"`
 	RefreshTokenValidity                     *int                                  `pulumi:"refreshTokenValidity"`
@@ -119,15 +119,15 @@ type UserPoolClientArgs struct {
 	AllowedOAuthScopes                       pulumi.StringArrayInput
 	AnalyticsConfiguration                   UserPoolClientAnalyticsConfigurationPtrInput
 	AuthSessionValidity                      pulumi.IntPtrInput
-	CallbackURLs                             pulumi.StringArrayInput
+	CallbackUrls                             pulumi.StringArrayInput
 	ClientName                               pulumi.StringPtrInput
-	DefaultRedirectURI                       pulumi.StringPtrInput
+	DefaultRedirectUri                       pulumi.StringPtrInput
 	EnablePropagateAdditionalUserContextData pulumi.BoolPtrInput
 	EnableTokenRevocation                    pulumi.BoolPtrInput
 	ExplicitAuthFlows                        pulumi.StringArrayInput
 	GenerateSecret                           pulumi.BoolPtrInput
 	IdTokenValidity                          pulumi.IntPtrInput
-	LogoutURLs                               pulumi.StringArrayInput
+	LogoutUrls                               pulumi.StringArrayInput
 	PreventUserExistenceErrors               pulumi.StringPtrInput
 	ReadAttributes                           pulumi.StringArrayInput
 	RefreshTokenValidity                     pulumi.IntPtrInput
@@ -198,8 +198,8 @@ func (o UserPoolClientOutput) AuthSessionValidity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *UserPoolClient) pulumi.IntPtrOutput { return v.AuthSessionValidity }).(pulumi.IntPtrOutput)
 }
 
-func (o UserPoolClientOutput) CallbackURLs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *UserPoolClient) pulumi.StringArrayOutput { return v.CallbackURLs }).(pulumi.StringArrayOutput)
+func (o UserPoolClientOutput) CallbackUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *UserPoolClient) pulumi.StringArrayOutput { return v.CallbackUrls }).(pulumi.StringArrayOutput)
 }
 
 func (o UserPoolClientOutput) ClientName() pulumi.StringPtrOutput {
@@ -210,8 +210,8 @@ func (o UserPoolClientOutput) ClientSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPoolClient) pulumi.StringOutput { return v.ClientSecret }).(pulumi.StringOutput)
 }
 
-func (o UserPoolClientOutput) DefaultRedirectURI() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *UserPoolClient) pulumi.StringPtrOutput { return v.DefaultRedirectURI }).(pulumi.StringPtrOutput)
+func (o UserPoolClientOutput) DefaultRedirectUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolClient) pulumi.StringPtrOutput { return v.DefaultRedirectUri }).(pulumi.StringPtrOutput)
 }
 
 func (o UserPoolClientOutput) EnablePropagateAdditionalUserContextData() pulumi.BoolPtrOutput {
@@ -234,8 +234,8 @@ func (o UserPoolClientOutput) IdTokenValidity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *UserPoolClient) pulumi.IntPtrOutput { return v.IdTokenValidity }).(pulumi.IntPtrOutput)
 }
 
-func (o UserPoolClientOutput) LogoutURLs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *UserPoolClient) pulumi.StringArrayOutput { return v.LogoutURLs }).(pulumi.StringArrayOutput)
+func (o UserPoolClientOutput) LogoutUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *UserPoolClient) pulumi.StringArrayOutput { return v.LogoutUrls }).(pulumi.StringArrayOutput)
 }
 
 func (o UserPoolClientOutput) Name() pulumi.StringOutput {

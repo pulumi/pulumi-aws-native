@@ -16,8 +16,8 @@ namespace Pulumi.AwsNative.OpenSearchService.Outputs
         public readonly string? CustomEndpoint;
         public readonly string? CustomEndpointCertificateArn;
         public readonly bool? CustomEndpointEnabled;
-        public readonly bool? EnforceHTTPS;
-        public readonly string? TLSSecurityPolicy;
+        public readonly bool? EnforceHttps;
+        public readonly string? TlsSecurityPolicy;
 
         [OutputConstructor]
         private DomainEndpointOptions(
@@ -27,15 +27,15 @@ namespace Pulumi.AwsNative.OpenSearchService.Outputs
 
             bool? customEndpointEnabled,
 
-            bool? enforceHTTPS,
+            bool? enforceHttps,
 
-            string? tLSSecurityPolicy)
+            string? tlsSecurityPolicy)
         {
             CustomEndpoint = customEndpoint;
             CustomEndpointCertificateArn = customEndpointCertificateArn;
             CustomEndpointEnabled = customEndpointEnabled;
-            EnforceHTTPS = enforceHTTPS;
-            TLSSecurityPolicy = tLSSecurityPolicy;
+            EnforceHttps = enforceHttps;
+            TlsSecurityPolicy = tlsSecurityPolicy;
         }
     }
 }

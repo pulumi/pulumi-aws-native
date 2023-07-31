@@ -18,17 +18,17 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         [Input("cookie")]
         public Input<Inputs.RuleGroupRateLimitCookieArgs>? Cookie { get; set; }
 
-        [Input("forwardedIP")]
-        public Input<Inputs.RuleGroupRateLimitForwardedIPArgs>? ForwardedIP { get; set; }
-
-        [Input("hTTPMethod")]
-        public Input<Inputs.RuleGroupRateLimitHTTPMethodArgs>? HTTPMethod { get; set; }
+        [Input("forwardedIp")]
+        public Input<Inputs.RuleGroupRateLimitForwardedIPArgs>? ForwardedIp { get; set; }
 
         [Input("header")]
         public Input<Inputs.RuleGroupRateLimitHeaderArgs>? Header { get; set; }
 
-        [Input("iP")]
-        public Input<Inputs.RuleGroupRateLimitIPArgs>? IP { get; set; }
+        [Input("httpMethod")]
+        public Input<Inputs.RuleGroupRateLimitHTTPMethodArgs>? HttpMethod { get; set; }
+
+        [Input("ip")]
+        public Input<Inputs.RuleGroupRateLimitIPArgs>? Ip { get; set; }
 
         [Input("labelNamespace")]
         public Input<Inputs.RuleGroupRateLimitLabelNamespaceArgs>? LabelNamespace { get; set; }

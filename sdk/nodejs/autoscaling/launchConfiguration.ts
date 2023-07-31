@@ -48,11 +48,11 @@ export class LaunchConfiguration extends pulumi.CustomResource {
     /**
      * The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to.
      */
-    public readonly classicLinkVPCId!: pulumi.Output<string | undefined>;
+    public readonly classicLinkVpcId!: pulumi.Output<string | undefined>;
     /**
      * The IDs of one or more security groups for the VPC that you specified in the ClassicLinkVPCId property.
      */
-    public readonly classicLinkVPCSecurityGroups!: pulumi.Output<string[] | undefined>;
+    public readonly classicLinkVpcSecurityGroups!: pulumi.Output<string[] | undefined>;
     /**
      * Specifies whether the launch configuration is optimized for EBS I/O (true) or not (false).
      */
@@ -133,8 +133,8 @@ export class LaunchConfiguration extends pulumi.CustomResource {
             }
             resourceInputs["associatePublicIpAddress"] = args ? args.associatePublicIpAddress : undefined;
             resourceInputs["blockDeviceMappings"] = args ? args.blockDeviceMappings : undefined;
-            resourceInputs["classicLinkVPCId"] = args ? args.classicLinkVPCId : undefined;
-            resourceInputs["classicLinkVPCSecurityGroups"] = args ? args.classicLinkVPCSecurityGroups : undefined;
+            resourceInputs["classicLinkVpcId"] = args ? args.classicLinkVpcId : undefined;
+            resourceInputs["classicLinkVpcSecurityGroups"] = args ? args.classicLinkVpcSecurityGroups : undefined;
             resourceInputs["ebsOptimized"] = args ? args.ebsOptimized : undefined;
             resourceInputs["iamInstanceProfile"] = args ? args.iamInstanceProfile : undefined;
             resourceInputs["imageId"] = args ? args.imageId : undefined;
@@ -153,8 +153,8 @@ export class LaunchConfiguration extends pulumi.CustomResource {
         } else {
             resourceInputs["associatePublicIpAddress"] = undefined /*out*/;
             resourceInputs["blockDeviceMappings"] = undefined /*out*/;
-            resourceInputs["classicLinkVPCId"] = undefined /*out*/;
-            resourceInputs["classicLinkVPCSecurityGroups"] = undefined /*out*/;
+            resourceInputs["classicLinkVpcId"] = undefined /*out*/;
+            resourceInputs["classicLinkVpcSecurityGroups"] = undefined /*out*/;
             resourceInputs["ebsOptimized"] = undefined /*out*/;
             resourceInputs["iamInstanceProfile"] = undefined /*out*/;
             resourceInputs["imageId"] = undefined /*out*/;
@@ -191,11 +191,11 @@ export interface LaunchConfigurationArgs {
     /**
      * The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to.
      */
-    classicLinkVPCId?: pulumi.Input<string>;
+    classicLinkVpcId?: pulumi.Input<string>;
     /**
      * The IDs of one or more security groups for the VPC that you specified in the ClassicLinkVPCId property.
      */
-    classicLinkVPCSecurityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    classicLinkVpcSecurityGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies whether the launch configuration is optimized for EBS I/O (true) or not (false).
      */

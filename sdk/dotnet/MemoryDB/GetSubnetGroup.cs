@@ -60,7 +60,7 @@ namespace Pulumi.AwsNative.MemoryDB
         /// <summary>
         /// The Amazon Resource Name (ARN) of the subnet group.
         /// </summary>
-        public readonly string? ARN;
+        public readonly string? Arn;
         /// <summary>
         /// An optional description of the subnet group.
         /// </summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.MemoryDB
 
         [OutputConstructor]
         private GetSubnetGroupResult(
-            string? aRN,
+            string? arn,
 
             string? description,
 
@@ -84,7 +84,7 @@ namespace Pulumi.AwsNative.MemoryDB
 
             ImmutableArray<Outputs.SubnetGroupTag> tags)
         {
-            ARN = aRN;
+            Arn = arn;
             Description = description;
             SubnetIds = subnetIds;
             Tags = tags;

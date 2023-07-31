@@ -52,7 +52,7 @@ export class WirelessGateway extends pulumi.CustomResource {
     /**
      * The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Gateway.
      */
-    public readonly loRaWAN!: pulumi.Output<outputs.iotwireless.WirelessGatewayLoRaWANGateway>;
+    public readonly loRaWan!: pulumi.Output<outputs.iotwireless.WirelessGatewayLoRaWANGateway>;
     /**
      * Name of Wireless Gateway.
      */
@@ -81,12 +81,12 @@ export class WirelessGateway extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.loRaWAN === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'loRaWAN'");
+            if ((!args || args.loRaWan === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'loRaWan'");
             }
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["lastUplinkReceivedAt"] = args ? args.lastUplinkReceivedAt : undefined;
-            resourceInputs["loRaWAN"] = args ? args.loRaWAN : undefined;
+            resourceInputs["loRaWan"] = args ? args.loRaWan : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["thingArn"] = args ? args.thingArn : undefined;
@@ -96,7 +96,7 @@ export class WirelessGateway extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["lastUplinkReceivedAt"] = undefined /*out*/;
-            resourceInputs["loRaWAN"] = undefined /*out*/;
+            resourceInputs["loRaWan"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["thingArn"] = undefined /*out*/;
@@ -122,7 +122,7 @@ export interface WirelessGatewayArgs {
     /**
      * The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Gateway.
      */
-    loRaWAN: pulumi.Input<inputs.iotwireless.WirelessGatewayLoRaWANGatewayArgs>;
+    loRaWan: pulumi.Input<inputs.iotwireless.WirelessGatewayLoRaWANGatewayArgs>;
     /**
      * Name of Wireless Gateway.
      */

@@ -24,7 +24,7 @@ export interface GetMacroResult {
     readonly functionName?: string;
     readonly id?: string;
     readonly logGroupName?: string;
-    readonly logRoleARN?: string;
+    readonly logRoleArn?: string;
 }
 /**
  * Resource Type definition for AWS::CloudFormation::Macro

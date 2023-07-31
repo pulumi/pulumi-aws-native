@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.ApplicationInsights.Outputs
         /// <summary>
         /// JMX service URL.
         /// </summary>
-        public readonly string? JMXURL;
+        public readonly string? Jmxurl;
         /// <summary>
         /// Prometheus exporter port.
         /// </summary>
@@ -33,12 +33,12 @@ namespace Pulumi.AwsNative.ApplicationInsights.Outputs
         private ApplicationJMXPrometheusExporter(
             string? hostPort,
 
-            string? jMXURL,
+            string? jmxurl,
 
             string? prometheusPort)
         {
             HostPort = hostPort;
-            JMXURL = jMXURL;
+            Jmxurl = jmxurl;
             PrometheusPort = prometheusPort;
         }
     }

@@ -18,8 +18,8 @@ namespace Pulumi.AwsNative.Pinpoint.Inputs
         [Input("pushTemplate")]
         public Input<Inputs.CampaignTemplateArgs>? PushTemplate { get; set; }
 
-        [Input("sMSTemplate")]
-        public Input<Inputs.CampaignTemplateArgs>? SMSTemplate { get; set; }
+        [Input("smsTemplate")]
+        public Input<Inputs.CampaignTemplateArgs>? SmsTemplate { get; set; }
 
         [Input("voiceTemplate")]
         public Input<Inputs.CampaignTemplateArgs>? VoiceTemplate { get; set; }

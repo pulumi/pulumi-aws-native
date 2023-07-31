@@ -24,8 +24,8 @@ namespace Pulumi.AwsNative.Lambda.Inputs
         /// <summary>
         /// The URI for the source access configuration resource.
         /// </summary>
-        [Input("uRI")]
-        public Input<string>? URI { get; set; }
+        [Input("uri")]
+        public Input<string>? Uri { get; set; }
 
         public EventSourceMappingSourceAccessConfigurationArgs()
         {

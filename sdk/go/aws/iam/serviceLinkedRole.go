@@ -16,7 +16,7 @@ type ServiceLinkedRole struct {
 	pulumi.CustomResourceState
 
 	// The service principal for the AWS service to which this role is attached.
-	AWSServiceName pulumi.StringPtrOutput `pulumi:"aWSServiceName"`
+	AwsServiceName pulumi.StringPtrOutput `pulumi:"awsServiceName"`
 	// A string that you provide, which is combined with the service-provided prefix to form the complete role name.
 	CustomSuffix pulumi.StringPtrOutput `pulumi:"customSuffix"`
 	// The description of the role.
@@ -66,7 +66,7 @@ func (ServiceLinkedRoleState) ElementType() reflect.Type {
 
 type serviceLinkedRoleArgs struct {
 	// The service principal for the AWS service to which this role is attached.
-	AWSServiceName *string `pulumi:"aWSServiceName"`
+	AwsServiceName *string `pulumi:"awsServiceName"`
 	// A string that you provide, which is combined with the service-provided prefix to form the complete role name.
 	CustomSuffix *string `pulumi:"customSuffix"`
 	// The description of the role.
@@ -76,7 +76,7 @@ type serviceLinkedRoleArgs struct {
 // The set of arguments for constructing a ServiceLinkedRole resource.
 type ServiceLinkedRoleArgs struct {
 	// The service principal for the AWS service to which this role is attached.
-	AWSServiceName pulumi.StringPtrInput
+	AwsServiceName pulumi.StringPtrInput
 	// A string that you provide, which is combined with the service-provided prefix to form the complete role name.
 	CustomSuffix pulumi.StringPtrInput
 	// The description of the role.
@@ -121,8 +121,8 @@ func (o ServiceLinkedRoleOutput) ToServiceLinkedRoleOutputWithContext(ctx contex
 }
 
 // The service principal for the AWS service to which this role is attached.
-func (o ServiceLinkedRoleOutput) AWSServiceName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServiceLinkedRole) pulumi.StringPtrOutput { return v.AWSServiceName }).(pulumi.StringPtrOutput)
+func (o ServiceLinkedRoleOutput) AwsServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceLinkedRole) pulumi.StringPtrOutput { return v.AwsServiceName }).(pulumi.StringPtrOutput)
 }
 
 // A string that you provide, which is combined with the service-provided prefix to form the complete role name.

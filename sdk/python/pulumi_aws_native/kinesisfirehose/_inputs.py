@@ -77,7 +77,7 @@ class DeliveryStreamAmazonOpenSearchServerlessBufferingHintsArgs:
         pulumi.set(self, "interval_in_seconds", value)
 
     @property
-    @pulumi.getter(name="sizeInMBs")
+    @pulumi.getter(name="sizeInMbs")
     def size_in_mbs(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "size_in_mbs")
 
@@ -127,7 +127,7 @@ class DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationArgs:
         pulumi.set(self, "index_name", value)
 
     @property
-    @pulumi.getter(name="roleARN")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         return pulumi.get(self, "role_arn")
 
@@ -245,7 +245,7 @@ class DeliveryStreamAmazonopensearchserviceBufferingHintsArgs:
         pulumi.set(self, "interval_in_seconds", value)
 
     @property
-    @pulumi.getter(name="sizeInMBs")
+    @pulumi.getter(name="sizeInMbs")
     def size_in_mbs(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "size_in_mbs")
 
@@ -307,7 +307,7 @@ class DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgs:
         pulumi.set(self, "index_name", value)
 
     @property
-    @pulumi.getter(name="roleARN")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         return pulumi.get(self, "role_arn")
 
@@ -361,7 +361,7 @@ class DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgs:
         pulumi.set(self, "document_id_options", value)
 
     @property
-    @pulumi.getter(name="domainARN")
+    @pulumi.getter(name="domainArn")
     def domain_arn(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "domain_arn")
 
@@ -461,7 +461,7 @@ class DeliveryStreamBufferingHintsArgs:
         pulumi.set(self, "interval_in_seconds", value)
 
     @property
-    @pulumi.getter(name="sizeInMBs")
+    @pulumi.getter(name="sizeInMbs")
     def size_in_mbs(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "size_in_mbs")
 
@@ -698,7 +698,7 @@ class DeliveryStreamElasticsearchBufferingHintsArgs:
         pulumi.set(self, "interval_in_seconds", value)
 
     @property
-    @pulumi.getter(name="sizeInMBs")
+    @pulumi.getter(name="sizeInMbs")
     def size_in_mbs(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "size_in_mbs")
 
@@ -760,7 +760,7 @@ class DeliveryStreamElasticsearchDestinationConfigurationArgs:
         pulumi.set(self, "index_name", value)
 
     @property
-    @pulumi.getter(name="roleARN")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         return pulumi.get(self, "role_arn")
 
@@ -814,7 +814,7 @@ class DeliveryStreamElasticsearchDestinationConfigurationArgs:
         pulumi.set(self, "document_id_options", value)
 
     @property
-    @pulumi.getter(name="domainARN")
+    @pulumi.getter(name="domainArn")
     def domain_arn(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "domain_arn")
 
@@ -913,7 +913,7 @@ class DeliveryStreamEncryptionConfigurationInputArgs:
         pulumi.set(self, "key_type", value)
 
     @property
-    @pulumi.getter(name="keyARN")
+    @pulumi.getter(name="keyArn")
     def key_arn(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "key_arn")
 
@@ -925,21 +925,21 @@ class DeliveryStreamEncryptionConfigurationInputArgs:
 @pulumi.input_type
 class DeliveryStreamEncryptionConfigurationArgs:
     def __init__(__self__, *,
-                 k_ms_encryption_config: Optional[pulumi.Input['DeliveryStreamKMSEncryptionConfigArgs']] = None,
+                 kms_encryption_config: Optional[pulumi.Input['DeliveryStreamKMSEncryptionConfigArgs']] = None,
                  no_encryption_config: Optional[pulumi.Input['DeliveryStreamEncryptionConfigurationNoEncryptionConfig']] = None):
-        if k_ms_encryption_config is not None:
-            pulumi.set(__self__, "k_ms_encryption_config", k_ms_encryption_config)
+        if kms_encryption_config is not None:
+            pulumi.set(__self__, "kms_encryption_config", kms_encryption_config)
         if no_encryption_config is not None:
             pulumi.set(__self__, "no_encryption_config", no_encryption_config)
 
     @property
-    @pulumi.getter(name="kMSEncryptionConfig")
-    def k_ms_encryption_config(self) -> Optional[pulumi.Input['DeliveryStreamKMSEncryptionConfigArgs']]:
-        return pulumi.get(self, "k_ms_encryption_config")
+    @pulumi.getter(name="kmsEncryptionConfig")
+    def kms_encryption_config(self) -> Optional[pulumi.Input['DeliveryStreamKMSEncryptionConfigArgs']]:
+        return pulumi.get(self, "kms_encryption_config")
 
-    @k_ms_encryption_config.setter
-    def k_ms_encryption_config(self, value: Optional[pulumi.Input['DeliveryStreamKMSEncryptionConfigArgs']]):
-        pulumi.set(self, "k_ms_encryption_config", value)
+    @kms_encryption_config.setter
+    def kms_encryption_config(self, value: Optional[pulumi.Input['DeliveryStreamKMSEncryptionConfigArgs']]):
+        pulumi.set(self, "kms_encryption_config", value)
 
     @property
     @pulumi.getter(name="noEncryptionConfig")
@@ -993,7 +993,7 @@ class DeliveryStreamExtendedS3DestinationConfigurationArgs:
             pulumi.set(__self__, "s3_backup_mode", s3_backup_mode)
 
     @property
-    @pulumi.getter(name="bucketARN")
+    @pulumi.getter(name="bucketArn")
     def bucket_arn(self) -> pulumi.Input[str]:
         return pulumi.get(self, "bucket_arn")
 
@@ -1002,7 +1002,7 @@ class DeliveryStreamExtendedS3DestinationConfigurationArgs:
         pulumi.set(self, "bucket_arn", value)
 
     @property
-    @pulumi.getter(name="roleARN")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         return pulumi.get(self, "role_arn")
 
@@ -1287,7 +1287,7 @@ class DeliveryStreamHttpEndpointDestinationConfigurationArgs:
         pulumi.set(self, "retry_options", value)
 
     @property
-    @pulumi.getter(name="roleARN")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "role_arn")
 
@@ -1354,17 +1354,17 @@ class DeliveryStreamInputFormatConfigurationArgs:
 @pulumi.input_type
 class DeliveryStreamKMSEncryptionConfigArgs:
     def __init__(__self__, *,
-                 a_wskms_key_arn: pulumi.Input[str]):
-        pulumi.set(__self__, "a_wskms_key_arn", a_wskms_key_arn)
+                 awskms_key_arn: pulumi.Input[str]):
+        pulumi.set(__self__, "awskms_key_arn", awskms_key_arn)
 
     @property
-    @pulumi.getter(name="aWSKMSKeyARN")
-    def a_wskms_key_arn(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "a_wskms_key_arn")
+    @pulumi.getter(name="awskmsKeyArn")
+    def awskms_key_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "awskms_key_arn")
 
-    @a_wskms_key_arn.setter
-    def a_wskms_key_arn(self, value: pulumi.Input[str]):
-        pulumi.set(self, "a_wskms_key_arn", value)
+    @awskms_key_arn.setter
+    def awskms_key_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "awskms_key_arn", value)
 
 
 @pulumi.input_type
@@ -1376,7 +1376,7 @@ class DeliveryStreamKinesisStreamSourceConfigurationArgs:
         pulumi.set(__self__, "role_arn", role_arn)
 
     @property
-    @pulumi.getter(name="kinesisStreamARN")
+    @pulumi.getter(name="kinesisStreamArn")
     def kinesis_stream_arn(self) -> pulumi.Input[str]:
         return pulumi.get(self, "kinesis_stream_arn")
 
@@ -1385,7 +1385,7 @@ class DeliveryStreamKinesisStreamSourceConfigurationArgs:
         pulumi.set(self, "kinesis_stream_arn", value)
 
     @property
-    @pulumi.getter(name="roleARN")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         return pulumi.get(self, "role_arn")
 
@@ -1770,7 +1770,7 @@ class DeliveryStreamRedshiftDestinationConfigurationArgs:
             pulumi.set(__self__, "s3_backup_mode", s3_backup_mode)
 
     @property
-    @pulumi.getter(name="clusterJDBCURL")
+    @pulumi.getter(name="clusterJdbcurl")
     def cluster_jdbcurl(self) -> pulumi.Input[str]:
         return pulumi.get(self, "cluster_jdbcurl")
 
@@ -1797,7 +1797,7 @@ class DeliveryStreamRedshiftDestinationConfigurationArgs:
         pulumi.set(self, "password", value)
 
     @property
-    @pulumi.getter(name="roleARN")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         return pulumi.get(self, "role_arn")
 
@@ -1930,7 +1930,7 @@ class DeliveryStreamS3DestinationConfigurationArgs:
             pulumi.set(__self__, "prefix", prefix)
 
     @property
-    @pulumi.getter(name="bucketARN")
+    @pulumi.getter(name="bucketArn")
     def bucket_arn(self) -> pulumi.Input[str]:
         return pulumi.get(self, "bucket_arn")
 
@@ -1939,7 +1939,7 @@ class DeliveryStreamS3DestinationConfigurationArgs:
         pulumi.set(self, "bucket_arn", value)
 
     @property
-    @pulumi.getter(name="roleARN")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         return pulumi.get(self, "role_arn")
 
@@ -2052,7 +2052,7 @@ class DeliveryStreamSchemaConfigurationArgs:
         pulumi.set(self, "region", value)
 
     @property
-    @pulumi.getter(name="roleARN")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "role_arn")
 
@@ -2111,23 +2111,23 @@ class DeliveryStreamSerializerArgs:
 @pulumi.input_type
 class DeliveryStreamSplunkDestinationConfigurationArgs:
     def __init__(__self__, *,
-                 h_ec_endpoint: pulumi.Input[str],
-                 h_ec_endpoint_type: pulumi.Input['DeliveryStreamSplunkDestinationConfigurationHECEndpointType'],
-                 h_ec_token: pulumi.Input[str],
+                 hec_endpoint: pulumi.Input[str],
+                 hec_endpoint_type: pulumi.Input['DeliveryStreamSplunkDestinationConfigurationHECEndpointType'],
+                 hec_token: pulumi.Input[str],
                  s3_configuration: pulumi.Input['DeliveryStreamS3DestinationConfigurationArgs'],
                  cloud_watch_logging_options: Optional[pulumi.Input['DeliveryStreamCloudWatchLoggingOptionsArgs']] = None,
-                 h_ec_acknowledgment_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
+                 hec_acknowledgment_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
                  processing_configuration: Optional[pulumi.Input['DeliveryStreamProcessingConfigurationArgs']] = None,
                  retry_options: Optional[pulumi.Input['DeliveryStreamSplunkRetryOptionsArgs']] = None,
                  s3_backup_mode: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "h_ec_endpoint", h_ec_endpoint)
-        pulumi.set(__self__, "h_ec_endpoint_type", h_ec_endpoint_type)
-        pulumi.set(__self__, "h_ec_token", h_ec_token)
+        pulumi.set(__self__, "hec_endpoint", hec_endpoint)
+        pulumi.set(__self__, "hec_endpoint_type", hec_endpoint_type)
+        pulumi.set(__self__, "hec_token", hec_token)
         pulumi.set(__self__, "s3_configuration", s3_configuration)
         if cloud_watch_logging_options is not None:
             pulumi.set(__self__, "cloud_watch_logging_options", cloud_watch_logging_options)
-        if h_ec_acknowledgment_timeout_in_seconds is not None:
-            pulumi.set(__self__, "h_ec_acknowledgment_timeout_in_seconds", h_ec_acknowledgment_timeout_in_seconds)
+        if hec_acknowledgment_timeout_in_seconds is not None:
+            pulumi.set(__self__, "hec_acknowledgment_timeout_in_seconds", hec_acknowledgment_timeout_in_seconds)
         if processing_configuration is not None:
             pulumi.set(__self__, "processing_configuration", processing_configuration)
         if retry_options is not None:
@@ -2136,31 +2136,31 @@ class DeliveryStreamSplunkDestinationConfigurationArgs:
             pulumi.set(__self__, "s3_backup_mode", s3_backup_mode)
 
     @property
-    @pulumi.getter(name="hECEndpoint")
-    def h_ec_endpoint(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "h_ec_endpoint")
+    @pulumi.getter(name="hecEndpoint")
+    def hec_endpoint(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "hec_endpoint")
 
-    @h_ec_endpoint.setter
-    def h_ec_endpoint(self, value: pulumi.Input[str]):
-        pulumi.set(self, "h_ec_endpoint", value)
-
-    @property
-    @pulumi.getter(name="hECEndpointType")
-    def h_ec_endpoint_type(self) -> pulumi.Input['DeliveryStreamSplunkDestinationConfigurationHECEndpointType']:
-        return pulumi.get(self, "h_ec_endpoint_type")
-
-    @h_ec_endpoint_type.setter
-    def h_ec_endpoint_type(self, value: pulumi.Input['DeliveryStreamSplunkDestinationConfigurationHECEndpointType']):
-        pulumi.set(self, "h_ec_endpoint_type", value)
+    @hec_endpoint.setter
+    def hec_endpoint(self, value: pulumi.Input[str]):
+        pulumi.set(self, "hec_endpoint", value)
 
     @property
-    @pulumi.getter(name="hECToken")
-    def h_ec_token(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "h_ec_token")
+    @pulumi.getter(name="hecEndpointType")
+    def hec_endpoint_type(self) -> pulumi.Input['DeliveryStreamSplunkDestinationConfigurationHECEndpointType']:
+        return pulumi.get(self, "hec_endpoint_type")
 
-    @h_ec_token.setter
-    def h_ec_token(self, value: pulumi.Input[str]):
-        pulumi.set(self, "h_ec_token", value)
+    @hec_endpoint_type.setter
+    def hec_endpoint_type(self, value: pulumi.Input['DeliveryStreamSplunkDestinationConfigurationHECEndpointType']):
+        pulumi.set(self, "hec_endpoint_type", value)
+
+    @property
+    @pulumi.getter(name="hecToken")
+    def hec_token(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "hec_token")
+
+    @hec_token.setter
+    def hec_token(self, value: pulumi.Input[str]):
+        pulumi.set(self, "hec_token", value)
 
     @property
     @pulumi.getter(name="s3Configuration")
@@ -2181,13 +2181,13 @@ class DeliveryStreamSplunkDestinationConfigurationArgs:
         pulumi.set(self, "cloud_watch_logging_options", value)
 
     @property
-    @pulumi.getter(name="hECAcknowledgmentTimeoutInSeconds")
-    def h_ec_acknowledgment_timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
-        return pulumi.get(self, "h_ec_acknowledgment_timeout_in_seconds")
+    @pulumi.getter(name="hecAcknowledgmentTimeoutInSeconds")
+    def hec_acknowledgment_timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "hec_acknowledgment_timeout_in_seconds")
 
-    @h_ec_acknowledgment_timeout_in_seconds.setter
-    def h_ec_acknowledgment_timeout_in_seconds(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "h_ec_acknowledgment_timeout_in_seconds", value)
+    @hec_acknowledgment_timeout_in_seconds.setter
+    def hec_acknowledgment_timeout_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "hec_acknowledgment_timeout_in_seconds", value)
 
     @property
     @pulumi.getter(name="processingConfiguration")
@@ -2273,7 +2273,7 @@ class DeliveryStreamVpcConfigurationArgs:
         pulumi.set(__self__, "subnet_ids", subnet_ids)
 
     @property
-    @pulumi.getter(name="roleARN")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         return pulumi.get(self, "role_arn")
 

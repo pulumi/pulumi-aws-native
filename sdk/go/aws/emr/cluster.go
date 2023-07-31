@@ -32,9 +32,9 @@ type Cluster struct {
 	LogEncryptionKmsKeyId pulumi.StringPtrOutput                  `pulumi:"logEncryptionKmsKeyId"`
 	LogUri                pulumi.StringPtrOutput                  `pulumi:"logUri"`
 	ManagedScalingPolicy  ClusterManagedScalingPolicyPtrOutput    `pulumi:"managedScalingPolicy"`
-	MasterPublicDNS       pulumi.StringOutput                     `pulumi:"masterPublicDNS"`
+	MasterPublicDns       pulumi.StringOutput                     `pulumi:"masterPublicDns"`
 	Name                  pulumi.StringOutput                     `pulumi:"name"`
-	OSReleaseLabel        pulumi.StringPtrOutput                  `pulumi:"oSReleaseLabel"`
+	OsReleaseLabel        pulumi.StringPtrOutput                  `pulumi:"osReleaseLabel"`
 	ReleaseLabel          pulumi.StringPtrOutput                  `pulumi:"releaseLabel"`
 	ScaleDownBehavior     pulumi.StringPtrOutput                  `pulumi:"scaleDownBehavior"`
 	SecurityConfiguration pulumi.StringPtrOutput                  `pulumi:"securityConfiguration"`
@@ -109,7 +109,7 @@ type clusterArgs struct {
 	LogUri                *string                        `pulumi:"logUri"`
 	ManagedScalingPolicy  *ClusterManagedScalingPolicy   `pulumi:"managedScalingPolicy"`
 	Name                  *string                        `pulumi:"name"`
-	OSReleaseLabel        *string                        `pulumi:"oSReleaseLabel"`
+	OsReleaseLabel        *string                        `pulumi:"osReleaseLabel"`
 	ReleaseLabel          *string                        `pulumi:"releaseLabel"`
 	ScaleDownBehavior     *string                        `pulumi:"scaleDownBehavior"`
 	SecurityConfiguration *string                        `pulumi:"securityConfiguration"`
@@ -137,7 +137,7 @@ type ClusterArgs struct {
 	LogUri                pulumi.StringPtrInput
 	ManagedScalingPolicy  ClusterManagedScalingPolicyPtrInput
 	Name                  pulumi.StringPtrInput
-	OSReleaseLabel        pulumi.StringPtrInput
+	OsReleaseLabel        pulumi.StringPtrInput
 	ReleaseLabel          pulumi.StringPtrInput
 	ScaleDownBehavior     pulumi.StringPtrInput
 	SecurityConfiguration pulumi.StringPtrInput
@@ -241,16 +241,16 @@ func (o ClusterOutput) ManagedScalingPolicy() ClusterManagedScalingPolicyPtrOutp
 	return o.ApplyT(func(v *Cluster) ClusterManagedScalingPolicyPtrOutput { return v.ManagedScalingPolicy }).(ClusterManagedScalingPolicyPtrOutput)
 }
 
-func (o ClusterOutput) MasterPublicDNS() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.MasterPublicDNS }).(pulumi.StringOutput)
+func (o ClusterOutput) MasterPublicDns() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.MasterPublicDns }).(pulumi.StringOutput)
 }
 
 func (o ClusterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o ClusterOutput) OSReleaseLabel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.OSReleaseLabel }).(pulumi.StringPtrOutput)
+func (o ClusterOutput) OsReleaseLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.OsReleaseLabel }).(pulumi.StringPtrOutput)
 }
 
 func (o ClusterOutput) ReleaseLabel() pulumi.StringPtrOutput {

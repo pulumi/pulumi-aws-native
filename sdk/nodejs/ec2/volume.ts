@@ -40,7 +40,7 @@ export class Volume extends pulumi.CustomResource {
     /**
      * The Availability Zone in which to create the volume.
      */
-    public readonly autoEnableIO!: pulumi.Output<boolean | undefined>;
+    public readonly autoEnableIo!: pulumi.Output<boolean | undefined>;
     /**
      * The Availability Zone in which to create the volume.
      */
@@ -101,7 +101,7 @@ export class Volume extends pulumi.CustomResource {
             if ((!args || args.availabilityZone === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'availabilityZone'");
             }
-            resourceInputs["autoEnableIO"] = args ? args.autoEnableIO : undefined;
+            resourceInputs["autoEnableIo"] = args ? args.autoEnableIo : undefined;
             resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
             resourceInputs["encrypted"] = args ? args.encrypted : undefined;
             resourceInputs["iops"] = args ? args.iops : undefined;
@@ -115,7 +115,7 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["volumeType"] = args ? args.volumeType : undefined;
             resourceInputs["volumeId"] = undefined /*out*/;
         } else {
-            resourceInputs["autoEnableIO"] = undefined /*out*/;
+            resourceInputs["autoEnableIo"] = undefined /*out*/;
             resourceInputs["availabilityZone"] = undefined /*out*/;
             resourceInputs["encrypted"] = undefined /*out*/;
             resourceInputs["iops"] = undefined /*out*/;
@@ -141,7 +141,7 @@ export interface VolumeArgs {
     /**
      * The Availability Zone in which to create the volume.
      */
-    autoEnableIO?: pulumi.Input<boolean>;
+    autoEnableIo?: pulumi.Input<boolean>;
     /**
      * The Availability Zone in which to create the volume.
      */

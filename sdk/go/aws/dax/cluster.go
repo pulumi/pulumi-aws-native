@@ -21,18 +21,18 @@ type Cluster struct {
 	Arn                           pulumi.StringOutput              `pulumi:"arn"`
 	AvailabilityZones             pulumi.StringArrayOutput         `pulumi:"availabilityZones"`
 	ClusterDiscoveryEndpoint      pulumi.StringOutput              `pulumi:"clusterDiscoveryEndpoint"`
-	ClusterDiscoveryEndpointURL   pulumi.StringOutput              `pulumi:"clusterDiscoveryEndpointURL"`
+	ClusterDiscoveryEndpointUrl   pulumi.StringOutput              `pulumi:"clusterDiscoveryEndpointUrl"`
 	ClusterEndpointEncryptionType pulumi.StringPtrOutput           `pulumi:"clusterEndpointEncryptionType"`
 	ClusterName                   pulumi.StringPtrOutput           `pulumi:"clusterName"`
 	Description                   pulumi.StringPtrOutput           `pulumi:"description"`
-	IAMRoleARN                    pulumi.StringOutput              `pulumi:"iAMRoleARN"`
+	IamRoleArn                    pulumi.StringOutput              `pulumi:"iamRoleArn"`
 	NodeType                      pulumi.StringOutput              `pulumi:"nodeType"`
-	NotificationTopicARN          pulumi.StringPtrOutput           `pulumi:"notificationTopicARN"`
+	NotificationTopicArn          pulumi.StringPtrOutput           `pulumi:"notificationTopicArn"`
 	ParameterGroupName            pulumi.StringPtrOutput           `pulumi:"parameterGroupName"`
 	PreferredMaintenanceWindow    pulumi.StringPtrOutput           `pulumi:"preferredMaintenanceWindow"`
 	ReplicationFactor             pulumi.IntOutput                 `pulumi:"replicationFactor"`
-	SSESpecification              ClusterSSESpecificationPtrOutput `pulumi:"sSESpecification"`
 	SecurityGroupIds              pulumi.StringArrayOutput         `pulumi:"securityGroupIds"`
+	SseSpecification              ClusterSSESpecificationPtrOutput `pulumi:"sseSpecification"`
 	SubnetGroupName               pulumi.StringPtrOutput           `pulumi:"subnetGroupName"`
 	Tags                          pulumi.AnyOutput                 `pulumi:"tags"`
 }
@@ -44,8 +44,8 @@ func NewCluster(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.IAMRoleARN == nil {
-		return nil, errors.New("invalid value for required argument 'IAMRoleARN'")
+	if args.IamRoleArn == nil {
+		return nil, errors.New("invalid value for required argument 'IamRoleArn'")
 	}
 	if args.NodeType == nil {
 		return nil, errors.New("invalid value for required argument 'NodeType'")
@@ -90,14 +90,14 @@ type clusterArgs struct {
 	ClusterEndpointEncryptionType *string                  `pulumi:"clusterEndpointEncryptionType"`
 	ClusterName                   *string                  `pulumi:"clusterName"`
 	Description                   *string                  `pulumi:"description"`
-	IAMRoleARN                    string                   `pulumi:"iAMRoleARN"`
+	IamRoleArn                    string                   `pulumi:"iamRoleArn"`
 	NodeType                      string                   `pulumi:"nodeType"`
-	NotificationTopicARN          *string                  `pulumi:"notificationTopicARN"`
+	NotificationTopicArn          *string                  `pulumi:"notificationTopicArn"`
 	ParameterGroupName            *string                  `pulumi:"parameterGroupName"`
 	PreferredMaintenanceWindow    *string                  `pulumi:"preferredMaintenanceWindow"`
 	ReplicationFactor             int                      `pulumi:"replicationFactor"`
-	SSESpecification              *ClusterSSESpecification `pulumi:"sSESpecification"`
 	SecurityGroupIds              []string                 `pulumi:"securityGroupIds"`
+	SseSpecification              *ClusterSSESpecification `pulumi:"sseSpecification"`
 	SubnetGroupName               *string                  `pulumi:"subnetGroupName"`
 	Tags                          interface{}              `pulumi:"tags"`
 }
@@ -108,14 +108,14 @@ type ClusterArgs struct {
 	ClusterEndpointEncryptionType pulumi.StringPtrInput
 	ClusterName                   pulumi.StringPtrInput
 	Description                   pulumi.StringPtrInput
-	IAMRoleARN                    pulumi.StringInput
+	IamRoleArn                    pulumi.StringInput
 	NodeType                      pulumi.StringInput
-	NotificationTopicARN          pulumi.StringPtrInput
+	NotificationTopicArn          pulumi.StringPtrInput
 	ParameterGroupName            pulumi.StringPtrInput
 	PreferredMaintenanceWindow    pulumi.StringPtrInput
 	ReplicationFactor             pulumi.IntInput
-	SSESpecification              ClusterSSESpecificationPtrInput
 	SecurityGroupIds              pulumi.StringArrayInput
+	SseSpecification              ClusterSSESpecificationPtrInput
 	SubnetGroupName               pulumi.StringPtrInput
 	Tags                          pulumi.Input
 }
@@ -169,8 +169,8 @@ func (o ClusterOutput) ClusterDiscoveryEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterDiscoveryEndpoint }).(pulumi.StringOutput)
 }
 
-func (o ClusterOutput) ClusterDiscoveryEndpointURL() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterDiscoveryEndpointURL }).(pulumi.StringOutput)
+func (o ClusterOutput) ClusterDiscoveryEndpointUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterDiscoveryEndpointUrl }).(pulumi.StringOutput)
 }
 
 func (o ClusterOutput) ClusterEndpointEncryptionType() pulumi.StringPtrOutput {
@@ -185,16 +185,16 @@ func (o ClusterOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o ClusterOutput) IAMRoleARN() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.IAMRoleARN }).(pulumi.StringOutput)
+func (o ClusterOutput) IamRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.IamRoleArn }).(pulumi.StringOutput)
 }
 
 func (o ClusterOutput) NodeType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.NodeType }).(pulumi.StringOutput)
 }
 
-func (o ClusterOutput) NotificationTopicARN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.NotificationTopicARN }).(pulumi.StringPtrOutput)
+func (o ClusterOutput) NotificationTopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.NotificationTopicArn }).(pulumi.StringPtrOutput)
 }
 
 func (o ClusterOutput) ParameterGroupName() pulumi.StringPtrOutput {
@@ -209,12 +209,12 @@ func (o ClusterOutput) ReplicationFactor() pulumi.IntOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.IntOutput { return v.ReplicationFactor }).(pulumi.IntOutput)
 }
 
-func (o ClusterOutput) SSESpecification() ClusterSSESpecificationPtrOutput {
-	return o.ApplyT(func(v *Cluster) ClusterSSESpecificationPtrOutput { return v.SSESpecification }).(ClusterSSESpecificationPtrOutput)
-}
-
 func (o ClusterOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+func (o ClusterOutput) SseSpecification() ClusterSSESpecificationPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterSSESpecificationPtrOutput { return v.SseSpecification }).(ClusterSSESpecificationPtrOutput)
 }
 
 func (o ClusterOutput) SubnetGroupName() pulumi.StringPtrOutput {

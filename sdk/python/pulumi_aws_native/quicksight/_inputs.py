@@ -4595,28 +4595,28 @@ class AnalysisCustomActionSetParametersOperationArgs:
 @pulumi.input_type
 class AnalysisCustomActionURLOperationArgs:
     def __init__(__self__, *,
-                 u_rl_target: pulumi.Input['AnalysisURLTargetConfiguration'],
-                 u_rl_template: pulumi.Input[str]):
-        pulumi.set(__self__, "u_rl_target", u_rl_target)
-        pulumi.set(__self__, "u_rl_template", u_rl_template)
+                 url_target: pulumi.Input['AnalysisURLTargetConfiguration'],
+                 url_template: pulumi.Input[str]):
+        pulumi.set(__self__, "url_target", url_target)
+        pulumi.set(__self__, "url_template", url_template)
 
     @property
-    @pulumi.getter(name="uRLTarget")
-    def u_rl_target(self) -> pulumi.Input['AnalysisURLTargetConfiguration']:
-        return pulumi.get(self, "u_rl_target")
+    @pulumi.getter(name="urlTarget")
+    def url_target(self) -> pulumi.Input['AnalysisURLTargetConfiguration']:
+        return pulumi.get(self, "url_target")
 
-    @u_rl_target.setter
-    def u_rl_target(self, value: pulumi.Input['AnalysisURLTargetConfiguration']):
-        pulumi.set(self, "u_rl_target", value)
+    @url_target.setter
+    def url_target(self, value: pulumi.Input['AnalysisURLTargetConfiguration']):
+        pulumi.set(self, "url_target", value)
 
     @property
-    @pulumi.getter(name="uRLTemplate")
-    def u_rl_template(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "u_rl_template")
+    @pulumi.getter(name="urlTemplate")
+    def url_template(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "url_template")
 
-    @u_rl_template.setter
-    def u_rl_template(self, value: pulumi.Input[str]):
-        pulumi.set(self, "u_rl_template", value)
+    @url_template.setter
+    def url_template(self, value: pulumi.Input[str]):
+        pulumi.set(self, "url_template", value)
 
 
 @pulumi.input_type
@@ -10922,12 +10922,12 @@ class AnalysisKPIConditionalFormattingArgs:
 class AnalysisKPIConfigurationArgs:
     def __init__(__self__, *,
                  field_wells: Optional[pulumi.Input['AnalysisKPIFieldWellsArgs']] = None,
-                 k_pi_options: Optional[pulumi.Input['AnalysisKPIOptionsArgs']] = None,
+                 kpi_options: Optional[pulumi.Input['AnalysisKPIOptionsArgs']] = None,
                  sort_configuration: Optional[pulumi.Input['AnalysisKPISortConfigurationArgs']] = None):
         if field_wells is not None:
             pulumi.set(__self__, "field_wells", field_wells)
-        if k_pi_options is not None:
-            pulumi.set(__self__, "k_pi_options", k_pi_options)
+        if kpi_options is not None:
+            pulumi.set(__self__, "kpi_options", kpi_options)
         if sort_configuration is not None:
             pulumi.set(__self__, "sort_configuration", sort_configuration)
 
@@ -10941,13 +10941,13 @@ class AnalysisKPIConfigurationArgs:
         pulumi.set(self, "field_wells", value)
 
     @property
-    @pulumi.getter(name="kPIOptions")
-    def k_pi_options(self) -> Optional[pulumi.Input['AnalysisKPIOptionsArgs']]:
-        return pulumi.get(self, "k_pi_options")
+    @pulumi.getter(name="kpiOptions")
+    def kpi_options(self) -> Optional[pulumi.Input['AnalysisKPIOptionsArgs']]:
+        return pulumi.get(self, "kpi_options")
 
-    @k_pi_options.setter
-    def k_pi_options(self, value: Optional[pulumi.Input['AnalysisKPIOptionsArgs']]):
-        pulumi.set(self, "k_pi_options", value)
+    @kpi_options.setter
+    def kpi_options(self, value: Optional[pulumi.Input['AnalysisKPIOptionsArgs']]):
+        pulumi.set(self, "kpi_options", value)
 
     @property
     @pulumi.getter(name="sortConfiguration")
@@ -18559,7 +18559,7 @@ class AnalysisTableFieldOptionArgs:
     def __init__(__self__, *,
                  field_id: pulumi.Input[str],
                  custom_label: Optional[pulumi.Input[str]] = None,
-                 u_rl_styling: Optional[pulumi.Input['AnalysisTableFieldURLConfigurationArgs']] = None,
+                 url_styling: Optional[pulumi.Input['AnalysisTableFieldURLConfigurationArgs']] = None,
                  visibility: Optional[pulumi.Input['AnalysisVisibility']] = None,
                  width: Optional[pulumi.Input[str]] = None):
         """
@@ -18568,8 +18568,8 @@ class AnalysisTableFieldOptionArgs:
         pulumi.set(__self__, "field_id", field_id)
         if custom_label is not None:
             pulumi.set(__self__, "custom_label", custom_label)
-        if u_rl_styling is not None:
-            pulumi.set(__self__, "u_rl_styling", u_rl_styling)
+        if url_styling is not None:
+            pulumi.set(__self__, "url_styling", url_styling)
         if visibility is not None:
             pulumi.set(__self__, "visibility", visibility)
         if width is not None:
@@ -18594,13 +18594,13 @@ class AnalysisTableFieldOptionArgs:
         pulumi.set(self, "custom_label", value)
 
     @property
-    @pulumi.getter(name="uRLStyling")
-    def u_rl_styling(self) -> Optional[pulumi.Input['AnalysisTableFieldURLConfigurationArgs']]:
-        return pulumi.get(self, "u_rl_styling")
+    @pulumi.getter(name="urlStyling")
+    def url_styling(self) -> Optional[pulumi.Input['AnalysisTableFieldURLConfigurationArgs']]:
+        return pulumi.get(self, "url_styling")
 
-    @u_rl_styling.setter
-    def u_rl_styling(self, value: Optional[pulumi.Input['AnalysisTableFieldURLConfigurationArgs']]):
-        pulumi.set(self, "u_rl_styling", value)
+    @url_styling.setter
+    def url_styling(self, value: Optional[pulumi.Input['AnalysisTableFieldURLConfigurationArgs']]):
+        pulumi.set(self, "url_styling", value)
 
     @property
     @pulumi.getter
@@ -20334,15 +20334,15 @@ class AnalysisVisualCustomActionOperationArgs:
                  filter_operation: Optional[pulumi.Input['AnalysisCustomActionFilterOperationArgs']] = None,
                  navigation_operation: Optional[pulumi.Input['AnalysisCustomActionNavigationOperationArgs']] = None,
                  set_parameters_operation: Optional[pulumi.Input['AnalysisCustomActionSetParametersOperationArgs']] = None,
-                 u_rl_operation: Optional[pulumi.Input['AnalysisCustomActionURLOperationArgs']] = None):
+                 url_operation: Optional[pulumi.Input['AnalysisCustomActionURLOperationArgs']] = None):
         if filter_operation is not None:
             pulumi.set(__self__, "filter_operation", filter_operation)
         if navigation_operation is not None:
             pulumi.set(__self__, "navigation_operation", navigation_operation)
         if set_parameters_operation is not None:
             pulumi.set(__self__, "set_parameters_operation", set_parameters_operation)
-        if u_rl_operation is not None:
-            pulumi.set(__self__, "u_rl_operation", u_rl_operation)
+        if url_operation is not None:
+            pulumi.set(__self__, "url_operation", url_operation)
 
     @property
     @pulumi.getter(name="filterOperation")
@@ -20372,13 +20372,13 @@ class AnalysisVisualCustomActionOperationArgs:
         pulumi.set(self, "set_parameters_operation", value)
 
     @property
-    @pulumi.getter(name="uRLOperation")
-    def u_rl_operation(self) -> Optional[pulumi.Input['AnalysisCustomActionURLOperationArgs']]:
-        return pulumi.get(self, "u_rl_operation")
+    @pulumi.getter(name="urlOperation")
+    def url_operation(self) -> Optional[pulumi.Input['AnalysisCustomActionURLOperationArgs']]:
+        return pulumi.get(self, "url_operation")
 
-    @u_rl_operation.setter
-    def u_rl_operation(self, value: Optional[pulumi.Input['AnalysisCustomActionURLOperationArgs']]):
-        pulumi.set(self, "u_rl_operation", value)
+    @url_operation.setter
+    def url_operation(self, value: Optional[pulumi.Input['AnalysisCustomActionURLOperationArgs']]):
+        pulumi.set(self, "url_operation", value)
 
 
 @pulumi.input_type
@@ -20544,7 +20544,7 @@ class AnalysisVisualArgs:
                  heat_map_visual: Optional[pulumi.Input['AnalysisHeatMapVisualArgs']] = None,
                  histogram_visual: Optional[pulumi.Input['AnalysisHistogramVisualArgs']] = None,
                  insight_visual: Optional[pulumi.Input['AnalysisInsightVisualArgs']] = None,
-                 k_pi_visual: Optional[pulumi.Input['AnalysisKPIVisualArgs']] = None,
+                 kpi_visual: Optional[pulumi.Input['AnalysisKPIVisualArgs']] = None,
                  line_chart_visual: Optional[pulumi.Input['AnalysisLineChartVisualArgs']] = None,
                  pie_chart_visual: Optional[pulumi.Input['AnalysisPieChartVisualArgs']] = None,
                  pivot_table_visual: Optional[pulumi.Input['AnalysisPivotTableVisualArgs']] = None,
@@ -20579,8 +20579,8 @@ class AnalysisVisualArgs:
             pulumi.set(__self__, "histogram_visual", histogram_visual)
         if insight_visual is not None:
             pulumi.set(__self__, "insight_visual", insight_visual)
-        if k_pi_visual is not None:
-            pulumi.set(__self__, "k_pi_visual", k_pi_visual)
+        if kpi_visual is not None:
+            pulumi.set(__self__, "kpi_visual", kpi_visual)
         if line_chart_visual is not None:
             pulumi.set(__self__, "line_chart_visual", line_chart_visual)
         if pie_chart_visual is not None:
@@ -20711,13 +20711,13 @@ class AnalysisVisualArgs:
         pulumi.set(self, "insight_visual", value)
 
     @property
-    @pulumi.getter(name="kPIVisual")
-    def k_pi_visual(self) -> Optional[pulumi.Input['AnalysisKPIVisualArgs']]:
-        return pulumi.get(self, "k_pi_visual")
+    @pulumi.getter(name="kpiVisual")
+    def kpi_visual(self) -> Optional[pulumi.Input['AnalysisKPIVisualArgs']]:
+        return pulumi.get(self, "kpi_visual")
 
-    @k_pi_visual.setter
-    def k_pi_visual(self, value: Optional[pulumi.Input['AnalysisKPIVisualArgs']]):
-        pulumi.set(self, "k_pi_visual", value)
+    @kpi_visual.setter
+    def kpi_visual(self, value: Optional[pulumi.Input['AnalysisKPIVisualArgs']]):
+        pulumi.set(self, "kpi_visual", value)
 
     @property
     @pulumi.getter(name="lineChartVisual")
@@ -24604,28 +24604,28 @@ class DashboardCustomActionSetParametersOperationArgs:
 @pulumi.input_type
 class DashboardCustomActionURLOperationArgs:
     def __init__(__self__, *,
-                 u_rl_target: pulumi.Input['DashboardURLTargetConfiguration'],
-                 u_rl_template: pulumi.Input[str]):
-        pulumi.set(__self__, "u_rl_target", u_rl_target)
-        pulumi.set(__self__, "u_rl_template", u_rl_template)
+                 url_target: pulumi.Input['DashboardURLTargetConfiguration'],
+                 url_template: pulumi.Input[str]):
+        pulumi.set(__self__, "url_target", url_target)
+        pulumi.set(__self__, "url_template", url_template)
 
     @property
-    @pulumi.getter(name="uRLTarget")
-    def u_rl_target(self) -> pulumi.Input['DashboardURLTargetConfiguration']:
-        return pulumi.get(self, "u_rl_target")
+    @pulumi.getter(name="urlTarget")
+    def url_target(self) -> pulumi.Input['DashboardURLTargetConfiguration']:
+        return pulumi.get(self, "url_target")
 
-    @u_rl_target.setter
-    def u_rl_target(self, value: pulumi.Input['DashboardURLTargetConfiguration']):
-        pulumi.set(self, "u_rl_target", value)
+    @url_target.setter
+    def url_target(self, value: pulumi.Input['DashboardURLTargetConfiguration']):
+        pulumi.set(self, "url_target", value)
 
     @property
-    @pulumi.getter(name="uRLTemplate")
-    def u_rl_template(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "u_rl_template")
+    @pulumi.getter(name="urlTemplate")
+    def url_template(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "url_template")
 
-    @u_rl_template.setter
-    def u_rl_template(self, value: pulumi.Input[str]):
-        pulumi.set(self, "u_rl_template", value)
+    @url_template.setter
+    def url_template(self, value: pulumi.Input[str]):
+        pulumi.set(self, "url_template", value)
 
 
 @pulumi.input_type
@@ -30929,12 +30929,12 @@ class DashboardKPIConditionalFormattingArgs:
 class DashboardKPIConfigurationArgs:
     def __init__(__self__, *,
                  field_wells: Optional[pulumi.Input['DashboardKPIFieldWellsArgs']] = None,
-                 k_pi_options: Optional[pulumi.Input['DashboardKPIOptionsArgs']] = None,
+                 kpi_options: Optional[pulumi.Input['DashboardKPIOptionsArgs']] = None,
                  sort_configuration: Optional[pulumi.Input['DashboardKPISortConfigurationArgs']] = None):
         if field_wells is not None:
             pulumi.set(__self__, "field_wells", field_wells)
-        if k_pi_options is not None:
-            pulumi.set(__self__, "k_pi_options", k_pi_options)
+        if kpi_options is not None:
+            pulumi.set(__self__, "kpi_options", kpi_options)
         if sort_configuration is not None:
             pulumi.set(__self__, "sort_configuration", sort_configuration)
 
@@ -30948,13 +30948,13 @@ class DashboardKPIConfigurationArgs:
         pulumi.set(self, "field_wells", value)
 
     @property
-    @pulumi.getter(name="kPIOptions")
-    def k_pi_options(self) -> Optional[pulumi.Input['DashboardKPIOptionsArgs']]:
-        return pulumi.get(self, "k_pi_options")
+    @pulumi.getter(name="kpiOptions")
+    def kpi_options(self) -> Optional[pulumi.Input['DashboardKPIOptionsArgs']]:
+        return pulumi.get(self, "kpi_options")
 
-    @k_pi_options.setter
-    def k_pi_options(self, value: Optional[pulumi.Input['DashboardKPIOptionsArgs']]):
-        pulumi.set(self, "k_pi_options", value)
+    @kpi_options.setter
+    def kpi_options(self, value: Optional[pulumi.Input['DashboardKPIOptionsArgs']]):
+        pulumi.set(self, "kpi_options", value)
 
     @property
     @pulumi.getter(name="sortConfiguration")
@@ -35498,7 +35498,7 @@ class DashboardPublishOptionsArgs:
         pulumi.set(self, "data_point_tooltip_option", value)
 
     @property
-    @pulumi.getter(name="exportToCSVOption")
+    @pulumi.getter(name="exportToCsvOption")
     def export_to_csv_option(self) -> Optional[pulumi.Input['DashboardExportToCSVOptionArgs']]:
         return pulumi.get(self, "export_to_csv_option")
 
@@ -38737,7 +38737,7 @@ class DashboardTableFieldOptionArgs:
     def __init__(__self__, *,
                  field_id: pulumi.Input[str],
                  custom_label: Optional[pulumi.Input[str]] = None,
-                 u_rl_styling: Optional[pulumi.Input['DashboardTableFieldURLConfigurationArgs']] = None,
+                 url_styling: Optional[pulumi.Input['DashboardTableFieldURLConfigurationArgs']] = None,
                  visibility: Optional[pulumi.Input['DashboardVisibility']] = None,
                  width: Optional[pulumi.Input[str]] = None):
         """
@@ -38746,8 +38746,8 @@ class DashboardTableFieldOptionArgs:
         pulumi.set(__self__, "field_id", field_id)
         if custom_label is not None:
             pulumi.set(__self__, "custom_label", custom_label)
-        if u_rl_styling is not None:
-            pulumi.set(__self__, "u_rl_styling", u_rl_styling)
+        if url_styling is not None:
+            pulumi.set(__self__, "url_styling", url_styling)
         if visibility is not None:
             pulumi.set(__self__, "visibility", visibility)
         if width is not None:
@@ -38772,13 +38772,13 @@ class DashboardTableFieldOptionArgs:
         pulumi.set(self, "custom_label", value)
 
     @property
-    @pulumi.getter(name="uRLStyling")
-    def u_rl_styling(self) -> Optional[pulumi.Input['DashboardTableFieldURLConfigurationArgs']]:
-        return pulumi.get(self, "u_rl_styling")
+    @pulumi.getter(name="urlStyling")
+    def url_styling(self) -> Optional[pulumi.Input['DashboardTableFieldURLConfigurationArgs']]:
+        return pulumi.get(self, "url_styling")
 
-    @u_rl_styling.setter
-    def u_rl_styling(self, value: Optional[pulumi.Input['DashboardTableFieldURLConfigurationArgs']]):
-        pulumi.set(self, "u_rl_styling", value)
+    @url_styling.setter
+    def url_styling(self, value: Optional[pulumi.Input['DashboardTableFieldURLConfigurationArgs']]):
+        pulumi.set(self, "url_styling", value)
 
     @property
     @pulumi.getter
@@ -40617,15 +40617,15 @@ class DashboardVisualCustomActionOperationArgs:
                  filter_operation: Optional[pulumi.Input['DashboardCustomActionFilterOperationArgs']] = None,
                  navigation_operation: Optional[pulumi.Input['DashboardCustomActionNavigationOperationArgs']] = None,
                  set_parameters_operation: Optional[pulumi.Input['DashboardCustomActionSetParametersOperationArgs']] = None,
-                 u_rl_operation: Optional[pulumi.Input['DashboardCustomActionURLOperationArgs']] = None):
+                 url_operation: Optional[pulumi.Input['DashboardCustomActionURLOperationArgs']] = None):
         if filter_operation is not None:
             pulumi.set(__self__, "filter_operation", filter_operation)
         if navigation_operation is not None:
             pulumi.set(__self__, "navigation_operation", navigation_operation)
         if set_parameters_operation is not None:
             pulumi.set(__self__, "set_parameters_operation", set_parameters_operation)
-        if u_rl_operation is not None:
-            pulumi.set(__self__, "u_rl_operation", u_rl_operation)
+        if url_operation is not None:
+            pulumi.set(__self__, "url_operation", url_operation)
 
     @property
     @pulumi.getter(name="filterOperation")
@@ -40655,13 +40655,13 @@ class DashboardVisualCustomActionOperationArgs:
         pulumi.set(self, "set_parameters_operation", value)
 
     @property
-    @pulumi.getter(name="uRLOperation")
-    def u_rl_operation(self) -> Optional[pulumi.Input['DashboardCustomActionURLOperationArgs']]:
-        return pulumi.get(self, "u_rl_operation")
+    @pulumi.getter(name="urlOperation")
+    def url_operation(self) -> Optional[pulumi.Input['DashboardCustomActionURLOperationArgs']]:
+        return pulumi.get(self, "url_operation")
 
-    @u_rl_operation.setter
-    def u_rl_operation(self, value: Optional[pulumi.Input['DashboardCustomActionURLOperationArgs']]):
-        pulumi.set(self, "u_rl_operation", value)
+    @url_operation.setter
+    def url_operation(self, value: Optional[pulumi.Input['DashboardCustomActionURLOperationArgs']]):
+        pulumi.set(self, "url_operation", value)
 
 
 @pulumi.input_type
@@ -40861,7 +40861,7 @@ class DashboardVisualArgs:
                  heat_map_visual: Optional[pulumi.Input['DashboardHeatMapVisualArgs']] = None,
                  histogram_visual: Optional[pulumi.Input['DashboardHistogramVisualArgs']] = None,
                  insight_visual: Optional[pulumi.Input['DashboardInsightVisualArgs']] = None,
-                 k_pi_visual: Optional[pulumi.Input['DashboardKPIVisualArgs']] = None,
+                 kpi_visual: Optional[pulumi.Input['DashboardKPIVisualArgs']] = None,
                  line_chart_visual: Optional[pulumi.Input['DashboardLineChartVisualArgs']] = None,
                  pie_chart_visual: Optional[pulumi.Input['DashboardPieChartVisualArgs']] = None,
                  pivot_table_visual: Optional[pulumi.Input['DashboardPivotTableVisualArgs']] = None,
@@ -40896,8 +40896,8 @@ class DashboardVisualArgs:
             pulumi.set(__self__, "histogram_visual", histogram_visual)
         if insight_visual is not None:
             pulumi.set(__self__, "insight_visual", insight_visual)
-        if k_pi_visual is not None:
-            pulumi.set(__self__, "k_pi_visual", k_pi_visual)
+        if kpi_visual is not None:
+            pulumi.set(__self__, "kpi_visual", kpi_visual)
         if line_chart_visual is not None:
             pulumi.set(__self__, "line_chart_visual", line_chart_visual)
         if pie_chart_visual is not None:
@@ -41028,13 +41028,13 @@ class DashboardVisualArgs:
         pulumi.set(self, "insight_visual", value)
 
     @property
-    @pulumi.getter(name="kPIVisual")
-    def k_pi_visual(self) -> Optional[pulumi.Input['DashboardKPIVisualArgs']]:
-        return pulumi.get(self, "k_pi_visual")
+    @pulumi.getter(name="kpiVisual")
+    def kpi_visual(self) -> Optional[pulumi.Input['DashboardKPIVisualArgs']]:
+        return pulumi.get(self, "kpi_visual")
 
-    @k_pi_visual.setter
-    def k_pi_visual(self, value: Optional[pulumi.Input['DashboardKPIVisualArgs']]):
-        pulumi.set(self, "k_pi_visual", value)
+    @kpi_visual.setter
+    def kpi_visual(self, value: Optional[pulumi.Input['DashboardKPIVisualArgs']]):
+        pulumi.set(self, "kpi_visual", value)
 
     @property
     @pulumi.getter(name="lineChartVisual")
@@ -47566,28 +47566,28 @@ class TemplateCustomActionSetParametersOperationArgs:
 @pulumi.input_type
 class TemplateCustomActionURLOperationArgs:
     def __init__(__self__, *,
-                 u_rl_target: pulumi.Input['TemplateURLTargetConfiguration'],
-                 u_rl_template: pulumi.Input[str]):
-        pulumi.set(__self__, "u_rl_target", u_rl_target)
-        pulumi.set(__self__, "u_rl_template", u_rl_template)
+                 url_target: pulumi.Input['TemplateURLTargetConfiguration'],
+                 url_template: pulumi.Input[str]):
+        pulumi.set(__self__, "url_target", url_target)
+        pulumi.set(__self__, "url_template", url_template)
 
     @property
-    @pulumi.getter(name="uRLTarget")
-    def u_rl_target(self) -> pulumi.Input['TemplateURLTargetConfiguration']:
-        return pulumi.get(self, "u_rl_target")
+    @pulumi.getter(name="urlTarget")
+    def url_target(self) -> pulumi.Input['TemplateURLTargetConfiguration']:
+        return pulumi.get(self, "url_target")
 
-    @u_rl_target.setter
-    def u_rl_target(self, value: pulumi.Input['TemplateURLTargetConfiguration']):
-        pulumi.set(self, "u_rl_target", value)
+    @url_target.setter
+    def url_target(self, value: pulumi.Input['TemplateURLTargetConfiguration']):
+        pulumi.set(self, "url_target", value)
 
     @property
-    @pulumi.getter(name="uRLTemplate")
-    def u_rl_template(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "u_rl_template")
+    @pulumi.getter(name="urlTemplate")
+    def url_template(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "url_template")
 
-    @u_rl_template.setter
-    def u_rl_template(self, value: pulumi.Input[str]):
-        pulumi.set(self, "u_rl_template", value)
+    @url_template.setter
+    def url_template(self, value: pulumi.Input[str]):
+        pulumi.set(self, "url_template", value)
 
 
 @pulumi.input_type
@@ -53739,12 +53739,12 @@ class TemplateKPIConditionalFormattingArgs:
 class TemplateKPIConfigurationArgs:
     def __init__(__self__, *,
                  field_wells: Optional[pulumi.Input['TemplateKPIFieldWellsArgs']] = None,
-                 k_pi_options: Optional[pulumi.Input['TemplateKPIOptionsArgs']] = None,
+                 kpi_options: Optional[pulumi.Input['TemplateKPIOptionsArgs']] = None,
                  sort_configuration: Optional[pulumi.Input['TemplateKPISortConfigurationArgs']] = None):
         if field_wells is not None:
             pulumi.set(__self__, "field_wells", field_wells)
-        if k_pi_options is not None:
-            pulumi.set(__self__, "k_pi_options", k_pi_options)
+        if kpi_options is not None:
+            pulumi.set(__self__, "kpi_options", kpi_options)
         if sort_configuration is not None:
             pulumi.set(__self__, "sort_configuration", sort_configuration)
 
@@ -53758,13 +53758,13 @@ class TemplateKPIConfigurationArgs:
         pulumi.set(self, "field_wells", value)
 
     @property
-    @pulumi.getter(name="kPIOptions")
-    def k_pi_options(self) -> Optional[pulumi.Input['TemplateKPIOptionsArgs']]:
-        return pulumi.get(self, "k_pi_options")
+    @pulumi.getter(name="kpiOptions")
+    def kpi_options(self) -> Optional[pulumi.Input['TemplateKPIOptionsArgs']]:
+        return pulumi.get(self, "kpi_options")
 
-    @k_pi_options.setter
-    def k_pi_options(self, value: Optional[pulumi.Input['TemplateKPIOptionsArgs']]):
-        pulumi.set(self, "k_pi_options", value)
+    @kpi_options.setter
+    def kpi_options(self, value: Optional[pulumi.Input['TemplateKPIOptionsArgs']]):
+        pulumi.set(self, "kpi_options", value)
 
     @property
     @pulumi.getter(name="sortConfiguration")
@@ -61324,7 +61324,7 @@ class TemplateTableFieldOptionArgs:
     def __init__(__self__, *,
                  field_id: pulumi.Input[str],
                  custom_label: Optional[pulumi.Input[str]] = None,
-                 u_rl_styling: Optional[pulumi.Input['TemplateTableFieldURLConfigurationArgs']] = None,
+                 url_styling: Optional[pulumi.Input['TemplateTableFieldURLConfigurationArgs']] = None,
                  visibility: Optional[pulumi.Input['TemplateVisibility']] = None,
                  width: Optional[pulumi.Input[str]] = None):
         """
@@ -61333,8 +61333,8 @@ class TemplateTableFieldOptionArgs:
         pulumi.set(__self__, "field_id", field_id)
         if custom_label is not None:
             pulumi.set(__self__, "custom_label", custom_label)
-        if u_rl_styling is not None:
-            pulumi.set(__self__, "u_rl_styling", u_rl_styling)
+        if url_styling is not None:
+            pulumi.set(__self__, "url_styling", url_styling)
         if visibility is not None:
             pulumi.set(__self__, "visibility", visibility)
         if width is not None:
@@ -61359,13 +61359,13 @@ class TemplateTableFieldOptionArgs:
         pulumi.set(self, "custom_label", value)
 
     @property
-    @pulumi.getter(name="uRLStyling")
-    def u_rl_styling(self) -> Optional[pulumi.Input['TemplateTableFieldURLConfigurationArgs']]:
-        return pulumi.get(self, "u_rl_styling")
+    @pulumi.getter(name="urlStyling")
+    def url_styling(self) -> Optional[pulumi.Input['TemplateTableFieldURLConfigurationArgs']]:
+        return pulumi.get(self, "url_styling")
 
-    @u_rl_styling.setter
-    def u_rl_styling(self, value: Optional[pulumi.Input['TemplateTableFieldURLConfigurationArgs']]):
-        pulumi.set(self, "u_rl_styling", value)
+    @url_styling.setter
+    def url_styling(self, value: Optional[pulumi.Input['TemplateTableFieldURLConfigurationArgs']]):
+        pulumi.set(self, "url_styling", value)
 
     @property
     @pulumi.getter
@@ -63187,15 +63187,15 @@ class TemplateVisualCustomActionOperationArgs:
                  filter_operation: Optional[pulumi.Input['TemplateCustomActionFilterOperationArgs']] = None,
                  navigation_operation: Optional[pulumi.Input['TemplateCustomActionNavigationOperationArgs']] = None,
                  set_parameters_operation: Optional[pulumi.Input['TemplateCustomActionSetParametersOperationArgs']] = None,
-                 u_rl_operation: Optional[pulumi.Input['TemplateCustomActionURLOperationArgs']] = None):
+                 url_operation: Optional[pulumi.Input['TemplateCustomActionURLOperationArgs']] = None):
         if filter_operation is not None:
             pulumi.set(__self__, "filter_operation", filter_operation)
         if navigation_operation is not None:
             pulumi.set(__self__, "navigation_operation", navigation_operation)
         if set_parameters_operation is not None:
             pulumi.set(__self__, "set_parameters_operation", set_parameters_operation)
-        if u_rl_operation is not None:
-            pulumi.set(__self__, "u_rl_operation", u_rl_operation)
+        if url_operation is not None:
+            pulumi.set(__self__, "url_operation", url_operation)
 
     @property
     @pulumi.getter(name="filterOperation")
@@ -63225,13 +63225,13 @@ class TemplateVisualCustomActionOperationArgs:
         pulumi.set(self, "set_parameters_operation", value)
 
     @property
-    @pulumi.getter(name="uRLOperation")
-    def u_rl_operation(self) -> Optional[pulumi.Input['TemplateCustomActionURLOperationArgs']]:
-        return pulumi.get(self, "u_rl_operation")
+    @pulumi.getter(name="urlOperation")
+    def url_operation(self) -> Optional[pulumi.Input['TemplateCustomActionURLOperationArgs']]:
+        return pulumi.get(self, "url_operation")
 
-    @u_rl_operation.setter
-    def u_rl_operation(self, value: Optional[pulumi.Input['TemplateCustomActionURLOperationArgs']]):
-        pulumi.set(self, "u_rl_operation", value)
+    @url_operation.setter
+    def url_operation(self, value: Optional[pulumi.Input['TemplateCustomActionURLOperationArgs']]):
+        pulumi.set(self, "url_operation", value)
 
 
 @pulumi.input_type
@@ -63397,7 +63397,7 @@ class TemplateVisualArgs:
                  heat_map_visual: Optional[pulumi.Input['TemplateHeatMapVisualArgs']] = None,
                  histogram_visual: Optional[pulumi.Input['TemplateHistogramVisualArgs']] = None,
                  insight_visual: Optional[pulumi.Input['TemplateInsightVisualArgs']] = None,
-                 k_pi_visual: Optional[pulumi.Input['TemplateKPIVisualArgs']] = None,
+                 kpi_visual: Optional[pulumi.Input['TemplateKPIVisualArgs']] = None,
                  line_chart_visual: Optional[pulumi.Input['TemplateLineChartVisualArgs']] = None,
                  pie_chart_visual: Optional[pulumi.Input['TemplatePieChartVisualArgs']] = None,
                  pivot_table_visual: Optional[pulumi.Input['TemplatePivotTableVisualArgs']] = None,
@@ -63432,8 +63432,8 @@ class TemplateVisualArgs:
             pulumi.set(__self__, "histogram_visual", histogram_visual)
         if insight_visual is not None:
             pulumi.set(__self__, "insight_visual", insight_visual)
-        if k_pi_visual is not None:
-            pulumi.set(__self__, "k_pi_visual", k_pi_visual)
+        if kpi_visual is not None:
+            pulumi.set(__self__, "kpi_visual", kpi_visual)
         if line_chart_visual is not None:
             pulumi.set(__self__, "line_chart_visual", line_chart_visual)
         if pie_chart_visual is not None:
@@ -63564,13 +63564,13 @@ class TemplateVisualArgs:
         pulumi.set(self, "insight_visual", value)
 
     @property
-    @pulumi.getter(name="kPIVisual")
-    def k_pi_visual(self) -> Optional[pulumi.Input['TemplateKPIVisualArgs']]:
-        return pulumi.get(self, "k_pi_visual")
+    @pulumi.getter(name="kpiVisual")
+    def kpi_visual(self) -> Optional[pulumi.Input['TemplateKPIVisualArgs']]:
+        return pulumi.get(self, "kpi_visual")
 
-    @k_pi_visual.setter
-    def k_pi_visual(self, value: Optional[pulumi.Input['TemplateKPIVisualArgs']]):
-        pulumi.set(self, "k_pi_visual", value)
+    @kpi_visual.setter
+    def kpi_visual(self, value: Optional[pulumi.Input['TemplateKPIVisualArgs']]):
+        pulumi.set(self, "kpi_visual", value)
 
     @property
     @pulumi.getter(name="lineChartVisual")
@@ -64337,15 +64337,15 @@ class ThemeConfigurationArgs:
                  data_color_palette: Optional[pulumi.Input['ThemeDataColorPaletteArgs']] = None,
                  sheet: Optional[pulumi.Input['ThemeSheetStyleArgs']] = None,
                  typography: Optional[pulumi.Input['ThemeTypographyArgs']] = None,
-                 u_i_color_palette: Optional[pulumi.Input['ThemeUIColorPaletteArgs']] = None):
+                 ui_color_palette: Optional[pulumi.Input['ThemeUIColorPaletteArgs']] = None):
         if data_color_palette is not None:
             pulumi.set(__self__, "data_color_palette", data_color_palette)
         if sheet is not None:
             pulumi.set(__self__, "sheet", sheet)
         if typography is not None:
             pulumi.set(__self__, "typography", typography)
-        if u_i_color_palette is not None:
-            pulumi.set(__self__, "u_i_color_palette", u_i_color_palette)
+        if ui_color_palette is not None:
+            pulumi.set(__self__, "ui_color_palette", ui_color_palette)
 
     @property
     @pulumi.getter(name="dataColorPalette")
@@ -64375,13 +64375,13 @@ class ThemeConfigurationArgs:
         pulumi.set(self, "typography", value)
 
     @property
-    @pulumi.getter(name="uIColorPalette")
-    def u_i_color_palette(self) -> Optional[pulumi.Input['ThemeUIColorPaletteArgs']]:
-        return pulumi.get(self, "u_i_color_palette")
+    @pulumi.getter(name="uiColorPalette")
+    def ui_color_palette(self) -> Optional[pulumi.Input['ThemeUIColorPaletteArgs']]:
+        return pulumi.get(self, "ui_color_palette")
 
-    @u_i_color_palette.setter
-    def u_i_color_palette(self, value: Optional[pulumi.Input['ThemeUIColorPaletteArgs']]):
-        pulumi.set(self, "u_i_color_palette", value)
+    @ui_color_palette.setter
+    def ui_color_palette(self, value: Optional[pulumi.Input['ThemeUIColorPaletteArgs']]):
+        pulumi.set(self, "ui_color_palette", value)
 
 
 @pulumi.input_type

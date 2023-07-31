@@ -20,7 +20,7 @@ type Service struct {
 	DeploymentConfiguration       ServiceDeploymentConfigurationPtrOutput        `pulumi:"deploymentConfiguration"`
 	DeploymentController          ServiceDeploymentControllerPtrOutput           `pulumi:"deploymentController"`
 	DesiredCount                  pulumi.IntPtrOutput                            `pulumi:"desiredCount"`
-	EnableECSManagedTags          pulumi.BoolPtrOutput                           `pulumi:"enableECSManagedTags"`
+	EnableEcsManagedTags          pulumi.BoolPtrOutput                           `pulumi:"enableEcsManagedTags"`
 	EnableExecuteCommand          pulumi.BoolPtrOutput                           `pulumi:"enableExecuteCommand"`
 	HealthCheckGracePeriodSeconds pulumi.IntPtrOutput                            `pulumi:"healthCheckGracePeriodSeconds"`
 	LaunchType                    ServiceLaunchTypePtrOutput                     `pulumi:"launchType"`
@@ -86,7 +86,7 @@ type serviceArgs struct {
 	DeploymentConfiguration       *ServiceDeploymentConfiguration       `pulumi:"deploymentConfiguration"`
 	DeploymentController          *ServiceDeploymentController          `pulumi:"deploymentController"`
 	DesiredCount                  *int                                  `pulumi:"desiredCount"`
-	EnableECSManagedTags          *bool                                 `pulumi:"enableECSManagedTags"`
+	EnableEcsManagedTags          *bool                                 `pulumi:"enableEcsManagedTags"`
 	EnableExecuteCommand          *bool                                 `pulumi:"enableExecuteCommand"`
 	HealthCheckGracePeriodSeconds *int                                  `pulumi:"healthCheckGracePeriodSeconds"`
 	LaunchType                    *ServiceLaunchType                    `pulumi:"launchType"`
@@ -112,7 +112,7 @@ type ServiceArgs struct {
 	DeploymentConfiguration       ServiceDeploymentConfigurationPtrInput
 	DeploymentController          ServiceDeploymentControllerPtrInput
 	DesiredCount                  pulumi.IntPtrInput
-	EnableECSManagedTags          pulumi.BoolPtrInput
+	EnableEcsManagedTags          pulumi.BoolPtrInput
 	EnableExecuteCommand          pulumi.BoolPtrInput
 	HealthCheckGracePeriodSeconds pulumi.IntPtrInput
 	LaunchType                    ServiceLaunchTypePtrInput
@@ -188,8 +188,8 @@ func (o ServiceOutput) DesiredCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.IntPtrOutput { return v.DesiredCount }).(pulumi.IntPtrOutput)
 }
 
-func (o ServiceOutput) EnableECSManagedTags() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Service) pulumi.BoolPtrOutput { return v.EnableECSManagedTags }).(pulumi.BoolPtrOutput)
+func (o ServiceOutput) EnableEcsManagedTags() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.BoolPtrOutput { return v.EnableEcsManagedTags }).(pulumi.BoolPtrOutput)
 }
 
 func (o ServiceOutput) EnableExecuteCommand() pulumi.BoolPtrOutput {

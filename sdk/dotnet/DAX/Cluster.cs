@@ -25,8 +25,8 @@ namespace Pulumi.AwsNative.DAX
         [Output("clusterDiscoveryEndpoint")]
         public Output<string> ClusterDiscoveryEndpoint { get; private set; } = null!;
 
-        [Output("clusterDiscoveryEndpointURL")]
-        public Output<string> ClusterDiscoveryEndpointURL { get; private set; } = null!;
+        [Output("clusterDiscoveryEndpointUrl")]
+        public Output<string> ClusterDiscoveryEndpointUrl { get; private set; } = null!;
 
         [Output("clusterEndpointEncryptionType")]
         public Output<string?> ClusterEndpointEncryptionType { get; private set; } = null!;
@@ -37,14 +37,14 @@ namespace Pulumi.AwsNative.DAX
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        [Output("iAMRoleARN")]
-        public Output<string> IAMRoleARN { get; private set; } = null!;
+        [Output("iamRoleArn")]
+        public Output<string> IamRoleArn { get; private set; } = null!;
 
         [Output("nodeType")]
         public Output<string> NodeType { get; private set; } = null!;
 
-        [Output("notificationTopicARN")]
-        public Output<string?> NotificationTopicARN { get; private set; } = null!;
+        [Output("notificationTopicArn")]
+        public Output<string?> NotificationTopicArn { get; private set; } = null!;
 
         [Output("parameterGroupName")]
         public Output<string?> ParameterGroupName { get; private set; } = null!;
@@ -55,11 +55,11 @@ namespace Pulumi.AwsNative.DAX
         [Output("replicationFactor")]
         public Output<int> ReplicationFactor { get; private set; } = null!;
 
-        [Output("sSESpecification")]
-        public Output<Outputs.ClusterSSESpecification?> SSESpecification { get; private set; } = null!;
-
         [Output("securityGroupIds")]
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
+
+        [Output("sseSpecification")]
+        public Output<Outputs.ClusterSSESpecification?> SseSpecification { get; private set; } = null!;
 
         [Output("subnetGroupName")]
         public Output<string?> SubnetGroupName { get; private set; } = null!;
@@ -129,14 +129,14 @@ namespace Pulumi.AwsNative.DAX
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("iAMRoleARN", required: true)]
-        public Input<string> IAMRoleARN { get; set; } = null!;
+        [Input("iamRoleArn", required: true)]
+        public Input<string> IamRoleArn { get; set; } = null!;
 
         [Input("nodeType", required: true)]
         public Input<string> NodeType { get; set; } = null!;
 
-        [Input("notificationTopicARN")]
-        public Input<string>? NotificationTopicARN { get; set; }
+        [Input("notificationTopicArn")]
+        public Input<string>? NotificationTopicArn { get; set; }
 
         [Input("parameterGroupName")]
         public Input<string>? ParameterGroupName { get; set; }
@@ -147,9 +147,6 @@ namespace Pulumi.AwsNative.DAX
         [Input("replicationFactor", required: true)]
         public Input<int> ReplicationFactor { get; set; } = null!;
 
-        [Input("sSESpecification")]
-        public Input<Inputs.ClusterSSESpecificationArgs>? SSESpecification { get; set; }
-
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
         public InputList<string> SecurityGroupIds
@@ -157,6 +154,9 @@ namespace Pulumi.AwsNative.DAX
             get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
             set => _securityGroupIds = value;
         }
+
+        [Input("sseSpecification")]
+        public Input<Inputs.ClusterSSESpecificationArgs>? SseSpecification { get; set; }
 
         [Input("subnetGroupName")]
         public Input<string>? SubnetGroupName { get; set; }

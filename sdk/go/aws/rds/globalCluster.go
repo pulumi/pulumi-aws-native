@@ -25,7 +25,7 @@ type GlobalCluster struct {
 	// The cluster identifier of the new global database cluster. This parameter is stored as a lowercase string.
 	GlobalClusterIdentifier pulumi.StringPtrOutput `pulumi:"globalClusterIdentifier"`
 	// The Amazon Resource Name (ARN) to use as the primary cluster of the global database. This parameter is optional. This parameter is stored as a lowercase string.
-	SourceDBClusterIdentifier pulumi.StringPtrOutput `pulumi:"sourceDBClusterIdentifier"`
+	SourceDbClusterIdentifier pulumi.StringPtrOutput `pulumi:"sourceDbClusterIdentifier"`
 	//  The storage encryption setting for the new global database cluster.
 	// If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
 	StorageEncrypted pulumi.BoolPtrOutput `pulumi:"storageEncrypted"`
@@ -81,7 +81,7 @@ type globalClusterArgs struct {
 	// The cluster identifier of the new global database cluster. This parameter is stored as a lowercase string.
 	GlobalClusterIdentifier *string `pulumi:"globalClusterIdentifier"`
 	// The Amazon Resource Name (ARN) to use as the primary cluster of the global database. This parameter is optional. This parameter is stored as a lowercase string.
-	SourceDBClusterIdentifier *string `pulumi:"sourceDBClusterIdentifier"`
+	SourceDbClusterIdentifier *string `pulumi:"sourceDbClusterIdentifier"`
 	//  The storage encryption setting for the new global database cluster.
 	// If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
@@ -99,7 +99,7 @@ type GlobalClusterArgs struct {
 	// The cluster identifier of the new global database cluster. This parameter is stored as a lowercase string.
 	GlobalClusterIdentifier pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) to use as the primary cluster of the global database. This parameter is optional. This parameter is stored as a lowercase string.
-	SourceDBClusterIdentifier pulumi.StringPtrInput
+	SourceDbClusterIdentifier pulumi.StringPtrInput
 	//  The storage encryption setting for the new global database cluster.
 	// If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
 	StorageEncrypted pulumi.BoolPtrInput
@@ -164,8 +164,8 @@ func (o GlobalClusterOutput) GlobalClusterIdentifier() pulumi.StringPtrOutput {
 }
 
 // The Amazon Resource Name (ARN) to use as the primary cluster of the global database. This parameter is optional. This parameter is stored as a lowercase string.
-func (o GlobalClusterOutput) SourceDBClusterIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GlobalCluster) pulumi.StringPtrOutput { return v.SourceDBClusterIdentifier }).(pulumi.StringPtrOutput)
+func (o GlobalClusterOutput) SourceDbClusterIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GlobalCluster) pulumi.StringPtrOutput { return v.SourceDbClusterIdentifier }).(pulumi.StringPtrOutput)
 }
 
 //	The storage encryption setting for the new global database cluster.

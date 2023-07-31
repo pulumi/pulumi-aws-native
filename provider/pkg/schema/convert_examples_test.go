@@ -22,7 +22,12 @@ func TestDynamoKeySchemaConversion(t *testing.T) {
 				"keyType":       "RANGE",
 			},
 		},
+		"sseSpecification": map[string]interface{}{
+			"kmsMasterKeyId": "key",
+			"sseEnabled":     true,
+		},
 	}
+
 	expected := map[string]interface{}{
 		"KeySchema": []interface{}{
 			map[string]interface{}{
@@ -33,6 +38,10 @@ func TestDynamoKeySchemaConversion(t *testing.T) {
 				"AttributeName": "Part",
 				"KeyType":       "RANGE",
 			},
+		},
+		"SSESpecification": map[string]interface{}{
+			"KMSMasterKeyId": "key",
+			"SSEEnabled":     true,
 		},
 	}
 	testConversion(t, "aws-native:dynamodb:Table", input, expected)

@@ -19,20 +19,20 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Outputs
         /// <summary>
         /// Provides additional mapping information when the record format uses delimiters (for example, CSV).
         /// </summary>
-        public readonly Outputs.ApplicationCSVMappingParameters? CSVMappingParameters;
+        public readonly Outputs.ApplicationCSVMappingParameters? CsvMappingParameters;
         /// <summary>
         /// Provides additional mapping information when JSON is the record format on the streaming source.
         /// </summary>
-        public readonly Outputs.ApplicationJSONMappingParameters? JSONMappingParameters;
+        public readonly Outputs.ApplicationJSONMappingParameters? JsonMappingParameters;
 
         [OutputConstructor]
         private ApplicationMappingParameters(
-            Outputs.ApplicationCSVMappingParameters? cSVMappingParameters,
+            Outputs.ApplicationCSVMappingParameters? csvMappingParameters,
 
-            Outputs.ApplicationJSONMappingParameters? jSONMappingParameters)
+            Outputs.ApplicationJSONMappingParameters? jsonMappingParameters)
         {
-            CSVMappingParameters = cSVMappingParameters;
-            JSONMappingParameters = jSONMappingParameters;
+            CsvMappingParameters = csvMappingParameters;
+            JsonMappingParameters = jsonMappingParameters;
         }
     }
 }

@@ -52,23 +52,23 @@ namespace Pulumi.AwsNative.ElastiCache
     public sealed class GetSecurityGroupIngressResult
     {
         public readonly string? CacheSecurityGroupName;
-        public readonly string? EC2SecurityGroupName;
-        public readonly string? EC2SecurityGroupOwnerId;
+        public readonly string? Ec2SecurityGroupName;
+        public readonly string? Ec2SecurityGroupOwnerId;
         public readonly string? Id;
 
         [OutputConstructor]
         private GetSecurityGroupIngressResult(
             string? cacheSecurityGroupName,
 
-            string? eC2SecurityGroupName,
+            string? ec2SecurityGroupName,
 
-            string? eC2SecurityGroupOwnerId,
+            string? ec2SecurityGroupOwnerId,
 
             string? id)
         {
             CacheSecurityGroupName = cacheSecurityGroupName;
-            EC2SecurityGroupName = eC2SecurityGroupName;
-            EC2SecurityGroupOwnerId = eC2SecurityGroupOwnerId;
+            Ec2SecurityGroupName = ec2SecurityGroupName;
+            Ec2SecurityGroupOwnerId = ec2SecurityGroupOwnerId;
             Id = id;
         }
     }

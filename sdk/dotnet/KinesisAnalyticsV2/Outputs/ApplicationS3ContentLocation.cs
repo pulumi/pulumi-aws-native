@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Outputs
         /// <summary>
         /// The Amazon Resource Name (ARN) for the S3 bucket containing the application code.
         /// </summary>
-        public readonly string BucketARN;
+        public readonly string BucketArn;
         /// <summary>
         /// The file key for the object containing the application code.
         /// </summary>
@@ -31,13 +31,13 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Outputs
 
         [OutputConstructor]
         private ApplicationS3ContentLocation(
-            string bucketARN,
+            string bucketArn,
 
             string fileKey,
 
             string? objectVersion)
         {
-            BucketARN = bucketARN;
+            BucketArn = bucketArn;
             FileKey = fileKey;
             ObjectVersion = objectVersion;
         }

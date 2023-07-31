@@ -13,21 +13,21 @@ namespace Pulumi.AwsNative.Pinpoint.Outputs
     [OutputType]
     public sealed class CampaignMessageConfiguration
     {
-        public readonly Outputs.CampaignMessage? ADMMessage;
-        public readonly Outputs.CampaignMessage? APNSMessage;
+        public readonly Outputs.CampaignMessage? AdmMessage;
+        public readonly Outputs.CampaignMessage? ApnsMessage;
         public readonly Outputs.CampaignMessage? BaiduMessage;
         public readonly Outputs.CampaignCustomMessage? CustomMessage;
         public readonly Outputs.CampaignMessage? DefaultMessage;
         public readonly Outputs.CampaignEmailMessage? EmailMessage;
-        public readonly Outputs.CampaignMessage? GCMMessage;
+        public readonly Outputs.CampaignMessage? GcmMessage;
         public readonly Outputs.CampaignInAppMessage? InAppMessage;
-        public readonly Outputs.CampaignSmsMessage? SMSMessage;
+        public readonly Outputs.CampaignSmsMessage? SmsMessage;
 
         [OutputConstructor]
         private CampaignMessageConfiguration(
-            Outputs.CampaignMessage? aDMMessage,
+            Outputs.CampaignMessage? admMessage,
 
-            Outputs.CampaignMessage? aPNSMessage,
+            Outputs.CampaignMessage? apnsMessage,
 
             Outputs.CampaignMessage? baiduMessage,
 
@@ -37,21 +37,21 @@ namespace Pulumi.AwsNative.Pinpoint.Outputs
 
             Outputs.CampaignEmailMessage? emailMessage,
 
-            Outputs.CampaignMessage? gCMMessage,
+            Outputs.CampaignMessage? gcmMessage,
 
             Outputs.CampaignInAppMessage? inAppMessage,
 
-            Outputs.CampaignSmsMessage? sMSMessage)
+            Outputs.CampaignSmsMessage? smsMessage)
         {
-            ADMMessage = aDMMessage;
-            APNSMessage = aPNSMessage;
+            AdmMessage = admMessage;
+            ApnsMessage = apnsMessage;
             BaiduMessage = baiduMessage;
             CustomMessage = customMessage;
             DefaultMessage = defaultMessage;
             EmailMessage = emailMessage;
-            GCMMessage = gCMMessage;
+            GcmMessage = gcmMessage;
             InAppMessage = inAppMessage;
-            SMSMessage = sMSMessage;
+            SmsMessage = smsMessage;
         }
     }
 }

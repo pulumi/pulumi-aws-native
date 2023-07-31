@@ -43,10 +43,10 @@ type Canary struct {
 	// Retention period of successful canary runs represented in number of days
 	SuccessRetentionPeriod pulumi.IntPtrOutput  `pulumi:"successRetentionPeriod"`
 	Tags                   CanaryTagArrayOutput `pulumi:"tags"`
-	// Provide VPC Configuration if enabled.
-	VPCConfig CanaryVPCConfigPtrOutput `pulumi:"vPCConfig"`
 	// Visual reference configuration for visual testing
 	VisualReference CanaryVisualReferencePtrOutput `pulumi:"visualReference"`
+	// Provide VPC Configuration if enabled.
+	VpcConfig CanaryVPCConfigPtrOutput `pulumi:"vpcConfig"`
 }
 
 // NewCanary registers a new resource with the given unique name, arguments, and options.
@@ -129,10 +129,10 @@ type canaryArgs struct {
 	// Retention period of successful canary runs represented in number of days
 	SuccessRetentionPeriod *int        `pulumi:"successRetentionPeriod"`
 	Tags                   []CanaryTag `pulumi:"tags"`
-	// Provide VPC Configuration if enabled.
-	VPCConfig *CanaryVPCConfig `pulumi:"vPCConfig"`
 	// Visual reference configuration for visual testing
 	VisualReference *CanaryVisualReference `pulumi:"visualReference"`
+	// Provide VPC Configuration if enabled.
+	VpcConfig *CanaryVPCConfig `pulumi:"vpcConfig"`
 }
 
 // The set of arguments for constructing a Canary resource.
@@ -162,10 +162,10 @@ type CanaryArgs struct {
 	// Retention period of successful canary runs represented in number of days
 	SuccessRetentionPeriod pulumi.IntPtrInput
 	Tags                   CanaryTagArrayInput
-	// Provide VPC Configuration if enabled.
-	VPCConfig CanaryVPCConfigPtrInput
 	// Visual reference configuration for visual testing
 	VisualReference CanaryVisualReferencePtrInput
+	// Provide VPC Configuration if enabled.
+	VpcConfig CanaryVPCConfigPtrInput
 }
 
 func (CanaryArgs) ElementType() reflect.Type {
@@ -274,14 +274,14 @@ func (o CanaryOutput) Tags() CanaryTagArrayOutput {
 	return o.ApplyT(func(v *Canary) CanaryTagArrayOutput { return v.Tags }).(CanaryTagArrayOutput)
 }
 
-// Provide VPC Configuration if enabled.
-func (o CanaryOutput) VPCConfig() CanaryVPCConfigPtrOutput {
-	return o.ApplyT(func(v *Canary) CanaryVPCConfigPtrOutput { return v.VPCConfig }).(CanaryVPCConfigPtrOutput)
-}
-
 // Visual reference configuration for visual testing
 func (o CanaryOutput) VisualReference() CanaryVisualReferencePtrOutput {
 	return o.ApplyT(func(v *Canary) CanaryVisualReferencePtrOutput { return v.VisualReference }).(CanaryVisualReferencePtrOutput)
+}
+
+// Provide VPC Configuration if enabled.
+func (o CanaryOutput) VpcConfig() CanaryVPCConfigPtrOutput {
+	return o.ApplyT(func(v *Canary) CanaryVPCConfigPtrOutput { return v.VpcConfig }).(CanaryVPCConfigPtrOutput)
 }
 
 func init() {

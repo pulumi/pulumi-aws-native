@@ -74,11 +74,11 @@ namespace Pulumi.AwsNative.AutoScaling
         public readonly bool? NewInstancesProtectedFromScaleIn;
         public readonly ImmutableArray<Outputs.AutoScalingGroupNotificationConfiguration> NotificationConfigurations;
         public readonly string? PlacementGroup;
-        public readonly string? ServiceLinkedRoleARN;
+        public readonly string? ServiceLinkedRoleArn;
         public readonly ImmutableArray<Outputs.AutoScalingGroupTagProperty> Tags;
-        public readonly ImmutableArray<string> TargetGroupARNs;
+        public readonly ImmutableArray<string> TargetGroupArns;
         public readonly ImmutableArray<string> TerminationPolicies;
-        public readonly ImmutableArray<string> VPCZoneIdentifier;
+        public readonly ImmutableArray<string> VpcZoneIdentifier;
 
         [OutputConstructor]
         private GetAutoScalingGroupResult(
@@ -128,15 +128,15 @@ namespace Pulumi.AwsNative.AutoScaling
 
             string? placementGroup,
 
-            string? serviceLinkedRoleARN,
+            string? serviceLinkedRoleArn,
 
             ImmutableArray<Outputs.AutoScalingGroupTagProperty> tags,
 
-            ImmutableArray<string> targetGroupARNs,
+            ImmutableArray<string> targetGroupArns,
 
             ImmutableArray<string> terminationPolicies,
 
-            ImmutableArray<string> vPCZoneIdentifier)
+            ImmutableArray<string> vpcZoneIdentifier)
         {
             AvailabilityZones = availabilityZones;
             CapacityRebalance = capacityRebalance;
@@ -161,11 +161,11 @@ namespace Pulumi.AwsNative.AutoScaling
             NewInstancesProtectedFromScaleIn = newInstancesProtectedFromScaleIn;
             NotificationConfigurations = notificationConfigurations;
             PlacementGroup = placementGroup;
-            ServiceLinkedRoleARN = serviceLinkedRoleARN;
+            ServiceLinkedRoleArn = serviceLinkedRoleArn;
             Tags = tags;
-            TargetGroupARNs = targetGroupARNs;
+            TargetGroupArns = targetGroupArns;
             TerminationPolicies = terminationPolicies;
-            VPCZoneIdentifier = vPCZoneIdentifier;
+            VpcZoneIdentifier = vpcZoneIdentifier;
         }
     }
 }

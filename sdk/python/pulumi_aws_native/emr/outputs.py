@@ -1050,10 +1050,10 @@ class ClusterKerberosAttributes(dict):
         suggest = None
         if key == "kdcAdminPassword":
             suggest = "kdc_admin_password"
-        elif key == "aDDomainJoinPassword":
-            suggest = "a_d_domain_join_password"
-        elif key == "aDDomainJoinUser":
-            suggest = "a_d_domain_join_user"
+        elif key == "adDomainJoinPassword":
+            suggest = "ad_domain_join_password"
+        elif key == "adDomainJoinUser":
+            suggest = "ad_domain_join_user"
         elif key == "crossRealmTrustPrincipalPassword":
             suggest = "cross_realm_trust_principal_password"
 
@@ -1071,15 +1071,15 @@ class ClusterKerberosAttributes(dict):
     def __init__(__self__, *,
                  kdc_admin_password: str,
                  realm: str,
-                 a_d_domain_join_password: Optional[str] = None,
-                 a_d_domain_join_user: Optional[str] = None,
+                 ad_domain_join_password: Optional[str] = None,
+                 ad_domain_join_user: Optional[str] = None,
                  cross_realm_trust_principal_password: Optional[str] = None):
         pulumi.set(__self__, "kdc_admin_password", kdc_admin_password)
         pulumi.set(__self__, "realm", realm)
-        if a_d_domain_join_password is not None:
-            pulumi.set(__self__, "a_d_domain_join_password", a_d_domain_join_password)
-        if a_d_domain_join_user is not None:
-            pulumi.set(__self__, "a_d_domain_join_user", a_d_domain_join_user)
+        if ad_domain_join_password is not None:
+            pulumi.set(__self__, "ad_domain_join_password", ad_domain_join_password)
+        if ad_domain_join_user is not None:
+            pulumi.set(__self__, "ad_domain_join_user", ad_domain_join_user)
         if cross_realm_trust_principal_password is not None:
             pulumi.set(__self__, "cross_realm_trust_principal_password", cross_realm_trust_principal_password)
 
@@ -1094,14 +1094,14 @@ class ClusterKerberosAttributes(dict):
         return pulumi.get(self, "realm")
 
     @property
-    @pulumi.getter(name="aDDomainJoinPassword")
-    def a_d_domain_join_password(self) -> Optional[str]:
-        return pulumi.get(self, "a_d_domain_join_password")
+    @pulumi.getter(name="adDomainJoinPassword")
+    def ad_domain_join_password(self) -> Optional[str]:
+        return pulumi.get(self, "ad_domain_join_password")
 
     @property
-    @pulumi.getter(name="aDDomainJoinUser")
-    def a_d_domain_join_user(self) -> Optional[str]:
-        return pulumi.get(self, "a_d_domain_join_user")
+    @pulumi.getter(name="adDomainJoinUser")
+    def ad_domain_join_user(self) -> Optional[str]:
+        return pulumi.get(self, "ad_domain_join_user")
 
     @property
     @pulumi.getter(name="crossRealmTrustPrincipalPassword")
@@ -1572,7 +1572,7 @@ class ClusterVolumeSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "sizeInGB":
+        if key == "sizeInGb":
             suggest = "size_in_gb"
         elif key == "volumeType":
             suggest = "volume_type"
@@ -1598,7 +1598,7 @@ class ClusterVolumeSpecification(dict):
             pulumi.set(__self__, "iops", iops)
 
     @property
-    @pulumi.getter(name="sizeInGB")
+    @pulumi.getter(name="sizeInGb")
     def size_in_gb(self) -> int:
         return pulumi.get(self, "size_in_gb")
 
@@ -1957,7 +1957,7 @@ class InstanceFleetConfigVolumeSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "sizeInGB":
+        if key == "sizeInGb":
             suggest = "size_in_gb"
         elif key == "volumeType":
             suggest = "volume_type"
@@ -1983,7 +1983,7 @@ class InstanceFleetConfigVolumeSpecification(dict):
             pulumi.set(__self__, "iops", iops)
 
     @property
-    @pulumi.getter(name="sizeInGB")
+    @pulumi.getter(name="sizeInGb")
     def size_in_gb(self) -> int:
         return pulumi.get(self, "size_in_gb")
 
@@ -2447,7 +2447,7 @@ class InstanceGroupConfigVolumeSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "sizeInGB":
+        if key == "sizeInGb":
             suggest = "size_in_gb"
         elif key == "volumeType":
             suggest = "volume_type"
@@ -2473,7 +2473,7 @@ class InstanceGroupConfigVolumeSpecification(dict):
             pulumi.set(__self__, "iops", iops)
 
     @property
-    @pulumi.getter(name="sizeInGB")
+    @pulumi.getter(name="sizeInGb")
     def size_in_gb(self) -> int:
         return pulumi.get(self, "size_in_gb")
 

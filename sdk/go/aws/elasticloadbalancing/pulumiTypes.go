@@ -871,7 +871,7 @@ type LoadBalancerListeners struct {
 	LoadBalancerPort string   `pulumi:"loadBalancerPort"`
 	PolicyNames      []string `pulumi:"policyNames"`
 	Protocol         string   `pulumi:"protocol"`
-	SSLCertificateId *string  `pulumi:"sSLCertificateId"`
+	SslCertificateId *string  `pulumi:"sslCertificateId"`
 }
 
 // LoadBalancerListenersInput is an input type that accepts LoadBalancerListenersArgs and LoadBalancerListenersOutput values.
@@ -891,7 +891,7 @@ type LoadBalancerListenersArgs struct {
 	LoadBalancerPort pulumi.StringInput      `pulumi:"loadBalancerPort"`
 	PolicyNames      pulumi.StringArrayInput `pulumi:"policyNames"`
 	Protocol         pulumi.StringInput      `pulumi:"protocol"`
-	SSLCertificateId pulumi.StringPtrInput   `pulumi:"sSLCertificateId"`
+	SslCertificateId pulumi.StringPtrInput   `pulumi:"sslCertificateId"`
 }
 
 func (LoadBalancerListenersArgs) ElementType() reflect.Type {
@@ -965,8 +965,8 @@ func (o LoadBalancerListenersOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v LoadBalancerListeners) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
-func (o LoadBalancerListenersOutput) SSLCertificateId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LoadBalancerListeners) *string { return v.SSLCertificateId }).(pulumi.StringPtrOutput)
+func (o LoadBalancerListenersOutput) SslCertificateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LoadBalancerListeners) *string { return v.SslCertificateId }).(pulumi.StringPtrOutput)
 }
 
 type LoadBalancerListenersArrayOutput struct{ *pulumi.OutputState }

@@ -18,11 +18,11 @@ namespace Pulumi.AwsNative.S3.Inputs
         /// <summary>
         /// "KMSMasterKeyID" can only be used when you set the value of SSEAlgorithm as aws:kms or aws:kms:dsse.
         /// </summary>
-        [Input("kMSMasterKeyID")]
-        public Input<string>? KMSMasterKeyID { get; set; }
+        [Input("kmsMasterKeyId")]
+        public Input<string>? KmsMasterKeyId { get; set; }
 
-        [Input("sSEAlgorithm", required: true)]
-        public Input<Pulumi.AwsNative.S3.BucketServerSideEncryptionByDefaultSSEAlgorithm> SSEAlgorithm { get; set; } = null!;
+        [Input("sseAlgorithm", required: true)]
+        public Input<Pulumi.AwsNative.S3.BucketServerSideEncryptionByDefaultSSEAlgorithm> SseAlgorithm { get; set; } = null!;
 
         public BucketServerSideEncryptionByDefaultArgs()
         {

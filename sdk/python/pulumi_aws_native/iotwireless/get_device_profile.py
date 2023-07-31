@@ -53,7 +53,7 @@ class GetDeviceProfileResult:
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="loRaWAN")
+    @pulumi.getter(name="loRaWan")
     def lo_ra_wan(self) -> Optional['outputs.DeviceProfileLoRaWANDeviceProfile']:
         """
         LoRaWANDeviceProfile supports all LoRa specific attributes for service profile for CreateDeviceProfile operation

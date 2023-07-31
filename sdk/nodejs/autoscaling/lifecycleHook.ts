@@ -61,11 +61,11 @@ export class LifecycleHook extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the notification target that Amazon EC2 Auto Scaling uses to notify you when an instance is in the transition state for the lifecycle hook. You can specify an Amazon SQS queue or an Amazon SNS topic. The notification message includes the following information: lifecycle action token, user account ID, Auto Scaling group name, lifecycle hook name, instance ID, lifecycle transition, and notification metadata.
      */
-    public readonly notificationTargetARN!: pulumi.Output<string | undefined>;
+    public readonly notificationTargetArn!: pulumi.Output<string | undefined>;
     /**
      * The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target, for example, an Amazon SNS topic or an Amazon SQS queue.
      */
-    public readonly roleARN!: pulumi.Output<string | undefined>;
+    public readonly roleArn!: pulumi.Output<string | undefined>;
 
     /**
      * Create a LifecycleHook resource with the given unique name, arguments, and options.
@@ -90,8 +90,8 @@ export class LifecycleHook extends pulumi.CustomResource {
             resourceInputs["lifecycleHookName"] = args ? args.lifecycleHookName : undefined;
             resourceInputs["lifecycleTransition"] = args ? args.lifecycleTransition : undefined;
             resourceInputs["notificationMetadata"] = args ? args.notificationMetadata : undefined;
-            resourceInputs["notificationTargetARN"] = args ? args.notificationTargetARN : undefined;
-            resourceInputs["roleARN"] = args ? args.roleARN : undefined;
+            resourceInputs["notificationTargetArn"] = args ? args.notificationTargetArn : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
         } else {
             resourceInputs["autoScalingGroupName"] = undefined /*out*/;
             resourceInputs["defaultResult"] = undefined /*out*/;
@@ -99,8 +99,8 @@ export class LifecycleHook extends pulumi.CustomResource {
             resourceInputs["lifecycleHookName"] = undefined /*out*/;
             resourceInputs["lifecycleTransition"] = undefined /*out*/;
             resourceInputs["notificationMetadata"] = undefined /*out*/;
-            resourceInputs["notificationTargetARN"] = undefined /*out*/;
-            resourceInputs["roleARN"] = undefined /*out*/;
+            resourceInputs["notificationTargetArn"] = undefined /*out*/;
+            resourceInputs["roleArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LifecycleHook.__pulumiType, name, resourceInputs, opts);
@@ -138,9 +138,9 @@ export interface LifecycleHookArgs {
     /**
      * The Amazon Resource Name (ARN) of the notification target that Amazon EC2 Auto Scaling uses to notify you when an instance is in the transition state for the lifecycle hook. You can specify an Amazon SQS queue or an Amazon SNS topic. The notification message includes the following information: lifecycle action token, user account ID, Auto Scaling group name, lifecycle hook name, instance ID, lifecycle transition, and notification metadata.
      */
-    notificationTargetARN?: pulumi.Input<string>;
+    notificationTargetArn?: pulumi.Input<string>;
     /**
      * The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target, for example, an Amazon SNS topic or an Amazon SQS queue.
      */
-    roleARN?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string>;
 }

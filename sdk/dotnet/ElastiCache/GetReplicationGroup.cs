@@ -63,7 +63,7 @@ namespace Pulumi.AwsNative.ElastiCache
         public readonly string? EngineVersion;
         public readonly string? IpDiscovery;
         public readonly ImmutableArray<Outputs.ReplicationGroupLogDeliveryConfigurationRequest> LogDeliveryConfigurations;
-        public readonly bool? MultiAZEnabled;
+        public readonly bool? MultiAzEnabled;
         public readonly ImmutableArray<Outputs.ReplicationGroupNodeGroupConfiguration> NodeGroupConfiguration;
         public readonly string? NotificationTopicArn;
         public readonly int? NumCacheClusters;
@@ -114,7 +114,7 @@ namespace Pulumi.AwsNative.ElastiCache
 
             ImmutableArray<Outputs.ReplicationGroupLogDeliveryConfigurationRequest> logDeliveryConfigurations,
 
-            bool? multiAZEnabled,
+            bool? multiAzEnabled,
 
             ImmutableArray<Outputs.ReplicationGroupNodeGroupConfiguration> nodeGroupConfiguration,
 
@@ -174,7 +174,7 @@ namespace Pulumi.AwsNative.ElastiCache
             EngineVersion = engineVersion;
             IpDiscovery = ipDiscovery;
             LogDeliveryConfigurations = logDeliveryConfigurations;
-            MultiAZEnabled = multiAZEnabled;
+            MultiAzEnabled = multiAzEnabled;
             NodeGroupConfiguration = nodeGroupConfiguration;
             NotificationTopicArn = notificationTopicArn;
             NumCacheClusters = numCacheClusters;

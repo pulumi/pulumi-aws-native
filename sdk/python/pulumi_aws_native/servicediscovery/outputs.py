@@ -48,32 +48,15 @@ class HttpNamespaceTag(dict):
 
 @pulumi.output_type
 class PrivateDnsNamespacePrivateDnsPropertiesMutable(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "sOA":
-            suggest = "s_oa"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PrivateDnsNamespacePrivateDnsPropertiesMutable. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PrivateDnsNamespacePrivateDnsPropertiesMutable.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PrivateDnsNamespacePrivateDnsPropertiesMutable.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
-                 s_oa: Optional['outputs.PrivateDnsNamespaceSOA'] = None):
-        if s_oa is not None:
-            pulumi.set(__self__, "s_oa", s_oa)
+                 soa: Optional['outputs.PrivateDnsNamespaceSOA'] = None):
+        if soa is not None:
+            pulumi.set(__self__, "soa", soa)
 
     @property
-    @pulumi.getter(name="sOA")
-    def s_oa(self) -> Optional['outputs.PrivateDnsNamespaceSOA']:
-        return pulumi.get(self, "s_oa")
+    @pulumi.getter
+    def soa(self) -> Optional['outputs.PrivateDnsNamespaceSOA']:
+        return pulumi.get(self, "soa")
 
 
 @pulumi.output_type
@@ -108,32 +91,15 @@ class PrivateDnsNamespaceProperties(dict):
 
 @pulumi.output_type
 class PrivateDnsNamespaceSOA(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "tTL":
-            suggest = "t_tl"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PrivateDnsNamespaceSOA. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PrivateDnsNamespaceSOA.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PrivateDnsNamespaceSOA.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
-                 t_tl: Optional[float] = None):
-        if t_tl is not None:
-            pulumi.set(__self__, "t_tl", t_tl)
+                 ttl: Optional[float] = None):
+        if ttl is not None:
+            pulumi.set(__self__, "ttl", ttl)
 
     @property
-    @pulumi.getter(name="tTL")
-    def t_tl(self) -> Optional[float]:
-        return pulumi.get(self, "t_tl")
+    @pulumi.getter
+    def ttl(self) -> Optional[float]:
+        return pulumi.get(self, "ttl")
 
 
 @pulumi.output_type
@@ -187,62 +153,28 @@ class PublicDnsNamespaceProperties(dict):
 
 @pulumi.output_type
 class PublicDnsNamespacePublicDnsPropertiesMutable(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "sOA":
-            suggest = "s_oa"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PublicDnsNamespacePublicDnsPropertiesMutable. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PublicDnsNamespacePublicDnsPropertiesMutable.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PublicDnsNamespacePublicDnsPropertiesMutable.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
-                 s_oa: Optional['outputs.PublicDnsNamespaceSOA'] = None):
-        if s_oa is not None:
-            pulumi.set(__self__, "s_oa", s_oa)
+                 soa: Optional['outputs.PublicDnsNamespaceSOA'] = None):
+        if soa is not None:
+            pulumi.set(__self__, "soa", soa)
 
     @property
-    @pulumi.getter(name="sOA")
-    def s_oa(self) -> Optional['outputs.PublicDnsNamespaceSOA']:
-        return pulumi.get(self, "s_oa")
+    @pulumi.getter
+    def soa(self) -> Optional['outputs.PublicDnsNamespaceSOA']:
+        return pulumi.get(self, "soa")
 
 
 @pulumi.output_type
 class PublicDnsNamespaceSOA(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "tTL":
-            suggest = "t_tl"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PublicDnsNamespaceSOA. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PublicDnsNamespaceSOA.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PublicDnsNamespaceSOA.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
-                 t_tl: Optional[float] = None):
-        if t_tl is not None:
-            pulumi.set(__self__, "t_tl", t_tl)
+                 ttl: Optional[float] = None):
+        if ttl is not None:
+            pulumi.set(__self__, "ttl", ttl)
 
     @property
-    @pulumi.getter(name="tTL")
-    def t_tl(self) -> Optional[float]:
-        return pulumi.get(self, "t_tl")
+    @pulumi.getter
+    def ttl(self) -> Optional[float]:
+        return pulumi.get(self, "ttl")
 
 
 @pulumi.output_type
@@ -315,33 +247,16 @@ class ServiceDnsConfig(dict):
 
 @pulumi.output_type
 class ServiceDnsRecord(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "tTL":
-            suggest = "t_tl"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ServiceDnsRecord. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ServiceDnsRecord.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ServiceDnsRecord.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
-                 t_tl: float,
+                 ttl: float,
                  type: str):
-        pulumi.set(__self__, "t_tl", t_tl)
+        pulumi.set(__self__, "ttl", ttl)
         pulumi.set(__self__, "type", type)
 
     @property
-    @pulumi.getter(name="tTL")
-    def t_tl(self) -> float:
-        return pulumi.get(self, "t_tl")
+    @pulumi.getter
+    def ttl(self) -> float:
+        return pulumi.get(self, "ttl")
 
     @property
     @pulumi.getter

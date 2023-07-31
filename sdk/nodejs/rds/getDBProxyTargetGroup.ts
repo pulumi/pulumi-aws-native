@@ -27,8 +27,8 @@ export interface GetDBProxyTargetGroupArgs {
 
 export interface GetDBProxyTargetGroupResult {
     readonly connectionPoolConfigurationInfo?: outputs.rds.DBProxyTargetGroupConnectionPoolConfigurationInfoFormat;
-    readonly dBClusterIdentifiers?: string[];
-    readonly dBInstanceIdentifiers?: string[];
+    readonly dbClusterIdentifiers?: string[];
+    readonly dbInstanceIdentifiers?: string[];
     /**
      * The Amazon Resource Name (ARN) representing the target group.
      */

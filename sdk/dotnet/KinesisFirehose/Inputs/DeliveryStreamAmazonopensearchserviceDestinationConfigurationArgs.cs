@@ -24,8 +24,8 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         [Input("documentIdOptions")]
         public Input<Inputs.DeliveryStreamDocumentIdOptionsArgs>? DocumentIdOptions { get; set; }
 
-        [Input("domainARN")]
-        public Input<string>? DomainARN { get; set; }
+        [Input("domainArn")]
+        public Input<string>? DomainArn { get; set; }
 
         [Input("indexName", required: true)]
         public Input<string> IndexName { get; set; } = null!;
@@ -39,8 +39,8 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         [Input("retryOptions")]
         public Input<Inputs.DeliveryStreamAmazonopensearchserviceRetryOptionsArgs>? RetryOptions { get; set; }
 
-        [Input("roleARN", required: true)]
-        public Input<string> RoleARN { get; set; } = null!;
+        [Input("roleArn", required: true)]
+        public Input<string> RoleArn { get; set; } = null!;
 
         [Input("s3BackupMode")]
         public Input<Pulumi.AwsNative.KinesisFirehose.DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode>? S3BackupMode { get; set; }

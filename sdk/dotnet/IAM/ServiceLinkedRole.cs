@@ -18,8 +18,8 @@ namespace Pulumi.AwsNative.IAM
         /// <summary>
         /// The service principal for the AWS service to which this role is attached.
         /// </summary>
-        [Output("aWSServiceName")]
-        public Output<string?> AWSServiceName { get; private set; } = null!;
+        [Output("awsServiceName")]
+        public Output<string?> AwsServiceName { get; private set; } = null!;
 
         /// <summary>
         /// A string that you provide, which is combined with the service-provided prefix to form the complete role name.
@@ -87,8 +87,8 @@ namespace Pulumi.AwsNative.IAM
         /// <summary>
         /// The service principal for the AWS service to which this role is attached.
         /// </summary>
-        [Input("aWSServiceName")]
-        public Input<string>? AWSServiceName { get; set; }
+        [Input("awsServiceName")]
+        public Input<string>? AwsServiceName { get; set; }
 
         /// <summary>
         /// A string that you provide, which is combined with the service-provided prefix to form the complete role name.

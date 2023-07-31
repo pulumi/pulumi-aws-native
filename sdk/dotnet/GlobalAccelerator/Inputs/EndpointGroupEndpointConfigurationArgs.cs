@@ -18,8 +18,8 @@ namespace Pulumi.AwsNative.GlobalAccelerator.Inputs
         /// <summary>
         /// true if client ip should be preserved
         /// </summary>
-        [Input("clientIPPreservationEnabled")]
-        public Input<bool>? ClientIPPreservationEnabled { get; set; }
+        [Input("clientIpPreservationEnabled")]
+        public Input<bool>? ClientIpPreservationEnabled { get; set; }
 
         /// <summary>
         /// Id of the endpoint. For Network/Application Load Balancer this value is the ARN.  For EIP, this value is the allocation ID.  For EC2 instances, this is the EC2 instance ID

@@ -37,7 +37,7 @@ export interface GetDeviceProfileResult {
     /**
      * LoRaWANDeviceProfile supports all LoRa specific attributes for service profile for CreateDeviceProfile operation
      */
-    readonly loRaWAN?: outputs.iotwireless.DeviceProfileLoRaWANDeviceProfile;
+    readonly loRaWan?: outputs.iotwireless.DeviceProfileLoRaWANDeviceProfile;
     /**
      * Name of service profile
      */

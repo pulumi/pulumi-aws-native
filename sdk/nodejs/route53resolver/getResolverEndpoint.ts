@@ -24,7 +24,7 @@ export interface GetResolverEndpointArgs {
 
 export interface GetResolverEndpointResult {
     readonly arn?: string;
-    readonly hostVPCId?: string;
+    readonly hostVpcId?: string;
     readonly ipAddressCount?: string;
     readonly ipAddresses?: outputs.route53resolver.ResolverEndpointIpAddressRequest[];
     readonly name?: string;

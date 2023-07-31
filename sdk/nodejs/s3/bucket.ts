@@ -124,7 +124,7 @@ export class Bucket extends pulumi.CustomResource {
     /**
      * The Amazon S3 website endpoint for the specified bucket.
      */
-    public /*out*/ readonly websiteURL!: pulumi.Output<string>;
+    public /*out*/ readonly websiteUrl!: pulumi.Output<string>;
 
     /**
      * Create a Bucket resource with the given unique name, arguments, and options.
@@ -161,7 +161,7 @@ export class Bucket extends pulumi.CustomResource {
             resourceInputs["domainName"] = undefined /*out*/;
             resourceInputs["dualStackDomainName"] = undefined /*out*/;
             resourceInputs["regionalDomainName"] = undefined /*out*/;
-            resourceInputs["websiteURL"] = undefined /*out*/;
+            resourceInputs["websiteUrl"] = undefined /*out*/;
         } else {
             resourceInputs["accelerateConfiguration"] = undefined /*out*/;
             resourceInputs["accessControl"] = undefined /*out*/;
@@ -187,7 +187,7 @@ export class Bucket extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["versioningConfiguration"] = undefined /*out*/;
             resourceInputs["websiteConfiguration"] = undefined /*out*/;
-            resourceInputs["websiteURL"] = undefined /*out*/;
+            resourceInputs["websiteUrl"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Bucket.__pulumiType, name, resourceInputs, opts);

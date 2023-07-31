@@ -292,17 +292,17 @@ class ConfigurationSetEventDestinationEventDestinationArgs:
 class ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs:
     def __init__(__self__, *,
                  delivery_stream_arn: pulumi.Input[str],
-                 i_am_role_arn: pulumi.Input[str]):
+                 iam_role_arn: pulumi.Input[str]):
         """
         An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.
         :param pulumi.Input[str] delivery_stream_arn: The ARN of the Amazon Kinesis Firehose stream that email sending events should be published to.
-        :param pulumi.Input[str] i_am_role_arn: The ARN of the IAM role under which Amazon SES publishes email sending events to the Amazon Kinesis Firehose stream.
+        :param pulumi.Input[str] iam_role_arn: The ARN of the IAM role under which Amazon SES publishes email sending events to the Amazon Kinesis Firehose stream.
         """
         pulumi.set(__self__, "delivery_stream_arn", delivery_stream_arn)
-        pulumi.set(__self__, "i_am_role_arn", i_am_role_arn)
+        pulumi.set(__self__, "iam_role_arn", iam_role_arn)
 
     @property
-    @pulumi.getter(name="deliveryStreamARN")
+    @pulumi.getter(name="deliveryStreamArn")
     def delivery_stream_arn(self) -> pulumi.Input[str]:
         """
         The ARN of the Amazon Kinesis Firehose stream that email sending events should be published to.
@@ -314,16 +314,16 @@ class ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs:
         pulumi.set(self, "delivery_stream_arn", value)
 
     @property
-    @pulumi.getter(name="iAMRoleARN")
-    def i_am_role_arn(self) -> pulumi.Input[str]:
+    @pulumi.getter(name="iamRoleArn")
+    def iam_role_arn(self) -> pulumi.Input[str]:
         """
         The ARN of the IAM role under which Amazon SES publishes email sending events to the Amazon Kinesis Firehose stream.
         """
-        return pulumi.get(self, "i_am_role_arn")
+        return pulumi.get(self, "iam_role_arn")
 
-    @i_am_role_arn.setter
-    def i_am_role_arn(self, value: pulumi.Input[str]):
-        pulumi.set(self, "i_am_role_arn", value)
+    @iam_role_arn.setter
+    def iam_role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "iam_role_arn", value)
 
 
 @pulumi.input_type
@@ -336,7 +336,7 @@ class ConfigurationSetEventDestinationSnsDestinationArgs:
         pulumi.set(__self__, "topic_arn", topic_arn)
 
     @property
-    @pulumi.getter(name="topicARN")
+    @pulumi.getter(name="topicArn")
     def topic_arn(self) -> pulumi.Input[str]:
         return pulumi.get(self, "topic_arn")
 
@@ -813,7 +813,7 @@ class ReceiptRuleActionArgs:
                  bounce_action: Optional[pulumi.Input['ReceiptRuleBounceActionArgs']] = None,
                  lambda_action: Optional[pulumi.Input['ReceiptRuleLambdaActionArgs']] = None,
                  s3_action: Optional[pulumi.Input['ReceiptRuleS3ActionArgs']] = None,
-                 s_ns_action: Optional[pulumi.Input['ReceiptRuleSNSActionArgs']] = None,
+                 sns_action: Optional[pulumi.Input['ReceiptRuleSNSActionArgs']] = None,
                  stop_action: Optional[pulumi.Input['ReceiptRuleStopActionArgs']] = None,
                  workmail_action: Optional[pulumi.Input['ReceiptRuleWorkmailActionArgs']] = None):
         if add_header_action is not None:
@@ -824,8 +824,8 @@ class ReceiptRuleActionArgs:
             pulumi.set(__self__, "lambda_action", lambda_action)
         if s3_action is not None:
             pulumi.set(__self__, "s3_action", s3_action)
-        if s_ns_action is not None:
-            pulumi.set(__self__, "s_ns_action", s_ns_action)
+        if sns_action is not None:
+            pulumi.set(__self__, "sns_action", sns_action)
         if stop_action is not None:
             pulumi.set(__self__, "stop_action", stop_action)
         if workmail_action is not None:
@@ -868,13 +868,13 @@ class ReceiptRuleActionArgs:
         pulumi.set(self, "s3_action", value)
 
     @property
-    @pulumi.getter(name="sNSAction")
-    def s_ns_action(self) -> Optional[pulumi.Input['ReceiptRuleSNSActionArgs']]:
-        return pulumi.get(self, "s_ns_action")
+    @pulumi.getter(name="snsAction")
+    def sns_action(self) -> Optional[pulumi.Input['ReceiptRuleSNSActionArgs']]:
+        return pulumi.get(self, "sns_action")
 
-    @s_ns_action.setter
-    def s_ns_action(self, value: Optional[pulumi.Input['ReceiptRuleSNSActionArgs']]):
-        pulumi.set(self, "s_ns_action", value)
+    @sns_action.setter
+    def sns_action(self, value: Optional[pulumi.Input['ReceiptRuleSNSActionArgs']]):
+        pulumi.set(self, "sns_action", value)
 
     @property
     @pulumi.getter(name="stopAction")

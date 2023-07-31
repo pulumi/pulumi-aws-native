@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// The DB cluster identifier. This parameter is stored as a lowercase string.
         /// </summary>
-        [Input("dBClusterIdentifier", required: true)]
-        public string DBClusterIdentifier { get; set; } = null!;
+        [Input("dbClusterIdentifier", required: true)]
+        public string DbClusterIdentifier { get; set; } = null!;
 
         public GetDBClusterArgs()
         {
@@ -44,8 +44,8 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// The DB cluster identifier. This parameter is stored as a lowercase string.
         /// </summary>
-        [Input("dBClusterIdentifier", required: true)]
-        public Input<string> DBClusterIdentifier { get; set; } = null!;
+        [Input("dbClusterIdentifier", required: true)]
+        public Input<string> DbClusterIdentifier { get; set; } = null!;
 
         public GetDBClusterInvokeArgs()
         {
@@ -84,19 +84,19 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// The Amazon Resource Name (ARN) for the DB cluster.
         /// </summary>
-        public readonly string? DBClusterArn;
+        public readonly string? DbClusterArn;
         /// <summary>
         /// The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge.
         /// </summary>
-        public readonly string? DBClusterInstanceClass;
+        public readonly string? DbClusterInstanceClass;
         /// <summary>
         /// The name of the DB cluster parameter group to associate with this DB cluster.
         /// </summary>
-        public readonly string? DBClusterParameterGroupName;
+        public readonly string? DbClusterParameterGroupName;
         /// <summary>
         /// The AWS Region-unique, immutable identifier for the DB cluster.
         /// </summary>
-        public readonly string? DBClusterResourceId;
+        public readonly string? DbClusterResourceId;
         /// <summary>
         /// A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
         /// </summary>
@@ -108,7 +108,7 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// Specify the name of the IAM role to be used when making API calls to the Directory Service.
         /// </summary>
-        public readonly string? DomainIAMRoleName;
+        public readonly string? DomainIamRoleName;
         /// <summary>
         /// The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see Publishing Database Logs to Amazon CloudWatch Logs in the Amazon Aurora User Guide.
         /// </summary>
@@ -120,7 +120,7 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
         /// </summary>
-        public readonly bool? EnableIAMDatabaseAuthentication;
+        public readonly bool? EnableIamDatabaseAuthentication;
         public readonly Outputs.DBClusterEndpoint? Endpoint;
         /// <summary>
         /// The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora), and aurora-postgresql
@@ -228,25 +228,25 @@ namespace Pulumi.AwsNative.RDS
 
             bool? copyTagsToSnapshot,
 
-            string? dBClusterArn,
+            string? dbClusterArn,
 
-            string? dBClusterInstanceClass,
+            string? dbClusterInstanceClass,
 
-            string? dBClusterParameterGroupName,
+            string? dbClusterParameterGroupName,
 
-            string? dBClusterResourceId,
+            string? dbClusterResourceId,
 
             bool? deletionProtection,
 
             string? domain,
 
-            string? domainIAMRoleName,
+            string? domainIamRoleName,
 
             ImmutableArray<string> enableCloudwatchLogsExports,
 
             bool? enableHttpEndpoint,
 
-            bool? enableIAMDatabaseAuthentication,
+            bool? enableIamDatabaseAuthentication,
 
             Outputs.DBClusterEndpoint? endpoint,
 
@@ -302,16 +302,16 @@ namespace Pulumi.AwsNative.RDS
             BacktrackWindow = backtrackWindow;
             BackupRetentionPeriod = backupRetentionPeriod;
             CopyTagsToSnapshot = copyTagsToSnapshot;
-            DBClusterArn = dBClusterArn;
-            DBClusterInstanceClass = dBClusterInstanceClass;
-            DBClusterParameterGroupName = dBClusterParameterGroupName;
-            DBClusterResourceId = dBClusterResourceId;
+            DbClusterArn = dbClusterArn;
+            DbClusterInstanceClass = dbClusterInstanceClass;
+            DbClusterParameterGroupName = dbClusterParameterGroupName;
+            DbClusterResourceId = dbClusterResourceId;
             DeletionProtection = deletionProtection;
             Domain = domain;
-            DomainIAMRoleName = domainIAMRoleName;
+            DomainIamRoleName = domainIamRoleName;
             EnableCloudwatchLogsExports = enableCloudwatchLogsExports;
             EnableHttpEndpoint = enableHttpEndpoint;
-            EnableIAMDatabaseAuthentication = enableIAMDatabaseAuthentication;
+            EnableIamDatabaseAuthentication = enableIamDatabaseAuthentication;
             Endpoint = endpoint;
             Engine = engine;
             EngineVersion = engineVersion;

@@ -12,8 +12,8 @@ namespace Pulumi.AwsNative.Events.Inputs
 
     public sealed class ConnectionClientParametersArgs : global::Pulumi.ResourceArgs
     {
-        [Input("clientID", required: true)]
-        public Input<string> ClientID { get; set; } = null!;
+        [Input("clientId", required: true)]
+        public Input<string> ClientId { get; set; } = null!;
 
         [Input("clientSecret", required: true)]
         public Input<string> ClientSecret { get; set; } = null!;

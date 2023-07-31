@@ -4960,10 +4960,10 @@ class AnalysisCustomActionURLOperation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "uRLTarget":
-            suggest = "u_rl_target"
-        elif key == "uRLTemplate":
-            suggest = "u_rl_template"
+        if key == "urlTarget":
+            suggest = "url_target"
+        elif key == "urlTemplate":
+            suggest = "url_template"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AnalysisCustomActionURLOperation. Access the value via the '{suggest}' property getter instead.")
@@ -4977,20 +4977,20 @@ class AnalysisCustomActionURLOperation(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 u_rl_target: 'AnalysisURLTargetConfiguration',
-                 u_rl_template: str):
-        pulumi.set(__self__, "u_rl_target", u_rl_target)
-        pulumi.set(__self__, "u_rl_template", u_rl_template)
+                 url_target: 'AnalysisURLTargetConfiguration',
+                 url_template: str):
+        pulumi.set(__self__, "url_target", url_target)
+        pulumi.set(__self__, "url_template", url_template)
 
     @property
-    @pulumi.getter(name="uRLTarget")
-    def u_rl_target(self) -> 'AnalysisURLTargetConfiguration':
-        return pulumi.get(self, "u_rl_target")
+    @pulumi.getter(name="urlTarget")
+    def url_target(self) -> 'AnalysisURLTargetConfiguration':
+        return pulumi.get(self, "url_target")
 
     @property
-    @pulumi.getter(name="uRLTemplate")
-    def u_rl_template(self) -> str:
-        return pulumi.get(self, "u_rl_template")
+    @pulumi.getter(name="urlTemplate")
+    def url_template(self) -> str:
+        return pulumi.get(self, "url_template")
 
 
 @pulumi.output_type
@@ -12047,8 +12047,8 @@ class AnalysisKPIConfiguration(dict):
         suggest = None
         if key == "fieldWells":
             suggest = "field_wells"
-        elif key == "kPIOptions":
-            suggest = "k_pi_options"
+        elif key == "kpiOptions":
+            suggest = "kpi_options"
         elif key == "sortConfiguration":
             suggest = "sort_configuration"
 
@@ -12065,12 +12065,12 @@ class AnalysisKPIConfiguration(dict):
 
     def __init__(__self__, *,
                  field_wells: Optional['outputs.AnalysisKPIFieldWells'] = None,
-                 k_pi_options: Optional['outputs.AnalysisKPIOptions'] = None,
+                 kpi_options: Optional['outputs.AnalysisKPIOptions'] = None,
                  sort_configuration: Optional['outputs.AnalysisKPISortConfiguration'] = None):
         if field_wells is not None:
             pulumi.set(__self__, "field_wells", field_wells)
-        if k_pi_options is not None:
-            pulumi.set(__self__, "k_pi_options", k_pi_options)
+        if kpi_options is not None:
+            pulumi.set(__self__, "kpi_options", kpi_options)
         if sort_configuration is not None:
             pulumi.set(__self__, "sort_configuration", sort_configuration)
 
@@ -12080,9 +12080,9 @@ class AnalysisKPIConfiguration(dict):
         return pulumi.get(self, "field_wells")
 
     @property
-    @pulumi.getter(name="kPIOptions")
-    def k_pi_options(self) -> Optional['outputs.AnalysisKPIOptions']:
-        return pulumi.get(self, "k_pi_options")
+    @pulumi.getter(name="kpiOptions")
+    def kpi_options(self) -> Optional['outputs.AnalysisKPIOptions']:
+        return pulumi.get(self, "kpi_options")
 
     @property
     @pulumi.getter(name="sortConfiguration")
@@ -20284,8 +20284,8 @@ class AnalysisTableFieldOption(dict):
             suggest = "field_id"
         elif key == "customLabel":
             suggest = "custom_label"
-        elif key == "uRLStyling":
-            suggest = "u_rl_styling"
+        elif key == "urlStyling":
+            suggest = "url_styling"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AnalysisTableFieldOption. Access the value via the '{suggest}' property getter instead.")
@@ -20301,7 +20301,7 @@ class AnalysisTableFieldOption(dict):
     def __init__(__self__, *,
                  field_id: str,
                  custom_label: Optional[str] = None,
-                 u_rl_styling: Optional['outputs.AnalysisTableFieldURLConfiguration'] = None,
+                 url_styling: Optional['outputs.AnalysisTableFieldURLConfiguration'] = None,
                  visibility: Optional['AnalysisVisibility'] = None,
                  width: Optional[str] = None):
         """
@@ -20310,8 +20310,8 @@ class AnalysisTableFieldOption(dict):
         pulumi.set(__self__, "field_id", field_id)
         if custom_label is not None:
             pulumi.set(__self__, "custom_label", custom_label)
-        if u_rl_styling is not None:
-            pulumi.set(__self__, "u_rl_styling", u_rl_styling)
+        if url_styling is not None:
+            pulumi.set(__self__, "url_styling", url_styling)
         if visibility is not None:
             pulumi.set(__self__, "visibility", visibility)
         if width is not None:
@@ -20328,9 +20328,9 @@ class AnalysisTableFieldOption(dict):
         return pulumi.get(self, "custom_label")
 
     @property
-    @pulumi.getter(name="uRLStyling")
-    def u_rl_styling(self) -> Optional['outputs.AnalysisTableFieldURLConfiguration']:
-        return pulumi.get(self, "u_rl_styling")
+    @pulumi.getter(name="urlStyling")
+    def url_styling(self) -> Optional['outputs.AnalysisTableFieldURLConfiguration']:
+        return pulumi.get(self, "url_styling")
 
     @property
     @pulumi.getter
@@ -22230,8 +22230,8 @@ class AnalysisVisual(dict):
             suggest = "histogram_visual"
         elif key == "insightVisual":
             suggest = "insight_visual"
-        elif key == "kPIVisual":
-            suggest = "k_pi_visual"
+        elif key == "kpiVisual":
+            suggest = "kpi_visual"
         elif key == "lineChartVisual":
             suggest = "line_chart_visual"
         elif key == "pieChartVisual":
@@ -22277,7 +22277,7 @@ class AnalysisVisual(dict):
                  heat_map_visual: Optional['outputs.AnalysisHeatMapVisual'] = None,
                  histogram_visual: Optional['outputs.AnalysisHistogramVisual'] = None,
                  insight_visual: Optional['outputs.AnalysisInsightVisual'] = None,
-                 k_pi_visual: Optional['outputs.AnalysisKPIVisual'] = None,
+                 kpi_visual: Optional['outputs.AnalysisKPIVisual'] = None,
                  line_chart_visual: Optional['outputs.AnalysisLineChartVisual'] = None,
                  pie_chart_visual: Optional['outputs.AnalysisPieChartVisual'] = None,
                  pivot_table_visual: Optional['outputs.AnalysisPivotTableVisual'] = None,
@@ -22312,8 +22312,8 @@ class AnalysisVisual(dict):
             pulumi.set(__self__, "histogram_visual", histogram_visual)
         if insight_visual is not None:
             pulumi.set(__self__, "insight_visual", insight_visual)
-        if k_pi_visual is not None:
-            pulumi.set(__self__, "k_pi_visual", k_pi_visual)
+        if kpi_visual is not None:
+            pulumi.set(__self__, "kpi_visual", kpi_visual)
         if line_chart_visual is not None:
             pulumi.set(__self__, "line_chart_visual", line_chart_visual)
         if pie_chart_visual is not None:
@@ -22396,9 +22396,9 @@ class AnalysisVisual(dict):
         return pulumi.get(self, "insight_visual")
 
     @property
-    @pulumi.getter(name="kPIVisual")
-    def k_pi_visual(self) -> Optional['outputs.AnalysisKPIVisual']:
-        return pulumi.get(self, "k_pi_visual")
+    @pulumi.getter(name="kpiVisual")
+    def kpi_visual(self) -> Optional['outputs.AnalysisKPIVisual']:
+        return pulumi.get(self, "kpi_visual")
 
     @property
     @pulumi.getter(name="lineChartVisual")
@@ -22522,8 +22522,8 @@ class AnalysisVisualCustomActionOperation(dict):
             suggest = "navigation_operation"
         elif key == "setParametersOperation":
             suggest = "set_parameters_operation"
-        elif key == "uRLOperation":
-            suggest = "u_rl_operation"
+        elif key == "urlOperation":
+            suggest = "url_operation"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AnalysisVisualCustomActionOperation. Access the value via the '{suggest}' property getter instead.")
@@ -22540,15 +22540,15 @@ class AnalysisVisualCustomActionOperation(dict):
                  filter_operation: Optional['outputs.AnalysisCustomActionFilterOperation'] = None,
                  navigation_operation: Optional['outputs.AnalysisCustomActionNavigationOperation'] = None,
                  set_parameters_operation: Optional['outputs.AnalysisCustomActionSetParametersOperation'] = None,
-                 u_rl_operation: Optional['outputs.AnalysisCustomActionURLOperation'] = None):
+                 url_operation: Optional['outputs.AnalysisCustomActionURLOperation'] = None):
         if filter_operation is not None:
             pulumi.set(__self__, "filter_operation", filter_operation)
         if navigation_operation is not None:
             pulumi.set(__self__, "navigation_operation", navigation_operation)
         if set_parameters_operation is not None:
             pulumi.set(__self__, "set_parameters_operation", set_parameters_operation)
-        if u_rl_operation is not None:
-            pulumi.set(__self__, "u_rl_operation", u_rl_operation)
+        if url_operation is not None:
+            pulumi.set(__self__, "url_operation", url_operation)
 
     @property
     @pulumi.getter(name="filterOperation")
@@ -22566,9 +22566,9 @@ class AnalysisVisualCustomActionOperation(dict):
         return pulumi.get(self, "set_parameters_operation")
 
     @property
-    @pulumi.getter(name="uRLOperation")
-    def u_rl_operation(self) -> Optional['outputs.AnalysisCustomActionURLOperation']:
-        return pulumi.get(self, "u_rl_operation")
+    @pulumi.getter(name="urlOperation")
+    def url_operation(self) -> Optional['outputs.AnalysisCustomActionURLOperation']:
+        return pulumi.get(self, "url_operation")
 
 
 @pulumi.output_type
@@ -26910,10 +26910,10 @@ class DashboardCustomActionURLOperation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "uRLTarget":
-            suggest = "u_rl_target"
-        elif key == "uRLTemplate":
-            suggest = "u_rl_template"
+        if key == "urlTarget":
+            suggest = "url_target"
+        elif key == "urlTemplate":
+            suggest = "url_template"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DashboardCustomActionURLOperation. Access the value via the '{suggest}' property getter instead.")
@@ -26927,20 +26927,20 @@ class DashboardCustomActionURLOperation(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 u_rl_target: 'DashboardURLTargetConfiguration',
-                 u_rl_template: str):
-        pulumi.set(__self__, "u_rl_target", u_rl_target)
-        pulumi.set(__self__, "u_rl_template", u_rl_template)
+                 url_target: 'DashboardURLTargetConfiguration',
+                 url_template: str):
+        pulumi.set(__self__, "url_target", url_target)
+        pulumi.set(__self__, "url_template", url_template)
 
     @property
-    @pulumi.getter(name="uRLTarget")
-    def u_rl_target(self) -> 'DashboardURLTargetConfiguration':
-        return pulumi.get(self, "u_rl_target")
+    @pulumi.getter(name="urlTarget")
+    def url_target(self) -> 'DashboardURLTargetConfiguration':
+        return pulumi.get(self, "url_target")
 
     @property
-    @pulumi.getter(name="uRLTemplate")
-    def u_rl_template(self) -> str:
-        return pulumi.get(self, "u_rl_template")
+    @pulumi.getter(name="urlTemplate")
+    def url_template(self) -> str:
+        return pulumi.get(self, "url_template")
 
 
 @pulumi.output_type
@@ -34061,8 +34061,8 @@ class DashboardKPIConfiguration(dict):
         suggest = None
         if key == "fieldWells":
             suggest = "field_wells"
-        elif key == "kPIOptions":
-            suggest = "k_pi_options"
+        elif key == "kpiOptions":
+            suggest = "kpi_options"
         elif key == "sortConfiguration":
             suggest = "sort_configuration"
 
@@ -34079,12 +34079,12 @@ class DashboardKPIConfiguration(dict):
 
     def __init__(__self__, *,
                  field_wells: Optional['outputs.DashboardKPIFieldWells'] = None,
-                 k_pi_options: Optional['outputs.DashboardKPIOptions'] = None,
+                 kpi_options: Optional['outputs.DashboardKPIOptions'] = None,
                  sort_configuration: Optional['outputs.DashboardKPISortConfiguration'] = None):
         if field_wells is not None:
             pulumi.set(__self__, "field_wells", field_wells)
-        if k_pi_options is not None:
-            pulumi.set(__self__, "k_pi_options", k_pi_options)
+        if kpi_options is not None:
+            pulumi.set(__self__, "kpi_options", kpi_options)
         if sort_configuration is not None:
             pulumi.set(__self__, "sort_configuration", sort_configuration)
 
@@ -34094,9 +34094,9 @@ class DashboardKPIConfiguration(dict):
         return pulumi.get(self, "field_wells")
 
     @property
-    @pulumi.getter(name="kPIOptions")
-    def k_pi_options(self) -> Optional['outputs.DashboardKPIOptions']:
-        return pulumi.get(self, "k_pi_options")
+    @pulumi.getter(name="kpiOptions")
+    def kpi_options(self) -> Optional['outputs.DashboardKPIOptions']:
+        return pulumi.get(self, "kpi_options")
 
     @property
     @pulumi.getter(name="sortConfiguration")
@@ -38898,7 +38898,7 @@ class DashboardPublishOptions(dict):
             suggest = "data_point_menu_label_option"
         elif key == "dataPointTooltipOption":
             suggest = "data_point_tooltip_option"
-        elif key == "exportToCSVOption":
+        elif key == "exportToCsvOption":
             suggest = "export_to_csv_option"
         elif key == "exportWithHiddenFieldsOption":
             suggest = "export_with_hidden_fields_option"
@@ -38980,7 +38980,7 @@ class DashboardPublishOptions(dict):
         return pulumi.get(self, "data_point_tooltip_option")
 
     @property
-    @pulumi.getter(name="exportToCSVOption")
+    @pulumi.getter(name="exportToCsvOption")
     def export_to_csv_option(self) -> Optional['outputs.DashboardExportToCSVOption']:
         return pulumi.get(self, "export_to_csv_option")
 
@@ -42488,8 +42488,8 @@ class DashboardTableFieldOption(dict):
             suggest = "field_id"
         elif key == "customLabel":
             suggest = "custom_label"
-        elif key == "uRLStyling":
-            suggest = "u_rl_styling"
+        elif key == "urlStyling":
+            suggest = "url_styling"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DashboardTableFieldOption. Access the value via the '{suggest}' property getter instead.")
@@ -42505,7 +42505,7 @@ class DashboardTableFieldOption(dict):
     def __init__(__self__, *,
                  field_id: str,
                  custom_label: Optional[str] = None,
-                 u_rl_styling: Optional['outputs.DashboardTableFieldURLConfiguration'] = None,
+                 url_styling: Optional['outputs.DashboardTableFieldURLConfiguration'] = None,
                  visibility: Optional['DashboardVisibility'] = None,
                  width: Optional[str] = None):
         """
@@ -42514,8 +42514,8 @@ class DashboardTableFieldOption(dict):
         pulumi.set(__self__, "field_id", field_id)
         if custom_label is not None:
             pulumi.set(__self__, "custom_label", custom_label)
-        if u_rl_styling is not None:
-            pulumi.set(__self__, "u_rl_styling", u_rl_styling)
+        if url_styling is not None:
+            pulumi.set(__self__, "url_styling", url_styling)
         if visibility is not None:
             pulumi.set(__self__, "visibility", visibility)
         if width is not None:
@@ -42532,9 +42532,9 @@ class DashboardTableFieldOption(dict):
         return pulumi.get(self, "custom_label")
 
     @property
-    @pulumi.getter(name="uRLStyling")
-    def u_rl_styling(self) -> Optional['outputs.DashboardTableFieldURLConfiguration']:
-        return pulumi.get(self, "u_rl_styling")
+    @pulumi.getter(name="urlStyling")
+    def url_styling(self) -> Optional['outputs.DashboardTableFieldURLConfiguration']:
+        return pulumi.get(self, "url_styling")
 
     @property
     @pulumi.getter
@@ -44631,8 +44631,8 @@ class DashboardVisual(dict):
             suggest = "histogram_visual"
         elif key == "insightVisual":
             suggest = "insight_visual"
-        elif key == "kPIVisual":
-            suggest = "k_pi_visual"
+        elif key == "kpiVisual":
+            suggest = "kpi_visual"
         elif key == "lineChartVisual":
             suggest = "line_chart_visual"
         elif key == "pieChartVisual":
@@ -44678,7 +44678,7 @@ class DashboardVisual(dict):
                  heat_map_visual: Optional['outputs.DashboardHeatMapVisual'] = None,
                  histogram_visual: Optional['outputs.DashboardHistogramVisual'] = None,
                  insight_visual: Optional['outputs.DashboardInsightVisual'] = None,
-                 k_pi_visual: Optional['outputs.DashboardKPIVisual'] = None,
+                 kpi_visual: Optional['outputs.DashboardKPIVisual'] = None,
                  line_chart_visual: Optional['outputs.DashboardLineChartVisual'] = None,
                  pie_chart_visual: Optional['outputs.DashboardPieChartVisual'] = None,
                  pivot_table_visual: Optional['outputs.DashboardPivotTableVisual'] = None,
@@ -44713,8 +44713,8 @@ class DashboardVisual(dict):
             pulumi.set(__self__, "histogram_visual", histogram_visual)
         if insight_visual is not None:
             pulumi.set(__self__, "insight_visual", insight_visual)
-        if k_pi_visual is not None:
-            pulumi.set(__self__, "k_pi_visual", k_pi_visual)
+        if kpi_visual is not None:
+            pulumi.set(__self__, "kpi_visual", kpi_visual)
         if line_chart_visual is not None:
             pulumi.set(__self__, "line_chart_visual", line_chart_visual)
         if pie_chart_visual is not None:
@@ -44797,9 +44797,9 @@ class DashboardVisual(dict):
         return pulumi.get(self, "insight_visual")
 
     @property
-    @pulumi.getter(name="kPIVisual")
-    def k_pi_visual(self) -> Optional['outputs.DashboardKPIVisual']:
-        return pulumi.get(self, "k_pi_visual")
+    @pulumi.getter(name="kpiVisual")
+    def kpi_visual(self) -> Optional['outputs.DashboardKPIVisual']:
+        return pulumi.get(self, "kpi_visual")
 
     @property
     @pulumi.getter(name="lineChartVisual")
@@ -44953,8 +44953,8 @@ class DashboardVisualCustomActionOperation(dict):
             suggest = "navigation_operation"
         elif key == "setParametersOperation":
             suggest = "set_parameters_operation"
-        elif key == "uRLOperation":
-            suggest = "u_rl_operation"
+        elif key == "urlOperation":
+            suggest = "url_operation"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DashboardVisualCustomActionOperation. Access the value via the '{suggest}' property getter instead.")
@@ -44971,15 +44971,15 @@ class DashboardVisualCustomActionOperation(dict):
                  filter_operation: Optional['outputs.DashboardCustomActionFilterOperation'] = None,
                  navigation_operation: Optional['outputs.DashboardCustomActionNavigationOperation'] = None,
                  set_parameters_operation: Optional['outputs.DashboardCustomActionSetParametersOperation'] = None,
-                 u_rl_operation: Optional['outputs.DashboardCustomActionURLOperation'] = None):
+                 url_operation: Optional['outputs.DashboardCustomActionURLOperation'] = None):
         if filter_operation is not None:
             pulumi.set(__self__, "filter_operation", filter_operation)
         if navigation_operation is not None:
             pulumi.set(__self__, "navigation_operation", navigation_operation)
         if set_parameters_operation is not None:
             pulumi.set(__self__, "set_parameters_operation", set_parameters_operation)
-        if u_rl_operation is not None:
-            pulumi.set(__self__, "u_rl_operation", u_rl_operation)
+        if url_operation is not None:
+            pulumi.set(__self__, "url_operation", url_operation)
 
     @property
     @pulumi.getter(name="filterOperation")
@@ -44997,9 +44997,9 @@ class DashboardVisualCustomActionOperation(dict):
         return pulumi.get(self, "set_parameters_operation")
 
     @property
-    @pulumi.getter(name="uRLOperation")
-    def u_rl_operation(self) -> Optional['outputs.DashboardCustomActionURLOperation']:
-        return pulumi.get(self, "u_rl_operation")
+    @pulumi.getter(name="urlOperation")
+    def url_operation(self) -> Optional['outputs.DashboardCustomActionURLOperation']:
+        return pulumi.get(self, "url_operation")
 
 
 @pulumi.output_type
@@ -52317,10 +52317,10 @@ class TemplateCustomActionURLOperation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "uRLTarget":
-            suggest = "u_rl_target"
-        elif key == "uRLTemplate":
-            suggest = "u_rl_template"
+        if key == "urlTarget":
+            suggest = "url_target"
+        elif key == "urlTemplate":
+            suggest = "url_template"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in TemplateCustomActionURLOperation. Access the value via the '{suggest}' property getter instead.")
@@ -52334,20 +52334,20 @@ class TemplateCustomActionURLOperation(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 u_rl_target: 'TemplateURLTargetConfiguration',
-                 u_rl_template: str):
-        pulumi.set(__self__, "u_rl_target", u_rl_target)
-        pulumi.set(__self__, "u_rl_template", u_rl_template)
+                 url_target: 'TemplateURLTargetConfiguration',
+                 url_template: str):
+        pulumi.set(__self__, "url_target", url_target)
+        pulumi.set(__self__, "url_template", url_template)
 
     @property
-    @pulumi.getter(name="uRLTarget")
-    def u_rl_target(self) -> 'TemplateURLTargetConfiguration':
-        return pulumi.get(self, "u_rl_target")
+    @pulumi.getter(name="urlTarget")
+    def url_target(self) -> 'TemplateURLTargetConfiguration':
+        return pulumi.get(self, "url_target")
 
     @property
-    @pulumi.getter(name="uRLTemplate")
-    def u_rl_template(self) -> str:
-        return pulumi.get(self, "u_rl_template")
+    @pulumi.getter(name="urlTemplate")
+    def url_template(self) -> str:
+        return pulumi.get(self, "url_template")
 
 
 @pulumi.output_type
@@ -59273,8 +59273,8 @@ class TemplateKPIConfiguration(dict):
         suggest = None
         if key == "fieldWells":
             suggest = "field_wells"
-        elif key == "kPIOptions":
-            suggest = "k_pi_options"
+        elif key == "kpiOptions":
+            suggest = "kpi_options"
         elif key == "sortConfiguration":
             suggest = "sort_configuration"
 
@@ -59291,12 +59291,12 @@ class TemplateKPIConfiguration(dict):
 
     def __init__(__self__, *,
                  field_wells: Optional['outputs.TemplateKPIFieldWells'] = None,
-                 k_pi_options: Optional['outputs.TemplateKPIOptions'] = None,
+                 kpi_options: Optional['outputs.TemplateKPIOptions'] = None,
                  sort_configuration: Optional['outputs.TemplateKPISortConfiguration'] = None):
         if field_wells is not None:
             pulumi.set(__self__, "field_wells", field_wells)
-        if k_pi_options is not None:
-            pulumi.set(__self__, "k_pi_options", k_pi_options)
+        if kpi_options is not None:
+            pulumi.set(__self__, "kpi_options", kpi_options)
         if sort_configuration is not None:
             pulumi.set(__self__, "sort_configuration", sort_configuration)
 
@@ -59306,9 +59306,9 @@ class TemplateKPIConfiguration(dict):
         return pulumi.get(self, "field_wells")
 
     @property
-    @pulumi.getter(name="kPIOptions")
-    def k_pi_options(self) -> Optional['outputs.TemplateKPIOptions']:
-        return pulumi.get(self, "k_pi_options")
+    @pulumi.getter(name="kpiOptions")
+    def kpi_options(self) -> Optional['outputs.TemplateKPIOptions']:
+        return pulumi.get(self, "kpi_options")
 
     @property
     @pulumi.getter(name="sortConfiguration")
@@ -67453,8 +67453,8 @@ class TemplateTableFieldOption(dict):
             suggest = "field_id"
         elif key == "customLabel":
             suggest = "custom_label"
-        elif key == "uRLStyling":
-            suggest = "u_rl_styling"
+        elif key == "urlStyling":
+            suggest = "url_styling"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in TemplateTableFieldOption. Access the value via the '{suggest}' property getter instead.")
@@ -67470,7 +67470,7 @@ class TemplateTableFieldOption(dict):
     def __init__(__self__, *,
                  field_id: str,
                  custom_label: Optional[str] = None,
-                 u_rl_styling: Optional['outputs.TemplateTableFieldURLConfiguration'] = None,
+                 url_styling: Optional['outputs.TemplateTableFieldURLConfiguration'] = None,
                  visibility: Optional['TemplateVisibility'] = None,
                  width: Optional[str] = None):
         """
@@ -67479,8 +67479,8 @@ class TemplateTableFieldOption(dict):
         pulumi.set(__self__, "field_id", field_id)
         if custom_label is not None:
             pulumi.set(__self__, "custom_label", custom_label)
-        if u_rl_styling is not None:
-            pulumi.set(__self__, "u_rl_styling", u_rl_styling)
+        if url_styling is not None:
+            pulumi.set(__self__, "url_styling", url_styling)
         if visibility is not None:
             pulumi.set(__self__, "visibility", visibility)
         if width is not None:
@@ -67497,9 +67497,9 @@ class TemplateTableFieldOption(dict):
         return pulumi.get(self, "custom_label")
 
     @property
-    @pulumi.getter(name="uRLStyling")
-    def u_rl_styling(self) -> Optional['outputs.TemplateTableFieldURLConfiguration']:
-        return pulumi.get(self, "u_rl_styling")
+    @pulumi.getter(name="urlStyling")
+    def url_styling(self) -> Optional['outputs.TemplateTableFieldURLConfiguration']:
+        return pulumi.get(self, "url_styling")
 
     @property
     @pulumi.getter
@@ -69588,8 +69588,8 @@ class TemplateVisual(dict):
             suggest = "histogram_visual"
         elif key == "insightVisual":
             suggest = "insight_visual"
-        elif key == "kPIVisual":
-            suggest = "k_pi_visual"
+        elif key == "kpiVisual":
+            suggest = "kpi_visual"
         elif key == "lineChartVisual":
             suggest = "line_chart_visual"
         elif key == "pieChartVisual":
@@ -69635,7 +69635,7 @@ class TemplateVisual(dict):
                  heat_map_visual: Optional['outputs.TemplateHeatMapVisual'] = None,
                  histogram_visual: Optional['outputs.TemplateHistogramVisual'] = None,
                  insight_visual: Optional['outputs.TemplateInsightVisual'] = None,
-                 k_pi_visual: Optional['outputs.TemplateKPIVisual'] = None,
+                 kpi_visual: Optional['outputs.TemplateKPIVisual'] = None,
                  line_chart_visual: Optional['outputs.TemplateLineChartVisual'] = None,
                  pie_chart_visual: Optional['outputs.TemplatePieChartVisual'] = None,
                  pivot_table_visual: Optional['outputs.TemplatePivotTableVisual'] = None,
@@ -69670,8 +69670,8 @@ class TemplateVisual(dict):
             pulumi.set(__self__, "histogram_visual", histogram_visual)
         if insight_visual is not None:
             pulumi.set(__self__, "insight_visual", insight_visual)
-        if k_pi_visual is not None:
-            pulumi.set(__self__, "k_pi_visual", k_pi_visual)
+        if kpi_visual is not None:
+            pulumi.set(__self__, "kpi_visual", kpi_visual)
         if line_chart_visual is not None:
             pulumi.set(__self__, "line_chart_visual", line_chart_visual)
         if pie_chart_visual is not None:
@@ -69754,9 +69754,9 @@ class TemplateVisual(dict):
         return pulumi.get(self, "insight_visual")
 
     @property
-    @pulumi.getter(name="kPIVisual")
-    def k_pi_visual(self) -> Optional['outputs.TemplateKPIVisual']:
-        return pulumi.get(self, "k_pi_visual")
+    @pulumi.getter(name="kpiVisual")
+    def kpi_visual(self) -> Optional['outputs.TemplateKPIVisual']:
+        return pulumi.get(self, "kpi_visual")
 
     @property
     @pulumi.getter(name="lineChartVisual")
@@ -69880,8 +69880,8 @@ class TemplateVisualCustomActionOperation(dict):
             suggest = "navigation_operation"
         elif key == "setParametersOperation":
             suggest = "set_parameters_operation"
-        elif key == "uRLOperation":
-            suggest = "u_rl_operation"
+        elif key == "urlOperation":
+            suggest = "url_operation"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in TemplateVisualCustomActionOperation. Access the value via the '{suggest}' property getter instead.")
@@ -69898,15 +69898,15 @@ class TemplateVisualCustomActionOperation(dict):
                  filter_operation: Optional['outputs.TemplateCustomActionFilterOperation'] = None,
                  navigation_operation: Optional['outputs.TemplateCustomActionNavigationOperation'] = None,
                  set_parameters_operation: Optional['outputs.TemplateCustomActionSetParametersOperation'] = None,
-                 u_rl_operation: Optional['outputs.TemplateCustomActionURLOperation'] = None):
+                 url_operation: Optional['outputs.TemplateCustomActionURLOperation'] = None):
         if filter_operation is not None:
             pulumi.set(__self__, "filter_operation", filter_operation)
         if navigation_operation is not None:
             pulumi.set(__self__, "navigation_operation", navigation_operation)
         if set_parameters_operation is not None:
             pulumi.set(__self__, "set_parameters_operation", set_parameters_operation)
-        if u_rl_operation is not None:
-            pulumi.set(__self__, "u_rl_operation", u_rl_operation)
+        if url_operation is not None:
+            pulumi.set(__self__, "url_operation", url_operation)
 
     @property
     @pulumi.getter(name="filterOperation")
@@ -69924,9 +69924,9 @@ class TemplateVisualCustomActionOperation(dict):
         return pulumi.get(self, "set_parameters_operation")
 
     @property
-    @pulumi.getter(name="uRLOperation")
-    def u_rl_operation(self) -> Optional['outputs.TemplateCustomActionURLOperation']:
-        return pulumi.get(self, "u_rl_operation")
+    @pulumi.getter(name="urlOperation")
+    def url_operation(self) -> Optional['outputs.TemplateCustomActionURLOperation']:
+        return pulumi.get(self, "url_operation")
 
 
 @pulumi.output_type
@@ -70770,8 +70770,8 @@ class ThemeConfiguration(dict):
         suggest = None
         if key == "dataColorPalette":
             suggest = "data_color_palette"
-        elif key == "uIColorPalette":
-            suggest = "u_i_color_palette"
+        elif key == "uiColorPalette":
+            suggest = "ui_color_palette"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ThemeConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -70788,15 +70788,15 @@ class ThemeConfiguration(dict):
                  data_color_palette: Optional['outputs.ThemeDataColorPalette'] = None,
                  sheet: Optional['outputs.ThemeSheetStyle'] = None,
                  typography: Optional['outputs.ThemeTypography'] = None,
-                 u_i_color_palette: Optional['outputs.ThemeUIColorPalette'] = None):
+                 ui_color_palette: Optional['outputs.ThemeUIColorPalette'] = None):
         if data_color_palette is not None:
             pulumi.set(__self__, "data_color_palette", data_color_palette)
         if sheet is not None:
             pulumi.set(__self__, "sheet", sheet)
         if typography is not None:
             pulumi.set(__self__, "typography", typography)
-        if u_i_color_palette is not None:
-            pulumi.set(__self__, "u_i_color_palette", u_i_color_palette)
+        if ui_color_palette is not None:
+            pulumi.set(__self__, "ui_color_palette", ui_color_palette)
 
     @property
     @pulumi.getter(name="dataColorPalette")
@@ -70814,9 +70814,9 @@ class ThemeConfiguration(dict):
         return pulumi.get(self, "typography")
 
     @property
-    @pulumi.getter(name="uIColorPalette")
-    def u_i_color_palette(self) -> Optional['outputs.ThemeUIColorPalette']:
-        return pulumi.get(self, "u_i_color_palette")
+    @pulumi.getter(name="uiColorPalette")
+    def ui_color_palette(self) -> Optional['outputs.ThemeUIColorPalette']:
+        return pulumi.get(self, "ui_color_palette")
 
 
 @pulumi.output_type

@@ -15,8 +15,8 @@ namespace Pulumi.AwsNative.ACMPCA.Inputs
     /// </summary>
     public sealed class CertificateKeyUsageArgs : global::Pulumi.ResourceArgs
     {
-        [Input("cRLSign")]
-        public Input<bool>? CRLSign { get; set; }
+        [Input("crlSign")]
+        public Input<bool>? CrlSign { get; set; }
 
         [Input("dataEncipherment")]
         public Input<bool>? DataEncipherment { get; set; }

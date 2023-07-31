@@ -13,16 +13,16 @@ namespace Pulumi.AwsNative.CodePipeline.Outputs
     [OutputType]
     public sealed class WebhookAuthConfiguration
     {
-        public readonly string? AllowedIPRange;
+        public readonly string? AllowedIpRange;
         public readonly string? SecretToken;
 
         [OutputConstructor]
         private WebhookAuthConfiguration(
-            string? allowedIPRange,
+            string? allowedIpRange,
 
             string? secretToken)
         {
-            AllowedIPRange = allowedIPRange;
+            AllowedIpRange = allowedIpRange;
             SecretToken = secretToken;
         }
     }

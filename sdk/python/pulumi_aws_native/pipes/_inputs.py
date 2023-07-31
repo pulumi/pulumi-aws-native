@@ -1289,7 +1289,7 @@ class PipeSourceManagedStreamingKafkaParametersArgs:
         pulumi.set(self, "batch_size", value)
 
     @property
-    @pulumi.getter(name="consumerGroupID")
+    @pulumi.getter(name="consumerGroupId")
     def consumer_group_id(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "consumer_group_id")
 
@@ -1354,7 +1354,7 @@ class PipeSourceParametersArgs:
             pulumi.set(__self__, "sqs_queue_parameters", sqs_queue_parameters)
 
     @property
-    @pulumi.getter(name="activeMQBrokerParameters")
+    @pulumi.getter(name="activeMqBrokerParameters")
     def active_mq_broker_parameters(self) -> Optional[pulumi.Input['PipeSourceActiveMQBrokerParametersArgs']]:
         return pulumi.get(self, "active_mq_broker_parameters")
 
@@ -1363,7 +1363,7 @@ class PipeSourceParametersArgs:
         pulumi.set(self, "active_mq_broker_parameters", value)
 
     @property
-    @pulumi.getter(name="dynamoDBStreamParameters")
+    @pulumi.getter(name="dynamoDbStreamParameters")
     def dynamo_db_stream_parameters(self) -> Optional[pulumi.Input['PipeSourceDynamoDBStreamParametersArgs']]:
         return pulumi.get(self, "dynamo_db_stream_parameters")
 
@@ -1399,7 +1399,7 @@ class PipeSourceParametersArgs:
         pulumi.set(self, "managed_streaming_kafka_parameters", value)
 
     @property
-    @pulumi.getter(name="rabbitMQBrokerParameters")
+    @pulumi.getter(name="rabbitMqBrokerParameters")
     def rabbit_mq_broker_parameters(self) -> Optional[pulumi.Input['PipeSourceRabbitMQBrokerParametersArgs']]:
         return pulumi.get(self, "rabbit_mq_broker_parameters")
 
@@ -1550,7 +1550,7 @@ class PipeSourceSelfManagedKafkaParametersArgs:
         pulumi.set(self, "batch_size", value)
 
     @property
-    @pulumi.getter(name="consumerGroupID")
+    @pulumi.getter(name="consumerGroupId")
     def consumer_group_id(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "consumer_group_id")
 
@@ -1852,7 +1852,7 @@ class PipeTargetEcsTaskParametersArgs:
         pulumi.set(self, "capacity_provider_strategy", value)
 
     @property
-    @pulumi.getter(name="enableECSManagedTags")
+    @pulumi.getter(name="enableEcsManagedTags")
     def enable_ecs_managed_tags(self) -> Optional[pulumi.Input[bool]]:
         return pulumi.get(self, "enable_ecs_managed_tags")
 

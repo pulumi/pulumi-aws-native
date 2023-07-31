@@ -55,7 +55,7 @@ export class NotebookInstance extends pulumi.CustomResource {
     public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
     public readonly subnetId!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<outputs.sagemaker.NotebookInstanceTag[] | undefined>;
-    public readonly volumeSizeInGB!: pulumi.Output<number | undefined>;
+    public readonly volumeSizeInGb!: pulumi.Output<number | undefined>;
 
     /**
      * Create a NotebookInstance resource with the given unique name, arguments, and options.
@@ -91,7 +91,7 @@ export class NotebookInstance extends pulumi.CustomResource {
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["volumeSizeInGB"] = args ? args.volumeSizeInGB : undefined;
+            resourceInputs["volumeSizeInGb"] = args ? args.volumeSizeInGb : undefined;
         } else {
             resourceInputs["acceleratorTypes"] = undefined /*out*/;
             resourceInputs["additionalCodeRepositories"] = undefined /*out*/;
@@ -108,7 +108,7 @@ export class NotebookInstance extends pulumi.CustomResource {
             resourceInputs["securityGroupIds"] = undefined /*out*/;
             resourceInputs["subnetId"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
-            resourceInputs["volumeSizeInGB"] = undefined /*out*/;
+            resourceInputs["volumeSizeInGb"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(NotebookInstance.__pulumiType, name, resourceInputs, opts);
@@ -134,5 +134,5 @@ export interface NotebookInstanceArgs {
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     subnetId?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.sagemaker.NotebookInstanceTagArgs>[]>;
-    volumeSizeInGB?: pulumi.Input<number>;
+    volumeSizeInGb?: pulumi.Input<number>;
 }

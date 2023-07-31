@@ -36,14 +36,14 @@ namespace Pulumi.AwsNative.Personalize
         /// <summary>
         /// Whether to perform automated machine learning (AutoML). The default is false. For this case, you must specify recipeArn.
         /// </summary>
-        [Output("performAutoML")]
-        public Output<bool?> PerformAutoML { get; private set; } = null!;
+        [Output("performAutoMl")]
+        public Output<bool?> PerformAutoMl { get; private set; } = null!;
 
         /// <summary>
         /// Whether to perform hyperparameter optimization (HPO) on the specified or selected recipe. The default is false. When performing AutoML, this parameter is always true and you should not set it to false.
         /// </summary>
-        [Output("performHPO")]
-        public Output<bool?> PerformHPO { get; private set; } = null!;
+        [Output("performHpo")]
+        public Output<bool?> PerformHpo { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the recipe to use for model training. Only specified when performAutoML is false.
@@ -123,14 +123,14 @@ namespace Pulumi.AwsNative.Personalize
         /// <summary>
         /// Whether to perform automated machine learning (AutoML). The default is false. For this case, you must specify recipeArn.
         /// </summary>
-        [Input("performAutoML")]
-        public Input<bool>? PerformAutoML { get; set; }
+        [Input("performAutoMl")]
+        public Input<bool>? PerformAutoMl { get; set; }
 
         /// <summary>
         /// Whether to perform hyperparameter optimization (HPO) on the specified or selected recipe. The default is false. When performing AutoML, this parameter is always true and you should not set it to false.
         /// </summary>
-        [Input("performHPO")]
-        public Input<bool>? PerformHPO { get; set; }
+        [Input("performHpo")]
+        public Input<bool>? PerformHpo { get; set; }
 
         /// <summary>
         /// The ARN of the recipe to use for model training. Only specified when performAutoML is false.

@@ -17,7 +17,7 @@ type WebACLAssociation struct {
 	pulumi.CustomResourceState
 
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
-	WebACLArn   pulumi.StringOutput `pulumi:"webACLArn"`
+	WebAclArn   pulumi.StringOutput `pulumi:"webAclArn"`
 }
 
 // NewWebACLAssociation registers a new resource with the given unique name, arguments, and options.
@@ -30,8 +30,8 @@ func NewWebACLAssociation(ctx *pulumi.Context,
 	if args.ResourceArn == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceArn'")
 	}
-	if args.WebACLArn == nil {
-		return nil, errors.New("invalid value for required argument 'WebACLArn'")
+	if args.WebAclArn == nil {
+		return nil, errors.New("invalid value for required argument 'WebAclArn'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource WebACLAssociation
@@ -67,13 +67,13 @@ func (WebACLAssociationState) ElementType() reflect.Type {
 
 type webACLAssociationArgs struct {
 	ResourceArn string `pulumi:"resourceArn"`
-	WebACLArn   string `pulumi:"webACLArn"`
+	WebAclArn   string `pulumi:"webAclArn"`
 }
 
 // The set of arguments for constructing a WebACLAssociation resource.
 type WebACLAssociationArgs struct {
 	ResourceArn pulumi.StringInput
-	WebACLArn   pulumi.StringInput
+	WebAclArn   pulumi.StringInput
 }
 
 func (WebACLAssociationArgs) ElementType() reflect.Type {
@@ -117,8 +117,8 @@ func (o WebACLAssociationOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebACLAssociation) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
 }
 
-func (o WebACLAssociationOutput) WebACLArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *WebACLAssociation) pulumi.StringOutput { return v.WebACLArn }).(pulumi.StringOutput)
+func (o WebACLAssociationOutput) WebAclArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebACLAssociation) pulumi.StringOutput { return v.WebAclArn }).(pulumi.StringOutput)
 }
 
 func init() {

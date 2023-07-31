@@ -23,11 +23,11 @@ func LookupFunction(ctx *pulumi.Context, args *LookupFunctionArgs, opts ...pulum
 }
 
 type LookupFunctionArgs struct {
-	FunctionARN string `pulumi:"functionARN"`
+	FunctionArn string `pulumi:"functionArn"`
 }
 
 type LookupFunctionResult struct {
-	FunctionARN      *string           `pulumi:"functionARN"`
+	FunctionArn      *string           `pulumi:"functionArn"`
 	FunctionCode     *string           `pulumi:"functionCode"`
 	FunctionConfig   *FunctionConfig   `pulumi:"functionConfig"`
 	FunctionMetadata *FunctionMetadata `pulumi:"functionMetadata"`
@@ -49,7 +49,7 @@ func LookupFunctionOutput(ctx *pulumi.Context, args LookupFunctionOutputArgs, op
 }
 
 type LookupFunctionOutputArgs struct {
-	FunctionARN pulumi.StringInput `pulumi:"functionARN"`
+	FunctionArn pulumi.StringInput `pulumi:"functionArn"`
 }
 
 func (LookupFunctionOutputArgs) ElementType() reflect.Type {
@@ -70,8 +70,8 @@ func (o LookupFunctionResultOutput) ToLookupFunctionResultOutputWithContext(ctx 
 	return o
 }
 
-func (o LookupFunctionResultOutput) FunctionARN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupFunctionResult) *string { return v.FunctionARN }).(pulumi.StringPtrOutput)
+func (o LookupFunctionResultOutput) FunctionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFunctionResult) *string { return v.FunctionArn }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupFunctionResultOutput) FunctionCode() pulumi.StringPtrOutput {

@@ -20,11 +20,11 @@ export interface GetDBSecurityGroupIngressArgs {
 }
 
 export interface GetDBSecurityGroupIngressResult {
-    readonly cIDRIP?: string;
-    readonly dBSecurityGroupName?: string;
-    readonly eC2SecurityGroupId?: string;
-    readonly eC2SecurityGroupName?: string;
-    readonly eC2SecurityGroupOwnerId?: string;
+    readonly cidrip?: string;
+    readonly dbSecurityGroupName?: string;
+    readonly ec2SecurityGroupId?: string;
+    readonly ec2SecurityGroupName?: string;
+    readonly ec2SecurityGroupOwnerId?: string;
     readonly id?: string;
 }
 /**

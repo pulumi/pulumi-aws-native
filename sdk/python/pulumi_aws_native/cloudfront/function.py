@@ -182,7 +182,7 @@ class Function(pulumi.CustomResource):
         return pulumi.get(self, "auto_publish")
 
     @property
-    @pulumi.getter(name="functionARN")
+    @pulumi.getter(name="functionArn")
     def function_arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "function_arn")
 

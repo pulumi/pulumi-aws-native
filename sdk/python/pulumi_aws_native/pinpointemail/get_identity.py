@@ -70,32 +70,32 @@ class GetIdentityResult:
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="identityDNSRecordName1")
+    @pulumi.getter(name="identityDnsRecordName1")
     def identity_dns_record_name1(self) -> Optional[str]:
         return pulumi.get(self, "identity_dns_record_name1")
 
     @property
-    @pulumi.getter(name="identityDNSRecordName2")
+    @pulumi.getter(name="identityDnsRecordName2")
     def identity_dns_record_name2(self) -> Optional[str]:
         return pulumi.get(self, "identity_dns_record_name2")
 
     @property
-    @pulumi.getter(name="identityDNSRecordName3")
+    @pulumi.getter(name="identityDnsRecordName3")
     def identity_dns_record_name3(self) -> Optional[str]:
         return pulumi.get(self, "identity_dns_record_name3")
 
     @property
-    @pulumi.getter(name="identityDNSRecordValue1")
+    @pulumi.getter(name="identityDnsRecordValue1")
     def identity_dns_record_value1(self) -> Optional[str]:
         return pulumi.get(self, "identity_dns_record_value1")
 
     @property
-    @pulumi.getter(name="identityDNSRecordValue2")
+    @pulumi.getter(name="identityDnsRecordValue2")
     def identity_dns_record_value2(self) -> Optional[str]:
         return pulumi.get(self, "identity_dns_record_value2")
 
     @property
-    @pulumi.getter(name="identityDNSRecordValue3")
+    @pulumi.getter(name="identityDnsRecordValue3")
     def identity_dns_record_value3(self) -> Optional[str]:
         return pulumi.get(self, "identity_dns_record_value3")
 

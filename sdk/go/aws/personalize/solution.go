@@ -23,9 +23,9 @@ type Solution struct {
 	// The name for the solution
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Whether to perform automated machine learning (AutoML). The default is false. For this case, you must specify recipeArn.
-	PerformAutoML pulumi.BoolPtrOutput `pulumi:"performAutoML"`
+	PerformAutoMl pulumi.BoolPtrOutput `pulumi:"performAutoMl"`
 	// Whether to perform hyperparameter optimization (HPO) on the specified or selected recipe. The default is false. When performing AutoML, this parameter is always true and you should not set it to false.
-	PerformHPO pulumi.BoolPtrOutput `pulumi:"performHPO"`
+	PerformHpo pulumi.BoolPtrOutput `pulumi:"performHpo"`
 	// The ARN of the recipe to use for model training. Only specified when performAutoML is false.
 	RecipeArn      pulumi.StringPtrOutput  `pulumi:"recipeArn"`
 	SolutionArn    pulumi.StringOutput     `pulumi:"solutionArn"`
@@ -82,9 +82,9 @@ type solutionArgs struct {
 	// The name for the solution
 	Name *string `pulumi:"name"`
 	// Whether to perform automated machine learning (AutoML). The default is false. For this case, you must specify recipeArn.
-	PerformAutoML *bool `pulumi:"performAutoML"`
+	PerformAutoMl *bool `pulumi:"performAutoMl"`
 	// Whether to perform hyperparameter optimization (HPO) on the specified or selected recipe. The default is false. When performing AutoML, this parameter is always true and you should not set it to false.
-	PerformHPO *bool `pulumi:"performHPO"`
+	PerformHpo *bool `pulumi:"performHpo"`
 	// The ARN of the recipe to use for model training. Only specified when performAutoML is false.
 	RecipeArn      *string         `pulumi:"recipeArn"`
 	SolutionConfig *SolutionConfig `pulumi:"solutionConfig"`
@@ -99,9 +99,9 @@ type SolutionArgs struct {
 	// The name for the solution
 	Name pulumi.StringPtrInput
 	// Whether to perform automated machine learning (AutoML). The default is false. For this case, you must specify recipeArn.
-	PerformAutoML pulumi.BoolPtrInput
+	PerformAutoMl pulumi.BoolPtrInput
 	// Whether to perform hyperparameter optimization (HPO) on the specified or selected recipe. The default is false. When performing AutoML, this parameter is always true and you should not set it to false.
-	PerformHPO pulumi.BoolPtrInput
+	PerformHpo pulumi.BoolPtrInput
 	// The ARN of the recipe to use for model training. Only specified when performAutoML is false.
 	RecipeArn      pulumi.StringPtrInput
 	SolutionConfig SolutionConfigPtrInput
@@ -160,13 +160,13 @@ func (o SolutionOutput) Name() pulumi.StringOutput {
 }
 
 // Whether to perform automated machine learning (AutoML). The default is false. For this case, you must specify recipeArn.
-func (o SolutionOutput) PerformAutoML() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Solution) pulumi.BoolPtrOutput { return v.PerformAutoML }).(pulumi.BoolPtrOutput)
+func (o SolutionOutput) PerformAutoMl() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Solution) pulumi.BoolPtrOutput { return v.PerformAutoMl }).(pulumi.BoolPtrOutput)
 }
 
 // Whether to perform hyperparameter optimization (HPO) on the specified or selected recipe. The default is false. When performing AutoML, this parameter is always true and you should not set it to false.
-func (o SolutionOutput) PerformHPO() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Solution) pulumi.BoolPtrOutput { return v.PerformHPO }).(pulumi.BoolPtrOutput)
+func (o SolutionOutput) PerformHpo() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Solution) pulumi.BoolPtrOutput { return v.PerformHpo }).(pulumi.BoolPtrOutput)
 }
 
 // The ARN of the recipe to use for model training. Only specified when performAutoML is false.

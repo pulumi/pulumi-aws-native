@@ -24,16 +24,16 @@ func LookupApplication(ctx *pulumi.Context, args *LookupApplicationArgs, opts ..
 
 type LookupApplicationArgs struct {
 	// The ARN of the ApplicationInsights application.
-	ApplicationARN string `pulumi:"applicationARN"`
+	ApplicationArn string `pulumi:"applicationArn"`
 }
 
 type LookupApplicationResult struct {
 	// The ARN of the ApplicationInsights application.
-	ApplicationARN *string `pulumi:"applicationARN"`
+	ApplicationArn *string `pulumi:"applicationArn"`
 	// If set to true, application will be configured with recommended monitoring configuration.
 	AutoConfigurationEnabled *bool `pulumi:"autoConfigurationEnabled"`
 	// Indicates whether Application Insights can listen to CloudWatch events for the application resources.
-	CWEMonitorEnabled *bool `pulumi:"cWEMonitorEnabled"`
+	CweMonitorEnabled *bool `pulumi:"cweMonitorEnabled"`
 	// When set to true, creates opsItems for any problems detected on an application.
 	OpsCenterEnabled *bool `pulumi:"opsCenterEnabled"`
 	// The tags of Application Insights application.
@@ -55,7 +55,7 @@ func LookupApplicationOutput(ctx *pulumi.Context, args LookupApplicationOutputAr
 
 type LookupApplicationOutputArgs struct {
 	// The ARN of the ApplicationInsights application.
-	ApplicationARN pulumi.StringInput `pulumi:"applicationARN"`
+	ApplicationArn pulumi.StringInput `pulumi:"applicationArn"`
 }
 
 func (LookupApplicationOutputArgs) ElementType() reflect.Type {
@@ -77,8 +77,8 @@ func (o LookupApplicationResultOutput) ToLookupApplicationResultOutputWithContex
 }
 
 // The ARN of the ApplicationInsights application.
-func (o LookupApplicationResultOutput) ApplicationARN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupApplicationResult) *string { return v.ApplicationARN }).(pulumi.StringPtrOutput)
+func (o LookupApplicationResultOutput) ApplicationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApplicationResult) *string { return v.ApplicationArn }).(pulumi.StringPtrOutput)
 }
 
 // If set to true, application will be configured with recommended monitoring configuration.
@@ -87,8 +87,8 @@ func (o LookupApplicationResultOutput) AutoConfigurationEnabled() pulumi.BoolPtr
 }
 
 // Indicates whether Application Insights can listen to CloudWatch events for the application resources.
-func (o LookupApplicationResultOutput) CWEMonitorEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LookupApplicationResult) *bool { return v.CWEMonitorEnabled }).(pulumi.BoolPtrOutput)
+func (o LookupApplicationResultOutput) CweMonitorEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupApplicationResult) *bool { return v.CweMonitorEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // When set to true, creates opsItems for any problems detected on an application.

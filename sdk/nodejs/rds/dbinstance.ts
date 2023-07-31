@@ -64,7 +64,7 @@ export class DBInstance extends pulumi.CustomResource {
     /**
      * The identifier of the CA certificate for this DB instance.
      */
-    public readonly cACertificateIdentifier!: pulumi.Output<string | undefined>;
+    public readonly caCertificateIdentifier!: pulumi.Output<string | undefined>;
     /**
      * Returns the details of the DB instance's server certificate.
      */
@@ -93,11 +93,11 @@ export class DBInstance extends pulumi.CustomResource {
      *
      * This setting is required for RDS Custom.
      */
-    public readonly customIAMInstanceProfile!: pulumi.Output<string | undefined>;
+    public readonly customIamInstanceProfile!: pulumi.Output<string | undefined>;
     /**
      * The identifier of the DB cluster that the instance will belong to.
      */
-    public readonly dBClusterIdentifier!: pulumi.Output<string | undefined>;
+    public readonly dbClusterIdentifier!: pulumi.Output<string | undefined>;
     /**
      * The identifier for the RDS for MySQL Multi-AZ DB cluster snapshot to restore from. For more information on Multi-AZ DB clusters, see Multi-AZ deployments with two readable standby DB instances in the Amazon RDS User Guide .
      *
@@ -109,43 +109,43 @@ export class DBInstance extends pulumi.CustomResource {
      *  * Can't be the identifier of an Aurora DB cluster snapshot.
      *  * Can't be the identifier of an RDS for PostgreSQL Multi-AZ DB cluster snapshot.
      */
-    public readonly dBClusterSnapshotIdentifier!: pulumi.Output<string | undefined>;
+    public readonly dbClusterSnapshotIdentifier!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the DB instance.
      */
-    public /*out*/ readonly dBInstanceArn!: pulumi.Output<string>;
+    public /*out*/ readonly dbInstanceArn!: pulumi.Output<string>;
     /**
      * The compute and memory capacity of the DB instance, for example, db.m4.large. Not all DB instance classes are available in all AWS Regions, or for all database engines.
      */
-    public readonly dBInstanceClass!: pulumi.Output<string | undefined>;
+    public readonly dbInstanceClass!: pulumi.Output<string | undefined>;
     /**
      * A name for the DB instance. If you specify a name, AWS CloudFormation converts it to lowercase. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the DB instance.
      */
-    public readonly dBInstanceIdentifier!: pulumi.Output<string | undefined>;
+    public readonly dbInstanceIdentifier!: pulumi.Output<string | undefined>;
     /**
      * The meaning of this parameter differs according to the database engine you use.
      */
-    public readonly dBName!: pulumi.Output<string | undefined>;
+    public readonly dbName!: pulumi.Output<string | undefined>;
     /**
      * The name of an existing DB parameter group or a reference to an AWS::RDS::DBParameterGroup resource created in the template.
      */
-    public readonly dBParameterGroupName!: pulumi.Output<string | undefined>;
+    public readonly dbParameterGroupName!: pulumi.Output<string | undefined>;
     /**
      * A list of the DB security groups to assign to the DB instance. The list can include both the name of existing DB security groups or references to AWS::RDS::DBSecurityGroup resources created in the template.
      */
-    public readonly dBSecurityGroups!: pulumi.Output<string[] | undefined>;
+    public readonly dbSecurityGroups!: pulumi.Output<string[] | undefined>;
     /**
      * The name or Amazon Resource Name (ARN) of the DB snapshot that's used to restore the DB instance. If you're restoring from a shared manual DB snapshot, you must specify the ARN of the snapshot.
      */
-    public readonly dBSnapshotIdentifier!: pulumi.Output<string | undefined>;
+    public readonly dbSnapshotIdentifier!: pulumi.Output<string | undefined>;
     /**
      * A DB subnet group to associate with the DB instance. If you update this value, the new subnet group must be a subnet group in a new VPC.
      */
-    public readonly dBSubnetGroupName!: pulumi.Output<string | undefined>;
+    public readonly dbSubnetGroupName!: pulumi.Output<string | undefined>;
     /**
      * The Oracle system ID (Oracle SID) for a container database (CDB). The Oracle SID is also the name of the CDB. This setting is valid for RDS Custom only.
      */
-    public /*out*/ readonly dBSystemId!: pulumi.Output<string>;
+    public /*out*/ readonly dbSystemId!: pulumi.Output<string>;
     /**
      * The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
      */
@@ -165,7 +165,7 @@ export class DBInstance extends pulumi.CustomResource {
     /**
      * Specify the name of the IAM role to be used when making API calls to the Directory Service.
      */
-    public readonly domainIAMRoleName!: pulumi.Output<string | undefined>;
+    public readonly domainIamRoleName!: pulumi.Output<string | undefined>;
     /**
      * The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used.
      */
@@ -173,7 +173,7 @@ export class DBInstance extends pulumi.CustomResource {
     /**
      * A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
      */
-    public readonly enableIAMDatabaseAuthentication!: pulumi.Output<boolean | undefined>;
+    public readonly enableIamDatabaseAuthentication!: pulumi.Output<boolean | undefined>;
     /**
      * A value that indicates whether to enable Performance Insights for the DB instance.
      */
@@ -233,7 +233,7 @@ export class DBInstance extends pulumi.CustomResource {
     /**
      * Specifies whether the database instance is a multiple Availability Zone deployment.
      */
-    public readonly multiAZ!: pulumi.Output<boolean | undefined>;
+    public readonly multiAz!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the NCHAR character set for the Oracle DB instance. This parameter doesn't apply to RDS Custom.
      */
@@ -249,7 +249,7 @@ export class DBInstance extends pulumi.CustomResource {
     /**
      * The AWS KMS key identifier for encryption of Performance Insights data. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.
      */
-    public readonly performanceInsightsKMSKeyId!: pulumi.Output<string | undefined>;
+    public readonly performanceInsightsKmsKeyId!: pulumi.Output<string | undefined>;
     /**
      * The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years).
      */
@@ -289,15 +289,15 @@ export class DBInstance extends pulumi.CustomResource {
     /**
      * The identifier of the Multi-AZ DB cluster that will act as the source for the read replica. Each DB cluster can have up to 15 read replicas.
      */
-    public readonly sourceDBClusterIdentifier!: pulumi.Output<string | undefined>;
+    public readonly sourceDbClusterIdentifier!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the replicated automated backups from which to restore.
      */
-    public readonly sourceDBInstanceAutomatedBackupsArn!: pulumi.Output<string | undefined>;
+    public readonly sourceDbInstanceAutomatedBackupsArn!: pulumi.Output<string | undefined>;
     /**
      * If you want to create a Read Replica DB instance, specify the ID of the source DB instance. Each DB instance can have a limited number of Read Replicas.
      */
-    public readonly sourceDBInstanceIdentifier!: pulumi.Output<string | undefined>;
+    public readonly sourceDbInstanceIdentifier!: pulumi.Output<string | undefined>;
     /**
      * The resource ID of the source DB instance from which to restore.
      */
@@ -345,7 +345,7 @@ export class DBInstance extends pulumi.CustomResource {
     /**
      * A list of the VPC security group IDs to assign to the DB instance. The list can include both the physical IDs of existing VPC security groups and references to AWS::EC2::SecurityGroup resources created in the template.
      */
-    public readonly vPCSecurityGroups!: pulumi.Output<string[] | undefined>;
+    public readonly vpcSecurityGroups!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a DBInstance resource with the given unique name, arguments, and options.
@@ -364,27 +364,27 @@ export class DBInstance extends pulumi.CustomResource {
             resourceInputs["autoMinorVersionUpgrade"] = args ? args.autoMinorVersionUpgrade : undefined;
             resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
             resourceInputs["backupRetentionPeriod"] = args ? args.backupRetentionPeriod : undefined;
-            resourceInputs["cACertificateIdentifier"] = args ? args.cACertificateIdentifier : undefined;
+            resourceInputs["caCertificateIdentifier"] = args ? args.caCertificateIdentifier : undefined;
             resourceInputs["certificateDetails"] = args ? args.certificateDetails : undefined;
             resourceInputs["certificateRotationRestart"] = args ? args.certificateRotationRestart : undefined;
             resourceInputs["characterSetName"] = args ? args.characterSetName : undefined;
             resourceInputs["copyTagsToSnapshot"] = args ? args.copyTagsToSnapshot : undefined;
-            resourceInputs["customIAMInstanceProfile"] = args ? args.customIAMInstanceProfile : undefined;
-            resourceInputs["dBClusterIdentifier"] = args ? args.dBClusterIdentifier : undefined;
-            resourceInputs["dBClusterSnapshotIdentifier"] = args ? args.dBClusterSnapshotIdentifier : undefined;
-            resourceInputs["dBInstanceClass"] = args ? args.dBInstanceClass : undefined;
-            resourceInputs["dBInstanceIdentifier"] = args ? args.dBInstanceIdentifier : undefined;
-            resourceInputs["dBName"] = args ? args.dBName : undefined;
-            resourceInputs["dBParameterGroupName"] = args ? args.dBParameterGroupName : undefined;
-            resourceInputs["dBSecurityGroups"] = args ? args.dBSecurityGroups : undefined;
-            resourceInputs["dBSnapshotIdentifier"] = args ? args.dBSnapshotIdentifier : undefined;
-            resourceInputs["dBSubnetGroupName"] = args ? args.dBSubnetGroupName : undefined;
+            resourceInputs["customIamInstanceProfile"] = args ? args.customIamInstanceProfile : undefined;
+            resourceInputs["dbClusterIdentifier"] = args ? args.dbClusterIdentifier : undefined;
+            resourceInputs["dbClusterSnapshotIdentifier"] = args ? args.dbClusterSnapshotIdentifier : undefined;
+            resourceInputs["dbInstanceClass"] = args ? args.dbInstanceClass : undefined;
+            resourceInputs["dbInstanceIdentifier"] = args ? args.dbInstanceIdentifier : undefined;
+            resourceInputs["dbName"] = args ? args.dbName : undefined;
+            resourceInputs["dbParameterGroupName"] = args ? args.dbParameterGroupName : undefined;
+            resourceInputs["dbSecurityGroups"] = args ? args.dbSecurityGroups : undefined;
+            resourceInputs["dbSnapshotIdentifier"] = args ? args.dbSnapshotIdentifier : undefined;
+            resourceInputs["dbSubnetGroupName"] = args ? args.dbSubnetGroupName : undefined;
             resourceInputs["deleteAutomatedBackups"] = args ? args.deleteAutomatedBackups : undefined;
             resourceInputs["deletionProtection"] = args ? args.deletionProtection : undefined;
             resourceInputs["domain"] = args ? args.domain : undefined;
-            resourceInputs["domainIAMRoleName"] = args ? args.domainIAMRoleName : undefined;
+            resourceInputs["domainIamRoleName"] = args ? args.domainIamRoleName : undefined;
             resourceInputs["enableCloudwatchLogsExports"] = args ? args.enableCloudwatchLogsExports : undefined;
-            resourceInputs["enableIAMDatabaseAuthentication"] = args ? args.enableIAMDatabaseAuthentication : undefined;
+            resourceInputs["enableIamDatabaseAuthentication"] = args ? args.enableIamDatabaseAuthentication : undefined;
             resourceInputs["enablePerformanceInsights"] = args ? args.enablePerformanceInsights : undefined;
             resourceInputs["endpoint"] = args ? args.endpoint : undefined;
             resourceInputs["engine"] = args ? args.engine : undefined;
@@ -399,11 +399,11 @@ export class DBInstance extends pulumi.CustomResource {
             resourceInputs["maxAllocatedStorage"] = args ? args.maxAllocatedStorage : undefined;
             resourceInputs["monitoringInterval"] = args ? args.monitoringInterval : undefined;
             resourceInputs["monitoringRoleArn"] = args ? args.monitoringRoleArn : undefined;
-            resourceInputs["multiAZ"] = args ? args.multiAZ : undefined;
+            resourceInputs["multiAz"] = args ? args.multiAz : undefined;
             resourceInputs["ncharCharacterSetName"] = args ? args.ncharCharacterSetName : undefined;
             resourceInputs["networkType"] = args ? args.networkType : undefined;
             resourceInputs["optionGroupName"] = args ? args.optionGroupName : undefined;
-            resourceInputs["performanceInsightsKMSKeyId"] = args ? args.performanceInsightsKMSKeyId : undefined;
+            resourceInputs["performanceInsightsKmsKeyId"] = args ? args.performanceInsightsKmsKeyId : undefined;
             resourceInputs["performanceInsightsRetentionPeriod"] = args ? args.performanceInsightsRetentionPeriod : undefined;
             resourceInputs["port"] = args ? args.port : undefined;
             resourceInputs["preferredBackupWindow"] = args ? args.preferredBackupWindow : undefined;
@@ -413,9 +413,9 @@ export class DBInstance extends pulumi.CustomResource {
             resourceInputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
             resourceInputs["replicaMode"] = args ? args.replicaMode : undefined;
             resourceInputs["restoreTime"] = args ? args.restoreTime : undefined;
-            resourceInputs["sourceDBClusterIdentifier"] = args ? args.sourceDBClusterIdentifier : undefined;
-            resourceInputs["sourceDBInstanceAutomatedBackupsArn"] = args ? args.sourceDBInstanceAutomatedBackupsArn : undefined;
-            resourceInputs["sourceDBInstanceIdentifier"] = args ? args.sourceDBInstanceIdentifier : undefined;
+            resourceInputs["sourceDbClusterIdentifier"] = args ? args.sourceDbClusterIdentifier : undefined;
+            resourceInputs["sourceDbInstanceAutomatedBackupsArn"] = args ? args.sourceDbInstanceAutomatedBackupsArn : undefined;
+            resourceInputs["sourceDbInstanceIdentifier"] = args ? args.sourceDbInstanceIdentifier : undefined;
             resourceInputs["sourceDbiResourceId"] = args ? args.sourceDbiResourceId : undefined;
             resourceInputs["sourceRegion"] = args ? args.sourceRegion : undefined;
             resourceInputs["storageEncrypted"] = args ? args.storageEncrypted : undefined;
@@ -427,9 +427,9 @@ export class DBInstance extends pulumi.CustomResource {
             resourceInputs["timezone"] = args ? args.timezone : undefined;
             resourceInputs["useDefaultProcessorFeatures"] = args ? args.useDefaultProcessorFeatures : undefined;
             resourceInputs["useLatestRestorableTime"] = args ? args.useLatestRestorableTime : undefined;
-            resourceInputs["vPCSecurityGroups"] = args ? args.vPCSecurityGroups : undefined;
-            resourceInputs["dBInstanceArn"] = undefined /*out*/;
-            resourceInputs["dBSystemId"] = undefined /*out*/;
+            resourceInputs["vpcSecurityGroups"] = args ? args.vpcSecurityGroups : undefined;
+            resourceInputs["dbInstanceArn"] = undefined /*out*/;
+            resourceInputs["dbSystemId"] = undefined /*out*/;
             resourceInputs["dbiResourceId"] = undefined /*out*/;
         } else {
             resourceInputs["allocatedStorage"] = undefined /*out*/;
@@ -438,30 +438,30 @@ export class DBInstance extends pulumi.CustomResource {
             resourceInputs["autoMinorVersionUpgrade"] = undefined /*out*/;
             resourceInputs["availabilityZone"] = undefined /*out*/;
             resourceInputs["backupRetentionPeriod"] = undefined /*out*/;
-            resourceInputs["cACertificateIdentifier"] = undefined /*out*/;
+            resourceInputs["caCertificateIdentifier"] = undefined /*out*/;
             resourceInputs["certificateDetails"] = undefined /*out*/;
             resourceInputs["certificateRotationRestart"] = undefined /*out*/;
             resourceInputs["characterSetName"] = undefined /*out*/;
             resourceInputs["copyTagsToSnapshot"] = undefined /*out*/;
-            resourceInputs["customIAMInstanceProfile"] = undefined /*out*/;
-            resourceInputs["dBClusterIdentifier"] = undefined /*out*/;
-            resourceInputs["dBClusterSnapshotIdentifier"] = undefined /*out*/;
-            resourceInputs["dBInstanceArn"] = undefined /*out*/;
-            resourceInputs["dBInstanceClass"] = undefined /*out*/;
-            resourceInputs["dBInstanceIdentifier"] = undefined /*out*/;
-            resourceInputs["dBName"] = undefined /*out*/;
-            resourceInputs["dBParameterGroupName"] = undefined /*out*/;
-            resourceInputs["dBSecurityGroups"] = undefined /*out*/;
-            resourceInputs["dBSnapshotIdentifier"] = undefined /*out*/;
-            resourceInputs["dBSubnetGroupName"] = undefined /*out*/;
-            resourceInputs["dBSystemId"] = undefined /*out*/;
+            resourceInputs["customIamInstanceProfile"] = undefined /*out*/;
+            resourceInputs["dbClusterIdentifier"] = undefined /*out*/;
+            resourceInputs["dbClusterSnapshotIdentifier"] = undefined /*out*/;
+            resourceInputs["dbInstanceArn"] = undefined /*out*/;
+            resourceInputs["dbInstanceClass"] = undefined /*out*/;
+            resourceInputs["dbInstanceIdentifier"] = undefined /*out*/;
+            resourceInputs["dbName"] = undefined /*out*/;
+            resourceInputs["dbParameterGroupName"] = undefined /*out*/;
+            resourceInputs["dbSecurityGroups"] = undefined /*out*/;
+            resourceInputs["dbSnapshotIdentifier"] = undefined /*out*/;
+            resourceInputs["dbSubnetGroupName"] = undefined /*out*/;
+            resourceInputs["dbSystemId"] = undefined /*out*/;
             resourceInputs["dbiResourceId"] = undefined /*out*/;
             resourceInputs["deleteAutomatedBackups"] = undefined /*out*/;
             resourceInputs["deletionProtection"] = undefined /*out*/;
             resourceInputs["domain"] = undefined /*out*/;
-            resourceInputs["domainIAMRoleName"] = undefined /*out*/;
+            resourceInputs["domainIamRoleName"] = undefined /*out*/;
             resourceInputs["enableCloudwatchLogsExports"] = undefined /*out*/;
-            resourceInputs["enableIAMDatabaseAuthentication"] = undefined /*out*/;
+            resourceInputs["enableIamDatabaseAuthentication"] = undefined /*out*/;
             resourceInputs["enablePerformanceInsights"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["engine"] = undefined /*out*/;
@@ -476,11 +476,11 @@ export class DBInstance extends pulumi.CustomResource {
             resourceInputs["maxAllocatedStorage"] = undefined /*out*/;
             resourceInputs["monitoringInterval"] = undefined /*out*/;
             resourceInputs["monitoringRoleArn"] = undefined /*out*/;
-            resourceInputs["multiAZ"] = undefined /*out*/;
+            resourceInputs["multiAz"] = undefined /*out*/;
             resourceInputs["ncharCharacterSetName"] = undefined /*out*/;
             resourceInputs["networkType"] = undefined /*out*/;
             resourceInputs["optionGroupName"] = undefined /*out*/;
-            resourceInputs["performanceInsightsKMSKeyId"] = undefined /*out*/;
+            resourceInputs["performanceInsightsKmsKeyId"] = undefined /*out*/;
             resourceInputs["performanceInsightsRetentionPeriod"] = undefined /*out*/;
             resourceInputs["port"] = undefined /*out*/;
             resourceInputs["preferredBackupWindow"] = undefined /*out*/;
@@ -490,9 +490,9 @@ export class DBInstance extends pulumi.CustomResource {
             resourceInputs["publiclyAccessible"] = undefined /*out*/;
             resourceInputs["replicaMode"] = undefined /*out*/;
             resourceInputs["restoreTime"] = undefined /*out*/;
-            resourceInputs["sourceDBClusterIdentifier"] = undefined /*out*/;
-            resourceInputs["sourceDBInstanceAutomatedBackupsArn"] = undefined /*out*/;
-            resourceInputs["sourceDBInstanceIdentifier"] = undefined /*out*/;
+            resourceInputs["sourceDbClusterIdentifier"] = undefined /*out*/;
+            resourceInputs["sourceDbInstanceAutomatedBackupsArn"] = undefined /*out*/;
+            resourceInputs["sourceDbInstanceIdentifier"] = undefined /*out*/;
             resourceInputs["sourceDbiResourceId"] = undefined /*out*/;
             resourceInputs["sourceRegion"] = undefined /*out*/;
             resourceInputs["storageEncrypted"] = undefined /*out*/;
@@ -504,7 +504,7 @@ export class DBInstance extends pulumi.CustomResource {
             resourceInputs["timezone"] = undefined /*out*/;
             resourceInputs["useDefaultProcessorFeatures"] = undefined /*out*/;
             resourceInputs["useLatestRestorableTime"] = undefined /*out*/;
-            resourceInputs["vPCSecurityGroups"] = undefined /*out*/;
+            resourceInputs["vpcSecurityGroups"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DBInstance.__pulumiType, name, resourceInputs, opts);
@@ -542,7 +542,7 @@ export interface DBInstanceArgs {
     /**
      * The identifier of the CA certificate for this DB instance.
      */
-    cACertificateIdentifier?: pulumi.Input<string>;
+    caCertificateIdentifier?: pulumi.Input<string>;
     /**
      * Returns the details of the DB instance's server certificate.
      */
@@ -571,11 +571,11 @@ export interface DBInstanceArgs {
      *
      * This setting is required for RDS Custom.
      */
-    customIAMInstanceProfile?: pulumi.Input<string>;
+    customIamInstanceProfile?: pulumi.Input<string>;
     /**
      * The identifier of the DB cluster that the instance will belong to.
      */
-    dBClusterIdentifier?: pulumi.Input<string>;
+    dbClusterIdentifier?: pulumi.Input<string>;
     /**
      * The identifier for the RDS for MySQL Multi-AZ DB cluster snapshot to restore from. For more information on Multi-AZ DB clusters, see Multi-AZ deployments with two readable standby DB instances in the Amazon RDS User Guide .
      *
@@ -587,35 +587,35 @@ export interface DBInstanceArgs {
      *  * Can't be the identifier of an Aurora DB cluster snapshot.
      *  * Can't be the identifier of an RDS for PostgreSQL Multi-AZ DB cluster snapshot.
      */
-    dBClusterSnapshotIdentifier?: pulumi.Input<string>;
+    dbClusterSnapshotIdentifier?: pulumi.Input<string>;
     /**
      * The compute and memory capacity of the DB instance, for example, db.m4.large. Not all DB instance classes are available in all AWS Regions, or for all database engines.
      */
-    dBInstanceClass?: pulumi.Input<string>;
+    dbInstanceClass?: pulumi.Input<string>;
     /**
      * A name for the DB instance. If you specify a name, AWS CloudFormation converts it to lowercase. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the DB instance.
      */
-    dBInstanceIdentifier?: pulumi.Input<string>;
+    dbInstanceIdentifier?: pulumi.Input<string>;
     /**
      * The meaning of this parameter differs according to the database engine you use.
      */
-    dBName?: pulumi.Input<string>;
+    dbName?: pulumi.Input<string>;
     /**
      * The name of an existing DB parameter group or a reference to an AWS::RDS::DBParameterGroup resource created in the template.
      */
-    dBParameterGroupName?: pulumi.Input<string>;
+    dbParameterGroupName?: pulumi.Input<string>;
     /**
      * A list of the DB security groups to assign to the DB instance. The list can include both the name of existing DB security groups or references to AWS::RDS::DBSecurityGroup resources created in the template.
      */
-    dBSecurityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    dbSecurityGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name or Amazon Resource Name (ARN) of the DB snapshot that's used to restore the DB instance. If you're restoring from a shared manual DB snapshot, you must specify the ARN of the snapshot.
      */
-    dBSnapshotIdentifier?: pulumi.Input<string>;
+    dbSnapshotIdentifier?: pulumi.Input<string>;
     /**
      * A DB subnet group to associate with the DB instance. If you update this value, the new subnet group must be a subnet group in a new VPC.
      */
-    dBSubnetGroupName?: pulumi.Input<string>;
+    dbSubnetGroupName?: pulumi.Input<string>;
     /**
      * A value that indicates whether to remove automated backups immediately after the DB instance is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB instance is deleted.
      */
@@ -631,7 +631,7 @@ export interface DBInstanceArgs {
     /**
      * Specify the name of the IAM role to be used when making API calls to the Directory Service.
      */
-    domainIAMRoleName?: pulumi.Input<string>;
+    domainIamRoleName?: pulumi.Input<string>;
     /**
      * The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used.
      */
@@ -639,7 +639,7 @@ export interface DBInstanceArgs {
     /**
      * A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
      */
-    enableIAMDatabaseAuthentication?: pulumi.Input<boolean>;
+    enableIamDatabaseAuthentication?: pulumi.Input<boolean>;
     /**
      * A value that indicates whether to enable Performance Insights for the DB instance.
      */
@@ -699,7 +699,7 @@ export interface DBInstanceArgs {
     /**
      * Specifies whether the database instance is a multiple Availability Zone deployment.
      */
-    multiAZ?: pulumi.Input<boolean>;
+    multiAz?: pulumi.Input<boolean>;
     /**
      * The name of the NCHAR character set for the Oracle DB instance. This parameter doesn't apply to RDS Custom.
      */
@@ -715,7 +715,7 @@ export interface DBInstanceArgs {
     /**
      * The AWS KMS key identifier for encryption of Performance Insights data. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.
      */
-    performanceInsightsKMSKeyId?: pulumi.Input<string>;
+    performanceInsightsKmsKeyId?: pulumi.Input<string>;
     /**
      * The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years).
      */
@@ -755,15 +755,15 @@ export interface DBInstanceArgs {
     /**
      * The identifier of the Multi-AZ DB cluster that will act as the source for the read replica. Each DB cluster can have up to 15 read replicas.
      */
-    sourceDBClusterIdentifier?: pulumi.Input<string>;
+    sourceDbClusterIdentifier?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the replicated automated backups from which to restore.
      */
-    sourceDBInstanceAutomatedBackupsArn?: pulumi.Input<string>;
+    sourceDbInstanceAutomatedBackupsArn?: pulumi.Input<string>;
     /**
      * If you want to create a Read Replica DB instance, specify the ID of the source DB instance. Each DB instance can have a limited number of Read Replicas.
      */
-    sourceDBInstanceIdentifier?: pulumi.Input<string>;
+    sourceDbInstanceIdentifier?: pulumi.Input<string>;
     /**
      * The resource ID of the source DB instance from which to restore.
      */
@@ -811,5 +811,5 @@ export interface DBInstanceArgs {
     /**
      * A list of the VPC security group IDs to assign to the DB instance. The list can include both the physical IDs of existing VPC security groups and references to AWS::EC2::SecurityGroup resources created in the template.
      */
-    vPCSecurityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    vpcSecurityGroups?: pulumi.Input<pulumi.Input<string>[]>;
 }

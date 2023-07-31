@@ -26,7 +26,7 @@ export interface GetVolumeResult {
     /**
      * The Availability Zone in which to create the volume.
      */
-    readonly autoEnableIO?: boolean;
+    readonly autoEnableIo?: boolean;
     /**
      * The Availability Zone in which to create the volume.
      */

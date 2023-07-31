@@ -64,7 +64,7 @@ export class DataRepositoryAssociation extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) for a given resource. ARNs uniquely identify Amazon Web Services resources. We require an ARN when you need to specify a resource unambiguously across all of Amazon Web Services. For more information, see Amazon Resource Names (ARNs) in the Amazon Web Services General Reference.
      */
-    public /*out*/ readonly resourceARN!: pulumi.Output<string>;
+    public /*out*/ readonly resourceArn!: pulumi.Output<string>;
     /**
      * The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
      */
@@ -102,7 +102,7 @@ export class DataRepositoryAssociation extends pulumi.CustomResource {
             resourceInputs["s3"] = args ? args.s3 : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["associationId"] = undefined /*out*/;
-            resourceInputs["resourceARN"] = undefined /*out*/;
+            resourceInputs["resourceArn"] = undefined /*out*/;
         } else {
             resourceInputs["associationId"] = undefined /*out*/;
             resourceInputs["batchImportMetaDataOnCreate"] = undefined /*out*/;
@@ -110,7 +110,7 @@ export class DataRepositoryAssociation extends pulumi.CustomResource {
             resourceInputs["fileSystemId"] = undefined /*out*/;
             resourceInputs["fileSystemPath"] = undefined /*out*/;
             resourceInputs["importedFileChunkSize"] = undefined /*out*/;
-            resourceInputs["resourceARN"] = undefined /*out*/;
+            resourceInputs["resourceArn"] = undefined /*out*/;
             resourceInputs["s3"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }

@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// <summary>
         /// The maximum payload size allowed, in MB. A payload is the data portion of a record (without metadata).
         /// </summary>
-        public readonly int? MaxPayloadInMB;
+        public readonly int? MaxPayloadInMb;
         public readonly Outputs.ModelPackageTransformInput TransformInput;
         public readonly Outputs.ModelPackageTransformOutput TransformOutput;
         public readonly Outputs.ModelPackageTransformResources TransformResources;
@@ -41,7 +41,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
             int? maxConcurrentTransforms,
 
-            int? maxPayloadInMB,
+            int? maxPayloadInMb,
 
             Outputs.ModelPackageTransformInput transformInput,
 
@@ -52,7 +52,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
             BatchStrategy = batchStrategy;
             Environment = environment;
             MaxConcurrentTransforms = maxConcurrentTransforms;
-            MaxPayloadInMB = maxPayloadInMB;
+            MaxPayloadInMb = maxPayloadInMb;
             TransformInput = transformInput;
             TransformOutput = transformOutput;
             TransformResources = transformResources;

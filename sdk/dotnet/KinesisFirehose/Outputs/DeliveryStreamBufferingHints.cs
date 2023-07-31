@@ -14,16 +14,16 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
     public sealed class DeliveryStreamBufferingHints
     {
         public readonly int? IntervalInSeconds;
-        public readonly int? SizeInMBs;
+        public readonly int? SizeInMbs;
 
         [OutputConstructor]
         private DeliveryStreamBufferingHints(
             int? intervalInSeconds,
 
-            int? sizeInMBs)
+            int? sizeInMbs)
         {
             IntervalInSeconds = intervalInSeconds;
-            SizeInMBs = sizeInMBs;
+            SizeInMbs = sizeInMbs;
         }
     }
 }

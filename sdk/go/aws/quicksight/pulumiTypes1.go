@@ -5327,8 +5327,8 @@ func (o DashboardCustomActionSetParametersOperationPtrOutput) ParameterValueConf
 }
 
 type DashboardCustomActionURLOperation struct {
-	URLTarget   DashboardURLTargetConfiguration `pulumi:"uRLTarget"`
-	URLTemplate string                          `pulumi:"uRLTemplate"`
+	UrlTarget   DashboardURLTargetConfiguration `pulumi:"urlTarget"`
+	UrlTemplate string                          `pulumi:"urlTemplate"`
 }
 
 // DashboardCustomActionURLOperationInput is an input type that accepts DashboardCustomActionURLOperationArgs and DashboardCustomActionURLOperationOutput values.
@@ -5343,8 +5343,8 @@ type DashboardCustomActionURLOperationInput interface {
 }
 
 type DashboardCustomActionURLOperationArgs struct {
-	URLTarget   DashboardURLTargetConfigurationInput `pulumi:"uRLTarget"`
-	URLTemplate pulumi.StringInput                   `pulumi:"uRLTemplate"`
+	UrlTarget   DashboardURLTargetConfigurationInput `pulumi:"urlTarget"`
+	UrlTemplate pulumi.StringInput                   `pulumi:"urlTemplate"`
 }
 
 func (DashboardCustomActionURLOperationArgs) ElementType() reflect.Type {
@@ -5424,12 +5424,12 @@ func (o DashboardCustomActionURLOperationOutput) ToDashboardCustomActionURLOpera
 	}).(DashboardCustomActionURLOperationPtrOutput)
 }
 
-func (o DashboardCustomActionURLOperationOutput) URLTarget() DashboardURLTargetConfigurationOutput {
-	return o.ApplyT(func(v DashboardCustomActionURLOperation) DashboardURLTargetConfiguration { return v.URLTarget }).(DashboardURLTargetConfigurationOutput)
+func (o DashboardCustomActionURLOperationOutput) UrlTarget() DashboardURLTargetConfigurationOutput {
+	return o.ApplyT(func(v DashboardCustomActionURLOperation) DashboardURLTargetConfiguration { return v.UrlTarget }).(DashboardURLTargetConfigurationOutput)
 }
 
-func (o DashboardCustomActionURLOperationOutput) URLTemplate() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardCustomActionURLOperation) string { return v.URLTemplate }).(pulumi.StringOutput)
+func (o DashboardCustomActionURLOperationOutput) UrlTemplate() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardCustomActionURLOperation) string { return v.UrlTemplate }).(pulumi.StringOutput)
 }
 
 type DashboardCustomActionURLOperationPtrOutput struct{ *pulumi.OutputState }
@@ -5456,21 +5456,21 @@ func (o DashboardCustomActionURLOperationPtrOutput) Elem() DashboardCustomAction
 	}).(DashboardCustomActionURLOperationOutput)
 }
 
-func (o DashboardCustomActionURLOperationPtrOutput) URLTarget() DashboardURLTargetConfigurationPtrOutput {
+func (o DashboardCustomActionURLOperationPtrOutput) UrlTarget() DashboardURLTargetConfigurationPtrOutput {
 	return o.ApplyT(func(v *DashboardCustomActionURLOperation) *DashboardURLTargetConfiguration {
 		if v == nil {
 			return nil
 		}
-		return &v.URLTarget
+		return &v.UrlTarget
 	}).(DashboardURLTargetConfigurationPtrOutput)
 }
 
-func (o DashboardCustomActionURLOperationPtrOutput) URLTemplate() pulumi.StringPtrOutput {
+func (o DashboardCustomActionURLOperationPtrOutput) UrlTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardCustomActionURLOperation) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.URLTemplate
+		return &v.UrlTemplate
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -29131,7 +29131,7 @@ func (o DashboardKPIConditionalFormattingOptionArrayOutput) Index(i pulumi.IntIn
 
 type DashboardKPIConfiguration struct {
 	FieldWells        *DashboardKPIFieldWells        `pulumi:"fieldWells"`
-	KPIOptions        *DashboardKPIOptions           `pulumi:"kPIOptions"`
+	KpiOptions        *DashboardKPIOptions           `pulumi:"kpiOptions"`
 	SortConfiguration *DashboardKPISortConfiguration `pulumi:"sortConfiguration"`
 }
 
@@ -29148,7 +29148,7 @@ type DashboardKPIConfigurationInput interface {
 
 type DashboardKPIConfigurationArgs struct {
 	FieldWells        DashboardKPIFieldWellsPtrInput        `pulumi:"fieldWells"`
-	KPIOptions        DashboardKPIOptionsPtrInput           `pulumi:"kPIOptions"`
+	KpiOptions        DashboardKPIOptionsPtrInput           `pulumi:"kpiOptions"`
 	SortConfiguration DashboardKPISortConfigurationPtrInput `pulumi:"sortConfiguration"`
 }
 
@@ -29233,8 +29233,8 @@ func (o DashboardKPIConfigurationOutput) FieldWells() DashboardKPIFieldWellsPtrO
 	return o.ApplyT(func(v DashboardKPIConfiguration) *DashboardKPIFieldWells { return v.FieldWells }).(DashboardKPIFieldWellsPtrOutput)
 }
 
-func (o DashboardKPIConfigurationOutput) KPIOptions() DashboardKPIOptionsPtrOutput {
-	return o.ApplyT(func(v DashboardKPIConfiguration) *DashboardKPIOptions { return v.KPIOptions }).(DashboardKPIOptionsPtrOutput)
+func (o DashboardKPIConfigurationOutput) KpiOptions() DashboardKPIOptionsPtrOutput {
+	return o.ApplyT(func(v DashboardKPIConfiguration) *DashboardKPIOptions { return v.KpiOptions }).(DashboardKPIOptionsPtrOutput)
 }
 
 func (o DashboardKPIConfigurationOutput) SortConfiguration() DashboardKPISortConfigurationPtrOutput {
@@ -29274,12 +29274,12 @@ func (o DashboardKPIConfigurationPtrOutput) FieldWells() DashboardKPIFieldWellsP
 	}).(DashboardKPIFieldWellsPtrOutput)
 }
 
-func (o DashboardKPIConfigurationPtrOutput) KPIOptions() DashboardKPIOptionsPtrOutput {
+func (o DashboardKPIConfigurationPtrOutput) KpiOptions() DashboardKPIOptionsPtrOutput {
 	return o.ApplyT(func(v *DashboardKPIConfiguration) *DashboardKPIOptions {
 		if v == nil {
 			return nil
 		}
-		return v.KPIOptions
+		return v.KpiOptions
 	}).(DashboardKPIOptionsPtrOutput)
 }
 
@@ -44717,7 +44717,7 @@ type DashboardPublishOptions struct {
 	DataPointDrillUpDownOption           *DashboardDataPointDrillUpDownOption           `pulumi:"dataPointDrillUpDownOption"`
 	DataPointMenuLabelOption             *DashboardDataPointMenuLabelOption             `pulumi:"dataPointMenuLabelOption"`
 	DataPointTooltipOption               *DashboardDataPointTooltipOption               `pulumi:"dataPointTooltipOption"`
-	ExportToCSVOption                    *DashboardExportToCSVOption                    `pulumi:"exportToCSVOption"`
+	ExportToCsvOption                    *DashboardExportToCSVOption                    `pulumi:"exportToCsvOption"`
 	ExportWithHiddenFieldsOption         *DashboardExportWithHiddenFieldsOption         `pulumi:"exportWithHiddenFieldsOption"`
 	SheetControlsOption                  *DashboardSheetControlsOption                  `pulumi:"sheetControlsOption"`
 	SheetLayoutElementMaximizationOption *DashboardSheetLayoutElementMaximizationOption `pulumi:"sheetLayoutElementMaximizationOption"`
@@ -44742,7 +44742,7 @@ type DashboardPublishOptionsArgs struct {
 	DataPointDrillUpDownOption           DashboardDataPointDrillUpDownOptionPtrInput           `pulumi:"dataPointDrillUpDownOption"`
 	DataPointMenuLabelOption             DashboardDataPointMenuLabelOptionPtrInput             `pulumi:"dataPointMenuLabelOption"`
 	DataPointTooltipOption               DashboardDataPointTooltipOptionPtrInput               `pulumi:"dataPointTooltipOption"`
-	ExportToCSVOption                    DashboardExportToCSVOptionPtrInput                    `pulumi:"exportToCSVOption"`
+	ExportToCsvOption                    DashboardExportToCSVOptionPtrInput                    `pulumi:"exportToCsvOption"`
 	ExportWithHiddenFieldsOption         DashboardExportWithHiddenFieldsOptionPtrInput         `pulumi:"exportWithHiddenFieldsOption"`
 	SheetControlsOption                  DashboardSheetControlsOptionPtrInput                  `pulumi:"sheetControlsOption"`
 	SheetLayoutElementMaximizationOption DashboardSheetLayoutElementMaximizationOptionPtrInput `pulumi:"sheetLayoutElementMaximizationOption"`
@@ -44846,8 +44846,8 @@ func (o DashboardPublishOptionsOutput) DataPointTooltipOption() DashboardDataPoi
 	return o.ApplyT(func(v DashboardPublishOptions) *DashboardDataPointTooltipOption { return v.DataPointTooltipOption }).(DashboardDataPointTooltipOptionPtrOutput)
 }
 
-func (o DashboardPublishOptionsOutput) ExportToCSVOption() DashboardExportToCSVOptionPtrOutput {
-	return o.ApplyT(func(v DashboardPublishOptions) *DashboardExportToCSVOption { return v.ExportToCSVOption }).(DashboardExportToCSVOptionPtrOutput)
+func (o DashboardPublishOptionsOutput) ExportToCsvOption() DashboardExportToCSVOptionPtrOutput {
+	return o.ApplyT(func(v DashboardPublishOptions) *DashboardExportToCSVOption { return v.ExportToCsvOption }).(DashboardExportToCSVOptionPtrOutput)
 }
 
 func (o DashboardPublishOptionsOutput) ExportWithHiddenFieldsOption() DashboardExportWithHiddenFieldsOptionPtrOutput {
@@ -44938,12 +44938,12 @@ func (o DashboardPublishOptionsPtrOutput) DataPointTooltipOption() DashboardData
 	}).(DashboardDataPointTooltipOptionPtrOutput)
 }
 
-func (o DashboardPublishOptionsPtrOutput) ExportToCSVOption() DashboardExportToCSVOptionPtrOutput {
+func (o DashboardPublishOptionsPtrOutput) ExportToCsvOption() DashboardExportToCSVOptionPtrOutput {
 	return o.ApplyT(func(v *DashboardPublishOptions) *DashboardExportToCSVOption {
 		if v == nil {
 			return nil
 		}
-		return v.ExportToCSVOption
+		return v.ExportToCsvOption
 	}).(DashboardExportToCSVOptionPtrOutput)
 }
 
@@ -57169,7 +57169,7 @@ func (o DashboardTableFieldLinkContentConfigurationPtrOutput) CustomTextContent(
 type DashboardTableFieldOption struct {
 	CustomLabel *string                              `pulumi:"customLabel"`
 	FieldId     string                               `pulumi:"fieldId"`
-	URLStyling  *DashboardTableFieldURLConfiguration `pulumi:"uRLStyling"`
+	UrlStyling  *DashboardTableFieldURLConfiguration `pulumi:"urlStyling"`
 	Visibility  *DashboardVisibility                 `pulumi:"visibility"`
 	// String based length that is composed of value and unit in px
 	Width *string `pulumi:"width"`
@@ -57189,7 +57189,7 @@ type DashboardTableFieldOptionInput interface {
 type DashboardTableFieldOptionArgs struct {
 	CustomLabel pulumi.StringPtrInput                       `pulumi:"customLabel"`
 	FieldId     pulumi.StringInput                          `pulumi:"fieldId"`
-	URLStyling  DashboardTableFieldURLConfigurationPtrInput `pulumi:"uRLStyling"`
+	UrlStyling  DashboardTableFieldURLConfigurationPtrInput `pulumi:"urlStyling"`
 	Visibility  DashboardVisibilityPtrInput                 `pulumi:"visibility"`
 	// String based length that is composed of value and unit in px
 	Width pulumi.StringPtrInput `pulumi:"width"`
@@ -57254,8 +57254,8 @@ func (o DashboardTableFieldOptionOutput) FieldId() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardTableFieldOption) string { return v.FieldId }).(pulumi.StringOutput)
 }
 
-func (o DashboardTableFieldOptionOutput) URLStyling() DashboardTableFieldURLConfigurationPtrOutput {
-	return o.ApplyT(func(v DashboardTableFieldOption) *DashboardTableFieldURLConfiguration { return v.URLStyling }).(DashboardTableFieldURLConfigurationPtrOutput)
+func (o DashboardTableFieldOptionOutput) UrlStyling() DashboardTableFieldURLConfigurationPtrOutput {
+	return o.ApplyT(func(v DashboardTableFieldOption) *DashboardTableFieldURLConfiguration { return v.UrlStyling }).(DashboardTableFieldURLConfigurationPtrOutput)
 }
 
 func (o DashboardTableFieldOptionOutput) Visibility() DashboardVisibilityPtrOutput {
@@ -63991,7 +63991,7 @@ type DashboardVisual struct {
 	HeatMapVisual       *DashboardHeatMapVisual       `pulumi:"heatMapVisual"`
 	HistogramVisual     *DashboardHistogramVisual     `pulumi:"histogramVisual"`
 	InsightVisual       *DashboardInsightVisual       `pulumi:"insightVisual"`
-	KPIVisual           *DashboardKPIVisual           `pulumi:"kPIVisual"`
+	KpiVisual           *DashboardKPIVisual           `pulumi:"kpiVisual"`
 	LineChartVisual     *DashboardLineChartVisual     `pulumi:"lineChartVisual"`
 	PieChartVisual      *DashboardPieChartVisual      `pulumi:"pieChartVisual"`
 	PivotTableVisual    *DashboardPivotTableVisual    `pulumi:"pivotTableVisual"`
@@ -64028,7 +64028,7 @@ type DashboardVisualArgs struct {
 	HeatMapVisual       DashboardHeatMapVisualPtrInput       `pulumi:"heatMapVisual"`
 	HistogramVisual     DashboardHistogramVisualPtrInput     `pulumi:"histogramVisual"`
 	InsightVisual       DashboardInsightVisualPtrInput       `pulumi:"insightVisual"`
-	KPIVisual           DashboardKPIVisualPtrInput           `pulumi:"kPIVisual"`
+	KpiVisual           DashboardKPIVisualPtrInput           `pulumi:"kpiVisual"`
 	LineChartVisual     DashboardLineChartVisualPtrInput     `pulumi:"lineChartVisual"`
 	PieChartVisual      DashboardPieChartVisualPtrInput      `pulumi:"pieChartVisual"`
 	PivotTableVisual    DashboardPivotTableVisualPtrInput    `pulumi:"pivotTableVisual"`
@@ -64140,8 +64140,8 @@ func (o DashboardVisualOutput) InsightVisual() DashboardInsightVisualPtrOutput {
 	return o.ApplyT(func(v DashboardVisual) *DashboardInsightVisual { return v.InsightVisual }).(DashboardInsightVisualPtrOutput)
 }
 
-func (o DashboardVisualOutput) KPIVisual() DashboardKPIVisualPtrOutput {
-	return o.ApplyT(func(v DashboardVisual) *DashboardKPIVisual { return v.KPIVisual }).(DashboardKPIVisualPtrOutput)
+func (o DashboardVisualOutput) KpiVisual() DashboardKPIVisualPtrOutput {
+	return o.ApplyT(func(v DashboardVisual) *DashboardKPIVisual { return v.KpiVisual }).(DashboardKPIVisualPtrOutput)
 }
 
 func (o DashboardVisualOutput) LineChartVisual() DashboardLineChartVisualPtrOutput {
@@ -64459,7 +64459,7 @@ type DashboardVisualCustomActionOperation struct {
 	FilterOperation        *DashboardCustomActionFilterOperation        `pulumi:"filterOperation"`
 	NavigationOperation    *DashboardCustomActionNavigationOperation    `pulumi:"navigationOperation"`
 	SetParametersOperation *DashboardCustomActionSetParametersOperation `pulumi:"setParametersOperation"`
-	URLOperation           *DashboardCustomActionURLOperation           `pulumi:"uRLOperation"`
+	UrlOperation           *DashboardCustomActionURLOperation           `pulumi:"urlOperation"`
 }
 
 // DashboardVisualCustomActionOperationInput is an input type that accepts DashboardVisualCustomActionOperationArgs and DashboardVisualCustomActionOperationOutput values.
@@ -64477,7 +64477,7 @@ type DashboardVisualCustomActionOperationArgs struct {
 	FilterOperation        DashboardCustomActionFilterOperationPtrInput        `pulumi:"filterOperation"`
 	NavigationOperation    DashboardCustomActionNavigationOperationPtrInput    `pulumi:"navigationOperation"`
 	SetParametersOperation DashboardCustomActionSetParametersOperationPtrInput `pulumi:"setParametersOperation"`
-	URLOperation           DashboardCustomActionURLOperationPtrInput           `pulumi:"uRLOperation"`
+	UrlOperation           DashboardCustomActionURLOperationPtrInput           `pulumi:"urlOperation"`
 }
 
 func (DashboardVisualCustomActionOperationArgs) ElementType() reflect.Type {
@@ -64549,8 +64549,8 @@ func (o DashboardVisualCustomActionOperationOutput) SetParametersOperation() Das
 	}).(DashboardCustomActionSetParametersOperationPtrOutput)
 }
 
-func (o DashboardVisualCustomActionOperationOutput) URLOperation() DashboardCustomActionURLOperationPtrOutput {
-	return o.ApplyT(func(v DashboardVisualCustomActionOperation) *DashboardCustomActionURLOperation { return v.URLOperation }).(DashboardCustomActionURLOperationPtrOutput)
+func (o DashboardVisualCustomActionOperationOutput) UrlOperation() DashboardCustomActionURLOperationPtrOutput {
+	return o.ApplyT(func(v DashboardVisualCustomActionOperation) *DashboardCustomActionURLOperation { return v.UrlOperation }).(DashboardCustomActionURLOperationPtrOutput)
 }
 
 type DashboardVisualCustomActionOperationArrayOutput struct{ *pulumi.OutputState }

@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.SES.Outputs
         public readonly Outputs.ReceiptRuleBounceAction? BounceAction;
         public readonly Outputs.ReceiptRuleLambdaAction? LambdaAction;
         public readonly Outputs.ReceiptRuleS3Action? S3Action;
-        public readonly Outputs.ReceiptRuleSNSAction? SNSAction;
+        public readonly Outputs.ReceiptRuleSNSAction? SnsAction;
         public readonly Outputs.ReceiptRuleStopAction? StopAction;
         public readonly Outputs.ReceiptRuleWorkmailAction? WorkmailAction;
 
@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.SES.Outputs
 
             Outputs.ReceiptRuleS3Action? s3Action,
 
-            Outputs.ReceiptRuleSNSAction? sNSAction,
+            Outputs.ReceiptRuleSNSAction? snsAction,
 
             Outputs.ReceiptRuleStopAction? stopAction,
 
@@ -41,7 +41,7 @@ namespace Pulumi.AwsNative.SES.Outputs
             BounceAction = bounceAction;
             LambdaAction = lambdaAction;
             S3Action = s3Action;
-            SNSAction = sNSAction;
+            SnsAction = snsAction;
             StopAction = stopAction;
             WorkmailAction = workmailAction;
         }

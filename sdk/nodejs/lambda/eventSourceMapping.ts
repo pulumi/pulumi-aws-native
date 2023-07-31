@@ -56,7 +56,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
     /**
      * Document db event source config.
      */
-    public readonly documentDBEventSourceConfig!: pulumi.Output<outputs.lambda.EventSourceMappingDocumentDBEventSourceConfig | undefined>;
+    public readonly documentDbEventSourceConfig!: pulumi.Output<outputs.lambda.EventSourceMappingDocumentDBEventSourceConfig | undefined>;
     /**
      * Disables the event source mapping to pause polling and invocation.
      */
@@ -148,7 +148,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
             resourceInputs["batchSize"] = args ? args.batchSize : undefined;
             resourceInputs["bisectBatchOnFunctionError"] = args ? args.bisectBatchOnFunctionError : undefined;
             resourceInputs["destinationConfig"] = args ? args.destinationConfig : undefined;
-            resourceInputs["documentDBEventSourceConfig"] = args ? args.documentDBEventSourceConfig : undefined;
+            resourceInputs["documentDbEventSourceConfig"] = args ? args.documentDbEventSourceConfig : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["eventSourceArn"] = args ? args.eventSourceArn : undefined;
             resourceInputs["filterCriteria"] = args ? args.filterCriteria : undefined;
@@ -172,7 +172,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
             resourceInputs["batchSize"] = undefined /*out*/;
             resourceInputs["bisectBatchOnFunctionError"] = undefined /*out*/;
             resourceInputs["destinationConfig"] = undefined /*out*/;
-            resourceInputs["documentDBEventSourceConfig"] = undefined /*out*/;
+            resourceInputs["documentDbEventSourceConfig"] = undefined /*out*/;
             resourceInputs["enabled"] = undefined /*out*/;
             resourceInputs["eventSourceArn"] = undefined /*out*/;
             resourceInputs["filterCriteria"] = undefined /*out*/;
@@ -220,7 +220,7 @@ export interface EventSourceMappingArgs {
     /**
      * Document db event source config.
      */
-    documentDBEventSourceConfig?: pulumi.Input<inputs.lambda.EventSourceMappingDocumentDBEventSourceConfigArgs>;
+    documentDbEventSourceConfig?: pulumi.Input<inputs.lambda.EventSourceMappingDocumentDBEventSourceConfigArgs>;
     /**
      * Disables the event source mapping to pause polling and invocation.
      */

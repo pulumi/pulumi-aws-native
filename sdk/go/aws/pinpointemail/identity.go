@@ -19,12 +19,12 @@ type Identity struct {
 
 	DkimSigningEnabled        pulumi.BoolPtrOutput                `pulumi:"dkimSigningEnabled"`
 	FeedbackForwardingEnabled pulumi.BoolPtrOutput                `pulumi:"feedbackForwardingEnabled"`
-	IdentityDNSRecordName1    pulumi.StringOutput                 `pulumi:"identityDNSRecordName1"`
-	IdentityDNSRecordName2    pulumi.StringOutput                 `pulumi:"identityDNSRecordName2"`
-	IdentityDNSRecordName3    pulumi.StringOutput                 `pulumi:"identityDNSRecordName3"`
-	IdentityDNSRecordValue1   pulumi.StringOutput                 `pulumi:"identityDNSRecordValue1"`
-	IdentityDNSRecordValue2   pulumi.StringOutput                 `pulumi:"identityDNSRecordValue2"`
-	IdentityDNSRecordValue3   pulumi.StringOutput                 `pulumi:"identityDNSRecordValue3"`
+	IdentityDnsRecordName1    pulumi.StringOutput                 `pulumi:"identityDnsRecordName1"`
+	IdentityDnsRecordName2    pulumi.StringOutput                 `pulumi:"identityDnsRecordName2"`
+	IdentityDnsRecordName3    pulumi.StringOutput                 `pulumi:"identityDnsRecordName3"`
+	IdentityDnsRecordValue1   pulumi.StringOutput                 `pulumi:"identityDnsRecordValue1"`
+	IdentityDnsRecordValue2   pulumi.StringOutput                 `pulumi:"identityDnsRecordValue2"`
+	IdentityDnsRecordValue3   pulumi.StringOutput                 `pulumi:"identityDnsRecordValue3"`
 	MailFromAttributes        IdentityMailFromAttributesPtrOutput `pulumi:"mailFromAttributes"`
 	Name                      pulumi.StringOutput                 `pulumi:"name"`
 	Tags                      IdentityTagsArrayOutput             `pulumi:"tags"`
@@ -131,28 +131,28 @@ func (o IdentityOutput) FeedbackForwardingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Identity) pulumi.BoolPtrOutput { return v.FeedbackForwardingEnabled }).(pulumi.BoolPtrOutput)
 }
 
-func (o IdentityOutput) IdentityDNSRecordName1() pulumi.StringOutput {
-	return o.ApplyT(func(v *Identity) pulumi.StringOutput { return v.IdentityDNSRecordName1 }).(pulumi.StringOutput)
+func (o IdentityOutput) IdentityDnsRecordName1() pulumi.StringOutput {
+	return o.ApplyT(func(v *Identity) pulumi.StringOutput { return v.IdentityDnsRecordName1 }).(pulumi.StringOutput)
 }
 
-func (o IdentityOutput) IdentityDNSRecordName2() pulumi.StringOutput {
-	return o.ApplyT(func(v *Identity) pulumi.StringOutput { return v.IdentityDNSRecordName2 }).(pulumi.StringOutput)
+func (o IdentityOutput) IdentityDnsRecordName2() pulumi.StringOutput {
+	return o.ApplyT(func(v *Identity) pulumi.StringOutput { return v.IdentityDnsRecordName2 }).(pulumi.StringOutput)
 }
 
-func (o IdentityOutput) IdentityDNSRecordName3() pulumi.StringOutput {
-	return o.ApplyT(func(v *Identity) pulumi.StringOutput { return v.IdentityDNSRecordName3 }).(pulumi.StringOutput)
+func (o IdentityOutput) IdentityDnsRecordName3() pulumi.StringOutput {
+	return o.ApplyT(func(v *Identity) pulumi.StringOutput { return v.IdentityDnsRecordName3 }).(pulumi.StringOutput)
 }
 
-func (o IdentityOutput) IdentityDNSRecordValue1() pulumi.StringOutput {
-	return o.ApplyT(func(v *Identity) pulumi.StringOutput { return v.IdentityDNSRecordValue1 }).(pulumi.StringOutput)
+func (o IdentityOutput) IdentityDnsRecordValue1() pulumi.StringOutput {
+	return o.ApplyT(func(v *Identity) pulumi.StringOutput { return v.IdentityDnsRecordValue1 }).(pulumi.StringOutput)
 }
 
-func (o IdentityOutput) IdentityDNSRecordValue2() pulumi.StringOutput {
-	return o.ApplyT(func(v *Identity) pulumi.StringOutput { return v.IdentityDNSRecordValue2 }).(pulumi.StringOutput)
+func (o IdentityOutput) IdentityDnsRecordValue2() pulumi.StringOutput {
+	return o.ApplyT(func(v *Identity) pulumi.StringOutput { return v.IdentityDnsRecordValue2 }).(pulumi.StringOutput)
 }
 
-func (o IdentityOutput) IdentityDNSRecordValue3() pulumi.StringOutput {
-	return o.ApplyT(func(v *Identity) pulumi.StringOutput { return v.IdentityDNSRecordValue3 }).(pulumi.StringOutput)
+func (o IdentityOutput) IdentityDnsRecordValue3() pulumi.StringOutput {
+	return o.ApplyT(func(v *Identity) pulumi.StringOutput { return v.IdentityDnsRecordValue3 }).(pulumi.StringOutput)
 }
 
 func (o IdentityOutput) MailFromAttributes() IdentityMailFromAttributesPtrOutput {

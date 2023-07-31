@@ -12,8 +12,8 @@ namespace Pulumi.AwsNative.GroundStation.Inputs
 
     public sealed class ConfigDecodeConfigArgs : global::Pulumi.ResourceArgs
     {
-        [Input("unvalidatedJSON")]
-        public Input<string>? UnvalidatedJSON { get; set; }
+        [Input("unvalidatedJson")]
+        public Input<string>? UnvalidatedJson { get; set; }
 
         public ConfigDecodeConfigArgs()
         {

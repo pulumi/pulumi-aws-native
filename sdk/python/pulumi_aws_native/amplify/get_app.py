@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAppResult:
-    def __init__(__self__, app_id=None, app_name=None, arn=None, build_spec=None, custom_headers=None, custom_rules=None, default_domain=None, description=None, enable_branch_auto_deletion=None, environment_variables=None, i_am_service_role=None, name=None, platform=None, repository=None, tags=None):
+    def __init__(__self__, app_id=None, app_name=None, arn=None, build_spec=None, custom_headers=None, custom_rules=None, default_domain=None, description=None, enable_branch_auto_deletion=None, environment_variables=None, iam_service_role=None, name=None, platform=None, repository=None, tags=None):
         if app_id and not isinstance(app_id, str):
             raise TypeError("Expected argument 'app_id' to be a str")
         pulumi.set(__self__, "app_id", app_id)
@@ -51,9 +51,9 @@ class GetAppResult:
         if environment_variables and not isinstance(environment_variables, list):
             raise TypeError("Expected argument 'environment_variables' to be a list")
         pulumi.set(__self__, "environment_variables", environment_variables)
-        if i_am_service_role and not isinstance(i_am_service_role, str):
-            raise TypeError("Expected argument 'i_am_service_role' to be a str")
-        pulumi.set(__self__, "i_am_service_role", i_am_service_role)
+        if iam_service_role and not isinstance(iam_service_role, str):
+            raise TypeError("Expected argument 'iam_service_role' to be a str")
+        pulumi.set(__self__, "iam_service_role", iam_service_role)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -118,9 +118,9 @@ class GetAppResult:
         return pulumi.get(self, "environment_variables")
 
     @property
-    @pulumi.getter(name="iAMServiceRole")
-    def i_am_service_role(self) -> Optional[str]:
-        return pulumi.get(self, "i_am_service_role")
+    @pulumi.getter(name="iamServiceRole")
+    def iam_service_role(self) -> Optional[str]:
+        return pulumi.get(self, "iam_service_role")
 
     @property
     @pulumi.getter
@@ -159,7 +159,7 @@ class AwaitableGetAppResult(GetAppResult):
             description=self.description,
             enable_branch_auto_deletion=self.enable_branch_auto_deletion,
             environment_variables=self.environment_variables,
-            i_am_service_role=self.i_am_service_role,
+            iam_service_role=self.iam_service_role,
             name=self.name,
             platform=self.platform,
             repository=self.repository,
@@ -187,7 +187,7 @@ def get_app(arn: Optional[str] = None,
         description=pulumi.get(__ret__, 'description'),
         enable_branch_auto_deletion=pulumi.get(__ret__, 'enable_branch_auto_deletion'),
         environment_variables=pulumi.get(__ret__, 'environment_variables'),
-        i_am_service_role=pulumi.get(__ret__, 'i_am_service_role'),
+        iam_service_role=pulumi.get(__ret__, 'iam_service_role'),
         name=pulumi.get(__ret__, 'name'),
         platform=pulumi.get(__ret__, 'platform'),
         repository=pulumi.get(__ret__, 'repository'),

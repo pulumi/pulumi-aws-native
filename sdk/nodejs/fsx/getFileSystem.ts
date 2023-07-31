@@ -23,13 +23,13 @@ export interface GetFileSystemArgs {
 }
 
 export interface GetFileSystemResult {
-    readonly dNSName?: string;
+    readonly dnsName?: string;
     readonly id?: string;
     readonly lustreConfiguration?: outputs.fsx.FileSystemLustreConfiguration;
     readonly lustreMountName?: string;
     readonly ontapConfiguration?: outputs.fsx.FileSystemOntapConfiguration;
-    readonly openZFSConfiguration?: outputs.fsx.FileSystemOpenZFSConfiguration;
-    readonly resourceARN?: string;
+    readonly openZfsConfiguration?: outputs.fsx.FileSystemOpenZFSConfiguration;
+    readonly resourceArn?: string;
     readonly rootVolumeId?: string;
     readonly storageCapacity?: number;
     readonly tags?: outputs.fsx.FileSystemTag[];

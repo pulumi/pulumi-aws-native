@@ -115,8 +115,8 @@ func (o ComponentVersionComponentPlatformArrayOutput) Index(i pulumi.IntInput) C
 
 type ComponentVersionLambdaContainerParams struct {
 	Devices        []ComponentVersionLambdaDeviceMount `pulumi:"devices"`
-	MemorySizeInKB *int                                `pulumi:"memorySizeInKB"`
-	MountROSysfs   *bool                               `pulumi:"mountROSysfs"`
+	MemorySizeInKb *int                                `pulumi:"memorySizeInKb"`
+	MountRoSysfs   *bool                               `pulumi:"mountRoSysfs"`
 	Volumes        []ComponentVersionLambdaVolumeMount `pulumi:"volumes"`
 }
 
@@ -133,8 +133,8 @@ type ComponentVersionLambdaContainerParamsInput interface {
 
 type ComponentVersionLambdaContainerParamsArgs struct {
 	Devices        ComponentVersionLambdaDeviceMountArrayInput `pulumi:"devices"`
-	MemorySizeInKB pulumi.IntPtrInput                          `pulumi:"memorySizeInKB"`
-	MountROSysfs   pulumi.BoolPtrInput                         `pulumi:"mountROSysfs"`
+	MemorySizeInKb pulumi.IntPtrInput                          `pulumi:"memorySizeInKb"`
+	MountRoSysfs   pulumi.BoolPtrInput                         `pulumi:"mountRoSysfs"`
 	Volumes        ComponentVersionLambdaVolumeMountArrayInput `pulumi:"volumes"`
 }
 
@@ -219,12 +219,12 @@ func (o ComponentVersionLambdaContainerParamsOutput) Devices() ComponentVersionL
 	return o.ApplyT(func(v ComponentVersionLambdaContainerParams) []ComponentVersionLambdaDeviceMount { return v.Devices }).(ComponentVersionLambdaDeviceMountArrayOutput)
 }
 
-func (o ComponentVersionLambdaContainerParamsOutput) MemorySizeInKB() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ComponentVersionLambdaContainerParams) *int { return v.MemorySizeInKB }).(pulumi.IntPtrOutput)
+func (o ComponentVersionLambdaContainerParamsOutput) MemorySizeInKb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ComponentVersionLambdaContainerParams) *int { return v.MemorySizeInKb }).(pulumi.IntPtrOutput)
 }
 
-func (o ComponentVersionLambdaContainerParamsOutput) MountROSysfs() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ComponentVersionLambdaContainerParams) *bool { return v.MountROSysfs }).(pulumi.BoolPtrOutput)
+func (o ComponentVersionLambdaContainerParamsOutput) MountRoSysfs() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ComponentVersionLambdaContainerParams) *bool { return v.MountRoSysfs }).(pulumi.BoolPtrOutput)
 }
 
 func (o ComponentVersionLambdaContainerParamsOutput) Volumes() ComponentVersionLambdaVolumeMountArrayOutput {
@@ -264,21 +264,21 @@ func (o ComponentVersionLambdaContainerParamsPtrOutput) Devices() ComponentVersi
 	}).(ComponentVersionLambdaDeviceMountArrayOutput)
 }
 
-func (o ComponentVersionLambdaContainerParamsPtrOutput) MemorySizeInKB() pulumi.IntPtrOutput {
+func (o ComponentVersionLambdaContainerParamsPtrOutput) MemorySizeInKb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ComponentVersionLambdaContainerParams) *int {
 		if v == nil {
 			return nil
 		}
-		return v.MemorySizeInKB
+		return v.MemorySizeInKb
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o ComponentVersionLambdaContainerParamsPtrOutput) MountROSysfs() pulumi.BoolPtrOutput {
+func (o ComponentVersionLambdaContainerParamsPtrOutput) MountRoSysfs() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ComponentVersionLambdaContainerParams) *bool {
 		if v == nil {
 			return nil
 		}
-		return v.MountROSysfs
+		return v.MountRoSysfs
 	}).(pulumi.BoolPtrOutput)
 }
 

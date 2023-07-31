@@ -18,8 +18,8 @@ namespace Pulumi.AwsNative.MemoryDB
         /// <summary>
         /// The name of the acl.
         /// </summary>
-        [Output("aCLName")]
-        public Output<string> ACLName { get; private set; } = null!;
+        [Output("aclName")]
+        public Output<string> AclName { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the acl.
@@ -93,8 +93,8 @@ namespace Pulumi.AwsNative.MemoryDB
         /// <summary>
         /// The name of the acl.
         /// </summary>
-        [Input("aCLName")]
-        public Input<string>? ACLName { get; set; }
+        [Input("aclName")]
+        public Input<string>? AclName { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.ACLTagArgs>? _tags;

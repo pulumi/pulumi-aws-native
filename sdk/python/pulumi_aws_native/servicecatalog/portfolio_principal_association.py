@@ -37,7 +37,7 @@ class PortfolioPrincipalAssociationArgs:
         pulumi.set(self, "portfolio_id", value)
 
     @property
-    @pulumi.getter(name="principalARN")
+    @pulumi.getter(name="principalArn")
     def principal_arn(self) -> pulumi.Input[str]:
         return pulumi.get(self, "principal_arn")
 
@@ -172,7 +172,7 @@ class PortfolioPrincipalAssociation(pulumi.CustomResource):
         return pulumi.get(self, "portfolio_id")
 
     @property
-    @pulumi.getter(name="principalARN")
+    @pulumi.getter(name="principalArn")
     def principal_arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "principal_arn")
 

@@ -13,29 +13,29 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
     [OutputType]
     public sealed class DistributionLegacyCustomOrigin
     {
-        public readonly string DNSName;
-        public readonly int? HTTPPort;
-        public readonly int? HTTPSPort;
+        public readonly string DnsName;
+        public readonly int? HttpPort;
+        public readonly int? HttpsPort;
         public readonly string OriginProtocolPolicy;
-        public readonly ImmutableArray<string> OriginSSLProtocols;
+        public readonly ImmutableArray<string> OriginSslProtocols;
 
         [OutputConstructor]
         private DistributionLegacyCustomOrigin(
-            string dNSName,
+            string dnsName,
 
-            int? hTTPPort,
+            int? httpPort,
 
-            int? hTTPSPort,
+            int? httpsPort,
 
             string originProtocolPolicy,
 
-            ImmutableArray<string> originSSLProtocols)
+            ImmutableArray<string> originSslProtocols)
         {
-            DNSName = dNSName;
-            HTTPPort = hTTPPort;
-            HTTPSPort = hTTPSPort;
+            DnsName = dnsName;
+            HttpPort = httpPort;
+            HttpsPort = httpsPort;
             OriginProtocolPolicy = originProtocolPolicy;
-            OriginSSLProtocols = originSSLProtocols;
+            OriginSslProtocols = originSslProtocols;
         }
     }
 }

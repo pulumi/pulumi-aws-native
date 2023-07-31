@@ -59,7 +59,7 @@ namespace Pulumi.AwsNative.Elasticsearch
         public readonly string? DomainArn;
         public readonly string? DomainEndpoint;
         public readonly Outputs.DomainEndpointOptions? DomainEndpointOptions;
-        public readonly Outputs.DomainEBSOptions? EBSOptions;
+        public readonly Outputs.DomainEBSOptions? EbsOptions;
         public readonly Outputs.DomainElasticsearchClusterConfig? ElasticsearchClusterConfig;
         public readonly string? ElasticsearchVersion;
         public readonly Outputs.DomainEncryptionAtRestOptions? EncryptionAtRestOptions;
@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.Elasticsearch
         public readonly Outputs.DomainNodeToNodeEncryptionOptions? NodeToNodeEncryptionOptions;
         public readonly Outputs.DomainSnapshotOptions? SnapshotOptions;
         public readonly ImmutableArray<Outputs.DomainTag> Tags;
-        public readonly Outputs.DomainVPCOptions? VPCOptions;
+        public readonly Outputs.DomainVPCOptions? VpcOptions;
 
         [OutputConstructor]
         private GetDomainResult(
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.Elasticsearch
 
             Outputs.DomainEndpointOptions? domainEndpointOptions,
 
-            Outputs.DomainEBSOptions? eBSOptions,
+            Outputs.DomainEBSOptions? ebsOptions,
 
             Outputs.DomainElasticsearchClusterConfig? elasticsearchClusterConfig,
 
@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.Elasticsearch
 
             ImmutableArray<Outputs.DomainTag> tags,
 
-            Outputs.DomainVPCOptions? vPCOptions)
+            Outputs.DomainVPCOptions? vpcOptions)
         {
             AccessPolicies = accessPolicies;
             AdvancedOptions = advancedOptions;
@@ -116,7 +116,7 @@ namespace Pulumi.AwsNative.Elasticsearch
             DomainArn = domainArn;
             DomainEndpoint = domainEndpoint;
             DomainEndpointOptions = domainEndpointOptions;
-            EBSOptions = eBSOptions;
+            EbsOptions = ebsOptions;
             ElasticsearchClusterConfig = elasticsearchClusterConfig;
             ElasticsearchVersion = elasticsearchVersion;
             EncryptionAtRestOptions = encryptionAtRestOptions;
@@ -125,7 +125,7 @@ namespace Pulumi.AwsNative.Elasticsearch
             NodeToNodeEncryptionOptions = nodeToNodeEncryptionOptions;
             SnapshotOptions = snapshotOptions;
             Tags = tags;
-            VPCOptions = vPCOptions;
+            VpcOptions = vpcOptions;
         }
     }
 }

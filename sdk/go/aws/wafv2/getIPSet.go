@@ -33,8 +33,8 @@ type LookupIPSetResult struct {
 	Addresses        []string               `pulumi:"addresses"`
 	Arn              *string                `pulumi:"arn"`
 	Description      *string                `pulumi:"description"`
-	IPAddressVersion *IPSetIPAddressVersion `pulumi:"iPAddressVersion"`
 	Id               *string                `pulumi:"id"`
+	IpAddressVersion *IPSetIPAddressVersion `pulumi:"ipAddressVersion"`
 	Tags             []IPSetTag             `pulumi:"tags"`
 }
 
@@ -88,12 +88,12 @@ func (o LookupIPSetResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIPSetResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupIPSetResultOutput) IPAddressVersion() IPSetIPAddressVersionPtrOutput {
-	return o.ApplyT(func(v LookupIPSetResult) *IPSetIPAddressVersion { return v.IPAddressVersion }).(IPSetIPAddressVersionPtrOutput)
-}
-
 func (o LookupIPSetResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIPSetResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupIPSetResultOutput) IpAddressVersion() IPSetIPAddressVersionPtrOutput {
+	return o.ApplyT(func(v LookupIPSetResult) *IPSetIPAddressVersion { return v.IpAddressVersion }).(IPSetIPAddressVersionPtrOutput)
 }
 
 func (o LookupIPSetResultOutput) Tags() IPSetTagArrayOutput {

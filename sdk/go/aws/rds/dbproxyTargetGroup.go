@@ -17,10 +17,10 @@ type DBProxyTargetGroup struct {
 	pulumi.CustomResourceState
 
 	ConnectionPoolConfigurationInfo DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput `pulumi:"connectionPoolConfigurationInfo"`
-	DBClusterIdentifiers            pulumi.StringArrayOutput                                         `pulumi:"dBClusterIdentifiers"`
-	DBInstanceIdentifiers           pulumi.StringArrayOutput                                         `pulumi:"dBInstanceIdentifiers"`
+	DbClusterIdentifiers            pulumi.StringArrayOutput                                         `pulumi:"dbClusterIdentifiers"`
+	DbInstanceIdentifiers           pulumi.StringArrayOutput                                         `pulumi:"dbInstanceIdentifiers"`
 	// The identifier for the proxy.
-	DBProxyName pulumi.StringOutput `pulumi:"dBProxyName"`
+	DbProxyName pulumi.StringOutput `pulumi:"dbProxyName"`
 	// The Amazon Resource Name (ARN) representing the target group.
 	TargetGroupArn pulumi.StringOutput `pulumi:"targetGroupArn"`
 	// The identifier for the DBProxyTargetGroup
@@ -34,8 +34,8 @@ func NewDBProxyTargetGroup(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DBProxyName == nil {
-		return nil, errors.New("invalid value for required argument 'DBProxyName'")
+	if args.DbProxyName == nil {
+		return nil, errors.New("invalid value for required argument 'DbProxyName'")
 	}
 	if args.TargetGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'TargetGroupName'")
@@ -74,10 +74,10 @@ func (DBProxyTargetGroupState) ElementType() reflect.Type {
 
 type dbproxyTargetGroupArgs struct {
 	ConnectionPoolConfigurationInfo *DBProxyTargetGroupConnectionPoolConfigurationInfoFormat `pulumi:"connectionPoolConfigurationInfo"`
-	DBClusterIdentifiers            []string                                                 `pulumi:"dBClusterIdentifiers"`
-	DBInstanceIdentifiers           []string                                                 `pulumi:"dBInstanceIdentifiers"`
+	DbClusterIdentifiers            []string                                                 `pulumi:"dbClusterIdentifiers"`
+	DbInstanceIdentifiers           []string                                                 `pulumi:"dbInstanceIdentifiers"`
 	// The identifier for the proxy.
-	DBProxyName string `pulumi:"dBProxyName"`
+	DbProxyName string `pulumi:"dbProxyName"`
 	// The identifier for the DBProxyTargetGroup
 	TargetGroupName DBProxyTargetGroupTargetGroupName `pulumi:"targetGroupName"`
 }
@@ -85,10 +85,10 @@ type dbproxyTargetGroupArgs struct {
 // The set of arguments for constructing a DBProxyTargetGroup resource.
 type DBProxyTargetGroupArgs struct {
 	ConnectionPoolConfigurationInfo DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrInput
-	DBClusterIdentifiers            pulumi.StringArrayInput
-	DBInstanceIdentifiers           pulumi.StringArrayInput
+	DbClusterIdentifiers            pulumi.StringArrayInput
+	DbInstanceIdentifiers           pulumi.StringArrayInput
 	// The identifier for the proxy.
-	DBProxyName pulumi.StringInput
+	DbProxyName pulumi.StringInput
 	// The identifier for the DBProxyTargetGroup
 	TargetGroupName DBProxyTargetGroupTargetGroupNameInput
 }
@@ -136,17 +136,17 @@ func (o DBProxyTargetGroupOutput) ConnectionPoolConfigurationInfo() DBProxyTarge
 	}).(DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput)
 }
 
-func (o DBProxyTargetGroupOutput) DBClusterIdentifiers() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DBProxyTargetGroup) pulumi.StringArrayOutput { return v.DBClusterIdentifiers }).(pulumi.StringArrayOutput)
+func (o DBProxyTargetGroupOutput) DbClusterIdentifiers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DBProxyTargetGroup) pulumi.StringArrayOutput { return v.DbClusterIdentifiers }).(pulumi.StringArrayOutput)
 }
 
-func (o DBProxyTargetGroupOutput) DBInstanceIdentifiers() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DBProxyTargetGroup) pulumi.StringArrayOutput { return v.DBInstanceIdentifiers }).(pulumi.StringArrayOutput)
+func (o DBProxyTargetGroupOutput) DbInstanceIdentifiers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DBProxyTargetGroup) pulumi.StringArrayOutput { return v.DbInstanceIdentifiers }).(pulumi.StringArrayOutput)
 }
 
 // The identifier for the proxy.
-func (o DBProxyTargetGroupOutput) DBProxyName() pulumi.StringOutput {
-	return o.ApplyT(func(v *DBProxyTargetGroup) pulumi.StringOutput { return v.DBProxyName }).(pulumi.StringOutput)
+func (o DBProxyTargetGroupOutput) DbProxyName() pulumi.StringOutput {
+	return o.ApplyT(func(v *DBProxyTargetGroup) pulumi.StringOutput { return v.DbProxyName }).(pulumi.StringOutput)
 }
 
 // The Amazon Resource Name (ARN) representing the target group.

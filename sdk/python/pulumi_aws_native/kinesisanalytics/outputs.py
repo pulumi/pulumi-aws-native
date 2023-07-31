@@ -159,9 +159,9 @@ class ApplicationInputLambdaProcessor(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "resourceARN":
+        if key == "resourceArn":
             suggest = "resource_arn"
-        elif key == "roleARN":
+        elif key == "roleArn":
             suggest = "role_arn"
 
         if suggest:
@@ -182,12 +182,12 @@ class ApplicationInputLambdaProcessor(dict):
         pulumi.set(__self__, "role_arn", role_arn)
 
     @property
-    @pulumi.getter(name="resourceARN")
+    @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> str:
         return pulumi.get(self, "resource_arn")
 
     @property
-    @pulumi.getter(name="roleARN")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
         return pulumi.get(self, "role_arn")
 
@@ -317,9 +317,9 @@ class ApplicationKinesisFirehoseInput(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "resourceARN":
+        if key == "resourceArn":
             suggest = "resource_arn"
-        elif key == "roleARN":
+        elif key == "roleArn":
             suggest = "role_arn"
 
         if suggest:
@@ -340,12 +340,12 @@ class ApplicationKinesisFirehoseInput(dict):
         pulumi.set(__self__, "role_arn", role_arn)
 
     @property
-    @pulumi.getter(name="resourceARN")
+    @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> str:
         return pulumi.get(self, "resource_arn")
 
     @property
-    @pulumi.getter(name="roleARN")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
         return pulumi.get(self, "role_arn")
 
@@ -355,9 +355,9 @@ class ApplicationKinesisStreamsInput(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "resourceARN":
+        if key == "resourceArn":
             suggest = "resource_arn"
-        elif key == "roleARN":
+        elif key == "roleArn":
             suggest = "role_arn"
 
         if suggest:
@@ -378,12 +378,12 @@ class ApplicationKinesisStreamsInput(dict):
         pulumi.set(__self__, "role_arn", role_arn)
 
     @property
-    @pulumi.getter(name="resourceARN")
+    @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> str:
         return pulumi.get(self, "resource_arn")
 
     @property
-    @pulumi.getter(name="roleARN")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
         return pulumi.get(self, "role_arn")
 
@@ -393,10 +393,10 @@ class ApplicationMappingParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "cSVMappingParameters":
-            suggest = "c_sv_mapping_parameters"
-        elif key == "jSONMappingParameters":
-            suggest = "j_son_mapping_parameters"
+        if key == "csvMappingParameters":
+            suggest = "csv_mapping_parameters"
+        elif key == "jsonMappingParameters":
+            suggest = "json_mapping_parameters"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ApplicationMappingParameters. Access the value via the '{suggest}' property getter instead.")
@@ -410,22 +410,22 @@ class ApplicationMappingParameters(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 c_sv_mapping_parameters: Optional['outputs.ApplicationCSVMappingParameters'] = None,
-                 j_son_mapping_parameters: Optional['outputs.ApplicationJSONMappingParameters'] = None):
-        if c_sv_mapping_parameters is not None:
-            pulumi.set(__self__, "c_sv_mapping_parameters", c_sv_mapping_parameters)
-        if j_son_mapping_parameters is not None:
-            pulumi.set(__self__, "j_son_mapping_parameters", j_son_mapping_parameters)
+                 csv_mapping_parameters: Optional['outputs.ApplicationCSVMappingParameters'] = None,
+                 json_mapping_parameters: Optional['outputs.ApplicationJSONMappingParameters'] = None):
+        if csv_mapping_parameters is not None:
+            pulumi.set(__self__, "csv_mapping_parameters", csv_mapping_parameters)
+        if json_mapping_parameters is not None:
+            pulumi.set(__self__, "json_mapping_parameters", json_mapping_parameters)
 
     @property
-    @pulumi.getter(name="cSVMappingParameters")
-    def c_sv_mapping_parameters(self) -> Optional['outputs.ApplicationCSVMappingParameters']:
-        return pulumi.get(self, "c_sv_mapping_parameters")
+    @pulumi.getter(name="csvMappingParameters")
+    def csv_mapping_parameters(self) -> Optional['outputs.ApplicationCSVMappingParameters']:
+        return pulumi.get(self, "csv_mapping_parameters")
 
     @property
-    @pulumi.getter(name="jSONMappingParameters")
-    def j_son_mapping_parameters(self) -> Optional['outputs.ApplicationJSONMappingParameters']:
-        return pulumi.get(self, "j_son_mapping_parameters")
+    @pulumi.getter(name="jsonMappingParameters")
+    def json_mapping_parameters(self) -> Optional['outputs.ApplicationJSONMappingParameters']:
+        return pulumi.get(self, "json_mapping_parameters")
 
 
 @pulumi.output_type
@@ -463,9 +463,9 @@ class ApplicationOutputResourceKinesisFirehoseOutput(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "resourceARN":
+        if key == "resourceArn":
             suggest = "resource_arn"
-        elif key == "roleARN":
+        elif key == "roleArn":
             suggest = "role_arn"
 
         if suggest:
@@ -486,12 +486,12 @@ class ApplicationOutputResourceKinesisFirehoseOutput(dict):
         pulumi.set(__self__, "role_arn", role_arn)
 
     @property
-    @pulumi.getter(name="resourceARN")
+    @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> str:
         return pulumi.get(self, "resource_arn")
 
     @property
-    @pulumi.getter(name="roleARN")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
         return pulumi.get(self, "role_arn")
 
@@ -501,9 +501,9 @@ class ApplicationOutputResourceKinesisStreamsOutput(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "resourceARN":
+        if key == "resourceArn":
             suggest = "resource_arn"
-        elif key == "roleARN":
+        elif key == "roleArn":
             suggest = "role_arn"
 
         if suggest:
@@ -524,12 +524,12 @@ class ApplicationOutputResourceKinesisStreamsOutput(dict):
         pulumi.set(__self__, "role_arn", role_arn)
 
     @property
-    @pulumi.getter(name="resourceARN")
+    @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> str:
         return pulumi.get(self, "resource_arn")
 
     @property
-    @pulumi.getter(name="roleARN")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
         return pulumi.get(self, "role_arn")
 
@@ -539,9 +539,9 @@ class ApplicationOutputResourceLambdaOutput(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "resourceARN":
+        if key == "resourceArn":
             suggest = "resource_arn"
-        elif key == "roleARN":
+        elif key == "roleArn":
             suggest = "role_arn"
 
         if suggest:
@@ -562,12 +562,12 @@ class ApplicationOutputResourceLambdaOutput(dict):
         pulumi.set(__self__, "role_arn", role_arn)
 
     @property
-    @pulumi.getter(name="resourceARN")
+    @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> str:
         return pulumi.get(self, "resource_arn")
 
     @property
-    @pulumi.getter(name="roleARN")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
         return pulumi.get(self, "role_arn")
 
@@ -794,10 +794,10 @@ class ApplicationReferenceDataSourceMappingParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "cSVMappingParameters":
-            suggest = "c_sv_mapping_parameters"
-        elif key == "jSONMappingParameters":
-            suggest = "j_son_mapping_parameters"
+        if key == "csvMappingParameters":
+            suggest = "csv_mapping_parameters"
+        elif key == "jsonMappingParameters":
+            suggest = "json_mapping_parameters"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ApplicationReferenceDataSourceMappingParameters. Access the value via the '{suggest}' property getter instead.")
@@ -811,22 +811,22 @@ class ApplicationReferenceDataSourceMappingParameters(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 c_sv_mapping_parameters: Optional['outputs.ApplicationReferenceDataSourceCSVMappingParameters'] = None,
-                 j_son_mapping_parameters: Optional['outputs.ApplicationReferenceDataSourceJSONMappingParameters'] = None):
-        if c_sv_mapping_parameters is not None:
-            pulumi.set(__self__, "c_sv_mapping_parameters", c_sv_mapping_parameters)
-        if j_son_mapping_parameters is not None:
-            pulumi.set(__self__, "j_son_mapping_parameters", j_son_mapping_parameters)
+                 csv_mapping_parameters: Optional['outputs.ApplicationReferenceDataSourceCSVMappingParameters'] = None,
+                 json_mapping_parameters: Optional['outputs.ApplicationReferenceDataSourceJSONMappingParameters'] = None):
+        if csv_mapping_parameters is not None:
+            pulumi.set(__self__, "csv_mapping_parameters", csv_mapping_parameters)
+        if json_mapping_parameters is not None:
+            pulumi.set(__self__, "json_mapping_parameters", json_mapping_parameters)
 
     @property
-    @pulumi.getter(name="cSVMappingParameters")
-    def c_sv_mapping_parameters(self) -> Optional['outputs.ApplicationReferenceDataSourceCSVMappingParameters']:
-        return pulumi.get(self, "c_sv_mapping_parameters")
+    @pulumi.getter(name="csvMappingParameters")
+    def csv_mapping_parameters(self) -> Optional['outputs.ApplicationReferenceDataSourceCSVMappingParameters']:
+        return pulumi.get(self, "csv_mapping_parameters")
 
     @property
-    @pulumi.getter(name="jSONMappingParameters")
-    def j_son_mapping_parameters(self) -> Optional['outputs.ApplicationReferenceDataSourceJSONMappingParameters']:
-        return pulumi.get(self, "j_son_mapping_parameters")
+    @pulumi.getter(name="jsonMappingParameters")
+    def json_mapping_parameters(self) -> Optional['outputs.ApplicationReferenceDataSourceJSONMappingParameters']:
+        return pulumi.get(self, "json_mapping_parameters")
 
 
 @pulumi.output_type
@@ -1014,11 +1014,11 @@ class ApplicationReferenceDataSourceS3ReferenceDataSource(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "bucketARN":
+        if key == "bucketArn":
             suggest = "bucket_arn"
         elif key == "fileKey":
             suggest = "file_key"
-        elif key == "referenceRoleARN":
+        elif key == "referenceRoleArn":
             suggest = "reference_role_arn"
 
         if suggest:
@@ -1041,7 +1041,7 @@ class ApplicationReferenceDataSourceS3ReferenceDataSource(dict):
         pulumi.set(__self__, "reference_role_arn", reference_role_arn)
 
     @property
-    @pulumi.getter(name="bucketARN")
+    @pulumi.getter(name="bucketArn")
     def bucket_arn(self) -> str:
         return pulumi.get(self, "bucket_arn")
 
@@ -1051,7 +1051,7 @@ class ApplicationReferenceDataSourceS3ReferenceDataSource(dict):
         return pulumi.get(self, "file_key")
 
     @property
-    @pulumi.getter(name="referenceRoleARN")
+    @pulumi.getter(name="referenceRoleArn")
     def reference_role_arn(self) -> str:
         return pulumi.get(self, "reference_role_arn")
 

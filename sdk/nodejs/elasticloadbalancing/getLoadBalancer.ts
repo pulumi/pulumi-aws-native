@@ -27,15 +27,15 @@ export interface GetLoadBalancerResult {
     readonly appCookieStickinessPolicy?: outputs.elasticloadbalancing.LoadBalancerAppCookieStickinessPolicy[];
     readonly availabilityZones?: string[];
     readonly canonicalHostedZoneName?: string;
-    readonly canonicalHostedZoneNameID?: string;
+    readonly canonicalHostedZoneNameId?: string;
     readonly connectionDrainingPolicy?: outputs.elasticloadbalancing.LoadBalancerConnectionDrainingPolicy;
     readonly connectionSettings?: outputs.elasticloadbalancing.LoadBalancerConnectionSettings;
     readonly crossZone?: boolean;
-    readonly dNSName?: string;
+    readonly dnsName?: string;
     readonly healthCheck?: outputs.elasticloadbalancing.LoadBalancerHealthCheck;
     readonly id?: string;
     readonly instances?: string[];
-    readonly lBCookieStickinessPolicy?: outputs.elasticloadbalancing.LoadBalancerLBCookieStickinessPolicy[];
+    readonly lbCookieStickinessPolicy?: outputs.elasticloadbalancing.LoadBalancerLBCookieStickinessPolicy[];
     readonly listeners?: outputs.elasticloadbalancing.LoadBalancerListeners[];
     readonly policies?: outputs.elasticloadbalancing.LoadBalancerPolicies[];
     readonly securityGroups?: string[];

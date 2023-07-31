@@ -789,7 +789,7 @@ class CrawlerTargetsArgs:
         pulumi.set(self, "delta_targets", value)
 
     @property
-    @pulumi.getter(name="dynamoDBTargets")
+    @pulumi.getter(name="dynamoDbTargets")
     def dynamo_db_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerDynamoDBTargetArgs']]]]:
         return pulumi.get(self, "dynamo_db_targets")
 
@@ -807,7 +807,7 @@ class CrawlerTargetsArgs:
         pulumi.set(self, "jdbc_targets", value)
 
     @property
-    @pulumi.getter(name="mongoDBTargets")
+    @pulumi.getter(name="mongoDbTargets")
     def mongo_db_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerMongoDBTargetArgs']]]]:
         return pulumi.get(self, "mongo_db_targets")
 
@@ -1361,20 +1361,20 @@ class MLTransformInputRecordTablesArgs:
 @pulumi.input_type
 class MLTransformMLUserDataEncryptionArgs:
     def __init__(__self__, *,
-                 m_luser_data_encryption_mode: pulumi.Input[str],
+                 ml_user_data_encryption_mode: pulumi.Input[str],
                  kms_key_id: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "m_luser_data_encryption_mode", m_luser_data_encryption_mode)
+        pulumi.set(__self__, "ml_user_data_encryption_mode", ml_user_data_encryption_mode)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
 
     @property
-    @pulumi.getter(name="mLUserDataEncryptionMode")
-    def m_luser_data_encryption_mode(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "m_luser_data_encryption_mode")
+    @pulumi.getter(name="mlUserDataEncryptionMode")
+    def ml_user_data_encryption_mode(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "ml_user_data_encryption_mode")
 
-    @m_luser_data_encryption_mode.setter
-    def m_luser_data_encryption_mode(self, value: pulumi.Input[str]):
-        pulumi.set(self, "m_luser_data_encryption_mode", value)
+    @ml_user_data_encryption_mode.setter
+    def ml_user_data_encryption_mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "ml_user_data_encryption_mode", value)
 
     @property
     @pulumi.getter(name="kmsKeyId")
@@ -1389,21 +1389,21 @@ class MLTransformMLUserDataEncryptionArgs:
 @pulumi.input_type
 class MLTransformTransformEncryptionArgs:
     def __init__(__self__, *,
-                 m_luser_data_encryption: Optional[pulumi.Input['MLTransformMLUserDataEncryptionArgs']] = None,
+                 ml_user_data_encryption: Optional[pulumi.Input['MLTransformMLUserDataEncryptionArgs']] = None,
                  task_run_security_configuration_name: Optional[pulumi.Input[str]] = None):
-        if m_luser_data_encryption is not None:
-            pulumi.set(__self__, "m_luser_data_encryption", m_luser_data_encryption)
+        if ml_user_data_encryption is not None:
+            pulumi.set(__self__, "ml_user_data_encryption", ml_user_data_encryption)
         if task_run_security_configuration_name is not None:
             pulumi.set(__self__, "task_run_security_configuration_name", task_run_security_configuration_name)
 
     @property
-    @pulumi.getter(name="mLUserDataEncryption")
-    def m_luser_data_encryption(self) -> Optional[pulumi.Input['MLTransformMLUserDataEncryptionArgs']]:
-        return pulumi.get(self, "m_luser_data_encryption")
+    @pulumi.getter(name="mlUserDataEncryption")
+    def ml_user_data_encryption(self) -> Optional[pulumi.Input['MLTransformMLUserDataEncryptionArgs']]:
+        return pulumi.get(self, "ml_user_data_encryption")
 
-    @m_luser_data_encryption.setter
-    def m_luser_data_encryption(self, value: Optional[pulumi.Input['MLTransformMLUserDataEncryptionArgs']]):
-        pulumi.set(self, "m_luser_data_encryption", value)
+    @ml_user_data_encryption.setter
+    def ml_user_data_encryption(self, value: Optional[pulumi.Input['MLTransformMLUserDataEncryptionArgs']]):
+        pulumi.set(self, "ml_user_data_encryption", value)
 
     @property
     @pulumi.getter(name="taskRunSecurityConfigurationName")

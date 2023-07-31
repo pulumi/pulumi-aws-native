@@ -16,28 +16,28 @@ __all__ = ['DBSecurityGroupArgs', 'DBSecurityGroup']
 @pulumi.input_type
 class DBSecurityGroupArgs:
     def __init__(__self__, *,
-                 d_b_security_group_ingress: pulumi.Input[Sequence[pulumi.Input['DBSecurityGroupIngressArgs']]],
+                 db_security_group_ingress: pulumi.Input[Sequence[pulumi.Input['DBSecurityGroupIngressArgs']]],
                  group_description: pulumi.Input[str],
-                 e_c2_vpc_id: Optional[pulumi.Input[str]] = None,
+                 ec2_vpc_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DBSecurityGroupTagArgs']]]] = None):
         """
         The set of arguments for constructing a DBSecurityGroup resource.
         """
-        pulumi.set(__self__, "d_b_security_group_ingress", d_b_security_group_ingress)
+        pulumi.set(__self__, "db_security_group_ingress", db_security_group_ingress)
         pulumi.set(__self__, "group_description", group_description)
-        if e_c2_vpc_id is not None:
-            pulumi.set(__self__, "e_c2_vpc_id", e_c2_vpc_id)
+        if ec2_vpc_id is not None:
+            pulumi.set(__self__, "ec2_vpc_id", ec2_vpc_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
     @property
-    @pulumi.getter(name="dBSecurityGroupIngress")
-    def d_b_security_group_ingress(self) -> pulumi.Input[Sequence[pulumi.Input['DBSecurityGroupIngressArgs']]]:
-        return pulumi.get(self, "d_b_security_group_ingress")
+    @pulumi.getter(name="dbSecurityGroupIngress")
+    def db_security_group_ingress(self) -> pulumi.Input[Sequence[pulumi.Input['DBSecurityGroupIngressArgs']]]:
+        return pulumi.get(self, "db_security_group_ingress")
 
-    @d_b_security_group_ingress.setter
-    def d_b_security_group_ingress(self, value: pulumi.Input[Sequence[pulumi.Input['DBSecurityGroupIngressArgs']]]):
-        pulumi.set(self, "d_b_security_group_ingress", value)
+    @db_security_group_ingress.setter
+    def db_security_group_ingress(self, value: pulumi.Input[Sequence[pulumi.Input['DBSecurityGroupIngressArgs']]]):
+        pulumi.set(self, "db_security_group_ingress", value)
 
     @property
     @pulumi.getter(name="groupDescription")
@@ -49,13 +49,13 @@ class DBSecurityGroupArgs:
         pulumi.set(self, "group_description", value)
 
     @property
-    @pulumi.getter(name="eC2VpcId")
-    def e_c2_vpc_id(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "e_c2_vpc_id")
+    @pulumi.getter(name="ec2VpcId")
+    def ec2_vpc_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ec2_vpc_id")
 
-    @e_c2_vpc_id.setter
-    def e_c2_vpc_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "e_c2_vpc_id", value)
+    @ec2_vpc_id.setter
+    def ec2_vpc_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ec2_vpc_id", value)
 
     @property
     @pulumi.getter
@@ -77,8 +77,8 @@ class DBSecurityGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 d_b_security_group_ingress: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBSecurityGroupIngressArgs']]]]] = None,
-                 e_c2_vpc_id: Optional[pulumi.Input[str]] = None,
+                 db_security_group_ingress: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBSecurityGroupIngressArgs']]]]] = None,
+                 ec2_vpc_id: Optional[pulumi.Input[str]] = None,
                  group_description: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBSecurityGroupTagArgs']]]]] = None,
                  __props__=None):
@@ -112,8 +112,8 @@ class DBSecurityGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 d_b_security_group_ingress: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBSecurityGroupIngressArgs']]]]] = None,
-                 e_c2_vpc_id: Optional[pulumi.Input[str]] = None,
+                 db_security_group_ingress: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBSecurityGroupIngressArgs']]]]] = None,
+                 ec2_vpc_id: Optional[pulumi.Input[str]] = None,
                  group_description: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBSecurityGroupTagArgs']]]]] = None,
                  __props__=None):
@@ -126,10 +126,10 @@ class DBSecurityGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DBSecurityGroupArgs.__new__(DBSecurityGroupArgs)
 
-            if d_b_security_group_ingress is None and not opts.urn:
-                raise TypeError("Missing required property 'd_b_security_group_ingress'")
-            __props__.__dict__["d_b_security_group_ingress"] = d_b_security_group_ingress
-            __props__.__dict__["e_c2_vpc_id"] = e_c2_vpc_id
+            if db_security_group_ingress is None and not opts.urn:
+                raise TypeError("Missing required property 'db_security_group_ingress'")
+            __props__.__dict__["db_security_group_ingress"] = db_security_group_ingress
+            __props__.__dict__["ec2_vpc_id"] = ec2_vpc_id
             if group_description is None and not opts.urn:
                 raise TypeError("Missing required property 'group_description'")
             __props__.__dict__["group_description"] = group_description
@@ -156,21 +156,21 @@ class DBSecurityGroup(pulumi.CustomResource):
 
         __props__ = DBSecurityGroupArgs.__new__(DBSecurityGroupArgs)
 
-        __props__.__dict__["d_b_security_group_ingress"] = None
-        __props__.__dict__["e_c2_vpc_id"] = None
+        __props__.__dict__["db_security_group_ingress"] = None
+        __props__.__dict__["ec2_vpc_id"] = None
         __props__.__dict__["group_description"] = None
         __props__.__dict__["tags"] = None
         return DBSecurityGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="dBSecurityGroupIngress")
-    def d_b_security_group_ingress(self) -> pulumi.Output[Sequence['outputs.DBSecurityGroupIngress']]:
-        return pulumi.get(self, "d_b_security_group_ingress")
+    @pulumi.getter(name="dbSecurityGroupIngress")
+    def db_security_group_ingress(self) -> pulumi.Output[Sequence['outputs.DBSecurityGroupIngress']]:
+        return pulumi.get(self, "db_security_group_ingress")
 
     @property
-    @pulumi.getter(name="eC2VpcId")
-    def e_c2_vpc_id(self) -> pulumi.Output[Optional[str]]:
-        return pulumi.get(self, "e_c2_vpc_id")
+    @pulumi.getter(name="ec2VpcId")
+    def ec2_vpc_id(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "ec2_vpc_id")
 
     @property
     @pulumi.getter(name="groupDescription")

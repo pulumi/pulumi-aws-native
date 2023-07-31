@@ -16,11 +16,11 @@ namespace Pulumi.AwsNative.ElastiCache
     [AwsNativeResourceType("aws-native:elasticache:CacheCluster")]
     public partial class CacheCluster : global::Pulumi.CustomResource
     {
-        [Output("aZMode")]
-        public Output<string?> AZMode { get; private set; } = null!;
-
         [Output("autoMinorVersionUpgrade")]
         public Output<bool?> AutoMinorVersionUpgrade { get; private set; } = null!;
+
+        [Output("azMode")]
+        public Output<string?> AzMode { get; private set; } = null!;
 
         [Output("cacheNodeType")]
         public Output<string> CacheNodeType { get; private set; } = null!;
@@ -148,11 +148,11 @@ namespace Pulumi.AwsNative.ElastiCache
 
     public sealed class CacheClusterArgs : global::Pulumi.ResourceArgs
     {
-        [Input("aZMode")]
-        public Input<string>? AZMode { get; set; }
-
         [Input("autoMinorVersionUpgrade")]
         public Input<bool>? AutoMinorVersionUpgrade { get; set; }
+
+        [Input("azMode")]
+        public Input<string>? AzMode { get; set; }
 
         [Input("cacheNodeType", required: true)]
         public Input<string> CacheNodeType { get; set; } = null!;

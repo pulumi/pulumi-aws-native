@@ -46,11 +46,11 @@ export interface GetAutoScalingGroupResult {
     readonly newInstancesProtectedFromScaleIn?: boolean;
     readonly notificationConfigurations?: outputs.autoscaling.AutoScalingGroupNotificationConfiguration[];
     readonly placementGroup?: string;
-    readonly serviceLinkedRoleARN?: string;
+    readonly serviceLinkedRoleArn?: string;
     readonly tags?: outputs.autoscaling.AutoScalingGroupTagProperty[];
-    readonly targetGroupARNs?: string[];
+    readonly targetGroupArns?: string[];
     readonly terminationPolicies?: string[];
-    readonly vPCZoneIdentifier?: string[];
+    readonly vpcZoneIdentifier?: string[];
 }
 /**
  * Resource Type definition for AWS::AutoScaling::AutoScalingGroup

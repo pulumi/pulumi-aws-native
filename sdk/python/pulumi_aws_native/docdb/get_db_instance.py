@@ -19,13 +19,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetDBInstanceResult:
-    def __init__(__self__, auto_minor_version_upgrade=None, d_b_instance_class=None, enable_performance_insights=None, endpoint=None, id=None, port=None, preferred_maintenance_window=None, tags=None):
+    def __init__(__self__, auto_minor_version_upgrade=None, db_instance_class=None, enable_performance_insights=None, endpoint=None, id=None, port=None, preferred_maintenance_window=None, tags=None):
         if auto_minor_version_upgrade and not isinstance(auto_minor_version_upgrade, bool):
             raise TypeError("Expected argument 'auto_minor_version_upgrade' to be a bool")
         pulumi.set(__self__, "auto_minor_version_upgrade", auto_minor_version_upgrade)
-        if d_b_instance_class and not isinstance(d_b_instance_class, str):
-            raise TypeError("Expected argument 'd_b_instance_class' to be a str")
-        pulumi.set(__self__, "d_b_instance_class", d_b_instance_class)
+        if db_instance_class and not isinstance(db_instance_class, str):
+            raise TypeError("Expected argument 'db_instance_class' to be a str")
+        pulumi.set(__self__, "db_instance_class", db_instance_class)
         if enable_performance_insights and not isinstance(enable_performance_insights, bool):
             raise TypeError("Expected argument 'enable_performance_insights' to be a bool")
         pulumi.set(__self__, "enable_performance_insights", enable_performance_insights)
@@ -51,9 +51,9 @@ class GetDBInstanceResult:
         return pulumi.get(self, "auto_minor_version_upgrade")
 
     @property
-    @pulumi.getter(name="dBInstanceClass")
-    def d_b_instance_class(self) -> Optional[str]:
-        return pulumi.get(self, "d_b_instance_class")
+    @pulumi.getter(name="dbInstanceClass")
+    def db_instance_class(self) -> Optional[str]:
+        return pulumi.get(self, "db_instance_class")
 
     @property
     @pulumi.getter(name="enablePerformanceInsights")
@@ -93,7 +93,7 @@ class AwaitableGetDBInstanceResult(GetDBInstanceResult):
             yield self
         return GetDBInstanceResult(
             auto_minor_version_upgrade=self.auto_minor_version_upgrade,
-            d_b_instance_class=self.d_b_instance_class,
+            db_instance_class=self.db_instance_class,
             enable_performance_insights=self.enable_performance_insights,
             endpoint=self.endpoint,
             id=self.id,
@@ -114,7 +114,7 @@ def get_db_instance(id: Optional[str] = None,
 
     return AwaitableGetDBInstanceResult(
         auto_minor_version_upgrade=pulumi.get(__ret__, 'auto_minor_version_upgrade'),
-        d_b_instance_class=pulumi.get(__ret__, 'd_b_instance_class'),
+        db_instance_class=pulumi.get(__ret__, 'db_instance_class'),
         enable_performance_insights=pulumi.get(__ret__, 'enable_performance_insights'),
         endpoint=pulumi.get(__ret__, 'endpoint'),
         id=pulumi.get(__ret__, 'id'),

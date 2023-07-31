@@ -162,7 +162,7 @@ class AutoScalingGroupInstanceRequirements(dict):
             suggest = "require_hibernate_support"
         elif key == "spotMaxPricePercentageOverLowestPrice":
             suggest = "spot_max_price_percentage_over_lowest_price"
-        elif key == "totalLocalStorageGB":
+        elif key == "totalLocalStorageGb":
             suggest = "total_local_storage_gb"
         elif key == "vCpuCount":
             suggest = "v_cpu_count"
@@ -355,7 +355,7 @@ class AutoScalingGroupInstanceRequirements(dict):
         return pulumi.get(self, "spot_max_price_percentage_over_lowest_price")
 
     @property
-    @pulumi.getter(name="totalLocalStorageGB")
+    @pulumi.getter(name="totalLocalStorageGb")
     def total_local_storage_gb(self) -> Optional['outputs.AutoScalingGroupTotalLocalStorageGBRequest']:
         return pulumi.get(self, "total_local_storage_gb")
 
@@ -604,9 +604,9 @@ class AutoScalingGroupLifecycleHookSpecification(dict):
             suggest = "heartbeat_timeout"
         elif key == "notificationMetadata":
             suggest = "notification_metadata"
-        elif key == "notificationTargetARN":
+        elif key == "notificationTargetArn":
             suggest = "notification_target_arn"
-        elif key == "roleARN":
+        elif key == "roleArn":
             suggest = "role_arn"
 
         if suggest:
@@ -667,12 +667,12 @@ class AutoScalingGroupLifecycleHookSpecification(dict):
         return pulumi.get(self, "notification_metadata")
 
     @property
-    @pulumi.getter(name="notificationTargetARN")
+    @pulumi.getter(name="notificationTargetArn")
     def notification_target_arn(self) -> Optional[str]:
         return pulumi.get(self, "notification_target_arn")
 
     @property
-    @pulumi.getter(name="roleARN")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[str]:
         return pulumi.get(self, "role_arn")
 
@@ -825,7 +825,7 @@ class AutoScalingGroupNotificationConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "topicARN":
+        if key == "topicArn":
             suggest = "topic_arn"
         elif key == "notificationTypes":
             suggest = "notification_types"
@@ -849,7 +849,7 @@ class AutoScalingGroupNotificationConfiguration(dict):
             pulumi.set(__self__, "notification_types", notification_types)
 
     @property
-    @pulumi.getter(name="topicARN")
+    @pulumi.getter(name="topicArn")
     def topic_arn(self) -> str:
         return pulumi.get(self, "topic_arn")
 

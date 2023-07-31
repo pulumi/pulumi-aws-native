@@ -126,7 +126,7 @@ class StackArgs:
         pulumi.set(self, "embed_host_domains", value)
 
     @property
-    @pulumi.getter(name="feedbackURL")
+    @pulumi.getter(name="feedbackUrl")
     def feedback_url(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "feedback_url")
 
@@ -144,7 +144,7 @@ class StackArgs:
         pulumi.set(self, "name", value)
 
     @property
-    @pulumi.getter(name="redirectURL")
+    @pulumi.getter(name="redirectUrl")
     def redirect_url(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "redirect_url")
 
@@ -356,7 +356,7 @@ class Stack(pulumi.CustomResource):
         return pulumi.get(self, "embed_host_domains")
 
     @property
-    @pulumi.getter(name="feedbackURL")
+    @pulumi.getter(name="feedbackUrl")
     def feedback_url(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "feedback_url")
 
@@ -366,7 +366,7 @@ class Stack(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="redirectURL")
+    @pulumi.getter(name="redirectUrl")
     def redirect_url(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "redirect_url")
 

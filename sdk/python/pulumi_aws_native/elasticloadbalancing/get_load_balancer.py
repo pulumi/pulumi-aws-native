@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetLoadBalancerResult:
-    def __init__(__self__, access_logging_policy=None, app_cookie_stickiness_policy=None, availability_zones=None, canonical_hosted_zone_name=None, canonical_hosted_zone_name_id=None, connection_draining_policy=None, connection_settings=None, cross_zone=None, d_ns_name=None, health_check=None, id=None, instances=None, l_b_cookie_stickiness_policy=None, listeners=None, policies=None, security_groups=None, source_security_group_group_name=None, source_security_group_owner_alias=None, subnets=None, tags=None):
+    def __init__(__self__, access_logging_policy=None, app_cookie_stickiness_policy=None, availability_zones=None, canonical_hosted_zone_name=None, canonical_hosted_zone_name_id=None, connection_draining_policy=None, connection_settings=None, cross_zone=None, dns_name=None, health_check=None, id=None, instances=None, lb_cookie_stickiness_policy=None, listeners=None, policies=None, security_groups=None, source_security_group_group_name=None, source_security_group_owner_alias=None, subnets=None, tags=None):
         if access_logging_policy and not isinstance(access_logging_policy, dict):
             raise TypeError("Expected argument 'access_logging_policy' to be a dict")
         pulumi.set(__self__, "access_logging_policy", access_logging_policy)
@@ -44,9 +44,9 @@ class GetLoadBalancerResult:
         if cross_zone and not isinstance(cross_zone, bool):
             raise TypeError("Expected argument 'cross_zone' to be a bool")
         pulumi.set(__self__, "cross_zone", cross_zone)
-        if d_ns_name and not isinstance(d_ns_name, str):
-            raise TypeError("Expected argument 'd_ns_name' to be a str")
-        pulumi.set(__self__, "d_ns_name", d_ns_name)
+        if dns_name and not isinstance(dns_name, str):
+            raise TypeError("Expected argument 'dns_name' to be a str")
+        pulumi.set(__self__, "dns_name", dns_name)
         if health_check and not isinstance(health_check, dict):
             raise TypeError("Expected argument 'health_check' to be a dict")
         pulumi.set(__self__, "health_check", health_check)
@@ -56,9 +56,9 @@ class GetLoadBalancerResult:
         if instances and not isinstance(instances, list):
             raise TypeError("Expected argument 'instances' to be a list")
         pulumi.set(__self__, "instances", instances)
-        if l_b_cookie_stickiness_policy and not isinstance(l_b_cookie_stickiness_policy, list):
-            raise TypeError("Expected argument 'l_b_cookie_stickiness_policy' to be a list")
-        pulumi.set(__self__, "l_b_cookie_stickiness_policy", l_b_cookie_stickiness_policy)
+        if lb_cookie_stickiness_policy and not isinstance(lb_cookie_stickiness_policy, list):
+            raise TypeError("Expected argument 'lb_cookie_stickiness_policy' to be a list")
+        pulumi.set(__self__, "lb_cookie_stickiness_policy", lb_cookie_stickiness_policy)
         if listeners and not isinstance(listeners, list):
             raise TypeError("Expected argument 'listeners' to be a list")
         pulumi.set(__self__, "listeners", listeners)
@@ -102,7 +102,7 @@ class GetLoadBalancerResult:
         return pulumi.get(self, "canonical_hosted_zone_name")
 
     @property
-    @pulumi.getter(name="canonicalHostedZoneNameID")
+    @pulumi.getter(name="canonicalHostedZoneNameId")
     def canonical_hosted_zone_name_id(self) -> Optional[str]:
         return pulumi.get(self, "canonical_hosted_zone_name_id")
 
@@ -122,9 +122,9 @@ class GetLoadBalancerResult:
         return pulumi.get(self, "cross_zone")
 
     @property
-    @pulumi.getter(name="dNSName")
-    def d_ns_name(self) -> Optional[str]:
-        return pulumi.get(self, "d_ns_name")
+    @pulumi.getter(name="dnsName")
+    def dns_name(self) -> Optional[str]:
+        return pulumi.get(self, "dns_name")
 
     @property
     @pulumi.getter(name="healthCheck")
@@ -142,9 +142,9 @@ class GetLoadBalancerResult:
         return pulumi.get(self, "instances")
 
     @property
-    @pulumi.getter(name="lBCookieStickinessPolicy")
-    def l_b_cookie_stickiness_policy(self) -> Optional[Sequence['outputs.LoadBalancerLBCookieStickinessPolicy']]:
-        return pulumi.get(self, "l_b_cookie_stickiness_policy")
+    @pulumi.getter(name="lbCookieStickinessPolicy")
+    def lb_cookie_stickiness_policy(self) -> Optional[Sequence['outputs.LoadBalancerLBCookieStickinessPolicy']]:
+        return pulumi.get(self, "lb_cookie_stickiness_policy")
 
     @property
     @pulumi.getter
@@ -196,11 +196,11 @@ class AwaitableGetLoadBalancerResult(GetLoadBalancerResult):
             connection_draining_policy=self.connection_draining_policy,
             connection_settings=self.connection_settings,
             cross_zone=self.cross_zone,
-            d_ns_name=self.d_ns_name,
+            dns_name=self.dns_name,
             health_check=self.health_check,
             id=self.id,
             instances=self.instances,
-            l_b_cookie_stickiness_policy=self.l_b_cookie_stickiness_policy,
+            lb_cookie_stickiness_policy=self.lb_cookie_stickiness_policy,
             listeners=self.listeners,
             policies=self.policies,
             security_groups=self.security_groups,
@@ -229,11 +229,11 @@ def get_load_balancer(id: Optional[str] = None,
         connection_draining_policy=pulumi.get(__ret__, 'connection_draining_policy'),
         connection_settings=pulumi.get(__ret__, 'connection_settings'),
         cross_zone=pulumi.get(__ret__, 'cross_zone'),
-        d_ns_name=pulumi.get(__ret__, 'd_ns_name'),
+        dns_name=pulumi.get(__ret__, 'dns_name'),
         health_check=pulumi.get(__ret__, 'health_check'),
         id=pulumi.get(__ret__, 'id'),
         instances=pulumi.get(__ret__, 'instances'),
-        l_b_cookie_stickiness_policy=pulumi.get(__ret__, 'l_b_cookie_stickiness_policy'),
+        lb_cookie_stickiness_policy=pulumi.get(__ret__, 'lb_cookie_stickiness_policy'),
         listeners=pulumi.get(__ret__, 'listeners'),
         policies=pulumi.get(__ret__, 'policies'),
         security_groups=pulumi.get(__ret__, 'security_groups'),

@@ -43,12 +43,12 @@ export class DBInstance extends pulumi.CustomResource {
     public readonly allowMajorVersionUpgrade!: pulumi.Output<boolean | undefined>;
     public readonly autoMinorVersionUpgrade!: pulumi.Output<boolean | undefined>;
     public readonly availabilityZone!: pulumi.Output<string | undefined>;
-    public readonly dBClusterIdentifier!: pulumi.Output<string | undefined>;
-    public readonly dBInstanceClass!: pulumi.Output<string>;
-    public readonly dBInstanceIdentifier!: pulumi.Output<string | undefined>;
-    public readonly dBParameterGroupName!: pulumi.Output<string | undefined>;
-    public readonly dBSnapshotIdentifier!: pulumi.Output<string | undefined>;
-    public readonly dBSubnetGroupName!: pulumi.Output<string | undefined>;
+    public readonly dbClusterIdentifier!: pulumi.Output<string | undefined>;
+    public readonly dbInstanceClass!: pulumi.Output<string>;
+    public readonly dbInstanceIdentifier!: pulumi.Output<string | undefined>;
+    public readonly dbParameterGroupName!: pulumi.Output<string | undefined>;
+    public readonly dbSnapshotIdentifier!: pulumi.Output<string | undefined>;
+    public readonly dbSubnetGroupName!: pulumi.Output<string | undefined>;
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
     public /*out*/ readonly port!: pulumi.Output<string>;
     public readonly preferredMaintenanceWindow!: pulumi.Output<string | undefined>;
@@ -67,18 +67,18 @@ export class DBInstance extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dBInstanceClass === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'dBInstanceClass'");
+            if ((!args || args.dbInstanceClass === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'dbInstanceClass'");
             }
             resourceInputs["allowMajorVersionUpgrade"] = args ? args.allowMajorVersionUpgrade : undefined;
             resourceInputs["autoMinorVersionUpgrade"] = args ? args.autoMinorVersionUpgrade : undefined;
             resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            resourceInputs["dBClusterIdentifier"] = args ? args.dBClusterIdentifier : undefined;
-            resourceInputs["dBInstanceClass"] = args ? args.dBInstanceClass : undefined;
-            resourceInputs["dBInstanceIdentifier"] = args ? args.dBInstanceIdentifier : undefined;
-            resourceInputs["dBParameterGroupName"] = args ? args.dBParameterGroupName : undefined;
-            resourceInputs["dBSnapshotIdentifier"] = args ? args.dBSnapshotIdentifier : undefined;
-            resourceInputs["dBSubnetGroupName"] = args ? args.dBSubnetGroupName : undefined;
+            resourceInputs["dbClusterIdentifier"] = args ? args.dbClusterIdentifier : undefined;
+            resourceInputs["dbInstanceClass"] = args ? args.dbInstanceClass : undefined;
+            resourceInputs["dbInstanceIdentifier"] = args ? args.dbInstanceIdentifier : undefined;
+            resourceInputs["dbParameterGroupName"] = args ? args.dbParameterGroupName : undefined;
+            resourceInputs["dbSnapshotIdentifier"] = args ? args.dbSnapshotIdentifier : undefined;
+            resourceInputs["dbSubnetGroupName"] = args ? args.dbSubnetGroupName : undefined;
             resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["endpoint"] = undefined /*out*/;
@@ -87,12 +87,12 @@ export class DBInstance extends pulumi.CustomResource {
             resourceInputs["allowMajorVersionUpgrade"] = undefined /*out*/;
             resourceInputs["autoMinorVersionUpgrade"] = undefined /*out*/;
             resourceInputs["availabilityZone"] = undefined /*out*/;
-            resourceInputs["dBClusterIdentifier"] = undefined /*out*/;
-            resourceInputs["dBInstanceClass"] = undefined /*out*/;
-            resourceInputs["dBInstanceIdentifier"] = undefined /*out*/;
-            resourceInputs["dBParameterGroupName"] = undefined /*out*/;
-            resourceInputs["dBSnapshotIdentifier"] = undefined /*out*/;
-            resourceInputs["dBSubnetGroupName"] = undefined /*out*/;
+            resourceInputs["dbClusterIdentifier"] = undefined /*out*/;
+            resourceInputs["dbInstanceClass"] = undefined /*out*/;
+            resourceInputs["dbInstanceIdentifier"] = undefined /*out*/;
+            resourceInputs["dbParameterGroupName"] = undefined /*out*/;
+            resourceInputs["dbSnapshotIdentifier"] = undefined /*out*/;
+            resourceInputs["dbSubnetGroupName"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["port"] = undefined /*out*/;
             resourceInputs["preferredMaintenanceWindow"] = undefined /*out*/;
@@ -110,12 +110,12 @@ export interface DBInstanceArgs {
     allowMajorVersionUpgrade?: pulumi.Input<boolean>;
     autoMinorVersionUpgrade?: pulumi.Input<boolean>;
     availabilityZone?: pulumi.Input<string>;
-    dBClusterIdentifier?: pulumi.Input<string>;
-    dBInstanceClass: pulumi.Input<string>;
-    dBInstanceIdentifier?: pulumi.Input<string>;
-    dBParameterGroupName?: pulumi.Input<string>;
-    dBSnapshotIdentifier?: pulumi.Input<string>;
-    dBSubnetGroupName?: pulumi.Input<string>;
+    dbClusterIdentifier?: pulumi.Input<string>;
+    dbInstanceClass: pulumi.Input<string>;
+    dbInstanceIdentifier?: pulumi.Input<string>;
+    dbParameterGroupName?: pulumi.Input<string>;
+    dbSnapshotIdentifier?: pulumi.Input<string>;
+    dbSubnetGroupName?: pulumi.Input<string>;
     preferredMaintenanceWindow?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.neptune.DBInstanceTagArgs>[]>;
 }

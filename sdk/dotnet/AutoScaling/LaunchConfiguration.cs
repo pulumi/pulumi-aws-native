@@ -30,14 +30,14 @@ namespace Pulumi.AwsNative.AutoScaling
         /// <summary>
         /// The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to.
         /// </summary>
-        [Output("classicLinkVPCId")]
-        public Output<string?> ClassicLinkVPCId { get; private set; } = null!;
+        [Output("classicLinkVpcId")]
+        public Output<string?> ClassicLinkVpcId { get; private set; } = null!;
 
         /// <summary>
         /// The IDs of one or more security groups for the VPC that you specified in the ClassicLinkVPCId property.
         /// </summary>
-        [Output("classicLinkVPCSecurityGroups")]
-        public Output<ImmutableArray<string>> ClassicLinkVPCSecurityGroups { get; private set; } = null!;
+        [Output("classicLinkVpcSecurityGroups")]
+        public Output<ImmutableArray<string>> ClassicLinkVpcSecurityGroups { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether the launch configuration is optimized for EBS I/O (true) or not (false).
@@ -195,19 +195,19 @@ namespace Pulumi.AwsNative.AutoScaling
         /// <summary>
         /// The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to.
         /// </summary>
-        [Input("classicLinkVPCId")]
-        public Input<string>? ClassicLinkVPCId { get; set; }
+        [Input("classicLinkVpcId")]
+        public Input<string>? ClassicLinkVpcId { get; set; }
 
-        [Input("classicLinkVPCSecurityGroups")]
-        private InputList<string>? _classicLinkVPCSecurityGroups;
+        [Input("classicLinkVpcSecurityGroups")]
+        private InputList<string>? _classicLinkVpcSecurityGroups;
 
         /// <summary>
         /// The IDs of one or more security groups for the VPC that you specified in the ClassicLinkVPCId property.
         /// </summary>
-        public InputList<string> ClassicLinkVPCSecurityGroups
+        public InputList<string> ClassicLinkVpcSecurityGroups
         {
-            get => _classicLinkVPCSecurityGroups ?? (_classicLinkVPCSecurityGroups = new InputList<string>());
-            set => _classicLinkVPCSecurityGroups = value;
+            get => _classicLinkVpcSecurityGroups ?? (_classicLinkVpcSecurityGroups = new InputList<string>());
+            set => _classicLinkVpcSecurityGroups = value;
         }
 
         /// <summary>

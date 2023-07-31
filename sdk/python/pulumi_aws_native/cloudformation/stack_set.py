@@ -92,7 +92,7 @@ class StackSetArgs:
         pulumi.set(self, "permission_model", value)
 
     @property
-    @pulumi.getter(name="administrationRoleARN")
+    @pulumi.getter(name="administrationRoleArn")
     def administration_role_arn(self) -> Optional[pulumi.Input[str]]:
         """
         The Amazon Resource Number (ARN) of the IAM role to use to create this stack set. Specify an IAM role only if you are using customized administrator roles to control which users or groups can manage specific stack sets within the same administrator account.
@@ -245,7 +245,7 @@ class StackSetArgs:
         pulumi.set(self, "template_body", value)
 
     @property
-    @pulumi.getter(name="templateURL")
+    @pulumi.getter(name="templateUrl")
     def template_url(self) -> Optional[pulumi.Input[str]]:
         """
         Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that is located in an Amazon S3 bucket.
@@ -405,7 +405,7 @@ class StackSet(pulumi.CustomResource):
         return StackSet(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="administrationRoleARN")
+    @pulumi.getter(name="administrationRoleArn")
     def administration_role_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Number (ARN) of the IAM role to use to create this stack set. Specify an IAM role only if you are using customized administrator roles to control which users or groups can manage specific stack sets within the same administrator account.
@@ -522,7 +522,7 @@ class StackSet(pulumi.CustomResource):
         return pulumi.get(self, "template_body")
 
     @property
-    @pulumi.getter(name="templateURL")
+    @pulumi.getter(name="templateUrl")
     def template_url(self) -> pulumi.Output[Optional[str]]:
         """
         Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that is located in an Amazon S3 bucket.

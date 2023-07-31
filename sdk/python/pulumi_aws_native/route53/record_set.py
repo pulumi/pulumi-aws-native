@@ -30,7 +30,7 @@ class RecordSetArgs:
                  region: Optional[pulumi.Input[str]] = None,
                  resource_records: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  set_identifier: Optional[pulumi.Input[str]] = None,
-                 t_tl: Optional[pulumi.Input[str]] = None,
+                 ttl: Optional[pulumi.Input[str]] = None,
                  weight: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a RecordSet resource.
@@ -62,8 +62,8 @@ class RecordSetArgs:
             pulumi.set(__self__, "resource_records", resource_records)
         if set_identifier is not None:
             pulumi.set(__self__, "set_identifier", set_identifier)
-        if t_tl is not None:
-            pulumi.set(__self__, "t_tl", t_tl)
+        if ttl is not None:
+            pulumi.set(__self__, "ttl", ttl)
         if weight is not None:
             pulumi.set(__self__, "weight", weight)
 
@@ -194,13 +194,13 @@ class RecordSetArgs:
         pulumi.set(self, "set_identifier", value)
 
     @property
-    @pulumi.getter(name="tTL")
-    def t_tl(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "t_tl")
+    @pulumi.getter
+    def ttl(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ttl")
 
-    @t_tl.setter
-    def t_tl(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "t_tl", value)
+    @ttl.setter
+    def ttl(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ttl", value)
 
     @property
     @pulumi.getter
@@ -235,7 +235,7 @@ class RecordSet(pulumi.CustomResource):
                  region: Optional[pulumi.Input[str]] = None,
                  resource_records: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  set_identifier: Optional[pulumi.Input[str]] = None,
-                 t_tl: Optional[pulumi.Input[str]] = None,
+                 ttl: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  weight: Optional[pulumi.Input[int]] = None,
                  __props__=None):
@@ -282,7 +282,7 @@ class RecordSet(pulumi.CustomResource):
                  region: Optional[pulumi.Input[str]] = None,
                  resource_records: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  set_identifier: Optional[pulumi.Input[str]] = None,
-                 t_tl: Optional[pulumi.Input[str]] = None,
+                 ttl: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  weight: Optional[pulumi.Input[int]] = None,
                  __props__=None):
@@ -308,7 +308,7 @@ class RecordSet(pulumi.CustomResource):
             __props__.__dict__["region"] = region
             __props__.__dict__["resource_records"] = resource_records
             __props__.__dict__["set_identifier"] = set_identifier
-            __props__.__dict__["t_tl"] = t_tl
+            __props__.__dict__["ttl"] = ttl
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
@@ -348,7 +348,7 @@ class RecordSet(pulumi.CustomResource):
         __props__.__dict__["region"] = None
         __props__.__dict__["resource_records"] = None
         __props__.__dict__["set_identifier"] = None
-        __props__.__dict__["t_tl"] = None
+        __props__.__dict__["ttl"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["weight"] = None
         return RecordSet(resource_name, opts=opts, __props__=__props__)
@@ -419,9 +419,9 @@ class RecordSet(pulumi.CustomResource):
         return pulumi.get(self, "set_identifier")
 
     @property
-    @pulumi.getter(name="tTL")
-    def t_tl(self) -> pulumi.Output[Optional[str]]:
-        return pulumi.get(self, "t_tl")
+    @pulumi.getter
+    def ttl(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "ttl")
 
     @property
     @pulumi.getter

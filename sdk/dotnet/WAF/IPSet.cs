@@ -16,8 +16,8 @@ namespace Pulumi.AwsNative.WAF
     [AwsNativeResourceType("aws-native:waf:IPSet")]
     public partial class IPSet : global::Pulumi.CustomResource
     {
-        [Output("iPSetDescriptors")]
-        public Output<ImmutableArray<Outputs.IPSetDescriptor>> IPSetDescriptors { get; private set; } = null!;
+        [Output("ipSetDescriptors")]
+        public Output<ImmutableArray<Outputs.IPSetDescriptor>> IpSetDescriptors { get; private set; } = null!;
 
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -67,12 +67,12 @@ namespace Pulumi.AwsNative.WAF
 
     public sealed class IPSetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("iPSetDescriptors")]
-        private InputList<Inputs.IPSetDescriptorArgs>? _iPSetDescriptors;
-        public InputList<Inputs.IPSetDescriptorArgs> IPSetDescriptors
+        [Input("ipSetDescriptors")]
+        private InputList<Inputs.IPSetDescriptorArgs>? _ipSetDescriptors;
+        public InputList<Inputs.IPSetDescriptorArgs> IpSetDescriptors
         {
-            get => _iPSetDescriptors ?? (_iPSetDescriptors = new InputList<Inputs.IPSetDescriptorArgs>());
-            set => _iPSetDescriptors = value;
+            get => _ipSetDescriptors ?? (_ipSetDescriptors = new InputList<Inputs.IPSetDescriptorArgs>());
+            set => _ipSetDescriptors = value;
         }
 
         [Input("name")]

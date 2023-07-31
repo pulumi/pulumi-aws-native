@@ -13,25 +13,25 @@ namespace Pulumi.AwsNative.AppMesh.Outputs
     [OutputType]
     public sealed class VirtualNodeListenerTimeout
     {
-        public readonly Outputs.VirtualNodeGrpcTimeout? GRPC;
-        public readonly Outputs.VirtualNodeHttpTimeout? HTTP;
-        public readonly Outputs.VirtualNodeHttpTimeout? HTTP2;
-        public readonly Outputs.VirtualNodeTcpTimeout? TCP;
+        public readonly Outputs.VirtualNodeGrpcTimeout? Grpc;
+        public readonly Outputs.VirtualNodeHttpTimeout? Http;
+        public readonly Outputs.VirtualNodeHttpTimeout? Http2;
+        public readonly Outputs.VirtualNodeTcpTimeout? Tcp;
 
         [OutputConstructor]
         private VirtualNodeListenerTimeout(
-            Outputs.VirtualNodeGrpcTimeout? gRPC,
+            Outputs.VirtualNodeGrpcTimeout? grpc,
 
-            Outputs.VirtualNodeHttpTimeout? hTTP,
+            Outputs.VirtualNodeHttpTimeout? http,
 
-            Outputs.VirtualNodeHttpTimeout? hTTP2,
+            Outputs.VirtualNodeHttpTimeout? http2,
 
-            Outputs.VirtualNodeTcpTimeout? tCP)
+            Outputs.VirtualNodeTcpTimeout? tcp)
         {
-            GRPC = gRPC;
-            HTTP = hTTP;
-            HTTP2 = hTTP2;
-            TCP = tCP;
+            Grpc = grpc;
+            Http = http;
+            Http2 = http2;
+            Tcp = tcp;
         }
     }
 }

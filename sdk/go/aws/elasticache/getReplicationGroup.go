@@ -39,7 +39,7 @@ type LookupReplicationGroupResult struct {
 	EngineVersion                *string                                           `pulumi:"engineVersion"`
 	IpDiscovery                  *string                                           `pulumi:"ipDiscovery"`
 	LogDeliveryConfigurations    []ReplicationGroupLogDeliveryConfigurationRequest `pulumi:"logDeliveryConfigurations"`
-	MultiAZEnabled               *bool                                             `pulumi:"multiAZEnabled"`
+	MultiAzEnabled               *bool                                             `pulumi:"multiAzEnabled"`
 	NodeGroupConfiguration       []ReplicationGroupNodeGroupConfiguration          `pulumi:"nodeGroupConfiguration"`
 	NotificationTopicArn         *string                                           `pulumi:"notificationTopicArn"`
 	NumCacheClusters             *int                                              `pulumi:"numCacheClusters"`
@@ -150,8 +150,8 @@ func (o LookupReplicationGroupResultOutput) LogDeliveryConfigurations() Replicat
 	}).(ReplicationGroupLogDeliveryConfigurationRequestArrayOutput)
 }
 
-func (o LookupReplicationGroupResultOutput) MultiAZEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LookupReplicationGroupResult) *bool { return v.MultiAZEnabled }).(pulumi.BoolPtrOutput)
+func (o LookupReplicationGroupResultOutput) MultiAzEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupReplicationGroupResult) *bool { return v.MultiAzEnabled }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupReplicationGroupResultOutput) NodeGroupConfiguration() ReplicationGroupNodeGroupConfigurationArrayOutput {

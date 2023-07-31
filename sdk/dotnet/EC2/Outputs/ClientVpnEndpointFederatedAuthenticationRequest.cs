@@ -13,17 +13,17 @@ namespace Pulumi.AwsNative.EC2.Outputs
     [OutputType]
     public sealed class ClientVpnEndpointFederatedAuthenticationRequest
     {
-        public readonly string SAMLProviderArn;
-        public readonly string? SelfServiceSAMLProviderArn;
+        public readonly string SamlProviderArn;
+        public readonly string? SelfServiceSamlProviderArn;
 
         [OutputConstructor]
         private ClientVpnEndpointFederatedAuthenticationRequest(
-            string sAMLProviderArn,
+            string samlProviderArn,
 
-            string? selfServiceSAMLProviderArn)
+            string? selfServiceSamlProviderArn)
         {
-            SAMLProviderArn = sAMLProviderArn;
-            SelfServiceSAMLProviderArn = selfServiceSAMLProviderArn;
+            SamlProviderArn = samlProviderArn;
+            SelfServiceSamlProviderArn = selfServiceSamlProviderArn;
         }
     }
 }

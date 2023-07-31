@@ -20,10 +20,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetDBProxyEndpointResult:
-    def __init__(__self__, d_b_proxy_endpoint_arn=None, endpoint=None, is_default=None, tags=None, target_role=None, vpc_id=None, vpc_security_group_ids=None):
-        if d_b_proxy_endpoint_arn and not isinstance(d_b_proxy_endpoint_arn, str):
-            raise TypeError("Expected argument 'd_b_proxy_endpoint_arn' to be a str")
-        pulumi.set(__self__, "d_b_proxy_endpoint_arn", d_b_proxy_endpoint_arn)
+    def __init__(__self__, db_proxy_endpoint_arn=None, endpoint=None, is_default=None, tags=None, target_role=None, vpc_id=None, vpc_security_group_ids=None):
+        if db_proxy_endpoint_arn and not isinstance(db_proxy_endpoint_arn, str):
+            raise TypeError("Expected argument 'db_proxy_endpoint_arn' to be a str")
+        pulumi.set(__self__, "db_proxy_endpoint_arn", db_proxy_endpoint_arn)
         if endpoint and not isinstance(endpoint, str):
             raise TypeError("Expected argument 'endpoint' to be a str")
         pulumi.set(__self__, "endpoint", endpoint)
@@ -44,12 +44,12 @@ class GetDBProxyEndpointResult:
         pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
 
     @property
-    @pulumi.getter(name="dBProxyEndpointArn")
-    def d_b_proxy_endpoint_arn(self) -> Optional[str]:
+    @pulumi.getter(name="dbProxyEndpointArn")
+    def db_proxy_endpoint_arn(self) -> Optional[str]:
         """
         The Amazon Resource Name (ARN) for the DB proxy endpoint.
         """
-        return pulumi.get(self, "d_b_proxy_endpoint_arn")
+        return pulumi.get(self, "db_proxy_endpoint_arn")
 
     @property
     @pulumi.getter
@@ -106,7 +106,7 @@ class AwaitableGetDBProxyEndpointResult(GetDBProxyEndpointResult):
         if False:
             yield self
         return GetDBProxyEndpointResult(
-            d_b_proxy_endpoint_arn=self.d_b_proxy_endpoint_arn,
+            db_proxy_endpoint_arn=self.db_proxy_endpoint_arn,
             endpoint=self.endpoint,
             is_default=self.is_default,
             tags=self.tags,
@@ -115,21 +115,21 @@ class AwaitableGetDBProxyEndpointResult(GetDBProxyEndpointResult):
             vpc_security_group_ids=self.vpc_security_group_ids)
 
 
-def get_db_proxy_endpoint(d_b_proxy_endpoint_name: Optional[str] = None,
+def get_db_proxy_endpoint(db_proxy_endpoint_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDBProxyEndpointResult:
     """
     Resource schema for AWS::RDS::DBProxyEndpoint.
 
 
-    :param str d_b_proxy_endpoint_name: The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.
+    :param str db_proxy_endpoint_name: The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.
     """
     __args__ = dict()
-    __args__['dBProxyEndpointName'] = d_b_proxy_endpoint_name
+    __args__['dbProxyEndpointName'] = db_proxy_endpoint_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:rds:getDBProxyEndpoint', __args__, opts=opts, typ=GetDBProxyEndpointResult).value
 
     return AwaitableGetDBProxyEndpointResult(
-        d_b_proxy_endpoint_arn=pulumi.get(__ret__, 'd_b_proxy_endpoint_arn'),
+        db_proxy_endpoint_arn=pulumi.get(__ret__, 'db_proxy_endpoint_arn'),
         endpoint=pulumi.get(__ret__, 'endpoint'),
         is_default=pulumi.get(__ret__, 'is_default'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -139,12 +139,12 @@ def get_db_proxy_endpoint(d_b_proxy_endpoint_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_db_proxy_endpoint)
-def get_db_proxy_endpoint_output(d_b_proxy_endpoint_name: Optional[pulumi.Input[str]] = None,
+def get_db_proxy_endpoint_output(db_proxy_endpoint_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDBProxyEndpointResult]:
     """
     Resource schema for AWS::RDS::DBProxyEndpoint.
 
 
-    :param str d_b_proxy_endpoint_name: The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.
+    :param str db_proxy_endpoint_name: The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.
     """
     ...

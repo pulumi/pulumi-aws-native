@@ -34,8 +34,8 @@ namespace Pulumi.AwsNative.DMS
         [Output("kmsKeyId")]
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
-        [Output("multiAZ")]
-        public Output<bool?> MultiAZ { get; private set; } = null!;
+        [Output("multiAz")]
+        public Output<bool?> MultiAz { get; private set; } = null!;
 
         [Output("preferredMaintenanceWindow")]
         public Output<string?> PreferredMaintenanceWindow { get; private set; } = null!;
@@ -130,8 +130,8 @@ namespace Pulumi.AwsNative.DMS
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
-        [Input("multiAZ")]
-        public Input<bool>? MultiAZ { get; set; }
+        [Input("multiAz")]
+        public Input<bool>? MultiAz { get; set; }
 
         [Input("preferredMaintenanceWindow")]
         public Input<string>? PreferredMaintenanceWindow { get; set; }

@@ -27,8 +27,8 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         [Input("secretManagerArn")]
         public Input<string>? SecretManagerArn { get; set; }
 
-        [Input("uRL")]
-        public Input<string>? URL { get; set; }
+        [Input("url")]
+        public Input<string>? Url { get; set; }
 
         [Input("userNameAttributeField")]
         public Input<string>? UserNameAttributeField { get; set; }

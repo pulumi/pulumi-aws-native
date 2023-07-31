@@ -636,7 +636,7 @@ class WebhookAuthConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "allowedIPRange":
+        if key == "allowedIpRange":
             suggest = "allowed_ip_range"
         elif key == "secretToken":
             suggest = "secret_token"
@@ -661,7 +661,7 @@ class WebhookAuthConfiguration(dict):
             pulumi.set(__self__, "secret_token", secret_token)
 
     @property
-    @pulumi.getter(name="allowedIPRange")
+    @pulumi.getter(name="allowedIpRange")
     def allowed_ip_range(self) -> Optional[str]:
         return pulumi.get(self, "allowed_ip_range")
 

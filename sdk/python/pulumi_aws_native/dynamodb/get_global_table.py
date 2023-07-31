@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetGlobalTableResult:
-    def __init__(__self__, arn=None, attribute_definitions=None, billing_mode=None, global_secondary_indexes=None, replicas=None, s_se_specification=None, stream_arn=None, stream_specification=None, table_id=None, time_to_live_specification=None, write_provisioned_throughput_settings=None):
+    def __init__(__self__, arn=None, attribute_definitions=None, billing_mode=None, global_secondary_indexes=None, replicas=None, sse_specification=None, stream_arn=None, stream_specification=None, table_id=None, time_to_live_specification=None, write_provisioned_throughput_settings=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -35,9 +35,9 @@ class GetGlobalTableResult:
         if replicas and not isinstance(replicas, list):
             raise TypeError("Expected argument 'replicas' to be a list")
         pulumi.set(__self__, "replicas", replicas)
-        if s_se_specification and not isinstance(s_se_specification, dict):
-            raise TypeError("Expected argument 's_se_specification' to be a dict")
-        pulumi.set(__self__, "s_se_specification", s_se_specification)
+        if sse_specification and not isinstance(sse_specification, dict):
+            raise TypeError("Expected argument 'sse_specification' to be a dict")
+        pulumi.set(__self__, "sse_specification", sse_specification)
         if stream_arn and not isinstance(stream_arn, str):
             raise TypeError("Expected argument 'stream_arn' to be a str")
         pulumi.set(__self__, "stream_arn", stream_arn)
@@ -80,9 +80,9 @@ class GetGlobalTableResult:
         return pulumi.get(self, "replicas")
 
     @property
-    @pulumi.getter(name="sSESpecification")
-    def s_se_specification(self) -> Optional['outputs.GlobalTableSSESpecification']:
-        return pulumi.get(self, "s_se_specification")
+    @pulumi.getter(name="sseSpecification")
+    def sse_specification(self) -> Optional['outputs.GlobalTableSSESpecification']:
+        return pulumi.get(self, "sse_specification")
 
     @property
     @pulumi.getter(name="streamArn")
@@ -121,7 +121,7 @@ class AwaitableGetGlobalTableResult(GetGlobalTableResult):
             billing_mode=self.billing_mode,
             global_secondary_indexes=self.global_secondary_indexes,
             replicas=self.replicas,
-            s_se_specification=self.s_se_specification,
+            sse_specification=self.sse_specification,
             stream_arn=self.stream_arn,
             stream_specification=self.stream_specification,
             table_id=self.table_id,
@@ -145,7 +145,7 @@ def get_global_table(table_name: Optional[str] = None,
         billing_mode=pulumi.get(__ret__, 'billing_mode'),
         global_secondary_indexes=pulumi.get(__ret__, 'global_secondary_indexes'),
         replicas=pulumi.get(__ret__, 'replicas'),
-        s_se_specification=pulumi.get(__ret__, 's_se_specification'),
+        sse_specification=pulumi.get(__ret__, 'sse_specification'),
         stream_arn=pulumi.get(__ret__, 'stream_arn'),
         stream_specification=pulumi.get(__ret__, 'stream_specification'),
         table_id=pulumi.get(__ret__, 'table_id'),

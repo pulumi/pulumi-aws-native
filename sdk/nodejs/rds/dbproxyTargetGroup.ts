@@ -38,12 +38,12 @@ export class DBProxyTargetGroup extends pulumi.CustomResource {
     }
 
     public readonly connectionPoolConfigurationInfo!: pulumi.Output<outputs.rds.DBProxyTargetGroupConnectionPoolConfigurationInfoFormat | undefined>;
-    public readonly dBClusterIdentifiers!: pulumi.Output<string[] | undefined>;
-    public readonly dBInstanceIdentifiers!: pulumi.Output<string[] | undefined>;
+    public readonly dbClusterIdentifiers!: pulumi.Output<string[] | undefined>;
+    public readonly dbInstanceIdentifiers!: pulumi.Output<string[] | undefined>;
     /**
      * The identifier for the proxy.
      */
-    public readonly dBProxyName!: pulumi.Output<string>;
+    public readonly dbProxyName!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) representing the target group.
      */
@@ -64,23 +64,23 @@ export class DBProxyTargetGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dBProxyName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'dBProxyName'");
+            if ((!args || args.dbProxyName === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'dbProxyName'");
             }
             if ((!args || args.targetGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetGroupName'");
             }
             resourceInputs["connectionPoolConfigurationInfo"] = args ? args.connectionPoolConfigurationInfo : undefined;
-            resourceInputs["dBClusterIdentifiers"] = args ? args.dBClusterIdentifiers : undefined;
-            resourceInputs["dBInstanceIdentifiers"] = args ? args.dBInstanceIdentifiers : undefined;
-            resourceInputs["dBProxyName"] = args ? args.dBProxyName : undefined;
+            resourceInputs["dbClusterIdentifiers"] = args ? args.dbClusterIdentifiers : undefined;
+            resourceInputs["dbInstanceIdentifiers"] = args ? args.dbInstanceIdentifiers : undefined;
+            resourceInputs["dbProxyName"] = args ? args.dbProxyName : undefined;
             resourceInputs["targetGroupName"] = args ? args.targetGroupName : undefined;
             resourceInputs["targetGroupArn"] = undefined /*out*/;
         } else {
             resourceInputs["connectionPoolConfigurationInfo"] = undefined /*out*/;
-            resourceInputs["dBClusterIdentifiers"] = undefined /*out*/;
-            resourceInputs["dBInstanceIdentifiers"] = undefined /*out*/;
-            resourceInputs["dBProxyName"] = undefined /*out*/;
+            resourceInputs["dbClusterIdentifiers"] = undefined /*out*/;
+            resourceInputs["dbInstanceIdentifiers"] = undefined /*out*/;
+            resourceInputs["dbProxyName"] = undefined /*out*/;
             resourceInputs["targetGroupArn"] = undefined /*out*/;
             resourceInputs["targetGroupName"] = undefined /*out*/;
         }
@@ -94,12 +94,12 @@ export class DBProxyTargetGroup extends pulumi.CustomResource {
  */
 export interface DBProxyTargetGroupArgs {
     connectionPoolConfigurationInfo?: pulumi.Input<inputs.rds.DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs>;
-    dBClusterIdentifiers?: pulumi.Input<pulumi.Input<string>[]>;
-    dBInstanceIdentifiers?: pulumi.Input<pulumi.Input<string>[]>;
+    dbClusterIdentifiers?: pulumi.Input<pulumi.Input<string>[]>;
+    dbInstanceIdentifiers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The identifier for the proxy.
      */
-    dBProxyName: pulumi.Input<string>;
+    dbProxyName: pulumi.Input<string>;
     /**
      * The identifier for the DBProxyTargetGroup
      */

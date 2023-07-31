@@ -14,23 +14,23 @@ namespace Pulumi.AwsNative.GreengrassV2.Outputs
     public sealed class ComponentVersionLambdaContainerParams
     {
         public readonly ImmutableArray<Outputs.ComponentVersionLambdaDeviceMount> Devices;
-        public readonly int? MemorySizeInKB;
-        public readonly bool? MountROSysfs;
+        public readonly int? MemorySizeInKb;
+        public readonly bool? MountRoSysfs;
         public readonly ImmutableArray<Outputs.ComponentVersionLambdaVolumeMount> Volumes;
 
         [OutputConstructor]
         private ComponentVersionLambdaContainerParams(
             ImmutableArray<Outputs.ComponentVersionLambdaDeviceMount> devices,
 
-            int? memorySizeInKB,
+            int? memorySizeInKb,
 
-            bool? mountROSysfs,
+            bool? mountRoSysfs,
 
             ImmutableArray<Outputs.ComponentVersionLambdaVolumeMount> volumes)
         {
             Devices = devices;
-            MemorySizeInKB = memorySizeInKB;
-            MountROSysfs = mountROSysfs;
+            MemorySizeInKb = memorySizeInKb;
+            MountRoSysfs = mountRoSysfs;
             Volumes = volumes;
         }
     }

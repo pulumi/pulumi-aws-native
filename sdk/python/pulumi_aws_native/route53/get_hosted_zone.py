@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetHostedZoneResult:
-    def __init__(__self__, hosted_zone_config=None, hosted_zone_tags=None, id=None, name_servers=None, query_logging_config=None, v_pcs=None):
+    def __init__(__self__, hosted_zone_config=None, hosted_zone_tags=None, id=None, name_servers=None, query_logging_config=None, vpcs=None):
         if hosted_zone_config and not isinstance(hosted_zone_config, dict):
             raise TypeError("Expected argument 'hosted_zone_config' to be a dict")
         pulumi.set(__self__, "hosted_zone_config", hosted_zone_config)
@@ -35,9 +35,9 @@ class GetHostedZoneResult:
         if query_logging_config and not isinstance(query_logging_config, dict):
             raise TypeError("Expected argument 'query_logging_config' to be a dict")
         pulumi.set(__self__, "query_logging_config", query_logging_config)
-        if v_pcs and not isinstance(v_pcs, list):
-            raise TypeError("Expected argument 'v_pcs' to be a list")
-        pulumi.set(__self__, "v_pcs", v_pcs)
+        if vpcs and not isinstance(vpcs, list):
+            raise TypeError("Expected argument 'vpcs' to be a list")
+        pulumi.set(__self__, "vpcs", vpcs)
 
     @property
     @pulumi.getter(name="hostedZoneConfig")
@@ -70,12 +70,12 @@ class GetHostedZoneResult:
         return pulumi.get(self, "query_logging_config")
 
     @property
-    @pulumi.getter(name="vPCs")
-    def v_pcs(self) -> Optional[Sequence['outputs.HostedZoneVPC']]:
+    @pulumi.getter
+    def vpcs(self) -> Optional[Sequence['outputs.HostedZoneVPC']]:
         """
         A complex type that contains information about the VPCs that are associated with the specified hosted zone.
         """
-        return pulumi.get(self, "v_pcs")
+        return pulumi.get(self, "vpcs")
 
 
 class AwaitableGetHostedZoneResult(GetHostedZoneResult):
@@ -89,7 +89,7 @@ class AwaitableGetHostedZoneResult(GetHostedZoneResult):
             id=self.id,
             name_servers=self.name_servers,
             query_logging_config=self.query_logging_config,
-            v_pcs=self.v_pcs)
+            vpcs=self.vpcs)
 
 
 def get_hosted_zone(id: Optional[str] = None,
@@ -108,7 +108,7 @@ def get_hosted_zone(id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         name_servers=pulumi.get(__ret__, 'name_servers'),
         query_logging_config=pulumi.get(__ret__, 'query_logging_config'),
-        v_pcs=pulumi.get(__ret__, 'v_pcs'))
+        vpcs=pulumi.get(__ret__, 'vpcs'))
 
 
 @_utilities.lift_output_func(get_hosted_zone)

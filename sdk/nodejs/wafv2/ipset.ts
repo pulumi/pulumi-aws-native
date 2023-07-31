@@ -43,7 +43,7 @@ export class IPSet extends pulumi.CustomResource {
     public readonly addresses!: pulumi.Output<string[]>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
-    public readonly iPAddressVersion!: pulumi.Output<enums.wafv2.IPSetIPAddressVersion>;
+    public readonly ipAddressVersion!: pulumi.Output<enums.wafv2.IPSetIPAddressVersion>;
     public readonly name!: pulumi.Output<string | undefined>;
     public readonly scope!: pulumi.Output<enums.wafv2.IPSetScope>;
     public readonly tags!: pulumi.Output<outputs.wafv2.IPSetTag[] | undefined>;
@@ -62,15 +62,15 @@ export class IPSet extends pulumi.CustomResource {
             if ((!args || args.addresses === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'addresses'");
             }
-            if ((!args || args.iPAddressVersion === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'iPAddressVersion'");
+            if ((!args || args.ipAddressVersion === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'ipAddressVersion'");
             }
             if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
             resourceInputs["addresses"] = args ? args.addresses : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["iPAddressVersion"] = args ? args.iPAddressVersion : undefined;
+            resourceInputs["ipAddressVersion"] = args ? args.ipAddressVersion : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -79,7 +79,7 @@ export class IPSet extends pulumi.CustomResource {
             resourceInputs["addresses"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
-            resourceInputs["iPAddressVersion"] = undefined /*out*/;
+            resourceInputs["ipAddressVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["scope"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -98,7 +98,7 @@ export interface IPSetArgs {
      */
     addresses: pulumi.Input<pulumi.Input<string>[]>;
     description?: pulumi.Input<string>;
-    iPAddressVersion: pulumi.Input<enums.wafv2.IPSetIPAddressVersion>;
+    ipAddressVersion: pulumi.Input<enums.wafv2.IPSetIPAddressVersion>;
     name?: pulumi.Input<string>;
     scope: pulumi.Input<enums.wafv2.IPSetScope>;
     tags?: pulumi.Input<pulumi.Input<inputs.wafv2.IPSetTagArgs>[]>;

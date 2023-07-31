@@ -58,8 +58,8 @@ namespace Pulumi.AwsNative.RDS
     public sealed class GetDBProxyTargetGroupResult
     {
         public readonly Outputs.DBProxyTargetGroupConnectionPoolConfigurationInfoFormat? ConnectionPoolConfigurationInfo;
-        public readonly ImmutableArray<string> DBClusterIdentifiers;
-        public readonly ImmutableArray<string> DBInstanceIdentifiers;
+        public readonly ImmutableArray<string> DbClusterIdentifiers;
+        public readonly ImmutableArray<string> DbInstanceIdentifiers;
         /// <summary>
         /// The Amazon Resource Name (ARN) representing the target group.
         /// </summary>
@@ -69,15 +69,15 @@ namespace Pulumi.AwsNative.RDS
         private GetDBProxyTargetGroupResult(
             Outputs.DBProxyTargetGroupConnectionPoolConfigurationInfoFormat? connectionPoolConfigurationInfo,
 
-            ImmutableArray<string> dBClusterIdentifiers,
+            ImmutableArray<string> dbClusterIdentifiers,
 
-            ImmutableArray<string> dBInstanceIdentifiers,
+            ImmutableArray<string> dbInstanceIdentifiers,
 
             string? targetGroupArn)
         {
             ConnectionPoolConfigurationInfo = connectionPoolConfigurationInfo;
-            DBClusterIdentifiers = dBClusterIdentifiers;
-            DBInstanceIdentifiers = dBInstanceIdentifiers;
+            DbClusterIdentifiers = dbClusterIdentifiers;
+            DbInstanceIdentifiers = dbInstanceIdentifiers;
             TargetGroupArn = targetGroupArn;
         }
     }

@@ -19,16 +19,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetApplicationResult:
-    def __init__(__self__, application_arn=None, auto_configuration_enabled=None, c_we_monitor_enabled=None, ops_center_enabled=None, tags=None):
+    def __init__(__self__, application_arn=None, auto_configuration_enabled=None, cwe_monitor_enabled=None, ops_center_enabled=None, tags=None):
         if application_arn and not isinstance(application_arn, str):
             raise TypeError("Expected argument 'application_arn' to be a str")
         pulumi.set(__self__, "application_arn", application_arn)
         if auto_configuration_enabled and not isinstance(auto_configuration_enabled, bool):
             raise TypeError("Expected argument 'auto_configuration_enabled' to be a bool")
         pulumi.set(__self__, "auto_configuration_enabled", auto_configuration_enabled)
-        if c_we_monitor_enabled and not isinstance(c_we_monitor_enabled, bool):
-            raise TypeError("Expected argument 'c_we_monitor_enabled' to be a bool")
-        pulumi.set(__self__, "c_we_monitor_enabled", c_we_monitor_enabled)
+        if cwe_monitor_enabled and not isinstance(cwe_monitor_enabled, bool):
+            raise TypeError("Expected argument 'cwe_monitor_enabled' to be a bool")
+        pulumi.set(__self__, "cwe_monitor_enabled", cwe_monitor_enabled)
         if ops_center_enabled and not isinstance(ops_center_enabled, bool):
             raise TypeError("Expected argument 'ops_center_enabled' to be a bool")
         pulumi.set(__self__, "ops_center_enabled", ops_center_enabled)
@@ -37,7 +37,7 @@ class GetApplicationResult:
         pulumi.set(__self__, "tags", tags)
 
     @property
-    @pulumi.getter(name="applicationARN")
+    @pulumi.getter(name="applicationArn")
     def application_arn(self) -> Optional[str]:
         """
         The ARN of the ApplicationInsights application.
@@ -53,12 +53,12 @@ class GetApplicationResult:
         return pulumi.get(self, "auto_configuration_enabled")
 
     @property
-    @pulumi.getter(name="cWEMonitorEnabled")
-    def c_we_monitor_enabled(self) -> Optional[bool]:
+    @pulumi.getter(name="cweMonitorEnabled")
+    def cwe_monitor_enabled(self) -> Optional[bool]:
         """
         Indicates whether Application Insights can listen to CloudWatch events for the application resources.
         """
-        return pulumi.get(self, "c_we_monitor_enabled")
+        return pulumi.get(self, "cwe_monitor_enabled")
 
     @property
     @pulumi.getter(name="opsCenterEnabled")
@@ -85,7 +85,7 @@ class AwaitableGetApplicationResult(GetApplicationResult):
         return GetApplicationResult(
             application_arn=self.application_arn,
             auto_configuration_enabled=self.auto_configuration_enabled,
-            c_we_monitor_enabled=self.c_we_monitor_enabled,
+            cwe_monitor_enabled=self.cwe_monitor_enabled,
             ops_center_enabled=self.ops_center_enabled,
             tags=self.tags)
 
@@ -99,14 +99,14 @@ def get_application(application_arn: Optional[str] = None,
     :param str application_arn: The ARN of the ApplicationInsights application.
     """
     __args__ = dict()
-    __args__['applicationARN'] = application_arn
+    __args__['applicationArn'] = application_arn
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:applicationinsights:getApplication', __args__, opts=opts, typ=GetApplicationResult).value
 
     return AwaitableGetApplicationResult(
         application_arn=pulumi.get(__ret__, 'application_arn'),
         auto_configuration_enabled=pulumi.get(__ret__, 'auto_configuration_enabled'),
-        c_we_monitor_enabled=pulumi.get(__ret__, 'c_we_monitor_enabled'),
+        cwe_monitor_enabled=pulumi.get(__ret__, 'cwe_monitor_enabled'),
         ops_center_enabled=pulumi.get(__ret__, 'ops_center_enabled'),
         tags=pulumi.get(__ret__, 'tags'))
 

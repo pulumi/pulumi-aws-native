@@ -33,9 +33,9 @@ type LookupFleetResult struct {
 	// A human-readable description of a fleet.
 	Description *string `pulumi:"description"`
 	// [DEPRECATED] The number of EC2 instances that you want this fleet to host. When creating a new fleet, GameLift automatically sets this value to "1" and initiates a single instance. Once the fleet is active, update this value to trigger GameLift to add or remove instances from the fleet.
-	DesiredEC2Instances *int `pulumi:"desiredEC2Instances"`
+	DesiredEc2Instances *int `pulumi:"desiredEc2Instances"`
 	// A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift server.
-	EC2InboundPermissions []FleetIpPermission `pulumi:"eC2InboundPermissions"`
+	Ec2InboundPermissions []FleetIpPermission `pulumi:"ec2InboundPermissions"`
 	// Unique fleet ID
 	FleetId   *string                      `pulumi:"fleetId"`
 	Locations []FleetLocationConfiguration `pulumi:"locations"`
@@ -104,13 +104,13 @@ func (o LookupFleetResultOutput) Description() pulumi.StringPtrOutput {
 }
 
 // [DEPRECATED] The number of EC2 instances that you want this fleet to host. When creating a new fleet, GameLift automatically sets this value to "1" and initiates a single instance. Once the fleet is active, update this value to trigger GameLift to add or remove instances from the fleet.
-func (o LookupFleetResultOutput) DesiredEC2Instances() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v LookupFleetResult) *int { return v.DesiredEC2Instances }).(pulumi.IntPtrOutput)
+func (o LookupFleetResultOutput) DesiredEc2Instances() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupFleetResult) *int { return v.DesiredEc2Instances }).(pulumi.IntPtrOutput)
 }
 
 // A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift server.
-func (o LookupFleetResultOutput) EC2InboundPermissions() FleetIpPermissionArrayOutput {
-	return o.ApplyT(func(v LookupFleetResult) []FleetIpPermission { return v.EC2InboundPermissions }).(FleetIpPermissionArrayOutput)
+func (o LookupFleetResultOutput) Ec2InboundPermissions() FleetIpPermissionArrayOutput {
+	return o.ApplyT(func(v LookupFleetResult) []FleetIpPermission { return v.Ec2InboundPermissions }).(FleetIpPermissionArrayOutput)
 }
 
 // Unique fleet ID

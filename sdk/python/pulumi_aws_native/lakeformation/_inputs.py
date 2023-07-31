@@ -659,8 +659,8 @@ class PrincipalPermissionsResourceArgs:
                  data_cells_filter: Optional[pulumi.Input['PrincipalPermissionsDataCellsFilterResourceArgs']] = None,
                  data_location: Optional[pulumi.Input['PrincipalPermissionsDataLocationResourceArgs']] = None,
                  database: Optional[pulumi.Input['PrincipalPermissionsDatabaseResourceArgs']] = None,
-                 l_f_tag: Optional[pulumi.Input['PrincipalPermissionsLFTagKeyResourceArgs']] = None,
-                 l_f_tag_policy: Optional[pulumi.Input['PrincipalPermissionsLFTagPolicyResourceArgs']] = None,
+                 lf_tag: Optional[pulumi.Input['PrincipalPermissionsLFTagKeyResourceArgs']] = None,
+                 lf_tag_policy: Optional[pulumi.Input['PrincipalPermissionsLFTagPolicyResourceArgs']] = None,
                  table: Optional[pulumi.Input['PrincipalPermissionsTableResourceArgs']] = None,
                  table_with_columns: Optional[pulumi.Input['PrincipalPermissionsTableWithColumnsResourceArgs']] = None):
         if catalog is not None:
@@ -671,10 +671,10 @@ class PrincipalPermissionsResourceArgs:
             pulumi.set(__self__, "data_location", data_location)
         if database is not None:
             pulumi.set(__self__, "database", database)
-        if l_f_tag is not None:
-            pulumi.set(__self__, "l_f_tag", l_f_tag)
-        if l_f_tag_policy is not None:
-            pulumi.set(__self__, "l_f_tag_policy", l_f_tag_policy)
+        if lf_tag is not None:
+            pulumi.set(__self__, "lf_tag", lf_tag)
+        if lf_tag_policy is not None:
+            pulumi.set(__self__, "lf_tag_policy", lf_tag_policy)
         if table is not None:
             pulumi.set(__self__, "table", table)
         if table_with_columns is not None:
@@ -717,22 +717,22 @@ class PrincipalPermissionsResourceArgs:
         pulumi.set(self, "database", value)
 
     @property
-    @pulumi.getter(name="lFTag")
-    def l_f_tag(self) -> Optional[pulumi.Input['PrincipalPermissionsLFTagKeyResourceArgs']]:
-        return pulumi.get(self, "l_f_tag")
+    @pulumi.getter(name="lfTag")
+    def lf_tag(self) -> Optional[pulumi.Input['PrincipalPermissionsLFTagKeyResourceArgs']]:
+        return pulumi.get(self, "lf_tag")
 
-    @l_f_tag.setter
-    def l_f_tag(self, value: Optional[pulumi.Input['PrincipalPermissionsLFTagKeyResourceArgs']]):
-        pulumi.set(self, "l_f_tag", value)
+    @lf_tag.setter
+    def lf_tag(self, value: Optional[pulumi.Input['PrincipalPermissionsLFTagKeyResourceArgs']]):
+        pulumi.set(self, "lf_tag", value)
 
     @property
-    @pulumi.getter(name="lFTagPolicy")
-    def l_f_tag_policy(self) -> Optional[pulumi.Input['PrincipalPermissionsLFTagPolicyResourceArgs']]:
-        return pulumi.get(self, "l_f_tag_policy")
+    @pulumi.getter(name="lfTagPolicy")
+    def lf_tag_policy(self) -> Optional[pulumi.Input['PrincipalPermissionsLFTagPolicyResourceArgs']]:
+        return pulumi.get(self, "lf_tag_policy")
 
-    @l_f_tag_policy.setter
-    def l_f_tag_policy(self, value: Optional[pulumi.Input['PrincipalPermissionsLFTagPolicyResourceArgs']]):
-        pulumi.set(self, "l_f_tag_policy", value)
+    @lf_tag_policy.setter
+    def lf_tag_policy(self, value: Optional[pulumi.Input['PrincipalPermissionsLFTagPolicyResourceArgs']]):
+        pulumi.set(self, "lf_tag_policy", value)
 
     @property
     @pulumi.getter

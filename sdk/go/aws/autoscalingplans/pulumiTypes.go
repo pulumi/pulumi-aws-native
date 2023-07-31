@@ -14,7 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ScalingPlanApplicationSource struct {
-	CloudFormationStackARN *string                `pulumi:"cloudFormationStackARN"`
+	CloudFormationStackArn *string                `pulumi:"cloudFormationStackArn"`
 	TagFilters             []ScalingPlanTagFilter `pulumi:"tagFilters"`
 }
 
@@ -30,7 +30,7 @@ type ScalingPlanApplicationSourceInput interface {
 }
 
 type ScalingPlanApplicationSourceArgs struct {
-	CloudFormationStackARN pulumi.StringPtrInput          `pulumi:"cloudFormationStackARN"`
+	CloudFormationStackArn pulumi.StringPtrInput          `pulumi:"cloudFormationStackArn"`
 	TagFilters             ScalingPlanTagFilterArrayInput `pulumi:"tagFilters"`
 }
 
@@ -60,8 +60,8 @@ func (o ScalingPlanApplicationSourceOutput) ToScalingPlanApplicationSourceOutput
 	return o
 }
 
-func (o ScalingPlanApplicationSourceOutput) CloudFormationStackARN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ScalingPlanApplicationSource) *string { return v.CloudFormationStackARN }).(pulumi.StringPtrOutput)
+func (o ScalingPlanApplicationSourceOutput) CloudFormationStackArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalingPlanApplicationSource) *string { return v.CloudFormationStackArn }).(pulumi.StringPtrOutput)
 }
 
 func (o ScalingPlanApplicationSourceOutput) TagFilters() ScalingPlanTagFilterArrayOutput {
@@ -92,12 +92,12 @@ func (o ScalingPlanApplicationSourcePtrOutput) Elem() ScalingPlanApplicationSour
 	}).(ScalingPlanApplicationSourceOutput)
 }
 
-func (o ScalingPlanApplicationSourcePtrOutput) CloudFormationStackARN() pulumi.StringPtrOutput {
+func (o ScalingPlanApplicationSourcePtrOutput) CloudFormationStackArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScalingPlanApplicationSource) *string {
 		if v == nil {
 			return nil
 		}
-		return v.CloudFormationStackARN
+		return v.CloudFormationStackArn
 	}).(pulumi.StringPtrOutput)
 }
 

@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.FinSpace.Outputs
         /// <summary>
         /// SAML metadata URL to link with the Environment
         /// </summary>
-        public readonly string? ApplicationCallBackURL;
+        public readonly string? ApplicationCallBackUrl;
         /// <summary>
         /// Attribute map for SAML configuration
         /// </summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.FinSpace.Outputs
         /// <summary>
         /// SAML metadata URL to link with the Environment
         /// </summary>
-        public readonly string? FederationURN;
+        public readonly string? FederationUrn;
         /// <summary>
         /// SAML metadata document to link the federation provider to the Environment
         /// </summary>
@@ -39,28 +39,28 @@ namespace Pulumi.AwsNative.FinSpace.Outputs
         /// <summary>
         /// SAML metadata URL to link with the Environment
         /// </summary>
-        public readonly string? SamlMetadataURL;
+        public readonly string? SamlMetadataUrl;
 
         [OutputConstructor]
         private EnvironmentFederationParameters(
-            string? applicationCallBackURL,
+            string? applicationCallBackUrl,
 
             ImmutableArray<Outputs.EnvironmentFederationParametersAttributeMapItemProperties> attributeMap,
 
             string? federationProviderName,
 
-            string? federationURN,
+            string? federationUrn,
 
             string? samlMetadataDocument,
 
-            string? samlMetadataURL)
+            string? samlMetadataUrl)
         {
-            ApplicationCallBackURL = applicationCallBackURL;
+            ApplicationCallBackUrl = applicationCallBackUrl;
             AttributeMap = attributeMap;
             FederationProviderName = federationProviderName;
-            FederationURN = federationURN;
+            FederationUrn = federationUrn;
             SamlMetadataDocument = samlMetadataDocument;
-            SamlMetadataURL = samlMetadataURL;
+            SamlMetadataUrl = samlMetadataUrl;
         }
     }
 }

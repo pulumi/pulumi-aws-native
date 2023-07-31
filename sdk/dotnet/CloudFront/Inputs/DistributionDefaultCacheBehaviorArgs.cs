@@ -34,8 +34,8 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         [Input("compress")]
         public Input<bool>? Compress { get; set; }
 
-        [Input("defaultTTL")]
-        public Input<double>? DefaultTTL { get; set; }
+        [Input("defaultTtl")]
+        public Input<double>? DefaultTtl { get; set; }
 
         [Input("fieldLevelEncryptionId")]
         public Input<string>? FieldLevelEncryptionId { get; set; }
@@ -59,11 +59,11 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
             set => _lambdaFunctionAssociations = value;
         }
 
-        [Input("maxTTL")]
-        public Input<double>? MaxTTL { get; set; }
+        [Input("maxTtl")]
+        public Input<double>? MaxTtl { get; set; }
 
-        [Input("minTTL")]
-        public Input<double>? MinTTL { get; set; }
+        [Input("minTtl")]
+        public Input<double>? MinTtl { get; set; }
 
         [Input("originRequestPolicyId")]
         public Input<string>? OriginRequestPolicyId { get; set; }

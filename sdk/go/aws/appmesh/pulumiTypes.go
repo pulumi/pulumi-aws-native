@@ -8157,7 +8157,7 @@ func (o VirtualGatewayBackendDefaultsPtrOutput) ClientPolicy() VirtualGatewayCli
 }
 
 type VirtualGatewayClientPolicy struct {
-	TLS *VirtualGatewayClientPolicyTls `pulumi:"tLS"`
+	Tls *VirtualGatewayClientPolicyTls `pulumi:"tls"`
 }
 
 // VirtualGatewayClientPolicyInput is an input type that accepts VirtualGatewayClientPolicyArgs and VirtualGatewayClientPolicyOutput values.
@@ -8172,7 +8172,7 @@ type VirtualGatewayClientPolicyInput interface {
 }
 
 type VirtualGatewayClientPolicyArgs struct {
-	TLS VirtualGatewayClientPolicyTlsPtrInput `pulumi:"tLS"`
+	Tls VirtualGatewayClientPolicyTlsPtrInput `pulumi:"tls"`
 }
 
 func (VirtualGatewayClientPolicyArgs) ElementType() reflect.Type {
@@ -8252,8 +8252,8 @@ func (o VirtualGatewayClientPolicyOutput) ToVirtualGatewayClientPolicyPtrOutputW
 	}).(VirtualGatewayClientPolicyPtrOutput)
 }
 
-func (o VirtualGatewayClientPolicyOutput) TLS() VirtualGatewayClientPolicyTlsPtrOutput {
-	return o.ApplyT(func(v VirtualGatewayClientPolicy) *VirtualGatewayClientPolicyTls { return v.TLS }).(VirtualGatewayClientPolicyTlsPtrOutput)
+func (o VirtualGatewayClientPolicyOutput) Tls() VirtualGatewayClientPolicyTlsPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayClientPolicy) *VirtualGatewayClientPolicyTls { return v.Tls }).(VirtualGatewayClientPolicyTlsPtrOutput)
 }
 
 type VirtualGatewayClientPolicyPtrOutput struct{ *pulumi.OutputState }
@@ -8280,12 +8280,12 @@ func (o VirtualGatewayClientPolicyPtrOutput) Elem() VirtualGatewayClientPolicyOu
 	}).(VirtualGatewayClientPolicyOutput)
 }
 
-func (o VirtualGatewayClientPolicyPtrOutput) TLS() VirtualGatewayClientPolicyTlsPtrOutput {
+func (o VirtualGatewayClientPolicyPtrOutput) Tls() VirtualGatewayClientPolicyTlsPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewayClientPolicy) *VirtualGatewayClientPolicyTls {
 		if v == nil {
 			return nil
 		}
-		return v.TLS
+		return v.Tls
 	}).(VirtualGatewayClientPolicyTlsPtrOutput)
 }
 
@@ -8469,7 +8469,7 @@ func (o VirtualGatewayClientPolicyTlsPtrOutput) Validation() VirtualGatewayTlsVa
 
 type VirtualGatewayClientTlsCertificate struct {
 	File *VirtualGatewayListenerTlsFileCertificate `pulumi:"file"`
-	SDS  *VirtualGatewayListenerTlsSdsCertificate  `pulumi:"sDS"`
+	Sds  *VirtualGatewayListenerTlsSdsCertificate  `pulumi:"sds"`
 }
 
 // VirtualGatewayClientTlsCertificateInput is an input type that accepts VirtualGatewayClientTlsCertificateArgs and VirtualGatewayClientTlsCertificateOutput values.
@@ -8485,7 +8485,7 @@ type VirtualGatewayClientTlsCertificateInput interface {
 
 type VirtualGatewayClientTlsCertificateArgs struct {
 	File VirtualGatewayListenerTlsFileCertificatePtrInput `pulumi:"file"`
-	SDS  VirtualGatewayListenerTlsSdsCertificatePtrInput  `pulumi:"sDS"`
+	Sds  VirtualGatewayListenerTlsSdsCertificatePtrInput  `pulumi:"sds"`
 }
 
 func (VirtualGatewayClientTlsCertificateArgs) ElementType() reflect.Type {
@@ -8569,8 +8569,8 @@ func (o VirtualGatewayClientTlsCertificateOutput) File() VirtualGatewayListenerT
 	return o.ApplyT(func(v VirtualGatewayClientTlsCertificate) *VirtualGatewayListenerTlsFileCertificate { return v.File }).(VirtualGatewayListenerTlsFileCertificatePtrOutput)
 }
 
-func (o VirtualGatewayClientTlsCertificateOutput) SDS() VirtualGatewayListenerTlsSdsCertificatePtrOutput {
-	return o.ApplyT(func(v VirtualGatewayClientTlsCertificate) *VirtualGatewayListenerTlsSdsCertificate { return v.SDS }).(VirtualGatewayListenerTlsSdsCertificatePtrOutput)
+func (o VirtualGatewayClientTlsCertificateOutput) Sds() VirtualGatewayListenerTlsSdsCertificatePtrOutput {
+	return o.ApplyT(func(v VirtualGatewayClientTlsCertificate) *VirtualGatewayListenerTlsSdsCertificate { return v.Sds }).(VirtualGatewayListenerTlsSdsCertificatePtrOutput)
 }
 
 type VirtualGatewayClientTlsCertificatePtrOutput struct{ *pulumi.OutputState }
@@ -8606,19 +8606,19 @@ func (o VirtualGatewayClientTlsCertificatePtrOutput) File() VirtualGatewayListen
 	}).(VirtualGatewayListenerTlsFileCertificatePtrOutput)
 }
 
-func (o VirtualGatewayClientTlsCertificatePtrOutput) SDS() VirtualGatewayListenerTlsSdsCertificatePtrOutput {
+func (o VirtualGatewayClientTlsCertificatePtrOutput) Sds() VirtualGatewayListenerTlsSdsCertificatePtrOutput {
 	return o.ApplyT(func(v *VirtualGatewayClientTlsCertificate) *VirtualGatewayListenerTlsSdsCertificate {
 		if v == nil {
 			return nil
 		}
-		return v.SDS
+		return v.Sds
 	}).(VirtualGatewayListenerTlsSdsCertificatePtrOutput)
 }
 
 type VirtualGatewayConnectionPool struct {
-	GRPC  *VirtualGatewayGrpcConnectionPool  `pulumi:"gRPC"`
-	HTTP  *VirtualGatewayHttpConnectionPool  `pulumi:"hTTP"`
-	HTTP2 *VirtualGatewayHttp2ConnectionPool `pulumi:"hTTP2"`
+	Grpc  *VirtualGatewayGrpcConnectionPool  `pulumi:"grpc"`
+	Http  *VirtualGatewayHttpConnectionPool  `pulumi:"http"`
+	Http2 *VirtualGatewayHttp2ConnectionPool `pulumi:"http2"`
 }
 
 // VirtualGatewayConnectionPoolInput is an input type that accepts VirtualGatewayConnectionPoolArgs and VirtualGatewayConnectionPoolOutput values.
@@ -8633,9 +8633,9 @@ type VirtualGatewayConnectionPoolInput interface {
 }
 
 type VirtualGatewayConnectionPoolArgs struct {
-	GRPC  VirtualGatewayGrpcConnectionPoolPtrInput  `pulumi:"gRPC"`
-	HTTP  VirtualGatewayHttpConnectionPoolPtrInput  `pulumi:"hTTP"`
-	HTTP2 VirtualGatewayHttp2ConnectionPoolPtrInput `pulumi:"hTTP2"`
+	Grpc  VirtualGatewayGrpcConnectionPoolPtrInput  `pulumi:"grpc"`
+	Http  VirtualGatewayHttpConnectionPoolPtrInput  `pulumi:"http"`
+	Http2 VirtualGatewayHttp2ConnectionPoolPtrInput `pulumi:"http2"`
 }
 
 func (VirtualGatewayConnectionPoolArgs) ElementType() reflect.Type {
@@ -8715,16 +8715,16 @@ func (o VirtualGatewayConnectionPoolOutput) ToVirtualGatewayConnectionPoolPtrOut
 	}).(VirtualGatewayConnectionPoolPtrOutput)
 }
 
-func (o VirtualGatewayConnectionPoolOutput) GRPC() VirtualGatewayGrpcConnectionPoolPtrOutput {
-	return o.ApplyT(func(v VirtualGatewayConnectionPool) *VirtualGatewayGrpcConnectionPool { return v.GRPC }).(VirtualGatewayGrpcConnectionPoolPtrOutput)
+func (o VirtualGatewayConnectionPoolOutput) Grpc() VirtualGatewayGrpcConnectionPoolPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayConnectionPool) *VirtualGatewayGrpcConnectionPool { return v.Grpc }).(VirtualGatewayGrpcConnectionPoolPtrOutput)
 }
 
-func (o VirtualGatewayConnectionPoolOutput) HTTP() VirtualGatewayHttpConnectionPoolPtrOutput {
-	return o.ApplyT(func(v VirtualGatewayConnectionPool) *VirtualGatewayHttpConnectionPool { return v.HTTP }).(VirtualGatewayHttpConnectionPoolPtrOutput)
+func (o VirtualGatewayConnectionPoolOutput) Http() VirtualGatewayHttpConnectionPoolPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayConnectionPool) *VirtualGatewayHttpConnectionPool { return v.Http }).(VirtualGatewayHttpConnectionPoolPtrOutput)
 }
 
-func (o VirtualGatewayConnectionPoolOutput) HTTP2() VirtualGatewayHttp2ConnectionPoolPtrOutput {
-	return o.ApplyT(func(v VirtualGatewayConnectionPool) *VirtualGatewayHttp2ConnectionPool { return v.HTTP2 }).(VirtualGatewayHttp2ConnectionPoolPtrOutput)
+func (o VirtualGatewayConnectionPoolOutput) Http2() VirtualGatewayHttp2ConnectionPoolPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayConnectionPool) *VirtualGatewayHttp2ConnectionPool { return v.Http2 }).(VirtualGatewayHttp2ConnectionPoolPtrOutput)
 }
 
 type VirtualGatewayConnectionPoolPtrOutput struct{ *pulumi.OutputState }
@@ -8751,30 +8751,30 @@ func (o VirtualGatewayConnectionPoolPtrOutput) Elem() VirtualGatewayConnectionPo
 	}).(VirtualGatewayConnectionPoolOutput)
 }
 
-func (o VirtualGatewayConnectionPoolPtrOutput) GRPC() VirtualGatewayGrpcConnectionPoolPtrOutput {
+func (o VirtualGatewayConnectionPoolPtrOutput) Grpc() VirtualGatewayGrpcConnectionPoolPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewayConnectionPool) *VirtualGatewayGrpcConnectionPool {
 		if v == nil {
 			return nil
 		}
-		return v.GRPC
+		return v.Grpc
 	}).(VirtualGatewayGrpcConnectionPoolPtrOutput)
 }
 
-func (o VirtualGatewayConnectionPoolPtrOutput) HTTP() VirtualGatewayHttpConnectionPoolPtrOutput {
+func (o VirtualGatewayConnectionPoolPtrOutput) Http() VirtualGatewayHttpConnectionPoolPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewayConnectionPool) *VirtualGatewayHttpConnectionPool {
 		if v == nil {
 			return nil
 		}
-		return v.HTTP
+		return v.Http
 	}).(VirtualGatewayHttpConnectionPoolPtrOutput)
 }
 
-func (o VirtualGatewayConnectionPoolPtrOutput) HTTP2() VirtualGatewayHttp2ConnectionPoolPtrOutput {
+func (o VirtualGatewayConnectionPoolPtrOutput) Http2() VirtualGatewayHttp2ConnectionPoolPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewayConnectionPool) *VirtualGatewayHttp2ConnectionPool {
 		if v == nil {
 			return nil
 		}
-		return v.HTTP2
+		return v.Http2
 	}).(VirtualGatewayHttp2ConnectionPoolPtrOutput)
 }
 
@@ -9667,7 +9667,7 @@ type VirtualGatewayListener struct {
 	ConnectionPool *VirtualGatewayConnectionPool    `pulumi:"connectionPool"`
 	HealthCheck    *VirtualGatewayHealthCheckPolicy `pulumi:"healthCheck"`
 	PortMapping    VirtualGatewayPortMapping        `pulumi:"portMapping"`
-	TLS            *VirtualGatewayListenerTls       `pulumi:"tLS"`
+	Tls            *VirtualGatewayListenerTls       `pulumi:"tls"`
 }
 
 // VirtualGatewayListenerInput is an input type that accepts VirtualGatewayListenerArgs and VirtualGatewayListenerOutput values.
@@ -9685,7 +9685,7 @@ type VirtualGatewayListenerArgs struct {
 	ConnectionPool VirtualGatewayConnectionPoolPtrInput    `pulumi:"connectionPool"`
 	HealthCheck    VirtualGatewayHealthCheckPolicyPtrInput `pulumi:"healthCheck"`
 	PortMapping    VirtualGatewayPortMappingInput          `pulumi:"portMapping"`
-	TLS            VirtualGatewayListenerTlsPtrInput       `pulumi:"tLS"`
+	Tls            VirtualGatewayListenerTlsPtrInput       `pulumi:"tls"`
 }
 
 func (VirtualGatewayListenerArgs) ElementType() reflect.Type {
@@ -9751,8 +9751,8 @@ func (o VirtualGatewayListenerOutput) PortMapping() VirtualGatewayPortMappingOut
 	return o.ApplyT(func(v VirtualGatewayListener) VirtualGatewayPortMapping { return v.PortMapping }).(VirtualGatewayPortMappingOutput)
 }
 
-func (o VirtualGatewayListenerOutput) TLS() VirtualGatewayListenerTlsPtrOutput {
-	return o.ApplyT(func(v VirtualGatewayListener) *VirtualGatewayListenerTls { return v.TLS }).(VirtualGatewayListenerTlsPtrOutput)
+func (o VirtualGatewayListenerOutput) Tls() VirtualGatewayListenerTlsPtrOutput {
+	return o.ApplyT(func(v VirtualGatewayListener) *VirtualGatewayListenerTls { return v.Tls }).(VirtualGatewayListenerTlsPtrOutput)
 }
 
 type VirtualGatewayListenerArrayOutput struct{ *pulumi.OutputState }
@@ -10072,9 +10072,9 @@ func (o VirtualGatewayListenerTlsAcmCertificatePtrOutput) CertificateArn() pulum
 }
 
 type VirtualGatewayListenerTlsCertificate struct {
-	ACM  *VirtualGatewayListenerTlsAcmCertificate  `pulumi:"aCM"`
+	Acm  *VirtualGatewayListenerTlsAcmCertificate  `pulumi:"acm"`
 	File *VirtualGatewayListenerTlsFileCertificate `pulumi:"file"`
-	SDS  *VirtualGatewayListenerTlsSdsCertificate  `pulumi:"sDS"`
+	Sds  *VirtualGatewayListenerTlsSdsCertificate  `pulumi:"sds"`
 }
 
 // VirtualGatewayListenerTlsCertificateInput is an input type that accepts VirtualGatewayListenerTlsCertificateArgs and VirtualGatewayListenerTlsCertificateOutput values.
@@ -10089,9 +10089,9 @@ type VirtualGatewayListenerTlsCertificateInput interface {
 }
 
 type VirtualGatewayListenerTlsCertificateArgs struct {
-	ACM  VirtualGatewayListenerTlsAcmCertificatePtrInput  `pulumi:"aCM"`
+	Acm  VirtualGatewayListenerTlsAcmCertificatePtrInput  `pulumi:"acm"`
 	File VirtualGatewayListenerTlsFileCertificatePtrInput `pulumi:"file"`
-	SDS  VirtualGatewayListenerTlsSdsCertificatePtrInput  `pulumi:"sDS"`
+	Sds  VirtualGatewayListenerTlsSdsCertificatePtrInput  `pulumi:"sds"`
 }
 
 func (VirtualGatewayListenerTlsCertificateArgs) ElementType() reflect.Type {
@@ -10171,16 +10171,16 @@ func (o VirtualGatewayListenerTlsCertificateOutput) ToVirtualGatewayListenerTlsC
 	}).(VirtualGatewayListenerTlsCertificatePtrOutput)
 }
 
-func (o VirtualGatewayListenerTlsCertificateOutput) ACM() VirtualGatewayListenerTlsAcmCertificatePtrOutput {
-	return o.ApplyT(func(v VirtualGatewayListenerTlsCertificate) *VirtualGatewayListenerTlsAcmCertificate { return v.ACM }).(VirtualGatewayListenerTlsAcmCertificatePtrOutput)
+func (o VirtualGatewayListenerTlsCertificateOutput) Acm() VirtualGatewayListenerTlsAcmCertificatePtrOutput {
+	return o.ApplyT(func(v VirtualGatewayListenerTlsCertificate) *VirtualGatewayListenerTlsAcmCertificate { return v.Acm }).(VirtualGatewayListenerTlsAcmCertificatePtrOutput)
 }
 
 func (o VirtualGatewayListenerTlsCertificateOutput) File() VirtualGatewayListenerTlsFileCertificatePtrOutput {
 	return o.ApplyT(func(v VirtualGatewayListenerTlsCertificate) *VirtualGatewayListenerTlsFileCertificate { return v.File }).(VirtualGatewayListenerTlsFileCertificatePtrOutput)
 }
 
-func (o VirtualGatewayListenerTlsCertificateOutput) SDS() VirtualGatewayListenerTlsSdsCertificatePtrOutput {
-	return o.ApplyT(func(v VirtualGatewayListenerTlsCertificate) *VirtualGatewayListenerTlsSdsCertificate { return v.SDS }).(VirtualGatewayListenerTlsSdsCertificatePtrOutput)
+func (o VirtualGatewayListenerTlsCertificateOutput) Sds() VirtualGatewayListenerTlsSdsCertificatePtrOutput {
+	return o.ApplyT(func(v VirtualGatewayListenerTlsCertificate) *VirtualGatewayListenerTlsSdsCertificate { return v.Sds }).(VirtualGatewayListenerTlsSdsCertificatePtrOutput)
 }
 
 type VirtualGatewayListenerTlsCertificatePtrOutput struct{ *pulumi.OutputState }
@@ -10207,12 +10207,12 @@ func (o VirtualGatewayListenerTlsCertificatePtrOutput) Elem() VirtualGatewayList
 	}).(VirtualGatewayListenerTlsCertificateOutput)
 }
 
-func (o VirtualGatewayListenerTlsCertificatePtrOutput) ACM() VirtualGatewayListenerTlsAcmCertificatePtrOutput {
+func (o VirtualGatewayListenerTlsCertificatePtrOutput) Acm() VirtualGatewayListenerTlsAcmCertificatePtrOutput {
 	return o.ApplyT(func(v *VirtualGatewayListenerTlsCertificate) *VirtualGatewayListenerTlsAcmCertificate {
 		if v == nil {
 			return nil
 		}
-		return v.ACM
+		return v.Acm
 	}).(VirtualGatewayListenerTlsAcmCertificatePtrOutput)
 }
 
@@ -10225,12 +10225,12 @@ func (o VirtualGatewayListenerTlsCertificatePtrOutput) File() VirtualGatewayList
 	}).(VirtualGatewayListenerTlsFileCertificatePtrOutput)
 }
 
-func (o VirtualGatewayListenerTlsCertificatePtrOutput) SDS() VirtualGatewayListenerTlsSdsCertificatePtrOutput {
+func (o VirtualGatewayListenerTlsCertificatePtrOutput) Sds() VirtualGatewayListenerTlsSdsCertificatePtrOutput {
 	return o.ApplyT(func(v *VirtualGatewayListenerTlsCertificate) *VirtualGatewayListenerTlsSdsCertificate {
 		if v == nil {
 			return nil
 		}
-		return v.SDS
+		return v.Sds
 	}).(VirtualGatewayListenerTlsSdsCertificatePtrOutput)
 }
 
@@ -10669,7 +10669,7 @@ func (o VirtualGatewayListenerTlsValidationContextPtrOutput) Trust() VirtualGate
 
 type VirtualGatewayListenerTlsValidationContextTrust struct {
 	File *VirtualGatewayTlsValidationContextFileTrust `pulumi:"file"`
-	SDS  *VirtualGatewayTlsValidationContextSdsTrust  `pulumi:"sDS"`
+	Sds  *VirtualGatewayTlsValidationContextSdsTrust  `pulumi:"sds"`
 }
 
 // VirtualGatewayListenerTlsValidationContextTrustInput is an input type that accepts VirtualGatewayListenerTlsValidationContextTrustArgs and VirtualGatewayListenerTlsValidationContextTrustOutput values.
@@ -10685,7 +10685,7 @@ type VirtualGatewayListenerTlsValidationContextTrustInput interface {
 
 type VirtualGatewayListenerTlsValidationContextTrustArgs struct {
 	File VirtualGatewayTlsValidationContextFileTrustPtrInput `pulumi:"file"`
-	SDS  VirtualGatewayTlsValidationContextSdsTrustPtrInput  `pulumi:"sDS"`
+	Sds  VirtualGatewayTlsValidationContextSdsTrustPtrInput  `pulumi:"sds"`
 }
 
 func (VirtualGatewayListenerTlsValidationContextTrustArgs) ElementType() reflect.Type {
@@ -10771,9 +10771,9 @@ func (o VirtualGatewayListenerTlsValidationContextTrustOutput) File() VirtualGat
 	}).(VirtualGatewayTlsValidationContextFileTrustPtrOutput)
 }
 
-func (o VirtualGatewayListenerTlsValidationContextTrustOutput) SDS() VirtualGatewayTlsValidationContextSdsTrustPtrOutput {
+func (o VirtualGatewayListenerTlsValidationContextTrustOutput) Sds() VirtualGatewayTlsValidationContextSdsTrustPtrOutput {
 	return o.ApplyT(func(v VirtualGatewayListenerTlsValidationContextTrust) *VirtualGatewayTlsValidationContextSdsTrust {
-		return v.SDS
+		return v.Sds
 	}).(VirtualGatewayTlsValidationContextSdsTrustPtrOutput)
 }
 
@@ -10810,12 +10810,12 @@ func (o VirtualGatewayListenerTlsValidationContextTrustPtrOutput) File() Virtual
 	}).(VirtualGatewayTlsValidationContextFileTrustPtrOutput)
 }
 
-func (o VirtualGatewayListenerTlsValidationContextTrustPtrOutput) SDS() VirtualGatewayTlsValidationContextSdsTrustPtrOutput {
+func (o VirtualGatewayListenerTlsValidationContextTrustPtrOutput) Sds() VirtualGatewayTlsValidationContextSdsTrustPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewayListenerTlsValidationContextTrust) *VirtualGatewayTlsValidationContextSdsTrust {
 		if v == nil {
 			return nil
 		}
-		return v.SDS
+		return v.Sds
 	}).(VirtualGatewayTlsValidationContextSdsTrustPtrOutput)
 }
 
@@ -12185,9 +12185,9 @@ func (o VirtualGatewayTlsValidationContextSdsTrustPtrOutput) SecretName() pulumi
 }
 
 type VirtualGatewayTlsValidationContextTrust struct {
-	ACM  *VirtualGatewayTlsValidationContextAcmTrust  `pulumi:"aCM"`
+	Acm  *VirtualGatewayTlsValidationContextAcmTrust  `pulumi:"acm"`
 	File *VirtualGatewayTlsValidationContextFileTrust `pulumi:"file"`
-	SDS  *VirtualGatewayTlsValidationContextSdsTrust  `pulumi:"sDS"`
+	Sds  *VirtualGatewayTlsValidationContextSdsTrust  `pulumi:"sds"`
 }
 
 // VirtualGatewayTlsValidationContextTrustInput is an input type that accepts VirtualGatewayTlsValidationContextTrustArgs and VirtualGatewayTlsValidationContextTrustOutput values.
@@ -12202,9 +12202,9 @@ type VirtualGatewayTlsValidationContextTrustInput interface {
 }
 
 type VirtualGatewayTlsValidationContextTrustArgs struct {
-	ACM  VirtualGatewayTlsValidationContextAcmTrustPtrInput  `pulumi:"aCM"`
+	Acm  VirtualGatewayTlsValidationContextAcmTrustPtrInput  `pulumi:"acm"`
 	File VirtualGatewayTlsValidationContextFileTrustPtrInput `pulumi:"file"`
-	SDS  VirtualGatewayTlsValidationContextSdsTrustPtrInput  `pulumi:"sDS"`
+	Sds  VirtualGatewayTlsValidationContextSdsTrustPtrInput  `pulumi:"sds"`
 }
 
 func (VirtualGatewayTlsValidationContextTrustArgs) ElementType() reflect.Type {
@@ -12284,9 +12284,9 @@ func (o VirtualGatewayTlsValidationContextTrustOutput) ToVirtualGatewayTlsValida
 	}).(VirtualGatewayTlsValidationContextTrustPtrOutput)
 }
 
-func (o VirtualGatewayTlsValidationContextTrustOutput) ACM() VirtualGatewayTlsValidationContextAcmTrustPtrOutput {
+func (o VirtualGatewayTlsValidationContextTrustOutput) Acm() VirtualGatewayTlsValidationContextAcmTrustPtrOutput {
 	return o.ApplyT(func(v VirtualGatewayTlsValidationContextTrust) *VirtualGatewayTlsValidationContextAcmTrust {
-		return v.ACM
+		return v.Acm
 	}).(VirtualGatewayTlsValidationContextAcmTrustPtrOutput)
 }
 
@@ -12296,9 +12296,9 @@ func (o VirtualGatewayTlsValidationContextTrustOutput) File() VirtualGatewayTlsV
 	}).(VirtualGatewayTlsValidationContextFileTrustPtrOutput)
 }
 
-func (o VirtualGatewayTlsValidationContextTrustOutput) SDS() VirtualGatewayTlsValidationContextSdsTrustPtrOutput {
+func (o VirtualGatewayTlsValidationContextTrustOutput) Sds() VirtualGatewayTlsValidationContextSdsTrustPtrOutput {
 	return o.ApplyT(func(v VirtualGatewayTlsValidationContextTrust) *VirtualGatewayTlsValidationContextSdsTrust {
-		return v.SDS
+		return v.Sds
 	}).(VirtualGatewayTlsValidationContextSdsTrustPtrOutput)
 }
 
@@ -12326,12 +12326,12 @@ func (o VirtualGatewayTlsValidationContextTrustPtrOutput) Elem() VirtualGatewayT
 	}).(VirtualGatewayTlsValidationContextTrustOutput)
 }
 
-func (o VirtualGatewayTlsValidationContextTrustPtrOutput) ACM() VirtualGatewayTlsValidationContextAcmTrustPtrOutput {
+func (o VirtualGatewayTlsValidationContextTrustPtrOutput) Acm() VirtualGatewayTlsValidationContextAcmTrustPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewayTlsValidationContextTrust) *VirtualGatewayTlsValidationContextAcmTrust {
 		if v == nil {
 			return nil
 		}
-		return v.ACM
+		return v.Acm
 	}).(VirtualGatewayTlsValidationContextAcmTrustPtrOutput)
 }
 
@@ -12344,12 +12344,12 @@ func (o VirtualGatewayTlsValidationContextTrustPtrOutput) File() VirtualGatewayT
 	}).(VirtualGatewayTlsValidationContextFileTrustPtrOutput)
 }
 
-func (o VirtualGatewayTlsValidationContextTrustPtrOutput) SDS() VirtualGatewayTlsValidationContextSdsTrustPtrOutput {
+func (o VirtualGatewayTlsValidationContextTrustPtrOutput) Sds() VirtualGatewayTlsValidationContextSdsTrustPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewayTlsValidationContextTrust) *VirtualGatewayTlsValidationContextSdsTrust {
 		if v == nil {
 			return nil
 		}
-		return v.SDS
+		return v.Sds
 	}).(VirtualGatewayTlsValidationContextSdsTrustPtrOutput)
 }
 
@@ -12994,7 +12994,7 @@ func (o VirtualNodeBackendDefaultsPtrOutput) ClientPolicy() VirtualNodeClientPol
 }
 
 type VirtualNodeClientPolicy struct {
-	TLS *VirtualNodeClientPolicyTls `pulumi:"tLS"`
+	Tls *VirtualNodeClientPolicyTls `pulumi:"tls"`
 }
 
 // VirtualNodeClientPolicyInput is an input type that accepts VirtualNodeClientPolicyArgs and VirtualNodeClientPolicyOutput values.
@@ -13009,7 +13009,7 @@ type VirtualNodeClientPolicyInput interface {
 }
 
 type VirtualNodeClientPolicyArgs struct {
-	TLS VirtualNodeClientPolicyTlsPtrInput `pulumi:"tLS"`
+	Tls VirtualNodeClientPolicyTlsPtrInput `pulumi:"tls"`
 }
 
 func (VirtualNodeClientPolicyArgs) ElementType() reflect.Type {
@@ -13089,8 +13089,8 @@ func (o VirtualNodeClientPolicyOutput) ToVirtualNodeClientPolicyPtrOutputWithCon
 	}).(VirtualNodeClientPolicyPtrOutput)
 }
 
-func (o VirtualNodeClientPolicyOutput) TLS() VirtualNodeClientPolicyTlsPtrOutput {
-	return o.ApplyT(func(v VirtualNodeClientPolicy) *VirtualNodeClientPolicyTls { return v.TLS }).(VirtualNodeClientPolicyTlsPtrOutput)
+func (o VirtualNodeClientPolicyOutput) Tls() VirtualNodeClientPolicyTlsPtrOutput {
+	return o.ApplyT(func(v VirtualNodeClientPolicy) *VirtualNodeClientPolicyTls { return v.Tls }).(VirtualNodeClientPolicyTlsPtrOutput)
 }
 
 type VirtualNodeClientPolicyPtrOutput struct{ *pulumi.OutputState }
@@ -13117,12 +13117,12 @@ func (o VirtualNodeClientPolicyPtrOutput) Elem() VirtualNodeClientPolicyOutput {
 	}).(VirtualNodeClientPolicyOutput)
 }
 
-func (o VirtualNodeClientPolicyPtrOutput) TLS() VirtualNodeClientPolicyTlsPtrOutput {
+func (o VirtualNodeClientPolicyPtrOutput) Tls() VirtualNodeClientPolicyTlsPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeClientPolicy) *VirtualNodeClientPolicyTls {
 		if v == nil {
 			return nil
 		}
-		return v.TLS
+		return v.Tls
 	}).(VirtualNodeClientPolicyTlsPtrOutput)
 }
 
@@ -13306,7 +13306,7 @@ func (o VirtualNodeClientPolicyTlsPtrOutput) Validation() VirtualNodeTlsValidati
 
 type VirtualNodeClientTlsCertificate struct {
 	File *VirtualNodeListenerTlsFileCertificate `pulumi:"file"`
-	SDS  *VirtualNodeListenerTlsSdsCertificate  `pulumi:"sDS"`
+	Sds  *VirtualNodeListenerTlsSdsCertificate  `pulumi:"sds"`
 }
 
 // VirtualNodeClientTlsCertificateInput is an input type that accepts VirtualNodeClientTlsCertificateArgs and VirtualNodeClientTlsCertificateOutput values.
@@ -13322,7 +13322,7 @@ type VirtualNodeClientTlsCertificateInput interface {
 
 type VirtualNodeClientTlsCertificateArgs struct {
 	File VirtualNodeListenerTlsFileCertificatePtrInput `pulumi:"file"`
-	SDS  VirtualNodeListenerTlsSdsCertificatePtrInput  `pulumi:"sDS"`
+	Sds  VirtualNodeListenerTlsSdsCertificatePtrInput  `pulumi:"sds"`
 }
 
 func (VirtualNodeClientTlsCertificateArgs) ElementType() reflect.Type {
@@ -13406,8 +13406,8 @@ func (o VirtualNodeClientTlsCertificateOutput) File() VirtualNodeListenerTlsFile
 	return o.ApplyT(func(v VirtualNodeClientTlsCertificate) *VirtualNodeListenerTlsFileCertificate { return v.File }).(VirtualNodeListenerTlsFileCertificatePtrOutput)
 }
 
-func (o VirtualNodeClientTlsCertificateOutput) SDS() VirtualNodeListenerTlsSdsCertificatePtrOutput {
-	return o.ApplyT(func(v VirtualNodeClientTlsCertificate) *VirtualNodeListenerTlsSdsCertificate { return v.SDS }).(VirtualNodeListenerTlsSdsCertificatePtrOutput)
+func (o VirtualNodeClientTlsCertificateOutput) Sds() VirtualNodeListenerTlsSdsCertificatePtrOutput {
+	return o.ApplyT(func(v VirtualNodeClientTlsCertificate) *VirtualNodeListenerTlsSdsCertificate { return v.Sds }).(VirtualNodeListenerTlsSdsCertificatePtrOutput)
 }
 
 type VirtualNodeClientTlsCertificatePtrOutput struct{ *pulumi.OutputState }
@@ -13443,20 +13443,20 @@ func (o VirtualNodeClientTlsCertificatePtrOutput) File() VirtualNodeListenerTlsF
 	}).(VirtualNodeListenerTlsFileCertificatePtrOutput)
 }
 
-func (o VirtualNodeClientTlsCertificatePtrOutput) SDS() VirtualNodeListenerTlsSdsCertificatePtrOutput {
+func (o VirtualNodeClientTlsCertificatePtrOutput) Sds() VirtualNodeListenerTlsSdsCertificatePtrOutput {
 	return o.ApplyT(func(v *VirtualNodeClientTlsCertificate) *VirtualNodeListenerTlsSdsCertificate {
 		if v == nil {
 			return nil
 		}
-		return v.SDS
+		return v.Sds
 	}).(VirtualNodeListenerTlsSdsCertificatePtrOutput)
 }
 
 type VirtualNodeConnectionPool struct {
-	GRPC  *VirtualNodeGrpcConnectionPool  `pulumi:"gRPC"`
-	HTTP  *VirtualNodeHttpConnectionPool  `pulumi:"hTTP"`
-	HTTP2 *VirtualNodeHttp2ConnectionPool `pulumi:"hTTP2"`
-	TCP   *VirtualNodeTcpConnectionPool   `pulumi:"tCP"`
+	Grpc  *VirtualNodeGrpcConnectionPool  `pulumi:"grpc"`
+	Http  *VirtualNodeHttpConnectionPool  `pulumi:"http"`
+	Http2 *VirtualNodeHttp2ConnectionPool `pulumi:"http2"`
+	Tcp   *VirtualNodeTcpConnectionPool   `pulumi:"tcp"`
 }
 
 // VirtualNodeConnectionPoolInput is an input type that accepts VirtualNodeConnectionPoolArgs and VirtualNodeConnectionPoolOutput values.
@@ -13471,10 +13471,10 @@ type VirtualNodeConnectionPoolInput interface {
 }
 
 type VirtualNodeConnectionPoolArgs struct {
-	GRPC  VirtualNodeGrpcConnectionPoolPtrInput  `pulumi:"gRPC"`
-	HTTP  VirtualNodeHttpConnectionPoolPtrInput  `pulumi:"hTTP"`
-	HTTP2 VirtualNodeHttp2ConnectionPoolPtrInput `pulumi:"hTTP2"`
-	TCP   VirtualNodeTcpConnectionPoolPtrInput   `pulumi:"tCP"`
+	Grpc  VirtualNodeGrpcConnectionPoolPtrInput  `pulumi:"grpc"`
+	Http  VirtualNodeHttpConnectionPoolPtrInput  `pulumi:"http"`
+	Http2 VirtualNodeHttp2ConnectionPoolPtrInput `pulumi:"http2"`
+	Tcp   VirtualNodeTcpConnectionPoolPtrInput   `pulumi:"tcp"`
 }
 
 func (VirtualNodeConnectionPoolArgs) ElementType() reflect.Type {
@@ -13554,20 +13554,20 @@ func (o VirtualNodeConnectionPoolOutput) ToVirtualNodeConnectionPoolPtrOutputWit
 	}).(VirtualNodeConnectionPoolPtrOutput)
 }
 
-func (o VirtualNodeConnectionPoolOutput) GRPC() VirtualNodeGrpcConnectionPoolPtrOutput {
-	return o.ApplyT(func(v VirtualNodeConnectionPool) *VirtualNodeGrpcConnectionPool { return v.GRPC }).(VirtualNodeGrpcConnectionPoolPtrOutput)
+func (o VirtualNodeConnectionPoolOutput) Grpc() VirtualNodeGrpcConnectionPoolPtrOutput {
+	return o.ApplyT(func(v VirtualNodeConnectionPool) *VirtualNodeGrpcConnectionPool { return v.Grpc }).(VirtualNodeGrpcConnectionPoolPtrOutput)
 }
 
-func (o VirtualNodeConnectionPoolOutput) HTTP() VirtualNodeHttpConnectionPoolPtrOutput {
-	return o.ApplyT(func(v VirtualNodeConnectionPool) *VirtualNodeHttpConnectionPool { return v.HTTP }).(VirtualNodeHttpConnectionPoolPtrOutput)
+func (o VirtualNodeConnectionPoolOutput) Http() VirtualNodeHttpConnectionPoolPtrOutput {
+	return o.ApplyT(func(v VirtualNodeConnectionPool) *VirtualNodeHttpConnectionPool { return v.Http }).(VirtualNodeHttpConnectionPoolPtrOutput)
 }
 
-func (o VirtualNodeConnectionPoolOutput) HTTP2() VirtualNodeHttp2ConnectionPoolPtrOutput {
-	return o.ApplyT(func(v VirtualNodeConnectionPool) *VirtualNodeHttp2ConnectionPool { return v.HTTP2 }).(VirtualNodeHttp2ConnectionPoolPtrOutput)
+func (o VirtualNodeConnectionPoolOutput) Http2() VirtualNodeHttp2ConnectionPoolPtrOutput {
+	return o.ApplyT(func(v VirtualNodeConnectionPool) *VirtualNodeHttp2ConnectionPool { return v.Http2 }).(VirtualNodeHttp2ConnectionPoolPtrOutput)
 }
 
-func (o VirtualNodeConnectionPoolOutput) TCP() VirtualNodeTcpConnectionPoolPtrOutput {
-	return o.ApplyT(func(v VirtualNodeConnectionPool) *VirtualNodeTcpConnectionPool { return v.TCP }).(VirtualNodeTcpConnectionPoolPtrOutput)
+func (o VirtualNodeConnectionPoolOutput) Tcp() VirtualNodeTcpConnectionPoolPtrOutput {
+	return o.ApplyT(func(v VirtualNodeConnectionPool) *VirtualNodeTcpConnectionPool { return v.Tcp }).(VirtualNodeTcpConnectionPoolPtrOutput)
 }
 
 type VirtualNodeConnectionPoolPtrOutput struct{ *pulumi.OutputState }
@@ -13594,39 +13594,39 @@ func (o VirtualNodeConnectionPoolPtrOutput) Elem() VirtualNodeConnectionPoolOutp
 	}).(VirtualNodeConnectionPoolOutput)
 }
 
-func (o VirtualNodeConnectionPoolPtrOutput) GRPC() VirtualNodeGrpcConnectionPoolPtrOutput {
+func (o VirtualNodeConnectionPoolPtrOutput) Grpc() VirtualNodeGrpcConnectionPoolPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeConnectionPool) *VirtualNodeGrpcConnectionPool {
 		if v == nil {
 			return nil
 		}
-		return v.GRPC
+		return v.Grpc
 	}).(VirtualNodeGrpcConnectionPoolPtrOutput)
 }
 
-func (o VirtualNodeConnectionPoolPtrOutput) HTTP() VirtualNodeHttpConnectionPoolPtrOutput {
+func (o VirtualNodeConnectionPoolPtrOutput) Http() VirtualNodeHttpConnectionPoolPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeConnectionPool) *VirtualNodeHttpConnectionPool {
 		if v == nil {
 			return nil
 		}
-		return v.HTTP
+		return v.Http
 	}).(VirtualNodeHttpConnectionPoolPtrOutput)
 }
 
-func (o VirtualNodeConnectionPoolPtrOutput) HTTP2() VirtualNodeHttp2ConnectionPoolPtrOutput {
+func (o VirtualNodeConnectionPoolPtrOutput) Http2() VirtualNodeHttp2ConnectionPoolPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeConnectionPool) *VirtualNodeHttp2ConnectionPool {
 		if v == nil {
 			return nil
 		}
-		return v.HTTP2
+		return v.Http2
 	}).(VirtualNodeHttp2ConnectionPoolPtrOutput)
 }
 
-func (o VirtualNodeConnectionPoolPtrOutput) TCP() VirtualNodeTcpConnectionPoolPtrOutput {
+func (o VirtualNodeConnectionPoolPtrOutput) Tcp() VirtualNodeTcpConnectionPoolPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeConnectionPool) *VirtualNodeTcpConnectionPool {
 		if v == nil {
 			return nil
 		}
-		return v.TCP
+		return v.Tcp
 	}).(VirtualNodeTcpConnectionPoolPtrOutput)
 }
 
@@ -15127,8 +15127,8 @@ type VirtualNodeListener struct {
 	HealthCheck      *VirtualNodeHealthCheck      `pulumi:"healthCheck"`
 	OutlierDetection *VirtualNodeOutlierDetection `pulumi:"outlierDetection"`
 	PortMapping      VirtualNodePortMapping       `pulumi:"portMapping"`
-	TLS              *VirtualNodeListenerTls      `pulumi:"tLS"`
 	Timeout          *VirtualNodeListenerTimeout  `pulumi:"timeout"`
+	Tls              *VirtualNodeListenerTls      `pulumi:"tls"`
 }
 
 // VirtualNodeListenerInput is an input type that accepts VirtualNodeListenerArgs and VirtualNodeListenerOutput values.
@@ -15147,8 +15147,8 @@ type VirtualNodeListenerArgs struct {
 	HealthCheck      VirtualNodeHealthCheckPtrInput      `pulumi:"healthCheck"`
 	OutlierDetection VirtualNodeOutlierDetectionPtrInput `pulumi:"outlierDetection"`
 	PortMapping      VirtualNodePortMappingInput         `pulumi:"portMapping"`
-	TLS              VirtualNodeListenerTlsPtrInput      `pulumi:"tLS"`
 	Timeout          VirtualNodeListenerTimeoutPtrInput  `pulumi:"timeout"`
+	Tls              VirtualNodeListenerTlsPtrInput      `pulumi:"tls"`
 }
 
 func (VirtualNodeListenerArgs) ElementType() reflect.Type {
@@ -15218,12 +15218,12 @@ func (o VirtualNodeListenerOutput) PortMapping() VirtualNodePortMappingOutput {
 	return o.ApplyT(func(v VirtualNodeListener) VirtualNodePortMapping { return v.PortMapping }).(VirtualNodePortMappingOutput)
 }
 
-func (o VirtualNodeListenerOutput) TLS() VirtualNodeListenerTlsPtrOutput {
-	return o.ApplyT(func(v VirtualNodeListener) *VirtualNodeListenerTls { return v.TLS }).(VirtualNodeListenerTlsPtrOutput)
-}
-
 func (o VirtualNodeListenerOutput) Timeout() VirtualNodeListenerTimeoutPtrOutput {
 	return o.ApplyT(func(v VirtualNodeListener) *VirtualNodeListenerTimeout { return v.Timeout }).(VirtualNodeListenerTimeoutPtrOutput)
+}
+
+func (o VirtualNodeListenerOutput) Tls() VirtualNodeListenerTlsPtrOutput {
+	return o.ApplyT(func(v VirtualNodeListener) *VirtualNodeListenerTls { return v.Tls }).(VirtualNodeListenerTlsPtrOutput)
 }
 
 type VirtualNodeListenerArrayOutput struct{ *pulumi.OutputState }
@@ -15247,10 +15247,10 @@ func (o VirtualNodeListenerArrayOutput) Index(i pulumi.IntInput) VirtualNodeList
 }
 
 type VirtualNodeListenerTimeout struct {
-	GRPC  *VirtualNodeGrpcTimeout `pulumi:"gRPC"`
-	HTTP  *VirtualNodeHttpTimeout `pulumi:"hTTP"`
-	HTTP2 *VirtualNodeHttpTimeout `pulumi:"hTTP2"`
-	TCP   *VirtualNodeTcpTimeout  `pulumi:"tCP"`
+	Grpc  *VirtualNodeGrpcTimeout `pulumi:"grpc"`
+	Http  *VirtualNodeHttpTimeout `pulumi:"http"`
+	Http2 *VirtualNodeHttpTimeout `pulumi:"http2"`
+	Tcp   *VirtualNodeTcpTimeout  `pulumi:"tcp"`
 }
 
 // VirtualNodeListenerTimeoutInput is an input type that accepts VirtualNodeListenerTimeoutArgs and VirtualNodeListenerTimeoutOutput values.
@@ -15265,10 +15265,10 @@ type VirtualNodeListenerTimeoutInput interface {
 }
 
 type VirtualNodeListenerTimeoutArgs struct {
-	GRPC  VirtualNodeGrpcTimeoutPtrInput `pulumi:"gRPC"`
-	HTTP  VirtualNodeHttpTimeoutPtrInput `pulumi:"hTTP"`
-	HTTP2 VirtualNodeHttpTimeoutPtrInput `pulumi:"hTTP2"`
-	TCP   VirtualNodeTcpTimeoutPtrInput  `pulumi:"tCP"`
+	Grpc  VirtualNodeGrpcTimeoutPtrInput `pulumi:"grpc"`
+	Http  VirtualNodeHttpTimeoutPtrInput `pulumi:"http"`
+	Http2 VirtualNodeHttpTimeoutPtrInput `pulumi:"http2"`
+	Tcp   VirtualNodeTcpTimeoutPtrInput  `pulumi:"tcp"`
 }
 
 func (VirtualNodeListenerTimeoutArgs) ElementType() reflect.Type {
@@ -15348,20 +15348,20 @@ func (o VirtualNodeListenerTimeoutOutput) ToVirtualNodeListenerTimeoutPtrOutputW
 	}).(VirtualNodeListenerTimeoutPtrOutput)
 }
 
-func (o VirtualNodeListenerTimeoutOutput) GRPC() VirtualNodeGrpcTimeoutPtrOutput {
-	return o.ApplyT(func(v VirtualNodeListenerTimeout) *VirtualNodeGrpcTimeout { return v.GRPC }).(VirtualNodeGrpcTimeoutPtrOutput)
+func (o VirtualNodeListenerTimeoutOutput) Grpc() VirtualNodeGrpcTimeoutPtrOutput {
+	return o.ApplyT(func(v VirtualNodeListenerTimeout) *VirtualNodeGrpcTimeout { return v.Grpc }).(VirtualNodeGrpcTimeoutPtrOutput)
 }
 
-func (o VirtualNodeListenerTimeoutOutput) HTTP() VirtualNodeHttpTimeoutPtrOutput {
-	return o.ApplyT(func(v VirtualNodeListenerTimeout) *VirtualNodeHttpTimeout { return v.HTTP }).(VirtualNodeHttpTimeoutPtrOutput)
+func (o VirtualNodeListenerTimeoutOutput) Http() VirtualNodeHttpTimeoutPtrOutput {
+	return o.ApplyT(func(v VirtualNodeListenerTimeout) *VirtualNodeHttpTimeout { return v.Http }).(VirtualNodeHttpTimeoutPtrOutput)
 }
 
-func (o VirtualNodeListenerTimeoutOutput) HTTP2() VirtualNodeHttpTimeoutPtrOutput {
-	return o.ApplyT(func(v VirtualNodeListenerTimeout) *VirtualNodeHttpTimeout { return v.HTTP2 }).(VirtualNodeHttpTimeoutPtrOutput)
+func (o VirtualNodeListenerTimeoutOutput) Http2() VirtualNodeHttpTimeoutPtrOutput {
+	return o.ApplyT(func(v VirtualNodeListenerTimeout) *VirtualNodeHttpTimeout { return v.Http2 }).(VirtualNodeHttpTimeoutPtrOutput)
 }
 
-func (o VirtualNodeListenerTimeoutOutput) TCP() VirtualNodeTcpTimeoutPtrOutput {
-	return o.ApplyT(func(v VirtualNodeListenerTimeout) *VirtualNodeTcpTimeout { return v.TCP }).(VirtualNodeTcpTimeoutPtrOutput)
+func (o VirtualNodeListenerTimeoutOutput) Tcp() VirtualNodeTcpTimeoutPtrOutput {
+	return o.ApplyT(func(v VirtualNodeListenerTimeout) *VirtualNodeTcpTimeout { return v.Tcp }).(VirtualNodeTcpTimeoutPtrOutput)
 }
 
 type VirtualNodeListenerTimeoutPtrOutput struct{ *pulumi.OutputState }
@@ -15388,39 +15388,39 @@ func (o VirtualNodeListenerTimeoutPtrOutput) Elem() VirtualNodeListenerTimeoutOu
 	}).(VirtualNodeListenerTimeoutOutput)
 }
 
-func (o VirtualNodeListenerTimeoutPtrOutput) GRPC() VirtualNodeGrpcTimeoutPtrOutput {
+func (o VirtualNodeListenerTimeoutPtrOutput) Grpc() VirtualNodeGrpcTimeoutPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeListenerTimeout) *VirtualNodeGrpcTimeout {
 		if v == nil {
 			return nil
 		}
-		return v.GRPC
+		return v.Grpc
 	}).(VirtualNodeGrpcTimeoutPtrOutput)
 }
 
-func (o VirtualNodeListenerTimeoutPtrOutput) HTTP() VirtualNodeHttpTimeoutPtrOutput {
+func (o VirtualNodeListenerTimeoutPtrOutput) Http() VirtualNodeHttpTimeoutPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeListenerTimeout) *VirtualNodeHttpTimeout {
 		if v == nil {
 			return nil
 		}
-		return v.HTTP
+		return v.Http
 	}).(VirtualNodeHttpTimeoutPtrOutput)
 }
 
-func (o VirtualNodeListenerTimeoutPtrOutput) HTTP2() VirtualNodeHttpTimeoutPtrOutput {
+func (o VirtualNodeListenerTimeoutPtrOutput) Http2() VirtualNodeHttpTimeoutPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeListenerTimeout) *VirtualNodeHttpTimeout {
 		if v == nil {
 			return nil
 		}
-		return v.HTTP2
+		return v.Http2
 	}).(VirtualNodeHttpTimeoutPtrOutput)
 }
 
-func (o VirtualNodeListenerTimeoutPtrOutput) TCP() VirtualNodeTcpTimeoutPtrOutput {
+func (o VirtualNodeListenerTimeoutPtrOutput) Tcp() VirtualNodeTcpTimeoutPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeListenerTimeout) *VirtualNodeTcpTimeout {
 		if v == nil {
 			return nil
 		}
-		return v.TCP
+		return v.Tcp
 	}).(VirtualNodeTcpTimeoutPtrOutput)
 }
 
@@ -15721,9 +15721,9 @@ func (o VirtualNodeListenerTlsAcmCertificatePtrOutput) CertificateArn() pulumi.S
 }
 
 type VirtualNodeListenerTlsCertificate struct {
-	ACM  *VirtualNodeListenerTlsAcmCertificate  `pulumi:"aCM"`
+	Acm  *VirtualNodeListenerTlsAcmCertificate  `pulumi:"acm"`
 	File *VirtualNodeListenerTlsFileCertificate `pulumi:"file"`
-	SDS  *VirtualNodeListenerTlsSdsCertificate  `pulumi:"sDS"`
+	Sds  *VirtualNodeListenerTlsSdsCertificate  `pulumi:"sds"`
 }
 
 // VirtualNodeListenerTlsCertificateInput is an input type that accepts VirtualNodeListenerTlsCertificateArgs and VirtualNodeListenerTlsCertificateOutput values.
@@ -15738,9 +15738,9 @@ type VirtualNodeListenerTlsCertificateInput interface {
 }
 
 type VirtualNodeListenerTlsCertificateArgs struct {
-	ACM  VirtualNodeListenerTlsAcmCertificatePtrInput  `pulumi:"aCM"`
+	Acm  VirtualNodeListenerTlsAcmCertificatePtrInput  `pulumi:"acm"`
 	File VirtualNodeListenerTlsFileCertificatePtrInput `pulumi:"file"`
-	SDS  VirtualNodeListenerTlsSdsCertificatePtrInput  `pulumi:"sDS"`
+	Sds  VirtualNodeListenerTlsSdsCertificatePtrInput  `pulumi:"sds"`
 }
 
 func (VirtualNodeListenerTlsCertificateArgs) ElementType() reflect.Type {
@@ -15820,16 +15820,16 @@ func (o VirtualNodeListenerTlsCertificateOutput) ToVirtualNodeListenerTlsCertifi
 	}).(VirtualNodeListenerTlsCertificatePtrOutput)
 }
 
-func (o VirtualNodeListenerTlsCertificateOutput) ACM() VirtualNodeListenerTlsAcmCertificatePtrOutput {
-	return o.ApplyT(func(v VirtualNodeListenerTlsCertificate) *VirtualNodeListenerTlsAcmCertificate { return v.ACM }).(VirtualNodeListenerTlsAcmCertificatePtrOutput)
+func (o VirtualNodeListenerTlsCertificateOutput) Acm() VirtualNodeListenerTlsAcmCertificatePtrOutput {
+	return o.ApplyT(func(v VirtualNodeListenerTlsCertificate) *VirtualNodeListenerTlsAcmCertificate { return v.Acm }).(VirtualNodeListenerTlsAcmCertificatePtrOutput)
 }
 
 func (o VirtualNodeListenerTlsCertificateOutput) File() VirtualNodeListenerTlsFileCertificatePtrOutput {
 	return o.ApplyT(func(v VirtualNodeListenerTlsCertificate) *VirtualNodeListenerTlsFileCertificate { return v.File }).(VirtualNodeListenerTlsFileCertificatePtrOutput)
 }
 
-func (o VirtualNodeListenerTlsCertificateOutput) SDS() VirtualNodeListenerTlsSdsCertificatePtrOutput {
-	return o.ApplyT(func(v VirtualNodeListenerTlsCertificate) *VirtualNodeListenerTlsSdsCertificate { return v.SDS }).(VirtualNodeListenerTlsSdsCertificatePtrOutput)
+func (o VirtualNodeListenerTlsCertificateOutput) Sds() VirtualNodeListenerTlsSdsCertificatePtrOutput {
+	return o.ApplyT(func(v VirtualNodeListenerTlsCertificate) *VirtualNodeListenerTlsSdsCertificate { return v.Sds }).(VirtualNodeListenerTlsSdsCertificatePtrOutput)
 }
 
 type VirtualNodeListenerTlsCertificatePtrOutput struct{ *pulumi.OutputState }
@@ -15856,12 +15856,12 @@ func (o VirtualNodeListenerTlsCertificatePtrOutput) Elem() VirtualNodeListenerTl
 	}).(VirtualNodeListenerTlsCertificateOutput)
 }
 
-func (o VirtualNodeListenerTlsCertificatePtrOutput) ACM() VirtualNodeListenerTlsAcmCertificatePtrOutput {
+func (o VirtualNodeListenerTlsCertificatePtrOutput) Acm() VirtualNodeListenerTlsAcmCertificatePtrOutput {
 	return o.ApplyT(func(v *VirtualNodeListenerTlsCertificate) *VirtualNodeListenerTlsAcmCertificate {
 		if v == nil {
 			return nil
 		}
-		return v.ACM
+		return v.Acm
 	}).(VirtualNodeListenerTlsAcmCertificatePtrOutput)
 }
 
@@ -15874,12 +15874,12 @@ func (o VirtualNodeListenerTlsCertificatePtrOutput) File() VirtualNodeListenerTl
 	}).(VirtualNodeListenerTlsFileCertificatePtrOutput)
 }
 
-func (o VirtualNodeListenerTlsCertificatePtrOutput) SDS() VirtualNodeListenerTlsSdsCertificatePtrOutput {
+func (o VirtualNodeListenerTlsCertificatePtrOutput) Sds() VirtualNodeListenerTlsSdsCertificatePtrOutput {
 	return o.ApplyT(func(v *VirtualNodeListenerTlsCertificate) *VirtualNodeListenerTlsSdsCertificate {
 		if v == nil {
 			return nil
 		}
-		return v.SDS
+		return v.Sds
 	}).(VirtualNodeListenerTlsSdsCertificatePtrOutput)
 }
 
@@ -16318,7 +16318,7 @@ func (o VirtualNodeListenerTlsValidationContextPtrOutput) Trust() VirtualNodeLis
 
 type VirtualNodeListenerTlsValidationContextTrust struct {
 	File *VirtualNodeTlsValidationContextFileTrust `pulumi:"file"`
-	SDS  *VirtualNodeTlsValidationContextSdsTrust  `pulumi:"sDS"`
+	Sds  *VirtualNodeTlsValidationContextSdsTrust  `pulumi:"sds"`
 }
 
 // VirtualNodeListenerTlsValidationContextTrustInput is an input type that accepts VirtualNodeListenerTlsValidationContextTrustArgs and VirtualNodeListenerTlsValidationContextTrustOutput values.
@@ -16334,7 +16334,7 @@ type VirtualNodeListenerTlsValidationContextTrustInput interface {
 
 type VirtualNodeListenerTlsValidationContextTrustArgs struct {
 	File VirtualNodeTlsValidationContextFileTrustPtrInput `pulumi:"file"`
-	SDS  VirtualNodeTlsValidationContextSdsTrustPtrInput  `pulumi:"sDS"`
+	Sds  VirtualNodeTlsValidationContextSdsTrustPtrInput  `pulumi:"sds"`
 }
 
 func (VirtualNodeListenerTlsValidationContextTrustArgs) ElementType() reflect.Type {
@@ -16420,9 +16420,9 @@ func (o VirtualNodeListenerTlsValidationContextTrustOutput) File() VirtualNodeTl
 	}).(VirtualNodeTlsValidationContextFileTrustPtrOutput)
 }
 
-func (o VirtualNodeListenerTlsValidationContextTrustOutput) SDS() VirtualNodeTlsValidationContextSdsTrustPtrOutput {
+func (o VirtualNodeListenerTlsValidationContextTrustOutput) Sds() VirtualNodeTlsValidationContextSdsTrustPtrOutput {
 	return o.ApplyT(func(v VirtualNodeListenerTlsValidationContextTrust) *VirtualNodeTlsValidationContextSdsTrust {
-		return v.SDS
+		return v.Sds
 	}).(VirtualNodeTlsValidationContextSdsTrustPtrOutput)
 }
 
@@ -16459,12 +16459,12 @@ func (o VirtualNodeListenerTlsValidationContextTrustPtrOutput) File() VirtualNod
 	}).(VirtualNodeTlsValidationContextFileTrustPtrOutput)
 }
 
-func (o VirtualNodeListenerTlsValidationContextTrustPtrOutput) SDS() VirtualNodeTlsValidationContextSdsTrustPtrOutput {
+func (o VirtualNodeListenerTlsValidationContextTrustPtrOutput) Sds() VirtualNodeTlsValidationContextSdsTrustPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeListenerTlsValidationContextTrust) *VirtualNodeTlsValidationContextSdsTrust {
 		if v == nil {
 			return nil
 		}
-		return v.SDS
+		return v.Sds
 	}).(VirtualNodeTlsValidationContextSdsTrustPtrOutput)
 }
 
@@ -16983,8 +16983,8 @@ func (o VirtualNodePortMappingOutput) Protocol() pulumi.StringOutput {
 }
 
 type VirtualNodeServiceDiscovery struct {
-	AWSCloudMap *VirtualNodeAwsCloudMapServiceDiscovery `pulumi:"aWSCloudMap"`
-	DNS         *VirtualNodeDnsServiceDiscovery         `pulumi:"dNS"`
+	AwsCloudMap *VirtualNodeAwsCloudMapServiceDiscovery `pulumi:"awsCloudMap"`
+	Dns         *VirtualNodeDnsServiceDiscovery         `pulumi:"dns"`
 }
 
 // VirtualNodeServiceDiscoveryInput is an input type that accepts VirtualNodeServiceDiscoveryArgs and VirtualNodeServiceDiscoveryOutput values.
@@ -16999,8 +16999,8 @@ type VirtualNodeServiceDiscoveryInput interface {
 }
 
 type VirtualNodeServiceDiscoveryArgs struct {
-	AWSCloudMap VirtualNodeAwsCloudMapServiceDiscoveryPtrInput `pulumi:"aWSCloudMap"`
-	DNS         VirtualNodeDnsServiceDiscoveryPtrInput         `pulumi:"dNS"`
+	AwsCloudMap VirtualNodeAwsCloudMapServiceDiscoveryPtrInput `pulumi:"awsCloudMap"`
+	Dns         VirtualNodeDnsServiceDiscoveryPtrInput         `pulumi:"dns"`
 }
 
 func (VirtualNodeServiceDiscoveryArgs) ElementType() reflect.Type {
@@ -17080,12 +17080,12 @@ func (o VirtualNodeServiceDiscoveryOutput) ToVirtualNodeServiceDiscoveryPtrOutpu
 	}).(VirtualNodeServiceDiscoveryPtrOutput)
 }
 
-func (o VirtualNodeServiceDiscoveryOutput) AWSCloudMap() VirtualNodeAwsCloudMapServiceDiscoveryPtrOutput {
-	return o.ApplyT(func(v VirtualNodeServiceDiscovery) *VirtualNodeAwsCloudMapServiceDiscovery { return v.AWSCloudMap }).(VirtualNodeAwsCloudMapServiceDiscoveryPtrOutput)
+func (o VirtualNodeServiceDiscoveryOutput) AwsCloudMap() VirtualNodeAwsCloudMapServiceDiscoveryPtrOutput {
+	return o.ApplyT(func(v VirtualNodeServiceDiscovery) *VirtualNodeAwsCloudMapServiceDiscovery { return v.AwsCloudMap }).(VirtualNodeAwsCloudMapServiceDiscoveryPtrOutput)
 }
 
-func (o VirtualNodeServiceDiscoveryOutput) DNS() VirtualNodeDnsServiceDiscoveryPtrOutput {
-	return o.ApplyT(func(v VirtualNodeServiceDiscovery) *VirtualNodeDnsServiceDiscovery { return v.DNS }).(VirtualNodeDnsServiceDiscoveryPtrOutput)
+func (o VirtualNodeServiceDiscoveryOutput) Dns() VirtualNodeDnsServiceDiscoveryPtrOutput {
+	return o.ApplyT(func(v VirtualNodeServiceDiscovery) *VirtualNodeDnsServiceDiscovery { return v.Dns }).(VirtualNodeDnsServiceDiscoveryPtrOutput)
 }
 
 type VirtualNodeServiceDiscoveryPtrOutput struct{ *pulumi.OutputState }
@@ -17112,21 +17112,21 @@ func (o VirtualNodeServiceDiscoveryPtrOutput) Elem() VirtualNodeServiceDiscovery
 	}).(VirtualNodeServiceDiscoveryOutput)
 }
 
-func (o VirtualNodeServiceDiscoveryPtrOutput) AWSCloudMap() VirtualNodeAwsCloudMapServiceDiscoveryPtrOutput {
+func (o VirtualNodeServiceDiscoveryPtrOutput) AwsCloudMap() VirtualNodeAwsCloudMapServiceDiscoveryPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeServiceDiscovery) *VirtualNodeAwsCloudMapServiceDiscovery {
 		if v == nil {
 			return nil
 		}
-		return v.AWSCloudMap
+		return v.AwsCloudMap
 	}).(VirtualNodeAwsCloudMapServiceDiscoveryPtrOutput)
 }
 
-func (o VirtualNodeServiceDiscoveryPtrOutput) DNS() VirtualNodeDnsServiceDiscoveryPtrOutput {
+func (o VirtualNodeServiceDiscoveryPtrOutput) Dns() VirtualNodeDnsServiceDiscoveryPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeServiceDiscovery) *VirtualNodeDnsServiceDiscovery {
 		if v == nil {
 			return nil
 		}
-		return v.DNS
+		return v.Dns
 	}).(VirtualNodeDnsServiceDiscoveryPtrOutput)
 }
 
@@ -18454,9 +18454,9 @@ func (o VirtualNodeTlsValidationContextSdsTrustPtrOutput) SecretName() pulumi.St
 }
 
 type VirtualNodeTlsValidationContextTrust struct {
-	ACM  *VirtualNodeTlsValidationContextAcmTrust  `pulumi:"aCM"`
+	Acm  *VirtualNodeTlsValidationContextAcmTrust  `pulumi:"acm"`
 	File *VirtualNodeTlsValidationContextFileTrust `pulumi:"file"`
-	SDS  *VirtualNodeTlsValidationContextSdsTrust  `pulumi:"sDS"`
+	Sds  *VirtualNodeTlsValidationContextSdsTrust  `pulumi:"sds"`
 }
 
 // VirtualNodeTlsValidationContextTrustInput is an input type that accepts VirtualNodeTlsValidationContextTrustArgs and VirtualNodeTlsValidationContextTrustOutput values.
@@ -18471,9 +18471,9 @@ type VirtualNodeTlsValidationContextTrustInput interface {
 }
 
 type VirtualNodeTlsValidationContextTrustArgs struct {
-	ACM  VirtualNodeTlsValidationContextAcmTrustPtrInput  `pulumi:"aCM"`
+	Acm  VirtualNodeTlsValidationContextAcmTrustPtrInput  `pulumi:"acm"`
 	File VirtualNodeTlsValidationContextFileTrustPtrInput `pulumi:"file"`
-	SDS  VirtualNodeTlsValidationContextSdsTrustPtrInput  `pulumi:"sDS"`
+	Sds  VirtualNodeTlsValidationContextSdsTrustPtrInput  `pulumi:"sds"`
 }
 
 func (VirtualNodeTlsValidationContextTrustArgs) ElementType() reflect.Type {
@@ -18553,16 +18553,16 @@ func (o VirtualNodeTlsValidationContextTrustOutput) ToVirtualNodeTlsValidationCo
 	}).(VirtualNodeTlsValidationContextTrustPtrOutput)
 }
 
-func (o VirtualNodeTlsValidationContextTrustOutput) ACM() VirtualNodeTlsValidationContextAcmTrustPtrOutput {
-	return o.ApplyT(func(v VirtualNodeTlsValidationContextTrust) *VirtualNodeTlsValidationContextAcmTrust { return v.ACM }).(VirtualNodeTlsValidationContextAcmTrustPtrOutput)
+func (o VirtualNodeTlsValidationContextTrustOutput) Acm() VirtualNodeTlsValidationContextAcmTrustPtrOutput {
+	return o.ApplyT(func(v VirtualNodeTlsValidationContextTrust) *VirtualNodeTlsValidationContextAcmTrust { return v.Acm }).(VirtualNodeTlsValidationContextAcmTrustPtrOutput)
 }
 
 func (o VirtualNodeTlsValidationContextTrustOutput) File() VirtualNodeTlsValidationContextFileTrustPtrOutput {
 	return o.ApplyT(func(v VirtualNodeTlsValidationContextTrust) *VirtualNodeTlsValidationContextFileTrust { return v.File }).(VirtualNodeTlsValidationContextFileTrustPtrOutput)
 }
 
-func (o VirtualNodeTlsValidationContextTrustOutput) SDS() VirtualNodeTlsValidationContextSdsTrustPtrOutput {
-	return o.ApplyT(func(v VirtualNodeTlsValidationContextTrust) *VirtualNodeTlsValidationContextSdsTrust { return v.SDS }).(VirtualNodeTlsValidationContextSdsTrustPtrOutput)
+func (o VirtualNodeTlsValidationContextTrustOutput) Sds() VirtualNodeTlsValidationContextSdsTrustPtrOutput {
+	return o.ApplyT(func(v VirtualNodeTlsValidationContextTrust) *VirtualNodeTlsValidationContextSdsTrust { return v.Sds }).(VirtualNodeTlsValidationContextSdsTrustPtrOutput)
 }
 
 type VirtualNodeTlsValidationContextTrustPtrOutput struct{ *pulumi.OutputState }
@@ -18589,12 +18589,12 @@ func (o VirtualNodeTlsValidationContextTrustPtrOutput) Elem() VirtualNodeTlsVali
 	}).(VirtualNodeTlsValidationContextTrustOutput)
 }
 
-func (o VirtualNodeTlsValidationContextTrustPtrOutput) ACM() VirtualNodeTlsValidationContextAcmTrustPtrOutput {
+func (o VirtualNodeTlsValidationContextTrustPtrOutput) Acm() VirtualNodeTlsValidationContextAcmTrustPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeTlsValidationContextTrust) *VirtualNodeTlsValidationContextAcmTrust {
 		if v == nil {
 			return nil
 		}
-		return v.ACM
+		return v.Acm
 	}).(VirtualNodeTlsValidationContextAcmTrustPtrOutput)
 }
 
@@ -18607,12 +18607,12 @@ func (o VirtualNodeTlsValidationContextTrustPtrOutput) File() VirtualNodeTlsVali
 	}).(VirtualNodeTlsValidationContextFileTrustPtrOutput)
 }
 
-func (o VirtualNodeTlsValidationContextTrustPtrOutput) SDS() VirtualNodeTlsValidationContextSdsTrustPtrOutput {
+func (o VirtualNodeTlsValidationContextTrustPtrOutput) Sds() VirtualNodeTlsValidationContextSdsTrustPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeTlsValidationContextTrust) *VirtualNodeTlsValidationContextSdsTrust {
 		if v == nil {
 			return nil
 		}
-		return v.SDS
+		return v.Sds
 	}).(VirtualNodeTlsValidationContextSdsTrustPtrOutput)
 }
 

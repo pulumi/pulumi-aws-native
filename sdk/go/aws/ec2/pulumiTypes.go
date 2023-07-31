@@ -1438,8 +1438,8 @@ func (o ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput) Directo
 }
 
 type ClientVpnEndpointFederatedAuthenticationRequest struct {
-	SAMLProviderArn            string  `pulumi:"sAMLProviderArn"`
-	SelfServiceSAMLProviderArn *string `pulumi:"selfServiceSAMLProviderArn"`
+	SamlProviderArn            string  `pulumi:"samlProviderArn"`
+	SelfServiceSamlProviderArn *string `pulumi:"selfServiceSamlProviderArn"`
 }
 
 // ClientVpnEndpointFederatedAuthenticationRequestInput is an input type that accepts ClientVpnEndpointFederatedAuthenticationRequestArgs and ClientVpnEndpointFederatedAuthenticationRequestOutput values.
@@ -1454,8 +1454,8 @@ type ClientVpnEndpointFederatedAuthenticationRequestInput interface {
 }
 
 type ClientVpnEndpointFederatedAuthenticationRequestArgs struct {
-	SAMLProviderArn            pulumi.StringInput    `pulumi:"sAMLProviderArn"`
-	SelfServiceSAMLProviderArn pulumi.StringPtrInput `pulumi:"selfServiceSAMLProviderArn"`
+	SamlProviderArn            pulumi.StringInput    `pulumi:"samlProviderArn"`
+	SelfServiceSamlProviderArn pulumi.StringPtrInput `pulumi:"selfServiceSamlProviderArn"`
 }
 
 func (ClientVpnEndpointFederatedAuthenticationRequestArgs) ElementType() reflect.Type {
@@ -1535,12 +1535,12 @@ func (o ClientVpnEndpointFederatedAuthenticationRequestOutput) ToClientVpnEndpoi
 	}).(ClientVpnEndpointFederatedAuthenticationRequestPtrOutput)
 }
 
-func (o ClientVpnEndpointFederatedAuthenticationRequestOutput) SAMLProviderArn() pulumi.StringOutput {
-	return o.ApplyT(func(v ClientVpnEndpointFederatedAuthenticationRequest) string { return v.SAMLProviderArn }).(pulumi.StringOutput)
+func (o ClientVpnEndpointFederatedAuthenticationRequestOutput) SamlProviderArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ClientVpnEndpointFederatedAuthenticationRequest) string { return v.SamlProviderArn }).(pulumi.StringOutput)
 }
 
-func (o ClientVpnEndpointFederatedAuthenticationRequestOutput) SelfServiceSAMLProviderArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClientVpnEndpointFederatedAuthenticationRequest) *string { return v.SelfServiceSAMLProviderArn }).(pulumi.StringPtrOutput)
+func (o ClientVpnEndpointFederatedAuthenticationRequestOutput) SelfServiceSamlProviderArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientVpnEndpointFederatedAuthenticationRequest) *string { return v.SelfServiceSamlProviderArn }).(pulumi.StringPtrOutput)
 }
 
 type ClientVpnEndpointFederatedAuthenticationRequestPtrOutput struct{ *pulumi.OutputState }
@@ -1567,21 +1567,21 @@ func (o ClientVpnEndpointFederatedAuthenticationRequestPtrOutput) Elem() ClientV
 	}).(ClientVpnEndpointFederatedAuthenticationRequestOutput)
 }
 
-func (o ClientVpnEndpointFederatedAuthenticationRequestPtrOutput) SAMLProviderArn() pulumi.StringPtrOutput {
+func (o ClientVpnEndpointFederatedAuthenticationRequestPtrOutput) SamlProviderArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClientVpnEndpointFederatedAuthenticationRequest) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.SAMLProviderArn
+		return &v.SamlProviderArn
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o ClientVpnEndpointFederatedAuthenticationRequestPtrOutput) SelfServiceSAMLProviderArn() pulumi.StringPtrOutput {
+func (o ClientVpnEndpointFederatedAuthenticationRequestPtrOutput) SelfServiceSamlProviderArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClientVpnEndpointFederatedAuthenticationRequest) *string {
 		if v == nil {
 			return nil
 		}
-		return v.SelfServiceSAMLProviderArn
+		return v.SelfServiceSamlProviderArn
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3306,7 +3306,7 @@ type EC2FleetInstanceRequirementsRequest struct {
 	OnDemandMaxPricePercentageOverLowestPrice *int                                                              `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
 	RequireHibernateSupport                   *bool                                                             `pulumi:"requireHibernateSupport"`
 	SpotMaxPricePercentageOverLowestPrice     *int                                                              `pulumi:"spotMaxPricePercentageOverLowestPrice"`
-	TotalLocalStorageGB                       *EC2FleetTotalLocalStorageGBRequest                               `pulumi:"totalLocalStorageGB"`
+	TotalLocalStorageGb                       *EC2FleetTotalLocalStorageGBRequest                               `pulumi:"totalLocalStorageGb"`
 	VCpuCount                                 *EC2FleetVCpuCountRangeRequest                                    `pulumi:"vCpuCount"`
 }
 
@@ -3343,7 +3343,7 @@ type EC2FleetInstanceRequirementsRequestArgs struct {
 	OnDemandMaxPricePercentageOverLowestPrice pulumi.IntPtrInput                                                        `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
 	RequireHibernateSupport                   pulumi.BoolPtrInput                                                       `pulumi:"requireHibernateSupport"`
 	SpotMaxPricePercentageOverLowestPrice     pulumi.IntPtrInput                                                        `pulumi:"spotMaxPricePercentageOverLowestPrice"`
-	TotalLocalStorageGB                       EC2FleetTotalLocalStorageGBRequestPtrInput                                `pulumi:"totalLocalStorageGB"`
+	TotalLocalStorageGb                       EC2FleetTotalLocalStorageGBRequestPtrInput                                `pulumi:"totalLocalStorageGb"`
 	VCpuCount                                 EC2FleetVCpuCountRangeRequestPtrInput                                     `pulumi:"vCpuCount"`
 }
 
@@ -3538,9 +3538,9 @@ func (o EC2FleetInstanceRequirementsRequestOutput) SpotMaxPricePercentageOverLow
 	return o.ApplyT(func(v EC2FleetInstanceRequirementsRequest) *int { return v.SpotMaxPricePercentageOverLowestPrice }).(pulumi.IntPtrOutput)
 }
 
-func (o EC2FleetInstanceRequirementsRequestOutput) TotalLocalStorageGB() EC2FleetTotalLocalStorageGBRequestPtrOutput {
+func (o EC2FleetInstanceRequirementsRequestOutput) TotalLocalStorageGb() EC2FleetTotalLocalStorageGBRequestPtrOutput {
 	return o.ApplyT(func(v EC2FleetInstanceRequirementsRequest) *EC2FleetTotalLocalStorageGBRequest {
-		return v.TotalLocalStorageGB
+		return v.TotalLocalStorageGb
 	}).(EC2FleetTotalLocalStorageGBRequestPtrOutput)
 }
 
@@ -3761,12 +3761,12 @@ func (o EC2FleetInstanceRequirementsRequestPtrOutput) SpotMaxPricePercentageOver
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o EC2FleetInstanceRequirementsRequestPtrOutput) TotalLocalStorageGB() EC2FleetTotalLocalStorageGBRequestPtrOutput {
+func (o EC2FleetInstanceRequirementsRequestPtrOutput) TotalLocalStorageGb() EC2FleetTotalLocalStorageGBRequestPtrOutput {
 	return o.ApplyT(func(v *EC2FleetInstanceRequirementsRequest) *EC2FleetTotalLocalStorageGBRequest {
 		if v == nil {
 			return nil
 		}
-		return v.TotalLocalStorageGB
+		return v.TotalLocalStorageGb
 	}).(EC2FleetTotalLocalStorageGBRequestPtrOutput)
 }
 
@@ -7239,7 +7239,7 @@ func (o InstanceCpuOptionsPtrOutput) ThreadsPerCore() pulumi.IntPtrOutput {
 }
 
 type InstanceCreditSpecification struct {
-	CPUCredits *string `pulumi:"cPUCredits"`
+	CpuCredits *string `pulumi:"cpuCredits"`
 }
 
 // InstanceCreditSpecificationInput is an input type that accepts InstanceCreditSpecificationArgs and InstanceCreditSpecificationOutput values.
@@ -7254,7 +7254,7 @@ type InstanceCreditSpecificationInput interface {
 }
 
 type InstanceCreditSpecificationArgs struct {
-	CPUCredits pulumi.StringPtrInput `pulumi:"cPUCredits"`
+	CpuCredits pulumi.StringPtrInput `pulumi:"cpuCredits"`
 }
 
 func (InstanceCreditSpecificationArgs) ElementType() reflect.Type {
@@ -7334,8 +7334,8 @@ func (o InstanceCreditSpecificationOutput) ToInstanceCreditSpecificationPtrOutpu
 	}).(InstanceCreditSpecificationPtrOutput)
 }
 
-func (o InstanceCreditSpecificationOutput) CPUCredits() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v InstanceCreditSpecification) *string { return v.CPUCredits }).(pulumi.StringPtrOutput)
+func (o InstanceCreditSpecificationOutput) CpuCredits() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceCreditSpecification) *string { return v.CpuCredits }).(pulumi.StringPtrOutput)
 }
 
 type InstanceCreditSpecificationPtrOutput struct{ *pulumi.OutputState }
@@ -7362,12 +7362,12 @@ func (o InstanceCreditSpecificationPtrOutput) Elem() InstanceCreditSpecification
 	}).(InstanceCreditSpecificationOutput)
 }
 
-func (o InstanceCreditSpecificationPtrOutput) CPUCredits() pulumi.StringPtrOutput {
+func (o InstanceCreditSpecificationPtrOutput) CpuCredits() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceCreditSpecification) *string {
 		if v == nil {
 			return nil
 		}
-		return v.CPUCredits
+		return v.CpuCredits
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -8690,8 +8690,8 @@ func (o InstanceNoDevicePtrOutput) Elem() InstanceNoDeviceOutput {
 }
 
 type InstancePrivateDnsNameOptions struct {
-	EnableResourceNameDnsAAAARecord *bool   `pulumi:"enableResourceNameDnsAAAARecord"`
 	EnableResourceNameDnsARecord    *bool   `pulumi:"enableResourceNameDnsARecord"`
+	EnableResourceNameDnsAaaaRecord *bool   `pulumi:"enableResourceNameDnsAaaaRecord"`
 	HostnameType                    *string `pulumi:"hostnameType"`
 }
 
@@ -8707,8 +8707,8 @@ type InstancePrivateDnsNameOptionsInput interface {
 }
 
 type InstancePrivateDnsNameOptionsArgs struct {
-	EnableResourceNameDnsAAAARecord pulumi.BoolPtrInput   `pulumi:"enableResourceNameDnsAAAARecord"`
 	EnableResourceNameDnsARecord    pulumi.BoolPtrInput   `pulumi:"enableResourceNameDnsARecord"`
+	EnableResourceNameDnsAaaaRecord pulumi.BoolPtrInput   `pulumi:"enableResourceNameDnsAaaaRecord"`
 	HostnameType                    pulumi.StringPtrInput `pulumi:"hostnameType"`
 }
 
@@ -8789,12 +8789,12 @@ func (o InstancePrivateDnsNameOptionsOutput) ToInstancePrivateDnsNameOptionsPtrO
 	}).(InstancePrivateDnsNameOptionsPtrOutput)
 }
 
-func (o InstancePrivateDnsNameOptionsOutput) EnableResourceNameDnsAAAARecord() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v InstancePrivateDnsNameOptions) *bool { return v.EnableResourceNameDnsAAAARecord }).(pulumi.BoolPtrOutput)
-}
-
 func (o InstancePrivateDnsNameOptionsOutput) EnableResourceNameDnsARecord() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v InstancePrivateDnsNameOptions) *bool { return v.EnableResourceNameDnsARecord }).(pulumi.BoolPtrOutput)
+}
+
+func (o InstancePrivateDnsNameOptionsOutput) EnableResourceNameDnsAaaaRecord() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InstancePrivateDnsNameOptions) *bool { return v.EnableResourceNameDnsAaaaRecord }).(pulumi.BoolPtrOutput)
 }
 
 func (o InstancePrivateDnsNameOptionsOutput) HostnameType() pulumi.StringPtrOutput {
@@ -8825,21 +8825,21 @@ func (o InstancePrivateDnsNameOptionsPtrOutput) Elem() InstancePrivateDnsNameOpt
 	}).(InstancePrivateDnsNameOptionsOutput)
 }
 
-func (o InstancePrivateDnsNameOptionsPtrOutput) EnableResourceNameDnsAAAARecord() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *InstancePrivateDnsNameOptions) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.EnableResourceNameDnsAAAARecord
-	}).(pulumi.BoolPtrOutput)
-}
-
 func (o InstancePrivateDnsNameOptionsPtrOutput) EnableResourceNameDnsARecord() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *InstancePrivateDnsNameOptions) *bool {
 		if v == nil {
 			return nil
 		}
 		return v.EnableResourceNameDnsARecord
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o InstancePrivateDnsNameOptionsPtrOutput) EnableResourceNameDnsAaaaRecord() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InstancePrivateDnsNameOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableResourceNameDnsAaaaRecord
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -12092,7 +12092,7 @@ type LaunchTemplateInstanceRequirements struct {
 	RequireHibernateSupport *bool `pulumi:"requireHibernateSupport"`
 	// The price protection threshold for Spot Instances.
 	SpotMaxPricePercentageOverLowestPrice *int                               `pulumi:"spotMaxPricePercentageOverLowestPrice"`
-	TotalLocalStorageGB                   *LaunchTemplateTotalLocalStorageGB `pulumi:"totalLocalStorageGB"`
+	TotalLocalStorageGb                   *LaunchTemplateTotalLocalStorageGB `pulumi:"totalLocalStorageGb"`
 	VCpuCount                             *LaunchTemplateVCpuCount           `pulumi:"vCpuCount"`
 }
 
@@ -12143,7 +12143,7 @@ type LaunchTemplateInstanceRequirementsArgs struct {
 	RequireHibernateSupport pulumi.BoolPtrInput `pulumi:"requireHibernateSupport"`
 	// The price protection threshold for Spot Instances.
 	SpotMaxPricePercentageOverLowestPrice pulumi.IntPtrInput                        `pulumi:"spotMaxPricePercentageOverLowestPrice"`
-	TotalLocalStorageGB                   LaunchTemplateTotalLocalStorageGBPtrInput `pulumi:"totalLocalStorageGB"`
+	TotalLocalStorageGb                   LaunchTemplateTotalLocalStorageGBPtrInput `pulumi:"totalLocalStorageGb"`
 	VCpuCount                             LaunchTemplateVCpuCountPtrInput           `pulumi:"vCpuCount"`
 }
 
@@ -12330,9 +12330,9 @@ func (o LaunchTemplateInstanceRequirementsOutput) SpotMaxPricePercentageOverLowe
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *int { return v.SpotMaxPricePercentageOverLowestPrice }).(pulumi.IntPtrOutput)
 }
 
-func (o LaunchTemplateInstanceRequirementsOutput) TotalLocalStorageGB() LaunchTemplateTotalLocalStorageGBPtrOutput {
+func (o LaunchTemplateInstanceRequirementsOutput) TotalLocalStorageGb() LaunchTemplateTotalLocalStorageGBPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *LaunchTemplateTotalLocalStorageGB {
-		return v.TotalLocalStorageGB
+		return v.TotalLocalStorageGb
 	}).(LaunchTemplateTotalLocalStorageGBPtrOutput)
 }
 
@@ -12566,12 +12566,12 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) SpotMaxPricePercentageOverL
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o LaunchTemplateInstanceRequirementsPtrOutput) TotalLocalStorageGB() LaunchTemplateTotalLocalStorageGBPtrOutput {
+func (o LaunchTemplateInstanceRequirementsPtrOutput) TotalLocalStorageGb() LaunchTemplateTotalLocalStorageGBPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *LaunchTemplateTotalLocalStorageGB {
 		if v == nil {
 			return nil
 		}
-		return v.TotalLocalStorageGB
+		return v.TotalLocalStorageGb
 	}).(LaunchTemplateTotalLocalStorageGBPtrOutput)
 }
 
@@ -14658,10 +14658,10 @@ func (o LaunchTemplatePlacementPtrOutput) Tenancy() pulumi.StringPtrOutput {
 
 // Describes the options for instance hostnames.
 type LaunchTemplatePrivateDnsNameOptions struct {
-	// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
-	EnableResourceNameDnsAAAARecord *bool `pulumi:"enableResourceNameDnsAAAARecord"`
 	// Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
 	EnableResourceNameDnsARecord *bool `pulumi:"enableResourceNameDnsARecord"`
+	// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
+	EnableResourceNameDnsAaaaRecord *bool `pulumi:"enableResourceNameDnsAaaaRecord"`
 	// The type of hostname for EC2 instances.
 	HostnameType *string `pulumi:"hostnameType"`
 }
@@ -14679,10 +14679,10 @@ type LaunchTemplatePrivateDnsNameOptionsInput interface {
 
 // Describes the options for instance hostnames.
 type LaunchTemplatePrivateDnsNameOptionsArgs struct {
-	// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
-	EnableResourceNameDnsAAAARecord pulumi.BoolPtrInput `pulumi:"enableResourceNameDnsAAAARecord"`
 	// Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
 	EnableResourceNameDnsARecord pulumi.BoolPtrInput `pulumi:"enableResourceNameDnsARecord"`
+	// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
+	EnableResourceNameDnsAaaaRecord pulumi.BoolPtrInput `pulumi:"enableResourceNameDnsAaaaRecord"`
 	// The type of hostname for EC2 instances.
 	HostnameType pulumi.StringPtrInput `pulumi:"hostnameType"`
 }
@@ -14765,14 +14765,14 @@ func (o LaunchTemplatePrivateDnsNameOptionsOutput) ToLaunchTemplatePrivateDnsNam
 	}).(LaunchTemplatePrivateDnsNameOptionsPtrOutput)
 }
 
-// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
-func (o LaunchTemplatePrivateDnsNameOptionsOutput) EnableResourceNameDnsAAAARecord() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LaunchTemplatePrivateDnsNameOptions) *bool { return v.EnableResourceNameDnsAAAARecord }).(pulumi.BoolPtrOutput)
-}
-
 // Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
 func (o LaunchTemplatePrivateDnsNameOptionsOutput) EnableResourceNameDnsARecord() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LaunchTemplatePrivateDnsNameOptions) *bool { return v.EnableResourceNameDnsARecord }).(pulumi.BoolPtrOutput)
+}
+
+// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
+func (o LaunchTemplatePrivateDnsNameOptionsOutput) EnableResourceNameDnsAaaaRecord() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LaunchTemplatePrivateDnsNameOptions) *bool { return v.EnableResourceNameDnsAaaaRecord }).(pulumi.BoolPtrOutput)
 }
 
 // The type of hostname for EC2 instances.
@@ -14804,16 +14804,6 @@ func (o LaunchTemplatePrivateDnsNameOptionsPtrOutput) Elem() LaunchTemplatePriva
 	}).(LaunchTemplatePrivateDnsNameOptionsOutput)
 }
 
-// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
-func (o LaunchTemplatePrivateDnsNameOptionsPtrOutput) EnableResourceNameDnsAAAARecord() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *LaunchTemplatePrivateDnsNameOptions) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.EnableResourceNameDnsAAAARecord
-	}).(pulumi.BoolPtrOutput)
-}
-
 // Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
 func (o LaunchTemplatePrivateDnsNameOptionsPtrOutput) EnableResourceNameDnsARecord() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplatePrivateDnsNameOptions) *bool {
@@ -14821,6 +14811,16 @@ func (o LaunchTemplatePrivateDnsNameOptionsPtrOutput) EnableResourceNameDnsAReco
 			return nil
 		}
 		return v.EnableResourceNameDnsARecord
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
+func (o LaunchTemplatePrivateDnsNameOptionsPtrOutput) EnableResourceNameDnsAaaaRecord() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplatePrivateDnsNameOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableResourceNameDnsAaaaRecord
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -20377,8 +20377,8 @@ func (o PrefixListTagArrayOutput) Index(i pulumi.IntInput) PrefixListTagOutput {
 }
 
 type PrivateDnsNameOptionsOnLaunchProperties struct {
-	EnableResourceNameDnsAAAARecord *bool   `pulumi:"enableResourceNameDnsAAAARecord"`
 	EnableResourceNameDnsARecord    *bool   `pulumi:"enableResourceNameDnsARecord"`
+	EnableResourceNameDnsAaaaRecord *bool   `pulumi:"enableResourceNameDnsAaaaRecord"`
 	HostnameType                    *string `pulumi:"hostnameType"`
 }
 
@@ -20394,8 +20394,8 @@ type PrivateDnsNameOptionsOnLaunchPropertiesInput interface {
 }
 
 type PrivateDnsNameOptionsOnLaunchPropertiesArgs struct {
-	EnableResourceNameDnsAAAARecord pulumi.BoolPtrInput   `pulumi:"enableResourceNameDnsAAAARecord"`
 	EnableResourceNameDnsARecord    pulumi.BoolPtrInput   `pulumi:"enableResourceNameDnsARecord"`
+	EnableResourceNameDnsAaaaRecord pulumi.BoolPtrInput   `pulumi:"enableResourceNameDnsAaaaRecord"`
 	HostnameType                    pulumi.StringPtrInput `pulumi:"hostnameType"`
 }
 
@@ -20476,12 +20476,12 @@ func (o PrivateDnsNameOptionsOnLaunchPropertiesOutput) ToPrivateDnsNameOptionsOn
 	}).(PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput)
 }
 
-func (o PrivateDnsNameOptionsOnLaunchPropertiesOutput) EnableResourceNameDnsAAAARecord() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v PrivateDnsNameOptionsOnLaunchProperties) *bool { return v.EnableResourceNameDnsAAAARecord }).(pulumi.BoolPtrOutput)
-}
-
 func (o PrivateDnsNameOptionsOnLaunchPropertiesOutput) EnableResourceNameDnsARecord() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PrivateDnsNameOptionsOnLaunchProperties) *bool { return v.EnableResourceNameDnsARecord }).(pulumi.BoolPtrOutput)
+}
+
+func (o PrivateDnsNameOptionsOnLaunchPropertiesOutput) EnableResourceNameDnsAaaaRecord() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PrivateDnsNameOptionsOnLaunchProperties) *bool { return v.EnableResourceNameDnsAaaaRecord }).(pulumi.BoolPtrOutput)
 }
 
 func (o PrivateDnsNameOptionsOnLaunchPropertiesOutput) HostnameType() pulumi.StringPtrOutput {
@@ -20512,21 +20512,21 @@ func (o PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput) Elem() PrivateDnsNameO
 	}).(PrivateDnsNameOptionsOnLaunchPropertiesOutput)
 }
 
-func (o PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput) EnableResourceNameDnsAAAARecord() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *PrivateDnsNameOptionsOnLaunchProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.EnableResourceNameDnsAAAARecord
-	}).(pulumi.BoolPtrOutput)
-}
-
 func (o PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput) EnableResourceNameDnsARecord() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PrivateDnsNameOptionsOnLaunchProperties) *bool {
 		if v == nil {
 			return nil
 		}
 		return v.EnableResourceNameDnsARecord
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o PrivateDnsNameOptionsOnLaunchPropertiesPtrOutput) EnableResourceNameDnsAaaaRecord() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PrivateDnsNameOptionsOnLaunchProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableResourceNameDnsAaaaRecord
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -22680,7 +22680,7 @@ type SpotFleetInstanceRequirementsRequest struct {
 	OnDemandMaxPricePercentageOverLowestPrice *int                                                               `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
 	RequireHibernateSupport                   *bool                                                              `pulumi:"requireHibernateSupport"`
 	SpotMaxPricePercentageOverLowestPrice     *int                                                               `pulumi:"spotMaxPricePercentageOverLowestPrice"`
-	TotalLocalStorageGB                       *SpotFleetTotalLocalStorageGBRequest                               `pulumi:"totalLocalStorageGB"`
+	TotalLocalStorageGb                       *SpotFleetTotalLocalStorageGBRequest                               `pulumi:"totalLocalStorageGb"`
 	VCpuCount                                 *SpotFleetVCpuCountRangeRequest                                    `pulumi:"vCpuCount"`
 }
 
@@ -22717,7 +22717,7 @@ type SpotFleetInstanceRequirementsRequestArgs struct {
 	OnDemandMaxPricePercentageOverLowestPrice pulumi.IntPtrInput                                                         `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
 	RequireHibernateSupport                   pulumi.BoolPtrInput                                                        `pulumi:"requireHibernateSupport"`
 	SpotMaxPricePercentageOverLowestPrice     pulumi.IntPtrInput                                                         `pulumi:"spotMaxPricePercentageOverLowestPrice"`
-	TotalLocalStorageGB                       SpotFleetTotalLocalStorageGBRequestPtrInput                                `pulumi:"totalLocalStorageGB"`
+	TotalLocalStorageGb                       SpotFleetTotalLocalStorageGBRequestPtrInput                                `pulumi:"totalLocalStorageGb"`
 	VCpuCount                                 SpotFleetVCpuCountRangeRequestPtrInput                                     `pulumi:"vCpuCount"`
 }
 
@@ -22912,9 +22912,9 @@ func (o SpotFleetInstanceRequirementsRequestOutput) SpotMaxPricePercentageOverLo
 	return o.ApplyT(func(v SpotFleetInstanceRequirementsRequest) *int { return v.SpotMaxPricePercentageOverLowestPrice }).(pulumi.IntPtrOutput)
 }
 
-func (o SpotFleetInstanceRequirementsRequestOutput) TotalLocalStorageGB() SpotFleetTotalLocalStorageGBRequestPtrOutput {
+func (o SpotFleetInstanceRequirementsRequestOutput) TotalLocalStorageGb() SpotFleetTotalLocalStorageGBRequestPtrOutput {
 	return o.ApplyT(func(v SpotFleetInstanceRequirementsRequest) *SpotFleetTotalLocalStorageGBRequest {
-		return v.TotalLocalStorageGB
+		return v.TotalLocalStorageGb
 	}).(SpotFleetTotalLocalStorageGBRequestPtrOutput)
 }
 
@@ -23135,12 +23135,12 @@ func (o SpotFleetInstanceRequirementsRequestPtrOutput) SpotMaxPricePercentageOve
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o SpotFleetInstanceRequirementsRequestPtrOutput) TotalLocalStorageGB() SpotFleetTotalLocalStorageGBRequestPtrOutput {
+func (o SpotFleetInstanceRequirementsRequestPtrOutput) TotalLocalStorageGb() SpotFleetTotalLocalStorageGBRequestPtrOutput {
 	return o.ApplyT(func(v *SpotFleetInstanceRequirementsRequest) *SpotFleetTotalLocalStorageGBRequest {
 		if v == nil {
 			return nil
 		}
-		return v.TotalLocalStorageGB
+		return v.TotalLocalStorageGb
 	}).(SpotFleetTotalLocalStorageGBRequestPtrOutput)
 }
 

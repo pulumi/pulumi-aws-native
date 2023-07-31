@@ -45,7 +45,7 @@ class GetStackResult:
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="notificationARNs")
+    @pulumi.getter(name="notificationArns")
     def notification_arns(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "notification_arns")
 
@@ -60,7 +60,7 @@ class GetStackResult:
         return pulumi.get(self, "tags")
 
     @property
-    @pulumi.getter(name="templateURL")
+    @pulumi.getter(name="templateUrl")
     def template_url(self) -> Optional[str]:
         return pulumi.get(self, "template_url")
 

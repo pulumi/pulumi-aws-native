@@ -54,11 +54,11 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("tags")]
         public Output<ImmutableArray<Outputs.VPCConnectionTag>> Tags { get; private set; } = null!;
 
-        [Output("vPCConnectionId")]
-        public Output<string?> VPCConnectionId { get; private set; } = null!;
+        [Output("vpcConnectionId")]
+        public Output<string?> VpcConnectionId { get; private set; } = null!;
 
-        [Output("vPCId")]
-        public Output<string> VPCId { get; private set; } = null!;
+        [Output("vpcId")]
+        public Output<string> VpcId { get; private set; } = null!;
 
 
         /// <summary>
@@ -149,8 +149,8 @@ namespace Pulumi.AwsNative.QuickSight
             set => _tags = value;
         }
 
-        [Input("vPCConnectionId")]
-        public Input<string>? VPCConnectionId { get; set; }
+        [Input("vpcConnectionId")]
+        public Input<string>? VpcConnectionId { get; set; }
 
         public VPCConnectionArgs()
         {

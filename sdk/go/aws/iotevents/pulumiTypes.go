@@ -155,8 +155,8 @@ func (o AlarmModelAcknowledgeFlowPtrOutput) Enabled() pulumi.BoolPtrOutput {
 
 // The actions to be performed.
 type AlarmModelAlarmAction struct {
-	DynamoDB        *AlarmModelDynamoDB        `pulumi:"dynamoDB"`
 	DynamoDBv2      *AlarmModelDynamoDBv2      `pulumi:"dynamoDBv2"`
+	DynamoDb        *AlarmModelDynamoDB        `pulumi:"dynamoDb"`
 	Firehose        *AlarmModelFirehose        `pulumi:"firehose"`
 	IotEvents       *AlarmModelIotEvents       `pulumi:"iotEvents"`
 	IotSiteWise     *AlarmModelIotSiteWise     `pulumi:"iotSiteWise"`
@@ -179,8 +179,8 @@ type AlarmModelAlarmActionInput interface {
 
 // The actions to be performed.
 type AlarmModelAlarmActionArgs struct {
-	DynamoDB        AlarmModelDynamoDBPtrInput        `pulumi:"dynamoDB"`
 	DynamoDBv2      AlarmModelDynamoDBv2PtrInput      `pulumi:"dynamoDBv2"`
+	DynamoDb        AlarmModelDynamoDBPtrInput        `pulumi:"dynamoDb"`
 	Firehose        AlarmModelFirehosePtrInput        `pulumi:"firehose"`
 	IotEvents       AlarmModelIotEventsPtrInput       `pulumi:"iotEvents"`
 	IotSiteWise     AlarmModelIotSiteWisePtrInput     `pulumi:"iotSiteWise"`
@@ -242,12 +242,12 @@ func (o AlarmModelAlarmActionOutput) ToAlarmModelAlarmActionOutputWithContext(ct
 	return o
 }
 
-func (o AlarmModelAlarmActionOutput) DynamoDB() AlarmModelDynamoDBPtrOutput {
-	return o.ApplyT(func(v AlarmModelAlarmAction) *AlarmModelDynamoDB { return v.DynamoDB }).(AlarmModelDynamoDBPtrOutput)
-}
-
 func (o AlarmModelAlarmActionOutput) DynamoDBv2() AlarmModelDynamoDBv2PtrOutput {
 	return o.ApplyT(func(v AlarmModelAlarmAction) *AlarmModelDynamoDBv2 { return v.DynamoDBv2 }).(AlarmModelDynamoDBv2PtrOutput)
+}
+
+func (o AlarmModelAlarmActionOutput) DynamoDb() AlarmModelDynamoDBPtrOutput {
+	return o.ApplyT(func(v AlarmModelAlarmAction) *AlarmModelDynamoDB { return v.DynamoDb }).(AlarmModelDynamoDBPtrOutput)
 }
 
 func (o AlarmModelAlarmActionOutput) Firehose() AlarmModelFirehosePtrOutput {
@@ -3523,8 +3523,8 @@ func (o AlarmModelTagArrayOutput) Index(i pulumi.IntInput) AlarmModelTagOutput {
 // The actions to be performed.
 type DetectorModelAction struct {
 	ClearTimer      *DetectorModelClearTimer      `pulumi:"clearTimer"`
-	DynamoDB        *DetectorModelDynamoDB        `pulumi:"dynamoDB"`
 	DynamoDBv2      *DetectorModelDynamoDBv2      `pulumi:"dynamoDBv2"`
+	DynamoDb        *DetectorModelDynamoDB        `pulumi:"dynamoDb"`
 	Firehose        *DetectorModelFirehose        `pulumi:"firehose"`
 	IotEvents       *DetectorModelIotEvents       `pulumi:"iotEvents"`
 	IotSiteWise     *DetectorModelIotSiteWise     `pulumi:"iotSiteWise"`
@@ -3551,8 +3551,8 @@ type DetectorModelActionInput interface {
 // The actions to be performed.
 type DetectorModelActionArgs struct {
 	ClearTimer      DetectorModelClearTimerPtrInput      `pulumi:"clearTimer"`
-	DynamoDB        DetectorModelDynamoDBPtrInput        `pulumi:"dynamoDB"`
 	DynamoDBv2      DetectorModelDynamoDBv2PtrInput      `pulumi:"dynamoDBv2"`
+	DynamoDb        DetectorModelDynamoDBPtrInput        `pulumi:"dynamoDb"`
 	Firehose        DetectorModelFirehosePtrInput        `pulumi:"firehose"`
 	IotEvents       DetectorModelIotEventsPtrInput       `pulumi:"iotEvents"`
 	IotSiteWise     DetectorModelIotSiteWisePtrInput     `pulumi:"iotSiteWise"`
@@ -3621,12 +3621,12 @@ func (o DetectorModelActionOutput) ClearTimer() DetectorModelClearTimerPtrOutput
 	return o.ApplyT(func(v DetectorModelAction) *DetectorModelClearTimer { return v.ClearTimer }).(DetectorModelClearTimerPtrOutput)
 }
 
-func (o DetectorModelActionOutput) DynamoDB() DetectorModelDynamoDBPtrOutput {
-	return o.ApplyT(func(v DetectorModelAction) *DetectorModelDynamoDB { return v.DynamoDB }).(DetectorModelDynamoDBPtrOutput)
-}
-
 func (o DetectorModelActionOutput) DynamoDBv2() DetectorModelDynamoDBv2PtrOutput {
 	return o.ApplyT(func(v DetectorModelAction) *DetectorModelDynamoDBv2 { return v.DynamoDBv2 }).(DetectorModelDynamoDBv2PtrOutput)
+}
+
+func (o DetectorModelActionOutput) DynamoDb() DetectorModelDynamoDBPtrOutput {
+	return o.ApplyT(func(v DetectorModelAction) *DetectorModelDynamoDB { return v.DynamoDb }).(DetectorModelDynamoDBPtrOutput)
 }
 
 func (o DetectorModelActionOutput) Firehose() DetectorModelFirehosePtrOutput {

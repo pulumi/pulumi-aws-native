@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Events.Outputs
     public sealed class RuleEcsParameters
     {
         public readonly ImmutableArray<Outputs.RuleCapacityProviderStrategyItem> CapacityProviderStrategy;
-        public readonly bool? EnableECSManagedTags;
+        public readonly bool? EnableEcsManagedTags;
         public readonly bool? EnableExecuteCommand;
         public readonly string? Group;
         public readonly string? LaunchType;
@@ -32,7 +32,7 @@ namespace Pulumi.AwsNative.Events.Outputs
         private RuleEcsParameters(
             ImmutableArray<Outputs.RuleCapacityProviderStrategyItem> capacityProviderStrategy,
 
-            bool? enableECSManagedTags,
+            bool? enableEcsManagedTags,
 
             bool? enableExecuteCommand,
 
@@ -59,7 +59,7 @@ namespace Pulumi.AwsNative.Events.Outputs
             string taskDefinitionArn)
         {
             CapacityProviderStrategy = capacityProviderStrategy;
-            EnableECSManagedTags = enableECSManagedTags;
+            EnableEcsManagedTags = enableEcsManagedTags;
             EnableExecuteCommand = enableExecuteCommand;
             Group = group;
             LaunchType = launchType;

@@ -39,7 +39,7 @@ export class CACertificate extends pulumi.CustomResource {
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly autoRegistrationStatus!: pulumi.Output<enums.iot.CACertificateAutoRegistrationStatus | undefined>;
-    public readonly cACertificatePem!: pulumi.Output<string>;
+    public readonly caCertificatePem!: pulumi.Output<string>;
     public readonly certificateMode!: pulumi.Output<enums.iot.CACertificateCertificateMode | undefined>;
     public readonly registrationConfig!: pulumi.Output<outputs.iot.CACertificateRegistrationConfig | undefined>;
     public readonly removeAutoRegistration!: pulumi.Output<boolean | undefined>;
@@ -64,14 +64,14 @@ export class CACertificate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.cACertificatePem === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'cACertificatePem'");
+            if ((!args || args.caCertificatePem === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'caCertificatePem'");
             }
             if ((!args || args.status === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'status'");
             }
             resourceInputs["autoRegistrationStatus"] = args ? args.autoRegistrationStatus : undefined;
-            resourceInputs["cACertificatePem"] = args ? args.cACertificatePem : undefined;
+            resourceInputs["caCertificatePem"] = args ? args.caCertificatePem : undefined;
             resourceInputs["certificateMode"] = args ? args.certificateMode : undefined;
             resourceInputs["registrationConfig"] = args ? args.registrationConfig : undefined;
             resourceInputs["removeAutoRegistration"] = args ? args.removeAutoRegistration : undefined;
@@ -82,7 +82,7 @@ export class CACertificate extends pulumi.CustomResource {
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["autoRegistrationStatus"] = undefined /*out*/;
-            resourceInputs["cACertificatePem"] = undefined /*out*/;
+            resourceInputs["caCertificatePem"] = undefined /*out*/;
             resourceInputs["certificateMode"] = undefined /*out*/;
             resourceInputs["registrationConfig"] = undefined /*out*/;
             resourceInputs["removeAutoRegistration"] = undefined /*out*/;
@@ -100,7 +100,7 @@ export class CACertificate extends pulumi.CustomResource {
  */
 export interface CACertificateArgs {
     autoRegistrationStatus?: pulumi.Input<enums.iot.CACertificateAutoRegistrationStatus>;
-    cACertificatePem: pulumi.Input<string>;
+    caCertificatePem: pulumi.Input<string>;
     certificateMode?: pulumi.Input<enums.iot.CACertificateCertificateMode>;
     registrationConfig?: pulumi.Input<inputs.iot.CACertificateRegistrationConfigArgs>;
     removeAutoRegistration?: pulumi.Input<boolean>;

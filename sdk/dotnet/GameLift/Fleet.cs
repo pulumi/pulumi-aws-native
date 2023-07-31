@@ -48,20 +48,20 @@ namespace Pulumi.AwsNative.GameLift
         /// <summary>
         /// [DEPRECATED] The number of EC2 instances that you want this fleet to host. When creating a new fleet, GameLift automatically sets this value to "1" and initiates a single instance. Once the fleet is active, update this value to trigger GameLift to add or remove instances from the fleet.
         /// </summary>
-        [Output("desiredEC2Instances")]
-        public Output<int?> DesiredEC2Instances { get; private set; } = null!;
+        [Output("desiredEc2Instances")]
+        public Output<int?> DesiredEc2Instances { get; private set; } = null!;
 
         /// <summary>
         /// A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift server.
         /// </summary>
-        [Output("eC2InboundPermissions")]
-        public Output<ImmutableArray<Outputs.FleetIpPermission>> EC2InboundPermissions { get; private set; } = null!;
+        [Output("ec2InboundPermissions")]
+        public Output<ImmutableArray<Outputs.FleetIpPermission>> Ec2InboundPermissions { get; private set; } = null!;
 
         /// <summary>
         /// The name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See Amazon EC2 Instance Types for detailed descriptions.
         /// </summary>
-        [Output("eC2InstanceType")]
-        public Output<string?> EC2InstanceType { get; private set; } = null!;
+        [Output("ec2InstanceType")]
+        public Output<string?> Ec2InstanceType { get; private set; } = null!;
 
         /// <summary>
         /// Unique fleet ID
@@ -78,8 +78,8 @@ namespace Pulumi.AwsNative.GameLift
         /// <summary>
         /// A unique identifier for an AWS IAM role that manages access to your AWS services. With an instance role ARN set, any application that runs on an instance in this fleet can assume the role, including install scripts, server processes, and daemons (background processes). Create a role or look up a role's ARN from the IAM dashboard in the AWS Management Console.
         /// </summary>
-        [Output("instanceRoleARN")]
-        public Output<string?> InstanceRoleARN { get; private set; } = null!;
+        [Output("instanceRoleArn")]
+        public Output<string?> InstanceRoleArn { get; private set; } = null!;
 
         [Output("locations")]
         public Output<ImmutableArray<Outputs.FleetLocationConfiguration>> Locations { get; private set; } = null!;
@@ -244,26 +244,26 @@ namespace Pulumi.AwsNative.GameLift
         /// <summary>
         /// [DEPRECATED] The number of EC2 instances that you want this fleet to host. When creating a new fleet, GameLift automatically sets this value to "1" and initiates a single instance. Once the fleet is active, update this value to trigger GameLift to add or remove instances from the fleet.
         /// </summary>
-        [Input("desiredEC2Instances")]
-        public Input<int>? DesiredEC2Instances { get; set; }
+        [Input("desiredEc2Instances")]
+        public Input<int>? DesiredEc2Instances { get; set; }
 
-        [Input("eC2InboundPermissions")]
-        private InputList<Inputs.FleetIpPermissionArgs>? _eC2InboundPermissions;
+        [Input("ec2InboundPermissions")]
+        private InputList<Inputs.FleetIpPermissionArgs>? _ec2InboundPermissions;
 
         /// <summary>
         /// A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift server.
         /// </summary>
-        public InputList<Inputs.FleetIpPermissionArgs> EC2InboundPermissions
+        public InputList<Inputs.FleetIpPermissionArgs> Ec2InboundPermissions
         {
-            get => _eC2InboundPermissions ?? (_eC2InboundPermissions = new InputList<Inputs.FleetIpPermissionArgs>());
-            set => _eC2InboundPermissions = value;
+            get => _ec2InboundPermissions ?? (_ec2InboundPermissions = new InputList<Inputs.FleetIpPermissionArgs>());
+            set => _ec2InboundPermissions = value;
         }
 
         /// <summary>
         /// The name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See Amazon EC2 Instance Types for detailed descriptions.
         /// </summary>
-        [Input("eC2InstanceType")]
-        public Input<string>? EC2InstanceType { get; set; }
+        [Input("ec2InstanceType")]
+        public Input<string>? Ec2InstanceType { get; set; }
 
         /// <summary>
         /// Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
@@ -274,8 +274,8 @@ namespace Pulumi.AwsNative.GameLift
         /// <summary>
         /// A unique identifier for an AWS IAM role that manages access to your AWS services. With an instance role ARN set, any application that runs on an instance in this fleet can assume the role, including install scripts, server processes, and daemons (background processes). Create a role or look up a role's ARN from the IAM dashboard in the AWS Management Console.
         /// </summary>
-        [Input("instanceRoleARN")]
-        public Input<string>? InstanceRoleARN { get; set; }
+        [Input("instanceRoleArn")]
+        public Input<string>? InstanceRoleArn { get; set; }
 
         [Input("locations")]
         private InputList<Inputs.FleetLocationConfigurationArgs>? _locations;

@@ -28,8 +28,8 @@ namespace Pulumi.AwsNative.ElasticLoadBalancing
         [Output("canonicalHostedZoneName")]
         public Output<string> CanonicalHostedZoneName { get; private set; } = null!;
 
-        [Output("canonicalHostedZoneNameID")]
-        public Output<string> CanonicalHostedZoneNameID { get; private set; } = null!;
+        [Output("canonicalHostedZoneNameId")]
+        public Output<string> CanonicalHostedZoneNameId { get; private set; } = null!;
 
         [Output("connectionDrainingPolicy")]
         public Output<Outputs.LoadBalancerConnectionDrainingPolicy?> ConnectionDrainingPolicy { get; private set; } = null!;
@@ -40,8 +40,8 @@ namespace Pulumi.AwsNative.ElasticLoadBalancing
         [Output("crossZone")]
         public Output<bool?> CrossZone { get; private set; } = null!;
 
-        [Output("dNSName")]
-        public Output<string> DNSName { get; private set; } = null!;
+        [Output("dnsName")]
+        public Output<string> DnsName { get; private set; } = null!;
 
         [Output("healthCheck")]
         public Output<Outputs.LoadBalancerHealthCheck?> HealthCheck { get; private set; } = null!;
@@ -49,8 +49,8 @@ namespace Pulumi.AwsNative.ElasticLoadBalancing
         [Output("instances")]
         public Output<ImmutableArray<string>> Instances { get; private set; } = null!;
 
-        [Output("lBCookieStickinessPolicy")]
-        public Output<ImmutableArray<Outputs.LoadBalancerLBCookieStickinessPolicy>> LBCookieStickinessPolicy { get; private set; } = null!;
+        [Output("lbCookieStickinessPolicy")]
+        public Output<ImmutableArray<Outputs.LoadBalancerLBCookieStickinessPolicy>> LbCookieStickinessPolicy { get; private set; } = null!;
 
         [Output("listeners")]
         public Output<ImmutableArray<Outputs.LoadBalancerListeners>> Listeners { get; private set; } = null!;
@@ -163,12 +163,12 @@ namespace Pulumi.AwsNative.ElasticLoadBalancing
             set => _instances = value;
         }
 
-        [Input("lBCookieStickinessPolicy")]
-        private InputList<Inputs.LoadBalancerLBCookieStickinessPolicyArgs>? _lBCookieStickinessPolicy;
-        public InputList<Inputs.LoadBalancerLBCookieStickinessPolicyArgs> LBCookieStickinessPolicy
+        [Input("lbCookieStickinessPolicy")]
+        private InputList<Inputs.LoadBalancerLBCookieStickinessPolicyArgs>? _lbCookieStickinessPolicy;
+        public InputList<Inputs.LoadBalancerLBCookieStickinessPolicyArgs> LbCookieStickinessPolicy
         {
-            get => _lBCookieStickinessPolicy ?? (_lBCookieStickinessPolicy = new InputList<Inputs.LoadBalancerLBCookieStickinessPolicyArgs>());
-            set => _lBCookieStickinessPolicy = value;
+            get => _lbCookieStickinessPolicy ?? (_lbCookieStickinessPolicy = new InputList<Inputs.LoadBalancerLBCookieStickinessPolicyArgs>());
+            set => _lbCookieStickinessPolicy = value;
         }
 
         [Input("listeners", required: true)]

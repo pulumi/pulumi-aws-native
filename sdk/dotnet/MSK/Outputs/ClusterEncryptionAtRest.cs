@@ -13,12 +13,12 @@ namespace Pulumi.AwsNative.MSK.Outputs
     [OutputType]
     public sealed class ClusterEncryptionAtRest
     {
-        public readonly string DataVolumeKMSKeyId;
+        public readonly string DataVolumeKmsKeyId;
 
         [OutputConstructor]
-        private ClusterEncryptionAtRest(string dataVolumeKMSKeyId)
+        private ClusterEncryptionAtRest(string dataVolumeKmsKeyId)
         {
-            DataVolumeKMSKeyId = dataVolumeKMSKeyId;
+            DataVolumeKmsKeyId = dataVolumeKmsKeyId;
         }
     }
 }

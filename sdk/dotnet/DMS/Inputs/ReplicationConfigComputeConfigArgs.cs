@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.DMS.Inputs
         [Input("minCapacityUnits")]
         public Input<int>? MinCapacityUnits { get; set; }
 
-        [Input("multiAZ")]
-        public Input<bool>? MultiAZ { get; set; }
+        [Input("multiAz")]
+        public Input<bool>? MultiAz { get; set; }
 
         [Input("preferredMaintenanceWindow")]
         public Input<string>? PreferredMaintenanceWindow { get; set; }

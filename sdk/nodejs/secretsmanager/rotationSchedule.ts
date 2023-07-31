@@ -42,7 +42,7 @@ export class RotationSchedule extends pulumi.CustomResource {
 
     public readonly hostedRotationLambda!: pulumi.Output<outputs.secretsmanager.RotationScheduleHostedRotationLambda | undefined>;
     public readonly rotateImmediatelyOnUpdate!: pulumi.Output<boolean | undefined>;
-    public readonly rotationLambdaARN!: pulumi.Output<string | undefined>;
+    public readonly rotationLambdaArn!: pulumi.Output<string | undefined>;
     public readonly rotationRules!: pulumi.Output<outputs.secretsmanager.RotationScheduleRotationRules | undefined>;
     public readonly secretId!: pulumi.Output<string>;
 
@@ -64,13 +64,13 @@ export class RotationSchedule extends pulumi.CustomResource {
             }
             resourceInputs["hostedRotationLambda"] = args ? args.hostedRotationLambda : undefined;
             resourceInputs["rotateImmediatelyOnUpdate"] = args ? args.rotateImmediatelyOnUpdate : undefined;
-            resourceInputs["rotationLambdaARN"] = args ? args.rotationLambdaARN : undefined;
+            resourceInputs["rotationLambdaArn"] = args ? args.rotationLambdaArn : undefined;
             resourceInputs["rotationRules"] = args ? args.rotationRules : undefined;
             resourceInputs["secretId"] = args ? args.secretId : undefined;
         } else {
             resourceInputs["hostedRotationLambda"] = undefined /*out*/;
             resourceInputs["rotateImmediatelyOnUpdate"] = undefined /*out*/;
-            resourceInputs["rotationLambdaARN"] = undefined /*out*/;
+            resourceInputs["rotationLambdaArn"] = undefined /*out*/;
             resourceInputs["rotationRules"] = undefined /*out*/;
             resourceInputs["secretId"] = undefined /*out*/;
         }
@@ -85,7 +85,7 @@ export class RotationSchedule extends pulumi.CustomResource {
 export interface RotationScheduleArgs {
     hostedRotationLambda?: pulumi.Input<inputs.secretsmanager.RotationScheduleHostedRotationLambdaArgs>;
     rotateImmediatelyOnUpdate?: pulumi.Input<boolean>;
-    rotationLambdaARN?: pulumi.Input<string>;
+    rotationLambdaArn?: pulumi.Input<string>;
     rotationRules?: pulumi.Input<inputs.secretsmanager.RotationScheduleRotationRulesArgs>;
     secretId: pulumi.Input<string>;
 }

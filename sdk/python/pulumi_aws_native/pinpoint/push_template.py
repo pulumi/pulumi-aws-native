@@ -17,30 +17,30 @@ __all__ = ['PushTemplateArgs', 'PushTemplate']
 class PushTemplateArgs:
     def __init__(__self__, *,
                  template_name: pulumi.Input[str],
-                 a_dm: Optional[pulumi.Input['PushTemplateAndroidPushNotificationTemplateArgs']] = None,
-                 a_pns: Optional[pulumi.Input['PushTemplateAPNSPushNotificationTemplateArgs']] = None,
+                 adm: Optional[pulumi.Input['PushTemplateAndroidPushNotificationTemplateArgs']] = None,
+                 apns: Optional[pulumi.Input['PushTemplateAPNSPushNotificationTemplateArgs']] = None,
                  baidu: Optional[pulumi.Input['PushTemplateAndroidPushNotificationTemplateArgs']] = None,
                  default: Optional[pulumi.Input['PushTemplateDefaultPushNotificationTemplateArgs']] = None,
                  default_substitutions: Optional[pulumi.Input[str]] = None,
-                 g_cm: Optional[pulumi.Input['PushTemplateAndroidPushNotificationTemplateArgs']] = None,
+                 gcm: Optional[pulumi.Input['PushTemplateAndroidPushNotificationTemplateArgs']] = None,
                  tags: Optional[Any] = None,
                  template_description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a PushTemplate resource.
         """
         pulumi.set(__self__, "template_name", template_name)
-        if a_dm is not None:
-            pulumi.set(__self__, "a_dm", a_dm)
-        if a_pns is not None:
-            pulumi.set(__self__, "a_pns", a_pns)
+        if adm is not None:
+            pulumi.set(__self__, "adm", adm)
+        if apns is not None:
+            pulumi.set(__self__, "apns", apns)
         if baidu is not None:
             pulumi.set(__self__, "baidu", baidu)
         if default is not None:
             pulumi.set(__self__, "default", default)
         if default_substitutions is not None:
             pulumi.set(__self__, "default_substitutions", default_substitutions)
-        if g_cm is not None:
-            pulumi.set(__self__, "g_cm", g_cm)
+        if gcm is not None:
+            pulumi.set(__self__, "gcm", gcm)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if template_description is not None:
@@ -56,22 +56,22 @@ class PushTemplateArgs:
         pulumi.set(self, "template_name", value)
 
     @property
-    @pulumi.getter(name="aDM")
-    def a_dm(self) -> Optional[pulumi.Input['PushTemplateAndroidPushNotificationTemplateArgs']]:
-        return pulumi.get(self, "a_dm")
+    @pulumi.getter
+    def adm(self) -> Optional[pulumi.Input['PushTemplateAndroidPushNotificationTemplateArgs']]:
+        return pulumi.get(self, "adm")
 
-    @a_dm.setter
-    def a_dm(self, value: Optional[pulumi.Input['PushTemplateAndroidPushNotificationTemplateArgs']]):
-        pulumi.set(self, "a_dm", value)
+    @adm.setter
+    def adm(self, value: Optional[pulumi.Input['PushTemplateAndroidPushNotificationTemplateArgs']]):
+        pulumi.set(self, "adm", value)
 
     @property
-    @pulumi.getter(name="aPNS")
-    def a_pns(self) -> Optional[pulumi.Input['PushTemplateAPNSPushNotificationTemplateArgs']]:
-        return pulumi.get(self, "a_pns")
+    @pulumi.getter
+    def apns(self) -> Optional[pulumi.Input['PushTemplateAPNSPushNotificationTemplateArgs']]:
+        return pulumi.get(self, "apns")
 
-    @a_pns.setter
-    def a_pns(self, value: Optional[pulumi.Input['PushTemplateAPNSPushNotificationTemplateArgs']]):
-        pulumi.set(self, "a_pns", value)
+    @apns.setter
+    def apns(self, value: Optional[pulumi.Input['PushTemplateAPNSPushNotificationTemplateArgs']]):
+        pulumi.set(self, "apns", value)
 
     @property
     @pulumi.getter
@@ -101,13 +101,13 @@ class PushTemplateArgs:
         pulumi.set(self, "default_substitutions", value)
 
     @property
-    @pulumi.getter(name="gCM")
-    def g_cm(self) -> Optional[pulumi.Input['PushTemplateAndroidPushNotificationTemplateArgs']]:
-        return pulumi.get(self, "g_cm")
+    @pulumi.getter
+    def gcm(self) -> Optional[pulumi.Input['PushTemplateAndroidPushNotificationTemplateArgs']]:
+        return pulumi.get(self, "gcm")
 
-    @g_cm.setter
-    def g_cm(self, value: Optional[pulumi.Input['PushTemplateAndroidPushNotificationTemplateArgs']]):
-        pulumi.set(self, "g_cm", value)
+    @gcm.setter
+    def gcm(self, value: Optional[pulumi.Input['PushTemplateAndroidPushNotificationTemplateArgs']]):
+        pulumi.set(self, "gcm", value)
 
     @property
     @pulumi.getter
@@ -138,12 +138,12 @@ class PushTemplate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 a_dm: Optional[pulumi.Input[pulumi.InputType['PushTemplateAndroidPushNotificationTemplateArgs']]] = None,
-                 a_pns: Optional[pulumi.Input[pulumi.InputType['PushTemplateAPNSPushNotificationTemplateArgs']]] = None,
+                 adm: Optional[pulumi.Input[pulumi.InputType['PushTemplateAndroidPushNotificationTemplateArgs']]] = None,
+                 apns: Optional[pulumi.Input[pulumi.InputType['PushTemplateAPNSPushNotificationTemplateArgs']]] = None,
                  baidu: Optional[pulumi.Input[pulumi.InputType['PushTemplateAndroidPushNotificationTemplateArgs']]] = None,
                  default: Optional[pulumi.Input[pulumi.InputType['PushTemplateDefaultPushNotificationTemplateArgs']]] = None,
                  default_substitutions: Optional[pulumi.Input[str]] = None,
-                 g_cm: Optional[pulumi.Input[pulumi.InputType['PushTemplateAndroidPushNotificationTemplateArgs']]] = None,
+                 gcm: Optional[pulumi.Input[pulumi.InputType['PushTemplateAndroidPushNotificationTemplateArgs']]] = None,
                  tags: Optional[Any] = None,
                  template_description: Optional[pulumi.Input[str]] = None,
                  template_name: Optional[pulumi.Input[str]] = None,
@@ -178,12 +178,12 @@ class PushTemplate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 a_dm: Optional[pulumi.Input[pulumi.InputType['PushTemplateAndroidPushNotificationTemplateArgs']]] = None,
-                 a_pns: Optional[pulumi.Input[pulumi.InputType['PushTemplateAPNSPushNotificationTemplateArgs']]] = None,
+                 adm: Optional[pulumi.Input[pulumi.InputType['PushTemplateAndroidPushNotificationTemplateArgs']]] = None,
+                 apns: Optional[pulumi.Input[pulumi.InputType['PushTemplateAPNSPushNotificationTemplateArgs']]] = None,
                  baidu: Optional[pulumi.Input[pulumi.InputType['PushTemplateAndroidPushNotificationTemplateArgs']]] = None,
                  default: Optional[pulumi.Input[pulumi.InputType['PushTemplateDefaultPushNotificationTemplateArgs']]] = None,
                  default_substitutions: Optional[pulumi.Input[str]] = None,
-                 g_cm: Optional[pulumi.Input[pulumi.InputType['PushTemplateAndroidPushNotificationTemplateArgs']]] = None,
+                 gcm: Optional[pulumi.Input[pulumi.InputType['PushTemplateAndroidPushNotificationTemplateArgs']]] = None,
                  tags: Optional[Any] = None,
                  template_description: Optional[pulumi.Input[str]] = None,
                  template_name: Optional[pulumi.Input[str]] = None,
@@ -197,12 +197,12 @@ class PushTemplate(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PushTemplateArgs.__new__(PushTemplateArgs)
 
-            __props__.__dict__["a_dm"] = a_dm
-            __props__.__dict__["a_pns"] = a_pns
+            __props__.__dict__["adm"] = adm
+            __props__.__dict__["apns"] = apns
             __props__.__dict__["baidu"] = baidu
             __props__.__dict__["default"] = default
             __props__.__dict__["default_substitutions"] = default_substitutions
-            __props__.__dict__["g_cm"] = g_cm
+            __props__.__dict__["gcm"] = gcm
             __props__.__dict__["tags"] = tags
             __props__.__dict__["template_description"] = template_description
             if template_name is None and not opts.urn:
@@ -231,27 +231,27 @@ class PushTemplate(pulumi.CustomResource):
 
         __props__ = PushTemplateArgs.__new__(PushTemplateArgs)
 
-        __props__.__dict__["a_dm"] = None
-        __props__.__dict__["a_pns"] = None
+        __props__.__dict__["adm"] = None
+        __props__.__dict__["apns"] = None
         __props__.__dict__["arn"] = None
         __props__.__dict__["baidu"] = None
         __props__.__dict__["default"] = None
         __props__.__dict__["default_substitutions"] = None
-        __props__.__dict__["g_cm"] = None
+        __props__.__dict__["gcm"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["template_description"] = None
         __props__.__dict__["template_name"] = None
         return PushTemplate(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="aDM")
-    def a_dm(self) -> pulumi.Output[Optional['outputs.PushTemplateAndroidPushNotificationTemplate']]:
-        return pulumi.get(self, "a_dm")
+    @pulumi.getter
+    def adm(self) -> pulumi.Output[Optional['outputs.PushTemplateAndroidPushNotificationTemplate']]:
+        return pulumi.get(self, "adm")
 
     @property
-    @pulumi.getter(name="aPNS")
-    def a_pns(self) -> pulumi.Output[Optional['outputs.PushTemplateAPNSPushNotificationTemplate']]:
-        return pulumi.get(self, "a_pns")
+    @pulumi.getter
+    def apns(self) -> pulumi.Output[Optional['outputs.PushTemplateAPNSPushNotificationTemplate']]:
+        return pulumi.get(self, "apns")
 
     @property
     @pulumi.getter
@@ -274,9 +274,9 @@ class PushTemplate(pulumi.CustomResource):
         return pulumi.get(self, "default_substitutions")
 
     @property
-    @pulumi.getter(name="gCM")
-    def g_cm(self) -> pulumi.Output[Optional['outputs.PushTemplateAndroidPushNotificationTemplate']]:
-        return pulumi.get(self, "g_cm")
+    @pulumi.getter
+    def gcm(self) -> pulumi.Output[Optional['outputs.PushTemplateAndroidPushNotificationTemplate']]:
+        return pulumi.get(self, "gcm")
 
     @property
     @pulumi.getter

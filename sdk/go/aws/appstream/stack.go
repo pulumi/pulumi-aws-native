@@ -24,9 +24,9 @@ type Stack struct {
 	Description                 pulumi.StringPtrOutput                    `pulumi:"description"`
 	DisplayName                 pulumi.StringPtrOutput                    `pulumi:"displayName"`
 	EmbedHostDomains            pulumi.StringArrayOutput                  `pulumi:"embedHostDomains"`
-	FeedbackURL                 pulumi.StringPtrOutput                    `pulumi:"feedbackURL"`
+	FeedbackUrl                 pulumi.StringPtrOutput                    `pulumi:"feedbackUrl"`
 	Name                        pulumi.StringPtrOutput                    `pulumi:"name"`
-	RedirectURL                 pulumi.StringPtrOutput                    `pulumi:"redirectURL"`
+	RedirectUrl                 pulumi.StringPtrOutput                    `pulumi:"redirectUrl"`
 	StorageConnectors           StackStorageConnectorArrayOutput          `pulumi:"storageConnectors"`
 	StreamingExperienceSettings StackStreamingExperienceSettingsPtrOutput `pulumi:"streamingExperienceSettings"`
 	Tags                        StackTagArrayOutput                       `pulumi:"tags"`
@@ -80,9 +80,9 @@ type stackArgs struct {
 	Description                 *string                           `pulumi:"description"`
 	DisplayName                 *string                           `pulumi:"displayName"`
 	EmbedHostDomains            []string                          `pulumi:"embedHostDomains"`
-	FeedbackURL                 *string                           `pulumi:"feedbackURL"`
+	FeedbackUrl                 *string                           `pulumi:"feedbackUrl"`
 	Name                        *string                           `pulumi:"name"`
-	RedirectURL                 *string                           `pulumi:"redirectURL"`
+	RedirectUrl                 *string                           `pulumi:"redirectUrl"`
 	StorageConnectors           []StackStorageConnector           `pulumi:"storageConnectors"`
 	StreamingExperienceSettings *StackStreamingExperienceSettings `pulumi:"streamingExperienceSettings"`
 	Tags                        []StackTag                        `pulumi:"tags"`
@@ -98,9 +98,9 @@ type StackArgs struct {
 	Description                 pulumi.StringPtrInput
 	DisplayName                 pulumi.StringPtrInput
 	EmbedHostDomains            pulumi.StringArrayInput
-	FeedbackURL                 pulumi.StringPtrInput
+	FeedbackUrl                 pulumi.StringPtrInput
 	Name                        pulumi.StringPtrInput
-	RedirectURL                 pulumi.StringPtrInput
+	RedirectUrl                 pulumi.StringPtrInput
 	StorageConnectors           StackStorageConnectorArrayInput
 	StreamingExperienceSettings StackStreamingExperienceSettingsPtrInput
 	Tags                        StackTagArrayInput
@@ -172,16 +172,16 @@ func (o StackOutput) EmbedHostDomains() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringArrayOutput { return v.EmbedHostDomains }).(pulumi.StringArrayOutput)
 }
 
-func (o StackOutput) FeedbackURL() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Stack) pulumi.StringPtrOutput { return v.FeedbackURL }).(pulumi.StringPtrOutput)
+func (o StackOutput) FeedbackUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stack) pulumi.StringPtrOutput { return v.FeedbackUrl }).(pulumi.StringPtrOutput)
 }
 
 func (o StackOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o StackOutput) RedirectURL() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Stack) pulumi.StringPtrOutput { return v.RedirectURL }).(pulumi.StringPtrOutput)
+func (o StackOutput) RedirectUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Stack) pulumi.StringPtrOutput { return v.RedirectUrl }).(pulumi.StringPtrOutput)
 }
 
 func (o StackOutput) StorageConnectors() StackStorageConnectorArrayOutput {

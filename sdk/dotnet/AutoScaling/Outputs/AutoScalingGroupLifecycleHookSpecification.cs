@@ -18,8 +18,8 @@ namespace Pulumi.AwsNative.AutoScaling.Outputs
         public readonly string LifecycleHookName;
         public readonly string LifecycleTransition;
         public readonly string? NotificationMetadata;
-        public readonly string? NotificationTargetARN;
-        public readonly string? RoleARN;
+        public readonly string? NotificationTargetArn;
+        public readonly string? RoleArn;
 
         [OutputConstructor]
         private AutoScalingGroupLifecycleHookSpecification(
@@ -33,17 +33,17 @@ namespace Pulumi.AwsNative.AutoScaling.Outputs
 
             string? notificationMetadata,
 
-            string? notificationTargetARN,
+            string? notificationTargetArn,
 
-            string? roleARN)
+            string? roleArn)
         {
             DefaultResult = defaultResult;
             HeartbeatTimeout = heartbeatTimeout;
             LifecycleHookName = lifecycleHookName;
             LifecycleTransition = lifecycleTransition;
             NotificationMetadata = notificationMetadata;
-            NotificationTargetARN = notificationTargetARN;
-            RoleARN = roleARN;
+            NotificationTargetArn = notificationTargetArn;
+            RoleArn = roleArn;
         }
     }
 }

@@ -40,7 +40,7 @@ class GetFunctionResult:
         pulumi.set(__self__, "stage", stage)
 
     @property
-    @pulumi.getter(name="functionARN")
+    @pulumi.getter(name="functionArn")
     def function_arn(self) -> Optional[str]:
         return pulumi.get(self, "function_arn")
 
@@ -90,7 +90,7 @@ def get_function(function_arn: Optional[str] = None,
     Resource Type definition for AWS::CloudFront::Function
     """
     __args__ = dict()
-    __args__['functionARN'] = function_arn
+    __args__['functionArn'] = function_arn
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:cloudfront:getFunction', __args__, opts=opts, typ=GetFunctionResult).value
 

@@ -14,7 +14,7 @@ export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOpt
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:applicationinsights:getApplication", {
-        "applicationARN": args.applicationARN,
+        "applicationArn": args.applicationArn,
     }, opts);
 }
 
@@ -22,14 +22,14 @@ export interface GetApplicationArgs {
     /**
      * The ARN of the ApplicationInsights application.
      */
-    applicationARN: string;
+    applicationArn: string;
 }
 
 export interface GetApplicationResult {
     /**
      * The ARN of the ApplicationInsights application.
      */
-    readonly applicationARN?: string;
+    readonly applicationArn?: string;
     /**
      * If set to true, application will be configured with recommended monitoring configuration.
      */
@@ -37,7 +37,7 @@ export interface GetApplicationResult {
     /**
      * Indicates whether Application Insights can listen to CloudWatch events for the application resources.
      */
-    readonly cWEMonitorEnabled?: boolean;
+    readonly cweMonitorEnabled?: boolean;
     /**
      * When set to true, creates opsItems for any problems detected on an application.
      */
@@ -58,5 +58,5 @@ export interface GetApplicationOutputArgs {
     /**
      * The ARN of the ApplicationInsights application.
      */
-    applicationARN: pulumi.Input<string>;
+    applicationArn: pulumi.Input<string>;
 }

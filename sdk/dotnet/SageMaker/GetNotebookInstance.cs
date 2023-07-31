@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.SageMaker
         public readonly string? RoleArn;
         public readonly string? RootAccess;
         public readonly ImmutableArray<Outputs.NotebookInstanceTag> Tags;
-        public readonly int? VolumeSizeInGB;
+        public readonly int? VolumeSizeInGb;
 
         [OutputConstructor]
         private GetNotebookInstanceResult(
@@ -85,7 +85,7 @@ namespace Pulumi.AwsNative.SageMaker
 
             ImmutableArray<Outputs.NotebookInstanceTag> tags,
 
-            int? volumeSizeInGB)
+            int? volumeSizeInGb)
         {
             AcceleratorTypes = acceleratorTypes;
             AdditionalCodeRepositories = additionalCodeRepositories;
@@ -97,7 +97,7 @@ namespace Pulumi.AwsNative.SageMaker
             RoleArn = roleArn;
             RootAccess = rootAccess;
             Tags = tags;
-            VolumeSizeInGB = volumeSizeInGB;
+            VolumeSizeInGb = volumeSizeInGb;
         }
     }
 }

@@ -31,7 +31,7 @@ type LookupClusterResult struct {
 	Id                    *string                        `pulumi:"id"`
 	Instances             *ClusterJobFlowInstancesConfig `pulumi:"instances"`
 	ManagedScalingPolicy  *ClusterManagedScalingPolicy   `pulumi:"managedScalingPolicy"`
-	MasterPublicDNS       *string                        `pulumi:"masterPublicDNS"`
+	MasterPublicDns       *string                        `pulumi:"masterPublicDns"`
 	StepConcurrencyLevel  *int                           `pulumi:"stepConcurrencyLevel"`
 	Tags                  []ClusterTag                   `pulumi:"tags"`
 	VisibleToAllUsers     *bool                          `pulumi:"visibleToAllUsers"`
@@ -88,8 +88,8 @@ func (o LookupClusterResultOutput) ManagedScalingPolicy() ClusterManagedScalingP
 	return o.ApplyT(func(v LookupClusterResult) *ClusterManagedScalingPolicy { return v.ManagedScalingPolicy }).(ClusterManagedScalingPolicyPtrOutput)
 }
 
-func (o LookupClusterResultOutput) MasterPublicDNS() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupClusterResult) *string { return v.MasterPublicDNS }).(pulumi.StringPtrOutput)
+func (o LookupClusterResultOutput) MasterPublicDns() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *string { return v.MasterPublicDns }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupClusterResultOutput) StepConcurrencyLevel() pulumi.IntPtrOutput {

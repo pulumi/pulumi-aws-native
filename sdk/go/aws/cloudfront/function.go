@@ -17,7 +17,7 @@ type Function struct {
 	pulumi.CustomResourceState
 
 	AutoPublish      pulumi.BoolPtrOutput      `pulumi:"autoPublish"`
-	FunctionARN      pulumi.StringOutput       `pulumi:"functionARN"`
+	FunctionArn      pulumi.StringOutput       `pulumi:"functionArn"`
 	FunctionCode     pulumi.StringOutput       `pulumi:"functionCode"`
 	FunctionConfig   FunctionConfigOutput      `pulumi:"functionConfig"`
 	FunctionMetadata FunctionMetadataPtrOutput `pulumi:"functionMetadata"`
@@ -128,8 +128,8 @@ func (o FunctionOutput) AutoPublish() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Function) pulumi.BoolPtrOutput { return v.AutoPublish }).(pulumi.BoolPtrOutput)
 }
 
-func (o FunctionOutput) FunctionARN() pulumi.StringOutput {
-	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.FunctionARN }).(pulumi.StringOutput)
+func (o FunctionOutput) FunctionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.FunctionArn }).(pulumi.StringOutput)
 }
 
 func (o FunctionOutput) FunctionCode() pulumi.StringOutput {

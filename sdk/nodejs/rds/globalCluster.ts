@@ -57,7 +57,7 @@ export class GlobalCluster extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) to use as the primary cluster of the global database. This parameter is optional. This parameter is stored as a lowercase string.
      */
-    public readonly sourceDBClusterIdentifier!: pulumi.Output<string | undefined>;
+    public readonly sourceDbClusterIdentifier!: pulumi.Output<string | undefined>;
     /**
      *  The storage encryption setting for the new global database cluster.
      * If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
@@ -79,14 +79,14 @@ export class GlobalCluster extends pulumi.CustomResource {
             resourceInputs["engine"] = args ? args.engine : undefined;
             resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
             resourceInputs["globalClusterIdentifier"] = args ? args.globalClusterIdentifier : undefined;
-            resourceInputs["sourceDBClusterIdentifier"] = args ? args.sourceDBClusterIdentifier : undefined;
+            resourceInputs["sourceDbClusterIdentifier"] = args ? args.sourceDbClusterIdentifier : undefined;
             resourceInputs["storageEncrypted"] = args ? args.storageEncrypted : undefined;
         } else {
             resourceInputs["deletionProtection"] = undefined /*out*/;
             resourceInputs["engine"] = undefined /*out*/;
             resourceInputs["engineVersion"] = undefined /*out*/;
             resourceInputs["globalClusterIdentifier"] = undefined /*out*/;
-            resourceInputs["sourceDBClusterIdentifier"] = undefined /*out*/;
+            resourceInputs["sourceDbClusterIdentifier"] = undefined /*out*/;
             resourceInputs["storageEncrypted"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -118,7 +118,7 @@ export interface GlobalClusterArgs {
     /**
      * The Amazon Resource Name (ARN) to use as the primary cluster of the global database. This parameter is optional. This parameter is stored as a lowercase string.
      */
-    sourceDBClusterIdentifier?: pulumi.Input<string>;
+    sourceDbClusterIdentifier?: pulumi.Input<string>;
     /**
      *  The storage encryption setting for the new global database cluster.
      * If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.

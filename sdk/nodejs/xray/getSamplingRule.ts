@@ -14,16 +14,16 @@ export function getSamplingRule(args: GetSamplingRuleArgs, opts?: pulumi.InvokeO
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:xray:getSamplingRule", {
-        "ruleARN": args.ruleARN,
+        "ruleArn": args.ruleArn,
     }, opts);
 }
 
 export interface GetSamplingRuleArgs {
-    ruleARN: string;
+    ruleArn: string;
 }
 
 export interface GetSamplingRuleResult {
-    readonly ruleARN?: string;
+    readonly ruleArn?: string;
     readonly ruleName?: string;
     readonly samplingRule?: outputs.xray.SamplingRule;
     readonly samplingRuleRecord?: outputs.xray.SamplingRuleRecord;
@@ -38,5 +38,5 @@ export function getSamplingRuleOutput(args: GetSamplingRuleOutputArgs, opts?: pu
 }
 
 export interface GetSamplingRuleOutputArgs {
-    ruleARN: pulumi.Input<string>;
+    ruleArn: pulumi.Input<string>;
 }

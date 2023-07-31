@@ -26,9 +26,9 @@ type IdentityPool struct {
 	DeveloperProviderName          pulumi.StringPtrOutput                         `pulumi:"developerProviderName"`
 	IdentityPoolName               pulumi.StringPtrOutput                         `pulumi:"identityPoolName"`
 	Name                           pulumi.StringOutput                            `pulumi:"name"`
-	OpenIdConnectProviderARNs      pulumi.StringArrayOutput                       `pulumi:"openIdConnectProviderARNs"`
+	OpenIdConnectProviderArns      pulumi.StringArrayOutput                       `pulumi:"openIdConnectProviderArns"`
 	PushSync                       IdentityPoolPushSyncPtrOutput                  `pulumi:"pushSync"`
-	SamlProviderARNs               pulumi.StringArrayOutput                       `pulumi:"samlProviderARNs"`
+	SamlProviderArns               pulumi.StringArrayOutput                       `pulumi:"samlProviderArns"`
 	SupportedLoginProviders        pulumi.AnyOutput                               `pulumi:"supportedLoginProviders"`
 }
 
@@ -82,9 +82,9 @@ type identityPoolArgs struct {
 	CognitoStreams                 *IdentityPoolCognitoStreams           `pulumi:"cognitoStreams"`
 	DeveloperProviderName          *string                               `pulumi:"developerProviderName"`
 	IdentityPoolName               *string                               `pulumi:"identityPoolName"`
-	OpenIdConnectProviderARNs      []string                              `pulumi:"openIdConnectProviderARNs"`
+	OpenIdConnectProviderArns      []string                              `pulumi:"openIdConnectProviderArns"`
 	PushSync                       *IdentityPoolPushSync                 `pulumi:"pushSync"`
-	SamlProviderARNs               []string                              `pulumi:"samlProviderARNs"`
+	SamlProviderArns               []string                              `pulumi:"samlProviderArns"`
 	SupportedLoginProviders        interface{}                           `pulumi:"supportedLoginProviders"`
 }
 
@@ -97,9 +97,9 @@ type IdentityPoolArgs struct {
 	CognitoStreams                 IdentityPoolCognitoStreamsPtrInput
 	DeveloperProviderName          pulumi.StringPtrInput
 	IdentityPoolName               pulumi.StringPtrInput
-	OpenIdConnectProviderARNs      pulumi.StringArrayInput
+	OpenIdConnectProviderArns      pulumi.StringArrayInput
 	PushSync                       IdentityPoolPushSyncPtrInput
-	SamlProviderARNs               pulumi.StringArrayInput
+	SamlProviderArns               pulumi.StringArrayInput
 	SupportedLoginProviders        pulumi.Input
 }
 
@@ -174,16 +174,16 @@ func (o IdentityPoolOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityPool) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o IdentityPoolOutput) OpenIdConnectProviderARNs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *IdentityPool) pulumi.StringArrayOutput { return v.OpenIdConnectProviderARNs }).(pulumi.StringArrayOutput)
+func (o IdentityPoolOutput) OpenIdConnectProviderArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IdentityPool) pulumi.StringArrayOutput { return v.OpenIdConnectProviderArns }).(pulumi.StringArrayOutput)
 }
 
 func (o IdentityPoolOutput) PushSync() IdentityPoolPushSyncPtrOutput {
 	return o.ApplyT(func(v *IdentityPool) IdentityPoolPushSyncPtrOutput { return v.PushSync }).(IdentityPoolPushSyncPtrOutput)
 }
 
-func (o IdentityPoolOutput) SamlProviderARNs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *IdentityPool) pulumi.StringArrayOutput { return v.SamlProviderARNs }).(pulumi.StringArrayOutput)
+func (o IdentityPoolOutput) SamlProviderArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IdentityPool) pulumi.StringArrayOutput { return v.SamlProviderArns }).(pulumi.StringArrayOutput)
 }
 
 func (o IdentityPoolOutput) SupportedLoginProviders() pulumi.AnyOutput {

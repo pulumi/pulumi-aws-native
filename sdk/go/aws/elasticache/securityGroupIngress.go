@@ -19,8 +19,8 @@ type SecurityGroupIngress struct {
 	pulumi.CustomResourceState
 
 	CacheSecurityGroupName  pulumi.StringOutput    `pulumi:"cacheSecurityGroupName"`
-	EC2SecurityGroupName    pulumi.StringOutput    `pulumi:"eC2SecurityGroupName"`
-	EC2SecurityGroupOwnerId pulumi.StringPtrOutput `pulumi:"eC2SecurityGroupOwnerId"`
+	Ec2SecurityGroupName    pulumi.StringOutput    `pulumi:"ec2SecurityGroupName"`
+	Ec2SecurityGroupOwnerId pulumi.StringPtrOutput `pulumi:"ec2SecurityGroupOwnerId"`
 }
 
 // NewSecurityGroupIngress registers a new resource with the given unique name, arguments, and options.
@@ -33,8 +33,8 @@ func NewSecurityGroupIngress(ctx *pulumi.Context,
 	if args.CacheSecurityGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'CacheSecurityGroupName'")
 	}
-	if args.EC2SecurityGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'EC2SecurityGroupName'")
+	if args.Ec2SecurityGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'Ec2SecurityGroupName'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SecurityGroupIngress
@@ -70,15 +70,15 @@ func (SecurityGroupIngressState) ElementType() reflect.Type {
 
 type securityGroupIngressArgs struct {
 	CacheSecurityGroupName  string  `pulumi:"cacheSecurityGroupName"`
-	EC2SecurityGroupName    string  `pulumi:"eC2SecurityGroupName"`
-	EC2SecurityGroupOwnerId *string `pulumi:"eC2SecurityGroupOwnerId"`
+	Ec2SecurityGroupName    string  `pulumi:"ec2SecurityGroupName"`
+	Ec2SecurityGroupOwnerId *string `pulumi:"ec2SecurityGroupOwnerId"`
 }
 
 // The set of arguments for constructing a SecurityGroupIngress resource.
 type SecurityGroupIngressArgs struct {
 	CacheSecurityGroupName  pulumi.StringInput
-	EC2SecurityGroupName    pulumi.StringInput
-	EC2SecurityGroupOwnerId pulumi.StringPtrInput
+	Ec2SecurityGroupName    pulumi.StringInput
+	Ec2SecurityGroupOwnerId pulumi.StringPtrInput
 }
 
 func (SecurityGroupIngressArgs) ElementType() reflect.Type {
@@ -122,12 +122,12 @@ func (o SecurityGroupIngressOutput) CacheSecurityGroupName() pulumi.StringOutput
 	return o.ApplyT(func(v *SecurityGroupIngress) pulumi.StringOutput { return v.CacheSecurityGroupName }).(pulumi.StringOutput)
 }
 
-func (o SecurityGroupIngressOutput) EC2SecurityGroupName() pulumi.StringOutput {
-	return o.ApplyT(func(v *SecurityGroupIngress) pulumi.StringOutput { return v.EC2SecurityGroupName }).(pulumi.StringOutput)
+func (o SecurityGroupIngressOutput) Ec2SecurityGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityGroupIngress) pulumi.StringOutput { return v.Ec2SecurityGroupName }).(pulumi.StringOutput)
 }
 
-func (o SecurityGroupIngressOutput) EC2SecurityGroupOwnerId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SecurityGroupIngress) pulumi.StringPtrOutput { return v.EC2SecurityGroupOwnerId }).(pulumi.StringPtrOutput)
+func (o SecurityGroupIngressOutput) Ec2SecurityGroupOwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityGroupIngress) pulumi.StringPtrOutput { return v.Ec2SecurityGroupOwnerId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

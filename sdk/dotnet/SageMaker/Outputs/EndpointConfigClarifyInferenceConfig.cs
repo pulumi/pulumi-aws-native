@@ -20,7 +20,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         public readonly string? LabelAttribute;
         public readonly ImmutableArray<Outputs.EndpointConfigClarifyHeader> LabelHeaders;
         public readonly int? LabelIndex;
-        public readonly int? MaxPayloadInMB;
+        public readonly int? MaxPayloadInMb;
         public readonly int? MaxRecordCount;
         public readonly string? ProbabilityAttribute;
         public readonly int? ProbabilityIndex;
@@ -41,7 +41,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
             int? labelIndex,
 
-            int? maxPayloadInMB,
+            int? maxPayloadInMb,
 
             int? maxRecordCount,
 
@@ -56,7 +56,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
             LabelAttribute = labelAttribute;
             LabelHeaders = labelHeaders;
             LabelIndex = labelIndex;
-            MaxPayloadInMB = maxPayloadInMB;
+            MaxPayloadInMb = maxPayloadInMb;
             MaxRecordCount = maxRecordCount;
             ProbabilityAttribute = probabilityAttribute;
             ProbabilityIndex = probabilityIndex;

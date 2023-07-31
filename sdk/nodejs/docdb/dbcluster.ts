@@ -44,9 +44,9 @@ export class DBCluster extends pulumi.CustomResource {
     public readonly backupRetentionPeriod!: pulumi.Output<number | undefined>;
     public /*out*/ readonly clusterResourceId!: pulumi.Output<string>;
     public readonly copyTagsToSnapshot!: pulumi.Output<boolean | undefined>;
-    public readonly dBClusterIdentifier!: pulumi.Output<string | undefined>;
-    public readonly dBClusterParameterGroupName!: pulumi.Output<string | undefined>;
-    public readonly dBSubnetGroupName!: pulumi.Output<string | undefined>;
+    public readonly dbClusterIdentifier!: pulumi.Output<string | undefined>;
+    public readonly dbClusterParameterGroupName!: pulumi.Output<string | undefined>;
+    public readonly dbSubnetGroupName!: pulumi.Output<string | undefined>;
     public readonly deletionProtection!: pulumi.Output<boolean | undefined>;
     public readonly enableCloudwatchLogsExports!: pulumi.Output<string[] | undefined>;
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
@@ -61,7 +61,7 @@ export class DBCluster extends pulumi.CustomResource {
     public readonly restoreToTime!: pulumi.Output<string | undefined>;
     public readonly restoreType!: pulumi.Output<string | undefined>;
     public readonly snapshotIdentifier!: pulumi.Output<string | undefined>;
-    public readonly sourceDBClusterIdentifier!: pulumi.Output<string | undefined>;
+    public readonly sourceDbClusterIdentifier!: pulumi.Output<string | undefined>;
     public readonly storageEncrypted!: pulumi.Output<boolean | undefined>;
     public readonly tags!: pulumi.Output<outputs.docdb.DBClusterTag[] | undefined>;
     public readonly useLatestRestorableTime!: pulumi.Output<boolean | undefined>;
@@ -83,9 +83,9 @@ export class DBCluster extends pulumi.CustomResource {
             resourceInputs["availabilityZones"] = args ? args.availabilityZones : undefined;
             resourceInputs["backupRetentionPeriod"] = args ? args.backupRetentionPeriod : undefined;
             resourceInputs["copyTagsToSnapshot"] = args ? args.copyTagsToSnapshot : undefined;
-            resourceInputs["dBClusterIdentifier"] = args ? args.dBClusterIdentifier : undefined;
-            resourceInputs["dBClusterParameterGroupName"] = args ? args.dBClusterParameterGroupName : undefined;
-            resourceInputs["dBSubnetGroupName"] = args ? args.dBSubnetGroupName : undefined;
+            resourceInputs["dbClusterIdentifier"] = args ? args.dbClusterIdentifier : undefined;
+            resourceInputs["dbClusterParameterGroupName"] = args ? args.dbClusterParameterGroupName : undefined;
+            resourceInputs["dbSubnetGroupName"] = args ? args.dbSubnetGroupName : undefined;
             resourceInputs["deletionProtection"] = args ? args.deletionProtection : undefined;
             resourceInputs["enableCloudwatchLogsExports"] = args ? args.enableCloudwatchLogsExports : undefined;
             resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
@@ -98,7 +98,7 @@ export class DBCluster extends pulumi.CustomResource {
             resourceInputs["restoreToTime"] = args ? args.restoreToTime : undefined;
             resourceInputs["restoreType"] = args ? args.restoreType : undefined;
             resourceInputs["snapshotIdentifier"] = args ? args.snapshotIdentifier : undefined;
-            resourceInputs["sourceDBClusterIdentifier"] = args ? args.sourceDBClusterIdentifier : undefined;
+            resourceInputs["sourceDbClusterIdentifier"] = args ? args.sourceDbClusterIdentifier : undefined;
             resourceInputs["storageEncrypted"] = args ? args.storageEncrypted : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["useLatestRestorableTime"] = args ? args.useLatestRestorableTime : undefined;
@@ -111,9 +111,9 @@ export class DBCluster extends pulumi.CustomResource {
             resourceInputs["backupRetentionPeriod"] = undefined /*out*/;
             resourceInputs["clusterResourceId"] = undefined /*out*/;
             resourceInputs["copyTagsToSnapshot"] = undefined /*out*/;
-            resourceInputs["dBClusterIdentifier"] = undefined /*out*/;
-            resourceInputs["dBClusterParameterGroupName"] = undefined /*out*/;
-            resourceInputs["dBSubnetGroupName"] = undefined /*out*/;
+            resourceInputs["dbClusterIdentifier"] = undefined /*out*/;
+            resourceInputs["dbClusterParameterGroupName"] = undefined /*out*/;
+            resourceInputs["dbSubnetGroupName"] = undefined /*out*/;
             resourceInputs["deletionProtection"] = undefined /*out*/;
             resourceInputs["enableCloudwatchLogsExports"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
@@ -128,7 +128,7 @@ export class DBCluster extends pulumi.CustomResource {
             resourceInputs["restoreToTime"] = undefined /*out*/;
             resourceInputs["restoreType"] = undefined /*out*/;
             resourceInputs["snapshotIdentifier"] = undefined /*out*/;
-            resourceInputs["sourceDBClusterIdentifier"] = undefined /*out*/;
+            resourceInputs["sourceDbClusterIdentifier"] = undefined /*out*/;
             resourceInputs["storageEncrypted"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["useLatestRestorableTime"] = undefined /*out*/;
@@ -146,9 +146,9 @@ export interface DBClusterArgs {
     availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     backupRetentionPeriod?: pulumi.Input<number>;
     copyTagsToSnapshot?: pulumi.Input<boolean>;
-    dBClusterIdentifier?: pulumi.Input<string>;
-    dBClusterParameterGroupName?: pulumi.Input<string>;
-    dBSubnetGroupName?: pulumi.Input<string>;
+    dbClusterIdentifier?: pulumi.Input<string>;
+    dbClusterParameterGroupName?: pulumi.Input<string>;
+    dbSubnetGroupName?: pulumi.Input<string>;
     deletionProtection?: pulumi.Input<boolean>;
     enableCloudwatchLogsExports?: pulumi.Input<pulumi.Input<string>[]>;
     engineVersion?: pulumi.Input<string>;
@@ -161,7 +161,7 @@ export interface DBClusterArgs {
     restoreToTime?: pulumi.Input<string>;
     restoreType?: pulumi.Input<string>;
     snapshotIdentifier?: pulumi.Input<string>;
-    sourceDBClusterIdentifier?: pulumi.Input<string>;
+    sourceDbClusterIdentifier?: pulumi.Input<string>;
     storageEncrypted?: pulumi.Input<boolean>;
     tags?: pulumi.Input<pulumi.Input<inputs.docdb.DBClusterTagArgs>[]>;
     useLatestRestorableTime?: pulumi.Input<boolean>;

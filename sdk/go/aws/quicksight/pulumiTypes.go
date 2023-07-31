@@ -11690,8 +11690,8 @@ func (o AnalysisCustomActionSetParametersOperationPtrOutput) ParameterValueConfi
 }
 
 type AnalysisCustomActionURLOperation struct {
-	URLTarget   AnalysisURLTargetConfiguration `pulumi:"uRLTarget"`
-	URLTemplate string                         `pulumi:"uRLTemplate"`
+	UrlTarget   AnalysisURLTargetConfiguration `pulumi:"urlTarget"`
+	UrlTemplate string                         `pulumi:"urlTemplate"`
 }
 
 // AnalysisCustomActionURLOperationInput is an input type that accepts AnalysisCustomActionURLOperationArgs and AnalysisCustomActionURLOperationOutput values.
@@ -11706,8 +11706,8 @@ type AnalysisCustomActionURLOperationInput interface {
 }
 
 type AnalysisCustomActionURLOperationArgs struct {
-	URLTarget   AnalysisURLTargetConfigurationInput `pulumi:"uRLTarget"`
-	URLTemplate pulumi.StringInput                  `pulumi:"uRLTemplate"`
+	UrlTarget   AnalysisURLTargetConfigurationInput `pulumi:"urlTarget"`
+	UrlTemplate pulumi.StringInput                  `pulumi:"urlTemplate"`
 }
 
 func (AnalysisCustomActionURLOperationArgs) ElementType() reflect.Type {
@@ -11787,12 +11787,12 @@ func (o AnalysisCustomActionURLOperationOutput) ToAnalysisCustomActionURLOperati
 	}).(AnalysisCustomActionURLOperationPtrOutput)
 }
 
-func (o AnalysisCustomActionURLOperationOutput) URLTarget() AnalysisURLTargetConfigurationOutput {
-	return o.ApplyT(func(v AnalysisCustomActionURLOperation) AnalysisURLTargetConfiguration { return v.URLTarget }).(AnalysisURLTargetConfigurationOutput)
+func (o AnalysisCustomActionURLOperationOutput) UrlTarget() AnalysisURLTargetConfigurationOutput {
+	return o.ApplyT(func(v AnalysisCustomActionURLOperation) AnalysisURLTargetConfiguration { return v.UrlTarget }).(AnalysisURLTargetConfigurationOutput)
 }
 
-func (o AnalysisCustomActionURLOperationOutput) URLTemplate() pulumi.StringOutput {
-	return o.ApplyT(func(v AnalysisCustomActionURLOperation) string { return v.URLTemplate }).(pulumi.StringOutput)
+func (o AnalysisCustomActionURLOperationOutput) UrlTemplate() pulumi.StringOutput {
+	return o.ApplyT(func(v AnalysisCustomActionURLOperation) string { return v.UrlTemplate }).(pulumi.StringOutput)
 }
 
 type AnalysisCustomActionURLOperationPtrOutput struct{ *pulumi.OutputState }
@@ -11819,21 +11819,21 @@ func (o AnalysisCustomActionURLOperationPtrOutput) Elem() AnalysisCustomActionUR
 	}).(AnalysisCustomActionURLOperationOutput)
 }
 
-func (o AnalysisCustomActionURLOperationPtrOutput) URLTarget() AnalysisURLTargetConfigurationPtrOutput {
+func (o AnalysisCustomActionURLOperationPtrOutput) UrlTarget() AnalysisURLTargetConfigurationPtrOutput {
 	return o.ApplyT(func(v *AnalysisCustomActionURLOperation) *AnalysisURLTargetConfiguration {
 		if v == nil {
 			return nil
 		}
-		return &v.URLTarget
+		return &v.UrlTarget
 	}).(AnalysisURLTargetConfigurationPtrOutput)
 }
 
-func (o AnalysisCustomActionURLOperationPtrOutput) URLTemplate() pulumi.StringPtrOutput {
+func (o AnalysisCustomActionURLOperationPtrOutput) UrlTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalysisCustomActionURLOperation) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.URLTemplate
+		return &v.UrlTemplate
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -35034,7 +35034,7 @@ func (o AnalysisKPIConditionalFormattingOptionArrayOutput) Index(i pulumi.IntInp
 
 type AnalysisKPIConfiguration struct {
 	FieldWells        *AnalysisKPIFieldWells        `pulumi:"fieldWells"`
-	KPIOptions        *AnalysisKPIOptions           `pulumi:"kPIOptions"`
+	KpiOptions        *AnalysisKPIOptions           `pulumi:"kpiOptions"`
 	SortConfiguration *AnalysisKPISortConfiguration `pulumi:"sortConfiguration"`
 }
 
@@ -35051,7 +35051,7 @@ type AnalysisKPIConfigurationInput interface {
 
 type AnalysisKPIConfigurationArgs struct {
 	FieldWells        AnalysisKPIFieldWellsPtrInput        `pulumi:"fieldWells"`
-	KPIOptions        AnalysisKPIOptionsPtrInput           `pulumi:"kPIOptions"`
+	KpiOptions        AnalysisKPIOptionsPtrInput           `pulumi:"kpiOptions"`
 	SortConfiguration AnalysisKPISortConfigurationPtrInput `pulumi:"sortConfiguration"`
 }
 
@@ -35136,8 +35136,8 @@ func (o AnalysisKPIConfigurationOutput) FieldWells() AnalysisKPIFieldWellsPtrOut
 	return o.ApplyT(func(v AnalysisKPIConfiguration) *AnalysisKPIFieldWells { return v.FieldWells }).(AnalysisKPIFieldWellsPtrOutput)
 }
 
-func (o AnalysisKPIConfigurationOutput) KPIOptions() AnalysisKPIOptionsPtrOutput {
-	return o.ApplyT(func(v AnalysisKPIConfiguration) *AnalysisKPIOptions { return v.KPIOptions }).(AnalysisKPIOptionsPtrOutput)
+func (o AnalysisKPIConfigurationOutput) KpiOptions() AnalysisKPIOptionsPtrOutput {
+	return o.ApplyT(func(v AnalysisKPIConfiguration) *AnalysisKPIOptions { return v.KpiOptions }).(AnalysisKPIOptionsPtrOutput)
 }
 
 func (o AnalysisKPIConfigurationOutput) SortConfiguration() AnalysisKPISortConfigurationPtrOutput {
@@ -35177,12 +35177,12 @@ func (o AnalysisKPIConfigurationPtrOutput) FieldWells() AnalysisKPIFieldWellsPtr
 	}).(AnalysisKPIFieldWellsPtrOutput)
 }
 
-func (o AnalysisKPIConfigurationPtrOutput) KPIOptions() AnalysisKPIOptionsPtrOutput {
+func (o AnalysisKPIConfigurationPtrOutput) KpiOptions() AnalysisKPIOptionsPtrOutput {
 	return o.ApplyT(func(v *AnalysisKPIConfiguration) *AnalysisKPIOptions {
 		if v == nil {
 			return nil
 		}
-		return v.KPIOptions
+		return v.KpiOptions
 	}).(AnalysisKPIOptionsPtrOutput)
 }
 
@@ -62481,7 +62481,7 @@ func (o AnalysisTableFieldLinkContentConfigurationPtrOutput) CustomTextContent()
 type AnalysisTableFieldOption struct {
 	CustomLabel *string                             `pulumi:"customLabel"`
 	FieldId     string                              `pulumi:"fieldId"`
-	URLStyling  *AnalysisTableFieldURLConfiguration `pulumi:"uRLStyling"`
+	UrlStyling  *AnalysisTableFieldURLConfiguration `pulumi:"urlStyling"`
 	Visibility  *AnalysisVisibility                 `pulumi:"visibility"`
 	// String based length that is composed of value and unit in px
 	Width *string `pulumi:"width"`
@@ -62501,7 +62501,7 @@ type AnalysisTableFieldOptionInput interface {
 type AnalysisTableFieldOptionArgs struct {
 	CustomLabel pulumi.StringPtrInput                      `pulumi:"customLabel"`
 	FieldId     pulumi.StringInput                         `pulumi:"fieldId"`
-	URLStyling  AnalysisTableFieldURLConfigurationPtrInput `pulumi:"uRLStyling"`
+	UrlStyling  AnalysisTableFieldURLConfigurationPtrInput `pulumi:"urlStyling"`
 	Visibility  AnalysisVisibilityPtrInput                 `pulumi:"visibility"`
 	// String based length that is composed of value and unit in px
 	Width pulumi.StringPtrInput `pulumi:"width"`
@@ -62566,8 +62566,8 @@ func (o AnalysisTableFieldOptionOutput) FieldId() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalysisTableFieldOption) string { return v.FieldId }).(pulumi.StringOutput)
 }
 
-func (o AnalysisTableFieldOptionOutput) URLStyling() AnalysisTableFieldURLConfigurationPtrOutput {
-	return o.ApplyT(func(v AnalysisTableFieldOption) *AnalysisTableFieldURLConfiguration { return v.URLStyling }).(AnalysisTableFieldURLConfigurationPtrOutput)
+func (o AnalysisTableFieldOptionOutput) UrlStyling() AnalysisTableFieldURLConfigurationPtrOutput {
+	return o.ApplyT(func(v AnalysisTableFieldOption) *AnalysisTableFieldURLConfiguration { return v.UrlStyling }).(AnalysisTableFieldURLConfigurationPtrOutput)
 }
 
 func (o AnalysisTableFieldOptionOutput) Visibility() AnalysisVisibilityPtrOutput {
@@ -68893,7 +68893,7 @@ type AnalysisVisual struct {
 	HeatMapVisual       *AnalysisHeatMapVisual       `pulumi:"heatMapVisual"`
 	HistogramVisual     *AnalysisHistogramVisual     `pulumi:"histogramVisual"`
 	InsightVisual       *AnalysisInsightVisual       `pulumi:"insightVisual"`
-	KPIVisual           *AnalysisKPIVisual           `pulumi:"kPIVisual"`
+	KpiVisual           *AnalysisKPIVisual           `pulumi:"kpiVisual"`
 	LineChartVisual     *AnalysisLineChartVisual     `pulumi:"lineChartVisual"`
 	PieChartVisual      *AnalysisPieChartVisual      `pulumi:"pieChartVisual"`
 	PivotTableVisual    *AnalysisPivotTableVisual    `pulumi:"pivotTableVisual"`
@@ -68930,7 +68930,7 @@ type AnalysisVisualArgs struct {
 	HeatMapVisual       AnalysisHeatMapVisualPtrInput       `pulumi:"heatMapVisual"`
 	HistogramVisual     AnalysisHistogramVisualPtrInput     `pulumi:"histogramVisual"`
 	InsightVisual       AnalysisInsightVisualPtrInput       `pulumi:"insightVisual"`
-	KPIVisual           AnalysisKPIVisualPtrInput           `pulumi:"kPIVisual"`
+	KpiVisual           AnalysisKPIVisualPtrInput           `pulumi:"kpiVisual"`
 	LineChartVisual     AnalysisLineChartVisualPtrInput     `pulumi:"lineChartVisual"`
 	PieChartVisual      AnalysisPieChartVisualPtrInput      `pulumi:"pieChartVisual"`
 	PivotTableVisual    AnalysisPivotTableVisualPtrInput    `pulumi:"pivotTableVisual"`
@@ -69042,8 +69042,8 @@ func (o AnalysisVisualOutput) InsightVisual() AnalysisInsightVisualPtrOutput {
 	return o.ApplyT(func(v AnalysisVisual) *AnalysisInsightVisual { return v.InsightVisual }).(AnalysisInsightVisualPtrOutput)
 }
 
-func (o AnalysisVisualOutput) KPIVisual() AnalysisKPIVisualPtrOutput {
-	return o.ApplyT(func(v AnalysisVisual) *AnalysisKPIVisual { return v.KPIVisual }).(AnalysisKPIVisualPtrOutput)
+func (o AnalysisVisualOutput) KpiVisual() AnalysisKPIVisualPtrOutput {
+	return o.ApplyT(func(v AnalysisVisual) *AnalysisKPIVisual { return v.KpiVisual }).(AnalysisKPIVisualPtrOutput)
 }
 
 func (o AnalysisVisualOutput) LineChartVisual() AnalysisLineChartVisualPtrOutput {
@@ -69228,7 +69228,7 @@ type AnalysisVisualCustomActionOperation struct {
 	FilterOperation        *AnalysisCustomActionFilterOperation        `pulumi:"filterOperation"`
 	NavigationOperation    *AnalysisCustomActionNavigationOperation    `pulumi:"navigationOperation"`
 	SetParametersOperation *AnalysisCustomActionSetParametersOperation `pulumi:"setParametersOperation"`
-	URLOperation           *AnalysisCustomActionURLOperation           `pulumi:"uRLOperation"`
+	UrlOperation           *AnalysisCustomActionURLOperation           `pulumi:"urlOperation"`
 }
 
 // AnalysisVisualCustomActionOperationInput is an input type that accepts AnalysisVisualCustomActionOperationArgs and AnalysisVisualCustomActionOperationOutput values.
@@ -69246,7 +69246,7 @@ type AnalysisVisualCustomActionOperationArgs struct {
 	FilterOperation        AnalysisCustomActionFilterOperationPtrInput        `pulumi:"filterOperation"`
 	NavigationOperation    AnalysisCustomActionNavigationOperationPtrInput    `pulumi:"navigationOperation"`
 	SetParametersOperation AnalysisCustomActionSetParametersOperationPtrInput `pulumi:"setParametersOperation"`
-	URLOperation           AnalysisCustomActionURLOperationPtrInput           `pulumi:"uRLOperation"`
+	UrlOperation           AnalysisCustomActionURLOperationPtrInput           `pulumi:"urlOperation"`
 }
 
 func (AnalysisVisualCustomActionOperationArgs) ElementType() reflect.Type {
@@ -69318,8 +69318,8 @@ func (o AnalysisVisualCustomActionOperationOutput) SetParametersOperation() Anal
 	}).(AnalysisCustomActionSetParametersOperationPtrOutput)
 }
 
-func (o AnalysisVisualCustomActionOperationOutput) URLOperation() AnalysisCustomActionURLOperationPtrOutput {
-	return o.ApplyT(func(v AnalysisVisualCustomActionOperation) *AnalysisCustomActionURLOperation { return v.URLOperation }).(AnalysisCustomActionURLOperationPtrOutput)
+func (o AnalysisVisualCustomActionOperationOutput) UrlOperation() AnalysisCustomActionURLOperationPtrOutput {
+	return o.ApplyT(func(v AnalysisVisualCustomActionOperation) *AnalysisCustomActionURLOperation { return v.UrlOperation }).(AnalysisCustomActionURLOperationPtrOutput)
 }
 
 type AnalysisVisualCustomActionOperationArrayOutput struct{ *pulumi.OutputState }

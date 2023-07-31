@@ -70,8 +70,8 @@ namespace Pulumi.AwsNative.ElastiCache
         [Output("logDeliveryConfigurations")]
         public Output<ImmutableArray<Outputs.ReplicationGroupLogDeliveryConfigurationRequest>> LogDeliveryConfigurations { get; private set; } = null!;
 
-        [Output("multiAZEnabled")]
-        public Output<bool?> MultiAZEnabled { get; private set; } = null!;
+        [Output("multiAzEnabled")]
+        public Output<bool?> MultiAzEnabled { get; private set; } = null!;
 
         [Output("networkType")]
         public Output<string?> NetworkType { get; private set; } = null!;
@@ -91,8 +91,8 @@ namespace Pulumi.AwsNative.ElastiCache
         [Output("port")]
         public Output<int?> Port { get; private set; } = null!;
 
-        [Output("preferredCacheClusterAZs")]
-        public Output<ImmutableArray<string>> PreferredCacheClusterAZs { get; private set; } = null!;
+        [Output("preferredCacheClusterAzs")]
+        public Output<ImmutableArray<string>> PreferredCacheClusterAzs { get; private set; } = null!;
 
         [Output("preferredMaintenanceWindow")]
         public Output<string?> PreferredMaintenanceWindow { get; private set; } = null!;
@@ -272,8 +272,8 @@ namespace Pulumi.AwsNative.ElastiCache
             set => _logDeliveryConfigurations = value;
         }
 
-        [Input("multiAZEnabled")]
-        public Input<bool>? MultiAZEnabled { get; set; }
+        [Input("multiAzEnabled")]
+        public Input<bool>? MultiAzEnabled { get; set; }
 
         [Input("networkType")]
         public Input<string>? NetworkType { get; set; }
@@ -298,12 +298,12 @@ namespace Pulumi.AwsNative.ElastiCache
         [Input("port")]
         public Input<int>? Port { get; set; }
 
-        [Input("preferredCacheClusterAZs")]
-        private InputList<string>? _preferredCacheClusterAZs;
-        public InputList<string> PreferredCacheClusterAZs
+        [Input("preferredCacheClusterAzs")]
+        private InputList<string>? _preferredCacheClusterAzs;
+        public InputList<string> PreferredCacheClusterAzs
         {
-            get => _preferredCacheClusterAZs ?? (_preferredCacheClusterAZs = new InputList<string>());
-            set => _preferredCacheClusterAZs = value;
+            get => _preferredCacheClusterAzs ?? (_preferredCacheClusterAzs = new InputList<string>());
+            set => _preferredCacheClusterAzs = value;
         }
 
         [Input("preferredMaintenanceWindow")]

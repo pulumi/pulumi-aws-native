@@ -29,7 +29,7 @@ type LookupSubnetGroupArgs struct {
 
 type LookupSubnetGroupResult struct {
 	// The Amazon Resource Name (ARN) of the subnet group.
-	ARN *string `pulumi:"aRN"`
+	Arn *string `pulumi:"arn"`
 	// An optional description of the subnet group.
 	Description *string `pulumi:"description"`
 	// A list of VPC subnet IDs for the subnet group.
@@ -75,8 +75,8 @@ func (o LookupSubnetGroupResultOutput) ToLookupSubnetGroupResultOutputWithContex
 }
 
 // The Amazon Resource Name (ARN) of the subnet group.
-func (o LookupSubnetGroupResultOutput) ARN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupSubnetGroupResult) *string { return v.ARN }).(pulumi.StringPtrOutput)
+func (o LookupSubnetGroupResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSubnetGroupResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // An optional description of the subnet group.

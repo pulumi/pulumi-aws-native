@@ -28,7 +28,7 @@ class TrailArgs:
                  insight_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['TrailInsightSelectorArgs']]]] = None,
                  is_multi_region_trail: Optional[pulumi.Input[bool]] = None,
                  is_organization_trail: Optional[pulumi.Input[bool]] = None,
-                 k_ms_key_id: Optional[pulumi.Input[str]] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
                  s3_key_prefix: Optional[pulumi.Input[str]] = None,
                  sns_topic_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['TrailTagArgs']]]] = None,
@@ -46,7 +46,7 @@ class TrailArgs:
         :param pulumi.Input[Sequence[pulumi.Input['TrailInsightSelectorArgs']]] insight_selectors: Lets you enable Insights event logging by specifying the Insights selectors that you want to enable on an existing trail.
         :param pulumi.Input[bool] is_multi_region_trail: Specifies whether the trail applies only to the current region or to all regions. The default is false. If the trail exists only in the current region and this value is set to true, shadow trails (replications of the trail) will be created in the other regions. If the trail exists in all regions and this value is set to false, the trail will remain in the region where it was created, and its shadow trails in other regions will be deleted. As a best practice, consider using trails that log events in all regions.
         :param pulumi.Input[bool] is_organization_trail: Specifies whether the trail is created for all accounts in an organization in AWS Organizations, or only for the current AWS account. The default is false, and cannot be true unless the call is made on behalf of an AWS account that is the master account for an organization in AWS Organizations.
-        :param pulumi.Input[str] k_ms_key_id: Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
+        :param pulumi.Input[str] kms_key_id: Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
         :param pulumi.Input[str] s3_key_prefix: Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated for log file delivery. For more information, see Finding Your CloudTrail Log Files. The maximum length is 200 characters.
         :param pulumi.Input[str] sns_topic_name: Specifies the name of the Amazon SNS topic defined for notification of log file delivery. The maximum length is 256 characters.
         """
@@ -70,8 +70,8 @@ class TrailArgs:
             pulumi.set(__self__, "is_multi_region_trail", is_multi_region_trail)
         if is_organization_trail is not None:
             pulumi.set(__self__, "is_organization_trail", is_organization_trail)
-        if k_ms_key_id is not None:
-            pulumi.set(__self__, "k_ms_key_id", k_ms_key_id)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if s3_key_prefix is not None:
             pulumi.set(__self__, "s3_key_prefix", s3_key_prefix)
         if sns_topic_name is not None:
@@ -214,16 +214,16 @@ class TrailArgs:
         pulumi.set(self, "is_organization_trail", value)
 
     @property
-    @pulumi.getter(name="kMSKeyId")
-    def k_ms_key_id(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
         """
-        return pulumi.get(self, "k_ms_key_id")
+        return pulumi.get(self, "kms_key_id")
 
-    @k_ms_key_id.setter
-    def k_ms_key_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "k_ms_key_id", value)
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_id", value)
 
     @property
     @pulumi.getter(name="s3KeyPrefix")
@@ -283,7 +283,7 @@ class Trail(pulumi.CustomResource):
                  is_logging: Optional[pulumi.Input[bool]] = None,
                  is_multi_region_trail: Optional[pulumi.Input[bool]] = None,
                  is_organization_trail: Optional[pulumi.Input[bool]] = None,
-                 k_ms_key_id: Optional[pulumi.Input[str]] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
                  s3_bucket_name: Optional[pulumi.Input[str]] = None,
                  s3_key_prefix: Optional[pulumi.Input[str]] = None,
                  sns_topic_name: Optional[pulumi.Input[str]] = None,
@@ -305,7 +305,7 @@ class Trail(pulumi.CustomResource):
         :param pulumi.Input[bool] is_logging: Whether the CloudTrail is currently logging AWS API calls.
         :param pulumi.Input[bool] is_multi_region_trail: Specifies whether the trail applies only to the current region or to all regions. The default is false. If the trail exists only in the current region and this value is set to true, shadow trails (replications of the trail) will be created in the other regions. If the trail exists in all regions and this value is set to false, the trail will remain in the region where it was created, and its shadow trails in other regions will be deleted. As a best practice, consider using trails that log events in all regions.
         :param pulumi.Input[bool] is_organization_trail: Specifies whether the trail is created for all accounts in an organization in AWS Organizations, or only for the current AWS account. The default is false, and cannot be true unless the call is made on behalf of an AWS account that is the master account for an organization in AWS Organizations.
-        :param pulumi.Input[str] k_ms_key_id: Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
+        :param pulumi.Input[str] kms_key_id: Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
         :param pulumi.Input[str] s3_bucket_name: Specifies the name of the Amazon S3 bucket designated for publishing log files. See Amazon S3 Bucket Naming Requirements.
         :param pulumi.Input[str] s3_key_prefix: Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated for log file delivery. For more information, see Finding Your CloudTrail Log Files. The maximum length is 200 characters.
         :param pulumi.Input[str] sns_topic_name: Specifies the name of the Amazon SNS topic defined for notification of log file delivery. The maximum length is 256 characters.
@@ -344,7 +344,7 @@ class Trail(pulumi.CustomResource):
                  is_logging: Optional[pulumi.Input[bool]] = None,
                  is_multi_region_trail: Optional[pulumi.Input[bool]] = None,
                  is_organization_trail: Optional[pulumi.Input[bool]] = None,
-                 k_ms_key_id: Optional[pulumi.Input[str]] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
                  s3_bucket_name: Optional[pulumi.Input[str]] = None,
                  s3_key_prefix: Optional[pulumi.Input[str]] = None,
                  sns_topic_name: Optional[pulumi.Input[str]] = None,
@@ -371,7 +371,7 @@ class Trail(pulumi.CustomResource):
             __props__.__dict__["is_logging"] = is_logging
             __props__.__dict__["is_multi_region_trail"] = is_multi_region_trail
             __props__.__dict__["is_organization_trail"] = is_organization_trail
-            __props__.__dict__["k_ms_key_id"] = k_ms_key_id
+            __props__.__dict__["kms_key_id"] = kms_key_id
             if s3_bucket_name is None and not opts.urn:
                 raise TypeError("Missing required property 's3_bucket_name'")
             __props__.__dict__["s3_bucket_name"] = s3_bucket_name
@@ -414,7 +414,7 @@ class Trail(pulumi.CustomResource):
         __props__.__dict__["is_logging"] = None
         __props__.__dict__["is_multi_region_trail"] = None
         __props__.__dict__["is_organization_trail"] = None
-        __props__.__dict__["k_ms_key_id"] = None
+        __props__.__dict__["kms_key_id"] = None
         __props__.__dict__["s3_bucket_name"] = None
         __props__.__dict__["s3_key_prefix"] = None
         __props__.__dict__["sns_topic_arn"] = None
@@ -509,12 +509,12 @@ class Trail(pulumi.CustomResource):
         return pulumi.get(self, "is_organization_trail")
 
     @property
-    @pulumi.getter(name="kMSKeyId")
-    def k_ms_key_id(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
         """
-        return pulumi.get(self, "k_ms_key_id")
+        return pulumi.get(self, "kms_key_id")
 
     @property
     @pulumi.getter(name="s3BucketName")

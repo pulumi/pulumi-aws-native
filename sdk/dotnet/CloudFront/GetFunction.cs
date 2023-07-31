@@ -27,8 +27,8 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class GetFunctionArgs : global::Pulumi.InvokeArgs
     {
-        [Input("functionARN", required: true)]
-        public string FunctionARN { get; set; } = null!;
+        [Input("functionArn", required: true)]
+        public string FunctionArn { get; set; } = null!;
 
         public GetFunctionArgs()
         {
@@ -38,8 +38,8 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class GetFunctionInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("functionARN", required: true)]
-        public Input<string> FunctionARN { get; set; } = null!;
+        [Input("functionArn", required: true)]
+        public Input<string> FunctionArn { get; set; } = null!;
 
         public GetFunctionInvokeArgs()
         {
@@ -51,7 +51,7 @@ namespace Pulumi.AwsNative.CloudFront
     [OutputType]
     public sealed class GetFunctionResult
     {
-        public readonly string? FunctionARN;
+        public readonly string? FunctionArn;
         public readonly string? FunctionCode;
         public readonly Outputs.FunctionConfig? FunctionConfig;
         public readonly Outputs.FunctionMetadata? FunctionMetadata;
@@ -60,7 +60,7 @@ namespace Pulumi.AwsNative.CloudFront
 
         [OutputConstructor]
         private GetFunctionResult(
-            string? functionARN,
+            string? functionArn,
 
             string? functionCode,
 
@@ -72,7 +72,7 @@ namespace Pulumi.AwsNative.CloudFront
 
             string? stage)
         {
-            FunctionARN = functionARN;
+            FunctionArn = functionArn;
             FunctionCode = functionCode;
             FunctionConfig = functionConfig;
             FunctionMetadata = functionMetadata;

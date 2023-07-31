@@ -33,7 +33,7 @@ type LookupReplicationInstanceResult struct {
 	AvailabilityZone                      *string                  `pulumi:"availabilityZone"`
 	EngineVersion                         *string                  `pulumi:"engineVersion"`
 	Id                                    *string                  `pulumi:"id"`
-	MultiAZ                               *bool                    `pulumi:"multiAZ"`
+	MultiAz                               *bool                    `pulumi:"multiAz"`
 	PreferredMaintenanceWindow            *string                  `pulumi:"preferredMaintenanceWindow"`
 	ReplicationInstanceClass              *string                  `pulumi:"replicationInstanceClass"`
 	ReplicationInstanceIdentifier         *string                  `pulumi:"replicationInstanceIdentifier"`
@@ -102,8 +102,8 @@ func (o LookupReplicationInstanceResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupReplicationInstanceResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupReplicationInstanceResultOutput) MultiAZ() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LookupReplicationInstanceResult) *bool { return v.MultiAZ }).(pulumi.BoolPtrOutput)
+func (o LookupReplicationInstanceResultOutput) MultiAz() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupReplicationInstanceResult) *bool { return v.MultiAz }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupReplicationInstanceResultOutput) PreferredMaintenanceWindow() pulumi.StringPtrOutput {

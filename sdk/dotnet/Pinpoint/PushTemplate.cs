@@ -16,11 +16,11 @@ namespace Pulumi.AwsNative.Pinpoint
     [AwsNativeResourceType("aws-native:pinpoint:PushTemplate")]
     public partial class PushTemplate : global::Pulumi.CustomResource
     {
-        [Output("aDM")]
-        public Output<Outputs.PushTemplateAndroidPushNotificationTemplate?> ADM { get; private set; } = null!;
+        [Output("adm")]
+        public Output<Outputs.PushTemplateAndroidPushNotificationTemplate?> Adm { get; private set; } = null!;
 
-        [Output("aPNS")]
-        public Output<Outputs.PushTemplateAPNSPushNotificationTemplate?> APNS { get; private set; } = null!;
+        [Output("apns")]
+        public Output<Outputs.PushTemplateAPNSPushNotificationTemplate?> Apns { get; private set; } = null!;
 
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -34,8 +34,8 @@ namespace Pulumi.AwsNative.Pinpoint
         [Output("defaultSubstitutions")]
         public Output<string?> DefaultSubstitutions { get; private set; } = null!;
 
-        [Output("gCM")]
-        public Output<Outputs.PushTemplateAndroidPushNotificationTemplate?> GCM { get; private set; } = null!;
+        [Output("gcm")]
+        public Output<Outputs.PushTemplateAndroidPushNotificationTemplate?> Gcm { get; private set; } = null!;
 
         [Output("tags")]
         public Output<object?> Tags { get; private set; } = null!;
@@ -91,11 +91,11 @@ namespace Pulumi.AwsNative.Pinpoint
 
     public sealed class PushTemplateArgs : global::Pulumi.ResourceArgs
     {
-        [Input("aDM")]
-        public Input<Inputs.PushTemplateAndroidPushNotificationTemplateArgs>? ADM { get; set; }
+        [Input("adm")]
+        public Input<Inputs.PushTemplateAndroidPushNotificationTemplateArgs>? Adm { get; set; }
 
-        [Input("aPNS")]
-        public Input<Inputs.PushTemplateAPNSPushNotificationTemplateArgs>? APNS { get; set; }
+        [Input("apns")]
+        public Input<Inputs.PushTemplateAPNSPushNotificationTemplateArgs>? Apns { get; set; }
 
         [Input("baidu")]
         public Input<Inputs.PushTemplateAndroidPushNotificationTemplateArgs>? Baidu { get; set; }
@@ -106,8 +106,8 @@ namespace Pulumi.AwsNative.Pinpoint
         [Input("defaultSubstitutions")]
         public Input<string>? DefaultSubstitutions { get; set; }
 
-        [Input("gCM")]
-        public Input<Inputs.PushTemplateAndroidPushNotificationTemplateArgs>? GCM { get; set; }
+        [Input("gcm")]
+        public Input<Inputs.PushTemplateAndroidPushNotificationTemplateArgs>? Gcm { get; set; }
 
         [Input("tags")]
         public Input<object>? Tags { get; set; }

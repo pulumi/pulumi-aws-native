@@ -15,11 +15,11 @@ namespace Pulumi.AwsNative.DataSync.Inputs
     /// </summary>
     public sealed class LocationFSxONTAPProtocolArgs : global::Pulumi.ResourceArgs
     {
-        [Input("nFS")]
-        public Input<Inputs.LocationFSxONTAPNFSArgs>? NFS { get; set; }
+        [Input("nfs")]
+        public Input<Inputs.LocationFSxONTAPNFSArgs>? Nfs { get; set; }
 
-        [Input("sMB")]
-        public Input<Inputs.LocationFSxONTAPSMBArgs>? SMB { get; set; }
+        [Input("smb")]
+        public Input<Inputs.LocationFSxONTAPSMBArgs>? Smb { get; set; }
 
         public LocationFSxONTAPProtocolArgs()
         {

@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.Neptune
         /// <summary>
         /// The DB cluster identifier. Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster stored as a lowercase string.
         /// </summary>
-        [Input("dBClusterIdentifier", required: true)]
-        public string DBClusterIdentifier { get; set; } = null!;
+        [Input("dbClusterIdentifier", required: true)]
+        public string DbClusterIdentifier { get; set; } = null!;
 
         public GetDBClusterArgs()
         {
@@ -44,8 +44,8 @@ namespace Pulumi.AwsNative.Neptune
         /// <summary>
         /// The DB cluster identifier. Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster stored as a lowercase string.
         /// </summary>
-        [Input("dBClusterIdentifier", required: true)]
-        public Input<string> DBClusterIdentifier { get; set; } = null!;
+        [Input("dbClusterIdentifier", required: true)]
+        public Input<string> DbClusterIdentifier { get; set; } = null!;
 
         public GetDBClusterInvokeArgs()
         {
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.Neptune
         /// <summary>
         /// Provides the name of the DB cluster parameter group.
         /// </summary>
-        public readonly string? DBClusterParameterGroupName;
+        public readonly string? DbClusterParameterGroupName;
         /// <summary>
         /// Indicates whether or not the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled.
         /// </summary>
@@ -136,7 +136,7 @@ namespace Pulumi.AwsNative.Neptune
 
             bool? copyTagsToSnapshot,
 
-            string? dBClusterParameterGroupName,
+            string? dbClusterParameterGroupName,
 
             bool? deletionProtection,
 
@@ -166,7 +166,7 @@ namespace Pulumi.AwsNative.Neptune
             BackupRetentionPeriod = backupRetentionPeriod;
             ClusterResourceId = clusterResourceId;
             CopyTagsToSnapshot = copyTagsToSnapshot;
-            DBClusterParameterGroupName = dBClusterParameterGroupName;
+            DbClusterParameterGroupName = dbClusterParameterGroupName;
             DeletionProtection = deletionProtection;
             EnableCloudwatchLogsExports = enableCloudwatchLogsExports;
             Endpoint = endpoint;

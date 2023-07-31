@@ -43,7 +43,7 @@ class AutoScalingGroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['AutoScalingGroupTagPropertyArgs']]]] = None,
                  target_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  termination_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 v_pc_zone_identifier: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 vpc_zone_identifier: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a AutoScalingGroup resource.
         """
@@ -99,8 +99,8 @@ class AutoScalingGroupArgs:
             pulumi.set(__self__, "target_group_arns", target_group_arns)
         if termination_policies is not None:
             pulumi.set(__self__, "termination_policies", termination_policies)
-        if v_pc_zone_identifier is not None:
-            pulumi.set(__self__, "v_pc_zone_identifier", v_pc_zone_identifier)
+        if vpc_zone_identifier is not None:
+            pulumi.set(__self__, "vpc_zone_identifier", vpc_zone_identifier)
 
     @property
     @pulumi.getter(name="maxSize")
@@ -310,7 +310,7 @@ class AutoScalingGroupArgs:
         pulumi.set(self, "placement_group", value)
 
     @property
-    @pulumi.getter(name="serviceLinkedRoleARN")
+    @pulumi.getter(name="serviceLinkedRoleArn")
     def service_linked_role_arn(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "service_linked_role_arn")
 
@@ -328,7 +328,7 @@ class AutoScalingGroupArgs:
         pulumi.set(self, "tags", value)
 
     @property
-    @pulumi.getter(name="targetGroupARNs")
+    @pulumi.getter(name="targetGroupArns")
     def target_group_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         return pulumi.get(self, "target_group_arns")
 
@@ -346,13 +346,13 @@ class AutoScalingGroupArgs:
         pulumi.set(self, "termination_policies", value)
 
     @property
-    @pulumi.getter(name="vPCZoneIdentifier")
-    def v_pc_zone_identifier(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        return pulumi.get(self, "v_pc_zone_identifier")
+    @pulumi.getter(name="vpcZoneIdentifier")
+    def vpc_zone_identifier(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "vpc_zone_identifier")
 
-    @v_pc_zone_identifier.setter
-    def v_pc_zone_identifier(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "v_pc_zone_identifier", value)
+    @vpc_zone_identifier.setter
+    def vpc_zone_identifier(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "vpc_zone_identifier", value)
 
 
 warnings.warn("""AutoScalingGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
@@ -392,7 +392,7 @@ class AutoScalingGroup(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoScalingGroupTagPropertyArgs']]]]] = None,
                  target_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  termination_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 v_pc_zone_identifier: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 vpc_zone_identifier: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::AutoScaling::AutoScalingGroup
@@ -451,7 +451,7 @@ class AutoScalingGroup(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoScalingGroupTagPropertyArgs']]]]] = None,
                  target_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  termination_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 v_pc_zone_identifier: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 vpc_zone_identifier: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         pulumi.log.warn("""AutoScalingGroup is deprecated: AutoScalingGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -493,7 +493,7 @@ class AutoScalingGroup(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["target_group_arns"] = target_group_arns
             __props__.__dict__["termination_policies"] = termination_policies
-            __props__.__dict__["v_pc_zone_identifier"] = v_pc_zone_identifier
+            __props__.__dict__["vpc_zone_identifier"] = vpc_zone_identifier
             __props__.__dict__["launch_template_specification"] = None
         super(AutoScalingGroup, __self__).__init__(
             'aws-native:autoscaling:AutoScalingGroup',
@@ -545,7 +545,7 @@ class AutoScalingGroup(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["target_group_arns"] = None
         __props__.__dict__["termination_policies"] = None
-        __props__.__dict__["v_pc_zone_identifier"] = None
+        __props__.__dict__["vpc_zone_identifier"] = None
         return AutoScalingGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -669,7 +669,7 @@ class AutoScalingGroup(pulumi.CustomResource):
         return pulumi.get(self, "placement_group")
 
     @property
-    @pulumi.getter(name="serviceLinkedRoleARN")
+    @pulumi.getter(name="serviceLinkedRoleArn")
     def service_linked_role_arn(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "service_linked_role_arn")
 
@@ -679,7 +679,7 @@ class AutoScalingGroup(pulumi.CustomResource):
         return pulumi.get(self, "tags")
 
     @property
-    @pulumi.getter(name="targetGroupARNs")
+    @pulumi.getter(name="targetGroupArns")
     def target_group_arns(self) -> pulumi.Output[Optional[Sequence[str]]]:
         return pulumi.get(self, "target_group_arns")
 
@@ -689,7 +689,7 @@ class AutoScalingGroup(pulumi.CustomResource):
         return pulumi.get(self, "termination_policies")
 
     @property
-    @pulumi.getter(name="vPCZoneIdentifier")
-    def v_pc_zone_identifier(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        return pulumi.get(self, "v_pc_zone_identifier")
+    @pulumi.getter(name="vpcZoneIdentifier")
+    def vpc_zone_identifier(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        return pulumi.get(self, "vpc_zone_identifier")
 

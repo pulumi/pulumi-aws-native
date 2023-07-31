@@ -60,7 +60,7 @@ type Bucket struct {
 	VersioningConfiguration BucketVersioningConfigurationPtrOutput `pulumi:"versioningConfiguration"`
 	WebsiteConfiguration    BucketWebsiteConfigurationPtrOutput    `pulumi:"websiteConfiguration"`
 	// The Amazon S3 website endpoint for the specified bucket.
-	WebsiteURL pulumi.StringOutput `pulumi:"websiteURL"`
+	WebsiteUrl pulumi.StringOutput `pulumi:"websiteUrl"`
 }
 
 // NewBucket registers a new resource with the given unique name, arguments, and options.
@@ -337,8 +337,8 @@ func (o BucketOutput) WebsiteConfiguration() BucketWebsiteConfigurationPtrOutput
 }
 
 // The Amazon S3 website endpoint for the specified bucket.
-func (o BucketOutput) WebsiteURL() pulumi.StringOutput {
-	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.WebsiteURL }).(pulumi.StringOutput)
+func (o BucketOutput) WebsiteUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *Bucket) pulumi.StringOutput { return v.WebsiteUrl }).(pulumi.StringOutput)
 }
 
 func init() {

@@ -105,7 +105,7 @@ class ClusterBrokerNodeGroupInfo(dict):
             suggest = "client_subnets"
         elif key == "instanceType":
             suggest = "instance_type"
-        elif key == "brokerAZDistribution":
+        elif key == "brokerAzDistribution":
             suggest = "broker_az_distribution"
         elif key == "connectivityInfo":
             suggest = "connectivity_info"
@@ -154,7 +154,7 @@ class ClusterBrokerNodeGroupInfo(dict):
         return pulumi.get(self, "instance_type")
 
     @property
-    @pulumi.getter(name="brokerAZDistribution")
+    @pulumi.getter(name="brokerAzDistribution")
     def broker_az_distribution(self) -> Optional[str]:
         return pulumi.get(self, "broker_az_distribution")
 
@@ -344,7 +344,7 @@ class ClusterEncryptionAtRest(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dataVolumeKMSKeyId":
+        if key == "dataVolumeKmsKeyId":
             suggest = "data_volume_kms_key_id"
 
         if suggest:
@@ -363,7 +363,7 @@ class ClusterEncryptionAtRest(dict):
         pulumi.set(__self__, "data_volume_kms_key_id", data_volume_kms_key_id)
 
     @property
-    @pulumi.getter(name="dataVolumeKMSKeyId")
+    @pulumi.getter(name="dataVolumeKmsKeyId")
     def data_volume_kms_key_id(self) -> str:
         return pulumi.get(self, "data_volume_kms_key_id")
 
@@ -753,8 +753,8 @@ class ClusterStorageInfo(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "eBSStorageInfo":
-            suggest = "e_bs_storage_info"
+        if key == "ebsStorageInfo":
+            suggest = "ebs_storage_info"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ClusterStorageInfo. Access the value via the '{suggest}' property getter instead.")
@@ -768,14 +768,14 @@ class ClusterStorageInfo(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 e_bs_storage_info: Optional['outputs.ClusterEBSStorageInfo'] = None):
-        if e_bs_storage_info is not None:
-            pulumi.set(__self__, "e_bs_storage_info", e_bs_storage_info)
+                 ebs_storage_info: Optional['outputs.ClusterEBSStorageInfo'] = None):
+        if ebs_storage_info is not None:
+            pulumi.set(__self__, "ebs_storage_info", ebs_storage_info)
 
     @property
-    @pulumi.getter(name="eBSStorageInfo")
-    def e_bs_storage_info(self) -> Optional['outputs.ClusterEBSStorageInfo']:
-        return pulumi.get(self, "e_bs_storage_info")
+    @pulumi.getter(name="ebsStorageInfo")
+    def ebs_storage_info(self) -> Optional['outputs.ClusterEBSStorageInfo']:
+        return pulumi.get(self, "ebs_storage_info")
 
 
 @pulumi.output_type

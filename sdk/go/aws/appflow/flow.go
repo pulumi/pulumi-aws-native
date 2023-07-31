@@ -27,7 +27,7 @@ type Flow struct {
 	// Flow activation status for Scheduled- and Event-triggered flows
 	FlowStatus FlowStatusPtrOutput `pulumi:"flowStatus"`
 	// The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
-	KMSArn pulumi.StringPtrOutput `pulumi:"kMSArn"`
+	KmsArn pulumi.StringPtrOutput `pulumi:"kmsArn"`
 	// Configurations of metadata catalog of the flow.
 	MetadataCatalogConfig FlowMetadataCatalogConfigPtrOutput `pulumi:"metadataCatalogConfig"`
 	// Configurations of Source connector of the flow.
@@ -101,7 +101,7 @@ type flowArgs struct {
 	// Flow activation status for Scheduled- and Event-triggered flows
 	FlowStatus *FlowStatus `pulumi:"flowStatus"`
 	// The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
-	KMSArn *string `pulumi:"kMSArn"`
+	KmsArn *string `pulumi:"kmsArn"`
 	// Configurations of metadata catalog of the flow.
 	MetadataCatalogConfig *FlowMetadataCatalogConfig `pulumi:"metadataCatalogConfig"`
 	// Configurations of Source connector of the flow.
@@ -125,7 +125,7 @@ type FlowArgs struct {
 	// Flow activation status for Scheduled- and Event-triggered flows
 	FlowStatus FlowStatusPtrInput
 	// The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
-	KMSArn pulumi.StringPtrInput
+	KmsArn pulumi.StringPtrInput
 	// Configurations of metadata catalog of the flow.
 	MetadataCatalogConfig FlowMetadataCatalogConfigPtrInput
 	// Configurations of Source connector of the flow.
@@ -201,8 +201,8 @@ func (o FlowOutput) FlowStatus() FlowStatusPtrOutput {
 }
 
 // The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
-func (o FlowOutput) KMSArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Flow) pulumi.StringPtrOutput { return v.KMSArn }).(pulumi.StringPtrOutput)
+func (o FlowOutput) KmsArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Flow) pulumi.StringPtrOutput { return v.KmsArn }).(pulumi.StringPtrOutput)
 }
 
 // Configurations of metadata catalog of the flow.

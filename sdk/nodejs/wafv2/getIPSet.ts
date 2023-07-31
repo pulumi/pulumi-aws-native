@@ -33,8 +33,8 @@ export interface GetIPSetResult {
     readonly addresses?: string[];
     readonly arn?: string;
     readonly description?: string;
-    readonly iPAddressVersion?: enums.wafv2.IPSetIPAddressVersion;
     readonly id?: string;
+    readonly ipAddressVersion?: enums.wafv2.IPSetIPAddressVersion;
     readonly tags?: outputs.wafv2.IPSetTag[];
 }
 /**

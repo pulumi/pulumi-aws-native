@@ -17,9 +17,9 @@ type Cluster struct {
 	pulumi.CustomResourceState
 
 	// The name of the Access Control List to associate with the cluster.
-	ACLName pulumi.StringOutput `pulumi:"aCLName"`
+	AclName pulumi.StringOutput `pulumi:"aclName"`
 	// The Amazon Resource Name (ARN) of the cluster.
-	ARN pulumi.StringOutput `pulumi:"aRN"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A flag that enables automatic minor version upgrade when set to true.
 	//
 	// You cannot modify the value of AutoMinorVersionUpgrade after the cluster is created. To enable AutoMinorVersionUpgrade on a cluster you must set AutoMinorVersionUpgrade to true when you create a cluster.
@@ -70,12 +70,12 @@ type Cluster struct {
 	Status pulumi.StringOutput `pulumi:"status"`
 	// The name of the subnet group to be used for the cluster.
 	SubnetGroupName pulumi.StringPtrOutput `pulumi:"subnetGroupName"`
+	// An array of key-value pairs to apply to this cluster.
+	Tags ClusterTagArrayOutput `pulumi:"tags"`
 	// A flag that enables in-transit encryption when set to true.
 	//
 	// You cannot modify the value of TransitEncryptionEnabled after the cluster is created. To enable in-transit encryption on a cluster you must set TransitEncryptionEnabled to true when you create a cluster.
-	TLSEnabled pulumi.BoolPtrOutput `pulumi:"tLSEnabled"`
-	// An array of key-value pairs to apply to this cluster.
-	Tags ClusterTagArrayOutput `pulumi:"tags"`
+	TlsEnabled pulumi.BoolPtrOutput `pulumi:"tlsEnabled"`
 }
 
 // NewCluster registers a new resource with the given unique name, arguments, and options.
@@ -85,8 +85,8 @@ func NewCluster(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ACLName == nil {
-		return nil, errors.New("invalid value for required argument 'ACLName'")
+	if args.AclName == nil {
+		return nil, errors.New("invalid value for required argument 'AclName'")
 	}
 	if args.NodeType == nil {
 		return nil, errors.New("invalid value for required argument 'NodeType'")
@@ -125,7 +125,7 @@ func (ClusterState) ElementType() reflect.Type {
 
 type clusterArgs struct {
 	// The name of the Access Control List to associate with the cluster.
-	ACLName string `pulumi:"aCLName"`
+	AclName string `pulumi:"aclName"`
 	// A flag that enables automatic minor version upgrade when set to true.
 	//
 	// You cannot modify the value of AutoMinorVersionUpgrade after the cluster is created. To enable AutoMinorVersionUpgrade on a cluster you must set AutoMinorVersionUpgrade to true when you create a cluster.
@@ -172,18 +172,18 @@ type clusterArgs struct {
 	SnsTopicStatus *string `pulumi:"snsTopicStatus"`
 	// The name of the subnet group to be used for the cluster.
 	SubnetGroupName *string `pulumi:"subnetGroupName"`
+	// An array of key-value pairs to apply to this cluster.
+	Tags []ClusterTag `pulumi:"tags"`
 	// A flag that enables in-transit encryption when set to true.
 	//
 	// You cannot modify the value of TransitEncryptionEnabled after the cluster is created. To enable in-transit encryption on a cluster you must set TransitEncryptionEnabled to true when you create a cluster.
-	TLSEnabled *bool `pulumi:"tLSEnabled"`
-	// An array of key-value pairs to apply to this cluster.
-	Tags []ClusterTag `pulumi:"tags"`
+	TlsEnabled *bool `pulumi:"tlsEnabled"`
 }
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
 	// The name of the Access Control List to associate with the cluster.
-	ACLName pulumi.StringInput
+	AclName pulumi.StringInput
 	// A flag that enables automatic minor version upgrade when set to true.
 	//
 	// You cannot modify the value of AutoMinorVersionUpgrade after the cluster is created. To enable AutoMinorVersionUpgrade on a cluster you must set AutoMinorVersionUpgrade to true when you create a cluster.
@@ -230,12 +230,12 @@ type ClusterArgs struct {
 	SnsTopicStatus pulumi.StringPtrInput
 	// The name of the subnet group to be used for the cluster.
 	SubnetGroupName pulumi.StringPtrInput
+	// An array of key-value pairs to apply to this cluster.
+	Tags ClusterTagArrayInput
 	// A flag that enables in-transit encryption when set to true.
 	//
 	// You cannot modify the value of TransitEncryptionEnabled after the cluster is created. To enable in-transit encryption on a cluster you must set TransitEncryptionEnabled to true when you create a cluster.
-	TLSEnabled pulumi.BoolPtrInput
-	// An array of key-value pairs to apply to this cluster.
-	Tags ClusterTagArrayInput
+	TlsEnabled pulumi.BoolPtrInput
 }
 
 func (ClusterArgs) ElementType() reflect.Type {
@@ -276,13 +276,13 @@ func (o ClusterOutput) ToClusterOutputWithContext(ctx context.Context) ClusterOu
 }
 
 // The name of the Access Control List to associate with the cluster.
-func (o ClusterOutput) ACLName() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ACLName }).(pulumi.StringOutput)
+func (o ClusterOutput) AclName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.AclName }).(pulumi.StringOutput)
 }
 
 // The Amazon Resource Name (ARN) of the cluster.
-func (o ClusterOutput) ARN() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ARN }).(pulumi.StringOutput)
+func (o ClusterOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
 // A flag that enables automatic minor version upgrade when set to true.
@@ -407,16 +407,16 @@ func (o ClusterOutput) SubnetGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.SubnetGroupName }).(pulumi.StringPtrOutput)
 }
 
-// A flag that enables in-transit encryption when set to true.
-//
-// You cannot modify the value of TransitEncryptionEnabled after the cluster is created. To enable in-transit encryption on a cluster you must set TransitEncryptionEnabled to true when you create a cluster.
-func (o ClusterOutput) TLSEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.TLSEnabled }).(pulumi.BoolPtrOutput)
-}
-
 // An array of key-value pairs to apply to this cluster.
 func (o ClusterOutput) Tags() ClusterTagArrayOutput {
 	return o.ApplyT(func(v *Cluster) ClusterTagArrayOutput { return v.Tags }).(ClusterTagArrayOutput)
+}
+
+// A flag that enables in-transit encryption when set to true.
+//
+// You cannot modify the value of TransitEncryptionEnabled after the cluster is created. To enable in-transit encryption on a cluster you must set TransitEncryptionEnabled to true when you create a cluster.
+func (o ClusterOutput) TlsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.TlsEnabled }).(pulumi.BoolPtrOutput)
 }
 
 func init() {

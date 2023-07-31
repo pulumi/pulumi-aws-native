@@ -479,7 +479,7 @@ type AutoScalingGroupInstanceRequirements struct {
 	OnDemandMaxPricePercentageOverLowestPrice *int                                              `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
 	RequireHibernateSupport                   *bool                                             `pulumi:"requireHibernateSupport"`
 	SpotMaxPricePercentageOverLowestPrice     *int                                              `pulumi:"spotMaxPricePercentageOverLowestPrice"`
-	TotalLocalStorageGB                       *AutoScalingGroupTotalLocalStorageGBRequest       `pulumi:"totalLocalStorageGB"`
+	TotalLocalStorageGb                       *AutoScalingGroupTotalLocalStorageGBRequest       `pulumi:"totalLocalStorageGb"`
 	VCpuCount                                 *AutoScalingGroupVCpuCountRequest                 `pulumi:"vCpuCount"`
 }
 
@@ -516,7 +516,7 @@ type AutoScalingGroupInstanceRequirementsArgs struct {
 	OnDemandMaxPricePercentageOverLowestPrice pulumi.IntPtrInput                                       `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
 	RequireHibernateSupport                   pulumi.BoolPtrInput                                      `pulumi:"requireHibernateSupport"`
 	SpotMaxPricePercentageOverLowestPrice     pulumi.IntPtrInput                                       `pulumi:"spotMaxPricePercentageOverLowestPrice"`
-	TotalLocalStorageGB                       AutoScalingGroupTotalLocalStorageGBRequestPtrInput       `pulumi:"totalLocalStorageGB"`
+	TotalLocalStorageGb                       AutoScalingGroupTotalLocalStorageGBRequestPtrInput       `pulumi:"totalLocalStorageGb"`
 	VCpuCount                                 AutoScalingGroupVCpuCountRequestPtrInput                 `pulumi:"vCpuCount"`
 }
 
@@ -693,9 +693,9 @@ func (o AutoScalingGroupInstanceRequirementsOutput) SpotMaxPricePercentageOverLo
 	return o.ApplyT(func(v AutoScalingGroupInstanceRequirements) *int { return v.SpotMaxPricePercentageOverLowestPrice }).(pulumi.IntPtrOutput)
 }
 
-func (o AutoScalingGroupInstanceRequirementsOutput) TotalLocalStorageGB() AutoScalingGroupTotalLocalStorageGBRequestPtrOutput {
+func (o AutoScalingGroupInstanceRequirementsOutput) TotalLocalStorageGb() AutoScalingGroupTotalLocalStorageGBRequestPtrOutput {
 	return o.ApplyT(func(v AutoScalingGroupInstanceRequirements) *AutoScalingGroupTotalLocalStorageGBRequest {
-		return v.TotalLocalStorageGB
+		return v.TotalLocalStorageGb
 	}).(AutoScalingGroupTotalLocalStorageGBRequestPtrOutput)
 }
 
@@ -916,12 +916,12 @@ func (o AutoScalingGroupInstanceRequirementsPtrOutput) SpotMaxPricePercentageOve
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o AutoScalingGroupInstanceRequirementsPtrOutput) TotalLocalStorageGB() AutoScalingGroupTotalLocalStorageGBRequestPtrOutput {
+func (o AutoScalingGroupInstanceRequirementsPtrOutput) TotalLocalStorageGb() AutoScalingGroupTotalLocalStorageGBRequestPtrOutput {
 	return o.ApplyT(func(v *AutoScalingGroupInstanceRequirements) *AutoScalingGroupTotalLocalStorageGBRequest {
 		if v == nil {
 			return nil
 		}
-		return v.TotalLocalStorageGB
+		return v.TotalLocalStorageGb
 	}).(AutoScalingGroupTotalLocalStorageGBRequestPtrOutput)
 }
 
@@ -1577,8 +1577,8 @@ type AutoScalingGroupLifecycleHookSpecification struct {
 	LifecycleHookName     string  `pulumi:"lifecycleHookName"`
 	LifecycleTransition   string  `pulumi:"lifecycleTransition"`
 	NotificationMetadata  *string `pulumi:"notificationMetadata"`
-	NotificationTargetARN *string `pulumi:"notificationTargetARN"`
-	RoleARN               *string `pulumi:"roleARN"`
+	NotificationTargetArn *string `pulumi:"notificationTargetArn"`
+	RoleArn               *string `pulumi:"roleArn"`
 }
 
 // AutoScalingGroupLifecycleHookSpecificationInput is an input type that accepts AutoScalingGroupLifecycleHookSpecificationArgs and AutoScalingGroupLifecycleHookSpecificationOutput values.
@@ -1598,8 +1598,8 @@ type AutoScalingGroupLifecycleHookSpecificationArgs struct {
 	LifecycleHookName     pulumi.StringInput    `pulumi:"lifecycleHookName"`
 	LifecycleTransition   pulumi.StringInput    `pulumi:"lifecycleTransition"`
 	NotificationMetadata  pulumi.StringPtrInput `pulumi:"notificationMetadata"`
-	NotificationTargetARN pulumi.StringPtrInput `pulumi:"notificationTargetARN"`
-	RoleARN               pulumi.StringPtrInput `pulumi:"roleARN"`
+	NotificationTargetArn pulumi.StringPtrInput `pulumi:"notificationTargetArn"`
+	RoleArn               pulumi.StringPtrInput `pulumi:"roleArn"`
 }
 
 func (AutoScalingGroupLifecycleHookSpecificationArgs) ElementType() reflect.Type {
@@ -1673,12 +1673,12 @@ func (o AutoScalingGroupLifecycleHookSpecificationOutput) NotificationMetadata()
 	return o.ApplyT(func(v AutoScalingGroupLifecycleHookSpecification) *string { return v.NotificationMetadata }).(pulumi.StringPtrOutput)
 }
 
-func (o AutoScalingGroupLifecycleHookSpecificationOutput) NotificationTargetARN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AutoScalingGroupLifecycleHookSpecification) *string { return v.NotificationTargetARN }).(pulumi.StringPtrOutput)
+func (o AutoScalingGroupLifecycleHookSpecificationOutput) NotificationTargetArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutoScalingGroupLifecycleHookSpecification) *string { return v.NotificationTargetArn }).(pulumi.StringPtrOutput)
 }
 
-func (o AutoScalingGroupLifecycleHookSpecificationOutput) RoleARN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AutoScalingGroupLifecycleHookSpecification) *string { return v.RoleARN }).(pulumi.StringPtrOutput)
+func (o AutoScalingGroupLifecycleHookSpecificationOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutoScalingGroupLifecycleHookSpecification) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
 type AutoScalingGroupLifecycleHookSpecificationArrayOutput struct{ *pulumi.OutputState }
@@ -2545,7 +2545,7 @@ func (o AutoScalingGroupNetworkInterfaceCountRequestPtrOutput) Min() pulumi.IntP
 
 type AutoScalingGroupNotificationConfiguration struct {
 	NotificationTypes []string `pulumi:"notificationTypes"`
-	TopicARN          string   `pulumi:"topicARN"`
+	TopicArn          string   `pulumi:"topicArn"`
 }
 
 // AutoScalingGroupNotificationConfigurationInput is an input type that accepts AutoScalingGroupNotificationConfigurationArgs and AutoScalingGroupNotificationConfigurationOutput values.
@@ -2561,7 +2561,7 @@ type AutoScalingGroupNotificationConfigurationInput interface {
 
 type AutoScalingGroupNotificationConfigurationArgs struct {
 	NotificationTypes pulumi.StringArrayInput `pulumi:"notificationTypes"`
-	TopicARN          pulumi.StringInput      `pulumi:"topicARN"`
+	TopicArn          pulumi.StringInput      `pulumi:"topicArn"`
 }
 
 func (AutoScalingGroupNotificationConfigurationArgs) ElementType() reflect.Type {
@@ -2619,8 +2619,8 @@ func (o AutoScalingGroupNotificationConfigurationOutput) NotificationTypes() pul
 	return o.ApplyT(func(v AutoScalingGroupNotificationConfiguration) []string { return v.NotificationTypes }).(pulumi.StringArrayOutput)
 }
 
-func (o AutoScalingGroupNotificationConfigurationOutput) TopicARN() pulumi.StringOutput {
-	return o.ApplyT(func(v AutoScalingGroupNotificationConfiguration) string { return v.TopicARN }).(pulumi.StringOutput)
+func (o AutoScalingGroupNotificationConfigurationOutput) TopicArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AutoScalingGroupNotificationConfiguration) string { return v.TopicArn }).(pulumi.StringOutput)
 }
 
 type AutoScalingGroupNotificationConfigurationArrayOutput struct{ *pulumi.OutputState }

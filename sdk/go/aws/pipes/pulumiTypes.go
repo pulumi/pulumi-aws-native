@@ -4361,7 +4361,7 @@ func (o PipeSourceKinesisStreamParametersPtrOutput) StartingPositionTimestamp() 
 
 type PipeSourceManagedStreamingKafkaParameters struct {
 	BatchSize                      *int                  `pulumi:"batchSize"`
-	ConsumerGroupID                *string               `pulumi:"consumerGroupID"`
+	ConsumerGroupId                *string               `pulumi:"consumerGroupId"`
 	Credentials                    interface{}           `pulumi:"credentials"`
 	MaximumBatchingWindowInSeconds *int                  `pulumi:"maximumBatchingWindowInSeconds"`
 	StartingPosition               *PipeMSKStartPosition `pulumi:"startingPosition"`
@@ -4381,7 +4381,7 @@ type PipeSourceManagedStreamingKafkaParametersInput interface {
 
 type PipeSourceManagedStreamingKafkaParametersArgs struct {
 	BatchSize                      pulumi.IntPtrInput           `pulumi:"batchSize"`
-	ConsumerGroupID                pulumi.StringPtrInput        `pulumi:"consumerGroupID"`
+	ConsumerGroupId                pulumi.StringPtrInput        `pulumi:"consumerGroupId"`
 	Credentials                    pulumi.Input                 `pulumi:"credentials"`
 	MaximumBatchingWindowInSeconds pulumi.IntPtrInput           `pulumi:"maximumBatchingWindowInSeconds"`
 	StartingPosition               PipeMSKStartPositionPtrInput `pulumi:"startingPosition"`
@@ -4469,8 +4469,8 @@ func (o PipeSourceManagedStreamingKafkaParametersOutput) BatchSize() pulumi.IntP
 	return o.ApplyT(func(v PipeSourceManagedStreamingKafkaParameters) *int { return v.BatchSize }).(pulumi.IntPtrOutput)
 }
 
-func (o PipeSourceManagedStreamingKafkaParametersOutput) ConsumerGroupID() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PipeSourceManagedStreamingKafkaParameters) *string { return v.ConsumerGroupID }).(pulumi.StringPtrOutput)
+func (o PipeSourceManagedStreamingKafkaParametersOutput) ConsumerGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipeSourceManagedStreamingKafkaParameters) *string { return v.ConsumerGroupId }).(pulumi.StringPtrOutput)
 }
 
 func (o PipeSourceManagedStreamingKafkaParametersOutput) Credentials() pulumi.AnyOutput {
@@ -4522,12 +4522,12 @@ func (o PipeSourceManagedStreamingKafkaParametersPtrOutput) BatchSize() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o PipeSourceManagedStreamingKafkaParametersPtrOutput) ConsumerGroupID() pulumi.StringPtrOutput {
+func (o PipeSourceManagedStreamingKafkaParametersPtrOutput) ConsumerGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeSourceManagedStreamingKafkaParameters) *string {
 		if v == nil {
 			return nil
 		}
-		return v.ConsumerGroupID
+		return v.ConsumerGroupId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4568,12 +4568,12 @@ func (o PipeSourceManagedStreamingKafkaParametersPtrOutput) TopicName() pulumi.S
 }
 
 type PipeSourceParameters struct {
-	ActiveMQBrokerParameters        *PipeSourceActiveMQBrokerParameters        `pulumi:"activeMQBrokerParameters"`
-	DynamoDBStreamParameters        *PipeSourceDynamoDBStreamParameters        `pulumi:"dynamoDBStreamParameters"`
+	ActiveMqBrokerParameters        *PipeSourceActiveMQBrokerParameters        `pulumi:"activeMqBrokerParameters"`
+	DynamoDbStreamParameters        *PipeSourceDynamoDBStreamParameters        `pulumi:"dynamoDbStreamParameters"`
 	FilterCriteria                  *PipeFilterCriteria                        `pulumi:"filterCriteria"`
 	KinesisStreamParameters         *PipeSourceKinesisStreamParameters         `pulumi:"kinesisStreamParameters"`
 	ManagedStreamingKafkaParameters *PipeSourceManagedStreamingKafkaParameters `pulumi:"managedStreamingKafkaParameters"`
-	RabbitMQBrokerParameters        *PipeSourceRabbitMQBrokerParameters        `pulumi:"rabbitMQBrokerParameters"`
+	RabbitMqBrokerParameters        *PipeSourceRabbitMQBrokerParameters        `pulumi:"rabbitMqBrokerParameters"`
 	SelfManagedKafkaParameters      *PipeSourceSelfManagedKafkaParameters      `pulumi:"selfManagedKafkaParameters"`
 	SqsQueueParameters              *PipeSourceSqsQueueParameters              `pulumi:"sqsQueueParameters"`
 }
@@ -4590,12 +4590,12 @@ type PipeSourceParametersInput interface {
 }
 
 type PipeSourceParametersArgs struct {
-	ActiveMQBrokerParameters        PipeSourceActiveMQBrokerParametersPtrInput        `pulumi:"activeMQBrokerParameters"`
-	DynamoDBStreamParameters        PipeSourceDynamoDBStreamParametersPtrInput        `pulumi:"dynamoDBStreamParameters"`
+	ActiveMqBrokerParameters        PipeSourceActiveMQBrokerParametersPtrInput        `pulumi:"activeMqBrokerParameters"`
+	DynamoDbStreamParameters        PipeSourceDynamoDBStreamParametersPtrInput        `pulumi:"dynamoDbStreamParameters"`
 	FilterCriteria                  PipeFilterCriteriaPtrInput                        `pulumi:"filterCriteria"`
 	KinesisStreamParameters         PipeSourceKinesisStreamParametersPtrInput         `pulumi:"kinesisStreamParameters"`
 	ManagedStreamingKafkaParameters PipeSourceManagedStreamingKafkaParametersPtrInput `pulumi:"managedStreamingKafkaParameters"`
-	RabbitMQBrokerParameters        PipeSourceRabbitMQBrokerParametersPtrInput        `pulumi:"rabbitMQBrokerParameters"`
+	RabbitMqBrokerParameters        PipeSourceRabbitMQBrokerParametersPtrInput        `pulumi:"rabbitMqBrokerParameters"`
 	SelfManagedKafkaParameters      PipeSourceSelfManagedKafkaParametersPtrInput      `pulumi:"selfManagedKafkaParameters"`
 	SqsQueueParameters              PipeSourceSqsQueueParametersPtrInput              `pulumi:"sqsQueueParameters"`
 }
@@ -4677,12 +4677,12 @@ func (o PipeSourceParametersOutput) ToPipeSourceParametersPtrOutputWithContext(c
 	}).(PipeSourceParametersPtrOutput)
 }
 
-func (o PipeSourceParametersOutput) ActiveMQBrokerParameters() PipeSourceActiveMQBrokerParametersPtrOutput {
-	return o.ApplyT(func(v PipeSourceParameters) *PipeSourceActiveMQBrokerParameters { return v.ActiveMQBrokerParameters }).(PipeSourceActiveMQBrokerParametersPtrOutput)
+func (o PipeSourceParametersOutput) ActiveMqBrokerParameters() PipeSourceActiveMQBrokerParametersPtrOutput {
+	return o.ApplyT(func(v PipeSourceParameters) *PipeSourceActiveMQBrokerParameters { return v.ActiveMqBrokerParameters }).(PipeSourceActiveMQBrokerParametersPtrOutput)
 }
 
-func (o PipeSourceParametersOutput) DynamoDBStreamParameters() PipeSourceDynamoDBStreamParametersPtrOutput {
-	return o.ApplyT(func(v PipeSourceParameters) *PipeSourceDynamoDBStreamParameters { return v.DynamoDBStreamParameters }).(PipeSourceDynamoDBStreamParametersPtrOutput)
+func (o PipeSourceParametersOutput) DynamoDbStreamParameters() PipeSourceDynamoDBStreamParametersPtrOutput {
+	return o.ApplyT(func(v PipeSourceParameters) *PipeSourceDynamoDBStreamParameters { return v.DynamoDbStreamParameters }).(PipeSourceDynamoDBStreamParametersPtrOutput)
 }
 
 func (o PipeSourceParametersOutput) FilterCriteria() PipeFilterCriteriaPtrOutput {
@@ -4699,8 +4699,8 @@ func (o PipeSourceParametersOutput) ManagedStreamingKafkaParameters() PipeSource
 	}).(PipeSourceManagedStreamingKafkaParametersPtrOutput)
 }
 
-func (o PipeSourceParametersOutput) RabbitMQBrokerParameters() PipeSourceRabbitMQBrokerParametersPtrOutput {
-	return o.ApplyT(func(v PipeSourceParameters) *PipeSourceRabbitMQBrokerParameters { return v.RabbitMQBrokerParameters }).(PipeSourceRabbitMQBrokerParametersPtrOutput)
+func (o PipeSourceParametersOutput) RabbitMqBrokerParameters() PipeSourceRabbitMQBrokerParametersPtrOutput {
+	return o.ApplyT(func(v PipeSourceParameters) *PipeSourceRabbitMQBrokerParameters { return v.RabbitMqBrokerParameters }).(PipeSourceRabbitMQBrokerParametersPtrOutput)
 }
 
 func (o PipeSourceParametersOutput) SelfManagedKafkaParameters() PipeSourceSelfManagedKafkaParametersPtrOutput {
@@ -4737,21 +4737,21 @@ func (o PipeSourceParametersPtrOutput) Elem() PipeSourceParametersOutput {
 	}).(PipeSourceParametersOutput)
 }
 
-func (o PipeSourceParametersPtrOutput) ActiveMQBrokerParameters() PipeSourceActiveMQBrokerParametersPtrOutput {
+func (o PipeSourceParametersPtrOutput) ActiveMqBrokerParameters() PipeSourceActiveMQBrokerParametersPtrOutput {
 	return o.ApplyT(func(v *PipeSourceParameters) *PipeSourceActiveMQBrokerParameters {
 		if v == nil {
 			return nil
 		}
-		return v.ActiveMQBrokerParameters
+		return v.ActiveMqBrokerParameters
 	}).(PipeSourceActiveMQBrokerParametersPtrOutput)
 }
 
-func (o PipeSourceParametersPtrOutput) DynamoDBStreamParameters() PipeSourceDynamoDBStreamParametersPtrOutput {
+func (o PipeSourceParametersPtrOutput) DynamoDbStreamParameters() PipeSourceDynamoDBStreamParametersPtrOutput {
 	return o.ApplyT(func(v *PipeSourceParameters) *PipeSourceDynamoDBStreamParameters {
 		if v == nil {
 			return nil
 		}
-		return v.DynamoDBStreamParameters
+		return v.DynamoDbStreamParameters
 	}).(PipeSourceDynamoDBStreamParametersPtrOutput)
 }
 
@@ -4782,12 +4782,12 @@ func (o PipeSourceParametersPtrOutput) ManagedStreamingKafkaParameters() PipeSou
 	}).(PipeSourceManagedStreamingKafkaParametersPtrOutput)
 }
 
-func (o PipeSourceParametersPtrOutput) RabbitMQBrokerParameters() PipeSourceRabbitMQBrokerParametersPtrOutput {
+func (o PipeSourceParametersPtrOutput) RabbitMqBrokerParameters() PipeSourceRabbitMQBrokerParametersPtrOutput {
 	return o.ApplyT(func(v *PipeSourceParameters) *PipeSourceRabbitMQBrokerParameters {
 		if v == nil {
 			return nil
 		}
-		return v.RabbitMQBrokerParameters
+		return v.RabbitMqBrokerParameters
 	}).(PipeSourceRabbitMQBrokerParametersPtrOutput)
 }
 
@@ -5005,7 +5005,7 @@ func (o PipeSourceRabbitMQBrokerParametersPtrOutput) VirtualHost() pulumi.String
 type PipeSourceSelfManagedKafkaParameters struct {
 	AdditionalBootstrapServers     []string    `pulumi:"additionalBootstrapServers"`
 	BatchSize                      *int        `pulumi:"batchSize"`
-	ConsumerGroupID                *string     `pulumi:"consumerGroupID"`
+	ConsumerGroupId                *string     `pulumi:"consumerGroupId"`
 	Credentials                    interface{} `pulumi:"credentials"`
 	MaximumBatchingWindowInSeconds *int        `pulumi:"maximumBatchingWindowInSeconds"`
 	// Optional SecretManager ARN which stores the database credentials
@@ -5029,7 +5029,7 @@ type PipeSourceSelfManagedKafkaParametersInput interface {
 type PipeSourceSelfManagedKafkaParametersArgs struct {
 	AdditionalBootstrapServers     pulumi.StringArrayInput `pulumi:"additionalBootstrapServers"`
 	BatchSize                      pulumi.IntPtrInput      `pulumi:"batchSize"`
-	ConsumerGroupID                pulumi.StringPtrInput   `pulumi:"consumerGroupID"`
+	ConsumerGroupId                pulumi.StringPtrInput   `pulumi:"consumerGroupId"`
 	Credentials                    pulumi.Input            `pulumi:"credentials"`
 	MaximumBatchingWindowInSeconds pulumi.IntPtrInput      `pulumi:"maximumBatchingWindowInSeconds"`
 	// Optional SecretManager ARN which stores the database credentials
@@ -5124,8 +5124,8 @@ func (o PipeSourceSelfManagedKafkaParametersOutput) BatchSize() pulumi.IntPtrOut
 	return o.ApplyT(func(v PipeSourceSelfManagedKafkaParameters) *int { return v.BatchSize }).(pulumi.IntPtrOutput)
 }
 
-func (o PipeSourceSelfManagedKafkaParametersOutput) ConsumerGroupID() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PipeSourceSelfManagedKafkaParameters) *string { return v.ConsumerGroupID }).(pulumi.StringPtrOutput)
+func (o PipeSourceSelfManagedKafkaParametersOutput) ConsumerGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipeSourceSelfManagedKafkaParameters) *string { return v.ConsumerGroupId }).(pulumi.StringPtrOutput)
 }
 
 func (o PipeSourceSelfManagedKafkaParametersOutput) Credentials() pulumi.AnyOutput {
@@ -5197,12 +5197,12 @@ func (o PipeSourceSelfManagedKafkaParametersPtrOutput) BatchSize() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o PipeSourceSelfManagedKafkaParametersPtrOutput) ConsumerGroupID() pulumi.StringPtrOutput {
+func (o PipeSourceSelfManagedKafkaParametersPtrOutput) ConsumerGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipeSourceSelfManagedKafkaParameters) *string {
 		if v == nil {
 			return nil
 		}
-		return v.ConsumerGroupID
+		return v.ConsumerGroupId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -6000,7 +6000,7 @@ func (o PipeTargetCloudWatchLogsParametersPtrOutput) Timestamp() pulumi.StringPt
 
 type PipeTargetEcsTaskParameters struct {
 	CapacityProviderStrategy []PipeCapacityProviderStrategyItem `pulumi:"capacityProviderStrategy"`
-	EnableECSManagedTags     *bool                              `pulumi:"enableECSManagedTags"`
+	EnableEcsManagedTags     *bool                              `pulumi:"enableEcsManagedTags"`
 	EnableExecuteCommand     *bool                              `pulumi:"enableExecuteCommand"`
 	Group                    *string                            `pulumi:"group"`
 	LaunchType               *PipeLaunchType                    `pulumi:"launchType"`
@@ -6029,7 +6029,7 @@ type PipeTargetEcsTaskParametersInput interface {
 
 type PipeTargetEcsTaskParametersArgs struct {
 	CapacityProviderStrategy PipeCapacityProviderStrategyItemArrayInput `pulumi:"capacityProviderStrategy"`
-	EnableECSManagedTags     pulumi.BoolPtrInput                        `pulumi:"enableECSManagedTags"`
+	EnableEcsManagedTags     pulumi.BoolPtrInput                        `pulumi:"enableEcsManagedTags"`
 	EnableExecuteCommand     pulumi.BoolPtrInput                        `pulumi:"enableExecuteCommand"`
 	Group                    pulumi.StringPtrInput                      `pulumi:"group"`
 	LaunchType               PipeLaunchTypePtrInput                     `pulumi:"launchType"`
@@ -6128,8 +6128,8 @@ func (o PipeTargetEcsTaskParametersOutput) CapacityProviderStrategy() PipeCapaci
 	}).(PipeCapacityProviderStrategyItemArrayOutput)
 }
 
-func (o PipeTargetEcsTaskParametersOutput) EnableECSManagedTags() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v PipeTargetEcsTaskParameters) *bool { return v.EnableECSManagedTags }).(pulumi.BoolPtrOutput)
+func (o PipeTargetEcsTaskParametersOutput) EnableEcsManagedTags() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PipeTargetEcsTaskParameters) *bool { return v.EnableEcsManagedTags }).(pulumi.BoolPtrOutput)
 }
 
 func (o PipeTargetEcsTaskParametersOutput) EnableExecuteCommand() pulumi.BoolPtrOutput {
@@ -6217,12 +6217,12 @@ func (o PipeTargetEcsTaskParametersPtrOutput) CapacityProviderStrategy() PipeCap
 	}).(PipeCapacityProviderStrategyItemArrayOutput)
 }
 
-func (o PipeTargetEcsTaskParametersPtrOutput) EnableECSManagedTags() pulumi.BoolPtrOutput {
+func (o PipeTargetEcsTaskParametersPtrOutput) EnableEcsManagedTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PipeTargetEcsTaskParameters) *bool {
 		if v == nil {
 			return nil
 		}
-		return v.EnableECSManagedTags
+		return v.EnableEcsManagedTags
 	}).(pulumi.BoolPtrOutput)
 }
 

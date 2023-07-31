@@ -13,10 +13,10 @@ namespace Pulumi.AwsNative.LookoutMetrics.Outputs
     [OutputType]
     public sealed class AnomalyDetectorRDSSourceConfig
     {
-        public readonly string DBInstanceIdentifier;
         public readonly string DatabaseHost;
         public readonly string DatabaseName;
         public readonly int DatabasePort;
+        public readonly string DbInstanceIdentifier;
         public readonly string RoleArn;
         public readonly string SecretManagerArn;
         public readonly string TableName;
@@ -24,13 +24,13 @@ namespace Pulumi.AwsNative.LookoutMetrics.Outputs
 
         [OutputConstructor]
         private AnomalyDetectorRDSSourceConfig(
-            string dBInstanceIdentifier,
-
             string databaseHost,
 
             string databaseName,
 
             int databasePort,
+
+            string dbInstanceIdentifier,
 
             string roleArn,
 
@@ -40,10 +40,10 @@ namespace Pulumi.AwsNative.LookoutMetrics.Outputs
 
             Outputs.AnomalyDetectorVpcConfiguration vpcConfiguration)
         {
-            DBInstanceIdentifier = dBInstanceIdentifier;
             DatabaseHost = databaseHost;
             DatabaseName = databaseName;
             DatabasePort = databasePort;
+            DbInstanceIdentifier = dbInstanceIdentifier;
             RoleArn = roleArn;
             SecretManagerArn = secretManagerArn;
             TableName = tableName;

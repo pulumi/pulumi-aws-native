@@ -2174,29 +2174,29 @@ class VirtualGatewayClientPolicyTlsArgs:
 @pulumi.input_type
 class VirtualGatewayClientPolicyArgs:
     def __init__(__self__, *,
-                 t_ls: Optional[pulumi.Input['VirtualGatewayClientPolicyTlsArgs']] = None):
-        if t_ls is not None:
-            pulumi.set(__self__, "t_ls", t_ls)
+                 tls: Optional[pulumi.Input['VirtualGatewayClientPolicyTlsArgs']] = None):
+        if tls is not None:
+            pulumi.set(__self__, "tls", tls)
 
     @property
-    @pulumi.getter(name="tLS")
-    def t_ls(self) -> Optional[pulumi.Input['VirtualGatewayClientPolicyTlsArgs']]:
-        return pulumi.get(self, "t_ls")
+    @pulumi.getter
+    def tls(self) -> Optional[pulumi.Input['VirtualGatewayClientPolicyTlsArgs']]:
+        return pulumi.get(self, "tls")
 
-    @t_ls.setter
-    def t_ls(self, value: Optional[pulumi.Input['VirtualGatewayClientPolicyTlsArgs']]):
-        pulumi.set(self, "t_ls", value)
+    @tls.setter
+    def tls(self, value: Optional[pulumi.Input['VirtualGatewayClientPolicyTlsArgs']]):
+        pulumi.set(self, "tls", value)
 
 
 @pulumi.input_type
 class VirtualGatewayClientTlsCertificateArgs:
     def __init__(__self__, *,
                  file: Optional[pulumi.Input['VirtualGatewayListenerTlsFileCertificateArgs']] = None,
-                 s_ds: Optional[pulumi.Input['VirtualGatewayListenerTlsSdsCertificateArgs']] = None):
+                 sds: Optional[pulumi.Input['VirtualGatewayListenerTlsSdsCertificateArgs']] = None):
         if file is not None:
             pulumi.set(__self__, "file", file)
-        if s_ds is not None:
-            pulumi.set(__self__, "s_ds", s_ds)
+        if sds is not None:
+            pulumi.set(__self__, "sds", sds)
 
     @property
     @pulumi.getter
@@ -2208,54 +2208,54 @@ class VirtualGatewayClientTlsCertificateArgs:
         pulumi.set(self, "file", value)
 
     @property
-    @pulumi.getter(name="sDS")
-    def s_ds(self) -> Optional[pulumi.Input['VirtualGatewayListenerTlsSdsCertificateArgs']]:
-        return pulumi.get(self, "s_ds")
+    @pulumi.getter
+    def sds(self) -> Optional[pulumi.Input['VirtualGatewayListenerTlsSdsCertificateArgs']]:
+        return pulumi.get(self, "sds")
 
-    @s_ds.setter
-    def s_ds(self, value: Optional[pulumi.Input['VirtualGatewayListenerTlsSdsCertificateArgs']]):
-        pulumi.set(self, "s_ds", value)
+    @sds.setter
+    def sds(self, value: Optional[pulumi.Input['VirtualGatewayListenerTlsSdsCertificateArgs']]):
+        pulumi.set(self, "sds", value)
 
 
 @pulumi.input_type
 class VirtualGatewayConnectionPoolArgs:
     def __init__(__self__, *,
-                 g_rpc: Optional[pulumi.Input['VirtualGatewayGrpcConnectionPoolArgs']] = None,
-                 h_ttp: Optional[pulumi.Input['VirtualGatewayHttpConnectionPoolArgs']] = None,
-                 h_ttp2: Optional[pulumi.Input['VirtualGatewayHttp2ConnectionPoolArgs']] = None):
-        if g_rpc is not None:
-            pulumi.set(__self__, "g_rpc", g_rpc)
-        if h_ttp is not None:
-            pulumi.set(__self__, "h_ttp", h_ttp)
-        if h_ttp2 is not None:
-            pulumi.set(__self__, "h_ttp2", h_ttp2)
+                 grpc: Optional[pulumi.Input['VirtualGatewayGrpcConnectionPoolArgs']] = None,
+                 http: Optional[pulumi.Input['VirtualGatewayHttpConnectionPoolArgs']] = None,
+                 http2: Optional[pulumi.Input['VirtualGatewayHttp2ConnectionPoolArgs']] = None):
+        if grpc is not None:
+            pulumi.set(__self__, "grpc", grpc)
+        if http is not None:
+            pulumi.set(__self__, "http", http)
+        if http2 is not None:
+            pulumi.set(__self__, "http2", http2)
 
     @property
-    @pulumi.getter(name="gRPC")
-    def g_rpc(self) -> Optional[pulumi.Input['VirtualGatewayGrpcConnectionPoolArgs']]:
-        return pulumi.get(self, "g_rpc")
+    @pulumi.getter
+    def grpc(self) -> Optional[pulumi.Input['VirtualGatewayGrpcConnectionPoolArgs']]:
+        return pulumi.get(self, "grpc")
 
-    @g_rpc.setter
-    def g_rpc(self, value: Optional[pulumi.Input['VirtualGatewayGrpcConnectionPoolArgs']]):
-        pulumi.set(self, "g_rpc", value)
-
-    @property
-    @pulumi.getter(name="hTTP")
-    def h_ttp(self) -> Optional[pulumi.Input['VirtualGatewayHttpConnectionPoolArgs']]:
-        return pulumi.get(self, "h_ttp")
-
-    @h_ttp.setter
-    def h_ttp(self, value: Optional[pulumi.Input['VirtualGatewayHttpConnectionPoolArgs']]):
-        pulumi.set(self, "h_ttp", value)
+    @grpc.setter
+    def grpc(self, value: Optional[pulumi.Input['VirtualGatewayGrpcConnectionPoolArgs']]):
+        pulumi.set(self, "grpc", value)
 
     @property
-    @pulumi.getter(name="hTTP2")
-    def h_ttp2(self) -> Optional[pulumi.Input['VirtualGatewayHttp2ConnectionPoolArgs']]:
-        return pulumi.get(self, "h_ttp2")
+    @pulumi.getter
+    def http(self) -> Optional[pulumi.Input['VirtualGatewayHttpConnectionPoolArgs']]:
+        return pulumi.get(self, "http")
 
-    @h_ttp2.setter
-    def h_ttp2(self, value: Optional[pulumi.Input['VirtualGatewayHttp2ConnectionPoolArgs']]):
-        pulumi.set(self, "h_ttp2", value)
+    @http.setter
+    def http(self, value: Optional[pulumi.Input['VirtualGatewayHttpConnectionPoolArgs']]):
+        pulumi.set(self, "http", value)
+
+    @property
+    @pulumi.getter
+    def http2(self) -> Optional[pulumi.Input['VirtualGatewayHttp2ConnectionPoolArgs']]:
+        return pulumi.get(self, "http2")
+
+    @http2.setter
+    def http2(self, value: Optional[pulumi.Input['VirtualGatewayHttp2ConnectionPoolArgs']]):
+        pulumi.set(self, "http2", value)
 
 
 @pulumi.input_type
@@ -2476,24 +2476,24 @@ class VirtualGatewayListenerTlsAcmCertificateArgs:
 @pulumi.input_type
 class VirtualGatewayListenerTlsCertificateArgs:
     def __init__(__self__, *,
-                 a_cm: Optional[pulumi.Input['VirtualGatewayListenerTlsAcmCertificateArgs']] = None,
+                 acm: Optional[pulumi.Input['VirtualGatewayListenerTlsAcmCertificateArgs']] = None,
                  file: Optional[pulumi.Input['VirtualGatewayListenerTlsFileCertificateArgs']] = None,
-                 s_ds: Optional[pulumi.Input['VirtualGatewayListenerTlsSdsCertificateArgs']] = None):
-        if a_cm is not None:
-            pulumi.set(__self__, "a_cm", a_cm)
+                 sds: Optional[pulumi.Input['VirtualGatewayListenerTlsSdsCertificateArgs']] = None):
+        if acm is not None:
+            pulumi.set(__self__, "acm", acm)
         if file is not None:
             pulumi.set(__self__, "file", file)
-        if s_ds is not None:
-            pulumi.set(__self__, "s_ds", s_ds)
+        if sds is not None:
+            pulumi.set(__self__, "sds", sds)
 
     @property
-    @pulumi.getter(name="aCM")
-    def a_cm(self) -> Optional[pulumi.Input['VirtualGatewayListenerTlsAcmCertificateArgs']]:
-        return pulumi.get(self, "a_cm")
+    @pulumi.getter
+    def acm(self) -> Optional[pulumi.Input['VirtualGatewayListenerTlsAcmCertificateArgs']]:
+        return pulumi.get(self, "acm")
 
-    @a_cm.setter
-    def a_cm(self, value: Optional[pulumi.Input['VirtualGatewayListenerTlsAcmCertificateArgs']]):
-        pulumi.set(self, "a_cm", value)
+    @acm.setter
+    def acm(self, value: Optional[pulumi.Input['VirtualGatewayListenerTlsAcmCertificateArgs']]):
+        pulumi.set(self, "acm", value)
 
     @property
     @pulumi.getter
@@ -2505,13 +2505,13 @@ class VirtualGatewayListenerTlsCertificateArgs:
         pulumi.set(self, "file", value)
 
     @property
-    @pulumi.getter(name="sDS")
-    def s_ds(self) -> Optional[pulumi.Input['VirtualGatewayListenerTlsSdsCertificateArgs']]:
-        return pulumi.get(self, "s_ds")
+    @pulumi.getter
+    def sds(self) -> Optional[pulumi.Input['VirtualGatewayListenerTlsSdsCertificateArgs']]:
+        return pulumi.get(self, "sds")
 
-    @s_ds.setter
-    def s_ds(self, value: Optional[pulumi.Input['VirtualGatewayListenerTlsSdsCertificateArgs']]):
-        pulumi.set(self, "s_ds", value)
+    @sds.setter
+    def sds(self, value: Optional[pulumi.Input['VirtualGatewayListenerTlsSdsCertificateArgs']]):
+        pulumi.set(self, "sds", value)
 
 
 @pulumi.input_type
@@ -2561,11 +2561,11 @@ class VirtualGatewayListenerTlsSdsCertificateArgs:
 class VirtualGatewayListenerTlsValidationContextTrustArgs:
     def __init__(__self__, *,
                  file: Optional[pulumi.Input['VirtualGatewayTlsValidationContextFileTrustArgs']] = None,
-                 s_ds: Optional[pulumi.Input['VirtualGatewayTlsValidationContextSdsTrustArgs']] = None):
+                 sds: Optional[pulumi.Input['VirtualGatewayTlsValidationContextSdsTrustArgs']] = None):
         if file is not None:
             pulumi.set(__self__, "file", file)
-        if s_ds is not None:
-            pulumi.set(__self__, "s_ds", s_ds)
+        if sds is not None:
+            pulumi.set(__self__, "sds", sds)
 
     @property
     @pulumi.getter
@@ -2577,13 +2577,13 @@ class VirtualGatewayListenerTlsValidationContextTrustArgs:
         pulumi.set(self, "file", value)
 
     @property
-    @pulumi.getter(name="sDS")
-    def s_ds(self) -> Optional[pulumi.Input['VirtualGatewayTlsValidationContextSdsTrustArgs']]:
-        return pulumi.get(self, "s_ds")
+    @pulumi.getter
+    def sds(self) -> Optional[pulumi.Input['VirtualGatewayTlsValidationContextSdsTrustArgs']]:
+        return pulumi.get(self, "sds")
 
-    @s_ds.setter
-    def s_ds(self, value: Optional[pulumi.Input['VirtualGatewayTlsValidationContextSdsTrustArgs']]):
-        pulumi.set(self, "s_ds", value)
+    @sds.setter
+    def sds(self, value: Optional[pulumi.Input['VirtualGatewayTlsValidationContextSdsTrustArgs']]):
+        pulumi.set(self, "sds", value)
 
 
 @pulumi.input_type
@@ -2659,14 +2659,14 @@ class VirtualGatewayListenerArgs:
                  port_mapping: pulumi.Input['VirtualGatewayPortMappingArgs'],
                  connection_pool: Optional[pulumi.Input['VirtualGatewayConnectionPoolArgs']] = None,
                  health_check: Optional[pulumi.Input['VirtualGatewayHealthCheckPolicyArgs']] = None,
-                 t_ls: Optional[pulumi.Input['VirtualGatewayListenerTlsArgs']] = None):
+                 tls: Optional[pulumi.Input['VirtualGatewayListenerTlsArgs']] = None):
         pulumi.set(__self__, "port_mapping", port_mapping)
         if connection_pool is not None:
             pulumi.set(__self__, "connection_pool", connection_pool)
         if health_check is not None:
             pulumi.set(__self__, "health_check", health_check)
-        if t_ls is not None:
-            pulumi.set(__self__, "t_ls", t_ls)
+        if tls is not None:
+            pulumi.set(__self__, "tls", tls)
 
     @property
     @pulumi.getter(name="portMapping")
@@ -2696,13 +2696,13 @@ class VirtualGatewayListenerArgs:
         pulumi.set(self, "health_check", value)
 
     @property
-    @pulumi.getter(name="tLS")
-    def t_ls(self) -> Optional[pulumi.Input['VirtualGatewayListenerTlsArgs']]:
-        return pulumi.get(self, "t_ls")
+    @pulumi.getter
+    def tls(self) -> Optional[pulumi.Input['VirtualGatewayListenerTlsArgs']]:
+        return pulumi.get(self, "tls")
 
-    @t_ls.setter
-    def t_ls(self, value: Optional[pulumi.Input['VirtualGatewayListenerTlsArgs']]):
-        pulumi.set(self, "t_ls", value)
+    @tls.setter
+    def tls(self, value: Optional[pulumi.Input['VirtualGatewayListenerTlsArgs']]):
+        pulumi.set(self, "tls", value)
 
 
 @pulumi.input_type
@@ -2929,24 +2929,24 @@ class VirtualGatewayTlsValidationContextSdsTrustArgs:
 @pulumi.input_type
 class VirtualGatewayTlsValidationContextTrustArgs:
     def __init__(__self__, *,
-                 a_cm: Optional[pulumi.Input['VirtualGatewayTlsValidationContextAcmTrustArgs']] = None,
+                 acm: Optional[pulumi.Input['VirtualGatewayTlsValidationContextAcmTrustArgs']] = None,
                  file: Optional[pulumi.Input['VirtualGatewayTlsValidationContextFileTrustArgs']] = None,
-                 s_ds: Optional[pulumi.Input['VirtualGatewayTlsValidationContextSdsTrustArgs']] = None):
-        if a_cm is not None:
-            pulumi.set(__self__, "a_cm", a_cm)
+                 sds: Optional[pulumi.Input['VirtualGatewayTlsValidationContextSdsTrustArgs']] = None):
+        if acm is not None:
+            pulumi.set(__self__, "acm", acm)
         if file is not None:
             pulumi.set(__self__, "file", file)
-        if s_ds is not None:
-            pulumi.set(__self__, "s_ds", s_ds)
+        if sds is not None:
+            pulumi.set(__self__, "sds", sds)
 
     @property
-    @pulumi.getter(name="aCM")
-    def a_cm(self) -> Optional[pulumi.Input['VirtualGatewayTlsValidationContextAcmTrustArgs']]:
-        return pulumi.get(self, "a_cm")
+    @pulumi.getter
+    def acm(self) -> Optional[pulumi.Input['VirtualGatewayTlsValidationContextAcmTrustArgs']]:
+        return pulumi.get(self, "acm")
 
-    @a_cm.setter
-    def a_cm(self, value: Optional[pulumi.Input['VirtualGatewayTlsValidationContextAcmTrustArgs']]):
-        pulumi.set(self, "a_cm", value)
+    @acm.setter
+    def acm(self, value: Optional[pulumi.Input['VirtualGatewayTlsValidationContextAcmTrustArgs']]):
+        pulumi.set(self, "acm", value)
 
     @property
     @pulumi.getter
@@ -2958,13 +2958,13 @@ class VirtualGatewayTlsValidationContextTrustArgs:
         pulumi.set(self, "file", value)
 
     @property
-    @pulumi.getter(name="sDS")
-    def s_ds(self) -> Optional[pulumi.Input['VirtualGatewayTlsValidationContextSdsTrustArgs']]:
-        return pulumi.get(self, "s_ds")
+    @pulumi.getter
+    def sds(self) -> Optional[pulumi.Input['VirtualGatewayTlsValidationContextSdsTrustArgs']]:
+        return pulumi.get(self, "sds")
 
-    @s_ds.setter
-    def s_ds(self, value: Optional[pulumi.Input['VirtualGatewayTlsValidationContextSdsTrustArgs']]):
-        pulumi.set(self, "s_ds", value)
+    @sds.setter
+    def sds(self, value: Optional[pulumi.Input['VirtualGatewayTlsValidationContextSdsTrustArgs']]):
+        pulumi.set(self, "sds", value)
 
 
 @pulumi.input_type
@@ -3179,29 +3179,29 @@ class VirtualNodeClientPolicyTlsArgs:
 @pulumi.input_type
 class VirtualNodeClientPolicyArgs:
     def __init__(__self__, *,
-                 t_ls: Optional[pulumi.Input['VirtualNodeClientPolicyTlsArgs']] = None):
-        if t_ls is not None:
-            pulumi.set(__self__, "t_ls", t_ls)
+                 tls: Optional[pulumi.Input['VirtualNodeClientPolicyTlsArgs']] = None):
+        if tls is not None:
+            pulumi.set(__self__, "tls", tls)
 
     @property
-    @pulumi.getter(name="tLS")
-    def t_ls(self) -> Optional[pulumi.Input['VirtualNodeClientPolicyTlsArgs']]:
-        return pulumi.get(self, "t_ls")
+    @pulumi.getter
+    def tls(self) -> Optional[pulumi.Input['VirtualNodeClientPolicyTlsArgs']]:
+        return pulumi.get(self, "tls")
 
-    @t_ls.setter
-    def t_ls(self, value: Optional[pulumi.Input['VirtualNodeClientPolicyTlsArgs']]):
-        pulumi.set(self, "t_ls", value)
+    @tls.setter
+    def tls(self, value: Optional[pulumi.Input['VirtualNodeClientPolicyTlsArgs']]):
+        pulumi.set(self, "tls", value)
 
 
 @pulumi.input_type
 class VirtualNodeClientTlsCertificateArgs:
     def __init__(__self__, *,
                  file: Optional[pulumi.Input['VirtualNodeListenerTlsFileCertificateArgs']] = None,
-                 s_ds: Optional[pulumi.Input['VirtualNodeListenerTlsSdsCertificateArgs']] = None):
+                 sds: Optional[pulumi.Input['VirtualNodeListenerTlsSdsCertificateArgs']] = None):
         if file is not None:
             pulumi.set(__self__, "file", file)
-        if s_ds is not None:
-            pulumi.set(__self__, "s_ds", s_ds)
+        if sds is not None:
+            pulumi.set(__self__, "sds", sds)
 
     @property
     @pulumi.getter
@@ -3213,66 +3213,66 @@ class VirtualNodeClientTlsCertificateArgs:
         pulumi.set(self, "file", value)
 
     @property
-    @pulumi.getter(name="sDS")
-    def s_ds(self) -> Optional[pulumi.Input['VirtualNodeListenerTlsSdsCertificateArgs']]:
-        return pulumi.get(self, "s_ds")
+    @pulumi.getter
+    def sds(self) -> Optional[pulumi.Input['VirtualNodeListenerTlsSdsCertificateArgs']]:
+        return pulumi.get(self, "sds")
 
-    @s_ds.setter
-    def s_ds(self, value: Optional[pulumi.Input['VirtualNodeListenerTlsSdsCertificateArgs']]):
-        pulumi.set(self, "s_ds", value)
+    @sds.setter
+    def sds(self, value: Optional[pulumi.Input['VirtualNodeListenerTlsSdsCertificateArgs']]):
+        pulumi.set(self, "sds", value)
 
 
 @pulumi.input_type
 class VirtualNodeConnectionPoolArgs:
     def __init__(__self__, *,
-                 g_rpc: Optional[pulumi.Input['VirtualNodeGrpcConnectionPoolArgs']] = None,
-                 h_ttp: Optional[pulumi.Input['VirtualNodeHttpConnectionPoolArgs']] = None,
-                 h_ttp2: Optional[pulumi.Input['VirtualNodeHttp2ConnectionPoolArgs']] = None,
-                 t_cp: Optional[pulumi.Input['VirtualNodeTcpConnectionPoolArgs']] = None):
-        if g_rpc is not None:
-            pulumi.set(__self__, "g_rpc", g_rpc)
-        if h_ttp is not None:
-            pulumi.set(__self__, "h_ttp", h_ttp)
-        if h_ttp2 is not None:
-            pulumi.set(__self__, "h_ttp2", h_ttp2)
-        if t_cp is not None:
-            pulumi.set(__self__, "t_cp", t_cp)
+                 grpc: Optional[pulumi.Input['VirtualNodeGrpcConnectionPoolArgs']] = None,
+                 http: Optional[pulumi.Input['VirtualNodeHttpConnectionPoolArgs']] = None,
+                 http2: Optional[pulumi.Input['VirtualNodeHttp2ConnectionPoolArgs']] = None,
+                 tcp: Optional[pulumi.Input['VirtualNodeTcpConnectionPoolArgs']] = None):
+        if grpc is not None:
+            pulumi.set(__self__, "grpc", grpc)
+        if http is not None:
+            pulumi.set(__self__, "http", http)
+        if http2 is not None:
+            pulumi.set(__self__, "http2", http2)
+        if tcp is not None:
+            pulumi.set(__self__, "tcp", tcp)
 
     @property
-    @pulumi.getter(name="gRPC")
-    def g_rpc(self) -> Optional[pulumi.Input['VirtualNodeGrpcConnectionPoolArgs']]:
-        return pulumi.get(self, "g_rpc")
+    @pulumi.getter
+    def grpc(self) -> Optional[pulumi.Input['VirtualNodeGrpcConnectionPoolArgs']]:
+        return pulumi.get(self, "grpc")
 
-    @g_rpc.setter
-    def g_rpc(self, value: Optional[pulumi.Input['VirtualNodeGrpcConnectionPoolArgs']]):
-        pulumi.set(self, "g_rpc", value)
-
-    @property
-    @pulumi.getter(name="hTTP")
-    def h_ttp(self) -> Optional[pulumi.Input['VirtualNodeHttpConnectionPoolArgs']]:
-        return pulumi.get(self, "h_ttp")
-
-    @h_ttp.setter
-    def h_ttp(self, value: Optional[pulumi.Input['VirtualNodeHttpConnectionPoolArgs']]):
-        pulumi.set(self, "h_ttp", value)
+    @grpc.setter
+    def grpc(self, value: Optional[pulumi.Input['VirtualNodeGrpcConnectionPoolArgs']]):
+        pulumi.set(self, "grpc", value)
 
     @property
-    @pulumi.getter(name="hTTP2")
-    def h_ttp2(self) -> Optional[pulumi.Input['VirtualNodeHttp2ConnectionPoolArgs']]:
-        return pulumi.get(self, "h_ttp2")
+    @pulumi.getter
+    def http(self) -> Optional[pulumi.Input['VirtualNodeHttpConnectionPoolArgs']]:
+        return pulumi.get(self, "http")
 
-    @h_ttp2.setter
-    def h_ttp2(self, value: Optional[pulumi.Input['VirtualNodeHttp2ConnectionPoolArgs']]):
-        pulumi.set(self, "h_ttp2", value)
+    @http.setter
+    def http(self, value: Optional[pulumi.Input['VirtualNodeHttpConnectionPoolArgs']]):
+        pulumi.set(self, "http", value)
 
     @property
-    @pulumi.getter(name="tCP")
-    def t_cp(self) -> Optional[pulumi.Input['VirtualNodeTcpConnectionPoolArgs']]:
-        return pulumi.get(self, "t_cp")
+    @pulumi.getter
+    def http2(self) -> Optional[pulumi.Input['VirtualNodeHttp2ConnectionPoolArgs']]:
+        return pulumi.get(self, "http2")
 
-    @t_cp.setter
-    def t_cp(self, value: Optional[pulumi.Input['VirtualNodeTcpConnectionPoolArgs']]):
-        pulumi.set(self, "t_cp", value)
+    @http2.setter
+    def http2(self, value: Optional[pulumi.Input['VirtualNodeHttp2ConnectionPoolArgs']]):
+        pulumi.set(self, "http2", value)
+
+    @property
+    @pulumi.getter
+    def tcp(self) -> Optional[pulumi.Input['VirtualNodeTcpConnectionPoolArgs']]:
+        return pulumi.get(self, "tcp")
+
+    @tcp.setter
+    def tcp(self, value: Optional[pulumi.Input['VirtualNodeTcpConnectionPoolArgs']]):
+        pulumi.set(self, "tcp", value)
 
 
 @pulumi.input_type
@@ -3602,54 +3602,54 @@ class VirtualNodeJsonFormatRefArgs:
 @pulumi.input_type
 class VirtualNodeListenerTimeoutArgs:
     def __init__(__self__, *,
-                 g_rpc: Optional[pulumi.Input['VirtualNodeGrpcTimeoutArgs']] = None,
-                 h_ttp: Optional[pulumi.Input['VirtualNodeHttpTimeoutArgs']] = None,
-                 h_ttp2: Optional[pulumi.Input['VirtualNodeHttpTimeoutArgs']] = None,
-                 t_cp: Optional[pulumi.Input['VirtualNodeTcpTimeoutArgs']] = None):
-        if g_rpc is not None:
-            pulumi.set(__self__, "g_rpc", g_rpc)
-        if h_ttp is not None:
-            pulumi.set(__self__, "h_ttp", h_ttp)
-        if h_ttp2 is not None:
-            pulumi.set(__self__, "h_ttp2", h_ttp2)
-        if t_cp is not None:
-            pulumi.set(__self__, "t_cp", t_cp)
+                 grpc: Optional[pulumi.Input['VirtualNodeGrpcTimeoutArgs']] = None,
+                 http: Optional[pulumi.Input['VirtualNodeHttpTimeoutArgs']] = None,
+                 http2: Optional[pulumi.Input['VirtualNodeHttpTimeoutArgs']] = None,
+                 tcp: Optional[pulumi.Input['VirtualNodeTcpTimeoutArgs']] = None):
+        if grpc is not None:
+            pulumi.set(__self__, "grpc", grpc)
+        if http is not None:
+            pulumi.set(__self__, "http", http)
+        if http2 is not None:
+            pulumi.set(__self__, "http2", http2)
+        if tcp is not None:
+            pulumi.set(__self__, "tcp", tcp)
 
     @property
-    @pulumi.getter(name="gRPC")
-    def g_rpc(self) -> Optional[pulumi.Input['VirtualNodeGrpcTimeoutArgs']]:
-        return pulumi.get(self, "g_rpc")
+    @pulumi.getter
+    def grpc(self) -> Optional[pulumi.Input['VirtualNodeGrpcTimeoutArgs']]:
+        return pulumi.get(self, "grpc")
 
-    @g_rpc.setter
-    def g_rpc(self, value: Optional[pulumi.Input['VirtualNodeGrpcTimeoutArgs']]):
-        pulumi.set(self, "g_rpc", value)
-
-    @property
-    @pulumi.getter(name="hTTP")
-    def h_ttp(self) -> Optional[pulumi.Input['VirtualNodeHttpTimeoutArgs']]:
-        return pulumi.get(self, "h_ttp")
-
-    @h_ttp.setter
-    def h_ttp(self, value: Optional[pulumi.Input['VirtualNodeHttpTimeoutArgs']]):
-        pulumi.set(self, "h_ttp", value)
+    @grpc.setter
+    def grpc(self, value: Optional[pulumi.Input['VirtualNodeGrpcTimeoutArgs']]):
+        pulumi.set(self, "grpc", value)
 
     @property
-    @pulumi.getter(name="hTTP2")
-    def h_ttp2(self) -> Optional[pulumi.Input['VirtualNodeHttpTimeoutArgs']]:
-        return pulumi.get(self, "h_ttp2")
+    @pulumi.getter
+    def http(self) -> Optional[pulumi.Input['VirtualNodeHttpTimeoutArgs']]:
+        return pulumi.get(self, "http")
 
-    @h_ttp2.setter
-    def h_ttp2(self, value: Optional[pulumi.Input['VirtualNodeHttpTimeoutArgs']]):
-        pulumi.set(self, "h_ttp2", value)
+    @http.setter
+    def http(self, value: Optional[pulumi.Input['VirtualNodeHttpTimeoutArgs']]):
+        pulumi.set(self, "http", value)
 
     @property
-    @pulumi.getter(name="tCP")
-    def t_cp(self) -> Optional[pulumi.Input['VirtualNodeTcpTimeoutArgs']]:
-        return pulumi.get(self, "t_cp")
+    @pulumi.getter
+    def http2(self) -> Optional[pulumi.Input['VirtualNodeHttpTimeoutArgs']]:
+        return pulumi.get(self, "http2")
 
-    @t_cp.setter
-    def t_cp(self, value: Optional[pulumi.Input['VirtualNodeTcpTimeoutArgs']]):
-        pulumi.set(self, "t_cp", value)
+    @http2.setter
+    def http2(self, value: Optional[pulumi.Input['VirtualNodeHttpTimeoutArgs']]):
+        pulumi.set(self, "http2", value)
+
+    @property
+    @pulumi.getter
+    def tcp(self) -> Optional[pulumi.Input['VirtualNodeTcpTimeoutArgs']]:
+        return pulumi.get(self, "tcp")
+
+    @tcp.setter
+    def tcp(self, value: Optional[pulumi.Input['VirtualNodeTcpTimeoutArgs']]):
+        pulumi.set(self, "tcp", value)
 
 
 @pulumi.input_type
@@ -3671,24 +3671,24 @@ class VirtualNodeListenerTlsAcmCertificateArgs:
 @pulumi.input_type
 class VirtualNodeListenerTlsCertificateArgs:
     def __init__(__self__, *,
-                 a_cm: Optional[pulumi.Input['VirtualNodeListenerTlsAcmCertificateArgs']] = None,
+                 acm: Optional[pulumi.Input['VirtualNodeListenerTlsAcmCertificateArgs']] = None,
                  file: Optional[pulumi.Input['VirtualNodeListenerTlsFileCertificateArgs']] = None,
-                 s_ds: Optional[pulumi.Input['VirtualNodeListenerTlsSdsCertificateArgs']] = None):
-        if a_cm is not None:
-            pulumi.set(__self__, "a_cm", a_cm)
+                 sds: Optional[pulumi.Input['VirtualNodeListenerTlsSdsCertificateArgs']] = None):
+        if acm is not None:
+            pulumi.set(__self__, "acm", acm)
         if file is not None:
             pulumi.set(__self__, "file", file)
-        if s_ds is not None:
-            pulumi.set(__self__, "s_ds", s_ds)
+        if sds is not None:
+            pulumi.set(__self__, "sds", sds)
 
     @property
-    @pulumi.getter(name="aCM")
-    def a_cm(self) -> Optional[pulumi.Input['VirtualNodeListenerTlsAcmCertificateArgs']]:
-        return pulumi.get(self, "a_cm")
+    @pulumi.getter
+    def acm(self) -> Optional[pulumi.Input['VirtualNodeListenerTlsAcmCertificateArgs']]:
+        return pulumi.get(self, "acm")
 
-    @a_cm.setter
-    def a_cm(self, value: Optional[pulumi.Input['VirtualNodeListenerTlsAcmCertificateArgs']]):
-        pulumi.set(self, "a_cm", value)
+    @acm.setter
+    def acm(self, value: Optional[pulumi.Input['VirtualNodeListenerTlsAcmCertificateArgs']]):
+        pulumi.set(self, "acm", value)
 
     @property
     @pulumi.getter
@@ -3700,13 +3700,13 @@ class VirtualNodeListenerTlsCertificateArgs:
         pulumi.set(self, "file", value)
 
     @property
-    @pulumi.getter(name="sDS")
-    def s_ds(self) -> Optional[pulumi.Input['VirtualNodeListenerTlsSdsCertificateArgs']]:
-        return pulumi.get(self, "s_ds")
+    @pulumi.getter
+    def sds(self) -> Optional[pulumi.Input['VirtualNodeListenerTlsSdsCertificateArgs']]:
+        return pulumi.get(self, "sds")
 
-    @s_ds.setter
-    def s_ds(self, value: Optional[pulumi.Input['VirtualNodeListenerTlsSdsCertificateArgs']]):
-        pulumi.set(self, "s_ds", value)
+    @sds.setter
+    def sds(self, value: Optional[pulumi.Input['VirtualNodeListenerTlsSdsCertificateArgs']]):
+        pulumi.set(self, "sds", value)
 
 
 @pulumi.input_type
@@ -3756,11 +3756,11 @@ class VirtualNodeListenerTlsSdsCertificateArgs:
 class VirtualNodeListenerTlsValidationContextTrustArgs:
     def __init__(__self__, *,
                  file: Optional[pulumi.Input['VirtualNodeTlsValidationContextFileTrustArgs']] = None,
-                 s_ds: Optional[pulumi.Input['VirtualNodeTlsValidationContextSdsTrustArgs']] = None):
+                 sds: Optional[pulumi.Input['VirtualNodeTlsValidationContextSdsTrustArgs']] = None):
         if file is not None:
             pulumi.set(__self__, "file", file)
-        if s_ds is not None:
-            pulumi.set(__self__, "s_ds", s_ds)
+        if sds is not None:
+            pulumi.set(__self__, "sds", sds)
 
     @property
     @pulumi.getter
@@ -3772,13 +3772,13 @@ class VirtualNodeListenerTlsValidationContextTrustArgs:
         pulumi.set(self, "file", value)
 
     @property
-    @pulumi.getter(name="sDS")
-    def s_ds(self) -> Optional[pulumi.Input['VirtualNodeTlsValidationContextSdsTrustArgs']]:
-        return pulumi.get(self, "s_ds")
+    @pulumi.getter
+    def sds(self) -> Optional[pulumi.Input['VirtualNodeTlsValidationContextSdsTrustArgs']]:
+        return pulumi.get(self, "sds")
 
-    @s_ds.setter
-    def s_ds(self, value: Optional[pulumi.Input['VirtualNodeTlsValidationContextSdsTrustArgs']]):
-        pulumi.set(self, "s_ds", value)
+    @sds.setter
+    def sds(self, value: Optional[pulumi.Input['VirtualNodeTlsValidationContextSdsTrustArgs']]):
+        pulumi.set(self, "sds", value)
 
 
 @pulumi.input_type
@@ -3855,8 +3855,8 @@ class VirtualNodeListenerArgs:
                  connection_pool: Optional[pulumi.Input['VirtualNodeConnectionPoolArgs']] = None,
                  health_check: Optional[pulumi.Input['VirtualNodeHealthCheckArgs']] = None,
                  outlier_detection: Optional[pulumi.Input['VirtualNodeOutlierDetectionArgs']] = None,
-                 t_ls: Optional[pulumi.Input['VirtualNodeListenerTlsArgs']] = None,
-                 timeout: Optional[pulumi.Input['VirtualNodeListenerTimeoutArgs']] = None):
+                 timeout: Optional[pulumi.Input['VirtualNodeListenerTimeoutArgs']] = None,
+                 tls: Optional[pulumi.Input['VirtualNodeListenerTlsArgs']] = None):
         pulumi.set(__self__, "port_mapping", port_mapping)
         if connection_pool is not None:
             pulumi.set(__self__, "connection_pool", connection_pool)
@@ -3864,10 +3864,10 @@ class VirtualNodeListenerArgs:
             pulumi.set(__self__, "health_check", health_check)
         if outlier_detection is not None:
             pulumi.set(__self__, "outlier_detection", outlier_detection)
-        if t_ls is not None:
-            pulumi.set(__self__, "t_ls", t_ls)
         if timeout is not None:
             pulumi.set(__self__, "timeout", timeout)
+        if tls is not None:
+            pulumi.set(__self__, "tls", tls)
 
     @property
     @pulumi.getter(name="portMapping")
@@ -3906,15 +3906,6 @@ class VirtualNodeListenerArgs:
         pulumi.set(self, "outlier_detection", value)
 
     @property
-    @pulumi.getter(name="tLS")
-    def t_ls(self) -> Optional[pulumi.Input['VirtualNodeListenerTlsArgs']]:
-        return pulumi.get(self, "t_ls")
-
-    @t_ls.setter
-    def t_ls(self, value: Optional[pulumi.Input['VirtualNodeListenerTlsArgs']]):
-        pulumi.set(self, "t_ls", value)
-
-    @property
     @pulumi.getter
     def timeout(self) -> Optional[pulumi.Input['VirtualNodeListenerTimeoutArgs']]:
         return pulumi.get(self, "timeout")
@@ -3922,6 +3913,15 @@ class VirtualNodeListenerArgs:
     @timeout.setter
     def timeout(self, value: Optional[pulumi.Input['VirtualNodeListenerTimeoutArgs']]):
         pulumi.set(self, "timeout", value)
+
+    @property
+    @pulumi.getter
+    def tls(self) -> Optional[pulumi.Input['VirtualNodeListenerTlsArgs']]:
+        return pulumi.get(self, "tls")
+
+    @tls.setter
+    def tls(self, value: Optional[pulumi.Input['VirtualNodeListenerTlsArgs']]):
+        pulumi.set(self, "tls", value)
 
 
 @pulumi.input_type
@@ -4049,30 +4049,30 @@ class VirtualNodePortMappingArgs:
 @pulumi.input_type
 class VirtualNodeServiceDiscoveryArgs:
     def __init__(__self__, *,
-                 a_ws_cloud_map: Optional[pulumi.Input['VirtualNodeAwsCloudMapServiceDiscoveryArgs']] = None,
-                 d_ns: Optional[pulumi.Input['VirtualNodeDnsServiceDiscoveryArgs']] = None):
-        if a_ws_cloud_map is not None:
-            pulumi.set(__self__, "a_ws_cloud_map", a_ws_cloud_map)
-        if d_ns is not None:
-            pulumi.set(__self__, "d_ns", d_ns)
+                 aws_cloud_map: Optional[pulumi.Input['VirtualNodeAwsCloudMapServiceDiscoveryArgs']] = None,
+                 dns: Optional[pulumi.Input['VirtualNodeDnsServiceDiscoveryArgs']] = None):
+        if aws_cloud_map is not None:
+            pulumi.set(__self__, "aws_cloud_map", aws_cloud_map)
+        if dns is not None:
+            pulumi.set(__self__, "dns", dns)
 
     @property
-    @pulumi.getter(name="aWSCloudMap")
-    def a_ws_cloud_map(self) -> Optional[pulumi.Input['VirtualNodeAwsCloudMapServiceDiscoveryArgs']]:
-        return pulumi.get(self, "a_ws_cloud_map")
+    @pulumi.getter(name="awsCloudMap")
+    def aws_cloud_map(self) -> Optional[pulumi.Input['VirtualNodeAwsCloudMapServiceDiscoveryArgs']]:
+        return pulumi.get(self, "aws_cloud_map")
 
-    @a_ws_cloud_map.setter
-    def a_ws_cloud_map(self, value: Optional[pulumi.Input['VirtualNodeAwsCloudMapServiceDiscoveryArgs']]):
-        pulumi.set(self, "a_ws_cloud_map", value)
+    @aws_cloud_map.setter
+    def aws_cloud_map(self, value: Optional[pulumi.Input['VirtualNodeAwsCloudMapServiceDiscoveryArgs']]):
+        pulumi.set(self, "aws_cloud_map", value)
 
     @property
-    @pulumi.getter(name="dNS")
-    def d_ns(self) -> Optional[pulumi.Input['VirtualNodeDnsServiceDiscoveryArgs']]:
-        return pulumi.get(self, "d_ns")
+    @pulumi.getter
+    def dns(self) -> Optional[pulumi.Input['VirtualNodeDnsServiceDiscoveryArgs']]:
+        return pulumi.get(self, "dns")
 
-    @d_ns.setter
-    def d_ns(self, value: Optional[pulumi.Input['VirtualNodeDnsServiceDiscoveryArgs']]):
-        pulumi.set(self, "d_ns", value)
+    @dns.setter
+    def dns(self, value: Optional[pulumi.Input['VirtualNodeDnsServiceDiscoveryArgs']]):
+        pulumi.set(self, "dns", value)
 
 
 @pulumi.input_type
@@ -4284,24 +4284,24 @@ class VirtualNodeTlsValidationContextSdsTrustArgs:
 @pulumi.input_type
 class VirtualNodeTlsValidationContextTrustArgs:
     def __init__(__self__, *,
-                 a_cm: Optional[pulumi.Input['VirtualNodeTlsValidationContextAcmTrustArgs']] = None,
+                 acm: Optional[pulumi.Input['VirtualNodeTlsValidationContextAcmTrustArgs']] = None,
                  file: Optional[pulumi.Input['VirtualNodeTlsValidationContextFileTrustArgs']] = None,
-                 s_ds: Optional[pulumi.Input['VirtualNodeTlsValidationContextSdsTrustArgs']] = None):
-        if a_cm is not None:
-            pulumi.set(__self__, "a_cm", a_cm)
+                 sds: Optional[pulumi.Input['VirtualNodeTlsValidationContextSdsTrustArgs']] = None):
+        if acm is not None:
+            pulumi.set(__self__, "acm", acm)
         if file is not None:
             pulumi.set(__self__, "file", file)
-        if s_ds is not None:
-            pulumi.set(__self__, "s_ds", s_ds)
+        if sds is not None:
+            pulumi.set(__self__, "sds", sds)
 
     @property
-    @pulumi.getter(name="aCM")
-    def a_cm(self) -> Optional[pulumi.Input['VirtualNodeTlsValidationContextAcmTrustArgs']]:
-        return pulumi.get(self, "a_cm")
+    @pulumi.getter
+    def acm(self) -> Optional[pulumi.Input['VirtualNodeTlsValidationContextAcmTrustArgs']]:
+        return pulumi.get(self, "acm")
 
-    @a_cm.setter
-    def a_cm(self, value: Optional[pulumi.Input['VirtualNodeTlsValidationContextAcmTrustArgs']]):
-        pulumi.set(self, "a_cm", value)
+    @acm.setter
+    def acm(self, value: Optional[pulumi.Input['VirtualNodeTlsValidationContextAcmTrustArgs']]):
+        pulumi.set(self, "acm", value)
 
     @property
     @pulumi.getter
@@ -4313,13 +4313,13 @@ class VirtualNodeTlsValidationContextTrustArgs:
         pulumi.set(self, "file", value)
 
     @property
-    @pulumi.getter(name="sDS")
-    def s_ds(self) -> Optional[pulumi.Input['VirtualNodeTlsValidationContextSdsTrustArgs']]:
-        return pulumi.get(self, "s_ds")
+    @pulumi.getter
+    def sds(self) -> Optional[pulumi.Input['VirtualNodeTlsValidationContextSdsTrustArgs']]:
+        return pulumi.get(self, "sds")
 
-    @s_ds.setter
-    def s_ds(self, value: Optional[pulumi.Input['VirtualNodeTlsValidationContextSdsTrustArgs']]):
-        pulumi.set(self, "s_ds", value)
+    @sds.setter
+    def sds(self, value: Optional[pulumi.Input['VirtualNodeTlsValidationContextSdsTrustArgs']]):
+        pulumi.set(self, "sds", value)
 
 
 @pulumi.input_type

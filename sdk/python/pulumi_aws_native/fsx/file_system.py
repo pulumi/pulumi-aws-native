@@ -121,7 +121,7 @@ class FileSystemArgs:
         pulumi.set(self, "ontap_configuration", value)
 
     @property
-    @pulumi.getter(name="openZFSConfiguration")
+    @pulumi.getter(name="openZfsConfiguration")
     def open_zfs_configuration(self) -> Optional[pulumi.Input['FileSystemOpenZFSConfigurationArgs']]:
         return pulumi.get(self, "open_zfs_configuration")
 
@@ -269,7 +269,7 @@ class FileSystem(pulumi.CustomResource):
             __props__.__dict__["subnet_ids"] = subnet_ids
             __props__.__dict__["tags"] = tags
             __props__.__dict__["windows_configuration"] = windows_configuration
-            __props__.__dict__["d_ns_name"] = None
+            __props__.__dict__["dns_name"] = None
             __props__.__dict__["lustre_mount_name"] = None
             __props__.__dict__["resource_arn"] = None
             __props__.__dict__["root_volume_id"] = None
@@ -296,7 +296,7 @@ class FileSystem(pulumi.CustomResource):
         __props__ = FileSystemArgs.__new__(FileSystemArgs)
 
         __props__.__dict__["backup_id"] = None
-        __props__.__dict__["d_ns_name"] = None
+        __props__.__dict__["dns_name"] = None
         __props__.__dict__["file_system_type"] = None
         __props__.__dict__["file_system_type_version"] = None
         __props__.__dict__["kms_key_id"] = None
@@ -320,9 +320,9 @@ class FileSystem(pulumi.CustomResource):
         return pulumi.get(self, "backup_id")
 
     @property
-    @pulumi.getter(name="dNSName")
-    def d_ns_name(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "d_ns_name")
+    @pulumi.getter(name="dnsName")
+    def dns_name(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "dns_name")
 
     @property
     @pulumi.getter(name="fileSystemType")
@@ -355,12 +355,12 @@ class FileSystem(pulumi.CustomResource):
         return pulumi.get(self, "ontap_configuration")
 
     @property
-    @pulumi.getter(name="openZFSConfiguration")
+    @pulumi.getter(name="openZfsConfiguration")
     def open_zfs_configuration(self) -> pulumi.Output[Optional['outputs.FileSystemOpenZFSConfiguration']]:
         return pulumi.get(self, "open_zfs_configuration")
 
     @property
-    @pulumi.getter(name="resourceARN")
+    @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "resource_arn")
 

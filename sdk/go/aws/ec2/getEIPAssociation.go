@@ -28,7 +28,7 @@ type LookupEIPAssociationArgs struct {
 
 type LookupEIPAssociationResult struct {
 	AllocationId       *string `pulumi:"allocationId"`
-	EIP                *string `pulumi:"eIP"`
+	Eip                *string `pulumi:"eip"`
 	Id                 *string `pulumi:"id"`
 	InstanceId         *string `pulumi:"instanceId"`
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
@@ -74,8 +74,8 @@ func (o LookupEIPAssociationResultOutput) AllocationId() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v LookupEIPAssociationResult) *string { return v.AllocationId }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupEIPAssociationResultOutput) EIP() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupEIPAssociationResult) *string { return v.EIP }).(pulumi.StringPtrOutput)
+func (o LookupEIPAssociationResultOutput) Eip() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEIPAssociationResult) *string { return v.Eip }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupEIPAssociationResultOutput) Id() pulumi.StringPtrOutput {

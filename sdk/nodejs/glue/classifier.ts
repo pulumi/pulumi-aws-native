@@ -43,7 +43,7 @@ export class Classifier extends pulumi.CustomResource {
     public readonly csvClassifier!: pulumi.Output<outputs.glue.ClassifierCsvClassifier | undefined>;
     public readonly grokClassifier!: pulumi.Output<outputs.glue.ClassifierGrokClassifier | undefined>;
     public readonly jsonClassifier!: pulumi.Output<outputs.glue.ClassifierJsonClassifier | undefined>;
-    public readonly xMLClassifier!: pulumi.Output<outputs.glue.ClassifierXMLClassifier | undefined>;
+    public readonly xmlClassifier!: pulumi.Output<outputs.glue.ClassifierXMLClassifier | undefined>;
 
     /**
      * Create a Classifier resource with the given unique name, arguments, and options.
@@ -61,12 +61,12 @@ export class Classifier extends pulumi.CustomResource {
             resourceInputs["csvClassifier"] = args ? args.csvClassifier : undefined;
             resourceInputs["grokClassifier"] = args ? args.grokClassifier : undefined;
             resourceInputs["jsonClassifier"] = args ? args.jsonClassifier : undefined;
-            resourceInputs["xMLClassifier"] = args ? args.xMLClassifier : undefined;
+            resourceInputs["xmlClassifier"] = args ? args.xmlClassifier : undefined;
         } else {
             resourceInputs["csvClassifier"] = undefined /*out*/;
             resourceInputs["grokClassifier"] = undefined /*out*/;
             resourceInputs["jsonClassifier"] = undefined /*out*/;
-            resourceInputs["xMLClassifier"] = undefined /*out*/;
+            resourceInputs["xmlClassifier"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Classifier.__pulumiType, name, resourceInputs, opts);
@@ -80,5 +80,5 @@ export interface ClassifierArgs {
     csvClassifier?: pulumi.Input<inputs.glue.ClassifierCsvClassifierArgs>;
     grokClassifier?: pulumi.Input<inputs.glue.ClassifierGrokClassifierArgs>;
     jsonClassifier?: pulumi.Input<inputs.glue.ClassifierJsonClassifierArgs>;
-    xMLClassifier?: pulumi.Input<inputs.glue.ClassifierXMLClassifierArgs>;
+    xmlClassifier?: pulumi.Input<inputs.glue.ClassifierXMLClassifierArgs>;
 }

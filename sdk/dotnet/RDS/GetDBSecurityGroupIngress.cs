@@ -51,32 +51,32 @@ namespace Pulumi.AwsNative.RDS
     [OutputType]
     public sealed class GetDBSecurityGroupIngressResult
     {
-        public readonly string? CIDRIP;
-        public readonly string? DBSecurityGroupName;
-        public readonly string? EC2SecurityGroupId;
-        public readonly string? EC2SecurityGroupName;
-        public readonly string? EC2SecurityGroupOwnerId;
+        public readonly string? Cidrip;
+        public readonly string? DbSecurityGroupName;
+        public readonly string? Ec2SecurityGroupId;
+        public readonly string? Ec2SecurityGroupName;
+        public readonly string? Ec2SecurityGroupOwnerId;
         public readonly string? Id;
 
         [OutputConstructor]
         private GetDBSecurityGroupIngressResult(
-            string? cIDRIP,
+            string? cidrip,
 
-            string? dBSecurityGroupName,
+            string? dbSecurityGroupName,
 
-            string? eC2SecurityGroupId,
+            string? ec2SecurityGroupId,
 
-            string? eC2SecurityGroupName,
+            string? ec2SecurityGroupName,
 
-            string? eC2SecurityGroupOwnerId,
+            string? ec2SecurityGroupOwnerId,
 
             string? id)
         {
-            CIDRIP = cIDRIP;
-            DBSecurityGroupName = dBSecurityGroupName;
-            EC2SecurityGroupId = eC2SecurityGroupId;
-            EC2SecurityGroupName = eC2SecurityGroupName;
-            EC2SecurityGroupOwnerId = eC2SecurityGroupOwnerId;
+            Cidrip = cidrip;
+            DbSecurityGroupName = dbSecurityGroupName;
+            Ec2SecurityGroupId = ec2SecurityGroupId;
+            Ec2SecurityGroupName = ec2SecurityGroupName;
+            Ec2SecurityGroupOwnerId = ec2SecurityGroupOwnerId;
             Id = id;
         }
     }

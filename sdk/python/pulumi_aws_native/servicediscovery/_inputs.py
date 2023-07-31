@@ -56,18 +56,18 @@ class HttpNamespaceTagArgs:
 @pulumi.input_type
 class PrivateDnsNamespacePrivateDnsPropertiesMutableArgs:
     def __init__(__self__, *,
-                 s_oa: Optional[pulumi.Input['PrivateDnsNamespaceSOAArgs']] = None):
-        if s_oa is not None:
-            pulumi.set(__self__, "s_oa", s_oa)
+                 soa: Optional[pulumi.Input['PrivateDnsNamespaceSOAArgs']] = None):
+        if soa is not None:
+            pulumi.set(__self__, "soa", soa)
 
     @property
-    @pulumi.getter(name="sOA")
-    def s_oa(self) -> Optional[pulumi.Input['PrivateDnsNamespaceSOAArgs']]:
-        return pulumi.get(self, "s_oa")
+    @pulumi.getter
+    def soa(self) -> Optional[pulumi.Input['PrivateDnsNamespaceSOAArgs']]:
+        return pulumi.get(self, "soa")
 
-    @s_oa.setter
-    def s_oa(self, value: Optional[pulumi.Input['PrivateDnsNamespaceSOAArgs']]):
-        pulumi.set(self, "s_oa", value)
+    @soa.setter
+    def soa(self, value: Optional[pulumi.Input['PrivateDnsNamespaceSOAArgs']]):
+        pulumi.set(self, "soa", value)
 
 
 @pulumi.input_type
@@ -90,18 +90,18 @@ class PrivateDnsNamespacePropertiesArgs:
 @pulumi.input_type
 class PrivateDnsNamespaceSOAArgs:
     def __init__(__self__, *,
-                 t_tl: Optional[pulumi.Input[float]] = None):
-        if t_tl is not None:
-            pulumi.set(__self__, "t_tl", t_tl)
+                 ttl: Optional[pulumi.Input[float]] = None):
+        if ttl is not None:
+            pulumi.set(__self__, "ttl", ttl)
 
     @property
-    @pulumi.getter(name="tTL")
-    def t_tl(self) -> Optional[pulumi.Input[float]]:
-        return pulumi.get(self, "t_tl")
+    @pulumi.getter
+    def ttl(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "ttl")
 
-    @t_tl.setter
-    def t_tl(self, value: Optional[pulumi.Input[float]]):
-        pulumi.set(self, "t_tl", value)
+    @ttl.setter
+    def ttl(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "ttl", value)
 
 
 @pulumi.input_type
@@ -151,35 +151,35 @@ class PublicDnsNamespacePropertiesArgs:
 @pulumi.input_type
 class PublicDnsNamespacePublicDnsPropertiesMutableArgs:
     def __init__(__self__, *,
-                 s_oa: Optional[pulumi.Input['PublicDnsNamespaceSOAArgs']] = None):
-        if s_oa is not None:
-            pulumi.set(__self__, "s_oa", s_oa)
+                 soa: Optional[pulumi.Input['PublicDnsNamespaceSOAArgs']] = None):
+        if soa is not None:
+            pulumi.set(__self__, "soa", soa)
 
     @property
-    @pulumi.getter(name="sOA")
-    def s_oa(self) -> Optional[pulumi.Input['PublicDnsNamespaceSOAArgs']]:
-        return pulumi.get(self, "s_oa")
+    @pulumi.getter
+    def soa(self) -> Optional[pulumi.Input['PublicDnsNamespaceSOAArgs']]:
+        return pulumi.get(self, "soa")
 
-    @s_oa.setter
-    def s_oa(self, value: Optional[pulumi.Input['PublicDnsNamespaceSOAArgs']]):
-        pulumi.set(self, "s_oa", value)
+    @soa.setter
+    def soa(self, value: Optional[pulumi.Input['PublicDnsNamespaceSOAArgs']]):
+        pulumi.set(self, "soa", value)
 
 
 @pulumi.input_type
 class PublicDnsNamespaceSOAArgs:
     def __init__(__self__, *,
-                 t_tl: Optional[pulumi.Input[float]] = None):
-        if t_tl is not None:
-            pulumi.set(__self__, "t_tl", t_tl)
+                 ttl: Optional[pulumi.Input[float]] = None):
+        if ttl is not None:
+            pulumi.set(__self__, "ttl", ttl)
 
     @property
-    @pulumi.getter(name="tTL")
-    def t_tl(self) -> Optional[pulumi.Input[float]]:
-        return pulumi.get(self, "t_tl")
+    @pulumi.getter
+    def ttl(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "ttl")
 
-    @t_tl.setter
-    def t_tl(self, value: Optional[pulumi.Input[float]]):
-        pulumi.set(self, "t_tl", value)
+    @ttl.setter
+    def ttl(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "ttl", value)
 
 
 @pulumi.input_type
@@ -252,19 +252,19 @@ class ServiceDnsConfigArgs:
 @pulumi.input_type
 class ServiceDnsRecordArgs:
     def __init__(__self__, *,
-                 t_tl: pulumi.Input[float],
+                 ttl: pulumi.Input[float],
                  type: pulumi.Input[str]):
-        pulumi.set(__self__, "t_tl", t_tl)
+        pulumi.set(__self__, "ttl", ttl)
         pulumi.set(__self__, "type", type)
 
     @property
-    @pulumi.getter(name="tTL")
-    def t_tl(self) -> pulumi.Input[float]:
-        return pulumi.get(self, "t_tl")
+    @pulumi.getter
+    def ttl(self) -> pulumi.Input[float]:
+        return pulumi.get(self, "ttl")
 
-    @t_tl.setter
-    def t_tl(self, value: pulumi.Input[float]):
-        pulumi.set(self, "t_tl", value)
+    @ttl.setter
+    def ttl(self, value: pulumi.Input[float]):
+        pulumi.set(self, "ttl", value)
 
     @property
     @pulumi.getter

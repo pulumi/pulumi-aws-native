@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
         /// Specifies the aggregate keys to use in a rate-base rule.
         /// </summary>
         public readonly ImmutableArray<Outputs.WebACLRateBasedStatementCustomKey> CustomKeys;
-        public readonly Outputs.WebACLForwardedIPConfiguration? ForwardedIPConfig;
+        public readonly Outputs.WebACLForwardedIPConfiguration? ForwardedIpConfig;
         public readonly int Limit;
         public readonly Outputs.WebACLStatement? ScopeDownStatement;
 
@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 
             ImmutableArray<Outputs.WebACLRateBasedStatementCustomKey> customKeys,
 
-            Outputs.WebACLForwardedIPConfiguration? forwardedIPConfig,
+            Outputs.WebACLForwardedIPConfiguration? forwardedIpConfig,
 
             int limit,
 
@@ -36,7 +36,7 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
         {
             AggregateKeyType = aggregateKeyType;
             CustomKeys = customKeys;
-            ForwardedIPConfig = forwardedIPConfig;
+            ForwardedIpConfig = forwardedIpConfig;
             Limit = limit;
             ScopeDownStatement = scopeDownStatement;
         }

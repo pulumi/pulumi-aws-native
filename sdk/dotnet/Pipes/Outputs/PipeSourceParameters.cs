@@ -13,20 +13,20 @@ namespace Pulumi.AwsNative.Pipes.Outputs
     [OutputType]
     public sealed class PipeSourceParameters
     {
-        public readonly Outputs.PipeSourceActiveMQBrokerParameters? ActiveMQBrokerParameters;
-        public readonly Outputs.PipeSourceDynamoDBStreamParameters? DynamoDBStreamParameters;
+        public readonly Outputs.PipeSourceActiveMQBrokerParameters? ActiveMqBrokerParameters;
+        public readonly Outputs.PipeSourceDynamoDBStreamParameters? DynamoDbStreamParameters;
         public readonly Outputs.PipeFilterCriteria? FilterCriteria;
         public readonly Outputs.PipeSourceKinesisStreamParameters? KinesisStreamParameters;
         public readonly Outputs.PipeSourceManagedStreamingKafkaParameters? ManagedStreamingKafkaParameters;
-        public readonly Outputs.PipeSourceRabbitMQBrokerParameters? RabbitMQBrokerParameters;
+        public readonly Outputs.PipeSourceRabbitMQBrokerParameters? RabbitMqBrokerParameters;
         public readonly Outputs.PipeSourceSelfManagedKafkaParameters? SelfManagedKafkaParameters;
         public readonly Outputs.PipeSourceSqsQueueParameters? SqsQueueParameters;
 
         [OutputConstructor]
         private PipeSourceParameters(
-            Outputs.PipeSourceActiveMQBrokerParameters? activeMQBrokerParameters,
+            Outputs.PipeSourceActiveMQBrokerParameters? activeMqBrokerParameters,
 
-            Outputs.PipeSourceDynamoDBStreamParameters? dynamoDBStreamParameters,
+            Outputs.PipeSourceDynamoDBStreamParameters? dynamoDbStreamParameters,
 
             Outputs.PipeFilterCriteria? filterCriteria,
 
@@ -34,18 +34,18 @@ namespace Pulumi.AwsNative.Pipes.Outputs
 
             Outputs.PipeSourceManagedStreamingKafkaParameters? managedStreamingKafkaParameters,
 
-            Outputs.PipeSourceRabbitMQBrokerParameters? rabbitMQBrokerParameters,
+            Outputs.PipeSourceRabbitMQBrokerParameters? rabbitMqBrokerParameters,
 
             Outputs.PipeSourceSelfManagedKafkaParameters? selfManagedKafkaParameters,
 
             Outputs.PipeSourceSqsQueueParameters? sqsQueueParameters)
         {
-            ActiveMQBrokerParameters = activeMQBrokerParameters;
-            DynamoDBStreamParameters = dynamoDBStreamParameters;
+            ActiveMqBrokerParameters = activeMqBrokerParameters;
+            DynamoDbStreamParameters = dynamoDbStreamParameters;
             FilterCriteria = filterCriteria;
             KinesisStreamParameters = kinesisStreamParameters;
             ManagedStreamingKafkaParameters = managedStreamingKafkaParameters;
-            RabbitMQBrokerParameters = rabbitMQBrokerParameters;
+            RabbitMqBrokerParameters = rabbitMqBrokerParameters;
             SelfManagedKafkaParameters = selfManagedKafkaParameters;
             SqsQueueParameters = sqsQueueParameters;
         }

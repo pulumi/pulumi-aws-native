@@ -49,7 +49,7 @@ export class Domain extends pulumi.CustomResource {
     public /*out*/ readonly domainEndpoint!: pulumi.Output<string>;
     public readonly domainEndpointOptions!: pulumi.Output<outputs.elasticsearch.DomainEndpointOptions | undefined>;
     public readonly domainName!: pulumi.Output<string | undefined>;
-    public readonly eBSOptions!: pulumi.Output<outputs.elasticsearch.DomainEBSOptions | undefined>;
+    public readonly ebsOptions!: pulumi.Output<outputs.elasticsearch.DomainEBSOptions | undefined>;
     public readonly elasticsearchClusterConfig!: pulumi.Output<outputs.elasticsearch.DomainElasticsearchClusterConfig | undefined>;
     public readonly elasticsearchVersion!: pulumi.Output<string | undefined>;
     public readonly encryptionAtRestOptions!: pulumi.Output<outputs.elasticsearch.DomainEncryptionAtRestOptions | undefined>;
@@ -57,7 +57,7 @@ export class Domain extends pulumi.CustomResource {
     public readonly nodeToNodeEncryptionOptions!: pulumi.Output<outputs.elasticsearch.DomainNodeToNodeEncryptionOptions | undefined>;
     public readonly snapshotOptions!: pulumi.Output<outputs.elasticsearch.DomainSnapshotOptions | undefined>;
     public readonly tags!: pulumi.Output<outputs.elasticsearch.DomainTag[] | undefined>;
-    public readonly vPCOptions!: pulumi.Output<outputs.elasticsearch.DomainVPCOptions | undefined>;
+    public readonly vpcOptions!: pulumi.Output<outputs.elasticsearch.DomainVPCOptions | undefined>;
 
     /**
      * Create a Domain resource with the given unique name, arguments, and options.
@@ -78,7 +78,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["cognitoOptions"] = args ? args.cognitoOptions : undefined;
             resourceInputs["domainEndpointOptions"] = args ? args.domainEndpointOptions : undefined;
             resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["eBSOptions"] = args ? args.eBSOptions : undefined;
+            resourceInputs["ebsOptions"] = args ? args.ebsOptions : undefined;
             resourceInputs["elasticsearchClusterConfig"] = args ? args.elasticsearchClusterConfig : undefined;
             resourceInputs["elasticsearchVersion"] = args ? args.elasticsearchVersion : undefined;
             resourceInputs["encryptionAtRestOptions"] = args ? args.encryptionAtRestOptions : undefined;
@@ -86,7 +86,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["nodeToNodeEncryptionOptions"] = args ? args.nodeToNodeEncryptionOptions : undefined;
             resourceInputs["snapshotOptions"] = args ? args.snapshotOptions : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vPCOptions"] = args ? args.vPCOptions : undefined;
+            resourceInputs["vpcOptions"] = args ? args.vpcOptions : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["domainArn"] = undefined /*out*/;
             resourceInputs["domainEndpoint"] = undefined /*out*/;
@@ -100,7 +100,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["domainEndpoint"] = undefined /*out*/;
             resourceInputs["domainEndpointOptions"] = undefined /*out*/;
             resourceInputs["domainName"] = undefined /*out*/;
-            resourceInputs["eBSOptions"] = undefined /*out*/;
+            resourceInputs["ebsOptions"] = undefined /*out*/;
             resourceInputs["elasticsearchClusterConfig"] = undefined /*out*/;
             resourceInputs["elasticsearchVersion"] = undefined /*out*/;
             resourceInputs["encryptionAtRestOptions"] = undefined /*out*/;
@@ -108,7 +108,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["nodeToNodeEncryptionOptions"] = undefined /*out*/;
             resourceInputs["snapshotOptions"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
-            resourceInputs["vPCOptions"] = undefined /*out*/;
+            resourceInputs["vpcOptions"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Domain.__pulumiType, name, resourceInputs, opts);
@@ -125,7 +125,7 @@ export interface DomainArgs {
     cognitoOptions?: pulumi.Input<inputs.elasticsearch.DomainCognitoOptionsArgs>;
     domainEndpointOptions?: pulumi.Input<inputs.elasticsearch.DomainEndpointOptionsArgs>;
     domainName?: pulumi.Input<string>;
-    eBSOptions?: pulumi.Input<inputs.elasticsearch.DomainEBSOptionsArgs>;
+    ebsOptions?: pulumi.Input<inputs.elasticsearch.DomainEBSOptionsArgs>;
     elasticsearchClusterConfig?: pulumi.Input<inputs.elasticsearch.DomainElasticsearchClusterConfigArgs>;
     elasticsearchVersion?: pulumi.Input<string>;
     encryptionAtRestOptions?: pulumi.Input<inputs.elasticsearch.DomainEncryptionAtRestOptionsArgs>;
@@ -133,5 +133,5 @@ export interface DomainArgs {
     nodeToNodeEncryptionOptions?: pulumi.Input<inputs.elasticsearch.DomainNodeToNodeEncryptionOptionsArgs>;
     snapshotOptions?: pulumi.Input<inputs.elasticsearch.DomainSnapshotOptionsArgs>;
     tags?: pulumi.Input<pulumi.Input<inputs.elasticsearch.DomainTagArgs>[]>;
-    vPCOptions?: pulumi.Input<inputs.elasticsearch.DomainVPCOptionsArgs>;
+    vpcOptions?: pulumi.Input<inputs.elasticsearch.DomainVPCOptionsArgs>;
 }

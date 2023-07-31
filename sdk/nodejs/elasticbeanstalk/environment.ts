@@ -44,12 +44,12 @@ export class Environment extends pulumi.CustomResource {
     /**
      * If specified, the environment attempts to use this value as the prefix for the CNAME in your Elastic Beanstalk environment URL. If not specified, the CNAME is generated automatically by appending a random alphanumeric string to the environment name.
      */
-    public readonly cNAMEPrefix!: pulumi.Output<string | undefined>;
+    public readonly cnamePrefix!: pulumi.Output<string | undefined>;
     /**
      * Your description for this environment.
      */
     public readonly description!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly endpointURL!: pulumi.Output<string>;
+    public /*out*/ readonly endpointUrl!: pulumi.Output<string>;
     /**
      * A unique name for the environment.
      */
@@ -102,7 +102,7 @@ export class Environment extends pulumi.CustomResource {
                 throw new Error("Missing required property 'applicationName'");
             }
             resourceInputs["applicationName"] = args ? args.applicationName : undefined;
-            resourceInputs["cNAMEPrefix"] = args ? args.cNAMEPrefix : undefined;
+            resourceInputs["cnamePrefix"] = args ? args.cnamePrefix : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["environmentName"] = args ? args.environmentName : undefined;
             resourceInputs["operationsRole"] = args ? args.operationsRole : undefined;
@@ -113,12 +113,12 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["templateName"] = args ? args.templateName : undefined;
             resourceInputs["tier"] = args ? args.tier : undefined;
             resourceInputs["versionLabel"] = args ? args.versionLabel : undefined;
-            resourceInputs["endpointURL"] = undefined /*out*/;
+            resourceInputs["endpointUrl"] = undefined /*out*/;
         } else {
             resourceInputs["applicationName"] = undefined /*out*/;
-            resourceInputs["cNAMEPrefix"] = undefined /*out*/;
+            resourceInputs["cnamePrefix"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
-            resourceInputs["endpointURL"] = undefined /*out*/;
+            resourceInputs["endpointUrl"] = undefined /*out*/;
             resourceInputs["environmentName"] = undefined /*out*/;
             resourceInputs["operationsRole"] = undefined /*out*/;
             resourceInputs["optionSettings"] = undefined /*out*/;
@@ -145,7 +145,7 @@ export interface EnvironmentArgs {
     /**
      * If specified, the environment attempts to use this value as the prefix for the CNAME in your Elastic Beanstalk environment URL. If not specified, the CNAME is generated automatically by appending a random alphanumeric string to the environment name.
      */
-    cNAMEPrefix?: pulumi.Input<string>;
+    cnamePrefix?: pulumi.Input<string>;
     /**
      * Your description for this environment.
      */

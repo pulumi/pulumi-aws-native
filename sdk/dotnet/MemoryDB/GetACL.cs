@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.MemoryDB
         /// <summary>
         /// The name of the acl.
         /// </summary>
-        [Input("aCLName", required: true)]
-        public string ACLName { get; set; } = null!;
+        [Input("aclName", required: true)]
+        public string AclName { get; set; } = null!;
 
         public GetACLArgs()
         {
@@ -44,8 +44,8 @@ namespace Pulumi.AwsNative.MemoryDB
         /// <summary>
         /// The name of the acl.
         /// </summary>
-        [Input("aCLName", required: true)]
-        public Input<string> ACLName { get; set; } = null!;
+        [Input("aclName", required: true)]
+        public Input<string> AclName { get; set; } = null!;
 
         public GetACLInvokeArgs()
         {

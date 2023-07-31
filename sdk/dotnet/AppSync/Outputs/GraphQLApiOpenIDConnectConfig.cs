@@ -13,24 +13,24 @@ namespace Pulumi.AwsNative.AppSync.Outputs
     [OutputType]
     public sealed class GraphQLApiOpenIDConnectConfig
     {
-        public readonly double? AuthTTL;
+        public readonly double? AuthTtl;
         public readonly string? ClientId;
-        public readonly double? IatTTL;
+        public readonly double? IatTtl;
         public readonly string? Issuer;
 
         [OutputConstructor]
         private GraphQLApiOpenIDConnectConfig(
-            double? authTTL,
+            double? authTtl,
 
             string? clientId,
 
-            double? iatTTL,
+            double? iatTtl,
 
             string? issuer)
         {
-            AuthTTL = authTTL;
+            AuthTtl = authTtl;
             ClientId = clientId;
-            IatTTL = iatTTL;
+            IatTtl = iatTtl;
             Issuer = issuer;
         }
     }

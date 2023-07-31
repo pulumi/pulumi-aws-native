@@ -488,16 +488,16 @@ class EventSourceMappingSelfManagedKafkaEventSourceConfigArgs:
 class EventSourceMappingSourceAccessConfigurationArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input['EventSourceMappingSourceAccessConfigurationType']] = None,
-                 u_ri: Optional[pulumi.Input[str]] = None):
+                 uri: Optional[pulumi.Input[str]] = None):
         """
         The configuration used by AWS Lambda to access event source
         :param pulumi.Input['EventSourceMappingSourceAccessConfigurationType'] type: The type of source access configuration.
-        :param pulumi.Input[str] u_ri: The URI for the source access configuration resource.
+        :param pulumi.Input[str] uri: The URI for the source access configuration resource.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
-        if u_ri is not None:
-            pulumi.set(__self__, "u_ri", u_ri)
+        if uri is not None:
+            pulumi.set(__self__, "uri", uri)
 
     @property
     @pulumi.getter
@@ -512,16 +512,16 @@ class EventSourceMappingSourceAccessConfigurationArgs:
         pulumi.set(self, "type", value)
 
     @property
-    @pulumi.getter(name="uRI")
-    def u_ri(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter
+    def uri(self) -> Optional[pulumi.Input[str]]:
         """
         The URI for the source access configuration resource.
         """
-        return pulumi.get(self, "u_ri")
+        return pulumi.get(self, "uri")
 
-    @u_ri.setter
-    def u_ri(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "u_ri", value)
+    @uri.setter
+    def uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "uri", value)
 
 
 @pulumi.input_type

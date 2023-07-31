@@ -35,7 +35,7 @@ class StackArgs:
             pulumi.set(__self__, "timeout_in_minutes", timeout_in_minutes)
 
     @property
-    @pulumi.getter(name="templateURL")
+    @pulumi.getter(name="templateUrl")
     def template_url(self) -> pulumi.Input[str]:
         return pulumi.get(self, "template_url")
 
@@ -44,7 +44,7 @@ class StackArgs:
         pulumi.set(self, "template_url", value)
 
     @property
-    @pulumi.getter(name="notificationARNs")
+    @pulumi.getter(name="notificationArns")
     def notification_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         return pulumi.get(self, "notification_arns")
 
@@ -178,7 +178,7 @@ class Stack(pulumi.CustomResource):
         return Stack(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="notificationARNs")
+    @pulumi.getter(name="notificationArns")
     def notification_arns(self) -> pulumi.Output[Optional[Sequence[str]]]:
         return pulumi.get(self, "notification_arns")
 
@@ -193,7 +193,7 @@ class Stack(pulumi.CustomResource):
         return pulumi.get(self, "tags")
 
     @property
-    @pulumi.getter(name="templateURL")
+    @pulumi.getter(name="templateUrl")
     def template_url(self) -> pulumi.Output[str]:
         return pulumi.get(self, "template_url")
 

@@ -12,8 +12,8 @@ namespace Pulumi.AwsNative.MSK.Inputs
 
     public sealed class ClusterStorageInfoArgs : global::Pulumi.ResourceArgs
     {
-        [Input("eBSStorageInfo")]
-        public Input<Inputs.ClusterEBSStorageInfoArgs>? EBSStorageInfo { get; set; }
+        [Input("ebsStorageInfo")]
+        public Input<Inputs.ClusterEBSStorageInfoArgs>? EbsStorageInfo { get; set; }
 
         public ClusterStorageInfoArgs()
         {

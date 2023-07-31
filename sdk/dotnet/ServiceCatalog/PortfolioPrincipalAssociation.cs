@@ -22,8 +22,8 @@ namespace Pulumi.AwsNative.ServiceCatalog
         [Output("portfolioId")]
         public Output<string> PortfolioId { get; private set; } = null!;
 
-        [Output("principalARN")]
-        public Output<string> PrincipalARN { get; private set; } = null!;
+        [Output("principalArn")]
+        public Output<string> PrincipalArn { get; private set; } = null!;
 
         [Output("principalType")]
         public Output<string> PrincipalType { get; private set; } = null!;
@@ -79,8 +79,8 @@ namespace Pulumi.AwsNative.ServiceCatalog
         [Input("portfolioId", required: true)]
         public Input<string> PortfolioId { get; set; } = null!;
 
-        [Input("principalARN", required: true)]
-        public Input<string> PrincipalARN { get; set; } = null!;
+        [Input("principalArn", required: true)]
+        public Input<string> PrincipalArn { get; set; } = null!;
 
         [Input("principalType", required: true)]
         public Input<string> PrincipalType { get; set; } = null!;

@@ -34,9 +34,9 @@ type LookupStackResult struct {
 	Description                 *string                           `pulumi:"description"`
 	DisplayName                 *string                           `pulumi:"displayName"`
 	EmbedHostDomains            []string                          `pulumi:"embedHostDomains"`
-	FeedbackURL                 *string                           `pulumi:"feedbackURL"`
+	FeedbackUrl                 *string                           `pulumi:"feedbackUrl"`
 	Id                          *string                           `pulumi:"id"`
-	RedirectURL                 *string                           `pulumi:"redirectURL"`
+	RedirectUrl                 *string                           `pulumi:"redirectUrl"`
 	StorageConnectors           []StackStorageConnector           `pulumi:"storageConnectors"`
 	StreamingExperienceSettings *StackStreamingExperienceSettings `pulumi:"streamingExperienceSettings"`
 	Tags                        []StackTag                        `pulumi:"tags"`
@@ -106,16 +106,16 @@ func (o LookupStackResultOutput) EmbedHostDomains() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupStackResult) []string { return v.EmbedHostDomains }).(pulumi.StringArrayOutput)
 }
 
-func (o LookupStackResultOutput) FeedbackURL() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupStackResult) *string { return v.FeedbackURL }).(pulumi.StringPtrOutput)
+func (o LookupStackResultOutput) FeedbackUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStackResult) *string { return v.FeedbackUrl }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupStackResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStackResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupStackResultOutput) RedirectURL() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupStackResult) *string { return v.RedirectURL }).(pulumi.StringPtrOutput)
+func (o LookupStackResultOutput) RedirectUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStackResult) *string { return v.RedirectUrl }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupStackResultOutput) StorageConnectors() StackStorageConnectorArrayOutput {

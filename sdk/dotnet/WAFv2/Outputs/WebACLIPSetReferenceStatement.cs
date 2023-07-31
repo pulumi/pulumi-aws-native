@@ -14,16 +14,16 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
     public sealed class WebACLIPSetReferenceStatement
     {
         public readonly string Arn;
-        public readonly Outputs.WebACLIPSetForwardedIPConfiguration? IPSetForwardedIPConfig;
+        public readonly Outputs.WebACLIPSetForwardedIPConfiguration? IpSetForwardedIpConfig;
 
         [OutputConstructor]
         private WebACLIPSetReferenceStatement(
             string arn,
 
-            Outputs.WebACLIPSetForwardedIPConfiguration? iPSetForwardedIPConfig)
+            Outputs.WebACLIPSetForwardedIPConfiguration? ipSetForwardedIpConfig)
         {
             Arn = arn;
-            IPSetForwardedIPConfig = iPSetForwardedIPConfig;
+            IpSetForwardedIpConfig = ipSetForwardedIpConfig;
         }
     }
 }

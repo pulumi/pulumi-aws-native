@@ -18,8 +18,8 @@ namespace Pulumi.AwsNative.WAFv2
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
 
-        [Output("webACLArn")]
-        public Output<string> WebACLArn { get; private set; } = null!;
+        [Output("webAclArn")]
+        public Output<string> WebAclArn { get; private set; } = null!;
 
 
         /// <summary>
@@ -69,8 +69,8 @@ namespace Pulumi.AwsNative.WAFv2
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
 
-        [Input("webACLArn", required: true)]
-        public Input<string> WebACLArn { get; set; } = null!;
+        [Input("webAclArn", required: true)]
+        public Input<string> WebAclArn { get; set; } = null!;
 
         public WebACLAssociationArgs()
         {

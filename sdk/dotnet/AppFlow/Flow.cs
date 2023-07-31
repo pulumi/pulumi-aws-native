@@ -48,8 +48,8 @@ namespace Pulumi.AwsNative.AppFlow
         /// <summary>
         /// The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
         /// </summary>
-        [Output("kMSArn")]
-        public Output<string?> KMSArn { get; private set; } = null!;
+        [Output("kmsArn")]
+        public Output<string?> KmsArn { get; private set; } = null!;
 
         /// <summary>
         /// Configurations of metadata catalog of the flow.
@@ -159,8 +159,8 @@ namespace Pulumi.AwsNative.AppFlow
         /// <summary>
         /// The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
         /// </summary>
-        [Input("kMSArn")]
-        public Input<string>? KMSArn { get; set; }
+        [Input("kmsArn")]
+        public Input<string>? KmsArn { get; set; }
 
         /// <summary>
         /// Configurations of metadata catalog of the flow.

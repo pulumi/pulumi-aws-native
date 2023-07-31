@@ -353,8 +353,8 @@ class ResourceSetTargetResource(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "nLBResource":
-            suggest = "n_lb_resource"
+        if key == "nlbResource":
+            suggest = "nlb_resource"
         elif key == "r53Resource":
             suggest = "r53_resource"
 
@@ -370,20 +370,20 @@ class ResourceSetTargetResource(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 n_lb_resource: Optional['outputs.ResourceSetNLBResource'] = None,
+                 nlb_resource: Optional['outputs.ResourceSetNLBResource'] = None,
                  r53_resource: Optional['outputs.ResourceSetR53ResourceRecord'] = None):
         """
         The target resource that the Route 53 record points to.
         """
-        if n_lb_resource is not None:
-            pulumi.set(__self__, "n_lb_resource", n_lb_resource)
+        if nlb_resource is not None:
+            pulumi.set(__self__, "nlb_resource", nlb_resource)
         if r53_resource is not None:
             pulumi.set(__self__, "r53_resource", r53_resource)
 
     @property
-    @pulumi.getter(name="nLBResource")
-    def n_lb_resource(self) -> Optional['outputs.ResourceSetNLBResource']:
-        return pulumi.get(self, "n_lb_resource")
+    @pulumi.getter(name="nlbResource")
+    def nlb_resource(self) -> Optional['outputs.ResourceSetNLBResource']:
+        return pulumi.get(self, "nlb_resource")
 
     @property
     @pulumi.getter(name="r53Resource")

@@ -21,14 +21,14 @@ namespace Pulumi.AwsNative.Cognito.Inputs
         [Input("customMessage")]
         public Input<string>? CustomMessage { get; set; }
 
-        [Input("customSMSSender")]
-        public Input<Inputs.UserPoolCustomSMSSenderArgs>? CustomSMSSender { get; set; }
+        [Input("customSmsSender")]
+        public Input<Inputs.UserPoolCustomSMSSenderArgs>? CustomSmsSender { get; set; }
 
         [Input("defineAuthChallenge")]
         public Input<string>? DefineAuthChallenge { get; set; }
 
-        [Input("kMSKeyID")]
-        public Input<string>? KMSKeyID { get; set; }
+        [Input("kmsKeyId")]
+        public Input<string>? KmsKeyId { get; set; }
 
         [Input("postAuthentication")]
         public Input<string>? PostAuthentication { get; set; }

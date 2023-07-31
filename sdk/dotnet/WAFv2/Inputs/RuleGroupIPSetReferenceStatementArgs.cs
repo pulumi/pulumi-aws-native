@@ -15,8 +15,8 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
-        [Input("iPSetForwardedIPConfig")]
-        public Input<Inputs.RuleGroupIPSetForwardedIPConfigurationArgs>? IPSetForwardedIPConfig { get; set; }
+        [Input("ipSetForwardedIpConfig")]
+        public Input<Inputs.RuleGroupIPSetForwardedIPConfigurationArgs>? IpSetForwardedIpConfig { get; set; }
 
         public RuleGroupIPSetReferenceStatementArgs()
         {

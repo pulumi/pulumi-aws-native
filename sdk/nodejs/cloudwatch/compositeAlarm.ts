@@ -77,7 +77,7 @@ export class CompositeAlarm extends pulumi.CustomResource {
     /**
      * The actions to execute when this alarm transitions to the OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
      */
-    public readonly oKActions!: pulumi.Output<string[] | undefined>;
+    public readonly okActions!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a CompositeAlarm resource with the given unique name, arguments, and options.
@@ -102,7 +102,7 @@ export class CompositeAlarm extends pulumi.CustomResource {
             resourceInputs["alarmName"] = args ? args.alarmName : undefined;
             resourceInputs["alarmRule"] = args ? args.alarmRule : undefined;
             resourceInputs["insufficientDataActions"] = args ? args.insufficientDataActions : undefined;
-            resourceInputs["oKActions"] = args ? args.oKActions : undefined;
+            resourceInputs["okActions"] = args ? args.okActions : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["actionsEnabled"] = undefined /*out*/;
@@ -115,7 +115,7 @@ export class CompositeAlarm extends pulumi.CustomResource {
             resourceInputs["alarmRule"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["insufficientDataActions"] = undefined /*out*/;
-            resourceInputs["oKActions"] = undefined /*out*/;
+            resourceInputs["okActions"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CompositeAlarm.__pulumiType, name, resourceInputs, opts);
@@ -165,5 +165,5 @@ export interface CompositeAlarmArgs {
     /**
      * The actions to execute when this alarm transitions to the OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
      */
-    oKActions?: pulumi.Input<pulumi.Input<string>[]>;
+    okActions?: pulumi.Input<pulumi.Input<string>[]>;
 }

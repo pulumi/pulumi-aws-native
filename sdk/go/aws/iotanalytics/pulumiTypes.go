@@ -2371,7 +2371,7 @@ func (o DatasetQueryActionPtrOutput) SqlQuery() pulumi.StringPtrOutput {
 
 type DatasetResourceConfiguration struct {
 	ComputeType    DatasetResourceConfigurationComputeType `pulumi:"computeType"`
-	VolumeSizeInGB int                                     `pulumi:"volumeSizeInGB"`
+	VolumeSizeInGb int                                     `pulumi:"volumeSizeInGb"`
 }
 
 // DatasetResourceConfigurationInput is an input type that accepts DatasetResourceConfigurationArgs and DatasetResourceConfigurationOutput values.
@@ -2387,7 +2387,7 @@ type DatasetResourceConfigurationInput interface {
 
 type DatasetResourceConfigurationArgs struct {
 	ComputeType    DatasetResourceConfigurationComputeTypeInput `pulumi:"computeType"`
-	VolumeSizeInGB pulumi.IntInput                              `pulumi:"volumeSizeInGB"`
+	VolumeSizeInGb pulumi.IntInput                              `pulumi:"volumeSizeInGb"`
 }
 
 func (DatasetResourceConfigurationArgs) ElementType() reflect.Type {
@@ -2471,8 +2471,8 @@ func (o DatasetResourceConfigurationOutput) ComputeType() DatasetResourceConfigu
 	return o.ApplyT(func(v DatasetResourceConfiguration) DatasetResourceConfigurationComputeType { return v.ComputeType }).(DatasetResourceConfigurationComputeTypeOutput)
 }
 
-func (o DatasetResourceConfigurationOutput) VolumeSizeInGB() pulumi.IntOutput {
-	return o.ApplyT(func(v DatasetResourceConfiguration) int { return v.VolumeSizeInGB }).(pulumi.IntOutput)
+func (o DatasetResourceConfigurationOutput) VolumeSizeInGb() pulumi.IntOutput {
+	return o.ApplyT(func(v DatasetResourceConfiguration) int { return v.VolumeSizeInGb }).(pulumi.IntOutput)
 }
 
 type DatasetResourceConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -2508,12 +2508,12 @@ func (o DatasetResourceConfigurationPtrOutput) ComputeType() DatasetResourceConf
 	}).(DatasetResourceConfigurationComputeTypePtrOutput)
 }
 
-func (o DatasetResourceConfigurationPtrOutput) VolumeSizeInGB() pulumi.IntPtrOutput {
+func (o DatasetResourceConfigurationPtrOutput) VolumeSizeInGb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DatasetResourceConfiguration) *int {
 		if v == nil {
 			return nil
 		}
-		return &v.VolumeSizeInGB
+		return &v.VolumeSizeInGb
 	}).(pulumi.IntPtrOutput)
 }
 

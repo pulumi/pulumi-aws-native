@@ -22,7 +22,7 @@ class CustomDBEngineVersionArgs:
                  engine_version: pulumi.Input[str],
                  database_installation_files_s3_prefix: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 k_ms_key_id: Optional[pulumi.Input[str]] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
                  manifest: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input['CustomDBEngineVersionStatus']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDBEngineVersionTagArgs']]]] = None):
@@ -33,7 +33,7 @@ class CustomDBEngineVersionArgs:
         :param pulumi.Input[str] engine_version: The name of your CEV. The name format is 19.customized_string . For example, a valid name is 19.my_cev1. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of Engine and EngineVersion is unique per customer per Region.
         :param pulumi.Input[str] database_installation_files_s3_prefix: The Amazon S3 directory that contains the database installation files for your CEV. For example, a valid bucket name is `123456789012/cev1`. If this setting isn't specified, no prefix is assumed.
         :param pulumi.Input[str] description: An optional description of your CEV.
-        :param pulumi.Input[str] k_ms_key_id: The AWS KMS key identifier for an encrypted CEV. A symmetric KMS key is required for RDS Custom, but optional for Amazon RDS.
+        :param pulumi.Input[str] kms_key_id: The AWS KMS key identifier for an encrypted CEV. A symmetric KMS key is required for RDS Custom, but optional for Amazon RDS.
         :param pulumi.Input[str] manifest: The CEV manifest, which is a JSON document that describes the installation .zip files stored in Amazon S3. Specify the name/value pairs in a file or a quoted string. RDS Custom applies the patches in the order in which they are listed.
         :param pulumi.Input['CustomDBEngineVersionStatus'] status: The availability status to be assigned to the CEV.
         :param pulumi.Input[Sequence[pulumi.Input['CustomDBEngineVersionTagArgs']]] tags: An array of key-value pairs to apply to this resource.
@@ -45,8 +45,8 @@ class CustomDBEngineVersionArgs:
             pulumi.set(__self__, "database_installation_files_s3_prefix", database_installation_files_s3_prefix)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if k_ms_key_id is not None:
-            pulumi.set(__self__, "k_ms_key_id", k_ms_key_id)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if manifest is not None:
             pulumi.set(__self__, "manifest", manifest)
         if status is not None:
@@ -115,16 +115,16 @@ class CustomDBEngineVersionArgs:
         pulumi.set(self, "description", value)
 
     @property
-    @pulumi.getter(name="kMSKeyId")
-    def k_ms_key_id(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
         """
         The AWS KMS key identifier for an encrypted CEV. A symmetric KMS key is required for RDS Custom, but optional for Amazon RDS.
         """
-        return pulumi.get(self, "k_ms_key_id")
+        return pulumi.get(self, "kms_key_id")
 
-    @k_ms_key_id.setter
-    def k_ms_key_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "k_ms_key_id", value)
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_id", value)
 
     @property
     @pulumi.getter
@@ -173,7 +173,7 @@ class CustomDBEngineVersion(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
-                 k_ms_key_id: Optional[pulumi.Input[str]] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
                  manifest: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input['CustomDBEngineVersionStatus']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDBEngineVersionTagArgs']]]]] = None,
@@ -188,7 +188,7 @@ class CustomDBEngineVersion(pulumi.CustomResource):
         :param pulumi.Input[str] description: An optional description of your CEV.
         :param pulumi.Input[str] engine: The database engine to use for your custom engine version (CEV). The only supported value is `custom-oracle-ee`.
         :param pulumi.Input[str] engine_version: The name of your CEV. The name format is 19.customized_string . For example, a valid name is 19.my_cev1. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of Engine and EngineVersion is unique per customer per Region.
-        :param pulumi.Input[str] k_ms_key_id: The AWS KMS key identifier for an encrypted CEV. A symmetric KMS key is required for RDS Custom, but optional for Amazon RDS.
+        :param pulumi.Input[str] kms_key_id: The AWS KMS key identifier for an encrypted CEV. A symmetric KMS key is required for RDS Custom, but optional for Amazon RDS.
         :param pulumi.Input[str] manifest: The CEV manifest, which is a JSON document that describes the installation .zip files stored in Amazon S3. Specify the name/value pairs in a file or a quoted string. RDS Custom applies the patches in the order in which they are listed.
         :param pulumi.Input['CustomDBEngineVersionStatus'] status: The availability status to be assigned to the CEV.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDBEngineVersionTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
@@ -222,7 +222,7 @@ class CustomDBEngineVersion(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
-                 k_ms_key_id: Optional[pulumi.Input[str]] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
                  manifest: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input['CustomDBEngineVersionStatus']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDBEngineVersionTagArgs']]]]] = None,
@@ -246,11 +246,11 @@ class CustomDBEngineVersion(pulumi.CustomResource):
             if engine_version is None and not opts.urn:
                 raise TypeError("Missing required property 'engine_version'")
             __props__.__dict__["engine_version"] = engine_version
-            __props__.__dict__["k_ms_key_id"] = k_ms_key_id
+            __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["manifest"] = manifest
             __props__.__dict__["status"] = status
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["d_b_engine_version_arn"] = None
+            __props__.__dict__["db_engine_version_arn"] = None
         super(CustomDBEngineVersion, __self__).__init__(
             'aws-native:rds:CustomDBEngineVersion',
             resource_name,
@@ -273,25 +273,17 @@ class CustomDBEngineVersion(pulumi.CustomResource):
 
         __props__ = CustomDBEngineVersionArgs.__new__(CustomDBEngineVersionArgs)
 
-        __props__.__dict__["d_b_engine_version_arn"] = None
         __props__.__dict__["database_installation_files_s3_bucket_name"] = None
         __props__.__dict__["database_installation_files_s3_prefix"] = None
+        __props__.__dict__["db_engine_version_arn"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["engine"] = None
         __props__.__dict__["engine_version"] = None
-        __props__.__dict__["k_ms_key_id"] = None
+        __props__.__dict__["kms_key_id"] = None
         __props__.__dict__["manifest"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["tags"] = None
         return CustomDBEngineVersion(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="dBEngineVersionArn")
-    def d_b_engine_version_arn(self) -> pulumi.Output[str]:
-        """
-        The ARN of the custom engine version.
-        """
-        return pulumi.get(self, "d_b_engine_version_arn")
 
     @property
     @pulumi.getter(name="databaseInstallationFilesS3BucketName")
@@ -308,6 +300,14 @@ class CustomDBEngineVersion(pulumi.CustomResource):
         The Amazon S3 directory that contains the database installation files for your CEV. For example, a valid bucket name is `123456789012/cev1`. If this setting isn't specified, no prefix is assumed.
         """
         return pulumi.get(self, "database_installation_files_s3_prefix")
+
+    @property
+    @pulumi.getter(name="dbEngineVersionArn")
+    def db_engine_version_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the custom engine version.
+        """
+        return pulumi.get(self, "db_engine_version_arn")
 
     @property
     @pulumi.getter
@@ -334,12 +334,12 @@ class CustomDBEngineVersion(pulumi.CustomResource):
         return pulumi.get(self, "engine_version")
 
     @property
-    @pulumi.getter(name="kMSKeyId")
-    def k_ms_key_id(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> pulumi.Output[Optional[str]]:
         """
         The AWS KMS key identifier for an encrypted CEV. A symmetric KMS key is required for RDS Custom, but optional for Amazon RDS.
         """
-        return pulumi.get(self, "k_ms_key_id")
+        return pulumi.get(self, "kms_key_id")
 
     @property
     @pulumi.getter

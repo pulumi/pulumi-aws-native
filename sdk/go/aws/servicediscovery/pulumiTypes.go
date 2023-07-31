@@ -114,7 +114,7 @@ func (o HttpNamespaceTagArrayOutput) Index(i pulumi.IntInput) HttpNamespaceTagOu
 }
 
 type PrivateDnsNamespacePrivateDnsPropertiesMutable struct {
-	SOA *PrivateDnsNamespaceSOA `pulumi:"sOA"`
+	Soa *PrivateDnsNamespaceSOA `pulumi:"soa"`
 }
 
 // PrivateDnsNamespacePrivateDnsPropertiesMutableInput is an input type that accepts PrivateDnsNamespacePrivateDnsPropertiesMutableArgs and PrivateDnsNamespacePrivateDnsPropertiesMutableOutput values.
@@ -129,7 +129,7 @@ type PrivateDnsNamespacePrivateDnsPropertiesMutableInput interface {
 }
 
 type PrivateDnsNamespacePrivateDnsPropertiesMutableArgs struct {
-	SOA PrivateDnsNamespaceSOAPtrInput `pulumi:"sOA"`
+	Soa PrivateDnsNamespaceSOAPtrInput `pulumi:"soa"`
 }
 
 func (PrivateDnsNamespacePrivateDnsPropertiesMutableArgs) ElementType() reflect.Type {
@@ -209,8 +209,8 @@ func (o PrivateDnsNamespacePrivateDnsPropertiesMutableOutput) ToPrivateDnsNamesp
 	}).(PrivateDnsNamespacePrivateDnsPropertiesMutablePtrOutput)
 }
 
-func (o PrivateDnsNamespacePrivateDnsPropertiesMutableOutput) SOA() PrivateDnsNamespaceSOAPtrOutput {
-	return o.ApplyT(func(v PrivateDnsNamespacePrivateDnsPropertiesMutable) *PrivateDnsNamespaceSOA { return v.SOA }).(PrivateDnsNamespaceSOAPtrOutput)
+func (o PrivateDnsNamespacePrivateDnsPropertiesMutableOutput) Soa() PrivateDnsNamespaceSOAPtrOutput {
+	return o.ApplyT(func(v PrivateDnsNamespacePrivateDnsPropertiesMutable) *PrivateDnsNamespaceSOA { return v.Soa }).(PrivateDnsNamespaceSOAPtrOutput)
 }
 
 type PrivateDnsNamespacePrivateDnsPropertiesMutablePtrOutput struct{ *pulumi.OutputState }
@@ -237,12 +237,12 @@ func (o PrivateDnsNamespacePrivateDnsPropertiesMutablePtrOutput) Elem() PrivateD
 	}).(PrivateDnsNamespacePrivateDnsPropertiesMutableOutput)
 }
 
-func (o PrivateDnsNamespacePrivateDnsPropertiesMutablePtrOutput) SOA() PrivateDnsNamespaceSOAPtrOutput {
+func (o PrivateDnsNamespacePrivateDnsPropertiesMutablePtrOutput) Soa() PrivateDnsNamespaceSOAPtrOutput {
 	return o.ApplyT(func(v *PrivateDnsNamespacePrivateDnsPropertiesMutable) *PrivateDnsNamespaceSOA {
 		if v == nil {
 			return nil
 		}
-		return v.SOA
+		return v.Soa
 	}).(PrivateDnsNamespaceSOAPtrOutput)
 }
 
@@ -382,7 +382,7 @@ func (o PrivateDnsNamespacePropertiesPtrOutput) DnsProperties() PrivateDnsNamesp
 }
 
 type PrivateDnsNamespaceSOA struct {
-	TTL *float64 `pulumi:"tTL"`
+	Ttl *float64 `pulumi:"ttl"`
 }
 
 // PrivateDnsNamespaceSOAInput is an input type that accepts PrivateDnsNamespaceSOAArgs and PrivateDnsNamespaceSOAOutput values.
@@ -397,7 +397,7 @@ type PrivateDnsNamespaceSOAInput interface {
 }
 
 type PrivateDnsNamespaceSOAArgs struct {
-	TTL pulumi.Float64PtrInput `pulumi:"tTL"`
+	Ttl pulumi.Float64PtrInput `pulumi:"ttl"`
 }
 
 func (PrivateDnsNamespaceSOAArgs) ElementType() reflect.Type {
@@ -477,8 +477,8 @@ func (o PrivateDnsNamespaceSOAOutput) ToPrivateDnsNamespaceSOAPtrOutputWithConte
 	}).(PrivateDnsNamespaceSOAPtrOutput)
 }
 
-func (o PrivateDnsNamespaceSOAOutput) TTL() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v PrivateDnsNamespaceSOA) *float64 { return v.TTL }).(pulumi.Float64PtrOutput)
+func (o PrivateDnsNamespaceSOAOutput) Ttl() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v PrivateDnsNamespaceSOA) *float64 { return v.Ttl }).(pulumi.Float64PtrOutput)
 }
 
 type PrivateDnsNamespaceSOAPtrOutput struct{ *pulumi.OutputState }
@@ -505,12 +505,12 @@ func (o PrivateDnsNamespaceSOAPtrOutput) Elem() PrivateDnsNamespaceSOAOutput {
 	}).(PrivateDnsNamespaceSOAOutput)
 }
 
-func (o PrivateDnsNamespaceSOAPtrOutput) TTL() pulumi.Float64PtrOutput {
+func (o PrivateDnsNamespaceSOAPtrOutput) Ttl() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *PrivateDnsNamespaceSOA) *float64 {
 		if v == nil {
 			return nil
 		}
-		return v.TTL
+		return v.Ttl
 	}).(pulumi.Float64PtrOutput)
 }
 
@@ -750,7 +750,7 @@ func (o PublicDnsNamespacePropertiesPtrOutput) DnsProperties() PublicDnsNamespac
 }
 
 type PublicDnsNamespacePublicDnsPropertiesMutable struct {
-	SOA *PublicDnsNamespaceSOA `pulumi:"sOA"`
+	Soa *PublicDnsNamespaceSOA `pulumi:"soa"`
 }
 
 // PublicDnsNamespacePublicDnsPropertiesMutableInput is an input type that accepts PublicDnsNamespacePublicDnsPropertiesMutableArgs and PublicDnsNamespacePublicDnsPropertiesMutableOutput values.
@@ -765,7 +765,7 @@ type PublicDnsNamespacePublicDnsPropertiesMutableInput interface {
 }
 
 type PublicDnsNamespacePublicDnsPropertiesMutableArgs struct {
-	SOA PublicDnsNamespaceSOAPtrInput `pulumi:"sOA"`
+	Soa PublicDnsNamespaceSOAPtrInput `pulumi:"soa"`
 }
 
 func (PublicDnsNamespacePublicDnsPropertiesMutableArgs) ElementType() reflect.Type {
@@ -845,8 +845,8 @@ func (o PublicDnsNamespacePublicDnsPropertiesMutableOutput) ToPublicDnsNamespace
 	}).(PublicDnsNamespacePublicDnsPropertiesMutablePtrOutput)
 }
 
-func (o PublicDnsNamespacePublicDnsPropertiesMutableOutput) SOA() PublicDnsNamespaceSOAPtrOutput {
-	return o.ApplyT(func(v PublicDnsNamespacePublicDnsPropertiesMutable) *PublicDnsNamespaceSOA { return v.SOA }).(PublicDnsNamespaceSOAPtrOutput)
+func (o PublicDnsNamespacePublicDnsPropertiesMutableOutput) Soa() PublicDnsNamespaceSOAPtrOutput {
+	return o.ApplyT(func(v PublicDnsNamespacePublicDnsPropertiesMutable) *PublicDnsNamespaceSOA { return v.Soa }).(PublicDnsNamespaceSOAPtrOutput)
 }
 
 type PublicDnsNamespacePublicDnsPropertiesMutablePtrOutput struct{ *pulumi.OutputState }
@@ -873,17 +873,17 @@ func (o PublicDnsNamespacePublicDnsPropertiesMutablePtrOutput) Elem() PublicDnsN
 	}).(PublicDnsNamespacePublicDnsPropertiesMutableOutput)
 }
 
-func (o PublicDnsNamespacePublicDnsPropertiesMutablePtrOutput) SOA() PublicDnsNamespaceSOAPtrOutput {
+func (o PublicDnsNamespacePublicDnsPropertiesMutablePtrOutput) Soa() PublicDnsNamespaceSOAPtrOutput {
 	return o.ApplyT(func(v *PublicDnsNamespacePublicDnsPropertiesMutable) *PublicDnsNamespaceSOA {
 		if v == nil {
 			return nil
 		}
-		return v.SOA
+		return v.Soa
 	}).(PublicDnsNamespaceSOAPtrOutput)
 }
 
 type PublicDnsNamespaceSOA struct {
-	TTL *float64 `pulumi:"tTL"`
+	Ttl *float64 `pulumi:"ttl"`
 }
 
 // PublicDnsNamespaceSOAInput is an input type that accepts PublicDnsNamespaceSOAArgs and PublicDnsNamespaceSOAOutput values.
@@ -898,7 +898,7 @@ type PublicDnsNamespaceSOAInput interface {
 }
 
 type PublicDnsNamespaceSOAArgs struct {
-	TTL pulumi.Float64PtrInput `pulumi:"tTL"`
+	Ttl pulumi.Float64PtrInput `pulumi:"ttl"`
 }
 
 func (PublicDnsNamespaceSOAArgs) ElementType() reflect.Type {
@@ -978,8 +978,8 @@ func (o PublicDnsNamespaceSOAOutput) ToPublicDnsNamespaceSOAPtrOutputWithContext
 	}).(PublicDnsNamespaceSOAPtrOutput)
 }
 
-func (o PublicDnsNamespaceSOAOutput) TTL() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v PublicDnsNamespaceSOA) *float64 { return v.TTL }).(pulumi.Float64PtrOutput)
+func (o PublicDnsNamespaceSOAOutput) Ttl() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v PublicDnsNamespaceSOA) *float64 { return v.Ttl }).(pulumi.Float64PtrOutput)
 }
 
 type PublicDnsNamespaceSOAPtrOutput struct{ *pulumi.OutputState }
@@ -1006,12 +1006,12 @@ func (o PublicDnsNamespaceSOAPtrOutput) Elem() PublicDnsNamespaceSOAOutput {
 	}).(PublicDnsNamespaceSOAOutput)
 }
 
-func (o PublicDnsNamespaceSOAPtrOutput) TTL() pulumi.Float64PtrOutput {
+func (o PublicDnsNamespaceSOAPtrOutput) Ttl() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *PublicDnsNamespaceSOA) *float64 {
 		if v == nil {
 			return nil
 		}
-		return v.TTL
+		return v.Ttl
 	}).(pulumi.Float64PtrOutput)
 }
 
@@ -1279,7 +1279,7 @@ func (o ServiceDnsConfigPtrOutput) RoutingPolicy() pulumi.StringPtrOutput {
 }
 
 type ServiceDnsRecord struct {
-	TTL  float64 `pulumi:"tTL"`
+	Ttl  float64 `pulumi:"ttl"`
 	Type string  `pulumi:"type"`
 }
 
@@ -1295,7 +1295,7 @@ type ServiceDnsRecordInput interface {
 }
 
 type ServiceDnsRecordArgs struct {
-	TTL  pulumi.Float64Input `pulumi:"tTL"`
+	Ttl  pulumi.Float64Input `pulumi:"ttl"`
 	Type pulumi.StringInput  `pulumi:"type"`
 }
 
@@ -1350,8 +1350,8 @@ func (o ServiceDnsRecordOutput) ToServiceDnsRecordOutputWithContext(ctx context.
 	return o
 }
 
-func (o ServiceDnsRecordOutput) TTL() pulumi.Float64Output {
-	return o.ApplyT(func(v ServiceDnsRecord) float64 { return v.TTL }).(pulumi.Float64Output)
+func (o ServiceDnsRecordOutput) Ttl() pulumi.Float64Output {
+	return o.ApplyT(func(v ServiceDnsRecord) float64 { return v.Ttl }).(pulumi.Float64Output)
 }
 
 func (o ServiceDnsRecordOutput) Type() pulumi.StringOutput {

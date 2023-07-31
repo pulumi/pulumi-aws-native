@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.AppMesh.Outputs
         public readonly Outputs.VirtualGatewayConnectionPool? ConnectionPool;
         public readonly Outputs.VirtualGatewayHealthCheckPolicy? HealthCheck;
         public readonly Outputs.VirtualGatewayPortMapping PortMapping;
-        public readonly Outputs.VirtualGatewayListenerTls? TLS;
+        public readonly Outputs.VirtualGatewayListenerTls? Tls;
 
         [OutputConstructor]
         private VirtualGatewayListener(
@@ -26,12 +26,12 @@ namespace Pulumi.AwsNative.AppMesh.Outputs
 
             Outputs.VirtualGatewayPortMapping portMapping,
 
-            Outputs.VirtualGatewayListenerTls? tLS)
+            Outputs.VirtualGatewayListenerTls? tls)
         {
             ConnectionPool = connectionPool;
             HealthCheck = healthCheck;
             PortMapping = portMapping;
-            TLS = tLS;
+            Tls = tls;
         }
     }
 }

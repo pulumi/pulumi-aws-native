@@ -647,8 +647,8 @@ class UserPoolInviteMessageTemplate(dict):
             suggest = "email_message"
         elif key == "emailSubject":
             suggest = "email_subject"
-        elif key == "sMSMessage":
-            suggest = "s_ms_message"
+        elif key == "smsMessage":
+            suggest = "sms_message"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in UserPoolInviteMessageTemplate. Access the value via the '{suggest}' property getter instead.")
@@ -664,13 +664,13 @@ class UserPoolInviteMessageTemplate(dict):
     def __init__(__self__, *,
                  email_message: Optional[str] = None,
                  email_subject: Optional[str] = None,
-                 s_ms_message: Optional[str] = None):
+                 sms_message: Optional[str] = None):
         if email_message is not None:
             pulumi.set(__self__, "email_message", email_message)
         if email_subject is not None:
             pulumi.set(__self__, "email_subject", email_subject)
-        if s_ms_message is not None:
-            pulumi.set(__self__, "s_ms_message", s_ms_message)
+        if sms_message is not None:
+            pulumi.set(__self__, "sms_message", sms_message)
 
     @property
     @pulumi.getter(name="emailMessage")
@@ -683,9 +683,9 @@ class UserPoolInviteMessageTemplate(dict):
         return pulumi.get(self, "email_subject")
 
     @property
-    @pulumi.getter(name="sMSMessage")
-    def s_ms_message(self) -> Optional[str]:
-        return pulumi.get(self, "s_ms_message")
+    @pulumi.getter(name="smsMessage")
+    def sms_message(self) -> Optional[str]:
+        return pulumi.get(self, "sms_message")
 
 
 @pulumi.output_type
@@ -699,12 +699,12 @@ class UserPoolLambdaConfig(dict):
             suggest = "custom_email_sender"
         elif key == "customMessage":
             suggest = "custom_message"
-        elif key == "customSMSSender":
+        elif key == "customSmsSender":
             suggest = "custom_sms_sender"
         elif key == "defineAuthChallenge":
             suggest = "define_auth_challenge"
-        elif key == "kMSKeyID":
-            suggest = "k_ms_key_id"
+        elif key == "kmsKeyId":
+            suggest = "kms_key_id"
         elif key == "postAuthentication":
             suggest = "post_authentication"
         elif key == "postConfirmation":
@@ -737,7 +737,7 @@ class UserPoolLambdaConfig(dict):
                  custom_message: Optional[str] = None,
                  custom_sms_sender: Optional['outputs.UserPoolCustomSMSSender'] = None,
                  define_auth_challenge: Optional[str] = None,
-                 k_ms_key_id: Optional[str] = None,
+                 kms_key_id: Optional[str] = None,
                  post_authentication: Optional[str] = None,
                  post_confirmation: Optional[str] = None,
                  pre_authentication: Optional[str] = None,
@@ -755,8 +755,8 @@ class UserPoolLambdaConfig(dict):
             pulumi.set(__self__, "custom_sms_sender", custom_sms_sender)
         if define_auth_challenge is not None:
             pulumi.set(__self__, "define_auth_challenge", define_auth_challenge)
-        if k_ms_key_id is not None:
-            pulumi.set(__self__, "k_ms_key_id", k_ms_key_id)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if post_authentication is not None:
             pulumi.set(__self__, "post_authentication", post_authentication)
         if post_confirmation is not None:
@@ -788,7 +788,7 @@ class UserPoolLambdaConfig(dict):
         return pulumi.get(self, "custom_message")
 
     @property
-    @pulumi.getter(name="customSMSSender")
+    @pulumi.getter(name="customSmsSender")
     def custom_sms_sender(self) -> Optional['outputs.UserPoolCustomSMSSender']:
         return pulumi.get(self, "custom_sms_sender")
 
@@ -798,9 +798,9 @@ class UserPoolLambdaConfig(dict):
         return pulumi.get(self, "define_auth_challenge")
 
     @property
-    @pulumi.getter(name="kMSKeyID")
-    def k_ms_key_id(self) -> Optional[str]:
-        return pulumi.get(self, "k_ms_key_id")
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[str]:
+        return pulumi.get(self, "kms_key_id")
 
     @property
     @pulumi.getter(name="postAuthentication")
@@ -1367,9 +1367,9 @@ class UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "blockedIPRangeList":
+        if key == "blockedIpRangeList":
             suggest = "blocked_ip_range_list"
-        elif key == "skippedIPRangeList":
+        elif key == "skippedIpRangeList":
             suggest = "skipped_ip_range_list"
 
         if suggest:
@@ -1392,12 +1392,12 @@ class UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType(dict):
             pulumi.set(__self__, "skipped_ip_range_list", skipped_ip_range_list)
 
     @property
-    @pulumi.getter(name="blockedIPRangeList")
+    @pulumi.getter(name="blockedIpRangeList")
     def blocked_ip_range_list(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "blocked_ip_range_list")
 
     @property
-    @pulumi.getter(name="skippedIPRangeList")
+    @pulumi.getter(name="skippedIpRangeList")
     def skipped_ip_range_list(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "skipped_ip_range_list")
 

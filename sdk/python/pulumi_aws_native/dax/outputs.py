@@ -18,8 +18,8 @@ class ClusterSSESpecification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "sSEEnabled":
-            suggest = "s_se_enabled"
+        if key == "sseEnabled":
+            suggest = "sse_enabled"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ClusterSSESpecification. Access the value via the '{suggest}' property getter instead.")
@@ -33,13 +33,13 @@ class ClusterSSESpecification(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 s_se_enabled: Optional[bool] = None):
-        if s_se_enabled is not None:
-            pulumi.set(__self__, "s_se_enabled", s_se_enabled)
+                 sse_enabled: Optional[bool] = None):
+        if sse_enabled is not None:
+            pulumi.set(__self__, "sse_enabled", sse_enabled)
 
     @property
-    @pulumi.getter(name="sSEEnabled")
-    def s_se_enabled(self) -> Optional[bool]:
-        return pulumi.get(self, "s_se_enabled")
+    @pulumi.getter(name="sseEnabled")
+    def sse_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "sse_enabled")
 
 

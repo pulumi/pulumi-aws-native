@@ -89,7 +89,7 @@ class GetServiceResult:
         return pulumi.get(self, "desired_count")
 
     @property
-    @pulumi.getter(name="enableECSManagedTags")
+    @pulumi.getter(name="enableEcsManagedTags")
     def enable_ecs_managed_tags(self) -> Optional[bool]:
         return pulumi.get(self, "enable_ecs_managed_tags")
 

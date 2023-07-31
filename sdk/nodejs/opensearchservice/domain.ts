@@ -48,7 +48,7 @@ export class Domain extends pulumi.CustomResource {
     public readonly domainEndpointOptions!: pulumi.Output<outputs.opensearchservice.DomainEndpointOptions | undefined>;
     public /*out*/ readonly domainEndpoints!: pulumi.Output<any>;
     public readonly domainName!: pulumi.Output<string | undefined>;
-    public readonly eBSOptions!: pulumi.Output<outputs.opensearchservice.DomainEBSOptions | undefined>;
+    public readonly ebsOptions!: pulumi.Output<outputs.opensearchservice.DomainEBSOptions | undefined>;
     public readonly encryptionAtRestOptions!: pulumi.Output<outputs.opensearchservice.DomainEncryptionAtRestOptions | undefined>;
     public readonly engineVersion!: pulumi.Output<string | undefined>;
     public readonly logPublishingOptions!: pulumi.Output<any | undefined>;
@@ -61,7 +61,7 @@ export class Domain extends pulumi.CustomResource {
      * An arbitrary set of tags (key-value pairs) for this Domain.
      */
     public readonly tags!: pulumi.Output<outputs.opensearchservice.DomainTag[] | undefined>;
-    public readonly vPCOptions!: pulumi.Output<outputs.opensearchservice.DomainVPCOptions | undefined>;
+    public readonly vpcOptions!: pulumi.Output<outputs.opensearchservice.DomainVPCOptions | undefined>;
 
     /**
      * Create a Domain resource with the given unique name, arguments, and options.
@@ -81,7 +81,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["cognitoOptions"] = args ? args.cognitoOptions : undefined;
             resourceInputs["domainEndpointOptions"] = args ? args.domainEndpointOptions : undefined;
             resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["eBSOptions"] = args ? args.eBSOptions : undefined;
+            resourceInputs["ebsOptions"] = args ? args.ebsOptions : undefined;
             resourceInputs["encryptionAtRestOptions"] = args ? args.encryptionAtRestOptions : undefined;
             resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
             resourceInputs["logPublishingOptions"] = args ? args.logPublishingOptions : undefined;
@@ -90,7 +90,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["snapshotOptions"] = args ? args.snapshotOptions : undefined;
             resourceInputs["softwareUpdateOptions"] = args ? args.softwareUpdateOptions : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vPCOptions"] = args ? args.vPCOptions : undefined;
+            resourceInputs["vpcOptions"] = args ? args.vpcOptions : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["domainArn"] = undefined /*out*/;
             resourceInputs["domainEndpoint"] = undefined /*out*/;
@@ -108,7 +108,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["domainEndpointOptions"] = undefined /*out*/;
             resourceInputs["domainEndpoints"] = undefined /*out*/;
             resourceInputs["domainName"] = undefined /*out*/;
-            resourceInputs["eBSOptions"] = undefined /*out*/;
+            resourceInputs["ebsOptions"] = undefined /*out*/;
             resourceInputs["encryptionAtRestOptions"] = undefined /*out*/;
             resourceInputs["engineVersion"] = undefined /*out*/;
             resourceInputs["logPublishingOptions"] = undefined /*out*/;
@@ -118,7 +118,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["snapshotOptions"] = undefined /*out*/;
             resourceInputs["softwareUpdateOptions"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
-            resourceInputs["vPCOptions"] = undefined /*out*/;
+            resourceInputs["vpcOptions"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Domain.__pulumiType, name, resourceInputs, opts);
@@ -136,7 +136,7 @@ export interface DomainArgs {
     cognitoOptions?: pulumi.Input<inputs.opensearchservice.DomainCognitoOptionsArgs>;
     domainEndpointOptions?: pulumi.Input<inputs.opensearchservice.DomainEndpointOptionsArgs>;
     domainName?: pulumi.Input<string>;
-    eBSOptions?: pulumi.Input<inputs.opensearchservice.DomainEBSOptionsArgs>;
+    ebsOptions?: pulumi.Input<inputs.opensearchservice.DomainEBSOptionsArgs>;
     encryptionAtRestOptions?: pulumi.Input<inputs.opensearchservice.DomainEncryptionAtRestOptionsArgs>;
     engineVersion?: pulumi.Input<string>;
     logPublishingOptions?: any;
@@ -148,5 +148,5 @@ export interface DomainArgs {
      * An arbitrary set of tags (key-value pairs) for this Domain.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.opensearchservice.DomainTagArgs>[]>;
-    vPCOptions?: pulumi.Input<inputs.opensearchservice.DomainVPCOptionsArgs>;
+    vpcOptions?: pulumi.Input<inputs.opensearchservice.DomainVPCOptionsArgs>;
 }

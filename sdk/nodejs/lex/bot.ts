@@ -59,7 +59,7 @@ export class Bot extends pulumi.CustomResource {
     /**
      * IdleSessionTTLInSeconds of the resource
      */
-    public readonly idleSessionTTLInSeconds!: pulumi.Output<number>;
+    public readonly idleSessionTtlInSeconds!: pulumi.Output<number>;
     public readonly name!: pulumi.Output<string>;
     public readonly roleArn!: pulumi.Output<string>;
     public readonly testBotAliasSettings!: pulumi.Output<outputs.lex.BotTestBotAliasSettings | undefined>;
@@ -82,8 +82,8 @@ export class Bot extends pulumi.CustomResource {
             if ((!args || args.dataPrivacy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataPrivacy'");
             }
-            if ((!args || args.idleSessionTTLInSeconds === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'idleSessionTTLInSeconds'");
+            if ((!args || args.idleSessionTtlInSeconds === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'idleSessionTtlInSeconds'");
             }
             if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
@@ -94,7 +94,7 @@ export class Bot extends pulumi.CustomResource {
             resourceInputs["botTags"] = args ? args.botTags : undefined;
             resourceInputs["dataPrivacy"] = args ? args.dataPrivacy : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["idleSessionTTLInSeconds"] = args ? args.idleSessionTTLInSeconds : undefined;
+            resourceInputs["idleSessionTtlInSeconds"] = args ? args.idleSessionTtlInSeconds : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["testBotAliasSettings"] = args ? args.testBotAliasSettings : undefined;
@@ -108,7 +108,7 @@ export class Bot extends pulumi.CustomResource {
             resourceInputs["botTags"] = undefined /*out*/;
             resourceInputs["dataPrivacy"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
-            resourceInputs["idleSessionTTLInSeconds"] = undefined /*out*/;
+            resourceInputs["idleSessionTtlInSeconds"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["roleArn"] = undefined /*out*/;
             resourceInputs["testBotAliasSettings"] = undefined /*out*/;
@@ -144,7 +144,7 @@ export interface BotArgs {
     /**
      * IdleSessionTTLInSeconds of the resource
      */
-    idleSessionTTLInSeconds: pulumi.Input<number>;
+    idleSessionTtlInSeconds: pulumi.Input<number>;
     name?: pulumi.Input<string>;
     roleArn: pulumi.Input<string>;
     testBotAliasSettings?: pulumi.Input<inputs.lex.BotTestBotAliasSettingsArgs>;

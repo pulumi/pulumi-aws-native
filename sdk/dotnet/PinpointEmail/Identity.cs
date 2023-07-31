@@ -22,23 +22,23 @@ namespace Pulumi.AwsNative.PinpointEmail
         [Output("feedbackForwardingEnabled")]
         public Output<bool?> FeedbackForwardingEnabled { get; private set; } = null!;
 
-        [Output("identityDNSRecordName1")]
-        public Output<string> IdentityDNSRecordName1 { get; private set; } = null!;
+        [Output("identityDnsRecordName1")]
+        public Output<string> IdentityDnsRecordName1 { get; private set; } = null!;
 
-        [Output("identityDNSRecordName2")]
-        public Output<string> IdentityDNSRecordName2 { get; private set; } = null!;
+        [Output("identityDnsRecordName2")]
+        public Output<string> IdentityDnsRecordName2 { get; private set; } = null!;
 
-        [Output("identityDNSRecordName3")]
-        public Output<string> IdentityDNSRecordName3 { get; private set; } = null!;
+        [Output("identityDnsRecordName3")]
+        public Output<string> IdentityDnsRecordName3 { get; private set; } = null!;
 
-        [Output("identityDNSRecordValue1")]
-        public Output<string> IdentityDNSRecordValue1 { get; private set; } = null!;
+        [Output("identityDnsRecordValue1")]
+        public Output<string> IdentityDnsRecordValue1 { get; private set; } = null!;
 
-        [Output("identityDNSRecordValue2")]
-        public Output<string> IdentityDNSRecordValue2 { get; private set; } = null!;
+        [Output("identityDnsRecordValue2")]
+        public Output<string> IdentityDnsRecordValue2 { get; private set; } = null!;
 
-        [Output("identityDNSRecordValue3")]
-        public Output<string> IdentityDNSRecordValue3 { get; private set; } = null!;
+        [Output("identityDnsRecordValue3")]
+        public Output<string> IdentityDnsRecordValue3 { get; private set; } = null!;
 
         [Output("mailFromAttributes")]
         public Output<Outputs.IdentityMailFromAttributes?> MailFromAttributes { get; private set; } = null!;

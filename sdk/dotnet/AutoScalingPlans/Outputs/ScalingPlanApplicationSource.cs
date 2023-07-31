@@ -13,16 +13,16 @@ namespace Pulumi.AwsNative.AutoScalingPlans.Outputs
     [OutputType]
     public sealed class ScalingPlanApplicationSource
     {
-        public readonly string? CloudFormationStackARN;
+        public readonly string? CloudFormationStackArn;
         public readonly ImmutableArray<Outputs.ScalingPlanTagFilter> TagFilters;
 
         [OutputConstructor]
         private ScalingPlanApplicationSource(
-            string? cloudFormationStackARN,
+            string? cloudFormationStackArn,
 
             ImmutableArray<Outputs.ScalingPlanTagFilter> tagFilters)
         {
-            CloudFormationStackARN = cloudFormationStackARN;
+            CloudFormationStackArn = cloudFormationStackArn;
             TagFilters = tagFilters;
         }
     }

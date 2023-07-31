@@ -101,7 +101,7 @@ export interface GetBucketResult {
     /**
      * The Amazon S3 website endpoint for the specified bucket.
      */
-    readonly websiteURL?: string;
+    readonly websiteUrl?: string;
 }
 /**
  * Resource Type definition for AWS::S3::Bucket

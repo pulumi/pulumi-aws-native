@@ -19,8 +19,8 @@ namespace Pulumi.AwsNative.WAFRegional
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
 
-        [Output("webACLId")]
-        public Output<string> WebACLId { get; private set; } = null!;
+        [Output("webAclId")]
+        public Output<string> WebAclId { get; private set; } = null!;
 
 
         /// <summary>
@@ -70,8 +70,8 @@ namespace Pulumi.AwsNative.WAFRegional
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
 
-        [Input("webACLId", required: true)]
-        public Input<string> WebACLId { get; set; } = null!;
+        [Input("webAclId", required: true)]
+        public Input<string> WebAclId { get; set; } = null!;
 
         public WebACLAssociationArgs()
         {

@@ -19,10 +19,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetDBSecurityGroupResult:
-    def __init__(__self__, d_b_security_group_ingress=None, id=None, tags=None):
-        if d_b_security_group_ingress and not isinstance(d_b_security_group_ingress, list):
-            raise TypeError("Expected argument 'd_b_security_group_ingress' to be a list")
-        pulumi.set(__self__, "d_b_security_group_ingress", d_b_security_group_ingress)
+    def __init__(__self__, db_security_group_ingress=None, id=None, tags=None):
+        if db_security_group_ingress and not isinstance(db_security_group_ingress, list):
+            raise TypeError("Expected argument 'db_security_group_ingress' to be a list")
+        pulumi.set(__self__, "db_security_group_ingress", db_security_group_ingress)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -31,9 +31,9 @@ class GetDBSecurityGroupResult:
         pulumi.set(__self__, "tags", tags)
 
     @property
-    @pulumi.getter(name="dBSecurityGroupIngress")
-    def d_b_security_group_ingress(self) -> Optional[Sequence['outputs.DBSecurityGroupIngress']]:
-        return pulumi.get(self, "d_b_security_group_ingress")
+    @pulumi.getter(name="dbSecurityGroupIngress")
+    def db_security_group_ingress(self) -> Optional[Sequence['outputs.DBSecurityGroupIngress']]:
+        return pulumi.get(self, "db_security_group_ingress")
 
     @property
     @pulumi.getter
@@ -52,7 +52,7 @@ class AwaitableGetDBSecurityGroupResult(GetDBSecurityGroupResult):
         if False:
             yield self
         return GetDBSecurityGroupResult(
-            d_b_security_group_ingress=self.d_b_security_group_ingress,
+            db_security_group_ingress=self.db_security_group_ingress,
             id=self.id,
             tags=self.tags)
 
@@ -68,7 +68,7 @@ def get_db_security_group(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:rds:getDBSecurityGroup', __args__, opts=opts, typ=GetDBSecurityGroupResult).value
 
     return AwaitableGetDBSecurityGroupResult(
-        d_b_security_group_ingress=pulumi.get(__ret__, 'd_b_security_group_ingress'),
+        db_security_group_ingress=pulumi.get(__ret__, 'db_security_group_ingress'),
         id=pulumi.get(__ret__, 'id'),
         tags=pulumi.get(__ret__, 'tags'))
 

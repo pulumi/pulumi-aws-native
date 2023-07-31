@@ -973,14 +973,14 @@ class ResourceDataSyncS3DestinationArgs:
                  bucket_region: pulumi.Input[str],
                  sync_format: pulumi.Input[str],
                  bucket_prefix: Optional[pulumi.Input[str]] = None,
-                 k_ms_key_arn: Optional[pulumi.Input[str]] = None):
+                 kms_key_arn: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "bucket_region", bucket_region)
         pulumi.set(__self__, "sync_format", sync_format)
         if bucket_prefix is not None:
             pulumi.set(__self__, "bucket_prefix", bucket_prefix)
-        if k_ms_key_arn is not None:
-            pulumi.set(__self__, "k_ms_key_arn", k_ms_key_arn)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -1019,13 +1019,13 @@ class ResourceDataSyncS3DestinationArgs:
         pulumi.set(self, "bucket_prefix", value)
 
     @property
-    @pulumi.getter(name="kMSKeyArn")
-    def k_ms_key_arn(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "k_ms_key_arn")
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "kms_key_arn")
 
-    @k_ms_key_arn.setter
-    def k_ms_key_arn(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "k_ms_key_arn", value)
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_arn", value)
 
 
 @pulumi.input_type

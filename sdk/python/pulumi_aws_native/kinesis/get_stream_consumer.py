@@ -33,7 +33,7 @@ class GetStreamConsumerResult:
         pulumi.set(__self__, "id", id)
 
     @property
-    @pulumi.getter(name="consumerARN")
+    @pulumi.getter(name="consumerArn")
     def consumer_arn(self) -> Optional[str]:
         return pulumi.get(self, "consumer_arn")
 

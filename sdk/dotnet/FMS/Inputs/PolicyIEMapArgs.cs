@@ -15,20 +15,20 @@ namespace Pulumi.AwsNative.FMS.Inputs
     /// </summary>
     public sealed class PolicyIEMapArgs : global::Pulumi.ResourceArgs
     {
-        [Input("aCCOUNT")]
-        private InputList<string>? _aCCOUNT;
-        public InputList<string> ACCOUNT
+        [Input("account")]
+        private InputList<string>? _account;
+        public InputList<string> Account
         {
-            get => _aCCOUNT ?? (_aCCOUNT = new InputList<string>());
-            set => _aCCOUNT = value;
+            get => _account ?? (_account = new InputList<string>());
+            set => _account = value;
         }
 
-        [Input("oRGUNIT")]
-        private InputList<string>? _oRGUNIT;
-        public InputList<string> ORGUNIT
+        [Input("orgunit")]
+        private InputList<string>? _orgunit;
+        public InputList<string> Orgunit
         {
-            get => _oRGUNIT ?? (_oRGUNIT = new InputList<string>());
-            set => _oRGUNIT = value;
+            get => _orgunit ?? (_orgunit = new InputList<string>());
+            set => _orgunit = value;
         }
 
         public PolicyIEMapArgs()

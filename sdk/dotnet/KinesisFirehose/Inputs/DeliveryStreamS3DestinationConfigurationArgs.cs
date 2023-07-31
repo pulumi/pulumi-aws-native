@@ -12,8 +12,8 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
 
     public sealed class DeliveryStreamS3DestinationConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        [Input("bucketARN", required: true)]
-        public Input<string> BucketARN { get; set; } = null!;
+        [Input("bucketArn", required: true)]
+        public Input<string> BucketArn { get; set; } = null!;
 
         [Input("bufferingHints")]
         public Input<Inputs.DeliveryStreamBufferingHintsArgs>? BufferingHints { get; set; }
@@ -33,8 +33,8 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
 
-        [Input("roleARN", required: true)]
-        public Input<string> RoleARN { get; set; } = null!;
+        [Input("roleArn", required: true)]
+        public Input<string> RoleArn { get; set; } = null!;
 
         public DeliveryStreamS3DestinationConfigurationArgs()
         {

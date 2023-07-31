@@ -31,7 +31,7 @@ type DataIntegration struct {
 	// The name of the data and how often it should be pulled from the source.
 	ScheduleConfig DataIntegrationScheduleConfigOutput `pulumi:"scheduleConfig"`
 	// The URI of the data source.
-	SourceURI pulumi.StringOutput `pulumi:"sourceURI"`
+	SourceUri pulumi.StringOutput `pulumi:"sourceUri"`
 	// The tags (keys and values) associated with the data integration.
 	Tags DataIntegrationTagArrayOutput `pulumi:"tags"`
 }
@@ -49,8 +49,8 @@ func NewDataIntegration(ctx *pulumi.Context,
 	if args.ScheduleConfig == nil {
 		return nil, errors.New("invalid value for required argument 'ScheduleConfig'")
 	}
-	if args.SourceURI == nil {
-		return nil, errors.New("invalid value for required argument 'SourceURI'")
+	if args.SourceUri == nil {
+		return nil, errors.New("invalid value for required argument 'SourceUri'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DataIntegration
@@ -98,7 +98,7 @@ type dataIntegrationArgs struct {
 	// The name of the data and how often it should be pulled from the source.
 	ScheduleConfig DataIntegrationScheduleConfig `pulumi:"scheduleConfig"`
 	// The URI of the data source.
-	SourceURI string `pulumi:"sourceURI"`
+	SourceUri string `pulumi:"sourceUri"`
 	// The tags (keys and values) associated with the data integration.
 	Tags []DataIntegrationTag `pulumi:"tags"`
 }
@@ -118,7 +118,7 @@ type DataIntegrationArgs struct {
 	// The name of the data and how often it should be pulled from the source.
 	ScheduleConfig DataIntegrationScheduleConfigInput
 	// The URI of the data source.
-	SourceURI pulumi.StringInput
+	SourceUri pulumi.StringInput
 	// The tags (keys and values) associated with the data integration.
 	Tags DataIntegrationTagArrayInput
 }
@@ -196,8 +196,8 @@ func (o DataIntegrationOutput) ScheduleConfig() DataIntegrationScheduleConfigOut
 }
 
 // The URI of the data source.
-func (o DataIntegrationOutput) SourceURI() pulumi.StringOutput {
-	return o.ApplyT(func(v *DataIntegration) pulumi.StringOutput { return v.SourceURI }).(pulumi.StringOutput)
+func (o DataIntegrationOutput) SourceUri() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataIntegration) pulumi.StringOutput { return v.SourceUri }).(pulumi.StringOutput)
 }
 
 // The tags (keys and values) associated with the data integration.

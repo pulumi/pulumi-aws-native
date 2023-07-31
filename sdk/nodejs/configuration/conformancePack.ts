@@ -64,7 +64,7 @@ export class ConformancePack extends pulumi.CustomResource {
     /**
      * The TemplateSSMDocumentDetails object contains the name of the SSM document and the version of the SSM document.
      */
-    public readonly templateSSMDocumentDetails!: pulumi.Output<outputs.configuration.TemplateSSMDocumentDetailsProperties | undefined>;
+    public readonly templateSsmDocumentDetails!: pulumi.Output<outputs.configuration.TemplateSSMDocumentDetailsProperties | undefined>;
 
     /**
      * Create a ConformancePack resource with the given unique name, arguments, and options.
@@ -83,7 +83,7 @@ export class ConformancePack extends pulumi.CustomResource {
             resourceInputs["deliveryS3KeyPrefix"] = args ? args.deliveryS3KeyPrefix : undefined;
             resourceInputs["templateBody"] = args ? args.templateBody : undefined;
             resourceInputs["templateS3Uri"] = args ? args.templateS3Uri : undefined;
-            resourceInputs["templateSSMDocumentDetails"] = args ? args.templateSSMDocumentDetails : undefined;
+            resourceInputs["templateSsmDocumentDetails"] = args ? args.templateSsmDocumentDetails : undefined;
         } else {
             resourceInputs["conformancePackInputParameters"] = undefined /*out*/;
             resourceInputs["conformancePackName"] = undefined /*out*/;
@@ -91,7 +91,7 @@ export class ConformancePack extends pulumi.CustomResource {
             resourceInputs["deliveryS3KeyPrefix"] = undefined /*out*/;
             resourceInputs["templateBody"] = undefined /*out*/;
             resourceInputs["templateS3Uri"] = undefined /*out*/;
-            resourceInputs["templateSSMDocumentDetails"] = undefined /*out*/;
+            resourceInputs["templateSsmDocumentDetails"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ConformancePack.__pulumiType, name, resourceInputs, opts);
@@ -129,5 +129,5 @@ export interface ConformancePackArgs {
     /**
      * The TemplateSSMDocumentDetails object contains the name of the SSM document and the version of the SSM document.
      */
-    templateSSMDocumentDetails?: pulumi.Input<inputs.configuration.TemplateSSMDocumentDetailsPropertiesArgs>;
+    templateSsmDocumentDetails?: pulumi.Input<inputs.configuration.TemplateSSMDocumentDetailsPropertiesArgs>;
 }

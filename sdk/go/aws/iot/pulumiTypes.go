@@ -3549,7 +3549,7 @@ type MitigationActionActionParams struct {
 	EnableIoTLoggingParams            *MitigationActionEnableIoTLoggingParams            `pulumi:"enableIoTLoggingParams"`
 	PublishFindingToSnsParams         *MitigationActionPublishFindingToSnsParams         `pulumi:"publishFindingToSnsParams"`
 	ReplaceDefaultPolicyVersionParams *MitigationActionReplaceDefaultPolicyVersionParams `pulumi:"replaceDefaultPolicyVersionParams"`
-	UpdateCACertificateParams         *MitigationActionUpdateCACertificateParams         `pulumi:"updateCACertificateParams"`
+	UpdateCaCertificateParams         *MitigationActionUpdateCACertificateParams         `pulumi:"updateCaCertificateParams"`
 	UpdateDeviceCertificateParams     *MitigationActionUpdateDeviceCertificateParams     `pulumi:"updateDeviceCertificateParams"`
 }
 
@@ -3570,7 +3570,7 @@ type MitigationActionActionParamsArgs struct {
 	EnableIoTLoggingParams            MitigationActionEnableIoTLoggingParamsPtrInput            `pulumi:"enableIoTLoggingParams"`
 	PublishFindingToSnsParams         MitigationActionPublishFindingToSnsParamsPtrInput         `pulumi:"publishFindingToSnsParams"`
 	ReplaceDefaultPolicyVersionParams MitigationActionReplaceDefaultPolicyVersionParamsPtrInput `pulumi:"replaceDefaultPolicyVersionParams"`
-	UpdateCACertificateParams         MitigationActionUpdateCACertificateParamsPtrInput         `pulumi:"updateCACertificateParams"`
+	UpdateCaCertificateParams         MitigationActionUpdateCACertificateParamsPtrInput         `pulumi:"updateCaCertificateParams"`
 	UpdateDeviceCertificateParams     MitigationActionUpdateDeviceCertificateParamsPtrInput     `pulumi:"updateDeviceCertificateParams"`
 }
 
@@ -3625,9 +3625,9 @@ func (o MitigationActionActionParamsOutput) ReplaceDefaultPolicyVersionParams() 
 	}).(MitigationActionReplaceDefaultPolicyVersionParamsPtrOutput)
 }
 
-func (o MitigationActionActionParamsOutput) UpdateCACertificateParams() MitigationActionUpdateCACertificateParamsPtrOutput {
+func (o MitigationActionActionParamsOutput) UpdateCaCertificateParams() MitigationActionUpdateCACertificateParamsPtrOutput {
 	return o.ApplyT(func(v MitigationActionActionParams) *MitigationActionUpdateCACertificateParams {
-		return v.UpdateCACertificateParams
+		return v.UpdateCaCertificateParams
 	}).(MitigationActionUpdateCACertificateParamsPtrOutput)
 }
 
@@ -3697,12 +3697,12 @@ func (o MitigationActionActionParamsPtrOutput) ReplaceDefaultPolicyVersionParams
 	}).(MitigationActionReplaceDefaultPolicyVersionParamsPtrOutput)
 }
 
-func (o MitigationActionActionParamsPtrOutput) UpdateCACertificateParams() MitigationActionUpdateCACertificateParamsPtrOutput {
+func (o MitigationActionActionParamsPtrOutput) UpdateCaCertificateParams() MitigationActionUpdateCACertificateParamsPtrOutput {
 	return o.ApplyT(func(v *MitigationActionActionParams) *MitigationActionUpdateCACertificateParams {
 		if v == nil {
 			return nil
 		}
-		return v.UpdateCACertificateParams
+		return v.UpdateCaCertificateParams
 	}).(MitigationActionUpdateCACertificateParamsPtrOutput)
 }
 
@@ -7506,8 +7506,8 @@ type TopicRuleAction struct {
 	CloudwatchAlarm  *TopicRuleCloudwatchAlarmAction  `pulumi:"cloudwatchAlarm"`
 	CloudwatchLogs   *TopicRuleCloudwatchLogsAction   `pulumi:"cloudwatchLogs"`
 	CloudwatchMetric *TopicRuleCloudwatchMetricAction `pulumi:"cloudwatchMetric"`
-	DynamoDB         *TopicRuleDynamoDBAction         `pulumi:"dynamoDB"`
 	DynamoDBv2       *TopicRuleDynamoDBv2Action       `pulumi:"dynamoDBv2"`
+	DynamoDb         *TopicRuleDynamoDBAction         `pulumi:"dynamoDb"`
 	Elasticsearch    *TopicRuleElasticsearchAction    `pulumi:"elasticsearch"`
 	Firehose         *TopicRuleFirehoseAction         `pulumi:"firehose"`
 	Http             *TopicRuleHttpAction             `pulumi:"http"`
@@ -7542,8 +7542,8 @@ type TopicRuleActionArgs struct {
 	CloudwatchAlarm  TopicRuleCloudwatchAlarmActionPtrInput  `pulumi:"cloudwatchAlarm"`
 	CloudwatchLogs   TopicRuleCloudwatchLogsActionPtrInput   `pulumi:"cloudwatchLogs"`
 	CloudwatchMetric TopicRuleCloudwatchMetricActionPtrInput `pulumi:"cloudwatchMetric"`
-	DynamoDB         TopicRuleDynamoDBActionPtrInput         `pulumi:"dynamoDB"`
 	DynamoDBv2       TopicRuleDynamoDBv2ActionPtrInput       `pulumi:"dynamoDBv2"`
+	DynamoDb         TopicRuleDynamoDBActionPtrInput         `pulumi:"dynamoDb"`
 	Elasticsearch    TopicRuleElasticsearchActionPtrInput    `pulumi:"elasticsearch"`
 	Firehose         TopicRuleFirehoseActionPtrInput         `pulumi:"firehose"`
 	Http             TopicRuleHttpActionPtrInput             `pulumi:"http"`
@@ -7677,12 +7677,12 @@ func (o TopicRuleActionOutput) CloudwatchMetric() TopicRuleCloudwatchMetricActio
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleCloudwatchMetricAction { return v.CloudwatchMetric }).(TopicRuleCloudwatchMetricActionPtrOutput)
 }
 
-func (o TopicRuleActionOutput) DynamoDB() TopicRuleDynamoDBActionPtrOutput {
-	return o.ApplyT(func(v TopicRuleAction) *TopicRuleDynamoDBAction { return v.DynamoDB }).(TopicRuleDynamoDBActionPtrOutput)
-}
-
 func (o TopicRuleActionOutput) DynamoDBv2() TopicRuleDynamoDBv2ActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleDynamoDBv2Action { return v.DynamoDBv2 }).(TopicRuleDynamoDBv2ActionPtrOutput)
+}
+
+func (o TopicRuleActionOutput) DynamoDb() TopicRuleDynamoDBActionPtrOutput {
+	return o.ApplyT(func(v TopicRuleAction) *TopicRuleDynamoDBAction { return v.DynamoDb }).(TopicRuleDynamoDBActionPtrOutput)
 }
 
 func (o TopicRuleActionOutput) Elasticsearch() TopicRuleElasticsearchActionPtrOutput {
@@ -7804,15 +7804,6 @@ func (o TopicRuleActionPtrOutput) CloudwatchMetric() TopicRuleCloudwatchMetricAc
 	}).(TopicRuleCloudwatchMetricActionPtrOutput)
 }
 
-func (o TopicRuleActionPtrOutput) DynamoDB() TopicRuleDynamoDBActionPtrOutput {
-	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleDynamoDBAction {
-		if v == nil {
-			return nil
-		}
-		return v.DynamoDB
-	}).(TopicRuleDynamoDBActionPtrOutput)
-}
-
 func (o TopicRuleActionPtrOutput) DynamoDBv2() TopicRuleDynamoDBv2ActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleDynamoDBv2Action {
 		if v == nil {
@@ -7820,6 +7811,15 @@ func (o TopicRuleActionPtrOutput) DynamoDBv2() TopicRuleDynamoDBv2ActionPtrOutpu
 		}
 		return v.DynamoDBv2
 	}).(TopicRuleDynamoDBv2ActionPtrOutput)
+}
+
+func (o TopicRuleActionPtrOutput) DynamoDb() TopicRuleDynamoDBActionPtrOutput {
+	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleDynamoDBAction {
+		if v == nil {
+			return nil
+		}
+		return v.DynamoDb
+	}).(TopicRuleDynamoDBActionPtrOutput)
 }
 
 func (o TopicRuleActionPtrOutput) Elasticsearch() TopicRuleElasticsearchActionPtrOutput {

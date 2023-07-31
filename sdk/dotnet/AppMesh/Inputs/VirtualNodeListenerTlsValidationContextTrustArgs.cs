@@ -15,8 +15,8 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
         [Input("file")]
         public Input<Inputs.VirtualNodeTlsValidationContextFileTrustArgs>? File { get; set; }
 
-        [Input("sDS")]
-        public Input<Inputs.VirtualNodeTlsValidationContextSdsTrustArgs>? SDS { get; set; }
+        [Input("sds")]
+        public Input<Inputs.VirtualNodeTlsValidationContextSdsTrustArgs>? Sds { get; set; }
 
         public VirtualNodeListenerTlsValidationContextTrustArgs()
         {

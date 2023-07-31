@@ -338,7 +338,7 @@ class ReplicationGroupArgs:
         pulumi.set(self, "log_delivery_configurations", value)
 
     @property
-    @pulumi.getter(name="multiAZEnabled")
+    @pulumi.getter(name="multiAzEnabled")
     def multi_az_enabled(self) -> Optional[pulumi.Input[bool]]:
         return pulumi.get(self, "multi_az_enabled")
 
@@ -401,7 +401,7 @@ class ReplicationGroupArgs:
         pulumi.set(self, "port", value)
 
     @property
-    @pulumi.getter(name="preferredCacheClusterAZs")
+    @pulumi.getter(name="preferredCacheClusterAzs")
     def preferred_cache_cluster_azs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         return pulumi.get(self, "preferred_cache_cluster_azs")
 
@@ -972,7 +972,7 @@ class ReplicationGroup(pulumi.CustomResource):
         return pulumi.get(self, "log_delivery_configurations")
 
     @property
-    @pulumi.getter(name="multiAZEnabled")
+    @pulumi.getter(name="multiAzEnabled")
     def multi_az_enabled(self) -> pulumi.Output[Optional[bool]]:
         return pulumi.get(self, "multi_az_enabled")
 
@@ -1007,7 +1007,7 @@ class ReplicationGroup(pulumi.CustomResource):
         return pulumi.get(self, "port")
 
     @property
-    @pulumi.getter(name="preferredCacheClusterAZs")
+    @pulumi.getter(name="preferredCacheClusterAzs")
     def preferred_cache_cluster_azs(self) -> pulumi.Output[Optional[Sequence[str]]]:
         return pulumi.get(self, "preferred_cache_cluster_azs")
 

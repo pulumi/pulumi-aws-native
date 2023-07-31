@@ -28,11 +28,11 @@ type LookupStorageVirtualMachineArgs struct {
 
 type LookupStorageVirtualMachineResult struct {
 	ActiveDirectoryConfiguration *StorageVirtualMachineActiveDirectoryConfiguration `pulumi:"activeDirectoryConfiguration"`
-	ResourceARN                  *string                                            `pulumi:"resourceARN"`
+	ResourceArn                  *string                                            `pulumi:"resourceArn"`
 	StorageVirtualMachineId      *string                                            `pulumi:"storageVirtualMachineId"`
 	SvmAdminPassword             *string                                            `pulumi:"svmAdminPassword"`
 	Tags                         []StorageVirtualMachineTag                         `pulumi:"tags"`
-	UUID                         *string                                            `pulumi:"uUID"`
+	Uuid                         *string                                            `pulumi:"uuid"`
 }
 
 func LookupStorageVirtualMachineOutput(ctx *pulumi.Context, args LookupStorageVirtualMachineOutputArgs, opts ...pulumi.InvokeOption) LookupStorageVirtualMachineResultOutput {
@@ -76,8 +76,8 @@ func (o LookupStorageVirtualMachineResultOutput) ActiveDirectoryConfiguration() 
 	}).(StorageVirtualMachineActiveDirectoryConfigurationPtrOutput)
 }
 
-func (o LookupStorageVirtualMachineResultOutput) ResourceARN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupStorageVirtualMachineResult) *string { return v.ResourceARN }).(pulumi.StringPtrOutput)
+func (o LookupStorageVirtualMachineResultOutput) ResourceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStorageVirtualMachineResult) *string { return v.ResourceArn }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupStorageVirtualMachineResultOutput) StorageVirtualMachineId() pulumi.StringPtrOutput {
@@ -92,8 +92,8 @@ func (o LookupStorageVirtualMachineResultOutput) Tags() StorageVirtualMachineTag
 	return o.ApplyT(func(v LookupStorageVirtualMachineResult) []StorageVirtualMachineTag { return v.Tags }).(StorageVirtualMachineTagArrayOutput)
 }
 
-func (o LookupStorageVirtualMachineResultOutput) UUID() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupStorageVirtualMachineResult) *string { return v.UUID }).(pulumi.StringPtrOutput)
+func (o LookupStorageVirtualMachineResultOutput) Uuid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStorageVirtualMachineResult) *string { return v.Uuid }).(pulumi.StringPtrOutput)
 }
 
 func init() {

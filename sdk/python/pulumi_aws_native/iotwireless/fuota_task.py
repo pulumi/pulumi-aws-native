@@ -82,7 +82,7 @@ class FuotaTaskArgs:
         pulumi.set(self, "firmware_update_role", value)
 
     @property
-    @pulumi.getter(name="loRaWAN")
+    @pulumi.getter(name="loRaWan")
     def lo_ra_wan(self) -> pulumi.Input['FuotaTaskLoRaWANArgs']:
         """
         FUOTA task LoRaWAN
@@ -380,7 +380,7 @@ class FuotaTask(pulumi.CustomResource):
         return pulumi.get(self, "fuota_task_status")
 
     @property
-    @pulumi.getter(name="loRaWAN")
+    @pulumi.getter(name="loRaWan")
     def lo_ra_wan(self) -> pulumi.Output['outputs.FuotaTaskLoRaWAN']:
         """
         FUOTA task LoRaWAN

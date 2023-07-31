@@ -1513,20 +1513,20 @@ class ResourceDefinitionSageMakerMachineLearningModelResourceDataArgs:
 @pulumi.input_type
 class ResourceDefinitionSecretsManagerSecretResourceDataArgs:
     def __init__(__self__, *,
-                 a_rn: pulumi.Input[str],
+                 arn: pulumi.Input[str],
                  additional_staging_labels_to_download: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        pulumi.set(__self__, "a_rn", a_rn)
+        pulumi.set(__self__, "arn", arn)
         if additional_staging_labels_to_download is not None:
             pulumi.set(__self__, "additional_staging_labels_to_download", additional_staging_labels_to_download)
 
     @property
-    @pulumi.getter(name="aRN")
-    def a_rn(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "a_rn")
+    @pulumi.getter
+    def arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "arn")
 
-    @a_rn.setter
-    def a_rn(self, value: pulumi.Input[str]):
-        pulumi.set(self, "a_rn", value)
+    @arn.setter
+    def arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "arn", value)
 
     @property
     @pulumi.getter(name="additionalStagingLabelsToDownload")
@@ -1844,20 +1844,20 @@ class ResourceDefinitionVersionSageMakerMachineLearningModelResourceDataArgs:
 @pulumi.input_type
 class ResourceDefinitionVersionSecretsManagerSecretResourceDataArgs:
     def __init__(__self__, *,
-                 a_rn: pulumi.Input[str],
+                 arn: pulumi.Input[str],
                  additional_staging_labels_to_download: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        pulumi.set(__self__, "a_rn", a_rn)
+        pulumi.set(__self__, "arn", arn)
         if additional_staging_labels_to_download is not None:
             pulumi.set(__self__, "additional_staging_labels_to_download", additional_staging_labels_to_download)
 
     @property
-    @pulumi.getter(name="aRN")
-    def a_rn(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "a_rn")
+    @pulumi.getter
+    def arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "arn")
 
-    @a_rn.setter
-    def a_rn(self, value: pulumi.Input[str]):
-        pulumi.set(self, "a_rn", value)
+    @arn.setter
+    def arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "arn", value)
 
     @property
     @pulumi.getter(name="additionalStagingLabelsToDownload")

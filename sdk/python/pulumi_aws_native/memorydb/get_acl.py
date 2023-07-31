@@ -78,16 +78,16 @@ class AwaitableGetACLResult(GetACLResult):
             user_names=self.user_names)
 
 
-def get_acl(a_cl_name: Optional[str] = None,
+def get_acl(acl_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetACLResult:
     """
     Resource Type definition for AWS::MemoryDB::ACL
 
 
-    :param str a_cl_name: The name of the acl.
+    :param str acl_name: The name of the acl.
     """
     __args__ = dict()
-    __args__['aCLName'] = a_cl_name
+    __args__['aclName'] = acl_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:memorydb:getACL', __args__, opts=opts, typ=GetACLResult).value
 
@@ -99,12 +99,12 @@ def get_acl(a_cl_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_acl)
-def get_acl_output(a_cl_name: Optional[pulumi.Input[str]] = None,
+def get_acl_output(acl_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetACLResult]:
     """
     Resource Type definition for AWS::MemoryDB::ACL
 
 
-    :param str a_cl_name: The name of the acl.
+    :param str acl_name: The name of the acl.
     """
     ...

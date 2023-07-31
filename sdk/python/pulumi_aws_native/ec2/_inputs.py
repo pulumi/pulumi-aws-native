@@ -630,23 +630,23 @@ class ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs:
 @pulumi.input_type
 class ClientVpnEndpointFederatedAuthenticationRequestArgs:
     def __init__(__self__, *,
-                 s_aml_provider_arn: pulumi.Input[str],
+                 saml_provider_arn: pulumi.Input[str],
                  self_service_saml_provider_arn: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "s_aml_provider_arn", s_aml_provider_arn)
+        pulumi.set(__self__, "saml_provider_arn", saml_provider_arn)
         if self_service_saml_provider_arn is not None:
             pulumi.set(__self__, "self_service_saml_provider_arn", self_service_saml_provider_arn)
 
     @property
-    @pulumi.getter(name="sAMLProviderArn")
-    def s_aml_provider_arn(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "s_aml_provider_arn")
+    @pulumi.getter(name="samlProviderArn")
+    def saml_provider_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "saml_provider_arn")
 
-    @s_aml_provider_arn.setter
-    def s_aml_provider_arn(self, value: pulumi.Input[str]):
-        pulumi.set(self, "s_aml_provider_arn", value)
+    @saml_provider_arn.setter
+    def saml_provider_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "saml_provider_arn", value)
 
     @property
-    @pulumi.getter(name="selfServiceSAMLProviderArn")
+    @pulumi.getter(name="selfServiceSamlProviderArn")
     def self_service_saml_provider_arn(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "self_service_saml_provider_arn")
 
@@ -1367,7 +1367,7 @@ class EC2FleetInstanceRequirementsRequestArgs:
         pulumi.set(self, "spot_max_price_percentage_over_lowest_price", value)
 
     @property
-    @pulumi.getter(name="totalLocalStorageGB")
+    @pulumi.getter(name="totalLocalStorageGb")
     def total_local_storage_gb(self) -> Optional[pulumi.Input['EC2FleetTotalLocalStorageGBRequestArgs']]:
         return pulumi.get(self, "total_local_storage_gb")
 
@@ -2395,18 +2395,18 @@ class InstanceCpuOptionsArgs:
 @pulumi.input_type
 class InstanceCreditSpecificationArgs:
     def __init__(__self__, *,
-                 c_pu_credits: Optional[pulumi.Input[str]] = None):
-        if c_pu_credits is not None:
-            pulumi.set(__self__, "c_pu_credits", c_pu_credits)
+                 cpu_credits: Optional[pulumi.Input[str]] = None):
+        if cpu_credits is not None:
+            pulumi.set(__self__, "cpu_credits", cpu_credits)
 
     @property
-    @pulumi.getter(name="cPUCredits")
-    def c_pu_credits(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "c_pu_credits")
+    @pulumi.getter(name="cpuCredits")
+    def cpu_credits(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "cpu_credits")
 
-    @c_pu_credits.setter
-    def c_pu_credits(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "c_pu_credits", value)
+    @cpu_credits.setter
+    def cpu_credits(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cpu_credits", value)
 
 
 @pulumi.input_type
@@ -2817,24 +2817,15 @@ class InstanceNoDeviceArgs:
 @pulumi.input_type
 class InstancePrivateDnsNameOptionsArgs:
     def __init__(__self__, *,
-                 enable_resource_name_dns_aaaa_record: Optional[pulumi.Input[bool]] = None,
                  enable_resource_name_dns_a_record: Optional[pulumi.Input[bool]] = None,
+                 enable_resource_name_dns_aaaa_record: Optional[pulumi.Input[bool]] = None,
                  hostname_type: Optional[pulumi.Input[str]] = None):
-        if enable_resource_name_dns_aaaa_record is not None:
-            pulumi.set(__self__, "enable_resource_name_dns_aaaa_record", enable_resource_name_dns_aaaa_record)
         if enable_resource_name_dns_a_record is not None:
             pulumi.set(__self__, "enable_resource_name_dns_a_record", enable_resource_name_dns_a_record)
+        if enable_resource_name_dns_aaaa_record is not None:
+            pulumi.set(__self__, "enable_resource_name_dns_aaaa_record", enable_resource_name_dns_aaaa_record)
         if hostname_type is not None:
             pulumi.set(__self__, "hostname_type", hostname_type)
-
-    @property
-    @pulumi.getter(name="enableResourceNameDnsAAAARecord")
-    def enable_resource_name_dns_aaaa_record(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "enable_resource_name_dns_aaaa_record")
-
-    @enable_resource_name_dns_aaaa_record.setter
-    def enable_resource_name_dns_aaaa_record(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_resource_name_dns_aaaa_record", value)
 
     @property
     @pulumi.getter(name="enableResourceNameDnsARecord")
@@ -2844,6 +2835,15 @@ class InstancePrivateDnsNameOptionsArgs:
     @enable_resource_name_dns_a_record.setter
     def enable_resource_name_dns_a_record(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_resource_name_dns_a_record", value)
+
+    @property
+    @pulumi.getter(name="enableResourceNameDnsAaaaRecord")
+    def enable_resource_name_dns_aaaa_record(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enable_resource_name_dns_aaaa_record")
+
+    @enable_resource_name_dns_aaaa_record.setter
+    def enable_resource_name_dns_aaaa_record(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_resource_name_dns_aaaa_record", value)
 
     @property
     @pulumi.getter(name="hostnameType")
@@ -4459,7 +4459,7 @@ class LaunchTemplateInstanceRequirementsArgs:
         pulumi.set(self, "spot_max_price_percentage_over_lowest_price", value)
 
     @property
-    @pulumi.getter(name="totalLocalStorageGB")
+    @pulumi.getter(name="totalLocalStorageGb")
     def total_local_storage_gb(self) -> Optional[pulumi.Input['LaunchTemplateTotalLocalStorageGBArgs']]:
         return pulumi.get(self, "total_local_storage_gb")
 
@@ -5320,33 +5320,21 @@ class LaunchTemplatePlacementArgs:
 @pulumi.input_type
 class LaunchTemplatePrivateDnsNameOptionsArgs:
     def __init__(__self__, *,
-                 enable_resource_name_dns_aaaa_record: Optional[pulumi.Input[bool]] = None,
                  enable_resource_name_dns_a_record: Optional[pulumi.Input[bool]] = None,
+                 enable_resource_name_dns_aaaa_record: Optional[pulumi.Input[bool]] = None,
                  hostname_type: Optional[pulumi.Input[str]] = None):
         """
         Describes the options for instance hostnames.
-        :param pulumi.Input[bool] enable_resource_name_dns_aaaa_record: Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
         :param pulumi.Input[bool] enable_resource_name_dns_a_record: Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
+        :param pulumi.Input[bool] enable_resource_name_dns_aaaa_record: Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
         :param pulumi.Input[str] hostname_type: The type of hostname for EC2 instances.
         """
-        if enable_resource_name_dns_aaaa_record is not None:
-            pulumi.set(__self__, "enable_resource_name_dns_aaaa_record", enable_resource_name_dns_aaaa_record)
         if enable_resource_name_dns_a_record is not None:
             pulumi.set(__self__, "enable_resource_name_dns_a_record", enable_resource_name_dns_a_record)
+        if enable_resource_name_dns_aaaa_record is not None:
+            pulumi.set(__self__, "enable_resource_name_dns_aaaa_record", enable_resource_name_dns_aaaa_record)
         if hostname_type is not None:
             pulumi.set(__self__, "hostname_type", hostname_type)
-
-    @property
-    @pulumi.getter(name="enableResourceNameDnsAAAARecord")
-    def enable_resource_name_dns_aaaa_record(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
-        """
-        return pulumi.get(self, "enable_resource_name_dns_aaaa_record")
-
-    @enable_resource_name_dns_aaaa_record.setter
-    def enable_resource_name_dns_aaaa_record(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_resource_name_dns_aaaa_record", value)
 
     @property
     @pulumi.getter(name="enableResourceNameDnsARecord")
@@ -5359,6 +5347,18 @@ class LaunchTemplatePrivateDnsNameOptionsArgs:
     @enable_resource_name_dns_a_record.setter
     def enable_resource_name_dns_a_record(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_resource_name_dns_a_record", value)
+
+    @property
+    @pulumi.getter(name="enableResourceNameDnsAaaaRecord")
+    def enable_resource_name_dns_aaaa_record(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
+        """
+        return pulumi.get(self, "enable_resource_name_dns_aaaa_record")
+
+    @enable_resource_name_dns_aaaa_record.setter
+    def enable_resource_name_dns_aaaa_record(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_resource_name_dns_aaaa_record", value)
 
     @property
     @pulumi.getter(name="hostnameType")
@@ -6464,24 +6464,15 @@ class PrefixListTagArgs:
 @pulumi.input_type
 class PrivateDnsNameOptionsOnLaunchPropertiesArgs:
     def __init__(__self__, *,
-                 enable_resource_name_dns_aaaa_record: Optional[pulumi.Input[bool]] = None,
                  enable_resource_name_dns_a_record: Optional[pulumi.Input[bool]] = None,
+                 enable_resource_name_dns_aaaa_record: Optional[pulumi.Input[bool]] = None,
                  hostname_type: Optional[pulumi.Input[str]] = None):
-        if enable_resource_name_dns_aaaa_record is not None:
-            pulumi.set(__self__, "enable_resource_name_dns_aaaa_record", enable_resource_name_dns_aaaa_record)
         if enable_resource_name_dns_a_record is not None:
             pulumi.set(__self__, "enable_resource_name_dns_a_record", enable_resource_name_dns_a_record)
+        if enable_resource_name_dns_aaaa_record is not None:
+            pulumi.set(__self__, "enable_resource_name_dns_aaaa_record", enable_resource_name_dns_aaaa_record)
         if hostname_type is not None:
             pulumi.set(__self__, "hostname_type", hostname_type)
-
-    @property
-    @pulumi.getter(name="enableResourceNameDnsAAAARecord")
-    def enable_resource_name_dns_aaaa_record(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "enable_resource_name_dns_aaaa_record")
-
-    @enable_resource_name_dns_aaaa_record.setter
-    def enable_resource_name_dns_aaaa_record(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_resource_name_dns_aaaa_record", value)
 
     @property
     @pulumi.getter(name="enableResourceNameDnsARecord")
@@ -6491,6 +6482,15 @@ class PrivateDnsNameOptionsOnLaunchPropertiesArgs:
     @enable_resource_name_dns_a_record.setter
     def enable_resource_name_dns_a_record(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_resource_name_dns_a_record", value)
+
+    @property
+    @pulumi.getter(name="enableResourceNameDnsAaaaRecord")
+    def enable_resource_name_dns_aaaa_record(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enable_resource_name_dns_aaaa_record")
+
+    @enable_resource_name_dns_aaaa_record.setter
+    def enable_resource_name_dns_aaaa_record(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_resource_name_dns_aaaa_record", value)
 
     @property
     @pulumi.getter(name="hostnameType")
@@ -7517,7 +7517,7 @@ class SpotFleetInstanceRequirementsRequestArgs:
         pulumi.set(self, "spot_max_price_percentage_over_lowest_price", value)
 
     @property
-    @pulumi.getter(name="totalLocalStorageGB")
+    @pulumi.getter(name="totalLocalStorageGb")
     def total_local_storage_gb(self) -> Optional[pulumi.Input['SpotFleetTotalLocalStorageGBRequestArgs']]:
         return pulumi.get(self, "total_local_storage_gb")
 

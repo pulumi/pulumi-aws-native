@@ -28,7 +28,7 @@ export interface GetServiceResult {
     readonly capacityProviderStrategy?: outputs.ecs.ServiceCapacityProviderStrategyItem[];
     readonly deploymentConfiguration?: outputs.ecs.ServiceDeploymentConfiguration;
     readonly desiredCount?: number;
-    readonly enableECSManagedTags?: boolean;
+    readonly enableEcsManagedTags?: boolean;
     readonly enableExecuteCommand?: boolean;
     readonly healthCheckGracePeriodSeconds?: number;
     readonly loadBalancers?: outputs.ecs.ServiceLoadBalancer[];

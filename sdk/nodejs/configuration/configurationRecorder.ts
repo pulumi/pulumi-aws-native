@@ -42,7 +42,7 @@ export class ConfigurationRecorder extends pulumi.CustomResource {
 
     public readonly name!: pulumi.Output<string | undefined>;
     public readonly recordingGroup!: pulumi.Output<outputs.configuration.ConfigurationRecorderRecordingGroup | undefined>;
-    public readonly roleARN!: pulumi.Output<string>;
+    public readonly roleArn!: pulumi.Output<string>;
 
     /**
      * Create a ConfigurationRecorder resource with the given unique name, arguments, and options.
@@ -57,16 +57,16 @@ export class ConfigurationRecorder extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.roleARN === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'roleARN'");
+            if ((!args || args.roleArn === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'roleArn'");
             }
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["recordingGroup"] = args ? args.recordingGroup : undefined;
-            resourceInputs["roleARN"] = args ? args.roleARN : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
         } else {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["recordingGroup"] = undefined /*out*/;
-            resourceInputs["roleARN"] = undefined /*out*/;
+            resourceInputs["roleArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ConfigurationRecorder.__pulumiType, name, resourceInputs, opts);
@@ -79,5 +79,5 @@ export class ConfigurationRecorder extends pulumi.CustomResource {
 export interface ConfigurationRecorderArgs {
     name?: pulumi.Input<string>;
     recordingGroup?: pulumi.Input<inputs.configuration.ConfigurationRecorderRecordingGroupArgs>;
-    roleARN: pulumi.Input<string>;
+    roleArn: pulumi.Input<string>;
 }

@@ -19,7 +19,7 @@ type DomainAdvancedSecurityOptionsInput struct {
 	Enabled                     *bool                    `pulumi:"enabled"`
 	InternalUserDatabaseEnabled *bool                    `pulumi:"internalUserDatabaseEnabled"`
 	MasterUserOptions           *DomainMasterUserOptions `pulumi:"masterUserOptions"`
-	SAMLOptions                 *DomainSAMLOptions       `pulumi:"sAMLOptions"`
+	SamlOptions                 *DomainSAMLOptions       `pulumi:"samlOptions"`
 }
 
 // DomainAdvancedSecurityOptionsInputInput is an input type that accepts DomainAdvancedSecurityOptionsInputArgs and DomainAdvancedSecurityOptionsInputOutput values.
@@ -39,7 +39,7 @@ type DomainAdvancedSecurityOptionsInputArgs struct {
 	Enabled                     pulumi.BoolPtrInput             `pulumi:"enabled"`
 	InternalUserDatabaseEnabled pulumi.BoolPtrInput             `pulumi:"internalUserDatabaseEnabled"`
 	MasterUserOptions           DomainMasterUserOptionsPtrInput `pulumi:"masterUserOptions"`
-	SAMLOptions                 DomainSAMLOptionsPtrInput       `pulumi:"sAMLOptions"`
+	SamlOptions                 DomainSAMLOptionsPtrInput       `pulumi:"samlOptions"`
 }
 
 func (DomainAdvancedSecurityOptionsInputArgs) ElementType() reflect.Type {
@@ -139,8 +139,8 @@ func (o DomainAdvancedSecurityOptionsInputOutput) MasterUserOptions() DomainMast
 	return o.ApplyT(func(v DomainAdvancedSecurityOptionsInput) *DomainMasterUserOptions { return v.MasterUserOptions }).(DomainMasterUserOptionsPtrOutput)
 }
 
-func (o DomainAdvancedSecurityOptionsInputOutput) SAMLOptions() DomainSAMLOptionsPtrOutput {
-	return o.ApplyT(func(v DomainAdvancedSecurityOptionsInput) *DomainSAMLOptions { return v.SAMLOptions }).(DomainSAMLOptionsPtrOutput)
+func (o DomainAdvancedSecurityOptionsInputOutput) SamlOptions() DomainSAMLOptionsPtrOutput {
+	return o.ApplyT(func(v DomainAdvancedSecurityOptionsInput) *DomainSAMLOptions { return v.SamlOptions }).(DomainSAMLOptionsPtrOutput)
 }
 
 type DomainAdvancedSecurityOptionsInputPtrOutput struct{ *pulumi.OutputState }
@@ -212,12 +212,12 @@ func (o DomainAdvancedSecurityOptionsInputPtrOutput) MasterUserOptions() DomainM
 	}).(DomainMasterUserOptionsPtrOutput)
 }
 
-func (o DomainAdvancedSecurityOptionsInputPtrOutput) SAMLOptions() DomainSAMLOptionsPtrOutput {
+func (o DomainAdvancedSecurityOptionsInputPtrOutput) SamlOptions() DomainSAMLOptionsPtrOutput {
 	return o.ApplyT(func(v *DomainAdvancedSecurityOptionsInput) *DomainSAMLOptions {
 		if v == nil {
 			return nil
 		}
-		return v.SAMLOptions
+		return v.SamlOptions
 	}).(DomainSAMLOptionsPtrOutput)
 }
 
@@ -227,7 +227,7 @@ type DomainClusterConfig struct {
 	DedicatedMasterType       *string                    `pulumi:"dedicatedMasterType"`
 	InstanceCount             *int                       `pulumi:"instanceCount"`
 	InstanceType              *string                    `pulumi:"instanceType"`
-	MultiAZWithStandbyEnabled *bool                      `pulumi:"multiAZWithStandbyEnabled"`
+	MultiAzWithStandbyEnabled *bool                      `pulumi:"multiAzWithStandbyEnabled"`
 	WarmCount                 *int                       `pulumi:"warmCount"`
 	WarmEnabled               *bool                      `pulumi:"warmEnabled"`
 	WarmType                  *string                    `pulumi:"warmType"`
@@ -252,7 +252,7 @@ type DomainClusterConfigArgs struct {
 	DedicatedMasterType       pulumi.StringPtrInput             `pulumi:"dedicatedMasterType"`
 	InstanceCount             pulumi.IntPtrInput                `pulumi:"instanceCount"`
 	InstanceType              pulumi.StringPtrInput             `pulumi:"instanceType"`
-	MultiAZWithStandbyEnabled pulumi.BoolPtrInput               `pulumi:"multiAZWithStandbyEnabled"`
+	MultiAzWithStandbyEnabled pulumi.BoolPtrInput               `pulumi:"multiAzWithStandbyEnabled"`
 	WarmCount                 pulumi.IntPtrInput                `pulumi:"warmCount"`
 	WarmEnabled               pulumi.BoolPtrInput               `pulumi:"warmEnabled"`
 	WarmType                  pulumi.StringPtrInput             `pulumi:"warmType"`
@@ -357,8 +357,8 @@ func (o DomainClusterConfigOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainClusterConfig) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
-func (o DomainClusterConfigOutput) MultiAZWithStandbyEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DomainClusterConfig) *bool { return v.MultiAZWithStandbyEnabled }).(pulumi.BoolPtrOutput)
+func (o DomainClusterConfigOutput) MultiAzWithStandbyEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DomainClusterConfig) *bool { return v.MultiAzWithStandbyEnabled }).(pulumi.BoolPtrOutput)
 }
 
 func (o DomainClusterConfigOutput) WarmCount() pulumi.IntPtrOutput {
@@ -450,12 +450,12 @@ func (o DomainClusterConfigPtrOutput) InstanceType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o DomainClusterConfigPtrOutput) MultiAZWithStandbyEnabled() pulumi.BoolPtrOutput {
+func (o DomainClusterConfigPtrOutput) MultiAzWithStandbyEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DomainClusterConfig) *bool {
 		if v == nil {
 			return nil
 		}
-		return v.MultiAZWithStandbyEnabled
+		return v.MultiAzWithStandbyEnabled
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -683,7 +683,7 @@ func (o DomainCognitoOptionsPtrOutput) UserPoolId() pulumi.StringPtrOutput {
 }
 
 type DomainEBSOptions struct {
-	EBSEnabled *bool   `pulumi:"eBSEnabled"`
+	EbsEnabled *bool   `pulumi:"ebsEnabled"`
 	Iops       *int    `pulumi:"iops"`
 	Throughput *int    `pulumi:"throughput"`
 	VolumeSize *int    `pulumi:"volumeSize"`
@@ -702,7 +702,7 @@ type DomainEBSOptionsInput interface {
 }
 
 type DomainEBSOptionsArgs struct {
-	EBSEnabled pulumi.BoolPtrInput   `pulumi:"eBSEnabled"`
+	EbsEnabled pulumi.BoolPtrInput   `pulumi:"ebsEnabled"`
 	Iops       pulumi.IntPtrInput    `pulumi:"iops"`
 	Throughput pulumi.IntPtrInput    `pulumi:"throughput"`
 	VolumeSize pulumi.IntPtrInput    `pulumi:"volumeSize"`
@@ -786,8 +786,8 @@ func (o DomainEBSOptionsOutput) ToDomainEBSOptionsPtrOutputWithContext(ctx conte
 	}).(DomainEBSOptionsPtrOutput)
 }
 
-func (o DomainEBSOptionsOutput) EBSEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DomainEBSOptions) *bool { return v.EBSEnabled }).(pulumi.BoolPtrOutput)
+func (o DomainEBSOptionsOutput) EbsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DomainEBSOptions) *bool { return v.EbsEnabled }).(pulumi.BoolPtrOutput)
 }
 
 func (o DomainEBSOptionsOutput) Iops() pulumi.IntPtrOutput {
@@ -830,12 +830,12 @@ func (o DomainEBSOptionsPtrOutput) Elem() DomainEBSOptionsOutput {
 	}).(DomainEBSOptionsOutput)
 }
 
-func (o DomainEBSOptionsPtrOutput) EBSEnabled() pulumi.BoolPtrOutput {
+func (o DomainEBSOptionsPtrOutput) EbsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DomainEBSOptions) *bool {
 		if v == nil {
 			return nil
 		}
-		return v.EBSEnabled
+		return v.EbsEnabled
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -1027,8 +1027,8 @@ type DomainEndpointOptions struct {
 	CustomEndpoint               *string `pulumi:"customEndpoint"`
 	CustomEndpointCertificateArn *string `pulumi:"customEndpointCertificateArn"`
 	CustomEndpointEnabled        *bool   `pulumi:"customEndpointEnabled"`
-	EnforceHTTPS                 *bool   `pulumi:"enforceHTTPS"`
-	TLSSecurityPolicy            *string `pulumi:"tLSSecurityPolicy"`
+	EnforceHttps                 *bool   `pulumi:"enforceHttps"`
+	TlsSecurityPolicy            *string `pulumi:"tlsSecurityPolicy"`
 }
 
 // DomainEndpointOptionsInput is an input type that accepts DomainEndpointOptionsArgs and DomainEndpointOptionsOutput values.
@@ -1046,8 +1046,8 @@ type DomainEndpointOptionsArgs struct {
 	CustomEndpoint               pulumi.StringPtrInput `pulumi:"customEndpoint"`
 	CustomEndpointCertificateArn pulumi.StringPtrInput `pulumi:"customEndpointCertificateArn"`
 	CustomEndpointEnabled        pulumi.BoolPtrInput   `pulumi:"customEndpointEnabled"`
-	EnforceHTTPS                 pulumi.BoolPtrInput   `pulumi:"enforceHTTPS"`
-	TLSSecurityPolicy            pulumi.StringPtrInput `pulumi:"tLSSecurityPolicy"`
+	EnforceHttps                 pulumi.BoolPtrInput   `pulumi:"enforceHttps"`
+	TlsSecurityPolicy            pulumi.StringPtrInput `pulumi:"tlsSecurityPolicy"`
 }
 
 func (DomainEndpointOptionsArgs) ElementType() reflect.Type {
@@ -1139,12 +1139,12 @@ func (o DomainEndpointOptionsOutput) CustomEndpointEnabled() pulumi.BoolPtrOutpu
 	return o.ApplyT(func(v DomainEndpointOptions) *bool { return v.CustomEndpointEnabled }).(pulumi.BoolPtrOutput)
 }
 
-func (o DomainEndpointOptionsOutput) EnforceHTTPS() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DomainEndpointOptions) *bool { return v.EnforceHTTPS }).(pulumi.BoolPtrOutput)
+func (o DomainEndpointOptionsOutput) EnforceHttps() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DomainEndpointOptions) *bool { return v.EnforceHttps }).(pulumi.BoolPtrOutput)
 }
 
-func (o DomainEndpointOptionsOutput) TLSSecurityPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainEndpointOptions) *string { return v.TLSSecurityPolicy }).(pulumi.StringPtrOutput)
+func (o DomainEndpointOptionsOutput) TlsSecurityPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainEndpointOptions) *string { return v.TlsSecurityPolicy }).(pulumi.StringPtrOutput)
 }
 
 type DomainEndpointOptionsPtrOutput struct{ *pulumi.OutputState }
@@ -1198,21 +1198,21 @@ func (o DomainEndpointOptionsPtrOutput) CustomEndpointEnabled() pulumi.BoolPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
-func (o DomainEndpointOptionsPtrOutput) EnforceHTTPS() pulumi.BoolPtrOutput {
+func (o DomainEndpointOptionsPtrOutput) EnforceHttps() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DomainEndpointOptions) *bool {
 		if v == nil {
 			return nil
 		}
-		return v.EnforceHTTPS
+		return v.EnforceHttps
 	}).(pulumi.BoolPtrOutput)
 }
 
-func (o DomainEndpointOptionsPtrOutput) TLSSecurityPolicy() pulumi.StringPtrOutput {
+func (o DomainEndpointOptionsPtrOutput) TlsSecurityPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainEndpointOptions) *string {
 		if v == nil {
 			return nil
 		}
-		return v.TLSSecurityPolicy
+		return v.TlsSecurityPolicy
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1365,7 +1365,7 @@ func (o DomainIdpPtrOutput) MetadataContent() pulumi.StringPtrOutput {
 }
 
 type DomainMasterUserOptions struct {
-	MasterUserARN      *string `pulumi:"masterUserARN"`
+	MasterUserArn      *string `pulumi:"masterUserArn"`
 	MasterUserName     *string `pulumi:"masterUserName"`
 	MasterUserPassword *string `pulumi:"masterUserPassword"`
 }
@@ -1382,7 +1382,7 @@ type DomainMasterUserOptionsInput interface {
 }
 
 type DomainMasterUserOptionsArgs struct {
-	MasterUserARN      pulumi.StringPtrInput `pulumi:"masterUserARN"`
+	MasterUserArn      pulumi.StringPtrInput `pulumi:"masterUserArn"`
 	MasterUserName     pulumi.StringPtrInput `pulumi:"masterUserName"`
 	MasterUserPassword pulumi.StringPtrInput `pulumi:"masterUserPassword"`
 }
@@ -1464,8 +1464,8 @@ func (o DomainMasterUserOptionsOutput) ToDomainMasterUserOptionsPtrOutputWithCon
 	}).(DomainMasterUserOptionsPtrOutput)
 }
 
-func (o DomainMasterUserOptionsOutput) MasterUserARN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainMasterUserOptions) *string { return v.MasterUserARN }).(pulumi.StringPtrOutput)
+func (o DomainMasterUserOptionsOutput) MasterUserArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainMasterUserOptions) *string { return v.MasterUserArn }).(pulumi.StringPtrOutput)
 }
 
 func (o DomainMasterUserOptionsOutput) MasterUserName() pulumi.StringPtrOutput {
@@ -1500,12 +1500,12 @@ func (o DomainMasterUserOptionsPtrOutput) Elem() DomainMasterUserOptionsOutput {
 	}).(DomainMasterUserOptionsOutput)
 }
 
-func (o DomainMasterUserOptionsPtrOutput) MasterUserARN() pulumi.StringPtrOutput {
+func (o DomainMasterUserOptionsPtrOutput) MasterUserArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainMasterUserOptions) *string {
 		if v == nil {
 			return nil
 		}
-		return v.MasterUserARN
+		return v.MasterUserArn
 	}).(pulumi.StringPtrOutput)
 }
 

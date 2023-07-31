@@ -18,13 +18,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetEIPAssociationResult:
-    def __init__(__self__, allocation_id=None, e_ip=None, id=None, instance_id=None, network_interface_id=None, private_ip_address=None):
+    def __init__(__self__, allocation_id=None, eip=None, id=None, instance_id=None, network_interface_id=None, private_ip_address=None):
         if allocation_id and not isinstance(allocation_id, str):
             raise TypeError("Expected argument 'allocation_id' to be a str")
         pulumi.set(__self__, "allocation_id", allocation_id)
-        if e_ip and not isinstance(e_ip, str):
-            raise TypeError("Expected argument 'e_ip' to be a str")
-        pulumi.set(__self__, "e_ip", e_ip)
+        if eip and not isinstance(eip, str):
+            raise TypeError("Expected argument 'eip' to be a str")
+        pulumi.set(__self__, "eip", eip)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -44,9 +44,9 @@ class GetEIPAssociationResult:
         return pulumi.get(self, "allocation_id")
 
     @property
-    @pulumi.getter(name="eIP")
-    def e_ip(self) -> Optional[str]:
-        return pulumi.get(self, "e_ip")
+    @pulumi.getter
+    def eip(self) -> Optional[str]:
+        return pulumi.get(self, "eip")
 
     @property
     @pulumi.getter
@@ -76,7 +76,7 @@ class AwaitableGetEIPAssociationResult(GetEIPAssociationResult):
             yield self
         return GetEIPAssociationResult(
             allocation_id=self.allocation_id,
-            e_ip=self.e_ip,
+            eip=self.eip,
             id=self.id,
             instance_id=self.instance_id,
             network_interface_id=self.network_interface_id,
@@ -95,7 +95,7 @@ def get_eipassociation(id: Optional[str] = None,
 
     return AwaitableGetEIPAssociationResult(
         allocation_id=pulumi.get(__ret__, 'allocation_id'),
-        e_ip=pulumi.get(__ret__, 'e_ip'),
+        eip=pulumi.get(__ret__, 'eip'),
         id=pulumi.get(__ret__, 'id'),
         instance_id=pulumi.get(__ret__, 'instance_id'),
         network_interface_id=pulumi.get(__ret__, 'network_interface_id'),

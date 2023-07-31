@@ -17,10 +17,10 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
     public sealed class RuleGroupRateBasedStatementCustomKey
     {
         public readonly Outputs.RuleGroupRateLimitCookie? Cookie;
-        public readonly Outputs.RuleGroupRateLimitForwardedIP? ForwardedIP;
-        public readonly Outputs.RuleGroupRateLimitHTTPMethod? HTTPMethod;
+        public readonly Outputs.RuleGroupRateLimitForwardedIP? ForwardedIp;
         public readonly Outputs.RuleGroupRateLimitHeader? Header;
-        public readonly Outputs.RuleGroupRateLimitIP? IP;
+        public readonly Outputs.RuleGroupRateLimitHTTPMethod? HttpMethod;
+        public readonly Outputs.RuleGroupRateLimitIP? Ip;
         public readonly Outputs.RuleGroupRateLimitLabelNamespace? LabelNamespace;
         public readonly Outputs.RuleGroupRateLimitQueryArgument? QueryArgument;
         public readonly Outputs.RuleGroupRateLimitQueryString? QueryString;
@@ -30,13 +30,13 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
         private RuleGroupRateBasedStatementCustomKey(
             Outputs.RuleGroupRateLimitCookie? cookie,
 
-            Outputs.RuleGroupRateLimitForwardedIP? forwardedIP,
-
-            Outputs.RuleGroupRateLimitHTTPMethod? hTTPMethod,
+            Outputs.RuleGroupRateLimitForwardedIP? forwardedIp,
 
             Outputs.RuleGroupRateLimitHeader? header,
 
-            Outputs.RuleGroupRateLimitIP? iP,
+            Outputs.RuleGroupRateLimitHTTPMethod? httpMethod,
+
+            Outputs.RuleGroupRateLimitIP? ip,
 
             Outputs.RuleGroupRateLimitLabelNamespace? labelNamespace,
 
@@ -47,10 +47,10 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
             Outputs.RuleGroupRateLimitUriPath? uriPath)
         {
             Cookie = cookie;
-            ForwardedIP = forwardedIP;
-            HTTPMethod = hTTPMethod;
+            ForwardedIp = forwardedIp;
             Header = header;
-            IP = iP;
+            HttpMethod = httpMethod;
+            Ip = ip;
             LabelNamespace = labelNamespace;
             QueryArgument = queryArgument;
             QueryString = queryString;

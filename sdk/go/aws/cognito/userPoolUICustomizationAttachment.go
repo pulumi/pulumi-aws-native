@@ -18,8 +18,8 @@ import (
 type UserPoolUICustomizationAttachment struct {
 	pulumi.CustomResourceState
 
-	CSS        pulumi.StringPtrOutput `pulumi:"cSS"`
 	ClientId   pulumi.StringOutput    `pulumi:"clientId"`
+	Css        pulumi.StringPtrOutput `pulumi:"css"`
 	UserPoolId pulumi.StringOutput    `pulumi:"userPoolId"`
 }
 
@@ -69,15 +69,15 @@ func (UserPoolUICustomizationAttachmentState) ElementType() reflect.Type {
 }
 
 type userPoolUICustomizationAttachmentArgs struct {
-	CSS        *string `pulumi:"cSS"`
 	ClientId   string  `pulumi:"clientId"`
+	Css        *string `pulumi:"css"`
 	UserPoolId string  `pulumi:"userPoolId"`
 }
 
 // The set of arguments for constructing a UserPoolUICustomizationAttachment resource.
 type UserPoolUICustomizationAttachmentArgs struct {
-	CSS        pulumi.StringPtrInput
 	ClientId   pulumi.StringInput
+	Css        pulumi.StringPtrInput
 	UserPoolId pulumi.StringInput
 }
 
@@ -118,12 +118,12 @@ func (o UserPoolUICustomizationAttachmentOutput) ToUserPoolUICustomizationAttach
 	return o
 }
 
-func (o UserPoolUICustomizationAttachmentOutput) CSS() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *UserPoolUICustomizationAttachment) pulumi.StringPtrOutput { return v.CSS }).(pulumi.StringPtrOutput)
-}
-
 func (o UserPoolUICustomizationAttachmentOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPoolUICustomizationAttachment) pulumi.StringOutput { return v.ClientId }).(pulumi.StringOutput)
+}
+
+func (o UserPoolUICustomizationAttachmentOutput) Css() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolUICustomizationAttachment) pulumi.StringPtrOutput { return v.Css }).(pulumi.StringPtrOutput)
 }
 
 func (o UserPoolUICustomizationAttachmentOutput) UserPoolId() pulumi.StringOutput {

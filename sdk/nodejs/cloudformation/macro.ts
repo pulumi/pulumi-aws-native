@@ -40,7 +40,7 @@ export class Macro extends pulumi.CustomResource {
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly functionName!: pulumi.Output<string>;
     public readonly logGroupName!: pulumi.Output<string | undefined>;
-    public readonly logRoleARN!: pulumi.Output<string | undefined>;
+    public readonly logRoleArn!: pulumi.Output<string | undefined>;
     public readonly name!: pulumi.Output<string>;
 
     /**
@@ -62,13 +62,13 @@ export class Macro extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["functionName"] = args ? args.functionName : undefined;
             resourceInputs["logGroupName"] = args ? args.logGroupName : undefined;
-            resourceInputs["logRoleARN"] = args ? args.logRoleARN : undefined;
+            resourceInputs["logRoleArn"] = args ? args.logRoleArn : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
         } else {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["functionName"] = undefined /*out*/;
             resourceInputs["logGroupName"] = undefined /*out*/;
-            resourceInputs["logRoleARN"] = undefined /*out*/;
+            resourceInputs["logRoleArn"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -83,6 +83,6 @@ export interface MacroArgs {
     description?: pulumi.Input<string>;
     functionName: pulumi.Input<string>;
     logGroupName?: pulumi.Input<string>;
-    logRoleARN?: pulumi.Input<string>;
+    logRoleArn?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
 }

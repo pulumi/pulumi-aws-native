@@ -267,7 +267,7 @@ class ConfigDecodeConfigArgs:
             pulumi.set(__self__, "unvalidated_json", unvalidated_json)
 
     @property
-    @pulumi.getter(name="unvalidatedJSON")
+    @pulumi.getter(name="unvalidatedJson")
     def unvalidated_json(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "unvalidated_json")
 
@@ -284,7 +284,7 @@ class ConfigDemodulationConfigArgs:
             pulumi.set(__self__, "unvalidated_json", unvalidated_json)
 
     @property
-    @pulumi.getter(name="unvalidatedJSON")
+    @pulumi.getter(name="unvalidatedJson")
     def unvalidated_json(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "unvalidated_json")
 

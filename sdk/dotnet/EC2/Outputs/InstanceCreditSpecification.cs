@@ -13,12 +13,12 @@ namespace Pulumi.AwsNative.EC2.Outputs
     [OutputType]
     public sealed class InstanceCreditSpecification
     {
-        public readonly string? CPUCredits;
+        public readonly string? CpuCredits;
 
         [OutputConstructor]
-        private InstanceCreditSpecification(string? cPUCredits)
+        private InstanceCreditSpecification(string? cpuCredits)
         {
-            CPUCredits = cPUCredits;
+            CpuCredits = cpuCredits;
         }
     }
 }

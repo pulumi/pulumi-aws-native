@@ -17,11 +17,11 @@ type DBProxyEndpoint struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) for the DB proxy endpoint.
-	DBProxyEndpointArn pulumi.StringOutput `pulumi:"dBProxyEndpointArn"`
+	DbProxyEndpointArn pulumi.StringOutput `pulumi:"dbProxyEndpointArn"`
 	// The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.
-	DBProxyEndpointName pulumi.StringOutput `pulumi:"dBProxyEndpointName"`
+	DbProxyEndpointName pulumi.StringOutput `pulumi:"dbProxyEndpointName"`
 	// The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
-	DBProxyName pulumi.StringOutput `pulumi:"dBProxyName"`
+	DbProxyName pulumi.StringOutput `pulumi:"dbProxyName"`
 	// The endpoint that you can use to connect to the DB proxy. You include the endpoint value in the connection string for a database client application.
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
 	// A value that indicates whether this endpoint is the default endpoint for the associated DB proxy. Default DB proxy endpoints always have read/write capability. Other endpoints that you associate with the DB proxy can be either read/write or read-only.
@@ -45,8 +45,8 @@ func NewDBProxyEndpoint(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DBProxyName == nil {
-		return nil, errors.New("invalid value for required argument 'DBProxyName'")
+	if args.DbProxyName == nil {
+		return nil, errors.New("invalid value for required argument 'DbProxyName'")
 	}
 	if args.VpcSubnetIds == nil {
 		return nil, errors.New("invalid value for required argument 'VpcSubnetIds'")
@@ -85,9 +85,9 @@ func (DBProxyEndpointState) ElementType() reflect.Type {
 
 type dbproxyEndpointArgs struct {
 	// The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.
-	DBProxyEndpointName *string `pulumi:"dBProxyEndpointName"`
+	DbProxyEndpointName *string `pulumi:"dbProxyEndpointName"`
 	// The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
-	DBProxyName string `pulumi:"dBProxyName"`
+	DbProxyName string `pulumi:"dbProxyName"`
 	// An optional set of key-value pairs to associate arbitrary data of your choosing with the DB proxy endpoint.
 	Tags []DBProxyEndpointTagFormat `pulumi:"tags"`
 	// A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
@@ -101,9 +101,9 @@ type dbproxyEndpointArgs struct {
 // The set of arguments for constructing a DBProxyEndpoint resource.
 type DBProxyEndpointArgs struct {
 	// The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.
-	DBProxyEndpointName pulumi.StringPtrInput
+	DbProxyEndpointName pulumi.StringPtrInput
 	// The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
-	DBProxyName pulumi.StringInput
+	DbProxyName pulumi.StringInput
 	// An optional set of key-value pairs to associate arbitrary data of your choosing with the DB proxy endpoint.
 	Tags DBProxyEndpointTagFormatArrayInput
 	// A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
@@ -152,18 +152,18 @@ func (o DBProxyEndpointOutput) ToDBProxyEndpointOutputWithContext(ctx context.Co
 }
 
 // The Amazon Resource Name (ARN) for the DB proxy endpoint.
-func (o DBProxyEndpointOutput) DBProxyEndpointArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *DBProxyEndpoint) pulumi.StringOutput { return v.DBProxyEndpointArn }).(pulumi.StringOutput)
+func (o DBProxyEndpointOutput) DbProxyEndpointArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *DBProxyEndpoint) pulumi.StringOutput { return v.DbProxyEndpointArn }).(pulumi.StringOutput)
 }
 
 // The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.
-func (o DBProxyEndpointOutput) DBProxyEndpointName() pulumi.StringOutput {
-	return o.ApplyT(func(v *DBProxyEndpoint) pulumi.StringOutput { return v.DBProxyEndpointName }).(pulumi.StringOutput)
+func (o DBProxyEndpointOutput) DbProxyEndpointName() pulumi.StringOutput {
+	return o.ApplyT(func(v *DBProxyEndpoint) pulumi.StringOutput { return v.DbProxyEndpointName }).(pulumi.StringOutput)
 }
 
 // The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
-func (o DBProxyEndpointOutput) DBProxyName() pulumi.StringOutput {
-	return o.ApplyT(func(v *DBProxyEndpoint) pulumi.StringOutput { return v.DBProxyName }).(pulumi.StringOutput)
+func (o DBProxyEndpointOutput) DbProxyName() pulumi.StringOutput {
+	return o.ApplyT(func(v *DBProxyEndpoint) pulumi.StringOutput { return v.DbProxyName }).(pulumi.StringOutput)
 }
 
 // The endpoint that you can use to connect to the DB proxy. You include the endpoint value in the connection string for a database client application.

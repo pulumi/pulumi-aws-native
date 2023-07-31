@@ -18,8 +18,8 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("containerStartupHealthCheckTimeoutInSeconds")]
         public Input<int>? ContainerStartupHealthCheckTimeoutInSeconds { get; set; }
 
-        [Input("enableSSMAccess")]
-        public Input<bool>? EnableSSMAccess { get; set; }
+        [Input("enableSsmAccess")]
+        public Input<bool>? EnableSsmAccess { get; set; }
 
         [Input("initialInstanceCount")]
         public Input<int>? InitialInstanceCount { get; set; }
@@ -42,8 +42,8 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("variantName", required: true)]
         public Input<string> VariantName { get; set; } = null!;
 
-        [Input("volumeSizeInGB")]
-        public Input<int>? VolumeSizeInGB { get; set; }
+        [Input("volumeSizeInGb")]
+        public Input<int>? VolumeSizeInGb { get; set; }
 
         public EndpointConfigProductionVariantArgs()
         {

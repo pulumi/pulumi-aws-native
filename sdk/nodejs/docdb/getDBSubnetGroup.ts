@@ -23,7 +23,7 @@ export interface GetDBSubnetGroupArgs {
 }
 
 export interface GetDBSubnetGroupResult {
-    readonly dBSubnetGroupDescription?: string;
+    readonly dbSubnetGroupDescription?: string;
     readonly id?: string;
     readonly subnetIds?: string[];
     readonly tags?: outputs.docdb.DBSubnetGroupTag[];

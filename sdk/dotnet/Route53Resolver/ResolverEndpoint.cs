@@ -22,8 +22,8 @@ namespace Pulumi.AwsNative.Route53Resolver
         [Output("direction")]
         public Output<string> Direction { get; private set; } = null!;
 
-        [Output("hostVPCId")]
-        public Output<string> HostVPCId { get; private set; } = null!;
+        [Output("hostVpcId")]
+        public Output<string> HostVpcId { get; private set; } = null!;
 
         [Output("ipAddressCount")]
         public Output<string> IpAddressCount { get; private set; } = null!;

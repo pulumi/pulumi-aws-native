@@ -483,7 +483,7 @@ type SolutionConfig struct {
 	// Lists the hyperparameter names and ranges.
 	AlgorithmHyperParameters interface{} `pulumi:"algorithmHyperParameters"`
 	// The AutoMLConfig object containing a list of recipes to search when AutoML is performed.
-	AutoMLConfig *SolutionConfigAutoMLConfigProperties `pulumi:"autoMLConfig"`
+	AutoMlConfig *SolutionConfigAutoMLConfigProperties `pulumi:"autoMlConfig"`
 	// Only events with a value greater than or equal to this threshold are used for training a model.
 	EventValueThreshold *string `pulumi:"eventValueThreshold"`
 	// Lists the feature transformation parameters.
@@ -508,7 +508,7 @@ type SolutionConfigArgs struct {
 	// Lists the hyperparameter names and ranges.
 	AlgorithmHyperParameters pulumi.Input `pulumi:"algorithmHyperParameters"`
 	// The AutoMLConfig object containing a list of recipes to search when AutoML is performed.
-	AutoMLConfig SolutionConfigAutoMLConfigPropertiesPtrInput `pulumi:"autoMLConfig"`
+	AutoMlConfig SolutionConfigAutoMLConfigPropertiesPtrInput `pulumi:"autoMlConfig"`
 	// Only events with a value greater than or equal to this threshold are used for training a model.
 	EventValueThreshold pulumi.StringPtrInput `pulumi:"eventValueThreshold"`
 	// Lists the feature transformation parameters.
@@ -601,8 +601,8 @@ func (o SolutionConfigOutput) AlgorithmHyperParameters() pulumi.AnyOutput {
 }
 
 // The AutoMLConfig object containing a list of recipes to search when AutoML is performed.
-func (o SolutionConfigOutput) AutoMLConfig() SolutionConfigAutoMLConfigPropertiesPtrOutput {
-	return o.ApplyT(func(v SolutionConfig) *SolutionConfigAutoMLConfigProperties { return v.AutoMLConfig }).(SolutionConfigAutoMLConfigPropertiesPtrOutput)
+func (o SolutionConfigOutput) AutoMlConfig() SolutionConfigAutoMLConfigPropertiesPtrOutput {
+	return o.ApplyT(func(v SolutionConfig) *SolutionConfigAutoMLConfigProperties { return v.AutoMlConfig }).(SolutionConfigAutoMLConfigPropertiesPtrOutput)
 }
 
 // Only events with a value greater than or equal to this threshold are used for training a model.
@@ -655,12 +655,12 @@ func (o SolutionConfigPtrOutput) AlgorithmHyperParameters() pulumi.AnyOutput {
 }
 
 // The AutoMLConfig object containing a list of recipes to search when AutoML is performed.
-func (o SolutionConfigPtrOutput) AutoMLConfig() SolutionConfigAutoMLConfigPropertiesPtrOutput {
+func (o SolutionConfigPtrOutput) AutoMlConfig() SolutionConfigAutoMLConfigPropertiesPtrOutput {
 	return o.ApplyT(func(v *SolutionConfig) *SolutionConfigAutoMLConfigProperties {
 		if v == nil {
 			return nil
 		}
-		return v.AutoMLConfig
+		return v.AutoMlConfig
 	}).(SolutionConfigAutoMLConfigPropertiesPtrOutput)
 }
 

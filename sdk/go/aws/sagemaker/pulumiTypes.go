@@ -1272,7 +1272,7 @@ type DataQualityJobDefinitionClusterConfig struct {
 	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
 	VolumeKmsKeyId *string `pulumi:"volumeKmsKeyId"`
 	// The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
-	VolumeSizeInGB int `pulumi:"volumeSizeInGB"`
+	VolumeSizeInGb int `pulumi:"volumeSizeInGb"`
 }
 
 // DataQualityJobDefinitionClusterConfigInput is an input type that accepts DataQualityJobDefinitionClusterConfigArgs and DataQualityJobDefinitionClusterConfigOutput values.
@@ -1295,7 +1295,7 @@ type DataQualityJobDefinitionClusterConfigArgs struct {
 	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
 	VolumeKmsKeyId pulumi.StringPtrInput `pulumi:"volumeKmsKeyId"`
 	// The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
-	VolumeSizeInGB pulumi.IntInput `pulumi:"volumeSizeInGB"`
+	VolumeSizeInGb pulumi.IntInput `pulumi:"volumeSizeInGb"`
 }
 
 func (DataQualityJobDefinitionClusterConfigArgs) ElementType() reflect.Type {
@@ -1341,8 +1341,8 @@ func (o DataQualityJobDefinitionClusterConfigOutput) VolumeKmsKeyId() pulumi.Str
 }
 
 // The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
-func (o DataQualityJobDefinitionClusterConfigOutput) VolumeSizeInGB() pulumi.IntOutput {
-	return o.ApplyT(func(v DataQualityJobDefinitionClusterConfig) int { return v.VolumeSizeInGB }).(pulumi.IntOutput)
+func (o DataQualityJobDefinitionClusterConfigOutput) VolumeSizeInGb() pulumi.IntOutput {
+	return o.ApplyT(func(v DataQualityJobDefinitionClusterConfig) int { return v.VolumeSizeInGb }).(pulumi.IntOutput)
 }
 
 // The baseline constraints resource for a monitoring job.
@@ -7680,7 +7680,7 @@ type EndpointConfigClarifyInferenceConfig struct {
 	LabelAttribute       *string                            `pulumi:"labelAttribute"`
 	LabelHeaders         []EndpointConfigClarifyHeader      `pulumi:"labelHeaders"`
 	LabelIndex           *int                               `pulumi:"labelIndex"`
-	MaxPayloadInMB       *int                               `pulumi:"maxPayloadInMB"`
+	MaxPayloadInMb       *int                               `pulumi:"maxPayloadInMb"`
 	MaxRecordCount       *int                               `pulumi:"maxRecordCount"`
 	ProbabilityAttribute *string                            `pulumi:"probabilityAttribute"`
 	ProbabilityIndex     *int                               `pulumi:"probabilityIndex"`
@@ -7705,7 +7705,7 @@ type EndpointConfigClarifyInferenceConfigArgs struct {
 	LabelAttribute       pulumi.StringPtrInput                      `pulumi:"labelAttribute"`
 	LabelHeaders         EndpointConfigClarifyHeaderArrayInput      `pulumi:"labelHeaders"`
 	LabelIndex           pulumi.IntPtrInput                         `pulumi:"labelIndex"`
-	MaxPayloadInMB       pulumi.IntPtrInput                         `pulumi:"maxPayloadInMB"`
+	MaxPayloadInMb       pulumi.IntPtrInput                         `pulumi:"maxPayloadInMb"`
 	MaxRecordCount       pulumi.IntPtrInput                         `pulumi:"maxRecordCount"`
 	ProbabilityAttribute pulumi.StringPtrInput                      `pulumi:"probabilityAttribute"`
 	ProbabilityIndex     pulumi.IntPtrInput                         `pulumi:"probabilityIndex"`
@@ -7816,8 +7816,8 @@ func (o EndpointConfigClarifyInferenceConfigOutput) LabelIndex() pulumi.IntPtrOu
 	return o.ApplyT(func(v EndpointConfigClarifyInferenceConfig) *int { return v.LabelIndex }).(pulumi.IntPtrOutput)
 }
 
-func (o EndpointConfigClarifyInferenceConfigOutput) MaxPayloadInMB() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v EndpointConfigClarifyInferenceConfig) *int { return v.MaxPayloadInMB }).(pulumi.IntPtrOutput)
+func (o EndpointConfigClarifyInferenceConfigOutput) MaxPayloadInMb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointConfigClarifyInferenceConfig) *int { return v.MaxPayloadInMb }).(pulumi.IntPtrOutput)
 }
 
 func (o EndpointConfigClarifyInferenceConfigOutput) MaxRecordCount() pulumi.IntPtrOutput {
@@ -7919,12 +7919,12 @@ func (o EndpointConfigClarifyInferenceConfigPtrOutput) LabelIndex() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o EndpointConfigClarifyInferenceConfigPtrOutput) MaxPayloadInMB() pulumi.IntPtrOutput {
+func (o EndpointConfigClarifyInferenceConfigPtrOutput) MaxPayloadInMb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigClarifyInferenceConfig) *int {
 		if v == nil {
 			return nil
 		}
-		return v.MaxPayloadInMB
+		return v.MaxPayloadInMb
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -8809,7 +8809,7 @@ func (o EndpointConfigExplainerConfigPtrOutput) ClarifyExplainerConfig() Endpoin
 type EndpointConfigProductionVariant struct {
 	AcceleratorType                             *string                         `pulumi:"acceleratorType"`
 	ContainerStartupHealthCheckTimeoutInSeconds *int                            `pulumi:"containerStartupHealthCheckTimeoutInSeconds"`
-	EnableSSMAccess                             *bool                           `pulumi:"enableSSMAccess"`
+	EnableSsmAccess                             *bool                           `pulumi:"enableSsmAccess"`
 	InitialInstanceCount                        *int                            `pulumi:"initialInstanceCount"`
 	InitialVariantWeight                        float64                         `pulumi:"initialVariantWeight"`
 	InstanceType                                *string                         `pulumi:"instanceType"`
@@ -8817,7 +8817,7 @@ type EndpointConfigProductionVariant struct {
 	ModelName                                   string                          `pulumi:"modelName"`
 	ServerlessConfig                            *EndpointConfigServerlessConfig `pulumi:"serverlessConfig"`
 	VariantName                                 string                          `pulumi:"variantName"`
-	VolumeSizeInGB                              *int                            `pulumi:"volumeSizeInGB"`
+	VolumeSizeInGb                              *int                            `pulumi:"volumeSizeInGb"`
 }
 
 // EndpointConfigProductionVariantInput is an input type that accepts EndpointConfigProductionVariantArgs and EndpointConfigProductionVariantOutput values.
@@ -8834,7 +8834,7 @@ type EndpointConfigProductionVariantInput interface {
 type EndpointConfigProductionVariantArgs struct {
 	AcceleratorType                             pulumi.StringPtrInput                  `pulumi:"acceleratorType"`
 	ContainerStartupHealthCheckTimeoutInSeconds pulumi.IntPtrInput                     `pulumi:"containerStartupHealthCheckTimeoutInSeconds"`
-	EnableSSMAccess                             pulumi.BoolPtrInput                    `pulumi:"enableSSMAccess"`
+	EnableSsmAccess                             pulumi.BoolPtrInput                    `pulumi:"enableSsmAccess"`
 	InitialInstanceCount                        pulumi.IntPtrInput                     `pulumi:"initialInstanceCount"`
 	InitialVariantWeight                        pulumi.Float64Input                    `pulumi:"initialVariantWeight"`
 	InstanceType                                pulumi.StringPtrInput                  `pulumi:"instanceType"`
@@ -8842,7 +8842,7 @@ type EndpointConfigProductionVariantArgs struct {
 	ModelName                                   pulumi.StringInput                     `pulumi:"modelName"`
 	ServerlessConfig                            EndpointConfigServerlessConfigPtrInput `pulumi:"serverlessConfig"`
 	VariantName                                 pulumi.StringInput                     `pulumi:"variantName"`
-	VolumeSizeInGB                              pulumi.IntPtrInput                     `pulumi:"volumeSizeInGB"`
+	VolumeSizeInGb                              pulumi.IntPtrInput                     `pulumi:"volumeSizeInGb"`
 }
 
 func (EndpointConfigProductionVariantArgs) ElementType() reflect.Type {
@@ -8904,8 +8904,8 @@ func (o EndpointConfigProductionVariantOutput) ContainerStartupHealthCheckTimeou
 	return o.ApplyT(func(v EndpointConfigProductionVariant) *int { return v.ContainerStartupHealthCheckTimeoutInSeconds }).(pulumi.IntPtrOutput)
 }
 
-func (o EndpointConfigProductionVariantOutput) EnableSSMAccess() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v EndpointConfigProductionVariant) *bool { return v.EnableSSMAccess }).(pulumi.BoolPtrOutput)
+func (o EndpointConfigProductionVariantOutput) EnableSsmAccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointConfigProductionVariant) *bool { return v.EnableSsmAccess }).(pulumi.BoolPtrOutput)
 }
 
 func (o EndpointConfigProductionVariantOutput) InitialInstanceCount() pulumi.IntPtrOutput {
@@ -8936,8 +8936,8 @@ func (o EndpointConfigProductionVariantOutput) VariantName() pulumi.StringOutput
 	return o.ApplyT(func(v EndpointConfigProductionVariant) string { return v.VariantName }).(pulumi.StringOutput)
 }
 
-func (o EndpointConfigProductionVariantOutput) VolumeSizeInGB() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v EndpointConfigProductionVariant) *int { return v.VolumeSizeInGB }).(pulumi.IntPtrOutput)
+func (o EndpointConfigProductionVariantOutput) VolumeSizeInGb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointConfigProductionVariant) *int { return v.VolumeSizeInGb }).(pulumi.IntPtrOutput)
 }
 
 type EndpointConfigProductionVariantArrayOutput struct{ *pulumi.OutputState }
@@ -8962,7 +8962,7 @@ func (o EndpointConfigProductionVariantArrayOutput) Index(i pulumi.IntInput) End
 
 type EndpointConfigServerlessConfig struct {
 	MaxConcurrency         int  `pulumi:"maxConcurrency"`
-	MemorySizeInMB         int  `pulumi:"memorySizeInMB"`
+	MemorySizeInMb         int  `pulumi:"memorySizeInMb"`
 	ProvisionedConcurrency *int `pulumi:"provisionedConcurrency"`
 }
 
@@ -8979,7 +8979,7 @@ type EndpointConfigServerlessConfigInput interface {
 
 type EndpointConfigServerlessConfigArgs struct {
 	MaxConcurrency         pulumi.IntInput    `pulumi:"maxConcurrency"`
-	MemorySizeInMB         pulumi.IntInput    `pulumi:"memorySizeInMB"`
+	MemorySizeInMb         pulumi.IntInput    `pulumi:"memorySizeInMb"`
 	ProvisionedConcurrency pulumi.IntPtrInput `pulumi:"provisionedConcurrency"`
 }
 
@@ -9064,8 +9064,8 @@ func (o EndpointConfigServerlessConfigOutput) MaxConcurrency() pulumi.IntOutput 
 	return o.ApplyT(func(v EndpointConfigServerlessConfig) int { return v.MaxConcurrency }).(pulumi.IntOutput)
 }
 
-func (o EndpointConfigServerlessConfigOutput) MemorySizeInMB() pulumi.IntOutput {
-	return o.ApplyT(func(v EndpointConfigServerlessConfig) int { return v.MemorySizeInMB }).(pulumi.IntOutput)
+func (o EndpointConfigServerlessConfigOutput) MemorySizeInMb() pulumi.IntOutput {
+	return o.ApplyT(func(v EndpointConfigServerlessConfig) int { return v.MemorySizeInMb }).(pulumi.IntOutput)
 }
 
 func (o EndpointConfigServerlessConfigOutput) ProvisionedConcurrency() pulumi.IntPtrOutput {
@@ -9105,12 +9105,12 @@ func (o EndpointConfigServerlessConfigPtrOutput) MaxConcurrency() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o EndpointConfigServerlessConfigPtrOutput) MemorySizeInMB() pulumi.IntPtrOutput {
+func (o EndpointConfigServerlessConfigPtrOutput) MemorySizeInMb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigServerlessConfig) *int {
 		if v == nil {
 			return nil
 		}
-		return &v.MemorySizeInMB
+		return &v.MemorySizeInMb
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -12241,7 +12241,7 @@ type ModelBiasJobDefinitionClusterConfig struct {
 	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
 	VolumeKmsKeyId *string `pulumi:"volumeKmsKeyId"`
 	// The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
-	VolumeSizeInGB int `pulumi:"volumeSizeInGB"`
+	VolumeSizeInGb int `pulumi:"volumeSizeInGb"`
 }
 
 // ModelBiasJobDefinitionClusterConfigInput is an input type that accepts ModelBiasJobDefinitionClusterConfigArgs and ModelBiasJobDefinitionClusterConfigOutput values.
@@ -12264,7 +12264,7 @@ type ModelBiasJobDefinitionClusterConfigArgs struct {
 	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
 	VolumeKmsKeyId pulumi.StringPtrInput `pulumi:"volumeKmsKeyId"`
 	// The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
-	VolumeSizeInGB pulumi.IntInput `pulumi:"volumeSizeInGB"`
+	VolumeSizeInGb pulumi.IntInput `pulumi:"volumeSizeInGb"`
 }
 
 func (ModelBiasJobDefinitionClusterConfigArgs) ElementType() reflect.Type {
@@ -12310,8 +12310,8 @@ func (o ModelBiasJobDefinitionClusterConfigOutput) VolumeKmsKeyId() pulumi.Strin
 }
 
 // The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
-func (o ModelBiasJobDefinitionClusterConfigOutput) VolumeSizeInGB() pulumi.IntOutput {
-	return o.ApplyT(func(v ModelBiasJobDefinitionClusterConfig) int { return v.VolumeSizeInGB }).(pulumi.IntOutput)
+func (o ModelBiasJobDefinitionClusterConfigOutput) VolumeSizeInGb() pulumi.IntOutput {
+	return o.ApplyT(func(v ModelBiasJobDefinitionClusterConfig) int { return v.VolumeSizeInGb }).(pulumi.IntOutput)
 }
 
 // The baseline constraints resource for a monitoring job.
@@ -18849,7 +18849,7 @@ type ModelExplainabilityJobDefinitionClusterConfig struct {
 	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
 	VolumeKmsKeyId *string `pulumi:"volumeKmsKeyId"`
 	// The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
-	VolumeSizeInGB int `pulumi:"volumeSizeInGB"`
+	VolumeSizeInGb int `pulumi:"volumeSizeInGb"`
 }
 
 // ModelExplainabilityJobDefinitionClusterConfigInput is an input type that accepts ModelExplainabilityJobDefinitionClusterConfigArgs and ModelExplainabilityJobDefinitionClusterConfigOutput values.
@@ -18872,7 +18872,7 @@ type ModelExplainabilityJobDefinitionClusterConfigArgs struct {
 	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
 	VolumeKmsKeyId pulumi.StringPtrInput `pulumi:"volumeKmsKeyId"`
 	// The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
-	VolumeSizeInGB pulumi.IntInput `pulumi:"volumeSizeInGB"`
+	VolumeSizeInGb pulumi.IntInput `pulumi:"volumeSizeInGb"`
 }
 
 func (ModelExplainabilityJobDefinitionClusterConfigArgs) ElementType() reflect.Type {
@@ -18918,8 +18918,8 @@ func (o ModelExplainabilityJobDefinitionClusterConfigOutput) VolumeKmsKeyId() pu
 }
 
 // The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
-func (o ModelExplainabilityJobDefinitionClusterConfigOutput) VolumeSizeInGB() pulumi.IntOutput {
-	return o.ApplyT(func(v ModelExplainabilityJobDefinitionClusterConfig) int { return v.VolumeSizeInGB }).(pulumi.IntOutput)
+func (o ModelExplainabilityJobDefinitionClusterConfigOutput) VolumeSizeInGb() pulumi.IntOutput {
+	return o.ApplyT(func(v ModelExplainabilityJobDefinitionClusterConfig) int { return v.VolumeSizeInGb }).(pulumi.IntOutput)
 }
 
 // The baseline constraints resource for a monitoring job.
@@ -21365,7 +21365,7 @@ type ModelPackageAdditionalInferenceSpecificationDefinition struct {
 	// A list of the instance types that are used to generate inferences in real-time
 	SupportedRealtimeInferenceInstanceTypes []string `pulumi:"supportedRealtimeInferenceInstanceTypes"`
 	// The supported MIME types for the output data.
-	SupportedResponseMIMETypes []string `pulumi:"supportedResponseMIMETypes"`
+	SupportedResponseMimeTypes []string `pulumi:"supportedResponseMimeTypes"`
 	// A list of the instance types on which a transformation job can be run or on which an endpoint can be deployed.
 	SupportedTransformInstanceTypes []string `pulumi:"supportedTransformInstanceTypes"`
 }
@@ -21394,7 +21394,7 @@ type ModelPackageAdditionalInferenceSpecificationDefinitionArgs struct {
 	// A list of the instance types that are used to generate inferences in real-time
 	SupportedRealtimeInferenceInstanceTypes pulumi.StringArrayInput `pulumi:"supportedRealtimeInferenceInstanceTypes"`
 	// The supported MIME types for the output data.
-	SupportedResponseMIMETypes pulumi.StringArrayInput `pulumi:"supportedResponseMIMETypes"`
+	SupportedResponseMimeTypes pulumi.StringArrayInput `pulumi:"supportedResponseMimeTypes"`
 	// A list of the instance types on which a transformation job can be run or on which an endpoint can be deployed.
 	SupportedTransformInstanceTypes pulumi.StringArrayInput `pulumi:"supportedTransformInstanceTypes"`
 }
@@ -21483,9 +21483,9 @@ func (o ModelPackageAdditionalInferenceSpecificationDefinitionOutput) SupportedR
 }
 
 // The supported MIME types for the output data.
-func (o ModelPackageAdditionalInferenceSpecificationDefinitionOutput) SupportedResponseMIMETypes() pulumi.StringArrayOutput {
+func (o ModelPackageAdditionalInferenceSpecificationDefinitionOutput) SupportedResponseMimeTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ModelPackageAdditionalInferenceSpecificationDefinition) []string {
-		return v.SupportedResponseMIMETypes
+		return v.SupportedResponseMimeTypes
 	}).(pulumi.StringArrayOutput)
 }
 
@@ -23515,7 +23515,7 @@ type ModelPackageInferenceSpecification struct {
 	// A list of the instance types that are used to generate inferences in real-time
 	SupportedRealtimeInferenceInstanceTypes []string `pulumi:"supportedRealtimeInferenceInstanceTypes"`
 	// The supported MIME types for the output data.
-	SupportedResponseMIMETypes []string `pulumi:"supportedResponseMIMETypes"`
+	SupportedResponseMimeTypes []string `pulumi:"supportedResponseMimeTypes"`
 	// A list of the instance types on which a transformation job can be run or on which an endpoint can be deployed.
 	SupportedTransformInstanceTypes []string `pulumi:"supportedTransformInstanceTypes"`
 }
@@ -23540,7 +23540,7 @@ type ModelPackageInferenceSpecificationArgs struct {
 	// A list of the instance types that are used to generate inferences in real-time
 	SupportedRealtimeInferenceInstanceTypes pulumi.StringArrayInput `pulumi:"supportedRealtimeInferenceInstanceTypes"`
 	// The supported MIME types for the output data.
-	SupportedResponseMIMETypes pulumi.StringArrayInput `pulumi:"supportedResponseMIMETypes"`
+	SupportedResponseMimeTypes pulumi.StringArrayInput `pulumi:"supportedResponseMimeTypes"`
 	// A list of the instance types on which a transformation job can be run or on which an endpoint can be deployed.
 	SupportedTransformInstanceTypes pulumi.StringArrayInput `pulumi:"supportedTransformInstanceTypes"`
 }
@@ -23639,8 +23639,8 @@ func (o ModelPackageInferenceSpecificationOutput) SupportedRealtimeInferenceInst
 }
 
 // The supported MIME types for the output data.
-func (o ModelPackageInferenceSpecificationOutput) SupportedResponseMIMETypes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ModelPackageInferenceSpecification) []string { return v.SupportedResponseMIMETypes }).(pulumi.StringArrayOutput)
+func (o ModelPackageInferenceSpecificationOutput) SupportedResponseMimeTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ModelPackageInferenceSpecification) []string { return v.SupportedResponseMimeTypes }).(pulumi.StringArrayOutput)
 }
 
 // A list of the instance types on which a transformation job can be run or on which an endpoint can be deployed.
@@ -23703,12 +23703,12 @@ func (o ModelPackageInferenceSpecificationPtrOutput) SupportedRealtimeInferenceI
 }
 
 // The supported MIME types for the output data.
-func (o ModelPackageInferenceSpecificationPtrOutput) SupportedResponseMIMETypes() pulumi.StringArrayOutput {
+func (o ModelPackageInferenceSpecificationPtrOutput) SupportedResponseMimeTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ModelPackageInferenceSpecification) []string {
 		if v == nil {
 			return nil
 		}
-		return v.SupportedResponseMIMETypes
+		return v.SupportedResponseMimeTypes
 	}).(pulumi.StringArrayOutput)
 }
 
@@ -25347,7 +25347,7 @@ type ModelPackageTransformJobDefinition struct {
 	// The maximum number of parallel requests that can be sent to each instance in a transform job. The default value is 1.
 	MaxConcurrentTransforms *int `pulumi:"maxConcurrentTransforms"`
 	// The maximum payload size allowed, in MB. A payload is the data portion of a record (without metadata).
-	MaxPayloadInMB     *int                           `pulumi:"maxPayloadInMB"`
+	MaxPayloadInMb     *int                           `pulumi:"maxPayloadInMb"`
 	TransformInput     ModelPackageTransformInput     `pulumi:"transformInput"`
 	TransformOutput    ModelPackageTransformOutput    `pulumi:"transformOutput"`
 	TransformResources ModelPackageTransformResources `pulumi:"transformResources"`
@@ -25372,7 +25372,7 @@ type ModelPackageTransformJobDefinitionArgs struct {
 	// The maximum number of parallel requests that can be sent to each instance in a transform job. The default value is 1.
 	MaxConcurrentTransforms pulumi.IntPtrInput `pulumi:"maxConcurrentTransforms"`
 	// The maximum payload size allowed, in MB. A payload is the data portion of a record (without metadata).
-	MaxPayloadInMB     pulumi.IntPtrInput                  `pulumi:"maxPayloadInMB"`
+	MaxPayloadInMb     pulumi.IntPtrInput                  `pulumi:"maxPayloadInMb"`
 	TransformInput     ModelPackageTransformInputInput     `pulumi:"transformInput"`
 	TransformOutput    ModelPackageTransformOutputInput    `pulumi:"transformOutput"`
 	TransformResources ModelPackageTransformResourcesInput `pulumi:"transformResources"`
@@ -25422,8 +25422,8 @@ func (o ModelPackageTransformJobDefinitionOutput) MaxConcurrentTransforms() pulu
 }
 
 // The maximum payload size allowed, in MB. A payload is the data portion of a record (without metadata).
-func (o ModelPackageTransformJobDefinitionOutput) MaxPayloadInMB() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ModelPackageTransformJobDefinition) *int { return v.MaxPayloadInMB }).(pulumi.IntPtrOutput)
+func (o ModelPackageTransformJobDefinitionOutput) MaxPayloadInMb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ModelPackageTransformJobDefinition) *int { return v.MaxPayloadInMb }).(pulumi.IntPtrOutput)
 }
 
 func (o ModelPackageTransformJobDefinitionOutput) TransformInput() ModelPackageTransformInputOutput {
@@ -26176,7 +26176,7 @@ type ModelQualityJobDefinitionClusterConfig struct {
 	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
 	VolumeKmsKeyId *string `pulumi:"volumeKmsKeyId"`
 	// The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
-	VolumeSizeInGB int `pulumi:"volumeSizeInGB"`
+	VolumeSizeInGb int `pulumi:"volumeSizeInGb"`
 }
 
 // ModelQualityJobDefinitionClusterConfigInput is an input type that accepts ModelQualityJobDefinitionClusterConfigArgs and ModelQualityJobDefinitionClusterConfigOutput values.
@@ -26199,7 +26199,7 @@ type ModelQualityJobDefinitionClusterConfigArgs struct {
 	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
 	VolumeKmsKeyId pulumi.StringPtrInput `pulumi:"volumeKmsKeyId"`
 	// The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
-	VolumeSizeInGB pulumi.IntInput `pulumi:"volumeSizeInGB"`
+	VolumeSizeInGb pulumi.IntInput `pulumi:"volumeSizeInGb"`
 }
 
 func (ModelQualityJobDefinitionClusterConfigArgs) ElementType() reflect.Type {
@@ -26245,8 +26245,8 @@ func (o ModelQualityJobDefinitionClusterConfigOutput) VolumeKmsKeyId() pulumi.St
 }
 
 // The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
-func (o ModelQualityJobDefinitionClusterConfigOutput) VolumeSizeInGB() pulumi.IntOutput {
-	return o.ApplyT(func(v ModelQualityJobDefinitionClusterConfig) int { return v.VolumeSizeInGB }).(pulumi.IntOutput)
+func (o ModelQualityJobDefinitionClusterConfigOutput) VolumeSizeInGb() pulumi.IntOutput {
+	return o.ApplyT(func(v ModelQualityJobDefinitionClusterConfig) int { return v.VolumeSizeInGb }).(pulumi.IntOutput)
 }
 
 // The baseline constraints resource for a monitoring job.
@@ -29148,7 +29148,7 @@ type MonitoringScheduleClusterConfig struct {
 	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
 	VolumeKmsKeyId *string `pulumi:"volumeKmsKeyId"`
 	// The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
-	VolumeSizeInGB int `pulumi:"volumeSizeInGB"`
+	VolumeSizeInGb int `pulumi:"volumeSizeInGb"`
 }
 
 // MonitoringScheduleClusterConfigInput is an input type that accepts MonitoringScheduleClusterConfigArgs and MonitoringScheduleClusterConfigOutput values.
@@ -29171,7 +29171,7 @@ type MonitoringScheduleClusterConfigArgs struct {
 	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
 	VolumeKmsKeyId pulumi.StringPtrInput `pulumi:"volumeKmsKeyId"`
 	// The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
-	VolumeSizeInGB pulumi.IntInput `pulumi:"volumeSizeInGB"`
+	VolumeSizeInGb pulumi.IntInput `pulumi:"volumeSizeInGb"`
 }
 
 func (MonitoringScheduleClusterConfigArgs) ElementType() reflect.Type {
@@ -29268,8 +29268,8 @@ func (o MonitoringScheduleClusterConfigOutput) VolumeKmsKeyId() pulumi.StringPtr
 }
 
 // The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
-func (o MonitoringScheduleClusterConfigOutput) VolumeSizeInGB() pulumi.IntOutput {
-	return o.ApplyT(func(v MonitoringScheduleClusterConfig) int { return v.VolumeSizeInGB }).(pulumi.IntOutput)
+func (o MonitoringScheduleClusterConfigOutput) VolumeSizeInGb() pulumi.IntOutput {
+	return o.ApplyT(func(v MonitoringScheduleClusterConfig) int { return v.VolumeSizeInGb }).(pulumi.IntOutput)
 }
 
 type MonitoringScheduleClusterConfigPtrOutput struct{ *pulumi.OutputState }
@@ -29327,12 +29327,12 @@ func (o MonitoringScheduleClusterConfigPtrOutput) VolumeKmsKeyId() pulumi.String
 }
 
 // The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
-func (o MonitoringScheduleClusterConfigPtrOutput) VolumeSizeInGB() pulumi.IntPtrOutput {
+func (o MonitoringScheduleClusterConfigPtrOutput) VolumeSizeInGb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MonitoringScheduleClusterConfig) *int {
 		if v == nil {
 			return nil
 		}
-		return &v.VolumeSizeInGB
+		return &v.VolumeSizeInGb
 	}).(pulumi.IntPtrOutput)
 }
 

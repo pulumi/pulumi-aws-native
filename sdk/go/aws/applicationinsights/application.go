@@ -17,15 +17,15 @@ type Application struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the ApplicationInsights application.
-	ApplicationARN pulumi.StringOutput `pulumi:"applicationARN"`
+	ApplicationArn pulumi.StringOutput `pulumi:"applicationArn"`
 	// If set to true, application will be configured with recommended monitoring configuration.
 	AutoConfigurationEnabled pulumi.BoolPtrOutput `pulumi:"autoConfigurationEnabled"`
-	// Indicates whether Application Insights can listen to CloudWatch events for the application resources.
-	CWEMonitorEnabled pulumi.BoolPtrOutput `pulumi:"cWEMonitorEnabled"`
 	// The monitoring settings of the components.
 	ComponentMonitoringSettings ApplicationComponentMonitoringSettingArrayOutput `pulumi:"componentMonitoringSettings"`
 	// The custom grouped components.
 	CustomComponents ApplicationCustomComponentArrayOutput `pulumi:"customComponents"`
+	// Indicates whether Application Insights can listen to CloudWatch events for the application resources.
+	CweMonitorEnabled pulumi.BoolPtrOutput `pulumi:"cweMonitorEnabled"`
 	// The grouping type of the application
 	GroupingType ApplicationGroupingTypePtrOutput `pulumi:"groupingType"`
 	// The log pattern sets.
@@ -33,7 +33,7 @@ type Application struct {
 	// When set to true, creates opsItems for any problems detected on an application.
 	OpsCenterEnabled pulumi.BoolPtrOutput `pulumi:"opsCenterEnabled"`
 	// The SNS topic provided to Application Insights that is associated to the created opsItem.
-	OpsItemSNSTopicArn pulumi.StringPtrOutput `pulumi:"opsItemSNSTopicArn"`
+	OpsItemSnsTopicArn pulumi.StringPtrOutput `pulumi:"opsItemSnsTopicArn"`
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The tags of Application Insights application.
@@ -85,12 +85,12 @@ func (ApplicationState) ElementType() reflect.Type {
 type applicationArgs struct {
 	// If set to true, application will be configured with recommended monitoring configuration.
 	AutoConfigurationEnabled *bool `pulumi:"autoConfigurationEnabled"`
-	// Indicates whether Application Insights can listen to CloudWatch events for the application resources.
-	CWEMonitorEnabled *bool `pulumi:"cWEMonitorEnabled"`
 	// The monitoring settings of the components.
 	ComponentMonitoringSettings []ApplicationComponentMonitoringSetting `pulumi:"componentMonitoringSettings"`
 	// The custom grouped components.
 	CustomComponents []ApplicationCustomComponent `pulumi:"customComponents"`
+	// Indicates whether Application Insights can listen to CloudWatch events for the application resources.
+	CweMonitorEnabled *bool `pulumi:"cweMonitorEnabled"`
 	// The grouping type of the application
 	GroupingType *ApplicationGroupingType `pulumi:"groupingType"`
 	// The log pattern sets.
@@ -98,7 +98,7 @@ type applicationArgs struct {
 	// When set to true, creates opsItems for any problems detected on an application.
 	OpsCenterEnabled *bool `pulumi:"opsCenterEnabled"`
 	// The SNS topic provided to Application Insights that is associated to the created opsItem.
-	OpsItemSNSTopicArn *string `pulumi:"opsItemSNSTopicArn"`
+	OpsItemSnsTopicArn *string `pulumi:"opsItemSnsTopicArn"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The tags of Application Insights application.
@@ -109,12 +109,12 @@ type applicationArgs struct {
 type ApplicationArgs struct {
 	// If set to true, application will be configured with recommended monitoring configuration.
 	AutoConfigurationEnabled pulumi.BoolPtrInput
-	// Indicates whether Application Insights can listen to CloudWatch events for the application resources.
-	CWEMonitorEnabled pulumi.BoolPtrInput
 	// The monitoring settings of the components.
 	ComponentMonitoringSettings ApplicationComponentMonitoringSettingArrayInput
 	// The custom grouped components.
 	CustomComponents ApplicationCustomComponentArrayInput
+	// Indicates whether Application Insights can listen to CloudWatch events for the application resources.
+	CweMonitorEnabled pulumi.BoolPtrInput
 	// The grouping type of the application
 	GroupingType ApplicationGroupingTypePtrInput
 	// The log pattern sets.
@@ -122,7 +122,7 @@ type ApplicationArgs struct {
 	// When set to true, creates opsItems for any problems detected on an application.
 	OpsCenterEnabled pulumi.BoolPtrInput
 	// The SNS topic provided to Application Insights that is associated to the created opsItem.
-	OpsItemSNSTopicArn pulumi.StringPtrInput
+	OpsItemSnsTopicArn pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The tags of Application Insights application.
@@ -167,18 +167,13 @@ func (o ApplicationOutput) ToApplicationOutputWithContext(ctx context.Context) A
 }
 
 // The ARN of the ApplicationInsights application.
-func (o ApplicationOutput) ApplicationARN() pulumi.StringOutput {
-	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ApplicationARN }).(pulumi.StringOutput)
+func (o ApplicationOutput) ApplicationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ApplicationArn }).(pulumi.StringOutput)
 }
 
 // If set to true, application will be configured with recommended monitoring configuration.
 func (o ApplicationOutput) AutoConfigurationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.BoolPtrOutput { return v.AutoConfigurationEnabled }).(pulumi.BoolPtrOutput)
-}
-
-// Indicates whether Application Insights can listen to CloudWatch events for the application resources.
-func (o ApplicationOutput) CWEMonitorEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Application) pulumi.BoolPtrOutput { return v.CWEMonitorEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The monitoring settings of the components.
@@ -191,6 +186,11 @@ func (o ApplicationOutput) ComponentMonitoringSettings() ApplicationComponentMon
 // The custom grouped components.
 func (o ApplicationOutput) CustomComponents() ApplicationCustomComponentArrayOutput {
 	return o.ApplyT(func(v *Application) ApplicationCustomComponentArrayOutput { return v.CustomComponents }).(ApplicationCustomComponentArrayOutput)
+}
+
+// Indicates whether Application Insights can listen to CloudWatch events for the application resources.
+func (o ApplicationOutput) CweMonitorEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.BoolPtrOutput { return v.CweMonitorEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The grouping type of the application
@@ -209,8 +209,8 @@ func (o ApplicationOutput) OpsCenterEnabled() pulumi.BoolPtrOutput {
 }
 
 // The SNS topic provided to Application Insights that is associated to the created opsItem.
-func (o ApplicationOutput) OpsItemSNSTopicArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.OpsItemSNSTopicArn }).(pulumi.StringPtrOutput)
+func (o ApplicationOutput) OpsItemSnsTopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.OpsItemSnsTopicArn }).(pulumi.StringPtrOutput)
 }
 
 // The name of the resource group.

@@ -26,8 +26,8 @@ namespace Pulumi.AwsNative.Route53.Inputs
             set => _childHealthChecks = value;
         }
 
-        [Input("enableSNI")]
-        public Input<bool>? EnableSNI { get; set; }
+        [Input("enableSni")]
+        public Input<bool>? EnableSni { get; set; }
 
         [Input("failureThreshold")]
         public Input<int>? FailureThreshold { get; set; }
@@ -38,14 +38,14 @@ namespace Pulumi.AwsNative.Route53.Inputs
         [Input("healthThreshold")]
         public Input<int>? HealthThreshold { get; set; }
 
-        [Input("iPAddress")]
-        public Input<string>? IPAddress { get; set; }
-
         [Input("insufficientDataHealthStatus")]
         public Input<Pulumi.AwsNative.Route53.HealthCheckConfigPropertiesInsufficientDataHealthStatus>? InsufficientDataHealthStatus { get; set; }
 
         [Input("inverted")]
         public Input<bool>? Inverted { get; set; }
+
+        [Input("ipAddress")]
+        public Input<string>? IpAddress { get; set; }
 
         [Input("measureLatency")]
         public Input<bool>? MeasureLatency { get; set; }

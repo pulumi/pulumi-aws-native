@@ -3404,7 +3404,7 @@ type ResourceDataSyncS3Destination struct {
 	BucketName   string  `pulumi:"bucketName"`
 	BucketPrefix *string `pulumi:"bucketPrefix"`
 	BucketRegion string  `pulumi:"bucketRegion"`
-	KMSKeyArn    *string `pulumi:"kMSKeyArn"`
+	KmsKeyArn    *string `pulumi:"kmsKeyArn"`
 	SyncFormat   string  `pulumi:"syncFormat"`
 }
 
@@ -3423,7 +3423,7 @@ type ResourceDataSyncS3DestinationArgs struct {
 	BucketName   pulumi.StringInput    `pulumi:"bucketName"`
 	BucketPrefix pulumi.StringPtrInput `pulumi:"bucketPrefix"`
 	BucketRegion pulumi.StringInput    `pulumi:"bucketRegion"`
-	KMSKeyArn    pulumi.StringPtrInput `pulumi:"kMSKeyArn"`
+	KmsKeyArn    pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
 	SyncFormat   pulumi.StringInput    `pulumi:"syncFormat"`
 }
 
@@ -3516,8 +3516,8 @@ func (o ResourceDataSyncS3DestinationOutput) BucketRegion() pulumi.StringOutput 
 	return o.ApplyT(func(v ResourceDataSyncS3Destination) string { return v.BucketRegion }).(pulumi.StringOutput)
 }
 
-func (o ResourceDataSyncS3DestinationOutput) KMSKeyArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ResourceDataSyncS3Destination) *string { return v.KMSKeyArn }).(pulumi.StringPtrOutput)
+func (o ResourceDataSyncS3DestinationOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceDataSyncS3Destination) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
 func (o ResourceDataSyncS3DestinationOutput) SyncFormat() pulumi.StringOutput {
@@ -3575,12 +3575,12 @@ func (o ResourceDataSyncS3DestinationPtrOutput) BucketRegion() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o ResourceDataSyncS3DestinationPtrOutput) KMSKeyArn() pulumi.StringPtrOutput {
+func (o ResourceDataSyncS3DestinationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceDataSyncS3Destination) *string {
 		if v == nil {
 			return nil
 		}
-		return v.KMSKeyArn
+		return v.KmsKeyArn
 	}).(pulumi.StringPtrOutput)
 }
 

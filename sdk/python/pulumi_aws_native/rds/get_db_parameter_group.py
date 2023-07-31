@@ -54,16 +54,16 @@ class AwaitableGetDBParameterGroupResult(GetDBParameterGroupResult):
             tags=self.tags)
 
 
-def get_db_parameter_group(d_b_parameter_group_name: Optional[str] = None,
+def get_db_parameter_group(db_parameter_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDBParameterGroupResult:
     """
     The AWS::RDS::DBParameterGroup resource creates a custom parameter group for an RDS database family
 
 
-    :param str d_b_parameter_group_name: Specifies the name of the DB parameter group
+    :param str db_parameter_group_name: Specifies the name of the DB parameter group
     """
     __args__ = dict()
-    __args__['dBParameterGroupName'] = d_b_parameter_group_name
+    __args__['dbParameterGroupName'] = db_parameter_group_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:rds:getDBParameterGroup', __args__, opts=opts, typ=GetDBParameterGroupResult).value
 
@@ -73,12 +73,12 @@ def get_db_parameter_group(d_b_parameter_group_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_db_parameter_group)
-def get_db_parameter_group_output(d_b_parameter_group_name: Optional[pulumi.Input[str]] = None,
+def get_db_parameter_group_output(db_parameter_group_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDBParameterGroupResult]:
     """
     The AWS::RDS::DBParameterGroup resource creates a custom parameter group for an RDS database family
 
 
-    :param str d_b_parameter_group_name: Specifies the name of the DB parameter group
+    :param str db_parameter_group_name: Specifies the name of the DB parameter group
     """
     ...

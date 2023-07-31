@@ -25,7 +25,7 @@ class VPCConnectionArgs:
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['VPCConnectionTagArgs']]]] = None,
-                 v_pc_connection_id: Optional[pulumi.Input[str]] = None):
+                 vpc_connection_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a VPCConnection resource.
         """
@@ -45,8 +45,8 @@ class VPCConnectionArgs:
             pulumi.set(__self__, "subnet_ids", subnet_ids)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if v_pc_connection_id is not None:
-            pulumi.set(__self__, "v_pc_connection_id", v_pc_connection_id)
+        if vpc_connection_id is not None:
+            pulumi.set(__self__, "vpc_connection_id", vpc_connection_id)
 
     @property
     @pulumi.getter(name="availabilityStatus")
@@ -121,13 +121,13 @@ class VPCConnectionArgs:
         pulumi.set(self, "tags", value)
 
     @property
-    @pulumi.getter(name="vPCConnectionId")
-    def v_pc_connection_id(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "v_pc_connection_id")
+    @pulumi.getter(name="vpcConnectionId")
+    def vpc_connection_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "vpc_connection_id")
 
-    @v_pc_connection_id.setter
-    def v_pc_connection_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "v_pc_connection_id", value)
+    @vpc_connection_id.setter
+    def vpc_connection_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vpc_connection_id", value)
 
 
 class VPCConnection(pulumi.CustomResource):
@@ -143,7 +143,7 @@ class VPCConnection(pulumi.CustomResource):
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VPCConnectionTagArgs']]]]] = None,
-                 v_pc_connection_id: Optional[pulumi.Input[str]] = None,
+                 vpc_connection_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Definition of the AWS::QuickSight::VPCConnection Resource Type.
@@ -183,7 +183,7 @@ class VPCConnection(pulumi.CustomResource):
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VPCConnectionTagArgs']]]]] = None,
-                 v_pc_connection_id: Optional[pulumi.Input[str]] = None,
+                 vpc_connection_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -201,13 +201,13 @@ class VPCConnection(pulumi.CustomResource):
             __props__.__dict__["security_group_ids"] = security_group_ids
             __props__.__dict__["subnet_ids"] = subnet_ids
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["v_pc_connection_id"] = v_pc_connection_id
+            __props__.__dict__["vpc_connection_id"] = vpc_connection_id
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_time"] = None
             __props__.__dict__["last_updated_time"] = None
             __props__.__dict__["network_interfaces"] = None
             __props__.__dict__["status"] = None
-            __props__.__dict__["v_pc_id"] = None
+            __props__.__dict__["vpc_id"] = None
         super(VPCConnection, __self__).__init__(
             'aws-native:quicksight:VPCConnection',
             resource_name,
@@ -243,8 +243,8 @@ class VPCConnection(pulumi.CustomResource):
         __props__.__dict__["status"] = None
         __props__.__dict__["subnet_ids"] = None
         __props__.__dict__["tags"] = None
-        __props__.__dict__["v_pc_connection_id"] = None
-        __props__.__dict__["v_pc_id"] = None
+        __props__.__dict__["vpc_connection_id"] = None
+        __props__.__dict__["vpc_id"] = None
         return VPCConnection(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -313,12 +313,12 @@ class VPCConnection(pulumi.CustomResource):
         return pulumi.get(self, "tags")
 
     @property
-    @pulumi.getter(name="vPCConnectionId")
-    def v_pc_connection_id(self) -> pulumi.Output[Optional[str]]:
-        return pulumi.get(self, "v_pc_connection_id")
+    @pulumi.getter(name="vpcConnectionId")
+    def vpc_connection_id(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "vpc_connection_id")
 
     @property
-    @pulumi.getter(name="vPCId")
-    def v_pc_id(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "v_pc_id")
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "vpc_id")
 

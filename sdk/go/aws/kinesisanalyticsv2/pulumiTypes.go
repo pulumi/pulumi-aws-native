@@ -520,7 +520,7 @@ func (o ApplicationCheckpointConfigurationPtrOutput) MinPauseBetweenCheckpoints(
 }
 
 type ApplicationCloudWatchLoggingOptionCloudWatchLoggingOption struct {
-	LogStreamARN string `pulumi:"logStreamARN"`
+	LogStreamArn string `pulumi:"logStreamArn"`
 }
 
 // ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionInput is an input type that accepts ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionArgs and ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionOutput values.
@@ -535,7 +535,7 @@ type ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionInput interface {
 }
 
 type ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionArgs struct {
-	LogStreamARN pulumi.StringInput `pulumi:"logStreamARN"`
+	LogStreamArn pulumi.StringInput `pulumi:"logStreamArn"`
 }
 
 func (ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionArgs) ElementType() reflect.Type {
@@ -564,8 +564,8 @@ func (o ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionOutput) ToAppli
 	return o
 }
 
-func (o ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionOutput) LogStreamARN() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationCloudWatchLoggingOptionCloudWatchLoggingOption) string { return v.LogStreamARN }).(pulumi.StringOutput)
+func (o ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionOutput) LogStreamArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationCloudWatchLoggingOptionCloudWatchLoggingOption) string { return v.LogStreamArn }).(pulumi.StringOutput)
 }
 
 type ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtrOutput struct{ *pulumi.OutputState }
@@ -592,12 +592,12 @@ func (o ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtrOutput) Elem
 	}).(ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionOutput)
 }
 
-func (o ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtrOutput) LogStreamARN() pulumi.StringPtrOutput {
+func (o ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtrOutput) LogStreamArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationCloudWatchLoggingOptionCloudWatchLoggingOption) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.LogStreamARN
+		return &v.LogStreamArn
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1933,7 +1933,7 @@ func (o ApplicationFlinkRunConfigurationPtrOutput) AllowNonRestoredState() pulum
 // The configuration of the Glue Data Catalog that you use for Apache Flink SQL queries and table API transforms that you write in an application.
 type ApplicationGlueDataCatalogConfiguration struct {
 	// The Amazon Resource Name (ARN) of the database.
-	DatabaseARN *string `pulumi:"databaseARN"`
+	DatabaseArn *string `pulumi:"databaseArn"`
 }
 
 // ApplicationGlueDataCatalogConfigurationInput is an input type that accepts ApplicationGlueDataCatalogConfigurationArgs and ApplicationGlueDataCatalogConfigurationOutput values.
@@ -1950,7 +1950,7 @@ type ApplicationGlueDataCatalogConfigurationInput interface {
 // The configuration of the Glue Data Catalog that you use for Apache Flink SQL queries and table API transforms that you write in an application.
 type ApplicationGlueDataCatalogConfigurationArgs struct {
 	// The Amazon Resource Name (ARN) of the database.
-	DatabaseARN pulumi.StringPtrInput `pulumi:"databaseARN"`
+	DatabaseArn pulumi.StringPtrInput `pulumi:"databaseArn"`
 }
 
 func (ApplicationGlueDataCatalogConfigurationArgs) ElementType() reflect.Type {
@@ -2032,8 +2032,8 @@ func (o ApplicationGlueDataCatalogConfigurationOutput) ToApplicationGlueDataCata
 }
 
 // The Amazon Resource Name (ARN) of the database.
-func (o ApplicationGlueDataCatalogConfigurationOutput) DatabaseARN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationGlueDataCatalogConfiguration) *string { return v.DatabaseARN }).(pulumi.StringPtrOutput)
+func (o ApplicationGlueDataCatalogConfigurationOutput) DatabaseArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationGlueDataCatalogConfiguration) *string { return v.DatabaseArn }).(pulumi.StringPtrOutput)
 }
 
 type ApplicationGlueDataCatalogConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -2061,12 +2061,12 @@ func (o ApplicationGlueDataCatalogConfigurationPtrOutput) Elem() ApplicationGlue
 }
 
 // The Amazon Resource Name (ARN) of the database.
-func (o ApplicationGlueDataCatalogConfigurationPtrOutput) DatabaseARN() pulumi.StringPtrOutput {
+func (o ApplicationGlueDataCatalogConfigurationPtrOutput) DatabaseArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationGlueDataCatalogConfiguration) *string {
 		if v == nil {
 			return nil
 		}
-		return v.DatabaseARN
+		return v.DatabaseArn
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2220,7 +2220,7 @@ func (o ApplicationInputTypeArrayOutput) Index(i pulumi.IntInput) ApplicationInp
 // An object that contains the Amazon Resource Name (ARN) of the Amazon Lambda function that is used to preprocess records in the stream in a SQL-based Kinesis Data Analytics application.
 type ApplicationInputLambdaProcessor struct {
 	// The ARN of the Amazon Lambda function that operates on records in the stream.
-	ResourceARN string `pulumi:"resourceARN"`
+	ResourceArn string `pulumi:"resourceArn"`
 }
 
 // ApplicationInputLambdaProcessorInput is an input type that accepts ApplicationInputLambdaProcessorArgs and ApplicationInputLambdaProcessorOutput values.
@@ -2237,7 +2237,7 @@ type ApplicationInputLambdaProcessorInput interface {
 // An object that contains the Amazon Resource Name (ARN) of the Amazon Lambda function that is used to preprocess records in the stream in a SQL-based Kinesis Data Analytics application.
 type ApplicationInputLambdaProcessorArgs struct {
 	// The ARN of the Amazon Lambda function that operates on records in the stream.
-	ResourceARN pulumi.StringInput `pulumi:"resourceARN"`
+	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
 }
 
 func (ApplicationInputLambdaProcessorArgs) ElementType() reflect.Type {
@@ -2319,8 +2319,8 @@ func (o ApplicationInputLambdaProcessorOutput) ToApplicationInputLambdaProcessor
 }
 
 // The ARN of the Amazon Lambda function that operates on records in the stream.
-func (o ApplicationInputLambdaProcessorOutput) ResourceARN() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationInputLambdaProcessor) string { return v.ResourceARN }).(pulumi.StringOutput)
+func (o ApplicationInputLambdaProcessorOutput) ResourceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationInputLambdaProcessor) string { return v.ResourceArn }).(pulumi.StringOutput)
 }
 
 type ApplicationInputLambdaProcessorPtrOutput struct{ *pulumi.OutputState }
@@ -2348,12 +2348,12 @@ func (o ApplicationInputLambdaProcessorPtrOutput) Elem() ApplicationInputLambdaP
 }
 
 // The ARN of the Amazon Lambda function that operates on records in the stream.
-func (o ApplicationInputLambdaProcessorPtrOutput) ResourceARN() pulumi.StringPtrOutput {
+func (o ApplicationInputLambdaProcessorPtrOutput) ResourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationInputLambdaProcessor) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.ResourceARN
+		return &v.ResourceArn
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2855,7 +2855,7 @@ func (o ApplicationJSONMappingParametersPtrOutput) RecordRowPath() pulumi.String
 // For a SQL-based Kinesis Data Analytics application, identifies a Kinesis Data Firehose delivery stream as the streaming source. You provide the delivery stream's Amazon Resource Name (ARN).
 type ApplicationKinesisFirehoseInput struct {
 	// The Amazon Resource Name (ARN) of the delivery stream.
-	ResourceARN string `pulumi:"resourceARN"`
+	ResourceArn string `pulumi:"resourceArn"`
 }
 
 // ApplicationKinesisFirehoseInputInput is an input type that accepts ApplicationKinesisFirehoseInputArgs and ApplicationKinesisFirehoseInputOutput values.
@@ -2872,7 +2872,7 @@ type ApplicationKinesisFirehoseInputInput interface {
 // For a SQL-based Kinesis Data Analytics application, identifies a Kinesis Data Firehose delivery stream as the streaming source. You provide the delivery stream's Amazon Resource Name (ARN).
 type ApplicationKinesisFirehoseInputArgs struct {
 	// The Amazon Resource Name (ARN) of the delivery stream.
-	ResourceARN pulumi.StringInput `pulumi:"resourceARN"`
+	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
 }
 
 func (ApplicationKinesisFirehoseInputArgs) ElementType() reflect.Type {
@@ -2954,8 +2954,8 @@ func (o ApplicationKinesisFirehoseInputOutput) ToApplicationKinesisFirehoseInput
 }
 
 // The Amazon Resource Name (ARN) of the delivery stream.
-func (o ApplicationKinesisFirehoseInputOutput) ResourceARN() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationKinesisFirehoseInput) string { return v.ResourceARN }).(pulumi.StringOutput)
+func (o ApplicationKinesisFirehoseInputOutput) ResourceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationKinesisFirehoseInput) string { return v.ResourceArn }).(pulumi.StringOutput)
 }
 
 type ApplicationKinesisFirehoseInputPtrOutput struct{ *pulumi.OutputState }
@@ -2983,19 +2983,19 @@ func (o ApplicationKinesisFirehoseInputPtrOutput) Elem() ApplicationKinesisFireh
 }
 
 // The Amazon Resource Name (ARN) of the delivery stream.
-func (o ApplicationKinesisFirehoseInputPtrOutput) ResourceARN() pulumi.StringPtrOutput {
+func (o ApplicationKinesisFirehoseInputPtrOutput) ResourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationKinesisFirehoseInput) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.ResourceARN
+		return &v.ResourceArn
 	}).(pulumi.StringPtrOutput)
 }
 
 // Identifies a Kinesis data stream as the streaming source. You provide the stream's Amazon Resource Name (ARN).
 type ApplicationKinesisStreamsInput struct {
 	// The ARN of the input Kinesis data stream to read.
-	ResourceARN string `pulumi:"resourceARN"`
+	ResourceArn string `pulumi:"resourceArn"`
 }
 
 // ApplicationKinesisStreamsInputInput is an input type that accepts ApplicationKinesisStreamsInputArgs and ApplicationKinesisStreamsInputOutput values.
@@ -3012,7 +3012,7 @@ type ApplicationKinesisStreamsInputInput interface {
 // Identifies a Kinesis data stream as the streaming source. You provide the stream's Amazon Resource Name (ARN).
 type ApplicationKinesisStreamsInputArgs struct {
 	// The ARN of the input Kinesis data stream to read.
-	ResourceARN pulumi.StringInput `pulumi:"resourceARN"`
+	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
 }
 
 func (ApplicationKinesisStreamsInputArgs) ElementType() reflect.Type {
@@ -3094,8 +3094,8 @@ func (o ApplicationKinesisStreamsInputOutput) ToApplicationKinesisStreamsInputPt
 }
 
 // The ARN of the input Kinesis data stream to read.
-func (o ApplicationKinesisStreamsInputOutput) ResourceARN() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationKinesisStreamsInput) string { return v.ResourceARN }).(pulumi.StringOutput)
+func (o ApplicationKinesisStreamsInputOutput) ResourceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationKinesisStreamsInput) string { return v.ResourceArn }).(pulumi.StringOutput)
 }
 
 type ApplicationKinesisStreamsInputPtrOutput struct{ *pulumi.OutputState }
@@ -3123,12 +3123,12 @@ func (o ApplicationKinesisStreamsInputPtrOutput) Elem() ApplicationKinesisStream
 }
 
 // The ARN of the input Kinesis data stream to read.
-func (o ApplicationKinesisStreamsInputPtrOutput) ResourceARN() pulumi.StringPtrOutput {
+func (o ApplicationKinesisStreamsInputPtrOutput) ResourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationKinesisStreamsInput) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.ResourceARN
+		return &v.ResourceArn
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3275,9 +3275,9 @@ func (o ApplicationMaintenanceConfigurationPtrOutput) ApplicationMaintenanceWind
 // When you configure a SQL-based Kinesis Data Analytics application's input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
 type ApplicationMappingParameters struct {
 	// Provides additional mapping information when the record format uses delimiters (for example, CSV).
-	CSVMappingParameters *ApplicationCSVMappingParameters `pulumi:"cSVMappingParameters"`
+	CsvMappingParameters *ApplicationCSVMappingParameters `pulumi:"csvMappingParameters"`
 	// Provides additional mapping information when JSON is the record format on the streaming source.
-	JSONMappingParameters *ApplicationJSONMappingParameters `pulumi:"jSONMappingParameters"`
+	JsonMappingParameters *ApplicationJSONMappingParameters `pulumi:"jsonMappingParameters"`
 }
 
 // ApplicationMappingParametersInput is an input type that accepts ApplicationMappingParametersArgs and ApplicationMappingParametersOutput values.
@@ -3294,9 +3294,9 @@ type ApplicationMappingParametersInput interface {
 // When you configure a SQL-based Kinesis Data Analytics application's input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
 type ApplicationMappingParametersArgs struct {
 	// Provides additional mapping information when the record format uses delimiters (for example, CSV).
-	CSVMappingParameters ApplicationCSVMappingParametersPtrInput `pulumi:"cSVMappingParameters"`
+	CsvMappingParameters ApplicationCSVMappingParametersPtrInput `pulumi:"csvMappingParameters"`
 	// Provides additional mapping information when JSON is the record format on the streaming source.
-	JSONMappingParameters ApplicationJSONMappingParametersPtrInput `pulumi:"jSONMappingParameters"`
+	JsonMappingParameters ApplicationJSONMappingParametersPtrInput `pulumi:"jsonMappingParameters"`
 }
 
 func (ApplicationMappingParametersArgs) ElementType() reflect.Type {
@@ -3378,13 +3378,13 @@ func (o ApplicationMappingParametersOutput) ToApplicationMappingParametersPtrOut
 }
 
 // Provides additional mapping information when the record format uses delimiters (for example, CSV).
-func (o ApplicationMappingParametersOutput) CSVMappingParameters() ApplicationCSVMappingParametersPtrOutput {
-	return o.ApplyT(func(v ApplicationMappingParameters) *ApplicationCSVMappingParameters { return v.CSVMappingParameters }).(ApplicationCSVMappingParametersPtrOutput)
+func (o ApplicationMappingParametersOutput) CsvMappingParameters() ApplicationCSVMappingParametersPtrOutput {
+	return o.ApplyT(func(v ApplicationMappingParameters) *ApplicationCSVMappingParameters { return v.CsvMappingParameters }).(ApplicationCSVMappingParametersPtrOutput)
 }
 
 // Provides additional mapping information when JSON is the record format on the streaming source.
-func (o ApplicationMappingParametersOutput) JSONMappingParameters() ApplicationJSONMappingParametersPtrOutput {
-	return o.ApplyT(func(v ApplicationMappingParameters) *ApplicationJSONMappingParameters { return v.JSONMappingParameters }).(ApplicationJSONMappingParametersPtrOutput)
+func (o ApplicationMappingParametersOutput) JsonMappingParameters() ApplicationJSONMappingParametersPtrOutput {
+	return o.ApplyT(func(v ApplicationMappingParameters) *ApplicationJSONMappingParameters { return v.JsonMappingParameters }).(ApplicationJSONMappingParametersPtrOutput)
 }
 
 type ApplicationMappingParametersPtrOutput struct{ *pulumi.OutputState }
@@ -3412,22 +3412,22 @@ func (o ApplicationMappingParametersPtrOutput) Elem() ApplicationMappingParamete
 }
 
 // Provides additional mapping information when the record format uses delimiters (for example, CSV).
-func (o ApplicationMappingParametersPtrOutput) CSVMappingParameters() ApplicationCSVMappingParametersPtrOutput {
+func (o ApplicationMappingParametersPtrOutput) CsvMappingParameters() ApplicationCSVMappingParametersPtrOutput {
 	return o.ApplyT(func(v *ApplicationMappingParameters) *ApplicationCSVMappingParameters {
 		if v == nil {
 			return nil
 		}
-		return v.CSVMappingParameters
+		return v.CsvMappingParameters
 	}).(ApplicationCSVMappingParametersPtrOutput)
 }
 
 // Provides additional mapping information when JSON is the record format on the streaming source.
-func (o ApplicationMappingParametersPtrOutput) JSONMappingParameters() ApplicationJSONMappingParametersPtrOutput {
+func (o ApplicationMappingParametersPtrOutput) JsonMappingParameters() ApplicationJSONMappingParametersPtrOutput {
 	return o.ApplyT(func(v *ApplicationMappingParameters) *ApplicationJSONMappingParameters {
 		if v == nil {
 			return nil
 		}
-		return v.JSONMappingParameters
+		return v.JsonMappingParameters
 	}).(ApplicationJSONMappingParametersPtrOutput)
 }
 
@@ -3876,7 +3876,7 @@ func (o ApplicationOutputResourceDestinationSchemaPtrOutput) RecordFormatType() 
 }
 
 type ApplicationOutputResourceKinesisFirehoseOutput struct {
-	ResourceARN string `pulumi:"resourceARN"`
+	ResourceArn string `pulumi:"resourceArn"`
 }
 
 // ApplicationOutputResourceKinesisFirehoseOutputInput is an input type that accepts ApplicationOutputResourceKinesisFirehoseOutputArgs and ApplicationOutputResourceKinesisFirehoseOutputOutput values.
@@ -3891,7 +3891,7 @@ type ApplicationOutputResourceKinesisFirehoseOutputInput interface {
 }
 
 type ApplicationOutputResourceKinesisFirehoseOutputArgs struct {
-	ResourceARN pulumi.StringInput `pulumi:"resourceARN"`
+	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
 }
 
 func (ApplicationOutputResourceKinesisFirehoseOutputArgs) ElementType() reflect.Type {
@@ -3971,8 +3971,8 @@ func (o ApplicationOutputResourceKinesisFirehoseOutputOutput) ToApplicationOutpu
 	}).(ApplicationOutputResourceKinesisFirehoseOutputPtrOutput)
 }
 
-func (o ApplicationOutputResourceKinesisFirehoseOutputOutput) ResourceARN() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationOutputResourceKinesisFirehoseOutput) string { return v.ResourceARN }).(pulumi.StringOutput)
+func (o ApplicationOutputResourceKinesisFirehoseOutputOutput) ResourceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationOutputResourceKinesisFirehoseOutput) string { return v.ResourceArn }).(pulumi.StringOutput)
 }
 
 type ApplicationOutputResourceKinesisFirehoseOutputPtrOutput struct{ *pulumi.OutputState }
@@ -3999,17 +3999,17 @@ func (o ApplicationOutputResourceKinesisFirehoseOutputPtrOutput) Elem() Applicat
 	}).(ApplicationOutputResourceKinesisFirehoseOutputOutput)
 }
 
-func (o ApplicationOutputResourceKinesisFirehoseOutputPtrOutput) ResourceARN() pulumi.StringPtrOutput {
+func (o ApplicationOutputResourceKinesisFirehoseOutputPtrOutput) ResourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationOutputResourceKinesisFirehoseOutput) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.ResourceARN
+		return &v.ResourceArn
 	}).(pulumi.StringPtrOutput)
 }
 
 type ApplicationOutputResourceKinesisStreamsOutput struct {
-	ResourceARN string `pulumi:"resourceARN"`
+	ResourceArn string `pulumi:"resourceArn"`
 }
 
 // ApplicationOutputResourceKinesisStreamsOutputInput is an input type that accepts ApplicationOutputResourceKinesisStreamsOutputArgs and ApplicationOutputResourceKinesisStreamsOutputOutput values.
@@ -4024,7 +4024,7 @@ type ApplicationOutputResourceKinesisStreamsOutputInput interface {
 }
 
 type ApplicationOutputResourceKinesisStreamsOutputArgs struct {
-	ResourceARN pulumi.StringInput `pulumi:"resourceARN"`
+	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
 }
 
 func (ApplicationOutputResourceKinesisStreamsOutputArgs) ElementType() reflect.Type {
@@ -4104,8 +4104,8 @@ func (o ApplicationOutputResourceKinesisStreamsOutputOutput) ToApplicationOutput
 	}).(ApplicationOutputResourceKinesisStreamsOutputPtrOutput)
 }
 
-func (o ApplicationOutputResourceKinesisStreamsOutputOutput) ResourceARN() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationOutputResourceKinesisStreamsOutput) string { return v.ResourceARN }).(pulumi.StringOutput)
+func (o ApplicationOutputResourceKinesisStreamsOutputOutput) ResourceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationOutputResourceKinesisStreamsOutput) string { return v.ResourceArn }).(pulumi.StringOutput)
 }
 
 type ApplicationOutputResourceKinesisStreamsOutputPtrOutput struct{ *pulumi.OutputState }
@@ -4132,17 +4132,17 @@ func (o ApplicationOutputResourceKinesisStreamsOutputPtrOutput) Elem() Applicati
 	}).(ApplicationOutputResourceKinesisStreamsOutputOutput)
 }
 
-func (o ApplicationOutputResourceKinesisStreamsOutputPtrOutput) ResourceARN() pulumi.StringPtrOutput {
+func (o ApplicationOutputResourceKinesisStreamsOutputPtrOutput) ResourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationOutputResourceKinesisStreamsOutput) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.ResourceARN
+		return &v.ResourceArn
 	}).(pulumi.StringPtrOutput)
 }
 
 type ApplicationOutputResourceLambdaOutput struct {
-	ResourceARN string `pulumi:"resourceARN"`
+	ResourceArn string `pulumi:"resourceArn"`
 }
 
 // ApplicationOutputResourceLambdaOutputInput is an input type that accepts ApplicationOutputResourceLambdaOutputArgs and ApplicationOutputResourceLambdaOutputOutput values.
@@ -4157,7 +4157,7 @@ type ApplicationOutputResourceLambdaOutputInput interface {
 }
 
 type ApplicationOutputResourceLambdaOutputArgs struct {
-	ResourceARN pulumi.StringInput `pulumi:"resourceARN"`
+	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
 }
 
 func (ApplicationOutputResourceLambdaOutputArgs) ElementType() reflect.Type {
@@ -4237,8 +4237,8 @@ func (o ApplicationOutputResourceLambdaOutputOutput) ToApplicationOutputResource
 	}).(ApplicationOutputResourceLambdaOutputPtrOutput)
 }
 
-func (o ApplicationOutputResourceLambdaOutputOutput) ResourceARN() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationOutputResourceLambdaOutput) string { return v.ResourceARN }).(pulumi.StringOutput)
+func (o ApplicationOutputResourceLambdaOutputOutput) ResourceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationOutputResourceLambdaOutput) string { return v.ResourceArn }).(pulumi.StringOutput)
 }
 
 type ApplicationOutputResourceLambdaOutputPtrOutput struct{ *pulumi.OutputState }
@@ -4265,12 +4265,12 @@ func (o ApplicationOutputResourceLambdaOutputPtrOutput) Elem() ApplicationOutput
 	}).(ApplicationOutputResourceLambdaOutputOutput)
 }
 
-func (o ApplicationOutputResourceLambdaOutputPtrOutput) ResourceARN() pulumi.StringPtrOutput {
+func (o ApplicationOutputResourceLambdaOutputPtrOutput) ResourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationOutputResourceLambdaOutput) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.ResourceARN
+		return &v.ResourceArn
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4433,7 +4433,7 @@ type ApplicationParallelismConfiguration struct {
 	// Describes the initial number of parallel tasks that a Java-based Kinesis Data Analytics application can perform. The Kinesis Data Analytics service can increase this number automatically if ParallelismConfiguration:AutoScalingEnabled is set to true.
 	Parallelism *int `pulumi:"parallelism"`
 	// Describes the number of parallel tasks that a Java-based Kinesis Data Analytics application can perform per Kinesis Processing Unit (KPU) used by the application. For more information about KPUs, see Amazon Kinesis Data Analytics Pricing.
-	ParallelismPerKPU *int `pulumi:"parallelismPerKPU"`
+	ParallelismPerKpu *int `pulumi:"parallelismPerKpu"`
 }
 
 // ApplicationParallelismConfigurationInput is an input type that accepts ApplicationParallelismConfigurationArgs and ApplicationParallelismConfigurationOutput values.
@@ -4456,7 +4456,7 @@ type ApplicationParallelismConfigurationArgs struct {
 	// Describes the initial number of parallel tasks that a Java-based Kinesis Data Analytics application can perform. The Kinesis Data Analytics service can increase this number automatically if ParallelismConfiguration:AutoScalingEnabled is set to true.
 	Parallelism pulumi.IntPtrInput `pulumi:"parallelism"`
 	// Describes the number of parallel tasks that a Java-based Kinesis Data Analytics application can perform per Kinesis Processing Unit (KPU) used by the application. For more information about KPUs, see Amazon Kinesis Data Analytics Pricing.
-	ParallelismPerKPU pulumi.IntPtrInput `pulumi:"parallelismPerKPU"`
+	ParallelismPerKpu pulumi.IntPtrInput `pulumi:"parallelismPerKpu"`
 }
 
 func (ApplicationParallelismConfigurationArgs) ElementType() reflect.Type {
@@ -4555,8 +4555,8 @@ func (o ApplicationParallelismConfigurationOutput) Parallelism() pulumi.IntPtrOu
 }
 
 // Describes the number of parallel tasks that a Java-based Kinesis Data Analytics application can perform per Kinesis Processing Unit (KPU) used by the application. For more information about KPUs, see Amazon Kinesis Data Analytics Pricing.
-func (o ApplicationParallelismConfigurationOutput) ParallelismPerKPU() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ApplicationParallelismConfiguration) *int { return v.ParallelismPerKPU }).(pulumi.IntPtrOutput)
+func (o ApplicationParallelismConfigurationOutput) ParallelismPerKpu() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ApplicationParallelismConfiguration) *int { return v.ParallelismPerKpu }).(pulumi.IntPtrOutput)
 }
 
 type ApplicationParallelismConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -4614,12 +4614,12 @@ func (o ApplicationParallelismConfigurationPtrOutput) Parallelism() pulumi.IntPt
 }
 
 // Describes the number of parallel tasks that a Java-based Kinesis Data Analytics application can perform per Kinesis Processing Unit (KPU) used by the application. For more information about KPUs, see Amazon Kinesis Data Analytics Pricing.
-func (o ApplicationParallelismConfigurationPtrOutput) ParallelismPerKPU() pulumi.IntPtrOutput {
+func (o ApplicationParallelismConfigurationPtrOutput) ParallelismPerKpu() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ApplicationParallelismConfiguration) *int {
 		if v == nil {
 			return nil
 		}
-		return v.ParallelismPerKPU
+		return v.ParallelismPerKpu
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -5199,8 +5199,8 @@ func (o ApplicationReferenceDataSourceJSONMappingParametersPtrOutput) RecordRowP
 }
 
 type ApplicationReferenceDataSourceMappingParameters struct {
-	CSVMappingParameters  *ApplicationReferenceDataSourceCSVMappingParameters  `pulumi:"cSVMappingParameters"`
-	JSONMappingParameters *ApplicationReferenceDataSourceJSONMappingParameters `pulumi:"jSONMappingParameters"`
+	CsvMappingParameters  *ApplicationReferenceDataSourceCSVMappingParameters  `pulumi:"csvMappingParameters"`
+	JsonMappingParameters *ApplicationReferenceDataSourceJSONMappingParameters `pulumi:"jsonMappingParameters"`
 }
 
 // ApplicationReferenceDataSourceMappingParametersInput is an input type that accepts ApplicationReferenceDataSourceMappingParametersArgs and ApplicationReferenceDataSourceMappingParametersOutput values.
@@ -5215,8 +5215,8 @@ type ApplicationReferenceDataSourceMappingParametersInput interface {
 }
 
 type ApplicationReferenceDataSourceMappingParametersArgs struct {
-	CSVMappingParameters  ApplicationReferenceDataSourceCSVMappingParametersPtrInput  `pulumi:"cSVMappingParameters"`
-	JSONMappingParameters ApplicationReferenceDataSourceJSONMappingParametersPtrInput `pulumi:"jSONMappingParameters"`
+	CsvMappingParameters  ApplicationReferenceDataSourceCSVMappingParametersPtrInput  `pulumi:"csvMappingParameters"`
+	JsonMappingParameters ApplicationReferenceDataSourceJSONMappingParametersPtrInput `pulumi:"jsonMappingParameters"`
 }
 
 func (ApplicationReferenceDataSourceMappingParametersArgs) ElementType() reflect.Type {
@@ -5296,15 +5296,15 @@ func (o ApplicationReferenceDataSourceMappingParametersOutput) ToApplicationRefe
 	}).(ApplicationReferenceDataSourceMappingParametersPtrOutput)
 }
 
-func (o ApplicationReferenceDataSourceMappingParametersOutput) CSVMappingParameters() ApplicationReferenceDataSourceCSVMappingParametersPtrOutput {
+func (o ApplicationReferenceDataSourceMappingParametersOutput) CsvMappingParameters() ApplicationReferenceDataSourceCSVMappingParametersPtrOutput {
 	return o.ApplyT(func(v ApplicationReferenceDataSourceMappingParameters) *ApplicationReferenceDataSourceCSVMappingParameters {
-		return v.CSVMappingParameters
+		return v.CsvMappingParameters
 	}).(ApplicationReferenceDataSourceCSVMappingParametersPtrOutput)
 }
 
-func (o ApplicationReferenceDataSourceMappingParametersOutput) JSONMappingParameters() ApplicationReferenceDataSourceJSONMappingParametersPtrOutput {
+func (o ApplicationReferenceDataSourceMappingParametersOutput) JsonMappingParameters() ApplicationReferenceDataSourceJSONMappingParametersPtrOutput {
 	return o.ApplyT(func(v ApplicationReferenceDataSourceMappingParameters) *ApplicationReferenceDataSourceJSONMappingParameters {
-		return v.JSONMappingParameters
+		return v.JsonMappingParameters
 	}).(ApplicationReferenceDataSourceJSONMappingParametersPtrOutput)
 }
 
@@ -5332,21 +5332,21 @@ func (o ApplicationReferenceDataSourceMappingParametersPtrOutput) Elem() Applica
 	}).(ApplicationReferenceDataSourceMappingParametersOutput)
 }
 
-func (o ApplicationReferenceDataSourceMappingParametersPtrOutput) CSVMappingParameters() ApplicationReferenceDataSourceCSVMappingParametersPtrOutput {
+func (o ApplicationReferenceDataSourceMappingParametersPtrOutput) CsvMappingParameters() ApplicationReferenceDataSourceCSVMappingParametersPtrOutput {
 	return o.ApplyT(func(v *ApplicationReferenceDataSourceMappingParameters) *ApplicationReferenceDataSourceCSVMappingParameters {
 		if v == nil {
 			return nil
 		}
-		return v.CSVMappingParameters
+		return v.CsvMappingParameters
 	}).(ApplicationReferenceDataSourceCSVMappingParametersPtrOutput)
 }
 
-func (o ApplicationReferenceDataSourceMappingParametersPtrOutput) JSONMappingParameters() ApplicationReferenceDataSourceJSONMappingParametersPtrOutput {
+func (o ApplicationReferenceDataSourceMappingParametersPtrOutput) JsonMappingParameters() ApplicationReferenceDataSourceJSONMappingParametersPtrOutput {
 	return o.ApplyT(func(v *ApplicationReferenceDataSourceMappingParameters) *ApplicationReferenceDataSourceJSONMappingParameters {
 		if v == nil {
 			return nil
 		}
-		return v.JSONMappingParameters
+		return v.JsonMappingParameters
 	}).(ApplicationReferenceDataSourceJSONMappingParametersPtrOutput)
 }
 
@@ -5788,7 +5788,7 @@ func (o ApplicationReferenceDataSourceReferenceSchemaPtrOutput) RecordFormat() A
 }
 
 type ApplicationReferenceDataSourceS3ReferenceDataSource struct {
-	BucketARN string `pulumi:"bucketARN"`
+	BucketArn string `pulumi:"bucketArn"`
 	FileKey   string `pulumi:"fileKey"`
 }
 
@@ -5804,7 +5804,7 @@ type ApplicationReferenceDataSourceS3ReferenceDataSourceInput interface {
 }
 
 type ApplicationReferenceDataSourceS3ReferenceDataSourceArgs struct {
-	BucketARN pulumi.StringInput `pulumi:"bucketARN"`
+	BucketArn pulumi.StringInput `pulumi:"bucketArn"`
 	FileKey   pulumi.StringInput `pulumi:"fileKey"`
 }
 
@@ -5885,8 +5885,8 @@ func (o ApplicationReferenceDataSourceS3ReferenceDataSourceOutput) ToApplication
 	}).(ApplicationReferenceDataSourceS3ReferenceDataSourcePtrOutput)
 }
 
-func (o ApplicationReferenceDataSourceS3ReferenceDataSourceOutput) BucketARN() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationReferenceDataSourceS3ReferenceDataSource) string { return v.BucketARN }).(pulumi.StringOutput)
+func (o ApplicationReferenceDataSourceS3ReferenceDataSourceOutput) BucketArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationReferenceDataSourceS3ReferenceDataSource) string { return v.BucketArn }).(pulumi.StringOutput)
 }
 
 func (o ApplicationReferenceDataSourceS3ReferenceDataSourceOutput) FileKey() pulumi.StringOutput {
@@ -5917,12 +5917,12 @@ func (o ApplicationReferenceDataSourceS3ReferenceDataSourcePtrOutput) Elem() App
 	}).(ApplicationReferenceDataSourceS3ReferenceDataSourceOutput)
 }
 
-func (o ApplicationReferenceDataSourceS3ReferenceDataSourcePtrOutput) BucketARN() pulumi.StringPtrOutput {
+func (o ApplicationReferenceDataSourceS3ReferenceDataSourcePtrOutput) BucketArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationReferenceDataSourceS3ReferenceDataSource) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.BucketARN
+		return &v.BucketArn
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -6262,7 +6262,7 @@ type ApplicationS3ContentBaseLocation struct {
 	// The base path for the S3 bucket.
 	BasePath *string `pulumi:"basePath"`
 	// The Amazon Resource Name (ARN) of the S3 bucket.
-	BucketARN string `pulumi:"bucketARN"`
+	BucketArn string `pulumi:"bucketArn"`
 }
 
 // ApplicationS3ContentBaseLocationInput is an input type that accepts ApplicationS3ContentBaseLocationArgs and ApplicationS3ContentBaseLocationOutput values.
@@ -6281,7 +6281,7 @@ type ApplicationS3ContentBaseLocationArgs struct {
 	// The base path for the S3 bucket.
 	BasePath pulumi.StringPtrInput `pulumi:"basePath"`
 	// The Amazon Resource Name (ARN) of the S3 bucket.
-	BucketARN pulumi.StringInput `pulumi:"bucketARN"`
+	BucketArn pulumi.StringInput `pulumi:"bucketArn"`
 }
 
 func (ApplicationS3ContentBaseLocationArgs) ElementType() reflect.Type {
@@ -6368,8 +6368,8 @@ func (o ApplicationS3ContentBaseLocationOutput) BasePath() pulumi.StringPtrOutpu
 }
 
 // The Amazon Resource Name (ARN) of the S3 bucket.
-func (o ApplicationS3ContentBaseLocationOutput) BucketARN() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationS3ContentBaseLocation) string { return v.BucketARN }).(pulumi.StringOutput)
+func (o ApplicationS3ContentBaseLocationOutput) BucketArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationS3ContentBaseLocation) string { return v.BucketArn }).(pulumi.StringOutput)
 }
 
 type ApplicationS3ContentBaseLocationPtrOutput struct{ *pulumi.OutputState }
@@ -6407,19 +6407,19 @@ func (o ApplicationS3ContentBaseLocationPtrOutput) BasePath() pulumi.StringPtrOu
 }
 
 // The Amazon Resource Name (ARN) of the S3 bucket.
-func (o ApplicationS3ContentBaseLocationPtrOutput) BucketARN() pulumi.StringPtrOutput {
+func (o ApplicationS3ContentBaseLocationPtrOutput) BucketArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationS3ContentBaseLocation) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.BucketARN
+		return &v.BucketArn
 	}).(pulumi.StringPtrOutput)
 }
 
 // The location of an application or a custom artifact.
 type ApplicationS3ContentLocation struct {
 	// The Amazon Resource Name (ARN) for the S3 bucket containing the application code.
-	BucketARN string `pulumi:"bucketARN"`
+	BucketArn string `pulumi:"bucketArn"`
 	// The file key for the object containing the application code.
 	FileKey string `pulumi:"fileKey"`
 	// The version of the object containing the application code.
@@ -6440,7 +6440,7 @@ type ApplicationS3ContentLocationInput interface {
 // The location of an application or a custom artifact.
 type ApplicationS3ContentLocationArgs struct {
 	// The Amazon Resource Name (ARN) for the S3 bucket containing the application code.
-	BucketARN pulumi.StringInput `pulumi:"bucketARN"`
+	BucketArn pulumi.StringInput `pulumi:"bucketArn"`
 	// The file key for the object containing the application code.
 	FileKey pulumi.StringInput `pulumi:"fileKey"`
 	// The version of the object containing the application code.
@@ -6526,8 +6526,8 @@ func (o ApplicationS3ContentLocationOutput) ToApplicationS3ContentLocationPtrOut
 }
 
 // The Amazon Resource Name (ARN) for the S3 bucket containing the application code.
-func (o ApplicationS3ContentLocationOutput) BucketARN() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationS3ContentLocation) string { return v.BucketARN }).(pulumi.StringOutput)
+func (o ApplicationS3ContentLocationOutput) BucketArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationS3ContentLocation) string { return v.BucketArn }).(pulumi.StringOutput)
 }
 
 // The file key for the object containing the application code.
@@ -6565,12 +6565,12 @@ func (o ApplicationS3ContentLocationPtrOutput) Elem() ApplicationS3ContentLocati
 }
 
 // The Amazon Resource Name (ARN) for the S3 bucket containing the application code.
-func (o ApplicationS3ContentLocationPtrOutput) BucketARN() pulumi.StringPtrOutput {
+func (o ApplicationS3ContentLocationPtrOutput) BucketArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationS3ContentLocation) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.BucketARN
+		return &v.BucketArn
 	}).(pulumi.StringPtrOutput)
 }
 

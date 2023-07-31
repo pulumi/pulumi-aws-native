@@ -47,7 +47,7 @@ type Cluster struct {
 	// The version of the Amazon Redshift engine software that you want to deploy on the cluster.The version selected runs on all the nodes in the cluster.
 	ClusterVersion pulumi.StringPtrOutput `pulumi:"clusterVersion"`
 	// The name of the first database to be created when the cluster is created. To create additional databases after the cluster is created, connect to the cluster with a SQL client and use SQL commands to create a database.
-	DBName pulumi.StringOutput `pulumi:"dBName"`
+	DbName pulumi.StringOutput `pulumi:"dbName"`
 	// A boolean indicating whether to enable the deferred maintenance window.
 	DeferMaintenance pulumi.BoolPtrOutput `pulumi:"deferMaintenance"`
 	// An integer indicating the duration of the maintenance window in days. If you specify a duration, you can't specify an end time. The duration must be 45 days or less.
@@ -137,8 +137,8 @@ func NewCluster(ctx *pulumi.Context,
 	if args.ClusterType == nil {
 		return nil, errors.New("invalid value for required argument 'ClusterType'")
 	}
-	if args.DBName == nil {
-		return nil, errors.New("invalid value for required argument 'DBName'")
+	if args.DbName == nil {
+		return nil, errors.New("invalid value for required argument 'DbName'")
 	}
 	if args.MasterUserPassword == nil {
 		return nil, errors.New("invalid value for required argument 'MasterUserPassword'")
@@ -213,7 +213,7 @@ type clusterArgs struct {
 	// The version of the Amazon Redshift engine software that you want to deploy on the cluster.The version selected runs on all the nodes in the cluster.
 	ClusterVersion *string `pulumi:"clusterVersion"`
 	// The name of the first database to be created when the cluster is created. To create additional databases after the cluster is created, connect to the cluster with a SQL client and use SQL commands to create a database.
-	DBName string `pulumi:"dBName"`
+	DbName string `pulumi:"dbName"`
 	// A boolean indicating whether to enable the deferred maintenance window.
 	DeferMaintenance *bool `pulumi:"deferMaintenance"`
 	// An integer indicating the duration of the maintenance window in days. If you specify a duration, you can't specify an end time. The duration must be 45 days or less.
@@ -324,7 +324,7 @@ type ClusterArgs struct {
 	// The version of the Amazon Redshift engine software that you want to deploy on the cluster.The version selected runs on all the nodes in the cluster.
 	ClusterVersion pulumi.StringPtrInput
 	// The name of the first database to be created when the cluster is created. To create additional databases after the cluster is created, connect to the cluster with a SQL client and use SQL commands to create a database.
-	DBName pulumi.StringInput
+	DbName pulumi.StringInput
 	// A boolean indicating whether to enable the deferred maintenance window.
 	DeferMaintenance pulumi.BoolPtrInput
 	// An integer indicating the duration of the maintenance window in days. If you specify a duration, you can't specify an end time. The duration must be 45 days or less.
@@ -509,8 +509,8 @@ func (o ClusterOutput) ClusterVersion() pulumi.StringPtrOutput {
 }
 
 // The name of the first database to be created when the cluster is created. To create additional databases after the cluster is created, connect to the cluster with a SQL client and use SQL commands to create a database.
-func (o ClusterOutput) DBName() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.DBName }).(pulumi.StringOutput)
+func (o ClusterOutput) DbName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.DbName }).(pulumi.StringOutput)
 }
 
 // A boolean indicating whether to enable the deferred maintenance window.

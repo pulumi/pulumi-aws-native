@@ -55,8 +55,8 @@ namespace Pulumi.AwsNative.Route53
         [Output("setIdentifier")]
         public Output<string?> SetIdentifier { get; private set; } = null!;
 
-        [Output("tTL")]
-        public Output<string?> TTL { get; private set; } = null!;
+        [Output("ttl")]
+        public Output<string?> Ttl { get; private set; } = null!;
 
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -153,8 +153,8 @@ namespace Pulumi.AwsNative.Route53
         [Input("setIdentifier")]
         public Input<string>? SetIdentifier { get; set; }
 
-        [Input("tTL")]
-        public Input<string>? TTL { get; set; }
+        [Input("ttl")]
+        public Input<string>? Ttl { get; set; }
 
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

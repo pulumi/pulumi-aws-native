@@ -14,16 +14,16 @@ namespace Pulumi.AwsNative.Backup.Outputs
     public sealed class BackupVaultNotificationObjectType
     {
         public readonly ImmutableArray<string> BackupVaultEvents;
-        public readonly string SNSTopicArn;
+        public readonly string SnsTopicArn;
 
         [OutputConstructor]
         private BackupVaultNotificationObjectType(
             ImmutableArray<string> backupVaultEvents,
 
-            string sNSTopicArn)
+            string snsTopicArn)
         {
             BackupVaultEvents = backupVaultEvents;
-            SNSTopicArn = sNSTopicArn;
+            SnsTopicArn = snsTopicArn;
         }
     }
 }

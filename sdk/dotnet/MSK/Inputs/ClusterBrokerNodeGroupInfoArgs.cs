@@ -12,8 +12,8 @@ namespace Pulumi.AwsNative.MSK.Inputs
 
     public sealed class ClusterBrokerNodeGroupInfoArgs : global::Pulumi.ResourceArgs
     {
-        [Input("brokerAZDistribution")]
-        public Input<string>? BrokerAZDistribution { get; set; }
+        [Input("brokerAzDistribution")]
+        public Input<string>? BrokerAzDistribution { get; set; }
 
         [Input("clientSubnets", required: true)]
         private InputList<string>? _clientSubnets;

@@ -14,16 +14,16 @@ namespace Pulumi.AwsNative.Glue.Outputs
     public sealed class MLTransformMLUserDataEncryption
     {
         public readonly string? KmsKeyId;
-        public readonly string MLUserDataEncryptionMode;
+        public readonly string MlUserDataEncryptionMode;
 
         [OutputConstructor]
         private MLTransformMLUserDataEncryption(
             string? kmsKeyId,
 
-            string mLUserDataEncryptionMode)
+            string mlUserDataEncryptionMode)
         {
             KmsKeyId = kmsKeyId;
-            MLUserDataEncryptionMode = mLUserDataEncryptionMode;
+            MlUserDataEncryptionMode = mlUserDataEncryptionMode;
         }
     }
 }

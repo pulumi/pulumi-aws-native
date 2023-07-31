@@ -853,7 +853,7 @@ func (o FileSystemElasticFileSystemTagArrayOutput) Index(i pulumi.IntInput) File
 }
 
 type FileSystemLifecyclePolicy struct {
-	TransitionToIA                  *string `pulumi:"transitionToIA"`
+	TransitionToIa                  *string `pulumi:"transitionToIa"`
 	TransitionToPrimaryStorageClass *string `pulumi:"transitionToPrimaryStorageClass"`
 }
 
@@ -869,7 +869,7 @@ type FileSystemLifecyclePolicyInput interface {
 }
 
 type FileSystemLifecyclePolicyArgs struct {
-	TransitionToIA                  pulumi.StringPtrInput `pulumi:"transitionToIA"`
+	TransitionToIa                  pulumi.StringPtrInput `pulumi:"transitionToIa"`
 	TransitionToPrimaryStorageClass pulumi.StringPtrInput `pulumi:"transitionToPrimaryStorageClass"`
 }
 
@@ -924,8 +924,8 @@ func (o FileSystemLifecyclePolicyOutput) ToFileSystemLifecyclePolicyOutputWithCo
 	return o
 }
 
-func (o FileSystemLifecyclePolicyOutput) TransitionToIA() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FileSystemLifecyclePolicy) *string { return v.TransitionToIA }).(pulumi.StringPtrOutput)
+func (o FileSystemLifecyclePolicyOutput) TransitionToIa() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileSystemLifecyclePolicy) *string { return v.TransitionToIa }).(pulumi.StringPtrOutput)
 }
 
 func (o FileSystemLifecyclePolicyOutput) TransitionToPrimaryStorageClass() pulumi.StringPtrOutput {

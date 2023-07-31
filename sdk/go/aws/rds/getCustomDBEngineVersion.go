@@ -31,7 +31,7 @@ type LookupCustomDBEngineVersionArgs struct {
 
 type LookupCustomDBEngineVersionResult struct {
 	// The ARN of the custom engine version.
-	DBEngineVersionArn *string `pulumi:"dBEngineVersionArn"`
+	DbEngineVersionArn *string `pulumi:"dbEngineVersionArn"`
 	// An optional description of your CEV.
 	Description *string `pulumi:"description"`
 	// The availability status to be assigned to the CEV.
@@ -79,8 +79,8 @@ func (o LookupCustomDBEngineVersionResultOutput) ToLookupCustomDBEngineVersionRe
 }
 
 // The ARN of the custom engine version.
-func (o LookupCustomDBEngineVersionResultOutput) DBEngineVersionArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupCustomDBEngineVersionResult) *string { return v.DBEngineVersionArn }).(pulumi.StringPtrOutput)
+func (o LookupCustomDBEngineVersionResultOutput) DbEngineVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCustomDBEngineVersionResult) *string { return v.DbEngineVersionArn }).(pulumi.StringPtrOutput)
 }
 
 // An optional description of your CEV.

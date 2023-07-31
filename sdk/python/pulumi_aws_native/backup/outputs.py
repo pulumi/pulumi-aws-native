@@ -577,8 +577,8 @@ class BackupVaultNotificationObjectType(dict):
         suggest = None
         if key == "backupVaultEvents":
             suggest = "backup_vault_events"
-        elif key == "sNSTopicArn":
-            suggest = "s_ns_topic_arn"
+        elif key == "snsTopicArn":
+            suggest = "sns_topic_arn"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in BackupVaultNotificationObjectType. Access the value via the '{suggest}' property getter instead.")
@@ -593,9 +593,9 @@ class BackupVaultNotificationObjectType(dict):
 
     def __init__(__self__, *,
                  backup_vault_events: Sequence[str],
-                 s_ns_topic_arn: str):
+                 sns_topic_arn: str):
         pulumi.set(__self__, "backup_vault_events", backup_vault_events)
-        pulumi.set(__self__, "s_ns_topic_arn", s_ns_topic_arn)
+        pulumi.set(__self__, "sns_topic_arn", sns_topic_arn)
 
     @property
     @pulumi.getter(name="backupVaultEvents")
@@ -603,9 +603,9 @@ class BackupVaultNotificationObjectType(dict):
         return pulumi.get(self, "backup_vault_events")
 
     @property
-    @pulumi.getter(name="sNSTopicArn")
-    def s_ns_topic_arn(self) -> str:
-        return pulumi.get(self, "s_ns_topic_arn")
+    @pulumi.getter(name="snsTopicArn")
+    def sns_topic_arn(self) -> str:
+        return pulumi.get(self, "sns_topic_arn")
 
 
 @pulumi.output_type

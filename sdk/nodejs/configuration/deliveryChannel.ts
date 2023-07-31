@@ -45,7 +45,7 @@ export class DeliveryChannel extends pulumi.CustomResource {
     public readonly s3BucketName!: pulumi.Output<string>;
     public readonly s3KeyPrefix!: pulumi.Output<string | undefined>;
     public readonly s3KmsKeyArn!: pulumi.Output<string | undefined>;
-    public readonly snsTopicARN!: pulumi.Output<string | undefined>;
+    public readonly snsTopicArn!: pulumi.Output<string | undefined>;
 
     /**
      * Create a DeliveryChannel resource with the given unique name, arguments, and options.
@@ -68,14 +68,14 @@ export class DeliveryChannel extends pulumi.CustomResource {
             resourceInputs["s3BucketName"] = args ? args.s3BucketName : undefined;
             resourceInputs["s3KeyPrefix"] = args ? args.s3KeyPrefix : undefined;
             resourceInputs["s3KmsKeyArn"] = args ? args.s3KmsKeyArn : undefined;
-            resourceInputs["snsTopicARN"] = args ? args.snsTopicARN : undefined;
+            resourceInputs["snsTopicArn"] = args ? args.snsTopicArn : undefined;
         } else {
             resourceInputs["configSnapshotDeliveryProperties"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["s3BucketName"] = undefined /*out*/;
             resourceInputs["s3KeyPrefix"] = undefined /*out*/;
             resourceInputs["s3KmsKeyArn"] = undefined /*out*/;
-            resourceInputs["snsTopicARN"] = undefined /*out*/;
+            resourceInputs["snsTopicArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DeliveryChannel.__pulumiType, name, resourceInputs, opts);
@@ -91,5 +91,5 @@ export interface DeliveryChannelArgs {
     s3BucketName: pulumi.Input<string>;
     s3KeyPrefix?: pulumi.Input<string>;
     s3KmsKeyArn?: pulumi.Input<string>;
-    snsTopicARN?: pulumi.Input<string>;
+    snsTopicArn?: pulumi.Input<string>;
 }

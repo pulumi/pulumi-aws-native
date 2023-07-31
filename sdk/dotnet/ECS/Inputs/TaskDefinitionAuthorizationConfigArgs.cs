@@ -15,8 +15,8 @@ namespace Pulumi.AwsNative.ECS.Inputs
         [Input("accessPointId")]
         public Input<string>? AccessPointId { get; set; }
 
-        [Input("iAM")]
-        public Input<Pulumi.AwsNative.ECS.TaskDefinitionAuthorizationConfigIAM>? IAM { get; set; }
+        [Input("iam")]
+        public Input<Pulumi.AwsNative.ECS.TaskDefinitionAuthorizationConfigIAM>? Iam { get; set; }
 
         public TaskDefinitionAuthorizationConfigArgs()
         {

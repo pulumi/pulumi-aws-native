@@ -12,8 +12,8 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
 
     public sealed class VirtualGatewayClientPolicyArgs : global::Pulumi.ResourceArgs
     {
-        [Input("tLS")]
-        public Input<Inputs.VirtualGatewayClientPolicyTlsArgs>? TLS { get; set; }
+        [Input("tls")]
+        public Input<Inputs.VirtualGatewayClientPolicyTlsArgs>? Tls { get; set; }
 
         public VirtualGatewayClientPolicyArgs()
         {

@@ -40,8 +40,8 @@ export class DBSecurityGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === DBSecurityGroup.__pulumiType;
     }
 
-    public readonly dBSecurityGroupIngress!: pulumi.Output<outputs.rds.DBSecurityGroupIngress[]>;
-    public readonly eC2VpcId!: pulumi.Output<string | undefined>;
+    public readonly dbSecurityGroupIngress!: pulumi.Output<outputs.rds.DBSecurityGroupIngress[]>;
+    public readonly ec2VpcId!: pulumi.Output<string | undefined>;
     public readonly groupDescription!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<outputs.rds.DBSecurityGroupTag[] | undefined>;
 
@@ -58,19 +58,19 @@ export class DBSecurityGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dBSecurityGroupIngress === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'dBSecurityGroupIngress'");
+            if ((!args || args.dbSecurityGroupIngress === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'dbSecurityGroupIngress'");
             }
             if ((!args || args.groupDescription === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'groupDescription'");
             }
-            resourceInputs["dBSecurityGroupIngress"] = args ? args.dBSecurityGroupIngress : undefined;
-            resourceInputs["eC2VpcId"] = args ? args.eC2VpcId : undefined;
+            resourceInputs["dbSecurityGroupIngress"] = args ? args.dbSecurityGroupIngress : undefined;
+            resourceInputs["ec2VpcId"] = args ? args.ec2VpcId : undefined;
             resourceInputs["groupDescription"] = args ? args.groupDescription : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
         } else {
-            resourceInputs["dBSecurityGroupIngress"] = undefined /*out*/;
-            resourceInputs["eC2VpcId"] = undefined /*out*/;
+            resourceInputs["dbSecurityGroupIngress"] = undefined /*out*/;
+            resourceInputs["ec2VpcId"] = undefined /*out*/;
             resourceInputs["groupDescription"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
@@ -83,8 +83,8 @@ export class DBSecurityGroup extends pulumi.CustomResource {
  * The set of arguments for constructing a DBSecurityGroup resource.
  */
 export interface DBSecurityGroupArgs {
-    dBSecurityGroupIngress: pulumi.Input<pulumi.Input<inputs.rds.DBSecurityGroupIngressArgs>[]>;
-    eC2VpcId?: pulumi.Input<string>;
+    dbSecurityGroupIngress: pulumi.Input<pulumi.Input<inputs.rds.DBSecurityGroupIngressArgs>[]>;
+    ec2VpcId?: pulumi.Input<string>;
     groupDescription: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.rds.DBSecurityGroupTagArgs>[]>;
 }

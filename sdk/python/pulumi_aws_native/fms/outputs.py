@@ -27,45 +27,26 @@ class PolicyIEMap(dict):
     """
     An FMS includeMap or excludeMap.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "aCCOUNT":
-            suggest = "a_ccount"
-        elif key == "oRGUNIT":
-            suggest = "o_rgunit"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PolicyIEMap. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PolicyIEMap.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PolicyIEMap.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
-                 a_ccount: Optional[Sequence[str]] = None,
-                 o_rgunit: Optional[Sequence[str]] = None):
+                 account: Optional[Sequence[str]] = None,
+                 orgunit: Optional[Sequence[str]] = None):
         """
         An FMS includeMap or excludeMap.
         """
-        if a_ccount is not None:
-            pulumi.set(__self__, "a_ccount", a_ccount)
-        if o_rgunit is not None:
-            pulumi.set(__self__, "o_rgunit", o_rgunit)
+        if account is not None:
+            pulumi.set(__self__, "account", account)
+        if orgunit is not None:
+            pulumi.set(__self__, "orgunit", orgunit)
 
     @property
-    @pulumi.getter(name="aCCOUNT")
-    def a_ccount(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "a_ccount")
+    @pulumi.getter
+    def account(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "account")
 
     @property
-    @pulumi.getter(name="oRGUNIT")
-    def o_rgunit(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "o_rgunit")
+    @pulumi.getter
+    def orgunit(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "orgunit")
 
 
 @pulumi.output_type

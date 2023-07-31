@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// <summary>
         /// The supported MIME types for the output data.
         /// </summary>
-        public readonly ImmutableArray<string> SupportedResponseMIMETypes;
+        public readonly ImmutableArray<string> SupportedResponseMimeTypes;
         /// <summary>
         /// A list of the instance types on which a transformation job can be run or on which an endpoint can be deployed.
         /// </summary>
@@ -45,14 +45,14 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
             ImmutableArray<string> supportedRealtimeInferenceInstanceTypes,
 
-            ImmutableArray<string> supportedResponseMIMETypes,
+            ImmutableArray<string> supportedResponseMimeTypes,
 
             ImmutableArray<string> supportedTransformInstanceTypes)
         {
             Containers = containers;
             SupportedContentTypes = supportedContentTypes;
             SupportedRealtimeInferenceInstanceTypes = supportedRealtimeInferenceInstanceTypes;
-            SupportedResponseMIMETypes = supportedResponseMIMETypes;
+            SupportedResponseMimeTypes = supportedResponseMimeTypes;
             SupportedTransformInstanceTypes = supportedTransformInstanceTypes;
         }
     }

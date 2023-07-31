@@ -60,7 +60,7 @@ export class Flow extends pulumi.CustomResource {
     /**
      * The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
      */
-    public readonly kMSArn!: pulumi.Output<string | undefined>;
+    public readonly kmsArn!: pulumi.Output<string | undefined>;
     /**
      * Configurations of metadata catalog of the flow.
      */
@@ -109,7 +109,7 @@ export class Flow extends pulumi.CustomResource {
             resourceInputs["destinationFlowConfigList"] = args ? args.destinationFlowConfigList : undefined;
             resourceInputs["flowName"] = args ? args.flowName : undefined;
             resourceInputs["flowStatus"] = args ? args.flowStatus : undefined;
-            resourceInputs["kMSArn"] = args ? args.kMSArn : undefined;
+            resourceInputs["kmsArn"] = args ? args.kmsArn : undefined;
             resourceInputs["metadataCatalogConfig"] = args ? args.metadataCatalogConfig : undefined;
             resourceInputs["sourceFlowConfig"] = args ? args.sourceFlowConfig : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -122,7 +122,7 @@ export class Flow extends pulumi.CustomResource {
             resourceInputs["flowArn"] = undefined /*out*/;
             resourceInputs["flowName"] = undefined /*out*/;
             resourceInputs["flowStatus"] = undefined /*out*/;
-            resourceInputs["kMSArn"] = undefined /*out*/;
+            resourceInputs["kmsArn"] = undefined /*out*/;
             resourceInputs["metadataCatalogConfig"] = undefined /*out*/;
             resourceInputs["sourceFlowConfig"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -157,7 +157,7 @@ export interface FlowArgs {
     /**
      * The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
      */
-    kMSArn?: pulumi.Input<string>;
+    kmsArn?: pulumi.Input<string>;
     /**
      * Configurations of metadata catalog of the flow.
      */

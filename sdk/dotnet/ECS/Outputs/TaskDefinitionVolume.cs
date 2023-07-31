@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.ECS.Outputs
     public sealed class TaskDefinitionVolume
     {
         public readonly Outputs.TaskDefinitionDockerVolumeConfiguration? DockerVolumeConfiguration;
-        public readonly Outputs.TaskDefinitionEFSVolumeConfiguration? EFSVolumeConfiguration;
+        public readonly Outputs.TaskDefinitionEFSVolumeConfiguration? EfsVolumeConfiguration;
         public readonly Outputs.TaskDefinitionHostVolumeProperties? Host;
         public readonly string? Name;
 
@@ -22,14 +22,14 @@ namespace Pulumi.AwsNative.ECS.Outputs
         private TaskDefinitionVolume(
             Outputs.TaskDefinitionDockerVolumeConfiguration? dockerVolumeConfiguration,
 
-            Outputs.TaskDefinitionEFSVolumeConfiguration? eFSVolumeConfiguration,
+            Outputs.TaskDefinitionEFSVolumeConfiguration? efsVolumeConfiguration,
 
             Outputs.TaskDefinitionHostVolumeProperties? host,
 
             string? name)
         {
             DockerVolumeConfiguration = dockerVolumeConfiguration;
-            EFSVolumeConfiguration = eFSVolumeConfiguration;
+            EfsVolumeConfiguration = efsVolumeConfiguration;
             Host = host;
             Name = name;
         }

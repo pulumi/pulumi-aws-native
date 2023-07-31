@@ -105,7 +105,7 @@ namespace Pulumi.AwsNative.Synthetics
         /// <summary>
         /// Provide VPC Configuration if enabled.
         /// </summary>
-        public readonly Outputs.CanaryVPCConfig? VPCConfig;
+        public readonly Outputs.CanaryVPCConfig? VpcConfig;
 
         [OutputConstructor]
         private GetCanaryResult(
@@ -133,7 +133,7 @@ namespace Pulumi.AwsNative.Synthetics
 
             ImmutableArray<Outputs.CanaryTag> tags,
 
-            Outputs.CanaryVPCConfig? vPCConfig)
+            Outputs.CanaryVPCConfig? vpcConfig)
         {
             ArtifactConfig = artifactConfig;
             ArtifactS3Location = artifactS3Location;
@@ -147,7 +147,7 @@ namespace Pulumi.AwsNative.Synthetics
             State = state;
             SuccessRetentionPeriod = successRetentionPeriod;
             Tags = tags;
-            VPCConfig = vPCConfig;
+            VpcConfig = vpcConfig;
         }
     }
 }

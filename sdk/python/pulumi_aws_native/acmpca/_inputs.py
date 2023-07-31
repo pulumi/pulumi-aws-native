@@ -400,7 +400,7 @@ class CertificateAuthorityGeneralNameArgs:
 @pulumi.input_type
 class CertificateAuthorityKeyUsageArgs:
     def __init__(__self__, *,
-                 c_rl_sign: Optional[pulumi.Input[bool]] = None,
+                 crl_sign: Optional[pulumi.Input[bool]] = None,
                  data_encipherment: Optional[pulumi.Input[bool]] = None,
                  decipher_only: Optional[pulumi.Input[bool]] = None,
                  digital_signature: Optional[pulumi.Input[bool]] = None,
@@ -412,8 +412,8 @@ class CertificateAuthorityKeyUsageArgs:
         """
         Structure that contains X.509 KeyUsage information.
         """
-        if c_rl_sign is not None:
-            pulumi.set(__self__, "c_rl_sign", c_rl_sign)
+        if crl_sign is not None:
+            pulumi.set(__self__, "crl_sign", crl_sign)
         if data_encipherment is not None:
             pulumi.set(__self__, "data_encipherment", data_encipherment)
         if decipher_only is not None:
@@ -432,13 +432,13 @@ class CertificateAuthorityKeyUsageArgs:
             pulumi.set(__self__, "non_repudiation", non_repudiation)
 
     @property
-    @pulumi.getter(name="cRLSign")
-    def c_rl_sign(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "c_rl_sign")
+    @pulumi.getter(name="crlSign")
+    def crl_sign(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "crl_sign")
 
-    @c_rl_sign.setter
-    def c_rl_sign(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "c_rl_sign", value)
+    @crl_sign.setter
+    def crl_sign(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "crl_sign", value)
 
     @property
     @pulumi.getter(name="dataEncipherment")
@@ -1133,7 +1133,7 @@ class CertificateGeneralNameArgs:
 @pulumi.input_type
 class CertificateKeyUsageArgs:
     def __init__(__self__, *,
-                 c_rl_sign: Optional[pulumi.Input[bool]] = None,
+                 crl_sign: Optional[pulumi.Input[bool]] = None,
                  data_encipherment: Optional[pulumi.Input[bool]] = None,
                  decipher_only: Optional[pulumi.Input[bool]] = None,
                  digital_signature: Optional[pulumi.Input[bool]] = None,
@@ -1145,8 +1145,8 @@ class CertificateKeyUsageArgs:
         """
         Structure that contains X.509 KeyUsage information.
         """
-        if c_rl_sign is not None:
-            pulumi.set(__self__, "c_rl_sign", c_rl_sign)
+        if crl_sign is not None:
+            pulumi.set(__self__, "crl_sign", crl_sign)
         if data_encipherment is not None:
             pulumi.set(__self__, "data_encipherment", data_encipherment)
         if decipher_only is not None:
@@ -1165,13 +1165,13 @@ class CertificateKeyUsageArgs:
             pulumi.set(__self__, "non_repudiation", non_repudiation)
 
     @property
-    @pulumi.getter(name="cRLSign")
-    def c_rl_sign(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "c_rl_sign")
+    @pulumi.getter(name="crlSign")
+    def crl_sign(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "crl_sign")
 
-    @c_rl_sign.setter
-    def c_rl_sign(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "c_rl_sign", value)
+    @crl_sign.setter
+    def crl_sign(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "crl_sign", value)
 
     @property
     @pulumi.getter(name="dataEncipherment")

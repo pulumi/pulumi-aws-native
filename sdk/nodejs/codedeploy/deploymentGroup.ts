@@ -49,9 +49,9 @@ export class DeploymentGroup extends pulumi.CustomResource {
     public readonly deploymentConfigName!: pulumi.Output<string | undefined>;
     public readonly deploymentGroupName!: pulumi.Output<string | undefined>;
     public readonly deploymentStyle!: pulumi.Output<outputs.codedeploy.DeploymentGroupDeploymentStyle | undefined>;
-    public readonly eCSServices!: pulumi.Output<outputs.codedeploy.DeploymentGroupECSService[] | undefined>;
     public readonly ec2TagFilters!: pulumi.Output<outputs.codedeploy.DeploymentGroupEC2TagFilter[] | undefined>;
     public readonly ec2TagSet!: pulumi.Output<outputs.codedeploy.DeploymentGroupEC2TagSet | undefined>;
+    public readonly ecsServices!: pulumi.Output<outputs.codedeploy.DeploymentGroupECSService[] | undefined>;
     public readonly loadBalancerInfo!: pulumi.Output<outputs.codedeploy.DeploymentGroupLoadBalancerInfo | undefined>;
     public readonly onPremisesInstanceTagFilters!: pulumi.Output<outputs.codedeploy.DeploymentGroupTagFilter[] | undefined>;
     public readonly onPremisesTagSet!: pulumi.Output<outputs.codedeploy.DeploymentGroupOnPremisesTagSet | undefined>;
@@ -88,9 +88,9 @@ export class DeploymentGroup extends pulumi.CustomResource {
             resourceInputs["deploymentConfigName"] = args ? args.deploymentConfigName : undefined;
             resourceInputs["deploymentGroupName"] = args ? args.deploymentGroupName : undefined;
             resourceInputs["deploymentStyle"] = args ? args.deploymentStyle : undefined;
-            resourceInputs["eCSServices"] = args ? args.eCSServices : undefined;
             resourceInputs["ec2TagFilters"] = args ? args.ec2TagFilters : undefined;
             resourceInputs["ec2TagSet"] = args ? args.ec2TagSet : undefined;
+            resourceInputs["ecsServices"] = args ? args.ecsServices : undefined;
             resourceInputs["loadBalancerInfo"] = args ? args.loadBalancerInfo : undefined;
             resourceInputs["onPremisesInstanceTagFilters"] = args ? args.onPremisesInstanceTagFilters : undefined;
             resourceInputs["onPremisesTagSet"] = args ? args.onPremisesTagSet : undefined;
@@ -108,9 +108,9 @@ export class DeploymentGroup extends pulumi.CustomResource {
             resourceInputs["deploymentConfigName"] = undefined /*out*/;
             resourceInputs["deploymentGroupName"] = undefined /*out*/;
             resourceInputs["deploymentStyle"] = undefined /*out*/;
-            resourceInputs["eCSServices"] = undefined /*out*/;
             resourceInputs["ec2TagFilters"] = undefined /*out*/;
             resourceInputs["ec2TagSet"] = undefined /*out*/;
+            resourceInputs["ecsServices"] = undefined /*out*/;
             resourceInputs["loadBalancerInfo"] = undefined /*out*/;
             resourceInputs["onPremisesInstanceTagFilters"] = undefined /*out*/;
             resourceInputs["onPremisesTagSet"] = undefined /*out*/;
@@ -137,9 +137,9 @@ export interface DeploymentGroupArgs {
     deploymentConfigName?: pulumi.Input<string>;
     deploymentGroupName?: pulumi.Input<string>;
     deploymentStyle?: pulumi.Input<inputs.codedeploy.DeploymentGroupDeploymentStyleArgs>;
-    eCSServices?: pulumi.Input<pulumi.Input<inputs.codedeploy.DeploymentGroupECSServiceArgs>[]>;
     ec2TagFilters?: pulumi.Input<pulumi.Input<inputs.codedeploy.DeploymentGroupEC2TagFilterArgs>[]>;
     ec2TagSet?: pulumi.Input<inputs.codedeploy.DeploymentGroupEC2TagSetArgs>;
+    ecsServices?: pulumi.Input<pulumi.Input<inputs.codedeploy.DeploymentGroupECSServiceArgs>[]>;
     loadBalancerInfo?: pulumi.Input<inputs.codedeploy.DeploymentGroupLoadBalancerInfoArgs>;
     onPremisesInstanceTagFilters?: pulumi.Input<pulumi.Input<inputs.codedeploy.DeploymentGroupTagFilterArgs>[]>;
     onPremisesTagSet?: pulumi.Input<inputs.codedeploy.DeploymentGroupOnPremisesTagSetArgs>;

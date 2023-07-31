@@ -88,20 +88,20 @@ namespace Pulumi.AwsNative.AutoScaling
         [Output("placementGroup")]
         public Output<string?> PlacementGroup { get; private set; } = null!;
 
-        [Output("serviceLinkedRoleARN")]
-        public Output<string?> ServiceLinkedRoleARN { get; private set; } = null!;
+        [Output("serviceLinkedRoleArn")]
+        public Output<string?> ServiceLinkedRoleArn { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableArray<Outputs.AutoScalingGroupTagProperty>> Tags { get; private set; } = null!;
 
-        [Output("targetGroupARNs")]
-        public Output<ImmutableArray<string>> TargetGroupARNs { get; private set; } = null!;
+        [Output("targetGroupArns")]
+        public Output<ImmutableArray<string>> TargetGroupArns { get; private set; } = null!;
 
         [Output("terminationPolicies")]
         public Output<ImmutableArray<string>> TerminationPolicies { get; private set; } = null!;
 
-        [Output("vPCZoneIdentifier")]
-        public Output<ImmutableArray<string>> VPCZoneIdentifier { get; private set; } = null!;
+        [Output("vpcZoneIdentifier")]
+        public Output<ImmutableArray<string>> VpcZoneIdentifier { get; private set; } = null!;
 
 
         /// <summary>
@@ -242,8 +242,8 @@ namespace Pulumi.AwsNative.AutoScaling
         [Input("placementGroup")]
         public Input<string>? PlacementGroup { get; set; }
 
-        [Input("serviceLinkedRoleARN")]
-        public Input<string>? ServiceLinkedRoleARN { get; set; }
+        [Input("serviceLinkedRoleArn")]
+        public Input<string>? ServiceLinkedRoleArn { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.AutoScalingGroupTagPropertyArgs>? _tags;
@@ -253,12 +253,12 @@ namespace Pulumi.AwsNative.AutoScaling
             set => _tags = value;
         }
 
-        [Input("targetGroupARNs")]
-        private InputList<string>? _targetGroupARNs;
-        public InputList<string> TargetGroupARNs
+        [Input("targetGroupArns")]
+        private InputList<string>? _targetGroupArns;
+        public InputList<string> TargetGroupArns
         {
-            get => _targetGroupARNs ?? (_targetGroupARNs = new InputList<string>());
-            set => _targetGroupARNs = value;
+            get => _targetGroupArns ?? (_targetGroupArns = new InputList<string>());
+            set => _targetGroupArns = value;
         }
 
         [Input("terminationPolicies")]
@@ -269,12 +269,12 @@ namespace Pulumi.AwsNative.AutoScaling
             set => _terminationPolicies = value;
         }
 
-        [Input("vPCZoneIdentifier")]
-        private InputList<string>? _vPCZoneIdentifier;
-        public InputList<string> VPCZoneIdentifier
+        [Input("vpcZoneIdentifier")]
+        private InputList<string>? _vpcZoneIdentifier;
+        public InputList<string> VpcZoneIdentifier
         {
-            get => _vPCZoneIdentifier ?? (_vPCZoneIdentifier = new InputList<string>());
-            set => _vPCZoneIdentifier = value;
+            get => _vpcZoneIdentifier ?? (_vpcZoneIdentifier = new InputList<string>());
+            set => _vpcZoneIdentifier = value;
         }
 
         public AutoScalingGroupArgs()

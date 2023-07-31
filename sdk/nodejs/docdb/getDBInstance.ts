@@ -24,7 +24,7 @@ export interface GetDBInstanceArgs {
 
 export interface GetDBInstanceResult {
     readonly autoMinorVersionUpgrade?: boolean;
-    readonly dBInstanceClass?: string;
+    readonly dbInstanceClass?: string;
     readonly enablePerformanceInsights?: boolean;
     readonly endpoint?: string;
     readonly id?: string;

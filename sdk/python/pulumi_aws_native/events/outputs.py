@@ -173,7 +173,7 @@ class ConnectionClientParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "clientID":
+        if key == "clientId":
             suggest = "client_id"
         elif key == "clientSecret":
             suggest = "client_secret"
@@ -196,7 +196,7 @@ class ConnectionClientParameters(dict):
         pulumi.set(__self__, "client_secret", client_secret)
 
     @property
-    @pulumi.getter(name="clientID")
+    @pulumi.getter(name="clientId")
     def client_id(self) -> str:
         return pulumi.get(self, "client_id")
 
@@ -733,7 +733,7 @@ class RuleEcsParameters(dict):
             suggest = "task_definition_arn"
         elif key == "capacityProviderStrategy":
             suggest = "capacity_provider_strategy"
-        elif key == "enableECSManagedTags":
+        elif key == "enableEcsManagedTags":
             suggest = "enable_ecs_managed_tags"
         elif key == "enableExecuteCommand":
             suggest = "enable_execute_command"
@@ -821,7 +821,7 @@ class RuleEcsParameters(dict):
         return pulumi.get(self, "capacity_provider_strategy")
 
     @property
-    @pulumi.getter(name="enableECSManagedTags")
+    @pulumi.getter(name="enableEcsManagedTags")
     def enable_ecs_managed_tags(self) -> Optional[bool]:
         return pulumi.get(self, "enable_ecs_managed_tags")
 

@@ -52,7 +52,7 @@ export class ScalableTarget extends pulumi.CustomResource {
     /**
      * Specify the Amazon Resource Name (ARN) of an Identity and Access Management (IAM) role that allows Application Auto Scaling to modify the scalable target on your behalf. 
      */
-    public readonly roleARN!: pulumi.Output<string | undefined>;
+    public readonly roleArn!: pulumi.Output<string | undefined>;
     /**
      * The scalable dimension associated with the scalable target. This string consists of the service namespace, resource type, and scaling property
      */
@@ -99,7 +99,7 @@ export class ScalableTarget extends pulumi.CustomResource {
             resourceInputs["maxCapacity"] = args ? args.maxCapacity : undefined;
             resourceInputs["minCapacity"] = args ? args.minCapacity : undefined;
             resourceInputs["resourceId"] = args ? args.resourceId : undefined;
-            resourceInputs["roleARN"] = args ? args.roleARN : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["scalableDimension"] = args ? args.scalableDimension : undefined;
             resourceInputs["scheduledActions"] = args ? args.scheduledActions : undefined;
             resourceInputs["serviceNamespace"] = args ? args.serviceNamespace : undefined;
@@ -108,7 +108,7 @@ export class ScalableTarget extends pulumi.CustomResource {
             resourceInputs["maxCapacity"] = undefined /*out*/;
             resourceInputs["minCapacity"] = undefined /*out*/;
             resourceInputs["resourceId"] = undefined /*out*/;
-            resourceInputs["roleARN"] = undefined /*out*/;
+            resourceInputs["roleArn"] = undefined /*out*/;
             resourceInputs["scalableDimension"] = undefined /*out*/;
             resourceInputs["scheduledActions"] = undefined /*out*/;
             resourceInputs["serviceNamespace"] = undefined /*out*/;
@@ -138,7 +138,7 @@ export interface ScalableTargetArgs {
     /**
      * Specify the Amazon Resource Name (ARN) of an Identity and Access Management (IAM) role that allows Application Auto Scaling to modify the scalable target on your behalf. 
      */
-    roleARN?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string>;
     /**
      * The scalable dimension associated with the scalable target. This string consists of the service namespace, resource type, and scaling property
      */

@@ -29,7 +29,7 @@ type DataRepositoryAssociation struct {
 	// For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system.
 	ImportedFileChunkSize pulumi.IntPtrOutput `pulumi:"importedFileChunkSize"`
 	// The Amazon Resource Name (ARN) for a given resource. ARNs uniquely identify Amazon Web Services resources. We require an ARN when you need to specify a resource unambiguously across all of Amazon Web Services. For more information, see Amazon Resource Names (ARNs) in the Amazon Web Services General Reference.
-	ResourceARN pulumi.StringOutput `pulumi:"resourceARN"`
+	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
 	// The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
 	S3 DataRepositoryAssociationS3PtrOutput `pulumi:"s3"`
 	// A list of Tag values, with a maximum of 50 elements.
@@ -187,8 +187,8 @@ func (o DataRepositoryAssociationOutput) ImportedFileChunkSize() pulumi.IntPtrOu
 }
 
 // The Amazon Resource Name (ARN) for a given resource. ARNs uniquely identify Amazon Web Services resources. We require an ARN when you need to specify a resource unambiguously across all of Amazon Web Services. For more information, see Amazon Resource Names (ARNs) in the Amazon Web Services General Reference.
-func (o DataRepositoryAssociationOutput) ResourceARN() pulumi.StringOutput {
-	return o.ApplyT(func(v *DataRepositoryAssociation) pulumi.StringOutput { return v.ResourceARN }).(pulumi.StringOutput)
+func (o DataRepositoryAssociationOutput) ResourceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataRepositoryAssociation) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
 }
 
 // The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.

@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.Lex
         /// <summary>
         /// IdleSessionTTLInSeconds of the resource
         /// </summary>
-        public readonly int? IdleSessionTTLInSeconds;
+        public readonly int? IdleSessionTtlInSeconds;
         public readonly string? Name;
         public readonly string? RoleArn;
         public readonly Outputs.BotTestBotAliasSettings? TestBotAliasSettings;
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.Lex
 
             string? id,
 
-            int? idleSessionTTLInSeconds,
+            int? idleSessionTtlInSeconds,
 
             string? name,
 
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.Lex
             DataPrivacy = dataPrivacy;
             Description = description;
             Id = id;
-            IdleSessionTTLInSeconds = idleSessionTTLInSeconds;
+            IdleSessionTtlInSeconds = idleSessionTtlInSeconds;
             Name = name;
             RoleArn = roleArn;
             TestBotAliasSettings = testBotAliasSettings;

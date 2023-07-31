@@ -21,7 +21,7 @@ class ImageVersionArgs:
                  aliases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  horovod: Optional[pulumi.Input[bool]] = None,
                  job_type: Optional[pulumi.Input['ImageVersionJobType']] = None,
-                 m_l_framework: Optional[pulumi.Input[str]] = None,
+                 ml_framework: Optional[pulumi.Input[str]] = None,
                  processor: Optional[pulumi.Input['ImageVersionProcessor']] = None,
                  programming_lang: Optional[pulumi.Input[str]] = None,
                  release_notes: Optional[pulumi.Input[str]] = None,
@@ -39,8 +39,8 @@ class ImageVersionArgs:
             pulumi.set(__self__, "horovod", horovod)
         if job_type is not None:
             pulumi.set(__self__, "job_type", job_type)
-        if m_l_framework is not None:
-            pulumi.set(__self__, "m_l_framework", m_l_framework)
+        if ml_framework is not None:
+            pulumi.set(__self__, "ml_framework", ml_framework)
         if processor is not None:
             pulumi.set(__self__, "processor", processor)
         if programming_lang is not None:
@@ -105,13 +105,13 @@ class ImageVersionArgs:
         pulumi.set(self, "job_type", value)
 
     @property
-    @pulumi.getter(name="mLFramework")
-    def m_l_framework(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "m_l_framework")
+    @pulumi.getter(name="mlFramework")
+    def ml_framework(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ml_framework")
 
-    @m_l_framework.setter
-    def m_l_framework(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "m_l_framework", value)
+    @ml_framework.setter
+    def ml_framework(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ml_framework", value)
 
     @property
     @pulumi.getter
@@ -161,7 +161,7 @@ class ImageVersion(pulumi.CustomResource):
                  horovod: Optional[pulumi.Input[bool]] = None,
                  image_name: Optional[pulumi.Input[str]] = None,
                  job_type: Optional[pulumi.Input['ImageVersionJobType']] = None,
-                 m_l_framework: Optional[pulumi.Input[str]] = None,
+                 ml_framework: Optional[pulumi.Input[str]] = None,
                  processor: Optional[pulumi.Input['ImageVersionProcessor']] = None,
                  programming_lang: Optional[pulumi.Input[str]] = None,
                  release_notes: Optional[pulumi.Input[str]] = None,
@@ -203,7 +203,7 @@ class ImageVersion(pulumi.CustomResource):
                  horovod: Optional[pulumi.Input[bool]] = None,
                  image_name: Optional[pulumi.Input[str]] = None,
                  job_type: Optional[pulumi.Input['ImageVersionJobType']] = None,
-                 m_l_framework: Optional[pulumi.Input[str]] = None,
+                 ml_framework: Optional[pulumi.Input[str]] = None,
                  processor: Optional[pulumi.Input['ImageVersionProcessor']] = None,
                  programming_lang: Optional[pulumi.Input[str]] = None,
                  release_notes: Optional[pulumi.Input[str]] = None,
@@ -227,7 +227,7 @@ class ImageVersion(pulumi.CustomResource):
                 raise TypeError("Missing required property 'image_name'")
             __props__.__dict__["image_name"] = image_name
             __props__.__dict__["job_type"] = job_type
-            __props__.__dict__["m_l_framework"] = m_l_framework
+            __props__.__dict__["ml_framework"] = ml_framework
             __props__.__dict__["processor"] = processor
             __props__.__dict__["programming_lang"] = programming_lang
             __props__.__dict__["release_notes"] = release_notes
@@ -267,7 +267,7 @@ class ImageVersion(pulumi.CustomResource):
         __props__.__dict__["image_name"] = None
         __props__.__dict__["image_version_arn"] = None
         __props__.__dict__["job_type"] = None
-        __props__.__dict__["m_l_framework"] = None
+        __props__.__dict__["ml_framework"] = None
         __props__.__dict__["processor"] = None
         __props__.__dict__["programming_lang"] = None
         __props__.__dict__["release_notes"] = None
@@ -321,9 +321,9 @@ class ImageVersion(pulumi.CustomResource):
         return pulumi.get(self, "job_type")
 
     @property
-    @pulumi.getter(name="mLFramework")
-    def m_l_framework(self) -> pulumi.Output[Optional[str]]:
-        return pulumi.get(self, "m_l_framework")
+    @pulumi.getter(name="mlFramework")
+    def ml_framework(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "ml_framework")
 
     @property
     @pulumi.getter

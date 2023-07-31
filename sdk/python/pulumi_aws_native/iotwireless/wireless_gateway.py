@@ -48,7 +48,7 @@ class WirelessGatewayArgs:
             pulumi.set(__self__, "thing_name", thing_name)
 
     @property
-    @pulumi.getter(name="loRaWAN")
+    @pulumi.getter(name="loRaWan")
     def lo_ra_wan(self) -> pulumi.Input['WirelessGatewayLoRaWANGatewayArgs']:
         """
         The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Gateway.
@@ -265,7 +265,7 @@ class WirelessGateway(pulumi.CustomResource):
         return pulumi.get(self, "last_uplink_received_at")
 
     @property
-    @pulumi.getter(name="loRaWAN")
+    @pulumi.getter(name="loRaWan")
     def lo_ra_wan(self) -> pulumi.Output['outputs.WirelessGatewayLoRaWANGateway']:
         """
         The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Gateway.

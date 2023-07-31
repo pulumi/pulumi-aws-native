@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetRecordSetResult:
-    def __init__(__self__, alias_target=None, cidr_routing_config=None, comment=None, failover=None, geo_location=None, health_check_id=None, id=None, multi_value_answer=None, region=None, resource_records=None, set_identifier=None, t_tl=None, type=None, weight=None):
+    def __init__(__self__, alias_target=None, cidr_routing_config=None, comment=None, failover=None, geo_location=None, health_check_id=None, id=None, multi_value_answer=None, region=None, resource_records=None, set_identifier=None, ttl=None, type=None, weight=None):
         if alias_target and not isinstance(alias_target, dict):
             raise TypeError("Expected argument 'alias_target' to be a dict")
         pulumi.set(__self__, "alias_target", alias_target)
@@ -53,9 +53,9 @@ class GetRecordSetResult:
         if set_identifier and not isinstance(set_identifier, str):
             raise TypeError("Expected argument 'set_identifier' to be a str")
         pulumi.set(__self__, "set_identifier", set_identifier)
-        if t_tl and not isinstance(t_tl, str):
-            raise TypeError("Expected argument 't_tl' to be a str")
-        pulumi.set(__self__, "t_tl", t_tl)
+        if ttl and not isinstance(ttl, str):
+            raise TypeError("Expected argument 'ttl' to be a str")
+        pulumi.set(__self__, "ttl", ttl)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -119,9 +119,9 @@ class GetRecordSetResult:
         return pulumi.get(self, "set_identifier")
 
     @property
-    @pulumi.getter(name="tTL")
-    def t_tl(self) -> Optional[str]:
-        return pulumi.get(self, "t_tl")
+    @pulumi.getter
+    def ttl(self) -> Optional[str]:
+        return pulumi.get(self, "ttl")
 
     @property
     @pulumi.getter
@@ -151,7 +151,7 @@ class AwaitableGetRecordSetResult(GetRecordSetResult):
             region=self.region,
             resource_records=self.resource_records,
             set_identifier=self.set_identifier,
-            t_tl=self.t_tl,
+            ttl=self.ttl,
             type=self.type,
             weight=self.weight)
 
@@ -178,7 +178,7 @@ def get_record_set(id: Optional[str] = None,
         region=pulumi.get(__ret__, 'region'),
         resource_records=pulumi.get(__ret__, 'resource_records'),
         set_identifier=pulumi.get(__ret__, 'set_identifier'),
-        t_tl=pulumi.get(__ret__, 't_tl'),
+        ttl=pulumi.get(__ret__, 'ttl'),
         type=pulumi.get(__ret__, 'type'),
         weight=pulumi.get(__ret__, 'weight'))
 

@@ -166,7 +166,7 @@ class ConnectionClientParametersArgs:
         pulumi.set(__self__, "client_secret", client_secret)
 
     @property
-    @pulumi.getter(name="clientID")
+    @pulumi.getter(name="clientId")
     def client_id(self) -> pulumi.Input[str]:
         return pulumi.get(self, "client_id")
 
@@ -735,7 +735,7 @@ class RuleEcsParametersArgs:
         pulumi.set(self, "capacity_provider_strategy", value)
 
     @property
-    @pulumi.getter(name="enableECSManagedTags")
+    @pulumi.getter(name="enableEcsManagedTags")
     def enable_ecs_managed_tags(self) -> Optional[pulumi.Input[bool]]:
         return pulumi.get(self, "enable_ecs_managed_tags")
 

@@ -19,10 +19,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetSubnetGroupResult:
-    def __init__(__self__, a_rn=None, description=None, subnet_ids=None, tags=None):
-        if a_rn and not isinstance(a_rn, str):
-            raise TypeError("Expected argument 'a_rn' to be a str")
-        pulumi.set(__self__, "a_rn", a_rn)
+    def __init__(__self__, arn=None, description=None, subnet_ids=None, tags=None):
+        if arn and not isinstance(arn, str):
+            raise TypeError("Expected argument 'arn' to be a str")
+        pulumi.set(__self__, "arn", arn)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -34,12 +34,12 @@ class GetSubnetGroupResult:
         pulumi.set(__self__, "tags", tags)
 
     @property
-    @pulumi.getter(name="aRN")
-    def a_rn(self) -> Optional[str]:
+    @pulumi.getter
+    def arn(self) -> Optional[str]:
         """
         The Amazon Resource Name (ARN) of the subnet group.
         """
-        return pulumi.get(self, "a_rn")
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
@@ -72,7 +72,7 @@ class AwaitableGetSubnetGroupResult(GetSubnetGroupResult):
         if False:
             yield self
         return GetSubnetGroupResult(
-            a_rn=self.a_rn,
+            arn=self.arn,
             description=self.description,
             subnet_ids=self.subnet_ids,
             tags=self.tags)
@@ -92,7 +92,7 @@ def get_subnet_group(subnet_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:memorydb:getSubnetGroup', __args__, opts=opts, typ=GetSubnetGroupResult).value
 
     return AwaitableGetSubnetGroupResult(
-        a_rn=pulumi.get(__ret__, 'a_rn'),
+        arn=pulumi.get(__ret__, 'arn'),
         description=pulumi.get(__ret__, 'description'),
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
         tags=pulumi.get(__ret__, 'tags'))

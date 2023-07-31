@@ -24,7 +24,7 @@ func LookupVPCConnection(ctx *pulumi.Context, args *LookupVPCConnectionArgs, opt
 
 type LookupVPCConnectionArgs struct {
 	AwsAccountId    string `pulumi:"awsAccountId"`
-	VPCConnectionId string `pulumi:"vPCConnectionId"`
+	VpcConnectionId string `pulumi:"vpcConnectionId"`
 }
 
 type LookupVPCConnectionResult struct {
@@ -39,7 +39,7 @@ type LookupVPCConnectionResult struct {
 	SecurityGroupIds   []string                         `pulumi:"securityGroupIds"`
 	Status             *VPCConnectionResourceStatus     `pulumi:"status"`
 	Tags               []VPCConnectionTag               `pulumi:"tags"`
-	VPCId              *string                          `pulumi:"vPCId"`
+	VpcId              *string                          `pulumi:"vpcId"`
 }
 
 func LookupVPCConnectionOutput(ctx *pulumi.Context, args LookupVPCConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupVPCConnectionResultOutput {
@@ -57,7 +57,7 @@ func LookupVPCConnectionOutput(ctx *pulumi.Context, args LookupVPCConnectionOutp
 
 type LookupVPCConnectionOutputArgs struct {
 	AwsAccountId    pulumi.StringInput `pulumi:"awsAccountId"`
-	VPCConnectionId pulumi.StringInput `pulumi:"vPCConnectionId"`
+	VpcConnectionId pulumi.StringInput `pulumi:"vpcConnectionId"`
 }
 
 func (LookupVPCConnectionOutputArgs) ElementType() reflect.Type {
@@ -122,8 +122,8 @@ func (o LookupVPCConnectionResultOutput) Tags() VPCConnectionTagArrayOutput {
 	return o.ApplyT(func(v LookupVPCConnectionResult) []VPCConnectionTag { return v.Tags }).(VPCConnectionTagArrayOutput)
 }
 
-func (o LookupVPCConnectionResultOutput) VPCId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupVPCConnectionResult) *string { return v.VPCId }).(pulumi.StringPtrOutput)
+func (o LookupVPCConnectionResultOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVPCConnectionResult) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

@@ -47,11 +47,11 @@ export interface GetLifecycleHookResult {
     /**
      * The Amazon Resource Name (ARN) of the notification target that Amazon EC2 Auto Scaling uses to notify you when an instance is in the transition state for the lifecycle hook. You can specify an Amazon SQS queue or an Amazon SNS topic. The notification message includes the following information: lifecycle action token, user account ID, Auto Scaling group name, lifecycle hook name, instance ID, lifecycle transition, and notification metadata.
      */
-    readonly notificationTargetARN?: string;
+    readonly notificationTargetArn?: string;
     /**
      * The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target, for example, an Amazon SNS topic or an Amazon SQS queue.
      */
-    readonly roleARN?: string;
+    readonly roleArn?: string;
 }
 /**
  * Resource Type definition for AWS::AutoScaling::LifecycleHook

@@ -53,7 +53,7 @@ namespace Pulumi.AwsNative.Amplify
     {
         public readonly string? Arn;
         public readonly ImmutableArray<string> AutoSubDomainCreationPatterns;
-        public readonly string? AutoSubDomainIAMRole;
+        public readonly string? AutoSubDomainIamRole;
         public readonly string? CertificateRecord;
         public readonly string? DomainStatus;
         public readonly bool? EnableAutoSubDomain;
@@ -66,7 +66,7 @@ namespace Pulumi.AwsNative.Amplify
 
             ImmutableArray<string> autoSubDomainCreationPatterns,
 
-            string? autoSubDomainIAMRole,
+            string? autoSubDomainIamRole,
 
             string? certificateRecord,
 
@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.Amplify
         {
             Arn = arn;
             AutoSubDomainCreationPatterns = autoSubDomainCreationPatterns;
-            AutoSubDomainIAMRole = autoSubDomainIAMRole;
+            AutoSubDomainIamRole = autoSubDomainIamRole;
             CertificateRecord = certificateRecord;
             DomainStatus = domainStatus;
             EnableAutoSubDomain = enableAutoSubDomain;

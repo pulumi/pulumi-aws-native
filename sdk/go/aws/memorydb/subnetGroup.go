@@ -17,7 +17,7 @@ type SubnetGroup struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) of the subnet group.
-	ARN pulumi.StringOutput `pulumi:"aRN"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// An optional description of the subnet group.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the subnet group. This value must be unique as it also serves as the subnet group identifier.
@@ -131,8 +131,8 @@ func (o SubnetGroupOutput) ToSubnetGroupOutputWithContext(ctx context.Context) S
 }
 
 // The Amazon Resource Name (ARN) of the subnet group.
-func (o SubnetGroupOutput) ARN() pulumi.StringOutput {
-	return o.ApplyT(func(v *SubnetGroup) pulumi.StringOutput { return v.ARN }).(pulumi.StringOutput)
+func (o SubnetGroupOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *SubnetGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
 // An optional description of the subnet group.

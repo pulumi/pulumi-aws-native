@@ -23,11 +23,11 @@ func LookupSamplingRule(ctx *pulumi.Context, args *LookupSamplingRuleArgs, opts 
 }
 
 type LookupSamplingRuleArgs struct {
-	RuleARN string `pulumi:"ruleARN"`
+	RuleArn string `pulumi:"ruleArn"`
 }
 
 type LookupSamplingRuleResult struct {
-	RuleARN            *string             `pulumi:"ruleARN"`
+	RuleArn            *string             `pulumi:"ruleArn"`
 	RuleName           *string             `pulumi:"ruleName"`
 	SamplingRule       *SamplingRuleType   `pulumi:"samplingRule"`
 	SamplingRuleRecord *SamplingRuleRecord `pulumi:"samplingRuleRecord"`
@@ -49,7 +49,7 @@ func LookupSamplingRuleOutput(ctx *pulumi.Context, args LookupSamplingRuleOutput
 }
 
 type LookupSamplingRuleOutputArgs struct {
-	RuleARN pulumi.StringInput `pulumi:"ruleARN"`
+	RuleArn pulumi.StringInput `pulumi:"ruleArn"`
 }
 
 func (LookupSamplingRuleOutputArgs) ElementType() reflect.Type {
@@ -70,8 +70,8 @@ func (o LookupSamplingRuleResultOutput) ToLookupSamplingRuleResultOutputWithCont
 	return o
 }
 
-func (o LookupSamplingRuleResultOutput) RuleARN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupSamplingRuleResult) *string { return v.RuleARN }).(pulumi.StringPtrOutput)
+func (o LookupSamplingRuleResultOutput) RuleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSamplingRuleResult) *string { return v.RuleArn }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupSamplingRuleResultOutput) RuleName() pulumi.StringPtrOutput {

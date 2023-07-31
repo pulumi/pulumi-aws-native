@@ -53,8 +53,8 @@ namespace Pulumi.AwsNative.Route53.Inputs
         [Input("setIdentifier")]
         public Input<string>? SetIdentifier { get; set; }
 
-        [Input("tTL")]
-        public Input<string>? TTL { get; set; }
+        [Input("ttl")]
+        public Input<string>? Ttl { get; set; }
 
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

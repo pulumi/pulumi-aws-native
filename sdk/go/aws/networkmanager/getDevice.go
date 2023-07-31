@@ -31,7 +31,7 @@ type LookupDeviceArgs struct {
 
 type LookupDeviceResult struct {
 	// The Amazon Web Services location of the device, if applicable.
-	AWSLocation *DeviceAWSLocation `pulumi:"aWSLocation"`
+	AwsLocation *DeviceAWSLocation `pulumi:"awsLocation"`
 	// The date and time that the device was created.
 	CreatedAt *string `pulumi:"createdAt"`
 	// The description of the device.
@@ -95,8 +95,8 @@ func (o LookupDeviceResultOutput) ToLookupDeviceResultOutputWithContext(ctx cont
 }
 
 // The Amazon Web Services location of the device, if applicable.
-func (o LookupDeviceResultOutput) AWSLocation() DeviceAWSLocationPtrOutput {
-	return o.ApplyT(func(v LookupDeviceResult) *DeviceAWSLocation { return v.AWSLocation }).(DeviceAWSLocationPtrOutput)
+func (o LookupDeviceResultOutput) AwsLocation() DeviceAWSLocationPtrOutput {
+	return o.ApplyT(func(v LookupDeviceResult) *DeviceAWSLocation { return v.AwsLocation }).(DeviceAWSLocationPtrOutput)
 }
 
 // The date and time that the device was created.

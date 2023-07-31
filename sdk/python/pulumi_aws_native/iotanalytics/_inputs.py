@@ -583,7 +583,7 @@ class DatasetResourceConfigurationArgs:
         pulumi.set(self, "compute_type", value)
 
     @property
-    @pulumi.getter(name="volumeSizeInGB")
+    @pulumi.getter(name="volumeSizeInGb")
     def volume_size_in_gb(self) -> pulumi.Input[int]:
         return pulumi.get(self, "volume_size_in_gb")
 

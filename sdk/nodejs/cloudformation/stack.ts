@@ -40,10 +40,10 @@ export class Stack extends pulumi.CustomResource {
         return obj['__pulumiType'] === Stack.__pulumiType;
     }
 
-    public readonly notificationARNs!: pulumi.Output<string[] | undefined>;
+    public readonly notificationArns!: pulumi.Output<string[] | undefined>;
     public readonly parameters!: pulumi.Output<any | undefined>;
     public readonly tags!: pulumi.Output<outputs.cloudformation.StackTag[] | undefined>;
-    public readonly templateURL!: pulumi.Output<string>;
+    public readonly templateUrl!: pulumi.Output<string>;
     public readonly timeoutInMinutes!: pulumi.Output<number | undefined>;
 
     /**
@@ -59,19 +59,19 @@ export class Stack extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.templateURL === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'templateURL'");
+            if ((!args || args.templateUrl === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'templateUrl'");
             }
-            resourceInputs["notificationARNs"] = args ? args.notificationARNs : undefined;
+            resourceInputs["notificationArns"] = args ? args.notificationArns : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["templateURL"] = args ? args.templateURL : undefined;
+            resourceInputs["templateUrl"] = args ? args.templateUrl : undefined;
             resourceInputs["timeoutInMinutes"] = args ? args.timeoutInMinutes : undefined;
         } else {
-            resourceInputs["notificationARNs"] = undefined /*out*/;
+            resourceInputs["notificationArns"] = undefined /*out*/;
             resourceInputs["parameters"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
-            resourceInputs["templateURL"] = undefined /*out*/;
+            resourceInputs["templateUrl"] = undefined /*out*/;
             resourceInputs["timeoutInMinutes"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -83,9 +83,9 @@ export class Stack extends pulumi.CustomResource {
  * The set of arguments for constructing a Stack resource.
  */
 export interface StackArgs {
-    notificationARNs?: pulumi.Input<pulumi.Input<string>[]>;
+    notificationArns?: pulumi.Input<pulumi.Input<string>[]>;
     parameters?: any;
     tags?: pulumi.Input<pulumi.Input<inputs.cloudformation.StackTagArgs>[]>;
-    templateURL: pulumi.Input<string>;
+    templateUrl: pulumi.Input<string>;
     timeoutInMinutes?: pulumi.Input<number>;
 }

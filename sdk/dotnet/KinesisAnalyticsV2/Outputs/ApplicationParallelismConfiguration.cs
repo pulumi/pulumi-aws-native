@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Outputs
         /// <summary>
         /// Describes the number of parallel tasks that a Java-based Kinesis Data Analytics application can perform per Kinesis Processing Unit (KPU) used by the application. For more information about KPUs, see Amazon Kinesis Data Analytics Pricing.
         /// </summary>
-        public readonly int? ParallelismPerKPU;
+        public readonly int? ParallelismPerKpu;
 
         [OutputConstructor]
         private ApplicationParallelismConfiguration(
@@ -41,12 +41,12 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Outputs
 
             int? parallelism,
 
-            int? parallelismPerKPU)
+            int? parallelismPerKpu)
         {
             AutoScalingEnabled = autoScalingEnabled;
             ConfigurationType = configurationType;
             Parallelism = parallelism;
-            ParallelismPerKPU = parallelismPerKPU;
+            ParallelismPerKpu = parallelismPerKpu;
         }
     }
 }

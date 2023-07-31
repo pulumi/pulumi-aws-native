@@ -31,7 +31,7 @@ type LookupClassifierResult struct {
 	GrokClassifier *ClassifierGrokClassifier `pulumi:"grokClassifier"`
 	Id             *string                   `pulumi:"id"`
 	JsonClassifier *ClassifierJsonClassifier `pulumi:"jsonClassifier"`
-	XMLClassifier  *ClassifierXMLClassifier  `pulumi:"xMLClassifier"`
+	XmlClassifier  *ClassifierXMLClassifier  `pulumi:"xmlClassifier"`
 }
 
 func LookupClassifierOutput(ctx *pulumi.Context, args LookupClassifierOutputArgs, opts ...pulumi.InvokeOption) LookupClassifierResultOutput {
@@ -85,8 +85,8 @@ func (o LookupClassifierResultOutput) JsonClassifier() ClassifierJsonClassifierP
 	return o.ApplyT(func(v LookupClassifierResult) *ClassifierJsonClassifier { return v.JsonClassifier }).(ClassifierJsonClassifierPtrOutput)
 }
 
-func (o LookupClassifierResultOutput) XMLClassifier() ClassifierXMLClassifierPtrOutput {
-	return o.ApplyT(func(v LookupClassifierResult) *ClassifierXMLClassifier { return v.XMLClassifier }).(ClassifierXMLClassifierPtrOutput)
+func (o LookupClassifierResultOutput) XmlClassifier() ClassifierXMLClassifierPtrOutput {
+	return o.ApplyT(func(v LookupClassifierResult) *ClassifierXMLClassifier { return v.XmlClassifier }).(ClassifierXMLClassifierPtrOutput)
 }
 
 func init() {

@@ -25,7 +25,7 @@ export interface GetDomainArgs {
 export interface GetDomainResult {
     readonly arn?: string;
     readonly autoSubDomainCreationPatterns?: string[];
-    readonly autoSubDomainIAMRole?: string;
+    readonly autoSubDomainIamRole?: string;
     readonly certificateRecord?: string;
     readonly domainStatus?: string;
     readonly enableAutoSubDomain?: boolean;

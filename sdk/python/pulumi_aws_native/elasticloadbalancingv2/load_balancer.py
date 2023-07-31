@@ -208,7 +208,7 @@ class LoadBalancer(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["type"] = type
             __props__.__dict__["canonical_hosted_zone_id"] = None
-            __props__.__dict__["d_ns_name"] = None
+            __props__.__dict__["dns_name"] = None
             __props__.__dict__["load_balancer_full_name"] = None
             __props__.__dict__["load_balancer_name"] = None
         super(LoadBalancer, __self__).__init__(
@@ -234,7 +234,7 @@ class LoadBalancer(pulumi.CustomResource):
         __props__ = LoadBalancerArgs.__new__(LoadBalancerArgs)
 
         __props__.__dict__["canonical_hosted_zone_id"] = None
-        __props__.__dict__["d_ns_name"] = None
+        __props__.__dict__["dns_name"] = None
         __props__.__dict__["ip_address_type"] = None
         __props__.__dict__["load_balancer_attributes"] = None
         __props__.__dict__["load_balancer_full_name"] = None
@@ -249,14 +249,14 @@ class LoadBalancer(pulumi.CustomResource):
         return LoadBalancer(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="canonicalHostedZoneID")
+    @pulumi.getter(name="canonicalHostedZoneId")
     def canonical_hosted_zone_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "canonical_hosted_zone_id")
 
     @property
-    @pulumi.getter(name="dNSName")
-    def d_ns_name(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "d_ns_name")
+    @pulumi.getter(name="dnsName")
+    def dns_name(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "dns_name")
 
     @property
     @pulumi.getter(name="ipAddressType")

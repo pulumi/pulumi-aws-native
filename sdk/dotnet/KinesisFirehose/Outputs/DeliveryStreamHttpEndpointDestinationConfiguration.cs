@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
         public readonly Outputs.DeliveryStreamProcessingConfiguration? ProcessingConfiguration;
         public readonly Outputs.DeliveryStreamHttpEndpointRequestConfiguration? RequestConfiguration;
         public readonly Outputs.DeliveryStreamRetryOptions? RetryOptions;
-        public readonly string? RoleARN;
+        public readonly string? RoleArn;
         public readonly string? S3BackupMode;
         public readonly Outputs.DeliveryStreamS3DestinationConfiguration S3Configuration;
 
@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
 
             Outputs.DeliveryStreamRetryOptions? retryOptions,
 
-            string? roleARN,
+            string? roleArn,
 
             string? s3BackupMode,
 
@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
             ProcessingConfiguration = processingConfiguration;
             RequestConfiguration = requestConfiguration;
             RetryOptions = retryOptions;
-            RoleARN = roleARN;
+            RoleArn = roleArn;
             S3BackupMode = s3BackupMode;
             S3Configuration = s3Configuration;
         }

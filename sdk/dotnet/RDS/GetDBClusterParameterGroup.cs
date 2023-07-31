@@ -27,8 +27,8 @@ namespace Pulumi.AwsNative.RDS
 
     public sealed class GetDBClusterParameterGroupArgs : global::Pulumi.InvokeArgs
     {
-        [Input("dBClusterParameterGroupName", required: true)]
-        public string DBClusterParameterGroupName { get; set; } = null!;
+        [Input("dbClusterParameterGroupName", required: true)]
+        public string DbClusterParameterGroupName { get; set; } = null!;
 
         public GetDBClusterParameterGroupArgs()
         {
@@ -38,8 +38,8 @@ namespace Pulumi.AwsNative.RDS
 
     public sealed class GetDBClusterParameterGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("dBClusterParameterGroupName", required: true)]
-        public Input<string> DBClusterParameterGroupName { get; set; } = null!;
+        [Input("dbClusterParameterGroupName", required: true)]
+        public Input<string> DbClusterParameterGroupName { get; set; } = null!;
 
         public GetDBClusterParameterGroupInvokeArgs()
         {

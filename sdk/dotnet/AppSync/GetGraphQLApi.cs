@@ -55,14 +55,14 @@ namespace Pulumi.AwsNative.AppSync
         public readonly string? ApiId;
         public readonly string? Arn;
         public readonly string? AuthenticationType;
-        public readonly string? GraphQLDns;
-        public readonly string? GraphQLUrl;
+        public readonly string? GraphQlDns;
+        public readonly string? GraphQlUrl;
         public readonly string? Id;
         public readonly Outputs.GraphQLApiLambdaAuthorizerConfig? LambdaAuthorizerConfig;
         public readonly Outputs.GraphQLApiLogConfig? LogConfig;
         public readonly string? MergedApiExecutionRoleArn;
         public readonly string? Name;
-        public readonly Outputs.GraphQLApiOpenIDConnectConfig? OpenIDConnectConfig;
+        public readonly Outputs.GraphQLApiOpenIDConnectConfig? OpenIdConnectConfig;
         public readonly string? OwnerContact;
         public readonly string? RealtimeDns;
         public readonly string? RealtimeUrl;
@@ -80,9 +80,9 @@ namespace Pulumi.AwsNative.AppSync
 
             string? authenticationType,
 
-            string? graphQLDns,
+            string? graphQlDns,
 
-            string? graphQLUrl,
+            string? graphQlUrl,
 
             string? id,
 
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.AppSync
 
             string? name,
 
-            Outputs.GraphQLApiOpenIDConnectConfig? openIDConnectConfig,
+            Outputs.GraphQLApiOpenIDConnectConfig? openIdConnectConfig,
 
             string? ownerContact,
 
@@ -112,14 +112,14 @@ namespace Pulumi.AwsNative.AppSync
             ApiId = apiId;
             Arn = arn;
             AuthenticationType = authenticationType;
-            GraphQLDns = graphQLDns;
-            GraphQLUrl = graphQLUrl;
+            GraphQlDns = graphQlDns;
+            GraphQlUrl = graphQlUrl;
             Id = id;
             LambdaAuthorizerConfig = lambdaAuthorizerConfig;
             LogConfig = logConfig;
             MergedApiExecutionRoleArn = mergedApiExecutionRoleArn;
             Name = name;
-            OpenIDConnectConfig = openIDConnectConfig;
+            OpenIdConnectConfig = openIdConnectConfig;
             OwnerContact = ownerContact;
             RealtimeDns = realtimeDns;
             RealtimeUrl = realtimeUrl;

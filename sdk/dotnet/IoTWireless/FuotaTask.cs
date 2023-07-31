@@ -72,8 +72,8 @@ namespace Pulumi.AwsNative.IoTWireless
         /// <summary>
         /// FUOTA task LoRaWAN
         /// </summary>
-        [Output("loRaWAN")]
-        public Output<Outputs.FuotaTaskLoRaWAN> LoRaWAN { get; private set; } = null!;
+        [Output("loRaWan")]
+        public Output<Outputs.FuotaTaskLoRaWAN> LoRaWan { get; private set; } = null!;
 
         /// <summary>
         /// Name of FUOTA task
@@ -177,8 +177,8 @@ namespace Pulumi.AwsNative.IoTWireless
         /// <summary>
         /// FUOTA task LoRaWAN
         /// </summary>
-        [Input("loRaWAN", required: true)]
-        public Input<Inputs.FuotaTaskLoRaWANArgs> LoRaWAN { get; set; } = null!;
+        [Input("loRaWan", required: true)]
+        public Input<Inputs.FuotaTaskLoRaWANArgs> LoRaWan { get; set; } = null!;
 
         /// <summary>
         /// Name of FUOTA task

@@ -18,20 +18,14 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
         /// <summary>
         /// A flag which indicates agreeing to install SAP HANA DB client.
         /// </summary>
-        [Input("agreeToInstallHANADBClient", required: true)]
-        public Input<bool> AgreeToInstallHANADBClient { get; set; } = null!;
+        [Input("agreeToInstallHanadbClient", required: true)]
+        public Input<bool> AgreeToInstallHanadbClient { get; set; } = null!;
 
         /// <summary>
         /// The HANA DB port.
         /// </summary>
-        [Input("hANAPort", required: true)]
-        public Input<string> HANAPort { get; set; } = null!;
-
-        /// <summary>
-        /// HANA DB SID.
-        /// </summary>
-        [Input("hANASID", required: true)]
-        public Input<string> HANASID { get; set; } = null!;
+        [Input("hanaPort", required: true)]
+        public Input<string> HanaPort { get; set; } = null!;
 
         /// <summary>
         /// The secret name which manages the HANA DB credentials e.g. {
@@ -39,8 +33,14 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
         ///   "password": "&lt;&gt;"
         /// }.
         /// </summary>
-        [Input("hANASecretName", required: true)]
-        public Input<string> HANASecretName { get; set; } = null!;
+        [Input("hanaSecretName", required: true)]
+        public Input<string> HanaSecretName { get; set; } = null!;
+
+        /// <summary>
+        /// HANA DB SID.
+        /// </summary>
+        [Input("hanasid", required: true)]
+        public Input<string> Hanasid { get; set; } = null!;
 
         /// <summary>
         /// Prometheus exporter port.

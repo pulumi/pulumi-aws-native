@@ -13,18 +13,18 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
     [OutputType]
     public sealed class DistributionCustomOriginConfig
     {
-        public readonly int? HTTPPort;
-        public readonly int? HTTPSPort;
+        public readonly int? HttpPort;
+        public readonly int? HttpsPort;
         public readonly int? OriginKeepaliveTimeout;
         public readonly string OriginProtocolPolicy;
         public readonly int? OriginReadTimeout;
-        public readonly ImmutableArray<string> OriginSSLProtocols;
+        public readonly ImmutableArray<string> OriginSslProtocols;
 
         [OutputConstructor]
         private DistributionCustomOriginConfig(
-            int? hTTPPort,
+            int? httpPort,
 
-            int? hTTPSPort,
+            int? httpsPort,
 
             int? originKeepaliveTimeout,
 
@@ -32,14 +32,14 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
 
             int? originReadTimeout,
 
-            ImmutableArray<string> originSSLProtocols)
+            ImmutableArray<string> originSslProtocols)
         {
-            HTTPPort = hTTPPort;
-            HTTPSPort = hTTPSPort;
+            HttpPort = httpPort;
+            HttpsPort = httpsPort;
             OriginKeepaliveTimeout = originKeepaliveTimeout;
             OriginProtocolPolicy = originProtocolPolicy;
             OriginReadTimeout = originReadTimeout;
-            OriginSSLProtocols = originSSLProtocols;
+            OriginSslProtocols = originSslProtocols;
         }
     }
 }

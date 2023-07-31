@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.OpenSearchService
         public readonly string? DomainEndpoint;
         public readonly Outputs.DomainEndpointOptions? DomainEndpointOptions;
         public readonly object? DomainEndpoints;
-        public readonly Outputs.DomainEBSOptions? EBSOptions;
+        public readonly Outputs.DomainEBSOptions? EbsOptions;
         public readonly Outputs.DomainEncryptionAtRestOptions? EncryptionAtRestOptions;
         public readonly string? EngineVersion;
         public readonly string? Id;
@@ -75,7 +75,7 @@ namespace Pulumi.AwsNative.OpenSearchService
         /// An arbitrary set of tags (key-value pairs) for this Domain.
         /// </summary>
         public readonly ImmutableArray<Outputs.DomainTag> Tags;
-        public readonly Outputs.DomainVPCOptions? VPCOptions;
+        public readonly Outputs.DomainVPCOptions? VpcOptions;
 
         [OutputConstructor]
         private GetDomainResult(
@@ -99,7 +99,7 @@ namespace Pulumi.AwsNative.OpenSearchService
 
             object? domainEndpoints,
 
-            Outputs.DomainEBSOptions? eBSOptions,
+            Outputs.DomainEBSOptions? ebsOptions,
 
             Outputs.DomainEncryptionAtRestOptions? encryptionAtRestOptions,
 
@@ -121,7 +121,7 @@ namespace Pulumi.AwsNative.OpenSearchService
 
             ImmutableArray<Outputs.DomainTag> tags,
 
-            Outputs.DomainVPCOptions? vPCOptions)
+            Outputs.DomainVPCOptions? vpcOptions)
         {
             AccessPolicies = accessPolicies;
             AdvancedOptions = advancedOptions;
@@ -133,7 +133,7 @@ namespace Pulumi.AwsNative.OpenSearchService
             DomainEndpoint = domainEndpoint;
             DomainEndpointOptions = domainEndpointOptions;
             DomainEndpoints = domainEndpoints;
-            EBSOptions = eBSOptions;
+            EbsOptions = ebsOptions;
             EncryptionAtRestOptions = encryptionAtRestOptions;
             EngineVersion = engineVersion;
             Id = id;
@@ -144,7 +144,7 @@ namespace Pulumi.AwsNative.OpenSearchService
             SnapshotOptions = snapshotOptions;
             SoftwareUpdateOptions = softwareUpdateOptions;
             Tags = tags;
-            VPCOptions = vPCOptions;
+            VpcOptions = vpcOptions;
         }
     }
 }

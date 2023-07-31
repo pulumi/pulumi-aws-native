@@ -42,8 +42,8 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("jobType")]
         public Output<Pulumi.AwsNative.SageMaker.ImageVersionJobType?> JobType { get; private set; } = null!;
 
-        [Output("mLFramework")]
-        public Output<string?> MLFramework { get; private set; } = null!;
+        [Output("mlFramework")]
+        public Output<string?> MlFramework { get; private set; } = null!;
 
         [Output("processor")]
         public Output<Pulumi.AwsNative.SageMaker.ImageVersionProcessor?> Processor { get; private set; } = null!;
@@ -128,8 +128,8 @@ namespace Pulumi.AwsNative.SageMaker
         [Input("jobType")]
         public Input<Pulumi.AwsNative.SageMaker.ImageVersionJobType>? JobType { get; set; }
 
-        [Input("mLFramework")]
-        public Input<string>? MLFramework { get; set; }
+        [Input("mlFramework")]
+        public Input<string>? MlFramework { get; set; }
 
         [Input("processor")]
         public Input<Pulumi.AwsNative.SageMaker.ImageVersionProcessor>? Processor { get; set; }

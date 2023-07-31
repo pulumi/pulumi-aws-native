@@ -40,7 +40,7 @@ export class IPSet extends pulumi.CustomResource {
         return obj['__pulumiType'] === IPSet.__pulumiType;
     }
 
-    public readonly iPSetDescriptors!: pulumi.Output<outputs.waf.IPSetDescriptor[] | undefined>;
+    public readonly ipSetDescriptors!: pulumi.Output<outputs.waf.IPSetDescriptor[] | undefined>;
     public readonly name!: pulumi.Output<string>;
 
     /**
@@ -56,10 +56,10 @@ export class IPSet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["iPSetDescriptors"] = args ? args.iPSetDescriptors : undefined;
+            resourceInputs["ipSetDescriptors"] = args ? args.ipSetDescriptors : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
         } else {
-            resourceInputs["iPSetDescriptors"] = undefined /*out*/;
+            resourceInputs["ipSetDescriptors"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -71,6 +71,6 @@ export class IPSet extends pulumi.CustomResource {
  * The set of arguments for constructing a IPSet resource.
  */
 export interface IPSetArgs {
-    iPSetDescriptors?: pulumi.Input<pulumi.Input<inputs.waf.IPSetDescriptorArgs>[]>;
+    ipSetDescriptors?: pulumi.Input<pulumi.Input<inputs.waf.IPSetDescriptorArgs>[]>;
     name?: pulumi.Input<string>;
 }

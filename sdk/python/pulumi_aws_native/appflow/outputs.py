@@ -365,8 +365,8 @@ class ConnectorProfileCredentials(dict):
             suggest = "google_analytics"
         elif key == "inforNexus":
             suggest = "infor_nexus"
-        elif key == "sAPOData":
-            suggest = "s_apo_data"
+        elif key == "sapoData":
+            suggest = "sapo_data"
         elif key == "serviceNow":
             suggest = "service_now"
 
@@ -391,8 +391,8 @@ class ConnectorProfileCredentials(dict):
                  marketo: Optional['outputs.ConnectorProfileMarketoConnectorProfileCredentials'] = None,
                  pardot: Optional['outputs.ConnectorProfilePardotConnectorProfileCredentials'] = None,
                  redshift: Optional['outputs.ConnectorProfileRedshiftConnectorProfileCredentials'] = None,
-                 s_apo_data: Optional['outputs.ConnectorProfileSAPODataConnectorProfileCredentials'] = None,
                  salesforce: Optional['outputs.ConnectorProfileSalesforceConnectorProfileCredentials'] = None,
+                 sapo_data: Optional['outputs.ConnectorProfileSAPODataConnectorProfileCredentials'] = None,
                  service_now: Optional['outputs.ConnectorProfileServiceNowConnectorProfileCredentials'] = None,
                  singular: Optional['outputs.ConnectorProfileSingularConnectorProfileCredentials'] = None,
                  slack: Optional['outputs.ConnectorProfileSlackConnectorProfileCredentials'] = None,
@@ -421,10 +421,10 @@ class ConnectorProfileCredentials(dict):
             pulumi.set(__self__, "pardot", pardot)
         if redshift is not None:
             pulumi.set(__self__, "redshift", redshift)
-        if s_apo_data is not None:
-            pulumi.set(__self__, "s_apo_data", s_apo_data)
         if salesforce is not None:
             pulumi.set(__self__, "salesforce", salesforce)
+        if sapo_data is not None:
+            pulumi.set(__self__, "sapo_data", sapo_data)
         if service_now is not None:
             pulumi.set(__self__, "service_now", service_now)
         if singular is not None:
@@ -486,14 +486,14 @@ class ConnectorProfileCredentials(dict):
         return pulumi.get(self, "redshift")
 
     @property
-    @pulumi.getter(name="sAPOData")
-    def s_apo_data(self) -> Optional['outputs.ConnectorProfileSAPODataConnectorProfileCredentials']:
-        return pulumi.get(self, "s_apo_data")
-
-    @property
     @pulumi.getter
     def salesforce(self) -> Optional['outputs.ConnectorProfileSalesforceConnectorProfileCredentials']:
         return pulumi.get(self, "salesforce")
+
+    @property
+    @pulumi.getter(name="sapoData")
+    def sapo_data(self) -> Optional['outputs.ConnectorProfileSAPODataConnectorProfileCredentials']:
+        return pulumi.get(self, "sapo_data")
 
     @property
     @pulumi.getter(name="serviceNow")
@@ -1481,8 +1481,8 @@ class ConnectorProfileProperties(dict):
             suggest = "custom_connector"
         elif key == "inforNexus":
             suggest = "infor_nexus"
-        elif key == "sAPOData":
-            suggest = "s_apo_data"
+        elif key == "sapoData":
+            suggest = "sapo_data"
         elif key == "serviceNow":
             suggest = "service_now"
 
@@ -1505,8 +1505,8 @@ class ConnectorProfileProperties(dict):
                  marketo: Optional['outputs.ConnectorProfileMarketoConnectorProfileProperties'] = None,
                  pardot: Optional['outputs.ConnectorProfilePardotConnectorProfileProperties'] = None,
                  redshift: Optional['outputs.ConnectorProfileRedshiftConnectorProfileProperties'] = None,
-                 s_apo_data: Optional['outputs.ConnectorProfileSAPODataConnectorProfileProperties'] = None,
                  salesforce: Optional['outputs.ConnectorProfileSalesforceConnectorProfileProperties'] = None,
+                 sapo_data: Optional['outputs.ConnectorProfileSAPODataConnectorProfileProperties'] = None,
                  service_now: Optional['outputs.ConnectorProfileServiceNowConnectorProfileProperties'] = None,
                  slack: Optional['outputs.ConnectorProfileSlackConnectorProfileProperties'] = None,
                  snowflake: Optional['outputs.ConnectorProfileSnowflakeConnectorProfileProperties'] = None,
@@ -1529,10 +1529,10 @@ class ConnectorProfileProperties(dict):
             pulumi.set(__self__, "pardot", pardot)
         if redshift is not None:
             pulumi.set(__self__, "redshift", redshift)
-        if s_apo_data is not None:
-            pulumi.set(__self__, "s_apo_data", s_apo_data)
         if salesforce is not None:
             pulumi.set(__self__, "salesforce", salesforce)
+        if sapo_data is not None:
+            pulumi.set(__self__, "sapo_data", sapo_data)
         if service_now is not None:
             pulumi.set(__self__, "service_now", service_now)
         if slack is not None:
@@ -1580,14 +1580,14 @@ class ConnectorProfileProperties(dict):
         return pulumi.get(self, "redshift")
 
     @property
-    @pulumi.getter(name="sAPOData")
-    def s_apo_data(self) -> Optional['outputs.ConnectorProfileSAPODataConnectorProfileProperties']:
-        return pulumi.get(self, "s_apo_data")
-
-    @property
     @pulumi.getter
     def salesforce(self) -> Optional['outputs.ConnectorProfileSalesforceConnectorProfileProperties']:
         return pulumi.get(self, "salesforce")
+
+    @property
+    @pulumi.getter(name="sapoData")
+    def sapo_data(self) -> Optional['outputs.ConnectorProfileSAPODataConnectorProfileProperties']:
+        return pulumi.get(self, "sapo_data")
 
     @property
     @pulumi.getter(name="serviceNow")
@@ -2842,8 +2842,8 @@ class FlowConnectorOperator(dict):
             suggest = "google_analytics"
         elif key == "inforNexus":
             suggest = "infor_nexus"
-        elif key == "sAPOData":
-            suggest = "s_apo_data"
+        elif key == "sapoData":
+            suggest = "sapo_data"
         elif key == "serviceNow":
             suggest = "service_now"
 
@@ -2868,8 +2868,8 @@ class FlowConnectorOperator(dict):
                  marketo: Optional['FlowMarketoConnectorOperator'] = None,
                  pardot: Optional['FlowPardotConnectorOperator'] = None,
                  s3: Optional['FlowS3ConnectorOperator'] = None,
-                 s_apo_data: Optional['FlowSAPODataConnectorOperator'] = None,
                  salesforce: Optional['FlowSalesforceConnectorOperator'] = None,
+                 sapo_data: Optional['FlowSAPODataConnectorOperator'] = None,
                  service_now: Optional['FlowServiceNowConnectorOperator'] = None,
                  singular: Optional['FlowSingularConnectorOperator'] = None,
                  slack: Optional['FlowSlackConnectorOperator'] = None,
@@ -2897,10 +2897,10 @@ class FlowConnectorOperator(dict):
             pulumi.set(__self__, "pardot", pardot)
         if s3 is not None:
             pulumi.set(__self__, "s3", s3)
-        if s_apo_data is not None:
-            pulumi.set(__self__, "s_apo_data", s_apo_data)
         if salesforce is not None:
             pulumi.set(__self__, "salesforce", salesforce)
+        if sapo_data is not None:
+            pulumi.set(__self__, "sapo_data", sapo_data)
         if service_now is not None:
             pulumi.set(__self__, "service_now", service_now)
         if singular is not None:
@@ -2960,14 +2960,14 @@ class FlowConnectorOperator(dict):
         return pulumi.get(self, "s3")
 
     @property
-    @pulumi.getter(name="sAPOData")
-    def s_apo_data(self) -> Optional['FlowSAPODataConnectorOperator']:
-        return pulumi.get(self, "s_apo_data")
-
-    @property
     @pulumi.getter
     def salesforce(self) -> Optional['FlowSalesforceConnectorOperator']:
         return pulumi.get(self, "salesforce")
+
+    @property
+    @pulumi.getter(name="sapoData")
+    def sapo_data(self) -> Optional['FlowSAPODataConnectorOperator']:
+        return pulumi.get(self, "sapo_data")
 
     @property
     @pulumi.getter(name="serviceNow")
@@ -3181,8 +3181,8 @@ class FlowDestinationConnectorProperties(dict):
             suggest = "event_bridge"
         elif key == "lookoutMetrics":
             suggest = "lookout_metrics"
-        elif key == "sAPOData":
-            suggest = "s_apo_data"
+        elif key == "sapoData":
+            suggest = "sapo_data"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in FlowDestinationConnectorProperties. Access the value via the '{suggest}' property getter instead.")
@@ -3202,8 +3202,8 @@ class FlowDestinationConnectorProperties(dict):
                  marketo: Optional['outputs.FlowMarketoDestinationProperties'] = None,
                  redshift: Optional['outputs.FlowRedshiftDestinationProperties'] = None,
                  s3: Optional['outputs.FlowS3DestinationProperties'] = None,
-                 s_apo_data: Optional['outputs.FlowSAPODataDestinationProperties'] = None,
                  salesforce: Optional['outputs.FlowSalesforceDestinationProperties'] = None,
+                 sapo_data: Optional['outputs.FlowSAPODataDestinationProperties'] = None,
                  snowflake: Optional['outputs.FlowSnowflakeDestinationProperties'] = None,
                  upsolver: Optional['outputs.FlowUpsolverDestinationProperties'] = None,
                  zendesk: Optional['outputs.FlowZendeskDestinationProperties'] = None):
@@ -3222,10 +3222,10 @@ class FlowDestinationConnectorProperties(dict):
             pulumi.set(__self__, "redshift", redshift)
         if s3 is not None:
             pulumi.set(__self__, "s3", s3)
-        if s_apo_data is not None:
-            pulumi.set(__self__, "s_apo_data", s_apo_data)
         if salesforce is not None:
             pulumi.set(__self__, "salesforce", salesforce)
+        if sapo_data is not None:
+            pulumi.set(__self__, "sapo_data", sapo_data)
         if snowflake is not None:
             pulumi.set(__self__, "snowflake", snowflake)
         if upsolver is not None:
@@ -3264,14 +3264,14 @@ class FlowDestinationConnectorProperties(dict):
         return pulumi.get(self, "s3")
 
     @property
-    @pulumi.getter(name="sAPOData")
-    def s_apo_data(self) -> Optional['outputs.FlowSAPODataDestinationProperties']:
-        return pulumi.get(self, "s_apo_data")
-
-    @property
     @pulumi.getter
     def salesforce(self) -> Optional['outputs.FlowSalesforceDestinationProperties']:
         return pulumi.get(self, "salesforce")
+
+    @property
+    @pulumi.getter(name="sapoData")
+    def sapo_data(self) -> Optional['outputs.FlowSAPODataDestinationProperties']:
+        return pulumi.get(self, "sapo_data")
 
     @property
     @pulumi.getter
@@ -4445,8 +4445,8 @@ class FlowSourceConnectorProperties(dict):
             suggest = "google_analytics"
         elif key == "inforNexus":
             suggest = "infor_nexus"
-        elif key == "sAPOData":
-            suggest = "s_apo_data"
+        elif key == "sapoData":
+            suggest = "sapo_data"
         elif key == "serviceNow":
             suggest = "service_now"
 
@@ -4471,8 +4471,8 @@ class FlowSourceConnectorProperties(dict):
                  marketo: Optional['outputs.FlowMarketoSourceProperties'] = None,
                  pardot: Optional['outputs.FlowPardotSourceProperties'] = None,
                  s3: Optional['outputs.FlowS3SourceProperties'] = None,
-                 s_apo_data: Optional['outputs.FlowSAPODataSourceProperties'] = None,
                  salesforce: Optional['outputs.FlowSalesforceSourceProperties'] = None,
+                 sapo_data: Optional['outputs.FlowSAPODataSourceProperties'] = None,
                  service_now: Optional['outputs.FlowServiceNowSourceProperties'] = None,
                  singular: Optional['outputs.FlowSingularSourceProperties'] = None,
                  slack: Optional['outputs.FlowSlackSourceProperties'] = None,
@@ -4500,10 +4500,10 @@ class FlowSourceConnectorProperties(dict):
             pulumi.set(__self__, "pardot", pardot)
         if s3 is not None:
             pulumi.set(__self__, "s3", s3)
-        if s_apo_data is not None:
-            pulumi.set(__self__, "s_apo_data", s_apo_data)
         if salesforce is not None:
             pulumi.set(__self__, "salesforce", salesforce)
+        if sapo_data is not None:
+            pulumi.set(__self__, "sapo_data", sapo_data)
         if service_now is not None:
             pulumi.set(__self__, "service_now", service_now)
         if singular is not None:
@@ -4563,14 +4563,14 @@ class FlowSourceConnectorProperties(dict):
         return pulumi.get(self, "s3")
 
     @property
-    @pulumi.getter(name="sAPOData")
-    def s_apo_data(self) -> Optional['outputs.FlowSAPODataSourceProperties']:
-        return pulumi.get(self, "s_apo_data")
-
-    @property
     @pulumi.getter
     def salesforce(self) -> Optional['outputs.FlowSalesforceSourceProperties']:
         return pulumi.get(self, "salesforce")
+
+    @property
+    @pulumi.getter(name="sapoData")
+    def sapo_data(self) -> Optional['outputs.FlowSAPODataSourceProperties']:
+        return pulumi.get(self, "sapo_data")
 
     @property
     @pulumi.getter(name="serviceNow")

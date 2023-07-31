@@ -32,9 +32,9 @@ export interface GetIdentityPoolResult {
     readonly id?: string;
     readonly identityPoolName?: string;
     readonly name?: string;
-    readonly openIdConnectProviderARNs?: string[];
+    readonly openIdConnectProviderArns?: string[];
     readonly pushSync?: outputs.cognito.IdentityPoolPushSync;
-    readonly samlProviderARNs?: string[];
+    readonly samlProviderArns?: string[];
     readonly supportedLoginProviders?: any;
 }
 /**

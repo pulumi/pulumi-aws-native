@@ -18,8 +18,8 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// Specifies the name of the DB parameter group
         /// </summary>
-        [Output("dBParameterGroupName")]
-        public Output<string?> DBParameterGroupName { get; private set; } = null!;
+        [Output("dbParameterGroupName")]
+        public Output<string?> DbParameterGroupName { get; private set; } = null!;
 
         /// <summary>
         /// Provides the customer-specified description for this DB parameter group.
@@ -93,8 +93,8 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// Specifies the name of the DB parameter group
         /// </summary>
-        [Input("dBParameterGroupName")]
-        public Input<string>? DBParameterGroupName { get; set; }
+        [Input("dbParameterGroupName")]
+        public Input<string>? DbParameterGroupName { get; set; }
 
         /// <summary>
         /// Provides the customer-specified description for this DB parameter group.

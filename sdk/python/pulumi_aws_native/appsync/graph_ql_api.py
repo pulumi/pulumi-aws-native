@@ -122,7 +122,7 @@ class GraphQLApiArgs:
         pulumi.set(self, "name", value)
 
     @property
-    @pulumi.getter(name="openIDConnectConfig")
+    @pulumi.getter(name="openIdConnectConfig")
     def open_id_connect_config(self) -> Optional[pulumi.Input['GraphQLApiOpenIDConnectConfigArgs']]:
         return pulumi.get(self, "open_id_connect_config")
 
@@ -343,12 +343,12 @@ class GraphQLApi(pulumi.CustomResource):
         return pulumi.get(self, "authentication_type")
 
     @property
-    @pulumi.getter(name="graphQLDns")
+    @pulumi.getter(name="graphQlDns")
     def graph_ql_dns(self) -> pulumi.Output[str]:
         return pulumi.get(self, "graph_ql_dns")
 
     @property
-    @pulumi.getter(name="graphQLUrl")
+    @pulumi.getter(name="graphQlUrl")
     def graph_ql_url(self) -> pulumi.Output[str]:
         return pulumi.get(self, "graph_ql_url")
 
@@ -373,7 +373,7 @@ class GraphQLApi(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="openIDConnectConfig")
+    @pulumi.getter(name="openIdConnectConfig")
     def open_id_connect_config(self) -> pulumi.Output[Optional['outputs.GraphQLApiOpenIDConnectConfig']]:
         return pulumi.get(self, "open_id_connect_config")
 

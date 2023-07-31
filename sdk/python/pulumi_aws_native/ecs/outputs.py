@@ -1238,8 +1238,6 @@ class TaskDefinitionAuthorizationConfig(dict):
         suggest = None
         if key == "accessPointId":
             suggest = "access_point_id"
-        elif key == "iAM":
-            suggest = "i_am"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in TaskDefinitionAuthorizationConfig. Access the value via the '{suggest}' property getter instead.")
@@ -1254,11 +1252,11 @@ class TaskDefinitionAuthorizationConfig(dict):
 
     def __init__(__self__, *,
                  access_point_id: Optional[str] = None,
-                 i_am: Optional['TaskDefinitionAuthorizationConfigIAM'] = None):
+                 iam: Optional['TaskDefinitionAuthorizationConfigIAM'] = None):
         if access_point_id is not None:
             pulumi.set(__self__, "access_point_id", access_point_id)
-        if i_am is not None:
-            pulumi.set(__self__, "i_am", i_am)
+        if iam is not None:
+            pulumi.set(__self__, "iam", iam)
 
     @property
     @pulumi.getter(name="accessPointId")
@@ -1266,9 +1264,9 @@ class TaskDefinitionAuthorizationConfig(dict):
         return pulumi.get(self, "access_point_id")
 
     @property
-    @pulumi.getter(name="iAM")
-    def i_am(self) -> Optional['TaskDefinitionAuthorizationConfigIAM']:
-        return pulumi.get(self, "i_am")
+    @pulumi.getter
+    def iam(self) -> Optional['TaskDefinitionAuthorizationConfigIAM']:
+        return pulumi.get(self, "iam")
 
 
 @pulumi.output_type
@@ -2796,8 +2794,8 @@ class TaskDefinitionVolume(dict):
         suggest = None
         if key == "dockerVolumeConfiguration":
             suggest = "docker_volume_configuration"
-        elif key == "eFSVolumeConfiguration":
-            suggest = "e_fs_volume_configuration"
+        elif key == "efsVolumeConfiguration":
+            suggest = "efs_volume_configuration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in TaskDefinitionVolume. Access the value via the '{suggest}' property getter instead.")
@@ -2812,13 +2810,13 @@ class TaskDefinitionVolume(dict):
 
     def __init__(__self__, *,
                  docker_volume_configuration: Optional['outputs.TaskDefinitionDockerVolumeConfiguration'] = None,
-                 e_fs_volume_configuration: Optional['outputs.TaskDefinitionEFSVolumeConfiguration'] = None,
+                 efs_volume_configuration: Optional['outputs.TaskDefinitionEFSVolumeConfiguration'] = None,
                  host: Optional['outputs.TaskDefinitionHostVolumeProperties'] = None,
                  name: Optional[str] = None):
         if docker_volume_configuration is not None:
             pulumi.set(__self__, "docker_volume_configuration", docker_volume_configuration)
-        if e_fs_volume_configuration is not None:
-            pulumi.set(__self__, "e_fs_volume_configuration", e_fs_volume_configuration)
+        if efs_volume_configuration is not None:
+            pulumi.set(__self__, "efs_volume_configuration", efs_volume_configuration)
         if host is not None:
             pulumi.set(__self__, "host", host)
         if name is not None:
@@ -2830,9 +2828,9 @@ class TaskDefinitionVolume(dict):
         return pulumi.get(self, "docker_volume_configuration")
 
     @property
-    @pulumi.getter(name="eFSVolumeConfiguration")
-    def e_fs_volume_configuration(self) -> Optional['outputs.TaskDefinitionEFSVolumeConfiguration']:
-        return pulumi.get(self, "e_fs_volume_configuration")
+    @pulumi.getter(name="efsVolumeConfiguration")
+    def efs_volume_configuration(self) -> Optional['outputs.TaskDefinitionEFSVolumeConfiguration']:
+        return pulumi.get(self, "efs_volume_configuration")
 
     @property
     @pulumi.getter

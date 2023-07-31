@@ -51,8 +51,8 @@ namespace Pulumi.AwsNative.DynamoDB
         [Output("provisionedThroughput")]
         public Output<Outputs.TableProvisionedThroughput?> ProvisionedThroughput { get; private set; } = null!;
 
-        [Output("sSESpecification")]
-        public Output<Outputs.TableSSESpecification?> SSESpecification { get; private set; } = null!;
+        [Output("sseSpecification")]
+        public Output<Outputs.TableSSESpecification?> SseSpecification { get; private set; } = null!;
 
         [Output("streamArn")]
         public Output<string> StreamArn { get; private set; } = null!;
@@ -165,8 +165,8 @@ namespace Pulumi.AwsNative.DynamoDB
         [Input("provisionedThroughput")]
         public Input<Inputs.TableProvisionedThroughputArgs>? ProvisionedThroughput { get; set; }
 
-        [Input("sSESpecification")]
-        public Input<Inputs.TableSSESpecificationArgs>? SSESpecification { get; set; }
+        [Input("sseSpecification")]
+        public Input<Inputs.TableSSESpecificationArgs>? SseSpecification { get; set; }
 
         [Input("streamSpecification")]
         public Input<Inputs.TableStreamSpecificationArgs>? StreamSpecification { get; set; }

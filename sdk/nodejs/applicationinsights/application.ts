@@ -40,15 +40,11 @@ export class Application extends pulumi.CustomResource {
     /**
      * The ARN of the ApplicationInsights application.
      */
-    public /*out*/ readonly applicationARN!: pulumi.Output<string>;
+    public /*out*/ readonly applicationArn!: pulumi.Output<string>;
     /**
      * If set to true, application will be configured with recommended monitoring configuration.
      */
     public readonly autoConfigurationEnabled!: pulumi.Output<boolean | undefined>;
-    /**
-     * Indicates whether Application Insights can listen to CloudWatch events for the application resources.
-     */
-    public readonly cWEMonitorEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The monitoring settings of the components.
      */
@@ -57,6 +53,10 @@ export class Application extends pulumi.CustomResource {
      * The custom grouped components.
      */
     public readonly customComponents!: pulumi.Output<outputs.applicationinsights.ApplicationCustomComponent[] | undefined>;
+    /**
+     * Indicates whether Application Insights can listen to CloudWatch events for the application resources.
+     */
+    public readonly cweMonitorEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The grouping type of the application
      */
@@ -72,7 +72,7 @@ export class Application extends pulumi.CustomResource {
     /**
      * The SNS topic provided to Application Insights that is associated to the created opsItem.
      */
-    public readonly opsItemSNSTopicArn!: pulumi.Output<string | undefined>;
+    public readonly opsItemSnsTopicArn!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource group.
      */
@@ -97,26 +97,26 @@ export class Application extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["autoConfigurationEnabled"] = args ? args.autoConfigurationEnabled : undefined;
-            resourceInputs["cWEMonitorEnabled"] = args ? args.cWEMonitorEnabled : undefined;
             resourceInputs["componentMonitoringSettings"] = args ? args.componentMonitoringSettings : undefined;
             resourceInputs["customComponents"] = args ? args.customComponents : undefined;
+            resourceInputs["cweMonitorEnabled"] = args ? args.cweMonitorEnabled : undefined;
             resourceInputs["groupingType"] = args ? args.groupingType : undefined;
             resourceInputs["logPatternSets"] = args ? args.logPatternSets : undefined;
             resourceInputs["opsCenterEnabled"] = args ? args.opsCenterEnabled : undefined;
-            resourceInputs["opsItemSNSTopicArn"] = args ? args.opsItemSNSTopicArn : undefined;
+            resourceInputs["opsItemSnsTopicArn"] = args ? args.opsItemSnsTopicArn : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["applicationARN"] = undefined /*out*/;
+            resourceInputs["applicationArn"] = undefined /*out*/;
         } else {
-            resourceInputs["applicationARN"] = undefined /*out*/;
+            resourceInputs["applicationArn"] = undefined /*out*/;
             resourceInputs["autoConfigurationEnabled"] = undefined /*out*/;
-            resourceInputs["cWEMonitorEnabled"] = undefined /*out*/;
             resourceInputs["componentMonitoringSettings"] = undefined /*out*/;
             resourceInputs["customComponents"] = undefined /*out*/;
+            resourceInputs["cweMonitorEnabled"] = undefined /*out*/;
             resourceInputs["groupingType"] = undefined /*out*/;
             resourceInputs["logPatternSets"] = undefined /*out*/;
             resourceInputs["opsCenterEnabled"] = undefined /*out*/;
-            resourceInputs["opsItemSNSTopicArn"] = undefined /*out*/;
+            resourceInputs["opsItemSnsTopicArn"] = undefined /*out*/;
             resourceInputs["resourceGroupName"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
@@ -134,10 +134,6 @@ export interface ApplicationArgs {
      */
     autoConfigurationEnabled?: pulumi.Input<boolean>;
     /**
-     * Indicates whether Application Insights can listen to CloudWatch events for the application resources.
-     */
-    cWEMonitorEnabled?: pulumi.Input<boolean>;
-    /**
      * The monitoring settings of the components.
      */
     componentMonitoringSettings?: pulumi.Input<pulumi.Input<inputs.applicationinsights.ApplicationComponentMonitoringSettingArgs>[]>;
@@ -145,6 +141,10 @@ export interface ApplicationArgs {
      * The custom grouped components.
      */
     customComponents?: pulumi.Input<pulumi.Input<inputs.applicationinsights.ApplicationCustomComponentArgs>[]>;
+    /**
+     * Indicates whether Application Insights can listen to CloudWatch events for the application resources.
+     */
+    cweMonitorEnabled?: pulumi.Input<boolean>;
     /**
      * The grouping type of the application
      */
@@ -160,7 +160,7 @@ export interface ApplicationArgs {
     /**
      * The SNS topic provided to Application Insights that is associated to the created opsItem.
      */
-    opsItemSNSTopicArn?: pulumi.Input<string>;
+    opsItemSnsTopicArn?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

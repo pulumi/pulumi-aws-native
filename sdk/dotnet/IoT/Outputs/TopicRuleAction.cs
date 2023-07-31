@@ -16,8 +16,8 @@ namespace Pulumi.AwsNative.IoT.Outputs
         public readonly Outputs.TopicRuleCloudwatchAlarmAction? CloudwatchAlarm;
         public readonly Outputs.TopicRuleCloudwatchLogsAction? CloudwatchLogs;
         public readonly Outputs.TopicRuleCloudwatchMetricAction? CloudwatchMetric;
-        public readonly Outputs.TopicRuleDynamoDBAction? DynamoDB;
         public readonly Outputs.TopicRuleDynamoDBv2Action? DynamoDBv2;
+        public readonly Outputs.TopicRuleDynamoDBAction? DynamoDb;
         public readonly Outputs.TopicRuleElasticsearchAction? Elasticsearch;
         public readonly Outputs.TopicRuleFirehoseAction? Firehose;
         public readonly Outputs.TopicRuleHttpAction? Http;
@@ -44,9 +44,9 @@ namespace Pulumi.AwsNative.IoT.Outputs
 
             Outputs.TopicRuleCloudwatchMetricAction? cloudwatchMetric,
 
-            Outputs.TopicRuleDynamoDBAction? dynamoDB,
-
             Outputs.TopicRuleDynamoDBv2Action? dynamoDBv2,
+
+            Outputs.TopicRuleDynamoDBAction? dynamoDb,
 
             Outputs.TopicRuleElasticsearchAction? elasticsearch,
 
@@ -85,8 +85,8 @@ namespace Pulumi.AwsNative.IoT.Outputs
             CloudwatchAlarm = cloudwatchAlarm;
             CloudwatchLogs = cloudwatchLogs;
             CloudwatchMetric = cloudwatchMetric;
-            DynamoDB = dynamoDB;
             DynamoDBv2 = dynamoDBv2;
+            DynamoDb = dynamoDb;
             Elasticsearch = elasticsearch;
             Firehose = firehose;
             Http = http;

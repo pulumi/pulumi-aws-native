@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Pipes.Outputs
     public sealed class PipeSourceManagedStreamingKafkaParameters
     {
         public readonly int? BatchSize;
-        public readonly string? ConsumerGroupID;
+        public readonly string? ConsumerGroupId;
         public readonly Union<Outputs.MSKAccessCredentials0Properties, Outputs.MSKAccessCredentials1Properties>? Credentials;
         public readonly int? MaximumBatchingWindowInSeconds;
         public readonly Pulumi.AwsNative.Pipes.PipeMSKStartPosition? StartingPosition;
@@ -24,7 +24,7 @@ namespace Pulumi.AwsNative.Pipes.Outputs
         private PipeSourceManagedStreamingKafkaParameters(
             int? batchSize,
 
-            string? consumerGroupID,
+            string? consumerGroupId,
 
             Union<Outputs.MSKAccessCredentials0Properties, Outputs.MSKAccessCredentials1Properties>? credentials,
 
@@ -35,7 +35,7 @@ namespace Pulumi.AwsNative.Pipes.Outputs
             string topicName)
         {
             BatchSize = batchSize;
-            ConsumerGroupID = consumerGroupID;
+            ConsumerGroupId = consumerGroupId;
             Credentials = credentials;
             MaximumBatchingWindowInSeconds = maximumBatchingWindowInSeconds;
             StartingPosition = startingPosition;

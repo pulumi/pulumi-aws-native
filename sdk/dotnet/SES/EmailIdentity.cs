@@ -21,23 +21,23 @@ namespace Pulumi.AwsNative.SES
         [Output("dkimAttributes")]
         public Output<Outputs.EmailIdentityDkimAttributes?> DkimAttributes { get; private set; } = null!;
 
-        [Output("dkimDNSTokenName1")]
-        public Output<string> DkimDNSTokenName1 { get; private set; } = null!;
+        [Output("dkimDnsTokenName1")]
+        public Output<string> DkimDnsTokenName1 { get; private set; } = null!;
 
-        [Output("dkimDNSTokenName2")]
-        public Output<string> DkimDNSTokenName2 { get; private set; } = null!;
+        [Output("dkimDnsTokenName2")]
+        public Output<string> DkimDnsTokenName2 { get; private set; } = null!;
 
-        [Output("dkimDNSTokenName3")]
-        public Output<string> DkimDNSTokenName3 { get; private set; } = null!;
+        [Output("dkimDnsTokenName3")]
+        public Output<string> DkimDnsTokenName3 { get; private set; } = null!;
 
-        [Output("dkimDNSTokenValue1")]
-        public Output<string> DkimDNSTokenValue1 { get; private set; } = null!;
+        [Output("dkimDnsTokenValue1")]
+        public Output<string> DkimDnsTokenValue1 { get; private set; } = null!;
 
-        [Output("dkimDNSTokenValue2")]
-        public Output<string> DkimDNSTokenValue2 { get; private set; } = null!;
+        [Output("dkimDnsTokenValue2")]
+        public Output<string> DkimDnsTokenValue2 { get; private set; } = null!;
 
-        [Output("dkimDNSTokenValue3")]
-        public Output<string> DkimDNSTokenValue3 { get; private set; } = null!;
+        [Output("dkimDnsTokenValue3")]
+        public Output<string> DkimDnsTokenValue3 { get; private set; } = null!;
 
         [Output("dkimSigningAttributes")]
         public Output<Outputs.EmailIdentityDkimSigningAttributes?> DkimSigningAttributes { get; private set; } = null!;

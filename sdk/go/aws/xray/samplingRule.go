@@ -15,7 +15,7 @@ import (
 type SamplingRule struct {
 	pulumi.CustomResourceState
 
-	RuleARN            pulumi.StringOutput         `pulumi:"ruleARN"`
+	RuleArn            pulumi.StringOutput         `pulumi:"ruleArn"`
 	RuleName           pulumi.StringPtrOutput      `pulumi:"ruleName"`
 	SamplingRule       SamplingRuleTypePtrOutput   `pulumi:"samplingRule"`
 	SamplingRuleRecord SamplingRuleRecordPtrOutput `pulumi:"samplingRuleRecord"`
@@ -116,8 +116,8 @@ func (o SamplingRuleOutput) ToSamplingRuleOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o SamplingRuleOutput) RuleARN() pulumi.StringOutput {
-	return o.ApplyT(func(v *SamplingRule) pulumi.StringOutput { return v.RuleARN }).(pulumi.StringOutput)
+func (o SamplingRuleOutput) RuleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *SamplingRule) pulumi.StringOutput { return v.RuleArn }).(pulumi.StringOutput)
 }
 
 func (o SamplingRuleOutput) RuleName() pulumi.StringPtrOutput {

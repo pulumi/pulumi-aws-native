@@ -207,7 +207,7 @@ class ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionArgs:
         pulumi.set(__self__, "log_stream_arn", log_stream_arn)
 
     @property
-    @pulumi.getter(name="logStreamARN")
+    @pulumi.getter(name="logStreamArn")
     def log_stream_arn(self) -> pulumi.Input[str]:
         return pulumi.get(self, "log_stream_arn")
 
@@ -624,7 +624,7 @@ class ApplicationGlueDataCatalogConfigurationArgs:
             pulumi.set(__self__, "database_arn", database_arn)
 
     @property
-    @pulumi.getter(name="databaseARN")
+    @pulumi.getter(name="databaseArn")
     def database_arn(self) -> Optional[pulumi.Input[str]]:
         """
         The Amazon Resource Name (ARN) of the database.
@@ -647,7 +647,7 @@ class ApplicationInputLambdaProcessorArgs:
         pulumi.set(__self__, "resource_arn", resource_arn)
 
     @property
-    @pulumi.getter(name="resourceARN")
+    @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[str]:
         """
         The ARN of the Amazon Lambda function that operates on records in the stream.
@@ -897,7 +897,7 @@ class ApplicationKinesisFirehoseInputArgs:
         pulumi.set(__self__, "resource_arn", resource_arn)
 
     @property
-    @pulumi.getter(name="resourceARN")
+    @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[str]:
         """
         The Amazon Resource Name (ARN) of the delivery stream.
@@ -920,7 +920,7 @@ class ApplicationKinesisStreamsInputArgs:
         pulumi.set(__self__, "resource_arn", resource_arn)
 
     @property
-    @pulumi.getter(name="resourceARN")
+    @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[str]:
         """
         The ARN of the input Kinesis data stream to read.
@@ -958,41 +958,41 @@ class ApplicationMaintenanceConfigurationArgs:
 @pulumi.input_type
 class ApplicationMappingParametersArgs:
     def __init__(__self__, *,
-                 c_sv_mapping_parameters: Optional[pulumi.Input['ApplicationCSVMappingParametersArgs']] = None,
-                 j_son_mapping_parameters: Optional[pulumi.Input['ApplicationJSONMappingParametersArgs']] = None):
+                 csv_mapping_parameters: Optional[pulumi.Input['ApplicationCSVMappingParametersArgs']] = None,
+                 json_mapping_parameters: Optional[pulumi.Input['ApplicationJSONMappingParametersArgs']] = None):
         """
         When you configure a SQL-based Kinesis Data Analytics application's input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
-        :param pulumi.Input['ApplicationCSVMappingParametersArgs'] c_sv_mapping_parameters: Provides additional mapping information when the record format uses delimiters (for example, CSV).
-        :param pulumi.Input['ApplicationJSONMappingParametersArgs'] j_son_mapping_parameters: Provides additional mapping information when JSON is the record format on the streaming source.
+        :param pulumi.Input['ApplicationCSVMappingParametersArgs'] csv_mapping_parameters: Provides additional mapping information when the record format uses delimiters (for example, CSV).
+        :param pulumi.Input['ApplicationJSONMappingParametersArgs'] json_mapping_parameters: Provides additional mapping information when JSON is the record format on the streaming source.
         """
-        if c_sv_mapping_parameters is not None:
-            pulumi.set(__self__, "c_sv_mapping_parameters", c_sv_mapping_parameters)
-        if j_son_mapping_parameters is not None:
-            pulumi.set(__self__, "j_son_mapping_parameters", j_son_mapping_parameters)
+        if csv_mapping_parameters is not None:
+            pulumi.set(__self__, "csv_mapping_parameters", csv_mapping_parameters)
+        if json_mapping_parameters is not None:
+            pulumi.set(__self__, "json_mapping_parameters", json_mapping_parameters)
 
     @property
-    @pulumi.getter(name="cSVMappingParameters")
-    def c_sv_mapping_parameters(self) -> Optional[pulumi.Input['ApplicationCSVMappingParametersArgs']]:
+    @pulumi.getter(name="csvMappingParameters")
+    def csv_mapping_parameters(self) -> Optional[pulumi.Input['ApplicationCSVMappingParametersArgs']]:
         """
         Provides additional mapping information when the record format uses delimiters (for example, CSV).
         """
-        return pulumi.get(self, "c_sv_mapping_parameters")
+        return pulumi.get(self, "csv_mapping_parameters")
 
-    @c_sv_mapping_parameters.setter
-    def c_sv_mapping_parameters(self, value: Optional[pulumi.Input['ApplicationCSVMappingParametersArgs']]):
-        pulumi.set(self, "c_sv_mapping_parameters", value)
+    @csv_mapping_parameters.setter
+    def csv_mapping_parameters(self, value: Optional[pulumi.Input['ApplicationCSVMappingParametersArgs']]):
+        pulumi.set(self, "csv_mapping_parameters", value)
 
     @property
-    @pulumi.getter(name="jSONMappingParameters")
-    def j_son_mapping_parameters(self) -> Optional[pulumi.Input['ApplicationJSONMappingParametersArgs']]:
+    @pulumi.getter(name="jsonMappingParameters")
+    def json_mapping_parameters(self) -> Optional[pulumi.Input['ApplicationJSONMappingParametersArgs']]:
         """
         Provides additional mapping information when JSON is the record format on the streaming source.
         """
-        return pulumi.get(self, "j_son_mapping_parameters")
+        return pulumi.get(self, "json_mapping_parameters")
 
-    @j_son_mapping_parameters.setter
-    def j_son_mapping_parameters(self, value: Optional[pulumi.Input['ApplicationJSONMappingParametersArgs']]):
-        pulumi.set(self, "j_son_mapping_parameters", value)
+    @json_mapping_parameters.setter
+    def json_mapping_parameters(self, value: Optional[pulumi.Input['ApplicationJSONMappingParametersArgs']]):
+        pulumi.set(self, "json_mapping_parameters", value)
 
 
 @pulumi.input_type
@@ -1127,7 +1127,7 @@ class ApplicationOutputResourceKinesisFirehoseOutputArgs:
         pulumi.set(__self__, "resource_arn", resource_arn)
 
     @property
-    @pulumi.getter(name="resourceARN")
+    @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[str]:
         return pulumi.get(self, "resource_arn")
 
@@ -1143,7 +1143,7 @@ class ApplicationOutputResourceKinesisStreamsOutputArgs:
         pulumi.set(__self__, "resource_arn", resource_arn)
 
     @property
-    @pulumi.getter(name="resourceARN")
+    @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[str]:
         return pulumi.get(self, "resource_arn")
 
@@ -1159,7 +1159,7 @@ class ApplicationOutputResourceLambdaOutputArgs:
         pulumi.set(__self__, "resource_arn", resource_arn)
 
     @property
-    @pulumi.getter(name="resourceARN")
+    @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[str]:
         return pulumi.get(self, "resource_arn")
 
@@ -1291,7 +1291,7 @@ class ApplicationParallelismConfigurationArgs:
         pulumi.set(self, "parallelism", value)
 
     @property
-    @pulumi.getter(name="parallelismPerKPU")
+    @pulumi.getter(name="parallelismPerKpu")
     def parallelism_per_kpu(self) -> Optional[pulumi.Input[int]]:
         """
         Describes the number of parallel tasks that a Java-based Kinesis Data Analytics application can perform per Kinesis Processing Unit (KPU) used by the application. For more information about KPUs, see Amazon Kinesis Data Analytics Pricing.
@@ -1483,30 +1483,30 @@ class ApplicationReferenceDataSourceJSONMappingParametersArgs:
 @pulumi.input_type
 class ApplicationReferenceDataSourceMappingParametersArgs:
     def __init__(__self__, *,
-                 c_sv_mapping_parameters: Optional[pulumi.Input['ApplicationReferenceDataSourceCSVMappingParametersArgs']] = None,
-                 j_son_mapping_parameters: Optional[pulumi.Input['ApplicationReferenceDataSourceJSONMappingParametersArgs']] = None):
-        if c_sv_mapping_parameters is not None:
-            pulumi.set(__self__, "c_sv_mapping_parameters", c_sv_mapping_parameters)
-        if j_son_mapping_parameters is not None:
-            pulumi.set(__self__, "j_son_mapping_parameters", j_son_mapping_parameters)
+                 csv_mapping_parameters: Optional[pulumi.Input['ApplicationReferenceDataSourceCSVMappingParametersArgs']] = None,
+                 json_mapping_parameters: Optional[pulumi.Input['ApplicationReferenceDataSourceJSONMappingParametersArgs']] = None):
+        if csv_mapping_parameters is not None:
+            pulumi.set(__self__, "csv_mapping_parameters", csv_mapping_parameters)
+        if json_mapping_parameters is not None:
+            pulumi.set(__self__, "json_mapping_parameters", json_mapping_parameters)
 
     @property
-    @pulumi.getter(name="cSVMappingParameters")
-    def c_sv_mapping_parameters(self) -> Optional[pulumi.Input['ApplicationReferenceDataSourceCSVMappingParametersArgs']]:
-        return pulumi.get(self, "c_sv_mapping_parameters")
+    @pulumi.getter(name="csvMappingParameters")
+    def csv_mapping_parameters(self) -> Optional[pulumi.Input['ApplicationReferenceDataSourceCSVMappingParametersArgs']]:
+        return pulumi.get(self, "csv_mapping_parameters")
 
-    @c_sv_mapping_parameters.setter
-    def c_sv_mapping_parameters(self, value: Optional[pulumi.Input['ApplicationReferenceDataSourceCSVMappingParametersArgs']]):
-        pulumi.set(self, "c_sv_mapping_parameters", value)
+    @csv_mapping_parameters.setter
+    def csv_mapping_parameters(self, value: Optional[pulumi.Input['ApplicationReferenceDataSourceCSVMappingParametersArgs']]):
+        pulumi.set(self, "csv_mapping_parameters", value)
 
     @property
-    @pulumi.getter(name="jSONMappingParameters")
-    def j_son_mapping_parameters(self) -> Optional[pulumi.Input['ApplicationReferenceDataSourceJSONMappingParametersArgs']]:
-        return pulumi.get(self, "j_son_mapping_parameters")
+    @pulumi.getter(name="jsonMappingParameters")
+    def json_mapping_parameters(self) -> Optional[pulumi.Input['ApplicationReferenceDataSourceJSONMappingParametersArgs']]:
+        return pulumi.get(self, "json_mapping_parameters")
 
-    @j_son_mapping_parameters.setter
-    def j_son_mapping_parameters(self, value: Optional[pulumi.Input['ApplicationReferenceDataSourceJSONMappingParametersArgs']]):
-        pulumi.set(self, "j_son_mapping_parameters", value)
+    @json_mapping_parameters.setter
+    def json_mapping_parameters(self, value: Optional[pulumi.Input['ApplicationReferenceDataSourceJSONMappingParametersArgs']]):
+        pulumi.set(self, "json_mapping_parameters", value)
 
 
 @pulumi.input_type
@@ -1664,7 +1664,7 @@ class ApplicationReferenceDataSourceS3ReferenceDataSourceArgs:
         pulumi.set(__self__, "file_key", file_key)
 
     @property
-    @pulumi.getter(name="bucketARN")
+    @pulumi.getter(name="bucketArn")
     def bucket_arn(self) -> pulumi.Input[str]:
         return pulumi.get(self, "bucket_arn")
 
@@ -1776,7 +1776,7 @@ class ApplicationS3ContentBaseLocationArgs:
             pulumi.set(__self__, "base_path", base_path)
 
     @property
-    @pulumi.getter(name="bucketARN")
+    @pulumi.getter(name="bucketArn")
     def bucket_arn(self) -> pulumi.Input[str]:
         """
         The Amazon Resource Name (ARN) of the S3 bucket.
@@ -1818,7 +1818,7 @@ class ApplicationS3ContentLocationArgs:
             pulumi.set(__self__, "object_version", object_version)
 
     @property
-    @pulumi.getter(name="bucketARN")
+    @pulumi.getter(name="bucketArn")
     def bucket_arn(self) -> pulumi.Input[str]:
         """
         The Amazon Resource Name (ARN) for the S3 bucket containing the application code.

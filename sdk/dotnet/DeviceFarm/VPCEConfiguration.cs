@@ -92,8 +92,8 @@ namespace Pulumi.AwsNative.DeviceFarm
         [Input("vpceConfigurationDescription")]
         public Input<string>? VpceConfigurationDescription { get; set; }
 
-        [Input("vpceConfigurationName", required: true)]
-        public Input<string> VpceConfigurationName { get; set; } = null!;
+        [Input("vpceConfigurationName")]
+        public Input<string>? VpceConfigurationName { get; set; }
 
         [Input("vpceServiceName", required: true)]
         public Input<string> VpceServiceName { get; set; } = null!;

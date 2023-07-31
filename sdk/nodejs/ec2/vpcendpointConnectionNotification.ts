@@ -40,7 +40,7 @@ export class VPCEndpointConnectionNotification extends pulumi.CustomResource {
     public readonly connectionEvents!: pulumi.Output<string[]>;
     public readonly connectionNotificationArn!: pulumi.Output<string>;
     public readonly serviceId!: pulumi.Output<string | undefined>;
-    public readonly vPCEndpointId!: pulumi.Output<string | undefined>;
+    public readonly vpcEndpointId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a VPCEndpointConnectionNotification resource with the given unique name, arguments, and options.
@@ -64,12 +64,12 @@ export class VPCEndpointConnectionNotification extends pulumi.CustomResource {
             resourceInputs["connectionEvents"] = args ? args.connectionEvents : undefined;
             resourceInputs["connectionNotificationArn"] = args ? args.connectionNotificationArn : undefined;
             resourceInputs["serviceId"] = args ? args.serviceId : undefined;
-            resourceInputs["vPCEndpointId"] = args ? args.vPCEndpointId : undefined;
+            resourceInputs["vpcEndpointId"] = args ? args.vpcEndpointId : undefined;
         } else {
             resourceInputs["connectionEvents"] = undefined /*out*/;
             resourceInputs["connectionNotificationArn"] = undefined /*out*/;
             resourceInputs["serviceId"] = undefined /*out*/;
-            resourceInputs["vPCEndpointId"] = undefined /*out*/;
+            resourceInputs["vpcEndpointId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VPCEndpointConnectionNotification.__pulumiType, name, resourceInputs, opts);
@@ -83,5 +83,5 @@ export interface VPCEndpointConnectionNotificationArgs {
     connectionEvents: pulumi.Input<pulumi.Input<string>[]>;
     connectionNotificationArn: pulumi.Input<string>;
     serviceId?: pulumi.Input<string>;
-    vPCEndpointId?: pulumi.Input<string>;
+    vpcEndpointId?: pulumi.Input<string>;
 }

@@ -108,7 +108,7 @@ class DataSourceDeltaSyncConfigArgs:
         pulumi.set(__self__, "delta_sync_table_ttl", delta_sync_table_ttl)
 
     @property
-    @pulumi.getter(name="baseTableTTL")
+    @pulumi.getter(name="baseTableTtl")
     def base_table_ttl(self) -> pulumi.Input[str]:
         return pulumi.get(self, "base_table_ttl")
 
@@ -126,7 +126,7 @@ class DataSourceDeltaSyncConfigArgs:
         pulumi.set(self, "delta_sync_table_name", value)
 
     @property
-    @pulumi.getter(name="deltaSyncTableTTL")
+    @pulumi.getter(name="deltaSyncTableTtl")
     def delta_sync_table_ttl(self) -> pulumi.Input[str]:
         return pulumi.get(self, "delta_sync_table_ttl")
 
@@ -520,7 +520,7 @@ class GraphQLApiAdditionalAuthenticationProviderArgs:
         pulumi.set(self, "lambda_authorizer_config", value)
 
     @property
-    @pulumi.getter(name="openIDConnectConfig")
+    @pulumi.getter(name="openIdConnectConfig")
     def open_id_connect_config(self) -> Optional[pulumi.Input['GraphQLApiOpenIDConnectConfigArgs']]:
         return pulumi.get(self, "open_id_connect_config")
 
@@ -678,7 +678,7 @@ class GraphQLApiOpenIDConnectConfigArgs:
             pulumi.set(__self__, "issuer", issuer)
 
     @property
-    @pulumi.getter(name="authTTL")
+    @pulumi.getter(name="authTtl")
     def auth_ttl(self) -> Optional[pulumi.Input[float]]:
         return pulumi.get(self, "auth_ttl")
 
@@ -696,7 +696,7 @@ class GraphQLApiOpenIDConnectConfigArgs:
         pulumi.set(self, "client_id", value)
 
     @property
-    @pulumi.getter(name="iatTTL")
+    @pulumi.getter(name="iatTtl")
     def iat_ttl(self) -> Optional[pulumi.Input[float]]:
         return pulumi.get(self, "iat_ttl")
 

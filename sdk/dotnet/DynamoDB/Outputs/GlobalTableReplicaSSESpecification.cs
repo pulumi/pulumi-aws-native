@@ -13,12 +13,12 @@ namespace Pulumi.AwsNative.DynamoDB.Outputs
     [OutputType]
     public sealed class GlobalTableReplicaSSESpecification
     {
-        public readonly string KMSMasterKeyId;
+        public readonly string KmsMasterKeyId;
 
         [OutputConstructor]
-        private GlobalTableReplicaSSESpecification(string kMSMasterKeyId)
+        private GlobalTableReplicaSSESpecification(string kmsMasterKeyId)
         {
-            KMSMasterKeyId = kMSMasterKeyId;
+            KmsMasterKeyId = kmsMasterKeyId;
         }
     }
 }

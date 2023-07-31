@@ -464,7 +464,7 @@ class SolutionConfigArgs:
         pulumi.set(self, "algorithm_hyper_parameters", value)
 
     @property
-    @pulumi.getter(name="autoMLConfig")
+    @pulumi.getter(name="autoMlConfig")
     def auto_ml_config(self) -> Optional[pulumi.Input['SolutionConfigAutoMLConfigPropertiesArgs']]:
         """
         The AutoMLConfig object containing a list of recipes to search when AutoML is performed.

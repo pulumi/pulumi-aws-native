@@ -21,7 +21,7 @@ export interface GetEIPAssociationArgs {
 
 export interface GetEIPAssociationResult {
     readonly allocationId?: string;
-    readonly eIP?: string;
+    readonly eip?: string;
     readonly id?: string;
     readonly instanceId?: string;
     readonly networkInterfaceId?: string;

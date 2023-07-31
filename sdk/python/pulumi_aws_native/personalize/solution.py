@@ -84,7 +84,7 @@ class SolutionArgs:
         pulumi.set(self, "name", value)
 
     @property
-    @pulumi.getter(name="performAutoML")
+    @pulumi.getter(name="performAutoMl")
     def perform_auto_ml(self) -> Optional[pulumi.Input[bool]]:
         """
         Whether to perform automated machine learning (AutoML). The default is false. For this case, you must specify recipeArn.
@@ -96,7 +96,7 @@ class SolutionArgs:
         pulumi.set(self, "perform_auto_ml", value)
 
     @property
-    @pulumi.getter(name="performHPO")
+    @pulumi.getter(name="performHpo")
     def perform_hpo(self) -> Optional[pulumi.Input[bool]]:
         """
         Whether to perform hyperparameter optimization (HPO) on the specified or selected recipe. The default is false. When performing AutoML, this parameter is always true and you should not set it to false.
@@ -261,7 +261,7 @@ class Solution(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="performAutoML")
+    @pulumi.getter(name="performAutoMl")
     def perform_auto_ml(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether to perform automated machine learning (AutoML). The default is false. For this case, you must specify recipeArn.
@@ -269,7 +269,7 @@ class Solution(pulumi.CustomResource):
         return pulumi.get(self, "perform_auto_ml")
 
     @property
-    @pulumi.getter(name="performHPO")
+    @pulumi.getter(name="performHpo")
     def perform_hpo(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether to perform hyperparameter optimization (HPO) on the specified or selected recipe. The default is false. When performing AutoML, this parameter is always true and you should not set it to false.

@@ -48,9 +48,9 @@ export class IdentityPool extends pulumi.CustomResource {
     public readonly developerProviderName!: pulumi.Output<string | undefined>;
     public readonly identityPoolName!: pulumi.Output<string | undefined>;
     public /*out*/ readonly name!: pulumi.Output<string>;
-    public readonly openIdConnectProviderARNs!: pulumi.Output<string[] | undefined>;
+    public readonly openIdConnectProviderArns!: pulumi.Output<string[] | undefined>;
     public readonly pushSync!: pulumi.Output<outputs.cognito.IdentityPoolPushSync | undefined>;
-    public readonly samlProviderARNs!: pulumi.Output<string[] | undefined>;
+    public readonly samlProviderArns!: pulumi.Output<string[] | undefined>;
     public readonly supportedLoginProviders!: pulumi.Output<any | undefined>;
 
     /**
@@ -76,9 +76,9 @@ export class IdentityPool extends pulumi.CustomResource {
             resourceInputs["cognitoStreams"] = args ? args.cognitoStreams : undefined;
             resourceInputs["developerProviderName"] = args ? args.developerProviderName : undefined;
             resourceInputs["identityPoolName"] = args ? args.identityPoolName : undefined;
-            resourceInputs["openIdConnectProviderARNs"] = args ? args.openIdConnectProviderARNs : undefined;
+            resourceInputs["openIdConnectProviderArns"] = args ? args.openIdConnectProviderArns : undefined;
             resourceInputs["pushSync"] = args ? args.pushSync : undefined;
-            resourceInputs["samlProviderARNs"] = args ? args.samlProviderARNs : undefined;
+            resourceInputs["samlProviderArns"] = args ? args.samlProviderArns : undefined;
             resourceInputs["supportedLoginProviders"] = args ? args.supportedLoginProviders : undefined;
             resourceInputs["name"] = undefined /*out*/;
         } else {
@@ -90,9 +90,9 @@ export class IdentityPool extends pulumi.CustomResource {
             resourceInputs["developerProviderName"] = undefined /*out*/;
             resourceInputs["identityPoolName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["openIdConnectProviderARNs"] = undefined /*out*/;
+            resourceInputs["openIdConnectProviderArns"] = undefined /*out*/;
             resourceInputs["pushSync"] = undefined /*out*/;
-            resourceInputs["samlProviderARNs"] = undefined /*out*/;
+            resourceInputs["samlProviderArns"] = undefined /*out*/;
             resourceInputs["supportedLoginProviders"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -111,8 +111,8 @@ export interface IdentityPoolArgs {
     cognitoStreams?: pulumi.Input<inputs.cognito.IdentityPoolCognitoStreamsArgs>;
     developerProviderName?: pulumi.Input<string>;
     identityPoolName?: pulumi.Input<string>;
-    openIdConnectProviderARNs?: pulumi.Input<pulumi.Input<string>[]>;
+    openIdConnectProviderArns?: pulumi.Input<pulumi.Input<string>[]>;
     pushSync?: pulumi.Input<inputs.cognito.IdentityPoolPushSyncArgs>;
-    samlProviderARNs?: pulumi.Input<pulumi.Input<string>[]>;
+    samlProviderArns?: pulumi.Input<pulumi.Input<string>[]>;
     supportedLoginProviders?: any;
 }

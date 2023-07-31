@@ -2841,7 +2841,7 @@ class IndexJwtTokenTypeConfigurationArgs:
                  group_attribute_field: Optional[pulumi.Input[str]] = None,
                  issuer: Optional[pulumi.Input[str]] = None,
                  secret_manager_arn: Optional[pulumi.Input[str]] = None,
-                 u_rl: Optional[pulumi.Input[str]] = None,
+                 url: Optional[pulumi.Input[str]] = None,
                  user_name_attribute_field: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "key_location", key_location)
         if claim_regex is not None:
@@ -2852,8 +2852,8 @@ class IndexJwtTokenTypeConfigurationArgs:
             pulumi.set(__self__, "issuer", issuer)
         if secret_manager_arn is not None:
             pulumi.set(__self__, "secret_manager_arn", secret_manager_arn)
-        if u_rl is not None:
-            pulumi.set(__self__, "u_rl", u_rl)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
         if user_name_attribute_field is not None:
             pulumi.set(__self__, "user_name_attribute_field", user_name_attribute_field)
 
@@ -2903,13 +2903,13 @@ class IndexJwtTokenTypeConfigurationArgs:
         pulumi.set(self, "secret_manager_arn", value)
 
     @property
-    @pulumi.getter(name="uRL")
-    def u_rl(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "u_rl")
+    @pulumi.getter
+    def url(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "url")
 
-    @u_rl.setter
-    def u_rl(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "u_rl", value)
+    @url.setter
+    def url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "url", value)
 
     @property
     @pulumi.getter(name="userNameAttributeField")

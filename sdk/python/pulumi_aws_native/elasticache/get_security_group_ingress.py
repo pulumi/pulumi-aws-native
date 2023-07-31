@@ -18,16 +18,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetSecurityGroupIngressResult:
-    def __init__(__self__, cache_security_group_name=None, e_c2_security_group_name=None, e_c2_security_group_owner_id=None, id=None):
+    def __init__(__self__, cache_security_group_name=None, ec2_security_group_name=None, ec2_security_group_owner_id=None, id=None):
         if cache_security_group_name and not isinstance(cache_security_group_name, str):
             raise TypeError("Expected argument 'cache_security_group_name' to be a str")
         pulumi.set(__self__, "cache_security_group_name", cache_security_group_name)
-        if e_c2_security_group_name and not isinstance(e_c2_security_group_name, str):
-            raise TypeError("Expected argument 'e_c2_security_group_name' to be a str")
-        pulumi.set(__self__, "e_c2_security_group_name", e_c2_security_group_name)
-        if e_c2_security_group_owner_id and not isinstance(e_c2_security_group_owner_id, str):
-            raise TypeError("Expected argument 'e_c2_security_group_owner_id' to be a str")
-        pulumi.set(__self__, "e_c2_security_group_owner_id", e_c2_security_group_owner_id)
+        if ec2_security_group_name and not isinstance(ec2_security_group_name, str):
+            raise TypeError("Expected argument 'ec2_security_group_name' to be a str")
+        pulumi.set(__self__, "ec2_security_group_name", ec2_security_group_name)
+        if ec2_security_group_owner_id and not isinstance(ec2_security_group_owner_id, str):
+            raise TypeError("Expected argument 'ec2_security_group_owner_id' to be a str")
+        pulumi.set(__self__, "ec2_security_group_owner_id", ec2_security_group_owner_id)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -38,14 +38,14 @@ class GetSecurityGroupIngressResult:
         return pulumi.get(self, "cache_security_group_name")
 
     @property
-    @pulumi.getter(name="eC2SecurityGroupName")
-    def e_c2_security_group_name(self) -> Optional[str]:
-        return pulumi.get(self, "e_c2_security_group_name")
+    @pulumi.getter(name="ec2SecurityGroupName")
+    def ec2_security_group_name(self) -> Optional[str]:
+        return pulumi.get(self, "ec2_security_group_name")
 
     @property
-    @pulumi.getter(name="eC2SecurityGroupOwnerId")
-    def e_c2_security_group_owner_id(self) -> Optional[str]:
-        return pulumi.get(self, "e_c2_security_group_owner_id")
+    @pulumi.getter(name="ec2SecurityGroupOwnerId")
+    def ec2_security_group_owner_id(self) -> Optional[str]:
+        return pulumi.get(self, "ec2_security_group_owner_id")
 
     @property
     @pulumi.getter
@@ -60,8 +60,8 @@ class AwaitableGetSecurityGroupIngressResult(GetSecurityGroupIngressResult):
             yield self
         return GetSecurityGroupIngressResult(
             cache_security_group_name=self.cache_security_group_name,
-            e_c2_security_group_name=self.e_c2_security_group_name,
-            e_c2_security_group_owner_id=self.e_c2_security_group_owner_id,
+            ec2_security_group_name=self.ec2_security_group_name,
+            ec2_security_group_owner_id=self.ec2_security_group_owner_id,
             id=self.id)
 
 
@@ -77,8 +77,8 @@ def get_security_group_ingress(id: Optional[str] = None,
 
     return AwaitableGetSecurityGroupIngressResult(
         cache_security_group_name=pulumi.get(__ret__, 'cache_security_group_name'),
-        e_c2_security_group_name=pulumi.get(__ret__, 'e_c2_security_group_name'),
-        e_c2_security_group_owner_id=pulumi.get(__ret__, 'e_c2_security_group_owner_id'),
+        ec2_security_group_name=pulumi.get(__ret__, 'ec2_security_group_name'),
+        ec2_security_group_owner_id=pulumi.get(__ret__, 'ec2_security_group_owner_id'),
         id=pulumi.get(__ret__, 'id'))
 
 

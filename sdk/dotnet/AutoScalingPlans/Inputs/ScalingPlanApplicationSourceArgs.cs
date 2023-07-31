@@ -12,8 +12,8 @@ namespace Pulumi.AwsNative.AutoScalingPlans.Inputs
 
     public sealed class ScalingPlanApplicationSourceArgs : global::Pulumi.ResourceArgs
     {
-        [Input("cloudFormationStackARN")]
-        public Input<string>? CloudFormationStackARN { get; set; }
+        [Input("cloudFormationStackArn")]
+        public Input<string>? CloudFormationStackArn { get; set; }
 
         [Input("tagFilters")]
         private InputList<Inputs.ScalingPlanTagFilterArgs>? _tagFilters;

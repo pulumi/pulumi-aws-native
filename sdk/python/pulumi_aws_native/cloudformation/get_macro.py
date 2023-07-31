@@ -56,7 +56,7 @@ class GetMacroResult:
         return pulumi.get(self, "log_group_name")
 
     @property
-    @pulumi.getter(name="logRoleARN")
+    @pulumi.getter(name="logRoleArn")
     def log_role_arn(self) -> Optional[str]:
         return pulumi.get(self, "log_role_arn")
 

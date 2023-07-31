@@ -15,8 +15,8 @@ namespace Pulumi.AwsNative.RDS
     [AwsNativeResourceType("aws-native:rds:DBClusterParameterGroup")]
     public partial class DBClusterParameterGroup : global::Pulumi.CustomResource
     {
-        [Output("dBClusterParameterGroupName")]
-        public Output<string?> DBClusterParameterGroupName { get; private set; } = null!;
+        [Output("dbClusterParameterGroupName")]
+        public Output<string?> DbClusterParameterGroupName { get; private set; } = null!;
 
         /// <summary>
         /// A friendly description for this DB cluster parameter group.
@@ -87,8 +87,8 @@ namespace Pulumi.AwsNative.RDS
 
     public sealed class DBClusterParameterGroupArgs : global::Pulumi.ResourceArgs
     {
-        [Input("dBClusterParameterGroupName")]
-        public Input<string>? DBClusterParameterGroupName { get; set; }
+        [Input("dbClusterParameterGroupName")]
+        public Input<string>? DbClusterParameterGroupName { get; set; }
 
         /// <summary>
         /// A friendly description for this DB cluster parameter group.

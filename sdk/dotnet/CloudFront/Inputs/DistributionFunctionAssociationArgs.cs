@@ -15,8 +15,8 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         [Input("eventType")]
         public Input<string>? EventType { get; set; }
 
-        [Input("functionARN")]
-        public Input<string>? FunctionARN { get; set; }
+        [Input("functionArn")]
+        public Input<string>? FunctionArn { get; set; }
 
         public DistributionFunctionAssociationArgs()
         {

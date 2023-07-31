@@ -21,9 +21,9 @@ type LaunchConfiguration struct {
 	// Specifies how block devices are exposed to the instance. You can specify virtual devices and EBS volumes.
 	BlockDeviceMappings LaunchConfigurationBlockDeviceMappingArrayOutput `pulumi:"blockDeviceMappings"`
 	// The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to.
-	ClassicLinkVPCId pulumi.StringPtrOutput `pulumi:"classicLinkVPCId"`
+	ClassicLinkVpcId pulumi.StringPtrOutput `pulumi:"classicLinkVpcId"`
 	// The IDs of one or more security groups for the VPC that you specified in the ClassicLinkVPCId property.
-	ClassicLinkVPCSecurityGroups pulumi.StringArrayOutput `pulumi:"classicLinkVPCSecurityGroups"`
+	ClassicLinkVpcSecurityGroups pulumi.StringArrayOutput `pulumi:"classicLinkVpcSecurityGroups"`
 	// Specifies whether the launch configuration is optimized for EBS I/O (true) or not (false).
 	EbsOptimized pulumi.BoolPtrOutput `pulumi:"ebsOptimized"`
 	// Provides the name or the Amazon Resource Name (ARN) of the instance profile associated with the IAM role for the instance. The instance profile contains the IAM role.
@@ -107,9 +107,9 @@ type launchConfigurationArgs struct {
 	// Specifies how block devices are exposed to the instance. You can specify virtual devices and EBS volumes.
 	BlockDeviceMappings []LaunchConfigurationBlockDeviceMapping `pulumi:"blockDeviceMappings"`
 	// The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to.
-	ClassicLinkVPCId *string `pulumi:"classicLinkVPCId"`
+	ClassicLinkVpcId *string `pulumi:"classicLinkVpcId"`
 	// The IDs of one or more security groups for the VPC that you specified in the ClassicLinkVPCId property.
-	ClassicLinkVPCSecurityGroups []string `pulumi:"classicLinkVPCSecurityGroups"`
+	ClassicLinkVpcSecurityGroups []string `pulumi:"classicLinkVpcSecurityGroups"`
 	// Specifies whether the launch configuration is optimized for EBS I/O (true) or not (false).
 	EbsOptimized *bool `pulumi:"ebsOptimized"`
 	// Provides the name or the Amazon Resource Name (ARN) of the instance profile associated with the IAM role for the instance. The instance profile contains the IAM role.
@@ -149,9 +149,9 @@ type LaunchConfigurationArgs struct {
 	// Specifies how block devices are exposed to the instance. You can specify virtual devices and EBS volumes.
 	BlockDeviceMappings LaunchConfigurationBlockDeviceMappingArrayInput
 	// The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to.
-	ClassicLinkVPCId pulumi.StringPtrInput
+	ClassicLinkVpcId pulumi.StringPtrInput
 	// The IDs of one or more security groups for the VPC that you specified in the ClassicLinkVPCId property.
-	ClassicLinkVPCSecurityGroups pulumi.StringArrayInput
+	ClassicLinkVpcSecurityGroups pulumi.StringArrayInput
 	// Specifies whether the launch configuration is optimized for EBS I/O (true) or not (false).
 	EbsOptimized pulumi.BoolPtrInput
 	// Provides the name or the Amazon Resource Name (ARN) of the instance profile associated with the IAM role for the instance. The instance profile contains the IAM role.
@@ -234,13 +234,13 @@ func (o LaunchConfigurationOutput) BlockDeviceMappings() LaunchConfigurationBloc
 }
 
 // The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to.
-func (o LaunchConfigurationOutput) ClassicLinkVPCId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LaunchConfiguration) pulumi.StringPtrOutput { return v.ClassicLinkVPCId }).(pulumi.StringPtrOutput)
+func (o LaunchConfigurationOutput) ClassicLinkVpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchConfiguration) pulumi.StringPtrOutput { return v.ClassicLinkVpcId }).(pulumi.StringPtrOutput)
 }
 
 // The IDs of one or more security groups for the VPC that you specified in the ClassicLinkVPCId property.
-func (o LaunchConfigurationOutput) ClassicLinkVPCSecurityGroups() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *LaunchConfiguration) pulumi.StringArrayOutput { return v.ClassicLinkVPCSecurityGroups }).(pulumi.StringArrayOutput)
+func (o LaunchConfigurationOutput) ClassicLinkVpcSecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LaunchConfiguration) pulumi.StringArrayOutput { return v.ClassicLinkVpcSecurityGroups }).(pulumi.StringArrayOutput)
 }
 
 // Specifies whether the launch configuration is optimized for EBS I/O (true) or not (false).

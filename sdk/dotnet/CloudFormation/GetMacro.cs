@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.CloudFormation
         public readonly string? FunctionName;
         public readonly string? Id;
         public readonly string? LogGroupName;
-        public readonly string? LogRoleARN;
+        public readonly string? LogRoleArn;
 
         [OutputConstructor]
         private GetMacroResult(
@@ -67,13 +67,13 @@ namespace Pulumi.AwsNative.CloudFormation
 
             string? logGroupName,
 
-            string? logRoleARN)
+            string? logRoleArn)
         {
             Description = description;
             FunctionName = functionName;
             Id = id;
             LogGroupName = logGroupName;
-            LogRoleARN = logRoleARN;
+            LogRoleArn = logRoleArn;
         }
     }
 }

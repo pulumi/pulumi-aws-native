@@ -66,7 +66,7 @@ export class Authorizer extends pulumi.CustomResource {
     /**
      * A list of the Amazon Cognito user pool ARNs for the COGNITO_USER_POOLS authorizer.
      */
-    public readonly providerARNs!: pulumi.Output<string[] | undefined>;
+    public readonly providerArns!: pulumi.Output<string[] | undefined>;
     /**
      * The identifier of the API.
      */
@@ -100,7 +100,7 @@ export class Authorizer extends pulumi.CustomResource {
             resourceInputs["identitySource"] = args ? args.identitySource : undefined;
             resourceInputs["identityValidationExpression"] = args ? args.identityValidationExpression : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["providerARNs"] = args ? args.providerARNs : undefined;
+            resourceInputs["providerArns"] = args ? args.providerArns : undefined;
             resourceInputs["restApiId"] = args ? args.restApiId : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["authorizerId"] = undefined /*out*/;
@@ -113,7 +113,7 @@ export class Authorizer extends pulumi.CustomResource {
             resourceInputs["identitySource"] = undefined /*out*/;
             resourceInputs["identityValidationExpression"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["providerARNs"] = undefined /*out*/;
+            resourceInputs["providerArns"] = undefined /*out*/;
             resourceInputs["restApiId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -157,7 +157,7 @@ export interface AuthorizerArgs {
     /**
      * A list of the Amazon Cognito user pool ARNs for the COGNITO_USER_POOLS authorizer.
      */
-    providerARNs?: pulumi.Input<pulumi.Input<string>[]>;
+    providerArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The identifier of the API.
      */

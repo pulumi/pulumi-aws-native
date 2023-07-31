@@ -69,7 +69,7 @@ class GetBotResult:
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="idleSessionTTLInSeconds")
+    @pulumi.getter(name="idleSessionTtlInSeconds")
     def idle_session_ttl_in_seconds(self) -> Optional[int]:
         """
         IdleSessionTTLInSeconds of the resource

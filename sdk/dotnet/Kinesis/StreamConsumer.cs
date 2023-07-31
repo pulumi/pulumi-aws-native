@@ -16,8 +16,8 @@ namespace Pulumi.AwsNative.Kinesis
     [AwsNativeResourceType("aws-native:kinesis:StreamConsumer")]
     public partial class StreamConsumer : global::Pulumi.CustomResource
     {
-        [Output("consumerARN")]
-        public Output<string> ConsumerARN { get; private set; } = null!;
+        [Output("consumerArn")]
+        public Output<string> ConsumerArn { get; private set; } = null!;
 
         [Output("consumerCreationTimestamp")]
         public Output<string> ConsumerCreationTimestamp { get; private set; } = null!;
@@ -28,8 +28,8 @@ namespace Pulumi.AwsNative.Kinesis
         [Output("consumerStatus")]
         public Output<string> ConsumerStatus { get; private set; } = null!;
 
-        [Output("streamARN")]
-        public Output<string> StreamARN { get; private set; } = null!;
+        [Output("streamArn")]
+        public Output<string> StreamArn { get; private set; } = null!;
 
 
         /// <summary>
@@ -79,8 +79,8 @@ namespace Pulumi.AwsNative.Kinesis
         [Input("consumerName", required: true)]
         public Input<string> ConsumerName { get; set; } = null!;
 
-        [Input("streamARN", required: true)]
-        public Input<string> StreamARN { get; set; } = null!;
+        [Input("streamArn", required: true)]
+        public Input<string> StreamArn { get; set; } = null!;
 
         public StreamConsumerArgs()
         {

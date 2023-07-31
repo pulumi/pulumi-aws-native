@@ -81,7 +81,7 @@ class GetWirelessGatewayResult:
         return pulumi.get(self, "last_uplink_received_at")
 
     @property
-    @pulumi.getter(name="loRaWAN")
+    @pulumi.getter(name="loRaWan")
     def lo_ra_wan(self) -> Optional['outputs.WirelessGatewayLoRaWANGateway']:
         """
         The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Gateway.

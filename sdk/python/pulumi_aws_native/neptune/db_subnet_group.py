@@ -16,28 +16,28 @@ __all__ = ['DBSubnetGroupArgs', 'DBSubnetGroup']
 @pulumi.input_type
 class DBSubnetGroupArgs:
     def __init__(__self__, *,
-                 d_b_subnet_group_description: pulumi.Input[str],
+                 db_subnet_group_description: pulumi.Input[str],
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 d_b_subnet_group_name: Optional[pulumi.Input[str]] = None,
+                 db_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DBSubnetGroupTagArgs']]]] = None):
         """
         The set of arguments for constructing a DBSubnetGroup resource.
         """
-        pulumi.set(__self__, "d_b_subnet_group_description", d_b_subnet_group_description)
+        pulumi.set(__self__, "db_subnet_group_description", db_subnet_group_description)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
-        if d_b_subnet_group_name is not None:
-            pulumi.set(__self__, "d_b_subnet_group_name", d_b_subnet_group_name)
+        if db_subnet_group_name is not None:
+            pulumi.set(__self__, "db_subnet_group_name", db_subnet_group_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
     @property
-    @pulumi.getter(name="dBSubnetGroupDescription")
-    def d_b_subnet_group_description(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "d_b_subnet_group_description")
+    @pulumi.getter(name="dbSubnetGroupDescription")
+    def db_subnet_group_description(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "db_subnet_group_description")
 
-    @d_b_subnet_group_description.setter
-    def d_b_subnet_group_description(self, value: pulumi.Input[str]):
-        pulumi.set(self, "d_b_subnet_group_description", value)
+    @db_subnet_group_description.setter
+    def db_subnet_group_description(self, value: pulumi.Input[str]):
+        pulumi.set(self, "db_subnet_group_description", value)
 
     @property
     @pulumi.getter(name="subnetIds")
@@ -49,13 +49,13 @@ class DBSubnetGroupArgs:
         pulumi.set(self, "subnet_ids", value)
 
     @property
-    @pulumi.getter(name="dBSubnetGroupName")
-    def d_b_subnet_group_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "d_b_subnet_group_name")
+    @pulumi.getter(name="dbSubnetGroupName")
+    def db_subnet_group_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "db_subnet_group_name")
 
-    @d_b_subnet_group_name.setter
-    def d_b_subnet_group_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "d_b_subnet_group_name", value)
+    @db_subnet_group_name.setter
+    def db_subnet_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "db_subnet_group_name", value)
 
     @property
     @pulumi.getter
@@ -77,8 +77,8 @@ class DBSubnetGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 d_b_subnet_group_description: Optional[pulumi.Input[str]] = None,
-                 d_b_subnet_group_name: Optional[pulumi.Input[str]] = None,
+                 db_subnet_group_description: Optional[pulumi.Input[str]] = None,
+                 db_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBSubnetGroupTagArgs']]]]] = None,
                  __props__=None):
@@ -112,8 +112,8 @@ class DBSubnetGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 d_b_subnet_group_description: Optional[pulumi.Input[str]] = None,
-                 d_b_subnet_group_name: Optional[pulumi.Input[str]] = None,
+                 db_subnet_group_description: Optional[pulumi.Input[str]] = None,
+                 db_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBSubnetGroupTagArgs']]]]] = None,
                  __props__=None):
@@ -126,10 +126,10 @@ class DBSubnetGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DBSubnetGroupArgs.__new__(DBSubnetGroupArgs)
 
-            if d_b_subnet_group_description is None and not opts.urn:
-                raise TypeError("Missing required property 'd_b_subnet_group_description'")
-            __props__.__dict__["d_b_subnet_group_description"] = d_b_subnet_group_description
-            __props__.__dict__["d_b_subnet_group_name"] = d_b_subnet_group_name
+            if db_subnet_group_description is None and not opts.urn:
+                raise TypeError("Missing required property 'db_subnet_group_description'")
+            __props__.__dict__["db_subnet_group_description"] = db_subnet_group_description
+            __props__.__dict__["db_subnet_group_name"] = db_subnet_group_name
             if subnet_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_ids'")
             __props__.__dict__["subnet_ids"] = subnet_ids
@@ -156,21 +156,21 @@ class DBSubnetGroup(pulumi.CustomResource):
 
         __props__ = DBSubnetGroupArgs.__new__(DBSubnetGroupArgs)
 
-        __props__.__dict__["d_b_subnet_group_description"] = None
-        __props__.__dict__["d_b_subnet_group_name"] = None
+        __props__.__dict__["db_subnet_group_description"] = None
+        __props__.__dict__["db_subnet_group_name"] = None
         __props__.__dict__["subnet_ids"] = None
         __props__.__dict__["tags"] = None
         return DBSubnetGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="dBSubnetGroupDescription")
-    def d_b_subnet_group_description(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "d_b_subnet_group_description")
+    @pulumi.getter(name="dbSubnetGroupDescription")
+    def db_subnet_group_description(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "db_subnet_group_description")
 
     @property
-    @pulumi.getter(name="dBSubnetGroupName")
-    def d_b_subnet_group_name(self) -> pulumi.Output[Optional[str]]:
-        return pulumi.get(self, "d_b_subnet_group_name")
+    @pulumi.getter(name="dbSubnetGroupName")
+    def db_subnet_group_name(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "db_subnet_group_name")
 
     @property
     @pulumi.getter(name="subnetIds")

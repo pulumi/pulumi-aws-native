@@ -18,20 +18,20 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// The Amazon Resource Name (ARN) for the DB proxy endpoint.
         /// </summary>
-        [Output("dBProxyEndpointArn")]
-        public Output<string> DBProxyEndpointArn { get; private set; } = null!;
+        [Output("dbProxyEndpointArn")]
+        public Output<string> DbProxyEndpointArn { get; private set; } = null!;
 
         /// <summary>
         /// The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.
         /// </summary>
-        [Output("dBProxyEndpointName")]
-        public Output<string> DBProxyEndpointName { get; private set; } = null!;
+        [Output("dbProxyEndpointName")]
+        public Output<string> DbProxyEndpointName { get; private set; } = null!;
 
         /// <summary>
         /// The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
         /// </summary>
-        [Output("dBProxyName")]
-        public Output<string> DBProxyName { get; private set; } = null!;
+        [Output("dbProxyName")]
+        public Output<string> DbProxyName { get; private set; } = null!;
 
         /// <summary>
         /// The endpoint that you can use to connect to the DB proxy. You include the endpoint value in the connection string for a database client application.
@@ -123,14 +123,14 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.
         /// </summary>
-        [Input("dBProxyEndpointName")]
-        public Input<string>? DBProxyEndpointName { get; set; }
+        [Input("dbProxyEndpointName")]
+        public Input<string>? DbProxyEndpointName { get; set; }
 
         /// <summary>
         /// The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
         /// </summary>
-        [Input("dBProxyName", required: true)]
-        public Input<string> DBProxyName { get; set; } = null!;
+        [Input("dbProxyName", required: true)]
+        public Input<string> DbProxyName { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Inputs.DBProxyEndpointTagFormatArgs>? _tags;

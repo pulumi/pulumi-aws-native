@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.Cognito
         public readonly string? MfaConfiguration;
         public readonly Outputs.UserPoolPolicies? Policies;
         public readonly string? ProviderName;
-        public readonly string? ProviderURL;
+        public readonly string? ProviderUrl;
         public readonly ImmutableArray<Outputs.UserPoolSchemaAttribute> Schema;
         public readonly string? SmsAuthenticationMessage;
         public readonly Outputs.UserPoolSmsConfiguration? SmsConfiguration;
@@ -114,7 +114,7 @@ namespace Pulumi.AwsNative.Cognito
 
             string? providerName,
 
-            string? providerURL,
+            string? providerUrl,
 
             ImmutableArray<Outputs.UserPoolSchemaAttribute> schema,
 
@@ -154,7 +154,7 @@ namespace Pulumi.AwsNative.Cognito
             MfaConfiguration = mfaConfiguration;
             Policies = policies;
             ProviderName = providerName;
-            ProviderURL = providerURL;
+            ProviderUrl = providerUrl;
             Schema = schema;
             SmsAuthenticationMessage = smsAuthenticationMessage;
             SmsConfiguration = smsConfiguration;

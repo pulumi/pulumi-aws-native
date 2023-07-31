@@ -55,7 +55,7 @@ export class HostedZone extends pulumi.CustomResource {
     /**
      * A complex type that contains information about the VPCs that are associated with the specified hosted zone.
      */
-    public readonly vPCs!: pulumi.Output<outputs.route53.HostedZoneVPC[] | undefined>;
+    public readonly vpcs!: pulumi.Output<outputs.route53.HostedZoneVPC[] | undefined>;
 
     /**
      * Create a HostedZone resource with the given unique name, arguments, and options.
@@ -72,7 +72,7 @@ export class HostedZone extends pulumi.CustomResource {
             resourceInputs["hostedZoneTags"] = args ? args.hostedZoneTags : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["queryLoggingConfig"] = args ? args.queryLoggingConfig : undefined;
-            resourceInputs["vPCs"] = args ? args.vPCs : undefined;
+            resourceInputs["vpcs"] = args ? args.vpcs : undefined;
             resourceInputs["nameServers"] = undefined /*out*/;
         } else {
             resourceInputs["hostedZoneConfig"] = undefined /*out*/;
@@ -80,7 +80,7 @@ export class HostedZone extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["nameServers"] = undefined /*out*/;
             resourceInputs["queryLoggingConfig"] = undefined /*out*/;
-            resourceInputs["vPCs"] = undefined /*out*/;
+            resourceInputs["vpcs"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(HostedZone.__pulumiType, name, resourceInputs, opts);
@@ -108,5 +108,5 @@ export interface HostedZoneArgs {
     /**
      * A complex type that contains information about the VPCs that are associated with the specified hosted zone.
      */
-    vPCs?: pulumi.Input<pulumi.Input<inputs.route53.HostedZoneVPCArgs>[]>;
+    vpcs?: pulumi.Input<pulumi.Input<inputs.route53.HostedZoneVPCArgs>[]>;
 }

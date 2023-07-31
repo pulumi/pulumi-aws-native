@@ -122,7 +122,7 @@ class HealthCheckConfigProperties(dict):
             suggest = "alarm_identifier"
         elif key == "childHealthChecks":
             suggest = "child_health_checks"
-        elif key == "enableSNI":
+        elif key == "enableSni":
             suggest = "enable_sni"
         elif key == "failureThreshold":
             suggest = "failure_threshold"
@@ -130,10 +130,10 @@ class HealthCheckConfigProperties(dict):
             suggest = "fully_qualified_domain_name"
         elif key == "healthThreshold":
             suggest = "health_threshold"
-        elif key == "iPAddress":
-            suggest = "i_p_address"
         elif key == "insufficientDataHealthStatus":
             suggest = "insufficient_data_health_status"
+        elif key == "ipAddress":
+            suggest = "ip_address"
         elif key == "measureLatency":
             suggest = "measure_latency"
         elif key == "requestInterval":
@@ -164,9 +164,9 @@ class HealthCheckConfigProperties(dict):
                  failure_threshold: Optional[int] = None,
                  fully_qualified_domain_name: Optional[str] = None,
                  health_threshold: Optional[int] = None,
-                 i_p_address: Optional[str] = None,
                  insufficient_data_health_status: Optional['HealthCheckConfigPropertiesInsufficientDataHealthStatus'] = None,
                  inverted: Optional[bool] = None,
+                 ip_address: Optional[str] = None,
                  measure_latency: Optional[bool] = None,
                  port: Optional[int] = None,
                  regions: Optional[Sequence[str]] = None,
@@ -190,12 +190,12 @@ class HealthCheckConfigProperties(dict):
             pulumi.set(__self__, "fully_qualified_domain_name", fully_qualified_domain_name)
         if health_threshold is not None:
             pulumi.set(__self__, "health_threshold", health_threshold)
-        if i_p_address is not None:
-            pulumi.set(__self__, "i_p_address", i_p_address)
         if insufficient_data_health_status is not None:
             pulumi.set(__self__, "insufficient_data_health_status", insufficient_data_health_status)
         if inverted is not None:
             pulumi.set(__self__, "inverted", inverted)
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
         if measure_latency is not None:
             pulumi.set(__self__, "measure_latency", measure_latency)
         if port is not None:
@@ -227,7 +227,7 @@ class HealthCheckConfigProperties(dict):
         return pulumi.get(self, "child_health_checks")
 
     @property
-    @pulumi.getter(name="enableSNI")
+    @pulumi.getter(name="enableSni")
     def enable_sni(self) -> Optional[bool]:
         return pulumi.get(self, "enable_sni")
 
@@ -247,11 +247,6 @@ class HealthCheckConfigProperties(dict):
         return pulumi.get(self, "health_threshold")
 
     @property
-    @pulumi.getter(name="iPAddress")
-    def i_p_address(self) -> Optional[str]:
-        return pulumi.get(self, "i_p_address")
-
-    @property
     @pulumi.getter(name="insufficientDataHealthStatus")
     def insufficient_data_health_status(self) -> Optional['HealthCheckConfigPropertiesInsufficientDataHealthStatus']:
         return pulumi.get(self, "insufficient_data_health_status")
@@ -260,6 +255,11 @@ class HealthCheckConfigProperties(dict):
     @pulumi.getter
     def inverted(self) -> Optional[bool]:
         return pulumi.get(self, "inverted")
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[str]:
+        return pulumi.get(self, "ip_address")
 
     @property
     @pulumi.getter(name="measureLatency")
@@ -437,10 +437,10 @@ class HostedZoneVPC(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "vPCId":
-            suggest = "v_pc_id"
-        elif key == "vPCRegion":
-            suggest = "v_pc_region"
+        if key == "vpcId":
+            suggest = "vpc_id"
+        elif key == "vpcRegion":
+            suggest = "vpc_region"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in HostedZoneVPC. Access the value via the '{suggest}' property getter instead.")
@@ -454,31 +454,31 @@ class HostedZoneVPC(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 v_pc_id: str,
-                 v_pc_region: str):
+                 vpc_id: str,
+                 vpc_region: str):
         """
         A complex type that contains information about an Amazon VPC. Route 53 Resolver uses the records in the private hosted zone to route traffic in that VPC.
-        :param str v_pc_id: The ID of an Amazon VPC.
-        :param str v_pc_region: The region that an Amazon VPC was created in. See https://docs.aws.amazon.com/general/latest/gr/rande.html for a list of up to date regions.
+        :param str vpc_id: The ID of an Amazon VPC.
+        :param str vpc_region: The region that an Amazon VPC was created in. See https://docs.aws.amazon.com/general/latest/gr/rande.html for a list of up to date regions.
         """
-        pulumi.set(__self__, "v_pc_id", v_pc_id)
-        pulumi.set(__self__, "v_pc_region", v_pc_region)
+        pulumi.set(__self__, "vpc_id", vpc_id)
+        pulumi.set(__self__, "vpc_region", vpc_region)
 
     @property
-    @pulumi.getter(name="vPCId")
-    def v_pc_id(self) -> str:
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> str:
         """
         The ID of an Amazon VPC.
         """
-        return pulumi.get(self, "v_pc_id")
+        return pulumi.get(self, "vpc_id")
 
     @property
-    @pulumi.getter(name="vPCRegion")
-    def v_pc_region(self) -> str:
+    @pulumi.getter(name="vpcRegion")
+    def vpc_region(self) -> str:
         """
         The region that an Amazon VPC was created in. See https://docs.aws.amazon.com/general/latest/gr/rande.html for a list of up to date regions.
         """
-        return pulumi.get(self, "v_pc_region")
+        return pulumi.get(self, "vpc_region")
 
 
 @pulumi.output_type
@@ -486,8 +486,8 @@ class RecordSetAliasTarget(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dNSName":
-            suggest = "d_ns_name"
+        if key == "dnsName":
+            suggest = "dns_name"
         elif key == "hostedZoneId":
             suggest = "hosted_zone_id"
         elif key == "evaluateTargetHealth":
@@ -505,18 +505,18 @@ class RecordSetAliasTarget(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 d_ns_name: str,
+                 dns_name: str,
                  hosted_zone_id: str,
                  evaluate_target_health: Optional[bool] = None):
-        pulumi.set(__self__, "d_ns_name", d_ns_name)
+        pulumi.set(__self__, "dns_name", dns_name)
         pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
         if evaluate_target_health is not None:
             pulumi.set(__self__, "evaluate_target_health", evaluate_target_health)
 
     @property
-    @pulumi.getter(name="dNSName")
-    def d_ns_name(self) -> str:
-        return pulumi.get(self, "d_ns_name")
+    @pulumi.getter(name="dnsName")
+    def dns_name(self) -> str:
+        return pulumi.get(self, "dns_name")
 
     @property
     @pulumi.getter(name="hostedZoneId")
@@ -622,8 +622,8 @@ class RecordSetGroupAliasTarget(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dNSName":
-            suggest = "d_ns_name"
+        if key == "dnsName":
+            suggest = "dns_name"
         elif key == "hostedZoneId":
             suggest = "hosted_zone_id"
         elif key == "evaluateTargetHealth":
@@ -641,18 +641,18 @@ class RecordSetGroupAliasTarget(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 d_ns_name: str,
+                 dns_name: str,
                  hosted_zone_id: str,
                  evaluate_target_health: Optional[bool] = None):
-        pulumi.set(__self__, "d_ns_name", d_ns_name)
+        pulumi.set(__self__, "dns_name", dns_name)
         pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
         if evaluate_target_health is not None:
             pulumi.set(__self__, "evaluate_target_health", evaluate_target_health)
 
     @property
-    @pulumi.getter(name="dNSName")
-    def d_ns_name(self) -> str:
-        return pulumi.get(self, "d_ns_name")
+    @pulumi.getter(name="dnsName")
+    def dns_name(self) -> str:
+        return pulumi.get(self, "dns_name")
 
     @property
     @pulumi.getter(name="hostedZoneId")
@@ -776,8 +776,6 @@ class RecordSetGroupRecordSet(dict):
             suggest = "resource_records"
         elif key == "setIdentifier":
             suggest = "set_identifier"
-        elif key == "tTL":
-            suggest = "t_tl"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in RecordSetGroupRecordSet. Access the value via the '{suggest}' property getter instead.")
@@ -804,7 +802,7 @@ class RecordSetGroupRecordSet(dict):
                  region: Optional[str] = None,
                  resource_records: Optional[Sequence[str]] = None,
                  set_identifier: Optional[str] = None,
-                 t_tl: Optional[str] = None,
+                 ttl: Optional[str] = None,
                  weight: Optional[int] = None):
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
@@ -830,8 +828,8 @@ class RecordSetGroupRecordSet(dict):
             pulumi.set(__self__, "resource_records", resource_records)
         if set_identifier is not None:
             pulumi.set(__self__, "set_identifier", set_identifier)
-        if t_tl is not None:
-            pulumi.set(__self__, "t_tl", t_tl)
+        if ttl is not None:
+            pulumi.set(__self__, "ttl", ttl)
         if weight is not None:
             pulumi.set(__self__, "weight", weight)
 
@@ -901,9 +899,9 @@ class RecordSetGroupRecordSet(dict):
         return pulumi.get(self, "set_identifier")
 
     @property
-    @pulumi.getter(name="tTL")
-    def t_tl(self) -> Optional[str]:
-        return pulumi.get(self, "t_tl")
+    @pulumi.getter
+    def ttl(self) -> Optional[str]:
+        return pulumi.get(self, "ttl")
 
     @property
     @pulumi.getter

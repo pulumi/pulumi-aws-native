@@ -12,8 +12,8 @@ namespace Pulumi.AwsNative.DynamoDB.Inputs
 
     public sealed class GlobalTableReplicaSSESpecificationArgs : global::Pulumi.ResourceArgs
     {
-        [Input("kMSMasterKeyId", required: true)]
-        public Input<string> KMSMasterKeyId { get; set; } = null!;
+        [Input("kmsMasterKeyId", required: true)]
+        public Input<string> KmsMasterKeyId { get; set; } = null!;
 
         public GlobalTableReplicaSSESpecificationArgs()
         {

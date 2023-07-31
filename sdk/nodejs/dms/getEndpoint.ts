@@ -33,7 +33,7 @@ export interface GetEndpointResult {
     readonly engineName?: string;
     readonly externalId?: string;
     readonly extraConnectionAttributes?: string;
-    readonly gcpMySQLSettings?: outputs.dms.EndpointGcpMySQLSettings;
+    readonly gcpMySqlSettings?: outputs.dms.EndpointGcpMySQLSettings;
     readonly ibmDb2Settings?: outputs.dms.EndpointIbmDb2Settings;
     readonly id?: string;
     readonly kafkaSettings?: outputs.dms.EndpointKafkaSettings;

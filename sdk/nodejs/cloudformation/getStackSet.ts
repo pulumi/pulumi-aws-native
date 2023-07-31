@@ -29,7 +29,7 @@ export interface GetStackSetResult {
     /**
      * The Amazon Resource Number (ARN) of the IAM role to use to create this stack set. Specify an IAM role only if you are using customized administrator roles to control which users or groups can manage specific stack sets within the same administrator account.
      */
-    readonly administrationRoleARN?: string;
+    readonly administrationRoleArn?: string;
     /**
      * Describes whether StackSets automatically deploys to AWS Organizations accounts that are added to the target organization or organizational unit (OU). Specify only if PermissionModel is SERVICE_MANAGED.
      */

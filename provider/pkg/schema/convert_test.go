@@ -27,7 +27,7 @@ func TestDiffToPatch(t *testing.T) {
 	diff := resource.ObjectDiff{
 		Updates: map[resource.PropertyKey]resource.ValueDiff{
 			"desiredCount":         {New: resource.NewNumberProperty(2)},
-			"enableECSManagedTags": {New: resource.NewBoolProperty(true)},
+			"enableEcsManagedTags": {New: resource.NewBoolProperty(true)},
 			"loadBalancers": {
 				New: resource.NewArrayProperty([]resource.PropertyValue{
 					resource.NewObjectProperty(resource.NewPropertyMapFromMap(map[string]interface{}{
@@ -119,7 +119,7 @@ var sdkState = map[string]interface{}{
 		"minimumHealthyPercent": 100,
 	},
 	"desiredCount":         3,
-	"enableECSManagedTags": false,
+	"enableEcsManagedTags": false,
 	"launchType":           "FARGATE",
 	"loadBalancers": []interface{}{map[string]interface{}{
 		"containerName":  "my-app",
@@ -214,7 +214,7 @@ var sampleSchema = &CloudAPIMetadata{
 					},
 				},
 				"desiredCount":            {TypeSpec: pschema.TypeSpec{Type: "integer"}},
-				"enableECSManagedTags":    {TypeSpec: pschema.TypeSpec{Type: "boolean"}},
+				"enableEcsManagedTags":    {TypeSpec: pschema.TypeSpec{Type: "boolean"}},
 				"launchType":              {TypeSpec: pschema.TypeSpec{Type: "string"}},
 				"loadBalancers": {
 					TypeSpec: pschema.TypeSpec{
@@ -237,6 +237,9 @@ var sampleSchema = &CloudAPIMetadata{
 			},
 			Outputs: map[string]pschema.PropertySpec{
 				"name": {TypeSpec: pschema.TypeSpec{Type: "string"}},
+			},
+			IrreversibleNames: map[string]string{
+				"enableEcsManagedTags": "EnableECSManagedTags",
 			},
 		},
 	},

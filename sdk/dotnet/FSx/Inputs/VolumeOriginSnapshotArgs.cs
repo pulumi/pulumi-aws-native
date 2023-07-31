@@ -15,8 +15,8 @@ namespace Pulumi.AwsNative.FSx.Inputs
         [Input("copyStrategy", required: true)]
         public Input<string> CopyStrategy { get; set; } = null!;
 
-        [Input("snapshotARN", required: true)]
-        public Input<string> SnapshotARN { get; set; } = null!;
+        [Input("snapshotArn", required: true)]
+        public Input<string> SnapshotArn { get; set; } = null!;
 
         public VolumeOriginSnapshotArgs()
         {

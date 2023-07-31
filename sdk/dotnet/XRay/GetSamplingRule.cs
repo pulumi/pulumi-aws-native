@@ -27,8 +27,8 @@ namespace Pulumi.AwsNative.XRay
 
     public sealed class GetSamplingRuleArgs : global::Pulumi.InvokeArgs
     {
-        [Input("ruleARN", required: true)]
-        public string RuleARN { get; set; } = null!;
+        [Input("ruleArn", required: true)]
+        public string RuleArn { get; set; } = null!;
 
         public GetSamplingRuleArgs()
         {
@@ -38,8 +38,8 @@ namespace Pulumi.AwsNative.XRay
 
     public sealed class GetSamplingRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("ruleARN", required: true)]
-        public Input<string> RuleARN { get; set; } = null!;
+        [Input("ruleArn", required: true)]
+        public Input<string> RuleArn { get; set; } = null!;
 
         public GetSamplingRuleInvokeArgs()
         {
@@ -51,7 +51,7 @@ namespace Pulumi.AwsNative.XRay
     [OutputType]
     public sealed class GetSamplingRuleResult
     {
-        public readonly string? RuleARN;
+        public readonly string? RuleArn;
         public readonly string? RuleName;
         public readonly Outputs.SamplingRule? SamplingRuleValue;
         public readonly Outputs.SamplingRuleRecord? SamplingRuleRecord;
@@ -60,7 +60,7 @@ namespace Pulumi.AwsNative.XRay
 
         [OutputConstructor]
         private GetSamplingRuleResult(
-            string? ruleARN,
+            string? ruleArn,
 
             string? ruleName,
 
@@ -72,7 +72,7 @@ namespace Pulumi.AwsNative.XRay
 
             ImmutableArray<Outputs.SamplingRuleTag> tags)
         {
-            RuleARN = ruleARN;
+            RuleArn = ruleArn;
             RuleName = ruleName;
             SamplingRuleValue = samplingRule;
             SamplingRuleRecord = samplingRuleRecord;

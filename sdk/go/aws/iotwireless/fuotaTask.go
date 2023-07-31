@@ -35,7 +35,7 @@ type FuotaTask struct {
 	// FUOTA task status. Returned after successful read.
 	FuotaTaskStatus pulumi.StringOutput `pulumi:"fuotaTaskStatus"`
 	// FUOTA task LoRaWAN
-	LoRaWAN FuotaTaskLoRaWANOutput `pulumi:"loRaWAN"`
+	LoRaWan FuotaTaskLoRaWANOutput `pulumi:"loRaWan"`
 	// Name of FUOTA task
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// A list of key-value pairs that contain metadata for the FUOTA task.
@@ -55,8 +55,8 @@ func NewFuotaTask(ctx *pulumi.Context,
 	if args.FirmwareUpdateRole == nil {
 		return nil, errors.New("invalid value for required argument 'FirmwareUpdateRole'")
 	}
-	if args.LoRaWAN == nil {
-		return nil, errors.New("invalid value for required argument 'LoRaWAN'")
+	if args.LoRaWan == nil {
+		return nil, errors.New("invalid value for required argument 'LoRaWan'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FuotaTask
@@ -106,7 +106,7 @@ type fuotaTaskArgs struct {
 	// FUOTA task firmware IAM role for reading S3
 	FirmwareUpdateRole string `pulumi:"firmwareUpdateRole"`
 	// FUOTA task LoRaWAN
-	LoRaWAN FuotaTaskLoRaWAN `pulumi:"loRaWAN"`
+	LoRaWan FuotaTaskLoRaWAN `pulumi:"loRaWan"`
 	// Name of FUOTA task
 	Name *string `pulumi:"name"`
 	// A list of key-value pairs that contain metadata for the FUOTA task.
@@ -130,7 +130,7 @@ type FuotaTaskArgs struct {
 	// FUOTA task firmware IAM role for reading S3
 	FirmwareUpdateRole pulumi.StringInput
 	// FUOTA task LoRaWAN
-	LoRaWAN FuotaTaskLoRaWANInput
+	LoRaWan FuotaTaskLoRaWANInput
 	// Name of FUOTA task
 	Name pulumi.StringPtrInput
 	// A list of key-value pairs that contain metadata for the FUOTA task.
@@ -220,8 +220,8 @@ func (o FuotaTaskOutput) FuotaTaskStatus() pulumi.StringOutput {
 }
 
 // FUOTA task LoRaWAN
-func (o FuotaTaskOutput) LoRaWAN() FuotaTaskLoRaWANOutput {
-	return o.ApplyT(func(v *FuotaTask) FuotaTaskLoRaWANOutput { return v.LoRaWAN }).(FuotaTaskLoRaWANOutput)
+func (o FuotaTaskOutput) LoRaWan() FuotaTaskLoRaWANOutput {
+	return o.ApplyT(func(v *FuotaTask) FuotaTaskLoRaWANOutput { return v.LoRaWan }).(FuotaTaskLoRaWANOutput)
 }
 
 // Name of FUOTA task

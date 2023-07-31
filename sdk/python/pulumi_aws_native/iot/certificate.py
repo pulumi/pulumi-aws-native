@@ -16,7 +16,7 @@ __all__ = ['CertificateArgs', 'Certificate']
 class CertificateArgs:
     def __init__(__self__, *,
                  status: pulumi.Input['CertificateStatus'],
-                 c_a_certificate_pem: Optional[pulumi.Input[str]] = None,
+                 ca_certificate_pem: Optional[pulumi.Input[str]] = None,
                  certificate_mode: Optional[pulumi.Input['CertificateMode']] = None,
                  certificate_pem: Optional[pulumi.Input[str]] = None,
                  certificate_signing_request: Optional[pulumi.Input[str]] = None):
@@ -24,8 +24,8 @@ class CertificateArgs:
         The set of arguments for constructing a Certificate resource.
         """
         pulumi.set(__self__, "status", status)
-        if c_a_certificate_pem is not None:
-            pulumi.set(__self__, "c_a_certificate_pem", c_a_certificate_pem)
+        if ca_certificate_pem is not None:
+            pulumi.set(__self__, "ca_certificate_pem", ca_certificate_pem)
         if certificate_mode is not None:
             pulumi.set(__self__, "certificate_mode", certificate_mode)
         if certificate_pem is not None:
@@ -43,13 +43,13 @@ class CertificateArgs:
         pulumi.set(self, "status", value)
 
     @property
-    @pulumi.getter(name="cACertificatePem")
-    def c_a_certificate_pem(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "c_a_certificate_pem")
+    @pulumi.getter(name="caCertificatePem")
+    def ca_certificate_pem(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ca_certificate_pem")
 
-    @c_a_certificate_pem.setter
-    def c_a_certificate_pem(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "c_a_certificate_pem", value)
+    @ca_certificate_pem.setter
+    def ca_certificate_pem(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ca_certificate_pem", value)
 
     @property
     @pulumi.getter(name="certificateMode")
@@ -84,7 +84,7 @@ class Certificate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 c_a_certificate_pem: Optional[pulumi.Input[str]] = None,
+                 ca_certificate_pem: Optional[pulumi.Input[str]] = None,
                  certificate_mode: Optional[pulumi.Input['CertificateMode']] = None,
                  certificate_pem: Optional[pulumi.Input[str]] = None,
                  certificate_signing_request: Optional[pulumi.Input[str]] = None,
@@ -120,7 +120,7 @@ class Certificate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 c_a_certificate_pem: Optional[pulumi.Input[str]] = None,
+                 ca_certificate_pem: Optional[pulumi.Input[str]] = None,
                  certificate_mode: Optional[pulumi.Input['CertificateMode']] = None,
                  certificate_pem: Optional[pulumi.Input[str]] = None,
                  certificate_signing_request: Optional[pulumi.Input[str]] = None,
@@ -134,7 +134,7 @@ class Certificate(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CertificateArgs.__new__(CertificateArgs)
 
-            __props__.__dict__["c_a_certificate_pem"] = c_a_certificate_pem
+            __props__.__dict__["ca_certificate_pem"] = ca_certificate_pem
             __props__.__dict__["certificate_mode"] = certificate_mode
             __props__.__dict__["certificate_pem"] = certificate_pem
             __props__.__dict__["certificate_signing_request"] = certificate_signing_request
@@ -165,7 +165,7 @@ class Certificate(pulumi.CustomResource):
         __props__ = CertificateArgs.__new__(CertificateArgs)
 
         __props__.__dict__["arn"] = None
-        __props__.__dict__["c_a_certificate_pem"] = None
+        __props__.__dict__["ca_certificate_pem"] = None
         __props__.__dict__["certificate_mode"] = None
         __props__.__dict__["certificate_pem"] = None
         __props__.__dict__["certificate_signing_request"] = None
@@ -178,9 +178,9 @@ class Certificate(pulumi.CustomResource):
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="cACertificatePem")
-    def c_a_certificate_pem(self) -> pulumi.Output[Optional[str]]:
-        return pulumi.get(self, "c_a_certificate_pem")
+    @pulumi.getter(name="caCertificatePem")
+    def ca_certificate_pem(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "ca_certificate_pem")
 
     @property
     @pulumi.getter(name="certificateMode")

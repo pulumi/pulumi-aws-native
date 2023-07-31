@@ -2573,7 +2573,7 @@ class ReplicationConfigComputeConfig(dict):
             suggest = "kms_key_id"
         elif key == "minCapacityUnits":
             suggest = "min_capacity_units"
-        elif key == "multiAZ":
+        elif key == "multiAz":
             suggest = "multi_az"
         elif key == "preferredMaintenanceWindow":
             suggest = "preferred_maintenance_window"
@@ -2650,7 +2650,7 @@ class ReplicationConfigComputeConfig(dict):
         return pulumi.get(self, "min_capacity_units")
 
     @property
-    @pulumi.getter(name="multiAZ")
+    @pulumi.getter(name="multiAz")
     def multi_az(self) -> Optional[bool]:
         return pulumi.get(self, "multi_az")
 

@@ -28,10 +28,10 @@ type LookupStackArgs struct {
 
 type LookupStackResult struct {
 	Id               *string     `pulumi:"id"`
-	NotificationARNs []string    `pulumi:"notificationARNs"`
+	NotificationArns []string    `pulumi:"notificationArns"`
 	Parameters       interface{} `pulumi:"parameters"`
 	Tags             []StackTag  `pulumi:"tags"`
-	TemplateURL      *string     `pulumi:"templateURL"`
+	TemplateUrl      *string     `pulumi:"templateUrl"`
 	TimeoutInMinutes *int        `pulumi:"timeoutInMinutes"`
 }
 
@@ -74,8 +74,8 @@ func (o LookupStackResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStackResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupStackResultOutput) NotificationARNs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v LookupStackResult) []string { return v.NotificationARNs }).(pulumi.StringArrayOutput)
+func (o LookupStackResultOutput) NotificationArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupStackResult) []string { return v.NotificationArns }).(pulumi.StringArrayOutput)
 }
 
 func (o LookupStackResultOutput) Parameters() pulumi.AnyOutput {
@@ -86,8 +86,8 @@ func (o LookupStackResultOutput) Tags() StackTagArrayOutput {
 	return o.ApplyT(func(v LookupStackResult) []StackTag { return v.Tags }).(StackTagArrayOutput)
 }
 
-func (o LookupStackResultOutput) TemplateURL() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupStackResult) *string { return v.TemplateURL }).(pulumi.StringPtrOutput)
+func (o LookupStackResultOutput) TemplateUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStackResult) *string { return v.TemplateUrl }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupStackResultOutput) TimeoutInMinutes() pulumi.IntPtrOutput {

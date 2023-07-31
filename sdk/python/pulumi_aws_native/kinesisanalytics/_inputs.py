@@ -73,7 +73,7 @@ class ApplicationInputLambdaProcessorArgs:
         pulumi.set(__self__, "role_arn", role_arn)
 
     @property
-    @pulumi.getter(name="resourceARN")
+    @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[str]:
         return pulumi.get(self, "resource_arn")
 
@@ -82,7 +82,7 @@ class ApplicationInputLambdaProcessorArgs:
         pulumi.set(self, "resource_arn", value)
 
     @property
-    @pulumi.getter(name="roleARN")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         return pulumi.get(self, "role_arn")
 
@@ -264,7 +264,7 @@ class ApplicationKinesisFirehoseInputArgs:
         pulumi.set(__self__, "role_arn", role_arn)
 
     @property
-    @pulumi.getter(name="resourceARN")
+    @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[str]:
         return pulumi.get(self, "resource_arn")
 
@@ -273,7 +273,7 @@ class ApplicationKinesisFirehoseInputArgs:
         pulumi.set(self, "resource_arn", value)
 
     @property
-    @pulumi.getter(name="roleARN")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         return pulumi.get(self, "role_arn")
 
@@ -291,7 +291,7 @@ class ApplicationKinesisStreamsInputArgs:
         pulumi.set(__self__, "role_arn", role_arn)
 
     @property
-    @pulumi.getter(name="resourceARN")
+    @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[str]:
         return pulumi.get(self, "resource_arn")
 
@@ -300,7 +300,7 @@ class ApplicationKinesisStreamsInputArgs:
         pulumi.set(self, "resource_arn", value)
 
     @property
-    @pulumi.getter(name="roleARN")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         return pulumi.get(self, "role_arn")
 
@@ -312,30 +312,30 @@ class ApplicationKinesisStreamsInputArgs:
 @pulumi.input_type
 class ApplicationMappingParametersArgs:
     def __init__(__self__, *,
-                 c_sv_mapping_parameters: Optional[pulumi.Input['ApplicationCSVMappingParametersArgs']] = None,
-                 j_son_mapping_parameters: Optional[pulumi.Input['ApplicationJSONMappingParametersArgs']] = None):
-        if c_sv_mapping_parameters is not None:
-            pulumi.set(__self__, "c_sv_mapping_parameters", c_sv_mapping_parameters)
-        if j_son_mapping_parameters is not None:
-            pulumi.set(__self__, "j_son_mapping_parameters", j_son_mapping_parameters)
+                 csv_mapping_parameters: Optional[pulumi.Input['ApplicationCSVMappingParametersArgs']] = None,
+                 json_mapping_parameters: Optional[pulumi.Input['ApplicationJSONMappingParametersArgs']] = None):
+        if csv_mapping_parameters is not None:
+            pulumi.set(__self__, "csv_mapping_parameters", csv_mapping_parameters)
+        if json_mapping_parameters is not None:
+            pulumi.set(__self__, "json_mapping_parameters", json_mapping_parameters)
 
     @property
-    @pulumi.getter(name="cSVMappingParameters")
-    def c_sv_mapping_parameters(self) -> Optional[pulumi.Input['ApplicationCSVMappingParametersArgs']]:
-        return pulumi.get(self, "c_sv_mapping_parameters")
+    @pulumi.getter(name="csvMappingParameters")
+    def csv_mapping_parameters(self) -> Optional[pulumi.Input['ApplicationCSVMappingParametersArgs']]:
+        return pulumi.get(self, "csv_mapping_parameters")
 
-    @c_sv_mapping_parameters.setter
-    def c_sv_mapping_parameters(self, value: Optional[pulumi.Input['ApplicationCSVMappingParametersArgs']]):
-        pulumi.set(self, "c_sv_mapping_parameters", value)
+    @csv_mapping_parameters.setter
+    def csv_mapping_parameters(self, value: Optional[pulumi.Input['ApplicationCSVMappingParametersArgs']]):
+        pulumi.set(self, "csv_mapping_parameters", value)
 
     @property
-    @pulumi.getter(name="jSONMappingParameters")
-    def j_son_mapping_parameters(self) -> Optional[pulumi.Input['ApplicationJSONMappingParametersArgs']]:
-        return pulumi.get(self, "j_son_mapping_parameters")
+    @pulumi.getter(name="jsonMappingParameters")
+    def json_mapping_parameters(self) -> Optional[pulumi.Input['ApplicationJSONMappingParametersArgs']]:
+        return pulumi.get(self, "json_mapping_parameters")
 
-    @j_son_mapping_parameters.setter
-    def j_son_mapping_parameters(self, value: Optional[pulumi.Input['ApplicationJSONMappingParametersArgs']]):
-        pulumi.set(self, "j_son_mapping_parameters", value)
+    @json_mapping_parameters.setter
+    def json_mapping_parameters(self, value: Optional[pulumi.Input['ApplicationJSONMappingParametersArgs']]):
+        pulumi.set(self, "json_mapping_parameters", value)
 
 
 @pulumi.input_type
@@ -364,7 +364,7 @@ class ApplicationOutputResourceKinesisFirehoseOutputArgs:
         pulumi.set(__self__, "role_arn", role_arn)
 
     @property
-    @pulumi.getter(name="resourceARN")
+    @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[str]:
         return pulumi.get(self, "resource_arn")
 
@@ -373,7 +373,7 @@ class ApplicationOutputResourceKinesisFirehoseOutputArgs:
         pulumi.set(self, "resource_arn", value)
 
     @property
-    @pulumi.getter(name="roleARN")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         return pulumi.get(self, "role_arn")
 
@@ -391,7 +391,7 @@ class ApplicationOutputResourceKinesisStreamsOutputArgs:
         pulumi.set(__self__, "role_arn", role_arn)
 
     @property
-    @pulumi.getter(name="resourceARN")
+    @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[str]:
         return pulumi.get(self, "resource_arn")
 
@@ -400,7 +400,7 @@ class ApplicationOutputResourceKinesisStreamsOutputArgs:
         pulumi.set(self, "resource_arn", value)
 
     @property
-    @pulumi.getter(name="roleARN")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         return pulumi.get(self, "role_arn")
 
@@ -418,7 +418,7 @@ class ApplicationOutputResourceLambdaOutputArgs:
         pulumi.set(__self__, "role_arn", role_arn)
 
     @property
-    @pulumi.getter(name="resourceARN")
+    @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[str]:
         return pulumi.get(self, "resource_arn")
 
@@ -427,7 +427,7 @@ class ApplicationOutputResourceLambdaOutputArgs:
         pulumi.set(self, "resource_arn", value)
 
     @property
-    @pulumi.getter(name="roleARN")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         return pulumi.get(self, "role_arn")
 
@@ -613,30 +613,30 @@ class ApplicationReferenceDataSourceJSONMappingParametersArgs:
 @pulumi.input_type
 class ApplicationReferenceDataSourceMappingParametersArgs:
     def __init__(__self__, *,
-                 c_sv_mapping_parameters: Optional[pulumi.Input['ApplicationReferenceDataSourceCSVMappingParametersArgs']] = None,
-                 j_son_mapping_parameters: Optional[pulumi.Input['ApplicationReferenceDataSourceJSONMappingParametersArgs']] = None):
-        if c_sv_mapping_parameters is not None:
-            pulumi.set(__self__, "c_sv_mapping_parameters", c_sv_mapping_parameters)
-        if j_son_mapping_parameters is not None:
-            pulumi.set(__self__, "j_son_mapping_parameters", j_son_mapping_parameters)
+                 csv_mapping_parameters: Optional[pulumi.Input['ApplicationReferenceDataSourceCSVMappingParametersArgs']] = None,
+                 json_mapping_parameters: Optional[pulumi.Input['ApplicationReferenceDataSourceJSONMappingParametersArgs']] = None):
+        if csv_mapping_parameters is not None:
+            pulumi.set(__self__, "csv_mapping_parameters", csv_mapping_parameters)
+        if json_mapping_parameters is not None:
+            pulumi.set(__self__, "json_mapping_parameters", json_mapping_parameters)
 
     @property
-    @pulumi.getter(name="cSVMappingParameters")
-    def c_sv_mapping_parameters(self) -> Optional[pulumi.Input['ApplicationReferenceDataSourceCSVMappingParametersArgs']]:
-        return pulumi.get(self, "c_sv_mapping_parameters")
+    @pulumi.getter(name="csvMappingParameters")
+    def csv_mapping_parameters(self) -> Optional[pulumi.Input['ApplicationReferenceDataSourceCSVMappingParametersArgs']]:
+        return pulumi.get(self, "csv_mapping_parameters")
 
-    @c_sv_mapping_parameters.setter
-    def c_sv_mapping_parameters(self, value: Optional[pulumi.Input['ApplicationReferenceDataSourceCSVMappingParametersArgs']]):
-        pulumi.set(self, "c_sv_mapping_parameters", value)
+    @csv_mapping_parameters.setter
+    def csv_mapping_parameters(self, value: Optional[pulumi.Input['ApplicationReferenceDataSourceCSVMappingParametersArgs']]):
+        pulumi.set(self, "csv_mapping_parameters", value)
 
     @property
-    @pulumi.getter(name="jSONMappingParameters")
-    def j_son_mapping_parameters(self) -> Optional[pulumi.Input['ApplicationReferenceDataSourceJSONMappingParametersArgs']]:
-        return pulumi.get(self, "j_son_mapping_parameters")
+    @pulumi.getter(name="jsonMappingParameters")
+    def json_mapping_parameters(self) -> Optional[pulumi.Input['ApplicationReferenceDataSourceJSONMappingParametersArgs']]:
+        return pulumi.get(self, "json_mapping_parameters")
 
-    @j_son_mapping_parameters.setter
-    def j_son_mapping_parameters(self, value: Optional[pulumi.Input['ApplicationReferenceDataSourceJSONMappingParametersArgs']]):
-        pulumi.set(self, "j_son_mapping_parameters", value)
+    @json_mapping_parameters.setter
+    def json_mapping_parameters(self, value: Optional[pulumi.Input['ApplicationReferenceDataSourceJSONMappingParametersArgs']]):
+        pulumi.set(self, "json_mapping_parameters", value)
 
 
 @pulumi.input_type
@@ -796,7 +796,7 @@ class ApplicationReferenceDataSourceS3ReferenceDataSourceArgs:
         pulumi.set(__self__, "reference_role_arn", reference_role_arn)
 
     @property
-    @pulumi.getter(name="bucketARN")
+    @pulumi.getter(name="bucketArn")
     def bucket_arn(self) -> pulumi.Input[str]:
         return pulumi.get(self, "bucket_arn")
 
@@ -814,7 +814,7 @@ class ApplicationReferenceDataSourceS3ReferenceDataSourceArgs:
         pulumi.set(self, "file_key", value)
 
     @property
-    @pulumi.getter(name="referenceRoleARN")
+    @pulumi.getter(name="referenceRoleArn")
     def reference_role_arn(self) -> pulumi.Input[str]:
         return pulumi.get(self, "reference_role_arn")
 

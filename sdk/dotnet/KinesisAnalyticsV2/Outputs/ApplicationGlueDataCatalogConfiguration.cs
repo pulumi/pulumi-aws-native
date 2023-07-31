@@ -19,12 +19,12 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Outputs
         /// <summary>
         /// The Amazon Resource Name (ARN) of the database.
         /// </summary>
-        public readonly string? DatabaseARN;
+        public readonly string? DatabaseArn;
 
         [OutputConstructor]
-        private ApplicationGlueDataCatalogConfiguration(string? databaseARN)
+        private ApplicationGlueDataCatalogConfiguration(string? databaseArn)
         {
-            DatabaseARN = databaseARN;
+            DatabaseArn = databaseArn;
         }
     }
 }

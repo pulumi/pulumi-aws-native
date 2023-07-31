@@ -17,7 +17,7 @@ type TagAssociation struct {
 	pulumi.CustomResourceState
 
 	// List of Lake Formation Tags to associate with the Lake Formation Resource
-	LFTags TagAssociationLFTagPairArrayOutput `pulumi:"lFTags"`
+	LfTags TagAssociationLFTagPairArrayOutput `pulumi:"lfTags"`
 	// Resource to tag with the Lake Formation Tags
 	Resource TagAssociationResourceOutput `pulumi:"resource"`
 	// Unique string identifying the resource. Used as primary identifier, which ideally should be a string
@@ -33,8 +33,8 @@ func NewTagAssociation(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.LFTags == nil {
-		return nil, errors.New("invalid value for required argument 'LFTags'")
+	if args.LfTags == nil {
+		return nil, errors.New("invalid value for required argument 'LfTags'")
 	}
 	if args.Resource == nil {
 		return nil, errors.New("invalid value for required argument 'Resource'")
@@ -73,7 +73,7 @@ func (TagAssociationState) ElementType() reflect.Type {
 
 type tagAssociationArgs struct {
 	// List of Lake Formation Tags to associate with the Lake Formation Resource
-	LFTags []TagAssociationLFTagPair `pulumi:"lFTags"`
+	LfTags []TagAssociationLFTagPair `pulumi:"lfTags"`
 	// Resource to tag with the Lake Formation Tags
 	Resource TagAssociationResource `pulumi:"resource"`
 }
@@ -81,7 +81,7 @@ type tagAssociationArgs struct {
 // The set of arguments for constructing a TagAssociation resource.
 type TagAssociationArgs struct {
 	// List of Lake Formation Tags to associate with the Lake Formation Resource
-	LFTags TagAssociationLFTagPairArrayInput
+	LfTags TagAssociationLFTagPairArrayInput
 	// Resource to tag with the Lake Formation Tags
 	Resource TagAssociationResourceInput
 }
@@ -124,8 +124,8 @@ func (o TagAssociationOutput) ToTagAssociationOutputWithContext(ctx context.Cont
 }
 
 // List of Lake Formation Tags to associate with the Lake Formation Resource
-func (o TagAssociationOutput) LFTags() TagAssociationLFTagPairArrayOutput {
-	return o.ApplyT(func(v *TagAssociation) TagAssociationLFTagPairArrayOutput { return v.LFTags }).(TagAssociationLFTagPairArrayOutput)
+func (o TagAssociationOutput) LfTags() TagAssociationLFTagPairArrayOutput {
+	return o.ApplyT(func(v *TagAssociation) TagAssociationLFTagPairArrayOutput { return v.LfTags }).(TagAssociationLFTagPairArrayOutput)
 }
 
 // Resource to tag with the Lake Formation Tags

@@ -28,8 +28,8 @@ type LookupSecurityGroupIngressArgs struct {
 
 type LookupSecurityGroupIngressResult struct {
 	CacheSecurityGroupName  *string `pulumi:"cacheSecurityGroupName"`
-	EC2SecurityGroupName    *string `pulumi:"eC2SecurityGroupName"`
-	EC2SecurityGroupOwnerId *string `pulumi:"eC2SecurityGroupOwnerId"`
+	Ec2SecurityGroupName    *string `pulumi:"ec2SecurityGroupName"`
+	Ec2SecurityGroupOwnerId *string `pulumi:"ec2SecurityGroupOwnerId"`
 	Id                      *string `pulumi:"id"`
 }
 
@@ -72,12 +72,12 @@ func (o LookupSecurityGroupIngressResultOutput) CacheSecurityGroupName() pulumi.
 	return o.ApplyT(func(v LookupSecurityGroupIngressResult) *string { return v.CacheSecurityGroupName }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupSecurityGroupIngressResultOutput) EC2SecurityGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupSecurityGroupIngressResult) *string { return v.EC2SecurityGroupName }).(pulumi.StringPtrOutput)
+func (o LookupSecurityGroupIngressResultOutput) Ec2SecurityGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSecurityGroupIngressResult) *string { return v.Ec2SecurityGroupName }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupSecurityGroupIngressResultOutput) EC2SecurityGroupOwnerId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupSecurityGroupIngressResult) *string { return v.EC2SecurityGroupOwnerId }).(pulumi.StringPtrOutput)
+func (o LookupSecurityGroupIngressResultOutput) Ec2SecurityGroupOwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSecurityGroupIngressResult) *string { return v.Ec2SecurityGroupOwnerId }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupSecurityGroupIngressResultOutput) Id() pulumi.StringPtrOutput {

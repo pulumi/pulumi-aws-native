@@ -18,8 +18,8 @@ namespace Pulumi.AwsNative.EC2
         [Output("allocationId")]
         public Output<string?> AllocationId { get; private set; } = null!;
 
-        [Output("eIP")]
-        public Output<string?> EIP { get; private set; } = null!;
+        [Output("eip")]
+        public Output<string?> Eip { get; private set; } = null!;
 
         [Output("instanceId")]
         public Output<string?> InstanceId { get; private set; } = null!;
@@ -78,8 +78,8 @@ namespace Pulumi.AwsNative.EC2
         [Input("allocationId")]
         public Input<string>? AllocationId { get; set; }
 
-        [Input("eIP")]
-        public Input<string>? EIP { get; set; }
+        [Input("eip")]
+        public Input<string>? Eip { get; set; }
 
         [Input("instanceId")]
         public Input<string>? InstanceId { get; set; }

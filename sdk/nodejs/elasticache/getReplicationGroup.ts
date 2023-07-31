@@ -35,7 +35,7 @@ export interface GetReplicationGroupResult {
     readonly engineVersion?: string;
     readonly ipDiscovery?: string;
     readonly logDeliveryConfigurations?: outputs.elasticache.ReplicationGroupLogDeliveryConfigurationRequest[];
-    readonly multiAZEnabled?: boolean;
+    readonly multiAzEnabled?: boolean;
     readonly nodeGroupConfiguration?: outputs.elasticache.ReplicationGroupNodeGroupConfiguration[];
     readonly notificationTopicArn?: string;
     readonly numCacheClusters?: number;

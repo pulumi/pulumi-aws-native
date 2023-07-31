@@ -24,8 +24,8 @@ namespace Pulumi.AwsNative.XRay
         /// <summary>
         /// The ARN of the group that was generated on creation.
         /// </summary>
-        [Output("groupARN")]
-        public Output<string> GroupARN { get; private set; } = null!;
+        [Output("groupArn")]
+        public Output<string> GroupArn { get; private set; } = null!;
 
         /// <summary>
         /// The case-sensitive name of the new group. Names must be unique.

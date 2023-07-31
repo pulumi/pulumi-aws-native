@@ -1530,7 +1530,7 @@ class VolumeOriginSnapshotArgs:
         pulumi.set(self, "copy_strategy", value)
 
     @property
-    @pulumi.getter(name="snapshotARN")
+    @pulumi.getter(name="snapshotArn")
     def snapshot_arn(self) -> pulumi.Input[str]:
         return pulumi.get(self, "snapshot_arn")
 

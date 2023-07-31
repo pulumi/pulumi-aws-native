@@ -15,8 +15,8 @@ namespace Pulumi.AwsNative.XRay
     [AwsNativeResourceType("aws-native:xray:SamplingRule")]
     public partial class SamplingRule : global::Pulumi.CustomResource
     {
-        [Output("ruleARN")]
-        public Output<string> RuleARN { get; private set; } = null!;
+        [Output("ruleArn")]
+        public Output<string> RuleArn { get; private set; } = null!;
 
         [Output("ruleName")]
         public Output<string?> RuleName { get; private set; } = null!;

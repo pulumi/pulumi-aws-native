@@ -437,8 +437,8 @@ class FirewallSubnetMapping(dict):
         suggest = None
         if key == "subnetId":
             suggest = "subnet_id"
-        elif key == "iPAddressType":
-            suggest = "i_p_address_type"
+        elif key == "ipAddressType":
+            suggest = "ip_address_type"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in FirewallSubnetMapping. Access the value via the '{suggest}' property getter instead.")
@@ -453,14 +453,14 @@ class FirewallSubnetMapping(dict):
 
     def __init__(__self__, *,
                  subnet_id: str,
-                 i_p_address_type: Optional[str] = None):
+                 ip_address_type: Optional[str] = None):
         """
         :param str subnet_id: A SubnetId.
-        :param str i_p_address_type: A IPAddressType
+        :param str ip_address_type: A IPAddressType
         """
         pulumi.set(__self__, "subnet_id", subnet_id)
-        if i_p_address_type is not None:
-            pulumi.set(__self__, "i_p_address_type", i_p_address_type)
+        if ip_address_type is not None:
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
 
     @property
     @pulumi.getter(name="subnetId")
@@ -471,12 +471,12 @@ class FirewallSubnetMapping(dict):
         return pulumi.get(self, "subnet_id")
 
     @property
-    @pulumi.getter(name="iPAddressType")
-    def i_p_address_type(self) -> Optional[str]:
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> Optional[str]:
         """
         A IPAddressType
         """
-        return pulumi.get(self, "i_p_address_type")
+        return pulumi.get(self, "ip_address_type")
 
 
 @pulumi.output_type
@@ -823,8 +823,8 @@ class RuleGroupMatchAttributes(dict):
             suggest = "destination_ports"
         elif key == "sourcePorts":
             suggest = "source_ports"
-        elif key == "tCPFlags":
-            suggest = "t_cp_flags"
+        elif key == "tcpFlags":
+            suggest = "tcp_flags"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in RuleGroupMatchAttributes. Access the value via the '{suggest}' property getter instead.")
@@ -843,7 +843,7 @@ class RuleGroupMatchAttributes(dict):
                  protocols: Optional[Sequence[int]] = None,
                  source_ports: Optional[Sequence['outputs.RuleGroupPortRange']] = None,
                  sources: Optional[Sequence['outputs.RuleGroupAddress']] = None,
-                 t_cp_flags: Optional[Sequence['outputs.RuleGroupTCPFlagField']] = None):
+                 tcp_flags: Optional[Sequence['outputs.RuleGroupTCPFlagField']] = None):
         if destination_ports is not None:
             pulumi.set(__self__, "destination_ports", destination_ports)
         if destinations is not None:
@@ -854,8 +854,8 @@ class RuleGroupMatchAttributes(dict):
             pulumi.set(__self__, "source_ports", source_ports)
         if sources is not None:
             pulumi.set(__self__, "sources", sources)
-        if t_cp_flags is not None:
-            pulumi.set(__self__, "t_cp_flags", t_cp_flags)
+        if tcp_flags is not None:
+            pulumi.set(__self__, "tcp_flags", tcp_flags)
 
     @property
     @pulumi.getter(name="destinationPorts")
@@ -883,9 +883,9 @@ class RuleGroupMatchAttributes(dict):
         return pulumi.get(self, "sources")
 
     @property
-    @pulumi.getter(name="tCPFlags")
-    def t_cp_flags(self) -> Optional[Sequence['outputs.RuleGroupTCPFlagField']]:
-        return pulumi.get(self, "t_cp_flags")
+    @pulumi.getter(name="tcpFlags")
+    def tcp_flags(self) -> Optional[Sequence['outputs.RuleGroupTCPFlagField']]:
+        return pulumi.get(self, "tcp_flags")
 
 
 @pulumi.output_type
@@ -943,8 +943,8 @@ class RuleGroupReferenceSets(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "iPSetReferences":
-            suggest = "i_p_set_references"
+        if key == "ipSetReferences":
+            suggest = "ip_set_references"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in RuleGroupReferenceSets. Access the value via the '{suggest}' property getter instead.")
@@ -958,14 +958,14 @@ class RuleGroupReferenceSets(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 i_p_set_references: Optional[Any] = None):
-        if i_p_set_references is not None:
-            pulumi.set(__self__, "i_p_set_references", i_p_set_references)
+                 ip_set_references: Optional[Any] = None):
+        if ip_set_references is not None:
+            pulumi.set(__self__, "ip_set_references", ip_set_references)
 
     @property
-    @pulumi.getter(name="iPSetReferences")
-    def i_p_set_references(self) -> Optional[Any]:
-        return pulumi.get(self, "i_p_set_references")
+    @pulumi.getter(name="ipSetReferences")
+    def ip_set_references(self) -> Optional[Any]:
+        return pulumi.get(self, "ip_set_references")
 
 
 @pulumi.output_type
@@ -1029,8 +1029,8 @@ class RuleGroupRuleVariables(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "iPSets":
-            suggest = "i_p_sets"
+        if key == "ipSets":
+            suggest = "ip_sets"
         elif key == "portSets":
             suggest = "port_sets"
 
@@ -1046,17 +1046,17 @@ class RuleGroupRuleVariables(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 i_p_sets: Optional[Any] = None,
+                 ip_sets: Optional[Any] = None,
                  port_sets: Optional[Any] = None):
-        if i_p_sets is not None:
-            pulumi.set(__self__, "i_p_sets", i_p_sets)
+        if ip_sets is not None:
+            pulumi.set(__self__, "ip_sets", ip_sets)
         if port_sets is not None:
             pulumi.set(__self__, "port_sets", port_sets)
 
     @property
-    @pulumi.getter(name="iPSets")
-    def i_p_sets(self) -> Optional[Any]:
-        return pulumi.get(self, "i_p_sets")
+    @pulumi.getter(name="ipSets")
+    def ip_sets(self) -> Optional[Any]:
+        return pulumi.get(self, "ip_sets")
 
     @property
     @pulumi.getter(name="portSets")

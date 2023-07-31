@@ -32,8 +32,8 @@ namespace Pulumi.AwsNative.ElasticLoadBalancing.Inputs
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
 
-        [Input("sSLCertificateId")]
-        public Input<string>? SSLCertificateId { get; set; }
+        [Input("sslCertificateId")]
+        public Input<string>? SslCertificateId { get; set; }
 
         public LoadBalancerListenersArgs()
         {

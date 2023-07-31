@@ -167,7 +167,7 @@ class ParameterGroup(pulumi.CustomResource):
             __props__.__dict__["parameter_group_name"] = parameter_group_name
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["a_rn"] = None
+            __props__.__dict__["arn"] = None
         super(ParameterGroup, __self__).__init__(
             'aws-native:memorydb:ParameterGroup',
             resource_name,
@@ -190,7 +190,7 @@ class ParameterGroup(pulumi.CustomResource):
 
         __props__ = ParameterGroupArgs.__new__(ParameterGroupArgs)
 
-        __props__.__dict__["a_rn"] = None
+        __props__.__dict__["arn"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["family"] = None
         __props__.__dict__["parameter_group_name"] = None
@@ -199,12 +199,12 @@ class ParameterGroup(pulumi.CustomResource):
         return ParameterGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="aRN")
-    def a_rn(self) -> pulumi.Output[str]:
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name (ARN) of the parameter group.
         """
-        return pulumi.get(self, "a_rn")
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter

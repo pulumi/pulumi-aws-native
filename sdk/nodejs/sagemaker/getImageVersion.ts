@@ -28,7 +28,7 @@ export interface GetImageVersionResult {
     readonly imageArn?: string;
     readonly imageVersionArn?: string;
     readonly jobType?: enums.sagemaker.ImageVersionJobType;
-    readonly mLFramework?: string;
+    readonly mlFramework?: string;
     readonly processor?: enums.sagemaker.ImageVersionProcessor;
     readonly programmingLang?: string;
     readonly releaseNotes?: string;

@@ -3105,8 +3105,6 @@ class IndexJwtTokenTypeConfiguration(dict):
             suggest = "group_attribute_field"
         elif key == "secretManagerArn":
             suggest = "secret_manager_arn"
-        elif key == "uRL":
-            suggest = "u_rl"
         elif key == "userNameAttributeField":
             suggest = "user_name_attribute_field"
 
@@ -3127,7 +3125,7 @@ class IndexJwtTokenTypeConfiguration(dict):
                  group_attribute_field: Optional[str] = None,
                  issuer: Optional[str] = None,
                  secret_manager_arn: Optional[str] = None,
-                 u_rl: Optional[str] = None,
+                 url: Optional[str] = None,
                  user_name_attribute_field: Optional[str] = None):
         pulumi.set(__self__, "key_location", key_location)
         if claim_regex is not None:
@@ -3138,8 +3136,8 @@ class IndexJwtTokenTypeConfiguration(dict):
             pulumi.set(__self__, "issuer", issuer)
         if secret_manager_arn is not None:
             pulumi.set(__self__, "secret_manager_arn", secret_manager_arn)
-        if u_rl is not None:
-            pulumi.set(__self__, "u_rl", u_rl)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
         if user_name_attribute_field is not None:
             pulumi.set(__self__, "user_name_attribute_field", user_name_attribute_field)
 
@@ -3169,9 +3167,9 @@ class IndexJwtTokenTypeConfiguration(dict):
         return pulumi.get(self, "secret_manager_arn")
 
     @property
-    @pulumi.getter(name="uRL")
-    def u_rl(self) -> Optional[str]:
-        return pulumi.get(self, "u_rl")
+    @pulumi.getter
+    def url(self) -> Optional[str]:
+        return pulumi.get(self, "url")
 
     @property
     @pulumi.getter(name="userNameAttributeField")

@@ -17,12 +17,12 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
         public readonly Outputs.DeliveryStreamCloudWatchLoggingOptions? CloudWatchLoggingOptions;
         public readonly string? ClusterEndpoint;
         public readonly Outputs.DeliveryStreamDocumentIdOptions? DocumentIdOptions;
-        public readonly string? DomainARN;
+        public readonly string? DomainArn;
         public readonly string IndexName;
         public readonly Pulumi.AwsNative.KinesisFirehose.DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod? IndexRotationPeriod;
         public readonly Outputs.DeliveryStreamProcessingConfiguration? ProcessingConfiguration;
         public readonly Outputs.DeliveryStreamElasticsearchRetryOptions? RetryOptions;
-        public readonly string RoleARN;
+        public readonly string RoleArn;
         public readonly Pulumi.AwsNative.KinesisFirehose.DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode? S3BackupMode;
         public readonly Outputs.DeliveryStreamS3DestinationConfiguration S3Configuration;
         public readonly string? TypeName;
@@ -38,7 +38,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
 
             Outputs.DeliveryStreamDocumentIdOptions? documentIdOptions,
 
-            string? domainARN,
+            string? domainArn,
 
             string indexName,
 
@@ -48,7 +48,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
 
             Outputs.DeliveryStreamElasticsearchRetryOptions? retryOptions,
 
-            string roleARN,
+            string roleArn,
 
             Pulumi.AwsNative.KinesisFirehose.DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode? s3BackupMode,
 
@@ -62,12 +62,12 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
             CloudWatchLoggingOptions = cloudWatchLoggingOptions;
             ClusterEndpoint = clusterEndpoint;
             DocumentIdOptions = documentIdOptions;
-            DomainARN = domainARN;
+            DomainArn = domainArn;
             IndexName = indexName;
             IndexRotationPeriod = indexRotationPeriod;
             ProcessingConfiguration = processingConfiguration;
             RetryOptions = retryOptions;
-            RoleARN = roleARN;
+            RoleArn = roleArn;
             S3BackupMode = s3BackupMode;
             S3Configuration = s3Configuration;
             TypeName = typeName;

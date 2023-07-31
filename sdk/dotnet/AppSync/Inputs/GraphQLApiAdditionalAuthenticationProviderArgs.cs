@@ -18,8 +18,8 @@ namespace Pulumi.AwsNative.AppSync.Inputs
         [Input("lambdaAuthorizerConfig")]
         public Input<Inputs.GraphQLApiLambdaAuthorizerConfigArgs>? LambdaAuthorizerConfig { get; set; }
 
-        [Input("openIDConnectConfig")]
-        public Input<Inputs.GraphQLApiOpenIDConnectConfigArgs>? OpenIDConnectConfig { get; set; }
+        [Input("openIdConnectConfig")]
+        public Input<Inputs.GraphQLApiOpenIDConnectConfigArgs>? OpenIdConnectConfig { get; set; }
 
         [Input("userPoolConfig")]
         public Input<Inputs.GraphQLApiCognitoUserPoolConfigArgs>? UserPoolConfig { get; set; }

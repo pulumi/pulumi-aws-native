@@ -165,7 +165,7 @@ class AuthorizerArgs:
         pulumi.set(self, "name", value)
 
     @property
-    @pulumi.getter(name="providerARNs")
+    @pulumi.getter(name="providerArns")
     def provider_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of the Amazon Cognito user pool ARNs for the COGNITO_USER_POOLS authorizer.
@@ -364,7 +364,7 @@ class Authorizer(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="providerARNs")
+    @pulumi.getter(name="providerArns")
     def provider_arns(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of the Amazon Cognito user pool ARNs for the COGNITO_USER_POOLS authorizer.

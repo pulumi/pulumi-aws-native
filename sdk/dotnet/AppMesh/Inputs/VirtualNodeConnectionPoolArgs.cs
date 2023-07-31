@@ -12,17 +12,17 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
 
     public sealed class VirtualNodeConnectionPoolArgs : global::Pulumi.ResourceArgs
     {
-        [Input("gRPC")]
-        public Input<Inputs.VirtualNodeGrpcConnectionPoolArgs>? GRPC { get; set; }
+        [Input("grpc")]
+        public Input<Inputs.VirtualNodeGrpcConnectionPoolArgs>? Grpc { get; set; }
 
-        [Input("hTTP")]
-        public Input<Inputs.VirtualNodeHttpConnectionPoolArgs>? HTTP { get; set; }
+        [Input("http")]
+        public Input<Inputs.VirtualNodeHttpConnectionPoolArgs>? Http { get; set; }
 
-        [Input("hTTP2")]
-        public Input<Inputs.VirtualNodeHttp2ConnectionPoolArgs>? HTTP2 { get; set; }
+        [Input("http2")]
+        public Input<Inputs.VirtualNodeHttp2ConnectionPoolArgs>? Http2 { get; set; }
 
-        [Input("tCP")]
-        public Input<Inputs.VirtualNodeTcpConnectionPoolArgs>? TCP { get; set; }
+        [Input("tcp")]
+        public Input<Inputs.VirtualNodeTcpConnectionPoolArgs>? Tcp { get; set; }
 
         public VirtualNodeConnectionPoolArgs()
         {

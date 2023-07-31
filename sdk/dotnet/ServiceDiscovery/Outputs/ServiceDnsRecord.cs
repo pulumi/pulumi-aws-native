@@ -13,16 +13,16 @@ namespace Pulumi.AwsNative.ServiceDiscovery.Outputs
     [OutputType]
     public sealed class ServiceDnsRecord
     {
-        public readonly double TTL;
+        public readonly double Ttl;
         public readonly string Type;
 
         [OutputConstructor]
         private ServiceDnsRecord(
-            double tTL,
+            double ttl,
 
             string type)
         {
-            TTL = tTL;
+            Ttl = ttl;
             Type = type;
         }
     }

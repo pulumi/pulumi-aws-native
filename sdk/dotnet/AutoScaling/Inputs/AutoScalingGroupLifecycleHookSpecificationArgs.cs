@@ -27,11 +27,11 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
         [Input("notificationMetadata")]
         public Input<string>? NotificationMetadata { get; set; }
 
-        [Input("notificationTargetARN")]
-        public Input<string>? NotificationTargetARN { get; set; }
+        [Input("notificationTargetArn")]
+        public Input<string>? NotificationTargetArn { get; set; }
 
-        [Input("roleARN")]
-        public Input<string>? RoleARN { get; set; }
+        [Input("roleArn")]
+        public Input<string>? RoleArn { get; set; }
 
         public AutoScalingGroupLifecycleHookSpecificationArgs()
         {

@@ -27,8 +27,8 @@ namespace Pulumi.AwsNative.Synthetics.Inputs
         /// <summary>
         /// Provide maximum memory available for canary in MB
         /// </summary>
-        [Input("memoryInMB")]
-        public Input<int>? MemoryInMB { get; set; }
+        [Input("memoryInMb")]
+        public Input<int>? MemoryInMb { get; set; }
 
         /// <summary>
         /// Provide maximum canary timeout per run in seconds

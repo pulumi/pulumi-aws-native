@@ -311,7 +311,7 @@ class FleetLocationCapacity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "desiredEC2Instances":
+        if key == "desiredEc2Instances":
             suggest = "desired_ec2_instances"
         elif key == "maxSize":
             suggest = "max_size"
@@ -344,7 +344,7 @@ class FleetLocationCapacity(dict):
         pulumi.set(__self__, "min_size", min_size)
 
     @property
-    @pulumi.getter(name="desiredEC2Instances")
+    @pulumi.getter(name="desiredEc2Instances")
     def desired_ec2_instances(self) -> int:
         """
         The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits.

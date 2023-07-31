@@ -30,7 +30,7 @@ type LoadBalancer struct {
 	// Configuration option to enable session stickiness.
 	SessionStickinessEnabled pulumi.BoolPtrOutput `pulumi:"sessionStickinessEnabled"`
 	// Configuration option to adjust session stickiness cookie duration parameter.
-	SessionStickinessLBCookieDurationSeconds pulumi.StringPtrOutput `pulumi:"sessionStickinessLBCookieDurationSeconds"`
+	SessionStickinessLbCookieDurationSeconds pulumi.StringPtrOutput `pulumi:"sessionStickinessLbCookieDurationSeconds"`
 	// An array of key-value pairs to apply to this resource.
 	Tags LoadBalancerTagArrayOutput `pulumi:"tags"`
 	// The name of the TLS policy to apply to the load balancer.
@@ -93,7 +93,7 @@ type loadBalancerArgs struct {
 	// Configuration option to enable session stickiness.
 	SessionStickinessEnabled *bool `pulumi:"sessionStickinessEnabled"`
 	// Configuration option to adjust session stickiness cookie duration parameter.
-	SessionStickinessLBCookieDurationSeconds *string `pulumi:"sessionStickinessLBCookieDurationSeconds"`
+	SessionStickinessLbCookieDurationSeconds *string `pulumi:"sessionStickinessLbCookieDurationSeconds"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []LoadBalancerTag `pulumi:"tags"`
 	// The name of the TLS policy to apply to the load balancer.
@@ -115,7 +115,7 @@ type LoadBalancerArgs struct {
 	// Configuration option to enable session stickiness.
 	SessionStickinessEnabled pulumi.BoolPtrInput
 	// Configuration option to adjust session stickiness cookie duration parameter.
-	SessionStickinessLBCookieDurationSeconds pulumi.StringPtrInput
+	SessionStickinessLbCookieDurationSeconds pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags LoadBalancerTagArrayInput
 	// The name of the TLS policy to apply to the load balancer.
@@ -194,8 +194,8 @@ func (o LoadBalancerOutput) SessionStickinessEnabled() pulumi.BoolPtrOutput {
 }
 
 // Configuration option to adjust session stickiness cookie duration parameter.
-func (o LoadBalancerOutput) SessionStickinessLBCookieDurationSeconds() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LoadBalancer) pulumi.StringPtrOutput { return v.SessionStickinessLBCookieDurationSeconds }).(pulumi.StringPtrOutput)
+func (o LoadBalancerOutput) SessionStickinessLbCookieDurationSeconds() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LoadBalancer) pulumi.StringPtrOutput { return v.SessionStickinessLbCookieDurationSeconds }).(pulumi.StringPtrOutput)
 }
 
 // An array of key-value pairs to apply to this resource.

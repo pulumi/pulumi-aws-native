@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         public readonly Outputs.DashboardDataPointDrillUpDownOption? DataPointDrillUpDownOption;
         public readonly Outputs.DashboardDataPointMenuLabelOption? DataPointMenuLabelOption;
         public readonly Outputs.DashboardDataPointTooltipOption? DataPointTooltipOption;
-        public readonly Outputs.DashboardExportToCSVOption? ExportToCSVOption;
+        public readonly Outputs.DashboardExportToCSVOption? ExportToCsvOption;
         public readonly Outputs.DashboardExportWithHiddenFieldsOption? ExportWithHiddenFieldsOption;
         public readonly Outputs.DashboardSheetControlsOption? SheetControlsOption;
         public readonly Outputs.DashboardSheetLayoutElementMaximizationOption? SheetLayoutElementMaximizationOption;
@@ -35,7 +35,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.DashboardDataPointTooltipOption? dataPointTooltipOption,
 
-            Outputs.DashboardExportToCSVOption? exportToCSVOption,
+            Outputs.DashboardExportToCSVOption? exportToCsvOption,
 
             Outputs.DashboardExportWithHiddenFieldsOption? exportWithHiddenFieldsOption,
 
@@ -53,7 +53,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             DataPointDrillUpDownOption = dataPointDrillUpDownOption;
             DataPointMenuLabelOption = dataPointMenuLabelOption;
             DataPointTooltipOption = dataPointTooltipOption;
-            ExportToCSVOption = exportToCSVOption;
+            ExportToCsvOption = exportToCsvOption;
             ExportWithHiddenFieldsOption = exportWithHiddenFieldsOption;
             SheetControlsOption = sheetControlsOption;
             SheetLayoutElementMaximizationOption = sheetLayoutElementMaximizationOption;

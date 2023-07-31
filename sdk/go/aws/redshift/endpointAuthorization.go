@@ -19,9 +19,9 @@ type EndpointAuthorization struct {
 	// The target AWS account ID to grant or revoke access for.
 	Account pulumi.StringOutput `pulumi:"account"`
 	// Indicates whether all VPCs in the grantee account are allowed access to the cluster.
-	AllowedAllVPCs pulumi.BoolOutput `pulumi:"allowedAllVPCs"`
+	AllowedAllVpcs pulumi.BoolOutput `pulumi:"allowedAllVpcs"`
 	// The VPCs allowed access to the cluster.
-	AllowedVPCs pulumi.StringArrayOutput `pulumi:"allowedVPCs"`
+	AllowedVpcs pulumi.StringArrayOutput `pulumi:"allowedVpcs"`
 	// The time (UTC) when the authorization was created.
 	AuthorizeTime pulumi.StringOutput `pulumi:"authorizeTime"`
 	// The cluster identifier.
@@ -153,13 +153,13 @@ func (o EndpointAuthorizationOutput) Account() pulumi.StringOutput {
 }
 
 // Indicates whether all VPCs in the grantee account are allowed access to the cluster.
-func (o EndpointAuthorizationOutput) AllowedAllVPCs() pulumi.BoolOutput {
-	return o.ApplyT(func(v *EndpointAuthorization) pulumi.BoolOutput { return v.AllowedAllVPCs }).(pulumi.BoolOutput)
+func (o EndpointAuthorizationOutput) AllowedAllVpcs() pulumi.BoolOutput {
+	return o.ApplyT(func(v *EndpointAuthorization) pulumi.BoolOutput { return v.AllowedAllVpcs }).(pulumi.BoolOutput)
 }
 
 // The VPCs allowed access to the cluster.
-func (o EndpointAuthorizationOutput) AllowedVPCs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *EndpointAuthorization) pulumi.StringArrayOutput { return v.AllowedVPCs }).(pulumi.StringArrayOutput)
+func (o EndpointAuthorizationOutput) AllowedVpcs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *EndpointAuthorization) pulumi.StringArrayOutput { return v.AllowedVpcs }).(pulumi.StringArrayOutput)
 }
 
 // The time (UTC) when the authorization was created.

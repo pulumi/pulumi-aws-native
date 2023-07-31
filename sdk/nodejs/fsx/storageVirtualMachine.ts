@@ -43,12 +43,12 @@ export class StorageVirtualMachine extends pulumi.CustomResource {
     public readonly activeDirectoryConfiguration!: pulumi.Output<outputs.fsx.StorageVirtualMachineActiveDirectoryConfiguration | undefined>;
     public readonly fileSystemId!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string>;
-    public /*out*/ readonly resourceARN!: pulumi.Output<string>;
+    public /*out*/ readonly resourceArn!: pulumi.Output<string>;
     public readonly rootVolumeSecurityStyle!: pulumi.Output<string | undefined>;
     public /*out*/ readonly storageVirtualMachineId!: pulumi.Output<string>;
     public readonly svmAdminPassword!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<outputs.fsx.StorageVirtualMachineTag[] | undefined>;
-    public /*out*/ readonly uUID!: pulumi.Output<string>;
+    public /*out*/ readonly uuid!: pulumi.Output<string>;
 
     /**
      * Create a StorageVirtualMachine resource with the given unique name, arguments, and options.
@@ -72,19 +72,19 @@ export class StorageVirtualMachine extends pulumi.CustomResource {
             resourceInputs["rootVolumeSecurityStyle"] = args ? args.rootVolumeSecurityStyle : undefined;
             resourceInputs["svmAdminPassword"] = args ? args.svmAdminPassword : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["resourceARN"] = undefined /*out*/;
+            resourceInputs["resourceArn"] = undefined /*out*/;
             resourceInputs["storageVirtualMachineId"] = undefined /*out*/;
-            resourceInputs["uUID"] = undefined /*out*/;
+            resourceInputs["uuid"] = undefined /*out*/;
         } else {
             resourceInputs["activeDirectoryConfiguration"] = undefined /*out*/;
             resourceInputs["fileSystemId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["resourceARN"] = undefined /*out*/;
+            resourceInputs["resourceArn"] = undefined /*out*/;
             resourceInputs["rootVolumeSecurityStyle"] = undefined /*out*/;
             resourceInputs["storageVirtualMachineId"] = undefined /*out*/;
             resourceInputs["svmAdminPassword"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
-            resourceInputs["uUID"] = undefined /*out*/;
+            resourceInputs["uuid"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(StorageVirtualMachine.__pulumiType, name, resourceInputs, opts);

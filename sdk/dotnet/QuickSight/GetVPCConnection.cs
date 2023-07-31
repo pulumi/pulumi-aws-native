@@ -30,8 +30,8 @@ namespace Pulumi.AwsNative.QuickSight
         [Input("awsAccountId", required: true)]
         public string AwsAccountId { get; set; } = null!;
 
-        [Input("vPCConnectionId", required: true)]
-        public string VPCConnectionId { get; set; } = null!;
+        [Input("vpcConnectionId", required: true)]
+        public string VpcConnectionId { get; set; } = null!;
 
         public GetVPCConnectionArgs()
         {
@@ -44,8 +44,8 @@ namespace Pulumi.AwsNative.QuickSight
         [Input("awsAccountId", required: true)]
         public Input<string> AwsAccountId { get; set; } = null!;
 
-        [Input("vPCConnectionId", required: true)]
-        public Input<string> VPCConnectionId { get; set; } = null!;
+        [Input("vpcConnectionId", required: true)]
+        public Input<string> VpcConnectionId { get; set; } = null!;
 
         public GetVPCConnectionInvokeArgs()
         {
@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.QuickSight
         public readonly ImmutableArray<string> SecurityGroupIds;
         public readonly Pulumi.AwsNative.QuickSight.VPCConnectionResourceStatus? Status;
         public readonly ImmutableArray<Outputs.VPCConnectionTag> Tags;
-        public readonly string? VPCId;
+        public readonly string? VpcId;
 
         [OutputConstructor]
         private GetVPCConnectionResult(
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.QuickSight
 
             ImmutableArray<Outputs.VPCConnectionTag> tags,
 
-            string? vPCId)
+            string? vpcId)
         {
             Arn = arn;
             AvailabilityStatus = availabilityStatus;
@@ -107,7 +107,7 @@ namespace Pulumi.AwsNative.QuickSight
             SecurityGroupIds = securityGroupIds;
             Status = status;
             Tags = tags;
-            VPCId = vPCId;
+            VpcId = vpcId;
         }
     }
 }

@@ -13,21 +13,21 @@ namespace Pulumi.AwsNative.AppMesh.Outputs
     [OutputType]
     public sealed class VirtualNodeTlsValidationContextTrust
     {
-        public readonly Outputs.VirtualNodeTlsValidationContextAcmTrust? ACM;
+        public readonly Outputs.VirtualNodeTlsValidationContextAcmTrust? Acm;
         public readonly Outputs.VirtualNodeTlsValidationContextFileTrust? File;
-        public readonly Outputs.VirtualNodeTlsValidationContextSdsTrust? SDS;
+        public readonly Outputs.VirtualNodeTlsValidationContextSdsTrust? Sds;
 
         [OutputConstructor]
         private VirtualNodeTlsValidationContextTrust(
-            Outputs.VirtualNodeTlsValidationContextAcmTrust? aCM,
+            Outputs.VirtualNodeTlsValidationContextAcmTrust? acm,
 
             Outputs.VirtualNodeTlsValidationContextFileTrust? file,
 
-            Outputs.VirtualNodeTlsValidationContextSdsTrust? sDS)
+            Outputs.VirtualNodeTlsValidationContextSdsTrust? sds)
         {
-            ACM = aCM;
+            Acm = acm;
             File = file;
-            SDS = sDS;
+            Sds = sds;
         }
     }
 }

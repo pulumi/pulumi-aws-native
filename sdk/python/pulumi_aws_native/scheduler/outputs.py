@@ -190,7 +190,7 @@ class ScheduleEcsParameters(dict):
             suggest = "task_definition_arn"
         elif key == "capacityProviderStrategy":
             suggest = "capacity_provider_strategy"
-        elif key == "enableECSManagedTags":
+        elif key == "enableEcsManagedTags":
             suggest = "enable_ecs_managed_tags"
         elif key == "enableExecuteCommand":
             suggest = "enable_execute_command"
@@ -296,7 +296,7 @@ class ScheduleEcsParameters(dict):
         return pulumi.get(self, "capacity_provider_strategy")
 
     @property
-    @pulumi.getter(name="enableECSManagedTags")
+    @pulumi.getter(name="enableEcsManagedTags")
     def enable_ecs_managed_tags(self) -> Optional[bool]:
         """
         Specifies whether to enable Amazon ECS managed tags for the task. For more information, see Tagging Your Amazon ECS Resources in the Amazon Elastic Container Service Developer Guide.

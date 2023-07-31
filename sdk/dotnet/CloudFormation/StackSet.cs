@@ -18,8 +18,8 @@ namespace Pulumi.AwsNative.CloudFormation
         /// <summary>
         /// The Amazon Resource Number (ARN) of the IAM role to use to create this stack set. Specify an IAM role only if you are using customized administrator roles to control which users or groups can manage specific stack sets within the same administrator account.
         /// </summary>
-        [Output("administrationRoleARN")]
-        public Output<string?> AdministrationRoleARN { get; private set; } = null!;
+        [Output("administrationRoleArn")]
+        public Output<string?> AdministrationRoleArn { get; private set; } = null!;
 
         /// <summary>
         /// Describes whether StackSets automatically deploys to AWS Organizations accounts that are added to the target organization or organizational unit (OU). Specify only if PermissionModel is SERVICE_MANAGED.
@@ -105,8 +105,8 @@ namespace Pulumi.AwsNative.CloudFormation
         /// <summary>
         /// Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that is located in an Amazon S3 bucket.
         /// </summary>
-        [Output("templateURL")]
-        public Output<string?> TemplateURL { get; private set; } = null!;
+        [Output("templateUrl")]
+        public Output<string?> TemplateUrl { get; private set; } = null!;
 
 
         /// <summary>
@@ -156,8 +156,8 @@ namespace Pulumi.AwsNative.CloudFormation
         /// <summary>
         /// The Amazon Resource Number (ARN) of the IAM role to use to create this stack set. Specify an IAM role only if you are using customized administrator roles to control which users or groups can manage specific stack sets within the same administrator account.
         /// </summary>
-        [Input("administrationRoleARN")]
-        public Input<string>? AdministrationRoleARN { get; set; }
+        [Input("administrationRoleArn")]
+        public Input<string>? AdministrationRoleArn { get; set; }
 
         /// <summary>
         /// Describes whether StackSets automatically deploys to AWS Organizations accounts that are added to the target organization or organizational unit (OU). Specify only if PermissionModel is SERVICE_MANAGED.
@@ -261,8 +261,8 @@ namespace Pulumi.AwsNative.CloudFormation
         /// <summary>
         /// Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that is located in an Amazon S3 bucket.
         /// </summary>
-        [Input("templateURL")]
-        public Input<string>? TemplateURL { get; set; }
+        [Input("templateUrl")]
+        public Input<string>? TemplateUrl { get; set; }
 
         public StackSetArgs()
         {

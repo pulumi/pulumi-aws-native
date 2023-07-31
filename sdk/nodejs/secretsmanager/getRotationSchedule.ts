@@ -26,7 +26,7 @@ export interface GetRotationScheduleResult {
     readonly hostedRotationLambda?: outputs.secretsmanager.RotationScheduleHostedRotationLambda;
     readonly id?: string;
     readonly rotateImmediatelyOnUpdate?: boolean;
-    readonly rotationLambdaARN?: string;
+    readonly rotationLambdaArn?: string;
     readonly rotationRules?: outputs.secretsmanager.RotationScheduleRotationRules;
 }
 /**

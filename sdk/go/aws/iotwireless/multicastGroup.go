@@ -25,7 +25,7 @@ type MulticastGroup struct {
 	// Wireless device to disassociate. Only for update request.
 	DisassociateWirelessDevice pulumi.StringPtrOutput `pulumi:"disassociateWirelessDevice"`
 	// Multicast group LoRaWAN
-	LoRaWAN MulticastGroupLoRaWANOutput `pulumi:"loRaWAN"`
+	LoRaWan MulticastGroupLoRaWANOutput `pulumi:"loRaWan"`
 	// Name of Multicast group
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// Multicast group status. Returned after successful read.
@@ -41,8 +41,8 @@ func NewMulticastGroup(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.LoRaWAN == nil {
-		return nil, errors.New("invalid value for required argument 'LoRaWAN'")
+	if args.LoRaWan == nil {
+		return nil, errors.New("invalid value for required argument 'LoRaWan'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MulticastGroup
@@ -84,7 +84,7 @@ type multicastGroupArgs struct {
 	// Wireless device to disassociate. Only for update request.
 	DisassociateWirelessDevice *string `pulumi:"disassociateWirelessDevice"`
 	// Multicast group LoRaWAN
-	LoRaWAN MulticastGroupLoRaWAN `pulumi:"loRaWAN"`
+	LoRaWan MulticastGroupLoRaWAN `pulumi:"loRaWan"`
 	// Name of Multicast group
 	Name *string `pulumi:"name"`
 	// A list of key-value pairs that contain metadata for the Multicast group.
@@ -100,7 +100,7 @@ type MulticastGroupArgs struct {
 	// Wireless device to disassociate. Only for update request.
 	DisassociateWirelessDevice pulumi.StringPtrInput
 	// Multicast group LoRaWAN
-	LoRaWAN MulticastGroupLoRaWANInput
+	LoRaWan MulticastGroupLoRaWANInput
 	// Name of Multicast group
 	Name pulumi.StringPtrInput
 	// A list of key-value pairs that contain metadata for the Multicast group.
@@ -165,8 +165,8 @@ func (o MulticastGroupOutput) DisassociateWirelessDevice() pulumi.StringPtrOutpu
 }
 
 // Multicast group LoRaWAN
-func (o MulticastGroupOutput) LoRaWAN() MulticastGroupLoRaWANOutput {
-	return o.ApplyT(func(v *MulticastGroup) MulticastGroupLoRaWANOutput { return v.LoRaWAN }).(MulticastGroupLoRaWANOutput)
+func (o MulticastGroupOutput) LoRaWan() MulticastGroupLoRaWANOutput {
+	return o.ApplyT(func(v *MulticastGroup) MulticastGroupLoRaWANOutput { return v.LoRaWan }).(MulticastGroupLoRaWANOutput)
 }
 
 // Name of Multicast group

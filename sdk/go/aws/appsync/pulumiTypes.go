@@ -310,9 +310,9 @@ func (o DataSourceAwsIamConfigPtrOutput) SigningServiceName() pulumi.StringPtrOu
 }
 
 type DataSourceDeltaSyncConfig struct {
-	BaseTableTTL       string `pulumi:"baseTableTTL"`
+	BaseTableTtl       string `pulumi:"baseTableTtl"`
 	DeltaSyncTableName string `pulumi:"deltaSyncTableName"`
-	DeltaSyncTableTTL  string `pulumi:"deltaSyncTableTTL"`
+	DeltaSyncTableTtl  string `pulumi:"deltaSyncTableTtl"`
 }
 
 // DataSourceDeltaSyncConfigInput is an input type that accepts DataSourceDeltaSyncConfigArgs and DataSourceDeltaSyncConfigOutput values.
@@ -327,9 +327,9 @@ type DataSourceDeltaSyncConfigInput interface {
 }
 
 type DataSourceDeltaSyncConfigArgs struct {
-	BaseTableTTL       pulumi.StringInput `pulumi:"baseTableTTL"`
+	BaseTableTtl       pulumi.StringInput `pulumi:"baseTableTtl"`
 	DeltaSyncTableName pulumi.StringInput `pulumi:"deltaSyncTableName"`
-	DeltaSyncTableTTL  pulumi.StringInput `pulumi:"deltaSyncTableTTL"`
+	DeltaSyncTableTtl  pulumi.StringInput `pulumi:"deltaSyncTableTtl"`
 }
 
 func (DataSourceDeltaSyncConfigArgs) ElementType() reflect.Type {
@@ -409,16 +409,16 @@ func (o DataSourceDeltaSyncConfigOutput) ToDataSourceDeltaSyncConfigPtrOutputWit
 	}).(DataSourceDeltaSyncConfigPtrOutput)
 }
 
-func (o DataSourceDeltaSyncConfigOutput) BaseTableTTL() pulumi.StringOutput {
-	return o.ApplyT(func(v DataSourceDeltaSyncConfig) string { return v.BaseTableTTL }).(pulumi.StringOutput)
+func (o DataSourceDeltaSyncConfigOutput) BaseTableTtl() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceDeltaSyncConfig) string { return v.BaseTableTtl }).(pulumi.StringOutput)
 }
 
 func (o DataSourceDeltaSyncConfigOutput) DeltaSyncTableName() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceDeltaSyncConfig) string { return v.DeltaSyncTableName }).(pulumi.StringOutput)
 }
 
-func (o DataSourceDeltaSyncConfigOutput) DeltaSyncTableTTL() pulumi.StringOutput {
-	return o.ApplyT(func(v DataSourceDeltaSyncConfig) string { return v.DeltaSyncTableTTL }).(pulumi.StringOutput)
+func (o DataSourceDeltaSyncConfigOutput) DeltaSyncTableTtl() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceDeltaSyncConfig) string { return v.DeltaSyncTableTtl }).(pulumi.StringOutput)
 }
 
 type DataSourceDeltaSyncConfigPtrOutput struct{ *pulumi.OutputState }
@@ -445,12 +445,12 @@ func (o DataSourceDeltaSyncConfigPtrOutput) Elem() DataSourceDeltaSyncConfigOutp
 	}).(DataSourceDeltaSyncConfigOutput)
 }
 
-func (o DataSourceDeltaSyncConfigPtrOutput) BaseTableTTL() pulumi.StringPtrOutput {
+func (o DataSourceDeltaSyncConfigPtrOutput) BaseTableTtl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceDeltaSyncConfig) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.BaseTableTTL
+		return &v.BaseTableTtl
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -463,12 +463,12 @@ func (o DataSourceDeltaSyncConfigPtrOutput) DeltaSyncTableName() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o DataSourceDeltaSyncConfigPtrOutput) DeltaSyncTableTTL() pulumi.StringPtrOutput {
+func (o DataSourceDeltaSyncConfigPtrOutput) DeltaSyncTableTtl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceDeltaSyncConfig) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.DeltaSyncTableTTL
+		return &v.DeltaSyncTableTtl
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2167,7 +2167,7 @@ func (o FunctionConfigurationSyncConfigPtrOutput) LambdaConflictHandlerConfig() 
 type GraphQLApiAdditionalAuthenticationProvider struct {
 	AuthenticationType     string                            `pulumi:"authenticationType"`
 	LambdaAuthorizerConfig *GraphQLApiLambdaAuthorizerConfig `pulumi:"lambdaAuthorizerConfig"`
-	OpenIDConnectConfig    *GraphQLApiOpenIDConnectConfig    `pulumi:"openIDConnectConfig"`
+	OpenIdConnectConfig    *GraphQLApiOpenIDConnectConfig    `pulumi:"openIdConnectConfig"`
 	UserPoolConfig         *GraphQLApiCognitoUserPoolConfig  `pulumi:"userPoolConfig"`
 }
 
@@ -2185,7 +2185,7 @@ type GraphQLApiAdditionalAuthenticationProviderInput interface {
 type GraphQLApiAdditionalAuthenticationProviderArgs struct {
 	AuthenticationType     pulumi.StringInput                       `pulumi:"authenticationType"`
 	LambdaAuthorizerConfig GraphQLApiLambdaAuthorizerConfigPtrInput `pulumi:"lambdaAuthorizerConfig"`
-	OpenIDConnectConfig    GraphQLApiOpenIDConnectConfigPtrInput    `pulumi:"openIDConnectConfig"`
+	OpenIdConnectConfig    GraphQLApiOpenIDConnectConfigPtrInput    `pulumi:"openIdConnectConfig"`
 	UserPoolConfig         GraphQLApiCognitoUserPoolConfigPtrInput  `pulumi:"userPoolConfig"`
 }
 
@@ -2250,9 +2250,9 @@ func (o GraphQLApiAdditionalAuthenticationProviderOutput) LambdaAuthorizerConfig
 	}).(GraphQLApiLambdaAuthorizerConfigPtrOutput)
 }
 
-func (o GraphQLApiAdditionalAuthenticationProviderOutput) OpenIDConnectConfig() GraphQLApiOpenIDConnectConfigPtrOutput {
+func (o GraphQLApiAdditionalAuthenticationProviderOutput) OpenIdConnectConfig() GraphQLApiOpenIDConnectConfigPtrOutput {
 	return o.ApplyT(func(v GraphQLApiAdditionalAuthenticationProvider) *GraphQLApiOpenIDConnectConfig {
-		return v.OpenIDConnectConfig
+		return v.OpenIdConnectConfig
 	}).(GraphQLApiOpenIDConnectConfigPtrOutput)
 }
 
@@ -2772,9 +2772,9 @@ func (o GraphQLApiLogConfigPtrOutput) FieldLogLevel() pulumi.StringPtrOutput {
 }
 
 type GraphQLApiOpenIDConnectConfig struct {
-	AuthTTL  *float64 `pulumi:"authTTL"`
+	AuthTtl  *float64 `pulumi:"authTtl"`
 	ClientId *string  `pulumi:"clientId"`
-	IatTTL   *float64 `pulumi:"iatTTL"`
+	IatTtl   *float64 `pulumi:"iatTtl"`
 	Issuer   *string  `pulumi:"issuer"`
 }
 
@@ -2790,9 +2790,9 @@ type GraphQLApiOpenIDConnectConfigInput interface {
 }
 
 type GraphQLApiOpenIDConnectConfigArgs struct {
-	AuthTTL  pulumi.Float64PtrInput `pulumi:"authTTL"`
+	AuthTtl  pulumi.Float64PtrInput `pulumi:"authTtl"`
 	ClientId pulumi.StringPtrInput  `pulumi:"clientId"`
-	IatTTL   pulumi.Float64PtrInput `pulumi:"iatTTL"`
+	IatTtl   pulumi.Float64PtrInput `pulumi:"iatTtl"`
 	Issuer   pulumi.StringPtrInput  `pulumi:"issuer"`
 }
 
@@ -2873,16 +2873,16 @@ func (o GraphQLApiOpenIDConnectConfigOutput) ToGraphQLApiOpenIDConnectConfigPtrO
 	}).(GraphQLApiOpenIDConnectConfigPtrOutput)
 }
 
-func (o GraphQLApiOpenIDConnectConfigOutput) AuthTTL() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v GraphQLApiOpenIDConnectConfig) *float64 { return v.AuthTTL }).(pulumi.Float64PtrOutput)
+func (o GraphQLApiOpenIDConnectConfigOutput) AuthTtl() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v GraphQLApiOpenIDConnectConfig) *float64 { return v.AuthTtl }).(pulumi.Float64PtrOutput)
 }
 
 func (o GraphQLApiOpenIDConnectConfigOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GraphQLApiOpenIDConnectConfig) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
-func (o GraphQLApiOpenIDConnectConfigOutput) IatTTL() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v GraphQLApiOpenIDConnectConfig) *float64 { return v.IatTTL }).(pulumi.Float64PtrOutput)
+func (o GraphQLApiOpenIDConnectConfigOutput) IatTtl() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v GraphQLApiOpenIDConnectConfig) *float64 { return v.IatTtl }).(pulumi.Float64PtrOutput)
 }
 
 func (o GraphQLApiOpenIDConnectConfigOutput) Issuer() pulumi.StringPtrOutput {
@@ -2913,12 +2913,12 @@ func (o GraphQLApiOpenIDConnectConfigPtrOutput) Elem() GraphQLApiOpenIDConnectCo
 	}).(GraphQLApiOpenIDConnectConfigOutput)
 }
 
-func (o GraphQLApiOpenIDConnectConfigPtrOutput) AuthTTL() pulumi.Float64PtrOutput {
+func (o GraphQLApiOpenIDConnectConfigPtrOutput) AuthTtl() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *GraphQLApiOpenIDConnectConfig) *float64 {
 		if v == nil {
 			return nil
 		}
-		return v.AuthTTL
+		return v.AuthTtl
 	}).(pulumi.Float64PtrOutput)
 }
 
@@ -2931,12 +2931,12 @@ func (o GraphQLApiOpenIDConnectConfigPtrOutput) ClientId() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o GraphQLApiOpenIDConnectConfigPtrOutput) IatTTL() pulumi.Float64PtrOutput {
+func (o GraphQLApiOpenIDConnectConfigPtrOutput) IatTtl() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *GraphQLApiOpenIDConnectConfig) *float64 {
 		if v == nil {
 			return nil
 		}
-		return v.IatTTL
+		return v.IatTtl
 	}).(pulumi.Float64PtrOutput)
 }
 

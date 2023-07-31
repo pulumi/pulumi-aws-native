@@ -651,35 +651,18 @@ class EventSourceMappingSourceAccessConfiguration(dict):
     """
     The configuration used by AWS Lambda to access event source
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "uRI":
-            suggest = "u_ri"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in EventSourceMappingSourceAccessConfiguration. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        EventSourceMappingSourceAccessConfiguration.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        EventSourceMappingSourceAccessConfiguration.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  type: Optional['EventSourceMappingSourceAccessConfigurationType'] = None,
-                 u_ri: Optional[str] = None):
+                 uri: Optional[str] = None):
         """
         The configuration used by AWS Lambda to access event source
         :param 'EventSourceMappingSourceAccessConfigurationType' type: The type of source access configuration.
-        :param str u_ri: The URI for the source access configuration resource.
+        :param str uri: The URI for the source access configuration resource.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
-        if u_ri is not None:
-            pulumi.set(__self__, "u_ri", u_ri)
+        if uri is not None:
+            pulumi.set(__self__, "uri", uri)
 
     @property
     @pulumi.getter
@@ -690,12 +673,12 @@ class EventSourceMappingSourceAccessConfiguration(dict):
         return pulumi.get(self, "type")
 
     @property
-    @pulumi.getter(name="uRI")
-    def u_ri(self) -> Optional[str]:
+    @pulumi.getter
+    def uri(self) -> Optional[str]:
         """
         The URI for the source access configuration resource.
         """
-        return pulumi.get(self, "u_ri")
+        return pulumi.get(self, "uri")
 
 
 @pulumi.output_type

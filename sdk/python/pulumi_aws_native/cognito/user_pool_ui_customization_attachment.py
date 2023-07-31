@@ -16,14 +16,14 @@ class UserPoolUICustomizationAttachmentArgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  user_pool_id: pulumi.Input[str],
-                 c_ss: Optional[pulumi.Input[str]] = None):
+                 css: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a UserPoolUICustomizationAttachment resource.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "user_pool_id", user_pool_id)
-        if c_ss is not None:
-            pulumi.set(__self__, "c_ss", c_ss)
+        if css is not None:
+            pulumi.set(__self__, "css", css)
 
     @property
     @pulumi.getter(name="clientId")
@@ -44,13 +44,13 @@ class UserPoolUICustomizationAttachmentArgs:
         pulumi.set(self, "user_pool_id", value)
 
     @property
-    @pulumi.getter(name="cSS")
-    def c_ss(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "c_ss")
+    @pulumi.getter
+    def css(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "css")
 
-    @c_ss.setter
-    def c_ss(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "c_ss", value)
+    @css.setter
+    def css(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "css", value)
 
 
 warnings.warn("""UserPoolUICustomizationAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
@@ -63,8 +63,8 @@ class UserPoolUICustomizationAttachment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 c_ss: Optional[pulumi.Input[str]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
+                 css: Optional[pulumi.Input[str]] = None,
                  user_pool_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -97,8 +97,8 @@ class UserPoolUICustomizationAttachment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 c_ss: Optional[pulumi.Input[str]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
+                 css: Optional[pulumi.Input[str]] = None,
                  user_pool_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         pulumi.log.warn("""UserPoolUICustomizationAttachment is deprecated: UserPoolUICustomizationAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
@@ -110,10 +110,10 @@ class UserPoolUICustomizationAttachment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = UserPoolUICustomizationAttachmentArgs.__new__(UserPoolUICustomizationAttachmentArgs)
 
-            __props__.__dict__["c_ss"] = c_ss
             if client_id is None and not opts.urn:
                 raise TypeError("Missing required property 'client_id'")
             __props__.__dict__["client_id"] = client_id
+            __props__.__dict__["css"] = css
             if user_pool_id is None and not opts.urn:
                 raise TypeError("Missing required property 'user_pool_id'")
             __props__.__dict__["user_pool_id"] = user_pool_id
@@ -139,20 +139,20 @@ class UserPoolUICustomizationAttachment(pulumi.CustomResource):
 
         __props__ = UserPoolUICustomizationAttachmentArgs.__new__(UserPoolUICustomizationAttachmentArgs)
 
-        __props__.__dict__["c_ss"] = None
         __props__.__dict__["client_id"] = None
+        __props__.__dict__["css"] = None
         __props__.__dict__["user_pool_id"] = None
         return UserPoolUICustomizationAttachment(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="cSS")
-    def c_ss(self) -> pulumi.Output[Optional[str]]:
-        return pulumi.get(self, "c_ss")
 
     @property
     @pulumi.getter(name="clientId")
     def client_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter
+    def css(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "css")
 
     @property
     @pulumi.getter(name="userPoolId")

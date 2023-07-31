@@ -24,8 +24,8 @@ namespace Pulumi.AwsNative.SSM
         [Output("bucketRegion")]
         public Output<string?> BucketRegion { get; private set; } = null!;
 
-        [Output("kMSKeyArn")]
-        public Output<string?> KMSKeyArn { get; private set; } = null!;
+        [Output("kmsKeyArn")]
+        public Output<string?> KmsKeyArn { get; private set; } = null!;
 
         [Output("s3Destination")]
         public Output<Outputs.ResourceDataSyncS3Destination?> S3Destination { get; private set; } = null!;
@@ -96,8 +96,8 @@ namespace Pulumi.AwsNative.SSM
         [Input("bucketRegion")]
         public Input<string>? BucketRegion { get; set; }
 
-        [Input("kMSKeyArn")]
-        public Input<string>? KMSKeyArn { get; set; }
+        [Input("kmsKeyArn")]
+        public Input<string>? KmsKeyArn { get; set; }
 
         [Input("s3Destination")]
         public Input<Inputs.ResourceDataSyncS3DestinationArgs>? S3Destination { get; set; }

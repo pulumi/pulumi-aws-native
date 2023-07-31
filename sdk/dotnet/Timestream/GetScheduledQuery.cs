@@ -55,68 +55,68 @@ namespace Pulumi.AwsNative.Timestream
         /// <summary>
         /// Configuration for error reporting. Error reports will be generated when a problem is encountered when writing the query results.
         /// </summary>
-        public readonly string? SQErrorReportConfiguration;
+        public readonly string? SqErrorReportConfiguration;
         /// <summary>
         /// The Amazon KMS key used to encrypt the scheduled query resource, at-rest. If the Amazon KMS key is not specified, the scheduled query resource will be encrypted with a Timestream owned Amazon KMS key. To specify a KMS key, use the key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix the name with alias/. If ErrorReportConfiguration uses SSE_KMS as encryption type, the same KmsKeyId is used to encrypt the error report at rest.
         /// </summary>
-        public readonly string? SQKmsKeyId;
+        public readonly string? SqKmsKeyId;
         /// <summary>
         /// The name of the scheduled query. Scheduled query names must be unique within each Region.
         /// </summary>
-        public readonly string? SQName;
+        public readonly string? SqName;
         /// <summary>
         /// Notification configuration for the scheduled query. A notification is sent by Timestream when a query run finishes, when the state is updated or when you delete it.
         /// </summary>
-        public readonly string? SQNotificationConfiguration;
+        public readonly string? SqNotificationConfiguration;
         /// <summary>
         /// The query string to run. Parameter names can be specified in the query string @ character followed by an identifier. The named Parameter @scheduled_runtime is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the ScheduleConfiguration parameter, will be the value of @scheduled_runtime paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the @scheduled_runtime parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
         /// </summary>
-        public readonly string? SQQueryString;
+        public readonly string? SqQueryString;
         /// <summary>
         /// Configuration for when the scheduled query is executed.
         /// </summary>
-        public readonly string? SQScheduleConfiguration;
+        public readonly string? SqScheduleConfiguration;
         /// <summary>
         /// The ARN for the IAM role that Timestream will assume when running the scheduled query.
         /// </summary>
-        public readonly string? SQScheduledQueryExecutionRoleArn;
+        public readonly string? SqScheduledQueryExecutionRoleArn;
         /// <summary>
         /// Configuration of target store where scheduled query results are written to.
         /// </summary>
-        public readonly string? SQTargetConfiguration;
+        public readonly string? SqTargetConfiguration;
         public readonly ImmutableArray<Outputs.ScheduledQueryTag> Tags;
 
         [OutputConstructor]
         private GetScheduledQueryResult(
             string? arn,
 
-            string? sQErrorReportConfiguration,
+            string? sqErrorReportConfiguration,
 
-            string? sQKmsKeyId,
+            string? sqKmsKeyId,
 
-            string? sQName,
+            string? sqName,
 
-            string? sQNotificationConfiguration,
+            string? sqNotificationConfiguration,
 
-            string? sQQueryString,
+            string? sqQueryString,
 
-            string? sQScheduleConfiguration,
+            string? sqScheduleConfiguration,
 
-            string? sQScheduledQueryExecutionRoleArn,
+            string? sqScheduledQueryExecutionRoleArn,
 
-            string? sQTargetConfiguration,
+            string? sqTargetConfiguration,
 
             ImmutableArray<Outputs.ScheduledQueryTag> tags)
         {
             Arn = arn;
-            SQErrorReportConfiguration = sQErrorReportConfiguration;
-            SQKmsKeyId = sQKmsKeyId;
-            SQName = sQName;
-            SQNotificationConfiguration = sQNotificationConfiguration;
-            SQQueryString = sQQueryString;
-            SQScheduleConfiguration = sQScheduleConfiguration;
-            SQScheduledQueryExecutionRoleArn = sQScheduledQueryExecutionRoleArn;
-            SQTargetConfiguration = sQTargetConfiguration;
+            SqErrorReportConfiguration = sqErrorReportConfiguration;
+            SqKmsKeyId = sqKmsKeyId;
+            SqName = sqName;
+            SqNotificationConfiguration = sqNotificationConfiguration;
+            SqQueryString = sqQueryString;
+            SqScheduleConfiguration = sqScheduleConfiguration;
+            SqScheduledQueryExecutionRoleArn = sqScheduledQueryExecutionRoleArn;
+            SqTargetConfiguration = sqTargetConfiguration;
             Tags = tags;
         }
     }

@@ -12,8 +12,8 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
 
     public sealed class DeliveryStreamVpcConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        [Input("roleARN", required: true)]
-        public Input<string> RoleARN { get; set; } = null!;
+        [Input("roleArn", required: true)]
+        public Input<string> RoleArn { get; set; } = null!;
 
         [Input("securityGroupIds", required: true)]
         private InputList<string>? _securityGroupIds;

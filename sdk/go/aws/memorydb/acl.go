@@ -16,7 +16,7 @@ type ACL struct {
 	pulumi.CustomResourceState
 
 	// The name of the acl.
-	ACLName pulumi.StringOutput `pulumi:"aCLName"`
+	AclName pulumi.StringOutput `pulumi:"aclName"`
 	// The Amazon Resource Name (ARN) of the acl.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Indicates acl status. Can be "creating", "active", "modifying", "deleting".
@@ -68,7 +68,7 @@ func (ACLState) ElementType() reflect.Type {
 
 type aclArgs struct {
 	// The name of the acl.
-	ACLName *string `pulumi:"aCLName"`
+	AclName *string `pulumi:"aclName"`
 	// An array of key-value pairs to apply to this cluster.
 	Tags []ACLTag `pulumi:"tags"`
 	// List of users associated to this acl.
@@ -78,7 +78,7 @@ type aclArgs struct {
 // The set of arguments for constructing a ACL resource.
 type ACLArgs struct {
 	// The name of the acl.
-	ACLName pulumi.StringPtrInput
+	AclName pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this cluster.
 	Tags ACLTagArrayInput
 	// List of users associated to this acl.
@@ -123,8 +123,8 @@ func (o ACLOutput) ToACLOutputWithContext(ctx context.Context) ACLOutput {
 }
 
 // The name of the acl.
-func (o ACLOutput) ACLName() pulumi.StringOutput {
-	return o.ApplyT(func(v *ACL) pulumi.StringOutput { return v.ACLName }).(pulumi.StringOutput)
+func (o ACLOutput) AclName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ACL) pulumi.StringOutput { return v.AclName }).(pulumi.StringOutput)
 }
 
 // The Amazon Resource Name (ARN) of the acl.

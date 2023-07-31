@@ -28,7 +28,7 @@ type App struct {
 	Description              pulumi.StringPtrOutput               `pulumi:"description"`
 	EnableBranchAutoDeletion pulumi.BoolPtrOutput                 `pulumi:"enableBranchAutoDeletion"`
 	EnvironmentVariables     AppEnvironmentVariableArrayOutput    `pulumi:"environmentVariables"`
-	IAMServiceRole           pulumi.StringPtrOutput               `pulumi:"iAMServiceRole"`
+	IamServiceRole           pulumi.StringPtrOutput               `pulumi:"iamServiceRole"`
 	Name                     pulumi.StringOutput                  `pulumi:"name"`
 	OauthToken               pulumi.StringPtrOutput               `pulumi:"oauthToken"`
 	Platform                 AppPlatformPtrOutput                 `pulumi:"platform"`
@@ -85,7 +85,7 @@ type appArgs struct {
 	Description              *string                      `pulumi:"description"`
 	EnableBranchAutoDeletion *bool                        `pulumi:"enableBranchAutoDeletion"`
 	EnvironmentVariables     []AppEnvironmentVariable     `pulumi:"environmentVariables"`
-	IAMServiceRole           *string                      `pulumi:"iAMServiceRole"`
+	IamServiceRole           *string                      `pulumi:"iamServiceRole"`
 	Name                     *string                      `pulumi:"name"`
 	OauthToken               *string                      `pulumi:"oauthToken"`
 	Platform                 *AppPlatform                 `pulumi:"platform"`
@@ -104,7 +104,7 @@ type AppArgs struct {
 	Description              pulumi.StringPtrInput
 	EnableBranchAutoDeletion pulumi.BoolPtrInput
 	EnvironmentVariables     AppEnvironmentVariableArrayInput
-	IAMServiceRole           pulumi.StringPtrInput
+	IamServiceRole           pulumi.StringPtrInput
 	Name                     pulumi.StringPtrInput
 	OauthToken               pulumi.StringPtrInput
 	Platform                 AppPlatformPtrInput
@@ -201,8 +201,8 @@ func (o AppOutput) EnvironmentVariables() AppEnvironmentVariableArrayOutput {
 	return o.ApplyT(func(v *App) AppEnvironmentVariableArrayOutput { return v.EnvironmentVariables }).(AppEnvironmentVariableArrayOutput)
 }
 
-func (o AppOutput) IAMServiceRole() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *App) pulumi.StringPtrOutput { return v.IAMServiceRole }).(pulumi.StringPtrOutput)
+func (o AppOutput) IamServiceRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *App) pulumi.StringPtrOutput { return v.IamServiceRole }).(pulumi.StringPtrOutput)
 }
 
 func (o AppOutput) Name() pulumi.StringOutput {

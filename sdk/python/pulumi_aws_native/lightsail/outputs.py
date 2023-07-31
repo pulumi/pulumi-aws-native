@@ -1039,11 +1039,11 @@ class DistributionCacheSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "allowedHTTPMethods":
+        if key == "allowedHttpMethods":
             suggest = "allowed_http_methods"
-        elif key == "cachedHTTPMethods":
+        elif key == "cachedHttpMethods":
             suggest = "cached_http_methods"
-        elif key == "defaultTTL":
+        elif key == "defaultTtl":
             suggest = "default_ttl"
         elif key == "forwardedCookies":
             suggest = "forwarded_cookies"
@@ -1051,9 +1051,9 @@ class DistributionCacheSettings(dict):
             suggest = "forwarded_headers"
         elif key == "forwardedQueryStrings":
             suggest = "forwarded_query_strings"
-        elif key == "maximumTTL":
+        elif key == "maximumTtl":
             suggest = "maximum_ttl"
-        elif key == "minimumTTL":
+        elif key == "minimumTtl":
             suggest = "minimum_ttl"
 
         if suggest:
@@ -1105,7 +1105,7 @@ class DistributionCacheSettings(dict):
             pulumi.set(__self__, "minimum_ttl", minimum_ttl)
 
     @property
-    @pulumi.getter(name="allowedHTTPMethods")
+    @pulumi.getter(name="allowedHttpMethods")
     def allowed_http_methods(self) -> Optional[str]:
         """
         The HTTP methods that are processed and forwarded to the distribution's origin.
@@ -1113,7 +1113,7 @@ class DistributionCacheSettings(dict):
         return pulumi.get(self, "allowed_http_methods")
 
     @property
-    @pulumi.getter(name="cachedHTTPMethods")
+    @pulumi.getter(name="cachedHttpMethods")
     def cached_http_methods(self) -> Optional[str]:
         """
         The HTTP method responses that are cached by your distribution.
@@ -1121,7 +1121,7 @@ class DistributionCacheSettings(dict):
         return pulumi.get(self, "cached_http_methods")
 
     @property
-    @pulumi.getter(name="defaultTTL")
+    @pulumi.getter(name="defaultTtl")
     def default_ttl(self) -> Optional[int]:
         """
         The default amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the content has been updated.
@@ -1153,7 +1153,7 @@ class DistributionCacheSettings(dict):
         return pulumi.get(self, "forwarded_query_strings")
 
     @property
-    @pulumi.getter(name="maximumTTL")
+    @pulumi.getter(name="maximumTtl")
     def maximum_ttl(self) -> Optional[int]:
         """
         The maximum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
@@ -1161,7 +1161,7 @@ class DistributionCacheSettings(dict):
         return pulumi.get(self, "maximum_ttl")
 
     @property
-    @pulumi.getter(name="minimumTTL")
+    @pulumi.getter(name="minimumTtl")
     def minimum_ttl(self) -> Optional[int]:
         """
         The minimum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
@@ -1540,8 +1540,6 @@ class InstanceDisk(dict):
             suggest = "attached_to"
         elif key == "attachmentState":
             suggest = "attachment_state"
-        elif key == "iOPS":
-            suggest = "i_ops"
         elif key == "isSystemDisk":
             suggest = "is_system_disk"
         elif key == "sizeInGb":
@@ -1563,7 +1561,7 @@ class InstanceDisk(dict):
                  path: str,
                  attached_to: Optional[str] = None,
                  attachment_state: Optional[str] = None,
-                 i_ops: Optional[int] = None,
+                 iops: Optional[int] = None,
                  is_system_disk: Optional[bool] = None,
                  size_in_gb: Optional[str] = None):
         """
@@ -1572,7 +1570,7 @@ class InstanceDisk(dict):
         :param str path: Path of the disk attached to the instance.
         :param str attached_to: Instance attached to the disk.
         :param str attachment_state: Attachment state of the disk.
-        :param int i_ops: IOPS of disk.
+        :param int iops: IOPS of disk.
         :param bool is_system_disk: Is the Attached disk is the system disk of the Instance.
         :param str size_in_gb: Size of the disk attached to the Instance.
         """
@@ -1582,8 +1580,8 @@ class InstanceDisk(dict):
             pulumi.set(__self__, "attached_to", attached_to)
         if attachment_state is not None:
             pulumi.set(__self__, "attachment_state", attachment_state)
-        if i_ops is not None:
-            pulumi.set(__self__, "i_ops", i_ops)
+        if iops is not None:
+            pulumi.set(__self__, "iops", iops)
         if is_system_disk is not None:
             pulumi.set(__self__, "is_system_disk", is_system_disk)
         if size_in_gb is not None:
@@ -1622,12 +1620,12 @@ class InstanceDisk(dict):
         return pulumi.get(self, "attachment_state")
 
     @property
-    @pulumi.getter(name="iOPS")
-    def i_ops(self) -> Optional[int]:
+    @pulumi.getter
+    def iops(self) -> Optional[int]:
         """
         IOPS of disk.
         """
-        return pulumi.get(self, "i_ops")
+        return pulumi.get(self, "iops")
 
     @property
     @pulumi.getter(name="isSystemDisk")

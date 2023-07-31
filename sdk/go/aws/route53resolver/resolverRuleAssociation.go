@@ -23,7 +23,7 @@ type ResolverRuleAssociation struct {
 	// The ID of the Resolver rule that you associated with the VPC that is specified by VPCId.
 	ResolverRuleId pulumi.StringOutput `pulumi:"resolverRuleId"`
 	// The ID of the VPC that you associated the Resolver rule with.
-	VPCId pulumi.StringOutput `pulumi:"vPCId"`
+	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
 // NewResolverRuleAssociation registers a new resource with the given unique name, arguments, and options.
@@ -36,8 +36,8 @@ func NewResolverRuleAssociation(ctx *pulumi.Context,
 	if args.ResolverRuleId == nil {
 		return nil, errors.New("invalid value for required argument 'ResolverRuleId'")
 	}
-	if args.VPCId == nil {
-		return nil, errors.New("invalid value for required argument 'VPCId'")
+	if args.VpcId == nil {
+		return nil, errors.New("invalid value for required argument 'VpcId'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResolverRuleAssociation
@@ -77,7 +77,7 @@ type resolverRuleAssociationArgs struct {
 	// The ID of the Resolver rule that you associated with the VPC that is specified by VPCId.
 	ResolverRuleId string `pulumi:"resolverRuleId"`
 	// The ID of the VPC that you associated the Resolver rule with.
-	VPCId string `pulumi:"vPCId"`
+	VpcId string `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a ResolverRuleAssociation resource.
@@ -87,7 +87,7 @@ type ResolverRuleAssociationArgs struct {
 	// The ID of the Resolver rule that you associated with the VPC that is specified by VPCId.
 	ResolverRuleId pulumi.StringInput
 	// The ID of the VPC that you associated the Resolver rule with.
-	VPCId pulumi.StringInput
+	VpcId pulumi.StringInput
 }
 
 func (ResolverRuleAssociationArgs) ElementType() reflect.Type {
@@ -143,8 +143,8 @@ func (o ResolverRuleAssociationOutput) ResolverRuleId() pulumi.StringOutput {
 }
 
 // The ID of the VPC that you associated the Resolver rule with.
-func (o ResolverRuleAssociationOutput) VPCId() pulumi.StringOutput {
-	return o.ApplyT(func(v *ResolverRuleAssociation) pulumi.StringOutput { return v.VPCId }).(pulumi.StringOutput)
+func (o ResolverRuleAssociationOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResolverRuleAssociation) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }
 
 func init() {

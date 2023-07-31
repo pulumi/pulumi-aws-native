@@ -16,50 +16,50 @@ __all__ = ['DBInstanceArgs', 'DBInstance']
 @pulumi.input_type
 class DBInstanceArgs:
     def __init__(__self__, *,
-                 d_b_instance_class: pulumi.Input[str],
+                 db_instance_class: pulumi.Input[str],
                  allow_major_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
-                 d_b_cluster_identifier: Optional[pulumi.Input[str]] = None,
-                 d_b_instance_identifier: Optional[pulumi.Input[str]] = None,
-                 d_b_parameter_group_name: Optional[pulumi.Input[str]] = None,
-                 d_b_snapshot_identifier: Optional[pulumi.Input[str]] = None,
-                 d_b_subnet_group_name: Optional[pulumi.Input[str]] = None,
+                 db_cluster_identifier: Optional[pulumi.Input[str]] = None,
+                 db_instance_identifier: Optional[pulumi.Input[str]] = None,
+                 db_parameter_group_name: Optional[pulumi.Input[str]] = None,
+                 db_snapshot_identifier: Optional[pulumi.Input[str]] = None,
+                 db_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DBInstanceTagArgs']]]] = None):
         """
         The set of arguments for constructing a DBInstance resource.
         """
-        pulumi.set(__self__, "d_b_instance_class", d_b_instance_class)
+        pulumi.set(__self__, "db_instance_class", db_instance_class)
         if allow_major_version_upgrade is not None:
             pulumi.set(__self__, "allow_major_version_upgrade", allow_major_version_upgrade)
         if auto_minor_version_upgrade is not None:
             pulumi.set(__self__, "auto_minor_version_upgrade", auto_minor_version_upgrade)
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
-        if d_b_cluster_identifier is not None:
-            pulumi.set(__self__, "d_b_cluster_identifier", d_b_cluster_identifier)
-        if d_b_instance_identifier is not None:
-            pulumi.set(__self__, "d_b_instance_identifier", d_b_instance_identifier)
-        if d_b_parameter_group_name is not None:
-            pulumi.set(__self__, "d_b_parameter_group_name", d_b_parameter_group_name)
-        if d_b_snapshot_identifier is not None:
-            pulumi.set(__self__, "d_b_snapshot_identifier", d_b_snapshot_identifier)
-        if d_b_subnet_group_name is not None:
-            pulumi.set(__self__, "d_b_subnet_group_name", d_b_subnet_group_name)
+        if db_cluster_identifier is not None:
+            pulumi.set(__self__, "db_cluster_identifier", db_cluster_identifier)
+        if db_instance_identifier is not None:
+            pulumi.set(__self__, "db_instance_identifier", db_instance_identifier)
+        if db_parameter_group_name is not None:
+            pulumi.set(__self__, "db_parameter_group_name", db_parameter_group_name)
+        if db_snapshot_identifier is not None:
+            pulumi.set(__self__, "db_snapshot_identifier", db_snapshot_identifier)
+        if db_subnet_group_name is not None:
+            pulumi.set(__self__, "db_subnet_group_name", db_subnet_group_name)
         if preferred_maintenance_window is not None:
             pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
     @property
-    @pulumi.getter(name="dBInstanceClass")
-    def d_b_instance_class(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "d_b_instance_class")
+    @pulumi.getter(name="dbInstanceClass")
+    def db_instance_class(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "db_instance_class")
 
-    @d_b_instance_class.setter
-    def d_b_instance_class(self, value: pulumi.Input[str]):
-        pulumi.set(self, "d_b_instance_class", value)
+    @db_instance_class.setter
+    def db_instance_class(self, value: pulumi.Input[str]):
+        pulumi.set(self, "db_instance_class", value)
 
     @property
     @pulumi.getter(name="allowMajorVersionUpgrade")
@@ -89,49 +89,49 @@ class DBInstanceArgs:
         pulumi.set(self, "availability_zone", value)
 
     @property
-    @pulumi.getter(name="dBClusterIdentifier")
-    def d_b_cluster_identifier(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "d_b_cluster_identifier")
+    @pulumi.getter(name="dbClusterIdentifier")
+    def db_cluster_identifier(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "db_cluster_identifier")
 
-    @d_b_cluster_identifier.setter
-    def d_b_cluster_identifier(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "d_b_cluster_identifier", value)
-
-    @property
-    @pulumi.getter(name="dBInstanceIdentifier")
-    def d_b_instance_identifier(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "d_b_instance_identifier")
-
-    @d_b_instance_identifier.setter
-    def d_b_instance_identifier(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "d_b_instance_identifier", value)
+    @db_cluster_identifier.setter
+    def db_cluster_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "db_cluster_identifier", value)
 
     @property
-    @pulumi.getter(name="dBParameterGroupName")
-    def d_b_parameter_group_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "d_b_parameter_group_name")
+    @pulumi.getter(name="dbInstanceIdentifier")
+    def db_instance_identifier(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "db_instance_identifier")
 
-    @d_b_parameter_group_name.setter
-    def d_b_parameter_group_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "d_b_parameter_group_name", value)
-
-    @property
-    @pulumi.getter(name="dBSnapshotIdentifier")
-    def d_b_snapshot_identifier(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "d_b_snapshot_identifier")
-
-    @d_b_snapshot_identifier.setter
-    def d_b_snapshot_identifier(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "d_b_snapshot_identifier", value)
+    @db_instance_identifier.setter
+    def db_instance_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "db_instance_identifier", value)
 
     @property
-    @pulumi.getter(name="dBSubnetGroupName")
-    def d_b_subnet_group_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "d_b_subnet_group_name")
+    @pulumi.getter(name="dbParameterGroupName")
+    def db_parameter_group_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "db_parameter_group_name")
 
-    @d_b_subnet_group_name.setter
-    def d_b_subnet_group_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "d_b_subnet_group_name", value)
+    @db_parameter_group_name.setter
+    def db_parameter_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "db_parameter_group_name", value)
+
+    @property
+    @pulumi.getter(name="dbSnapshotIdentifier")
+    def db_snapshot_identifier(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "db_snapshot_identifier")
+
+    @db_snapshot_identifier.setter
+    def db_snapshot_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "db_snapshot_identifier", value)
+
+    @property
+    @pulumi.getter(name="dbSubnetGroupName")
+    def db_subnet_group_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "db_subnet_group_name")
+
+    @db_subnet_group_name.setter
+    def db_subnet_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "db_subnet_group_name", value)
 
     @property
     @pulumi.getter(name="preferredMaintenanceWindow")
@@ -165,12 +165,12 @@ class DBInstance(pulumi.CustomResource):
                  allow_major_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
-                 d_b_cluster_identifier: Optional[pulumi.Input[str]] = None,
-                 d_b_instance_class: Optional[pulumi.Input[str]] = None,
-                 d_b_instance_identifier: Optional[pulumi.Input[str]] = None,
-                 d_b_parameter_group_name: Optional[pulumi.Input[str]] = None,
-                 d_b_snapshot_identifier: Optional[pulumi.Input[str]] = None,
-                 d_b_subnet_group_name: Optional[pulumi.Input[str]] = None,
+                 db_cluster_identifier: Optional[pulumi.Input[str]] = None,
+                 db_instance_class: Optional[pulumi.Input[str]] = None,
+                 db_instance_identifier: Optional[pulumi.Input[str]] = None,
+                 db_parameter_group_name: Optional[pulumi.Input[str]] = None,
+                 db_snapshot_identifier: Optional[pulumi.Input[str]] = None,
+                 db_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBInstanceTagArgs']]]]] = None,
                  __props__=None):
@@ -207,12 +207,12 @@ class DBInstance(pulumi.CustomResource):
                  allow_major_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
-                 d_b_cluster_identifier: Optional[pulumi.Input[str]] = None,
-                 d_b_instance_class: Optional[pulumi.Input[str]] = None,
-                 d_b_instance_identifier: Optional[pulumi.Input[str]] = None,
-                 d_b_parameter_group_name: Optional[pulumi.Input[str]] = None,
-                 d_b_snapshot_identifier: Optional[pulumi.Input[str]] = None,
-                 d_b_subnet_group_name: Optional[pulumi.Input[str]] = None,
+                 db_cluster_identifier: Optional[pulumi.Input[str]] = None,
+                 db_instance_class: Optional[pulumi.Input[str]] = None,
+                 db_instance_identifier: Optional[pulumi.Input[str]] = None,
+                 db_parameter_group_name: Optional[pulumi.Input[str]] = None,
+                 db_snapshot_identifier: Optional[pulumi.Input[str]] = None,
+                 db_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBInstanceTagArgs']]]]] = None,
                  __props__=None):
@@ -228,14 +228,14 @@ class DBInstance(pulumi.CustomResource):
             __props__.__dict__["allow_major_version_upgrade"] = allow_major_version_upgrade
             __props__.__dict__["auto_minor_version_upgrade"] = auto_minor_version_upgrade
             __props__.__dict__["availability_zone"] = availability_zone
-            __props__.__dict__["d_b_cluster_identifier"] = d_b_cluster_identifier
-            if d_b_instance_class is None and not opts.urn:
-                raise TypeError("Missing required property 'd_b_instance_class'")
-            __props__.__dict__["d_b_instance_class"] = d_b_instance_class
-            __props__.__dict__["d_b_instance_identifier"] = d_b_instance_identifier
-            __props__.__dict__["d_b_parameter_group_name"] = d_b_parameter_group_name
-            __props__.__dict__["d_b_snapshot_identifier"] = d_b_snapshot_identifier
-            __props__.__dict__["d_b_subnet_group_name"] = d_b_subnet_group_name
+            __props__.__dict__["db_cluster_identifier"] = db_cluster_identifier
+            if db_instance_class is None and not opts.urn:
+                raise TypeError("Missing required property 'db_instance_class'")
+            __props__.__dict__["db_instance_class"] = db_instance_class
+            __props__.__dict__["db_instance_identifier"] = db_instance_identifier
+            __props__.__dict__["db_parameter_group_name"] = db_parameter_group_name
+            __props__.__dict__["db_snapshot_identifier"] = db_snapshot_identifier
+            __props__.__dict__["db_subnet_group_name"] = db_subnet_group_name
             __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
             __props__.__dict__["tags"] = tags
             __props__.__dict__["endpoint"] = None
@@ -265,12 +265,12 @@ class DBInstance(pulumi.CustomResource):
         __props__.__dict__["allow_major_version_upgrade"] = None
         __props__.__dict__["auto_minor_version_upgrade"] = None
         __props__.__dict__["availability_zone"] = None
-        __props__.__dict__["d_b_cluster_identifier"] = None
-        __props__.__dict__["d_b_instance_class"] = None
-        __props__.__dict__["d_b_instance_identifier"] = None
-        __props__.__dict__["d_b_parameter_group_name"] = None
-        __props__.__dict__["d_b_snapshot_identifier"] = None
-        __props__.__dict__["d_b_subnet_group_name"] = None
+        __props__.__dict__["db_cluster_identifier"] = None
+        __props__.__dict__["db_instance_class"] = None
+        __props__.__dict__["db_instance_identifier"] = None
+        __props__.__dict__["db_parameter_group_name"] = None
+        __props__.__dict__["db_snapshot_identifier"] = None
+        __props__.__dict__["db_subnet_group_name"] = None
         __props__.__dict__["endpoint"] = None
         __props__.__dict__["port"] = None
         __props__.__dict__["preferred_maintenance_window"] = None
@@ -293,34 +293,34 @@ class DBInstance(pulumi.CustomResource):
         return pulumi.get(self, "availability_zone")
 
     @property
-    @pulumi.getter(name="dBClusterIdentifier")
-    def d_b_cluster_identifier(self) -> pulumi.Output[Optional[str]]:
-        return pulumi.get(self, "d_b_cluster_identifier")
+    @pulumi.getter(name="dbClusterIdentifier")
+    def db_cluster_identifier(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "db_cluster_identifier")
 
     @property
-    @pulumi.getter(name="dBInstanceClass")
-    def d_b_instance_class(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "d_b_instance_class")
+    @pulumi.getter(name="dbInstanceClass")
+    def db_instance_class(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "db_instance_class")
 
     @property
-    @pulumi.getter(name="dBInstanceIdentifier")
-    def d_b_instance_identifier(self) -> pulumi.Output[Optional[str]]:
-        return pulumi.get(self, "d_b_instance_identifier")
+    @pulumi.getter(name="dbInstanceIdentifier")
+    def db_instance_identifier(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "db_instance_identifier")
 
     @property
-    @pulumi.getter(name="dBParameterGroupName")
-    def d_b_parameter_group_name(self) -> pulumi.Output[Optional[str]]:
-        return pulumi.get(self, "d_b_parameter_group_name")
+    @pulumi.getter(name="dbParameterGroupName")
+    def db_parameter_group_name(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "db_parameter_group_name")
 
     @property
-    @pulumi.getter(name="dBSnapshotIdentifier")
-    def d_b_snapshot_identifier(self) -> pulumi.Output[Optional[str]]:
-        return pulumi.get(self, "d_b_snapshot_identifier")
+    @pulumi.getter(name="dbSnapshotIdentifier")
+    def db_snapshot_identifier(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "db_snapshot_identifier")
 
     @property
-    @pulumi.getter(name="dBSubnetGroupName")
-    def d_b_subnet_group_name(self) -> pulumi.Output[Optional[str]]:
-        return pulumi.get(self, "d_b_subnet_group_name")
+    @pulumi.getter(name="dbSubnetGroupName")
+    def db_subnet_group_name(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "db_subnet_group_name")
 
     @property
     @pulumi.getter

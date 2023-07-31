@@ -37,11 +37,11 @@ export class StreamConsumer extends pulumi.CustomResource {
         return obj['__pulumiType'] === StreamConsumer.__pulumiType;
     }
 
-    public /*out*/ readonly consumerARN!: pulumi.Output<string>;
+    public /*out*/ readonly consumerArn!: pulumi.Output<string>;
     public /*out*/ readonly consumerCreationTimestamp!: pulumi.Output<string>;
     public readonly consumerName!: pulumi.Output<string>;
     public /*out*/ readonly consumerStatus!: pulumi.Output<string>;
-    public readonly streamARN!: pulumi.Output<string>;
+    public readonly streamArn!: pulumi.Output<string>;
 
     /**
      * Create a StreamConsumer resource with the given unique name, arguments, and options.
@@ -59,20 +59,20 @@ export class StreamConsumer extends pulumi.CustomResource {
             if ((!args || args.consumerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'consumerName'");
             }
-            if ((!args || args.streamARN === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'streamARN'");
+            if ((!args || args.streamArn === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'streamArn'");
             }
             resourceInputs["consumerName"] = args ? args.consumerName : undefined;
-            resourceInputs["streamARN"] = args ? args.streamARN : undefined;
-            resourceInputs["consumerARN"] = undefined /*out*/;
+            resourceInputs["streamArn"] = args ? args.streamArn : undefined;
+            resourceInputs["consumerArn"] = undefined /*out*/;
             resourceInputs["consumerCreationTimestamp"] = undefined /*out*/;
             resourceInputs["consumerStatus"] = undefined /*out*/;
         } else {
-            resourceInputs["consumerARN"] = undefined /*out*/;
+            resourceInputs["consumerArn"] = undefined /*out*/;
             resourceInputs["consumerCreationTimestamp"] = undefined /*out*/;
             resourceInputs["consumerName"] = undefined /*out*/;
             resourceInputs["consumerStatus"] = undefined /*out*/;
-            resourceInputs["streamARN"] = undefined /*out*/;
+            resourceInputs["streamArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(StreamConsumer.__pulumiType, name, resourceInputs, opts);
@@ -84,5 +84,5 @@ export class StreamConsumer extends pulumi.CustomResource {
  */
 export interface StreamConsumerArgs {
     consumerName: pulumi.Input<string>;
-    streamARN: pulumi.Input<string>;
+    streamArn: pulumi.Input<string>;
 }

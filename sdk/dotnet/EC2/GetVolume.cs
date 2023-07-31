@@ -54,7 +54,7 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// The Availability Zone in which to create the volume.
         /// </summary>
-        public readonly bool? AutoEnableIO;
+        public readonly bool? AutoEnableIo;
         /// <summary>
         /// The Availability Zone in which to create the volume.
         /// </summary>
@@ -103,7 +103,7 @@ namespace Pulumi.AwsNative.EC2
 
         [OutputConstructor]
         private GetVolumeResult(
-            bool? autoEnableIO,
+            bool? autoEnableIo,
 
             string? availabilityZone,
 
@@ -129,7 +129,7 @@ namespace Pulumi.AwsNative.EC2
 
             string? volumeType)
         {
-            AutoEnableIO = autoEnableIO;
+            AutoEnableIo = autoEnableIo;
             AvailabilityZone = availabilityZone;
             Encrypted = encrypted;
             Iops = iops;

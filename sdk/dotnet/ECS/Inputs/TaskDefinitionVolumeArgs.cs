@@ -15,8 +15,8 @@ namespace Pulumi.AwsNative.ECS.Inputs
         [Input("dockerVolumeConfiguration")]
         public Input<Inputs.TaskDefinitionDockerVolumeConfigurationArgs>? DockerVolumeConfiguration { get; set; }
 
-        [Input("eFSVolumeConfiguration")]
-        public Input<Inputs.TaskDefinitionEFSVolumeConfigurationArgs>? EFSVolumeConfiguration { get; set; }
+        [Input("efsVolumeConfiguration")]
+        public Input<Inputs.TaskDefinitionEFSVolumeConfigurationArgs>? EfsVolumeConfiguration { get; set; }
 
         [Input("host")]
         public Input<Inputs.TaskDefinitionHostVolumePropertiesArgs>? Host { get; set; }

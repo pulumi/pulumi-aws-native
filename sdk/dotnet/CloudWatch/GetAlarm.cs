@@ -66,7 +66,7 @@ namespace Pulumi.AwsNative.CloudWatch
         public readonly string? MetricName;
         public readonly ImmutableArray<Outputs.AlarmMetricDataQuery> Metrics;
         public readonly string? Namespace;
-        public readonly ImmutableArray<string> OKActions;
+        public readonly ImmutableArray<string> OkActions;
         public readonly int? Period;
         public readonly string? Statistic;
         public readonly double? Threshold;
@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.CloudWatch
 
             string? @namespace,
 
-            ImmutableArray<string> oKActions,
+            ImmutableArray<string> okActions,
 
             int? period,
 
@@ -135,7 +135,7 @@ namespace Pulumi.AwsNative.CloudWatch
             MetricName = metricName;
             Metrics = metrics;
             Namespace = @namespace;
-            OKActions = oKActions;
+            OkActions = okActions;
             Period = period;
             Statistic = statistic;
             Threshold = threshold;

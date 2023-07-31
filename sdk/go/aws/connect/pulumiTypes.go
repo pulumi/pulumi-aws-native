@@ -3066,7 +3066,7 @@ type InstanceAttributes struct {
 	EarlyMedia            *bool `pulumi:"earlyMedia"`
 	InboundCalls          bool  `pulumi:"inboundCalls"`
 	OutboundCalls         bool  `pulumi:"outboundCalls"`
-	UseCustomTTSVoices    *bool `pulumi:"useCustomTTSVoices"`
+	UseCustomTtsVoices    *bool `pulumi:"useCustomTtsVoices"`
 }
 
 // InstanceAttributesInput is an input type that accepts InstanceAttributesArgs and InstanceAttributesOutput values.
@@ -3087,7 +3087,7 @@ type InstanceAttributesArgs struct {
 	EarlyMedia            pulumi.BoolPtrInput `pulumi:"earlyMedia"`
 	InboundCalls          pulumi.BoolInput    `pulumi:"inboundCalls"`
 	OutboundCalls         pulumi.BoolInput    `pulumi:"outboundCalls"`
-	UseCustomTTSVoices    pulumi.BoolPtrInput `pulumi:"useCustomTTSVoices"`
+	UseCustomTtsVoices    pulumi.BoolPtrInput `pulumi:"useCustomTtsVoices"`
 }
 
 func (InstanceAttributesArgs) ElementType() reflect.Type {
@@ -3140,8 +3140,8 @@ func (o InstanceAttributesOutput) OutboundCalls() pulumi.BoolOutput {
 	return o.ApplyT(func(v InstanceAttributes) bool { return v.OutboundCalls }).(pulumi.BoolOutput)
 }
 
-func (o InstanceAttributesOutput) UseCustomTTSVoices() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v InstanceAttributes) *bool { return v.UseCustomTTSVoices }).(pulumi.BoolPtrOutput)
+func (o InstanceAttributesOutput) UseCustomTtsVoices() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InstanceAttributes) *bool { return v.UseCustomTtsVoices }).(pulumi.BoolPtrOutput)
 }
 
 type InstanceAttributesPtrOutput struct{ *pulumi.OutputState }
@@ -3222,12 +3222,12 @@ func (o InstanceAttributesPtrOutput) OutboundCalls() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-func (o InstanceAttributesPtrOutput) UseCustomTTSVoices() pulumi.BoolPtrOutput {
+func (o InstanceAttributesPtrOutput) UseCustomTtsVoices() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *InstanceAttributes) *bool {
 		if v == nil {
 			return nil
 		}
-		return v.UseCustomTTSVoices
+		return v.UseCustomTtsVoices
 	}).(pulumi.BoolPtrOutput)
 }
 

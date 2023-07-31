@@ -29,7 +29,7 @@ type LookupConfigurationRecorderArgs struct {
 type LookupConfigurationRecorderResult struct {
 	Id             *string                              `pulumi:"id"`
 	RecordingGroup *ConfigurationRecorderRecordingGroup `pulumi:"recordingGroup"`
-	RoleARN        *string                              `pulumi:"roleARN"`
+	RoleArn        *string                              `pulumi:"roleArn"`
 }
 
 func LookupConfigurationRecorderOutput(ctx *pulumi.Context, args LookupConfigurationRecorderOutputArgs, opts ...pulumi.InvokeOption) LookupConfigurationRecorderResultOutput {
@@ -77,8 +77,8 @@ func (o LookupConfigurationRecorderResultOutput) RecordingGroup() ConfigurationR
 	}).(ConfigurationRecorderRecordingGroupPtrOutput)
 }
 
-func (o LookupConfigurationRecorderResultOutput) RoleARN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupConfigurationRecorderResult) *string { return v.RoleARN }).(pulumi.StringPtrOutput)
+func (o LookupConfigurationRecorderResultOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConfigurationRecorderResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
 func init() {

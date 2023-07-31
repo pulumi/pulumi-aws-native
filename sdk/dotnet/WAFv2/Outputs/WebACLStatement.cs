@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
         public readonly Outputs.WebACLAndStatement? AndStatement;
         public readonly Outputs.WebACLByteMatchStatement? ByteMatchStatement;
         public readonly Outputs.WebACLGeoMatchStatement? GeoMatchStatement;
-        public readonly Outputs.WebACLIPSetReferenceStatement? IPSetReferenceStatement;
+        public readonly Outputs.WebACLIPSetReferenceStatement? IpSetReferenceStatement;
         public readonly Outputs.WebACLLabelMatchStatement? LabelMatchStatement;
         public readonly Outputs.WebACLManagedRuleGroupStatement? ManagedRuleGroupStatement;
         public readonly Outputs.WebACLNotStatement? NotStatement;
@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 
             Outputs.WebACLGeoMatchStatement? geoMatchStatement,
 
-            Outputs.WebACLIPSetReferenceStatement? iPSetReferenceStatement,
+            Outputs.WebACLIPSetReferenceStatement? ipSetReferenceStatement,
 
             Outputs.WebACLLabelMatchStatement? labelMatchStatement,
 
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
             AndStatement = andStatement;
             ByteMatchStatement = byteMatchStatement;
             GeoMatchStatement = geoMatchStatement;
-            IPSetReferenceStatement = iPSetReferenceStatement;
+            IpSetReferenceStatement = ipSetReferenceStatement;
             LabelMatchStatement = labelMatchStatement;
             ManagedRuleGroupStatement = managedRuleGroupStatement;
             NotStatement = notStatement;

@@ -22,8 +22,8 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         public readonly Outputs.FlowMarketoDestinationProperties? Marketo;
         public readonly Outputs.FlowRedshiftDestinationProperties? Redshift;
         public readonly Outputs.FlowS3DestinationProperties? S3;
-        public readonly Outputs.FlowSAPODataDestinationProperties? SAPOData;
         public readonly Outputs.FlowSalesforceDestinationProperties? Salesforce;
+        public readonly Outputs.FlowSAPODataDestinationProperties? SapoData;
         public readonly Outputs.FlowSnowflakeDestinationProperties? Snowflake;
         public readonly Outputs.FlowUpsolverDestinationProperties? Upsolver;
         public readonly Outputs.FlowZendeskDestinationProperties? Zendesk;
@@ -42,9 +42,9 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
             Outputs.FlowS3DestinationProperties? s3,
 
-            Outputs.FlowSAPODataDestinationProperties? sAPOData,
-
             Outputs.FlowSalesforceDestinationProperties? salesforce,
+
+            Outputs.FlowSAPODataDestinationProperties? sapoData,
 
             Outputs.FlowSnowflakeDestinationProperties? snowflake,
 
@@ -58,8 +58,8 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
             Marketo = marketo;
             Redshift = redshift;
             S3 = s3;
-            SAPOData = sAPOData;
             Salesforce = salesforce;
+            SapoData = sapoData;
             Snowflake = snowflake;
             Upsolver = upsolver;
             Zendesk = zendesk;

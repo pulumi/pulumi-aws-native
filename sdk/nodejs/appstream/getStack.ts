@@ -30,9 +30,9 @@ export interface GetStackResult {
     readonly description?: string;
     readonly displayName?: string;
     readonly embedHostDomains?: string[];
-    readonly feedbackURL?: string;
+    readonly feedbackUrl?: string;
     readonly id?: string;
-    readonly redirectURL?: string;
+    readonly redirectUrl?: string;
     readonly storageConnectors?: outputs.appstream.StackStorageConnector[];
     readonly streamingExperienceSettings?: outputs.appstream.StackStreamingExperienceSettings;
     readonly tags?: outputs.appstream.StackTag[];

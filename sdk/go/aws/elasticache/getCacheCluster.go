@@ -27,8 +27,8 @@ type LookupCacheClusterArgs struct {
 }
 
 type LookupCacheClusterResult struct {
-	AZMode                       *string                                       `pulumi:"aZMode"`
 	AutoMinorVersionUpgrade      *bool                                         `pulumi:"autoMinorVersionUpgrade"`
+	AzMode                       *string                                       `pulumi:"azMode"`
 	CacheNodeType                *string                                       `pulumi:"cacheNodeType"`
 	CacheParameterGroupName      *string                                       `pulumi:"cacheParameterGroupName"`
 	CacheSecurityGroupNames      []string                                      `pulumi:"cacheSecurityGroupNames"`
@@ -87,12 +87,12 @@ func (o LookupCacheClusterResultOutput) ToLookupCacheClusterResultOutputWithCont
 	return o
 }
 
-func (o LookupCacheClusterResultOutput) AZMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupCacheClusterResult) *string { return v.AZMode }).(pulumi.StringPtrOutput)
-}
-
 func (o LookupCacheClusterResultOutput) AutoMinorVersionUpgrade() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupCacheClusterResult) *bool { return v.AutoMinorVersionUpgrade }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupCacheClusterResultOutput) AzMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCacheClusterResult) *string { return v.AzMode }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupCacheClusterResultOutput) CacheNodeType() pulumi.StringPtrOutput {

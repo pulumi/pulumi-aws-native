@@ -36,7 +36,7 @@ type LookupHostedZoneResult struct {
 	NameServers        []string                      `pulumi:"nameServers"`
 	QueryLoggingConfig *HostedZoneQueryLoggingConfig `pulumi:"queryLoggingConfig"`
 	// A complex type that contains information about the VPCs that are associated with the specified hosted zone.
-	VPCs []HostedZoneVPC `pulumi:"vPCs"`
+	Vpcs []HostedZoneVPC `pulumi:"vpcs"`
 }
 
 func LookupHostedZoneOutput(ctx *pulumi.Context, args LookupHostedZoneOutputArgs, opts ...pulumi.InvokeOption) LookupHostedZoneResultOutput {
@@ -98,8 +98,8 @@ func (o LookupHostedZoneResultOutput) QueryLoggingConfig() HostedZoneQueryLoggin
 }
 
 // A complex type that contains information about the VPCs that are associated with the specified hosted zone.
-func (o LookupHostedZoneResultOutput) VPCs() HostedZoneVPCArrayOutput {
-	return o.ApplyT(func(v LookupHostedZoneResult) []HostedZoneVPC { return v.VPCs }).(HostedZoneVPCArrayOutput)
+func (o LookupHostedZoneResultOutput) Vpcs() HostedZoneVPCArrayOutput {
+	return o.ApplyT(func(v LookupHostedZoneResult) []HostedZoneVPC { return v.Vpcs }).(HostedZoneVPCArrayOutput)
 }
 
 func init() {

@@ -16,12 +16,12 @@ namespace Pulumi.AwsNative.SES.Outputs
     [OutputType]
     public sealed class ConfigurationSetEventDestinationSnsDestination
     {
-        public readonly string TopicARN;
+        public readonly string TopicArn;
 
         [OutputConstructor]
-        private ConfigurationSetEventDestinationSnsDestination(string topicARN)
+        private ConfigurationSetEventDestinationSnsDestination(string topicArn)
         {
-            TopicARN = topicARN;
+            TopicArn = topicArn;
         }
     }
 }

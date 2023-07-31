@@ -17,7 +17,7 @@ type DBParameterGroup struct {
 	pulumi.CustomResourceState
 
 	// Specifies the name of the DB parameter group
-	DBParameterGroupName pulumi.StringPtrOutput `pulumi:"dBParameterGroupName"`
+	DbParameterGroupName pulumi.StringPtrOutput `pulumi:"dbParameterGroupName"`
 	// Provides the customer-specified description for this DB parameter group.
 	Description pulumi.StringOutput `pulumi:"description"`
 	// The DB parameter group family name.
@@ -75,7 +75,7 @@ func (DBParameterGroupState) ElementType() reflect.Type {
 
 type dbparameterGroupArgs struct {
 	// Specifies the name of the DB parameter group
-	DBParameterGroupName *string `pulumi:"dBParameterGroupName"`
+	DbParameterGroupName *string `pulumi:"dbParameterGroupName"`
 	// Provides the customer-specified description for this DB parameter group.
 	Description string `pulumi:"description"`
 	// The DB parameter group family name.
@@ -89,7 +89,7 @@ type dbparameterGroupArgs struct {
 // The set of arguments for constructing a DBParameterGroup resource.
 type DBParameterGroupArgs struct {
 	// Specifies the name of the DB parameter group
-	DBParameterGroupName pulumi.StringPtrInput
+	DbParameterGroupName pulumi.StringPtrInput
 	// Provides the customer-specified description for this DB parameter group.
 	Description pulumi.StringInput
 	// The DB parameter group family name.
@@ -138,8 +138,8 @@ func (o DBParameterGroupOutput) ToDBParameterGroupOutputWithContext(ctx context.
 }
 
 // Specifies the name of the DB parameter group
-func (o DBParameterGroupOutput) DBParameterGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBParameterGroup) pulumi.StringPtrOutput { return v.DBParameterGroupName }).(pulumi.StringPtrOutput)
+func (o DBParameterGroupOutput) DbParameterGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBParameterGroup) pulumi.StringPtrOutput { return v.DbParameterGroupName }).(pulumi.StringPtrOutput)
 }
 
 // Provides the customer-specified description for this DB parameter group.

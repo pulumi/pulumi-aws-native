@@ -16,9 +16,9 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
     [OutputType]
     public sealed class WebACLManagedRuleGroupConfig
     {
-        public readonly Outputs.WebACLAWSManagedRulesACFPRuleSet? AWSManagedRulesACFPRuleSet;
-        public readonly Outputs.WebACLAWSManagedRulesATPRuleSet? AWSManagedRulesATPRuleSet;
-        public readonly Outputs.WebACLAWSManagedRulesBotControlRuleSet? AWSManagedRulesBotControlRuleSet;
+        public readonly Outputs.WebACLAWSManagedRulesACFPRuleSet? AwsManagedRulesAcfpRuleSet;
+        public readonly Outputs.WebACLAWSManagedRulesATPRuleSet? AwsManagedRulesAtpRuleSet;
+        public readonly Outputs.WebACLAWSManagedRulesBotControlRuleSet? AwsManagedRulesBotControlRuleSet;
         public readonly string? LoginPath;
         public readonly Outputs.WebACLFieldIdentifier? PasswordField;
         public readonly Pulumi.AwsNative.WAFv2.WebACLManagedRuleGroupConfigPayloadType? PayloadType;
@@ -26,11 +26,11 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 
         [OutputConstructor]
         private WebACLManagedRuleGroupConfig(
-            Outputs.WebACLAWSManagedRulesACFPRuleSet? aWSManagedRulesACFPRuleSet,
+            Outputs.WebACLAWSManagedRulesACFPRuleSet? awsManagedRulesAcfpRuleSet,
 
-            Outputs.WebACLAWSManagedRulesATPRuleSet? aWSManagedRulesATPRuleSet,
+            Outputs.WebACLAWSManagedRulesATPRuleSet? awsManagedRulesAtpRuleSet,
 
-            Outputs.WebACLAWSManagedRulesBotControlRuleSet? aWSManagedRulesBotControlRuleSet,
+            Outputs.WebACLAWSManagedRulesBotControlRuleSet? awsManagedRulesBotControlRuleSet,
 
             string? loginPath,
 
@@ -40,9 +40,9 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 
             Outputs.WebACLFieldIdentifier? usernameField)
         {
-            AWSManagedRulesACFPRuleSet = aWSManagedRulesACFPRuleSet;
-            AWSManagedRulesATPRuleSet = aWSManagedRulesATPRuleSet;
-            AWSManagedRulesBotControlRuleSet = aWSManagedRulesBotControlRuleSet;
+            AwsManagedRulesAcfpRuleSet = awsManagedRulesAcfpRuleSet;
+            AwsManagedRulesAtpRuleSet = awsManagedRulesAtpRuleSet;
+            AwsManagedRulesBotControlRuleSet = awsManagedRulesBotControlRuleSet;
             LoginPath = loginPath;
             PasswordField = passwordField;
             PayloadType = payloadType;

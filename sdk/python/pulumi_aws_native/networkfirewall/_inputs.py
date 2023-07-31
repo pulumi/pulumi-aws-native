@@ -392,14 +392,14 @@ class FirewallPolicyArgs:
 class FirewallSubnetMappingArgs:
     def __init__(__self__, *,
                  subnet_id: pulumi.Input[str],
-                 i_p_address_type: Optional[pulumi.Input[str]] = None):
+                 ip_address_type: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] subnet_id: A SubnetId.
-        :param pulumi.Input[str] i_p_address_type: A IPAddressType
+        :param pulumi.Input[str] ip_address_type: A IPAddressType
         """
         pulumi.set(__self__, "subnet_id", subnet_id)
-        if i_p_address_type is not None:
-            pulumi.set(__self__, "i_p_address_type", i_p_address_type)
+        if ip_address_type is not None:
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
 
     @property
     @pulumi.getter(name="subnetId")
@@ -414,16 +414,16 @@ class FirewallSubnetMappingArgs:
         pulumi.set(self, "subnet_id", value)
 
     @property
-    @pulumi.getter(name="iPAddressType")
-    def i_p_address_type(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> Optional[pulumi.Input[str]]:
         """
         A IPAddressType
         """
-        return pulumi.get(self, "i_p_address_type")
+        return pulumi.get(self, "ip_address_type")
 
-    @i_p_address_type.setter
-    def i_p_address_type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "i_p_address_type", value)
+    @ip_address_type.setter
+    def ip_address_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_address_type", value)
 
 
 @pulumi.input_type
@@ -668,7 +668,7 @@ class RuleGroupMatchAttributesArgs:
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  source_ports: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupPortRangeArgs']]]] = None,
                  sources: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupAddressArgs']]]] = None,
-                 t_cp_flags: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupTCPFlagFieldArgs']]]] = None):
+                 tcp_flags: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupTCPFlagFieldArgs']]]] = None):
         if destination_ports is not None:
             pulumi.set(__self__, "destination_ports", destination_ports)
         if destinations is not None:
@@ -679,8 +679,8 @@ class RuleGroupMatchAttributesArgs:
             pulumi.set(__self__, "source_ports", source_ports)
         if sources is not None:
             pulumi.set(__self__, "sources", sources)
-        if t_cp_flags is not None:
-            pulumi.set(__self__, "t_cp_flags", t_cp_flags)
+        if tcp_flags is not None:
+            pulumi.set(__self__, "tcp_flags", tcp_flags)
 
     @property
     @pulumi.getter(name="destinationPorts")
@@ -728,13 +728,13 @@ class RuleGroupMatchAttributesArgs:
         pulumi.set(self, "sources", value)
 
     @property
-    @pulumi.getter(name="tCPFlags")
-    def t_cp_flags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupTCPFlagFieldArgs']]]]:
-        return pulumi.get(self, "t_cp_flags")
+    @pulumi.getter(name="tcpFlags")
+    def tcp_flags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupTCPFlagFieldArgs']]]]:
+        return pulumi.get(self, "tcp_flags")
 
-    @t_cp_flags.setter
-    def t_cp_flags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupTCPFlagFieldArgs']]]]):
-        pulumi.set(self, "t_cp_flags", value)
+    @tcp_flags.setter
+    def tcp_flags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupTCPFlagFieldArgs']]]]):
+        pulumi.set(self, "tcp_flags", value)
 
 
 @pulumi.input_type
@@ -783,18 +783,18 @@ class RuleGroupPublishMetricActionArgs:
 @pulumi.input_type
 class RuleGroupReferenceSetsArgs:
     def __init__(__self__, *,
-                 i_p_set_references: Optional[Any] = None):
-        if i_p_set_references is not None:
-            pulumi.set(__self__, "i_p_set_references", i_p_set_references)
+                 ip_set_references: Optional[Any] = None):
+        if ip_set_references is not None:
+            pulumi.set(__self__, "ip_set_references", ip_set_references)
 
     @property
-    @pulumi.getter(name="iPSetReferences")
-    def i_p_set_references(self) -> Optional[Any]:
-        return pulumi.get(self, "i_p_set_references")
+    @pulumi.getter(name="ipSetReferences")
+    def ip_set_references(self) -> Optional[Any]:
+        return pulumi.get(self, "ip_set_references")
 
-    @i_p_set_references.setter
-    def i_p_set_references(self, value: Optional[Any]):
-        pulumi.set(self, "i_p_set_references", value)
+    @ip_set_references.setter
+    def ip_set_references(self, value: Optional[Any]):
+        pulumi.set(self, "ip_set_references", value)
 
 
 @pulumi.input_type
@@ -855,21 +855,21 @@ class RuleGroupRuleOptionArgs:
 @pulumi.input_type
 class RuleGroupRuleVariablesArgs:
     def __init__(__self__, *,
-                 i_p_sets: Optional[Any] = None,
+                 ip_sets: Optional[Any] = None,
                  port_sets: Optional[Any] = None):
-        if i_p_sets is not None:
-            pulumi.set(__self__, "i_p_sets", i_p_sets)
+        if ip_sets is not None:
+            pulumi.set(__self__, "ip_sets", ip_sets)
         if port_sets is not None:
             pulumi.set(__self__, "port_sets", port_sets)
 
     @property
-    @pulumi.getter(name="iPSets")
-    def i_p_sets(self) -> Optional[Any]:
-        return pulumi.get(self, "i_p_sets")
+    @pulumi.getter(name="ipSets")
+    def ip_sets(self) -> Optional[Any]:
+        return pulumi.get(self, "ip_sets")
 
-    @i_p_sets.setter
-    def i_p_sets(self, value: Optional[Any]):
-        pulumi.set(self, "i_p_sets", value)
+    @ip_sets.setter
+    def ip_sets(self, value: Optional[Any]):
+        pulumi.set(self, "ip_sets", value)
 
     @property
     @pulumi.getter(name="portSets")

@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.SSM.Outputs
         public readonly string BucketName;
         public readonly string? BucketPrefix;
         public readonly string BucketRegion;
-        public readonly string? KMSKeyArn;
+        public readonly string? KmsKeyArn;
         public readonly string SyncFormat;
 
         [OutputConstructor]
@@ -27,14 +27,14 @@ namespace Pulumi.AwsNative.SSM.Outputs
 
             string bucketRegion,
 
-            string? kMSKeyArn,
+            string? kmsKeyArn,
 
             string syncFormat)
         {
             BucketName = bucketName;
             BucketPrefix = bucketPrefix;
             BucketRegion = bucketRegion;
-            KMSKeyArn = kMSKeyArn;
+            KmsKeyArn = kmsKeyArn;
             SyncFormat = syncFormat;
         }
     }

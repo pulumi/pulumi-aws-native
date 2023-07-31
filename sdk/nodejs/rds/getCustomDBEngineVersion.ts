@@ -34,7 +34,7 @@ export interface GetCustomDBEngineVersionResult {
     /**
      * The ARN of the custom engine version.
      */
-    readonly dBEngineVersionArn?: string;
+    readonly dbEngineVersionArn?: string;
     /**
      * An optional description of your CEV.
      */

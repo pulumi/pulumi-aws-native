@@ -54,8 +54,8 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// The identifier of the CA certificate for this DB instance.
         /// </summary>
-        [Output("cACertificateIdentifier")]
-        public Output<string?> CACertificateIdentifier { get; private set; } = null!;
+        [Output("caCertificateIdentifier")]
+        public Output<string?> CaCertificateIdentifier { get; private set; } = null!;
 
         /// <summary>
         /// Returns the details of the DB instance's server certificate.
@@ -93,14 +93,14 @@ namespace Pulumi.AwsNative.RDS
         /// 
         /// This setting is required for RDS Custom.
         /// </summary>
-        [Output("customIAMInstanceProfile")]
-        public Output<string?> CustomIAMInstanceProfile { get; private set; } = null!;
+        [Output("customIamInstanceProfile")]
+        public Output<string?> CustomIamInstanceProfile { get; private set; } = null!;
 
         /// <summary>
         /// The identifier of the DB cluster that the instance will belong to.
         /// </summary>
-        [Output("dBClusterIdentifier")]
-        public Output<string?> DBClusterIdentifier { get; private set; } = null!;
+        [Output("dbClusterIdentifier")]
+        public Output<string?> DbClusterIdentifier { get; private set; } = null!;
 
         /// <summary>
         /// The identifier for the RDS for MySQL Multi-AZ DB cluster snapshot to restore from. For more information on Multi-AZ DB clusters, see Multi-AZ deployments with two readable standby DB instances in the Amazon RDS User Guide .
@@ -113,62 +113,62 @@ namespace Pulumi.AwsNative.RDS
         ///  * Can't be the identifier of an Aurora DB cluster snapshot.
         ///  * Can't be the identifier of an RDS for PostgreSQL Multi-AZ DB cluster snapshot.
         /// </summary>
-        [Output("dBClusterSnapshotIdentifier")]
-        public Output<string?> DBClusterSnapshotIdentifier { get; private set; } = null!;
+        [Output("dbClusterSnapshotIdentifier")]
+        public Output<string?> DbClusterSnapshotIdentifier { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for the DB instance.
         /// </summary>
-        [Output("dBInstanceArn")]
-        public Output<string> DBInstanceArn { get; private set; } = null!;
+        [Output("dbInstanceArn")]
+        public Output<string> DbInstanceArn { get; private set; } = null!;
 
         /// <summary>
         /// The compute and memory capacity of the DB instance, for example, db.m4.large. Not all DB instance classes are available in all AWS Regions, or for all database engines.
         /// </summary>
-        [Output("dBInstanceClass")]
-        public Output<string?> DBInstanceClass { get; private set; } = null!;
+        [Output("dbInstanceClass")]
+        public Output<string?> DbInstanceClass { get; private set; } = null!;
 
         /// <summary>
         /// A name for the DB instance. If you specify a name, AWS CloudFormation converts it to lowercase. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the DB instance.
         /// </summary>
-        [Output("dBInstanceIdentifier")]
-        public Output<string?> DBInstanceIdentifier { get; private set; } = null!;
+        [Output("dbInstanceIdentifier")]
+        public Output<string?> DbInstanceIdentifier { get; private set; } = null!;
 
         /// <summary>
         /// The meaning of this parameter differs according to the database engine you use.
         /// </summary>
-        [Output("dBName")]
-        public Output<string?> DBName { get; private set; } = null!;
+        [Output("dbName")]
+        public Output<string?> DbName { get; private set; } = null!;
 
         /// <summary>
         /// The name of an existing DB parameter group or a reference to an AWS::RDS::DBParameterGroup resource created in the template.
         /// </summary>
-        [Output("dBParameterGroupName")]
-        public Output<string?> DBParameterGroupName { get; private set; } = null!;
+        [Output("dbParameterGroupName")]
+        public Output<string?> DbParameterGroupName { get; private set; } = null!;
 
         /// <summary>
         /// A list of the DB security groups to assign to the DB instance. The list can include both the name of existing DB security groups or references to AWS::RDS::DBSecurityGroup resources created in the template.
         /// </summary>
-        [Output("dBSecurityGroups")]
-        public Output<ImmutableArray<string>> DBSecurityGroups { get; private set; } = null!;
+        [Output("dbSecurityGroups")]
+        public Output<ImmutableArray<string>> DbSecurityGroups { get; private set; } = null!;
 
         /// <summary>
         /// The name or Amazon Resource Name (ARN) of the DB snapshot that's used to restore the DB instance. If you're restoring from a shared manual DB snapshot, you must specify the ARN of the snapshot.
         /// </summary>
-        [Output("dBSnapshotIdentifier")]
-        public Output<string?> DBSnapshotIdentifier { get; private set; } = null!;
+        [Output("dbSnapshotIdentifier")]
+        public Output<string?> DbSnapshotIdentifier { get; private set; } = null!;
 
         /// <summary>
         /// A DB subnet group to associate with the DB instance. If you update this value, the new subnet group must be a subnet group in a new VPC.
         /// </summary>
-        [Output("dBSubnetGroupName")]
-        public Output<string?> DBSubnetGroupName { get; private set; } = null!;
+        [Output("dbSubnetGroupName")]
+        public Output<string?> DbSubnetGroupName { get; private set; } = null!;
 
         /// <summary>
         /// The Oracle system ID (Oracle SID) for a container database (CDB). The Oracle SID is also the name of the CDB. This setting is valid for RDS Custom only.
         /// </summary>
-        [Output("dBSystemId")]
-        public Output<string> DBSystemId { get; private set; } = null!;
+        [Output("dbSystemId")]
+        public Output<string> DbSystemId { get; private set; } = null!;
 
         /// <summary>
         /// The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
@@ -197,8 +197,8 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// Specify the name of the IAM role to be used when making API calls to the Directory Service.
         /// </summary>
-        [Output("domainIAMRoleName")]
-        public Output<string?> DomainIAMRoleName { get; private set; } = null!;
+        [Output("domainIamRoleName")]
+        public Output<string?> DomainIamRoleName { get; private set; } = null!;
 
         /// <summary>
         /// The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used.
@@ -209,8 +209,8 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
         /// </summary>
-        [Output("enableIAMDatabaseAuthentication")]
-        public Output<bool?> EnableIAMDatabaseAuthentication { get; private set; } = null!;
+        [Output("enableIamDatabaseAuthentication")]
+        public Output<bool?> EnableIamDatabaseAuthentication { get; private set; } = null!;
 
         /// <summary>
         /// A value that indicates whether to enable Performance Insights for the DB instance.
@@ -299,8 +299,8 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// Specifies whether the database instance is a multiple Availability Zone deployment.
         /// </summary>
-        [Output("multiAZ")]
-        public Output<bool?> MultiAZ { get; private set; } = null!;
+        [Output("multiAz")]
+        public Output<bool?> MultiAz { get; private set; } = null!;
 
         /// <summary>
         /// The name of the NCHAR character set for the Oracle DB instance. This parameter doesn't apply to RDS Custom.
@@ -323,8 +323,8 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// The AWS KMS key identifier for encryption of Performance Insights data. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.
         /// </summary>
-        [Output("performanceInsightsKMSKeyId")]
-        public Output<string?> PerformanceInsightsKMSKeyId { get; private set; } = null!;
+        [Output("performanceInsightsKmsKeyId")]
+        public Output<string?> PerformanceInsightsKmsKeyId { get; private set; } = null!;
 
         /// <summary>
         /// The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years).
@@ -383,20 +383,20 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// The identifier of the Multi-AZ DB cluster that will act as the source for the read replica. Each DB cluster can have up to 15 read replicas.
         /// </summary>
-        [Output("sourceDBClusterIdentifier")]
-        public Output<string?> SourceDBClusterIdentifier { get; private set; } = null!;
+        [Output("sourceDbClusterIdentifier")]
+        public Output<string?> SourceDbClusterIdentifier { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the replicated automated backups from which to restore.
         /// </summary>
-        [Output("sourceDBInstanceAutomatedBackupsArn")]
-        public Output<string?> SourceDBInstanceAutomatedBackupsArn { get; private set; } = null!;
+        [Output("sourceDbInstanceAutomatedBackupsArn")]
+        public Output<string?> SourceDbInstanceAutomatedBackupsArn { get; private set; } = null!;
 
         /// <summary>
         /// If you want to create a Read Replica DB instance, specify the ID of the source DB instance. Each DB instance can have a limited number of Read Replicas.
         /// </summary>
-        [Output("sourceDBInstanceIdentifier")]
-        public Output<string?> SourceDBInstanceIdentifier { get; private set; } = null!;
+        [Output("sourceDbInstanceIdentifier")]
+        public Output<string?> SourceDbInstanceIdentifier { get; private set; } = null!;
 
         /// <summary>
         /// The resource ID of the source DB instance from which to restore.
@@ -467,8 +467,8 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// A list of the VPC security group IDs to assign to the DB instance. The list can include both the physical IDs of existing VPC security groups and references to AWS::EC2::SecurityGroup resources created in the template.
         /// </summary>
-        [Output("vPCSecurityGroups")]
-        public Output<ImmutableArray<string>> VPCSecurityGroups { get; private set; } = null!;
+        [Output("vpcSecurityGroups")]
+        public Output<ImmutableArray<string>> VpcSecurityGroups { get; private set; } = null!;
 
 
         /// <summary>
@@ -560,8 +560,8 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// The identifier of the CA certificate for this DB instance.
         /// </summary>
-        [Input("cACertificateIdentifier")]
-        public Input<string>? CACertificateIdentifier { get; set; }
+        [Input("caCertificateIdentifier")]
+        public Input<string>? CaCertificateIdentifier { get; set; }
 
         /// <summary>
         /// Returns the details of the DB instance's server certificate.
@@ -599,14 +599,14 @@ namespace Pulumi.AwsNative.RDS
         /// 
         /// This setting is required for RDS Custom.
         /// </summary>
-        [Input("customIAMInstanceProfile")]
-        public Input<string>? CustomIAMInstanceProfile { get; set; }
+        [Input("customIamInstanceProfile")]
+        public Input<string>? CustomIamInstanceProfile { get; set; }
 
         /// <summary>
         /// The identifier of the DB cluster that the instance will belong to.
         /// </summary>
-        [Input("dBClusterIdentifier")]
-        public Input<string>? DBClusterIdentifier { get; set; }
+        [Input("dbClusterIdentifier")]
+        public Input<string>? DbClusterIdentifier { get; set; }
 
         /// <summary>
         /// The identifier for the RDS for MySQL Multi-AZ DB cluster snapshot to restore from. For more information on Multi-AZ DB clusters, see Multi-AZ deployments with two readable standby DB instances in the Amazon RDS User Guide .
@@ -619,56 +619,56 @@ namespace Pulumi.AwsNative.RDS
         ///  * Can't be the identifier of an Aurora DB cluster snapshot.
         ///  * Can't be the identifier of an RDS for PostgreSQL Multi-AZ DB cluster snapshot.
         /// </summary>
-        [Input("dBClusterSnapshotIdentifier")]
-        public Input<string>? DBClusterSnapshotIdentifier { get; set; }
+        [Input("dbClusterSnapshotIdentifier")]
+        public Input<string>? DbClusterSnapshotIdentifier { get; set; }
 
         /// <summary>
         /// The compute and memory capacity of the DB instance, for example, db.m4.large. Not all DB instance classes are available in all AWS Regions, or for all database engines.
         /// </summary>
-        [Input("dBInstanceClass")]
-        public Input<string>? DBInstanceClass { get; set; }
+        [Input("dbInstanceClass")]
+        public Input<string>? DbInstanceClass { get; set; }
 
         /// <summary>
         /// A name for the DB instance. If you specify a name, AWS CloudFormation converts it to lowercase. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the DB instance.
         /// </summary>
-        [Input("dBInstanceIdentifier")]
-        public Input<string>? DBInstanceIdentifier { get; set; }
+        [Input("dbInstanceIdentifier")]
+        public Input<string>? DbInstanceIdentifier { get; set; }
 
         /// <summary>
         /// The meaning of this parameter differs according to the database engine you use.
         /// </summary>
-        [Input("dBName")]
-        public Input<string>? DBName { get; set; }
+        [Input("dbName")]
+        public Input<string>? DbName { get; set; }
 
         /// <summary>
         /// The name of an existing DB parameter group or a reference to an AWS::RDS::DBParameterGroup resource created in the template.
         /// </summary>
-        [Input("dBParameterGroupName")]
-        public Input<string>? DBParameterGroupName { get; set; }
+        [Input("dbParameterGroupName")]
+        public Input<string>? DbParameterGroupName { get; set; }
 
-        [Input("dBSecurityGroups")]
-        private InputList<string>? _dBSecurityGroups;
+        [Input("dbSecurityGroups")]
+        private InputList<string>? _dbSecurityGroups;
 
         /// <summary>
         /// A list of the DB security groups to assign to the DB instance. The list can include both the name of existing DB security groups or references to AWS::RDS::DBSecurityGroup resources created in the template.
         /// </summary>
-        public InputList<string> DBSecurityGroups
+        public InputList<string> DbSecurityGroups
         {
-            get => _dBSecurityGroups ?? (_dBSecurityGroups = new InputList<string>());
-            set => _dBSecurityGroups = value;
+            get => _dbSecurityGroups ?? (_dbSecurityGroups = new InputList<string>());
+            set => _dbSecurityGroups = value;
         }
 
         /// <summary>
         /// The name or Amazon Resource Name (ARN) of the DB snapshot that's used to restore the DB instance. If you're restoring from a shared manual DB snapshot, you must specify the ARN of the snapshot.
         /// </summary>
-        [Input("dBSnapshotIdentifier")]
-        public Input<string>? DBSnapshotIdentifier { get; set; }
+        [Input("dbSnapshotIdentifier")]
+        public Input<string>? DbSnapshotIdentifier { get; set; }
 
         /// <summary>
         /// A DB subnet group to associate with the DB instance. If you update this value, the new subnet group must be a subnet group in a new VPC.
         /// </summary>
-        [Input("dBSubnetGroupName")]
-        public Input<string>? DBSubnetGroupName { get; set; }
+        [Input("dbSubnetGroupName")]
+        public Input<string>? DbSubnetGroupName { get; set; }
 
         /// <summary>
         /// A value that indicates whether to remove automated backups immediately after the DB instance is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB instance is deleted.
@@ -691,8 +691,8 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// Specify the name of the IAM role to be used when making API calls to the Directory Service.
         /// </summary>
-        [Input("domainIAMRoleName")]
-        public Input<string>? DomainIAMRoleName { get; set; }
+        [Input("domainIamRoleName")]
+        public Input<string>? DomainIamRoleName { get; set; }
 
         [Input("enableCloudwatchLogsExports")]
         private InputList<string>? _enableCloudwatchLogsExports;
@@ -709,8 +709,8 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
         /// </summary>
-        [Input("enableIAMDatabaseAuthentication")]
-        public Input<bool>? EnableIAMDatabaseAuthentication { get; set; }
+        [Input("enableIamDatabaseAuthentication")]
+        public Input<bool>? EnableIamDatabaseAuthentication { get; set; }
 
         /// <summary>
         /// A value that indicates whether to enable Performance Insights for the DB instance.
@@ -799,8 +799,8 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// Specifies whether the database instance is a multiple Availability Zone deployment.
         /// </summary>
-        [Input("multiAZ")]
-        public Input<bool>? MultiAZ { get; set; }
+        [Input("multiAz")]
+        public Input<bool>? MultiAz { get; set; }
 
         /// <summary>
         /// The name of the NCHAR character set for the Oracle DB instance. This parameter doesn't apply to RDS Custom.
@@ -823,8 +823,8 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// The AWS KMS key identifier for encryption of Performance Insights data. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.
         /// </summary>
-        [Input("performanceInsightsKMSKeyId")]
-        public Input<string>? PerformanceInsightsKMSKeyId { get; set; }
+        [Input("performanceInsightsKmsKeyId")]
+        public Input<string>? PerformanceInsightsKmsKeyId { get; set; }
 
         /// <summary>
         /// The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years).
@@ -889,20 +889,20 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// The identifier of the Multi-AZ DB cluster that will act as the source for the read replica. Each DB cluster can have up to 15 read replicas.
         /// </summary>
-        [Input("sourceDBClusterIdentifier")]
-        public Input<string>? SourceDBClusterIdentifier { get; set; }
+        [Input("sourceDbClusterIdentifier")]
+        public Input<string>? SourceDbClusterIdentifier { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the replicated automated backups from which to restore.
         /// </summary>
-        [Input("sourceDBInstanceAutomatedBackupsArn")]
-        public Input<string>? SourceDBInstanceAutomatedBackupsArn { get; set; }
+        [Input("sourceDbInstanceAutomatedBackupsArn")]
+        public Input<string>? SourceDbInstanceAutomatedBackupsArn { get; set; }
 
         /// <summary>
         /// If you want to create a Read Replica DB instance, specify the ID of the source DB instance. Each DB instance can have a limited number of Read Replicas.
         /// </summary>
-        [Input("sourceDBInstanceIdentifier")]
-        public Input<string>? SourceDBInstanceIdentifier { get; set; }
+        [Input("sourceDbInstanceIdentifier")]
+        public Input<string>? SourceDbInstanceIdentifier { get; set; }
 
         /// <summary>
         /// The resource ID of the source DB instance from which to restore.
@@ -976,16 +976,16 @@ namespace Pulumi.AwsNative.RDS
         [Input("useLatestRestorableTime")]
         public Input<bool>? UseLatestRestorableTime { get; set; }
 
-        [Input("vPCSecurityGroups")]
-        private InputList<string>? _vPCSecurityGroups;
+        [Input("vpcSecurityGroups")]
+        private InputList<string>? _vpcSecurityGroups;
 
         /// <summary>
         /// A list of the VPC security group IDs to assign to the DB instance. The list can include both the physical IDs of existing VPC security groups and references to AWS::EC2::SecurityGroup resources created in the template.
         /// </summary>
-        public InputList<string> VPCSecurityGroups
+        public InputList<string> VpcSecurityGroups
         {
-            get => _vPCSecurityGroups ?? (_vPCSecurityGroups = new InputList<string>());
-            set => _vPCSecurityGroups = value;
+            get => _vpcSecurityGroups ?? (_vpcSecurityGroups = new InputList<string>());
+            set => _vpcSecurityGroups = value;
         }
 
         public DBInstanceArgs()

@@ -20,11 +20,11 @@ namespace Pulumi.AwsNative.GreengrassV2.Inputs
             set => _devices = value;
         }
 
-        [Input("memorySizeInKB")]
-        public Input<int>? MemorySizeInKB { get; set; }
+        [Input("memorySizeInKb")]
+        public Input<int>? MemorySizeInKb { get; set; }
 
-        [Input("mountROSysfs")]
-        public Input<bool>? MountROSysfs { get; set; }
+        [Input("mountRoSysfs")]
+        public Input<bool>? MountRoSysfs { get; set; }
 
         [Input("volumes")]
         private InputList<Inputs.ComponentVersionLambdaVolumeMountArgs>? _volumes;

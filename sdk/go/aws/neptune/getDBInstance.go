@@ -29,8 +29,8 @@ type LookupDBInstanceArgs struct {
 type LookupDBInstanceResult struct {
 	AllowMajorVersionUpgrade   *bool           `pulumi:"allowMajorVersionUpgrade"`
 	AutoMinorVersionUpgrade    *bool           `pulumi:"autoMinorVersionUpgrade"`
-	DBInstanceClass            *string         `pulumi:"dBInstanceClass"`
-	DBParameterGroupName       *string         `pulumi:"dBParameterGroupName"`
+	DbInstanceClass            *string         `pulumi:"dbInstanceClass"`
+	DbParameterGroupName       *string         `pulumi:"dbParameterGroupName"`
 	Endpoint                   *string         `pulumi:"endpoint"`
 	Id                         *string         `pulumi:"id"`
 	Port                       *string         `pulumi:"port"`
@@ -81,12 +81,12 @@ func (o LookupDBInstanceResultOutput) AutoMinorVersionUpgrade() pulumi.BoolPtrOu
 	return o.ApplyT(func(v LookupDBInstanceResult) *bool { return v.AutoMinorVersionUpgrade }).(pulumi.BoolPtrOutput)
 }
 
-func (o LookupDBInstanceResultOutput) DBInstanceClass() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupDBInstanceResult) *string { return v.DBInstanceClass }).(pulumi.StringPtrOutput)
+func (o LookupDBInstanceResultOutput) DbInstanceClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDBInstanceResult) *string { return v.DbInstanceClass }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupDBInstanceResultOutput) DBParameterGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupDBInstanceResult) *string { return v.DBParameterGroupName }).(pulumi.StringPtrOutput)
+func (o LookupDBInstanceResultOutput) DbParameterGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDBInstanceResult) *string { return v.DbParameterGroupName }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupDBInstanceResultOutput) Endpoint() pulumi.StringPtrOutput {

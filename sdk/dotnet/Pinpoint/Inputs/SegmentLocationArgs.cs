@@ -15,8 +15,8 @@ namespace Pulumi.AwsNative.Pinpoint.Inputs
         [Input("country")]
         public Input<Inputs.SegmentSetDimensionArgs>? Country { get; set; }
 
-        [Input("gPSPoint")]
-        public Input<Inputs.SegmentGPSPointArgs>? GPSPoint { get; set; }
+        [Input("gpsPoint")]
+        public Input<Inputs.SegmentGPSPointArgs>? GpsPoint { get; set; }
 
         public SegmentLocationArgs()
         {

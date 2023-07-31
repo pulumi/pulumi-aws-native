@@ -15,15 +15,15 @@ __all__ = ['SecurityGroupIngressArgs', 'SecurityGroupIngress']
 class SecurityGroupIngressArgs:
     def __init__(__self__, *,
                  cache_security_group_name: pulumi.Input[str],
-                 e_c2_security_group_name: pulumi.Input[str],
-                 e_c2_security_group_owner_id: Optional[pulumi.Input[str]] = None):
+                 ec2_security_group_name: pulumi.Input[str],
+                 ec2_security_group_owner_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SecurityGroupIngress resource.
         """
         pulumi.set(__self__, "cache_security_group_name", cache_security_group_name)
-        pulumi.set(__self__, "e_c2_security_group_name", e_c2_security_group_name)
-        if e_c2_security_group_owner_id is not None:
-            pulumi.set(__self__, "e_c2_security_group_owner_id", e_c2_security_group_owner_id)
+        pulumi.set(__self__, "ec2_security_group_name", ec2_security_group_name)
+        if ec2_security_group_owner_id is not None:
+            pulumi.set(__self__, "ec2_security_group_owner_id", ec2_security_group_owner_id)
 
     @property
     @pulumi.getter(name="cacheSecurityGroupName")
@@ -35,22 +35,22 @@ class SecurityGroupIngressArgs:
         pulumi.set(self, "cache_security_group_name", value)
 
     @property
-    @pulumi.getter(name="eC2SecurityGroupName")
-    def e_c2_security_group_name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "e_c2_security_group_name")
+    @pulumi.getter(name="ec2SecurityGroupName")
+    def ec2_security_group_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "ec2_security_group_name")
 
-    @e_c2_security_group_name.setter
-    def e_c2_security_group_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "e_c2_security_group_name", value)
+    @ec2_security_group_name.setter
+    def ec2_security_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "ec2_security_group_name", value)
 
     @property
-    @pulumi.getter(name="eC2SecurityGroupOwnerId")
-    def e_c2_security_group_owner_id(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "e_c2_security_group_owner_id")
+    @pulumi.getter(name="ec2SecurityGroupOwnerId")
+    def ec2_security_group_owner_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ec2_security_group_owner_id")
 
-    @e_c2_security_group_owner_id.setter
-    def e_c2_security_group_owner_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "e_c2_security_group_owner_id", value)
+    @ec2_security_group_owner_id.setter
+    def ec2_security_group_owner_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ec2_security_group_owner_id", value)
 
 
 warnings.warn("""SecurityGroupIngress is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
@@ -64,8 +64,8 @@ class SecurityGroupIngress(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cache_security_group_name: Optional[pulumi.Input[str]] = None,
-                 e_c2_security_group_name: Optional[pulumi.Input[str]] = None,
-                 e_c2_security_group_owner_id: Optional[pulumi.Input[str]] = None,
+                 ec2_security_group_name: Optional[pulumi.Input[str]] = None,
+                 ec2_security_group_owner_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::ElastiCache::SecurityGroupIngress
@@ -98,8 +98,8 @@ class SecurityGroupIngress(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cache_security_group_name: Optional[pulumi.Input[str]] = None,
-                 e_c2_security_group_name: Optional[pulumi.Input[str]] = None,
-                 e_c2_security_group_owner_id: Optional[pulumi.Input[str]] = None,
+                 ec2_security_group_name: Optional[pulumi.Input[str]] = None,
+                 ec2_security_group_owner_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         pulumi.log.warn("""SecurityGroupIngress is deprecated: SecurityGroupIngress is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -113,10 +113,10 @@ class SecurityGroupIngress(pulumi.CustomResource):
             if cache_security_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cache_security_group_name'")
             __props__.__dict__["cache_security_group_name"] = cache_security_group_name
-            if e_c2_security_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'e_c2_security_group_name'")
-            __props__.__dict__["e_c2_security_group_name"] = e_c2_security_group_name
-            __props__.__dict__["e_c2_security_group_owner_id"] = e_c2_security_group_owner_id
+            if ec2_security_group_name is None and not opts.urn:
+                raise TypeError("Missing required property 'ec2_security_group_name'")
+            __props__.__dict__["ec2_security_group_name"] = ec2_security_group_name
+            __props__.__dict__["ec2_security_group_owner_id"] = ec2_security_group_owner_id
         super(SecurityGroupIngress, __self__).__init__(
             'aws-native:elasticache:SecurityGroupIngress',
             resource_name,
@@ -140,8 +140,8 @@ class SecurityGroupIngress(pulumi.CustomResource):
         __props__ = SecurityGroupIngressArgs.__new__(SecurityGroupIngressArgs)
 
         __props__.__dict__["cache_security_group_name"] = None
-        __props__.__dict__["e_c2_security_group_name"] = None
-        __props__.__dict__["e_c2_security_group_owner_id"] = None
+        __props__.__dict__["ec2_security_group_name"] = None
+        __props__.__dict__["ec2_security_group_owner_id"] = None
         return SecurityGroupIngress(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -150,12 +150,12 @@ class SecurityGroupIngress(pulumi.CustomResource):
         return pulumi.get(self, "cache_security_group_name")
 
     @property
-    @pulumi.getter(name="eC2SecurityGroupName")
-    def e_c2_security_group_name(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "e_c2_security_group_name")
+    @pulumi.getter(name="ec2SecurityGroupName")
+    def ec2_security_group_name(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "ec2_security_group_name")
 
     @property
-    @pulumi.getter(name="eC2SecurityGroupOwnerId")
-    def e_c2_security_group_owner_id(self) -> pulumi.Output[Optional[str]]:
-        return pulumi.get(self, "e_c2_security_group_owner_id")
+    @pulumi.getter(name="ec2SecurityGroupOwnerId")
+    def ec2_security_group_owner_id(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "ec2_security_group_owner_id")
 

@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetStorageVirtualMachineResult:
-    def __init__(__self__, active_directory_configuration=None, resource_arn=None, storage_virtual_machine_id=None, svm_admin_password=None, tags=None, u_uid=None):
+    def __init__(__self__, active_directory_configuration=None, resource_arn=None, storage_virtual_machine_id=None, svm_admin_password=None, tags=None, uuid=None):
         if active_directory_configuration and not isinstance(active_directory_configuration, dict):
             raise TypeError("Expected argument 'active_directory_configuration' to be a dict")
         pulumi.set(__self__, "active_directory_configuration", active_directory_configuration)
@@ -35,9 +35,9 @@ class GetStorageVirtualMachineResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
-        if u_uid and not isinstance(u_uid, str):
-            raise TypeError("Expected argument 'u_uid' to be a str")
-        pulumi.set(__self__, "u_uid", u_uid)
+        if uuid and not isinstance(uuid, str):
+            raise TypeError("Expected argument 'uuid' to be a str")
+        pulumi.set(__self__, "uuid", uuid)
 
     @property
     @pulumi.getter(name="activeDirectoryConfiguration")
@@ -45,7 +45,7 @@ class GetStorageVirtualMachineResult:
         return pulumi.get(self, "active_directory_configuration")
 
     @property
-    @pulumi.getter(name="resourceARN")
+    @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> Optional[str]:
         return pulumi.get(self, "resource_arn")
 
@@ -65,9 +65,9 @@ class GetStorageVirtualMachineResult:
         return pulumi.get(self, "tags")
 
     @property
-    @pulumi.getter(name="uUID")
-    def u_uid(self) -> Optional[str]:
-        return pulumi.get(self, "u_uid")
+    @pulumi.getter
+    def uuid(self) -> Optional[str]:
+        return pulumi.get(self, "uuid")
 
 
 class AwaitableGetStorageVirtualMachineResult(GetStorageVirtualMachineResult):
@@ -81,7 +81,7 @@ class AwaitableGetStorageVirtualMachineResult(GetStorageVirtualMachineResult):
             storage_virtual_machine_id=self.storage_virtual_machine_id,
             svm_admin_password=self.svm_admin_password,
             tags=self.tags,
-            u_uid=self.u_uid)
+            uuid=self.uuid)
 
 
 def get_storage_virtual_machine(storage_virtual_machine_id: Optional[str] = None,
@@ -100,7 +100,7 @@ def get_storage_virtual_machine(storage_virtual_machine_id: Optional[str] = None
         storage_virtual_machine_id=pulumi.get(__ret__, 'storage_virtual_machine_id'),
         svm_admin_password=pulumi.get(__ret__, 'svm_admin_password'),
         tags=pulumi.get(__ret__, 'tags'),
-        u_uid=pulumi.get(__ret__, 'u_uid'))
+        uuid=pulumi.get(__ret__, 'uuid'))
 
 
 @_utilities.lift_output_func(get_storage_virtual_machine)

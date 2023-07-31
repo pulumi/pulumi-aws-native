@@ -199,7 +199,7 @@ class EndpointAuthorization(pulumi.CustomResource):
         return pulumi.get(self, "account")
 
     @property
-    @pulumi.getter(name="allowedAllVPCs")
+    @pulumi.getter(name="allowedAllVpcs")
     def allowed_all_vpcs(self) -> pulumi.Output[bool]:
         """
         Indicates whether all VPCs in the grantee account are allowed access to the cluster.
@@ -207,7 +207,7 @@ class EndpointAuthorization(pulumi.CustomResource):
         return pulumi.get(self, "allowed_all_vpcs")
 
     @property
-    @pulumi.getter(name="allowedVPCs")
+    @pulumi.getter(name="allowedVpcs")
     def allowed_vpcs(self) -> pulumi.Output[Sequence[str]]:
         """
         The VPCs allowed access to the cluster.

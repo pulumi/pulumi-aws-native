@@ -53,10 +53,10 @@ namespace Pulumi.AwsNative.FSx
     {
         public readonly string? Name;
         public readonly Outputs.VolumeOntapConfiguration? OntapConfiguration;
-        public readonly Outputs.VolumeOpenZFSConfiguration? OpenZFSConfiguration;
-        public readonly string? ResourceARN;
+        public readonly Outputs.VolumeOpenZFSConfiguration? OpenZfsConfiguration;
+        public readonly string? ResourceArn;
         public readonly ImmutableArray<Outputs.VolumeTag> Tags;
-        public readonly string? UUID;
+        public readonly string? Uuid;
         public readonly string? VolumeId;
 
         [OutputConstructor]
@@ -65,22 +65,22 @@ namespace Pulumi.AwsNative.FSx
 
             Outputs.VolumeOntapConfiguration? ontapConfiguration,
 
-            Outputs.VolumeOpenZFSConfiguration? openZFSConfiguration,
+            Outputs.VolumeOpenZFSConfiguration? openZfsConfiguration,
 
-            string? resourceARN,
+            string? resourceArn,
 
             ImmutableArray<Outputs.VolumeTag> tags,
 
-            string? uUID,
+            string? uuid,
 
             string? volumeId)
         {
             Name = name;
             OntapConfiguration = ontapConfiguration;
-            OpenZFSConfiguration = openZFSConfiguration;
-            ResourceARN = resourceARN;
+            OpenZfsConfiguration = openZfsConfiguration;
+            ResourceArn = resourceArn;
             Tags = tags;
-            UUID = uUID;
+            Uuid = uuid;
             VolumeId = volumeId;
         }
     }

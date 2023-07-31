@@ -37,10 +37,10 @@ export class ClusterSecurityGroupIngress extends pulumi.CustomResource {
         return obj['__pulumiType'] === ClusterSecurityGroupIngress.__pulumiType;
     }
 
-    public readonly cIDRIP!: pulumi.Output<string | undefined>;
+    public readonly cidrip!: pulumi.Output<string | undefined>;
     public readonly clusterSecurityGroupName!: pulumi.Output<string>;
-    public readonly eC2SecurityGroupName!: pulumi.Output<string | undefined>;
-    public readonly eC2SecurityGroupOwnerId!: pulumi.Output<string | undefined>;
+    public readonly ec2SecurityGroupName!: pulumi.Output<string | undefined>;
+    public readonly ec2SecurityGroupOwnerId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ClusterSecurityGroupIngress resource with the given unique name, arguments, and options.
@@ -58,15 +58,15 @@ export class ClusterSecurityGroupIngress extends pulumi.CustomResource {
             if ((!args || args.clusterSecurityGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterSecurityGroupName'");
             }
-            resourceInputs["cIDRIP"] = args ? args.cIDRIP : undefined;
+            resourceInputs["cidrip"] = args ? args.cidrip : undefined;
             resourceInputs["clusterSecurityGroupName"] = args ? args.clusterSecurityGroupName : undefined;
-            resourceInputs["eC2SecurityGroupName"] = args ? args.eC2SecurityGroupName : undefined;
-            resourceInputs["eC2SecurityGroupOwnerId"] = args ? args.eC2SecurityGroupOwnerId : undefined;
+            resourceInputs["ec2SecurityGroupName"] = args ? args.ec2SecurityGroupName : undefined;
+            resourceInputs["ec2SecurityGroupOwnerId"] = args ? args.ec2SecurityGroupOwnerId : undefined;
         } else {
-            resourceInputs["cIDRIP"] = undefined /*out*/;
+            resourceInputs["cidrip"] = undefined /*out*/;
             resourceInputs["clusterSecurityGroupName"] = undefined /*out*/;
-            resourceInputs["eC2SecurityGroupName"] = undefined /*out*/;
-            resourceInputs["eC2SecurityGroupOwnerId"] = undefined /*out*/;
+            resourceInputs["ec2SecurityGroupName"] = undefined /*out*/;
+            resourceInputs["ec2SecurityGroupOwnerId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ClusterSecurityGroupIngress.__pulumiType, name, resourceInputs, opts);
@@ -77,8 +77,8 @@ export class ClusterSecurityGroupIngress extends pulumi.CustomResource {
  * The set of arguments for constructing a ClusterSecurityGroupIngress resource.
  */
 export interface ClusterSecurityGroupIngressArgs {
-    cIDRIP?: pulumi.Input<string>;
+    cidrip?: pulumi.Input<string>;
     clusterSecurityGroupName: pulumi.Input<string>;
-    eC2SecurityGroupName?: pulumi.Input<string>;
-    eC2SecurityGroupOwnerId?: pulumi.Input<string>;
+    ec2SecurityGroupName?: pulumi.Input<string>;
+    ec2SecurityGroupOwnerId?: pulumi.Input<string>;
 }

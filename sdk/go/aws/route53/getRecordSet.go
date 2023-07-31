@@ -38,7 +38,7 @@ type LookupRecordSetResult struct {
 	Region            *string                     `pulumi:"region"`
 	ResourceRecords   []string                    `pulumi:"resourceRecords"`
 	SetIdentifier     *string                     `pulumi:"setIdentifier"`
-	TTL               *string                     `pulumi:"tTL"`
+	Ttl               *string                     `pulumi:"ttl"`
 	Type              *string                     `pulumi:"type"`
 	Weight            *int                        `pulumi:"weight"`
 }
@@ -122,8 +122,8 @@ func (o LookupRecordSetResultOutput) SetIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRecordSetResult) *string { return v.SetIdentifier }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupRecordSetResultOutput) TTL() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupRecordSetResult) *string { return v.TTL }).(pulumi.StringPtrOutput)
+func (o LookupRecordSetResultOutput) Ttl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRecordSetResult) *string { return v.Ttl }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupRecordSetResultOutput) Type() pulumi.StringPtrOutput {

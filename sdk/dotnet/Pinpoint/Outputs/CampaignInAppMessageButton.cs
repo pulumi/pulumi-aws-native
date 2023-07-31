@@ -15,7 +15,7 @@ namespace Pulumi.AwsNative.Pinpoint.Outputs
     {
         public readonly Outputs.CampaignOverrideButtonConfiguration? Android;
         public readonly Outputs.CampaignDefaultButtonConfiguration? DefaultConfig;
-        public readonly Outputs.CampaignOverrideButtonConfiguration? IOS;
+        public readonly Outputs.CampaignOverrideButtonConfiguration? Ios;
         public readonly Outputs.CampaignOverrideButtonConfiguration? Web;
 
         [OutputConstructor]
@@ -24,13 +24,13 @@ namespace Pulumi.AwsNative.Pinpoint.Outputs
 
             Outputs.CampaignDefaultButtonConfiguration? defaultConfig,
 
-            Outputs.CampaignOverrideButtonConfiguration? iOS,
+            Outputs.CampaignOverrideButtonConfiguration? ios,
 
             Outputs.CampaignOverrideButtonConfiguration? web)
         {
             Android = android;
             DefaultConfig = defaultConfig;
-            IOS = iOS;
+            Ios = ios;
             Web = web;
         }
     }

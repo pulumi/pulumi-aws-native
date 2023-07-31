@@ -19,9 +19,9 @@ type DBProxy struct {
 	// The authorization mechanism that the proxy uses.
 	Auth DBProxyAuthFormatArrayOutput `pulumi:"auth"`
 	// The Amazon Resource Name (ARN) for the proxy.
-	DBProxyArn pulumi.StringOutput `pulumi:"dBProxyArn"`
+	DbProxyArn pulumi.StringOutput `pulumi:"dbProxyArn"`
 	// The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
-	DBProxyName pulumi.StringOutput `pulumi:"dBProxyName"`
+	DbProxyName pulumi.StringOutput `pulumi:"dbProxyName"`
 	// Whether the proxy includes detailed information about SQL statements in its logs.
 	DebugLogging pulumi.BoolPtrOutput `pulumi:"debugLogging"`
 	// The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
@@ -31,7 +31,7 @@ type DBProxy struct {
 	// The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it.
 	IdleClientTimeout pulumi.IntPtrOutput `pulumi:"idleClientTimeout"`
 	// A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
-	RequireTLS pulumi.BoolPtrOutput `pulumi:"requireTLS"`
+	RequireTls pulumi.BoolPtrOutput `pulumi:"requireTls"`
 	// The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
@@ -99,7 +99,7 @@ type dbproxyArgs struct {
 	// The authorization mechanism that the proxy uses.
 	Auth []DBProxyAuthFormat `pulumi:"auth"`
 	// The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
-	DBProxyName *string `pulumi:"dBProxyName"`
+	DbProxyName *string `pulumi:"dbProxyName"`
 	// Whether the proxy includes detailed information about SQL statements in its logs.
 	DebugLogging *bool `pulumi:"debugLogging"`
 	// The kinds of databases that the proxy can connect to.
@@ -107,7 +107,7 @@ type dbproxyArgs struct {
 	// The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it.
 	IdleClientTimeout *int `pulumi:"idleClientTimeout"`
 	// A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
-	RequireTLS *bool `pulumi:"requireTLS"`
+	RequireTls *bool `pulumi:"requireTls"`
 	// The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
 	RoleArn string `pulumi:"roleArn"`
 	// An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
@@ -123,7 +123,7 @@ type DBProxyArgs struct {
 	// The authorization mechanism that the proxy uses.
 	Auth DBProxyAuthFormatArrayInput
 	// The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
-	DBProxyName pulumi.StringPtrInput
+	DbProxyName pulumi.StringPtrInput
 	// Whether the proxy includes detailed information about SQL statements in its logs.
 	DebugLogging pulumi.BoolPtrInput
 	// The kinds of databases that the proxy can connect to.
@@ -131,7 +131,7 @@ type DBProxyArgs struct {
 	// The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it.
 	IdleClientTimeout pulumi.IntPtrInput
 	// A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
-	RequireTLS pulumi.BoolPtrInput
+	RequireTls pulumi.BoolPtrInput
 	// The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
 	RoleArn pulumi.StringInput
 	// An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
@@ -185,13 +185,13 @@ func (o DBProxyOutput) Auth() DBProxyAuthFormatArrayOutput {
 }
 
 // The Amazon Resource Name (ARN) for the proxy.
-func (o DBProxyOutput) DBProxyArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *DBProxy) pulumi.StringOutput { return v.DBProxyArn }).(pulumi.StringOutput)
+func (o DBProxyOutput) DbProxyArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *DBProxy) pulumi.StringOutput { return v.DbProxyArn }).(pulumi.StringOutput)
 }
 
 // The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
-func (o DBProxyOutput) DBProxyName() pulumi.StringOutput {
-	return o.ApplyT(func(v *DBProxy) pulumi.StringOutput { return v.DBProxyName }).(pulumi.StringOutput)
+func (o DBProxyOutput) DbProxyName() pulumi.StringOutput {
+	return o.ApplyT(func(v *DBProxy) pulumi.StringOutput { return v.DbProxyName }).(pulumi.StringOutput)
 }
 
 // Whether the proxy includes detailed information about SQL statements in its logs.
@@ -215,8 +215,8 @@ func (o DBProxyOutput) IdleClientTimeout() pulumi.IntPtrOutput {
 }
 
 // A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
-func (o DBProxyOutput) RequireTLS() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DBProxy) pulumi.BoolPtrOutput { return v.RequireTLS }).(pulumi.BoolPtrOutput)
+func (o DBProxyOutput) RequireTls() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DBProxy) pulumi.BoolPtrOutput { return v.RequireTls }).(pulumi.BoolPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.

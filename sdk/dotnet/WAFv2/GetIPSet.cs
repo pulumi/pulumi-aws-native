@@ -69,8 +69,8 @@ namespace Pulumi.AwsNative.WAFv2
         public readonly ImmutableArray<string> Addresses;
         public readonly string? Arn;
         public readonly string? Description;
-        public readonly Pulumi.AwsNative.WAFv2.IPSetIPAddressVersion? IPAddressVersion;
         public readonly string? Id;
+        public readonly Pulumi.AwsNative.WAFv2.IPSetIPAddressVersion? IpAddressVersion;
         public readonly ImmutableArray<Outputs.IPSetTag> Tags;
 
         [OutputConstructor]
@@ -81,17 +81,17 @@ namespace Pulumi.AwsNative.WAFv2
 
             string? description,
 
-            Pulumi.AwsNative.WAFv2.IPSetIPAddressVersion? iPAddressVersion,
-
             string? id,
+
+            Pulumi.AwsNative.WAFv2.IPSetIPAddressVersion? ipAddressVersion,
 
             ImmutableArray<Outputs.IPSetTag> tags)
         {
             Addresses = addresses;
             Arn = arn;
             Description = description;
-            IPAddressVersion = iPAddressVersion;
             Id = id;
+            IpAddressVersion = ipAddressVersion;
             Tags = tags;
         }
     }

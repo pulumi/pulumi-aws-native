@@ -15,8 +15,8 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
         /// <summary>
         /// A IPAddressType
         /// </summary>
-        [Input("iPAddressType")]
-        public Input<string>? IPAddressType { get; set; }
+        [Input("ipAddressType")]
+        public Input<string>? IpAddressType { get; set; }
 
         /// <summary>
         /// A SubnetId.

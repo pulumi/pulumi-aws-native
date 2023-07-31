@@ -12,8 +12,8 @@ namespace Pulumi.AwsNative.ServiceDiscovery.Inputs
 
     public sealed class ServiceDnsRecordArgs : global::Pulumi.ResourceArgs
     {
-        [Input("tTL", required: true)]
-        public Input<double> TTL { get; set; } = null!;
+        [Input("ttl", required: true)]
+        public Input<double> Ttl { get; set; } = null!;
 
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

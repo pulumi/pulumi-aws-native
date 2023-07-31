@@ -51,14 +51,14 @@ namespace Pulumi.AwsNative.Neptune
     [OutputType]
     public sealed class GetDBSubnetGroupResult
     {
-        public readonly string? DBSubnetGroupDescription;
+        public readonly string? DbSubnetGroupDescription;
         public readonly string? Id;
         public readonly ImmutableArray<string> SubnetIds;
         public readonly ImmutableArray<Outputs.DBSubnetGroupTag> Tags;
 
         [OutputConstructor]
         private GetDBSubnetGroupResult(
-            string? dBSubnetGroupDescription,
+            string? dbSubnetGroupDescription,
 
             string? id,
 
@@ -66,7 +66,7 @@ namespace Pulumi.AwsNative.Neptune
 
             ImmutableArray<Outputs.DBSubnetGroupTag> tags)
         {
-            DBSubnetGroupDescription = dBSubnetGroupDescription;
+            DbSubnetGroupDescription = dbSubnetGroupDescription;
             Id = id;
             SubnetIds = subnetIds;
             Tags = tags;

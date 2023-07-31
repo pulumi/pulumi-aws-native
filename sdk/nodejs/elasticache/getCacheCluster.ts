@@ -23,8 +23,8 @@ export interface GetCacheClusterArgs {
 }
 
 export interface GetCacheClusterResult {
-    readonly aZMode?: string;
     readonly autoMinorVersionUpgrade?: boolean;
+    readonly azMode?: string;
     readonly cacheNodeType?: string;
     readonly cacheParameterGroupName?: string;
     readonly cacheSecurityGroupNames?: string[];

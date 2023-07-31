@@ -1147,11 +1147,11 @@ class ServiceTagArgs:
 class TaskDefinitionAuthorizationConfigArgs:
     def __init__(__self__, *,
                  access_point_id: Optional[pulumi.Input[str]] = None,
-                 i_am: Optional[pulumi.Input['TaskDefinitionAuthorizationConfigIAM']] = None):
+                 iam: Optional[pulumi.Input['TaskDefinitionAuthorizationConfigIAM']] = None):
         if access_point_id is not None:
             pulumi.set(__self__, "access_point_id", access_point_id)
-        if i_am is not None:
-            pulumi.set(__self__, "i_am", i_am)
+        if iam is not None:
+            pulumi.set(__self__, "iam", iam)
 
     @property
     @pulumi.getter(name="accessPointId")
@@ -1163,13 +1163,13 @@ class TaskDefinitionAuthorizationConfigArgs:
         pulumi.set(self, "access_point_id", value)
 
     @property
-    @pulumi.getter(name="iAM")
-    def i_am(self) -> Optional[pulumi.Input['TaskDefinitionAuthorizationConfigIAM']]:
-        return pulumi.get(self, "i_am")
+    @pulumi.getter
+    def iam(self) -> Optional[pulumi.Input['TaskDefinitionAuthorizationConfigIAM']]:
+        return pulumi.get(self, "iam")
 
-    @i_am.setter
-    def i_am(self, value: Optional[pulumi.Input['TaskDefinitionAuthorizationConfigIAM']]):
-        pulumi.set(self, "i_am", value)
+    @iam.setter
+    def iam(self, value: Optional[pulumi.Input['TaskDefinitionAuthorizationConfigIAM']]):
+        pulumi.set(self, "iam", value)
 
 
 @pulumi.input_type
@@ -2749,13 +2749,13 @@ class TaskDefinitionVolumeFromArgs:
 class TaskDefinitionVolumeArgs:
     def __init__(__self__, *,
                  docker_volume_configuration: Optional[pulumi.Input['TaskDefinitionDockerVolumeConfigurationArgs']] = None,
-                 e_fs_volume_configuration: Optional[pulumi.Input['TaskDefinitionEFSVolumeConfigurationArgs']] = None,
+                 efs_volume_configuration: Optional[pulumi.Input['TaskDefinitionEFSVolumeConfigurationArgs']] = None,
                  host: Optional[pulumi.Input['TaskDefinitionHostVolumePropertiesArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None):
         if docker_volume_configuration is not None:
             pulumi.set(__self__, "docker_volume_configuration", docker_volume_configuration)
-        if e_fs_volume_configuration is not None:
-            pulumi.set(__self__, "e_fs_volume_configuration", e_fs_volume_configuration)
+        if efs_volume_configuration is not None:
+            pulumi.set(__self__, "efs_volume_configuration", efs_volume_configuration)
         if host is not None:
             pulumi.set(__self__, "host", host)
         if name is not None:
@@ -2771,13 +2771,13 @@ class TaskDefinitionVolumeArgs:
         pulumi.set(self, "docker_volume_configuration", value)
 
     @property
-    @pulumi.getter(name="eFSVolumeConfiguration")
-    def e_fs_volume_configuration(self) -> Optional[pulumi.Input['TaskDefinitionEFSVolumeConfigurationArgs']]:
-        return pulumi.get(self, "e_fs_volume_configuration")
+    @pulumi.getter(name="efsVolumeConfiguration")
+    def efs_volume_configuration(self) -> Optional[pulumi.Input['TaskDefinitionEFSVolumeConfigurationArgs']]:
+        return pulumi.get(self, "efs_volume_configuration")
 
-    @e_fs_volume_configuration.setter
-    def e_fs_volume_configuration(self, value: Optional[pulumi.Input['TaskDefinitionEFSVolumeConfigurationArgs']]):
-        pulumi.set(self, "e_fs_volume_configuration", value)
+    @efs_volume_configuration.setter
+    def efs_volume_configuration(self, value: Optional[pulumi.Input['TaskDefinitionEFSVolumeConfigurationArgs']]):
+        pulumi.set(self, "efs_volume_configuration", value)
 
     @property
     @pulumi.getter

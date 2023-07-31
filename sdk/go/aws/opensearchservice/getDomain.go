@@ -37,7 +37,7 @@ type LookupDomainResult struct {
 	DomainEndpoint              *string                             `pulumi:"domainEndpoint"`
 	DomainEndpointOptions       *DomainEndpointOptions              `pulumi:"domainEndpointOptions"`
 	DomainEndpoints             interface{}                         `pulumi:"domainEndpoints"`
-	EBSOptions                  *DomainEBSOptions                   `pulumi:"eBSOptions"`
+	EbsOptions                  *DomainEBSOptions                   `pulumi:"ebsOptions"`
 	EncryptionAtRestOptions     *DomainEncryptionAtRestOptions      `pulumi:"encryptionAtRestOptions"`
 	EngineVersion               *string                             `pulumi:"engineVersion"`
 	Id                          *string                             `pulumi:"id"`
@@ -49,7 +49,7 @@ type LookupDomainResult struct {
 	SoftwareUpdateOptions       *DomainSoftwareUpdateOptions        `pulumi:"softwareUpdateOptions"`
 	// An arbitrary set of tags (key-value pairs) for this Domain.
 	Tags       []DomainTag       `pulumi:"tags"`
-	VPCOptions *DomainVPCOptions `pulumi:"vPCOptions"`
+	VpcOptions *DomainVPCOptions `pulumi:"vpcOptions"`
 }
 
 func LookupDomainOutput(ctx *pulumi.Context, args LookupDomainOutputArgs, opts ...pulumi.InvokeOption) LookupDomainResultOutput {
@@ -127,8 +127,8 @@ func (o LookupDomainResultOutput) DomainEndpoints() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupDomainResult) interface{} { return v.DomainEndpoints }).(pulumi.AnyOutput)
 }
 
-func (o LookupDomainResultOutput) EBSOptions() DomainEBSOptionsPtrOutput {
-	return o.ApplyT(func(v LookupDomainResult) *DomainEBSOptions { return v.EBSOptions }).(DomainEBSOptionsPtrOutput)
+func (o LookupDomainResultOutput) EbsOptions() DomainEBSOptionsPtrOutput {
+	return o.ApplyT(func(v LookupDomainResult) *DomainEBSOptions { return v.EbsOptions }).(DomainEBSOptionsPtrOutput)
 }
 
 func (o LookupDomainResultOutput) EncryptionAtRestOptions() DomainEncryptionAtRestOptionsPtrOutput {
@@ -172,8 +172,8 @@ func (o LookupDomainResultOutput) Tags() DomainTagArrayOutput {
 	return o.ApplyT(func(v LookupDomainResult) []DomainTag { return v.Tags }).(DomainTagArrayOutput)
 }
 
-func (o LookupDomainResultOutput) VPCOptions() DomainVPCOptionsPtrOutput {
-	return o.ApplyT(func(v LookupDomainResult) *DomainVPCOptions { return v.VPCOptions }).(DomainVPCOptionsPtrOutput)
+func (o LookupDomainResultOutput) VpcOptions() DomainVPCOptionsPtrOutput {
+	return o.ApplyT(func(v LookupDomainResult) *DomainVPCOptions { return v.VpcOptions }).(DomainVPCOptionsPtrOutput)
 }
 
 func init() {

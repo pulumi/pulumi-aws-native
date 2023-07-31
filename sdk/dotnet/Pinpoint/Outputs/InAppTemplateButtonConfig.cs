@@ -15,7 +15,7 @@ namespace Pulumi.AwsNative.Pinpoint.Outputs
     {
         public readonly Outputs.InAppTemplateOverrideButtonConfiguration? Android;
         public readonly Outputs.InAppTemplateDefaultButtonConfiguration? DefaultConfig;
-        public readonly Outputs.InAppTemplateOverrideButtonConfiguration? IOS;
+        public readonly Outputs.InAppTemplateOverrideButtonConfiguration? Ios;
         public readonly Outputs.InAppTemplateOverrideButtonConfiguration? Web;
 
         [OutputConstructor]
@@ -24,13 +24,13 @@ namespace Pulumi.AwsNative.Pinpoint.Outputs
 
             Outputs.InAppTemplateDefaultButtonConfiguration? defaultConfig,
 
-            Outputs.InAppTemplateOverrideButtonConfiguration? iOS,
+            Outputs.InAppTemplateOverrideButtonConfiguration? ios,
 
             Outputs.InAppTemplateOverrideButtonConfiguration? web)
         {
             Android = android;
             DefaultConfig = defaultConfig;
-            IOS = iOS;
+            Ios = ios;
             Web = web;
         }
     }

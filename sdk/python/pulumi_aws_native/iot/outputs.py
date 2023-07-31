@@ -1275,7 +1275,7 @@ class MitigationActionActionParams(dict):
             suggest = "publish_finding_to_sns_params"
         elif key == "replaceDefaultPolicyVersionParams":
             suggest = "replace_default_policy_version_params"
-        elif key == "updateCACertificateParams":
+        elif key == "updateCaCertificateParams":
             suggest = "update_ca_certificate_params"
         elif key == "updateDeviceCertificateParams":
             suggest = "update_device_certificate_params"
@@ -1335,7 +1335,7 @@ class MitigationActionActionParams(dict):
         return pulumi.get(self, "replace_default_policy_version_params")
 
     @property
-    @pulumi.getter(name="updateCACertificateParams")
+    @pulumi.getter(name="updateCaCertificateParams")
     def update_ca_certificate_params(self) -> Optional['outputs.MitigationActionUpdateCACertificateParams']:
         return pulumi.get(self, "update_ca_certificate_params")
 
@@ -2449,10 +2449,10 @@ class TopicRuleAction(dict):
             suggest = "cloudwatch_logs"
         elif key == "cloudwatchMetric":
             suggest = "cloudwatch_metric"
-        elif key == "dynamoDB":
-            suggest = "dynamo_db"
         elif key == "dynamoDBv2":
             suggest = "dynamo_d_bv2"
+        elif key == "dynamoDb":
+            suggest = "dynamo_db"
         elif key == "iotAnalytics":
             suggest = "iot_analytics"
         elif key == "iotEvents":
@@ -2481,8 +2481,8 @@ class TopicRuleAction(dict):
                  cloudwatch_alarm: Optional['outputs.TopicRuleCloudwatchAlarmAction'] = None,
                  cloudwatch_logs: Optional['outputs.TopicRuleCloudwatchLogsAction'] = None,
                  cloudwatch_metric: Optional['outputs.TopicRuleCloudwatchMetricAction'] = None,
-                 dynamo_db: Optional['outputs.TopicRuleDynamoDBAction'] = None,
                  dynamo_d_bv2: Optional['outputs.TopicRuleDynamoDBv2Action'] = None,
+                 dynamo_db: Optional['outputs.TopicRuleDynamoDBAction'] = None,
                  elasticsearch: Optional['outputs.TopicRuleElasticsearchAction'] = None,
                  firehose: Optional['outputs.TopicRuleFirehoseAction'] = None,
                  http: Optional['outputs.TopicRuleHttpAction'] = None,
@@ -2506,10 +2506,10 @@ class TopicRuleAction(dict):
             pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
         if cloudwatch_metric is not None:
             pulumi.set(__self__, "cloudwatch_metric", cloudwatch_metric)
-        if dynamo_db is not None:
-            pulumi.set(__self__, "dynamo_db", dynamo_db)
         if dynamo_d_bv2 is not None:
             pulumi.set(__self__, "dynamo_d_bv2", dynamo_d_bv2)
+        if dynamo_db is not None:
+            pulumi.set(__self__, "dynamo_db", dynamo_db)
         if elasticsearch is not None:
             pulumi.set(__self__, "elasticsearch", elasticsearch)
         if firehose is not None:
@@ -2561,14 +2561,14 @@ class TopicRuleAction(dict):
         return pulumi.get(self, "cloudwatch_metric")
 
     @property
-    @pulumi.getter(name="dynamoDB")
-    def dynamo_db(self) -> Optional['outputs.TopicRuleDynamoDBAction']:
-        return pulumi.get(self, "dynamo_db")
-
-    @property
     @pulumi.getter(name="dynamoDBv2")
     def dynamo_d_bv2(self) -> Optional['outputs.TopicRuleDynamoDBv2Action']:
         return pulumi.get(self, "dynamo_d_bv2")
+
+    @property
+    @pulumi.getter(name="dynamoDb")
+    def dynamo_db(self) -> Optional['outputs.TopicRuleDynamoDBAction']:
+        return pulumi.get(self, "dynamo_db")
 
     @property
     @pulumi.getter

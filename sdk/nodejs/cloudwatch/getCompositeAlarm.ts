@@ -62,7 +62,7 @@ export interface GetCompositeAlarmResult {
     /**
      * The actions to execute when this alarm transitions to the OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
      */
-    readonly oKActions?: string[];
+    readonly okActions?: string[];
 }
 /**
  * The AWS::CloudWatch::CompositeAlarm type specifies an alarm which aggregates the states of other Alarms (Metric or Composite Alarms) as defined by the AlarmRule expression

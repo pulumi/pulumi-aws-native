@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.OpenSearchService.Outputs
         public readonly bool? Enabled;
         public readonly bool? InternalUserDatabaseEnabled;
         public readonly Outputs.DomainMasterUserOptions? MasterUserOptions;
-        public readonly Outputs.DomainSAMLOptions? SAMLOptions;
+        public readonly Outputs.DomainSAMLOptions? SamlOptions;
 
         [OutputConstructor]
         private DomainAdvancedSecurityOptionsInput(
@@ -32,14 +32,14 @@ namespace Pulumi.AwsNative.OpenSearchService.Outputs
 
             Outputs.DomainMasterUserOptions? masterUserOptions,
 
-            Outputs.DomainSAMLOptions? sAMLOptions)
+            Outputs.DomainSAMLOptions? samlOptions)
         {
             AnonymousAuthDisableDate = anonymousAuthDisableDate;
             AnonymousAuthEnabled = anonymousAuthEnabled;
             Enabled = enabled;
             InternalUserDatabaseEnabled = internalUserDatabaseEnabled;
             MasterUserOptions = masterUserOptions;
-            SAMLOptions = sAMLOptions;
+            SamlOptions = samlOptions;
         }
     }
 }

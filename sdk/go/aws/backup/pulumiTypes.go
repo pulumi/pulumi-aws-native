@@ -1255,7 +1255,7 @@ func (o BackupVaultLockConfigurationTypePtrOutput) MinRetentionDays() pulumi.Int
 
 type BackupVaultNotificationObjectType struct {
 	BackupVaultEvents []string `pulumi:"backupVaultEvents"`
-	SNSTopicArn       string   `pulumi:"sNSTopicArn"`
+	SnsTopicArn       string   `pulumi:"snsTopicArn"`
 }
 
 // BackupVaultNotificationObjectTypeInput is an input type that accepts BackupVaultNotificationObjectTypeArgs and BackupVaultNotificationObjectTypeOutput values.
@@ -1271,7 +1271,7 @@ type BackupVaultNotificationObjectTypeInput interface {
 
 type BackupVaultNotificationObjectTypeArgs struct {
 	BackupVaultEvents pulumi.StringArrayInput `pulumi:"backupVaultEvents"`
-	SNSTopicArn       pulumi.StringInput      `pulumi:"sNSTopicArn"`
+	SnsTopicArn       pulumi.StringInput      `pulumi:"snsTopicArn"`
 }
 
 func (BackupVaultNotificationObjectTypeArgs) ElementType() reflect.Type {
@@ -1355,8 +1355,8 @@ func (o BackupVaultNotificationObjectTypeOutput) BackupVaultEvents() pulumi.Stri
 	return o.ApplyT(func(v BackupVaultNotificationObjectType) []string { return v.BackupVaultEvents }).(pulumi.StringArrayOutput)
 }
 
-func (o BackupVaultNotificationObjectTypeOutput) SNSTopicArn() pulumi.StringOutput {
-	return o.ApplyT(func(v BackupVaultNotificationObjectType) string { return v.SNSTopicArn }).(pulumi.StringOutput)
+func (o BackupVaultNotificationObjectTypeOutput) SnsTopicArn() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupVaultNotificationObjectType) string { return v.SnsTopicArn }).(pulumi.StringOutput)
 }
 
 type BackupVaultNotificationObjectTypePtrOutput struct{ *pulumi.OutputState }
@@ -1392,12 +1392,12 @@ func (o BackupVaultNotificationObjectTypePtrOutput) BackupVaultEvents() pulumi.S
 	}).(pulumi.StringArrayOutput)
 }
 
-func (o BackupVaultNotificationObjectTypePtrOutput) SNSTopicArn() pulumi.StringPtrOutput {
+func (o BackupVaultNotificationObjectTypePtrOutput) SnsTopicArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BackupVaultNotificationObjectType) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.SNSTopicArn
+		return &v.SnsTopicArn
 	}).(pulumi.StringPtrOutput)
 }
 

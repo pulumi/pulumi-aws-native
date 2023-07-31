@@ -24,8 +24,8 @@ namespace Pulumi.AwsNative.IoTWireless
         /// <summary>
         /// LoRaWAN supports all LoRa specific attributes for service profile for CreateServiceProfile operation
         /// </summary>
-        [Output("loRaWAN")]
-        public Output<Outputs.ServiceProfileLoRaWANServiceProfile?> LoRaWAN { get; private set; } = null!;
+        [Output("loRaWan")]
+        public Output<Outputs.ServiceProfileLoRaWANServiceProfile?> LoRaWan { get; private set; } = null!;
 
         /// <summary>
         /// Name of service profile
@@ -87,8 +87,8 @@ namespace Pulumi.AwsNative.IoTWireless
         /// <summary>
         /// LoRaWAN supports all LoRa specific attributes for service profile for CreateServiceProfile operation
         /// </summary>
-        [Input("loRaWAN")]
-        public Input<Inputs.ServiceProfileLoRaWANServiceProfileArgs>? LoRaWAN { get; set; }
+        [Input("loRaWan")]
+        public Input<Inputs.ServiceProfileLoRaWANServiceProfileArgs>? LoRaWan { get; set; }
 
         /// <summary>
         /// Name of service profile

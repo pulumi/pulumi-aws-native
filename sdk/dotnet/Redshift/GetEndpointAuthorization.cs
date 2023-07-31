@@ -72,11 +72,11 @@ namespace Pulumi.AwsNative.Redshift
         /// <summary>
         /// Indicates whether all VPCs in the grantee account are allowed access to the cluster.
         /// </summary>
-        public readonly bool? AllowedAllVPCs;
+        public readonly bool? AllowedAllVpcs;
         /// <summary>
         /// The VPCs allowed access to the cluster.
         /// </summary>
-        public readonly ImmutableArray<string> AllowedVPCs;
+        public readonly ImmutableArray<string> AllowedVpcs;
         /// <summary>
         /// The time (UTC) when the authorization was created.
         /// </summary>
@@ -108,9 +108,9 @@ namespace Pulumi.AwsNative.Redshift
 
         [OutputConstructor]
         private GetEndpointAuthorizationResult(
-            bool? allowedAllVPCs,
+            bool? allowedAllVpcs,
 
-            ImmutableArray<string> allowedVPCs,
+            ImmutableArray<string> allowedVpcs,
 
             string? authorizeTime,
 
@@ -126,8 +126,8 @@ namespace Pulumi.AwsNative.Redshift
 
             ImmutableArray<string> vpcIds)
         {
-            AllowedAllVPCs = allowedAllVPCs;
-            AllowedVPCs = allowedVPCs;
+            AllowedAllVpcs = allowedAllVpcs;
+            AllowedVpcs = allowedVpcs;
             AuthorizeTime = authorizeTime;
             ClusterStatus = clusterStatus;
             EndpointCount = endpointCount;

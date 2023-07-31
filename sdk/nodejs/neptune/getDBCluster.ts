@@ -14,7 +14,7 @@ export function getDBCluster(args: GetDBClusterArgs, opts?: pulumi.InvokeOptions
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:neptune:getDBCluster", {
-        "dBClusterIdentifier": args.dBClusterIdentifier,
+        "dbClusterIdentifier": args.dbClusterIdentifier,
     }, opts);
 }
 
@@ -22,7 +22,7 @@ export interface GetDBClusterArgs {
     /**
      * The DB cluster identifier. Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster stored as a lowercase string.
      */
-    dBClusterIdentifier: string;
+    dbClusterIdentifier: string;
 }
 
 export interface GetDBClusterResult {
@@ -45,7 +45,7 @@ export interface GetDBClusterResult {
     /**
      * Provides the name of the DB cluster parameter group.
      */
-    readonly dBClusterParameterGroupName?: string;
+    readonly dbClusterParameterGroupName?: string;
     /**
      * Indicates whether or not the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled.
      */
@@ -106,5 +106,5 @@ export interface GetDBClusterOutputArgs {
     /**
      * The DB cluster identifier. Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster stored as a lowercase string.
      */
-    dBClusterIdentifier: pulumi.Input<string>;
+    dbClusterIdentifier: pulumi.Input<string>;
 }

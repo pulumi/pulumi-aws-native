@@ -42,7 +42,7 @@ export class Service extends pulumi.CustomResource {
     public readonly deploymentConfiguration!: pulumi.Output<outputs.ecs.ServiceDeploymentConfiguration | undefined>;
     public readonly deploymentController!: pulumi.Output<outputs.ecs.ServiceDeploymentController | undefined>;
     public readonly desiredCount!: pulumi.Output<number | undefined>;
-    public readonly enableECSManagedTags!: pulumi.Output<boolean | undefined>;
+    public readonly enableEcsManagedTags!: pulumi.Output<boolean | undefined>;
     public readonly enableExecuteCommand!: pulumi.Output<boolean | undefined>;
     public readonly healthCheckGracePeriodSeconds!: pulumi.Output<number | undefined>;
     public readonly launchType!: pulumi.Output<enums.ecs.ServiceLaunchType | undefined>;
@@ -78,7 +78,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["deploymentConfiguration"] = args ? args.deploymentConfiguration : undefined;
             resourceInputs["deploymentController"] = args ? args.deploymentController : undefined;
             resourceInputs["desiredCount"] = args ? args.desiredCount : undefined;
-            resourceInputs["enableECSManagedTags"] = args ? args.enableECSManagedTags : undefined;
+            resourceInputs["enableEcsManagedTags"] = args ? args.enableEcsManagedTags : undefined;
             resourceInputs["enableExecuteCommand"] = args ? args.enableExecuteCommand : undefined;
             resourceInputs["healthCheckGracePeriodSeconds"] = args ? args.healthCheckGracePeriodSeconds : undefined;
             resourceInputs["launchType"] = args ? args.launchType : undefined;
@@ -103,7 +103,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["deploymentConfiguration"] = undefined /*out*/;
             resourceInputs["deploymentController"] = undefined /*out*/;
             resourceInputs["desiredCount"] = undefined /*out*/;
-            resourceInputs["enableECSManagedTags"] = undefined /*out*/;
+            resourceInputs["enableEcsManagedTags"] = undefined /*out*/;
             resourceInputs["enableExecuteCommand"] = undefined /*out*/;
             resourceInputs["healthCheckGracePeriodSeconds"] = undefined /*out*/;
             resourceInputs["launchType"] = undefined /*out*/;
@@ -137,7 +137,7 @@ export interface ServiceArgs {
     deploymentConfiguration?: pulumi.Input<inputs.ecs.ServiceDeploymentConfigurationArgs>;
     deploymentController?: pulumi.Input<inputs.ecs.ServiceDeploymentControllerArgs>;
     desiredCount?: pulumi.Input<number>;
-    enableECSManagedTags?: pulumi.Input<boolean>;
+    enableEcsManagedTags?: pulumi.Input<boolean>;
     enableExecuteCommand?: pulumi.Input<boolean>;
     healthCheckGracePeriodSeconds?: pulumi.Input<number>;
     launchType?: pulumi.Input<enums.ecs.ServiceLaunchType>;

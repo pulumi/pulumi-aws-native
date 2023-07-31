@@ -29,7 +29,7 @@ type LookupParameterGroupArgs struct {
 
 type LookupParameterGroupResult struct {
 	// The Amazon Resource Name (ARN) of the parameter group.
-	ARN *string `pulumi:"aRN"`
+	Arn *string `pulumi:"arn"`
 	// An array of key-value pairs to apply to this parameter group.
 	Tags []ParameterGroupTag `pulumi:"tags"`
 }
@@ -71,8 +71,8 @@ func (o LookupParameterGroupResultOutput) ToLookupParameterGroupResultOutputWith
 }
 
 // The Amazon Resource Name (ARN) of the parameter group.
-func (o LookupParameterGroupResultOutput) ARN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupParameterGroupResult) *string { return v.ARN }).(pulumi.StringPtrOutput)
+func (o LookupParameterGroupResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupParameterGroupResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // An array of key-value pairs to apply to this parameter group.

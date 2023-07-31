@@ -18,8 +18,8 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
         /// <summary>
         /// The Amazon Resource Name (ARN) of the delivery stream.
         /// </summary>
-        [Input("resourceARN", required: true)]
-        public Input<string> ResourceARN { get; set; } = null!;
+        [Input("resourceArn", required: true)]
+        public Input<string> ResourceArn { get; set; } = null!;
 
         public ApplicationKinesisFirehoseInputArgs()
         {

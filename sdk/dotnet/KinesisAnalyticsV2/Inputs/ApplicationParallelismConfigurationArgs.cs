@@ -36,8 +36,8 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
         /// <summary>
         /// Describes the number of parallel tasks that a Java-based Kinesis Data Analytics application can perform per Kinesis Processing Unit (KPU) used by the application. For more information about KPUs, see Amazon Kinesis Data Analytics Pricing.
         /// </summary>
-        [Input("parallelismPerKPU")]
-        public Input<int>? ParallelismPerKPU { get; set; }
+        [Input("parallelismPerKpu")]
+        public Input<int>? ParallelismPerKpu { get; set; }
 
         public ApplicationParallelismConfigurationArgs()
         {

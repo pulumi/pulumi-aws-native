@@ -31,11 +31,11 @@ export interface GetEndpointAuthorizationResult {
     /**
      * Indicates whether all VPCs in the grantee account are allowed access to the cluster.
      */
-    readonly allowedAllVPCs?: boolean;
+    readonly allowedAllVpcs?: boolean;
     /**
      * The VPCs allowed access to the cluster.
      */
-    readonly allowedVPCs?: string[];
+    readonly allowedVpcs?: string[];
     /**
      * The time (UTC) when the authorization was created.
      */

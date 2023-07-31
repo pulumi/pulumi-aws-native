@@ -15,11 +15,11 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
     /// </summary>
     public sealed class AlarmModelAlarmActionArgs : global::Pulumi.ResourceArgs
     {
-        [Input("dynamoDB")]
-        public Input<Inputs.AlarmModelDynamoDBArgs>? DynamoDB { get; set; }
-
         [Input("dynamoDBv2")]
         public Input<Inputs.AlarmModelDynamoDBv2Args>? DynamoDBv2 { get; set; }
+
+        [Input("dynamoDb")]
+        public Input<Inputs.AlarmModelDynamoDBArgs>? DynamoDb { get; set; }
 
         [Input("firehose")]
         public Input<Inputs.AlarmModelFirehoseArgs>? Firehose { get; set; }

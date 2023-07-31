@@ -348,24 +348,24 @@ class ResourceSetTagArgs:
 @pulumi.input_type
 class ResourceSetTargetResourceArgs:
     def __init__(__self__, *,
-                 n_lb_resource: Optional[pulumi.Input['ResourceSetNLBResourceArgs']] = None,
+                 nlb_resource: Optional[pulumi.Input['ResourceSetNLBResourceArgs']] = None,
                  r53_resource: Optional[pulumi.Input['ResourceSetR53ResourceRecordArgs']] = None):
         """
         The target resource that the Route 53 record points to.
         """
-        if n_lb_resource is not None:
-            pulumi.set(__self__, "n_lb_resource", n_lb_resource)
+        if nlb_resource is not None:
+            pulumi.set(__self__, "nlb_resource", nlb_resource)
         if r53_resource is not None:
             pulumi.set(__self__, "r53_resource", r53_resource)
 
     @property
-    @pulumi.getter(name="nLBResource")
-    def n_lb_resource(self) -> Optional[pulumi.Input['ResourceSetNLBResourceArgs']]:
-        return pulumi.get(self, "n_lb_resource")
+    @pulumi.getter(name="nlbResource")
+    def nlb_resource(self) -> Optional[pulumi.Input['ResourceSetNLBResourceArgs']]:
+        return pulumi.get(self, "nlb_resource")
 
-    @n_lb_resource.setter
-    def n_lb_resource(self, value: Optional[pulumi.Input['ResourceSetNLBResourceArgs']]):
-        pulumi.set(self, "n_lb_resource", value)
+    @nlb_resource.setter
+    def nlb_resource(self, value: Optional[pulumi.Input['ResourceSetNLBResourceArgs']]):
+        pulumi.set(self, "nlb_resource", value)
 
     @property
     @pulumi.getter(name="r53Resource")

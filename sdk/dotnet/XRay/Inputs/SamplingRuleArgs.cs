@@ -25,16 +25,16 @@ namespace Pulumi.AwsNative.XRay.Inputs
         public Input<double> FixedRate { get; set; } = null!;
 
         /// <summary>
-        /// Matches the HTTP method from a request URL.
-        /// </summary>
-        [Input("hTTPMethod", required: true)]
-        public Input<string> HTTPMethod { get; set; } = null!;
-
-        /// <summary>
         /// Matches the hostname from a request URL.
         /// </summary>
         [Input("host", required: true)]
         public Input<string> Host { get; set; } = null!;
+
+        /// <summary>
+        /// Matches the HTTP method from a request URL.
+        /// </summary>
+        [Input("httpMethod", required: true)]
+        public Input<string> HttpMethod { get; set; } = null!;
 
         /// <summary>
         /// The priority of the sampling rule.
@@ -51,11 +51,11 @@ namespace Pulumi.AwsNative.XRay.Inputs
         /// <summary>
         /// Matches the ARN of the AWS resource on which the service runs.
         /// </summary>
-        [Input("resourceARN", required: true)]
-        public Input<string> ResourceARN { get; set; } = null!;
+        [Input("resourceArn", required: true)]
+        public Input<string> ResourceArn { get; set; } = null!;
 
-        [Input("ruleARN")]
-        public Input<string>? RuleARN { get; set; }
+        [Input("ruleArn")]
+        public Input<string>? RuleArn { get; set; }
 
         [Input("ruleName")]
         public Input<string>? RuleName { get; set; }
@@ -75,8 +75,8 @@ namespace Pulumi.AwsNative.XRay.Inputs
         /// <summary>
         /// Matches the path from a request URL.
         /// </summary>
-        [Input("uRLPath", required: true)]
-        public Input<string> URLPath { get; set; } = null!;
+        [Input("urlPath", required: true)]
+        public Input<string> UrlPath { get; set; } = null!;
 
         /// <summary>
         /// The version of the sampling rule format (1)

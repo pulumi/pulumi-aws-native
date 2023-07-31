@@ -44,7 +44,7 @@ export class Group extends pulumi.CustomResource {
     /**
      * The ARN of the group that was generated on creation.
      */
-    public /*out*/ readonly groupARN!: pulumi.Output<string>;
+    public /*out*/ readonly groupArn!: pulumi.Output<string>;
     /**
      * The case-sensitive name of the new group. Names must be unique.
      */
@@ -67,10 +67,10 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["groupName"] = args ? args.groupName : undefined;
             resourceInputs["insightsConfiguration"] = args ? args.insightsConfiguration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["groupARN"] = undefined /*out*/;
+            resourceInputs["groupArn"] = undefined /*out*/;
         } else {
             resourceInputs["filterExpression"] = undefined /*out*/;
-            resourceInputs["groupARN"] = undefined /*out*/;
+            resourceInputs["groupArn"] = undefined /*out*/;
             resourceInputs["groupName"] = undefined /*out*/;
             resourceInputs["insightsConfiguration"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;

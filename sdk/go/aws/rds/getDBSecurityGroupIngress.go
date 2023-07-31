@@ -27,11 +27,11 @@ type LookupDBSecurityGroupIngressArgs struct {
 }
 
 type LookupDBSecurityGroupIngressResult struct {
-	CIDRIP                  *string `pulumi:"cIDRIP"`
-	DBSecurityGroupName     *string `pulumi:"dBSecurityGroupName"`
-	EC2SecurityGroupId      *string `pulumi:"eC2SecurityGroupId"`
-	EC2SecurityGroupName    *string `pulumi:"eC2SecurityGroupName"`
-	EC2SecurityGroupOwnerId *string `pulumi:"eC2SecurityGroupOwnerId"`
+	Cidrip                  *string `pulumi:"cidrip"`
+	DbSecurityGroupName     *string `pulumi:"dbSecurityGroupName"`
+	Ec2SecurityGroupId      *string `pulumi:"ec2SecurityGroupId"`
+	Ec2SecurityGroupName    *string `pulumi:"ec2SecurityGroupName"`
+	Ec2SecurityGroupOwnerId *string `pulumi:"ec2SecurityGroupOwnerId"`
 	Id                      *string `pulumi:"id"`
 }
 
@@ -70,24 +70,24 @@ func (o LookupDBSecurityGroupIngressResultOutput) ToLookupDBSecurityGroupIngress
 	return o
 }
 
-func (o LookupDBSecurityGroupIngressResultOutput) CIDRIP() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupDBSecurityGroupIngressResult) *string { return v.CIDRIP }).(pulumi.StringPtrOutput)
+func (o LookupDBSecurityGroupIngressResultOutput) Cidrip() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDBSecurityGroupIngressResult) *string { return v.Cidrip }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupDBSecurityGroupIngressResultOutput) DBSecurityGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupDBSecurityGroupIngressResult) *string { return v.DBSecurityGroupName }).(pulumi.StringPtrOutput)
+func (o LookupDBSecurityGroupIngressResultOutput) DbSecurityGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDBSecurityGroupIngressResult) *string { return v.DbSecurityGroupName }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupDBSecurityGroupIngressResultOutput) EC2SecurityGroupId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupDBSecurityGroupIngressResult) *string { return v.EC2SecurityGroupId }).(pulumi.StringPtrOutput)
+func (o LookupDBSecurityGroupIngressResultOutput) Ec2SecurityGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDBSecurityGroupIngressResult) *string { return v.Ec2SecurityGroupId }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupDBSecurityGroupIngressResultOutput) EC2SecurityGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupDBSecurityGroupIngressResult) *string { return v.EC2SecurityGroupName }).(pulumi.StringPtrOutput)
+func (o LookupDBSecurityGroupIngressResultOutput) Ec2SecurityGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDBSecurityGroupIngressResult) *string { return v.Ec2SecurityGroupName }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupDBSecurityGroupIngressResultOutput) EC2SecurityGroupOwnerId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupDBSecurityGroupIngressResult) *string { return v.EC2SecurityGroupOwnerId }).(pulumi.StringPtrOutput)
+func (o LookupDBSecurityGroupIngressResultOutput) Ec2SecurityGroupOwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDBSecurityGroupIngressResult) *string { return v.Ec2SecurityGroupOwnerId }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupDBSecurityGroupIngressResultOutput) Id() pulumi.StringPtrOutput {

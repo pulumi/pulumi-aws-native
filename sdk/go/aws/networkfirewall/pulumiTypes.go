@@ -1426,7 +1426,7 @@ func (o FirewallPolicyTagArrayOutput) Index(i pulumi.IntInput) FirewallPolicyTag
 
 type FirewallSubnetMapping struct {
 	// A IPAddressType
-	IPAddressType *string `pulumi:"iPAddressType"`
+	IpAddressType *string `pulumi:"ipAddressType"`
 	// A SubnetId.
 	SubnetId string `pulumi:"subnetId"`
 }
@@ -1444,7 +1444,7 @@ type FirewallSubnetMappingInput interface {
 
 type FirewallSubnetMappingArgs struct {
 	// A IPAddressType
-	IPAddressType pulumi.StringPtrInput `pulumi:"iPAddressType"`
+	IpAddressType pulumi.StringPtrInput `pulumi:"ipAddressType"`
 	// A SubnetId.
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 }
@@ -1501,8 +1501,8 @@ func (o FirewallSubnetMappingOutput) ToFirewallSubnetMappingOutputWithContext(ct
 }
 
 // A IPAddressType
-func (o FirewallSubnetMappingOutput) IPAddressType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FirewallSubnetMapping) *string { return v.IPAddressType }).(pulumi.StringPtrOutput)
+func (o FirewallSubnetMappingOutput) IpAddressType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirewallSubnetMapping) *string { return v.IpAddressType }).(pulumi.StringPtrOutput)
 }
 
 // A SubnetId.
@@ -2427,7 +2427,7 @@ type RuleGroupMatchAttributes struct {
 	Protocols        []int                   `pulumi:"protocols"`
 	SourcePorts      []RuleGroupPortRange    `pulumi:"sourcePorts"`
 	Sources          []RuleGroupAddress      `pulumi:"sources"`
-	TCPFlags         []RuleGroupTCPFlagField `pulumi:"tCPFlags"`
+	TcpFlags         []RuleGroupTCPFlagField `pulumi:"tcpFlags"`
 }
 
 // RuleGroupMatchAttributesInput is an input type that accepts RuleGroupMatchAttributesArgs and RuleGroupMatchAttributesOutput values.
@@ -2447,7 +2447,7 @@ type RuleGroupMatchAttributesArgs struct {
 	Protocols        pulumi.IntArrayInput            `pulumi:"protocols"`
 	SourcePorts      RuleGroupPortRangeArrayInput    `pulumi:"sourcePorts"`
 	Sources          RuleGroupAddressArrayInput      `pulumi:"sources"`
-	TCPFlags         RuleGroupTCPFlagFieldArrayInput `pulumi:"tCPFlags"`
+	TcpFlags         RuleGroupTCPFlagFieldArrayInput `pulumi:"tcpFlags"`
 }
 
 func (RuleGroupMatchAttributesArgs) ElementType() reflect.Type {
@@ -2496,8 +2496,8 @@ func (o RuleGroupMatchAttributesOutput) Sources() RuleGroupAddressArrayOutput {
 	return o.ApplyT(func(v RuleGroupMatchAttributes) []RuleGroupAddress { return v.Sources }).(RuleGroupAddressArrayOutput)
 }
 
-func (o RuleGroupMatchAttributesOutput) TCPFlags() RuleGroupTCPFlagFieldArrayOutput {
-	return o.ApplyT(func(v RuleGroupMatchAttributes) []RuleGroupTCPFlagField { return v.TCPFlags }).(RuleGroupTCPFlagFieldArrayOutput)
+func (o RuleGroupMatchAttributesOutput) TcpFlags() RuleGroupTCPFlagFieldArrayOutput {
+	return o.ApplyT(func(v RuleGroupMatchAttributes) []RuleGroupTCPFlagField { return v.TcpFlags }).(RuleGroupTCPFlagFieldArrayOutput)
 }
 
 type RuleGroupPortRange struct {
@@ -2734,7 +2734,7 @@ func (o RuleGroupPublishMetricActionPtrOutput) Dimensions() RuleGroupDimensionAr
 }
 
 type RuleGroupReferenceSets struct {
-	IPSetReferences interface{} `pulumi:"iPSetReferences"`
+	IpSetReferences interface{} `pulumi:"ipSetReferences"`
 }
 
 // RuleGroupReferenceSetsInput is an input type that accepts RuleGroupReferenceSetsArgs and RuleGroupReferenceSetsOutput values.
@@ -2749,7 +2749,7 @@ type RuleGroupReferenceSetsInput interface {
 }
 
 type RuleGroupReferenceSetsArgs struct {
-	IPSetReferences pulumi.Input `pulumi:"iPSetReferences"`
+	IpSetReferences pulumi.Input `pulumi:"ipSetReferences"`
 }
 
 func (RuleGroupReferenceSetsArgs) ElementType() reflect.Type {
@@ -2829,8 +2829,8 @@ func (o RuleGroupReferenceSetsOutput) ToRuleGroupReferenceSetsPtrOutputWithConte
 	}).(RuleGroupReferenceSetsPtrOutput)
 }
 
-func (o RuleGroupReferenceSetsOutput) IPSetReferences() pulumi.AnyOutput {
-	return o.ApplyT(func(v RuleGroupReferenceSets) interface{} { return v.IPSetReferences }).(pulumi.AnyOutput)
+func (o RuleGroupReferenceSetsOutput) IpSetReferences() pulumi.AnyOutput {
+	return o.ApplyT(func(v RuleGroupReferenceSets) interface{} { return v.IpSetReferences }).(pulumi.AnyOutput)
 }
 
 type RuleGroupReferenceSetsPtrOutput struct{ *pulumi.OutputState }
@@ -2857,12 +2857,12 @@ func (o RuleGroupReferenceSetsPtrOutput) Elem() RuleGroupReferenceSetsOutput {
 	}).(RuleGroupReferenceSetsOutput)
 }
 
-func (o RuleGroupReferenceSetsPtrOutput) IPSetReferences() pulumi.AnyOutput {
+func (o RuleGroupReferenceSetsPtrOutput) IpSetReferences() pulumi.AnyOutput {
 	return o.ApplyT(func(v *RuleGroupReferenceSets) interface{} {
 		if v == nil {
 			return nil
 		}
-		return v.IPSetReferences
+		return v.IpSetReferences
 	}).(pulumi.AnyOutput)
 }
 
@@ -3022,7 +3022,7 @@ func (o RuleGroupRuleOptionArrayOutput) Index(i pulumi.IntInput) RuleGroupRuleOp
 }
 
 type RuleGroupRuleVariables struct {
-	IPSets   interface{} `pulumi:"iPSets"`
+	IpSets   interface{} `pulumi:"ipSets"`
 	PortSets interface{} `pulumi:"portSets"`
 }
 
@@ -3038,7 +3038,7 @@ type RuleGroupRuleVariablesInput interface {
 }
 
 type RuleGroupRuleVariablesArgs struct {
-	IPSets   pulumi.Input `pulumi:"iPSets"`
+	IpSets   pulumi.Input `pulumi:"ipSets"`
 	PortSets pulumi.Input `pulumi:"portSets"`
 }
 
@@ -3119,8 +3119,8 @@ func (o RuleGroupRuleVariablesOutput) ToRuleGroupRuleVariablesPtrOutputWithConte
 	}).(RuleGroupRuleVariablesPtrOutput)
 }
 
-func (o RuleGroupRuleVariablesOutput) IPSets() pulumi.AnyOutput {
-	return o.ApplyT(func(v RuleGroupRuleVariables) interface{} { return v.IPSets }).(pulumi.AnyOutput)
+func (o RuleGroupRuleVariablesOutput) IpSets() pulumi.AnyOutput {
+	return o.ApplyT(func(v RuleGroupRuleVariables) interface{} { return v.IpSets }).(pulumi.AnyOutput)
 }
 
 func (o RuleGroupRuleVariablesOutput) PortSets() pulumi.AnyOutput {
@@ -3151,12 +3151,12 @@ func (o RuleGroupRuleVariablesPtrOutput) Elem() RuleGroupRuleVariablesOutput {
 	}).(RuleGroupRuleVariablesOutput)
 }
 
-func (o RuleGroupRuleVariablesPtrOutput) IPSets() pulumi.AnyOutput {
+func (o RuleGroupRuleVariablesPtrOutput) IpSets() pulumi.AnyOutput {
 	return o.ApplyT(func(v *RuleGroupRuleVariables) interface{} {
 		if v == nil {
 			return nil
 		}
-		return v.IPSets
+		return v.IpSets
 	}).(pulumi.AnyOutput)
 }
 

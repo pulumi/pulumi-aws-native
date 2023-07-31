@@ -41,11 +41,11 @@ export class EndpointAuthorization extends pulumi.CustomResource {
     /**
      * Indicates whether all VPCs in the grantee account are allowed access to the cluster.
      */
-    public /*out*/ readonly allowedAllVPCs!: pulumi.Output<boolean>;
+    public /*out*/ readonly allowedAllVpcs!: pulumi.Output<boolean>;
     /**
      * The VPCs allowed access to the cluster.
      */
-    public /*out*/ readonly allowedVPCs!: pulumi.Output<string[]>;
+    public /*out*/ readonly allowedVpcs!: pulumi.Output<string[]>;
     /**
      * The time (UTC) when the authorization was created.
      */
@@ -104,8 +104,8 @@ export class EndpointAuthorization extends pulumi.CustomResource {
             resourceInputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
             resourceInputs["force"] = args ? args.force : undefined;
             resourceInputs["vpcIds"] = args ? args.vpcIds : undefined;
-            resourceInputs["allowedAllVPCs"] = undefined /*out*/;
-            resourceInputs["allowedVPCs"] = undefined /*out*/;
+            resourceInputs["allowedAllVpcs"] = undefined /*out*/;
+            resourceInputs["allowedVpcs"] = undefined /*out*/;
             resourceInputs["authorizeTime"] = undefined /*out*/;
             resourceInputs["clusterStatus"] = undefined /*out*/;
             resourceInputs["endpointCount"] = undefined /*out*/;
@@ -114,8 +114,8 @@ export class EndpointAuthorization extends pulumi.CustomResource {
             resourceInputs["status"] = undefined /*out*/;
         } else {
             resourceInputs["account"] = undefined /*out*/;
-            resourceInputs["allowedAllVPCs"] = undefined /*out*/;
-            resourceInputs["allowedVPCs"] = undefined /*out*/;
+            resourceInputs["allowedAllVpcs"] = undefined /*out*/;
+            resourceInputs["allowedVpcs"] = undefined /*out*/;
             resourceInputs["authorizeTime"] = undefined /*out*/;
             resourceInputs["clusterIdentifier"] = undefined /*out*/;
             resourceInputs["clusterStatus"] = undefined /*out*/;

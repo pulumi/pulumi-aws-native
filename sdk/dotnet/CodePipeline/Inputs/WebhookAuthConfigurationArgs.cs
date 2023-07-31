@@ -12,8 +12,8 @@ namespace Pulumi.AwsNative.CodePipeline.Inputs
 
     public sealed class WebhookAuthConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        [Input("allowedIPRange")]
-        public Input<string>? AllowedIPRange { get; set; }
+        [Input("allowedIpRange")]
+        public Input<string>? AllowedIpRange { get; set; }
 
         [Input("secretToken")]
         public Input<string>? SecretToken { get; set; }

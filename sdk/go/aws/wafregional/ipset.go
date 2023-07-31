@@ -17,7 +17,7 @@ import (
 type IPSet struct {
 	pulumi.CustomResourceState
 
-	IPSetDescriptors IPSetDescriptorArrayOutput `pulumi:"iPSetDescriptors"`
+	IpSetDescriptors IPSetDescriptorArrayOutput `pulumi:"ipSetDescriptors"`
 	Name             pulumi.StringOutput        `pulumi:"name"`
 }
 
@@ -61,13 +61,13 @@ func (IPSetState) ElementType() reflect.Type {
 }
 
 type ipsetArgs struct {
-	IPSetDescriptors []IPSetDescriptor `pulumi:"iPSetDescriptors"`
+	IpSetDescriptors []IPSetDescriptor `pulumi:"ipSetDescriptors"`
 	Name             *string           `pulumi:"name"`
 }
 
 // The set of arguments for constructing a IPSet resource.
 type IPSetArgs struct {
-	IPSetDescriptors IPSetDescriptorArrayInput
+	IpSetDescriptors IPSetDescriptorArrayInput
 	Name             pulumi.StringPtrInput
 }
 
@@ -108,8 +108,8 @@ func (o IPSetOutput) ToIPSetOutputWithContext(ctx context.Context) IPSetOutput {
 	return o
 }
 
-func (o IPSetOutput) IPSetDescriptors() IPSetDescriptorArrayOutput {
-	return o.ApplyT(func(v *IPSet) IPSetDescriptorArrayOutput { return v.IPSetDescriptors }).(IPSetDescriptorArrayOutput)
+func (o IPSetOutput) IpSetDescriptors() IPSetDescriptorArrayOutput {
+	return o.ApplyT(func(v *IPSet) IPSetDescriptorArrayOutput { return v.IpSetDescriptors }).(IPSetDescriptorArrayOutput)
 }
 
 func (o IPSetOutput) Name() pulumi.StringOutput {

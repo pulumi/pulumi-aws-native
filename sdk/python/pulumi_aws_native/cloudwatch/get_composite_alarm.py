@@ -18,7 +18,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetCompositeAlarmResult:
-    def __init__(__self__, actions_enabled=None, actions_suppressor=None, actions_suppressor_extension_period=None, actions_suppressor_wait_period=None, alarm_actions=None, alarm_description=None, alarm_rule=None, arn=None, insufficient_data_actions=None, o_k_actions=None):
+    def __init__(__self__, actions_enabled=None, actions_suppressor=None, actions_suppressor_extension_period=None, actions_suppressor_wait_period=None, alarm_actions=None, alarm_description=None, alarm_rule=None, arn=None, insufficient_data_actions=None, ok_actions=None):
         if actions_enabled and not isinstance(actions_enabled, bool):
             raise TypeError("Expected argument 'actions_enabled' to be a bool")
         pulumi.set(__self__, "actions_enabled", actions_enabled)
@@ -46,9 +46,9 @@ class GetCompositeAlarmResult:
         if insufficient_data_actions and not isinstance(insufficient_data_actions, list):
             raise TypeError("Expected argument 'insufficient_data_actions' to be a list")
         pulumi.set(__self__, "insufficient_data_actions", insufficient_data_actions)
-        if o_k_actions and not isinstance(o_k_actions, list):
-            raise TypeError("Expected argument 'o_k_actions' to be a list")
-        pulumi.set(__self__, "o_k_actions", o_k_actions)
+        if ok_actions and not isinstance(ok_actions, list):
+            raise TypeError("Expected argument 'ok_actions' to be a list")
+        pulumi.set(__self__, "ok_actions", ok_actions)
 
     @property
     @pulumi.getter(name="actionsEnabled")
@@ -123,12 +123,12 @@ class GetCompositeAlarmResult:
         return pulumi.get(self, "insufficient_data_actions")
 
     @property
-    @pulumi.getter(name="oKActions")
-    def o_k_actions(self) -> Optional[Sequence[str]]:
+    @pulumi.getter(name="okActions")
+    def ok_actions(self) -> Optional[Sequence[str]]:
         """
         The actions to execute when this alarm transitions to the OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         """
-        return pulumi.get(self, "o_k_actions")
+        return pulumi.get(self, "ok_actions")
 
 
 class AwaitableGetCompositeAlarmResult(GetCompositeAlarmResult):
@@ -146,7 +146,7 @@ class AwaitableGetCompositeAlarmResult(GetCompositeAlarmResult):
             alarm_rule=self.alarm_rule,
             arn=self.arn,
             insufficient_data_actions=self.insufficient_data_actions,
-            o_k_actions=self.o_k_actions)
+            ok_actions=self.ok_actions)
 
 
 def get_composite_alarm(alarm_name: Optional[str] = None,
@@ -172,7 +172,7 @@ def get_composite_alarm(alarm_name: Optional[str] = None,
         alarm_rule=pulumi.get(__ret__, 'alarm_rule'),
         arn=pulumi.get(__ret__, 'arn'),
         insufficient_data_actions=pulumi.get(__ret__, 'insufficient_data_actions'),
-        o_k_actions=pulumi.get(__ret__, 'o_k_actions'))
+        ok_actions=pulumi.get(__ret__, 'ok_actions'))
 
 
 @_utilities.lift_output_func(get_composite_alarm)

@@ -60,19 +60,19 @@ export class DBCluster extends pulumi.CustomResource {
     /**
      * The DB cluster identifier. Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster stored as a lowercase string.
      */
-    public readonly dBClusterIdentifier!: pulumi.Output<string | undefined>;
+    public readonly dbClusterIdentifier!: pulumi.Output<string | undefined>;
     /**
      * Provides the name of the DB cluster parameter group.
      */
-    public readonly dBClusterParameterGroupName!: pulumi.Output<string | undefined>;
+    public readonly dbClusterParameterGroupName!: pulumi.Output<string | undefined>;
     /**
      * The name of the DB parameter group to apply to all instances of the DB cluster. Used only in case of a major EngineVersion upgrade request.
      */
-    public readonly dBInstanceParameterGroupName!: pulumi.Output<string | undefined>;
+    public readonly dbInstanceParameterGroupName!: pulumi.Output<string | undefined>;
     /**
      * Specifies information on the subnet group associated with the DB cluster, including the name, description, and subnets in the subnet group.
      */
-    public readonly dBSubnetGroupName!: pulumi.Output<string | undefined>;
+    public readonly dbSubnetGroupName!: pulumi.Output<string | undefined>;
     /**
      * Indicates whether or not the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled.
      */
@@ -148,7 +148,7 @@ export class DBCluster extends pulumi.CustomResource {
      *
      * If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
      */
-    public readonly sourceDBClusterIdentifier!: pulumi.Output<string | undefined>;
+    public readonly sourceDbClusterIdentifier!: pulumi.Output<string | undefined>;
     /**
      * Indicates whether the DB cluster is encrypted.
      *
@@ -189,10 +189,10 @@ export class DBCluster extends pulumi.CustomResource {
             resourceInputs["availabilityZones"] = args ? args.availabilityZones : undefined;
             resourceInputs["backupRetentionPeriod"] = args ? args.backupRetentionPeriod : undefined;
             resourceInputs["copyTagsToSnapshot"] = args ? args.copyTagsToSnapshot : undefined;
-            resourceInputs["dBClusterIdentifier"] = args ? args.dBClusterIdentifier : undefined;
-            resourceInputs["dBClusterParameterGroupName"] = args ? args.dBClusterParameterGroupName : undefined;
-            resourceInputs["dBInstanceParameterGroupName"] = args ? args.dBInstanceParameterGroupName : undefined;
-            resourceInputs["dBSubnetGroupName"] = args ? args.dBSubnetGroupName : undefined;
+            resourceInputs["dbClusterIdentifier"] = args ? args.dbClusterIdentifier : undefined;
+            resourceInputs["dbClusterParameterGroupName"] = args ? args.dbClusterParameterGroupName : undefined;
+            resourceInputs["dbInstanceParameterGroupName"] = args ? args.dbInstanceParameterGroupName : undefined;
+            resourceInputs["dbSubnetGroupName"] = args ? args.dbSubnetGroupName : undefined;
             resourceInputs["deletionProtection"] = args ? args.deletionProtection : undefined;
             resourceInputs["enableCloudwatchLogsExports"] = args ? args.enableCloudwatchLogsExports : undefined;
             resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
@@ -204,7 +204,7 @@ export class DBCluster extends pulumi.CustomResource {
             resourceInputs["restoreType"] = args ? args.restoreType : undefined;
             resourceInputs["serverlessScalingConfiguration"] = args ? args.serverlessScalingConfiguration : undefined;
             resourceInputs["snapshotIdentifier"] = args ? args.snapshotIdentifier : undefined;
-            resourceInputs["sourceDBClusterIdentifier"] = args ? args.sourceDBClusterIdentifier : undefined;
+            resourceInputs["sourceDbClusterIdentifier"] = args ? args.sourceDbClusterIdentifier : undefined;
             resourceInputs["storageEncrypted"] = args ? args.storageEncrypted : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["useLatestRestorableTime"] = args ? args.useLatestRestorableTime : undefined;
@@ -219,10 +219,10 @@ export class DBCluster extends pulumi.CustomResource {
             resourceInputs["backupRetentionPeriod"] = undefined /*out*/;
             resourceInputs["clusterResourceId"] = undefined /*out*/;
             resourceInputs["copyTagsToSnapshot"] = undefined /*out*/;
-            resourceInputs["dBClusterIdentifier"] = undefined /*out*/;
-            resourceInputs["dBClusterParameterGroupName"] = undefined /*out*/;
-            resourceInputs["dBInstanceParameterGroupName"] = undefined /*out*/;
-            resourceInputs["dBSubnetGroupName"] = undefined /*out*/;
+            resourceInputs["dbClusterIdentifier"] = undefined /*out*/;
+            resourceInputs["dbClusterParameterGroupName"] = undefined /*out*/;
+            resourceInputs["dbInstanceParameterGroupName"] = undefined /*out*/;
+            resourceInputs["dbSubnetGroupName"] = undefined /*out*/;
             resourceInputs["deletionProtection"] = undefined /*out*/;
             resourceInputs["enableCloudwatchLogsExports"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
@@ -237,7 +237,7 @@ export class DBCluster extends pulumi.CustomResource {
             resourceInputs["restoreType"] = undefined /*out*/;
             resourceInputs["serverlessScalingConfiguration"] = undefined /*out*/;
             resourceInputs["snapshotIdentifier"] = undefined /*out*/;
-            resourceInputs["sourceDBClusterIdentifier"] = undefined /*out*/;
+            resourceInputs["sourceDbClusterIdentifier"] = undefined /*out*/;
             resourceInputs["storageEncrypted"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["useLatestRestorableTime"] = undefined /*out*/;
@@ -271,19 +271,19 @@ export interface DBClusterArgs {
     /**
      * The DB cluster identifier. Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster stored as a lowercase string.
      */
-    dBClusterIdentifier?: pulumi.Input<string>;
+    dbClusterIdentifier?: pulumi.Input<string>;
     /**
      * Provides the name of the DB cluster parameter group.
      */
-    dBClusterParameterGroupName?: pulumi.Input<string>;
+    dbClusterParameterGroupName?: pulumi.Input<string>;
     /**
      * The name of the DB parameter group to apply to all instances of the DB cluster. Used only in case of a major EngineVersion upgrade request.
      */
-    dBInstanceParameterGroupName?: pulumi.Input<string>;
+    dbInstanceParameterGroupName?: pulumi.Input<string>;
     /**
      * Specifies information on the subnet group associated with the DB cluster, including the name, description, and subnets in the subnet group.
      */
-    dBSubnetGroupName?: pulumi.Input<string>;
+    dbSubnetGroupName?: pulumi.Input<string>;
     /**
      * Indicates whether or not the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled.
      */
@@ -347,7 +347,7 @@ export interface DBClusterArgs {
      *
      * If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
      */
-    sourceDBClusterIdentifier?: pulumi.Input<string>;
+    sourceDbClusterIdentifier?: pulumi.Input<string>;
     /**
      * Indicates whether the DB cluster is encrypted.
      *

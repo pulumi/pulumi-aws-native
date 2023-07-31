@@ -15,7 +15,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     {
         public readonly string? AcceleratorType;
         public readonly int? ContainerStartupHealthCheckTimeoutInSeconds;
-        public readonly bool? EnableSSMAccess;
+        public readonly bool? EnableSsmAccess;
         public readonly int? InitialInstanceCount;
         public readonly double InitialVariantWeight;
         public readonly string? InstanceType;
@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         public readonly string ModelName;
         public readonly Outputs.EndpointConfigServerlessConfig? ServerlessConfig;
         public readonly string VariantName;
-        public readonly int? VolumeSizeInGB;
+        public readonly int? VolumeSizeInGb;
 
         [OutputConstructor]
         private EndpointConfigProductionVariant(
@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
             int? containerStartupHealthCheckTimeoutInSeconds,
 
-            bool? enableSSMAccess,
+            bool? enableSsmAccess,
 
             int? initialInstanceCount,
 
@@ -47,11 +47,11 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
             string variantName,
 
-            int? volumeSizeInGB)
+            int? volumeSizeInGb)
         {
             AcceleratorType = acceleratorType;
             ContainerStartupHealthCheckTimeoutInSeconds = containerStartupHealthCheckTimeoutInSeconds;
-            EnableSSMAccess = enableSSMAccess;
+            EnableSsmAccess = enableSsmAccess;
             InitialInstanceCount = initialInstanceCount;
             InitialVariantWeight = initialVariantWeight;
             InstanceType = instanceType;
@@ -59,7 +59,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
             ModelName = modelName;
             ServerlessConfig = serverlessConfig;
             VariantName = variantName;
-            VolumeSizeInGB = volumeSizeInGB;
+            VolumeSizeInGb = volumeSizeInGb;
         }
     }
 }

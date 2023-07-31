@@ -18,8 +18,8 @@ namespace Pulumi.AwsNative.FinSpace.Inputs
         /// <summary>
         /// SAML metadata URL to link with the Environment
         /// </summary>
-        [Input("applicationCallBackURL")]
-        public Input<string>? ApplicationCallBackURL { get; set; }
+        [Input("applicationCallBackUrl")]
+        public Input<string>? ApplicationCallBackUrl { get; set; }
 
         [Input("attributeMap")]
         private InputList<Inputs.EnvironmentFederationParametersAttributeMapItemPropertiesArgs>? _attributeMap;
@@ -42,8 +42,8 @@ namespace Pulumi.AwsNative.FinSpace.Inputs
         /// <summary>
         /// SAML metadata URL to link with the Environment
         /// </summary>
-        [Input("federationURN")]
-        public Input<string>? FederationURN { get; set; }
+        [Input("federationUrn")]
+        public Input<string>? FederationUrn { get; set; }
 
         /// <summary>
         /// SAML metadata document to link the federation provider to the Environment
@@ -54,8 +54,8 @@ namespace Pulumi.AwsNative.FinSpace.Inputs
         /// <summary>
         /// SAML metadata URL to link with the Environment
         /// </summary>
-        [Input("samlMetadataURL")]
-        public Input<string>? SamlMetadataURL { get; set; }
+        [Input("samlMetadataUrl")]
+        public Input<string>? SamlMetadataUrl { get; set; }
 
         public EnvironmentFederationParametersArgs()
         {

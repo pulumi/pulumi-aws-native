@@ -16,8 +16,8 @@ namespace Pulumi.AwsNative.CloudFormation
     [AwsNativeResourceType("aws-native:cloudformation:Stack")]
     public partial class Stack : global::Pulumi.CustomResource
     {
-        [Output("notificationARNs")]
-        public Output<ImmutableArray<string>> NotificationARNs { get; private set; } = null!;
+        [Output("notificationArns")]
+        public Output<ImmutableArray<string>> NotificationArns { get; private set; } = null!;
 
         [Output("parameters")]
         public Output<object?> Parameters { get; private set; } = null!;
@@ -25,8 +25,8 @@ namespace Pulumi.AwsNative.CloudFormation
         [Output("tags")]
         public Output<ImmutableArray<Outputs.StackTag>> Tags { get; private set; } = null!;
 
-        [Output("templateURL")]
-        public Output<string> TemplateURL { get; private set; } = null!;
+        [Output("templateUrl")]
+        public Output<string> TemplateUrl { get; private set; } = null!;
 
         [Output("timeoutInMinutes")]
         public Output<int?> TimeoutInMinutes { get; private set; } = null!;
@@ -76,12 +76,12 @@ namespace Pulumi.AwsNative.CloudFormation
 
     public sealed class StackArgs : global::Pulumi.ResourceArgs
     {
-        [Input("notificationARNs")]
-        private InputList<string>? _notificationARNs;
-        public InputList<string> NotificationARNs
+        [Input("notificationArns")]
+        private InputList<string>? _notificationArns;
+        public InputList<string> NotificationArns
         {
-            get => _notificationARNs ?? (_notificationARNs = new InputList<string>());
-            set => _notificationARNs = value;
+            get => _notificationArns ?? (_notificationArns = new InputList<string>());
+            set => _notificationArns = value;
         }
 
         [Input("parameters")]
@@ -95,8 +95,8 @@ namespace Pulumi.AwsNative.CloudFormation
             set => _tags = value;
         }
 
-        [Input("templateURL", required: true)]
-        public Input<string> TemplateURL { get; set; } = null!;
+        [Input("templateUrl", required: true)]
+        public Input<string> TemplateUrl { get; set; } = null!;
 
         [Input("timeoutInMinutes")]
         public Input<int>? TimeoutInMinutes { get; set; }

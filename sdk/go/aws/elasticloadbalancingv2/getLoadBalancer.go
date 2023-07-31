@@ -27,8 +27,8 @@ type LookupLoadBalancerArgs struct {
 }
 
 type LookupLoadBalancerResult struct {
-	CanonicalHostedZoneID  *string                     `pulumi:"canonicalHostedZoneID"`
-	DNSName                *string                     `pulumi:"dNSName"`
+	CanonicalHostedZoneId  *string                     `pulumi:"canonicalHostedZoneId"`
+	DnsName                *string                     `pulumi:"dnsName"`
 	Id                     *string                     `pulumi:"id"`
 	IpAddressType          *string                     `pulumi:"ipAddressType"`
 	LoadBalancerAttributes []LoadBalancerAttribute     `pulumi:"loadBalancerAttributes"`
@@ -75,12 +75,12 @@ func (o LookupLoadBalancerResultOutput) ToLookupLoadBalancerResultOutputWithCont
 	return o
 }
 
-func (o LookupLoadBalancerResultOutput) CanonicalHostedZoneID() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupLoadBalancerResult) *string { return v.CanonicalHostedZoneID }).(pulumi.StringPtrOutput)
+func (o LookupLoadBalancerResultOutput) CanonicalHostedZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) *string { return v.CanonicalHostedZoneId }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupLoadBalancerResultOutput) DNSName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupLoadBalancerResult) *string { return v.DNSName }).(pulumi.StringPtrOutput)
+func (o LookupLoadBalancerResultOutput) DnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) *string { return v.DnsName }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupLoadBalancerResultOutput) Id() pulumi.StringPtrOutput {

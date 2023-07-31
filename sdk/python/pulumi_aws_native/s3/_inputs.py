@@ -616,7 +616,7 @@ class BucketEncryptionConfigurationArgs:
         pulumi.set(__self__, "replica_kms_key_id", replica_kms_key_id)
 
     @property
-    @pulumi.getter(name="replicaKmsKeyID")
+    @pulumi.getter(name="replicaKmsKeyId")
     def replica_kms_key_id(self) -> pulumi.Input[str]:
         """
         Specifies the ID (Key ARN or Alias ARN) of the customer managed customer master key (CMK) stored in AWS Key Management Service (KMS) for the destination bucket.
@@ -2288,36 +2288,36 @@ class BucketS3KeyFilterArgs:
 @pulumi.input_type
 class BucketServerSideEncryptionByDefaultArgs:
     def __init__(__self__, *,
-                 s_se_algorithm: pulumi.Input['BucketServerSideEncryptionByDefaultSSEAlgorithm'],
-                 k_ms_master_key_id: Optional[pulumi.Input[str]] = None):
+                 sse_algorithm: pulumi.Input['BucketServerSideEncryptionByDefaultSSEAlgorithm'],
+                 kms_master_key_id: Optional[pulumi.Input[str]] = None):
         """
         Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied.
-        :param pulumi.Input[str] k_ms_master_key_id: "KMSMasterKeyID" can only be used when you set the value of SSEAlgorithm as aws:kms or aws:kms:dsse.
+        :param pulumi.Input[str] kms_master_key_id: "KMSMasterKeyID" can only be used when you set the value of SSEAlgorithm as aws:kms or aws:kms:dsse.
         """
-        pulumi.set(__self__, "s_se_algorithm", s_se_algorithm)
-        if k_ms_master_key_id is not None:
-            pulumi.set(__self__, "k_ms_master_key_id", k_ms_master_key_id)
+        pulumi.set(__self__, "sse_algorithm", sse_algorithm)
+        if kms_master_key_id is not None:
+            pulumi.set(__self__, "kms_master_key_id", kms_master_key_id)
 
     @property
-    @pulumi.getter(name="sSEAlgorithm")
-    def s_se_algorithm(self) -> pulumi.Input['BucketServerSideEncryptionByDefaultSSEAlgorithm']:
-        return pulumi.get(self, "s_se_algorithm")
+    @pulumi.getter(name="sseAlgorithm")
+    def sse_algorithm(self) -> pulumi.Input['BucketServerSideEncryptionByDefaultSSEAlgorithm']:
+        return pulumi.get(self, "sse_algorithm")
 
-    @s_se_algorithm.setter
-    def s_se_algorithm(self, value: pulumi.Input['BucketServerSideEncryptionByDefaultSSEAlgorithm']):
-        pulumi.set(self, "s_se_algorithm", value)
+    @sse_algorithm.setter
+    def sse_algorithm(self, value: pulumi.Input['BucketServerSideEncryptionByDefaultSSEAlgorithm']):
+        pulumi.set(self, "sse_algorithm", value)
 
     @property
-    @pulumi.getter(name="kMSMasterKeyID")
-    def k_ms_master_key_id(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="kmsMasterKeyId")
+    def kms_master_key_id(self) -> Optional[pulumi.Input[str]]:
         """
         "KMSMasterKeyID" can only be used when you set the value of SSEAlgorithm as aws:kms or aws:kms:dsse.
         """
-        return pulumi.get(self, "k_ms_master_key_id")
+        return pulumi.get(self, "kms_master_key_id")
 
-    @k_ms_master_key_id.setter
-    def k_ms_master_key_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "k_ms_master_key_id", value)
+    @kms_master_key_id.setter
+    def kms_master_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_master_key_id", value)
 
 
 @pulumi.input_type

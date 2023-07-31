@@ -12,8 +12,8 @@ namespace Pulumi.AwsNative.Glue.Inputs
 
     public sealed class MLTransformTransformEncryptionArgs : global::Pulumi.ResourceArgs
     {
-        [Input("mLUserDataEncryption")]
-        public Input<Inputs.MLTransformMLUserDataEncryptionArgs>? MLUserDataEncryption { get; set; }
+        [Input("mlUserDataEncryption")]
+        public Input<Inputs.MLTransformMLUserDataEncryptionArgs>? MlUserDataEncryption { get; set; }
 
         [Input("taskRunSecurityConfigurationName")]
         public Input<string>? TaskRunSecurityConfigurationName { get; set; }

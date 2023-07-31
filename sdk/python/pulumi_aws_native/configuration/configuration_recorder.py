@@ -29,7 +29,7 @@ class ConfigurationRecorderArgs:
             pulumi.set(__self__, "recording_group", recording_group)
 
     @property
-    @pulumi.getter(name="roleARN")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         return pulumi.get(self, "role_arn")
 
@@ -156,7 +156,7 @@ class ConfigurationRecorder(pulumi.CustomResource):
         return pulumi.get(self, "recording_group")
 
     @property
-    @pulumi.getter(name="roleARN")
+    @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "role_arn")
 

@@ -240,7 +240,7 @@ class LoadBalancerListenersArgs:
                  protocol: pulumi.Input[str],
                  instance_protocol: Optional[pulumi.Input[str]] = None,
                  policy_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 s_sl_certificate_id: Optional[pulumi.Input[str]] = None):
+                 ssl_certificate_id: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "instance_port", instance_port)
         pulumi.set(__self__, "load_balancer_port", load_balancer_port)
         pulumi.set(__self__, "protocol", protocol)
@@ -248,8 +248,8 @@ class LoadBalancerListenersArgs:
             pulumi.set(__self__, "instance_protocol", instance_protocol)
         if policy_names is not None:
             pulumi.set(__self__, "policy_names", policy_names)
-        if s_sl_certificate_id is not None:
-            pulumi.set(__self__, "s_sl_certificate_id", s_sl_certificate_id)
+        if ssl_certificate_id is not None:
+            pulumi.set(__self__, "ssl_certificate_id", ssl_certificate_id)
 
     @property
     @pulumi.getter(name="instancePort")
@@ -297,13 +297,13 @@ class LoadBalancerListenersArgs:
         pulumi.set(self, "policy_names", value)
 
     @property
-    @pulumi.getter(name="sSLCertificateId")
-    def s_sl_certificate_id(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "s_sl_certificate_id")
+    @pulumi.getter(name="sslCertificateId")
+    def ssl_certificate_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ssl_certificate_id")
 
-    @s_sl_certificate_id.setter
-    def s_sl_certificate_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "s_sl_certificate_id", value)
+    @ssl_certificate_id.setter
+    def ssl_certificate_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ssl_certificate_id", value)
 
 
 @pulumi.input_type

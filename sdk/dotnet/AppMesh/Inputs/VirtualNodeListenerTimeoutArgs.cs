@@ -12,17 +12,17 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
 
     public sealed class VirtualNodeListenerTimeoutArgs : global::Pulumi.ResourceArgs
     {
-        [Input("gRPC")]
-        public Input<Inputs.VirtualNodeGrpcTimeoutArgs>? GRPC { get; set; }
+        [Input("grpc")]
+        public Input<Inputs.VirtualNodeGrpcTimeoutArgs>? Grpc { get; set; }
 
-        [Input("hTTP")]
-        public Input<Inputs.VirtualNodeHttpTimeoutArgs>? HTTP { get; set; }
+        [Input("http")]
+        public Input<Inputs.VirtualNodeHttpTimeoutArgs>? Http { get; set; }
 
-        [Input("hTTP2")]
-        public Input<Inputs.VirtualNodeHttpTimeoutArgs>? HTTP2 { get; set; }
+        [Input("http2")]
+        public Input<Inputs.VirtualNodeHttpTimeoutArgs>? Http2 { get; set; }
 
-        [Input("tCP")]
-        public Input<Inputs.VirtualNodeTcpTimeoutArgs>? TCP { get; set; }
+        [Input("tcp")]
+        public Input<Inputs.VirtualNodeTcpTimeoutArgs>? Tcp { get; set; }
 
         public VirtualNodeListenerTimeoutArgs()
         {

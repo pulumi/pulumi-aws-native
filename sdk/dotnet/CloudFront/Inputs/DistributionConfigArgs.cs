@@ -20,20 +20,20 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
             set => _aliases = value;
         }
 
-        [Input("cNAMEs")]
-        private InputList<string>? _cNAMEs;
-        public InputList<string> CNAMEs
-        {
-            get => _cNAMEs ?? (_cNAMEs = new InputList<string>());
-            set => _cNAMEs = value;
-        }
-
         [Input("cacheBehaviors")]
         private InputList<Inputs.DistributionCacheBehaviorArgs>? _cacheBehaviors;
         public InputList<Inputs.DistributionCacheBehaviorArgs> CacheBehaviors
         {
             get => _cacheBehaviors ?? (_cacheBehaviors = new InputList<Inputs.DistributionCacheBehaviorArgs>());
             set => _cacheBehaviors = value;
+        }
+
+        [Input("cnames")]
+        private InputList<string>? _cnames;
+        public InputList<string> Cnames
+        {
+            get => _cnames ?? (_cnames = new InputList<string>());
+            set => _cnames = value;
         }
 
         [Input("comment")]
@@ -65,8 +65,8 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         [Input("httpVersion")]
         public Input<string>? HttpVersion { get; set; }
 
-        [Input("iPV6Enabled")]
-        public Input<bool>? IPV6Enabled { get; set; }
+        [Input("ipv6Enabled")]
+        public Input<bool>? Ipv6Enabled { get; set; }
 
         [Input("logging")]
         public Input<Inputs.DistributionLoggingArgs>? Logging { get; set; }
@@ -97,8 +97,8 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         [Input("viewerCertificate")]
         public Input<Inputs.DistributionViewerCertificateArgs>? ViewerCertificate { get; set; }
 
-        [Input("webACLId")]
-        public Input<string>? WebACLId { get; set; }
+        [Input("webAclId")]
+        public Input<string>? WebAclId { get; set; }
 
         public DistributionConfigArgs()
         {

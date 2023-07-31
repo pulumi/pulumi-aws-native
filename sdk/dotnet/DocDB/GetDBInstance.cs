@@ -52,7 +52,7 @@ namespace Pulumi.AwsNative.DocDB
     public sealed class GetDBInstanceResult
     {
         public readonly bool? AutoMinorVersionUpgrade;
-        public readonly string? DBInstanceClass;
+        public readonly string? DbInstanceClass;
         public readonly bool? EnablePerformanceInsights;
         public readonly string? Endpoint;
         public readonly string? Id;
@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.DocDB
         private GetDBInstanceResult(
             bool? autoMinorVersionUpgrade,
 
-            string? dBInstanceClass,
+            string? dbInstanceClass,
 
             bool? enablePerformanceInsights,
 
@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.DocDB
             ImmutableArray<Outputs.DBInstanceTag> tags)
         {
             AutoMinorVersionUpgrade = autoMinorVersionUpgrade;
-            DBInstanceClass = dBInstanceClass;
+            DbInstanceClass = dbInstanceClass;
             EnablePerformanceInsights = enablePerformanceInsights;
             Endpoint = endpoint;
             Id = id;

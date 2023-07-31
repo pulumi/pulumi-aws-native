@@ -21,8 +21,8 @@ namespace Pulumi.AwsNative.IoT
         [Output("autoRegistrationStatus")]
         public Output<Pulumi.AwsNative.IoT.CACertificateAutoRegistrationStatus?> AutoRegistrationStatus { get; private set; } = null!;
 
-        [Output("cACertificatePem")]
-        public Output<string> CACertificatePem { get; private set; } = null!;
+        [Output("caCertificatePem")]
+        public Output<string> CaCertificatePem { get; private set; } = null!;
 
         [Output("certificateMode")]
         public Output<Pulumi.AwsNative.IoT.CACertificateCertificateMode?> CertificateMode { get; private set; } = null!;
@@ -96,8 +96,8 @@ namespace Pulumi.AwsNative.IoT
         [Input("autoRegistrationStatus")]
         public Input<Pulumi.AwsNative.IoT.CACertificateAutoRegistrationStatus>? AutoRegistrationStatus { get; set; }
 
-        [Input("cACertificatePem", required: true)]
-        public Input<string> CACertificatePem { get; set; } = null!;
+        [Input("caCertificatePem", required: true)]
+        public Input<string> CaCertificatePem { get; set; } = null!;
 
         [Input("certificateMode")]
         public Input<Pulumi.AwsNative.IoT.CACertificateCertificateMode>? CertificateMode { get; set; }

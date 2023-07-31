@@ -24,10 +24,10 @@ export interface GetStackArgs {
 
 export interface GetStackResult {
     readonly id?: string;
-    readonly notificationARNs?: string[];
+    readonly notificationArns?: string[];
     readonly parameters?: any;
     readonly tags?: outputs.cloudformation.StackTag[];
-    readonly templateURL?: string;
+    readonly templateUrl?: string;
     readonly timeoutInMinutes?: number;
 }
 /**

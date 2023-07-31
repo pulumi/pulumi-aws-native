@@ -42,7 +42,7 @@ export interface GetLoadBalancerResult {
     /**
      * Configuration option to adjust session stickiness cookie duration parameter.
      */
-    readonly sessionStickinessLBCookieDurationSeconds?: string;
+    readonly sessionStickinessLbCookieDurationSeconds?: string;
     /**
      * An array of key-value pairs to apply to this resource.
      */

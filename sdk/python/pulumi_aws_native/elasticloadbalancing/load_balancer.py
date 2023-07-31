@@ -25,7 +25,7 @@ class LoadBalancerArgs:
                  cross_zone: Optional[pulumi.Input[bool]] = None,
                  health_check: Optional[pulumi.Input['LoadBalancerHealthCheckArgs']] = None,
                  instances: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 l_b_cookie_stickiness_policy: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerLBCookieStickinessPolicyArgs']]]] = None,
+                 lb_cookie_stickiness_policy: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerLBCookieStickinessPolicyArgs']]]] = None,
                  load_balancer_name: Optional[pulumi.Input[str]] = None,
                  policies: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerPoliciesArgs']]]] = None,
                  scheme: Optional[pulumi.Input[str]] = None,
@@ -54,8 +54,8 @@ class LoadBalancerArgs:
             pulumi.set(__self__, "health_check", health_check)
         if instances is not None:
             pulumi.set(__self__, "instances", instances)
-        if l_b_cookie_stickiness_policy is not None:
-            pulumi.set(__self__, "l_b_cookie_stickiness_policy", l_b_cookie_stickiness_policy)
+        if lb_cookie_stickiness_policy is not None:
+            pulumi.set(__self__, "lb_cookie_stickiness_policy", lb_cookie_stickiness_policy)
         if load_balancer_name is not None:
             pulumi.set(__self__, "load_balancer_name", load_balancer_name)
         if policies is not None:
@@ -155,13 +155,13 @@ class LoadBalancerArgs:
         pulumi.set(self, "instances", value)
 
     @property
-    @pulumi.getter(name="lBCookieStickinessPolicy")
-    def l_b_cookie_stickiness_policy(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerLBCookieStickinessPolicyArgs']]]]:
-        return pulumi.get(self, "l_b_cookie_stickiness_policy")
+    @pulumi.getter(name="lbCookieStickinessPolicy")
+    def lb_cookie_stickiness_policy(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerLBCookieStickinessPolicyArgs']]]]:
+        return pulumi.get(self, "lb_cookie_stickiness_policy")
 
-    @l_b_cookie_stickiness_policy.setter
-    def l_b_cookie_stickiness_policy(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerLBCookieStickinessPolicyArgs']]]]):
-        pulumi.set(self, "l_b_cookie_stickiness_policy", value)
+    @lb_cookie_stickiness_policy.setter
+    def lb_cookie_stickiness_policy(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerLBCookieStickinessPolicyArgs']]]]):
+        pulumi.set(self, "lb_cookie_stickiness_policy", value)
 
     @property
     @pulumi.getter(name="loadBalancerName")
@@ -254,7 +254,7 @@ class LoadBalancer(pulumi.CustomResource):
                  cross_zone: Optional[pulumi.Input[bool]] = None,
                  health_check: Optional[pulumi.Input[pulumi.InputType['LoadBalancerHealthCheckArgs']]] = None,
                  instances: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 l_b_cookie_stickiness_policy: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerLBCookieStickinessPolicyArgs']]]]] = None,
+                 lb_cookie_stickiness_policy: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerLBCookieStickinessPolicyArgs']]]]] = None,
                  listeners: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerListenersArgs']]]]] = None,
                  load_balancer_name: Optional[pulumi.Input[str]] = None,
                  policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerPoliciesArgs']]]]] = None,
@@ -303,7 +303,7 @@ class LoadBalancer(pulumi.CustomResource):
                  cross_zone: Optional[pulumi.Input[bool]] = None,
                  health_check: Optional[pulumi.Input[pulumi.InputType['LoadBalancerHealthCheckArgs']]] = None,
                  instances: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 l_b_cookie_stickiness_policy: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerLBCookieStickinessPolicyArgs']]]]] = None,
+                 lb_cookie_stickiness_policy: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerLBCookieStickinessPolicyArgs']]]]] = None,
                  listeners: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerListenersArgs']]]]] = None,
                  load_balancer_name: Optional[pulumi.Input[str]] = None,
                  policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerPoliciesArgs']]]]] = None,
@@ -331,7 +331,7 @@ class LoadBalancer(pulumi.CustomResource):
             __props__.__dict__["cross_zone"] = cross_zone
             __props__.__dict__["health_check"] = health_check
             __props__.__dict__["instances"] = instances
-            __props__.__dict__["l_b_cookie_stickiness_policy"] = l_b_cookie_stickiness_policy
+            __props__.__dict__["lb_cookie_stickiness_policy"] = lb_cookie_stickiness_policy
             if listeners is None and not opts.urn:
                 raise TypeError("Missing required property 'listeners'")
             __props__.__dict__["listeners"] = listeners
@@ -345,7 +345,7 @@ class LoadBalancer(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["canonical_hosted_zone_name"] = None
             __props__.__dict__["canonical_hosted_zone_name_id"] = None
-            __props__.__dict__["d_ns_name"] = None
+            __props__.__dict__["dns_name"] = None
         super(LoadBalancer, __self__).__init__(
             'aws-native:elasticloadbalancing:LoadBalancer',
             resource_name,
@@ -376,10 +376,10 @@ class LoadBalancer(pulumi.CustomResource):
         __props__.__dict__["connection_draining_policy"] = None
         __props__.__dict__["connection_settings"] = None
         __props__.__dict__["cross_zone"] = None
-        __props__.__dict__["d_ns_name"] = None
+        __props__.__dict__["dns_name"] = None
         __props__.__dict__["health_check"] = None
         __props__.__dict__["instances"] = None
-        __props__.__dict__["l_b_cookie_stickiness_policy"] = None
+        __props__.__dict__["lb_cookie_stickiness_policy"] = None
         __props__.__dict__["listeners"] = None
         __props__.__dict__["load_balancer_name"] = None
         __props__.__dict__["policies"] = None
@@ -412,7 +412,7 @@ class LoadBalancer(pulumi.CustomResource):
         return pulumi.get(self, "canonical_hosted_zone_name")
 
     @property
-    @pulumi.getter(name="canonicalHostedZoneNameID")
+    @pulumi.getter(name="canonicalHostedZoneNameId")
     def canonical_hosted_zone_name_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "canonical_hosted_zone_name_id")
 
@@ -432,9 +432,9 @@ class LoadBalancer(pulumi.CustomResource):
         return pulumi.get(self, "cross_zone")
 
     @property
-    @pulumi.getter(name="dNSName")
-    def d_ns_name(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "d_ns_name")
+    @pulumi.getter(name="dnsName")
+    def dns_name(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "dns_name")
 
     @property
     @pulumi.getter(name="healthCheck")
@@ -447,9 +447,9 @@ class LoadBalancer(pulumi.CustomResource):
         return pulumi.get(self, "instances")
 
     @property
-    @pulumi.getter(name="lBCookieStickinessPolicy")
-    def l_b_cookie_stickiness_policy(self) -> pulumi.Output[Optional[Sequence['outputs.LoadBalancerLBCookieStickinessPolicy']]]:
-        return pulumi.get(self, "l_b_cookie_stickiness_policy")
+    @pulumi.getter(name="lbCookieStickinessPolicy")
+    def lb_cookie_stickiness_policy(self) -> pulumi.Output[Optional[Sequence['outputs.LoadBalancerLBCookieStickinessPolicy']]]:
+        return pulumi.get(self, "lb_cookie_stickiness_policy")
 
     @property
     @pulumi.getter

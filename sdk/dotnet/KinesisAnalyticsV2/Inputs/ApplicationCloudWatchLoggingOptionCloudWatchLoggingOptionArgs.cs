@@ -12,8 +12,8 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2.Inputs
 
     public sealed class ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionArgs : global::Pulumi.ResourceArgs
     {
-        [Input("logStreamARN", required: true)]
-        public Input<string> LogStreamARN { get; set; } = null!;
+        [Input("logStreamArn", required: true)]
+        public Input<string> LogStreamArn { get; set; } = null!;
 
         public ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionArgs()
         {

@@ -16,17 +16,17 @@ namespace Pulumi.AwsNative.FMS.Outputs
     [OutputType]
     public sealed class PolicyIEMap
     {
-        public readonly ImmutableArray<string> ACCOUNT;
-        public readonly ImmutableArray<string> ORGUNIT;
+        public readonly ImmutableArray<string> Account;
+        public readonly ImmutableArray<string> Orgunit;
 
         [OutputConstructor]
         private PolicyIEMap(
-            ImmutableArray<string> aCCOUNT,
+            ImmutableArray<string> account,
 
-            ImmutableArray<string> oRGUNIT)
+            ImmutableArray<string> orgunit)
         {
-            ACCOUNT = aCCOUNT;
-            ORGUNIT = oRGUNIT;
+            Account = account;
+            Orgunit = orgunit;
         }
     }
 }

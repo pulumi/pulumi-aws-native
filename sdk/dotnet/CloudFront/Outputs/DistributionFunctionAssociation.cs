@@ -14,16 +14,16 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
     public sealed class DistributionFunctionAssociation
     {
         public readonly string? EventType;
-        public readonly string? FunctionARN;
+        public readonly string? FunctionArn;
 
         [OutputConstructor]
         private DistributionFunctionAssociation(
             string? eventType,
 
-            string? functionARN)
+            string? functionArn)
         {
             EventType = eventType;
-            FunctionARN = functionARN;
+            FunctionArn = functionArn;
         }
     }
 }

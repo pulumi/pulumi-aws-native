@@ -716,7 +716,7 @@ class DataQualityJobDefinitionClusterConfig(dict):
             suggest = "instance_count"
         elif key == "instanceType":
             suggest = "instance_type"
-        elif key == "volumeSizeInGB":
+        elif key == "volumeSizeInGb":
             suggest = "volume_size_in_gb"
         elif key == "volumeKmsKeyId":
             suggest = "volume_kms_key_id"
@@ -767,7 +767,7 @@ class DataQualityJobDefinitionClusterConfig(dict):
         return pulumi.get(self, "instance_type")
 
     @property
-    @pulumi.getter(name="volumeSizeInGB")
+    @pulumi.getter(name="volumeSizeInGb")
     def volume_size_in_gb(self) -> int:
         """
         The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
@@ -2965,7 +2965,7 @@ class EndpointConfigClarifyInferenceConfig(dict):
             suggest = "label_headers"
         elif key == "labelIndex":
             suggest = "label_index"
-        elif key == "maxPayloadInMB":
+        elif key == "maxPayloadInMb":
             suggest = "max_payload_in_mb"
         elif key == "maxRecordCount":
             suggest = "max_record_count"
@@ -3056,7 +3056,7 @@ class EndpointConfigClarifyInferenceConfig(dict):
         return pulumi.get(self, "label_index")
 
     @property
-    @pulumi.getter(name="maxPayloadInMB")
+    @pulumi.getter(name="maxPayloadInMb")
     def max_payload_in_mb(self) -> Optional[int]:
         return pulumi.get(self, "max_payload_in_mb")
 
@@ -3334,7 +3334,7 @@ class EndpointConfigProductionVariant(dict):
             suggest = "accelerator_type"
         elif key == "containerStartupHealthCheckTimeoutInSeconds":
             suggest = "container_startup_health_check_timeout_in_seconds"
-        elif key == "enableSSMAccess":
+        elif key == "enableSsmAccess":
             suggest = "enable_ssm_access"
         elif key == "initialInstanceCount":
             suggest = "initial_instance_count"
@@ -3344,7 +3344,7 @@ class EndpointConfigProductionVariant(dict):
             suggest = "model_data_download_timeout_in_seconds"
         elif key == "serverlessConfig":
             suggest = "serverless_config"
-        elif key == "volumeSizeInGB":
+        elif key == "volumeSizeInGb":
             suggest = "volume_size_in_gb"
 
         if suggest:
@@ -3416,7 +3416,7 @@ class EndpointConfigProductionVariant(dict):
         return pulumi.get(self, "container_startup_health_check_timeout_in_seconds")
 
     @property
-    @pulumi.getter(name="enableSSMAccess")
+    @pulumi.getter(name="enableSsmAccess")
     def enable_ssm_access(self) -> Optional[bool]:
         return pulumi.get(self, "enable_ssm_access")
 
@@ -3441,7 +3441,7 @@ class EndpointConfigProductionVariant(dict):
         return pulumi.get(self, "serverless_config")
 
     @property
-    @pulumi.getter(name="volumeSizeInGB")
+    @pulumi.getter(name="volumeSizeInGb")
     def volume_size_in_gb(self) -> Optional[int]:
         return pulumi.get(self, "volume_size_in_gb")
 
@@ -3453,7 +3453,7 @@ class EndpointConfigServerlessConfig(dict):
         suggest = None
         if key == "maxConcurrency":
             suggest = "max_concurrency"
-        elif key == "memorySizeInMB":
+        elif key == "memorySizeInMb":
             suggest = "memory_size_in_mb"
         elif key == "provisionedConcurrency":
             suggest = "provisioned_concurrency"
@@ -3484,7 +3484,7 @@ class EndpointConfigServerlessConfig(dict):
         return pulumi.get(self, "max_concurrency")
 
     @property
-    @pulumi.getter(name="memorySizeInMB")
+    @pulumi.getter(name="memorySizeInMb")
     def memory_size_in_mb(self) -> int:
         return pulumi.get(self, "memory_size_in_mb")
 
@@ -4646,7 +4646,7 @@ class ModelBiasJobDefinitionClusterConfig(dict):
             suggest = "instance_count"
         elif key == "instanceType":
             suggest = "instance_type"
-        elif key == "volumeSizeInGB":
+        elif key == "volumeSizeInGb":
             suggest = "volume_size_in_gb"
         elif key == "volumeKmsKeyId":
             suggest = "volume_kms_key_id"
@@ -4697,7 +4697,7 @@ class ModelBiasJobDefinitionClusterConfig(dict):
         return pulumi.get(self, "instance_type")
 
     @property
-    @pulumi.getter(name="volumeSizeInGB")
+    @pulumi.getter(name="volumeSizeInGb")
     def volume_size_in_gb(self) -> int:
         """
         The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
@@ -7574,7 +7574,7 @@ class ModelExplainabilityJobDefinitionClusterConfig(dict):
             suggest = "instance_count"
         elif key == "instanceType":
             suggest = "instance_type"
-        elif key == "volumeSizeInGB":
+        elif key == "volumeSizeInGb":
             suggest = "volume_size_in_gb"
         elif key == "volumeKmsKeyId":
             suggest = "volume_kms_key_id"
@@ -7625,7 +7625,7 @@ class ModelExplainabilityJobDefinitionClusterConfig(dict):
         return pulumi.get(self, "instance_type")
 
     @property
-    @pulumi.getter(name="volumeSizeInGB")
+    @pulumi.getter(name="volumeSizeInGb")
     def volume_size_in_gb(self) -> int:
         """
         The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
@@ -8504,7 +8504,7 @@ class ModelPackageAdditionalInferenceSpecificationDefinition(dict):
             suggest = "supported_content_types"
         elif key == "supportedRealtimeInferenceInstanceTypes":
             suggest = "supported_realtime_inference_instance_types"
-        elif key == "supportedResponseMIMETypes":
+        elif key == "supportedResponseMimeTypes":
             suggest = "supported_response_mime_types"
         elif key == "supportedTransformInstanceTypes":
             suggest = "supported_transform_instance_types"
@@ -8592,7 +8592,7 @@ class ModelPackageAdditionalInferenceSpecificationDefinition(dict):
         return pulumi.get(self, "supported_realtime_inference_instance_types")
 
     @property
-    @pulumi.getter(name="supportedResponseMIMETypes")
+    @pulumi.getter(name="supportedResponseMimeTypes")
     def supported_response_mime_types(self) -> Optional[Sequence[str]]:
         """
         The supported MIME types for the output data.
@@ -9238,7 +9238,7 @@ class ModelPackageInferenceSpecification(dict):
         suggest = None
         if key == "supportedContentTypes":
             suggest = "supported_content_types"
-        elif key == "supportedResponseMIMETypes":
+        elif key == "supportedResponseMimeTypes":
             suggest = "supported_response_mime_types"
         elif key == "supportedRealtimeInferenceInstanceTypes":
             suggest = "supported_realtime_inference_instance_types"
@@ -9295,7 +9295,7 @@ class ModelPackageInferenceSpecification(dict):
         return pulumi.get(self, "supported_content_types")
 
     @property
-    @pulumi.getter(name="supportedResponseMIMETypes")
+    @pulumi.getter(name="supportedResponseMimeTypes")
     def supported_response_mime_types(self) -> Sequence[str]:
         """
         The supported MIME types for the output data.
@@ -9951,7 +9951,7 @@ class ModelPackageTransformJobDefinition(dict):
             suggest = "batch_strategy"
         elif key == "maxConcurrentTransforms":
             suggest = "max_concurrent_transforms"
-        elif key == "maxPayloadInMB":
+        elif key == "maxPayloadInMb":
             suggest = "max_payload_in_mb"
 
         if suggest:
@@ -10028,7 +10028,7 @@ class ModelPackageTransformJobDefinition(dict):
         return pulumi.get(self, "max_concurrent_transforms")
 
     @property
-    @pulumi.getter(name="maxPayloadInMB")
+    @pulumi.getter(name="maxPayloadInMb")
     def max_payload_in_mb(self) -> Optional[int]:
         """
         The maximum payload size allowed, in MB. A payload is the data portion of a record (without metadata).
@@ -10444,7 +10444,7 @@ class ModelQualityJobDefinitionClusterConfig(dict):
             suggest = "instance_count"
         elif key == "instanceType":
             suggest = "instance_type"
-        elif key == "volumeSizeInGB":
+        elif key == "volumeSizeInGb":
             suggest = "volume_size_in_gb"
         elif key == "volumeKmsKeyId":
             suggest = "volume_kms_key_id"
@@ -10495,7 +10495,7 @@ class ModelQualityJobDefinitionClusterConfig(dict):
         return pulumi.get(self, "instance_type")
 
     @property
-    @pulumi.getter(name="volumeSizeInGB")
+    @pulumi.getter(name="volumeSizeInGb")
     def volume_size_in_gb(self) -> int:
         """
         The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
@@ -11636,7 +11636,7 @@ class MonitoringScheduleClusterConfig(dict):
             suggest = "instance_count"
         elif key == "instanceType":
             suggest = "instance_type"
-        elif key == "volumeSizeInGB":
+        elif key == "volumeSizeInGb":
             suggest = "volume_size_in_gb"
         elif key == "volumeKmsKeyId":
             suggest = "volume_kms_key_id"
@@ -11687,7 +11687,7 @@ class MonitoringScheduleClusterConfig(dict):
         return pulumi.get(self, "instance_type")
 
     @property
-    @pulumi.getter(name="volumeSizeInGB")
+    @pulumi.getter(name="volumeSizeInGb")
     def volume_size_in_gb(self) -> int:
         """
         The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.

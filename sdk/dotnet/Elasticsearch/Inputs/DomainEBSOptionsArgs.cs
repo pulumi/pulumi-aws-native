@@ -12,8 +12,8 @@ namespace Pulumi.AwsNative.Elasticsearch.Inputs
 
     public sealed class DomainEBSOptionsArgs : global::Pulumi.ResourceArgs
     {
-        [Input("eBSEnabled")]
-        public Input<bool>? EBSEnabled { get; set; }
+        [Input("ebsEnabled")]
+        public Input<bool>? EbsEnabled { get; set; }
 
         [Input("iops")]
         public Input<int>? Iops { get; set; }

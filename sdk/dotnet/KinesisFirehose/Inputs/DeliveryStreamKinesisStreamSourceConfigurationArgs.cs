@@ -12,11 +12,11 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
 
     public sealed class DeliveryStreamKinesisStreamSourceConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        [Input("kinesisStreamARN", required: true)]
-        public Input<string> KinesisStreamARN { get; set; } = null!;
+        [Input("kinesisStreamArn", required: true)]
+        public Input<string> KinesisStreamArn { get; set; } = null!;
 
-        [Input("roleARN", required: true)]
-        public Input<string> RoleARN { get; set; } = null!;
+        [Input("roleArn", required: true)]
+        public Input<string> RoleArn { get; set; } = null!;
 
         public DeliveryStreamKinesisStreamSourceConfigurationArgs()
         {

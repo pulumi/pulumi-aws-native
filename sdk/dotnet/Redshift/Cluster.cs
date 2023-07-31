@@ -100,8 +100,8 @@ namespace Pulumi.AwsNative.Redshift
         /// <summary>
         /// The name of the first database to be created when the cluster is created. To create additional databases after the cluster is created, connect to the cluster with a SQL client and use SQL commands to create a database.
         /// </summary>
-        [Output("dBName")]
-        public Output<string> DBName { get; private set; } = null!;
+        [Output("dbName")]
+        public Output<string> DbName { get; private set; } = null!;
 
         /// <summary>
         /// A boolean indicating whether to enable the deferred maintenance window.
@@ -450,8 +450,8 @@ namespace Pulumi.AwsNative.Redshift
         /// <summary>
         /// The name of the first database to be created when the cluster is created. To create additional databases after the cluster is created, connect to the cluster with a SQL client and use SQL commands to create a database.
         /// </summary>
-        [Input("dBName", required: true)]
-        public Input<string> DBName { get; set; } = null!;
+        [Input("dbName", required: true)]
+        public Input<string> DbName { get; set; } = null!;
 
         /// <summary>
         /// A boolean indicating whether to enable the deferred maintenance window.

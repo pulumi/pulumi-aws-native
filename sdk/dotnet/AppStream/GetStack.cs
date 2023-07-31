@@ -58,9 +58,9 @@ namespace Pulumi.AwsNative.AppStream
         public readonly string? Description;
         public readonly string? DisplayName;
         public readonly ImmutableArray<string> EmbedHostDomains;
-        public readonly string? FeedbackURL;
+        public readonly string? FeedbackUrl;
         public readonly string? Id;
-        public readonly string? RedirectURL;
+        public readonly string? RedirectUrl;
         public readonly ImmutableArray<Outputs.StackStorageConnector> StorageConnectors;
         public readonly Outputs.StackStreamingExperienceSettings? StreamingExperienceSettings;
         public readonly ImmutableArray<Outputs.StackTag> Tags;
@@ -82,11 +82,11 @@ namespace Pulumi.AwsNative.AppStream
 
             ImmutableArray<string> embedHostDomains,
 
-            string? feedbackURL,
+            string? feedbackUrl,
 
             string? id,
 
-            string? redirectURL,
+            string? redirectUrl,
 
             ImmutableArray<Outputs.StackStorageConnector> storageConnectors,
 
@@ -103,9 +103,9 @@ namespace Pulumi.AwsNative.AppStream
             Description = description;
             DisplayName = displayName;
             EmbedHostDomains = embedHostDomains;
-            FeedbackURL = feedbackURL;
+            FeedbackUrl = feedbackUrl;
             Id = id;
-            RedirectURL = redirectURL;
+            RedirectUrl = redirectUrl;
             StorageConnectors = storageConnectors;
             StreamingExperienceSettings = streamingExperienceSettings;
             Tags = tags;

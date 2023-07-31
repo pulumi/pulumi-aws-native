@@ -24,11 +24,11 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
         [Input("portMapping", required: true)]
         public Input<Inputs.VirtualNodePortMappingArgs> PortMapping { get; set; } = null!;
 
-        [Input("tLS")]
-        public Input<Inputs.VirtualNodeListenerTlsArgs>? TLS { get; set; }
-
         [Input("timeout")]
         public Input<Inputs.VirtualNodeListenerTimeoutArgs>? Timeout { get; set; }
+
+        [Input("tls")]
+        public Input<Inputs.VirtualNodeListenerTlsArgs>? Tls { get; set; }
 
         public VirtualNodeListenerArgs()
         {

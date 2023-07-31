@@ -37,7 +37,7 @@ type CompositeAlarm struct {
 	// The actions to execute when this alarm transitions to the INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 	InsufficientDataActions pulumi.StringArrayOutput `pulumi:"insufficientDataActions"`
 	// The actions to execute when this alarm transitions to the OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
-	OKActions pulumi.StringArrayOutput `pulumi:"oKActions"`
+	OkActions pulumi.StringArrayOutput `pulumi:"okActions"`
 }
 
 // NewCompositeAlarm registers a new resource with the given unique name, arguments, and options.
@@ -102,7 +102,7 @@ type compositeAlarmArgs struct {
 	// The actions to execute when this alarm transitions to the INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 	InsufficientDataActions []string `pulumi:"insufficientDataActions"`
 	// The actions to execute when this alarm transitions to the OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
-	OKActions []string `pulumi:"oKActions"`
+	OkActions []string `pulumi:"okActions"`
 }
 
 // The set of arguments for constructing a CompositeAlarm resource.
@@ -126,7 +126,7 @@ type CompositeAlarmArgs struct {
 	// The actions to execute when this alarm transitions to the INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 	InsufficientDataActions pulumi.StringArrayInput
 	// The actions to execute when this alarm transitions to the OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
-	OKActions pulumi.StringArrayInput
+	OkActions pulumi.StringArrayInput
 }
 
 func (CompositeAlarmArgs) ElementType() reflect.Type {
@@ -217,8 +217,8 @@ func (o CompositeAlarmOutput) InsufficientDataActions() pulumi.StringArrayOutput
 }
 
 // The actions to execute when this alarm transitions to the OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
-func (o CompositeAlarmOutput) OKActions() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *CompositeAlarm) pulumi.StringArrayOutput { return v.OKActions }).(pulumi.StringArrayOutput)
+func (o CompositeAlarmOutput) OkActions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CompositeAlarm) pulumi.StringArrayOutput { return v.OkActions }).(pulumi.StringArrayOutput)
 }
 
 func init() {

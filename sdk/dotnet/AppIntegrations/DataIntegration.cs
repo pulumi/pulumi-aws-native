@@ -60,8 +60,8 @@ namespace Pulumi.AwsNative.AppIntegrations
         /// <summary>
         /// The URI of the data source.
         /// </summary>
-        [Output("sourceURI")]
-        public Output<string> SourceURI { get; private set; } = null!;
+        [Output("sourceUri")]
+        public Output<string> SourceUri { get; private set; } = null!;
 
         /// <summary>
         /// The tags (keys and values) associated with the data integration.
@@ -153,8 +153,8 @@ namespace Pulumi.AwsNative.AppIntegrations
         /// <summary>
         /// The URI of the data source.
         /// </summary>
-        [Input("sourceURI", required: true)]
-        public Input<string> SourceURI { get; set; } = null!;
+        [Input("sourceUri", required: true)]
+        public Input<string> SourceUri { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Inputs.DataIntegrationTagArgs>? _tags;

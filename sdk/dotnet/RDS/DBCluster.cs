@@ -58,58 +58,58 @@ namespace Pulumi.AwsNative.RDS
         public Output<bool?> CopyTagsToSnapshot { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the DB cluster.
-        /// </summary>
-        [Output("dBClusterArn")]
-        public Output<string> DBClusterArn { get; private set; } = null!;
-
-        /// <summary>
-        /// The DB cluster identifier. This parameter is stored as a lowercase string.
-        /// </summary>
-        [Output("dBClusterIdentifier")]
-        public Output<string?> DBClusterIdentifier { get; private set; } = null!;
-
-        /// <summary>
-        /// The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge.
-        /// </summary>
-        [Output("dBClusterInstanceClass")]
-        public Output<string?> DBClusterInstanceClass { get; private set; } = null!;
-
-        /// <summary>
-        /// The name of the DB cluster parameter group to associate with this DB cluster.
-        /// </summary>
-        [Output("dBClusterParameterGroupName")]
-        public Output<string?> DBClusterParameterGroupName { get; private set; } = null!;
-
-        /// <summary>
-        /// The AWS Region-unique, immutable identifier for the DB cluster.
-        /// </summary>
-        [Output("dBClusterResourceId")]
-        public Output<string> DBClusterResourceId { get; private set; } = null!;
-
-        /// <summary>
-        /// The name of the DB parameter group to apply to all instances of the DB cluster.
-        /// </summary>
-        [Output("dBInstanceParameterGroupName")]
-        public Output<string?> DBInstanceParameterGroupName { get; private set; } = null!;
-
-        /// <summary>
-        /// A DB subnet group that you want to associate with this DB cluster.
-        /// </summary>
-        [Output("dBSubnetGroupName")]
-        public Output<string?> DBSubnetGroupName { get; private set; } = null!;
-
-        /// <summary>
-        /// Reserved for future use.
-        /// </summary>
-        [Output("dBSystemId")]
-        public Output<string?> DBSystemId { get; private set; } = null!;
-
-        /// <summary>
         /// The name of your database. If you don't provide a name, then Amazon RDS won't create a database in this DB cluster. For naming constraints, see Naming Constraints in the Amazon RDS User Guide.
         /// </summary>
         [Output("databaseName")]
         public Output<string?> DatabaseName { get; private set; } = null!;
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the DB cluster.
+        /// </summary>
+        [Output("dbClusterArn")]
+        public Output<string> DbClusterArn { get; private set; } = null!;
+
+        /// <summary>
+        /// The DB cluster identifier. This parameter is stored as a lowercase string.
+        /// </summary>
+        [Output("dbClusterIdentifier")]
+        public Output<string?> DbClusterIdentifier { get; private set; } = null!;
+
+        /// <summary>
+        /// The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge.
+        /// </summary>
+        [Output("dbClusterInstanceClass")]
+        public Output<string?> DbClusterInstanceClass { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the DB cluster parameter group to associate with this DB cluster.
+        /// </summary>
+        [Output("dbClusterParameterGroupName")]
+        public Output<string?> DbClusterParameterGroupName { get; private set; } = null!;
+
+        /// <summary>
+        /// The AWS Region-unique, immutable identifier for the DB cluster.
+        /// </summary>
+        [Output("dbClusterResourceId")]
+        public Output<string> DbClusterResourceId { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the DB parameter group to apply to all instances of the DB cluster.
+        /// </summary>
+        [Output("dbInstanceParameterGroupName")]
+        public Output<string?> DbInstanceParameterGroupName { get; private set; } = null!;
+
+        /// <summary>
+        /// A DB subnet group that you want to associate with this DB cluster.
+        /// </summary>
+        [Output("dbSubnetGroupName")]
+        public Output<string?> DbSubnetGroupName { get; private set; } = null!;
+
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [Output("dbSystemId")]
+        public Output<string?> DbSystemId { get; private set; } = null!;
 
         /// <summary>
         /// A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
@@ -126,8 +126,8 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// Specify the name of the IAM role to be used when making API calls to the Directory Service.
         /// </summary>
-        [Output("domainIAMRoleName")]
-        public Output<string?> DomainIAMRoleName { get; private set; } = null!;
+        [Output("domainIamRoleName")]
+        public Output<string?> DomainIamRoleName { get; private set; } = null!;
 
         /// <summary>
         /// The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see Publishing Database Logs to Amazon CloudWatch Logs in the Amazon Aurora User Guide.
@@ -144,8 +144,8 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
         /// </summary>
-        [Output("enableIAMDatabaseAuthentication")]
-        public Output<bool?> EnableIAMDatabaseAuthentication { get; private set; } = null!;
+        [Output("enableIamDatabaseAuthentication")]
+        public Output<bool?> EnableIamDatabaseAuthentication { get; private set; } = null!;
 
         [Output("endpoint")]
         public Output<Outputs.DBClusterEndpoint> Endpoint { get; private set; } = null!;
@@ -318,8 +318,8 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// The identifier of the source DB cluster from which to restore.
         /// </summary>
-        [Output("sourceDBClusterIdentifier")]
-        public Output<string?> SourceDBClusterIdentifier { get; private set; } = null!;
+        [Output("sourceDbClusterIdentifier")]
+        public Output<string?> SourceDbClusterIdentifier { get; private set; } = null!;
 
         /// <summary>
         /// The AWS Region which contains the source DB cluster when replicating a DB cluster. For example, us-east-1.
@@ -458,46 +458,46 @@ namespace Pulumi.AwsNative.RDS
         public Input<bool>? CopyTagsToSnapshot { get; set; }
 
         /// <summary>
-        /// The DB cluster identifier. This parameter is stored as a lowercase string.
-        /// </summary>
-        [Input("dBClusterIdentifier")]
-        public Input<string>? DBClusterIdentifier { get; set; }
-
-        /// <summary>
-        /// The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge.
-        /// </summary>
-        [Input("dBClusterInstanceClass")]
-        public Input<string>? DBClusterInstanceClass { get; set; }
-
-        /// <summary>
-        /// The name of the DB cluster parameter group to associate with this DB cluster.
-        /// </summary>
-        [Input("dBClusterParameterGroupName")]
-        public Input<string>? DBClusterParameterGroupName { get; set; }
-
-        /// <summary>
-        /// The name of the DB parameter group to apply to all instances of the DB cluster.
-        /// </summary>
-        [Input("dBInstanceParameterGroupName")]
-        public Input<string>? DBInstanceParameterGroupName { get; set; }
-
-        /// <summary>
-        /// A DB subnet group that you want to associate with this DB cluster.
-        /// </summary>
-        [Input("dBSubnetGroupName")]
-        public Input<string>? DBSubnetGroupName { get; set; }
-
-        /// <summary>
-        /// Reserved for future use.
-        /// </summary>
-        [Input("dBSystemId")]
-        public Input<string>? DBSystemId { get; set; }
-
-        /// <summary>
         /// The name of your database. If you don't provide a name, then Amazon RDS won't create a database in this DB cluster. For naming constraints, see Naming Constraints in the Amazon RDS User Guide.
         /// </summary>
         [Input("databaseName")]
         public Input<string>? DatabaseName { get; set; }
+
+        /// <summary>
+        /// The DB cluster identifier. This parameter is stored as a lowercase string.
+        /// </summary>
+        [Input("dbClusterIdentifier")]
+        public Input<string>? DbClusterIdentifier { get; set; }
+
+        /// <summary>
+        /// The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge.
+        /// </summary>
+        [Input("dbClusterInstanceClass")]
+        public Input<string>? DbClusterInstanceClass { get; set; }
+
+        /// <summary>
+        /// The name of the DB cluster parameter group to associate with this DB cluster.
+        /// </summary>
+        [Input("dbClusterParameterGroupName")]
+        public Input<string>? DbClusterParameterGroupName { get; set; }
+
+        /// <summary>
+        /// The name of the DB parameter group to apply to all instances of the DB cluster.
+        /// </summary>
+        [Input("dbInstanceParameterGroupName")]
+        public Input<string>? DbInstanceParameterGroupName { get; set; }
+
+        /// <summary>
+        /// A DB subnet group that you want to associate with this DB cluster.
+        /// </summary>
+        [Input("dbSubnetGroupName")]
+        public Input<string>? DbSubnetGroupName { get; set; }
+
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [Input("dbSystemId")]
+        public Input<string>? DbSystemId { get; set; }
 
         /// <summary>
         /// A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
@@ -514,8 +514,8 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// Specify the name of the IAM role to be used when making API calls to the Directory Service.
         /// </summary>
-        [Input("domainIAMRoleName")]
-        public Input<string>? DomainIAMRoleName { get; set; }
+        [Input("domainIamRoleName")]
+        public Input<string>? DomainIamRoleName { get; set; }
 
         [Input("enableCloudwatchLogsExports")]
         private InputList<string>? _enableCloudwatchLogsExports;
@@ -538,8 +538,8 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
         /// </summary>
-        [Input("enableIAMDatabaseAuthentication")]
-        public Input<bool>? EnableIAMDatabaseAuthentication { get; set; }
+        [Input("enableIamDatabaseAuthentication")]
+        public Input<bool>? EnableIamDatabaseAuthentication { get; set; }
 
         /// <summary>
         /// The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora), and aurora-postgresql
@@ -709,8 +709,8 @@ namespace Pulumi.AwsNative.RDS
         /// <summary>
         /// The identifier of the source DB cluster from which to restore.
         /// </summary>
-        [Input("sourceDBClusterIdentifier")]
-        public Input<string>? SourceDBClusterIdentifier { get; set; }
+        [Input("sourceDbClusterIdentifier")]
+        public Input<string>? SourceDbClusterIdentifier { get; set; }
 
         /// <summary>
         /// The AWS Region which contains the source DB cluster when replicating a DB cluster. For example, us-east-1.

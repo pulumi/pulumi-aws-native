@@ -46,7 +46,7 @@ export class ReplicationInstance extends pulumi.CustomResource {
     public readonly availabilityZone!: pulumi.Output<string | undefined>;
     public readonly engineVersion!: pulumi.Output<string | undefined>;
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
-    public readonly multiAZ!: pulumi.Output<boolean | undefined>;
+    public readonly multiAz!: pulumi.Output<boolean | undefined>;
     public readonly preferredMaintenanceWindow!: pulumi.Output<string | undefined>;
     public readonly publiclyAccessible!: pulumi.Output<boolean | undefined>;
     public readonly replicationInstanceClass!: pulumi.Output<string>;
@@ -80,7 +80,7 @@ export class ReplicationInstance extends pulumi.CustomResource {
             resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
             resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            resourceInputs["multiAZ"] = args ? args.multiAZ : undefined;
+            resourceInputs["multiAz"] = args ? args.multiAz : undefined;
             resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
             resourceInputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
             resourceInputs["replicationInstanceClass"] = args ? args.replicationInstanceClass : undefined;
@@ -98,7 +98,7 @@ export class ReplicationInstance extends pulumi.CustomResource {
             resourceInputs["availabilityZone"] = undefined /*out*/;
             resourceInputs["engineVersion"] = undefined /*out*/;
             resourceInputs["kmsKeyId"] = undefined /*out*/;
-            resourceInputs["multiAZ"] = undefined /*out*/;
+            resourceInputs["multiAz"] = undefined /*out*/;
             resourceInputs["preferredMaintenanceWindow"] = undefined /*out*/;
             resourceInputs["publiclyAccessible"] = undefined /*out*/;
             resourceInputs["replicationInstanceClass"] = undefined /*out*/;
@@ -125,7 +125,7 @@ export interface ReplicationInstanceArgs {
     availabilityZone?: pulumi.Input<string>;
     engineVersion?: pulumi.Input<string>;
     kmsKeyId?: pulumi.Input<string>;
-    multiAZ?: pulumi.Input<boolean>;
+    multiAz?: pulumi.Input<boolean>;
     preferredMaintenanceWindow?: pulumi.Input<string>;
     publiclyAccessible?: pulumi.Input<boolean>;
     replicationInstanceClass: pulumi.Input<string>;

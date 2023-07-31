@@ -15,14 +15,14 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
     /// </summary>
     public sealed class WebACLManagedRuleGroupConfigArgs : global::Pulumi.ResourceArgs
     {
-        [Input("aWSManagedRulesACFPRuleSet")]
-        public Input<Inputs.WebACLAWSManagedRulesACFPRuleSetArgs>? AWSManagedRulesACFPRuleSet { get; set; }
+        [Input("awsManagedRulesAcfpRuleSet")]
+        public Input<Inputs.WebACLAWSManagedRulesACFPRuleSetArgs>? AwsManagedRulesAcfpRuleSet { get; set; }
 
-        [Input("aWSManagedRulesATPRuleSet")]
-        public Input<Inputs.WebACLAWSManagedRulesATPRuleSetArgs>? AWSManagedRulesATPRuleSet { get; set; }
+        [Input("awsManagedRulesAtpRuleSet")]
+        public Input<Inputs.WebACLAWSManagedRulesATPRuleSetArgs>? AwsManagedRulesAtpRuleSet { get; set; }
 
-        [Input("aWSManagedRulesBotControlRuleSet")]
-        public Input<Inputs.WebACLAWSManagedRulesBotControlRuleSetArgs>? AWSManagedRulesBotControlRuleSet { get; set; }
+        [Input("awsManagedRulesBotControlRuleSet")]
+        public Input<Inputs.WebACLAWSManagedRulesBotControlRuleSetArgs>? AwsManagedRulesBotControlRuleSet { get; set; }
 
         [Input("loginPath")]
         public Input<string>? LoginPath { get; set; }

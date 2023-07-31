@@ -33,7 +33,7 @@ export interface GetNotebookInstanceResult {
     readonly roleArn?: string;
     readonly rootAccess?: string;
     readonly tags?: outputs.sagemaker.NotebookInstanceTag[];
-    readonly volumeSizeInGB?: number;
+    readonly volumeSizeInGb?: number;
 }
 /**
  * Resource Type definition for AWS::SageMaker::NotebookInstance

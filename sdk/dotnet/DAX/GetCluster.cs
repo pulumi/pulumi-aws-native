@@ -54,10 +54,10 @@ namespace Pulumi.AwsNative.DAX
         public readonly string? Arn;
         public readonly ImmutableArray<string> AvailabilityZones;
         public readonly string? ClusterDiscoveryEndpoint;
-        public readonly string? ClusterDiscoveryEndpointURL;
+        public readonly string? ClusterDiscoveryEndpointUrl;
         public readonly string? Description;
         public readonly string? Id;
-        public readonly string? NotificationTopicARN;
+        public readonly string? NotificationTopicArn;
         public readonly string? ParameterGroupName;
         public readonly string? PreferredMaintenanceWindow;
         public readonly int? ReplicationFactor;
@@ -72,13 +72,13 @@ namespace Pulumi.AwsNative.DAX
 
             string? clusterDiscoveryEndpoint,
 
-            string? clusterDiscoveryEndpointURL,
+            string? clusterDiscoveryEndpointUrl,
 
             string? description,
 
             string? id,
 
-            string? notificationTopicARN,
+            string? notificationTopicArn,
 
             string? parameterGroupName,
 
@@ -93,10 +93,10 @@ namespace Pulumi.AwsNative.DAX
             Arn = arn;
             AvailabilityZones = availabilityZones;
             ClusterDiscoveryEndpoint = clusterDiscoveryEndpoint;
-            ClusterDiscoveryEndpointURL = clusterDiscoveryEndpointURL;
+            ClusterDiscoveryEndpointUrl = clusterDiscoveryEndpointUrl;
             Description = description;
             Id = id;
-            NotificationTopicARN = notificationTopicARN;
+            NotificationTopicArn = notificationTopicArn;
             ParameterGroupName = parameterGroupName;
             PreferredMaintenanceWindow = preferredMaintenanceWindow;
             ReplicationFactor = replicationFactor;

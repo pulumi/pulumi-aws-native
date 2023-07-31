@@ -23,7 +23,7 @@ export interface GetDBSecurityGroupArgs {
 }
 
 export interface GetDBSecurityGroupResult {
-    readonly dBSecurityGroupIngress?: outputs.rds.DBSecurityGroupIngress[];
+    readonly dbSecurityGroupIngress?: outputs.rds.DBSecurityGroupIngress[];
     readonly id?: string;
     readonly tags?: outputs.rds.DBSecurityGroupTag[];
 }

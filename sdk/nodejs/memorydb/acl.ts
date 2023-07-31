@@ -40,7 +40,7 @@ export class ACL extends pulumi.CustomResource {
     /**
      * The name of the acl.
      */
-    public readonly aCLName!: pulumi.Output<string>;
+    public readonly aclName!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the acl.
      */
@@ -69,13 +69,13 @@ export class ACL extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["aCLName"] = args ? args.aCLName : undefined;
+            resourceInputs["aclName"] = args ? args.aclName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["userNames"] = args ? args.userNames : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         } else {
-            resourceInputs["aCLName"] = undefined /*out*/;
+            resourceInputs["aclName"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -93,7 +93,7 @@ export interface ACLArgs {
     /**
      * The name of the acl.
      */
-    aCLName?: pulumi.Input<string>;
+    aclName?: pulumi.Input<string>;
     /**
      * An array of key-value pairs to apply to this cluster.
      */

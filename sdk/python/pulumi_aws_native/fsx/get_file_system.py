@@ -19,10 +19,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetFileSystemResult:
-    def __init__(__self__, d_ns_name=None, id=None, lustre_configuration=None, lustre_mount_name=None, ontap_configuration=None, open_zfs_configuration=None, resource_arn=None, root_volume_id=None, storage_capacity=None, tags=None, windows_configuration=None):
-        if d_ns_name and not isinstance(d_ns_name, str):
-            raise TypeError("Expected argument 'd_ns_name' to be a str")
-        pulumi.set(__self__, "d_ns_name", d_ns_name)
+    def __init__(__self__, dns_name=None, id=None, lustre_configuration=None, lustre_mount_name=None, ontap_configuration=None, open_zfs_configuration=None, resource_arn=None, root_volume_id=None, storage_capacity=None, tags=None, windows_configuration=None):
+        if dns_name and not isinstance(dns_name, str):
+            raise TypeError("Expected argument 'dns_name' to be a str")
+        pulumi.set(__self__, "dns_name", dns_name)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -55,9 +55,9 @@ class GetFileSystemResult:
         pulumi.set(__self__, "windows_configuration", windows_configuration)
 
     @property
-    @pulumi.getter(name="dNSName")
-    def d_ns_name(self) -> Optional[str]:
-        return pulumi.get(self, "d_ns_name")
+    @pulumi.getter(name="dnsName")
+    def dns_name(self) -> Optional[str]:
+        return pulumi.get(self, "dns_name")
 
     @property
     @pulumi.getter
@@ -80,12 +80,12 @@ class GetFileSystemResult:
         return pulumi.get(self, "ontap_configuration")
 
     @property
-    @pulumi.getter(name="openZFSConfiguration")
+    @pulumi.getter(name="openZfsConfiguration")
     def open_zfs_configuration(self) -> Optional['outputs.FileSystemOpenZFSConfiguration']:
         return pulumi.get(self, "open_zfs_configuration")
 
     @property
-    @pulumi.getter(name="resourceARN")
+    @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> Optional[str]:
         return pulumi.get(self, "resource_arn")
 
@@ -116,7 +116,7 @@ class AwaitableGetFileSystemResult(GetFileSystemResult):
         if False:
             yield self
         return GetFileSystemResult(
-            d_ns_name=self.d_ns_name,
+            dns_name=self.dns_name,
             id=self.id,
             lustre_configuration=self.lustre_configuration,
             lustre_mount_name=self.lustre_mount_name,
@@ -140,7 +140,7 @@ def get_file_system(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:fsx:getFileSystem', __args__, opts=opts, typ=GetFileSystemResult).value
 
     return AwaitableGetFileSystemResult(
-        d_ns_name=pulumi.get(__ret__, 'd_ns_name'),
+        dns_name=pulumi.get(__ret__, 'dns_name'),
         id=pulumi.get(__ret__, 'id'),
         lustre_configuration=pulumi.get(__ret__, 'lustre_configuration'),
         lustre_mount_name=pulumi.get(__ret__, 'lustre_mount_name'),

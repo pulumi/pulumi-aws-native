@@ -36,9 +36,9 @@ type LookupIdentityPoolResult struct {
 	Id                             *string                               `pulumi:"id"`
 	IdentityPoolName               *string                               `pulumi:"identityPoolName"`
 	Name                           *string                               `pulumi:"name"`
-	OpenIdConnectProviderARNs      []string                              `pulumi:"openIdConnectProviderARNs"`
+	OpenIdConnectProviderArns      []string                              `pulumi:"openIdConnectProviderArns"`
 	PushSync                       *IdentityPoolPushSync                 `pulumi:"pushSync"`
-	SamlProviderARNs               []string                              `pulumi:"samlProviderARNs"`
+	SamlProviderArns               []string                              `pulumi:"samlProviderArns"`
 	SupportedLoginProviders        interface{}                           `pulumi:"supportedLoginProviders"`
 }
 
@@ -115,16 +115,16 @@ func (o LookupIdentityPoolResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIdentityPoolResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupIdentityPoolResultOutput) OpenIdConnectProviderARNs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v LookupIdentityPoolResult) []string { return v.OpenIdConnectProviderARNs }).(pulumi.StringArrayOutput)
+func (o LookupIdentityPoolResultOutput) OpenIdConnectProviderArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupIdentityPoolResult) []string { return v.OpenIdConnectProviderArns }).(pulumi.StringArrayOutput)
 }
 
 func (o LookupIdentityPoolResultOutput) PushSync() IdentityPoolPushSyncPtrOutput {
 	return o.ApplyT(func(v LookupIdentityPoolResult) *IdentityPoolPushSync { return v.PushSync }).(IdentityPoolPushSyncPtrOutput)
 }
 
-func (o LookupIdentityPoolResultOutput) SamlProviderARNs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v LookupIdentityPoolResult) []string { return v.SamlProviderARNs }).(pulumi.StringArrayOutput)
+func (o LookupIdentityPoolResultOutput) SamlProviderArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupIdentityPoolResult) []string { return v.SamlProviderArns }).(pulumi.StringArrayOutput)
 }
 
 func (o LookupIdentityPoolResultOutput) SupportedLoginProviders() pulumi.AnyOutput {

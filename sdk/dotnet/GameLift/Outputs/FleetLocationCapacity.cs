@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.GameLift.Outputs
         /// <summary>
         /// The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits.
         /// </summary>
-        public readonly int DesiredEC2Instances;
+        public readonly int DesiredEc2Instances;
         /// <summary>
         /// The maximum value that is allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.
         /// </summary>
@@ -31,13 +31,13 @@ namespace Pulumi.AwsNative.GameLift.Outputs
 
         [OutputConstructor]
         private FleetLocationCapacity(
-            int desiredEC2Instances,
+            int desiredEc2Instances,
 
             int maxSize,
 
             int minSize)
         {
-            DesiredEC2Instances = desiredEC2Instances;
+            DesiredEc2Instances = desiredEc2Instances;
             MaxSize = maxSize;
             MinSize = minSize;
         }

@@ -5466,7 +5466,7 @@ type ReplicationConfigComputeConfig struct {
 	KmsKeyId                   *string  `pulumi:"kmsKeyId"`
 	MaxCapacityUnits           int      `pulumi:"maxCapacityUnits"`
 	MinCapacityUnits           *int     `pulumi:"minCapacityUnits"`
-	MultiAZ                    *bool    `pulumi:"multiAZ"`
+	MultiAz                    *bool    `pulumi:"multiAz"`
 	PreferredMaintenanceWindow *string  `pulumi:"preferredMaintenanceWindow"`
 	ReplicationSubnetGroupId   *string  `pulumi:"replicationSubnetGroupId"`
 	VpcSecurityGroupIds        []string `pulumi:"vpcSecurityGroupIds"`
@@ -5490,7 +5490,7 @@ type ReplicationConfigComputeConfigArgs struct {
 	KmsKeyId                   pulumi.StringPtrInput   `pulumi:"kmsKeyId"`
 	MaxCapacityUnits           pulumi.IntInput         `pulumi:"maxCapacityUnits"`
 	MinCapacityUnits           pulumi.IntPtrInput      `pulumi:"minCapacityUnits"`
-	MultiAZ                    pulumi.BoolPtrInput     `pulumi:"multiAZ"`
+	MultiAz                    pulumi.BoolPtrInput     `pulumi:"multiAz"`
 	PreferredMaintenanceWindow pulumi.StringPtrInput   `pulumi:"preferredMaintenanceWindow"`
 	ReplicationSubnetGroupId   pulumi.StringPtrInput   `pulumi:"replicationSubnetGroupId"`
 	VpcSecurityGroupIds        pulumi.StringArrayInput `pulumi:"vpcSecurityGroupIds"`
@@ -5594,8 +5594,8 @@ func (o ReplicationConfigComputeConfigOutput) MinCapacityUnits() pulumi.IntPtrOu
 	return o.ApplyT(func(v ReplicationConfigComputeConfig) *int { return v.MinCapacityUnits }).(pulumi.IntPtrOutput)
 }
 
-func (o ReplicationConfigComputeConfigOutput) MultiAZ() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ReplicationConfigComputeConfig) *bool { return v.MultiAZ }).(pulumi.BoolPtrOutput)
+func (o ReplicationConfigComputeConfigOutput) MultiAz() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ReplicationConfigComputeConfig) *bool { return v.MultiAz }).(pulumi.BoolPtrOutput)
 }
 
 func (o ReplicationConfigComputeConfigOutput) PreferredMaintenanceWindow() pulumi.StringPtrOutput {
@@ -5679,12 +5679,12 @@ func (o ReplicationConfigComputeConfigPtrOutput) MinCapacityUnits() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o ReplicationConfigComputeConfigPtrOutput) MultiAZ() pulumi.BoolPtrOutput {
+func (o ReplicationConfigComputeConfigPtrOutput) MultiAz() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ReplicationConfigComputeConfig) *bool {
 		if v == nil {
 			return nil
 		}
-		return v.MultiAZ
+		return v.MultiAz
 	}).(pulumi.BoolPtrOutput)
 }
 

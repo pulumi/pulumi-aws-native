@@ -22,13 +22,13 @@ namespace Pulumi.AwsNative.XRay.Outputs
         /// </summary>
         public readonly double? FixedRate;
         /// <summary>
-        /// Matches the HTTP method from a request URL.
-        /// </summary>
-        public readonly string? HTTPMethod;
-        /// <summary>
         /// Matches the hostname from a request URL.
         /// </summary>
         public readonly string? Host;
+        /// <summary>
+        /// Matches the HTTP method from a request URL.
+        /// </summary>
+        public readonly string? HttpMethod;
         /// <summary>
         /// The priority of the sampling rule.
         /// </summary>
@@ -40,8 +40,8 @@ namespace Pulumi.AwsNative.XRay.Outputs
         /// <summary>
         /// Matches the ARN of the AWS resource on which the service runs.
         /// </summary>
-        public readonly string? ResourceARN;
-        public readonly string? RuleARN;
+        public readonly string? ResourceArn;
+        public readonly string? RuleArn;
         public readonly string? RuleName;
         /// <summary>
         /// Matches the name that the service uses to identify itself in segments.
@@ -54,7 +54,7 @@ namespace Pulumi.AwsNative.XRay.Outputs
         /// <summary>
         /// Matches the path from a request URL.
         /// </summary>
-        public readonly string? URLPath;
+        public readonly string? UrlPath;
 
         [OutputConstructor]
         private SamplingRuleUpdate(
@@ -62,17 +62,17 @@ namespace Pulumi.AwsNative.XRay.Outputs
 
             double? fixedRate,
 
-            string? hTTPMethod,
-
             string? host,
+
+            string? httpMethod,
 
             int? priority,
 
             int? reservoirSize,
 
-            string? resourceARN,
+            string? resourceArn,
 
-            string? ruleARN,
+            string? ruleArn,
 
             string? ruleName,
 
@@ -80,20 +80,20 @@ namespace Pulumi.AwsNative.XRay.Outputs
 
             string? serviceType,
 
-            string? uRLPath)
+            string? urlPath)
         {
             Attributes = attributes;
             FixedRate = fixedRate;
-            HTTPMethod = hTTPMethod;
             Host = host;
+            HttpMethod = httpMethod;
             Priority = priority;
             ReservoirSize = reservoirSize;
-            ResourceARN = resourceARN;
-            RuleARN = ruleARN;
+            ResourceArn = resourceArn;
+            RuleArn = ruleArn;
             RuleName = ruleName;
             ServiceName = serviceName;
             ServiceType = serviceType;
-            URLPath = uRLPath;
+            UrlPath = urlPath;
         }
     }
 }

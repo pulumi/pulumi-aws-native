@@ -18,21 +18,21 @@ class DBParameterGroupArgs:
     def __init__(__self__, *,
                  description: pulumi.Input[str],
                  family: pulumi.Input[str],
-                 d_b_parameter_group_name: Optional[pulumi.Input[str]] = None,
+                 db_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[Any] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DBParameterGroupTagArgs']]]] = None):
         """
         The set of arguments for constructing a DBParameterGroup resource.
         :param pulumi.Input[str] description: Provides the customer-specified description for this DB parameter group.
         :param pulumi.Input[str] family: The DB parameter group family name.
-        :param pulumi.Input[str] d_b_parameter_group_name: Specifies the name of the DB parameter group
+        :param pulumi.Input[str] db_parameter_group_name: Specifies the name of the DB parameter group
         :param Any parameters: An array of parameter names and values for the parameter update.
         :param pulumi.Input[Sequence[pulumi.Input['DBParameterGroupTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "family", family)
-        if d_b_parameter_group_name is not None:
-            pulumi.set(__self__, "d_b_parameter_group_name", d_b_parameter_group_name)
+        if db_parameter_group_name is not None:
+            pulumi.set(__self__, "db_parameter_group_name", db_parameter_group_name)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if tags is not None:
@@ -63,16 +63,16 @@ class DBParameterGroupArgs:
         pulumi.set(self, "family", value)
 
     @property
-    @pulumi.getter(name="dBParameterGroupName")
-    def d_b_parameter_group_name(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="dbParameterGroupName")
+    def db_parameter_group_name(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the name of the DB parameter group
         """
-        return pulumi.get(self, "d_b_parameter_group_name")
+        return pulumi.get(self, "db_parameter_group_name")
 
-    @d_b_parameter_group_name.setter
-    def d_b_parameter_group_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "d_b_parameter_group_name", value)
+    @db_parameter_group_name.setter
+    def db_parameter_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "db_parameter_group_name", value)
 
     @property
     @pulumi.getter
@@ -104,7 +104,7 @@ class DBParameterGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 d_b_parameter_group_name: Optional[pulumi.Input[str]] = None,
+                 db_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  family: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[Any] = None,
@@ -115,7 +115,7 @@ class DBParameterGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] d_b_parameter_group_name: Specifies the name of the DB parameter group
+        :param pulumi.Input[str] db_parameter_group_name: Specifies the name of the DB parameter group
         :param pulumi.Input[str] description: Provides the customer-specified description for this DB parameter group.
         :param pulumi.Input[str] family: The DB parameter group family name.
         :param Any parameters: An array of parameter names and values for the parameter update.
@@ -145,7 +145,7 @@ class DBParameterGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 d_b_parameter_group_name: Optional[pulumi.Input[str]] = None,
+                 db_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  family: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[Any] = None,
@@ -159,7 +159,7 @@ class DBParameterGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DBParameterGroupArgs.__new__(DBParameterGroupArgs)
 
-            __props__.__dict__["d_b_parameter_group_name"] = d_b_parameter_group_name
+            __props__.__dict__["db_parameter_group_name"] = db_parameter_group_name
             if description is None and not opts.urn:
                 raise TypeError("Missing required property 'description'")
             __props__.__dict__["description"] = description
@@ -190,7 +190,7 @@ class DBParameterGroup(pulumi.CustomResource):
 
         __props__ = DBParameterGroupArgs.__new__(DBParameterGroupArgs)
 
-        __props__.__dict__["d_b_parameter_group_name"] = None
+        __props__.__dict__["db_parameter_group_name"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["family"] = None
         __props__.__dict__["parameters"] = None
@@ -198,12 +198,12 @@ class DBParameterGroup(pulumi.CustomResource):
         return DBParameterGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="dBParameterGroupName")
-    def d_b_parameter_group_name(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="dbParameterGroupName")
+    def db_parameter_group_name(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the name of the DB parameter group
         """
-        return pulumi.get(self, "d_b_parameter_group_name")
+        return pulumi.get(self, "db_parameter_group_name")
 
     @property
     @pulumi.getter

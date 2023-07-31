@@ -29,36 +29,36 @@ type DBCluster struct {
 	BackupRetentionPeriod pulumi.IntPtrOutput `pulumi:"backupRetentionPeriod"`
 	// A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default is not to copy them.
 	CopyTagsToSnapshot pulumi.BoolPtrOutput `pulumi:"copyTagsToSnapshot"`
-	// The Amazon Resource Name (ARN) for the DB cluster.
-	DBClusterArn pulumi.StringOutput `pulumi:"dBClusterArn"`
-	// The DB cluster identifier. This parameter is stored as a lowercase string.
-	DBClusterIdentifier pulumi.StringPtrOutput `pulumi:"dBClusterIdentifier"`
-	// The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge.
-	DBClusterInstanceClass pulumi.StringPtrOutput `pulumi:"dBClusterInstanceClass"`
-	// The name of the DB cluster parameter group to associate with this DB cluster.
-	DBClusterParameterGroupName pulumi.StringPtrOutput `pulumi:"dBClusterParameterGroupName"`
-	// The AWS Region-unique, immutable identifier for the DB cluster.
-	DBClusterResourceId pulumi.StringOutput `pulumi:"dBClusterResourceId"`
-	// The name of the DB parameter group to apply to all instances of the DB cluster.
-	DBInstanceParameterGroupName pulumi.StringPtrOutput `pulumi:"dBInstanceParameterGroupName"`
-	// A DB subnet group that you want to associate with this DB cluster.
-	DBSubnetGroupName pulumi.StringPtrOutput `pulumi:"dBSubnetGroupName"`
-	// Reserved for future use.
-	DBSystemId pulumi.StringPtrOutput `pulumi:"dBSystemId"`
 	// The name of your database. If you don't provide a name, then Amazon RDS won't create a database in this DB cluster. For naming constraints, see Naming Constraints in the Amazon RDS User Guide.
 	DatabaseName pulumi.StringPtrOutput `pulumi:"databaseName"`
+	// The Amazon Resource Name (ARN) for the DB cluster.
+	DbClusterArn pulumi.StringOutput `pulumi:"dbClusterArn"`
+	// The DB cluster identifier. This parameter is stored as a lowercase string.
+	DbClusterIdentifier pulumi.StringPtrOutput `pulumi:"dbClusterIdentifier"`
+	// The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge.
+	DbClusterInstanceClass pulumi.StringPtrOutput `pulumi:"dbClusterInstanceClass"`
+	// The name of the DB cluster parameter group to associate with this DB cluster.
+	DbClusterParameterGroupName pulumi.StringPtrOutput `pulumi:"dbClusterParameterGroupName"`
+	// The AWS Region-unique, immutable identifier for the DB cluster.
+	DbClusterResourceId pulumi.StringOutput `pulumi:"dbClusterResourceId"`
+	// The name of the DB parameter group to apply to all instances of the DB cluster.
+	DbInstanceParameterGroupName pulumi.StringPtrOutput `pulumi:"dbInstanceParameterGroupName"`
+	// A DB subnet group that you want to associate with this DB cluster.
+	DbSubnetGroupName pulumi.StringPtrOutput `pulumi:"dbSubnetGroupName"`
+	// Reserved for future use.
+	DbSystemId pulumi.StringPtrOutput `pulumi:"dbSystemId"`
 	// A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
 	DeletionProtection pulumi.BoolPtrOutput `pulumi:"deletionProtection"`
 	// The Active Directory directory ID to create the DB cluster in.
 	Domain pulumi.StringPtrOutput `pulumi:"domain"`
 	// Specify the name of the IAM role to be used when making API calls to the Directory Service.
-	DomainIAMRoleName pulumi.StringPtrOutput `pulumi:"domainIAMRoleName"`
+	DomainIamRoleName pulumi.StringPtrOutput `pulumi:"domainIamRoleName"`
 	// The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see Publishing Database Logs to Amazon CloudWatch Logs in the Amazon Aurora User Guide.
 	EnableCloudwatchLogsExports pulumi.StringArrayOutput `pulumi:"enableCloudwatchLogsExports"`
 	// A value that indicates whether to enable the HTTP endpoint for an Aurora Serverless DB cluster. By default, the HTTP endpoint is disabled.
 	EnableHttpEndpoint pulumi.BoolPtrOutput `pulumi:"enableHttpEndpoint"`
 	// A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
-	EnableIAMDatabaseAuthentication pulumi.BoolPtrOutput    `pulumi:"enableIAMDatabaseAuthentication"`
+	EnableIamDatabaseAuthentication pulumi.BoolPtrOutput    `pulumi:"enableIamDatabaseAuthentication"`
 	Endpoint                        DBClusterEndpointOutput `pulumi:"endpoint"`
 	// The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora), and aurora-postgresql
 	Engine pulumi.StringPtrOutput `pulumi:"engine"`
@@ -120,7 +120,7 @@ type DBCluster struct {
 	// After you restore a DB cluster with a SnapshotIdentifier property, you must specify the same SnapshotIdentifier property for any future updates to the DB cluster. When you specify this property for an update, the DB cluster is not restored from the snapshot again, and the data in the database is not changed. However, if you don't specify the SnapshotIdentifier property, an empty DB cluster is created, and the original DB cluster is deleted. If you specify a property that is different from the previous snapshot restore property, the DB cluster is restored from the specified SnapshotIdentifier property, and the original DB cluster is deleted.
 	SnapshotIdentifier pulumi.StringPtrOutput `pulumi:"snapshotIdentifier"`
 	// The identifier of the source DB cluster from which to restore.
-	SourceDBClusterIdentifier pulumi.StringPtrOutput `pulumi:"sourceDBClusterIdentifier"`
+	SourceDbClusterIdentifier pulumi.StringPtrOutput `pulumi:"sourceDbClusterIdentifier"`
 	// The AWS Region which contains the source DB cluster when replicating a DB cluster. For example, us-east-1.
 	SourceRegion pulumi.StringPtrOutput `pulumi:"sourceRegion"`
 	// Indicates whether the DB instance is encrypted.
@@ -190,32 +190,32 @@ type dbclusterArgs struct {
 	BackupRetentionPeriod *int `pulumi:"backupRetentionPeriod"`
 	// A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default is not to copy them.
 	CopyTagsToSnapshot *bool `pulumi:"copyTagsToSnapshot"`
-	// The DB cluster identifier. This parameter is stored as a lowercase string.
-	DBClusterIdentifier *string `pulumi:"dBClusterIdentifier"`
-	// The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge.
-	DBClusterInstanceClass *string `pulumi:"dBClusterInstanceClass"`
-	// The name of the DB cluster parameter group to associate with this DB cluster.
-	DBClusterParameterGroupName *string `pulumi:"dBClusterParameterGroupName"`
-	// The name of the DB parameter group to apply to all instances of the DB cluster.
-	DBInstanceParameterGroupName *string `pulumi:"dBInstanceParameterGroupName"`
-	// A DB subnet group that you want to associate with this DB cluster.
-	DBSubnetGroupName *string `pulumi:"dBSubnetGroupName"`
-	// Reserved for future use.
-	DBSystemId *string `pulumi:"dBSystemId"`
 	// The name of your database. If you don't provide a name, then Amazon RDS won't create a database in this DB cluster. For naming constraints, see Naming Constraints in the Amazon RDS User Guide.
 	DatabaseName *string `pulumi:"databaseName"`
+	// The DB cluster identifier. This parameter is stored as a lowercase string.
+	DbClusterIdentifier *string `pulumi:"dbClusterIdentifier"`
+	// The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge.
+	DbClusterInstanceClass *string `pulumi:"dbClusterInstanceClass"`
+	// The name of the DB cluster parameter group to associate with this DB cluster.
+	DbClusterParameterGroupName *string `pulumi:"dbClusterParameterGroupName"`
+	// The name of the DB parameter group to apply to all instances of the DB cluster.
+	DbInstanceParameterGroupName *string `pulumi:"dbInstanceParameterGroupName"`
+	// A DB subnet group that you want to associate with this DB cluster.
+	DbSubnetGroupName *string `pulumi:"dbSubnetGroupName"`
+	// Reserved for future use.
+	DbSystemId *string `pulumi:"dbSystemId"`
 	// A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
 	DeletionProtection *bool `pulumi:"deletionProtection"`
 	// The Active Directory directory ID to create the DB cluster in.
 	Domain *string `pulumi:"domain"`
 	// Specify the name of the IAM role to be used when making API calls to the Directory Service.
-	DomainIAMRoleName *string `pulumi:"domainIAMRoleName"`
+	DomainIamRoleName *string `pulumi:"domainIamRoleName"`
 	// The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see Publishing Database Logs to Amazon CloudWatch Logs in the Amazon Aurora User Guide.
 	EnableCloudwatchLogsExports []string `pulumi:"enableCloudwatchLogsExports"`
 	// A value that indicates whether to enable the HTTP endpoint for an Aurora Serverless DB cluster. By default, the HTTP endpoint is disabled.
 	EnableHttpEndpoint *bool `pulumi:"enableHttpEndpoint"`
 	// A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
-	EnableIAMDatabaseAuthentication *bool `pulumi:"enableIAMDatabaseAuthentication"`
+	EnableIamDatabaseAuthentication *bool `pulumi:"enableIamDatabaseAuthentication"`
 	// The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora), and aurora-postgresql
 	Engine *string `pulumi:"engine"`
 	// The DB engine mode of the DB cluster, either provisioned, serverless, parallelquery, global, or multimaster.
@@ -276,7 +276,7 @@ type dbclusterArgs struct {
 	// After you restore a DB cluster with a SnapshotIdentifier property, you must specify the same SnapshotIdentifier property for any future updates to the DB cluster. When you specify this property for an update, the DB cluster is not restored from the snapshot again, and the data in the database is not changed. However, if you don't specify the SnapshotIdentifier property, an empty DB cluster is created, and the original DB cluster is deleted. If you specify a property that is different from the previous snapshot restore property, the DB cluster is restored from the specified SnapshotIdentifier property, and the original DB cluster is deleted.
 	SnapshotIdentifier *string `pulumi:"snapshotIdentifier"`
 	// The identifier of the source DB cluster from which to restore.
-	SourceDBClusterIdentifier *string `pulumi:"sourceDBClusterIdentifier"`
+	SourceDbClusterIdentifier *string `pulumi:"sourceDbClusterIdentifier"`
 	// The AWS Region which contains the source DB cluster when replicating a DB cluster. For example, us-east-1.
 	SourceRegion *string `pulumi:"sourceRegion"`
 	// Indicates whether the DB instance is encrypted.
@@ -308,32 +308,32 @@ type DBClusterArgs struct {
 	BackupRetentionPeriod pulumi.IntPtrInput
 	// A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default is not to copy them.
 	CopyTagsToSnapshot pulumi.BoolPtrInput
-	// The DB cluster identifier. This parameter is stored as a lowercase string.
-	DBClusterIdentifier pulumi.StringPtrInput
-	// The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge.
-	DBClusterInstanceClass pulumi.StringPtrInput
-	// The name of the DB cluster parameter group to associate with this DB cluster.
-	DBClusterParameterGroupName pulumi.StringPtrInput
-	// The name of the DB parameter group to apply to all instances of the DB cluster.
-	DBInstanceParameterGroupName pulumi.StringPtrInput
-	// A DB subnet group that you want to associate with this DB cluster.
-	DBSubnetGroupName pulumi.StringPtrInput
-	// Reserved for future use.
-	DBSystemId pulumi.StringPtrInput
 	// The name of your database. If you don't provide a name, then Amazon RDS won't create a database in this DB cluster. For naming constraints, see Naming Constraints in the Amazon RDS User Guide.
 	DatabaseName pulumi.StringPtrInput
+	// The DB cluster identifier. This parameter is stored as a lowercase string.
+	DbClusterIdentifier pulumi.StringPtrInput
+	// The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge.
+	DbClusterInstanceClass pulumi.StringPtrInput
+	// The name of the DB cluster parameter group to associate with this DB cluster.
+	DbClusterParameterGroupName pulumi.StringPtrInput
+	// The name of the DB parameter group to apply to all instances of the DB cluster.
+	DbInstanceParameterGroupName pulumi.StringPtrInput
+	// A DB subnet group that you want to associate with this DB cluster.
+	DbSubnetGroupName pulumi.StringPtrInput
+	// Reserved for future use.
+	DbSystemId pulumi.StringPtrInput
 	// A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
 	DeletionProtection pulumi.BoolPtrInput
 	// The Active Directory directory ID to create the DB cluster in.
 	Domain pulumi.StringPtrInput
 	// Specify the name of the IAM role to be used when making API calls to the Directory Service.
-	DomainIAMRoleName pulumi.StringPtrInput
+	DomainIamRoleName pulumi.StringPtrInput
 	// The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see Publishing Database Logs to Amazon CloudWatch Logs in the Amazon Aurora User Guide.
 	EnableCloudwatchLogsExports pulumi.StringArrayInput
 	// A value that indicates whether to enable the HTTP endpoint for an Aurora Serverless DB cluster. By default, the HTTP endpoint is disabled.
 	EnableHttpEndpoint pulumi.BoolPtrInput
 	// A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
-	EnableIAMDatabaseAuthentication pulumi.BoolPtrInput
+	EnableIamDatabaseAuthentication pulumi.BoolPtrInput
 	// The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora), and aurora-postgresql
 	Engine pulumi.StringPtrInput
 	// The DB engine mode of the DB cluster, either provisioned, serverless, parallelquery, global, or multimaster.
@@ -394,7 +394,7 @@ type DBClusterArgs struct {
 	// After you restore a DB cluster with a SnapshotIdentifier property, you must specify the same SnapshotIdentifier property for any future updates to the DB cluster. When you specify this property for an update, the DB cluster is not restored from the snapshot again, and the data in the database is not changed. However, if you don't specify the SnapshotIdentifier property, an empty DB cluster is created, and the original DB cluster is deleted. If you specify a property that is different from the previous snapshot restore property, the DB cluster is restored from the specified SnapshotIdentifier property, and the original DB cluster is deleted.
 	SnapshotIdentifier pulumi.StringPtrInput
 	// The identifier of the source DB cluster from which to restore.
-	SourceDBClusterIdentifier pulumi.StringPtrInput
+	SourceDbClusterIdentifier pulumi.StringPtrInput
 	// The AWS Region which contains the source DB cluster when replicating a DB cluster. For example, us-east-1.
 	SourceRegion pulumi.StringPtrInput
 	// Indicates whether the DB instance is encrypted.
@@ -482,49 +482,49 @@ func (o DBClusterOutput) CopyTagsToSnapshot() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DBCluster) pulumi.BoolPtrOutput { return v.CopyTagsToSnapshot }).(pulumi.BoolPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) for the DB cluster.
-func (o DBClusterOutput) DBClusterArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *DBCluster) pulumi.StringOutput { return v.DBClusterArn }).(pulumi.StringOutput)
-}
-
-// The DB cluster identifier. This parameter is stored as a lowercase string.
-func (o DBClusterOutput) DBClusterIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.DBClusterIdentifier }).(pulumi.StringPtrOutput)
-}
-
-// The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge.
-func (o DBClusterOutput) DBClusterInstanceClass() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.DBClusterInstanceClass }).(pulumi.StringPtrOutput)
-}
-
-// The name of the DB cluster parameter group to associate with this DB cluster.
-func (o DBClusterOutput) DBClusterParameterGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.DBClusterParameterGroupName }).(pulumi.StringPtrOutput)
-}
-
-// The AWS Region-unique, immutable identifier for the DB cluster.
-func (o DBClusterOutput) DBClusterResourceId() pulumi.StringOutput {
-	return o.ApplyT(func(v *DBCluster) pulumi.StringOutput { return v.DBClusterResourceId }).(pulumi.StringOutput)
-}
-
-// The name of the DB parameter group to apply to all instances of the DB cluster.
-func (o DBClusterOutput) DBInstanceParameterGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.DBInstanceParameterGroupName }).(pulumi.StringPtrOutput)
-}
-
-// A DB subnet group that you want to associate with this DB cluster.
-func (o DBClusterOutput) DBSubnetGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.DBSubnetGroupName }).(pulumi.StringPtrOutput)
-}
-
-// Reserved for future use.
-func (o DBClusterOutput) DBSystemId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.DBSystemId }).(pulumi.StringPtrOutput)
-}
-
 // The name of your database. If you don't provide a name, then Amazon RDS won't create a database in this DB cluster. For naming constraints, see Naming Constraints in the Amazon RDS User Guide.
 func (o DBClusterOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) for the DB cluster.
+func (o DBClusterOutput) DbClusterArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *DBCluster) pulumi.StringOutput { return v.DbClusterArn }).(pulumi.StringOutput)
+}
+
+// The DB cluster identifier. This parameter is stored as a lowercase string.
+func (o DBClusterOutput) DbClusterIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.DbClusterIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge.
+func (o DBClusterOutput) DbClusterInstanceClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.DbClusterInstanceClass }).(pulumi.StringPtrOutput)
+}
+
+// The name of the DB cluster parameter group to associate with this DB cluster.
+func (o DBClusterOutput) DbClusterParameterGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.DbClusterParameterGroupName }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region-unique, immutable identifier for the DB cluster.
+func (o DBClusterOutput) DbClusterResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DBCluster) pulumi.StringOutput { return v.DbClusterResourceId }).(pulumi.StringOutput)
+}
+
+// The name of the DB parameter group to apply to all instances of the DB cluster.
+func (o DBClusterOutput) DbInstanceParameterGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.DbInstanceParameterGroupName }).(pulumi.StringPtrOutput)
+}
+
+// A DB subnet group that you want to associate with this DB cluster.
+func (o DBClusterOutput) DbSubnetGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.DbSubnetGroupName }).(pulumi.StringPtrOutput)
+}
+
+// Reserved for future use.
+func (o DBClusterOutput) DbSystemId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.DbSystemId }).(pulumi.StringPtrOutput)
 }
 
 // A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
@@ -538,8 +538,8 @@ func (o DBClusterOutput) Domain() pulumi.StringPtrOutput {
 }
 
 // Specify the name of the IAM role to be used when making API calls to the Directory Service.
-func (o DBClusterOutput) DomainIAMRoleName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.DomainIAMRoleName }).(pulumi.StringPtrOutput)
+func (o DBClusterOutput) DomainIamRoleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.DomainIamRoleName }).(pulumi.StringPtrOutput)
 }
 
 // The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see Publishing Database Logs to Amazon CloudWatch Logs in the Amazon Aurora User Guide.
@@ -553,8 +553,8 @@ func (o DBClusterOutput) EnableHttpEndpoint() pulumi.BoolPtrOutput {
 }
 
 // A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
-func (o DBClusterOutput) EnableIAMDatabaseAuthentication() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DBCluster) pulumi.BoolPtrOutput { return v.EnableIAMDatabaseAuthentication }).(pulumi.BoolPtrOutput)
+func (o DBClusterOutput) EnableIamDatabaseAuthentication() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DBCluster) pulumi.BoolPtrOutput { return v.EnableIamDatabaseAuthentication }).(pulumi.BoolPtrOutput)
 }
 
 func (o DBClusterOutput) Endpoint() DBClusterEndpointOutput {
@@ -704,8 +704,8 @@ func (o DBClusterOutput) SnapshotIdentifier() pulumi.StringPtrOutput {
 }
 
 // The identifier of the source DB cluster from which to restore.
-func (o DBClusterOutput) SourceDBClusterIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.SourceDBClusterIdentifier }).(pulumi.StringPtrOutput)
+func (o DBClusterOutput) SourceDbClusterIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.SourceDbClusterIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // The AWS Region which contains the source DB cluster when replicating a DB cluster. For example, us-east-1.

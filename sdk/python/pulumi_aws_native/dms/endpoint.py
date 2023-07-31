@@ -193,7 +193,7 @@ class EndpointArgs:
         pulumi.set(self, "extra_connection_attributes", value)
 
     @property
-    @pulumi.getter(name="gcpMySQLSettings")
+    @pulumi.getter(name="gcpMySqlSettings")
     def gcp_my_sql_settings(self) -> Optional[pulumi.Input['EndpointGcpMySQLSettingsArgs']]:
         return pulumi.get(self, "gcp_my_sql_settings")
 
@@ -647,7 +647,7 @@ class Endpoint(pulumi.CustomResource):
         return pulumi.get(self, "extra_connection_attributes")
 
     @property
-    @pulumi.getter(name="gcpMySQLSettings")
+    @pulumi.getter(name="gcpMySqlSettings")
     def gcp_my_sql_settings(self) -> pulumi.Output[Optional['outputs.EndpointGcpMySQLSettings']]:
         return pulumi.get(self, "gcp_my_sql_settings")
 

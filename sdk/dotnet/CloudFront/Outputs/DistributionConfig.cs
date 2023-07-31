@@ -14,8 +14,8 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
     public sealed class DistributionConfig
     {
         public readonly ImmutableArray<string> Aliases;
-        public readonly ImmutableArray<string> CNAMEs;
         public readonly ImmutableArray<Outputs.DistributionCacheBehavior> CacheBehaviors;
+        public readonly ImmutableArray<string> Cnames;
         public readonly string? Comment;
         public readonly string? ContinuousDeploymentPolicyId;
         public readonly ImmutableArray<Outputs.DistributionCustomErrorResponse> CustomErrorResponses;
@@ -24,7 +24,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         public readonly string? DefaultRootObject;
         public readonly bool Enabled;
         public readonly string? HttpVersion;
-        public readonly bool? IPV6Enabled;
+        public readonly bool? Ipv6Enabled;
         public readonly Outputs.DistributionLogging? Logging;
         public readonly Outputs.DistributionOriginGroups? OriginGroups;
         public readonly ImmutableArray<Outputs.DistributionOrigin> Origins;
@@ -33,15 +33,15 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         public readonly Outputs.DistributionLegacyS3Origin? S3Origin;
         public readonly bool? Staging;
         public readonly Outputs.DistributionViewerCertificate? ViewerCertificate;
-        public readonly string? WebACLId;
+        public readonly string? WebAclId;
 
         [OutputConstructor]
         private DistributionConfig(
             ImmutableArray<string> aliases,
 
-            ImmutableArray<string> cNAMEs,
-
             ImmutableArray<Outputs.DistributionCacheBehavior> cacheBehaviors,
+
+            ImmutableArray<string> cnames,
 
             string? comment,
 
@@ -59,7 +59,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
 
             string? httpVersion,
 
-            bool? iPV6Enabled,
+            bool? ipv6Enabled,
 
             Outputs.DistributionLogging? logging,
 
@@ -77,11 +77,11 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
 
             Outputs.DistributionViewerCertificate? viewerCertificate,
 
-            string? webACLId)
+            string? webAclId)
         {
             Aliases = aliases;
-            CNAMEs = cNAMEs;
             CacheBehaviors = cacheBehaviors;
+            Cnames = cnames;
             Comment = comment;
             ContinuousDeploymentPolicyId = continuousDeploymentPolicyId;
             CustomErrorResponses = customErrorResponses;
@@ -90,7 +90,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
             DefaultRootObject = defaultRootObject;
             Enabled = enabled;
             HttpVersion = httpVersion;
-            IPV6Enabled = iPV6Enabled;
+            Ipv6Enabled = ipv6Enabled;
             Logging = logging;
             OriginGroups = originGroups;
             Origins = origins;
@@ -99,7 +99,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
             S3Origin = s3Origin;
             Staging = staging;
             ViewerCertificate = viewerCertificate;
-            WebACLId = webACLId;
+            WebAclId = webAclId;
         }
     }
 }

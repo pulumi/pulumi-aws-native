@@ -97,16 +97,16 @@ namespace Pulumi.AwsNative.Synthetics
         public Output<ImmutableArray<Outputs.CanaryTag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Provide VPC Configuration if enabled.
-        /// </summary>
-        [Output("vPCConfig")]
-        public Output<Outputs.CanaryVPCConfig?> VPCConfig { get; private set; } = null!;
-
-        /// <summary>
         /// Visual reference configuration for visual testing
         /// </summary>
         [Output("visualReference")]
         public Output<Outputs.CanaryVisualReference?> VisualReference { get; private set; } = null!;
+
+        /// <summary>
+        /// Provide VPC Configuration if enabled.
+        /// </summary>
+        [Output("vpcConfig")]
+        public Output<Outputs.CanaryVPCConfig?> VpcConfig { get; private set; } = null!;
 
 
         /// <summary>
@@ -234,16 +234,16 @@ namespace Pulumi.AwsNative.Synthetics
         }
 
         /// <summary>
-        /// Provide VPC Configuration if enabled.
-        /// </summary>
-        [Input("vPCConfig")]
-        public Input<Inputs.CanaryVPCConfigArgs>? VPCConfig { get; set; }
-
-        /// <summary>
         /// Visual reference configuration for visual testing
         /// </summary>
         [Input("visualReference")]
         public Input<Inputs.CanaryVisualReferenceArgs>? VisualReference { get; set; }
+
+        /// <summary>
+        /// Provide VPC Configuration if enabled.
+        /// </summary>
+        [Input("vpcConfig")]
+        public Input<Inputs.CanaryVPCConfigArgs>? VpcConfig { get; set; }
 
         public CanaryArgs()
         {

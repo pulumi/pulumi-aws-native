@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDBInstanceResult:
-    def __init__(__self__, allocated_storage=None, associated_roles=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, c_a_certificate_identifier=None, certificate_details=None, copy_tags_to_snapshot=None, d_b_cluster_snapshot_identifier=None, d_b_instance_arn=None, d_b_instance_class=None, d_b_parameter_group_name=None, d_b_security_groups=None, d_b_system_id=None, dbi_resource_id=None, deletion_protection=None, domain=None, domain_iam_role_name=None, enable_cloudwatch_logs_exports=None, enable_iam_database_authentication=None, enable_performance_insights=None, endpoint=None, engine=None, engine_version=None, iops=None, license_model=None, manage_master_user_password=None, master_user_secret=None, max_allocated_storage=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, network_type=None, option_group_name=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, preferred_backup_window=None, preferred_maintenance_window=None, processor_features=None, promotion_tier=None, publicly_accessible=None, replica_mode=None, source_db_cluster_identifier=None, storage_throughput=None, storage_type=None, tags=None, tde_credential_arn=None, v_pc_security_groups=None):
+    def __init__(__self__, allocated_storage=None, associated_roles=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, ca_certificate_identifier=None, certificate_details=None, copy_tags_to_snapshot=None, db_cluster_snapshot_identifier=None, db_instance_arn=None, db_instance_class=None, db_parameter_group_name=None, db_security_groups=None, db_system_id=None, dbi_resource_id=None, deletion_protection=None, domain=None, domain_iam_role_name=None, enable_cloudwatch_logs_exports=None, enable_iam_database_authentication=None, enable_performance_insights=None, endpoint=None, engine=None, engine_version=None, iops=None, license_model=None, manage_master_user_password=None, master_user_secret=None, max_allocated_storage=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, network_type=None, option_group_name=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, preferred_backup_window=None, preferred_maintenance_window=None, processor_features=None, promotion_tier=None, publicly_accessible=None, replica_mode=None, source_db_cluster_identifier=None, storage_throughput=None, storage_type=None, tags=None, tde_credential_arn=None, vpc_security_groups=None):
         if allocated_storage and not isinstance(allocated_storage, str):
             raise TypeError("Expected argument 'allocated_storage' to be a str")
         pulumi.set(__self__, "allocated_storage", allocated_storage)
@@ -36,33 +36,33 @@ class GetDBInstanceResult:
         if backup_retention_period and not isinstance(backup_retention_period, int):
             raise TypeError("Expected argument 'backup_retention_period' to be a int")
         pulumi.set(__self__, "backup_retention_period", backup_retention_period)
-        if c_a_certificate_identifier and not isinstance(c_a_certificate_identifier, str):
-            raise TypeError("Expected argument 'c_a_certificate_identifier' to be a str")
-        pulumi.set(__self__, "c_a_certificate_identifier", c_a_certificate_identifier)
+        if ca_certificate_identifier and not isinstance(ca_certificate_identifier, str):
+            raise TypeError("Expected argument 'ca_certificate_identifier' to be a str")
+        pulumi.set(__self__, "ca_certificate_identifier", ca_certificate_identifier)
         if certificate_details and not isinstance(certificate_details, dict):
             raise TypeError("Expected argument 'certificate_details' to be a dict")
         pulumi.set(__self__, "certificate_details", certificate_details)
         if copy_tags_to_snapshot and not isinstance(copy_tags_to_snapshot, bool):
             raise TypeError("Expected argument 'copy_tags_to_snapshot' to be a bool")
         pulumi.set(__self__, "copy_tags_to_snapshot", copy_tags_to_snapshot)
-        if d_b_cluster_snapshot_identifier and not isinstance(d_b_cluster_snapshot_identifier, str):
-            raise TypeError("Expected argument 'd_b_cluster_snapshot_identifier' to be a str")
-        pulumi.set(__self__, "d_b_cluster_snapshot_identifier", d_b_cluster_snapshot_identifier)
-        if d_b_instance_arn and not isinstance(d_b_instance_arn, str):
-            raise TypeError("Expected argument 'd_b_instance_arn' to be a str")
-        pulumi.set(__self__, "d_b_instance_arn", d_b_instance_arn)
-        if d_b_instance_class and not isinstance(d_b_instance_class, str):
-            raise TypeError("Expected argument 'd_b_instance_class' to be a str")
-        pulumi.set(__self__, "d_b_instance_class", d_b_instance_class)
-        if d_b_parameter_group_name and not isinstance(d_b_parameter_group_name, str):
-            raise TypeError("Expected argument 'd_b_parameter_group_name' to be a str")
-        pulumi.set(__self__, "d_b_parameter_group_name", d_b_parameter_group_name)
-        if d_b_security_groups and not isinstance(d_b_security_groups, list):
-            raise TypeError("Expected argument 'd_b_security_groups' to be a list")
-        pulumi.set(__self__, "d_b_security_groups", d_b_security_groups)
-        if d_b_system_id and not isinstance(d_b_system_id, str):
-            raise TypeError("Expected argument 'd_b_system_id' to be a str")
-        pulumi.set(__self__, "d_b_system_id", d_b_system_id)
+        if db_cluster_snapshot_identifier and not isinstance(db_cluster_snapshot_identifier, str):
+            raise TypeError("Expected argument 'db_cluster_snapshot_identifier' to be a str")
+        pulumi.set(__self__, "db_cluster_snapshot_identifier", db_cluster_snapshot_identifier)
+        if db_instance_arn and not isinstance(db_instance_arn, str):
+            raise TypeError("Expected argument 'db_instance_arn' to be a str")
+        pulumi.set(__self__, "db_instance_arn", db_instance_arn)
+        if db_instance_class and not isinstance(db_instance_class, str):
+            raise TypeError("Expected argument 'db_instance_class' to be a str")
+        pulumi.set(__self__, "db_instance_class", db_instance_class)
+        if db_parameter_group_name and not isinstance(db_parameter_group_name, str):
+            raise TypeError("Expected argument 'db_parameter_group_name' to be a str")
+        pulumi.set(__self__, "db_parameter_group_name", db_parameter_group_name)
+        if db_security_groups and not isinstance(db_security_groups, list):
+            raise TypeError("Expected argument 'db_security_groups' to be a list")
+        pulumi.set(__self__, "db_security_groups", db_security_groups)
+        if db_system_id and not isinstance(db_system_id, str):
+            raise TypeError("Expected argument 'db_system_id' to be a str")
+        pulumi.set(__self__, "db_system_id", db_system_id)
         if dbi_resource_id and not isinstance(dbi_resource_id, str):
             raise TypeError("Expected argument 'dbi_resource_id' to be a str")
         pulumi.set(__self__, "dbi_resource_id", dbi_resource_id)
@@ -162,9 +162,9 @@ class GetDBInstanceResult:
         if tde_credential_arn and not isinstance(tde_credential_arn, str):
             raise TypeError("Expected argument 'tde_credential_arn' to be a str")
         pulumi.set(__self__, "tde_credential_arn", tde_credential_arn)
-        if v_pc_security_groups and not isinstance(v_pc_security_groups, list):
-            raise TypeError("Expected argument 'v_pc_security_groups' to be a list")
-        pulumi.set(__self__, "v_pc_security_groups", v_pc_security_groups)
+        if vpc_security_groups and not isinstance(vpc_security_groups, list):
+            raise TypeError("Expected argument 'vpc_security_groups' to be a list")
+        pulumi.set(__self__, "vpc_security_groups", vpc_security_groups)
 
     @property
     @pulumi.getter(name="allocatedStorage")
@@ -207,12 +207,12 @@ class GetDBInstanceResult:
         return pulumi.get(self, "backup_retention_period")
 
     @property
-    @pulumi.getter(name="cACertificateIdentifier")
-    def c_a_certificate_identifier(self) -> Optional[str]:
+    @pulumi.getter(name="caCertificateIdentifier")
+    def ca_certificate_identifier(self) -> Optional[str]:
         """
         The identifier of the CA certificate for this DB instance.
         """
-        return pulumi.get(self, "c_a_certificate_identifier")
+        return pulumi.get(self, "ca_certificate_identifier")
 
     @property
     @pulumi.getter(name="certificateDetails")
@@ -231,8 +231,8 @@ class GetDBInstanceResult:
         return pulumi.get(self, "copy_tags_to_snapshot")
 
     @property
-    @pulumi.getter(name="dBClusterSnapshotIdentifier")
-    def d_b_cluster_snapshot_identifier(self) -> Optional[str]:
+    @pulumi.getter(name="dbClusterSnapshotIdentifier")
+    def db_cluster_snapshot_identifier(self) -> Optional[str]:
         """
         The identifier for the RDS for MySQL Multi-AZ DB cluster snapshot to restore from. For more information on Multi-AZ DB clusters, see Multi-AZ deployments with two readable standby DB instances in the Amazon RDS User Guide .
 
@@ -244,47 +244,47 @@ class GetDBInstanceResult:
          * Can't be the identifier of an Aurora DB cluster snapshot.
          * Can't be the identifier of an RDS for PostgreSQL Multi-AZ DB cluster snapshot.
         """
-        return pulumi.get(self, "d_b_cluster_snapshot_identifier")
+        return pulumi.get(self, "db_cluster_snapshot_identifier")
 
     @property
-    @pulumi.getter(name="dBInstanceArn")
-    def d_b_instance_arn(self) -> Optional[str]:
+    @pulumi.getter(name="dbInstanceArn")
+    def db_instance_arn(self) -> Optional[str]:
         """
         The Amazon Resource Name (ARN) for the DB instance.
         """
-        return pulumi.get(self, "d_b_instance_arn")
+        return pulumi.get(self, "db_instance_arn")
 
     @property
-    @pulumi.getter(name="dBInstanceClass")
-    def d_b_instance_class(self) -> Optional[str]:
+    @pulumi.getter(name="dbInstanceClass")
+    def db_instance_class(self) -> Optional[str]:
         """
         The compute and memory capacity of the DB instance, for example, db.m4.large. Not all DB instance classes are available in all AWS Regions, or for all database engines.
         """
-        return pulumi.get(self, "d_b_instance_class")
+        return pulumi.get(self, "db_instance_class")
 
     @property
-    @pulumi.getter(name="dBParameterGroupName")
-    def d_b_parameter_group_name(self) -> Optional[str]:
+    @pulumi.getter(name="dbParameterGroupName")
+    def db_parameter_group_name(self) -> Optional[str]:
         """
         The name of an existing DB parameter group or a reference to an AWS::RDS::DBParameterGroup resource created in the template.
         """
-        return pulumi.get(self, "d_b_parameter_group_name")
+        return pulumi.get(self, "db_parameter_group_name")
 
     @property
-    @pulumi.getter(name="dBSecurityGroups")
-    def d_b_security_groups(self) -> Optional[Sequence[str]]:
+    @pulumi.getter(name="dbSecurityGroups")
+    def db_security_groups(self) -> Optional[Sequence[str]]:
         """
         A list of the DB security groups to assign to the DB instance. The list can include both the name of existing DB security groups or references to AWS::RDS::DBSecurityGroup resources created in the template.
         """
-        return pulumi.get(self, "d_b_security_groups")
+        return pulumi.get(self, "db_security_groups")
 
     @property
-    @pulumi.getter(name="dBSystemId")
-    def d_b_system_id(self) -> Optional[str]:
+    @pulumi.getter(name="dbSystemId")
+    def db_system_id(self) -> Optional[str]:
         """
         The Oracle system ID (Oracle SID) for a container database (CDB). The Oracle SID is also the name of the CDB. This setting is valid for RDS Custom only.
         """
-        return pulumi.get(self, "d_b_system_id")
+        return pulumi.get(self, "db_system_id")
 
     @property
     @pulumi.getter(name="dbiResourceId")
@@ -311,7 +311,7 @@ class GetDBInstanceResult:
         return pulumi.get(self, "domain")
 
     @property
-    @pulumi.getter(name="domainIAMRoleName")
+    @pulumi.getter(name="domainIamRoleName")
     def domain_iam_role_name(self) -> Optional[str]:
         """
         Specify the name of the IAM role to be used when making API calls to the Directory Service.
@@ -327,7 +327,7 @@ class GetDBInstanceResult:
         return pulumi.get(self, "enable_cloudwatch_logs_exports")
 
     @property
-    @pulumi.getter(name="enableIAMDatabaseAuthentication")
+    @pulumi.getter(name="enableIamDatabaseAuthentication")
     def enable_iam_database_authentication(self) -> Optional[bool]:
         """
         A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
@@ -423,7 +423,7 @@ class GetDBInstanceResult:
         return pulumi.get(self, "monitoring_role_arn")
 
     @property
-    @pulumi.getter(name="multiAZ")
+    @pulumi.getter(name="multiAz")
     def multi_az(self) -> Optional[bool]:
         """
         Specifies whether the database instance is a multiple Availability Zone deployment.
@@ -447,7 +447,7 @@ class GetDBInstanceResult:
         return pulumi.get(self, "option_group_name")
 
     @property
-    @pulumi.getter(name="performanceInsightsKMSKeyId")
+    @pulumi.getter(name="performanceInsightsKmsKeyId")
     def performance_insights_kms_key_id(self) -> Optional[str]:
         """
         The AWS KMS key identifier for encryption of Performance Insights data. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.
@@ -511,7 +511,7 @@ class GetDBInstanceResult:
         return pulumi.get(self, "replica_mode")
 
     @property
-    @pulumi.getter(name="sourceDBClusterIdentifier")
+    @pulumi.getter(name="sourceDbClusterIdentifier")
     def source_db_cluster_identifier(self) -> Optional[str]:
         """
         The identifier of the Multi-AZ DB cluster that will act as the source for the read replica. Each DB cluster can have up to 15 read replicas.
@@ -551,12 +551,12 @@ class GetDBInstanceResult:
         return pulumi.get(self, "tde_credential_arn")
 
     @property
-    @pulumi.getter(name="vPCSecurityGroups")
-    def v_pc_security_groups(self) -> Optional[Sequence[str]]:
+    @pulumi.getter(name="vpcSecurityGroups")
+    def vpc_security_groups(self) -> Optional[Sequence[str]]:
         """
         A list of the VPC security group IDs to assign to the DB instance. The list can include both the physical IDs of existing VPC security groups and references to AWS::EC2::SecurityGroup resources created in the template.
         """
-        return pulumi.get(self, "v_pc_security_groups")
+        return pulumi.get(self, "vpc_security_groups")
 
 
 class AwaitableGetDBInstanceResult(GetDBInstanceResult):
@@ -570,15 +570,15 @@ class AwaitableGetDBInstanceResult(GetDBInstanceResult):
             auto_minor_version_upgrade=self.auto_minor_version_upgrade,
             availability_zone=self.availability_zone,
             backup_retention_period=self.backup_retention_period,
-            c_a_certificate_identifier=self.c_a_certificate_identifier,
+            ca_certificate_identifier=self.ca_certificate_identifier,
             certificate_details=self.certificate_details,
             copy_tags_to_snapshot=self.copy_tags_to_snapshot,
-            d_b_cluster_snapshot_identifier=self.d_b_cluster_snapshot_identifier,
-            d_b_instance_arn=self.d_b_instance_arn,
-            d_b_instance_class=self.d_b_instance_class,
-            d_b_parameter_group_name=self.d_b_parameter_group_name,
-            d_b_security_groups=self.d_b_security_groups,
-            d_b_system_id=self.d_b_system_id,
+            db_cluster_snapshot_identifier=self.db_cluster_snapshot_identifier,
+            db_instance_arn=self.db_instance_arn,
+            db_instance_class=self.db_instance_class,
+            db_parameter_group_name=self.db_parameter_group_name,
+            db_security_groups=self.db_security_groups,
+            db_system_id=self.db_system_id,
             dbi_resource_id=self.dbi_resource_id,
             deletion_protection=self.deletion_protection,
             domain=self.domain,
@@ -612,19 +612,19 @@ class AwaitableGetDBInstanceResult(GetDBInstanceResult):
             storage_type=self.storage_type,
             tags=self.tags,
             tde_credential_arn=self.tde_credential_arn,
-            v_pc_security_groups=self.v_pc_security_groups)
+            vpc_security_groups=self.vpc_security_groups)
 
 
-def get_db_instance(d_b_instance_identifier: Optional[str] = None,
+def get_db_instance(db_instance_identifier: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDBInstanceResult:
     """
     The AWS::RDS::DBInstance resource creates an Amazon RDS DB instance.
 
 
-    :param str d_b_instance_identifier: A name for the DB instance. If you specify a name, AWS CloudFormation converts it to lowercase. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the DB instance.
+    :param str db_instance_identifier: A name for the DB instance. If you specify a name, AWS CloudFormation converts it to lowercase. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the DB instance.
     """
     __args__ = dict()
-    __args__['dBInstanceIdentifier'] = d_b_instance_identifier
+    __args__['dbInstanceIdentifier'] = db_instance_identifier
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:rds:getDBInstance', __args__, opts=opts, typ=GetDBInstanceResult).value
 
@@ -634,15 +634,15 @@ def get_db_instance(d_b_instance_identifier: Optional[str] = None,
         auto_minor_version_upgrade=pulumi.get(__ret__, 'auto_minor_version_upgrade'),
         availability_zone=pulumi.get(__ret__, 'availability_zone'),
         backup_retention_period=pulumi.get(__ret__, 'backup_retention_period'),
-        c_a_certificate_identifier=pulumi.get(__ret__, 'c_a_certificate_identifier'),
+        ca_certificate_identifier=pulumi.get(__ret__, 'ca_certificate_identifier'),
         certificate_details=pulumi.get(__ret__, 'certificate_details'),
         copy_tags_to_snapshot=pulumi.get(__ret__, 'copy_tags_to_snapshot'),
-        d_b_cluster_snapshot_identifier=pulumi.get(__ret__, 'd_b_cluster_snapshot_identifier'),
-        d_b_instance_arn=pulumi.get(__ret__, 'd_b_instance_arn'),
-        d_b_instance_class=pulumi.get(__ret__, 'd_b_instance_class'),
-        d_b_parameter_group_name=pulumi.get(__ret__, 'd_b_parameter_group_name'),
-        d_b_security_groups=pulumi.get(__ret__, 'd_b_security_groups'),
-        d_b_system_id=pulumi.get(__ret__, 'd_b_system_id'),
+        db_cluster_snapshot_identifier=pulumi.get(__ret__, 'db_cluster_snapshot_identifier'),
+        db_instance_arn=pulumi.get(__ret__, 'db_instance_arn'),
+        db_instance_class=pulumi.get(__ret__, 'db_instance_class'),
+        db_parameter_group_name=pulumi.get(__ret__, 'db_parameter_group_name'),
+        db_security_groups=pulumi.get(__ret__, 'db_security_groups'),
+        db_system_id=pulumi.get(__ret__, 'db_system_id'),
         dbi_resource_id=pulumi.get(__ret__, 'dbi_resource_id'),
         deletion_protection=pulumi.get(__ret__, 'deletion_protection'),
         domain=pulumi.get(__ret__, 'domain'),
@@ -676,16 +676,16 @@ def get_db_instance(d_b_instance_identifier: Optional[str] = None,
         storage_type=pulumi.get(__ret__, 'storage_type'),
         tags=pulumi.get(__ret__, 'tags'),
         tde_credential_arn=pulumi.get(__ret__, 'tde_credential_arn'),
-        v_pc_security_groups=pulumi.get(__ret__, 'v_pc_security_groups'))
+        vpc_security_groups=pulumi.get(__ret__, 'vpc_security_groups'))
 
 
 @_utilities.lift_output_func(get_db_instance)
-def get_db_instance_output(d_b_instance_identifier: Optional[pulumi.Input[str]] = None,
+def get_db_instance_output(db_instance_identifier: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDBInstanceResult]:
     """
     The AWS::RDS::DBInstance resource creates an Amazon RDS DB instance.
 
 
-    :param str d_b_instance_identifier: A name for the DB instance. If you specify a name, AWS CloudFormation converts it to lowercase. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the DB instance.
+    :param str db_instance_identifier: A name for the DB instance. If you specify a name, AWS CloudFormation converts it to lowercase. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the DB instance.
     """
     ...

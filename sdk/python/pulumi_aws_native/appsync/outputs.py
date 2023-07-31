@@ -125,11 +125,11 @@ class DataSourceDeltaSyncConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "baseTableTTL":
+        if key == "baseTableTtl":
             suggest = "base_table_ttl"
         elif key == "deltaSyncTableName":
             suggest = "delta_sync_table_name"
-        elif key == "deltaSyncTableTTL":
+        elif key == "deltaSyncTableTtl":
             suggest = "delta_sync_table_ttl"
 
         if suggest:
@@ -152,7 +152,7 @@ class DataSourceDeltaSyncConfig(dict):
         pulumi.set(__self__, "delta_sync_table_ttl", delta_sync_table_ttl)
 
     @property
-    @pulumi.getter(name="baseTableTTL")
+    @pulumi.getter(name="baseTableTtl")
     def base_table_ttl(self) -> str:
         return pulumi.get(self, "base_table_ttl")
 
@@ -162,7 +162,7 @@ class DataSourceDeltaSyncConfig(dict):
         return pulumi.get(self, "delta_sync_table_name")
 
     @property
-    @pulumi.getter(name="deltaSyncTableTTL")
+    @pulumi.getter(name="deltaSyncTableTtl")
     def delta_sync_table_ttl(self) -> str:
         return pulumi.get(self, "delta_sync_table_ttl")
 
@@ -628,7 +628,7 @@ class GraphQLApiAdditionalAuthenticationProvider(dict):
             suggest = "authentication_type"
         elif key == "lambdaAuthorizerConfig":
             suggest = "lambda_authorizer_config"
-        elif key == "openIDConnectConfig":
+        elif key == "openIdConnectConfig":
             suggest = "open_id_connect_config"
         elif key == "userPoolConfig":
             suggest = "user_pool_config"
@@ -668,7 +668,7 @@ class GraphQLApiAdditionalAuthenticationProvider(dict):
         return pulumi.get(self, "lambda_authorizer_config")
 
     @property
-    @pulumi.getter(name="openIDConnectConfig")
+    @pulumi.getter(name="openIdConnectConfig")
     def open_id_connect_config(self) -> Optional['outputs.GraphQLApiOpenIDConnectConfig']:
         return pulumi.get(self, "open_id_connect_config")
 
@@ -833,11 +833,11 @@ class GraphQLApiOpenIDConnectConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "authTTL":
+        if key == "authTtl":
             suggest = "auth_ttl"
         elif key == "clientId":
             suggest = "client_id"
-        elif key == "iatTTL":
+        elif key == "iatTtl":
             suggest = "iat_ttl"
 
         if suggest:
@@ -866,7 +866,7 @@ class GraphQLApiOpenIDConnectConfig(dict):
             pulumi.set(__self__, "issuer", issuer)
 
     @property
-    @pulumi.getter(name="authTTL")
+    @pulumi.getter(name="authTtl")
     def auth_ttl(self) -> Optional[float]:
         return pulumi.get(self, "auth_ttl")
 
@@ -876,7 +876,7 @@ class GraphQLApiOpenIDConnectConfig(dict):
         return pulumi.get(self, "client_id")
 
     @property
-    @pulumi.getter(name="iatTTL")
+    @pulumi.getter(name="iatTtl")
     def iat_ttl(self) -> Optional[float]:
         return pulumi.get(self, "iat_ttl")
 

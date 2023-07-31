@@ -57,16 +57,16 @@ namespace Pulumi.AwsNative.Cognito
         public readonly ImmutableArray<string> AllowedOAuthScopes;
         public readonly Outputs.UserPoolClientAnalyticsConfiguration? AnalyticsConfiguration;
         public readonly int? AuthSessionValidity;
-        public readonly ImmutableArray<string> CallbackURLs;
+        public readonly ImmutableArray<string> CallbackUrls;
         public readonly string? ClientName;
         public readonly string? ClientSecret;
-        public readonly string? DefaultRedirectURI;
+        public readonly string? DefaultRedirectUri;
         public readonly bool? EnablePropagateAdditionalUserContextData;
         public readonly bool? EnableTokenRevocation;
         public readonly ImmutableArray<string> ExplicitAuthFlows;
         public readonly string? Id;
         public readonly int? IdTokenValidity;
-        public readonly ImmutableArray<string> LogoutURLs;
+        public readonly ImmutableArray<string> LogoutUrls;
         public readonly string? Name;
         public readonly string? PreventUserExistenceErrors;
         public readonly ImmutableArray<string> ReadAttributes;
@@ -89,13 +89,13 @@ namespace Pulumi.AwsNative.Cognito
 
             int? authSessionValidity,
 
-            ImmutableArray<string> callbackURLs,
+            ImmutableArray<string> callbackUrls,
 
             string? clientName,
 
             string? clientSecret,
 
-            string? defaultRedirectURI,
+            string? defaultRedirectUri,
 
             bool? enablePropagateAdditionalUserContextData,
 
@@ -107,7 +107,7 @@ namespace Pulumi.AwsNative.Cognito
 
             int? idTokenValidity,
 
-            ImmutableArray<string> logoutURLs,
+            ImmutableArray<string> logoutUrls,
 
             string? name,
 
@@ -129,16 +129,16 @@ namespace Pulumi.AwsNative.Cognito
             AllowedOAuthScopes = allowedOAuthScopes;
             AnalyticsConfiguration = analyticsConfiguration;
             AuthSessionValidity = authSessionValidity;
-            CallbackURLs = callbackURLs;
+            CallbackUrls = callbackUrls;
             ClientName = clientName;
             ClientSecret = clientSecret;
-            DefaultRedirectURI = defaultRedirectURI;
+            DefaultRedirectUri = defaultRedirectUri;
             EnablePropagateAdditionalUserContextData = enablePropagateAdditionalUserContextData;
             EnableTokenRevocation = enableTokenRevocation;
             ExplicitAuthFlows = explicitAuthFlows;
             Id = id;
             IdTokenValidity = idTokenValidity;
-            LogoutURLs = logoutURLs;
+            LogoutUrls = logoutUrls;
             Name = name;
             PreventUserExistenceErrors = preventUserExistenceErrors;
             ReadAttributes = readAttributes;

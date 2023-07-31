@@ -18,11 +18,11 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         [Input("clearTimer")]
         public Input<Inputs.DetectorModelClearTimerArgs>? ClearTimer { get; set; }
 
-        [Input("dynamoDB")]
-        public Input<Inputs.DetectorModelDynamoDBArgs>? DynamoDB { get; set; }
-
         [Input("dynamoDBv2")]
         public Input<Inputs.DetectorModelDynamoDBv2Args>? DynamoDBv2 { get; set; }
+
+        [Input("dynamoDb")]
+        public Input<Inputs.DetectorModelDynamoDBArgs>? DynamoDb { get; set; }
 
         [Input("firehose")]
         public Input<Inputs.DetectorModelFirehoseArgs>? Firehose { get; set; }

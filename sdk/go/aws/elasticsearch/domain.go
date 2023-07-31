@@ -26,7 +26,7 @@ type Domain struct {
 	DomainEndpoint              pulumi.StringOutput                         `pulumi:"domainEndpoint"`
 	DomainEndpointOptions       DomainEndpointOptionsPtrOutput              `pulumi:"domainEndpointOptions"`
 	DomainName                  pulumi.StringPtrOutput                      `pulumi:"domainName"`
-	EBSOptions                  DomainEBSOptionsPtrOutput                   `pulumi:"eBSOptions"`
+	EbsOptions                  DomainEBSOptionsPtrOutput                   `pulumi:"ebsOptions"`
 	ElasticsearchClusterConfig  DomainElasticsearchClusterConfigPtrOutput   `pulumi:"elasticsearchClusterConfig"`
 	ElasticsearchVersion        pulumi.StringPtrOutput                      `pulumi:"elasticsearchVersion"`
 	EncryptionAtRestOptions     DomainEncryptionAtRestOptionsPtrOutput      `pulumi:"encryptionAtRestOptions"`
@@ -34,7 +34,7 @@ type Domain struct {
 	NodeToNodeEncryptionOptions DomainNodeToNodeEncryptionOptionsPtrOutput  `pulumi:"nodeToNodeEncryptionOptions"`
 	SnapshotOptions             DomainSnapshotOptionsPtrOutput              `pulumi:"snapshotOptions"`
 	Tags                        DomainTagArrayOutput                        `pulumi:"tags"`
-	VPCOptions                  DomainVPCOptionsPtrOutput                   `pulumi:"vPCOptions"`
+	VpcOptions                  DomainVPCOptionsPtrOutput                   `pulumi:"vpcOptions"`
 }
 
 // NewDomain registers a new resource with the given unique name, arguments, and options.
@@ -83,7 +83,7 @@ type domainArgs struct {
 	CognitoOptions              *DomainCognitoOptions               `pulumi:"cognitoOptions"`
 	DomainEndpointOptions       *DomainEndpointOptions              `pulumi:"domainEndpointOptions"`
 	DomainName                  *string                             `pulumi:"domainName"`
-	EBSOptions                  *DomainEBSOptions                   `pulumi:"eBSOptions"`
+	EbsOptions                  *DomainEBSOptions                   `pulumi:"ebsOptions"`
 	ElasticsearchClusterConfig  *DomainElasticsearchClusterConfig   `pulumi:"elasticsearchClusterConfig"`
 	ElasticsearchVersion        *string                             `pulumi:"elasticsearchVersion"`
 	EncryptionAtRestOptions     *DomainEncryptionAtRestOptions      `pulumi:"encryptionAtRestOptions"`
@@ -91,7 +91,7 @@ type domainArgs struct {
 	NodeToNodeEncryptionOptions *DomainNodeToNodeEncryptionOptions  `pulumi:"nodeToNodeEncryptionOptions"`
 	SnapshotOptions             *DomainSnapshotOptions              `pulumi:"snapshotOptions"`
 	Tags                        []DomainTag                         `pulumi:"tags"`
-	VPCOptions                  *DomainVPCOptions                   `pulumi:"vPCOptions"`
+	VpcOptions                  *DomainVPCOptions                   `pulumi:"vpcOptions"`
 }
 
 // The set of arguments for constructing a Domain resource.
@@ -102,7 +102,7 @@ type DomainArgs struct {
 	CognitoOptions              DomainCognitoOptionsPtrInput
 	DomainEndpointOptions       DomainEndpointOptionsPtrInput
 	DomainName                  pulumi.StringPtrInput
-	EBSOptions                  DomainEBSOptionsPtrInput
+	EbsOptions                  DomainEBSOptionsPtrInput
 	ElasticsearchClusterConfig  DomainElasticsearchClusterConfigPtrInput
 	ElasticsearchVersion        pulumi.StringPtrInput
 	EncryptionAtRestOptions     DomainEncryptionAtRestOptionsPtrInput
@@ -110,7 +110,7 @@ type DomainArgs struct {
 	NodeToNodeEncryptionOptions DomainNodeToNodeEncryptionOptionsPtrInput
 	SnapshotOptions             DomainSnapshotOptionsPtrInput
 	Tags                        DomainTagArrayInput
-	VPCOptions                  DomainVPCOptionsPtrInput
+	VpcOptions                  DomainVPCOptionsPtrInput
 }
 
 func (DomainArgs) ElementType() reflect.Type {
@@ -186,8 +186,8 @@ func (o DomainOutput) DomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.DomainName }).(pulumi.StringPtrOutput)
 }
 
-func (o DomainOutput) EBSOptions() DomainEBSOptionsPtrOutput {
-	return o.ApplyT(func(v *Domain) DomainEBSOptionsPtrOutput { return v.EBSOptions }).(DomainEBSOptionsPtrOutput)
+func (o DomainOutput) EbsOptions() DomainEBSOptionsPtrOutput {
+	return o.ApplyT(func(v *Domain) DomainEBSOptionsPtrOutput { return v.EbsOptions }).(DomainEBSOptionsPtrOutput)
 }
 
 func (o DomainOutput) ElasticsearchClusterConfig() DomainElasticsearchClusterConfigPtrOutput {
@@ -218,8 +218,8 @@ func (o DomainOutput) Tags() DomainTagArrayOutput {
 	return o.ApplyT(func(v *Domain) DomainTagArrayOutput { return v.Tags }).(DomainTagArrayOutput)
 }
 
-func (o DomainOutput) VPCOptions() DomainVPCOptionsPtrOutput {
-	return o.ApplyT(func(v *Domain) DomainVPCOptionsPtrOutput { return v.VPCOptions }).(DomainVPCOptionsPtrOutput)
+func (o DomainOutput) VpcOptions() DomainVPCOptionsPtrOutput {
+	return o.ApplyT(func(v *Domain) DomainVPCOptionsPtrOutput { return v.VpcOptions }).(DomainVPCOptionsPtrOutput)
 }
 
 func init() {

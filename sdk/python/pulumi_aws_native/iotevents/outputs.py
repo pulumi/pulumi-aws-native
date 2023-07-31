@@ -95,10 +95,10 @@ class AlarmModelAlarmAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dynamoDB":
-            suggest = "dynamo_db"
-        elif key == "dynamoDBv2":
+        if key == "dynamoDBv2":
             suggest = "dynamo_d_bv2"
+        elif key == "dynamoDb":
+            suggest = "dynamo_db"
         elif key == "iotEvents":
             suggest = "iot_events"
         elif key == "iotSiteWise":
@@ -120,8 +120,8 @@ class AlarmModelAlarmAction(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 dynamo_db: Optional['outputs.AlarmModelDynamoDB'] = None,
                  dynamo_d_bv2: Optional['outputs.AlarmModelDynamoDBv2'] = None,
+                 dynamo_db: Optional['outputs.AlarmModelDynamoDB'] = None,
                  firehose: Optional['outputs.AlarmModelFirehose'] = None,
                  iot_events: Optional['outputs.AlarmModelIotEvents'] = None,
                  iot_site_wise: Optional['outputs.AlarmModelIotSiteWise'] = None,
@@ -132,10 +132,10 @@ class AlarmModelAlarmAction(dict):
         """
         The actions to be performed.
         """
-        if dynamo_db is not None:
-            pulumi.set(__self__, "dynamo_db", dynamo_db)
         if dynamo_d_bv2 is not None:
             pulumi.set(__self__, "dynamo_d_bv2", dynamo_d_bv2)
+        if dynamo_db is not None:
+            pulumi.set(__self__, "dynamo_db", dynamo_db)
         if firehose is not None:
             pulumi.set(__self__, "firehose", firehose)
         if iot_events is not None:
@@ -152,14 +152,14 @@ class AlarmModelAlarmAction(dict):
             pulumi.set(__self__, "sqs", sqs)
 
     @property
-    @pulumi.getter(name="dynamoDB")
-    def dynamo_db(self) -> Optional['outputs.AlarmModelDynamoDB']:
-        return pulumi.get(self, "dynamo_db")
-
-    @property
     @pulumi.getter(name="dynamoDBv2")
     def dynamo_d_bv2(self) -> Optional['outputs.AlarmModelDynamoDBv2']:
         return pulumi.get(self, "dynamo_d_bv2")
+
+    @property
+    @pulumi.getter(name="dynamoDb")
+    def dynamo_db(self) -> Optional['outputs.AlarmModelDynamoDB']:
+        return pulumi.get(self, "dynamo_db")
 
     @property
     @pulumi.getter
@@ -1329,10 +1329,10 @@ class DetectorModelAction(dict):
         suggest = None
         if key == "clearTimer":
             suggest = "clear_timer"
-        elif key == "dynamoDB":
-            suggest = "dynamo_db"
         elif key == "dynamoDBv2":
             suggest = "dynamo_d_bv2"
+        elif key == "dynamoDb":
+            suggest = "dynamo_db"
         elif key == "iotEvents":
             suggest = "iot_events"
         elif key == "iotSiteWise":
@@ -1361,8 +1361,8 @@ class DetectorModelAction(dict):
 
     def __init__(__self__, *,
                  clear_timer: Optional['outputs.DetectorModelClearTimer'] = None,
-                 dynamo_db: Optional['outputs.DetectorModelDynamoDB'] = None,
                  dynamo_d_bv2: Optional['outputs.DetectorModelDynamoDBv2'] = None,
+                 dynamo_db: Optional['outputs.DetectorModelDynamoDB'] = None,
                  firehose: Optional['outputs.DetectorModelFirehose'] = None,
                  iot_events: Optional['outputs.DetectorModelIotEvents'] = None,
                  iot_site_wise: Optional['outputs.DetectorModelIotSiteWise'] = None,
@@ -1378,10 +1378,10 @@ class DetectorModelAction(dict):
         """
         if clear_timer is not None:
             pulumi.set(__self__, "clear_timer", clear_timer)
-        if dynamo_db is not None:
-            pulumi.set(__self__, "dynamo_db", dynamo_db)
         if dynamo_d_bv2 is not None:
             pulumi.set(__self__, "dynamo_d_bv2", dynamo_d_bv2)
+        if dynamo_db is not None:
+            pulumi.set(__self__, "dynamo_db", dynamo_db)
         if firehose is not None:
             pulumi.set(__self__, "firehose", firehose)
         if iot_events is not None:
@@ -1409,14 +1409,14 @@ class DetectorModelAction(dict):
         return pulumi.get(self, "clear_timer")
 
     @property
-    @pulumi.getter(name="dynamoDB")
-    def dynamo_db(self) -> Optional['outputs.DetectorModelDynamoDB']:
-        return pulumi.get(self, "dynamo_db")
-
-    @property
     @pulumi.getter(name="dynamoDBv2")
     def dynamo_d_bv2(self) -> Optional['outputs.DetectorModelDynamoDBv2']:
         return pulumi.get(self, "dynamo_d_bv2")
+
+    @property
+    @pulumi.getter(name="dynamoDb")
+    def dynamo_db(self) -> Optional['outputs.DetectorModelDynamoDB']:
+        return pulumi.get(self, "dynamo_db")
 
     @property
     @pulumi.getter

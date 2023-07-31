@@ -20,7 +20,7 @@ type IPSet struct {
 	Addresses        pulumi.StringArrayOutput    `pulumi:"addresses"`
 	Arn              pulumi.StringOutput         `pulumi:"arn"`
 	Description      pulumi.StringPtrOutput      `pulumi:"description"`
-	IPAddressVersion IPSetIPAddressVersionOutput `pulumi:"iPAddressVersion"`
+	IpAddressVersion IPSetIPAddressVersionOutput `pulumi:"ipAddressVersion"`
 	Name             pulumi.StringPtrOutput      `pulumi:"name"`
 	Scope            IPSetScopeOutput            `pulumi:"scope"`
 	Tags             IPSetTagArrayOutput         `pulumi:"tags"`
@@ -36,8 +36,8 @@ func NewIPSet(ctx *pulumi.Context,
 	if args.Addresses == nil {
 		return nil, errors.New("invalid value for required argument 'Addresses'")
 	}
-	if args.IPAddressVersion == nil {
-		return nil, errors.New("invalid value for required argument 'IPAddressVersion'")
+	if args.IpAddressVersion == nil {
+		return nil, errors.New("invalid value for required argument 'IpAddressVersion'")
 	}
 	if args.Scope == nil {
 		return nil, errors.New("invalid value for required argument 'Scope'")
@@ -78,7 +78,7 @@ type ipsetArgs struct {
 	// List of IPAddresses.
 	Addresses        []string              `pulumi:"addresses"`
 	Description      *string               `pulumi:"description"`
-	IPAddressVersion IPSetIPAddressVersion `pulumi:"iPAddressVersion"`
+	IpAddressVersion IPSetIPAddressVersion `pulumi:"ipAddressVersion"`
 	Name             *string               `pulumi:"name"`
 	Scope            IPSetScope            `pulumi:"scope"`
 	Tags             []IPSetTag            `pulumi:"tags"`
@@ -89,7 +89,7 @@ type IPSetArgs struct {
 	// List of IPAddresses.
 	Addresses        pulumi.StringArrayInput
 	Description      pulumi.StringPtrInput
-	IPAddressVersion IPSetIPAddressVersionInput
+	IpAddressVersion IPSetIPAddressVersionInput
 	Name             pulumi.StringPtrInput
 	Scope            IPSetScopeInput
 	Tags             IPSetTagArrayInput
@@ -145,8 +145,8 @@ func (o IPSetOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IPSet) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o IPSetOutput) IPAddressVersion() IPSetIPAddressVersionOutput {
-	return o.ApplyT(func(v *IPSet) IPSetIPAddressVersionOutput { return v.IPAddressVersion }).(IPSetIPAddressVersionOutput)
+func (o IPSetOutput) IpAddressVersion() IPSetIPAddressVersionOutput {
+	return o.ApplyT(func(v *IPSet) IPSetIPAddressVersionOutput { return v.IpAddressVersion }).(IPSetIPAddressVersionOutput)
 }
 
 func (o IPSetOutput) Name() pulumi.StringPtrOutput {

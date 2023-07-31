@@ -13,21 +13,21 @@ namespace Pulumi.AwsNative.AppMesh.Outputs
     [OutputType]
     public sealed class VirtualGatewayConnectionPool
     {
-        public readonly Outputs.VirtualGatewayGrpcConnectionPool? GRPC;
-        public readonly Outputs.VirtualGatewayHttpConnectionPool? HTTP;
-        public readonly Outputs.VirtualGatewayHttp2ConnectionPool? HTTP2;
+        public readonly Outputs.VirtualGatewayGrpcConnectionPool? Grpc;
+        public readonly Outputs.VirtualGatewayHttpConnectionPool? Http;
+        public readonly Outputs.VirtualGatewayHttp2ConnectionPool? Http2;
 
         [OutputConstructor]
         private VirtualGatewayConnectionPool(
-            Outputs.VirtualGatewayGrpcConnectionPool? gRPC,
+            Outputs.VirtualGatewayGrpcConnectionPool? grpc,
 
-            Outputs.VirtualGatewayHttpConnectionPool? hTTP,
+            Outputs.VirtualGatewayHttpConnectionPool? http,
 
-            Outputs.VirtualGatewayHttp2ConnectionPool? hTTP2)
+            Outputs.VirtualGatewayHttp2ConnectionPool? http2)
         {
-            GRPC = gRPC;
-            HTTP = hTTP;
-            HTTP2 = hTTP2;
+            Grpc = grpc;
+            Http = http;
+            Http2 = http2;
         }
     }
 }

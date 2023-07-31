@@ -28,14 +28,14 @@ namespace Pulumi.AwsNative.DocDB
         [Output("copyTagsToSnapshot")]
         public Output<bool?> CopyTagsToSnapshot { get; private set; } = null!;
 
-        [Output("dBClusterIdentifier")]
-        public Output<string?> DBClusterIdentifier { get; private set; } = null!;
+        [Output("dbClusterIdentifier")]
+        public Output<string?> DbClusterIdentifier { get; private set; } = null!;
 
-        [Output("dBClusterParameterGroupName")]
-        public Output<string?> DBClusterParameterGroupName { get; private set; } = null!;
+        [Output("dbClusterParameterGroupName")]
+        public Output<string?> DbClusterParameterGroupName { get; private set; } = null!;
 
-        [Output("dBSubnetGroupName")]
-        public Output<string?> DBSubnetGroupName { get; private set; } = null!;
+        [Output("dbSubnetGroupName")]
+        public Output<string?> DbSubnetGroupName { get; private set; } = null!;
 
         [Output("deletionProtection")]
         public Output<bool?> DeletionProtection { get; private set; } = null!;
@@ -79,8 +79,8 @@ namespace Pulumi.AwsNative.DocDB
         [Output("snapshotIdentifier")]
         public Output<string?> SnapshotIdentifier { get; private set; } = null!;
 
-        [Output("sourceDBClusterIdentifier")]
-        public Output<string?> SourceDBClusterIdentifier { get; private set; } = null!;
+        [Output("sourceDbClusterIdentifier")]
+        public Output<string?> SourceDbClusterIdentifier { get; private set; } = null!;
 
         [Output("storageEncrypted")]
         public Output<bool?> StorageEncrypted { get; private set; } = null!;
@@ -153,14 +153,14 @@ namespace Pulumi.AwsNative.DocDB
         [Input("copyTagsToSnapshot")]
         public Input<bool>? CopyTagsToSnapshot { get; set; }
 
-        [Input("dBClusterIdentifier")]
-        public Input<string>? DBClusterIdentifier { get; set; }
+        [Input("dbClusterIdentifier")]
+        public Input<string>? DbClusterIdentifier { get; set; }
 
-        [Input("dBClusterParameterGroupName")]
-        public Input<string>? DBClusterParameterGroupName { get; set; }
+        [Input("dbClusterParameterGroupName")]
+        public Input<string>? DbClusterParameterGroupName { get; set; }
 
-        [Input("dBSubnetGroupName")]
-        public Input<string>? DBSubnetGroupName { get; set; }
+        [Input("dbSubnetGroupName")]
+        public Input<string>? DbSubnetGroupName { get; set; }
 
         [Input("deletionProtection")]
         public Input<bool>? DeletionProtection { get; set; }
@@ -203,8 +203,8 @@ namespace Pulumi.AwsNative.DocDB
         [Input("snapshotIdentifier")]
         public Input<string>? SnapshotIdentifier { get; set; }
 
-        [Input("sourceDBClusterIdentifier")]
-        public Input<string>? SourceDBClusterIdentifier { get; set; }
+        [Input("sourceDbClusterIdentifier")]
+        public Input<string>? SourceDbClusterIdentifier { get; set; }
 
         [Input("storageEncrypted")]
         public Input<bool>? StorageEncrypted { get; set; }

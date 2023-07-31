@@ -51,7 +51,7 @@ class GetResolverEndpointResult:
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="hostVPCId")
+    @pulumi.getter(name="hostVpcId")
     def host_vpc_id(self) -> Optional[str]:
         return pulumi.get(self, "host_vpc_id")
 

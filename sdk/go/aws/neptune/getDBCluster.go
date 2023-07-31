@@ -24,7 +24,7 @@ func LookupDBCluster(ctx *pulumi.Context, args *LookupDBClusterArgs, opts ...pul
 
 type LookupDBClusterArgs struct {
 	// The DB cluster identifier. Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster stored as a lowercase string.
-	DBClusterIdentifier string `pulumi:"dBClusterIdentifier"`
+	DbClusterIdentifier string `pulumi:"dbClusterIdentifier"`
 }
 
 type LookupDBClusterResult struct {
@@ -37,7 +37,7 @@ type LookupDBClusterResult struct {
 	// A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default behaviour is not to copy them.
 	CopyTagsToSnapshot *bool `pulumi:"copyTagsToSnapshot"`
 	// Provides the name of the DB cluster parameter group.
-	DBClusterParameterGroupName *string `pulumi:"dBClusterParameterGroupName"`
+	DbClusterParameterGroupName *string `pulumi:"dbClusterParameterGroupName"`
 	// Indicates whether or not the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled.
 	DeletionProtection *bool `pulumi:"deletionProtection"`
 	// Specifies a list of log types that are enabled for export to CloudWatch Logs.
@@ -79,7 +79,7 @@ func LookupDBClusterOutput(ctx *pulumi.Context, args LookupDBClusterOutputArgs, 
 
 type LookupDBClusterOutputArgs struct {
 	// The DB cluster identifier. Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster stored as a lowercase string.
-	DBClusterIdentifier pulumi.StringInput `pulumi:"dBClusterIdentifier"`
+	DbClusterIdentifier pulumi.StringInput `pulumi:"dbClusterIdentifier"`
 }
 
 func (LookupDBClusterOutputArgs) ElementType() reflect.Type {
@@ -121,8 +121,8 @@ func (o LookupDBClusterResultOutput) CopyTagsToSnapshot() pulumi.BoolPtrOutput {
 }
 
 // Provides the name of the DB cluster parameter group.
-func (o LookupDBClusterResultOutput) DBClusterParameterGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupDBClusterResult) *string { return v.DBClusterParameterGroupName }).(pulumi.StringPtrOutput)
+func (o LookupDBClusterResultOutput) DbClusterParameterGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDBClusterResult) *string { return v.DbClusterParameterGroupName }).(pulumi.StringPtrOutput)
 }
 
 // Indicates whether or not the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled.

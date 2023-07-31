@@ -13,21 +13,21 @@ namespace Pulumi.AwsNative.AppMesh.Outputs
     [OutputType]
     public sealed class VirtualGatewayListenerTlsCertificate
     {
-        public readonly Outputs.VirtualGatewayListenerTlsAcmCertificate? ACM;
+        public readonly Outputs.VirtualGatewayListenerTlsAcmCertificate? Acm;
         public readonly Outputs.VirtualGatewayListenerTlsFileCertificate? File;
-        public readonly Outputs.VirtualGatewayListenerTlsSdsCertificate? SDS;
+        public readonly Outputs.VirtualGatewayListenerTlsSdsCertificate? Sds;
 
         [OutputConstructor]
         private VirtualGatewayListenerTlsCertificate(
-            Outputs.VirtualGatewayListenerTlsAcmCertificate? aCM,
+            Outputs.VirtualGatewayListenerTlsAcmCertificate? acm,
 
             Outputs.VirtualGatewayListenerTlsFileCertificate? file,
 
-            Outputs.VirtualGatewayListenerTlsSdsCertificate? sDS)
+            Outputs.VirtualGatewayListenerTlsSdsCertificate? sds)
         {
-            ACM = aCM;
+            Acm = acm;
             File = file;
-            SDS = sDS;
+            Sds = sds;
         }
     }
 }

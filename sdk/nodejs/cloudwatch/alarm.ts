@@ -55,7 +55,7 @@ export class Alarm extends pulumi.CustomResource {
     public readonly metricName!: pulumi.Output<string | undefined>;
     public readonly metrics!: pulumi.Output<outputs.cloudwatch.AlarmMetricDataQuery[] | undefined>;
     public readonly namespace!: pulumi.Output<string | undefined>;
-    public readonly oKActions!: pulumi.Output<string[] | undefined>;
+    public readonly okActions!: pulumi.Output<string[] | undefined>;
     public readonly period!: pulumi.Output<number | undefined>;
     public readonly statistic!: pulumi.Output<string | undefined>;
     public readonly threshold!: pulumi.Output<number | undefined>;
@@ -96,7 +96,7 @@ export class Alarm extends pulumi.CustomResource {
             resourceInputs["metricName"] = args ? args.metricName : undefined;
             resourceInputs["metrics"] = args ? args.metrics : undefined;
             resourceInputs["namespace"] = args ? args.namespace : undefined;
-            resourceInputs["oKActions"] = args ? args.oKActions : undefined;
+            resourceInputs["okActions"] = args ? args.okActions : undefined;
             resourceInputs["period"] = args ? args.period : undefined;
             resourceInputs["statistic"] = args ? args.statistic : undefined;
             resourceInputs["threshold"] = args ? args.threshold : undefined;
@@ -120,7 +120,7 @@ export class Alarm extends pulumi.CustomResource {
             resourceInputs["metricName"] = undefined /*out*/;
             resourceInputs["metrics"] = undefined /*out*/;
             resourceInputs["namespace"] = undefined /*out*/;
-            resourceInputs["oKActions"] = undefined /*out*/;
+            resourceInputs["okActions"] = undefined /*out*/;
             resourceInputs["period"] = undefined /*out*/;
             resourceInputs["statistic"] = undefined /*out*/;
             resourceInputs["threshold"] = undefined /*out*/;
@@ -151,7 +151,7 @@ export interface AlarmArgs {
     metricName?: pulumi.Input<string>;
     metrics?: pulumi.Input<pulumi.Input<inputs.cloudwatch.AlarmMetricDataQueryArgs>[]>;
     namespace?: pulumi.Input<string>;
-    oKActions?: pulumi.Input<pulumi.Input<string>[]>;
+    okActions?: pulumi.Input<pulumi.Input<string>[]>;
     period?: pulumi.Input<number>;
     statistic?: pulumi.Input<string>;
     threshold?: pulumi.Input<number>;

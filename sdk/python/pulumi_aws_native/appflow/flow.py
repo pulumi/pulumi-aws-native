@@ -24,7 +24,7 @@ class FlowArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  flow_name: Optional[pulumi.Input[str]] = None,
                  flow_status: Optional[pulumi.Input['FlowStatus']] = None,
-                 k_ms_arn: Optional[pulumi.Input[str]] = None,
+                 kms_arn: Optional[pulumi.Input[str]] = None,
                  metadata_catalog_config: Optional[pulumi.Input['FlowMetadataCatalogConfigArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['FlowTagArgs']]]] = None):
         """
@@ -36,7 +36,7 @@ class FlowArgs:
         :param pulumi.Input[str] description: Description of the flow.
         :param pulumi.Input[str] flow_name: Name of the flow.
         :param pulumi.Input['FlowStatus'] flow_status: Flow activation status for Scheduled- and Event-triggered flows
-        :param pulumi.Input[str] k_ms_arn: The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
+        :param pulumi.Input[str] kms_arn: The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
         :param pulumi.Input['FlowMetadataCatalogConfigArgs'] metadata_catalog_config: Configurations of metadata catalog of the flow.
         :param pulumi.Input[Sequence[pulumi.Input['FlowTagArgs']]] tags: List of Tags.
         """
@@ -50,8 +50,8 @@ class FlowArgs:
             pulumi.set(__self__, "flow_name", flow_name)
         if flow_status is not None:
             pulumi.set(__self__, "flow_status", flow_status)
-        if k_ms_arn is not None:
-            pulumi.set(__self__, "k_ms_arn", k_ms_arn)
+        if kms_arn is not None:
+            pulumi.set(__self__, "kms_arn", kms_arn)
         if metadata_catalog_config is not None:
             pulumi.set(__self__, "metadata_catalog_config", metadata_catalog_config)
         if tags is not None:
@@ -142,16 +142,16 @@ class FlowArgs:
         pulumi.set(self, "flow_status", value)
 
     @property
-    @pulumi.getter(name="kMSArn")
-    def k_ms_arn(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="kmsArn")
+    def kms_arn(self) -> Optional[pulumi.Input[str]]:
         """
         The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
         """
-        return pulumi.get(self, "k_ms_arn")
+        return pulumi.get(self, "kms_arn")
 
-    @k_ms_arn.setter
-    def k_ms_arn(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "k_ms_arn", value)
+    @kms_arn.setter
+    def kms_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_arn", value)
 
     @property
     @pulumi.getter(name="metadataCatalogConfig")
@@ -187,7 +187,7 @@ class Flow(pulumi.CustomResource):
                  destination_flow_config_list: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowDestinationFlowConfigArgs']]]]] = None,
                  flow_name: Optional[pulumi.Input[str]] = None,
                  flow_status: Optional[pulumi.Input['FlowStatus']] = None,
-                 k_ms_arn: Optional[pulumi.Input[str]] = None,
+                 kms_arn: Optional[pulumi.Input[str]] = None,
                  metadata_catalog_config: Optional[pulumi.Input[pulumi.InputType['FlowMetadataCatalogConfigArgs']]] = None,
                  source_flow_config: Optional[pulumi.Input[pulumi.InputType['FlowSourceFlowConfigArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowTagArgs']]]]] = None,
@@ -203,7 +203,7 @@ class Flow(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowDestinationFlowConfigArgs']]]] destination_flow_config_list: List of Destination connectors of the flow.
         :param pulumi.Input[str] flow_name: Name of the flow.
         :param pulumi.Input['FlowStatus'] flow_status: Flow activation status for Scheduled- and Event-triggered flows
-        :param pulumi.Input[str] k_ms_arn: The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
+        :param pulumi.Input[str] kms_arn: The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
         :param pulumi.Input[pulumi.InputType['FlowMetadataCatalogConfigArgs']] metadata_catalog_config: Configurations of metadata catalog of the flow.
         :param pulumi.Input[pulumi.InputType['FlowSourceFlowConfigArgs']] source_flow_config: Configurations of Source connector of the flow.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowTagArgs']]]] tags: List of Tags.
@@ -238,7 +238,7 @@ class Flow(pulumi.CustomResource):
                  destination_flow_config_list: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowDestinationFlowConfigArgs']]]]] = None,
                  flow_name: Optional[pulumi.Input[str]] = None,
                  flow_status: Optional[pulumi.Input['FlowStatus']] = None,
-                 k_ms_arn: Optional[pulumi.Input[str]] = None,
+                 kms_arn: Optional[pulumi.Input[str]] = None,
                  metadata_catalog_config: Optional[pulumi.Input[pulumi.InputType['FlowMetadataCatalogConfigArgs']]] = None,
                  source_flow_config: Optional[pulumi.Input[pulumi.InputType['FlowSourceFlowConfigArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowTagArgs']]]]] = None,
@@ -259,7 +259,7 @@ class Flow(pulumi.CustomResource):
             __props__.__dict__["destination_flow_config_list"] = destination_flow_config_list
             __props__.__dict__["flow_name"] = flow_name
             __props__.__dict__["flow_status"] = flow_status
-            __props__.__dict__["k_ms_arn"] = k_ms_arn
+            __props__.__dict__["kms_arn"] = kms_arn
             __props__.__dict__["metadata_catalog_config"] = metadata_catalog_config
             if source_flow_config is None and not opts.urn:
                 raise TypeError("Missing required property 'source_flow_config'")
@@ -299,7 +299,7 @@ class Flow(pulumi.CustomResource):
         __props__.__dict__["flow_arn"] = None
         __props__.__dict__["flow_name"] = None
         __props__.__dict__["flow_status"] = None
-        __props__.__dict__["k_ms_arn"] = None
+        __props__.__dict__["kms_arn"] = None
         __props__.__dict__["metadata_catalog_config"] = None
         __props__.__dict__["source_flow_config"] = None
         __props__.__dict__["tags"] = None
@@ -348,12 +348,12 @@ class Flow(pulumi.CustomResource):
         return pulumi.get(self, "flow_status")
 
     @property
-    @pulumi.getter(name="kMSArn")
-    def k_ms_arn(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="kmsArn")
+    def kms_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
         """
-        return pulumi.get(self, "k_ms_arn")
+        return pulumi.get(self, "kms_arn")
 
     @property
     @pulumi.getter(name="metadataCatalogConfig")

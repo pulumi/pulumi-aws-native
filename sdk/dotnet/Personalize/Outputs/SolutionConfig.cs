@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.Personalize.Outputs
         /// <summary>
         /// The AutoMLConfig object containing a list of recipes to search when AutoML is performed.
         /// </summary>
-        public readonly Outputs.SolutionConfigAutoMLConfigProperties? AutoMLConfig;
+        public readonly Outputs.SolutionConfigAutoMLConfigProperties? AutoMlConfig;
         /// <summary>
         /// Only events with a value greater than or equal to this threshold are used for training a model.
         /// </summary>
@@ -41,7 +41,7 @@ namespace Pulumi.AwsNative.Personalize.Outputs
         private SolutionConfig(
             object? algorithmHyperParameters,
 
-            Outputs.SolutionConfigAutoMLConfigProperties? autoMLConfig,
+            Outputs.SolutionConfigAutoMLConfigProperties? autoMlConfig,
 
             string? eventValueThreshold,
 
@@ -50,7 +50,7 @@ namespace Pulumi.AwsNative.Personalize.Outputs
             Outputs.SolutionConfigHpoConfigProperties? hpoConfig)
         {
             AlgorithmHyperParameters = algorithmHyperParameters;
-            AutoMLConfig = autoMLConfig;
+            AutoMlConfig = autoMlConfig;
             EventValueThreshold = eventValueThreshold;
             FeatureTransformationParameters = featureTransformationParameters;
             HpoConfig = hpoConfig;

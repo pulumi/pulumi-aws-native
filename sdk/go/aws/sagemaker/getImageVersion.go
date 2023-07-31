@@ -32,7 +32,7 @@ type LookupImageVersionResult struct {
 	ImageArn        *string                     `pulumi:"imageArn"`
 	ImageVersionArn *string                     `pulumi:"imageVersionArn"`
 	JobType         *ImageVersionJobType        `pulumi:"jobType"`
-	MLFramework     *string                     `pulumi:"mLFramework"`
+	MlFramework     *string                     `pulumi:"mlFramework"`
 	Processor       *ImageVersionProcessor      `pulumi:"processor"`
 	ProgrammingLang *string                     `pulumi:"programmingLang"`
 	ReleaseNotes    *string                     `pulumi:"releaseNotes"`
@@ -95,8 +95,8 @@ func (o LookupImageVersionResultOutput) JobType() ImageVersionJobTypePtrOutput {
 	return o.ApplyT(func(v LookupImageVersionResult) *ImageVersionJobType { return v.JobType }).(ImageVersionJobTypePtrOutput)
 }
 
-func (o LookupImageVersionResultOutput) MLFramework() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupImageVersionResult) *string { return v.MLFramework }).(pulumi.StringPtrOutput)
+func (o LookupImageVersionResultOutput) MlFramework() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupImageVersionResult) *string { return v.MlFramework }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupImageVersionResultOutput) Processor() ImageVersionProcessorPtrOutput {

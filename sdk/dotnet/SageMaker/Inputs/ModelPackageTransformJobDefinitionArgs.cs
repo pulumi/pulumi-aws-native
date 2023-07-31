@@ -33,8 +33,8 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         /// <summary>
         /// The maximum payload size allowed, in MB. A payload is the data portion of a record (without metadata).
         /// </summary>
-        [Input("maxPayloadInMB")]
-        public Input<int>? MaxPayloadInMB { get; set; }
+        [Input("maxPayloadInMb")]
+        public Input<int>? MaxPayloadInMb { get; set; }
 
         [Input("transformInput", required: true)]
         public Input<Inputs.ModelPackageTransformInputArgs> TransformInput { get; set; } = null!;

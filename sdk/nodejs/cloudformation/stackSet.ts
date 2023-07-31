@@ -40,7 +40,7 @@ export class StackSet extends pulumi.CustomResource {
     /**
      * The Amazon Resource Number (ARN) of the IAM role to use to create this stack set. Specify an IAM role only if you are using customized administrator roles to control which users or groups can manage specific stack sets within the same administrator account.
      */
-    public readonly administrationRoleARN!: pulumi.Output<string | undefined>;
+    public readonly administrationRoleArn!: pulumi.Output<string | undefined>;
     /**
      * Describes whether StackSets automatically deploys to AWS Organizations accounts that are added to the target organization or organizational unit (OU). Specify only if PermissionModel is SERVICE_MANAGED.
      */
@@ -97,7 +97,7 @@ export class StackSet extends pulumi.CustomResource {
     /**
      * Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that is located in an Amazon S3 bucket.
      */
-    public readonly templateURL!: pulumi.Output<string | undefined>;
+    public readonly templateUrl!: pulumi.Output<string | undefined>;
 
     /**
      * Create a StackSet resource with the given unique name, arguments, and options.
@@ -113,7 +113,7 @@ export class StackSet extends pulumi.CustomResource {
             if ((!args || args.permissionModel === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'permissionModel'");
             }
-            resourceInputs["administrationRoleARN"] = args ? args.administrationRoleARN : undefined;
+            resourceInputs["administrationRoleArn"] = args ? args.administrationRoleArn : undefined;
             resourceInputs["autoDeployment"] = args ? args.autoDeployment : undefined;
             resourceInputs["callAs"] = args ? args.callAs : undefined;
             resourceInputs["capabilities"] = args ? args.capabilities : undefined;
@@ -127,10 +127,10 @@ export class StackSet extends pulumi.CustomResource {
             resourceInputs["stackSetName"] = args ? args.stackSetName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["templateBody"] = args ? args.templateBody : undefined;
-            resourceInputs["templateURL"] = args ? args.templateURL : undefined;
+            resourceInputs["templateUrl"] = args ? args.templateUrl : undefined;
             resourceInputs["stackSetId"] = undefined /*out*/;
         } else {
-            resourceInputs["administrationRoleARN"] = undefined /*out*/;
+            resourceInputs["administrationRoleArn"] = undefined /*out*/;
             resourceInputs["autoDeployment"] = undefined /*out*/;
             resourceInputs["callAs"] = undefined /*out*/;
             resourceInputs["capabilities"] = undefined /*out*/;
@@ -145,7 +145,7 @@ export class StackSet extends pulumi.CustomResource {
             resourceInputs["stackSetName"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["templateBody"] = undefined /*out*/;
-            resourceInputs["templateURL"] = undefined /*out*/;
+            resourceInputs["templateUrl"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(StackSet.__pulumiType, name, resourceInputs, opts);
@@ -159,7 +159,7 @@ export interface StackSetArgs {
     /**
      * The Amazon Resource Number (ARN) of the IAM role to use to create this stack set. Specify an IAM role only if you are using customized administrator roles to control which users or groups can manage specific stack sets within the same administrator account.
      */
-    administrationRoleARN?: pulumi.Input<string>;
+    administrationRoleArn?: pulumi.Input<string>;
     /**
      * Describes whether StackSets automatically deploys to AWS Organizations accounts that are added to the target organization or organizational unit (OU). Specify only if PermissionModel is SERVICE_MANAGED.
      */
@@ -212,5 +212,5 @@ export interface StackSetArgs {
     /**
      * Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that is located in an Amazon S3 bucket.
      */
-    templateURL?: pulumi.Input<string>;
+    templateUrl?: pulumi.Input<string>;
 }

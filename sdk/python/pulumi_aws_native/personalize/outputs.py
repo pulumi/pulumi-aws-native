@@ -206,7 +206,7 @@ class SolutionConfig(dict):
         suggest = None
         if key == "algorithmHyperParameters":
             suggest = "algorithm_hyper_parameters"
-        elif key == "autoMLConfig":
+        elif key == "autoMlConfig":
             suggest = "auto_ml_config"
         elif key == "eventValueThreshold":
             suggest = "event_value_threshold"
@@ -260,7 +260,7 @@ class SolutionConfig(dict):
         return pulumi.get(self, "algorithm_hyper_parameters")
 
     @property
-    @pulumi.getter(name="autoMLConfig")
+    @pulumi.getter(name="autoMlConfig")
     def auto_ml_config(self) -> Optional['outputs.SolutionConfigAutoMLConfigProperties']:
         """
         The AutoMLConfig object containing a list of recipes to search when AutoML is performed.

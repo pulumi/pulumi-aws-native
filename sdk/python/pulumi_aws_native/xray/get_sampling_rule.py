@@ -40,7 +40,7 @@ class GetSamplingRuleResult:
         pulumi.set(__self__, "tags", tags)
 
     @property
-    @pulumi.getter(name="ruleARN")
+    @pulumi.getter(name="ruleArn")
     def rule_arn(self) -> Optional[str]:
         return pulumi.get(self, "rule_arn")
 
@@ -90,7 +90,7 @@ def get_sampling_rule(rule_arn: Optional[str] = None,
     This schema provides construct and validation rules for AWS-XRay SamplingRule resource parameters.
     """
     __args__ = dict()
-    __args__['ruleARN'] = rule_arn
+    __args__['ruleArn'] = rule_arn
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:xray:getSamplingRule', __args__, opts=opts, typ=GetSamplingRuleResult).value
 

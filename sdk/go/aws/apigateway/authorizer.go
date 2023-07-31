@@ -32,7 +32,7 @@ type Authorizer struct {
 	// The name of the authorizer.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A list of the Amazon Cognito user pool ARNs for the COGNITO_USER_POOLS authorizer.
-	ProviderARNs pulumi.StringArrayOutput `pulumi:"providerARNs"`
+	ProviderArns pulumi.StringArrayOutput `pulumi:"providerArns"`
 	// The identifier of the API.
 	RestApiId pulumi.StringOutput `pulumi:"restApiId"`
 	// The authorizer type.
@@ -100,7 +100,7 @@ type authorizerArgs struct {
 	// The name of the authorizer.
 	Name *string `pulumi:"name"`
 	// A list of the Amazon Cognito user pool ARNs for the COGNITO_USER_POOLS authorizer.
-	ProviderARNs []string `pulumi:"providerARNs"`
+	ProviderArns []string `pulumi:"providerArns"`
 	// The identifier of the API.
 	RestApiId string `pulumi:"restApiId"`
 	// The authorizer type.
@@ -124,7 +124,7 @@ type AuthorizerArgs struct {
 	// The name of the authorizer.
 	Name pulumi.StringPtrInput
 	// A list of the Amazon Cognito user pool ARNs for the COGNITO_USER_POOLS authorizer.
-	ProviderARNs pulumi.StringArrayInput
+	ProviderArns pulumi.StringArrayInput
 	// The identifier of the API.
 	RestApiId pulumi.StringInput
 	// The authorizer type.
@@ -208,8 +208,8 @@ func (o AuthorizerOutput) Name() pulumi.StringOutput {
 }
 
 // A list of the Amazon Cognito user pool ARNs for the COGNITO_USER_POOLS authorizer.
-func (o AuthorizerOutput) ProviderARNs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *Authorizer) pulumi.StringArrayOutput { return v.ProviderARNs }).(pulumi.StringArrayOutput)
+func (o AuthorizerOutput) ProviderArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Authorizer) pulumi.StringArrayOutput { return v.ProviderArns }).(pulumi.StringArrayOutput)
 }
 
 // The identifier of the API.

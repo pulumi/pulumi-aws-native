@@ -128,7 +128,7 @@ class ReplicationInstanceArgs:
         pulumi.set(self, "kms_key_id", value)
 
     @property
-    @pulumi.getter(name="multiAZ")
+    @pulumi.getter(name="multiAz")
     def multi_az(self) -> Optional[pulumi.Input[bool]]:
         return pulumi.get(self, "multi_az")
 
@@ -372,7 +372,7 @@ class ReplicationInstance(pulumi.CustomResource):
         return pulumi.get(self, "kms_key_id")
 
     @property
-    @pulumi.getter(name="multiAZ")
+    @pulumi.getter(name="multiAz")
     def multi_az(self) -> pulumi.Output[Optional[bool]]:
         return pulumi.get(self, "multi_az")
 

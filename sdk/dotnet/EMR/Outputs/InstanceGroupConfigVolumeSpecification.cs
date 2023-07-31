@@ -14,19 +14,19 @@ namespace Pulumi.AwsNative.EMR.Outputs
     public sealed class InstanceGroupConfigVolumeSpecification
     {
         public readonly int? Iops;
-        public readonly int SizeInGB;
+        public readonly int SizeInGb;
         public readonly string VolumeType;
 
         [OutputConstructor]
         private InstanceGroupConfigVolumeSpecification(
             int? iops,
 
-            int sizeInGB,
+            int sizeInGb,
 
             string volumeType)
         {
             Iops = iops;
-            SizeInGB = sizeInGB;
+            SizeInGb = sizeInGb;
             VolumeType = volumeType;
         }
     }

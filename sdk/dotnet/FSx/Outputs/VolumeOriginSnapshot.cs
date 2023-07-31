@@ -14,16 +14,16 @@ namespace Pulumi.AwsNative.FSx.Outputs
     public sealed class VolumeOriginSnapshot
     {
         public readonly string CopyStrategy;
-        public readonly string SnapshotARN;
+        public readonly string SnapshotArn;
 
         [OutputConstructor]
         private VolumeOriginSnapshot(
             string copyStrategy,
 
-            string snapshotARN)
+            string snapshotArn)
         {
             CopyStrategy = copyStrategy;
-            SnapshotARN = snapshotARN;
+            SnapshotArn = snapshotArn;
         }
     }
 }

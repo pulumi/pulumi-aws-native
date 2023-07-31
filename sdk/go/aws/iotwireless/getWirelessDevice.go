@@ -39,7 +39,7 @@ type LookupWirelessDeviceResult struct {
 	// The date and time when the most recent uplink was received.
 	LastUplinkReceivedAt *string `pulumi:"lastUplinkReceivedAt"`
 	// The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Device.
-	LoRaWAN *WirelessDeviceLoRaWANDevice `pulumi:"loRaWAN"`
+	LoRaWan *WirelessDeviceLoRaWANDevice `pulumi:"loRaWan"`
 	// Wireless device name
 	Name *string `pulumi:"name"`
 	// A list of key-value pairs that contain metadata for the device. Currently not supported, will not create if tags are passed.
@@ -114,8 +114,8 @@ func (o LookupWirelessDeviceResultOutput) LastUplinkReceivedAt() pulumi.StringPt
 }
 
 // The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Device.
-func (o LookupWirelessDeviceResultOutput) LoRaWAN() WirelessDeviceLoRaWANDevicePtrOutput {
-	return o.ApplyT(func(v LookupWirelessDeviceResult) *WirelessDeviceLoRaWANDevice { return v.LoRaWAN }).(WirelessDeviceLoRaWANDevicePtrOutput)
+func (o LookupWirelessDeviceResultOutput) LoRaWan() WirelessDeviceLoRaWANDevicePtrOutput {
+	return o.ApplyT(func(v LookupWirelessDeviceResult) *WirelessDeviceLoRaWANDevice { return v.LoRaWan }).(WirelessDeviceLoRaWANDevicePtrOutput)
 }
 
 // Wireless device name

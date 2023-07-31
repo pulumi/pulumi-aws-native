@@ -40,11 +40,11 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The name of the Access Control List to associate with the cluster.
      */
-    public readonly aCLName!: pulumi.Output<string>;
+    public readonly aclName!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the cluster.
      */
-    public /*out*/ readonly aRN!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * A flag that enables automatic minor version upgrade when set to true.
      *
@@ -144,15 +144,15 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly subnetGroupName!: pulumi.Output<string | undefined>;
     /**
+     * An array of key-value pairs to apply to this cluster.
+     */
+    public readonly tags!: pulumi.Output<outputs.memorydb.ClusterTag[] | undefined>;
+    /**
      * A flag that enables in-transit encryption when set to true.
      *
      * You cannot modify the value of TransitEncryptionEnabled after the cluster is created. To enable in-transit encryption on a cluster you must set TransitEncryptionEnabled to true when you create a cluster.
      */
-    public readonly tLSEnabled!: pulumi.Output<boolean | undefined>;
-    /**
-     * An array of key-value pairs to apply to this cluster.
-     */
-    public readonly tags!: pulumi.Output<outputs.memorydb.ClusterTag[] | undefined>;
+    public readonly tlsEnabled!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -165,13 +165,13 @@ export class Cluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.aCLName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'aCLName'");
+            if ((!args || args.aclName === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'aclName'");
             }
             if ((!args || args.nodeType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'nodeType'");
             }
-            resourceInputs["aCLName"] = args ? args.aCLName : undefined;
+            resourceInputs["aclName"] = args ? args.aclName : undefined;
             resourceInputs["autoMinorVersionUpgrade"] = args ? args.autoMinorVersionUpgrade : undefined;
             resourceInputs["clusterEndpoint"] = args ? args.clusterEndpoint : undefined;
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
@@ -194,14 +194,14 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["snsTopicArn"] = args ? args.snsTopicArn : undefined;
             resourceInputs["snsTopicStatus"] = args ? args.snsTopicStatus : undefined;
             resourceInputs["subnetGroupName"] = args ? args.subnetGroupName : undefined;
-            resourceInputs["tLSEnabled"] = args ? args.tLSEnabled : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["aRN"] = undefined /*out*/;
+            resourceInputs["tlsEnabled"] = args ? args.tlsEnabled : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["parameterGroupStatus"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         } else {
-            resourceInputs["aCLName"] = undefined /*out*/;
-            resourceInputs["aRN"] = undefined /*out*/;
+            resourceInputs["aclName"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["autoMinorVersionUpgrade"] = undefined /*out*/;
             resourceInputs["clusterEndpoint"] = undefined /*out*/;
             resourceInputs["clusterName"] = undefined /*out*/;
@@ -226,8 +226,8 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["snsTopicStatus"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["subnetGroupName"] = undefined /*out*/;
-            resourceInputs["tLSEnabled"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["tlsEnabled"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Cluster.__pulumiType, name, resourceInputs, opts);
@@ -241,7 +241,7 @@ export interface ClusterArgs {
     /**
      * The name of the Access Control List to associate with the cluster.
      */
-    aCLName: pulumi.Input<string>;
+    aclName: pulumi.Input<string>;
     /**
      * A flag that enables automatic minor version upgrade when set to true.
      *
@@ -333,13 +333,13 @@ export interface ClusterArgs {
      */
     subnetGroupName?: pulumi.Input<string>;
     /**
+     * An array of key-value pairs to apply to this cluster.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.memorydb.ClusterTagArgs>[]>;
+    /**
      * A flag that enables in-transit encryption when set to true.
      *
      * You cannot modify the value of TransitEncryptionEnabled after the cluster is created. To enable in-transit encryption on a cluster you must set TransitEncryptionEnabled to true when you create a cluster.
      */
-    tLSEnabled?: pulumi.Input<boolean>;
-    /**
-     * An array of key-value pairs to apply to this cluster.
-     */
-    tags?: pulumi.Input<pulumi.Input<inputs.memorydb.ClusterTagArgs>[]>;
+    tlsEnabled?: pulumi.Input<boolean>;
 }

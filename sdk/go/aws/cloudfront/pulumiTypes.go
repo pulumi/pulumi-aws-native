@@ -15,9 +15,9 @@ var _ = internal.GetEnvOrDefault
 
 type CachePolicyConfig struct {
 	Comment                                  *string                                             `pulumi:"comment"`
-	DefaultTTL                               float64                                             `pulumi:"defaultTTL"`
-	MaxTTL                                   float64                                             `pulumi:"maxTTL"`
-	MinTTL                                   float64                                             `pulumi:"minTTL"`
+	DefaultTtl                               float64                                             `pulumi:"defaultTtl"`
+	MaxTtl                                   float64                                             `pulumi:"maxTtl"`
+	MinTtl                                   float64                                             `pulumi:"minTtl"`
 	Name                                     string                                              `pulumi:"name"`
 	ParametersInCacheKeyAndForwardedToOrigin CachePolicyParametersInCacheKeyAndForwardedToOrigin `pulumi:"parametersInCacheKeyAndForwardedToOrigin"`
 }
@@ -35,9 +35,9 @@ type CachePolicyConfigInput interface {
 
 type CachePolicyConfigArgs struct {
 	Comment                                  pulumi.StringPtrInput                                    `pulumi:"comment"`
-	DefaultTTL                               pulumi.Float64Input                                      `pulumi:"defaultTTL"`
-	MaxTTL                                   pulumi.Float64Input                                      `pulumi:"maxTTL"`
-	MinTTL                                   pulumi.Float64Input                                      `pulumi:"minTTL"`
+	DefaultTtl                               pulumi.Float64Input                                      `pulumi:"defaultTtl"`
+	MaxTtl                                   pulumi.Float64Input                                      `pulumi:"maxTtl"`
+	MinTtl                                   pulumi.Float64Input                                      `pulumi:"minTtl"`
 	Name                                     pulumi.StringInput                                       `pulumi:"name"`
 	ParametersInCacheKeyAndForwardedToOrigin CachePolicyParametersInCacheKeyAndForwardedToOriginInput `pulumi:"parametersInCacheKeyAndForwardedToOrigin"`
 }
@@ -72,16 +72,16 @@ func (o CachePolicyConfigOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CachePolicyConfig) *string { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-func (o CachePolicyConfigOutput) DefaultTTL() pulumi.Float64Output {
-	return o.ApplyT(func(v CachePolicyConfig) float64 { return v.DefaultTTL }).(pulumi.Float64Output)
+func (o CachePolicyConfigOutput) DefaultTtl() pulumi.Float64Output {
+	return o.ApplyT(func(v CachePolicyConfig) float64 { return v.DefaultTtl }).(pulumi.Float64Output)
 }
 
-func (o CachePolicyConfigOutput) MaxTTL() pulumi.Float64Output {
-	return o.ApplyT(func(v CachePolicyConfig) float64 { return v.MaxTTL }).(pulumi.Float64Output)
+func (o CachePolicyConfigOutput) MaxTtl() pulumi.Float64Output {
+	return o.ApplyT(func(v CachePolicyConfig) float64 { return v.MaxTtl }).(pulumi.Float64Output)
 }
 
-func (o CachePolicyConfigOutput) MinTTL() pulumi.Float64Output {
-	return o.ApplyT(func(v CachePolicyConfig) float64 { return v.MinTTL }).(pulumi.Float64Output)
+func (o CachePolicyConfigOutput) MinTtl() pulumi.Float64Output {
+	return o.ApplyT(func(v CachePolicyConfig) float64 { return v.MinTtl }).(pulumi.Float64Output)
 }
 
 func (o CachePolicyConfigOutput) Name() pulumi.StringOutput {
@@ -127,30 +127,30 @@ func (o CachePolicyConfigPtrOutput) Comment() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o CachePolicyConfigPtrOutput) DefaultTTL() pulumi.Float64PtrOutput {
+func (o CachePolicyConfigPtrOutput) DefaultTtl() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *CachePolicyConfig) *float64 {
 		if v == nil {
 			return nil
 		}
-		return &v.DefaultTTL
+		return &v.DefaultTtl
 	}).(pulumi.Float64PtrOutput)
 }
 
-func (o CachePolicyConfigPtrOutput) MaxTTL() pulumi.Float64PtrOutput {
+func (o CachePolicyConfigPtrOutput) MaxTtl() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *CachePolicyConfig) *float64 {
 		if v == nil {
 			return nil
 		}
-		return &v.MaxTTL
+		return &v.MaxTtl
 	}).(pulumi.Float64PtrOutput)
 }
 
-func (o CachePolicyConfigPtrOutput) MinTTL() pulumi.Float64PtrOutput {
+func (o CachePolicyConfigPtrOutput) MinTtl() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *CachePolicyConfig) *float64 {
 		if v == nil {
 			return nil
 		}
-		return &v.MinTTL
+		return &v.MinTtl
 	}).(pulumi.Float64PtrOutput)
 }
 
@@ -808,8 +808,8 @@ func (o ContinuousDeploymentPolicyConfigPtrOutput) TrafficConfig() ContinuousDep
 }
 
 type ContinuousDeploymentPolicySessionStickinessConfig struct {
-	IdleTTL    int `pulumi:"idleTTL"`
-	MaximumTTL int `pulumi:"maximumTTL"`
+	IdleTtl    int `pulumi:"idleTtl"`
+	MaximumTtl int `pulumi:"maximumTtl"`
 }
 
 // ContinuousDeploymentPolicySessionStickinessConfigInput is an input type that accepts ContinuousDeploymentPolicySessionStickinessConfigArgs and ContinuousDeploymentPolicySessionStickinessConfigOutput values.
@@ -824,8 +824,8 @@ type ContinuousDeploymentPolicySessionStickinessConfigInput interface {
 }
 
 type ContinuousDeploymentPolicySessionStickinessConfigArgs struct {
-	IdleTTL    pulumi.IntInput `pulumi:"idleTTL"`
-	MaximumTTL pulumi.IntInput `pulumi:"maximumTTL"`
+	IdleTtl    pulumi.IntInput `pulumi:"idleTtl"`
+	MaximumTtl pulumi.IntInput `pulumi:"maximumTtl"`
 }
 
 func (ContinuousDeploymentPolicySessionStickinessConfigArgs) ElementType() reflect.Type {
@@ -905,12 +905,12 @@ func (o ContinuousDeploymentPolicySessionStickinessConfigOutput) ToContinuousDep
 	}).(ContinuousDeploymentPolicySessionStickinessConfigPtrOutput)
 }
 
-func (o ContinuousDeploymentPolicySessionStickinessConfigOutput) IdleTTL() pulumi.IntOutput {
-	return o.ApplyT(func(v ContinuousDeploymentPolicySessionStickinessConfig) int { return v.IdleTTL }).(pulumi.IntOutput)
+func (o ContinuousDeploymentPolicySessionStickinessConfigOutput) IdleTtl() pulumi.IntOutput {
+	return o.ApplyT(func(v ContinuousDeploymentPolicySessionStickinessConfig) int { return v.IdleTtl }).(pulumi.IntOutput)
 }
 
-func (o ContinuousDeploymentPolicySessionStickinessConfigOutput) MaximumTTL() pulumi.IntOutput {
-	return o.ApplyT(func(v ContinuousDeploymentPolicySessionStickinessConfig) int { return v.MaximumTTL }).(pulumi.IntOutput)
+func (o ContinuousDeploymentPolicySessionStickinessConfigOutput) MaximumTtl() pulumi.IntOutput {
+	return o.ApplyT(func(v ContinuousDeploymentPolicySessionStickinessConfig) int { return v.MaximumTtl }).(pulumi.IntOutput)
 }
 
 type ContinuousDeploymentPolicySessionStickinessConfigPtrOutput struct{ *pulumi.OutputState }
@@ -937,21 +937,21 @@ func (o ContinuousDeploymentPolicySessionStickinessConfigPtrOutput) Elem() Conti
 	}).(ContinuousDeploymentPolicySessionStickinessConfigOutput)
 }
 
-func (o ContinuousDeploymentPolicySessionStickinessConfigPtrOutput) IdleTTL() pulumi.IntPtrOutput {
+func (o ContinuousDeploymentPolicySessionStickinessConfigPtrOutput) IdleTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContinuousDeploymentPolicySessionStickinessConfig) *int {
 		if v == nil {
 			return nil
 		}
-		return &v.IdleTTL
+		return &v.IdleTtl
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o ContinuousDeploymentPolicySessionStickinessConfigPtrOutput) MaximumTTL() pulumi.IntPtrOutput {
+func (o ContinuousDeploymentPolicySessionStickinessConfigPtrOutput) MaximumTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContinuousDeploymentPolicySessionStickinessConfig) *int {
 		if v == nil {
 			return nil
 		}
-		return &v.MaximumTTL
+		return &v.MaximumTtl
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -1427,13 +1427,13 @@ type DistributionCacheBehavior struct {
 	CachePolicyId              *string                                 `pulumi:"cachePolicyId"`
 	CachedMethods              []string                                `pulumi:"cachedMethods"`
 	Compress                   *bool                                   `pulumi:"compress"`
-	DefaultTTL                 *float64                                `pulumi:"defaultTTL"`
+	DefaultTtl                 *float64                                `pulumi:"defaultTtl"`
 	FieldLevelEncryptionId     *string                                 `pulumi:"fieldLevelEncryptionId"`
 	ForwardedValues            *DistributionForwardedValues            `pulumi:"forwardedValues"`
 	FunctionAssociations       []DistributionFunctionAssociation       `pulumi:"functionAssociations"`
 	LambdaFunctionAssociations []DistributionLambdaFunctionAssociation `pulumi:"lambdaFunctionAssociations"`
-	MaxTTL                     *float64                                `pulumi:"maxTTL"`
-	MinTTL                     *float64                                `pulumi:"minTTL"`
+	MaxTtl                     *float64                                `pulumi:"maxTtl"`
+	MinTtl                     *float64                                `pulumi:"minTtl"`
 	OriginRequestPolicyId      *string                                 `pulumi:"originRequestPolicyId"`
 	PathPattern                string                                  `pulumi:"pathPattern"`
 	RealtimeLogConfigArn       *string                                 `pulumi:"realtimeLogConfigArn"`
@@ -1461,13 +1461,13 @@ type DistributionCacheBehaviorArgs struct {
 	CachePolicyId              pulumi.StringPtrInput                           `pulumi:"cachePolicyId"`
 	CachedMethods              pulumi.StringArrayInput                         `pulumi:"cachedMethods"`
 	Compress                   pulumi.BoolPtrInput                             `pulumi:"compress"`
-	DefaultTTL                 pulumi.Float64PtrInput                          `pulumi:"defaultTTL"`
+	DefaultTtl                 pulumi.Float64PtrInput                          `pulumi:"defaultTtl"`
 	FieldLevelEncryptionId     pulumi.StringPtrInput                           `pulumi:"fieldLevelEncryptionId"`
 	ForwardedValues            DistributionForwardedValuesPtrInput             `pulumi:"forwardedValues"`
 	FunctionAssociations       DistributionFunctionAssociationArrayInput       `pulumi:"functionAssociations"`
 	LambdaFunctionAssociations DistributionLambdaFunctionAssociationArrayInput `pulumi:"lambdaFunctionAssociations"`
-	MaxTTL                     pulumi.Float64PtrInput                          `pulumi:"maxTTL"`
-	MinTTL                     pulumi.Float64PtrInput                          `pulumi:"minTTL"`
+	MaxTtl                     pulumi.Float64PtrInput                          `pulumi:"maxTtl"`
+	MinTtl                     pulumi.Float64PtrInput                          `pulumi:"minTtl"`
 	OriginRequestPolicyId      pulumi.StringPtrInput                           `pulumi:"originRequestPolicyId"`
 	PathPattern                pulumi.StringInput                              `pulumi:"pathPattern"`
 	RealtimeLogConfigArn       pulumi.StringPtrInput                           `pulumi:"realtimeLogConfigArn"`
@@ -1546,8 +1546,8 @@ func (o DistributionCacheBehaviorOutput) Compress() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DistributionCacheBehavior) *bool { return v.Compress }).(pulumi.BoolPtrOutput)
 }
 
-func (o DistributionCacheBehaviorOutput) DefaultTTL() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v DistributionCacheBehavior) *float64 { return v.DefaultTTL }).(pulumi.Float64PtrOutput)
+func (o DistributionCacheBehaviorOutput) DefaultTtl() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DistributionCacheBehavior) *float64 { return v.DefaultTtl }).(pulumi.Float64PtrOutput)
 }
 
 func (o DistributionCacheBehaviorOutput) FieldLevelEncryptionId() pulumi.StringPtrOutput {
@@ -1568,12 +1568,12 @@ func (o DistributionCacheBehaviorOutput) LambdaFunctionAssociations() Distributi
 	}).(DistributionLambdaFunctionAssociationArrayOutput)
 }
 
-func (o DistributionCacheBehaviorOutput) MaxTTL() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v DistributionCacheBehavior) *float64 { return v.MaxTTL }).(pulumi.Float64PtrOutput)
+func (o DistributionCacheBehaviorOutput) MaxTtl() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DistributionCacheBehavior) *float64 { return v.MaxTtl }).(pulumi.Float64PtrOutput)
 }
 
-func (o DistributionCacheBehaviorOutput) MinTTL() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v DistributionCacheBehavior) *float64 { return v.MinTTL }).(pulumi.Float64PtrOutput)
+func (o DistributionCacheBehaviorOutput) MinTtl() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DistributionCacheBehavior) *float64 { return v.MinTtl }).(pulumi.Float64PtrOutput)
 }
 
 func (o DistributionCacheBehaviorOutput) OriginRequestPolicyId() pulumi.StringPtrOutput {
@@ -1634,8 +1634,8 @@ func (o DistributionCacheBehaviorArrayOutput) Index(i pulumi.IntInput) Distribut
 
 type DistributionConfig struct {
 	Aliases                      []string                          `pulumi:"aliases"`
-	CNAMEs                       []string                          `pulumi:"cNAMEs"`
 	CacheBehaviors               []DistributionCacheBehavior       `pulumi:"cacheBehaviors"`
+	Cnames                       []string                          `pulumi:"cnames"`
 	Comment                      *string                           `pulumi:"comment"`
 	ContinuousDeploymentPolicyId *string                           `pulumi:"continuousDeploymentPolicyId"`
 	CustomErrorResponses         []DistributionCustomErrorResponse `pulumi:"customErrorResponses"`
@@ -1644,7 +1644,7 @@ type DistributionConfig struct {
 	DefaultRootObject            *string                           `pulumi:"defaultRootObject"`
 	Enabled                      bool                              `pulumi:"enabled"`
 	HttpVersion                  *string                           `pulumi:"httpVersion"`
-	IPV6Enabled                  *bool                             `pulumi:"iPV6Enabled"`
+	Ipv6Enabled                  *bool                             `pulumi:"ipv6Enabled"`
 	Logging                      *DistributionLogging              `pulumi:"logging"`
 	OriginGroups                 *DistributionOriginGroups         `pulumi:"originGroups"`
 	Origins                      []DistributionOrigin              `pulumi:"origins"`
@@ -1653,7 +1653,7 @@ type DistributionConfig struct {
 	S3Origin                     *DistributionLegacyS3Origin       `pulumi:"s3Origin"`
 	Staging                      *bool                             `pulumi:"staging"`
 	ViewerCertificate            *DistributionViewerCertificate    `pulumi:"viewerCertificate"`
-	WebACLId                     *string                           `pulumi:"webACLId"`
+	WebAclId                     *string                           `pulumi:"webAclId"`
 }
 
 // DistributionConfigInput is an input type that accepts DistributionConfigArgs and DistributionConfigOutput values.
@@ -1669,8 +1669,8 @@ type DistributionConfigInput interface {
 
 type DistributionConfigArgs struct {
 	Aliases                      pulumi.StringArrayInput                   `pulumi:"aliases"`
-	CNAMEs                       pulumi.StringArrayInput                   `pulumi:"cNAMEs"`
 	CacheBehaviors               DistributionCacheBehaviorArrayInput       `pulumi:"cacheBehaviors"`
+	Cnames                       pulumi.StringArrayInput                   `pulumi:"cnames"`
 	Comment                      pulumi.StringPtrInput                     `pulumi:"comment"`
 	ContinuousDeploymentPolicyId pulumi.StringPtrInput                     `pulumi:"continuousDeploymentPolicyId"`
 	CustomErrorResponses         DistributionCustomErrorResponseArrayInput `pulumi:"customErrorResponses"`
@@ -1679,7 +1679,7 @@ type DistributionConfigArgs struct {
 	DefaultRootObject            pulumi.StringPtrInput                     `pulumi:"defaultRootObject"`
 	Enabled                      pulumi.BoolInput                          `pulumi:"enabled"`
 	HttpVersion                  pulumi.StringPtrInput                     `pulumi:"httpVersion"`
-	IPV6Enabled                  pulumi.BoolPtrInput                       `pulumi:"iPV6Enabled"`
+	Ipv6Enabled                  pulumi.BoolPtrInput                       `pulumi:"ipv6Enabled"`
 	Logging                      DistributionLoggingPtrInput               `pulumi:"logging"`
 	OriginGroups                 DistributionOriginGroupsPtrInput          `pulumi:"originGroups"`
 	Origins                      DistributionOriginArrayInput              `pulumi:"origins"`
@@ -1688,7 +1688,7 @@ type DistributionConfigArgs struct {
 	S3Origin                     DistributionLegacyS3OriginPtrInput        `pulumi:"s3Origin"`
 	Staging                      pulumi.BoolPtrInput                       `pulumi:"staging"`
 	ViewerCertificate            DistributionViewerCertificatePtrInput     `pulumi:"viewerCertificate"`
-	WebACLId                     pulumi.StringPtrInput                     `pulumi:"webACLId"`
+	WebAclId                     pulumi.StringPtrInput                     `pulumi:"webAclId"`
 }
 
 func (DistributionConfigArgs) ElementType() reflect.Type {
@@ -1721,12 +1721,12 @@ func (o DistributionConfigOutput) Aliases() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DistributionConfig) []string { return v.Aliases }).(pulumi.StringArrayOutput)
 }
 
-func (o DistributionConfigOutput) CNAMEs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DistributionConfig) []string { return v.CNAMEs }).(pulumi.StringArrayOutput)
-}
-
 func (o DistributionConfigOutput) CacheBehaviors() DistributionCacheBehaviorArrayOutput {
 	return o.ApplyT(func(v DistributionConfig) []DistributionCacheBehavior { return v.CacheBehaviors }).(DistributionCacheBehaviorArrayOutput)
+}
+
+func (o DistributionConfigOutput) Cnames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DistributionConfig) []string { return v.Cnames }).(pulumi.StringArrayOutput)
 }
 
 func (o DistributionConfigOutput) Comment() pulumi.StringPtrOutput {
@@ -1761,8 +1761,8 @@ func (o DistributionConfigOutput) HttpVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionConfig) *string { return v.HttpVersion }).(pulumi.StringPtrOutput)
 }
 
-func (o DistributionConfigOutput) IPV6Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DistributionConfig) *bool { return v.IPV6Enabled }).(pulumi.BoolPtrOutput)
+func (o DistributionConfigOutput) Ipv6Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DistributionConfig) *bool { return v.Ipv6Enabled }).(pulumi.BoolPtrOutput)
 }
 
 func (o DistributionConfigOutput) Logging() DistributionLoggingPtrOutput {
@@ -1797,8 +1797,8 @@ func (o DistributionConfigOutput) ViewerCertificate() DistributionViewerCertific
 	return o.ApplyT(func(v DistributionConfig) *DistributionViewerCertificate { return v.ViewerCertificate }).(DistributionViewerCertificatePtrOutput)
 }
 
-func (o DistributionConfigOutput) WebACLId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DistributionConfig) *string { return v.WebACLId }).(pulumi.StringPtrOutput)
+func (o DistributionConfigOutput) WebAclId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionConfig) *string { return v.WebAclId }).(pulumi.StringPtrOutput)
 }
 
 type DistributionConfigPtrOutput struct{ *pulumi.OutputState }
@@ -1834,15 +1834,6 @@ func (o DistributionConfigPtrOutput) Aliases() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-func (o DistributionConfigPtrOutput) CNAMEs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DistributionConfig) []string {
-		if v == nil {
-			return nil
-		}
-		return v.CNAMEs
-	}).(pulumi.StringArrayOutput)
-}
-
 func (o DistributionConfigPtrOutput) CacheBehaviors() DistributionCacheBehaviorArrayOutput {
 	return o.ApplyT(func(v *DistributionConfig) []DistributionCacheBehavior {
 		if v == nil {
@@ -1850,6 +1841,15 @@ func (o DistributionConfigPtrOutput) CacheBehaviors() DistributionCacheBehaviorA
 		}
 		return v.CacheBehaviors
 	}).(DistributionCacheBehaviorArrayOutput)
+}
+
+func (o DistributionConfigPtrOutput) Cnames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DistributionConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Cnames
+	}).(pulumi.StringArrayOutput)
 }
 
 func (o DistributionConfigPtrOutput) Comment() pulumi.StringPtrOutput {
@@ -1924,12 +1924,12 @@ func (o DistributionConfigPtrOutput) HttpVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o DistributionConfigPtrOutput) IPV6Enabled() pulumi.BoolPtrOutput {
+func (o DistributionConfigPtrOutput) Ipv6Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DistributionConfig) *bool {
 		if v == nil {
 			return nil
 		}
-		return v.IPV6Enabled
+		return v.Ipv6Enabled
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -2005,12 +2005,12 @@ func (o DistributionConfigPtrOutput) ViewerCertificate() DistributionViewerCerti
 	}).(DistributionViewerCertificatePtrOutput)
 }
 
-func (o DistributionConfigPtrOutput) WebACLId() pulumi.StringPtrOutput {
+func (o DistributionConfigPtrOutput) WebAclId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionConfig) *string {
 		if v == nil {
 			return nil
 		}
-		return v.WebACLId
+		return v.WebAclId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2163,7 +2163,7 @@ func (o DistributionCookiesPtrOutput) WhitelistedNames() pulumi.StringArrayOutpu
 }
 
 type DistributionCustomErrorResponse struct {
-	ErrorCachingMinTTL *float64 `pulumi:"errorCachingMinTTL"`
+	ErrorCachingMinTtl *float64 `pulumi:"errorCachingMinTtl"`
 	ErrorCode          int      `pulumi:"errorCode"`
 	ResponseCode       *int     `pulumi:"responseCode"`
 	ResponsePagePath   *string  `pulumi:"responsePagePath"`
@@ -2181,7 +2181,7 @@ type DistributionCustomErrorResponseInput interface {
 }
 
 type DistributionCustomErrorResponseArgs struct {
-	ErrorCachingMinTTL pulumi.Float64PtrInput `pulumi:"errorCachingMinTTL"`
+	ErrorCachingMinTtl pulumi.Float64PtrInput `pulumi:"errorCachingMinTtl"`
 	ErrorCode          pulumi.IntInput        `pulumi:"errorCode"`
 	ResponseCode       pulumi.IntPtrInput     `pulumi:"responseCode"`
 	ResponsePagePath   pulumi.StringPtrInput  `pulumi:"responsePagePath"`
@@ -2238,8 +2238,8 @@ func (o DistributionCustomErrorResponseOutput) ToDistributionCustomErrorResponse
 	return o
 }
 
-func (o DistributionCustomErrorResponseOutput) ErrorCachingMinTTL() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v DistributionCustomErrorResponse) *float64 { return v.ErrorCachingMinTTL }).(pulumi.Float64PtrOutput)
+func (o DistributionCustomErrorResponseOutput) ErrorCachingMinTtl() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DistributionCustomErrorResponse) *float64 { return v.ErrorCachingMinTtl }).(pulumi.Float64PtrOutput)
 }
 
 func (o DistributionCustomErrorResponseOutput) ErrorCode() pulumi.IntOutput {
@@ -2275,12 +2275,12 @@ func (o DistributionCustomErrorResponseArrayOutput) Index(i pulumi.IntInput) Dis
 }
 
 type DistributionCustomOriginConfig struct {
-	HTTPPort               *int     `pulumi:"hTTPPort"`
-	HTTPSPort              *int     `pulumi:"hTTPSPort"`
+	HttpPort               *int     `pulumi:"httpPort"`
+	HttpsPort              *int     `pulumi:"httpsPort"`
 	OriginKeepaliveTimeout *int     `pulumi:"originKeepaliveTimeout"`
 	OriginProtocolPolicy   string   `pulumi:"originProtocolPolicy"`
 	OriginReadTimeout      *int     `pulumi:"originReadTimeout"`
-	OriginSSLProtocols     []string `pulumi:"originSSLProtocols"`
+	OriginSslProtocols     []string `pulumi:"originSslProtocols"`
 }
 
 // DistributionCustomOriginConfigInput is an input type that accepts DistributionCustomOriginConfigArgs and DistributionCustomOriginConfigOutput values.
@@ -2295,12 +2295,12 @@ type DistributionCustomOriginConfigInput interface {
 }
 
 type DistributionCustomOriginConfigArgs struct {
-	HTTPPort               pulumi.IntPtrInput      `pulumi:"hTTPPort"`
-	HTTPSPort              pulumi.IntPtrInput      `pulumi:"hTTPSPort"`
+	HttpPort               pulumi.IntPtrInput      `pulumi:"httpPort"`
+	HttpsPort              pulumi.IntPtrInput      `pulumi:"httpsPort"`
 	OriginKeepaliveTimeout pulumi.IntPtrInput      `pulumi:"originKeepaliveTimeout"`
 	OriginProtocolPolicy   pulumi.StringInput      `pulumi:"originProtocolPolicy"`
 	OriginReadTimeout      pulumi.IntPtrInput      `pulumi:"originReadTimeout"`
-	OriginSSLProtocols     pulumi.StringArrayInput `pulumi:"originSSLProtocols"`
+	OriginSslProtocols     pulumi.StringArrayInput `pulumi:"originSslProtocols"`
 }
 
 func (DistributionCustomOriginConfigArgs) ElementType() reflect.Type {
@@ -2380,12 +2380,12 @@ func (o DistributionCustomOriginConfigOutput) ToDistributionCustomOriginConfigPt
 	}).(DistributionCustomOriginConfigPtrOutput)
 }
 
-func (o DistributionCustomOriginConfigOutput) HTTPPort() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DistributionCustomOriginConfig) *int { return v.HTTPPort }).(pulumi.IntPtrOutput)
+func (o DistributionCustomOriginConfigOutput) HttpPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DistributionCustomOriginConfig) *int { return v.HttpPort }).(pulumi.IntPtrOutput)
 }
 
-func (o DistributionCustomOriginConfigOutput) HTTPSPort() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DistributionCustomOriginConfig) *int { return v.HTTPSPort }).(pulumi.IntPtrOutput)
+func (o DistributionCustomOriginConfigOutput) HttpsPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DistributionCustomOriginConfig) *int { return v.HttpsPort }).(pulumi.IntPtrOutput)
 }
 
 func (o DistributionCustomOriginConfigOutput) OriginKeepaliveTimeout() pulumi.IntPtrOutput {
@@ -2400,8 +2400,8 @@ func (o DistributionCustomOriginConfigOutput) OriginReadTimeout() pulumi.IntPtrO
 	return o.ApplyT(func(v DistributionCustomOriginConfig) *int { return v.OriginReadTimeout }).(pulumi.IntPtrOutput)
 }
 
-func (o DistributionCustomOriginConfigOutput) OriginSSLProtocols() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DistributionCustomOriginConfig) []string { return v.OriginSSLProtocols }).(pulumi.StringArrayOutput)
+func (o DistributionCustomOriginConfigOutput) OriginSslProtocols() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DistributionCustomOriginConfig) []string { return v.OriginSslProtocols }).(pulumi.StringArrayOutput)
 }
 
 type DistributionCustomOriginConfigPtrOutput struct{ *pulumi.OutputState }
@@ -2428,21 +2428,21 @@ func (o DistributionCustomOriginConfigPtrOutput) Elem() DistributionCustomOrigin
 	}).(DistributionCustomOriginConfigOutput)
 }
 
-func (o DistributionCustomOriginConfigPtrOutput) HTTPPort() pulumi.IntPtrOutput {
+func (o DistributionCustomOriginConfigPtrOutput) HttpPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DistributionCustomOriginConfig) *int {
 		if v == nil {
 			return nil
 		}
-		return v.HTTPPort
+		return v.HttpPort
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o DistributionCustomOriginConfigPtrOutput) HTTPSPort() pulumi.IntPtrOutput {
+func (o DistributionCustomOriginConfigPtrOutput) HttpsPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DistributionCustomOriginConfig) *int {
 		if v == nil {
 			return nil
 		}
-		return v.HTTPSPort
+		return v.HttpsPort
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -2473,12 +2473,12 @@ func (o DistributionCustomOriginConfigPtrOutput) OriginReadTimeout() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o DistributionCustomOriginConfigPtrOutput) OriginSSLProtocols() pulumi.StringArrayOutput {
+func (o DistributionCustomOriginConfigPtrOutput) OriginSslProtocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DistributionCustomOriginConfig) []string {
 		if v == nil {
 			return nil
 		}
-		return v.OriginSSLProtocols
+		return v.OriginSslProtocols
 	}).(pulumi.StringArrayOutput)
 }
 
@@ -2487,13 +2487,13 @@ type DistributionDefaultCacheBehavior struct {
 	CachePolicyId              *string                                 `pulumi:"cachePolicyId"`
 	CachedMethods              []string                                `pulumi:"cachedMethods"`
 	Compress                   *bool                                   `pulumi:"compress"`
-	DefaultTTL                 *float64                                `pulumi:"defaultTTL"`
+	DefaultTtl                 *float64                                `pulumi:"defaultTtl"`
 	FieldLevelEncryptionId     *string                                 `pulumi:"fieldLevelEncryptionId"`
 	ForwardedValues            *DistributionForwardedValues            `pulumi:"forwardedValues"`
 	FunctionAssociations       []DistributionFunctionAssociation       `pulumi:"functionAssociations"`
 	LambdaFunctionAssociations []DistributionLambdaFunctionAssociation `pulumi:"lambdaFunctionAssociations"`
-	MaxTTL                     *float64                                `pulumi:"maxTTL"`
-	MinTTL                     *float64                                `pulumi:"minTTL"`
+	MaxTtl                     *float64                                `pulumi:"maxTtl"`
+	MinTtl                     *float64                                `pulumi:"minTtl"`
 	OriginRequestPolicyId      *string                                 `pulumi:"originRequestPolicyId"`
 	RealtimeLogConfigArn       *string                                 `pulumi:"realtimeLogConfigArn"`
 	ResponseHeadersPolicyId    *string                                 `pulumi:"responseHeadersPolicyId"`
@@ -2520,13 +2520,13 @@ type DistributionDefaultCacheBehaviorArgs struct {
 	CachePolicyId              pulumi.StringPtrInput                           `pulumi:"cachePolicyId"`
 	CachedMethods              pulumi.StringArrayInput                         `pulumi:"cachedMethods"`
 	Compress                   pulumi.BoolPtrInput                             `pulumi:"compress"`
-	DefaultTTL                 pulumi.Float64PtrInput                          `pulumi:"defaultTTL"`
+	DefaultTtl                 pulumi.Float64PtrInput                          `pulumi:"defaultTtl"`
 	FieldLevelEncryptionId     pulumi.StringPtrInput                           `pulumi:"fieldLevelEncryptionId"`
 	ForwardedValues            DistributionForwardedValuesPtrInput             `pulumi:"forwardedValues"`
 	FunctionAssociations       DistributionFunctionAssociationArrayInput       `pulumi:"functionAssociations"`
 	LambdaFunctionAssociations DistributionLambdaFunctionAssociationArrayInput `pulumi:"lambdaFunctionAssociations"`
-	MaxTTL                     pulumi.Float64PtrInput                          `pulumi:"maxTTL"`
-	MinTTL                     pulumi.Float64PtrInput                          `pulumi:"minTTL"`
+	MaxTtl                     pulumi.Float64PtrInput                          `pulumi:"maxTtl"`
+	MinTtl                     pulumi.Float64PtrInput                          `pulumi:"minTtl"`
 	OriginRequestPolicyId      pulumi.StringPtrInput                           `pulumi:"originRequestPolicyId"`
 	RealtimeLogConfigArn       pulumi.StringPtrInput                           `pulumi:"realtimeLogConfigArn"`
 	ResponseHeadersPolicyId    pulumi.StringPtrInput                           `pulumi:"responseHeadersPolicyId"`
@@ -2579,8 +2579,8 @@ func (o DistributionDefaultCacheBehaviorOutput) Compress() pulumi.BoolPtrOutput 
 	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *bool { return v.Compress }).(pulumi.BoolPtrOutput)
 }
 
-func (o DistributionDefaultCacheBehaviorOutput) DefaultTTL() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *float64 { return v.DefaultTTL }).(pulumi.Float64PtrOutput)
+func (o DistributionDefaultCacheBehaviorOutput) DefaultTtl() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *float64 { return v.DefaultTtl }).(pulumi.Float64PtrOutput)
 }
 
 func (o DistributionDefaultCacheBehaviorOutput) FieldLevelEncryptionId() pulumi.StringPtrOutput {
@@ -2603,12 +2603,12 @@ func (o DistributionDefaultCacheBehaviorOutput) LambdaFunctionAssociations() Dis
 	}).(DistributionLambdaFunctionAssociationArrayOutput)
 }
 
-func (o DistributionDefaultCacheBehaviorOutput) MaxTTL() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *float64 { return v.MaxTTL }).(pulumi.Float64PtrOutput)
+func (o DistributionDefaultCacheBehaviorOutput) MaxTtl() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *float64 { return v.MaxTtl }).(pulumi.Float64PtrOutput)
 }
 
-func (o DistributionDefaultCacheBehaviorOutput) MinTTL() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *float64 { return v.MinTTL }).(pulumi.Float64PtrOutput)
+func (o DistributionDefaultCacheBehaviorOutput) MinTtl() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *float64 { return v.MinTtl }).(pulumi.Float64PtrOutput)
 }
 
 func (o DistributionDefaultCacheBehaviorOutput) OriginRequestPolicyId() pulumi.StringPtrOutput {
@@ -2703,12 +2703,12 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) Compress() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
-func (o DistributionDefaultCacheBehaviorPtrOutput) DefaultTTL() pulumi.Float64PtrOutput {
+func (o DistributionDefaultCacheBehaviorPtrOutput) DefaultTtl() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) *float64 {
 		if v == nil {
 			return nil
 		}
-		return v.DefaultTTL
+		return v.DefaultTtl
 	}).(pulumi.Float64PtrOutput)
 }
 
@@ -2748,21 +2748,21 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) LambdaFunctionAssociations() 
 	}).(DistributionLambdaFunctionAssociationArrayOutput)
 }
 
-func (o DistributionDefaultCacheBehaviorPtrOutput) MaxTTL() pulumi.Float64PtrOutput {
+func (o DistributionDefaultCacheBehaviorPtrOutput) MaxTtl() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) *float64 {
 		if v == nil {
 			return nil
 		}
-		return v.MaxTTL
+		return v.MaxTtl
 	}).(pulumi.Float64PtrOutput)
 }
 
-func (o DistributionDefaultCacheBehaviorPtrOutput) MinTTL() pulumi.Float64PtrOutput {
+func (o DistributionDefaultCacheBehaviorPtrOutput) MinTtl() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) *float64 {
 		if v == nil {
 			return nil
 		}
-		return v.MinTTL
+		return v.MinTtl
 	}).(pulumi.Float64PtrOutput)
 }
 
@@ -3018,7 +3018,7 @@ func (o DistributionForwardedValuesPtrOutput) QueryStringCacheKeys() pulumi.Stri
 
 type DistributionFunctionAssociation struct {
 	EventType   *string `pulumi:"eventType"`
-	FunctionARN *string `pulumi:"functionARN"`
+	FunctionArn *string `pulumi:"functionArn"`
 }
 
 // DistributionFunctionAssociationInput is an input type that accepts DistributionFunctionAssociationArgs and DistributionFunctionAssociationOutput values.
@@ -3034,7 +3034,7 @@ type DistributionFunctionAssociationInput interface {
 
 type DistributionFunctionAssociationArgs struct {
 	EventType   pulumi.StringPtrInput `pulumi:"eventType"`
-	FunctionARN pulumi.StringPtrInput `pulumi:"functionARN"`
+	FunctionArn pulumi.StringPtrInput `pulumi:"functionArn"`
 }
 
 func (DistributionFunctionAssociationArgs) ElementType() reflect.Type {
@@ -3092,8 +3092,8 @@ func (o DistributionFunctionAssociationOutput) EventType() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v DistributionFunctionAssociation) *string { return v.EventType }).(pulumi.StringPtrOutput)
 }
 
-func (o DistributionFunctionAssociationOutput) FunctionARN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DistributionFunctionAssociation) *string { return v.FunctionARN }).(pulumi.StringPtrOutput)
+func (o DistributionFunctionAssociationOutput) FunctionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionFunctionAssociation) *string { return v.FunctionArn }).(pulumi.StringPtrOutput)
 }
 
 type DistributionFunctionAssociationArrayOutput struct{ *pulumi.OutputState }
@@ -3267,7 +3267,7 @@ func (o DistributionGeoRestrictionPtrOutput) RestrictionType() pulumi.StringPtrO
 type DistributionLambdaFunctionAssociation struct {
 	EventType         *string `pulumi:"eventType"`
 	IncludeBody       *bool   `pulumi:"includeBody"`
-	LambdaFunctionARN *string `pulumi:"lambdaFunctionARN"`
+	LambdaFunctionArn *string `pulumi:"lambdaFunctionArn"`
 }
 
 // DistributionLambdaFunctionAssociationInput is an input type that accepts DistributionLambdaFunctionAssociationArgs and DistributionLambdaFunctionAssociationOutput values.
@@ -3284,7 +3284,7 @@ type DistributionLambdaFunctionAssociationInput interface {
 type DistributionLambdaFunctionAssociationArgs struct {
 	EventType         pulumi.StringPtrInput `pulumi:"eventType"`
 	IncludeBody       pulumi.BoolPtrInput   `pulumi:"includeBody"`
-	LambdaFunctionARN pulumi.StringPtrInput `pulumi:"lambdaFunctionARN"`
+	LambdaFunctionArn pulumi.StringPtrInput `pulumi:"lambdaFunctionArn"`
 }
 
 func (DistributionLambdaFunctionAssociationArgs) ElementType() reflect.Type {
@@ -3346,8 +3346,8 @@ func (o DistributionLambdaFunctionAssociationOutput) IncludeBody() pulumi.BoolPt
 	return o.ApplyT(func(v DistributionLambdaFunctionAssociation) *bool { return v.IncludeBody }).(pulumi.BoolPtrOutput)
 }
 
-func (o DistributionLambdaFunctionAssociationOutput) LambdaFunctionARN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DistributionLambdaFunctionAssociation) *string { return v.LambdaFunctionARN }).(pulumi.StringPtrOutput)
+func (o DistributionLambdaFunctionAssociationOutput) LambdaFunctionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionLambdaFunctionAssociation) *string { return v.LambdaFunctionArn }).(pulumi.StringPtrOutput)
 }
 
 type DistributionLambdaFunctionAssociationArrayOutput struct{ *pulumi.OutputState }
@@ -3371,11 +3371,11 @@ func (o DistributionLambdaFunctionAssociationArrayOutput) Index(i pulumi.IntInpu
 }
 
 type DistributionLegacyCustomOrigin struct {
-	DNSName              string   `pulumi:"dNSName"`
-	HTTPPort             *int     `pulumi:"hTTPPort"`
-	HTTPSPort            *int     `pulumi:"hTTPSPort"`
+	DnsName              string   `pulumi:"dnsName"`
+	HttpPort             *int     `pulumi:"httpPort"`
+	HttpsPort            *int     `pulumi:"httpsPort"`
 	OriginProtocolPolicy string   `pulumi:"originProtocolPolicy"`
-	OriginSSLProtocols   []string `pulumi:"originSSLProtocols"`
+	OriginSslProtocols   []string `pulumi:"originSslProtocols"`
 }
 
 // DistributionLegacyCustomOriginInput is an input type that accepts DistributionLegacyCustomOriginArgs and DistributionLegacyCustomOriginOutput values.
@@ -3390,11 +3390,11 @@ type DistributionLegacyCustomOriginInput interface {
 }
 
 type DistributionLegacyCustomOriginArgs struct {
-	DNSName              pulumi.StringInput      `pulumi:"dNSName"`
-	HTTPPort             pulumi.IntPtrInput      `pulumi:"hTTPPort"`
-	HTTPSPort            pulumi.IntPtrInput      `pulumi:"hTTPSPort"`
+	DnsName              pulumi.StringInput      `pulumi:"dnsName"`
+	HttpPort             pulumi.IntPtrInput      `pulumi:"httpPort"`
+	HttpsPort            pulumi.IntPtrInput      `pulumi:"httpsPort"`
 	OriginProtocolPolicy pulumi.StringInput      `pulumi:"originProtocolPolicy"`
-	OriginSSLProtocols   pulumi.StringArrayInput `pulumi:"originSSLProtocols"`
+	OriginSslProtocols   pulumi.StringArrayInput `pulumi:"originSslProtocols"`
 }
 
 func (DistributionLegacyCustomOriginArgs) ElementType() reflect.Type {
@@ -3474,24 +3474,24 @@ func (o DistributionLegacyCustomOriginOutput) ToDistributionLegacyCustomOriginPt
 	}).(DistributionLegacyCustomOriginPtrOutput)
 }
 
-func (o DistributionLegacyCustomOriginOutput) DNSName() pulumi.StringOutput {
-	return o.ApplyT(func(v DistributionLegacyCustomOrigin) string { return v.DNSName }).(pulumi.StringOutput)
+func (o DistributionLegacyCustomOriginOutput) DnsName() pulumi.StringOutput {
+	return o.ApplyT(func(v DistributionLegacyCustomOrigin) string { return v.DnsName }).(pulumi.StringOutput)
 }
 
-func (o DistributionLegacyCustomOriginOutput) HTTPPort() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DistributionLegacyCustomOrigin) *int { return v.HTTPPort }).(pulumi.IntPtrOutput)
+func (o DistributionLegacyCustomOriginOutput) HttpPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DistributionLegacyCustomOrigin) *int { return v.HttpPort }).(pulumi.IntPtrOutput)
 }
 
-func (o DistributionLegacyCustomOriginOutput) HTTPSPort() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DistributionLegacyCustomOrigin) *int { return v.HTTPSPort }).(pulumi.IntPtrOutput)
+func (o DistributionLegacyCustomOriginOutput) HttpsPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DistributionLegacyCustomOrigin) *int { return v.HttpsPort }).(pulumi.IntPtrOutput)
 }
 
 func (o DistributionLegacyCustomOriginOutput) OriginProtocolPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionLegacyCustomOrigin) string { return v.OriginProtocolPolicy }).(pulumi.StringOutput)
 }
 
-func (o DistributionLegacyCustomOriginOutput) OriginSSLProtocols() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DistributionLegacyCustomOrigin) []string { return v.OriginSSLProtocols }).(pulumi.StringArrayOutput)
+func (o DistributionLegacyCustomOriginOutput) OriginSslProtocols() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DistributionLegacyCustomOrigin) []string { return v.OriginSslProtocols }).(pulumi.StringArrayOutput)
 }
 
 type DistributionLegacyCustomOriginPtrOutput struct{ *pulumi.OutputState }
@@ -3518,30 +3518,30 @@ func (o DistributionLegacyCustomOriginPtrOutput) Elem() DistributionLegacyCustom
 	}).(DistributionLegacyCustomOriginOutput)
 }
 
-func (o DistributionLegacyCustomOriginPtrOutput) DNSName() pulumi.StringPtrOutput {
+func (o DistributionLegacyCustomOriginPtrOutput) DnsName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionLegacyCustomOrigin) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.DNSName
+		return &v.DnsName
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o DistributionLegacyCustomOriginPtrOutput) HTTPPort() pulumi.IntPtrOutput {
+func (o DistributionLegacyCustomOriginPtrOutput) HttpPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DistributionLegacyCustomOrigin) *int {
 		if v == nil {
 			return nil
 		}
-		return v.HTTPPort
+		return v.HttpPort
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o DistributionLegacyCustomOriginPtrOutput) HTTPSPort() pulumi.IntPtrOutput {
+func (o DistributionLegacyCustomOriginPtrOutput) HttpsPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DistributionLegacyCustomOrigin) *int {
 		if v == nil {
 			return nil
 		}
-		return v.HTTPSPort
+		return v.HttpsPort
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -3554,17 +3554,17 @@ func (o DistributionLegacyCustomOriginPtrOutput) OriginProtocolPolicy() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o DistributionLegacyCustomOriginPtrOutput) OriginSSLProtocols() pulumi.StringArrayOutput {
+func (o DistributionLegacyCustomOriginPtrOutput) OriginSslProtocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DistributionLegacyCustomOrigin) []string {
 		if v == nil {
 			return nil
 		}
-		return v.OriginSSLProtocols
+		return v.OriginSslProtocols
 	}).(pulumi.StringArrayOutput)
 }
 
 type DistributionLegacyS3Origin struct {
-	DNSName              string  `pulumi:"dNSName"`
+	DnsName              string  `pulumi:"dnsName"`
 	OriginAccessIdentity *string `pulumi:"originAccessIdentity"`
 }
 
@@ -3580,7 +3580,7 @@ type DistributionLegacyS3OriginInput interface {
 }
 
 type DistributionLegacyS3OriginArgs struct {
-	DNSName              pulumi.StringInput    `pulumi:"dNSName"`
+	DnsName              pulumi.StringInput    `pulumi:"dnsName"`
 	OriginAccessIdentity pulumi.StringPtrInput `pulumi:"originAccessIdentity"`
 }
 
@@ -3661,8 +3661,8 @@ func (o DistributionLegacyS3OriginOutput) ToDistributionLegacyS3OriginPtrOutputW
 	}).(DistributionLegacyS3OriginPtrOutput)
 }
 
-func (o DistributionLegacyS3OriginOutput) DNSName() pulumi.StringOutput {
-	return o.ApplyT(func(v DistributionLegacyS3Origin) string { return v.DNSName }).(pulumi.StringOutput)
+func (o DistributionLegacyS3OriginOutput) DnsName() pulumi.StringOutput {
+	return o.ApplyT(func(v DistributionLegacyS3Origin) string { return v.DnsName }).(pulumi.StringOutput)
 }
 
 func (o DistributionLegacyS3OriginOutput) OriginAccessIdentity() pulumi.StringPtrOutput {
@@ -3693,12 +3693,12 @@ func (o DistributionLegacyS3OriginPtrOutput) Elem() DistributionLegacyS3OriginOu
 	}).(DistributionLegacyS3OriginOutput)
 }
 
-func (o DistributionLegacyS3OriginPtrOutput) DNSName() pulumi.StringPtrOutput {
+func (o DistributionLegacyS3OriginPtrOutput) DnsName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionLegacyS3Origin) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.DNSName
+		return &v.DnsName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -5434,7 +5434,7 @@ func (o FunctionConfigPtrOutput) Runtime() pulumi.StringPtrOutput {
 }
 
 type FunctionMetadata struct {
-	FunctionARN *string `pulumi:"functionARN"`
+	FunctionArn *string `pulumi:"functionArn"`
 }
 
 // FunctionMetadataInput is an input type that accepts FunctionMetadataArgs and FunctionMetadataOutput values.
@@ -5449,7 +5449,7 @@ type FunctionMetadataInput interface {
 }
 
 type FunctionMetadataArgs struct {
-	FunctionARN pulumi.StringPtrInput `pulumi:"functionARN"`
+	FunctionArn pulumi.StringPtrInput `pulumi:"functionArn"`
 }
 
 func (FunctionMetadataArgs) ElementType() reflect.Type {
@@ -5529,8 +5529,8 @@ func (o FunctionMetadataOutput) ToFunctionMetadataPtrOutputWithContext(ctx conte
 	}).(FunctionMetadataPtrOutput)
 }
 
-func (o FunctionMetadataOutput) FunctionARN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FunctionMetadata) *string { return v.FunctionARN }).(pulumi.StringPtrOutput)
+func (o FunctionMetadataOutput) FunctionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionMetadata) *string { return v.FunctionArn }).(pulumi.StringPtrOutput)
 }
 
 type FunctionMetadataPtrOutput struct{ *pulumi.OutputState }
@@ -5557,12 +5557,12 @@ func (o FunctionMetadataPtrOutput) Elem() FunctionMetadataOutput {
 	}).(FunctionMetadataOutput)
 }
 
-func (o FunctionMetadataPtrOutput) FunctionARN() pulumi.StringPtrOutput {
+func (o FunctionMetadataPtrOutput) FunctionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionMetadata) *string {
 		if v == nil {
 			return nil
 		}
-		return v.FunctionARN
+		return v.FunctionArn
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -8746,7 +8746,7 @@ type ResponseHeadersPolicySecurityHeadersConfig struct {
 	FrameOptions            *ResponseHeadersPolicyFrameOptions            `pulumi:"frameOptions"`
 	ReferrerPolicy          *ResponseHeadersPolicyReferrerPolicy          `pulumi:"referrerPolicy"`
 	StrictTransportSecurity *ResponseHeadersPolicyStrictTransportSecurity `pulumi:"strictTransportSecurity"`
-	XSSProtection           *ResponseHeadersPolicyXSSProtection           `pulumi:"xSSProtection"`
+	XssProtection           *ResponseHeadersPolicyXSSProtection           `pulumi:"xssProtection"`
 }
 
 // ResponseHeadersPolicySecurityHeadersConfigInput is an input type that accepts ResponseHeadersPolicySecurityHeadersConfigArgs and ResponseHeadersPolicySecurityHeadersConfigOutput values.
@@ -8766,7 +8766,7 @@ type ResponseHeadersPolicySecurityHeadersConfigArgs struct {
 	FrameOptions            ResponseHeadersPolicyFrameOptionsPtrInput            `pulumi:"frameOptions"`
 	ReferrerPolicy          ResponseHeadersPolicyReferrerPolicyPtrInput          `pulumi:"referrerPolicy"`
 	StrictTransportSecurity ResponseHeadersPolicyStrictTransportSecurityPtrInput `pulumi:"strictTransportSecurity"`
-	XSSProtection           ResponseHeadersPolicyXSSProtectionPtrInput           `pulumi:"xSSProtection"`
+	XssProtection           ResponseHeadersPolicyXSSProtectionPtrInput           `pulumi:"xssProtection"`
 }
 
 func (ResponseHeadersPolicySecurityHeadersConfigArgs) ElementType() reflect.Type {
@@ -8876,9 +8876,9 @@ func (o ResponseHeadersPolicySecurityHeadersConfigOutput) StrictTransportSecurit
 	}).(ResponseHeadersPolicyStrictTransportSecurityPtrOutput)
 }
 
-func (o ResponseHeadersPolicySecurityHeadersConfigOutput) XSSProtection() ResponseHeadersPolicyXSSProtectionPtrOutput {
+func (o ResponseHeadersPolicySecurityHeadersConfigOutput) XssProtection() ResponseHeadersPolicyXSSProtectionPtrOutput {
 	return o.ApplyT(func(v ResponseHeadersPolicySecurityHeadersConfig) *ResponseHeadersPolicyXSSProtection {
-		return v.XSSProtection
+		return v.XssProtection
 	}).(ResponseHeadersPolicyXSSProtectionPtrOutput)
 }
 
@@ -8951,12 +8951,12 @@ func (o ResponseHeadersPolicySecurityHeadersConfigPtrOutput) StrictTransportSecu
 	}).(ResponseHeadersPolicyStrictTransportSecurityPtrOutput)
 }
 
-func (o ResponseHeadersPolicySecurityHeadersConfigPtrOutput) XSSProtection() ResponseHeadersPolicyXSSProtectionPtrOutput {
+func (o ResponseHeadersPolicySecurityHeadersConfigPtrOutput) XssProtection() ResponseHeadersPolicyXSSProtectionPtrOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicySecurityHeadersConfig) *ResponseHeadersPolicyXSSProtection {
 		if v == nil {
 			return nil
 		}
-		return v.XSSProtection
+		return v.XssProtection
 	}).(ResponseHeadersPolicyXSSProtectionPtrOutput)
 }
 

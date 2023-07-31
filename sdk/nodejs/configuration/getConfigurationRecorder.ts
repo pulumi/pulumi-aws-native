@@ -25,7 +25,7 @@ export interface GetConfigurationRecorderArgs {
 export interface GetConfigurationRecorderResult {
     readonly id?: string;
     readonly recordingGroup?: outputs.configuration.ConfigurationRecorderRecordingGroup;
-    readonly roleARN?: string;
+    readonly roleArn?: string;
 }
 /**
  * Resource Type definition for AWS::Config::ConfigurationRecorder

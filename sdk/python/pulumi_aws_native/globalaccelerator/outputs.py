@@ -60,7 +60,7 @@ class EndpointGroupEndpointConfiguration(dict):
         suggest = None
         if key == "endpointId":
             suggest = "endpoint_id"
-        elif key == "clientIPPreservationEnabled":
+        elif key == "clientIpPreservationEnabled":
             suggest = "client_ip_preservation_enabled"
 
         if suggest:
@@ -99,7 +99,7 @@ class EndpointGroupEndpointConfiguration(dict):
         return pulumi.get(self, "endpoint_id")
 
     @property
-    @pulumi.getter(name="clientIPPreservationEnabled")
+    @pulumi.getter(name="clientIpPreservationEnabled")
     def client_ip_preservation_enabled(self) -> Optional[bool]:
         """
         true if client ip should be preserved

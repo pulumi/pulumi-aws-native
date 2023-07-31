@@ -21,8 +21,8 @@ namespace Pulumi.AwsNative.SSM.Inputs
         [Input("bucketRegion", required: true)]
         public Input<string> BucketRegion { get; set; } = null!;
 
-        [Input("kMSKeyArn")]
-        public Input<string>? KMSKeyArn { get; set; }
+        [Input("kmsKeyArn")]
+        public Input<string>? KmsKeyArn { get; set; }
 
         [Input("syncFormat", required: true)]
         public Input<string> SyncFormat { get; set; } = null!;

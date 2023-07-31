@@ -150,8 +150,8 @@ namespace Pulumi.AwsNative.S3
         /// <summary>
         /// The Amazon S3 website endpoint for the specified bucket.
         /// </summary>
-        [Output("websiteURL")]
-        public Output<string> WebsiteURL { get; private set; } = null!;
+        [Output("websiteUrl")]
+        public Output<string> WebsiteUrl { get; private set; } = null!;
 
 
         /// <summary>

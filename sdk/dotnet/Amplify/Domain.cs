@@ -24,8 +24,8 @@ namespace Pulumi.AwsNative.Amplify
         [Output("autoSubDomainCreationPatterns")]
         public Output<ImmutableArray<string>> AutoSubDomainCreationPatterns { get; private set; } = null!;
 
-        [Output("autoSubDomainIAMRole")]
-        public Output<string?> AutoSubDomainIAMRole { get; private set; } = null!;
+        [Output("autoSubDomainIamRole")]
+        public Output<string?> AutoSubDomainIamRole { get; private set; } = null!;
 
         [Output("certificateRecord")]
         public Output<string> CertificateRecord { get; private set; } = null!;
@@ -101,8 +101,8 @@ namespace Pulumi.AwsNative.Amplify
             set => _autoSubDomainCreationPatterns = value;
         }
 
-        [Input("autoSubDomainIAMRole")]
-        public Input<string>? AutoSubDomainIAMRole { get; set; }
+        [Input("autoSubDomainIamRole")]
+        public Input<string>? AutoSubDomainIamRole { get; set; }
 
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }

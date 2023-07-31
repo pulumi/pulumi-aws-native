@@ -33,7 +33,7 @@ type LookupDeviceProfileResult struct {
 	// Service profile Id. Returned after successful create.
 	Id *string `pulumi:"id"`
 	// LoRaWANDeviceProfile supports all LoRa specific attributes for service profile for CreateDeviceProfile operation
-	LoRaWAN *DeviceProfileLoRaWANDeviceProfile `pulumi:"loRaWAN"`
+	LoRaWan *DeviceProfileLoRaWANDeviceProfile `pulumi:"loRaWan"`
 	// Name of service profile
 	Name *string `pulumi:"name"`
 	// A list of key-value pairs that contain metadata for the device profile.
@@ -87,8 +87,8 @@ func (o LookupDeviceProfileResultOutput) Id() pulumi.StringPtrOutput {
 }
 
 // LoRaWANDeviceProfile supports all LoRa specific attributes for service profile for CreateDeviceProfile operation
-func (o LookupDeviceProfileResultOutput) LoRaWAN() DeviceProfileLoRaWANDeviceProfilePtrOutput {
-	return o.ApplyT(func(v LookupDeviceProfileResult) *DeviceProfileLoRaWANDeviceProfile { return v.LoRaWAN }).(DeviceProfileLoRaWANDeviceProfilePtrOutput)
+func (o LookupDeviceProfileResultOutput) LoRaWan() DeviceProfileLoRaWANDeviceProfilePtrOutput {
+	return o.ApplyT(func(v LookupDeviceProfileResult) *DeviceProfileLoRaWANDeviceProfile { return v.LoRaWan }).(DeviceProfileLoRaWANDeviceProfilePtrOutput)
 }
 
 // Name of service profile

@@ -2377,8 +2377,8 @@ func (o ClusterJobFlowInstancesConfigPtrOutput) TerminationProtected() pulumi.Bo
 }
 
 type ClusterKerberosAttributes struct {
-	ADDomainJoinPassword             *string `pulumi:"aDDomainJoinPassword"`
-	ADDomainJoinUser                 *string `pulumi:"aDDomainJoinUser"`
+	AdDomainJoinPassword             *string `pulumi:"adDomainJoinPassword"`
+	AdDomainJoinUser                 *string `pulumi:"adDomainJoinUser"`
 	CrossRealmTrustPrincipalPassword *string `pulumi:"crossRealmTrustPrincipalPassword"`
 	KdcAdminPassword                 string  `pulumi:"kdcAdminPassword"`
 	Realm                            string  `pulumi:"realm"`
@@ -2396,8 +2396,8 @@ type ClusterKerberosAttributesInput interface {
 }
 
 type ClusterKerberosAttributesArgs struct {
-	ADDomainJoinPassword             pulumi.StringPtrInput `pulumi:"aDDomainJoinPassword"`
-	ADDomainJoinUser                 pulumi.StringPtrInput `pulumi:"aDDomainJoinUser"`
+	AdDomainJoinPassword             pulumi.StringPtrInput `pulumi:"adDomainJoinPassword"`
+	AdDomainJoinUser                 pulumi.StringPtrInput `pulumi:"adDomainJoinUser"`
 	CrossRealmTrustPrincipalPassword pulumi.StringPtrInput `pulumi:"crossRealmTrustPrincipalPassword"`
 	KdcAdminPassword                 pulumi.StringInput    `pulumi:"kdcAdminPassword"`
 	Realm                            pulumi.StringInput    `pulumi:"realm"`
@@ -2480,12 +2480,12 @@ func (o ClusterKerberosAttributesOutput) ToClusterKerberosAttributesPtrOutputWit
 	}).(ClusterKerberosAttributesPtrOutput)
 }
 
-func (o ClusterKerberosAttributesOutput) ADDomainJoinPassword() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterKerberosAttributes) *string { return v.ADDomainJoinPassword }).(pulumi.StringPtrOutput)
+func (o ClusterKerberosAttributesOutput) AdDomainJoinPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterKerberosAttributes) *string { return v.AdDomainJoinPassword }).(pulumi.StringPtrOutput)
 }
 
-func (o ClusterKerberosAttributesOutput) ADDomainJoinUser() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterKerberosAttributes) *string { return v.ADDomainJoinUser }).(pulumi.StringPtrOutput)
+func (o ClusterKerberosAttributesOutput) AdDomainJoinUser() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterKerberosAttributes) *string { return v.AdDomainJoinUser }).(pulumi.StringPtrOutput)
 }
 
 func (o ClusterKerberosAttributesOutput) CrossRealmTrustPrincipalPassword() pulumi.StringPtrOutput {
@@ -2524,21 +2524,21 @@ func (o ClusterKerberosAttributesPtrOutput) Elem() ClusterKerberosAttributesOutp
 	}).(ClusterKerberosAttributesOutput)
 }
 
-func (o ClusterKerberosAttributesPtrOutput) ADDomainJoinPassword() pulumi.StringPtrOutput {
+func (o ClusterKerberosAttributesPtrOutput) AdDomainJoinPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterKerberosAttributes) *string {
 		if v == nil {
 			return nil
 		}
-		return v.ADDomainJoinPassword
+		return v.AdDomainJoinPassword
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o ClusterKerberosAttributesPtrOutput) ADDomainJoinUser() pulumi.StringPtrOutput {
+func (o ClusterKerberosAttributesPtrOutput) AdDomainJoinUser() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterKerberosAttributes) *string {
 		if v == nil {
 			return nil
 		}
-		return v.ADDomainJoinUser
+		return v.AdDomainJoinUser
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4036,7 +4036,7 @@ func (o ClusterTagArrayOutput) Index(i pulumi.IntInput) ClusterTagOutput {
 
 type ClusterVolumeSpecification struct {
 	Iops       *int   `pulumi:"iops"`
-	SizeInGB   int    `pulumi:"sizeInGB"`
+	SizeInGb   int    `pulumi:"sizeInGb"`
 	VolumeType string `pulumi:"volumeType"`
 }
 
@@ -4053,7 +4053,7 @@ type ClusterVolumeSpecificationInput interface {
 
 type ClusterVolumeSpecificationArgs struct {
 	Iops       pulumi.IntPtrInput `pulumi:"iops"`
-	SizeInGB   pulumi.IntInput    `pulumi:"sizeInGB"`
+	SizeInGb   pulumi.IntInput    `pulumi:"sizeInGb"`
 	VolumeType pulumi.StringInput `pulumi:"volumeType"`
 }
 
@@ -4087,8 +4087,8 @@ func (o ClusterVolumeSpecificationOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterVolumeSpecification) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
-func (o ClusterVolumeSpecificationOutput) SizeInGB() pulumi.IntOutput {
-	return o.ApplyT(func(v ClusterVolumeSpecification) int { return v.SizeInGB }).(pulumi.IntOutput)
+func (o ClusterVolumeSpecificationOutput) SizeInGb() pulumi.IntOutput {
+	return o.ApplyT(func(v ClusterVolumeSpecification) int { return v.SizeInGb }).(pulumi.IntOutput)
 }
 
 func (o ClusterVolumeSpecificationOutput) VolumeType() pulumi.StringOutput {
@@ -5052,7 +5052,7 @@ func (o InstanceFleetConfigSpotProvisioningSpecificationPtrOutput) TimeoutDurati
 
 type InstanceFleetConfigVolumeSpecification struct {
 	Iops       *int   `pulumi:"iops"`
-	SizeInGB   int    `pulumi:"sizeInGB"`
+	SizeInGb   int    `pulumi:"sizeInGb"`
 	VolumeType string `pulumi:"volumeType"`
 }
 
@@ -5069,7 +5069,7 @@ type InstanceFleetConfigVolumeSpecificationInput interface {
 
 type InstanceFleetConfigVolumeSpecificationArgs struct {
 	Iops       pulumi.IntPtrInput `pulumi:"iops"`
-	SizeInGB   pulumi.IntInput    `pulumi:"sizeInGB"`
+	SizeInGb   pulumi.IntInput    `pulumi:"sizeInGb"`
 	VolumeType pulumi.StringInput `pulumi:"volumeType"`
 }
 
@@ -5103,8 +5103,8 @@ func (o InstanceFleetConfigVolumeSpecificationOutput) Iops() pulumi.IntPtrOutput
 	return o.ApplyT(func(v InstanceFleetConfigVolumeSpecification) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
-func (o InstanceFleetConfigVolumeSpecificationOutput) SizeInGB() pulumi.IntOutput {
-	return o.ApplyT(func(v InstanceFleetConfigVolumeSpecification) int { return v.SizeInGB }).(pulumi.IntOutput)
+func (o InstanceFleetConfigVolumeSpecificationOutput) SizeInGb() pulumi.IntOutput {
+	return o.ApplyT(func(v InstanceFleetConfigVolumeSpecification) int { return v.SizeInGb }).(pulumi.IntOutput)
 }
 
 func (o InstanceFleetConfigVolumeSpecificationOutput) VolumeType() pulumi.StringOutput {
@@ -6249,7 +6249,7 @@ func (o InstanceGroupConfigSimpleScalingPolicyConfigurationOutput) ScalingAdjust
 
 type InstanceGroupConfigVolumeSpecification struct {
 	Iops       *int   `pulumi:"iops"`
-	SizeInGB   int    `pulumi:"sizeInGB"`
+	SizeInGb   int    `pulumi:"sizeInGb"`
 	VolumeType string `pulumi:"volumeType"`
 }
 
@@ -6266,7 +6266,7 @@ type InstanceGroupConfigVolumeSpecificationInput interface {
 
 type InstanceGroupConfigVolumeSpecificationArgs struct {
 	Iops       pulumi.IntPtrInput `pulumi:"iops"`
-	SizeInGB   pulumi.IntInput    `pulumi:"sizeInGB"`
+	SizeInGb   pulumi.IntInput    `pulumi:"sizeInGb"`
 	VolumeType pulumi.StringInput `pulumi:"volumeType"`
 }
 
@@ -6300,8 +6300,8 @@ func (o InstanceGroupConfigVolumeSpecificationOutput) Iops() pulumi.IntPtrOutput
 	return o.ApplyT(func(v InstanceGroupConfigVolumeSpecification) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
-func (o InstanceGroupConfigVolumeSpecificationOutput) SizeInGB() pulumi.IntOutput {
-	return o.ApplyT(func(v InstanceGroupConfigVolumeSpecification) int { return v.SizeInGB }).(pulumi.IntOutput)
+func (o InstanceGroupConfigVolumeSpecificationOutput) SizeInGb() pulumi.IntOutput {
+	return o.ApplyT(func(v InstanceGroupConfigVolumeSpecification) int { return v.SizeInGb }).(pulumi.IntOutput)
 }
 
 func (o InstanceGroupConfigVolumeSpecificationOutput) VolumeType() pulumi.StringOutput {

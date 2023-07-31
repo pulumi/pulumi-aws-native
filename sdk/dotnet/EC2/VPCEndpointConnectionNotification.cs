@@ -25,8 +25,8 @@ namespace Pulumi.AwsNative.EC2
         [Output("serviceId")]
         public Output<string?> ServiceId { get; private set; } = null!;
 
-        [Output("vPCEndpointId")]
-        public Output<string?> VPCEndpointId { get; private set; } = null!;
+        [Output("vpcEndpointId")]
+        public Output<string?> VpcEndpointId { get; private set; } = null!;
 
 
         /// <summary>
@@ -87,8 +87,8 @@ namespace Pulumi.AwsNative.EC2
         [Input("serviceId")]
         public Input<string>? ServiceId { get; set; }
 
-        [Input("vPCEndpointId")]
-        public Input<string>? VPCEndpointId { get; set; }
+        [Input("vpcEndpointId")]
+        public Input<string>? VpcEndpointId { get; set; }
 
         public VPCEndpointConnectionNotificationArgs()
         {

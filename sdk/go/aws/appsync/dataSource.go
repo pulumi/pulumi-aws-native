@@ -21,7 +21,7 @@ type DataSource struct {
 	ApiId                    pulumi.StringOutput                         `pulumi:"apiId"`
 	DataSourceArn            pulumi.StringOutput                         `pulumi:"dataSourceArn"`
 	Description              pulumi.StringPtrOutput                      `pulumi:"description"`
-	DynamoDBConfig           DataSourceDynamoDBConfigPtrOutput           `pulumi:"dynamoDBConfig"`
+	DynamoDbConfig           DataSourceDynamoDBConfigPtrOutput           `pulumi:"dynamoDbConfig"`
 	ElasticsearchConfig      DataSourceElasticsearchConfigPtrOutput      `pulumi:"elasticsearchConfig"`
 	EventBridgeConfig        DataSourceEventBridgeConfigPtrOutput        `pulumi:"eventBridgeConfig"`
 	HttpConfig               DataSourceHttpConfigPtrOutput               `pulumi:"httpConfig"`
@@ -81,7 +81,7 @@ func (DataSourceState) ElementType() reflect.Type {
 type dataSourceArgs struct {
 	ApiId                    string                              `pulumi:"apiId"`
 	Description              *string                             `pulumi:"description"`
-	DynamoDBConfig           *DataSourceDynamoDBConfig           `pulumi:"dynamoDBConfig"`
+	DynamoDbConfig           *DataSourceDynamoDBConfig           `pulumi:"dynamoDbConfig"`
 	ElasticsearchConfig      *DataSourceElasticsearchConfig      `pulumi:"elasticsearchConfig"`
 	EventBridgeConfig        *DataSourceEventBridgeConfig        `pulumi:"eventBridgeConfig"`
 	HttpConfig               *DataSourceHttpConfig               `pulumi:"httpConfig"`
@@ -97,7 +97,7 @@ type dataSourceArgs struct {
 type DataSourceArgs struct {
 	ApiId                    pulumi.StringInput
 	Description              pulumi.StringPtrInput
-	DynamoDBConfig           DataSourceDynamoDBConfigPtrInput
+	DynamoDbConfig           DataSourceDynamoDBConfigPtrInput
 	ElasticsearchConfig      DataSourceElasticsearchConfigPtrInput
 	EventBridgeConfig        DataSourceEventBridgeConfigPtrInput
 	HttpConfig               DataSourceHttpConfigPtrInput
@@ -158,8 +158,8 @@ func (o DataSourceOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o DataSourceOutput) DynamoDBConfig() DataSourceDynamoDBConfigPtrOutput {
-	return o.ApplyT(func(v *DataSource) DataSourceDynamoDBConfigPtrOutput { return v.DynamoDBConfig }).(DataSourceDynamoDBConfigPtrOutput)
+func (o DataSourceOutput) DynamoDbConfig() DataSourceDynamoDBConfigPtrOutput {
+	return o.ApplyT(func(v *DataSource) DataSourceDynamoDBConfigPtrOutput { return v.DynamoDbConfig }).(DataSourceDynamoDBConfigPtrOutput)
 }
 
 func (o DataSourceOutput) ElasticsearchConfig() DataSourceElasticsearchConfigPtrOutput {
