@@ -509,7 +509,7 @@ jobs:
           echo "PACKAGE_VERSION=$(pulumictl get version --language generic)" >>
         $GITHUB_ENV
     - name: Publish Java SDK
-        uses: gradle/gradle-build-action@v2
+      uses: gradle/gradle-build-action@v2
       with:
         arguments: publishToSonatype closeAndReleaseSonatypeStagingRepository
         build-root-directory: ./sdk/java
