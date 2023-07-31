@@ -519,7 +519,7 @@
   "primaryIdentifier" : [ "/properties/JobDefinitionArn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "sagemaker:CreateModelBiasJobDefinition", "sagemaker:DescribeModelBiasJobDefinition", "iam:PassRole" ]
+      "permissions" : [ "sagemaker:CreateModelBiasJobDefinition", "sagemaker:DescribeModelBiasJobDefinition", "iam:PassRole", "sagemaker:AddTags" ]
     },
     "delete" : {
       "permissions" : [ "sagemaker:DeleteModelBiasJobDefinition" ]
@@ -528,9 +528,10 @@
       "permissions" : [ "sagemaker:DescribeModelBiasJobDefinition" ]
     },
     "list" : {
-      "permissions" : [ "sagemaker:ListModelBiasJobDefinitions" ]
+      "permissions" : [ "sagemaker:ListModelBiasJobDefinitions", "sagemaker:ListTags" ]
     }
   },
   "readOnlyProperties" : [ "/properties/CreationTime", "/properties/JobDefinitionArn" ],
-  "createOnlyProperties" : [ "/properties/JobDefinitionName", "/properties/ModelBiasAppSpecification", "/properties/ModelBiasBaselineConfig", "/properties/ModelBiasJobInput", "/properties/ModelBiasJobOutputConfig", "/properties/JobResources", "/properties/NetworkConfig", "/properties/RoleArn", "/properties/StoppingCondition", "/properties/Tags" ]
+  "createOnlyProperties" : [ "/properties/JobDefinitionName", "/properties/ModelBiasAppSpecification", "/properties/ModelBiasBaselineConfig", "/properties/ModelBiasJobInput", "/properties/ModelBiasJobOutputConfig", "/properties/JobResources", "/properties/NetworkConfig", "/properties/RoleArn", "/properties/StoppingCondition", "/properties/Tags", "/properties/EndpointName" ],
+  "writeOnlyProperties" : [ "/properties/EndpointName", "/properties/Tags", "/properties/Tags/*/Key", "/properties/Tags/*/Value" ]
 }

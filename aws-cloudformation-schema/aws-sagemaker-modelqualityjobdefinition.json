@@ -541,7 +541,7 @@
   "primaryIdentifier" : [ "/properties/JobDefinitionArn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "sagemaker:CreateModelQualityJobDefinition", "sagemaker:DescribeModelQualityJobDefinition", "iam:PassRole" ]
+      "permissions" : [ "sagemaker:CreateModelQualityJobDefinition", "sagemaker:DescribeModelQualityJobDefinition", "sagemaker:AddTags", "iam:PassRole" ]
     },
     "delete" : {
       "permissions" : [ "sagemaker:DeleteModelQualityJobDefinition" ]
@@ -550,9 +550,10 @@
       "permissions" : [ "sagemaker:DescribeModelQualityJobDefinition" ]
     },
     "list" : {
-      "permissions" : [ "sagemaker:ListModelQualityJobDefinitions" ]
+      "permissions" : [ "sagemaker:ListModelQualityJobDefinitions", "sagemaker:ListTags" ]
     }
   },
   "readOnlyProperties" : [ "/properties/CreationTime", "/properties/JobDefinitionArn" ],
-  "createOnlyProperties" : [ "/properties/JobDefinitionName", "/properties/ModelQualityAppSpecification", "/properties/ModelQualityBaselineConfig", "/properties/ModelQualityJobInput", "/properties/ModelQualityJobOutputConfig", "/properties/JobResources", "/properties/NetworkConfig", "/properties/RoleArn", "/properties/StoppingCondition", "/properties/Tags" ]
+  "createOnlyProperties" : [ "/properties/JobDefinitionName", "/properties/ModelQualityAppSpecification", "/properties/ModelQualityBaselineConfig", "/properties/ModelQualityJobInput", "/properties/ModelQualityJobOutputConfig", "/properties/JobResources", "/properties/NetworkConfig", "/properties/RoleArn", "/properties/StoppingCondition", "/properties/Tags", "/properties/EndpointName" ],
+  "writeOnlyProperties" : [ "/properties/EndpointName", "/properties/Tags", "/properties/Tags/*/Key", "/properties/Tags/*/Value" ]
 }

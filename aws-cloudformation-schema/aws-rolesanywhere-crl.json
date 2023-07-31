@@ -59,10 +59,10 @@
   "primaryIdentifier" : [ "/properties/CrlId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "rolesanywhere:ImportCrl", "rolesanywhere:ListTagsForResource" ]
+      "permissions" : [ "rolesanywhere:ImportCrl", "rolesanywhere:TagResource", "rolesanywhere:ListTagsForResource" ]
     },
     "read" : {
-      "permissions" : [ "rolesanywhere:GetCrl" ]
+      "permissions" : [ "rolesanywhere:GetCrl", "rolesanywhere:ListTagsForResource" ]
     },
     "update" : {
       "permissions" : [ "rolesanywhere:EnableCrl", "rolesanywhere:DisableCrl", "rolesanywhere:UpdateCrl", "rolesanywhere:TagResource", "rolesanywhere:UntagResource", "rolesanywhere:ListTagsForResource" ]
