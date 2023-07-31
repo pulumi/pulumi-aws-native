@@ -19,7 +19,7 @@ class StudioComponentArgs:
     def __init__(__self__, *,
                  studio_id: pulumi.Input[str],
                  type: pulumi.Input['StudioComponentType'],
-                 configuration: Optional[pulumi.Input['StudioComponentConfigurationArgs']] = None,
+                 configuration: Optional[pulumi.Input[Union['StudioComponentConfiguration0PropertiesArgs', 'StudioComponentConfiguration1PropertiesArgs', 'StudioComponentConfiguration2PropertiesArgs', 'StudioComponentConfiguration3PropertiesArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  ec2_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  initialization_scripts: Optional[pulumi.Input[Sequence[pulumi.Input['StudioComponentInitializationScriptArgs']]]] = None,
@@ -84,11 +84,11 @@ class StudioComponentArgs:
 
     @property
     @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input['StudioComponentConfigurationArgs']]:
+    def configuration(self) -> Optional[pulumi.Input[Union['StudioComponentConfiguration0PropertiesArgs', 'StudioComponentConfiguration1PropertiesArgs', 'StudioComponentConfiguration2PropertiesArgs', 'StudioComponentConfiguration3PropertiesArgs']]]:
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input['StudioComponentConfigurationArgs']]):
+    def configuration(self, value: Optional[pulumi.Input[Union['StudioComponentConfiguration0PropertiesArgs', 'StudioComponentConfiguration1PropertiesArgs', 'StudioComponentConfiguration2PropertiesArgs', 'StudioComponentConfiguration3PropertiesArgs']]]):
         pulumi.set(self, "configuration", value)
 
     @property
@@ -193,7 +193,7 @@ class StudioComponent(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[pulumi.InputType['StudioComponentConfigurationArgs']]] = None,
+                 configuration: Optional[pulumi.Input[Union[pulumi.InputType['StudioComponentConfiguration0PropertiesArgs'], pulumi.InputType['StudioComponentConfiguration1PropertiesArgs'], pulumi.InputType['StudioComponentConfiguration2PropertiesArgs'], pulumi.InputType['StudioComponentConfiguration3PropertiesArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  ec2_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  initialization_scripts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StudioComponentInitializationScriptArgs']]]]] = None,
@@ -242,7 +242,7 @@ class StudioComponent(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[pulumi.InputType['StudioComponentConfigurationArgs']]] = None,
+                 configuration: Optional[pulumi.Input[Union[pulumi.InputType['StudioComponentConfiguration0PropertiesArgs'], pulumi.InputType['StudioComponentConfiguration1PropertiesArgs'], pulumi.InputType['StudioComponentConfiguration2PropertiesArgs'], pulumi.InputType['StudioComponentConfiguration3PropertiesArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  ec2_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  initialization_scripts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StudioComponentInitializationScriptArgs']]]]] = None,
@@ -319,7 +319,7 @@ class StudioComponent(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def configuration(self) -> pulumi.Output[Optional['outputs.StudioComponentConfiguration']]:
+    def configuration(self) -> pulumi.Output[Optional[Any]]:
         return pulumi.get(self, "configuration")
 
     @property

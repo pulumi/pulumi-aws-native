@@ -11,10 +11,16 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'CampaignCollectionSchemeArgs',
-    'CampaignDataDestinationConfigArgs',
+    'CampaignConditionBasedCollectionSchemeArgs',
+    'CampaignS3ConfigArgs',
     'CampaignSignalInformationArgs',
     'CampaignTagArgs',
+    'CampaignTimeBasedCollectionSchemeArgs',
+    'CampaignTimestreamConfigArgs',
+    'CollectionScheme0PropertiesArgs',
+    'CollectionScheme1PropertiesArgs',
+    'DataDestinationConfig0PropertiesArgs',
+    'DataDestinationConfig1PropertiesArgs',
     'DecoderManifestCanInterfaceArgs',
     'DecoderManifestCanNetworkInterfaceArgs',
     'DecoderManifestCanSignalDecoderArgs',
@@ -26,23 +32,122 @@ __all__ = [
     'DecoderManifestTagArgs',
     'FleetTagArgs',
     'ModelManifestTagArgs',
+    'Node0PropertiesArgs',
+    'Node1PropertiesArgs',
+    'Node2PropertiesArgs',
+    'Node3PropertiesArgs',
+    'SignalCatalogActuatorArgs',
+    'SignalCatalogAttributeArgs',
+    'SignalCatalogBranchArgs',
     'SignalCatalogNodeCountsArgs',
-    'SignalCatalogNodeArgs',
+    'SignalCatalogSensorArgs',
     'SignalCatalogTagArgs',
     'VehicleTagArgs',
     'VehicleattributesMapArgs',
 ]
 
 @pulumi.input_type
-class CampaignCollectionSchemeArgs:
-    def __init__(__self__):
-        pass
+class CampaignConditionBasedCollectionSchemeArgs:
+    def __init__(__self__, *,
+                 expression: pulumi.Input[str],
+                 condition_language_version: Optional[pulumi.Input[int]] = None,
+                 minimum_trigger_interval_ms: Optional[pulumi.Input[float]] = None,
+                 trigger_mode: Optional[pulumi.Input['CampaignTriggerMode']] = None):
+        pulumi.set(__self__, "expression", expression)
+        if condition_language_version is not None:
+            pulumi.set(__self__, "condition_language_version", condition_language_version)
+        if minimum_trigger_interval_ms is not None:
+            pulumi.set(__self__, "minimum_trigger_interval_ms", minimum_trigger_interval_ms)
+        if trigger_mode is not None:
+            pulumi.set(__self__, "trigger_mode", trigger_mode)
+
+    @property
+    @pulumi.getter
+    def expression(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "expression")
+
+    @expression.setter
+    def expression(self, value: pulumi.Input[str]):
+        pulumi.set(self, "expression", value)
+
+    @property
+    @pulumi.getter(name="conditionLanguageVersion")
+    def condition_language_version(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "condition_language_version")
+
+    @condition_language_version.setter
+    def condition_language_version(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "condition_language_version", value)
+
+    @property
+    @pulumi.getter(name="minimumTriggerIntervalMs")
+    def minimum_trigger_interval_ms(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "minimum_trigger_interval_ms")
+
+    @minimum_trigger_interval_ms.setter
+    def minimum_trigger_interval_ms(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "minimum_trigger_interval_ms", value)
+
+    @property
+    @pulumi.getter(name="triggerMode")
+    def trigger_mode(self) -> Optional[pulumi.Input['CampaignTriggerMode']]:
+        return pulumi.get(self, "trigger_mode")
+
+    @trigger_mode.setter
+    def trigger_mode(self, value: Optional[pulumi.Input['CampaignTriggerMode']]):
+        pulumi.set(self, "trigger_mode", value)
 
 
 @pulumi.input_type
-class CampaignDataDestinationConfigArgs:
-    def __init__(__self__):
-        pass
+class CampaignS3ConfigArgs:
+    def __init__(__self__, *,
+                 bucket_arn: pulumi.Input[str],
+                 data_format: Optional[pulumi.Input['CampaignDataFormat']] = None,
+                 prefix: Optional[pulumi.Input[str]] = None,
+                 storage_compression_format: Optional[pulumi.Input['CampaignStorageCompressionFormat']] = None):
+        pulumi.set(__self__, "bucket_arn", bucket_arn)
+        if data_format is not None:
+            pulumi.set(__self__, "data_format", data_format)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+        if storage_compression_format is not None:
+            pulumi.set(__self__, "storage_compression_format", storage_compression_format)
+
+    @property
+    @pulumi.getter(name="bucketArn")
+    def bucket_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "bucket_arn")
+
+    @bucket_arn.setter
+    def bucket_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bucket_arn", value)
+
+    @property
+    @pulumi.getter(name="dataFormat")
+    def data_format(self) -> Optional[pulumi.Input['CampaignDataFormat']]:
+        return pulumi.get(self, "data_format")
+
+    @data_format.setter
+    def data_format(self, value: Optional[pulumi.Input['CampaignDataFormat']]):
+        pulumi.set(self, "data_format", value)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "prefix")
+
+    @prefix.setter
+    def prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "prefix", value)
+
+    @property
+    @pulumi.getter(name="storageCompressionFormat")
+    def storage_compression_format(self) -> Optional[pulumi.Input['CampaignStorageCompressionFormat']]:
+        return pulumi.get(self, "storage_compression_format")
+
+    @storage_compression_format.setter
+    def storage_compression_format(self, value: Optional[pulumi.Input['CampaignStorageCompressionFormat']]):
+        pulumi.set(self, "storage_compression_format", value)
 
 
 @pulumi.input_type
@@ -110,6 +215,113 @@ class CampaignTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class CampaignTimeBasedCollectionSchemeArgs:
+    def __init__(__self__, *,
+                 period_ms: pulumi.Input[float]):
+        pulumi.set(__self__, "period_ms", period_ms)
+
+    @property
+    @pulumi.getter(name="periodMs")
+    def period_ms(self) -> pulumi.Input[float]:
+        return pulumi.get(self, "period_ms")
+
+    @period_ms.setter
+    def period_ms(self, value: pulumi.Input[float]):
+        pulumi.set(self, "period_ms", value)
+
+
+@pulumi.input_type
+class CampaignTimestreamConfigArgs:
+    def __init__(__self__, *,
+                 execution_role_arn: pulumi.Input[str],
+                 timestream_table_arn: pulumi.Input[str]):
+        pulumi.set(__self__, "execution_role_arn", execution_role_arn)
+        pulumi.set(__self__, "timestream_table_arn", timestream_table_arn)
+
+    @property
+    @pulumi.getter(name="executionRoleArn")
+    def execution_role_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "execution_role_arn")
+
+    @execution_role_arn.setter
+    def execution_role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "execution_role_arn", value)
+
+    @property
+    @pulumi.getter(name="timestreamTableArn")
+    def timestream_table_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "timestream_table_arn")
+
+    @timestream_table_arn.setter
+    def timestream_table_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "timestream_table_arn", value)
+
+
+@pulumi.input_type
+class CollectionScheme0PropertiesArgs:
+    def __init__(__self__, *,
+                 time_based_collection_scheme: pulumi.Input['CampaignTimeBasedCollectionSchemeArgs']):
+        pulumi.set(__self__, "time_based_collection_scheme", time_based_collection_scheme)
+
+    @property
+    @pulumi.getter(name="timeBasedCollectionScheme")
+    def time_based_collection_scheme(self) -> pulumi.Input['CampaignTimeBasedCollectionSchemeArgs']:
+        return pulumi.get(self, "time_based_collection_scheme")
+
+    @time_based_collection_scheme.setter
+    def time_based_collection_scheme(self, value: pulumi.Input['CampaignTimeBasedCollectionSchemeArgs']):
+        pulumi.set(self, "time_based_collection_scheme", value)
+
+
+@pulumi.input_type
+class CollectionScheme1PropertiesArgs:
+    def __init__(__self__, *,
+                 condition_based_collection_scheme: pulumi.Input['CampaignConditionBasedCollectionSchemeArgs']):
+        pulumi.set(__self__, "condition_based_collection_scheme", condition_based_collection_scheme)
+
+    @property
+    @pulumi.getter(name="conditionBasedCollectionScheme")
+    def condition_based_collection_scheme(self) -> pulumi.Input['CampaignConditionBasedCollectionSchemeArgs']:
+        return pulumi.get(self, "condition_based_collection_scheme")
+
+    @condition_based_collection_scheme.setter
+    def condition_based_collection_scheme(self, value: pulumi.Input['CampaignConditionBasedCollectionSchemeArgs']):
+        pulumi.set(self, "condition_based_collection_scheme", value)
+
+
+@pulumi.input_type
+class DataDestinationConfig0PropertiesArgs:
+    def __init__(__self__, *,
+                 s3_config: pulumi.Input['CampaignS3ConfigArgs']):
+        pulumi.set(__self__, "s3_config", s3_config)
+
+    @property
+    @pulumi.getter(name="s3Config")
+    def s3_config(self) -> pulumi.Input['CampaignS3ConfigArgs']:
+        return pulumi.get(self, "s3_config")
+
+    @s3_config.setter
+    def s3_config(self, value: pulumi.Input['CampaignS3ConfigArgs']):
+        pulumi.set(self, "s3_config", value)
+
+
+@pulumi.input_type
+class DataDestinationConfig1PropertiesArgs:
+    def __init__(__self__, *,
+                 timestream_config: pulumi.Input['CampaignTimestreamConfigArgs']):
+        pulumi.set(__self__, "timestream_config", timestream_config)
+
+    @property
+    @pulumi.getter(name="timestreamConfig")
+    def timestream_config(self) -> pulumi.Input['CampaignTimestreamConfigArgs']:
+        return pulumi.get(self, "timestream_config")
+
+    @timestream_config.setter
+    def timestream_config(self, value: pulumi.Input['CampaignTimestreamConfigArgs']):
+        pulumi.set(self, "timestream_config", value)
 
 
 @pulumi.input_type
@@ -695,6 +907,312 @@ class ModelManifestTagArgs:
 
 
 @pulumi.input_type
+class Node0PropertiesArgs:
+    def __init__(__self__, *,
+                 branch: Optional[pulumi.Input['SignalCatalogBranchArgs']] = None):
+        if branch is not None:
+            pulumi.set(__self__, "branch", branch)
+
+    @property
+    @pulumi.getter
+    def branch(self) -> Optional[pulumi.Input['SignalCatalogBranchArgs']]:
+        return pulumi.get(self, "branch")
+
+    @branch.setter
+    def branch(self, value: Optional[pulumi.Input['SignalCatalogBranchArgs']]):
+        pulumi.set(self, "branch", value)
+
+
+@pulumi.input_type
+class Node1PropertiesArgs:
+    def __init__(__self__, *,
+                 sensor: Optional[pulumi.Input['SignalCatalogSensorArgs']] = None):
+        if sensor is not None:
+            pulumi.set(__self__, "sensor", sensor)
+
+    @property
+    @pulumi.getter
+    def sensor(self) -> Optional[pulumi.Input['SignalCatalogSensorArgs']]:
+        return pulumi.get(self, "sensor")
+
+    @sensor.setter
+    def sensor(self, value: Optional[pulumi.Input['SignalCatalogSensorArgs']]):
+        pulumi.set(self, "sensor", value)
+
+
+@pulumi.input_type
+class Node2PropertiesArgs:
+    def __init__(__self__, *,
+                 actuator: Optional[pulumi.Input['SignalCatalogActuatorArgs']] = None):
+        if actuator is not None:
+            pulumi.set(__self__, "actuator", actuator)
+
+    @property
+    @pulumi.getter
+    def actuator(self) -> Optional[pulumi.Input['SignalCatalogActuatorArgs']]:
+        return pulumi.get(self, "actuator")
+
+    @actuator.setter
+    def actuator(self, value: Optional[pulumi.Input['SignalCatalogActuatorArgs']]):
+        pulumi.set(self, "actuator", value)
+
+
+@pulumi.input_type
+class Node3PropertiesArgs:
+    def __init__(__self__, *,
+                 attribute: Optional[pulumi.Input['SignalCatalogAttributeArgs']] = None):
+        if attribute is not None:
+            pulumi.set(__self__, "attribute", attribute)
+
+    @property
+    @pulumi.getter
+    def attribute(self) -> Optional[pulumi.Input['SignalCatalogAttributeArgs']]:
+        return pulumi.get(self, "attribute")
+
+    @attribute.setter
+    def attribute(self, value: Optional[pulumi.Input['SignalCatalogAttributeArgs']]):
+        pulumi.set(self, "attribute", value)
+
+
+@pulumi.input_type
+class SignalCatalogActuatorArgs:
+    def __init__(__self__, *,
+                 data_type: pulumi.Input['SignalCatalogNodeDataType'],
+                 fully_qualified_name: pulumi.Input[str],
+                 allowed_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 assigned_value: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 max: Optional[pulumi.Input[float]] = None,
+                 min: Optional[pulumi.Input[float]] = None,
+                 unit: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "data_type", data_type)
+        pulumi.set(__self__, "fully_qualified_name", fully_qualified_name)
+        if allowed_values is not None:
+            pulumi.set(__self__, "allowed_values", allowed_values)
+        if assigned_value is not None:
+            pulumi.set(__self__, "assigned_value", assigned_value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter(name="dataType")
+    def data_type(self) -> pulumi.Input['SignalCatalogNodeDataType']:
+        return pulumi.get(self, "data_type")
+
+    @data_type.setter
+    def data_type(self, value: pulumi.Input['SignalCatalogNodeDataType']):
+        pulumi.set(self, "data_type", value)
+
+    @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "fully_qualified_name")
+
+    @fully_qualified_name.setter
+    def fully_qualified_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "fully_qualified_name", value)
+
+    @property
+    @pulumi.getter(name="allowedValues")
+    def allowed_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "allowed_values")
+
+    @allowed_values.setter
+    def allowed_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_values", value)
+
+    @property
+    @pulumi.getter(name="assignedValue")
+    def assigned_value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "assigned_value")
+
+    @assigned_value.setter
+    def assigned_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "assigned_value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "max")
+
+    @max.setter
+    def max(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "max", value)
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "min")
+
+    @min.setter
+    def min(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "min", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "unit")
+
+    @unit.setter
+    def unit(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "unit", value)
+
+
+@pulumi.input_type
+class SignalCatalogAttributeArgs:
+    def __init__(__self__, *,
+                 data_type: pulumi.Input['SignalCatalogNodeDataType'],
+                 fully_qualified_name: pulumi.Input[str],
+                 allowed_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 assigned_value: Optional[pulumi.Input[str]] = None,
+                 default_value: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 max: Optional[pulumi.Input[float]] = None,
+                 min: Optional[pulumi.Input[float]] = None,
+                 unit: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "data_type", data_type)
+        pulumi.set(__self__, "fully_qualified_name", fully_qualified_name)
+        if allowed_values is not None:
+            pulumi.set(__self__, "allowed_values", allowed_values)
+        if assigned_value is not None:
+            pulumi.set(__self__, "assigned_value", assigned_value)
+        if default_value is not None:
+            pulumi.set(__self__, "default_value", default_value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter(name="dataType")
+    def data_type(self) -> pulumi.Input['SignalCatalogNodeDataType']:
+        return pulumi.get(self, "data_type")
+
+    @data_type.setter
+    def data_type(self, value: pulumi.Input['SignalCatalogNodeDataType']):
+        pulumi.set(self, "data_type", value)
+
+    @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "fully_qualified_name")
+
+    @fully_qualified_name.setter
+    def fully_qualified_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "fully_qualified_name", value)
+
+    @property
+    @pulumi.getter(name="allowedValues")
+    def allowed_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "allowed_values")
+
+    @allowed_values.setter
+    def allowed_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_values", value)
+
+    @property
+    @pulumi.getter(name="assignedValue")
+    def assigned_value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "assigned_value")
+
+    @assigned_value.setter
+    def assigned_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "assigned_value", value)
+
+    @property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default_value")
+
+    @default_value.setter
+    def default_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "max")
+
+    @max.setter
+    def max(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "max", value)
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "min")
+
+    @min.setter
+    def min(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "min", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "unit")
+
+    @unit.setter
+    def unit(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "unit", value)
+
+
+@pulumi.input_type
+class SignalCatalogBranchArgs:
+    def __init__(__self__, *,
+                 fully_qualified_name: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "fully_qualified_name", fully_qualified_name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "fully_qualified_name")
+
+    @fully_qualified_name.setter
+    def fully_qualified_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "fully_qualified_name", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+
+@pulumi.input_type
 class SignalCatalogNodeCountsArgs:
     def __init__(__self__, *,
                  total_actuators: Optional[pulumi.Input[float]] = None,
@@ -760,9 +1278,90 @@ class SignalCatalogNodeCountsArgs:
 
 
 @pulumi.input_type
-class SignalCatalogNodeArgs:
-    def __init__(__self__):
-        pass
+class SignalCatalogSensorArgs:
+    def __init__(__self__, *,
+                 data_type: pulumi.Input['SignalCatalogNodeDataType'],
+                 fully_qualified_name: pulumi.Input[str],
+                 allowed_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 max: Optional[pulumi.Input[float]] = None,
+                 min: Optional[pulumi.Input[float]] = None,
+                 unit: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "data_type", data_type)
+        pulumi.set(__self__, "fully_qualified_name", fully_qualified_name)
+        if allowed_values is not None:
+            pulumi.set(__self__, "allowed_values", allowed_values)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter(name="dataType")
+    def data_type(self) -> pulumi.Input['SignalCatalogNodeDataType']:
+        return pulumi.get(self, "data_type")
+
+    @data_type.setter
+    def data_type(self, value: pulumi.Input['SignalCatalogNodeDataType']):
+        pulumi.set(self, "data_type", value)
+
+    @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "fully_qualified_name")
+
+    @fully_qualified_name.setter
+    def fully_qualified_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "fully_qualified_name", value)
+
+    @property
+    @pulumi.getter(name="allowedValues")
+    def allowed_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "allowed_values")
+
+    @allowed_values.setter
+    def allowed_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_values", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "max")
+
+    @max.setter
+    def max(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "max", value)
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "min")
+
+    @min.setter
+    def min(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "min", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "unit")
+
+    @unit.setter
+    def unit(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "unit", value)
 
 
 @pulumi.input_type

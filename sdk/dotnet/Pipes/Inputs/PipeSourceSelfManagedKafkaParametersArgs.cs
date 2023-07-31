@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.Pipes.Inputs
         public Input<string>? ConsumerGroupID { get; set; }
 
         [Input("credentials")]
-        public Input<Inputs.PipeSelfManagedKafkaAccessConfigurationCredentialsArgs>? Credentials { get; set; }
+        public object? Credentials { get; set; }
 
         [Input("maximumBatchingWindowInSeconds")]
         public Input<int>? MaximumBatchingWindowInSeconds { get; set; }

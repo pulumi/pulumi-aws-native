@@ -10,6 +10,175 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type AnnotationStoreAnnotationType string
+
+const (
+	AnnotationStoreAnnotationTypeGeneric                   = AnnotationStoreAnnotationType("GENERIC")
+	AnnotationStoreAnnotationTypeChrPos                    = AnnotationStoreAnnotationType("CHR_POS")
+	AnnotationStoreAnnotationTypeChrPosRefAlt              = AnnotationStoreAnnotationType("CHR_POS_REF_ALT")
+	AnnotationStoreAnnotationTypeChrStartEndOneBase        = AnnotationStoreAnnotationType("CHR_START_END_ONE_BASE")
+	AnnotationStoreAnnotationTypeChrStartEndRefAltOneBase  = AnnotationStoreAnnotationType("CHR_START_END_REF_ALT_ONE_BASE")
+	AnnotationStoreAnnotationTypeChrStartEndZeroBase       = AnnotationStoreAnnotationType("CHR_START_END_ZERO_BASE")
+	AnnotationStoreAnnotationTypeChrStartEndRefAltZeroBase = AnnotationStoreAnnotationType("CHR_START_END_REF_ALT_ZERO_BASE")
+)
+
+func (AnnotationStoreAnnotationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnnotationStoreAnnotationType)(nil)).Elem()
+}
+
+func (e AnnotationStoreAnnotationType) ToAnnotationStoreAnnotationTypeOutput() AnnotationStoreAnnotationTypeOutput {
+	return pulumi.ToOutput(e).(AnnotationStoreAnnotationTypeOutput)
+}
+
+func (e AnnotationStoreAnnotationType) ToAnnotationStoreAnnotationTypeOutputWithContext(ctx context.Context) AnnotationStoreAnnotationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AnnotationStoreAnnotationTypeOutput)
+}
+
+func (e AnnotationStoreAnnotationType) ToAnnotationStoreAnnotationTypePtrOutput() AnnotationStoreAnnotationTypePtrOutput {
+	return e.ToAnnotationStoreAnnotationTypePtrOutputWithContext(context.Background())
+}
+
+func (e AnnotationStoreAnnotationType) ToAnnotationStoreAnnotationTypePtrOutputWithContext(ctx context.Context) AnnotationStoreAnnotationTypePtrOutput {
+	return AnnotationStoreAnnotationType(e).ToAnnotationStoreAnnotationTypeOutputWithContext(ctx).ToAnnotationStoreAnnotationTypePtrOutputWithContext(ctx)
+}
+
+func (e AnnotationStoreAnnotationType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnnotationStoreAnnotationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnnotationStoreAnnotationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AnnotationStoreAnnotationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AnnotationStoreAnnotationTypeOutput struct{ *pulumi.OutputState }
+
+func (AnnotationStoreAnnotationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnnotationStoreAnnotationType)(nil)).Elem()
+}
+
+func (o AnnotationStoreAnnotationTypeOutput) ToAnnotationStoreAnnotationTypeOutput() AnnotationStoreAnnotationTypeOutput {
+	return o
+}
+
+func (o AnnotationStoreAnnotationTypeOutput) ToAnnotationStoreAnnotationTypeOutputWithContext(ctx context.Context) AnnotationStoreAnnotationTypeOutput {
+	return o
+}
+
+func (o AnnotationStoreAnnotationTypeOutput) ToAnnotationStoreAnnotationTypePtrOutput() AnnotationStoreAnnotationTypePtrOutput {
+	return o.ToAnnotationStoreAnnotationTypePtrOutputWithContext(context.Background())
+}
+
+func (o AnnotationStoreAnnotationTypeOutput) ToAnnotationStoreAnnotationTypePtrOutputWithContext(ctx context.Context) AnnotationStoreAnnotationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnnotationStoreAnnotationType) *AnnotationStoreAnnotationType {
+		return &v
+	}).(AnnotationStoreAnnotationTypePtrOutput)
+}
+
+func (o AnnotationStoreAnnotationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AnnotationStoreAnnotationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnnotationStoreAnnotationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AnnotationStoreAnnotationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnnotationStoreAnnotationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnnotationStoreAnnotationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AnnotationStoreAnnotationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AnnotationStoreAnnotationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnnotationStoreAnnotationType)(nil)).Elem()
+}
+
+func (o AnnotationStoreAnnotationTypePtrOutput) ToAnnotationStoreAnnotationTypePtrOutput() AnnotationStoreAnnotationTypePtrOutput {
+	return o
+}
+
+func (o AnnotationStoreAnnotationTypePtrOutput) ToAnnotationStoreAnnotationTypePtrOutputWithContext(ctx context.Context) AnnotationStoreAnnotationTypePtrOutput {
+	return o
+}
+
+func (o AnnotationStoreAnnotationTypePtrOutput) Elem() AnnotationStoreAnnotationTypeOutput {
+	return o.ApplyT(func(v *AnnotationStoreAnnotationType) AnnotationStoreAnnotationType {
+		if v != nil {
+			return *v
+		}
+		var ret AnnotationStoreAnnotationType
+		return ret
+	}).(AnnotationStoreAnnotationTypeOutput)
+}
+
+func (o AnnotationStoreAnnotationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnnotationStoreAnnotationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AnnotationStoreAnnotationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AnnotationStoreAnnotationTypeInput is an input type that accepts AnnotationStoreAnnotationTypeArgs and AnnotationStoreAnnotationTypeOutput values.
+// You can construct a concrete instance of `AnnotationStoreAnnotationTypeInput` via:
+//
+//	AnnotationStoreAnnotationTypeArgs{...}
+type AnnotationStoreAnnotationTypeInput interface {
+	pulumi.Input
+
+	ToAnnotationStoreAnnotationTypeOutput() AnnotationStoreAnnotationTypeOutput
+	ToAnnotationStoreAnnotationTypeOutputWithContext(context.Context) AnnotationStoreAnnotationTypeOutput
+}
+
+var annotationStoreAnnotationTypePtrType = reflect.TypeOf((**AnnotationStoreAnnotationType)(nil)).Elem()
+
+type AnnotationStoreAnnotationTypePtrInput interface {
+	pulumi.Input
+
+	ToAnnotationStoreAnnotationTypePtrOutput() AnnotationStoreAnnotationTypePtrOutput
+	ToAnnotationStoreAnnotationTypePtrOutputWithContext(context.Context) AnnotationStoreAnnotationTypePtrOutput
+}
+
+type annotationStoreAnnotationTypePtr string
+
+func AnnotationStoreAnnotationTypePtr(v string) AnnotationStoreAnnotationTypePtrInput {
+	return (*annotationStoreAnnotationTypePtr)(&v)
+}
+
+func (*annotationStoreAnnotationTypePtr) ElementType() reflect.Type {
+	return annotationStoreAnnotationTypePtrType
+}
+
+func (in *annotationStoreAnnotationTypePtr) ToAnnotationStoreAnnotationTypePtrOutput() AnnotationStoreAnnotationTypePtrOutput {
+	return pulumi.ToOutput(in).(AnnotationStoreAnnotationTypePtrOutput)
+}
+
+func (in *annotationStoreAnnotationTypePtr) ToAnnotationStoreAnnotationTypePtrOutputWithContext(ctx context.Context) AnnotationStoreAnnotationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AnnotationStoreAnnotationTypePtrOutput)
+}
+
 type AnnotationStoreEncryptionType string
 
 const (
@@ -1360,6 +1529,8 @@ func (o WorkflowTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AnnotationStoreAnnotationTypeInput)(nil)).Elem(), AnnotationStoreAnnotationType("GENERIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnnotationStoreAnnotationTypePtrInput)(nil)).Elem(), AnnotationStoreAnnotationType("GENERIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnnotationStoreEncryptionTypeInput)(nil)).Elem(), AnnotationStoreEncryptionType("KMS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnnotationStoreEncryptionTypePtrInput)(nil)).Elem(), AnnotationStoreEncryptionType("KMS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnnotationStoreStoreFormatInput)(nil)).Elem(), AnnotationStoreStoreFormat("GFF"))
@@ -1372,6 +1543,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VariantStoreEncryptionTypePtrInput)(nil)).Elem(), VariantStoreEncryptionType("KMS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowEngineInput)(nil)).Elem(), WorkflowEngine("WDL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowEnginePtrInput)(nil)).Elem(), WorkflowEngine("WDL"))
+	pulumi.RegisterOutputType(AnnotationStoreAnnotationTypeOutput{})
+	pulumi.RegisterOutputType(AnnotationStoreAnnotationTypePtrOutput{})
 	pulumi.RegisterOutputType(AnnotationStoreEncryptionTypeOutput{})
 	pulumi.RegisterOutputType(AnnotationStoreEncryptionTypePtrOutput{})
 	pulumi.RegisterOutputType(AnnotationStoreStoreFormatOutput{})

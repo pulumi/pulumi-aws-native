@@ -22,7 +22,6 @@ __all__ = [
     'AutomationRuleStringFilter',
     'AutomationRuleTags',
     'AutomationRuleWorkflowUpdate',
-    'AutomationRulearnOrId',
     'AutomationRulemap',
     'AutomationRulesAction',
     'AutomationRulesFindingFieldsUpdate',
@@ -142,7 +141,7 @@ class AutomationRuleNoteUpdate(dict):
 
     def __init__(__self__, *,
                  text: str,
-                 updated_by: 'outputs.AutomationRulearnOrId'):
+                 updated_by: str):
         pulumi.set(__self__, "text", text)
         pulumi.set(__self__, "updated_by", updated_by)
 
@@ -153,7 +152,7 @@ class AutomationRuleNoteUpdate(dict):
 
     @property
     @pulumi.getter(name="updatedBy")
-    def updated_by(self) -> 'outputs.AutomationRulearnOrId':
+    def updated_by(self) -> str:
         return pulumi.get(self, "updated_by")
 
 
@@ -206,14 +205,14 @@ class AutomationRuleRelatedFinding(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 id: 'outputs.AutomationRulearnOrId',
+                 id: str,
                  product_arn: str):
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "product_arn", product_arn)
 
     @property
     @pulumi.getter
-    def id(self) -> 'outputs.AutomationRulearnOrId':
+    def id(self) -> str:
         return pulumi.get(self, "id")
 
     @property
@@ -292,12 +291,6 @@ class AutomationRuleWorkflowUpdate(dict):
     @pulumi.getter
     def status(self) -> 'AutomationRuleWorkflowUpdateStatus':
         return pulumi.get(self, "status")
-
-
-@pulumi.output_type
-class AutomationRulearnOrId(dict):
-    def __init__(__self__):
-        pass
 
 
 @pulumi.output_type

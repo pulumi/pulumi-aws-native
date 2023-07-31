@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.VerifiedPermissions
     public partial class Policy : global::Pulumi.CustomResource
     {
         [Output("definition")]
-        public Output<Outputs.PolicyDefinition> Definition { get; private set; } = null!;
+        public Output<Union<Outputs.PolicyDefinition0Properties, Outputs.PolicyDefinition1Properties>> Definition { get; private set; } = null!;
 
         [Output("policyId")]
         public Output<string> PolicyId { get; private set; } = null!;
@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.VerifiedPermissions
     public sealed class PolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("definition", required: true)]
-        public Input<Inputs.PolicyDefinitionArgs> Definition { get; set; } = null!;
+        public InputUnion<Inputs.PolicyDefinition0PropertiesArgs, Inputs.PolicyDefinition1PropertiesArgs> Definition { get; set; } = null!;
 
         [Input("policyStoreId")]
         public Input<string>? PolicyStoreId { get; set; }

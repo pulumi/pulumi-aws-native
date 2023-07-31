@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.Pipes.Inputs
         public Input<string>? ConsumerGroupID { get; set; }
 
         [Input("credentials")]
-        public Input<Inputs.PipeMSKAccessCredentialsArgs>? Credentials { get; set; }
+        public InputUnion<Inputs.MSKAccessCredentials0PropertiesArgs, Inputs.MSKAccessCredentials1PropertiesArgs>? Credentials { get; set; }
 
         [Input("maximumBatchingWindowInSeconds")]
         public Input<int>? MaximumBatchingWindowInSeconds { get; set; }

@@ -56,7 +56,7 @@ namespace Pulumi.AwsNative.IoTFleetWise
         public readonly string? Description;
         public readonly string? LastModificationTime;
         public readonly Outputs.SignalCatalogNodeCounts? NodeCounts;
-        public readonly ImmutableArray<Outputs.SignalCatalogNode> Nodes;
+        public readonly ImmutableArray<object> Nodes;
         public readonly ImmutableArray<Outputs.SignalCatalogTag> Tags;
 
         [OutputConstructor]
@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.IoTFleetWise
 
             Outputs.SignalCatalogNodeCounts? nodeCounts,
 
-            ImmutableArray<Outputs.SignalCatalogNode> nodes,
+            ImmutableArray<object> nodes,
 
             ImmutableArray<Outputs.SignalCatalogTag> tags)
         {

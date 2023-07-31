@@ -25,7 +25,7 @@ type AnnotationStore struct {
 	StatusMessage  pulumi.StringOutput                   `pulumi:"statusMessage"`
 	StoreArn       pulumi.StringOutput                   `pulumi:"storeArn"`
 	StoreFormat    AnnotationStoreStoreFormatOutput      `pulumi:"storeFormat"`
-	StoreOptions   AnnotationStoreStoreOptionsPtrOutput  `pulumi:"storeOptions"`
+	StoreOptions   StoreOptionsPropertiesPtrOutput       `pulumi:"storeOptions"`
 	StoreSizeBytes pulumi.Float64Output                  `pulumi:"storeSizeBytes"`
 	Tags           AnnotationStoreTagMapPtrOutput        `pulumi:"tags"`
 	UpdateTime     pulumi.StringOutput                   `pulumi:"updateTime"`
@@ -79,7 +79,7 @@ type annotationStoreArgs struct {
 	Reference    *AnnotationStoreReferenceItem `pulumi:"reference"`
 	SseConfig    *AnnotationStoreSseConfig     `pulumi:"sseConfig"`
 	StoreFormat  AnnotationStoreStoreFormat    `pulumi:"storeFormat"`
-	StoreOptions *AnnotationStoreStoreOptions  `pulumi:"storeOptions"`
+	StoreOptions *StoreOptionsProperties       `pulumi:"storeOptions"`
 	Tags         *AnnotationStoreTagMap        `pulumi:"tags"`
 }
 
@@ -90,7 +90,7 @@ type AnnotationStoreArgs struct {
 	Reference    AnnotationStoreReferenceItemPtrInput
 	SseConfig    AnnotationStoreSseConfigPtrInput
 	StoreFormat  AnnotationStoreStoreFormatInput
-	StoreOptions AnnotationStoreStoreOptionsPtrInput
+	StoreOptions StoreOptionsPropertiesPtrInput
 	Tags         AnnotationStoreTagMapPtrInput
 }
 
@@ -167,8 +167,8 @@ func (o AnnotationStoreOutput) StoreFormat() AnnotationStoreStoreFormatOutput {
 	return o.ApplyT(func(v *AnnotationStore) AnnotationStoreStoreFormatOutput { return v.StoreFormat }).(AnnotationStoreStoreFormatOutput)
 }
 
-func (o AnnotationStoreOutput) StoreOptions() AnnotationStoreStoreOptionsPtrOutput {
-	return o.ApplyT(func(v *AnnotationStore) AnnotationStoreStoreOptionsPtrOutput { return v.StoreOptions }).(AnnotationStoreStoreOptionsPtrOutput)
+func (o AnnotationStoreOutput) StoreOptions() StoreOptionsPropertiesPtrOutput {
+	return o.ApplyT(func(v *AnnotationStore) StoreOptionsPropertiesPtrOutput { return v.StoreOptions }).(StoreOptionsPropertiesPtrOutput)
 }
 
 func (o AnnotationStoreOutput) StoreSizeBytes() pulumi.Float64Output {

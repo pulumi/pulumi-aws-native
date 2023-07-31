@@ -5,6 +5,7 @@
 from enum import Enum
 
 __all__ = [
+    'AnnotationStoreAnnotationType',
     'AnnotationStoreEncryptionType',
     'AnnotationStoreStoreFormat',
     'AnnotationStoreStoreStatus',
@@ -16,6 +17,16 @@ __all__ = [
     'WorkflowStatus',
     'WorkflowType',
 ]
+
+
+class AnnotationStoreAnnotationType(str, Enum):
+    GENERIC = "GENERIC"
+    CHR_POS = "CHR_POS"
+    CHR_POS_REF_ALT = "CHR_POS_REF_ALT"
+    CHR_START_END_ONE_BASE = "CHR_START_END_ONE_BASE"
+    CHR_START_END_REF_ALT_ONE_BASE = "CHR_START_END_REF_ALT_ONE_BASE"
+    CHR_START_END_ZERO_BASE = "CHR_START_END_ZERO_BASE"
+    CHR_START_END_REF_ALT_ZERO_BASE = "CHR_START_END_REF_ALT_ZERO_BASE"
 
 
 class AnnotationStoreEncryptionType(str, Enum):

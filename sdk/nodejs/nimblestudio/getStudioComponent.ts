@@ -28,7 +28,7 @@ export interface GetStudioComponentArgs {
 }
 
 export interface GetStudioComponentResult {
-    readonly configuration?: outputs.nimblestudio.StudioComponentConfiguration;
+    readonly configuration?: outputs.nimblestudio.StudioComponentConfiguration0Properties | outputs.nimblestudio.StudioComponentConfiguration1Properties | outputs.nimblestudio.StudioComponentConfiguration2Properties | outputs.nimblestudio.StudioComponentConfiguration3Properties;
     /**
      * <p>The description.</p>
      */

@@ -955,10 +955,22 @@ func (o ComponentVariantValuesPtrOutput) Elem() ComponentVariantValuesOutput {
 	}).(ComponentVariantValuesOutput)
 }
 
+type FieldPosition0Properties struct {
+	Fixed FormFixedPosition `pulumi:"fixed"`
+}
+
+type FieldPosition1Properties struct {
+	RightOf string `pulumi:"rightOf"`
+}
+
+type FieldPosition2Properties struct {
+	Below string `pulumi:"below"`
+}
+
 type FormButton struct {
-	Children *string            `pulumi:"children"`
-	Excluded *bool              `pulumi:"excluded"`
-	Position *FormFieldPosition `pulumi:"position"`
+	Children *string     `pulumi:"children"`
+	Excluded *bool       `pulumi:"excluded"`
+	Position interface{} `pulumi:"position"`
 }
 
 // FormButtonInput is an input type that accepts FormButtonArgs and FormButtonOutput values.
@@ -973,9 +985,9 @@ type FormButtonInput interface {
 }
 
 type FormButtonArgs struct {
-	Children pulumi.StringPtrInput     `pulumi:"children"`
-	Excluded pulumi.BoolPtrInput       `pulumi:"excluded"`
-	Position FormFieldPositionPtrInput `pulumi:"position"`
+	Children pulumi.StringPtrInput `pulumi:"children"`
+	Excluded pulumi.BoolPtrInput   `pulumi:"excluded"`
+	Position pulumi.Input          `pulumi:"position"`
 }
 
 func (FormButtonArgs) ElementType() reflect.Type {
@@ -1063,8 +1075,8 @@ func (o FormButtonOutput) Excluded() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FormButton) *bool { return v.Excluded }).(pulumi.BoolPtrOutput)
 }
 
-func (o FormButtonOutput) Position() FormFieldPositionPtrOutput {
-	return o.ApplyT(func(v FormButton) *FormFieldPosition { return v.Position }).(FormFieldPositionPtrOutput)
+func (o FormButtonOutput) Position() pulumi.AnyOutput {
+	return o.ApplyT(func(v FormButton) interface{} { return v.Position }).(pulumi.AnyOutput)
 }
 
 type FormButtonPtrOutput struct{ *pulumi.OutputState }
@@ -1109,13 +1121,13 @@ func (o FormButtonPtrOutput) Excluded() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-func (o FormButtonPtrOutput) Position() FormFieldPositionPtrOutput {
-	return o.ApplyT(func(v *FormButton) *FormFieldPosition {
+func (o FormButtonPtrOutput) Position() pulumi.AnyOutput {
+	return o.ApplyT(func(v *FormButton) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Position
-	}).(FormFieldPositionPtrOutput)
+	}).(pulumi.AnyOutput)
 }
 
 type FormCTA struct {
@@ -1393,124 +1405,6 @@ func (o FormDataTypeConfigPtrOutput) DataTypeName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type FormFieldPosition struct {
-}
-
-// FormFieldPositionInput is an input type that accepts FormFieldPositionArgs and FormFieldPositionOutput values.
-// You can construct a concrete instance of `FormFieldPositionInput` via:
-//
-//	FormFieldPositionArgs{...}
-type FormFieldPositionInput interface {
-	pulumi.Input
-
-	ToFormFieldPositionOutput() FormFieldPositionOutput
-	ToFormFieldPositionOutputWithContext(context.Context) FormFieldPositionOutput
-}
-
-type FormFieldPositionArgs struct {
-}
-
-func (FormFieldPositionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FormFieldPosition)(nil)).Elem()
-}
-
-func (i FormFieldPositionArgs) ToFormFieldPositionOutput() FormFieldPositionOutput {
-	return i.ToFormFieldPositionOutputWithContext(context.Background())
-}
-
-func (i FormFieldPositionArgs) ToFormFieldPositionOutputWithContext(ctx context.Context) FormFieldPositionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FormFieldPositionOutput)
-}
-
-func (i FormFieldPositionArgs) ToFormFieldPositionPtrOutput() FormFieldPositionPtrOutput {
-	return i.ToFormFieldPositionPtrOutputWithContext(context.Background())
-}
-
-func (i FormFieldPositionArgs) ToFormFieldPositionPtrOutputWithContext(ctx context.Context) FormFieldPositionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FormFieldPositionOutput).ToFormFieldPositionPtrOutputWithContext(ctx)
-}
-
-// FormFieldPositionPtrInput is an input type that accepts FormFieldPositionArgs, FormFieldPositionPtr and FormFieldPositionPtrOutput values.
-// You can construct a concrete instance of `FormFieldPositionPtrInput` via:
-//
-//	        FormFieldPositionArgs{...}
-//
-//	or:
-//
-//	        nil
-type FormFieldPositionPtrInput interface {
-	pulumi.Input
-
-	ToFormFieldPositionPtrOutput() FormFieldPositionPtrOutput
-	ToFormFieldPositionPtrOutputWithContext(context.Context) FormFieldPositionPtrOutput
-}
-
-type formFieldPositionPtrType FormFieldPositionArgs
-
-func FormFieldPositionPtr(v *FormFieldPositionArgs) FormFieldPositionPtrInput {
-	return (*formFieldPositionPtrType)(v)
-}
-
-func (*formFieldPositionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FormFieldPosition)(nil)).Elem()
-}
-
-func (i *formFieldPositionPtrType) ToFormFieldPositionPtrOutput() FormFieldPositionPtrOutput {
-	return i.ToFormFieldPositionPtrOutputWithContext(context.Background())
-}
-
-func (i *formFieldPositionPtrType) ToFormFieldPositionPtrOutputWithContext(ctx context.Context) FormFieldPositionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FormFieldPositionPtrOutput)
-}
-
-type FormFieldPositionOutput struct{ *pulumi.OutputState }
-
-func (FormFieldPositionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FormFieldPosition)(nil)).Elem()
-}
-
-func (o FormFieldPositionOutput) ToFormFieldPositionOutput() FormFieldPositionOutput {
-	return o
-}
-
-func (o FormFieldPositionOutput) ToFormFieldPositionOutputWithContext(ctx context.Context) FormFieldPositionOutput {
-	return o
-}
-
-func (o FormFieldPositionOutput) ToFormFieldPositionPtrOutput() FormFieldPositionPtrOutput {
-	return o.ToFormFieldPositionPtrOutputWithContext(context.Background())
-}
-
-func (o FormFieldPositionOutput) ToFormFieldPositionPtrOutputWithContext(ctx context.Context) FormFieldPositionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FormFieldPosition) *FormFieldPosition {
-		return &v
-	}).(FormFieldPositionPtrOutput)
-}
-
-type FormFieldPositionPtrOutput struct{ *pulumi.OutputState }
-
-func (FormFieldPositionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FormFieldPosition)(nil)).Elem()
-}
-
-func (o FormFieldPositionPtrOutput) ToFormFieldPositionPtrOutput() FormFieldPositionPtrOutput {
-	return o
-}
-
-func (o FormFieldPositionPtrOutput) ToFormFieldPositionPtrOutputWithContext(ctx context.Context) FormFieldPositionPtrOutput {
-	return o
-}
-
-func (o FormFieldPositionPtrOutput) Elem() FormFieldPositionOutput {
-	return o.ApplyT(func(v *FormFieldPosition) FormFieldPosition {
-		if v != nil {
-			return *v
-		}
-		var ret FormFieldPosition
-		return ret
-	}).(FormFieldPositionOutput)
-}
-
 type FormFieldsMap struct {
 }
 
@@ -1646,9 +1540,9 @@ func (o FormSectionalElementMapPtrOutput) Elem() FormSectionalElementMapOutput {
 }
 
 type FormStyle struct {
-	HorizontalGap *FormStyleConfig `pulumi:"horizontalGap"`
-	OuterPadding  *FormStyleConfig `pulumi:"outerPadding"`
-	VerticalGap   *FormStyleConfig `pulumi:"verticalGap"`
+	HorizontalGap interface{} `pulumi:"horizontalGap"`
+	OuterPadding  interface{} `pulumi:"outerPadding"`
+	VerticalGap   interface{} `pulumi:"verticalGap"`
 }
 
 // FormStyleInput is an input type that accepts FormStyleArgs and FormStyleOutput values.
@@ -1663,9 +1557,9 @@ type FormStyleInput interface {
 }
 
 type FormStyleArgs struct {
-	HorizontalGap FormStyleConfigPtrInput `pulumi:"horizontalGap"`
-	OuterPadding  FormStyleConfigPtrInput `pulumi:"outerPadding"`
-	VerticalGap   FormStyleConfigPtrInput `pulumi:"verticalGap"`
+	HorizontalGap pulumi.Input `pulumi:"horizontalGap"`
+	OuterPadding  pulumi.Input `pulumi:"outerPadding"`
+	VerticalGap   pulumi.Input `pulumi:"verticalGap"`
 }
 
 func (FormStyleArgs) ElementType() reflect.Type {
@@ -1694,16 +1588,16 @@ func (o FormStyleOutput) ToFormStyleOutputWithContext(ctx context.Context) FormS
 	return o
 }
 
-func (o FormStyleOutput) HorizontalGap() FormStyleConfigPtrOutput {
-	return o.ApplyT(func(v FormStyle) *FormStyleConfig { return v.HorizontalGap }).(FormStyleConfigPtrOutput)
+func (o FormStyleOutput) HorizontalGap() pulumi.AnyOutput {
+	return o.ApplyT(func(v FormStyle) interface{} { return v.HorizontalGap }).(pulumi.AnyOutput)
 }
 
-func (o FormStyleOutput) OuterPadding() FormStyleConfigPtrOutput {
-	return o.ApplyT(func(v FormStyle) *FormStyleConfig { return v.OuterPadding }).(FormStyleConfigPtrOutput)
+func (o FormStyleOutput) OuterPadding() pulumi.AnyOutput {
+	return o.ApplyT(func(v FormStyle) interface{} { return v.OuterPadding }).(pulumi.AnyOutput)
 }
 
-func (o FormStyleOutput) VerticalGap() FormStyleConfigPtrOutput {
-	return o.ApplyT(func(v FormStyle) *FormStyleConfig { return v.VerticalGap }).(FormStyleConfigPtrOutput)
+func (o FormStyleOutput) VerticalGap() pulumi.AnyOutput {
+	return o.ApplyT(func(v FormStyle) interface{} { return v.VerticalGap }).(pulumi.AnyOutput)
 }
 
 type FormStylePtrOutput struct{ *pulumi.OutputState }
@@ -1730,149 +1624,39 @@ func (o FormStylePtrOutput) Elem() FormStyleOutput {
 	}).(FormStyleOutput)
 }
 
-func (o FormStylePtrOutput) HorizontalGap() FormStyleConfigPtrOutput {
-	return o.ApplyT(func(v *FormStyle) *FormStyleConfig {
+func (o FormStylePtrOutput) HorizontalGap() pulumi.AnyOutput {
+	return o.ApplyT(func(v *FormStyle) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.HorizontalGap
-	}).(FormStyleConfigPtrOutput)
+	}).(pulumi.AnyOutput)
 }
 
-func (o FormStylePtrOutput) OuterPadding() FormStyleConfigPtrOutput {
-	return o.ApplyT(func(v *FormStyle) *FormStyleConfig {
+func (o FormStylePtrOutput) OuterPadding() pulumi.AnyOutput {
+	return o.ApplyT(func(v *FormStyle) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.OuterPadding
-	}).(FormStyleConfigPtrOutput)
+	}).(pulumi.AnyOutput)
 }
 
-func (o FormStylePtrOutput) VerticalGap() FormStyleConfigPtrOutput {
-	return o.ApplyT(func(v *FormStyle) *FormStyleConfig {
+func (o FormStylePtrOutput) VerticalGap() pulumi.AnyOutput {
+	return o.ApplyT(func(v *FormStyle) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.VerticalGap
-	}).(FormStyleConfigPtrOutput)
+	}).(pulumi.AnyOutput)
 }
 
-type FormStyleConfig struct {
+type FormStyleConfig0Properties struct {
+	TokenReference string `pulumi:"tokenReference"`
 }
 
-// FormStyleConfigInput is an input type that accepts FormStyleConfigArgs and FormStyleConfigOutput values.
-// You can construct a concrete instance of `FormStyleConfigInput` via:
-//
-//	FormStyleConfigArgs{...}
-type FormStyleConfigInput interface {
-	pulumi.Input
-
-	ToFormStyleConfigOutput() FormStyleConfigOutput
-	ToFormStyleConfigOutputWithContext(context.Context) FormStyleConfigOutput
-}
-
-type FormStyleConfigArgs struct {
-}
-
-func (FormStyleConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FormStyleConfig)(nil)).Elem()
-}
-
-func (i FormStyleConfigArgs) ToFormStyleConfigOutput() FormStyleConfigOutput {
-	return i.ToFormStyleConfigOutputWithContext(context.Background())
-}
-
-func (i FormStyleConfigArgs) ToFormStyleConfigOutputWithContext(ctx context.Context) FormStyleConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FormStyleConfigOutput)
-}
-
-func (i FormStyleConfigArgs) ToFormStyleConfigPtrOutput() FormStyleConfigPtrOutput {
-	return i.ToFormStyleConfigPtrOutputWithContext(context.Background())
-}
-
-func (i FormStyleConfigArgs) ToFormStyleConfigPtrOutputWithContext(ctx context.Context) FormStyleConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FormStyleConfigOutput).ToFormStyleConfigPtrOutputWithContext(ctx)
-}
-
-// FormStyleConfigPtrInput is an input type that accepts FormStyleConfigArgs, FormStyleConfigPtr and FormStyleConfigPtrOutput values.
-// You can construct a concrete instance of `FormStyleConfigPtrInput` via:
-//
-//	        FormStyleConfigArgs{...}
-//
-//	or:
-//
-//	        nil
-type FormStyleConfigPtrInput interface {
-	pulumi.Input
-
-	ToFormStyleConfigPtrOutput() FormStyleConfigPtrOutput
-	ToFormStyleConfigPtrOutputWithContext(context.Context) FormStyleConfigPtrOutput
-}
-
-type formStyleConfigPtrType FormStyleConfigArgs
-
-func FormStyleConfigPtr(v *FormStyleConfigArgs) FormStyleConfigPtrInput {
-	return (*formStyleConfigPtrType)(v)
-}
-
-func (*formStyleConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FormStyleConfig)(nil)).Elem()
-}
-
-func (i *formStyleConfigPtrType) ToFormStyleConfigPtrOutput() FormStyleConfigPtrOutput {
-	return i.ToFormStyleConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *formStyleConfigPtrType) ToFormStyleConfigPtrOutputWithContext(ctx context.Context) FormStyleConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FormStyleConfigPtrOutput)
-}
-
-type FormStyleConfigOutput struct{ *pulumi.OutputState }
-
-func (FormStyleConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FormStyleConfig)(nil)).Elem()
-}
-
-func (o FormStyleConfigOutput) ToFormStyleConfigOutput() FormStyleConfigOutput {
-	return o
-}
-
-func (o FormStyleConfigOutput) ToFormStyleConfigOutputWithContext(ctx context.Context) FormStyleConfigOutput {
-	return o
-}
-
-func (o FormStyleConfigOutput) ToFormStyleConfigPtrOutput() FormStyleConfigPtrOutput {
-	return o.ToFormStyleConfigPtrOutputWithContext(context.Background())
-}
-
-func (o FormStyleConfigOutput) ToFormStyleConfigPtrOutputWithContext(ctx context.Context) FormStyleConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FormStyleConfig) *FormStyleConfig {
-		return &v
-	}).(FormStyleConfigPtrOutput)
-}
-
-type FormStyleConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (FormStyleConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FormStyleConfig)(nil)).Elem()
-}
-
-func (o FormStyleConfigPtrOutput) ToFormStyleConfigPtrOutput() FormStyleConfigPtrOutput {
-	return o
-}
-
-func (o FormStyleConfigPtrOutput) ToFormStyleConfigPtrOutputWithContext(ctx context.Context) FormStyleConfigPtrOutput {
-	return o
-}
-
-func (o FormStyleConfigPtrOutput) Elem() FormStyleConfigOutput {
-	return o.ApplyT(func(v *FormStyleConfig) FormStyleConfig {
-		if v != nil {
-			return *v
-		}
-		var ret FormStyleConfig
-		return ret
-	}).(FormStyleConfigOutput)
+type FormStyleConfig1Properties struct {
+	Value string `pulumi:"value"`
 }
 
 type FormTags struct {
@@ -2381,13 +2165,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FormCTAInput)(nil)).Elem(), FormCTAArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FormCTAPtrInput)(nil)).Elem(), FormCTAArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FormDataTypeConfigInput)(nil)).Elem(), FormDataTypeConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FormFieldPositionInput)(nil)).Elem(), FormFieldPositionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FormFieldPositionPtrInput)(nil)).Elem(), FormFieldPositionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FormFieldsMapInput)(nil)).Elem(), FormFieldsMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FormSectionalElementMapInput)(nil)).Elem(), FormSectionalElementMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FormStyleInput)(nil)).Elem(), FormStyleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FormStyleConfigInput)(nil)).Elem(), FormStyleConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FormStyleConfigPtrInput)(nil)).Elem(), FormStyleConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FormTagsInput)(nil)).Elem(), FormTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FormTagsPtrInput)(nil)).Elem(), FormTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThemeTagsInput)(nil)).Elem(), ThemeTagsArgs{})
@@ -2420,16 +2200,12 @@ func init() {
 	pulumi.RegisterOutputType(FormCTAPtrOutput{})
 	pulumi.RegisterOutputType(FormDataTypeConfigOutput{})
 	pulumi.RegisterOutputType(FormDataTypeConfigPtrOutput{})
-	pulumi.RegisterOutputType(FormFieldPositionOutput{})
-	pulumi.RegisterOutputType(FormFieldPositionPtrOutput{})
 	pulumi.RegisterOutputType(FormFieldsMapOutput{})
 	pulumi.RegisterOutputType(FormFieldsMapPtrOutput{})
 	pulumi.RegisterOutputType(FormSectionalElementMapOutput{})
 	pulumi.RegisterOutputType(FormSectionalElementMapPtrOutput{})
 	pulumi.RegisterOutputType(FormStyleOutput{})
 	pulumi.RegisterOutputType(FormStylePtrOutput{})
-	pulumi.RegisterOutputType(FormStyleConfigOutput{})
-	pulumi.RegisterOutputType(FormStyleConfigPtrOutput{})
 	pulumi.RegisterOutputType(FormTagsOutput{})
 	pulumi.RegisterOutputType(FormTagsPtrOutput{})
 	pulumi.RegisterOutputType(ThemeTagsOutput{})

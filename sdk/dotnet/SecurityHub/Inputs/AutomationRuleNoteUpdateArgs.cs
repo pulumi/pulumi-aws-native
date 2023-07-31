@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
         public Input<string> Text { get; set; } = null!;
 
         [Input("updatedBy", required: true)]
-        public Input<Inputs.AutomationRulearnOrIdArgs> UpdatedBy { get; set; } = null!;
+        public Input<string> UpdatedBy { get; set; } = null!;
 
         public AutomationRuleNoteUpdateArgs()
         {

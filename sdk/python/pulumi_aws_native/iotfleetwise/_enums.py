@@ -6,9 +6,12 @@ from enum import Enum
 
 __all__ = [
     'CampaignCompression',
+    'CampaignDataFormat',
     'CampaignDiagnosticsMode',
     'CampaignSpoolingMode',
     'CampaignStatus',
+    'CampaignStorageCompressionFormat',
+    'CampaignTriggerMode',
     'CampaignUpdateCampaignAction',
     'DecoderManifestCanNetworkInterfaceType',
     'DecoderManifestCanSignalDecoderType',
@@ -16,6 +19,7 @@ __all__ = [
     'DecoderManifestObdNetworkInterfaceType',
     'DecoderManifestObdSignalDecoderType',
     'ModelManifestManifestStatus',
+    'SignalCatalogNodeDataType',
     'VehicleAssociationBehavior',
 ]
 
@@ -23,6 +27,11 @@ __all__ = [
 class CampaignCompression(str, Enum):
     OFF = "OFF"
     SNAPPY = "SNAPPY"
+
+
+class CampaignDataFormat(str, Enum):
+    JSON = "JSON"
+    PARQUET = "PARQUET"
 
 
 class CampaignDiagnosticsMode(str, Enum):
@@ -40,6 +49,16 @@ class CampaignStatus(str, Enum):
     WAITING_FOR_APPROVAL = "WAITING_FOR_APPROVAL"
     RUNNING = "RUNNING"
     SUSPENDED = "SUSPENDED"
+
+
+class CampaignStorageCompressionFormat(str, Enum):
+    NONE = "NONE"
+    GZIP = "GZIP"
+
+
+class CampaignTriggerMode(str, Enum):
+    ALWAYS = "ALWAYS"
+    RISING_EDGE = "RISING_EDGE"
 
 
 class CampaignUpdateCampaignAction(str, Enum):
@@ -73,6 +92,36 @@ class DecoderManifestObdSignalDecoderType(str, Enum):
 class ModelManifestManifestStatus(str, Enum):
     ACTIVE = "ACTIVE"
     DRAFT = "DRAFT"
+
+
+class SignalCatalogNodeDataType(str, Enum):
+    INT8 = "INT8"
+    UINT8 = "UINT8"
+    INT16 = "INT16"
+    UINT16 = "UINT16"
+    INT32 = "INT32"
+    UINT32 = "UINT32"
+    INT64 = "INT64"
+    UINT64 = "UINT64"
+    BOOLEAN = "BOOLEAN"
+    FLOAT = "FLOAT"
+    DOUBLE = "DOUBLE"
+    STRING = "STRING"
+    UNIX_TIMESTAMP = "UNIX_TIMESTAMP"
+    INT8_ARRAY = "INT8_ARRAY"
+    UINT8_ARRAY = "UINT8_ARRAY"
+    INT16_ARRAY = "INT16_ARRAY"
+    UINT16_ARRAY = "UINT16_ARRAY"
+    INT32_ARRAY = "INT32_ARRAY"
+    UINT32_ARRAY = "UINT32_ARRAY"
+    INT64_ARRAY = "INT64_ARRAY"
+    UINT64_ARRAY = "UINT64_ARRAY"
+    BOOLEAN_ARRAY = "BOOLEAN_ARRAY"
+    FLOAT_ARRAY = "FLOAT_ARRAY"
+    DOUBLE_ARRAY = "DOUBLE_ARRAY"
+    STRING_ARRAY = "STRING_ARRAY"
+    UNIX_TIMESTAMP_ARRAY = "UNIX_TIMESTAMP_ARRAY"
+    UNKNOWN = "UNKNOWN"
 
 
 class VehicleAssociationBehavior(str, Enum):

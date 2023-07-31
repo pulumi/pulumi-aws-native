@@ -52,7 +52,7 @@ namespace Pulumi.AwsNative.AppStream
         public Output<ImmutableArray<string>> Platforms { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.ApplicationTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Union<Outputs.Tag0Properties, Outputs.Tag1Properties>>> Tags { get; private set; } = null!;
 
         [Output("workingDirectory")]
         public Output<string?> WorkingDirectory { get; private set; } = null!;
@@ -148,10 +148,10 @@ namespace Pulumi.AwsNative.AppStream
         }
 
         [Input("tags")]
-        private InputList<Inputs.ApplicationTagArgs>? _tags;
-        public InputList<Inputs.ApplicationTagArgs> Tags
+        private InputList<Union<Inputs.Tag0PropertiesArgs, Inputs.Tag1PropertiesArgs>>? _tags;
+        public InputList<Union<Inputs.Tag0PropertiesArgs, Inputs.Tag1PropertiesArgs>> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.ApplicationTagArgs>());
+            get => _tags ?? (_tags = new InputList<Union<Inputs.Tag0PropertiesArgs, Inputs.Tag1PropertiesArgs>>());
             set => _tags = value;
         }
 

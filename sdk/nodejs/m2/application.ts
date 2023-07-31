@@ -39,7 +39,7 @@ export class Application extends pulumi.CustomResource {
 
     public /*out*/ readonly applicationArn!: pulumi.Output<string>;
     public /*out*/ readonly applicationId!: pulumi.Output<string>;
-    public readonly definition!: pulumi.Output<outputs.m2.ApplicationDefinition>;
+    public readonly definition!: pulumi.Output<outputs.m2.Definition0Properties | outputs.m2.Definition1Properties>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly engineType!: pulumi.Output<enums.m2.ApplicationEngineType>;
     /**
@@ -96,7 +96,7 @@ export class Application extends pulumi.CustomResource {
  * The set of arguments for constructing a Application resource.
  */
 export interface ApplicationArgs {
-    definition: pulumi.Input<inputs.m2.ApplicationDefinitionArgs>;
+    definition: pulumi.Input<inputs.m2.Definition0PropertiesArgs | inputs.m2.Definition1PropertiesArgs>;
     description?: pulumi.Input<string>;
     engineType: pulumi.Input<enums.m2.ApplicationEngineType>;
     /**

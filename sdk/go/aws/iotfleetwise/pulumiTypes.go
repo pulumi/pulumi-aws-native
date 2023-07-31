@@ -13,135 +13,18 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
-type CampaignCollectionScheme struct {
+type CampaignConditionBasedCollectionScheme struct {
+	ConditionLanguageVersion *int                 `pulumi:"conditionLanguageVersion"`
+	Expression               string               `pulumi:"expression"`
+	MinimumTriggerIntervalMs *float64             `pulumi:"minimumTriggerIntervalMs"`
+	TriggerMode              *CampaignTriggerMode `pulumi:"triggerMode"`
 }
 
-// CampaignCollectionSchemeInput is an input type that accepts CampaignCollectionSchemeArgs and CampaignCollectionSchemeOutput values.
-// You can construct a concrete instance of `CampaignCollectionSchemeInput` via:
-//
-//	CampaignCollectionSchemeArgs{...}
-type CampaignCollectionSchemeInput interface {
-	pulumi.Input
-
-	ToCampaignCollectionSchemeOutput() CampaignCollectionSchemeOutput
-	ToCampaignCollectionSchemeOutputWithContext(context.Context) CampaignCollectionSchemeOutput
-}
-
-type CampaignCollectionSchemeArgs struct {
-}
-
-func (CampaignCollectionSchemeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CampaignCollectionScheme)(nil)).Elem()
-}
-
-func (i CampaignCollectionSchemeArgs) ToCampaignCollectionSchemeOutput() CampaignCollectionSchemeOutput {
-	return i.ToCampaignCollectionSchemeOutputWithContext(context.Background())
-}
-
-func (i CampaignCollectionSchemeArgs) ToCampaignCollectionSchemeOutputWithContext(ctx context.Context) CampaignCollectionSchemeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CampaignCollectionSchemeOutput)
-}
-
-type CampaignCollectionSchemeOutput struct{ *pulumi.OutputState }
-
-func (CampaignCollectionSchemeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CampaignCollectionScheme)(nil)).Elem()
-}
-
-func (o CampaignCollectionSchemeOutput) ToCampaignCollectionSchemeOutput() CampaignCollectionSchemeOutput {
-	return o
-}
-
-func (o CampaignCollectionSchemeOutput) ToCampaignCollectionSchemeOutputWithContext(ctx context.Context) CampaignCollectionSchemeOutput {
-	return o
-}
-
-type CampaignDataDestinationConfig struct {
-}
-
-// CampaignDataDestinationConfigInput is an input type that accepts CampaignDataDestinationConfigArgs and CampaignDataDestinationConfigOutput values.
-// You can construct a concrete instance of `CampaignDataDestinationConfigInput` via:
-//
-//	CampaignDataDestinationConfigArgs{...}
-type CampaignDataDestinationConfigInput interface {
-	pulumi.Input
-
-	ToCampaignDataDestinationConfigOutput() CampaignDataDestinationConfigOutput
-	ToCampaignDataDestinationConfigOutputWithContext(context.Context) CampaignDataDestinationConfigOutput
-}
-
-type CampaignDataDestinationConfigArgs struct {
-}
-
-func (CampaignDataDestinationConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CampaignDataDestinationConfig)(nil)).Elem()
-}
-
-func (i CampaignDataDestinationConfigArgs) ToCampaignDataDestinationConfigOutput() CampaignDataDestinationConfigOutput {
-	return i.ToCampaignDataDestinationConfigOutputWithContext(context.Background())
-}
-
-func (i CampaignDataDestinationConfigArgs) ToCampaignDataDestinationConfigOutputWithContext(ctx context.Context) CampaignDataDestinationConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CampaignDataDestinationConfigOutput)
-}
-
-// CampaignDataDestinationConfigArrayInput is an input type that accepts CampaignDataDestinationConfigArray and CampaignDataDestinationConfigArrayOutput values.
-// You can construct a concrete instance of `CampaignDataDestinationConfigArrayInput` via:
-//
-//	CampaignDataDestinationConfigArray{ CampaignDataDestinationConfigArgs{...} }
-type CampaignDataDestinationConfigArrayInput interface {
-	pulumi.Input
-
-	ToCampaignDataDestinationConfigArrayOutput() CampaignDataDestinationConfigArrayOutput
-	ToCampaignDataDestinationConfigArrayOutputWithContext(context.Context) CampaignDataDestinationConfigArrayOutput
-}
-
-type CampaignDataDestinationConfigArray []CampaignDataDestinationConfigInput
-
-func (CampaignDataDestinationConfigArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CampaignDataDestinationConfig)(nil)).Elem()
-}
-
-func (i CampaignDataDestinationConfigArray) ToCampaignDataDestinationConfigArrayOutput() CampaignDataDestinationConfigArrayOutput {
-	return i.ToCampaignDataDestinationConfigArrayOutputWithContext(context.Background())
-}
-
-func (i CampaignDataDestinationConfigArray) ToCampaignDataDestinationConfigArrayOutputWithContext(ctx context.Context) CampaignDataDestinationConfigArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CampaignDataDestinationConfigArrayOutput)
-}
-
-type CampaignDataDestinationConfigOutput struct{ *pulumi.OutputState }
-
-func (CampaignDataDestinationConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CampaignDataDestinationConfig)(nil)).Elem()
-}
-
-func (o CampaignDataDestinationConfigOutput) ToCampaignDataDestinationConfigOutput() CampaignDataDestinationConfigOutput {
-	return o
-}
-
-func (o CampaignDataDestinationConfigOutput) ToCampaignDataDestinationConfigOutputWithContext(ctx context.Context) CampaignDataDestinationConfigOutput {
-	return o
-}
-
-type CampaignDataDestinationConfigArrayOutput struct{ *pulumi.OutputState }
-
-func (CampaignDataDestinationConfigArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CampaignDataDestinationConfig)(nil)).Elem()
-}
-
-func (o CampaignDataDestinationConfigArrayOutput) ToCampaignDataDestinationConfigArrayOutput() CampaignDataDestinationConfigArrayOutput {
-	return o
-}
-
-func (o CampaignDataDestinationConfigArrayOutput) ToCampaignDataDestinationConfigArrayOutputWithContext(ctx context.Context) CampaignDataDestinationConfigArrayOutput {
-	return o
-}
-
-func (o CampaignDataDestinationConfigArrayOutput) Index(i pulumi.IntInput) CampaignDataDestinationConfigOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CampaignDataDestinationConfig {
-		return vs[0].([]CampaignDataDestinationConfig)[vs[1].(int)]
-	}).(CampaignDataDestinationConfigOutput)
+type CampaignS3Config struct {
+	BucketArn                string                            `pulumi:"bucketArn"`
+	DataFormat               *CampaignDataFormat               `pulumi:"dataFormat"`
+	Prefix                   *string                           `pulumi:"prefix"`
+	StorageCompressionFormat *CampaignStorageCompressionFormat `pulumi:"storageCompressionFormat"`
 }
 
 type CampaignSignalInformation struct {
@@ -348,6 +231,31 @@ func (o CampaignTagArrayOutput) Index(i pulumi.IntInput) CampaignTagOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CampaignTag {
 		return vs[0].([]CampaignTag)[vs[1].(int)]
 	}).(CampaignTagOutput)
+}
+
+type CampaignTimeBasedCollectionScheme struct {
+	PeriodMs float64 `pulumi:"periodMs"`
+}
+
+type CampaignTimestreamConfig struct {
+	ExecutionRoleArn   string `pulumi:"executionRoleArn"`
+	TimestreamTableArn string `pulumi:"timestreamTableArn"`
+}
+
+type CollectionScheme0Properties struct {
+	TimeBasedCollectionScheme CampaignTimeBasedCollectionScheme `pulumi:"timeBasedCollectionScheme"`
+}
+
+type CollectionScheme1Properties struct {
+	ConditionBasedCollectionScheme CampaignConditionBasedCollectionScheme `pulumi:"conditionBasedCollectionScheme"`
+}
+
+type DataDestinationConfig0Properties struct {
+	S3Config CampaignS3Config `pulumi:"s3Config"`
+}
+
+type DataDestinationConfig1Properties struct {
+	TimestreamConfig CampaignTimestreamConfig `pulumi:"timestreamConfig"`
 }
 
 type DecoderManifestCanInterface struct {
@@ -715,92 +623,48 @@ func (o ModelManifestTagArrayOutput) Index(i pulumi.IntInput) ModelManifestTagOu
 	}).(ModelManifestTagOutput)
 }
 
-type SignalCatalogNode struct {
+type Node0Properties struct {
+	Branch *SignalCatalogBranch `pulumi:"branch"`
 }
 
-// SignalCatalogNodeInput is an input type that accepts SignalCatalogNodeArgs and SignalCatalogNodeOutput values.
-// You can construct a concrete instance of `SignalCatalogNodeInput` via:
-//
-//	SignalCatalogNodeArgs{...}
-type SignalCatalogNodeInput interface {
-	pulumi.Input
-
-	ToSignalCatalogNodeOutput() SignalCatalogNodeOutput
-	ToSignalCatalogNodeOutputWithContext(context.Context) SignalCatalogNodeOutput
+type Node1Properties struct {
+	Sensor *SignalCatalogSensor `pulumi:"sensor"`
 }
 
-type SignalCatalogNodeArgs struct {
+type Node2Properties struct {
+	Actuator *SignalCatalogActuator `pulumi:"actuator"`
 }
 
-func (SignalCatalogNodeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SignalCatalogNode)(nil)).Elem()
+type Node3Properties struct {
+	Attribute *SignalCatalogAttribute `pulumi:"attribute"`
 }
 
-func (i SignalCatalogNodeArgs) ToSignalCatalogNodeOutput() SignalCatalogNodeOutput {
-	return i.ToSignalCatalogNodeOutputWithContext(context.Background())
+type SignalCatalogActuator struct {
+	AllowedValues      []string                  `pulumi:"allowedValues"`
+	AssignedValue      *string                   `pulumi:"assignedValue"`
+	DataType           SignalCatalogNodeDataType `pulumi:"dataType"`
+	Description        *string                   `pulumi:"description"`
+	FullyQualifiedName string                    `pulumi:"fullyQualifiedName"`
+	Max                *float64                  `pulumi:"max"`
+	Min                *float64                  `pulumi:"min"`
+	Unit               *string                   `pulumi:"unit"`
 }
 
-func (i SignalCatalogNodeArgs) ToSignalCatalogNodeOutputWithContext(ctx context.Context) SignalCatalogNodeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SignalCatalogNodeOutput)
+type SignalCatalogAttribute struct {
+	AllowedValues      []string                  `pulumi:"allowedValues"`
+	AssignedValue      *string                   `pulumi:"assignedValue"`
+	DataType           SignalCatalogNodeDataType `pulumi:"dataType"`
+	DefaultValue       *string                   `pulumi:"defaultValue"`
+	Description        *string                   `pulumi:"description"`
+	FullyQualifiedName string                    `pulumi:"fullyQualifiedName"`
+	Max                *float64                  `pulumi:"max"`
+	Min                *float64                  `pulumi:"min"`
+	Unit               *string                   `pulumi:"unit"`
 }
 
-// SignalCatalogNodeArrayInput is an input type that accepts SignalCatalogNodeArray and SignalCatalogNodeArrayOutput values.
-// You can construct a concrete instance of `SignalCatalogNodeArrayInput` via:
-//
-//	SignalCatalogNodeArray{ SignalCatalogNodeArgs{...} }
-type SignalCatalogNodeArrayInput interface {
-	pulumi.Input
-
-	ToSignalCatalogNodeArrayOutput() SignalCatalogNodeArrayOutput
-	ToSignalCatalogNodeArrayOutputWithContext(context.Context) SignalCatalogNodeArrayOutput
-}
-
-type SignalCatalogNodeArray []SignalCatalogNodeInput
-
-func (SignalCatalogNodeArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SignalCatalogNode)(nil)).Elem()
-}
-
-func (i SignalCatalogNodeArray) ToSignalCatalogNodeArrayOutput() SignalCatalogNodeArrayOutput {
-	return i.ToSignalCatalogNodeArrayOutputWithContext(context.Background())
-}
-
-func (i SignalCatalogNodeArray) ToSignalCatalogNodeArrayOutputWithContext(ctx context.Context) SignalCatalogNodeArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SignalCatalogNodeArrayOutput)
-}
-
-type SignalCatalogNodeOutput struct{ *pulumi.OutputState }
-
-func (SignalCatalogNodeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SignalCatalogNode)(nil)).Elem()
-}
-
-func (o SignalCatalogNodeOutput) ToSignalCatalogNodeOutput() SignalCatalogNodeOutput {
-	return o
-}
-
-func (o SignalCatalogNodeOutput) ToSignalCatalogNodeOutputWithContext(ctx context.Context) SignalCatalogNodeOutput {
-	return o
-}
-
-type SignalCatalogNodeArrayOutput struct{ *pulumi.OutputState }
-
-func (SignalCatalogNodeArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SignalCatalogNode)(nil)).Elem()
-}
-
-func (o SignalCatalogNodeArrayOutput) ToSignalCatalogNodeArrayOutput() SignalCatalogNodeArrayOutput {
-	return o
-}
-
-func (o SignalCatalogNodeArrayOutput) ToSignalCatalogNodeArrayOutputWithContext(ctx context.Context) SignalCatalogNodeArrayOutput {
-	return o
-}
-
-func (o SignalCatalogNodeArrayOutput) Index(i pulumi.IntInput) SignalCatalogNodeOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SignalCatalogNode {
-		return vs[0].([]SignalCatalogNode)[vs[1].(int)]
-	}).(SignalCatalogNodeOutput)
+type SignalCatalogBranch struct {
+	Description        *string `pulumi:"description"`
+	FullyQualifiedName string  `pulumi:"fullyQualifiedName"`
 }
 
 type SignalCatalogNodeCounts struct {
@@ -994,6 +858,16 @@ func (o SignalCatalogNodeCountsPtrOutput) TotalSensors() pulumi.Float64PtrOutput
 		}
 		return v.TotalSensors
 	}).(pulumi.Float64PtrOutput)
+}
+
+type SignalCatalogSensor struct {
+	AllowedValues      []string                  `pulumi:"allowedValues"`
+	DataType           SignalCatalogNodeDataType `pulumi:"dataType"`
+	Description        *string                   `pulumi:"description"`
+	FullyQualifiedName string                    `pulumi:"fullyQualifiedName"`
+	Max                *float64                  `pulumi:"max"`
+	Min                *float64                  `pulumi:"min"`
+	Unit               *string                   `pulumi:"unit"`
 }
 
 type SignalCatalogTag struct {
@@ -1315,9 +1189,6 @@ func (o VehicleattributesMapPtrOutput) Elem() VehicleattributesMapOutput {
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*CampaignCollectionSchemeInput)(nil)).Elem(), CampaignCollectionSchemeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CampaignDataDestinationConfigInput)(nil)).Elem(), CampaignDataDestinationConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CampaignDataDestinationConfigArrayInput)(nil)).Elem(), CampaignDataDestinationConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignSignalInformationInput)(nil)).Elem(), CampaignSignalInformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignSignalInformationArrayInput)(nil)).Elem(), CampaignSignalInformationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignTagInput)(nil)).Elem(), CampaignTagArgs{})
@@ -1328,8 +1199,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetTagArrayInput)(nil)).Elem(), FleetTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelManifestTagInput)(nil)).Elem(), ModelManifestTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelManifestTagArrayInput)(nil)).Elem(), ModelManifestTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SignalCatalogNodeInput)(nil)).Elem(), SignalCatalogNodeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SignalCatalogNodeArrayInput)(nil)).Elem(), SignalCatalogNodeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SignalCatalogNodeCountsInput)(nil)).Elem(), SignalCatalogNodeCountsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SignalCatalogNodeCountsPtrInput)(nil)).Elem(), SignalCatalogNodeCountsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SignalCatalogTagInput)(nil)).Elem(), SignalCatalogTagArgs{})
@@ -1338,9 +1207,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VehicleTagArrayInput)(nil)).Elem(), VehicleTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VehicleattributesMapInput)(nil)).Elem(), VehicleattributesMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VehicleattributesMapPtrInput)(nil)).Elem(), VehicleattributesMapArgs{})
-	pulumi.RegisterOutputType(CampaignCollectionSchemeOutput{})
-	pulumi.RegisterOutputType(CampaignDataDestinationConfigOutput{})
-	pulumi.RegisterOutputType(CampaignDataDestinationConfigArrayOutput{})
 	pulumi.RegisterOutputType(CampaignSignalInformationOutput{})
 	pulumi.RegisterOutputType(CampaignSignalInformationArrayOutput{})
 	pulumi.RegisterOutputType(CampaignTagOutput{})
@@ -1351,8 +1217,6 @@ func init() {
 	pulumi.RegisterOutputType(FleetTagArrayOutput{})
 	pulumi.RegisterOutputType(ModelManifestTagOutput{})
 	pulumi.RegisterOutputType(ModelManifestTagArrayOutput{})
-	pulumi.RegisterOutputType(SignalCatalogNodeOutput{})
-	pulumi.RegisterOutputType(SignalCatalogNodeArrayOutput{})
 	pulumi.RegisterOutputType(SignalCatalogNodeCountsOutput{})
 	pulumi.RegisterOutputType(SignalCatalogNodeCountsPtrOutput{})
 	pulumi.RegisterOutputType(SignalCatalogTagOutput{})

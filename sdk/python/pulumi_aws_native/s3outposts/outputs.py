@@ -14,7 +14,6 @@ from ._enums import *
 __all__ = [
     'AccessPointVpcConfiguration',
     'BucketAbortIncompleteMultipartUpload',
-    'BucketFilterAndOperator',
     'BucketFilterTag',
     'BucketLifecycleConfiguration',
     'BucketRule',
@@ -22,6 +21,7 @@ __all__ = [
     'BucketTag',
     'EndpointFailedReason',
     'EndpointNetworkInterface',
+    'FilterAndOperatorProperties',
 ]
 
 @pulumi.output_type
@@ -97,12 +97,6 @@ class BucketAbortIncompleteMultipartUpload(dict):
         Specifies the number of days after which Amazon S3Outposts aborts an incomplete multipart upload.
         """
         return pulumi.get(self, "days_after_initiation")
-
-
-@pulumi.output_type
-class BucketFilterAndOperator(dict):
-    def __init__(__self__):
-        pass
 
 
 @pulumi.output_type
@@ -271,12 +265,12 @@ class BucketRuleFilterProperties(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 and_operator: Optional['outputs.BucketFilterAndOperator'] = None,
+                 and_operator: Optional['outputs.FilterAndOperatorProperties'] = None,
                  prefix: Optional[str] = None,
                  tag: Optional['outputs.BucketFilterTag'] = None):
         """
         The container for the filter of the lifecycle rule.
-        :param 'BucketFilterAndOperator' and_operator: The container for the AND condition for the lifecycle rule. A combination of Prefix and 1 or more Tags OR a minimum of 2 or more tags.
+        :param 'FilterAndOperatorProperties' and_operator: The container for the AND condition for the lifecycle rule. A combination of Prefix and 1 or more Tags OR a minimum of 2 or more tags.
         :param str prefix: Object key prefix that identifies one or more objects to which this rule applies.
         :param 'BucketFilterTag' tag: Specifies a tag used to identify a subset of objects for an Amazon S3Outposts bucket.
         """
@@ -289,7 +283,7 @@ class BucketRuleFilterProperties(dict):
 
     @property
     @pulumi.getter(name="andOperator")
-    def and_operator(self) -> Optional['outputs.BucketFilterAndOperator']:
+    def and_operator(self) -> Optional['outputs.FilterAndOperatorProperties']:
         """
         The container for the AND condition for the lifecycle rule. A combination of Prefix and 1 or more Tags OR a minimum of 2 or more tags.
         """
@@ -412,5 +406,35 @@ class EndpointNetworkInterface(dict):
     @pulumi.getter(name="networkInterfaceId")
     def network_interface_id(self) -> str:
         return pulumi.get(self, "network_interface_id")
+
+
+@pulumi.output_type
+class FilterAndOperatorProperties(dict):
+    def __init__(__self__, *,
+                 tags: Sequence['outputs.BucketFilterTag'],
+                 prefix: Optional[str] = None):
+        """
+        :param Sequence['BucketFilterTag'] tags: All of these tags must exist in the object's tag set in order for the rule to apply.
+        :param str prefix: Prefix identifies one or more objects to which the rule applies.
+        """
+        pulumi.set(__self__, "tags", tags)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Sequence['outputs.BucketFilterTag']:
+        """
+        All of these tags must exist in the object's tag set in order for the rule to apply.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[str]:
+        """
+        Prefix identifies one or more objects to which the rule applies.
+        """
+        return pulumi.get(self, "prefix")
 
 

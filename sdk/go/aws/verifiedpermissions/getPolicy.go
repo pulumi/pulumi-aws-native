@@ -28,9 +28,9 @@ type LookupPolicyArgs struct {
 }
 
 type LookupPolicyResult struct {
-	Definition *PolicyDefinition `pulumi:"definition"`
-	PolicyId   *string           `pulumi:"policyId"`
-	PolicyType *PolicyType       `pulumi:"policyType"`
+	Definition interface{} `pulumi:"definition"`
+	PolicyId   *string     `pulumi:"policyId"`
+	PolicyType *PolicyType `pulumi:"policyType"`
 }
 
 func LookupPolicyOutput(ctx *pulumi.Context, args LookupPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupPolicyResultOutput {
@@ -69,8 +69,8 @@ func (o LookupPolicyResultOutput) ToLookupPolicyResultOutputWithContext(ctx cont
 	return o
 }
 
-func (o LookupPolicyResultOutput) Definition() PolicyDefinitionPtrOutput {
-	return o.ApplyT(func(v LookupPolicyResult) *PolicyDefinition { return v.Definition }).(PolicyDefinitionPtrOutput)
+func (o LookupPolicyResultOutput) Definition() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupPolicyResult) interface{} { return v.Definition }).(pulumi.AnyOutput)
 }
 
 func (o LookupPolicyResultOutput) PolicyId() pulumi.StringPtrOutput {

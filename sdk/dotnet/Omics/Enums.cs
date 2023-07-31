@@ -8,6 +8,39 @@ using Pulumi;
 namespace Pulumi.AwsNative.Omics
 {
     [EnumType]
+    public readonly struct AnnotationStoreAnnotationType : IEquatable<AnnotationStoreAnnotationType>
+    {
+        private readonly string _value;
+
+        private AnnotationStoreAnnotationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AnnotationStoreAnnotationType Generic { get; } = new AnnotationStoreAnnotationType("GENERIC");
+        public static AnnotationStoreAnnotationType ChrPos { get; } = new AnnotationStoreAnnotationType("CHR_POS");
+        public static AnnotationStoreAnnotationType ChrPosRefAlt { get; } = new AnnotationStoreAnnotationType("CHR_POS_REF_ALT");
+        public static AnnotationStoreAnnotationType ChrStartEndOneBase { get; } = new AnnotationStoreAnnotationType("CHR_START_END_ONE_BASE");
+        public static AnnotationStoreAnnotationType ChrStartEndRefAltOneBase { get; } = new AnnotationStoreAnnotationType("CHR_START_END_REF_ALT_ONE_BASE");
+        public static AnnotationStoreAnnotationType ChrStartEndZeroBase { get; } = new AnnotationStoreAnnotationType("CHR_START_END_ZERO_BASE");
+        public static AnnotationStoreAnnotationType ChrStartEndRefAltZeroBase { get; } = new AnnotationStoreAnnotationType("CHR_START_END_REF_ALT_ZERO_BASE");
+
+        public static bool operator ==(AnnotationStoreAnnotationType left, AnnotationStoreAnnotationType right) => left.Equals(right);
+        public static bool operator !=(AnnotationStoreAnnotationType left, AnnotationStoreAnnotationType right) => !left.Equals(right);
+
+        public static explicit operator string(AnnotationStoreAnnotationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AnnotationStoreAnnotationType other && Equals(other);
+        public bool Equals(AnnotationStoreAnnotationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct AnnotationStoreEncryptionType : IEquatable<AnnotationStoreEncryptionType>
     {
         private readonly string _value;

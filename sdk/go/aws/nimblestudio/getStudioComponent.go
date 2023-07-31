@@ -29,7 +29,7 @@ type LookupStudioComponentArgs struct {
 }
 
 type LookupStudioComponentResult struct {
-	Configuration *StudioComponentConfiguration `pulumi:"configuration"`
+	Configuration interface{} `pulumi:"configuration"`
 	// <p>The description.</p>
 	Description *string `pulumi:"description"`
 	// <p>The EC2 security groups that control access to the studio component.</p>
@@ -83,8 +83,8 @@ func (o LookupStudioComponentResultOutput) ToLookupStudioComponentResultOutputWi
 	return o
 }
 
-func (o LookupStudioComponentResultOutput) Configuration() StudioComponentConfigurationPtrOutput {
-	return o.ApplyT(func(v LookupStudioComponentResult) *StudioComponentConfiguration { return v.Configuration }).(StudioComponentConfigurationPtrOutput)
+func (o LookupStudioComponentResultOutput) Configuration() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupStudioComponentResult) interface{} { return v.Configuration }).(pulumi.AnyOutput)
 }
 
 // <p>The description.</p>

@@ -93,6 +93,33 @@ namespace Pulumi.AwsNative.AmplifyUIBuilder
     }
 
     [EnumType]
+    public readonly struct FormFixedPosition : IEquatable<FormFixedPosition>
+    {
+        private readonly string _value;
+
+        private FormFixedPosition(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FormFixedPosition First { get; } = new FormFixedPosition("first");
+
+        public static bool operator ==(FormFixedPosition left, FormFixedPosition right) => left.Equals(right);
+        public static bool operator !=(FormFixedPosition left, FormFixedPosition right) => !left.Equals(right);
+
+        public static explicit operator string(FormFixedPosition value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FormFixedPosition other && Equals(other);
+        public bool Equals(FormFixedPosition other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct FormLabelDecorator : IEquatable<FormLabelDecorator>
     {
         private readonly string _value;

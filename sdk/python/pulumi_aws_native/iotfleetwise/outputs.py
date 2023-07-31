@@ -12,10 +12,16 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'CampaignCollectionScheme',
-    'CampaignDataDestinationConfig',
+    'CampaignConditionBasedCollectionScheme',
+    'CampaignS3Config',
     'CampaignSignalInformation',
     'CampaignTag',
+    'CampaignTimeBasedCollectionScheme',
+    'CampaignTimestreamConfig',
+    'CollectionScheme0Properties',
+    'CollectionScheme1Properties',
+    'DataDestinationConfig0Properties',
+    'DataDestinationConfig1Properties',
     'DecoderManifestCanInterface',
     'DecoderManifestCanNetworkInterface',
     'DecoderManifestCanSignal',
@@ -27,23 +33,132 @@ __all__ = [
     'DecoderManifestTag',
     'FleetTag',
     'ModelManifestTag',
-    'SignalCatalogNode',
+    'Node0Properties',
+    'Node1Properties',
+    'Node2Properties',
+    'Node3Properties',
+    'SignalCatalogActuator',
+    'SignalCatalogAttribute',
+    'SignalCatalogBranch',
     'SignalCatalogNodeCounts',
+    'SignalCatalogSensor',
     'SignalCatalogTag',
     'VehicleTag',
     'VehicleattributesMap',
 ]
 
 @pulumi.output_type
-class CampaignCollectionScheme(dict):
-    def __init__(__self__):
-        pass
+class CampaignConditionBasedCollectionScheme(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "conditionLanguageVersion":
+            suggest = "condition_language_version"
+        elif key == "minimumTriggerIntervalMs":
+            suggest = "minimum_trigger_interval_ms"
+        elif key == "triggerMode":
+            suggest = "trigger_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CampaignConditionBasedCollectionScheme. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CampaignConditionBasedCollectionScheme.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CampaignConditionBasedCollectionScheme.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 expression: str,
+                 condition_language_version: Optional[int] = None,
+                 minimum_trigger_interval_ms: Optional[float] = None,
+                 trigger_mode: Optional['CampaignTriggerMode'] = None):
+        pulumi.set(__self__, "expression", expression)
+        if condition_language_version is not None:
+            pulumi.set(__self__, "condition_language_version", condition_language_version)
+        if minimum_trigger_interval_ms is not None:
+            pulumi.set(__self__, "minimum_trigger_interval_ms", minimum_trigger_interval_ms)
+        if trigger_mode is not None:
+            pulumi.set(__self__, "trigger_mode", trigger_mode)
+
+    @property
+    @pulumi.getter
+    def expression(self) -> str:
+        return pulumi.get(self, "expression")
+
+    @property
+    @pulumi.getter(name="conditionLanguageVersion")
+    def condition_language_version(self) -> Optional[int]:
+        return pulumi.get(self, "condition_language_version")
+
+    @property
+    @pulumi.getter(name="minimumTriggerIntervalMs")
+    def minimum_trigger_interval_ms(self) -> Optional[float]:
+        return pulumi.get(self, "minimum_trigger_interval_ms")
+
+    @property
+    @pulumi.getter(name="triggerMode")
+    def trigger_mode(self) -> Optional['CampaignTriggerMode']:
+        return pulumi.get(self, "trigger_mode")
 
 
 @pulumi.output_type
-class CampaignDataDestinationConfig(dict):
-    def __init__(__self__):
-        pass
+class CampaignS3Config(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketArn":
+            suggest = "bucket_arn"
+        elif key == "dataFormat":
+            suggest = "data_format"
+        elif key == "storageCompressionFormat":
+            suggest = "storage_compression_format"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CampaignS3Config. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CampaignS3Config.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CampaignS3Config.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket_arn: str,
+                 data_format: Optional['CampaignDataFormat'] = None,
+                 prefix: Optional[str] = None,
+                 storage_compression_format: Optional['CampaignStorageCompressionFormat'] = None):
+        pulumi.set(__self__, "bucket_arn", bucket_arn)
+        if data_format is not None:
+            pulumi.set(__self__, "data_format", data_format)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+        if storage_compression_format is not None:
+            pulumi.set(__self__, "storage_compression_format", storage_compression_format)
+
+    @property
+    @pulumi.getter(name="bucketArn")
+    def bucket_arn(self) -> str:
+        return pulumi.get(self, "bucket_arn")
+
+    @property
+    @pulumi.getter(name="dataFormat")
+    def data_format(self) -> Optional['CampaignDataFormat']:
+        return pulumi.get(self, "data_format")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[str]:
+        return pulumi.get(self, "prefix")
+
+    @property
+    @pulumi.getter(name="storageCompressionFormat")
+    def storage_compression_format(self) -> Optional['CampaignStorageCompressionFormat']:
+        return pulumi.get(self, "storage_compression_format")
 
 
 @pulumi.output_type
@@ -110,6 +225,189 @@ class CampaignTag(dict):
     @pulumi.getter
     def value(self) -> str:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class CampaignTimeBasedCollectionScheme(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "periodMs":
+            suggest = "period_ms"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CampaignTimeBasedCollectionScheme. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CampaignTimeBasedCollectionScheme.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CampaignTimeBasedCollectionScheme.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 period_ms: float):
+        pulumi.set(__self__, "period_ms", period_ms)
+
+    @property
+    @pulumi.getter(name="periodMs")
+    def period_ms(self) -> float:
+        return pulumi.get(self, "period_ms")
+
+
+@pulumi.output_type
+class CampaignTimestreamConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "executionRoleArn":
+            suggest = "execution_role_arn"
+        elif key == "timestreamTableArn":
+            suggest = "timestream_table_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CampaignTimestreamConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CampaignTimestreamConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CampaignTimestreamConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 execution_role_arn: str,
+                 timestream_table_arn: str):
+        pulumi.set(__self__, "execution_role_arn", execution_role_arn)
+        pulumi.set(__self__, "timestream_table_arn", timestream_table_arn)
+
+    @property
+    @pulumi.getter(name="executionRoleArn")
+    def execution_role_arn(self) -> str:
+        return pulumi.get(self, "execution_role_arn")
+
+    @property
+    @pulumi.getter(name="timestreamTableArn")
+    def timestream_table_arn(self) -> str:
+        return pulumi.get(self, "timestream_table_arn")
+
+
+@pulumi.output_type
+class CollectionScheme0Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timeBasedCollectionScheme":
+            suggest = "time_based_collection_scheme"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CollectionScheme0Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CollectionScheme0Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CollectionScheme0Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 time_based_collection_scheme: 'outputs.CampaignTimeBasedCollectionScheme'):
+        pulumi.set(__self__, "time_based_collection_scheme", time_based_collection_scheme)
+
+    @property
+    @pulumi.getter(name="timeBasedCollectionScheme")
+    def time_based_collection_scheme(self) -> 'outputs.CampaignTimeBasedCollectionScheme':
+        return pulumi.get(self, "time_based_collection_scheme")
+
+
+@pulumi.output_type
+class CollectionScheme1Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "conditionBasedCollectionScheme":
+            suggest = "condition_based_collection_scheme"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CollectionScheme1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CollectionScheme1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CollectionScheme1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 condition_based_collection_scheme: 'outputs.CampaignConditionBasedCollectionScheme'):
+        pulumi.set(__self__, "condition_based_collection_scheme", condition_based_collection_scheme)
+
+    @property
+    @pulumi.getter(name="conditionBasedCollectionScheme")
+    def condition_based_collection_scheme(self) -> 'outputs.CampaignConditionBasedCollectionScheme':
+        return pulumi.get(self, "condition_based_collection_scheme")
+
+
+@pulumi.output_type
+class DataDestinationConfig0Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Config":
+            suggest = "s3_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataDestinationConfig0Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataDestinationConfig0Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataDestinationConfig0Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_config: 'outputs.CampaignS3Config'):
+        pulumi.set(__self__, "s3_config", s3_config)
+
+    @property
+    @pulumi.getter(name="s3Config")
+    def s3_config(self) -> 'outputs.CampaignS3Config':
+        return pulumi.get(self, "s3_config")
+
+
+@pulumi.output_type
+class DataDestinationConfig1Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timestreamConfig":
+            suggest = "timestream_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataDestinationConfig1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataDestinationConfig1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataDestinationConfig1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 timestream_config: 'outputs.CampaignTimestreamConfig'):
+        pulumi.set(__self__, "timestream_config", timestream_config)
+
+    @property
+    @pulumi.getter(name="timestreamConfig")
+    def timestream_config(self) -> 'outputs.CampaignTimestreamConfig':
+        return pulumi.get(self, "timestream_config")
 
 
 @pulumi.output_type
@@ -683,9 +981,282 @@ class ModelManifestTag(dict):
 
 
 @pulumi.output_type
-class SignalCatalogNode(dict):
-    def __init__(__self__):
-        pass
+class Node0Properties(dict):
+    def __init__(__self__, *,
+                 branch: Optional['outputs.SignalCatalogBranch'] = None):
+        if branch is not None:
+            pulumi.set(__self__, "branch", branch)
+
+    @property
+    @pulumi.getter
+    def branch(self) -> Optional['outputs.SignalCatalogBranch']:
+        return pulumi.get(self, "branch")
+
+
+@pulumi.output_type
+class Node1Properties(dict):
+    def __init__(__self__, *,
+                 sensor: Optional['outputs.SignalCatalogSensor'] = None):
+        if sensor is not None:
+            pulumi.set(__self__, "sensor", sensor)
+
+    @property
+    @pulumi.getter
+    def sensor(self) -> Optional['outputs.SignalCatalogSensor']:
+        return pulumi.get(self, "sensor")
+
+
+@pulumi.output_type
+class Node2Properties(dict):
+    def __init__(__self__, *,
+                 actuator: Optional['outputs.SignalCatalogActuator'] = None):
+        if actuator is not None:
+            pulumi.set(__self__, "actuator", actuator)
+
+    @property
+    @pulumi.getter
+    def actuator(self) -> Optional['outputs.SignalCatalogActuator']:
+        return pulumi.get(self, "actuator")
+
+
+@pulumi.output_type
+class Node3Properties(dict):
+    def __init__(__self__, *,
+                 attribute: Optional['outputs.SignalCatalogAttribute'] = None):
+        if attribute is not None:
+            pulumi.set(__self__, "attribute", attribute)
+
+    @property
+    @pulumi.getter
+    def attribute(self) -> Optional['outputs.SignalCatalogAttribute']:
+        return pulumi.get(self, "attribute")
+
+
+@pulumi.output_type
+class SignalCatalogActuator(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataType":
+            suggest = "data_type"
+        elif key == "fullyQualifiedName":
+            suggest = "fully_qualified_name"
+        elif key == "allowedValues":
+            suggest = "allowed_values"
+        elif key == "assignedValue":
+            suggest = "assigned_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SignalCatalogActuator. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SignalCatalogActuator.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SignalCatalogActuator.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_type: 'SignalCatalogNodeDataType',
+                 fully_qualified_name: str,
+                 allowed_values: Optional[Sequence[str]] = None,
+                 assigned_value: Optional[str] = None,
+                 description: Optional[str] = None,
+                 max: Optional[float] = None,
+                 min: Optional[float] = None,
+                 unit: Optional[str] = None):
+        pulumi.set(__self__, "data_type", data_type)
+        pulumi.set(__self__, "fully_qualified_name", fully_qualified_name)
+        if allowed_values is not None:
+            pulumi.set(__self__, "allowed_values", allowed_values)
+        if assigned_value is not None:
+            pulumi.set(__self__, "assigned_value", assigned_value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter(name="dataType")
+    def data_type(self) -> 'SignalCatalogNodeDataType':
+        return pulumi.get(self, "data_type")
+
+    @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> str:
+        return pulumi.get(self, "fully_qualified_name")
+
+    @property
+    @pulumi.getter(name="allowedValues")
+    def allowed_values(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "allowed_values")
+
+    @property
+    @pulumi.getter(name="assignedValue")
+    def assigned_value(self) -> Optional[str]:
+        return pulumi.get(self, "assigned_value")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[float]:
+        return pulumi.get(self, "max")
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[float]:
+        return pulumi.get(self, "min")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional[str]:
+        return pulumi.get(self, "unit")
+
+
+@pulumi.output_type
+class SignalCatalogAttribute(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataType":
+            suggest = "data_type"
+        elif key == "fullyQualifiedName":
+            suggest = "fully_qualified_name"
+        elif key == "allowedValues":
+            suggest = "allowed_values"
+        elif key == "assignedValue":
+            suggest = "assigned_value"
+        elif key == "defaultValue":
+            suggest = "default_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SignalCatalogAttribute. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SignalCatalogAttribute.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SignalCatalogAttribute.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_type: 'SignalCatalogNodeDataType',
+                 fully_qualified_name: str,
+                 allowed_values: Optional[Sequence[str]] = None,
+                 assigned_value: Optional[str] = None,
+                 default_value: Optional[str] = None,
+                 description: Optional[str] = None,
+                 max: Optional[float] = None,
+                 min: Optional[float] = None,
+                 unit: Optional[str] = None):
+        pulumi.set(__self__, "data_type", data_type)
+        pulumi.set(__self__, "fully_qualified_name", fully_qualified_name)
+        if allowed_values is not None:
+            pulumi.set(__self__, "allowed_values", allowed_values)
+        if assigned_value is not None:
+            pulumi.set(__self__, "assigned_value", assigned_value)
+        if default_value is not None:
+            pulumi.set(__self__, "default_value", default_value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter(name="dataType")
+    def data_type(self) -> 'SignalCatalogNodeDataType':
+        return pulumi.get(self, "data_type")
+
+    @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> str:
+        return pulumi.get(self, "fully_qualified_name")
+
+    @property
+    @pulumi.getter(name="allowedValues")
+    def allowed_values(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "allowed_values")
+
+    @property
+    @pulumi.getter(name="assignedValue")
+    def assigned_value(self) -> Optional[str]:
+        return pulumi.get(self, "assigned_value")
+
+    @property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> Optional[str]:
+        return pulumi.get(self, "default_value")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[float]:
+        return pulumi.get(self, "max")
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[float]:
+        return pulumi.get(self, "min")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional[str]:
+        return pulumi.get(self, "unit")
+
+
+@pulumi.output_type
+class SignalCatalogBranch(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fullyQualifiedName":
+            suggest = "fully_qualified_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SignalCatalogBranch. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SignalCatalogBranch.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SignalCatalogBranch.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fully_qualified_name: str,
+                 description: Optional[str] = None):
+        pulumi.set(__self__, "fully_qualified_name", fully_qualified_name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> str:
+        return pulumi.get(self, "fully_qualified_name")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
 
 
 @pulumi.output_type
@@ -756,6 +1327,86 @@ class SignalCatalogNodeCounts(dict):
     @pulumi.getter(name="totalSensors")
     def total_sensors(self) -> Optional[float]:
         return pulumi.get(self, "total_sensors")
+
+
+@pulumi.output_type
+class SignalCatalogSensor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataType":
+            suggest = "data_type"
+        elif key == "fullyQualifiedName":
+            suggest = "fully_qualified_name"
+        elif key == "allowedValues":
+            suggest = "allowed_values"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SignalCatalogSensor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SignalCatalogSensor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SignalCatalogSensor.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_type: 'SignalCatalogNodeDataType',
+                 fully_qualified_name: str,
+                 allowed_values: Optional[Sequence[str]] = None,
+                 description: Optional[str] = None,
+                 max: Optional[float] = None,
+                 min: Optional[float] = None,
+                 unit: Optional[str] = None):
+        pulumi.set(__self__, "data_type", data_type)
+        pulumi.set(__self__, "fully_qualified_name", fully_qualified_name)
+        if allowed_values is not None:
+            pulumi.set(__self__, "allowed_values", allowed_values)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter(name="dataType")
+    def data_type(self) -> 'SignalCatalogNodeDataType':
+        return pulumi.get(self, "data_type")
+
+    @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> str:
+        return pulumi.get(self, "fully_qualified_name")
+
+    @property
+    @pulumi.getter(name="allowedValues")
+    def allowed_values(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "allowed_values")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[float]:
+        return pulumi.get(self, "max")
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[float]:
+        return pulumi.get(self, "min")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional[str]:
+        return pulumi.get(self, "unit")
 
 
 @pulumi.output_type

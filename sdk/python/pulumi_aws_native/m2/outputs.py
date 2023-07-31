@@ -11,23 +11,59 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'ApplicationDefinition',
     'ApplicationTagMap',
+    'Definition0Properties',
+    'Definition1Properties',
     'EnvironmentHighAvailabilityConfig',
     'EnvironmentStorageConfiguration',
     'EnvironmentTagMap',
 ]
 
 @pulumi.output_type
-class ApplicationDefinition(dict):
+class ApplicationTagMap(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class ApplicationTagMap(dict):
-    def __init__(__self__):
-        pass
+class Definition0Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Location":
+            suggest = "s3_location"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in Definition0Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        Definition0Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        Definition0Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_location: str):
+        pulumi.set(__self__, "s3_location", s3_location)
+
+    @property
+    @pulumi.getter(name="s3Location")
+    def s3_location(self) -> str:
+        return pulumi.get(self, "s3_location")
+
+
+@pulumi.output_type
+class Definition1Properties(dict):
+    def __init__(__self__, *,
+                 content: str):
+        pulumi.set(__self__, "content", content)
+
+    @property
+    @pulumi.getter
+    def content(self) -> str:
+        return pulumi.get(self, "content")
 
 
 @pulumi.output_type

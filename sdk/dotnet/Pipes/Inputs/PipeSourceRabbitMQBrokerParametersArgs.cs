@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Pipes.Inputs
         public Input<int>? BatchSize { get; set; }
 
         [Input("credentials", required: true)]
-        public Input<Inputs.PipeMQBrokerAccessCredentialsArgs> Credentials { get; set; } = null!;
+        public Input<Inputs.MQBrokerAccessCredentialsPropertiesArgs> Credentials { get; set; } = null!;
 
         [Input("maximumBatchingWindowInSeconds")]
         public Input<int>? MaximumBatchingWindowInSeconds { get; set; }

@@ -24,6 +24,12 @@ export const FormDataSourceType = {
 
 export type FormDataSourceType = (typeof FormDataSourceType)[keyof typeof FormDataSourceType];
 
+export const FormFixedPosition = {
+    First: "first",
+} as const;
+
+export type FormFixedPosition = (typeof FormFixedPosition)[keyof typeof FormFixedPosition];
+
 export const FormLabelDecorator = {
     Required: "required",
     Optional: "optional",

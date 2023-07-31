@@ -13,6 +13,158 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type MQBrokerAccessCredentials0Properties struct {
+	// Optional SecretManager ARN which stores the database credentials
+	BasicAuth string `pulumi:"basicAuth"`
+}
+
+type MQBrokerAccessCredentialsProperties struct {
+	// Optional SecretManager ARN which stores the database credentials
+	BasicAuth string `pulumi:"basicAuth"`
+}
+
+// MQBrokerAccessCredentialsPropertiesInput is an input type that accepts MQBrokerAccessCredentialsPropertiesArgs and MQBrokerAccessCredentialsPropertiesOutput values.
+// You can construct a concrete instance of `MQBrokerAccessCredentialsPropertiesInput` via:
+//
+//	MQBrokerAccessCredentialsPropertiesArgs{...}
+type MQBrokerAccessCredentialsPropertiesInput interface {
+	pulumi.Input
+
+	ToMQBrokerAccessCredentialsPropertiesOutput() MQBrokerAccessCredentialsPropertiesOutput
+	ToMQBrokerAccessCredentialsPropertiesOutputWithContext(context.Context) MQBrokerAccessCredentialsPropertiesOutput
+}
+
+type MQBrokerAccessCredentialsPropertiesArgs struct {
+	// Optional SecretManager ARN which stores the database credentials
+	BasicAuth pulumi.StringInput `pulumi:"basicAuth"`
+}
+
+func (MQBrokerAccessCredentialsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MQBrokerAccessCredentialsProperties)(nil)).Elem()
+}
+
+func (i MQBrokerAccessCredentialsPropertiesArgs) ToMQBrokerAccessCredentialsPropertiesOutput() MQBrokerAccessCredentialsPropertiesOutput {
+	return i.ToMQBrokerAccessCredentialsPropertiesOutputWithContext(context.Background())
+}
+
+func (i MQBrokerAccessCredentialsPropertiesArgs) ToMQBrokerAccessCredentialsPropertiesOutputWithContext(ctx context.Context) MQBrokerAccessCredentialsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MQBrokerAccessCredentialsPropertiesOutput)
+}
+
+func (i MQBrokerAccessCredentialsPropertiesArgs) ToMQBrokerAccessCredentialsPropertiesPtrOutput() MQBrokerAccessCredentialsPropertiesPtrOutput {
+	return i.ToMQBrokerAccessCredentialsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i MQBrokerAccessCredentialsPropertiesArgs) ToMQBrokerAccessCredentialsPropertiesPtrOutputWithContext(ctx context.Context) MQBrokerAccessCredentialsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MQBrokerAccessCredentialsPropertiesOutput).ToMQBrokerAccessCredentialsPropertiesPtrOutputWithContext(ctx)
+}
+
+// MQBrokerAccessCredentialsPropertiesPtrInput is an input type that accepts MQBrokerAccessCredentialsPropertiesArgs, MQBrokerAccessCredentialsPropertiesPtr and MQBrokerAccessCredentialsPropertiesPtrOutput values.
+// You can construct a concrete instance of `MQBrokerAccessCredentialsPropertiesPtrInput` via:
+//
+//	        MQBrokerAccessCredentialsPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type MQBrokerAccessCredentialsPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToMQBrokerAccessCredentialsPropertiesPtrOutput() MQBrokerAccessCredentialsPropertiesPtrOutput
+	ToMQBrokerAccessCredentialsPropertiesPtrOutputWithContext(context.Context) MQBrokerAccessCredentialsPropertiesPtrOutput
+}
+
+type mqbrokerAccessCredentialsPropertiesPtrType MQBrokerAccessCredentialsPropertiesArgs
+
+func MQBrokerAccessCredentialsPropertiesPtr(v *MQBrokerAccessCredentialsPropertiesArgs) MQBrokerAccessCredentialsPropertiesPtrInput {
+	return (*mqbrokerAccessCredentialsPropertiesPtrType)(v)
+}
+
+func (*mqbrokerAccessCredentialsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MQBrokerAccessCredentialsProperties)(nil)).Elem()
+}
+
+func (i *mqbrokerAccessCredentialsPropertiesPtrType) ToMQBrokerAccessCredentialsPropertiesPtrOutput() MQBrokerAccessCredentialsPropertiesPtrOutput {
+	return i.ToMQBrokerAccessCredentialsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *mqbrokerAccessCredentialsPropertiesPtrType) ToMQBrokerAccessCredentialsPropertiesPtrOutputWithContext(ctx context.Context) MQBrokerAccessCredentialsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MQBrokerAccessCredentialsPropertiesPtrOutput)
+}
+
+type MQBrokerAccessCredentialsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (MQBrokerAccessCredentialsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MQBrokerAccessCredentialsProperties)(nil)).Elem()
+}
+
+func (o MQBrokerAccessCredentialsPropertiesOutput) ToMQBrokerAccessCredentialsPropertiesOutput() MQBrokerAccessCredentialsPropertiesOutput {
+	return o
+}
+
+func (o MQBrokerAccessCredentialsPropertiesOutput) ToMQBrokerAccessCredentialsPropertiesOutputWithContext(ctx context.Context) MQBrokerAccessCredentialsPropertiesOutput {
+	return o
+}
+
+func (o MQBrokerAccessCredentialsPropertiesOutput) ToMQBrokerAccessCredentialsPropertiesPtrOutput() MQBrokerAccessCredentialsPropertiesPtrOutput {
+	return o.ToMQBrokerAccessCredentialsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o MQBrokerAccessCredentialsPropertiesOutput) ToMQBrokerAccessCredentialsPropertiesPtrOutputWithContext(ctx context.Context) MQBrokerAccessCredentialsPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MQBrokerAccessCredentialsProperties) *MQBrokerAccessCredentialsProperties {
+		return &v
+	}).(MQBrokerAccessCredentialsPropertiesPtrOutput)
+}
+
+// Optional SecretManager ARN which stores the database credentials
+func (o MQBrokerAccessCredentialsPropertiesOutput) BasicAuth() pulumi.StringOutput {
+	return o.ApplyT(func(v MQBrokerAccessCredentialsProperties) string { return v.BasicAuth }).(pulumi.StringOutput)
+}
+
+type MQBrokerAccessCredentialsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (MQBrokerAccessCredentialsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MQBrokerAccessCredentialsProperties)(nil)).Elem()
+}
+
+func (o MQBrokerAccessCredentialsPropertiesPtrOutput) ToMQBrokerAccessCredentialsPropertiesPtrOutput() MQBrokerAccessCredentialsPropertiesPtrOutput {
+	return o
+}
+
+func (o MQBrokerAccessCredentialsPropertiesPtrOutput) ToMQBrokerAccessCredentialsPropertiesPtrOutputWithContext(ctx context.Context) MQBrokerAccessCredentialsPropertiesPtrOutput {
+	return o
+}
+
+func (o MQBrokerAccessCredentialsPropertiesPtrOutput) Elem() MQBrokerAccessCredentialsPropertiesOutput {
+	return o.ApplyT(func(v *MQBrokerAccessCredentialsProperties) MQBrokerAccessCredentialsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret MQBrokerAccessCredentialsProperties
+		return ret
+	}).(MQBrokerAccessCredentialsPropertiesOutput)
+}
+
+// Optional SecretManager ARN which stores the database credentials
+func (o MQBrokerAccessCredentialsPropertiesPtrOutput) BasicAuth() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MQBrokerAccessCredentialsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BasicAuth
+	}).(pulumi.StringPtrOutput)
+}
+
+type MSKAccessCredentials0Properties struct {
+	// Optional SecretManager ARN which stores the database credentials
+	SaslScram512Auth string `pulumi:"saslScram512Auth"`
+}
+
+type MSKAccessCredentials1Properties struct {
+	// Optional SecretManager ARN which stores the database credentials
+	ClientCertificateTlsAuth string `pulumi:"clientCertificateTlsAuth"`
+}
+
 type PipeAwsVpcConfiguration struct {
 	AssignPublicIp *PipeAssignPublicIp `pulumi:"assignPublicIp"`
 	SecurityGroups []string            `pulumi:"securityGroups"`
@@ -2827,242 +2979,6 @@ func (o PipeHeaderParametersMapPtrOutput) Elem() PipeHeaderParametersMapOutput {
 	}).(PipeHeaderParametersMapOutput)
 }
 
-type PipeMQBrokerAccessCredentials struct {
-}
-
-// PipeMQBrokerAccessCredentialsInput is an input type that accepts PipeMQBrokerAccessCredentialsArgs and PipeMQBrokerAccessCredentialsOutput values.
-// You can construct a concrete instance of `PipeMQBrokerAccessCredentialsInput` via:
-//
-//	PipeMQBrokerAccessCredentialsArgs{...}
-type PipeMQBrokerAccessCredentialsInput interface {
-	pulumi.Input
-
-	ToPipeMQBrokerAccessCredentialsOutput() PipeMQBrokerAccessCredentialsOutput
-	ToPipeMQBrokerAccessCredentialsOutputWithContext(context.Context) PipeMQBrokerAccessCredentialsOutput
-}
-
-type PipeMQBrokerAccessCredentialsArgs struct {
-}
-
-func (PipeMQBrokerAccessCredentialsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PipeMQBrokerAccessCredentials)(nil)).Elem()
-}
-
-func (i PipeMQBrokerAccessCredentialsArgs) ToPipeMQBrokerAccessCredentialsOutput() PipeMQBrokerAccessCredentialsOutput {
-	return i.ToPipeMQBrokerAccessCredentialsOutputWithContext(context.Background())
-}
-
-func (i PipeMQBrokerAccessCredentialsArgs) ToPipeMQBrokerAccessCredentialsOutputWithContext(ctx context.Context) PipeMQBrokerAccessCredentialsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PipeMQBrokerAccessCredentialsOutput)
-}
-
-func (i PipeMQBrokerAccessCredentialsArgs) ToPipeMQBrokerAccessCredentialsPtrOutput() PipeMQBrokerAccessCredentialsPtrOutput {
-	return i.ToPipeMQBrokerAccessCredentialsPtrOutputWithContext(context.Background())
-}
-
-func (i PipeMQBrokerAccessCredentialsArgs) ToPipeMQBrokerAccessCredentialsPtrOutputWithContext(ctx context.Context) PipeMQBrokerAccessCredentialsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PipeMQBrokerAccessCredentialsOutput).ToPipeMQBrokerAccessCredentialsPtrOutputWithContext(ctx)
-}
-
-// PipeMQBrokerAccessCredentialsPtrInput is an input type that accepts PipeMQBrokerAccessCredentialsArgs, PipeMQBrokerAccessCredentialsPtr and PipeMQBrokerAccessCredentialsPtrOutput values.
-// You can construct a concrete instance of `PipeMQBrokerAccessCredentialsPtrInput` via:
-//
-//	        PipeMQBrokerAccessCredentialsArgs{...}
-//
-//	or:
-//
-//	        nil
-type PipeMQBrokerAccessCredentialsPtrInput interface {
-	pulumi.Input
-
-	ToPipeMQBrokerAccessCredentialsPtrOutput() PipeMQBrokerAccessCredentialsPtrOutput
-	ToPipeMQBrokerAccessCredentialsPtrOutputWithContext(context.Context) PipeMQBrokerAccessCredentialsPtrOutput
-}
-
-type pipeMQBrokerAccessCredentialsPtrType PipeMQBrokerAccessCredentialsArgs
-
-func PipeMQBrokerAccessCredentialsPtr(v *PipeMQBrokerAccessCredentialsArgs) PipeMQBrokerAccessCredentialsPtrInput {
-	return (*pipeMQBrokerAccessCredentialsPtrType)(v)
-}
-
-func (*pipeMQBrokerAccessCredentialsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PipeMQBrokerAccessCredentials)(nil)).Elem()
-}
-
-func (i *pipeMQBrokerAccessCredentialsPtrType) ToPipeMQBrokerAccessCredentialsPtrOutput() PipeMQBrokerAccessCredentialsPtrOutput {
-	return i.ToPipeMQBrokerAccessCredentialsPtrOutputWithContext(context.Background())
-}
-
-func (i *pipeMQBrokerAccessCredentialsPtrType) ToPipeMQBrokerAccessCredentialsPtrOutputWithContext(ctx context.Context) PipeMQBrokerAccessCredentialsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PipeMQBrokerAccessCredentialsPtrOutput)
-}
-
-type PipeMQBrokerAccessCredentialsOutput struct{ *pulumi.OutputState }
-
-func (PipeMQBrokerAccessCredentialsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PipeMQBrokerAccessCredentials)(nil)).Elem()
-}
-
-func (o PipeMQBrokerAccessCredentialsOutput) ToPipeMQBrokerAccessCredentialsOutput() PipeMQBrokerAccessCredentialsOutput {
-	return o
-}
-
-func (o PipeMQBrokerAccessCredentialsOutput) ToPipeMQBrokerAccessCredentialsOutputWithContext(ctx context.Context) PipeMQBrokerAccessCredentialsOutput {
-	return o
-}
-
-func (o PipeMQBrokerAccessCredentialsOutput) ToPipeMQBrokerAccessCredentialsPtrOutput() PipeMQBrokerAccessCredentialsPtrOutput {
-	return o.ToPipeMQBrokerAccessCredentialsPtrOutputWithContext(context.Background())
-}
-
-func (o PipeMQBrokerAccessCredentialsOutput) ToPipeMQBrokerAccessCredentialsPtrOutputWithContext(ctx context.Context) PipeMQBrokerAccessCredentialsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipeMQBrokerAccessCredentials) *PipeMQBrokerAccessCredentials {
-		return &v
-	}).(PipeMQBrokerAccessCredentialsPtrOutput)
-}
-
-type PipeMQBrokerAccessCredentialsPtrOutput struct{ *pulumi.OutputState }
-
-func (PipeMQBrokerAccessCredentialsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PipeMQBrokerAccessCredentials)(nil)).Elem()
-}
-
-func (o PipeMQBrokerAccessCredentialsPtrOutput) ToPipeMQBrokerAccessCredentialsPtrOutput() PipeMQBrokerAccessCredentialsPtrOutput {
-	return o
-}
-
-func (o PipeMQBrokerAccessCredentialsPtrOutput) ToPipeMQBrokerAccessCredentialsPtrOutputWithContext(ctx context.Context) PipeMQBrokerAccessCredentialsPtrOutput {
-	return o
-}
-
-func (o PipeMQBrokerAccessCredentialsPtrOutput) Elem() PipeMQBrokerAccessCredentialsOutput {
-	return o.ApplyT(func(v *PipeMQBrokerAccessCredentials) PipeMQBrokerAccessCredentials {
-		if v != nil {
-			return *v
-		}
-		var ret PipeMQBrokerAccessCredentials
-		return ret
-	}).(PipeMQBrokerAccessCredentialsOutput)
-}
-
-type PipeMSKAccessCredentials struct {
-}
-
-// PipeMSKAccessCredentialsInput is an input type that accepts PipeMSKAccessCredentialsArgs and PipeMSKAccessCredentialsOutput values.
-// You can construct a concrete instance of `PipeMSKAccessCredentialsInput` via:
-//
-//	PipeMSKAccessCredentialsArgs{...}
-type PipeMSKAccessCredentialsInput interface {
-	pulumi.Input
-
-	ToPipeMSKAccessCredentialsOutput() PipeMSKAccessCredentialsOutput
-	ToPipeMSKAccessCredentialsOutputWithContext(context.Context) PipeMSKAccessCredentialsOutput
-}
-
-type PipeMSKAccessCredentialsArgs struct {
-}
-
-func (PipeMSKAccessCredentialsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PipeMSKAccessCredentials)(nil)).Elem()
-}
-
-func (i PipeMSKAccessCredentialsArgs) ToPipeMSKAccessCredentialsOutput() PipeMSKAccessCredentialsOutput {
-	return i.ToPipeMSKAccessCredentialsOutputWithContext(context.Background())
-}
-
-func (i PipeMSKAccessCredentialsArgs) ToPipeMSKAccessCredentialsOutputWithContext(ctx context.Context) PipeMSKAccessCredentialsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PipeMSKAccessCredentialsOutput)
-}
-
-func (i PipeMSKAccessCredentialsArgs) ToPipeMSKAccessCredentialsPtrOutput() PipeMSKAccessCredentialsPtrOutput {
-	return i.ToPipeMSKAccessCredentialsPtrOutputWithContext(context.Background())
-}
-
-func (i PipeMSKAccessCredentialsArgs) ToPipeMSKAccessCredentialsPtrOutputWithContext(ctx context.Context) PipeMSKAccessCredentialsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PipeMSKAccessCredentialsOutput).ToPipeMSKAccessCredentialsPtrOutputWithContext(ctx)
-}
-
-// PipeMSKAccessCredentialsPtrInput is an input type that accepts PipeMSKAccessCredentialsArgs, PipeMSKAccessCredentialsPtr and PipeMSKAccessCredentialsPtrOutput values.
-// You can construct a concrete instance of `PipeMSKAccessCredentialsPtrInput` via:
-//
-//	        PipeMSKAccessCredentialsArgs{...}
-//
-//	or:
-//
-//	        nil
-type PipeMSKAccessCredentialsPtrInput interface {
-	pulumi.Input
-
-	ToPipeMSKAccessCredentialsPtrOutput() PipeMSKAccessCredentialsPtrOutput
-	ToPipeMSKAccessCredentialsPtrOutputWithContext(context.Context) PipeMSKAccessCredentialsPtrOutput
-}
-
-type pipeMSKAccessCredentialsPtrType PipeMSKAccessCredentialsArgs
-
-func PipeMSKAccessCredentialsPtr(v *PipeMSKAccessCredentialsArgs) PipeMSKAccessCredentialsPtrInput {
-	return (*pipeMSKAccessCredentialsPtrType)(v)
-}
-
-func (*pipeMSKAccessCredentialsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PipeMSKAccessCredentials)(nil)).Elem()
-}
-
-func (i *pipeMSKAccessCredentialsPtrType) ToPipeMSKAccessCredentialsPtrOutput() PipeMSKAccessCredentialsPtrOutput {
-	return i.ToPipeMSKAccessCredentialsPtrOutputWithContext(context.Background())
-}
-
-func (i *pipeMSKAccessCredentialsPtrType) ToPipeMSKAccessCredentialsPtrOutputWithContext(ctx context.Context) PipeMSKAccessCredentialsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PipeMSKAccessCredentialsPtrOutput)
-}
-
-type PipeMSKAccessCredentialsOutput struct{ *pulumi.OutputState }
-
-func (PipeMSKAccessCredentialsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PipeMSKAccessCredentials)(nil)).Elem()
-}
-
-func (o PipeMSKAccessCredentialsOutput) ToPipeMSKAccessCredentialsOutput() PipeMSKAccessCredentialsOutput {
-	return o
-}
-
-func (o PipeMSKAccessCredentialsOutput) ToPipeMSKAccessCredentialsOutputWithContext(ctx context.Context) PipeMSKAccessCredentialsOutput {
-	return o
-}
-
-func (o PipeMSKAccessCredentialsOutput) ToPipeMSKAccessCredentialsPtrOutput() PipeMSKAccessCredentialsPtrOutput {
-	return o.ToPipeMSKAccessCredentialsPtrOutputWithContext(context.Background())
-}
-
-func (o PipeMSKAccessCredentialsOutput) ToPipeMSKAccessCredentialsPtrOutputWithContext(ctx context.Context) PipeMSKAccessCredentialsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipeMSKAccessCredentials) *PipeMSKAccessCredentials {
-		return &v
-	}).(PipeMSKAccessCredentialsPtrOutput)
-}
-
-type PipeMSKAccessCredentialsPtrOutput struct{ *pulumi.OutputState }
-
-func (PipeMSKAccessCredentialsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PipeMSKAccessCredentials)(nil)).Elem()
-}
-
-func (o PipeMSKAccessCredentialsPtrOutput) ToPipeMSKAccessCredentialsPtrOutput() PipeMSKAccessCredentialsPtrOutput {
-	return o
-}
-
-func (o PipeMSKAccessCredentialsPtrOutput) ToPipeMSKAccessCredentialsPtrOutputWithContext(ctx context.Context) PipeMSKAccessCredentialsPtrOutput {
-	return o
-}
-
-func (o PipeMSKAccessCredentialsPtrOutput) Elem() PipeMSKAccessCredentialsOutput {
-	return o.ApplyT(func(v *PipeMSKAccessCredentials) PipeMSKAccessCredentials {
-		if v != nil {
-			return *v
-		}
-		var ret PipeMSKAccessCredentials
-		return ret
-	}).(PipeMSKAccessCredentialsOutput)
-}
-
 type PipeNetworkConfiguration struct {
 	AwsvpcConfiguration *PipeAwsVpcConfiguration `pulumi:"awsvpcConfiguration"`
 }
@@ -3614,124 +3530,6 @@ func (o PipeSageMakerPipelineParameterArrayOutput) Index(i pulumi.IntInput) Pipe
 	}).(PipeSageMakerPipelineParameterOutput)
 }
 
-type PipeSelfManagedKafkaAccessConfigurationCredentials struct {
-}
-
-// PipeSelfManagedKafkaAccessConfigurationCredentialsInput is an input type that accepts PipeSelfManagedKafkaAccessConfigurationCredentialsArgs and PipeSelfManagedKafkaAccessConfigurationCredentialsOutput values.
-// You can construct a concrete instance of `PipeSelfManagedKafkaAccessConfigurationCredentialsInput` via:
-//
-//	PipeSelfManagedKafkaAccessConfigurationCredentialsArgs{...}
-type PipeSelfManagedKafkaAccessConfigurationCredentialsInput interface {
-	pulumi.Input
-
-	ToPipeSelfManagedKafkaAccessConfigurationCredentialsOutput() PipeSelfManagedKafkaAccessConfigurationCredentialsOutput
-	ToPipeSelfManagedKafkaAccessConfigurationCredentialsOutputWithContext(context.Context) PipeSelfManagedKafkaAccessConfigurationCredentialsOutput
-}
-
-type PipeSelfManagedKafkaAccessConfigurationCredentialsArgs struct {
-}
-
-func (PipeSelfManagedKafkaAccessConfigurationCredentialsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PipeSelfManagedKafkaAccessConfigurationCredentials)(nil)).Elem()
-}
-
-func (i PipeSelfManagedKafkaAccessConfigurationCredentialsArgs) ToPipeSelfManagedKafkaAccessConfigurationCredentialsOutput() PipeSelfManagedKafkaAccessConfigurationCredentialsOutput {
-	return i.ToPipeSelfManagedKafkaAccessConfigurationCredentialsOutputWithContext(context.Background())
-}
-
-func (i PipeSelfManagedKafkaAccessConfigurationCredentialsArgs) ToPipeSelfManagedKafkaAccessConfigurationCredentialsOutputWithContext(ctx context.Context) PipeSelfManagedKafkaAccessConfigurationCredentialsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PipeSelfManagedKafkaAccessConfigurationCredentialsOutput)
-}
-
-func (i PipeSelfManagedKafkaAccessConfigurationCredentialsArgs) ToPipeSelfManagedKafkaAccessConfigurationCredentialsPtrOutput() PipeSelfManagedKafkaAccessConfigurationCredentialsPtrOutput {
-	return i.ToPipeSelfManagedKafkaAccessConfigurationCredentialsPtrOutputWithContext(context.Background())
-}
-
-func (i PipeSelfManagedKafkaAccessConfigurationCredentialsArgs) ToPipeSelfManagedKafkaAccessConfigurationCredentialsPtrOutputWithContext(ctx context.Context) PipeSelfManagedKafkaAccessConfigurationCredentialsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PipeSelfManagedKafkaAccessConfigurationCredentialsOutput).ToPipeSelfManagedKafkaAccessConfigurationCredentialsPtrOutputWithContext(ctx)
-}
-
-// PipeSelfManagedKafkaAccessConfigurationCredentialsPtrInput is an input type that accepts PipeSelfManagedKafkaAccessConfigurationCredentialsArgs, PipeSelfManagedKafkaAccessConfigurationCredentialsPtr and PipeSelfManagedKafkaAccessConfigurationCredentialsPtrOutput values.
-// You can construct a concrete instance of `PipeSelfManagedKafkaAccessConfigurationCredentialsPtrInput` via:
-//
-//	        PipeSelfManagedKafkaAccessConfigurationCredentialsArgs{...}
-//
-//	or:
-//
-//	        nil
-type PipeSelfManagedKafkaAccessConfigurationCredentialsPtrInput interface {
-	pulumi.Input
-
-	ToPipeSelfManagedKafkaAccessConfigurationCredentialsPtrOutput() PipeSelfManagedKafkaAccessConfigurationCredentialsPtrOutput
-	ToPipeSelfManagedKafkaAccessConfigurationCredentialsPtrOutputWithContext(context.Context) PipeSelfManagedKafkaAccessConfigurationCredentialsPtrOutput
-}
-
-type pipeSelfManagedKafkaAccessConfigurationCredentialsPtrType PipeSelfManagedKafkaAccessConfigurationCredentialsArgs
-
-func PipeSelfManagedKafkaAccessConfigurationCredentialsPtr(v *PipeSelfManagedKafkaAccessConfigurationCredentialsArgs) PipeSelfManagedKafkaAccessConfigurationCredentialsPtrInput {
-	return (*pipeSelfManagedKafkaAccessConfigurationCredentialsPtrType)(v)
-}
-
-func (*pipeSelfManagedKafkaAccessConfigurationCredentialsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PipeSelfManagedKafkaAccessConfigurationCredentials)(nil)).Elem()
-}
-
-func (i *pipeSelfManagedKafkaAccessConfigurationCredentialsPtrType) ToPipeSelfManagedKafkaAccessConfigurationCredentialsPtrOutput() PipeSelfManagedKafkaAccessConfigurationCredentialsPtrOutput {
-	return i.ToPipeSelfManagedKafkaAccessConfigurationCredentialsPtrOutputWithContext(context.Background())
-}
-
-func (i *pipeSelfManagedKafkaAccessConfigurationCredentialsPtrType) ToPipeSelfManagedKafkaAccessConfigurationCredentialsPtrOutputWithContext(ctx context.Context) PipeSelfManagedKafkaAccessConfigurationCredentialsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PipeSelfManagedKafkaAccessConfigurationCredentialsPtrOutput)
-}
-
-type PipeSelfManagedKafkaAccessConfigurationCredentialsOutput struct{ *pulumi.OutputState }
-
-func (PipeSelfManagedKafkaAccessConfigurationCredentialsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PipeSelfManagedKafkaAccessConfigurationCredentials)(nil)).Elem()
-}
-
-func (o PipeSelfManagedKafkaAccessConfigurationCredentialsOutput) ToPipeSelfManagedKafkaAccessConfigurationCredentialsOutput() PipeSelfManagedKafkaAccessConfigurationCredentialsOutput {
-	return o
-}
-
-func (o PipeSelfManagedKafkaAccessConfigurationCredentialsOutput) ToPipeSelfManagedKafkaAccessConfigurationCredentialsOutputWithContext(ctx context.Context) PipeSelfManagedKafkaAccessConfigurationCredentialsOutput {
-	return o
-}
-
-func (o PipeSelfManagedKafkaAccessConfigurationCredentialsOutput) ToPipeSelfManagedKafkaAccessConfigurationCredentialsPtrOutput() PipeSelfManagedKafkaAccessConfigurationCredentialsPtrOutput {
-	return o.ToPipeSelfManagedKafkaAccessConfigurationCredentialsPtrOutputWithContext(context.Background())
-}
-
-func (o PipeSelfManagedKafkaAccessConfigurationCredentialsOutput) ToPipeSelfManagedKafkaAccessConfigurationCredentialsPtrOutputWithContext(ctx context.Context) PipeSelfManagedKafkaAccessConfigurationCredentialsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipeSelfManagedKafkaAccessConfigurationCredentials) *PipeSelfManagedKafkaAccessConfigurationCredentials {
-		return &v
-	}).(PipeSelfManagedKafkaAccessConfigurationCredentialsPtrOutput)
-}
-
-type PipeSelfManagedKafkaAccessConfigurationCredentialsPtrOutput struct{ *pulumi.OutputState }
-
-func (PipeSelfManagedKafkaAccessConfigurationCredentialsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PipeSelfManagedKafkaAccessConfigurationCredentials)(nil)).Elem()
-}
-
-func (o PipeSelfManagedKafkaAccessConfigurationCredentialsPtrOutput) ToPipeSelfManagedKafkaAccessConfigurationCredentialsPtrOutput() PipeSelfManagedKafkaAccessConfigurationCredentialsPtrOutput {
-	return o
-}
-
-func (o PipeSelfManagedKafkaAccessConfigurationCredentialsPtrOutput) ToPipeSelfManagedKafkaAccessConfigurationCredentialsPtrOutputWithContext(ctx context.Context) PipeSelfManagedKafkaAccessConfigurationCredentialsPtrOutput {
-	return o
-}
-
-func (o PipeSelfManagedKafkaAccessConfigurationCredentialsPtrOutput) Elem() PipeSelfManagedKafkaAccessConfigurationCredentialsOutput {
-	return o.ApplyT(func(v *PipeSelfManagedKafkaAccessConfigurationCredentials) PipeSelfManagedKafkaAccessConfigurationCredentials {
-		if v != nil {
-			return *v
-		}
-		var ret PipeSelfManagedKafkaAccessConfigurationCredentials
-		return ret
-	}).(PipeSelfManagedKafkaAccessConfigurationCredentialsOutput)
-}
-
 type PipeSelfManagedKafkaAccessConfigurationVpc struct {
 	// List of SecurityGroupId.
 	SecurityGroup []string `pulumi:"securityGroup"`
@@ -3889,10 +3687,10 @@ func (o PipeSelfManagedKafkaAccessConfigurationVpcPtrOutput) Subnets() pulumi.St
 }
 
 type PipeSourceActiveMQBrokerParameters struct {
-	BatchSize                      *int                          `pulumi:"batchSize"`
-	Credentials                    PipeMQBrokerAccessCredentials `pulumi:"credentials"`
-	MaximumBatchingWindowInSeconds *int                          `pulumi:"maximumBatchingWindowInSeconds"`
-	QueueName                      string                        `pulumi:"queueName"`
+	BatchSize                      *int                                `pulumi:"batchSize"`
+	Credentials                    MQBrokerAccessCredentialsProperties `pulumi:"credentials"`
+	MaximumBatchingWindowInSeconds *int                                `pulumi:"maximumBatchingWindowInSeconds"`
+	QueueName                      string                              `pulumi:"queueName"`
 }
 
 // PipeSourceActiveMQBrokerParametersInput is an input type that accepts PipeSourceActiveMQBrokerParametersArgs and PipeSourceActiveMQBrokerParametersOutput values.
@@ -3907,10 +3705,10 @@ type PipeSourceActiveMQBrokerParametersInput interface {
 }
 
 type PipeSourceActiveMQBrokerParametersArgs struct {
-	BatchSize                      pulumi.IntPtrInput                 `pulumi:"batchSize"`
-	Credentials                    PipeMQBrokerAccessCredentialsInput `pulumi:"credentials"`
-	MaximumBatchingWindowInSeconds pulumi.IntPtrInput                 `pulumi:"maximumBatchingWindowInSeconds"`
-	QueueName                      pulumi.StringInput                 `pulumi:"queueName"`
+	BatchSize                      pulumi.IntPtrInput                       `pulumi:"batchSize"`
+	Credentials                    MQBrokerAccessCredentialsPropertiesInput `pulumi:"credentials"`
+	MaximumBatchingWindowInSeconds pulumi.IntPtrInput                       `pulumi:"maximumBatchingWindowInSeconds"`
+	QueueName                      pulumi.StringInput                       `pulumi:"queueName"`
 }
 
 func (PipeSourceActiveMQBrokerParametersArgs) ElementType() reflect.Type {
@@ -3994,8 +3792,8 @@ func (o PipeSourceActiveMQBrokerParametersOutput) BatchSize() pulumi.IntPtrOutpu
 	return o.ApplyT(func(v PipeSourceActiveMQBrokerParameters) *int { return v.BatchSize }).(pulumi.IntPtrOutput)
 }
 
-func (o PipeSourceActiveMQBrokerParametersOutput) Credentials() PipeMQBrokerAccessCredentialsOutput {
-	return o.ApplyT(func(v PipeSourceActiveMQBrokerParameters) PipeMQBrokerAccessCredentials { return v.Credentials }).(PipeMQBrokerAccessCredentialsOutput)
+func (o PipeSourceActiveMQBrokerParametersOutput) Credentials() MQBrokerAccessCredentialsPropertiesOutput {
+	return o.ApplyT(func(v PipeSourceActiveMQBrokerParameters) MQBrokerAccessCredentialsProperties { return v.Credentials }).(MQBrokerAccessCredentialsPropertiesOutput)
 }
 
 func (o PipeSourceActiveMQBrokerParametersOutput) MaximumBatchingWindowInSeconds() pulumi.IntPtrOutput {
@@ -4039,13 +3837,13 @@ func (o PipeSourceActiveMQBrokerParametersPtrOutput) BatchSize() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o PipeSourceActiveMQBrokerParametersPtrOutput) Credentials() PipeMQBrokerAccessCredentialsPtrOutput {
-	return o.ApplyT(func(v *PipeSourceActiveMQBrokerParameters) *PipeMQBrokerAccessCredentials {
+func (o PipeSourceActiveMQBrokerParametersPtrOutput) Credentials() MQBrokerAccessCredentialsPropertiesPtrOutput {
+	return o.ApplyT(func(v *PipeSourceActiveMQBrokerParameters) *MQBrokerAccessCredentialsProperties {
 		if v == nil {
 			return nil
 		}
 		return &v.Credentials
-	}).(PipeMQBrokerAccessCredentialsPtrOutput)
+	}).(MQBrokerAccessCredentialsPropertiesPtrOutput)
 }
 
 func (o PipeSourceActiveMQBrokerParametersPtrOutput) MaximumBatchingWindowInSeconds() pulumi.IntPtrOutput {
@@ -4562,12 +4360,12 @@ func (o PipeSourceKinesisStreamParametersPtrOutput) StartingPositionTimestamp() 
 }
 
 type PipeSourceManagedStreamingKafkaParameters struct {
-	BatchSize                      *int                      `pulumi:"batchSize"`
-	ConsumerGroupID                *string                   `pulumi:"consumerGroupID"`
-	Credentials                    *PipeMSKAccessCredentials `pulumi:"credentials"`
-	MaximumBatchingWindowInSeconds *int                      `pulumi:"maximumBatchingWindowInSeconds"`
-	StartingPosition               *PipeMSKStartPosition     `pulumi:"startingPosition"`
-	TopicName                      string                    `pulumi:"topicName"`
+	BatchSize                      *int                  `pulumi:"batchSize"`
+	ConsumerGroupID                *string               `pulumi:"consumerGroupID"`
+	Credentials                    interface{}           `pulumi:"credentials"`
+	MaximumBatchingWindowInSeconds *int                  `pulumi:"maximumBatchingWindowInSeconds"`
+	StartingPosition               *PipeMSKStartPosition `pulumi:"startingPosition"`
+	TopicName                      string                `pulumi:"topicName"`
 }
 
 // PipeSourceManagedStreamingKafkaParametersInput is an input type that accepts PipeSourceManagedStreamingKafkaParametersArgs and PipeSourceManagedStreamingKafkaParametersOutput values.
@@ -4582,12 +4380,12 @@ type PipeSourceManagedStreamingKafkaParametersInput interface {
 }
 
 type PipeSourceManagedStreamingKafkaParametersArgs struct {
-	BatchSize                      pulumi.IntPtrInput               `pulumi:"batchSize"`
-	ConsumerGroupID                pulumi.StringPtrInput            `pulumi:"consumerGroupID"`
-	Credentials                    PipeMSKAccessCredentialsPtrInput `pulumi:"credentials"`
-	MaximumBatchingWindowInSeconds pulumi.IntPtrInput               `pulumi:"maximumBatchingWindowInSeconds"`
-	StartingPosition               PipeMSKStartPositionPtrInput     `pulumi:"startingPosition"`
-	TopicName                      pulumi.StringInput               `pulumi:"topicName"`
+	BatchSize                      pulumi.IntPtrInput           `pulumi:"batchSize"`
+	ConsumerGroupID                pulumi.StringPtrInput        `pulumi:"consumerGroupID"`
+	Credentials                    pulumi.Input                 `pulumi:"credentials"`
+	MaximumBatchingWindowInSeconds pulumi.IntPtrInput           `pulumi:"maximumBatchingWindowInSeconds"`
+	StartingPosition               PipeMSKStartPositionPtrInput `pulumi:"startingPosition"`
+	TopicName                      pulumi.StringInput           `pulumi:"topicName"`
 }
 
 func (PipeSourceManagedStreamingKafkaParametersArgs) ElementType() reflect.Type {
@@ -4675,8 +4473,8 @@ func (o PipeSourceManagedStreamingKafkaParametersOutput) ConsumerGroupID() pulum
 	return o.ApplyT(func(v PipeSourceManagedStreamingKafkaParameters) *string { return v.ConsumerGroupID }).(pulumi.StringPtrOutput)
 }
 
-func (o PipeSourceManagedStreamingKafkaParametersOutput) Credentials() PipeMSKAccessCredentialsPtrOutput {
-	return o.ApplyT(func(v PipeSourceManagedStreamingKafkaParameters) *PipeMSKAccessCredentials { return v.Credentials }).(PipeMSKAccessCredentialsPtrOutput)
+func (o PipeSourceManagedStreamingKafkaParametersOutput) Credentials() pulumi.AnyOutput {
+	return o.ApplyT(func(v PipeSourceManagedStreamingKafkaParameters) interface{} { return v.Credentials }).(pulumi.AnyOutput)
 }
 
 func (o PipeSourceManagedStreamingKafkaParametersOutput) MaximumBatchingWindowInSeconds() pulumi.IntPtrOutput {
@@ -4733,13 +4531,13 @@ func (o PipeSourceManagedStreamingKafkaParametersPtrOutput) ConsumerGroupID() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o PipeSourceManagedStreamingKafkaParametersPtrOutput) Credentials() PipeMSKAccessCredentialsPtrOutput {
-	return o.ApplyT(func(v *PipeSourceManagedStreamingKafkaParameters) *PipeMSKAccessCredentials {
+func (o PipeSourceManagedStreamingKafkaParametersPtrOutput) Credentials() pulumi.AnyOutput {
+	return o.ApplyT(func(v *PipeSourceManagedStreamingKafkaParameters) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Credentials
-	}).(PipeMSKAccessCredentialsPtrOutput)
+	}).(pulumi.AnyOutput)
 }
 
 func (o PipeSourceManagedStreamingKafkaParametersPtrOutput) MaximumBatchingWindowInSeconds() pulumi.IntPtrOutput {
@@ -5012,11 +4810,11 @@ func (o PipeSourceParametersPtrOutput) SqsQueueParameters() PipeSourceSqsQueuePa
 }
 
 type PipeSourceRabbitMQBrokerParameters struct {
-	BatchSize                      *int                          `pulumi:"batchSize"`
-	Credentials                    PipeMQBrokerAccessCredentials `pulumi:"credentials"`
-	MaximumBatchingWindowInSeconds *int                          `pulumi:"maximumBatchingWindowInSeconds"`
-	QueueName                      string                        `pulumi:"queueName"`
-	VirtualHost                    *string                       `pulumi:"virtualHost"`
+	BatchSize                      *int                                `pulumi:"batchSize"`
+	Credentials                    MQBrokerAccessCredentialsProperties `pulumi:"credentials"`
+	MaximumBatchingWindowInSeconds *int                                `pulumi:"maximumBatchingWindowInSeconds"`
+	QueueName                      string                              `pulumi:"queueName"`
+	VirtualHost                    *string                             `pulumi:"virtualHost"`
 }
 
 // PipeSourceRabbitMQBrokerParametersInput is an input type that accepts PipeSourceRabbitMQBrokerParametersArgs and PipeSourceRabbitMQBrokerParametersOutput values.
@@ -5031,11 +4829,11 @@ type PipeSourceRabbitMQBrokerParametersInput interface {
 }
 
 type PipeSourceRabbitMQBrokerParametersArgs struct {
-	BatchSize                      pulumi.IntPtrInput                 `pulumi:"batchSize"`
-	Credentials                    PipeMQBrokerAccessCredentialsInput `pulumi:"credentials"`
-	MaximumBatchingWindowInSeconds pulumi.IntPtrInput                 `pulumi:"maximumBatchingWindowInSeconds"`
-	QueueName                      pulumi.StringInput                 `pulumi:"queueName"`
-	VirtualHost                    pulumi.StringPtrInput              `pulumi:"virtualHost"`
+	BatchSize                      pulumi.IntPtrInput                       `pulumi:"batchSize"`
+	Credentials                    MQBrokerAccessCredentialsPropertiesInput `pulumi:"credentials"`
+	MaximumBatchingWindowInSeconds pulumi.IntPtrInput                       `pulumi:"maximumBatchingWindowInSeconds"`
+	QueueName                      pulumi.StringInput                       `pulumi:"queueName"`
+	VirtualHost                    pulumi.StringPtrInput                    `pulumi:"virtualHost"`
 }
 
 func (PipeSourceRabbitMQBrokerParametersArgs) ElementType() reflect.Type {
@@ -5119,8 +4917,8 @@ func (o PipeSourceRabbitMQBrokerParametersOutput) BatchSize() pulumi.IntPtrOutpu
 	return o.ApplyT(func(v PipeSourceRabbitMQBrokerParameters) *int { return v.BatchSize }).(pulumi.IntPtrOutput)
 }
 
-func (o PipeSourceRabbitMQBrokerParametersOutput) Credentials() PipeMQBrokerAccessCredentialsOutput {
-	return o.ApplyT(func(v PipeSourceRabbitMQBrokerParameters) PipeMQBrokerAccessCredentials { return v.Credentials }).(PipeMQBrokerAccessCredentialsOutput)
+func (o PipeSourceRabbitMQBrokerParametersOutput) Credentials() MQBrokerAccessCredentialsPropertiesOutput {
+	return o.ApplyT(func(v PipeSourceRabbitMQBrokerParameters) MQBrokerAccessCredentialsProperties { return v.Credentials }).(MQBrokerAccessCredentialsPropertiesOutput)
 }
 
 func (o PipeSourceRabbitMQBrokerParametersOutput) MaximumBatchingWindowInSeconds() pulumi.IntPtrOutput {
@@ -5168,13 +4966,13 @@ func (o PipeSourceRabbitMQBrokerParametersPtrOutput) BatchSize() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o PipeSourceRabbitMQBrokerParametersPtrOutput) Credentials() PipeMQBrokerAccessCredentialsPtrOutput {
-	return o.ApplyT(func(v *PipeSourceRabbitMQBrokerParameters) *PipeMQBrokerAccessCredentials {
+func (o PipeSourceRabbitMQBrokerParametersPtrOutput) Credentials() MQBrokerAccessCredentialsPropertiesPtrOutput {
+	return o.ApplyT(func(v *PipeSourceRabbitMQBrokerParameters) *MQBrokerAccessCredentialsProperties {
 		if v == nil {
 			return nil
 		}
 		return &v.Credentials
-	}).(PipeMQBrokerAccessCredentialsPtrOutput)
+	}).(MQBrokerAccessCredentialsPropertiesPtrOutput)
 }
 
 func (o PipeSourceRabbitMQBrokerParametersPtrOutput) MaximumBatchingWindowInSeconds() pulumi.IntPtrOutput {
@@ -5205,11 +5003,11 @@ func (o PipeSourceRabbitMQBrokerParametersPtrOutput) VirtualHost() pulumi.String
 }
 
 type PipeSourceSelfManagedKafkaParameters struct {
-	AdditionalBootstrapServers     []string                                            `pulumi:"additionalBootstrapServers"`
-	BatchSize                      *int                                                `pulumi:"batchSize"`
-	ConsumerGroupID                *string                                             `pulumi:"consumerGroupID"`
-	Credentials                    *PipeSelfManagedKafkaAccessConfigurationCredentials `pulumi:"credentials"`
-	MaximumBatchingWindowInSeconds *int                                                `pulumi:"maximumBatchingWindowInSeconds"`
+	AdditionalBootstrapServers     []string    `pulumi:"additionalBootstrapServers"`
+	BatchSize                      *int        `pulumi:"batchSize"`
+	ConsumerGroupID                *string     `pulumi:"consumerGroupID"`
+	Credentials                    interface{} `pulumi:"credentials"`
+	MaximumBatchingWindowInSeconds *int        `pulumi:"maximumBatchingWindowInSeconds"`
 	// Optional SecretManager ARN which stores the database credentials
 	ServerRootCaCertificate *string                                     `pulumi:"serverRootCaCertificate"`
 	StartingPosition        *PipeSelfManagedKafkaStartPosition          `pulumi:"startingPosition"`
@@ -5229,11 +5027,11 @@ type PipeSourceSelfManagedKafkaParametersInput interface {
 }
 
 type PipeSourceSelfManagedKafkaParametersArgs struct {
-	AdditionalBootstrapServers     pulumi.StringArrayInput                                    `pulumi:"additionalBootstrapServers"`
-	BatchSize                      pulumi.IntPtrInput                                         `pulumi:"batchSize"`
-	ConsumerGroupID                pulumi.StringPtrInput                                      `pulumi:"consumerGroupID"`
-	Credentials                    PipeSelfManagedKafkaAccessConfigurationCredentialsPtrInput `pulumi:"credentials"`
-	MaximumBatchingWindowInSeconds pulumi.IntPtrInput                                         `pulumi:"maximumBatchingWindowInSeconds"`
+	AdditionalBootstrapServers     pulumi.StringArrayInput `pulumi:"additionalBootstrapServers"`
+	BatchSize                      pulumi.IntPtrInput      `pulumi:"batchSize"`
+	ConsumerGroupID                pulumi.StringPtrInput   `pulumi:"consumerGroupID"`
+	Credentials                    pulumi.Input            `pulumi:"credentials"`
+	MaximumBatchingWindowInSeconds pulumi.IntPtrInput      `pulumi:"maximumBatchingWindowInSeconds"`
 	// Optional SecretManager ARN which stores the database credentials
 	ServerRootCaCertificate pulumi.StringPtrInput                              `pulumi:"serverRootCaCertificate"`
 	StartingPosition        PipeSelfManagedKafkaStartPositionPtrInput          `pulumi:"startingPosition"`
@@ -5330,10 +5128,8 @@ func (o PipeSourceSelfManagedKafkaParametersOutput) ConsumerGroupID() pulumi.Str
 	return o.ApplyT(func(v PipeSourceSelfManagedKafkaParameters) *string { return v.ConsumerGroupID }).(pulumi.StringPtrOutput)
 }
 
-func (o PipeSourceSelfManagedKafkaParametersOutput) Credentials() PipeSelfManagedKafkaAccessConfigurationCredentialsPtrOutput {
-	return o.ApplyT(func(v PipeSourceSelfManagedKafkaParameters) *PipeSelfManagedKafkaAccessConfigurationCredentials {
-		return v.Credentials
-	}).(PipeSelfManagedKafkaAccessConfigurationCredentialsPtrOutput)
+func (o PipeSourceSelfManagedKafkaParametersOutput) Credentials() pulumi.AnyOutput {
+	return o.ApplyT(func(v PipeSourceSelfManagedKafkaParameters) interface{} { return v.Credentials }).(pulumi.AnyOutput)
 }
 
 func (o PipeSourceSelfManagedKafkaParametersOutput) MaximumBatchingWindowInSeconds() pulumi.IntPtrOutput {
@@ -5410,13 +5206,13 @@ func (o PipeSourceSelfManagedKafkaParametersPtrOutput) ConsumerGroupID() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o PipeSourceSelfManagedKafkaParametersPtrOutput) Credentials() PipeSelfManagedKafkaAccessConfigurationCredentialsPtrOutput {
-	return o.ApplyT(func(v *PipeSourceSelfManagedKafkaParameters) *PipeSelfManagedKafkaAccessConfigurationCredentials {
+func (o PipeSourceSelfManagedKafkaParametersPtrOutput) Credentials() pulumi.AnyOutput {
+	return o.ApplyT(func(v *PipeSourceSelfManagedKafkaParameters) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Credentials
-	}).(PipeSelfManagedKafkaAccessConfigurationCredentialsPtrOutput)
+	}).(pulumi.AnyOutput)
 }
 
 func (o PipeSourceSelfManagedKafkaParametersPtrOutput) MaximumBatchingWindowInSeconds() pulumi.IntPtrOutput {
@@ -8117,7 +7913,29 @@ func (o PipeTargetStateMachineParametersPtrOutput) InvocationType() PipeTargetIn
 	}).(PipeTargetInvocationTypePtrOutput)
 }
 
+type SelfManagedKafkaAccessConfigurationCredentials0Properties struct {
+	// Optional SecretManager ARN which stores the database credentials
+	BasicAuth string `pulumi:"basicAuth"`
+}
+
+type SelfManagedKafkaAccessConfigurationCredentials1Properties struct {
+	// Optional SecretManager ARN which stores the database credentials
+	SaslScram512Auth string `pulumi:"saslScram512Auth"`
+}
+
+type SelfManagedKafkaAccessConfigurationCredentials2Properties struct {
+	// Optional SecretManager ARN which stores the database credentials
+	SaslScram256Auth string `pulumi:"saslScram256Auth"`
+}
+
+type SelfManagedKafkaAccessConfigurationCredentials3Properties struct {
+	// Optional SecretManager ARN which stores the database credentials
+	ClientCertificateTlsAuth string `pulumi:"clientCertificateTlsAuth"`
+}
+
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MQBrokerAccessCredentialsPropertiesInput)(nil)).Elem(), MQBrokerAccessCredentialsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MQBrokerAccessCredentialsPropertiesPtrInput)(nil)).Elem(), MQBrokerAccessCredentialsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeAwsVpcConfigurationInput)(nil)).Elem(), PipeAwsVpcConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeAwsVpcConfigurationPtrInput)(nil)).Elem(), PipeAwsVpcConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeBatchArrayPropertiesInput)(nil)).Elem(), PipeBatchArrayPropertiesArgs{})
@@ -8162,10 +7980,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeFilterCriteriaPtrInput)(nil)).Elem(), PipeFilterCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeHeaderParametersMapInput)(nil)).Elem(), PipeHeaderParametersMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeHeaderParametersMapPtrInput)(nil)).Elem(), PipeHeaderParametersMapArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PipeMQBrokerAccessCredentialsInput)(nil)).Elem(), PipeMQBrokerAccessCredentialsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PipeMQBrokerAccessCredentialsPtrInput)(nil)).Elem(), PipeMQBrokerAccessCredentialsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PipeMSKAccessCredentialsInput)(nil)).Elem(), PipeMSKAccessCredentialsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PipeMSKAccessCredentialsPtrInput)(nil)).Elem(), PipeMSKAccessCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeNetworkConfigurationInput)(nil)).Elem(), PipeNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeNetworkConfigurationPtrInput)(nil)).Elem(), PipeNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipePlacementConstraintInput)(nil)).Elem(), PipePlacementConstraintArgs{})
@@ -8176,8 +7990,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeQueryStringParametersMapPtrInput)(nil)).Elem(), PipeQueryStringParametersMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeSageMakerPipelineParameterInput)(nil)).Elem(), PipeSageMakerPipelineParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeSageMakerPipelineParameterArrayInput)(nil)).Elem(), PipeSageMakerPipelineParameterArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PipeSelfManagedKafkaAccessConfigurationCredentialsInput)(nil)).Elem(), PipeSelfManagedKafkaAccessConfigurationCredentialsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PipeSelfManagedKafkaAccessConfigurationCredentialsPtrInput)(nil)).Elem(), PipeSelfManagedKafkaAccessConfigurationCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeSelfManagedKafkaAccessConfigurationVpcInput)(nil)).Elem(), PipeSelfManagedKafkaAccessConfigurationVpcArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeSelfManagedKafkaAccessConfigurationVpcPtrInput)(nil)).Elem(), PipeSelfManagedKafkaAccessConfigurationVpcArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeSourceActiveMQBrokerParametersInput)(nil)).Elem(), PipeSourceActiveMQBrokerParametersArgs{})
@@ -8224,6 +8036,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeTargetSqsQueueParametersPtrInput)(nil)).Elem(), PipeTargetSqsQueueParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeTargetStateMachineParametersInput)(nil)).Elem(), PipeTargetStateMachineParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeTargetStateMachineParametersPtrInput)(nil)).Elem(), PipeTargetStateMachineParametersArgs{})
+	pulumi.RegisterOutputType(MQBrokerAccessCredentialsPropertiesOutput{})
+	pulumi.RegisterOutputType(MQBrokerAccessCredentialsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PipeAwsVpcConfigurationOutput{})
 	pulumi.RegisterOutputType(PipeAwsVpcConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(PipeBatchArrayPropertiesOutput{})
@@ -8268,10 +8082,6 @@ func init() {
 	pulumi.RegisterOutputType(PipeFilterCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(PipeHeaderParametersMapOutput{})
 	pulumi.RegisterOutputType(PipeHeaderParametersMapPtrOutput{})
-	pulumi.RegisterOutputType(PipeMQBrokerAccessCredentialsOutput{})
-	pulumi.RegisterOutputType(PipeMQBrokerAccessCredentialsPtrOutput{})
-	pulumi.RegisterOutputType(PipeMSKAccessCredentialsOutput{})
-	pulumi.RegisterOutputType(PipeMSKAccessCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(PipeNetworkConfigurationOutput{})
 	pulumi.RegisterOutputType(PipeNetworkConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(PipePlacementConstraintOutput{})
@@ -8282,8 +8092,6 @@ func init() {
 	pulumi.RegisterOutputType(PipeQueryStringParametersMapPtrOutput{})
 	pulumi.RegisterOutputType(PipeSageMakerPipelineParameterOutput{})
 	pulumi.RegisterOutputType(PipeSageMakerPipelineParameterArrayOutput{})
-	pulumi.RegisterOutputType(PipeSelfManagedKafkaAccessConfigurationCredentialsOutput{})
-	pulumi.RegisterOutputType(PipeSelfManagedKafkaAccessConfigurationCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(PipeSelfManagedKafkaAccessConfigurationVpcOutput{})
 	pulumi.RegisterOutputType(PipeSelfManagedKafkaAccessConfigurationVpcPtrOutput{})
 	pulumi.RegisterOutputType(PipeSourceActiveMQBrokerParametersOutput{})

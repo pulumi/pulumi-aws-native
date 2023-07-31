@@ -16,7 +16,7 @@ import (
 type Policy struct {
 	pulumi.CustomResourceState
 
-	Definition    PolicyDefinitionOutput `pulumi:"definition"`
+	Definition    pulumi.AnyOutput       `pulumi:"definition"`
 	PolicyId      pulumi.StringOutput    `pulumi:"policyId"`
 	PolicyStoreId pulumi.StringPtrOutput `pulumi:"policyStoreId"`
 	PolicyType    PolicyTypeOutput       `pulumi:"policyType"`
@@ -65,13 +65,13 @@ func (PolicyState) ElementType() reflect.Type {
 }
 
 type policyArgs struct {
-	Definition    PolicyDefinition `pulumi:"definition"`
-	PolicyStoreId *string          `pulumi:"policyStoreId"`
+	Definition    interface{} `pulumi:"definition"`
+	PolicyStoreId *string     `pulumi:"policyStoreId"`
 }
 
 // The set of arguments for constructing a Policy resource.
 type PolicyArgs struct {
-	Definition    PolicyDefinitionInput
+	Definition    pulumi.Input
 	PolicyStoreId pulumi.StringPtrInput
 }
 
@@ -112,8 +112,8 @@ func (o PolicyOutput) ToPolicyOutputWithContext(ctx context.Context) PolicyOutpu
 	return o
 }
 
-func (o PolicyOutput) Definition() PolicyDefinitionOutput {
-	return o.ApplyT(func(v *Policy) PolicyDefinitionOutput { return v.Definition }).(PolicyDefinitionOutput)
+func (o PolicyOutput) Definition() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Policy) pulumi.AnyOutput { return v.Definition }).(pulumi.AnyOutput)
 }
 
 func (o PolicyOutput) PolicyId() pulumi.StringOutput {

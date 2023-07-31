@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
     public sealed class AutomationRuleRelatedFindingArgs : global::Pulumi.ResourceArgs
     {
         [Input("id", required: true)]
-        public Input<Inputs.AutomationRulearnOrIdArgs> Id { get; set; } = null!;
+        public Input<string> Id { get; set; } = null!;
 
         [Input("productArn", required: true)]
         public Input<string> ProductArn { get; set; } = null!;

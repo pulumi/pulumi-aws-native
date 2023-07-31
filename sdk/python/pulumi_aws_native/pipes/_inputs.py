@@ -11,6 +11,9 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'MQBrokerAccessCredentialsPropertiesArgs',
+    'MSKAccessCredentials0PropertiesArgs',
+    'MSKAccessCredentials1PropertiesArgs',
     'PipeAwsVpcConfigurationArgs',
     'PipeBatchArrayPropertiesArgs',
     'PipeBatchContainerOverridesArgs',
@@ -33,14 +36,11 @@ __all__ = [
     'PipeFilterCriteriaArgs',
     'PipeFilterArgs',
     'PipeHeaderParametersMapArgs',
-    'PipeMQBrokerAccessCredentialsArgs',
-    'PipeMSKAccessCredentialsArgs',
     'PipeNetworkConfigurationArgs',
     'PipePlacementConstraintArgs',
     'PipePlacementStrategyArgs',
     'PipeQueryStringParametersMapArgs',
     'PipeSageMakerPipelineParameterArgs',
-    'PipeSelfManagedKafkaAccessConfigurationCredentialsArgs',
     'PipeSelfManagedKafkaAccessConfigurationVpcArgs',
     'PipeSourceActiveMQBrokerParametersArgs',
     'PipeSourceDynamoDBStreamParametersArgs',
@@ -64,7 +64,77 @@ __all__ = [
     'PipeTargetSageMakerPipelineParametersArgs',
     'PipeTargetSqsQueueParametersArgs',
     'PipeTargetStateMachineParametersArgs',
+    'SelfManagedKafkaAccessConfigurationCredentials0PropertiesArgs',
+    'SelfManagedKafkaAccessConfigurationCredentials1PropertiesArgs',
+    'SelfManagedKafkaAccessConfigurationCredentials2PropertiesArgs',
+    'SelfManagedKafkaAccessConfigurationCredentials3PropertiesArgs',
 ]
+
+@pulumi.input_type
+class MQBrokerAccessCredentialsPropertiesArgs:
+    def __init__(__self__, *,
+                 basic_auth: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] basic_auth: Optional SecretManager ARN which stores the database credentials
+        """
+        pulumi.set(__self__, "basic_auth", basic_auth)
+
+    @property
+    @pulumi.getter(name="basicAuth")
+    def basic_auth(self) -> pulumi.Input[str]:
+        """
+        Optional SecretManager ARN which stores the database credentials
+        """
+        return pulumi.get(self, "basic_auth")
+
+    @basic_auth.setter
+    def basic_auth(self, value: pulumi.Input[str]):
+        pulumi.set(self, "basic_auth", value)
+
+
+@pulumi.input_type
+class MSKAccessCredentials0PropertiesArgs:
+    def __init__(__self__, *,
+                 sasl_scram512_auth: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] sasl_scram512_auth: Optional SecretManager ARN which stores the database credentials
+        """
+        pulumi.set(__self__, "sasl_scram512_auth", sasl_scram512_auth)
+
+    @property
+    @pulumi.getter(name="saslScram512Auth")
+    def sasl_scram512_auth(self) -> pulumi.Input[str]:
+        """
+        Optional SecretManager ARN which stores the database credentials
+        """
+        return pulumi.get(self, "sasl_scram512_auth")
+
+    @sasl_scram512_auth.setter
+    def sasl_scram512_auth(self, value: pulumi.Input[str]):
+        pulumi.set(self, "sasl_scram512_auth", value)
+
+
+@pulumi.input_type
+class MSKAccessCredentials1PropertiesArgs:
+    def __init__(__self__, *,
+                 client_certificate_tls_auth: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] client_certificate_tls_auth: Optional SecretManager ARN which stores the database credentials
+        """
+        pulumi.set(__self__, "client_certificate_tls_auth", client_certificate_tls_auth)
+
+    @property
+    @pulumi.getter(name="clientCertificateTlsAuth")
+    def client_certificate_tls_auth(self) -> pulumi.Input[str]:
+        """
+        Optional SecretManager ARN which stores the database credentials
+        """
+        return pulumi.get(self, "client_certificate_tls_auth")
+
+    @client_certificate_tls_auth.setter
+    def client_certificate_tls_auth(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_certificate_tls_auth", value)
+
 
 @pulumi.input_type
 class PipeAwsVpcConfigurationArgs:
@@ -770,18 +840,6 @@ class PipeHeaderParametersMapArgs:
 
 
 @pulumi.input_type
-class PipeMQBrokerAccessCredentialsArgs:
-    def __init__(__self__):
-        pass
-
-
-@pulumi.input_type
-class PipeMSKAccessCredentialsArgs:
-    def __init__(__self__):
-        pass
-
-
-@pulumi.input_type
 class PipeNetworkConfigurationArgs:
     def __init__(__self__, *,
                  awsvpc_configuration: Optional[pulumi.Input['PipeAwsVpcConfigurationArgs']] = None):
@@ -890,12 +948,6 @@ class PipeSageMakerPipelineParameterArgs:
 
 
 @pulumi.input_type
-class PipeSelfManagedKafkaAccessConfigurationCredentialsArgs:
-    def __init__(__self__):
-        pass
-
-
-@pulumi.input_type
 class PipeSelfManagedKafkaAccessConfigurationVpcArgs:
     def __init__(__self__, *,
                  security_group: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -937,7 +989,7 @@ class PipeSelfManagedKafkaAccessConfigurationVpcArgs:
 @pulumi.input_type
 class PipeSourceActiveMQBrokerParametersArgs:
     def __init__(__self__, *,
-                 credentials: pulumi.Input['PipeMQBrokerAccessCredentialsArgs'],
+                 credentials: pulumi.Input['MQBrokerAccessCredentialsPropertiesArgs'],
                  queue_name: pulumi.Input[str],
                  batch_size: Optional[pulumi.Input[int]] = None,
                  maximum_batching_window_in_seconds: Optional[pulumi.Input[int]] = None):
@@ -950,11 +1002,11 @@ class PipeSourceActiveMQBrokerParametersArgs:
 
     @property
     @pulumi.getter
-    def credentials(self) -> pulumi.Input['PipeMQBrokerAccessCredentialsArgs']:
+    def credentials(self) -> pulumi.Input['MQBrokerAccessCredentialsPropertiesArgs']:
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: pulumi.Input['PipeMQBrokerAccessCredentialsArgs']):
+    def credentials(self, value: pulumi.Input['MQBrokerAccessCredentialsPropertiesArgs']):
         pulumi.set(self, "credentials", value)
 
     @property
@@ -1203,7 +1255,7 @@ class PipeSourceManagedStreamingKafkaParametersArgs:
                  topic_name: pulumi.Input[str],
                  batch_size: Optional[pulumi.Input[int]] = None,
                  consumer_group_id: Optional[pulumi.Input[str]] = None,
-                 credentials: Optional[pulumi.Input['PipeMSKAccessCredentialsArgs']] = None,
+                 credentials: Optional[pulumi.Input[Union['MSKAccessCredentials0PropertiesArgs', 'MSKAccessCredentials1PropertiesArgs']]] = None,
                  maximum_batching_window_in_seconds: Optional[pulumi.Input[int]] = None,
                  starting_position: Optional[pulumi.Input['PipeMSKStartPosition']] = None):
         pulumi.set(__self__, "topic_name", topic_name)
@@ -1247,11 +1299,11 @@ class PipeSourceManagedStreamingKafkaParametersArgs:
 
     @property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input['PipeMSKAccessCredentialsArgs']]:
+    def credentials(self) -> Optional[pulumi.Input[Union['MSKAccessCredentials0PropertiesArgs', 'MSKAccessCredentials1PropertiesArgs']]]:
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input['PipeMSKAccessCredentialsArgs']]):
+    def credentials(self, value: Optional[pulumi.Input[Union['MSKAccessCredentials0PropertiesArgs', 'MSKAccessCredentials1PropertiesArgs']]]):
         pulumi.set(self, "credentials", value)
 
     @property
@@ -1377,7 +1429,7 @@ class PipeSourceParametersArgs:
 @pulumi.input_type
 class PipeSourceRabbitMQBrokerParametersArgs:
     def __init__(__self__, *,
-                 credentials: pulumi.Input['PipeMQBrokerAccessCredentialsArgs'],
+                 credentials: pulumi.Input['MQBrokerAccessCredentialsPropertiesArgs'],
                  queue_name: pulumi.Input[str],
                  batch_size: Optional[pulumi.Input[int]] = None,
                  maximum_batching_window_in_seconds: Optional[pulumi.Input[int]] = None,
@@ -1393,11 +1445,11 @@ class PipeSourceRabbitMQBrokerParametersArgs:
 
     @property
     @pulumi.getter
-    def credentials(self) -> pulumi.Input['PipeMQBrokerAccessCredentialsArgs']:
+    def credentials(self) -> pulumi.Input['MQBrokerAccessCredentialsPropertiesArgs']:
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: pulumi.Input['PipeMQBrokerAccessCredentialsArgs']):
+    def credentials(self, value: pulumi.Input['MQBrokerAccessCredentialsPropertiesArgs']):
         pulumi.set(self, "credentials", value)
 
     @property
@@ -1444,7 +1496,7 @@ class PipeSourceSelfManagedKafkaParametersArgs:
                  additional_bootstrap_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  batch_size: Optional[pulumi.Input[int]] = None,
                  consumer_group_id: Optional[pulumi.Input[str]] = None,
-                 credentials: Optional[pulumi.Input['PipeSelfManagedKafkaAccessConfigurationCredentialsArgs']] = None,
+                 credentials: Optional[pulumi.Input[Union['SelfManagedKafkaAccessConfigurationCredentials0PropertiesArgs', 'SelfManagedKafkaAccessConfigurationCredentials1PropertiesArgs', 'SelfManagedKafkaAccessConfigurationCredentials2PropertiesArgs', 'SelfManagedKafkaAccessConfigurationCredentials3PropertiesArgs']]] = None,
                  maximum_batching_window_in_seconds: Optional[pulumi.Input[int]] = None,
                  server_root_ca_certificate: Optional[pulumi.Input[str]] = None,
                  starting_position: Optional[pulumi.Input['PipeSelfManagedKafkaStartPosition']] = None,
@@ -1508,11 +1560,11 @@ class PipeSourceSelfManagedKafkaParametersArgs:
 
     @property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input['PipeSelfManagedKafkaAccessConfigurationCredentialsArgs']]:
+    def credentials(self) -> Optional[pulumi.Input[Union['SelfManagedKafkaAccessConfigurationCredentials0PropertiesArgs', 'SelfManagedKafkaAccessConfigurationCredentials1PropertiesArgs', 'SelfManagedKafkaAccessConfigurationCredentials2PropertiesArgs', 'SelfManagedKafkaAccessConfigurationCredentials3PropertiesArgs']]]:
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input['PipeSelfManagedKafkaAccessConfigurationCredentialsArgs']]):
+    def credentials(self, value: Optional[pulumi.Input[Union['SelfManagedKafkaAccessConfigurationCredentials0PropertiesArgs', 'SelfManagedKafkaAccessConfigurationCredentials1PropertiesArgs', 'SelfManagedKafkaAccessConfigurationCredentials2PropertiesArgs', 'SelfManagedKafkaAccessConfigurationCredentials3PropertiesArgs']]]):
         pulumi.set(self, "credentials", value)
 
     @property
@@ -2363,5 +2415,93 @@ class PipeTargetStateMachineParametersArgs:
     @invocation_type.setter
     def invocation_type(self, value: Optional[pulumi.Input['PipeTargetInvocationType']]):
         pulumi.set(self, "invocation_type", value)
+
+
+@pulumi.input_type
+class SelfManagedKafkaAccessConfigurationCredentials0PropertiesArgs:
+    def __init__(__self__, *,
+                 basic_auth: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] basic_auth: Optional SecretManager ARN which stores the database credentials
+        """
+        pulumi.set(__self__, "basic_auth", basic_auth)
+
+    @property
+    @pulumi.getter(name="basicAuth")
+    def basic_auth(self) -> pulumi.Input[str]:
+        """
+        Optional SecretManager ARN which stores the database credentials
+        """
+        return pulumi.get(self, "basic_auth")
+
+    @basic_auth.setter
+    def basic_auth(self, value: pulumi.Input[str]):
+        pulumi.set(self, "basic_auth", value)
+
+
+@pulumi.input_type
+class SelfManagedKafkaAccessConfigurationCredentials1PropertiesArgs:
+    def __init__(__self__, *,
+                 sasl_scram512_auth: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] sasl_scram512_auth: Optional SecretManager ARN which stores the database credentials
+        """
+        pulumi.set(__self__, "sasl_scram512_auth", sasl_scram512_auth)
+
+    @property
+    @pulumi.getter(name="saslScram512Auth")
+    def sasl_scram512_auth(self) -> pulumi.Input[str]:
+        """
+        Optional SecretManager ARN which stores the database credentials
+        """
+        return pulumi.get(self, "sasl_scram512_auth")
+
+    @sasl_scram512_auth.setter
+    def sasl_scram512_auth(self, value: pulumi.Input[str]):
+        pulumi.set(self, "sasl_scram512_auth", value)
+
+
+@pulumi.input_type
+class SelfManagedKafkaAccessConfigurationCredentials2PropertiesArgs:
+    def __init__(__self__, *,
+                 sasl_scram256_auth: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] sasl_scram256_auth: Optional SecretManager ARN which stores the database credentials
+        """
+        pulumi.set(__self__, "sasl_scram256_auth", sasl_scram256_auth)
+
+    @property
+    @pulumi.getter(name="saslScram256Auth")
+    def sasl_scram256_auth(self) -> pulumi.Input[str]:
+        """
+        Optional SecretManager ARN which stores the database credentials
+        """
+        return pulumi.get(self, "sasl_scram256_auth")
+
+    @sasl_scram256_auth.setter
+    def sasl_scram256_auth(self, value: pulumi.Input[str]):
+        pulumi.set(self, "sasl_scram256_auth", value)
+
+
+@pulumi.input_type
+class SelfManagedKafkaAccessConfigurationCredentials3PropertiesArgs:
+    def __init__(__self__, *,
+                 client_certificate_tls_auth: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] client_certificate_tls_auth: Optional SecretManager ARN which stores the database credentials
+        """
+        pulumi.set(__self__, "client_certificate_tls_auth", client_certificate_tls_auth)
+
+    @property
+    @pulumi.getter(name="clientCertificateTlsAuth")
+    def client_certificate_tls_auth(self) -> pulumi.Input[str]:
+        """
+        Optional SecretManager ARN which stores the database credentials
+        """
+        return pulumi.get(self, "client_certificate_tls_auth")
+
+    @client_certificate_tls_auth.setter
+    def client_certificate_tls_auth(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_certificate_tls_auth", value)
 
 

@@ -13,13 +13,13 @@ from ._enums import *
 __all__ = [
     'AccessPointVpcConfigurationArgs',
     'BucketAbortIncompleteMultipartUploadArgs',
-    'BucketFilterAndOperatorArgs',
     'BucketFilterTagArgs',
     'BucketLifecycleConfigurationArgs',
     'BucketRuleFilterPropertiesArgs',
     'BucketRuleArgs',
     'BucketTagArgs',
     'EndpointFailedReasonArgs',
+    'FilterAndOperatorPropertiesArgs',
 ]
 
 @pulumi.input_type
@@ -66,12 +66,6 @@ class BucketAbortIncompleteMultipartUploadArgs:
     @days_after_initiation.setter
     def days_after_initiation(self, value: pulumi.Input[int]):
         pulumi.set(self, "days_after_initiation", value)
-
-
-@pulumi.input_type
-class BucketFilterAndOperatorArgs:
-    def __init__(__self__):
-        pass
 
 
 @pulumi.input_type
@@ -129,12 +123,12 @@ class BucketLifecycleConfigurationArgs:
 @pulumi.input_type
 class BucketRuleFilterPropertiesArgs:
     def __init__(__self__, *,
-                 and_operator: Optional[pulumi.Input['BucketFilterAndOperatorArgs']] = None,
+                 and_operator: Optional[pulumi.Input['FilterAndOperatorPropertiesArgs']] = None,
                  prefix: Optional[pulumi.Input[str]] = None,
                  tag: Optional[pulumi.Input['BucketFilterTagArgs']] = None):
         """
         The container for the filter of the lifecycle rule.
-        :param pulumi.Input['BucketFilterAndOperatorArgs'] and_operator: The container for the AND condition for the lifecycle rule. A combination of Prefix and 1 or more Tags OR a minimum of 2 or more tags.
+        :param pulumi.Input['FilterAndOperatorPropertiesArgs'] and_operator: The container for the AND condition for the lifecycle rule. A combination of Prefix and 1 or more Tags OR a minimum of 2 or more tags.
         :param pulumi.Input[str] prefix: Object key prefix that identifies one or more objects to which this rule applies.
         :param pulumi.Input['BucketFilterTagArgs'] tag: Specifies a tag used to identify a subset of objects for an Amazon S3Outposts bucket.
         """
@@ -147,14 +141,14 @@ class BucketRuleFilterPropertiesArgs:
 
     @property
     @pulumi.getter(name="andOperator")
-    def and_operator(self) -> Optional[pulumi.Input['BucketFilterAndOperatorArgs']]:
+    def and_operator(self) -> Optional[pulumi.Input['FilterAndOperatorPropertiesArgs']]:
         """
         The container for the AND condition for the lifecycle rule. A combination of Prefix and 1 or more Tags OR a minimum of 2 or more tags.
         """
         return pulumi.get(self, "and_operator")
 
     @and_operator.setter
-    def and_operator(self, value: Optional[pulumi.Input['BucketFilterAndOperatorArgs']]):
+    def and_operator(self, value: Optional[pulumi.Input['FilterAndOperatorPropertiesArgs']]):
         pulumi.set(self, "and_operator", value)
 
     @property
@@ -346,5 +340,43 @@ class EndpointFailedReasonArgs:
     @message.setter
     def message(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "message", value)
+
+
+@pulumi.input_type
+class FilterAndOperatorPropertiesArgs:
+    def __init__(__self__, *,
+                 tags: pulumi.Input[Sequence[pulumi.Input['BucketFilterTagArgs']]],
+                 prefix: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['BucketFilterTagArgs']]] tags: All of these tags must exist in the object's tag set in order for the rule to apply.
+        :param pulumi.Input[str] prefix: Prefix identifies one or more objects to which the rule applies.
+        """
+        pulumi.set(__self__, "tags", tags)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Input[Sequence[pulumi.Input['BucketFilterTagArgs']]]:
+        """
+        All of these tags must exist in the object's tag set in order for the rule to apply.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: pulumi.Input[Sequence[pulumi.Input['BucketFilterTagArgs']]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Prefix identifies one or more objects to which the rule applies.
+        """
+        return pulumi.get(self, "prefix")
+
+    @prefix.setter
+    def prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "prefix", value)
 
 

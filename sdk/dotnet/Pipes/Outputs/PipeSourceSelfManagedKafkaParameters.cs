@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Pipes.Outputs
         public readonly ImmutableArray<string> AdditionalBootstrapServers;
         public readonly int? BatchSize;
         public readonly string? ConsumerGroupID;
-        public readonly Outputs.PipeSelfManagedKafkaAccessConfigurationCredentials? Credentials;
+        public readonly object? Credentials;
         public readonly int? MaximumBatchingWindowInSeconds;
         /// <summary>
         /// Optional SecretManager ARN which stores the database credentials
@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.Pipes.Outputs
 
             string? consumerGroupID,
 
-            Outputs.PipeSelfManagedKafkaAccessConfigurationCredentials? credentials,
+            object? credentials,
 
             int? maximumBatchingWindowInSeconds,
 

@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.NimbleStudio
     public partial class StudioComponent : global::Pulumi.CustomResource
     {
         [Output("configuration")]
-        public Output<Outputs.StudioComponentConfiguration?> Configuration { get; private set; } = null!;
+        public Output<object?> Configuration { get; private set; } = null!;
 
         /// <summary>
         /// &lt;p&gt;The description.&lt;/p&gt;
@@ -118,7 +118,7 @@ namespace Pulumi.AwsNative.NimbleStudio
     public sealed class StudioComponentArgs : global::Pulumi.ResourceArgs
     {
         [Input("configuration")]
-        public Input<Inputs.StudioComponentConfigurationArgs>? Configuration { get; set; }
+        public object? Configuration { get; set; }
 
         /// <summary>
         /// &lt;p&gt;The description.&lt;/p&gt;

@@ -1,6 +1,40 @@
 ## HEAD (Unreleased)
 
 ### Breaking changes:
+- Resource "aws-native:omics:AnnotationStore" input "storeOptions" type changed from "#/types/aws-native:omics:AnnotationStoreStoreOptions" to "#/types/aws-native:omics:StoreOptionsProperties"
+- Resource "aws-native:omics:AnnotationStore" output "storeOptions" type changed from "#/types/aws-native:omics:AnnotationStoreStoreOptions" to "#/types/aws-native:omics:StoreOptionsProperties"
+- Resource "aws-native:appstream:Application" input "tags" items type changed from "#/types/aws-native:appstream:ApplicationTag" to "oneOf"
+- Resource "aws-native:appstream:Application" output "tags" items type changed from "#/types/aws-native:appstream:ApplicationTag" to "oneOf"
+- Resource "aws-native:appstream:AppBlock" input "tags" items type changed from "#/types/aws-native:appstream:AppBlockTag" to "oneOf"
+- Resource "aws-native:appstream:AppBlock" output "tags" items type changed from "#/types/aws-native:appstream:AppBlockTag" to "oneOf"
+- Resource "aws-native:mediatailor:PlaybackConfiguration" input "configurationAliases" type changed from "#/types/aws-native:mediatailor:PlaybackConfigurationConfigurationAliases" to "pulumi.json#/Any"
+- Resource "aws-native:mediatailor:PlaybackConfiguration" output "configurationAliases" type changed from "#/types/aws-native:mediatailor:PlaybackConfigurationConfigurationAliases" to "pulumi.json#/Any"
+- Resource "aws-native:m2:Application" input "definition" type changed from "#/types/aws-native:m2:ApplicationDefinition" to "oneOf"
+- Resource "aws-native:m2:Application" output "definition" type changed from "#/types/aws-native:m2:ApplicationDefinition" to "oneOf"
+- Resource "aws-native:nimblestudio:StudioComponent" input "configuration" type changed from "#/types/aws-native:nimblestudio:StudioComponentConfiguration" to "oneOf"
+- Resource "aws-native:nimblestudio:StudioComponent" output "configuration" type changed from "#/types/aws-native:nimblestudio:StudioComponentConfiguration" to "oneOf"
+- Resource "aws-native:verifiedpermissions:Policy" input "definition" type changed from "#/types/aws-native:verifiedpermissions:PolicyDefinition" to "oneOf"
+- Resource "aws-native:verifiedpermissions:Policy" output "definition" type changed from "#/types/aws-native:verifiedpermissions:PolicyDefinition" to "oneOf"
+- Function "aws-native:nimblestudio:getStudioComponent" output "configuration" type changed from "#/types/aws-native:nimblestudio:StudioComponentConfiguration" to "oneOf"
+- Function "aws-native:verifiedpermissions:getPolicy" output "definition" type changed from "#/types/aws-native:verifiedpermissions:PolicyDefinition" to "oneOf"
+- Function "aws-native:mediatailor:getPlaybackConfiguration" output "configurationAliases" type changed from "#/types/aws-native:mediatailor:PlaybackConfigurationConfigurationAliases" to "pulumi.json#/Any"
+- Type "aws-native:securityhub:AutomationRuleNoteUpdate" input "updatedBy" type changed from "#/types/aws-native:securityhub:AutomationRulearnOrId" to "string"
+- Type "aws-native:s3outposts:BucketRuleFilterProperties" input "andOperator" type changed from "#/types/aws-native:s3outposts:BucketFilterAndOperator" to "#/types/aws-native:s3outposts:FilterAndOperatorProperties"
+- Type "aws-native:pipes:PipeSourceManagedStreamingKafkaParameters" input "credentials" type changed from "#/types/aws-native:pipes:PipeMSKAccessCredentials" to "oneOf"
+- Type "aws-native:pipes:PipeSourceActiveMQBrokerParameters" input "credentials" type changed from "#/types/aws-native:pipes:PipeMQBrokerAccessCredentials" to "#/types/aws-native:pipes:MQBrokerAccessCredentialsProperties"
+- Type "aws-native:pipes:PipeSourceSelfManagedKafkaParameters" input "credentials" type changed from "#/types/aws-native:pipes:PipeSelfManagedKafkaAccessConfigurationCredentials" to "oneOf"
+- Type "aws-native:cleanrooms:ConfiguredTableAnalysisRulePolicy" input "v1" type changed from "#/types/aws-native:cleanrooms:ConfiguredTableAnalysisRulePolicyV1" to "oneOf"
+- Type "aws-native:rolesanywhere:TrustAnchorSource" input "sourceData" type changed from "#/types/aws-native:rolesanywhere:TrustAnchorSourceData" to "oneOf"
+- Type "aws-native:pipes:PipeSourceRabbitMQBrokerParameters" input "credentials" type changed from "#/types/aws-native:pipes:PipeMQBrokerAccessCredentials" to "#/types/aws-native:pipes:MQBrokerAccessCredentialsProperties"
+- Type "aws-native:securityhub:AutomationRuleRelatedFinding" input "id" type changed from "#/types/aws-native:securityhub:AutomationRulearnOrId" to "string"
+- Type "aws-native:amplifyuibuilder:FormStyle" input "verticalGap" type changed from "#/types/aws-native:amplifyuibuilder:FormStyleConfig" to "oneOf"
+- Type "aws-native:amplifyuibuilder:FormStyle" input "horizontalGap" type changed from "#/types/aws-native:amplifyuibuilder:FormStyleConfig" to "oneOf"
+- Type "aws-native:amplifyuibuilder:FormStyle" input "outerPadding" type changed from "#/types/aws-native:amplifyuibuilder:FormStyleConfig" to "oneOf"
+- Type "aws-native:amplifyuibuilder:FormButton" input "position" type changed from "#/types/aws-native:amplifyuibuilder:FormFieldPosition" to "oneOf"
+
+## 0.70.0
+
+### Breaking changes:
 - Resource "aws-native:cloudwatch:MetricStream" output "creationDate" type changed from "Any" to "string"
 - Resource "aws-native:cloudwatch:MetricStream" output "lastUpdateDate" type changed from "Any" to "string"
 - Function "aws-native:cloudwatch:getMetricStream" output "lastUpdateDate" type changed from "Any" to "string"

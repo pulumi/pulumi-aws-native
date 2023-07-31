@@ -37,7 +37,7 @@ export class StudioComponent extends pulumi.CustomResource {
         return obj['__pulumiType'] === StudioComponent.__pulumiType;
     }
 
-    public readonly configuration!: pulumi.Output<outputs.nimblestudio.StudioComponentConfiguration | undefined>;
+    public readonly configuration!: pulumi.Output<outputs.nimblestudio.StudioComponentConfiguration0Properties | outputs.nimblestudio.StudioComponentConfiguration1Properties | outputs.nimblestudio.StudioComponentConfiguration2Properties | outputs.nimblestudio.StudioComponentConfiguration3Properties | undefined>;
     /**
      * <p>The description.</p>
      */
@@ -123,7 +123,7 @@ export class StudioComponent extends pulumi.CustomResource {
  * The set of arguments for constructing a StudioComponent resource.
  */
 export interface StudioComponentArgs {
-    configuration?: pulumi.Input<inputs.nimblestudio.StudioComponentConfigurationArgs>;
+    configuration?: pulumi.Input<inputs.nimblestudio.StudioComponentConfiguration0PropertiesArgs | inputs.nimblestudio.StudioComponentConfiguration1PropertiesArgs | inputs.nimblestudio.StudioComponentConfiguration2PropertiesArgs | inputs.nimblestudio.StudioComponentConfiguration3PropertiesArgs>;
     /**
      * <p>The description.</p>
      */

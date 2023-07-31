@@ -13,7 +13,8 @@ from ._enums import *
 __all__ = [
     'CRLTagArgs',
     'ProfileTagArgs',
-    'TrustAnchorSourceDataArgs',
+    'SourceData0PropertiesArgs',
+    'SourceData1PropertiesArgs',
     'TrustAnchorSourceArgs',
     'TrustAnchorTagArgs',
 ]
@@ -73,15 +74,41 @@ class ProfileTagArgs:
 
 
 @pulumi.input_type
-class TrustAnchorSourceDataArgs:
-    def __init__(__self__):
-        pass
+class SourceData0PropertiesArgs:
+    def __init__(__self__, *,
+                 x509_certificate_data: pulumi.Input[str]):
+        pulumi.set(__self__, "x509_certificate_data", x509_certificate_data)
+
+    @property
+    @pulumi.getter(name="x509CertificateData")
+    def x509_certificate_data(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "x509_certificate_data")
+
+    @x509_certificate_data.setter
+    def x509_certificate_data(self, value: pulumi.Input[str]):
+        pulumi.set(self, "x509_certificate_data", value)
+
+
+@pulumi.input_type
+class SourceData1PropertiesArgs:
+    def __init__(__self__, *,
+                 acm_pca_arn: pulumi.Input[str]):
+        pulumi.set(__self__, "acm_pca_arn", acm_pca_arn)
+
+    @property
+    @pulumi.getter(name="acmPcaArn")
+    def acm_pca_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "acm_pca_arn")
+
+    @acm_pca_arn.setter
+    def acm_pca_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "acm_pca_arn", value)
 
 
 @pulumi.input_type
 class TrustAnchorSourceArgs:
     def __init__(__self__, *,
-                 source_data: Optional[pulumi.Input['TrustAnchorSourceDataArgs']] = None,
+                 source_data: Optional[pulumi.Input[Union['SourceData0PropertiesArgs', 'SourceData1PropertiesArgs']]] = None,
                  source_type: Optional[pulumi.Input['TrustAnchorType']] = None):
         if source_data is not None:
             pulumi.set(__self__, "source_data", source_data)
@@ -90,11 +117,11 @@ class TrustAnchorSourceArgs:
 
     @property
     @pulumi.getter(name="sourceData")
-    def source_data(self) -> Optional[pulumi.Input['TrustAnchorSourceDataArgs']]:
+    def source_data(self) -> Optional[pulumi.Input[Union['SourceData0PropertiesArgs', 'SourceData1PropertiesArgs']]]:
         return pulumi.get(self, "source_data")
 
     @source_data.setter
-    def source_data(self, value: Optional[pulumi.Input['TrustAnchorSourceDataArgs']]):
+    def source_data(self, value: Optional[pulumi.Input[Union['SourceData0PropertiesArgs', 'SourceData1PropertiesArgs']]]):
         pulumi.set(self, "source_data", value)
 
     @property

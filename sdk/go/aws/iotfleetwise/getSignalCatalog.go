@@ -32,7 +32,7 @@ type LookupSignalCatalogResult struct {
 	Description          *string                  `pulumi:"description"`
 	LastModificationTime *string                  `pulumi:"lastModificationTime"`
 	NodeCounts           *SignalCatalogNodeCounts `pulumi:"nodeCounts"`
-	Nodes                []SignalCatalogNode      `pulumi:"nodes"`
+	Nodes                []interface{}            `pulumi:"nodes"`
 	Tags                 []SignalCatalogTag       `pulumi:"tags"`
 }
 
@@ -91,8 +91,8 @@ func (o LookupSignalCatalogResultOutput) NodeCounts() SignalCatalogNodeCountsPtr
 	return o.ApplyT(func(v LookupSignalCatalogResult) *SignalCatalogNodeCounts { return v.NodeCounts }).(SignalCatalogNodeCountsPtrOutput)
 }
 
-func (o LookupSignalCatalogResultOutput) Nodes() SignalCatalogNodeArrayOutput {
-	return o.ApplyT(func(v LookupSignalCatalogResult) []SignalCatalogNode { return v.Nodes }).(SignalCatalogNodeArrayOutput)
+func (o LookupSignalCatalogResultOutput) Nodes() pulumi.ArrayOutput {
+	return o.ApplyT(func(v LookupSignalCatalogResult) []interface{} { return v.Nodes }).(pulumi.ArrayOutput)
 }
 
 func (o LookupSignalCatalogResultOutput) Tags() SignalCatalogTagArrayOutput {

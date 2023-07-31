@@ -28,7 +28,7 @@ type Application struct {
 	LaunchPath         pulumi.StringOutput         `pulumi:"launchPath"`
 	Name               pulumi.StringOutput         `pulumi:"name"`
 	Platforms          pulumi.StringArrayOutput    `pulumi:"platforms"`
-	Tags               ApplicationTagArrayOutput   `pulumi:"tags"`
+	Tags               pulumi.ArrayOutput          `pulumi:"tags"`
 	WorkingDirectory   pulumi.StringPtrOutput      `pulumi:"workingDirectory"`
 }
 
@@ -97,7 +97,7 @@ type applicationArgs struct {
 	LaunchPath         string                `pulumi:"launchPath"`
 	Name               *string               `pulumi:"name"`
 	Platforms          []string              `pulumi:"platforms"`
-	Tags               []ApplicationTag      `pulumi:"tags"`
+	Tags               []interface{}         `pulumi:"tags"`
 	WorkingDirectory   *string               `pulumi:"workingDirectory"`
 }
 
@@ -113,7 +113,7 @@ type ApplicationArgs struct {
 	LaunchPath         pulumi.StringInput
 	Name               pulumi.StringPtrInput
 	Platforms          pulumi.StringArrayInput
-	Tags               ApplicationTagArrayInput
+	Tags               pulumi.ArrayInput
 	WorkingDirectory   pulumi.StringPtrInput
 }
 
@@ -202,8 +202,8 @@ func (o ApplicationOutput) Platforms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringArrayOutput { return v.Platforms }).(pulumi.StringArrayOutput)
 }
 
-func (o ApplicationOutput) Tags() ApplicationTagArrayOutput {
-	return o.ApplyT(func(v *Application) ApplicationTagArrayOutput { return v.Tags }).(ApplicationTagArrayOutput)
+func (o ApplicationOutput) Tags() pulumi.ArrayOutput {
+	return o.ApplyT(func(v *Application) pulumi.ArrayOutput { return v.Tags }).(pulumi.ArrayOutput)
 }
 
 func (o ApplicationOutput) WorkingDirectory() pulumi.StringPtrOutput {

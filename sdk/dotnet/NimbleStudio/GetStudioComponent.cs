@@ -63,7 +63,7 @@ namespace Pulumi.AwsNative.NimbleStudio
     [OutputType]
     public sealed class GetStudioComponentResult
     {
-        public readonly Outputs.StudioComponentConfiguration? Configuration;
+        public readonly object? Configuration;
         /// <summary>
         /// &lt;p&gt;The description.&lt;/p&gt;
         /// </summary>
@@ -91,7 +91,7 @@ namespace Pulumi.AwsNative.NimbleStudio
 
         [OutputConstructor]
         private GetStudioComponentResult(
-            Outputs.StudioComponentConfiguration? configuration,
+            object? configuration,
 
             string? description,
 

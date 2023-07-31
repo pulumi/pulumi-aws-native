@@ -61,7 +61,7 @@ class GetCampaignResult:
 
     @property
     @pulumi.getter(name="dataDestinationConfigs")
-    def data_destination_configs(self) -> Optional[Sequence['outputs.CampaignDataDestinationConfig']]:
+    def data_destination_configs(self) -> Optional[Sequence[Any]]:
         return pulumi.get(self, "data_destination_configs")
 
     @property

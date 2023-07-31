@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.AppStream
         public Output<Outputs.AppBlockS3Location> SourceS3Location { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.AppBlockTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Union<Outputs.Tag0Properties, Outputs.Tag1Properties>>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -112,10 +112,10 @@ namespace Pulumi.AwsNative.AppStream
         public Input<Inputs.AppBlockS3LocationArgs> SourceS3Location { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Inputs.AppBlockTagArgs>? _tags;
-        public InputList<Inputs.AppBlockTagArgs> Tags
+        private InputList<Union<Inputs.Tag0PropertiesArgs, Inputs.Tag1PropertiesArgs>>? _tags;
+        public InputList<Union<Inputs.Tag0PropertiesArgs, Inputs.Tag1PropertiesArgs>> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.AppBlockTagArgs>());
+            get => _tags ?? (_tags = new InputList<Union<Inputs.Tag0PropertiesArgs, Inputs.Tag1PropertiesArgs>>());
             set => _tags = value;
         }
 

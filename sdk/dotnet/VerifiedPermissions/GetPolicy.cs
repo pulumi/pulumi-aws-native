@@ -57,13 +57,13 @@ namespace Pulumi.AwsNative.VerifiedPermissions
     [OutputType]
     public sealed class GetPolicyResult
     {
-        public readonly Outputs.PolicyDefinition? Definition;
+        public readonly Union<Outputs.PolicyDefinition0Properties, Outputs.PolicyDefinition1Properties>? Definition;
         public readonly string? PolicyId;
         public readonly Pulumi.AwsNative.VerifiedPermissions.PolicyType? PolicyType;
 
         [OutputConstructor]
         private GetPolicyResult(
-            Outputs.PolicyDefinition? definition,
+            Union<Outputs.PolicyDefinition0Properties, Outputs.PolicyDefinition1Properties>? definition,
 
             string? policyId,
 

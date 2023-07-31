@@ -17,7 +17,7 @@ __all__ = ['ApplicationArgs', 'Application']
 @pulumi.input_type
 class ApplicationArgs:
     def __init__(__self__, *,
-                 definition: pulumi.Input['ApplicationDefinitionArgs'],
+                 definition: pulumi.Input[Union['Definition0PropertiesArgs', 'Definition1PropertiesArgs']],
                  engine_type: pulumi.Input['ApplicationEngineType'],
                  description: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
@@ -43,11 +43,11 @@ class ApplicationArgs:
 
     @property
     @pulumi.getter
-    def definition(self) -> pulumi.Input['ApplicationDefinitionArgs']:
+    def definition(self) -> pulumi.Input[Union['Definition0PropertiesArgs', 'Definition1PropertiesArgs']]:
         return pulumi.get(self, "definition")
 
     @definition.setter
-    def definition(self, value: pulumi.Input['ApplicationDefinitionArgs']):
+    def definition(self, value: pulumi.Input[Union['Definition0PropertiesArgs', 'Definition1PropertiesArgs']]):
         pulumi.set(self, "definition", value)
 
     @property
@@ -113,7 +113,7 @@ class Application(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 definition: Optional[pulumi.Input[pulumi.InputType['ApplicationDefinitionArgs']]] = None,
+                 definition: Optional[pulumi.Input[Union[pulumi.InputType['Definition0PropertiesArgs'], pulumi.InputType['Definition1PropertiesArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  engine_type: Optional[pulumi.Input['ApplicationEngineType']] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
@@ -152,7 +152,7 @@ class Application(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 definition: Optional[pulumi.Input[pulumi.InputType['ApplicationDefinitionArgs']]] = None,
+                 definition: Optional[pulumi.Input[Union[pulumi.InputType['Definition0PropertiesArgs'], pulumi.InputType['Definition1PropertiesArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  engine_type: Optional[pulumi.Input['ApplicationEngineType']] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
@@ -226,7 +226,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def definition(self) -> pulumi.Output['outputs.ApplicationDefinition']:
+    def definition(self) -> pulumi.Output[Any]:
         return pulumi.get(self, "definition")
 
     @property

@@ -17,7 +17,7 @@ __all__ = ['PolicyArgs', 'Policy']
 @pulumi.input_type
 class PolicyArgs:
     def __init__(__self__, *,
-                 definition: pulumi.Input['PolicyDefinitionArgs'],
+                 definition: pulumi.Input[Union['PolicyDefinition0PropertiesArgs', 'PolicyDefinition1PropertiesArgs']],
                  policy_store_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Policy resource.
@@ -28,11 +28,11 @@ class PolicyArgs:
 
     @property
     @pulumi.getter
-    def definition(self) -> pulumi.Input['PolicyDefinitionArgs']:
+    def definition(self) -> pulumi.Input[Union['PolicyDefinition0PropertiesArgs', 'PolicyDefinition1PropertiesArgs']]:
         return pulumi.get(self, "definition")
 
     @definition.setter
-    def definition(self, value: pulumi.Input['PolicyDefinitionArgs']):
+    def definition(self, value: pulumi.Input[Union['PolicyDefinition0PropertiesArgs', 'PolicyDefinition1PropertiesArgs']]):
         pulumi.set(self, "definition", value)
 
     @property
@@ -50,7 +50,7 @@ class Policy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 definition: Optional[pulumi.Input[pulumi.InputType['PolicyDefinitionArgs']]] = None,
+                 definition: Optional[pulumi.Input[Union[pulumi.InputType['PolicyDefinition0PropertiesArgs'], pulumi.InputType['PolicyDefinition1PropertiesArgs']]]] = None,
                  policy_store_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -83,7 +83,7 @@ class Policy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 definition: Optional[pulumi.Input[pulumi.InputType['PolicyDefinitionArgs']]] = None,
+                 definition: Optional[pulumi.Input[Union[pulumi.InputType['PolicyDefinition0PropertiesArgs'], pulumi.InputType['PolicyDefinition1PropertiesArgs']]]] = None,
                  policy_store_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -130,7 +130,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def definition(self) -> pulumi.Output['outputs.PolicyDefinition']:
+    def definition(self) -> pulumi.Output[Any]:
         return pulumi.get(self, "definition")
 
     @property
