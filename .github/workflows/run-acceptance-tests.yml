@@ -73,7 +73,7 @@ jobs:
     - name: Unshallow clone for tags
       run: git fetch --prune --unshallow --tags
     - name: Install Go
-      uses: actions/setup-go@v2
+      uses: actions/setup-go@v3
       with:
         go-version: ${{ env.GOVERSION }}
     - name: Install pulumictl
@@ -103,15 +103,15 @@ jobs:
         echo 'EOF' >> $GITHUB_ENV
     - if: github.event_name == 'pull_request'
       name: Comment on PR with Details of Schema Check
-      uses: thollander/actions-comment-pull-request@v1
+      uses: thollander/actions-comment-pull-request@v2
       with:
         message: |
           ### Does the PR have any schema changes?
 
           ${{ env.SCHEMA_CHANGES }}
+        comment_tag: schemaCheck
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - if:
-          contains(env.SCHEMA_CHANGES, 'Looking good! No breaking changes found.') &&
+    - if: contains(env.SCHEMA_CHANGES, 'Looking good! No breaking changes found.') &&
         github.actor == 'pulumi-bot'
       name: Add label if no breaking changes
       uses: actions-ecosystem/action-add-labels@v1.1.0
@@ -171,7 +171,7 @@ jobs:
     - name: Unshallow clone for tags
       run: git fetch --prune --unshallow --tags
     - name: Install Go
-      uses: actions/setup-go@v2
+      uses: actions/setup-go@v3
       with:
         go-version: ${{ env.GOVERSION }}
     - name: Install pulumictl
@@ -202,7 +202,6 @@ jobs:
     - name: Setup Gradle
       uses: gradle/gradle-build-action@v2
       with:
-          # Pin to known good version until #2262 is resolved
         gradle-version: "7.6"
     - name: Download provider + tfgen binaries
       uses: actions/download-artifact@v2
@@ -213,8 +212,7 @@ jobs:
       run: tar -zxf ${{ github.workspace }}/bin/provider.tar.gz -C ${{
         github.workspace}}/bin
     - name: Restore Binary Permissions
-      run:
-          find ${{ github.workspace }} -name "pulumi-*-${{ env.PROVIDER }}" -print
+      run: find ${{ github.workspace }} -name "pulumi-*-${{ env.PROVIDER }}" -print
         -exec chmod +x {} \;
     - name: Initialize submodules
       run: make init_submodules
@@ -272,7 +270,7 @@ jobs:
     - name: Unshallow clone for tags
       run: git fetch --prune --unshallow --tags
     - name: Install Go
-      uses: actions/setup-go@v2
+      uses: actions/setup-go@v3
       with:
         go-version: ${{ env.GOVERSION }}
     - name: Install pulumictl
@@ -303,7 +301,6 @@ jobs:
     - name: Setup Gradle
       uses: gradle/gradle-build-action@v2
       with:
-          # Pin to known good version until #2262 is resolved
         gradle-version: "7.6"
     - name: Download provider + tfgen binaries
       uses: actions/download-artifact@v2
@@ -314,8 +311,7 @@ jobs:
       run: tar -zxf ${{ github.workspace }}/bin/provider.tar.gz -C ${{
         github.workspace}}/bin
     - name: Restore Binary Permissions
-      run:
-          find ${{ github.workspace }} -name "pulumi-*-${{ env.PROVIDER }}" -print
+      run: find ${{ github.workspace }} -name "pulumi-*-${{ env.PROVIDER }}" -print
         -exec chmod +x {} \;
     - name: Download SDK
       uses: actions/download-artifact@v2
@@ -323,8 +319,7 @@ jobs:
         name: ${{ matrix.language }}-sdk.tar.gz
         path: ${{ github.workspace}}/sdk/
     - name: UnTar SDK folder
-      run:
-          tar -zxf ${{ github.workspace}}/sdk/${{ matrix.language}}.tar.gz -C ${{
+      run: tar -zxf ${{ github.workspace}}/sdk/${{ matrix.language}}.tar.gz -C ${{
         github.workspace}}/sdk/${{ matrix.language}}
     - name: Update path
       run: echo "${{ github.workspace }}/bin" >> $GITHUB_PATH
