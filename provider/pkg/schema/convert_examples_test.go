@@ -54,6 +54,7 @@ func testConversion(t *testing.T, resource string, input map[string]interface{},
 	err = json.Unmarshal(bytes, &metadata)
 	assert.NoError(t, err)
 	res := metadata.Resources[resource]
-	actual := SdkToCfn(&res, metadata.Types, input)
+	actual, err := SdkToCfn(&res, metadata.Types, input)
+	assert.NoError(t, err)
 	assert.Equal(t, expected, actual)
 }

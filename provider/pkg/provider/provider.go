@@ -764,7 +764,10 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 		cfType = spec.CfType
 
 		// Convert SDK inputs to CFN payload.
-		payload = schema.SdkToCfn(&spec, p.resourceMap.Types, inputs.MapRepl(nil, mapReplStripSecrets))
+		payload, err = schema.SdkToCfn(&spec, p.resourceMap.Types, inputs.MapRepl(nil, mapReplStripSecrets))
+		if err != nil {
+			return nil, fmt.Errorf("Failed to convert value for %s: %w", resourceToken, err)
+		}
 	}
 
 	// Serialize inputs as a desired state JSON.
