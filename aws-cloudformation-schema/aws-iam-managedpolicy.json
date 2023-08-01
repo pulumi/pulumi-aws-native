@@ -1,110 +1,71 @@
 {
   "typeName" : "AWS::IAM::ManagedPolicy",
   "description" : "Resource Type definition for AWS::IAM::ManagedPolicy",
-  "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-iam",
   "additionalProperties" : false,
   "properties" : {
-    "Description" : {
-      "type" : "string",
-      "description" : "A friendly description of the policy."
-    },
-    "Groups" : {
-      "insertionOrder" : false,
-      "type" : "array",
-      "description" : "The name (friendly name, not ARN) of the group to attach the policy to.",
-      "uniqueItems" : true,
-      "items" : {
-        "type" : "string"
-      }
-    },
     "ManagedPolicyName" : {
-      "type" : "string",
-      "description" : "The friendly name of the policy."
+      "type" : "string"
     },
     "Path" : {
-      "type" : "string",
-      "description" : "The path for the policy."
+      "type" : "string"
     },
-    "PolicyDocument" : {
-      "type" : [ "object", "string" ],
-      "description" : "The JSON policy document that you want to use as the content for the new policy."
+    "IsAttachable" : {
+      "type" : "boolean"
+    },
+    "PermissionsBoundaryUsageCount" : {
+      "type" : "integer"
+    },
+    "Description" : {
+      "type" : "string"
+    },
+    "AttachmentCount" : {
+      "type" : "integer"
+    },
+    "DefaultVersionId" : {
+      "type" : "string"
     },
     "Roles" : {
-      "insertionOrder" : false,
       "type" : "array",
-      "description" : "The name (friendly name, not ARN) of the role to attach the policy to.",
       "uniqueItems" : true,
       "items" : {
         "type" : "string"
       }
     },
     "Users" : {
-      "insertionOrder" : false,
       "type" : "array",
-      "description" : "The name (friendly name, not ARN) of the IAM user to attach the policy to.",
       "uniqueItems" : true,
       "items" : {
         "type" : "string"
       }
     },
-    "PolicyArn" : {
-      "type" : "string",
-      "description" : "Amazon Resource Name (ARN) of the managed policy"
-    },
-    "AttachmentCount" : {
-      "type" : "integer",
-      "description" : "The number of entities (users, groups, and roles) that the policy is attached to."
-    },
     "CreateDate" : {
-      "type" : "string",
-      "description" : "The date and time, in ISO 8601 date-time format, when the policy was created."
+      "type" : "string"
     },
     "UpdateDate" : {
-      "type" : "string",
-      "description" : "The date and time, in ISO 8601 date-time format, when the policy was last updated."
+      "type" : "string"
     },
-    "DefaultVersionId" : {
-      "type" : "string",
-      "description" : "The identifier for the version of the policy that is set as the default version."
+    "PolicyArn" : {
+      "type" : "string"
     },
-    "IsAttachable" : {
-      "type" : "boolean",
-      "description" : "Specifies whether the policy can be attached to an IAM user, group, or role."
+    "Groups" : {
+      "type" : "array",
+      "uniqueItems" : true,
+      "items" : {
+        "type" : "string"
+      }
     },
-    "PermissionsBoundaryUsageCount" : {
-      "type" : "integer",
-      "description" : "The number of entities (users and roles) for which the policy is used to set the permissions boundary."
+    "PolicyDocument" : {
+      "type" : "object"
+    },
+    "Id" : {
+      "type" : "string"
     },
     "PolicyId" : {
-      "type" : "string",
-      "description" : "The stable and unique string identifying the policy."
+      "type" : "string"
     }
   },
   "required" : [ "PolicyDocument" ],
   "createOnlyProperties" : [ "/properties/ManagedPolicyName", "/properties/Description", "/properties/Path" ],
-  "readOnlyProperties" : [ "/properties/PolicyArn", "/properties/AttachmentCount", "/properties/CreateDate", "/properties/DefaultVersionId", "/properties/IsAttachable", "/properties/PermissionsBoundaryUsageCount", "/properties/PolicyId", "/properties/UpdateDate" ],
-  "tagging" : {
-    "taggable" : false,
-    "tagOnCreate" : false,
-    "tagUpdatable" : false,
-    "cloudFormationSystemTags" : false
-  },
-  "primaryIdentifier" : [ "/properties/PolicyArn" ],
-  "handlers" : {
-    "create" : {
-      "permissions" : [ "iam:CreatePolicy", "iam:AttachGroupPolicy", "iam:AttachUserPolicy", "iam:AttachRolePolicy" ]
-    },
-    "read" : {
-      "permissions" : [ "iam:GetPolicy", "iam:ListEntitiesForPolicy", "iam:GetPolicyVersion" ]
-    },
-    "update" : {
-      "permissions" : [ "iam:DetachRolePolicy", "iam:GetPolicy", "iam:ListPolicyVersions", "iam:DetachGroupPolicy", "iam:DetachUserPolicy", "iam:CreatePolicyVersion", "iam:DeletePolicyVersion", "iam:AttachGroupPolicy", "iam:AttachUserPolicy", "iam:AttachRolePolicy" ]
-    },
-    "delete" : {
-      "permissions" : [ "iam:DetachRolePolicy", "iam:GetPolicy", "iam:ListPolicyVersions", "iam:DetachGroupPolicy", "iam:DetachUserPolicy", "iam:DeletePolicyVersion", "iam:DeletePolicy", "iam:ListEntitiesForPolicy" ]
-    },
-    "list" : {
-      "permissions" : [ "iam:ListPolicies" ]
-    }
-  }
+  "primaryIdentifier" : [ "/properties/Id" ],
+  "readOnlyProperties" : [ "/properties/PolicyArn", "/properties/AttachmentCount", "/properties/Id", "/properties/PolicyId", "/properties/DefaultVersionId", "/properties/IsAttachable", "/properties/UpdateDate", "/properties/CreateDate", "/properties/PermissionsBoundaryUsageCount" ]
 }
